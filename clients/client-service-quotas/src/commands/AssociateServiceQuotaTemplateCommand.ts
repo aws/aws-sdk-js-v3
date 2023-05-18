@@ -54,8 +54,8 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  *
  * ```
  *
- * @param AssociateServiceQuotaTemplateCommandInput - {@link AssociateServiceQuotaTemplateCommandInput}
- * @returns {@link AssociateServiceQuotaTemplateCommandOutput}
+ * @param AssociateServiceQuotaTemplateRequest - {@link AssociateServiceQuotaTemplateRequest}
+ * @returns {@link AssociateServiceQuotaTemplateResponse}
  * @see {@link AssociateServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

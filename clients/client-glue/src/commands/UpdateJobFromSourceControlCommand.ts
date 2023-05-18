@@ -59,8 +59,8 @@ export interface UpdateJobFromSourceControlCommandOutput extends UpdateJobFromSo
  *
  * ```
  *
- * @param UpdateJobFromSourceControlCommandInput - {@link UpdateJobFromSourceControlCommandInput}
- * @returns {@link UpdateJobFromSourceControlCommandOutput}
+ * @param UpdateJobFromSourceControlRequest - {@link UpdateJobFromSourceControlRequest}
+ * @returns {@link UpdateJobFromSourceControlResponse}
  * @see {@link UpdateJobFromSourceControlCommandInput} for command's `input` shape.
  * @see {@link UpdateJobFromSourceControlCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

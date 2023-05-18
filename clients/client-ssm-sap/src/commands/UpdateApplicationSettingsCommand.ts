@@ -72,8 +72,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *
  * ```
  *
- * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
- * @returns {@link UpdateApplicationSettingsCommandOutput}
+ * @param UpdateApplicationSettingsInput - {@link UpdateApplicationSettingsInput}
+ * @returns {@link UpdateApplicationSettingsOutput}
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

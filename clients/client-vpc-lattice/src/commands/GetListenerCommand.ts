@@ -72,8 +72,8 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  *
  * ```
  *
- * @param GetListenerCommandInput - {@link GetListenerCommandInput}
- * @returns {@link GetListenerCommandOutput}
+ * @param GetListenerRequest - {@link GetListenerRequest}
+ * @returns {@link GetListenerResponse}
  * @see {@link GetListenerCommandInput} for command's `input` shape.
  * @see {@link GetListenerCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

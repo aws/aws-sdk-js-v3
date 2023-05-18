@@ -187,8 +187,8 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
  *
  * ```
  *
- * @param DescribeVirtualGatewayCommandInput - {@link DescribeVirtualGatewayCommandInput}
- * @returns {@link DescribeVirtualGatewayCommandOutput}
+ * @param DescribeVirtualGatewayInput - {@link DescribeVirtualGatewayInput}
+ * @returns {@link DescribeVirtualGatewayOutput}
  * @see {@link DescribeVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

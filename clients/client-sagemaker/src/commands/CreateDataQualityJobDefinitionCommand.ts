@@ -156,8 +156,8 @@ export interface CreateDataQualityJobDefinitionCommandOutput
  *
  * ```
  *
- * @param CreateDataQualityJobDefinitionCommandInput - {@link CreateDataQualityJobDefinitionCommandInput}
- * @returns {@link CreateDataQualityJobDefinitionCommandOutput}
+ * @param CreateDataQualityJobDefinitionRequest - {@link CreateDataQualityJobDefinitionRequest}
+ * @returns {@link CreateDataQualityJobDefinitionResponse}
  * @see {@link CreateDataQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateDataQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

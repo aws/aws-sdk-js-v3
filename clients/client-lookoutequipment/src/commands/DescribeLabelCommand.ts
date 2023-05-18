@@ -62,8 +62,8 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  *
  * ```
  *
- * @param DescribeLabelCommandInput - {@link DescribeLabelCommandInput}
- * @returns {@link DescribeLabelCommandOutput}
+ * @param DescribeLabelRequest - {@link DescribeLabelRequest}
+ * @returns {@link DescribeLabelResponse}
  * @see {@link DescribeLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

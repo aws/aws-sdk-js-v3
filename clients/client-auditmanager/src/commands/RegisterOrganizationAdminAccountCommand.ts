@@ -57,8 +57,8 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  *
  * ```
  *
- * @param RegisterOrganizationAdminAccountCommandInput - {@link RegisterOrganizationAdminAccountCommandInput}
- * @returns {@link RegisterOrganizationAdminAccountCommandOutput}
+ * @param RegisterOrganizationAdminAccountRequest - {@link RegisterOrganizationAdminAccountRequest}
+ * @returns {@link RegisterOrganizationAdminAccountResponse}
  * @see {@link RegisterOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

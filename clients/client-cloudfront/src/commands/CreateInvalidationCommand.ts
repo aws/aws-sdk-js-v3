@@ -73,8 +73,8 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  *
  * ```
  *
- * @param CreateInvalidationCommandInput - {@link CreateInvalidationCommandInput}
- * @returns {@link CreateInvalidationCommandOutput}
+ * @param CreateInvalidationRequest - {@link CreateInvalidationRequest}
+ * @returns {@link CreateInvalidationResult}
  * @see {@link CreateInvalidationCommandInput} for command's `input` shape.
  * @see {@link CreateInvalidationCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

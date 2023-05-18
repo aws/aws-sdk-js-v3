@@ -57,8 +57,8 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  *
  * ```
  *
- * @param DeleteMobileDeviceAccessRuleCommandInput - {@link DeleteMobileDeviceAccessRuleCommandInput}
- * @returns {@link DeleteMobileDeviceAccessRuleCommandOutput}
+ * @param DeleteMobileDeviceAccessRuleRequest - {@link DeleteMobileDeviceAccessRuleRequest}
+ * @returns {@link DeleteMobileDeviceAccessRuleResponse}
  * @see {@link DeleteMobileDeviceAccessRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

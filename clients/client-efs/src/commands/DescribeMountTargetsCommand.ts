@@ -75,8 +75,8 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  *
  * ```
  *
- * @param DescribeMountTargetsCommandInput - {@link DescribeMountTargetsCommandInput}
- * @returns {@link DescribeMountTargetsCommandOutput}
+ * @param DescribeMountTargetsRequest - {@link DescribeMountTargetsRequest}
+ * @returns {@link DescribeMountTargetsResponse}
  * @see {@link DescribeMountTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

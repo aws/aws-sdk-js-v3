@@ -84,8 +84,8 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  *
  * ```
  *
- * @param DescribeAggregateComplianceByConformancePacksCommandInput - {@link DescribeAggregateComplianceByConformancePacksCommandInput}
- * @returns {@link DescribeAggregateComplianceByConformancePacksCommandOutput}
+ * @param DescribeAggregateComplianceByConformancePacksRequest - {@link DescribeAggregateComplianceByConformancePacksRequest}
+ * @returns {@link DescribeAggregateComplianceByConformancePacksResponse}
  * @see {@link DescribeAggregateComplianceByConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConformancePacksCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

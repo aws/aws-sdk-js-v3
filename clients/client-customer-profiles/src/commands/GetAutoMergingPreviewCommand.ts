@@ -77,8 +77,8 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  *
  * ```
  *
- * @param GetAutoMergingPreviewCommandInput - {@link GetAutoMergingPreviewCommandInput}
- * @returns {@link GetAutoMergingPreviewCommandOutput}
+ * @param GetAutoMergingPreviewRequest - {@link GetAutoMergingPreviewRequest}
+ * @returns {@link GetAutoMergingPreviewResponse}
  * @see {@link GetAutoMergingPreviewCommandInput} for command's `input` shape.
  * @see {@link GetAutoMergingPreviewCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

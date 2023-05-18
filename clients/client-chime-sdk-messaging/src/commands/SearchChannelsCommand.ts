@@ -85,8 +85,8 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  *
  * ```
  *
- * @param SearchChannelsCommandInput - {@link SearchChannelsCommandInput}
- * @returns {@link SearchChannelsCommandOutput}
+ * @param SearchChannelsRequest - {@link SearchChannelsRequest}
+ * @returns {@link SearchChannelsResponse}
  * @see {@link SearchChannelsCommandInput} for command's `input` shape.
  * @see {@link SearchChannelsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

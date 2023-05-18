@@ -71,8 +71,8 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  *
  * ```
  *
- * @param UpdateMLTransformCommandInput - {@link UpdateMLTransformCommandInput}
- * @returns {@link UpdateMLTransformCommandOutput}
+ * @param UpdateMLTransformRequest - {@link UpdateMLTransformRequest}
+ * @returns {@link UpdateMLTransformResponse}
  * @see {@link UpdateMLTransformCommandInput} for command's `input` shape.
  * @see {@link UpdateMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

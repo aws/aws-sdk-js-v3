@@ -78,8 +78,8 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  *
  * ```
  *
- * @param ListBotLocalesCommandInput - {@link ListBotLocalesCommandInput}
- * @returns {@link ListBotLocalesCommandOutput}
+ * @param ListBotLocalesRequest - {@link ListBotLocalesRequest}
+ * @returns {@link ListBotLocalesResponse}
  * @see {@link ListBotLocalesCommandInput} for command's `input` shape.
  * @see {@link ListBotLocalesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

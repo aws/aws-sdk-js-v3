@@ -53,8 +53,8 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param UpdateUserHierarchyGroupNameCommandInput - {@link UpdateUserHierarchyGroupNameCommandInput}
- * @returns {@link UpdateUserHierarchyGroupNameCommandOutput}
+ * @param UpdateUserHierarchyGroupNameRequest - {@link UpdateUserHierarchyGroupNameRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserHierarchyGroupNameCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyGroupNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

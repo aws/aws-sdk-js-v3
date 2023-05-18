@@ -64,8 +64,8 @@ export interface DescribePackagingGroupCommandOutput extends DescribePackagingGr
  *
  * ```
  *
- * @param DescribePackagingGroupCommandInput - {@link DescribePackagingGroupCommandInput}
- * @returns {@link DescribePackagingGroupCommandOutput}
+ * @param DescribePackagingGroupRequest - {@link DescribePackagingGroupRequest}
+ * @returns {@link DescribePackagingGroupResponse}
  * @see {@link DescribePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

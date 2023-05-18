@@ -50,8 +50,8 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  *
  * ```
  *
- * @param DeleteWorkGroupCommandInput - {@link DeleteWorkGroupCommandInput}
- * @returns {@link DeleteWorkGroupCommandOutput}
+ * @param DeleteWorkGroupInput - {@link DeleteWorkGroupInput}
+ * @returns {@link DeleteWorkGroupOutput}
  * @see {@link DeleteWorkGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkGroupCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

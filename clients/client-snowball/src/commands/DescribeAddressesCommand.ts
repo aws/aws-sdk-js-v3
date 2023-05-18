@@ -71,8 +71,8 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  *
  * ```
  *
- * @param DescribeAddressesCommandInput - {@link DescribeAddressesCommandInput}
- * @returns {@link DescribeAddressesCommandOutput}
+ * @param DescribeAddressesRequest - {@link DescribeAddressesRequest}
+ * @returns {@link DescribeAddressesResult}
  * @see {@link DescribeAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

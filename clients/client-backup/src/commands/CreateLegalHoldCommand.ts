@@ -91,8 +91,8 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  *
  * ```
  *
- * @param CreateLegalHoldCommandInput - {@link CreateLegalHoldCommandInput}
- * @returns {@link CreateLegalHoldCommandOutput}
+ * @param CreateLegalHoldInput - {@link CreateLegalHoldInput}
+ * @returns {@link CreateLegalHoldOutput}
  * @see {@link CreateLegalHoldCommandInput} for command's `input` shape.
  * @see {@link CreateLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

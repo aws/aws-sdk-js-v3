@@ -76,8 +76,8 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  *
  * ```
  *
- * @param AssociateFileSystemCommandInput - {@link AssociateFileSystemCommandInput}
- * @returns {@link AssociateFileSystemCommandOutput}
+ * @param AssociateFileSystemInput - {@link AssociateFileSystemInput}
+ * @returns {@link AssociateFileSystemOutput}
  * @see {@link AssociateFileSystemCommandInput} for command's `input` shape.
  * @see {@link AssociateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

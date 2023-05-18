@@ -155,8 +155,8 @@ export interface ImportInstanceCommandOutput extends ImportInstanceResult, __Met
  *
  * ```
  *
- * @param ImportInstanceCommandInput - {@link ImportInstanceCommandInput}
- * @returns {@link ImportInstanceCommandOutput}
+ * @param ImportInstanceRequest - {@link ImportInstanceRequest}
+ * @returns {@link ImportInstanceResult}
  * @see {@link ImportInstanceCommandInput} for command's `input` shape.
  * @see {@link ImportInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -94,8 +94,8 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  *
  * ```
  *
- * @param AuthorizeDBSecurityGroupIngressCommandInput - {@link AuthorizeDBSecurityGroupIngressCommandInput}
- * @returns {@link AuthorizeDBSecurityGroupIngressCommandOutput}
+ * @param AuthorizeDBSecurityGroupIngressMessage - {@link AuthorizeDBSecurityGroupIngressMessage}
+ * @returns {@link AuthorizeDBSecurityGroupIngressResult}
  * @see {@link AuthorizeDBSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

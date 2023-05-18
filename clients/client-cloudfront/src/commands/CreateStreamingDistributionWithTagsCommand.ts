@@ -148,8 +148,8 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  *
  * ```
  *
- * @param CreateStreamingDistributionWithTagsCommandInput - {@link CreateStreamingDistributionWithTagsCommandInput}
- * @returns {@link CreateStreamingDistributionWithTagsCommandOutput}
+ * @param CreateStreamingDistributionWithTagsRequest - {@link CreateStreamingDistributionWithTagsRequest}
+ * @returns {@link CreateStreamingDistributionWithTagsResult}
  * @see {@link CreateStreamingDistributionWithTagsCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingDistributionWithTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

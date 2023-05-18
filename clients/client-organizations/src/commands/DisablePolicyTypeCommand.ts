@@ -71,8 +71,8 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  *
  * ```
  *
- * @param DisablePolicyTypeCommandInput - {@link DisablePolicyTypeCommandInput}
- * @returns {@link DisablePolicyTypeCommandOutput}
+ * @param DisablePolicyTypeRequest - {@link DisablePolicyTypeRequest}
+ * @returns {@link DisablePolicyTypeResponse}
  * @see {@link DisablePolicyTypeCommandInput} for command's `input` shape.
  * @see {@link DisablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

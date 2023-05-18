@@ -70,8 +70,8 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  *
  * ```
  *
- * @param CreateLocationSmbCommandInput - {@link CreateLocationSmbCommandInput}
- * @returns {@link CreateLocationSmbCommandOutput}
+ * @param CreateLocationSmbRequest - {@link CreateLocationSmbRequest}
+ * @returns {@link CreateLocationSmbResponse}
  * @see {@link CreateLocationSmbCommandInput} for command's `input` shape.
  * @see {@link CreateLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

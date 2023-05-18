@@ -70,8 +70,8 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  *
  * ```
  *
- * @param ListSchedulesCommandInput - {@link ListSchedulesCommandInput}
- * @returns {@link ListSchedulesCommandOutput}
+ * @param ListSchedulesRequest - {@link ListSchedulesRequest}
+ * @returns {@link ListSchedulesResponse}
  * @see {@link ListSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

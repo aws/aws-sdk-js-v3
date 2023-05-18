@@ -101,8 +101,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  *
  * ```
  *
- * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
- * @returns {@link AddTagsToResourceCommandOutput}
+ * @param AddTagsToResourceRequest - {@link AddTagsToResourceRequest}
+ * @returns {@link AddTagsToResourceResult}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

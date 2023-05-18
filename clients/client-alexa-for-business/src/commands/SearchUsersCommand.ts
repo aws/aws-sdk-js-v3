@@ -77,8 +77,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *
  * ```
  *
- * @param SearchUsersCommandInput - {@link SearchUsersCommandInput}
- * @returns {@link SearchUsersCommandOutput}
+ * @param SearchUsersRequest - {@link SearchUsersRequest}
+ * @returns {@link SearchUsersResponse}
  * @see {@link SearchUsersCommandInput} for command's `input` shape.
  * @see {@link SearchUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

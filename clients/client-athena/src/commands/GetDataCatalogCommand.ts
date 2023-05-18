@@ -57,8 +57,8 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
  *
  * ```
  *
- * @param GetDataCatalogCommandInput - {@link GetDataCatalogCommandInput}
- * @returns {@link GetDataCatalogCommandOutput}
+ * @param GetDataCatalogInput - {@link GetDataCatalogInput}
+ * @returns {@link GetDataCatalogOutput}
  * @see {@link GetDataCatalogCommandInput} for command's `input` shape.
  * @see {@link GetDataCatalogCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

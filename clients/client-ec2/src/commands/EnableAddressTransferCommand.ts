@@ -59,8 +59,8 @@ export interface EnableAddressTransferCommandOutput extends EnableAddressTransfe
  *
  * ```
  *
- * @param EnableAddressTransferCommandInput - {@link EnableAddressTransferCommandInput}
- * @returns {@link EnableAddressTransferCommandOutput}
+ * @param EnableAddressTransferRequest - {@link EnableAddressTransferRequest}
+ * @returns {@link EnableAddressTransferResult}
  * @see {@link EnableAddressTransferCommandInput} for command's `input` shape.
  * @see {@link EnableAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

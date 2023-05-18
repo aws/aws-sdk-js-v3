@@ -85,8 +85,8 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  *
  * ```
  *
- * @param CreateContentCommandInput - {@link CreateContentCommandInput}
- * @returns {@link CreateContentCommandOutput}
+ * @param CreateContentRequest - {@link CreateContentRequest}
+ * @returns {@link CreateContentResponse}
  * @see {@link CreateContentCommandInput} for command's `input` shape.
  * @see {@link CreateContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

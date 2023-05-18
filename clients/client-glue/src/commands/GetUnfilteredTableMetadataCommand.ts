@@ -166,8 +166,8 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  *
  * ```
  *
- * @param GetUnfilteredTableMetadataCommandInput - {@link GetUnfilteredTableMetadataCommandInput}
- * @returns {@link GetUnfilteredTableMetadataCommandOutput}
+ * @param GetUnfilteredTableMetadataRequest - {@link GetUnfilteredTableMetadataRequest}
+ * @returns {@link GetUnfilteredTableMetadataResponse}
  * @see {@link GetUnfilteredTableMetadataCommandInput} for command's `input` shape.
  * @see {@link GetUnfilteredTableMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

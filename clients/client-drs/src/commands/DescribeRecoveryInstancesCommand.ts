@@ -155,8 +155,8 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  *
  * ```
  *
- * @param DescribeRecoveryInstancesCommandInput - {@link DescribeRecoveryInstancesCommandInput}
- * @returns {@link DescribeRecoveryInstancesCommandOutput}
+ * @param DescribeRecoveryInstancesRequest - {@link DescribeRecoveryInstancesRequest}
+ * @returns {@link DescribeRecoveryInstancesResponse}
  * @see {@link DescribeRecoveryInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoveryInstancesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

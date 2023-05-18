@@ -121,8 +121,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param SearchCommandInput - {@link SearchCommandInput}
- * @returns {@link SearchCommandOutput}
+ * @param SearchRequest - {@link SearchRequest}
+ * @returns {@link SearchResponse}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.

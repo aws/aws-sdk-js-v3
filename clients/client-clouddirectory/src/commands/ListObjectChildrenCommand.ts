@@ -60,8 +60,8 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  *
  * ```
  *
- * @param ListObjectChildrenCommandInput - {@link ListObjectChildrenCommandInput}
- * @returns {@link ListObjectChildrenCommandOutput}
+ * @param ListObjectChildrenRequest - {@link ListObjectChildrenRequest}
+ * @returns {@link ListObjectChildrenResponse}
  * @see {@link ListObjectChildrenCommandInput} for command's `input` shape.
  * @see {@link ListObjectChildrenCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

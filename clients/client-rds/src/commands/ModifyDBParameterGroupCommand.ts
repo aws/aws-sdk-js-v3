@@ -80,8 +80,8 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *
  * ```
  *
- * @param ModifyDBParameterGroupCommandInput - {@link ModifyDBParameterGroupCommandInput}
- * @returns {@link ModifyDBParameterGroupCommandOutput}
+ * @param ModifyDBParameterGroupMessage - {@link ModifyDBParameterGroupMessage}
+ * @returns {@link DBParameterGroupNameMessage}
  * @see {@link ModifyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

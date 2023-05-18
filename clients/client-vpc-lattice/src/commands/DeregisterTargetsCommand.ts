@@ -69,8 +69,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  *
  * ```
  *
- * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
- * @returns {@link DeregisterTargetsCommandOutput}
+ * @param DeregisterTargetsRequest - {@link DeregisterTargetsRequest}
+ * @returns {@link DeregisterTargetsResponse}
  * @see {@link DeregisterTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

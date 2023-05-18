@@ -62,8 +62,8 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  *
  * ```
  *
- * @param CreateHttpNamespaceCommandInput - {@link CreateHttpNamespaceCommandInput}
- * @returns {@link CreateHttpNamespaceCommandOutput}
+ * @param CreateHttpNamespaceRequest - {@link CreateHttpNamespaceRequest}
+ * @returns {@link CreateHttpNamespaceResponse}
  * @see {@link CreateHttpNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateHttpNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

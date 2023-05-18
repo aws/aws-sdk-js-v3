@@ -53,8 +53,8 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  *
  * ```
  *
- * @param StopFlowCommandInput - {@link StopFlowCommandInput}
- * @returns {@link StopFlowCommandOutput}
+ * @param StopFlowRequest - {@link StopFlowRequest}
+ * @returns {@link StopFlowResponse}
  * @see {@link StopFlowCommandInput} for command's `input` shape.
  * @see {@link StopFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

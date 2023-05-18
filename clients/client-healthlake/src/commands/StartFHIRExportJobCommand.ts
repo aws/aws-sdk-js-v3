@@ -61,8 +61,8 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  *
  * ```
  *
- * @param StartFHIRExportJobCommandInput - {@link StartFHIRExportJobCommandInput}
- * @returns {@link StartFHIRExportJobCommandOutput}
+ * @param StartFHIRExportJobRequest - {@link StartFHIRExportJobRequest}
+ * @returns {@link StartFHIRExportJobResponse}
  * @see {@link StartFHIRExportJobCommandInput} for command's `input` shape.
  * @see {@link StartFHIRExportJobCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.

@@ -78,8 +78,8 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  *
  * ```
  *
- * @param DeleteBucketInventoryConfigurationCommandInput - {@link DeleteBucketInventoryConfigurationCommandInput}
- * @returns {@link DeleteBucketInventoryConfigurationCommandOutput}
+ * @param DeleteBucketInventoryConfigurationRequest - {@link DeleteBucketInventoryConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketInventoryConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

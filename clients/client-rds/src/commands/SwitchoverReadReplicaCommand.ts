@@ -261,8 +261,8 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  *
  * ```
  *
- * @param SwitchoverReadReplicaCommandInput - {@link SwitchoverReadReplicaCommandInput}
- * @returns {@link SwitchoverReadReplicaCommandOutput}
+ * @param SwitchoverReadReplicaMessage - {@link SwitchoverReadReplicaMessage}
+ * @returns {@link SwitchoverReadReplicaResult}
  * @see {@link SwitchoverReadReplicaCommandInput} for command's `input` shape.
  * @see {@link SwitchoverReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

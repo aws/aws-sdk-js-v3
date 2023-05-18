@@ -98,8 +98,8 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *
  * ```
  *
- * @param CreateSessionCommandInput - {@link CreateSessionCommandInput}
- * @returns {@link CreateSessionCommandOutput}
+ * @param CreateSessionRequest - {@link CreateSessionRequest}
+ * @returns {@link CreateSessionResponse}
  * @see {@link CreateSessionCommandInput} for command's `input` shape.
  * @see {@link CreateSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

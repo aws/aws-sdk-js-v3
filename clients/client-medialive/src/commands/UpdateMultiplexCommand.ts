@@ -83,8 +83,8 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  *
  * ```
  *
- * @param UpdateMultiplexCommandInput - {@link UpdateMultiplexCommandInput}
- * @returns {@link UpdateMultiplexCommandOutput}
+ * @param UpdateMultiplexRequest - {@link UpdateMultiplexRequest}
+ * @returns {@link UpdateMultiplexResponse}
  * @see {@link UpdateMultiplexCommandInput} for command's `input` shape.
  * @see {@link UpdateMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

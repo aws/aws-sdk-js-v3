@@ -54,8 +54,8 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  *
  * ```
  *
- * @param UpdateRoutingProfileDefaultOutboundQueueCommandInput - {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput}
- * @returns {@link UpdateRoutingProfileDefaultOutboundQueueCommandOutput}
+ * @param UpdateRoutingProfileDefaultOutboundQueueRequest - {@link UpdateRoutingProfileDefaultOutboundQueueRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

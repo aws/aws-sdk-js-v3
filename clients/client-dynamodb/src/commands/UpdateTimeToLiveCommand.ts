@@ -81,8 +81,8 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  *
  * ```
  *
- * @param UpdateTimeToLiveCommandInput - {@link UpdateTimeToLiveCommandInput}
- * @returns {@link UpdateTimeToLiveCommandOutput}
+ * @param UpdateTimeToLiveInput - {@link UpdateTimeToLiveInput}
+ * @returns {@link UpdateTimeToLiveOutput}
  * @see {@link UpdateTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link UpdateTimeToLiveCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

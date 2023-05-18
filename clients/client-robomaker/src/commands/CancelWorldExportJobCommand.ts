@@ -48,8 +48,8 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  *
  * ```
  *
- * @param CancelWorldExportJobCommandInput - {@link CancelWorldExportJobCommandInput}
- * @returns {@link CancelWorldExportJobCommandOutput}
+ * @param CancelWorldExportJobRequest - {@link CancelWorldExportJobRequest}
+ * @returns {@link CancelWorldExportJobResponse}
  * @see {@link CancelWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelWorldExportJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

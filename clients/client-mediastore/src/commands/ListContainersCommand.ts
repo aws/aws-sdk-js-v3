@@ -69,8 +69,8 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  *
  * ```
  *
- * @param ListContainersCommandInput - {@link ListContainersCommandInput}
- * @returns {@link ListContainersCommandOutput}
+ * @param ListContainersInput - {@link ListContainersInput}
+ * @returns {@link ListContainersOutput}
  * @see {@link ListContainersCommandInput} for command's `input` shape.
  * @see {@link ListContainersCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

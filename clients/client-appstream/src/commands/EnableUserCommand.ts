@@ -49,8 +49,8 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  *
  * ```
  *
- * @param EnableUserCommandInput - {@link EnableUserCommandInput}
- * @returns {@link EnableUserCommandOutput}
+ * @param EnableUserRequest - {@link EnableUserRequest}
+ * @returns {@link EnableUserResult}
  * @see {@link EnableUserCommandInput} for command's `input` shape.
  * @see {@link EnableUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

@@ -73,8 +73,8 @@ export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChanne
  *
  * ```
  *
- * @param UpdateApnsVoipChannelCommandInput - {@link UpdateApnsVoipChannelCommandInput}
- * @returns {@link UpdateApnsVoipChannelCommandOutput}
+ * @param UpdateApnsVoipChannelRequest - {@link UpdateApnsVoipChannelRequest}
+ * @returns {@link UpdateApnsVoipChannelResponse}
  * @see {@link UpdateApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -61,8 +61,8 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  *
  * ```
  *
- * @param SendEventCommandInput - {@link SendEventCommandInput}
- * @returns {@link SendEventCommandOutput}
+ * @param SendEventRequest - {@link SendEventRequest}
+ * @returns {@link SendEventResult}
  * @see {@link SendEventCommandInput} for command's `input` shape.
  * @see {@link SendEventCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

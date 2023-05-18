@@ -56,8 +56,8 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  *
  * ```
  *
- * @param RegisterToWorkMailCommandInput - {@link RegisterToWorkMailCommandInput}
- * @returns {@link RegisterToWorkMailCommandOutput}
+ * @param RegisterToWorkMailRequest - {@link RegisterToWorkMailRequest}
+ * @returns {@link RegisterToWorkMailResponse}
  * @see {@link RegisterToWorkMailCommandInput} for command's `input` shape.
  * @see {@link RegisterToWorkMailCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

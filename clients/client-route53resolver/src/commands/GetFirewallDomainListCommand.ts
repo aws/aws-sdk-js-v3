@@ -61,8 +61,8 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  *
  * ```
  *
- * @param GetFirewallDomainListCommandInput - {@link GetFirewallDomainListCommandInput}
- * @returns {@link GetFirewallDomainListCommandOutput}
+ * @param GetFirewallDomainListRequest - {@link GetFirewallDomainListRequest}
+ * @returns {@link GetFirewallDomainListResponse}
  * @see {@link GetFirewallDomainListCommandInput} for command's `input` shape.
  * @see {@link GetFirewallDomainListCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

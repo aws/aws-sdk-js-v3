@@ -51,8 +51,8 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DisableVgwRoutePropagationCommandInput - {@link DisableVgwRoutePropagationCommandInput}
- * @returns {@link DisableVgwRoutePropagationCommandOutput}
+ * @param DisableVgwRoutePropagationRequest - {@link DisableVgwRoutePropagationRequest}
+ * @returns {@link Unit}
  * @see {@link DisableVgwRoutePropagationCommandInput} for command's `input` shape.
  * @see {@link DisableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

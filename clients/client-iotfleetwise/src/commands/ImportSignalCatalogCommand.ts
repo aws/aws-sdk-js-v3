@@ -62,8 +62,8 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  *
  * ```
  *
- * @param ImportSignalCatalogCommandInput - {@link ImportSignalCatalogCommandInput}
- * @returns {@link ImportSignalCatalogCommandOutput}
+ * @param ImportSignalCatalogRequest - {@link ImportSignalCatalogRequest}
+ * @returns {@link ImportSignalCatalogResponse}
  * @see {@link ImportSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

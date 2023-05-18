@@ -184,8 +184,8 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  *
  * ```
  *
- * @param GetSavingsPlansPurchaseRecommendationCommandInput - {@link GetSavingsPlansPurchaseRecommendationCommandInput}
- * @returns {@link GetSavingsPlansPurchaseRecommendationCommandOutput}
+ * @param GetSavingsPlansPurchaseRecommendationRequest - {@link GetSavingsPlansPurchaseRecommendationRequest}
+ * @returns {@link GetSavingsPlansPurchaseRecommendationResponse}
  * @see {@link GetSavingsPlansPurchaseRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansPurchaseRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

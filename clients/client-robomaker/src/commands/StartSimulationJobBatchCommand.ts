@@ -499,8 +499,8 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  *
  * ```
  *
- * @param StartSimulationJobBatchCommandInput - {@link StartSimulationJobBatchCommandInput}
- * @returns {@link StartSimulationJobBatchCommandOutput}
+ * @param StartSimulationJobBatchRequest - {@link StartSimulationJobBatchRequest}
+ * @returns {@link StartSimulationJobBatchResponse}
  * @see {@link StartSimulationJobBatchCommandInput} for command's `input` shape.
  * @see {@link StartSimulationJobBatchCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

@@ -208,8 +208,8 @@ export interface CreateAlarmModelCommandOutput extends CreateAlarmModelResponse,
  *
  * ```
  *
- * @param CreateAlarmModelCommandInput - {@link CreateAlarmModelCommandInput}
- * @returns {@link CreateAlarmModelCommandOutput}
+ * @param CreateAlarmModelRequest - {@link CreateAlarmModelRequest}
+ * @returns {@link CreateAlarmModelResponse}
  * @see {@link CreateAlarmModelCommandInput} for command's `input` shape.
  * @see {@link CreateAlarmModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

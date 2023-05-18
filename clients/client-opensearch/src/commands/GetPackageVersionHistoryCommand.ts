@@ -62,8 +62,8 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  *
  * ```
  *
- * @param GetPackageVersionHistoryCommandInput - {@link GetPackageVersionHistoryCommandInput}
- * @returns {@link GetPackageVersionHistoryCommandOutput}
+ * @param GetPackageVersionHistoryRequest - {@link GetPackageVersionHistoryRequest}
+ * @returns {@link GetPackageVersionHistoryResponse}
  * @see {@link GetPackageVersionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionHistoryCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

@@ -73,8 +73,8 @@ export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupR
  *
  * ```
  *
- * @param GetTemplateStepGroupCommandInput - {@link GetTemplateStepGroupCommandInput}
- * @returns {@link GetTemplateStepGroupCommandOutput}
+ * @param GetTemplateStepGroupRequest - {@link GetTemplateStepGroupRequest}
+ * @returns {@link GetTemplateStepGroupResponse}
  * @see {@link GetTemplateStepGroupCommandInput} for command's `input` shape.
  * @see {@link GetTemplateStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

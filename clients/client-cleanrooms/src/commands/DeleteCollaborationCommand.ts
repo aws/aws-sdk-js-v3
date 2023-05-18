@@ -48,8 +48,8 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  *
  * ```
  *
- * @param DeleteCollaborationCommandInput - {@link DeleteCollaborationCommandInput}
- * @returns {@link DeleteCollaborationCommandOutput}
+ * @param DeleteCollaborationInput - {@link DeleteCollaborationInput}
+ * @returns {@link DeleteCollaborationOutput}
  * @see {@link DeleteCollaborationCommandInput} for command's `input` shape.
  * @see {@link DeleteCollaborationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

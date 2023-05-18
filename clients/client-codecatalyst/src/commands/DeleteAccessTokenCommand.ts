@@ -48,8 +48,8 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  *
  * ```
  *
- * @param DeleteAccessTokenCommandInput - {@link DeleteAccessTokenCommandInput}
- * @returns {@link DeleteAccessTokenCommandOutput}
+ * @param DeleteAccessTokenRequest - {@link DeleteAccessTokenRequest}
+ * @returns {@link DeleteAccessTokenResponse}
  * @see {@link DeleteAccessTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

@@ -96,8 +96,8 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *
  * ```
  *
- * @param CreateCapacityProviderCommandInput - {@link CreateCapacityProviderCommandInput}
- * @returns {@link CreateCapacityProviderCommandOutput}
+ * @param CreateCapacityProviderRequest - {@link CreateCapacityProviderRequest}
+ * @returns {@link CreateCapacityProviderResponse}
  * @see {@link CreateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

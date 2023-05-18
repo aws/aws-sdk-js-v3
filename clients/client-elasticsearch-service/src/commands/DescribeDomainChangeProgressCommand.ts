@@ -80,8 +80,8 @@ export interface DescribeDomainChangeProgressCommandOutput
  *
  * ```
  *
- * @param DescribeDomainChangeProgressCommandInput - {@link DescribeDomainChangeProgressCommandInput}
- * @returns {@link DescribeDomainChangeProgressCommandOutput}
+ * @param DescribeDomainChangeProgressRequest - {@link DescribeDomainChangeProgressRequest}
+ * @returns {@link DescribeDomainChangeProgressResponse}
  * @see {@link DescribeDomainChangeProgressCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainChangeProgressCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

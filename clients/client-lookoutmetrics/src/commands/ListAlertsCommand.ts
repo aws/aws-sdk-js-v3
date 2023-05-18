@@ -69,8 +69,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  *
  * ```
  *
- * @param ListAlertsCommandInput - {@link ListAlertsCommandInput}
- * @returns {@link ListAlertsCommandOutput}
+ * @param ListAlertsRequest - {@link ListAlertsRequest}
+ * @returns {@link ListAlertsResponse}
  * @see {@link ListAlertsCommandInput} for command's `input` shape.
  * @see {@link ListAlertsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

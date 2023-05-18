@@ -65,8 +65,8 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  *
  * ```
  *
- * @param GetCoreDefinitionVersionCommandInput - {@link GetCoreDefinitionVersionCommandInput}
- * @returns {@link GetCoreDefinitionVersionCommandOutput}
+ * @param GetCoreDefinitionVersionRequest - {@link GetCoreDefinitionVersionRequest}
+ * @returns {@link GetCoreDefinitionVersionResponse}
  * @see {@link GetCoreDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetCoreDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

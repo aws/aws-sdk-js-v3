@@ -83,8 +83,8 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  *
  * ```
  *
- * @param ListAcceleratorsCommandInput - {@link ListAcceleratorsCommandInput}
- * @returns {@link ListAcceleratorsCommandOutput}
+ * @param ListAcceleratorsRequest - {@link ListAcceleratorsRequest}
+ * @returns {@link ListAcceleratorsResponse}
  * @see {@link ListAcceleratorsCommandInput} for command's `input` shape.
  * @see {@link ListAcceleratorsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

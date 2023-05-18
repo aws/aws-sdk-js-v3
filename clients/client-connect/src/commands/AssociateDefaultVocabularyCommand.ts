@@ -51,8 +51,8 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  *
  * ```
  *
- * @param AssociateDefaultVocabularyCommandInput - {@link AssociateDefaultVocabularyCommandInput}
- * @returns {@link AssociateDefaultVocabularyCommandOutput}
+ * @param AssociateDefaultVocabularyRequest - {@link AssociateDefaultVocabularyRequest}
+ * @returns {@link AssociateDefaultVocabularyResponse}
  * @see {@link AssociateDefaultVocabularyCommandInput} for command's `input` shape.
  * @see {@link AssociateDefaultVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

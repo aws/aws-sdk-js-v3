@@ -51,8 +51,8 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DeleteSpotDatafeedSubscriptionCommandInput - {@link DeleteSpotDatafeedSubscriptionCommandInput}
- * @returns {@link DeleteSpotDatafeedSubscriptionCommandOutput}
+ * @param DeleteSpotDatafeedSubscriptionRequest - {@link DeleteSpotDatafeedSubscriptionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -69,8 +69,8 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  *
  * ```
  *
- * @param DescribeRuleGroupsNamespaceCommandInput - {@link DescribeRuleGroupsNamespaceCommandInput}
- * @returns {@link DescribeRuleGroupsNamespaceCommandOutput}
+ * @param DescribeRuleGroupsNamespaceRequest - {@link DescribeRuleGroupsNamespaceRequest}
+ * @returns {@link DescribeRuleGroupsNamespaceResponse}
  * @see {@link DescribeRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleGroupsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

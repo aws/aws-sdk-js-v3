@@ -94,8 +94,8 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  *
  * ```
  *
- * @param DescribeConfigurationSetCommandInput - {@link DescribeConfigurationSetCommandInput}
- * @returns {@link DescribeConfigurationSetCommandOutput}
+ * @param DescribeConfigurationSetRequest - {@link DescribeConfigurationSetRequest}
+ * @returns {@link DescribeConfigurationSetResponse}
  * @see {@link DescribeConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

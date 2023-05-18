@@ -55,8 +55,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *
  * ```
  *
- * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
- * @returns {@link DescribeAccountLimitsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeAccountLimitsAnswer}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

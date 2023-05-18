@@ -66,8 +66,8 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  *
  * ```
  *
- * @param ListModelCardsCommandInput - {@link ListModelCardsCommandInput}
- * @returns {@link ListModelCardsCommandOutput}
+ * @param ListModelCardsRequest - {@link ListModelCardsRequest}
+ * @returns {@link ListModelCardsResponse}
  * @see {@link ListModelCardsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

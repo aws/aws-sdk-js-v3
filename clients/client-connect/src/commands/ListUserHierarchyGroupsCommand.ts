@@ -62,8 +62,8 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  *
  * ```
  *
- * @param ListUserHierarchyGroupsCommandInput - {@link ListUserHierarchyGroupsCommandInput}
- * @returns {@link ListUserHierarchyGroupsCommandOutput}
+ * @param ListUserHierarchyGroupsRequest - {@link ListUserHierarchyGroupsRequest}
+ * @returns {@link ListUserHierarchyGroupsResponse}
  * @see {@link ListUserHierarchyGroupsCommandInput} for command's `input` shape.
  * @see {@link ListUserHierarchyGroupsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

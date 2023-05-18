@@ -66,8 +66,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *
  * ```
  *
- * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
- * @returns {@link DescribeAccountAttributesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeAccountAttributesResult}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

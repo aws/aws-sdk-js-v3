@@ -58,8 +58,8 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  *
  * ```
  *
- * @param ListTagsLogGroupCommandInput - {@link ListTagsLogGroupCommandInput}
- * @returns {@link ListTagsLogGroupCommandOutput}
+ * @param ListTagsLogGroupRequest - {@link ListTagsLogGroupRequest}
+ * @returns {@link ListTagsLogGroupResponse}
  * @see {@link ListTagsLogGroupCommandInput} for command's `input` shape.
  * @see {@link ListTagsLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

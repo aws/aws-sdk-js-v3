@@ -94,8 +94,8 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  *
  * ```
  *
- * @param DescribeRecordCommandInput - {@link DescribeRecordCommandInput}
- * @returns {@link DescribeRecordCommandOutput}
+ * @param DescribeRecordInput - {@link DescribeRecordInput}
+ * @returns {@link DescribeRecordOutput}
  * @see {@link DescribeRecordCommandInput} for command's `input` shape.
  * @see {@link DescribeRecordCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

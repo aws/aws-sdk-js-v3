@@ -85,8 +85,8 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  *
  * ```
  *
- * @param SendOTPMessageCommandInput - {@link SendOTPMessageCommandInput}
- * @returns {@link SendOTPMessageCommandOutput}
+ * @param SendOTPMessageRequest - {@link SendOTPMessageRequest}
+ * @returns {@link SendOTPMessageResponse}
  * @see {@link SendOTPMessageCommandInput} for command's `input` shape.
  * @see {@link SendOTPMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

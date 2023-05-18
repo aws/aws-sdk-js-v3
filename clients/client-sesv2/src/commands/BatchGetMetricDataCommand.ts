@@ -80,8 +80,8 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  *
  * ```
  *
- * @param BatchGetMetricDataCommandInput - {@link BatchGetMetricDataCommandInput}
- * @returns {@link BatchGetMetricDataCommandOutput}
+ * @param BatchGetMetricDataRequest - {@link BatchGetMetricDataRequest}
+ * @returns {@link BatchGetMetricDataResponse}
  * @see {@link BatchGetMetricDataCommandInput} for command's `input` shape.
  * @see {@link BatchGetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

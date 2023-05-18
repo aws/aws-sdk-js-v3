@@ -72,8 +72,8 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  *
  * ```
  *
- * @param PutAppInstanceStreamingConfigurationsCommandInput - {@link PutAppInstanceStreamingConfigurationsCommandInput}
- * @returns {@link PutAppInstanceStreamingConfigurationsCommandOutput}
+ * @param PutAppInstanceStreamingConfigurationsRequest - {@link PutAppInstanceStreamingConfigurationsRequest}
+ * @returns {@link PutAppInstanceStreamingConfigurationsResponse}
  * @see {@link PutAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -76,8 +76,8 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  *
  * ```
  *
- * @param RegisterUserCommandInput - {@link RegisterUserCommandInput}
- * @returns {@link RegisterUserCommandOutput}
+ * @param RegisterUserRequest - {@link RegisterUserRequest}
+ * @returns {@link RegisterUserResponse}
  * @see {@link RegisterUserCommandInput} for command's `input` shape.
  * @see {@link RegisterUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

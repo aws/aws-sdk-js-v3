@@ -66,8 +66,8 @@ export interface ListStageDeploymentsCommandOutput extends ListStageDeploymentsR
  *
  * ```
  *
- * @param ListStageDeploymentsCommandInput - {@link ListStageDeploymentsCommandInput}
- * @returns {@link ListStageDeploymentsCommandOutput}
+ * @param ListStageDeploymentsRequest - {@link ListStageDeploymentsRequest}
+ * @returns {@link ListStageDeploymentsResult}
  * @see {@link ListStageDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListStageDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

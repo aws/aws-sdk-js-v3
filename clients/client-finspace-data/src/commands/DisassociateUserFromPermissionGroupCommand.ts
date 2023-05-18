@@ -60,8 +60,8 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  *
  * ```
  *
- * @param DisassociateUserFromPermissionGroupCommandInput - {@link DisassociateUserFromPermissionGroupCommandInput}
- * @returns {@link DisassociateUserFromPermissionGroupCommandOutput}
+ * @param DisassociateUserFromPermissionGroupRequest - {@link DisassociateUserFromPermissionGroupRequest}
+ * @returns {@link DisassociateUserFromPermissionGroupResponse}
  * @see {@link DisassociateUserFromPermissionGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserFromPermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

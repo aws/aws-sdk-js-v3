@@ -207,8 +207,8 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *
  * ```
  *
- * @param TransactGetItemsCommandInput - {@link TransactGetItemsCommandInput}
- * @returns {@link TransactGetItemsCommandOutput}
+ * @param TransactGetItemsInput - {@link TransactGetItemsInput}
+ * @returns {@link TransactGetItemsOutput}
  * @see {@link TransactGetItemsCommandInput} for command's `input` shape.
  * @see {@link TransactGetItemsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -78,8 +78,8 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  *
  * ```
  *
- * @param ListTestsCommandInput - {@link ListTestsCommandInput}
- * @returns {@link ListTestsCommandOutput}
+ * @param ListTestsRequest - {@link ListTestsRequest}
+ * @returns {@link ListTestsResult}
  * @see {@link ListTestsCommandInput} for command's `input` shape.
  * @see {@link ListTestsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

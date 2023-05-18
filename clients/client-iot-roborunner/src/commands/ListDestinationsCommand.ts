@@ -65,8 +65,8 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  *
  * ```
  *
- * @param ListDestinationsCommandInput - {@link ListDestinationsCommandInput}
- * @returns {@link ListDestinationsCommandOutput}
+ * @param ListDestinationsRequest - {@link ListDestinationsRequest}
+ * @returns {@link ListDestinationsResponse}
  * @see {@link ListDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListDestinationsCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

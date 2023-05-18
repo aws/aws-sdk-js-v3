@@ -52,8 +52,8 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  *
  * ```
  *
- * @param GetSubscriptionCommandInput - {@link GetSubscriptionCommandInput}
- * @returns {@link GetSubscriptionCommandOutput}
+ * @param GetSubscriptionRequest - {@link GetSubscriptionRequest}
+ * @returns {@link GetSubscriptionResponse}
  * @see {@link GetSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

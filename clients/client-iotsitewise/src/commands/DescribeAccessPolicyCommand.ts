@@ -77,8 +77,8 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  *
  * ```
  *
- * @param DescribeAccessPolicyCommandInput - {@link DescribeAccessPolicyCommandInput}
- * @returns {@link DescribeAccessPolicyCommandOutput}
+ * @param DescribeAccessPolicyRequest - {@link DescribeAccessPolicyRequest}
+ * @returns {@link DescribeAccessPolicyResponse}
  * @see {@link DescribeAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

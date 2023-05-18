@@ -59,8 +59,8 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsRespons
  *
  * ```
  *
- * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
- * @returns {@link ListBillingGroupsCommandOutput}
+ * @param ListBillingGroupsRequest - {@link ListBillingGroupsRequest}
+ * @returns {@link ListBillingGroupsResponse}
  * @see {@link ListBillingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

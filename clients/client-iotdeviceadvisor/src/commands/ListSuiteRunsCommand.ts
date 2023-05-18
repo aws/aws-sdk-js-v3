@@ -69,8 +69,8 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  *
  * ```
  *
- * @param ListSuiteRunsCommandInput - {@link ListSuiteRunsCommandInput}
- * @returns {@link ListSuiteRunsCommandOutput}
+ * @param ListSuiteRunsRequest - {@link ListSuiteRunsRequest}
+ * @returns {@link ListSuiteRunsResponse}
  * @see {@link ListSuiteRunsCommandInput} for command's `input` shape.
  * @see {@link ListSuiteRunsCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

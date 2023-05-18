@@ -61,8 +61,8 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  *
  * ```
  *
- * @param GetProgrammaticAccessCredentialsCommandInput - {@link GetProgrammaticAccessCredentialsCommandInput}
- * @returns {@link GetProgrammaticAccessCredentialsCommandOutput}
+ * @param GetProgrammaticAccessCredentialsRequest - {@link GetProgrammaticAccessCredentialsRequest}
+ * @returns {@link GetProgrammaticAccessCredentialsResponse}
  * @see {@link GetProgrammaticAccessCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetProgrammaticAccessCredentialsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

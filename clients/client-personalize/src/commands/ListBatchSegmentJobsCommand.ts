@@ -64,8 +64,8 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  *
  * ```
  *
- * @param ListBatchSegmentJobsCommandInput - {@link ListBatchSegmentJobsCommandInput}
- * @returns {@link ListBatchSegmentJobsCommandOutput}
+ * @param ListBatchSegmentJobsRequest - {@link ListBatchSegmentJobsRequest}
+ * @returns {@link ListBatchSegmentJobsResponse}
  * @see {@link ListBatchSegmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListBatchSegmentJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

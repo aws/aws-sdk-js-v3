@@ -82,8 +82,8 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  *
  * ```
  *
- * @param DescribeEvaluationsCommandInput - {@link DescribeEvaluationsCommandInput}
- * @returns {@link DescribeEvaluationsCommandOutput}
+ * @param DescribeEvaluationsInput - {@link DescribeEvaluationsInput}
+ * @returns {@link DescribeEvaluationsOutput}
  * @see {@link DescribeEvaluationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

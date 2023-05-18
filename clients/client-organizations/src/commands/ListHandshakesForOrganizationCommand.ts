@@ -110,8 +110,8 @@ export interface ListHandshakesForOrganizationCommandOutput
  *
  * ```
  *
- * @param ListHandshakesForOrganizationCommandInput - {@link ListHandshakesForOrganizationCommandInput}
- * @returns {@link ListHandshakesForOrganizationCommandOutput}
+ * @param ListHandshakesForOrganizationRequest - {@link ListHandshakesForOrganizationRequest}
+ * @returns {@link ListHandshakesForOrganizationResponse}
  * @see {@link ListHandshakesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListHandshakesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

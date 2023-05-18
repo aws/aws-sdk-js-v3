@@ -181,8 +181,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  *
  * ```
  *
- * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
- * @returns {@link DescribeDomainCommandOutput}
+ * @param DescribeDomainRequest - {@link DescribeDomainRequest}
+ * @returns {@link DescribeDomainResponse}
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

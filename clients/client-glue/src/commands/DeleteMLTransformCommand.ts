@@ -55,8 +55,8 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  *
  * ```
  *
- * @param DeleteMLTransformCommandInput - {@link DeleteMLTransformCommandInput}
- * @returns {@link DeleteMLTransformCommandOutput}
+ * @param DeleteMLTransformRequest - {@link DeleteMLTransformRequest}
+ * @returns {@link DeleteMLTransformResponse}
  * @see {@link DeleteMLTransformCommandInput} for command's `input` shape.
  * @see {@link DeleteMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

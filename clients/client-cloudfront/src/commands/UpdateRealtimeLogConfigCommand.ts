@@ -100,8 +100,8 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  *
  * ```
  *
- * @param UpdateRealtimeLogConfigCommandInput - {@link UpdateRealtimeLogConfigCommandInput}
- * @returns {@link UpdateRealtimeLogConfigCommandOutput}
+ * @param UpdateRealtimeLogConfigRequest - {@link UpdateRealtimeLogConfigRequest}
+ * @returns {@link UpdateRealtimeLogConfigResult}
  * @see {@link UpdateRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

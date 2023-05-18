@@ -67,8 +67,8 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  *
  * ```
  *
- * @param GetInstancePortStatesCommandInput - {@link GetInstancePortStatesCommandInput}
- * @returns {@link GetInstancePortStatesCommandOutput}
+ * @param GetInstancePortStatesRequest - {@link GetInstancePortStatesRequest}
+ * @returns {@link GetInstancePortStatesResult}
  * @see {@link GetInstancePortStatesCommandInput} for command's `input` shape.
  * @see {@link GetInstancePortStatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

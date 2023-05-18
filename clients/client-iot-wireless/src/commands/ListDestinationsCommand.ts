@@ -61,8 +61,8 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  *
  * ```
  *
- * @param ListDestinationsCommandInput - {@link ListDestinationsCommandInput}
- * @returns {@link ListDestinationsCommandOutput}
+ * @param ListDestinationsRequest - {@link ListDestinationsRequest}
+ * @returns {@link ListDestinationsResponse}
  * @see {@link ListDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListDestinationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

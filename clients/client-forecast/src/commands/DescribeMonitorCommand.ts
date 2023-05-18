@@ -106,8 +106,8 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  *
  * ```
  *
- * @param DescribeMonitorCommandInput - {@link DescribeMonitorCommandInput}
- * @returns {@link DescribeMonitorCommandOutput}
+ * @param DescribeMonitorRequest - {@link DescribeMonitorRequest}
+ * @returns {@link DescribeMonitorResponse}
  * @see {@link DescribeMonitorCommandInput} for command's `input` shape.
  * @see {@link DescribeMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

@@ -59,8 +59,8 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  *
  * ```
  *
- * @param PutFunctionConcurrencyCommandInput - {@link PutFunctionConcurrencyCommandInput}
- * @returns {@link PutFunctionConcurrencyCommandOutput}
+ * @param PutFunctionConcurrencyRequest - {@link PutFunctionConcurrencyRequest}
+ * @returns {@link Concurrency}
  * @see {@link PutFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link PutFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

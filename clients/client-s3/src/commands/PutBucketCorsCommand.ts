@@ -125,8 +125,8 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketCorsCommandInput - {@link PutBucketCorsCommandInput}
- * @returns {@link PutBucketCorsCommandOutput}
+ * @param PutBucketCorsRequest - {@link PutBucketCorsRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketCorsCommandInput} for command's `input` shape.
  * @see {@link PutBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -90,8 +90,8 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
  *
  * ```
  *
- * @param DescribeLocalGatewayRouteTablesCommandInput - {@link DescribeLocalGatewayRouteTablesCommandInput}
- * @returns {@link DescribeLocalGatewayRouteTablesCommandOutput}
+ * @param DescribeLocalGatewayRouteTablesRequest - {@link DescribeLocalGatewayRouteTablesRequest}
+ * @returns {@link DescribeLocalGatewayRouteTablesResult}
  * @see {@link DescribeLocalGatewayRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

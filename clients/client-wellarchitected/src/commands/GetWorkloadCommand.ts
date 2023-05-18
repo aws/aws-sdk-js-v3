@@ -97,8 +97,8 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  *
  * ```
  *
- * @param GetWorkloadCommandInput - {@link GetWorkloadCommandInput}
- * @returns {@link GetWorkloadCommandOutput}
+ * @param GetWorkloadInput - {@link GetWorkloadInput}
+ * @returns {@link GetWorkloadOutput}
  * @see {@link GetWorkloadCommandInput} for command's `input` shape.
  * @see {@link GetWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

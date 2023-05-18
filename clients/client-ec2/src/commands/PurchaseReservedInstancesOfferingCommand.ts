@@ -71,8 +71,8 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  *
  * ```
  *
- * @param PurchaseReservedInstancesOfferingCommandInput - {@link PurchaseReservedInstancesOfferingCommandInput}
- * @returns {@link PurchaseReservedInstancesOfferingCommandOutput}
+ * @param PurchaseReservedInstancesOfferingRequest - {@link PurchaseReservedInstancesOfferingRequest}
+ * @returns {@link PurchaseReservedInstancesOfferingResult}
  * @see {@link PurchaseReservedInstancesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

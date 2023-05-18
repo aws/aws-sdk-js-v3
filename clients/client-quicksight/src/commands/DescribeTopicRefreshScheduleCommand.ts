@@ -69,8 +69,8 @@ export interface DescribeTopicRefreshScheduleCommandOutput
  *
  * ```
  *
- * @param DescribeTopicRefreshScheduleCommandInput - {@link DescribeTopicRefreshScheduleCommandInput}
- * @returns {@link DescribeTopicRefreshScheduleCommandOutput}
+ * @param DescribeTopicRefreshScheduleRequest - {@link DescribeTopicRefreshScheduleRequest}
+ * @returns {@link DescribeTopicRefreshScheduleResponse}
  * @see {@link DescribeTopicRefreshScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicRefreshScheduleCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

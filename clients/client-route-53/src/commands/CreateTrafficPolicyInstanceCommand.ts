@@ -73,8 +73,8 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  *
  * ```
  *
- * @param CreateTrafficPolicyInstanceCommandInput - {@link CreateTrafficPolicyInstanceCommandInput}
- * @returns {@link CreateTrafficPolicyInstanceCommandOutput}
+ * @param CreateTrafficPolicyInstanceRequest - {@link CreateTrafficPolicyInstanceRequest}
+ * @returns {@link CreateTrafficPolicyInstanceResponse}
  * @see {@link CreateTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

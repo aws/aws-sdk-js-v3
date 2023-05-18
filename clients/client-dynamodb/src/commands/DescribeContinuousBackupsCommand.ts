@@ -68,8 +68,8 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  *
  * ```
  *
- * @param DescribeContinuousBackupsCommandInput - {@link DescribeContinuousBackupsCommandInput}
- * @returns {@link DescribeContinuousBackupsCommandOutput}
+ * @param DescribeContinuousBackupsInput - {@link DescribeContinuousBackupsInput}
+ * @returns {@link DescribeContinuousBackupsOutput}
  * @see {@link DescribeContinuousBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeContinuousBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

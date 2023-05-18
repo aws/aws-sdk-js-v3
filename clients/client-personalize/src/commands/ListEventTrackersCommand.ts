@@ -64,8 +64,8 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  *
  * ```
  *
- * @param ListEventTrackersCommandInput - {@link ListEventTrackersCommandInput}
- * @returns {@link ListEventTrackersCommandOutput}
+ * @param ListEventTrackersRequest - {@link ListEventTrackersRequest}
+ * @returns {@link ListEventTrackersResponse}
  * @see {@link ListEventTrackersCommandInput} for command's `input` shape.
  * @see {@link ListEventTrackersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

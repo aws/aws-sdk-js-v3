@@ -64,8 +64,8 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  *
  * ```
  *
- * @param ModifyCertificateBasedAuthPropertiesCommandInput - {@link ModifyCertificateBasedAuthPropertiesCommandInput}
- * @returns {@link ModifyCertificateBasedAuthPropertiesCommandOutput}
+ * @param ModifyCertificateBasedAuthPropertiesRequest - {@link ModifyCertificateBasedAuthPropertiesRequest}
+ * @returns {@link ModifyCertificateBasedAuthPropertiesResult}
  * @see {@link ModifyCertificateBasedAuthPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyCertificateBasedAuthPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

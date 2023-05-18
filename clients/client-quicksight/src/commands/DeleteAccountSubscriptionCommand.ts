@@ -51,8 +51,8 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  *
  * ```
  *
- * @param DeleteAccountSubscriptionCommandInput - {@link DeleteAccountSubscriptionCommandInput}
- * @returns {@link DeleteAccountSubscriptionCommandOutput}
+ * @param DeleteAccountSubscriptionRequest - {@link DeleteAccountSubscriptionRequest}
+ * @returns {@link DeleteAccountSubscriptionResponse}
  * @see {@link DeleteAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

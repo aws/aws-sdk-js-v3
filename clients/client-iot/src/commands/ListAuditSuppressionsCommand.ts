@@ -102,8 +102,8 @@ export interface ListAuditSuppressionsCommandOutput extends ListAuditSuppression
  *
  * ```
  *
- * @param ListAuditSuppressionsCommandInput - {@link ListAuditSuppressionsCommandInput}
- * @returns {@link ListAuditSuppressionsCommandOutput}
+ * @param ListAuditSuppressionsRequest - {@link ListAuditSuppressionsRequest}
+ * @returns {@link ListAuditSuppressionsResponse}
  * @see {@link ListAuditSuppressionsCommandInput} for command's `input` shape.
  * @see {@link ListAuditSuppressionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -118,8 +118,8 @@ export interface InviteAccountToOrganizationCommandOutput
  *
  * ```
  *
- * @param InviteAccountToOrganizationCommandInput - {@link InviteAccountToOrganizationCommandInput}
- * @returns {@link InviteAccountToOrganizationCommandOutput}
+ * @param InviteAccountToOrganizationRequest - {@link InviteAccountToOrganizationRequest}
+ * @returns {@link InviteAccountToOrganizationResponse}
  * @see {@link InviteAccountToOrganizationCommandInput} for command's `input` shape.
  * @see {@link InviteAccountToOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

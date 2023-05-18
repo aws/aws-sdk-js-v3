@@ -89,8 +89,8 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ModifyInstanceGroupsCommandInput - {@link ModifyInstanceGroupsCommandInput}
- * @returns {@link ModifyInstanceGroupsCommandOutput}
+ * @param ModifyInstanceGroupsInput - {@link ModifyInstanceGroupsInput}
+ * @returns {@link Unit}
  * @see {@link ModifyInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

@@ -63,8 +63,8 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  *
  * ```
  *
- * @param RejectDataShareCommandInput - {@link RejectDataShareCommandInput}
- * @returns {@link RejectDataShareCommandOutput}
+ * @param RejectDataShareMessage - {@link RejectDataShareMessage}
+ * @returns {@link DataShare}
  * @see {@link RejectDataShareCommandInput} for command's `input` shape.
  * @see {@link RejectDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -78,8 +78,8 @@ export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExe
  *
  * ```
  *
- * @param ListMonitoringExecutionsCommandInput - {@link ListMonitoringExecutionsCommandInput}
- * @returns {@link ListMonitoringExecutionsCommandOutput}
+ * @param ListMonitoringExecutionsRequest - {@link ListMonitoringExecutionsRequest}
+ * @returns {@link ListMonitoringExecutionsResponse}
  * @see {@link ListMonitoringExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -101,8 +101,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *
  * ```
  *
- * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
- * @returns {@link GetApplicationCommandOutput}
+ * @param GetApplicationRequest - {@link GetApplicationRequest}
+ * @returns {@link GetApplicationResponse}
  * @see {@link GetApplicationCommandInput} for command's `input` shape.
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

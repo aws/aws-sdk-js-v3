@@ -72,8 +72,8 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  *
  * ```
  *
- * @param DescribeInstancePatchesCommandInput - {@link DescribeInstancePatchesCommandInput}
- * @returns {@link DescribeInstancePatchesCommandOutput}
+ * @param DescribeInstancePatchesRequest - {@link DescribeInstancePatchesRequest}
+ * @returns {@link DescribeInstancePatchesResult}
  * @see {@link DescribeInstancePatchesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

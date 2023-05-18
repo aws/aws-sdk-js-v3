@@ -76,8 +76,8 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  *
  * ```
  *
- * @param StartSimulationCommandInput - {@link StartSimulationCommandInput}
- * @returns {@link StartSimulationCommandOutput}
+ * @param StartSimulationInput - {@link StartSimulationInput}
+ * @returns {@link StartSimulationOutput}
  * @see {@link StartSimulationCommandInput} for command's `input` shape.
  * @see {@link StartSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

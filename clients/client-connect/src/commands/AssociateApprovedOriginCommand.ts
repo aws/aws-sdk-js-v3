@@ -50,8 +50,8 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param AssociateApprovedOriginCommandInput - {@link AssociateApprovedOriginCommandInput}
- * @returns {@link AssociateApprovedOriginCommandOutput}
+ * @param AssociateApprovedOriginRequest - {@link AssociateApprovedOriginRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateApprovedOriginCommandInput} for command's `input` shape.
  * @see {@link AssociateApprovedOriginCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

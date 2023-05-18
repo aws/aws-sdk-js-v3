@@ -71,8 +71,8 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  *
  * ```
  *
- * @param ListPermissionAssociationsCommandInput - {@link ListPermissionAssociationsCommandInput}
- * @returns {@link ListPermissionAssociationsCommandOutput}
+ * @param ListPermissionAssociationsRequest - {@link ListPermissionAssociationsRequest}
+ * @returns {@link ListPermissionAssociationsResponse}
  * @see {@link ListPermissionAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionAssociationsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

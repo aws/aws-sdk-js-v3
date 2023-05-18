@@ -132,8 +132,8 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  *
  * ```
  *
- * @param DescribeMultiRegionAccessPointOperationCommandInput - {@link DescribeMultiRegionAccessPointOperationCommandInput}
- * @returns {@link DescribeMultiRegionAccessPointOperationCommandOutput}
+ * @param DescribeMultiRegionAccessPointOperationRequest - {@link DescribeMultiRegionAccessPointOperationRequest}
+ * @returns {@link DescribeMultiRegionAccessPointOperationResult}
  * @see {@link DescribeMultiRegionAccessPointOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiRegionAccessPointOperationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

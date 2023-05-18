@@ -65,8 +65,8 @@ export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __Me
  *
  * ```
  *
- * @param GetGatewayResponsesCommandInput - {@link GetGatewayResponsesCommandInput}
- * @returns {@link GetGatewayResponsesCommandOutput}
+ * @param GetGatewayResponsesRequest - {@link GetGatewayResponsesRequest}
+ * @returns {@link GatewayResponses}
  * @see {@link GetGatewayResponsesCommandInput} for command's `input` shape.
  * @see {@link GetGatewayResponsesCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

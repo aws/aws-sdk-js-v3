@@ -69,8 +69,8 @@ export interface ListRotationShiftsCommandOutput extends ListRotationShiftsResul
  *
  * ```
  *
- * @param ListRotationShiftsCommandInput - {@link ListRotationShiftsCommandInput}
- * @returns {@link ListRotationShiftsCommandOutput}
+ * @param ListRotationShiftsRequest - {@link ListRotationShiftsRequest}
+ * @returns {@link ListRotationShiftsResult}
  * @see {@link ListRotationShiftsCommandInput} for command's `input` shape.
  * @see {@link ListRotationShiftsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

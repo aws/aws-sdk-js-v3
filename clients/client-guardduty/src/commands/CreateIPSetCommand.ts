@@ -61,8 +61,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *
  * ```
  *
- * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
- * @returns {@link CreateIPSetCommandOutput}
+ * @param CreateIPSetRequest - {@link CreateIPSetRequest}
+ * @returns {@link CreateIPSetResponse}
  * @see {@link CreateIPSetCommandInput} for command's `input` shape.
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

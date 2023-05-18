@@ -67,8 +67,8 @@ export interface DescribeCreateAccountStatusCommandOutput
  *
  * ```
  *
- * @param DescribeCreateAccountStatusCommandInput - {@link DescribeCreateAccountStatusCommandInput}
- * @returns {@link DescribeCreateAccountStatusCommandOutput}
+ * @param DescribeCreateAccountStatusRequest - {@link DescribeCreateAccountStatusRequest}
+ * @returns {@link DescribeCreateAccountStatusResponse}
  * @see {@link DescribeCreateAccountStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCreateAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

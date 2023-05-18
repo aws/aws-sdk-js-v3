@@ -118,8 +118,8 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *
  * ```
  *
- * @param CreateCompilationJobCommandInput - {@link CreateCompilationJobCommandInput}
- * @returns {@link CreateCompilationJobCommandOutput}
+ * @param CreateCompilationJobRequest - {@link CreateCompilationJobRequest}
+ * @returns {@link CreateCompilationJobResponse}
  * @see {@link CreateCompilationJobCommandInput} for command's `input` shape.
  * @see {@link CreateCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

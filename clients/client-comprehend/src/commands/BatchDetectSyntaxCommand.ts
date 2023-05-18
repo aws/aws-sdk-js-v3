@@ -84,8 +84,8 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  *
  * ```
  *
- * @param BatchDetectSyntaxCommandInput - {@link BatchDetectSyntaxCommandInput}
- * @returns {@link BatchDetectSyntaxCommandOutput}
+ * @param BatchDetectSyntaxRequest - {@link BatchDetectSyntaxRequest}
+ * @returns {@link BatchDetectSyntaxResponse}
  * @see {@link BatchDetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link BatchDetectSyntaxCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

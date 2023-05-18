@@ -93,8 +93,8 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  *
  * ```
  *
- * @param UpdateFacetCommandInput - {@link UpdateFacetCommandInput}
- * @returns {@link UpdateFacetCommandOutput}
+ * @param UpdateFacetRequest - {@link UpdateFacetRequest}
+ * @returns {@link UpdateFacetResponse}
  * @see {@link UpdateFacetCommandInput} for command's `input` shape.
  * @see {@link UpdateFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

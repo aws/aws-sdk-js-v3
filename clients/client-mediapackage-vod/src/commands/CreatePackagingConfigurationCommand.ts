@@ -321,8 +321,8 @@ export interface CreatePackagingConfigurationCommandOutput
  *
  * ```
  *
- * @param CreatePackagingConfigurationCommandInput - {@link CreatePackagingConfigurationCommandInput}
- * @returns {@link CreatePackagingConfigurationCommandOutput}
+ * @param CreatePackagingConfigurationRequest - {@link CreatePackagingConfigurationRequest}
+ * @returns {@link CreatePackagingConfigurationResponse}
  * @see {@link CreatePackagingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreatePackagingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

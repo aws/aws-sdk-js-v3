@@ -69,8 +69,8 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
  *
  * ```
  *
- * @param ListMobileDeviceAccessOverridesCommandInput - {@link ListMobileDeviceAccessOverridesCommandInput}
- * @returns {@link ListMobileDeviceAccessOverridesCommandOutput}
+ * @param ListMobileDeviceAccessOverridesRequest - {@link ListMobileDeviceAccessOverridesRequest}
+ * @returns {@link ListMobileDeviceAccessOverridesResponse}
  * @see {@link ListMobileDeviceAccessOverridesCommandInput} for command's `input` shape.
  * @see {@link ListMobileDeviceAccessOverridesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

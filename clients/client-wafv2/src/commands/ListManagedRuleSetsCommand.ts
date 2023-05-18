@@ -66,8 +66,8 @@ export interface ListManagedRuleSetsCommandOutput extends ListManagedRuleSetsRes
  *
  * ```
  *
- * @param ListManagedRuleSetsCommandInput - {@link ListManagedRuleSetsCommandInput}
- * @returns {@link ListManagedRuleSetsCommandOutput}
+ * @param ListManagedRuleSetsRequest - {@link ListManagedRuleSetsRequest}
+ * @returns {@link ListManagedRuleSetsResponse}
  * @see {@link ListManagedRuleSetsCommandInput} for command's `input` shape.
  * @see {@link ListManagedRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

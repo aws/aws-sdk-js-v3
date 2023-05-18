@@ -56,8 +56,8 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PushDomainCommandInput - {@link PushDomainCommandInput}
- * @returns {@link PushDomainCommandOutput}
+ * @param PushDomainRequest - {@link PushDomainRequest}
+ * @returns {@link Unit}
  * @see {@link PushDomainCommandInput} for command's `input` shape.
  * @see {@link PushDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

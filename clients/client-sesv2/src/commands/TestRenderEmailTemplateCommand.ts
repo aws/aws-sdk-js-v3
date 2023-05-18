@@ -53,8 +53,8 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  *
  * ```
  *
- * @param TestRenderEmailTemplateCommandInput - {@link TestRenderEmailTemplateCommandInput}
- * @returns {@link TestRenderEmailTemplateCommandOutput}
+ * @param TestRenderEmailTemplateRequest - {@link TestRenderEmailTemplateRequest}
+ * @returns {@link TestRenderEmailTemplateResponse}
  * @see {@link TestRenderEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link TestRenderEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

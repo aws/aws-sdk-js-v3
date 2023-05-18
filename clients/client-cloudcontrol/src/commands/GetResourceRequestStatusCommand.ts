@@ -67,8 +67,8 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  *
  * ```
  *
- * @param GetResourceRequestStatusCommandInput - {@link GetResourceRequestStatusCommandInput}
- * @returns {@link GetResourceRequestStatusCommandOutput}
+ * @param GetResourceRequestStatusInput - {@link GetResourceRequestStatusInput}
+ * @returns {@link GetResourceRequestStatusOutput}
  * @see {@link GetResourceRequestStatusCommandInput} for command's `input` shape.
  * @see {@link GetResourceRequestStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.

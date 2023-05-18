@@ -113,8 +113,8 @@ export interface GetExperimentTemplateCommandOutput extends GetExperimentTemplat
  *
  * ```
  *
- * @param GetExperimentTemplateCommandInput - {@link GetExperimentTemplateCommandInput}
- * @returns {@link GetExperimentTemplateCommandOutput}
+ * @param GetExperimentTemplateRequest - {@link GetExperimentTemplateRequest}
+ * @returns {@link GetExperimentTemplateResponse}
  * @see {@link GetExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link GetExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

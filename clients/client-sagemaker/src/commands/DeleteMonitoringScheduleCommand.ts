@@ -49,8 +49,8 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteMonitoringScheduleCommandInput - {@link DeleteMonitoringScheduleCommandInput}
- * @returns {@link DeleteMonitoringScheduleCommandOutput}
+ * @param DeleteMonitoringScheduleRequest - {@link DeleteMonitoringScheduleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -55,8 +55,8 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteOriginRequestPolicyCommandInput - {@link DeleteOriginRequestPolicyCommandInput}
- * @returns {@link DeleteOriginRequestPolicyCommandOutput}
+ * @param DeleteOriginRequestPolicyRequest - {@link DeleteOriginRequestPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

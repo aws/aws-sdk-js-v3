@@ -107,8 +107,8 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  *
  * ```
  *
- * @param RespondToAuthChallengeCommandInput - {@link RespondToAuthChallengeCommandInput}
- * @returns {@link RespondToAuthChallengeCommandOutput}
+ * @param RespondToAuthChallengeRequest - {@link RespondToAuthChallengeRequest}
+ * @returns {@link RespondToAuthChallengeResponse}
  * @see {@link RespondToAuthChallengeCommandInput} for command's `input` shape.
  * @see {@link RespondToAuthChallengeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

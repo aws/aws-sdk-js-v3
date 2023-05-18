@@ -57,8 +57,8 @@ export interface GetExtensionVersionCommandOutput extends GetExtensionVersionRes
  *
  * ```
  *
- * @param GetExtensionVersionCommandInput - {@link GetExtensionVersionCommandInput}
- * @returns {@link GetExtensionVersionCommandOutput}
+ * @param GetExtensionVersionRequest - {@link GetExtensionVersionRequest}
+ * @returns {@link GetExtensionVersionResult}
  * @see {@link GetExtensionVersionCommandInput} for command's `input` shape.
  * @see {@link GetExtensionVersionCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

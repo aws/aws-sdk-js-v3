@@ -54,8 +54,8 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
- * @returns {@link UpdateOrganizationConfigurationCommandOutput}
+ * @param UpdateOrganizationConfigurationRequest - {@link UpdateOrganizationConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

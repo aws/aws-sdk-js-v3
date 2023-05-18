@@ -94,8 +94,8 @@ export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeprecateActivityTypeCommandInput - {@link DeprecateActivityTypeCommandInput}
- * @returns {@link DeprecateActivityTypeCommandOutput}
+ * @param DeprecateActivityTypeInput - {@link DeprecateActivityTypeInput}
+ * @returns {@link Unit}
  * @see {@link DeprecateActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

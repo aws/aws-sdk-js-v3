@@ -64,8 +64,8 @@ export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmen
  *
  * ```
  *
- * @param DeleteEnvironmentTemplateCommandInput - {@link DeleteEnvironmentTemplateCommandInput}
- * @returns {@link DeleteEnvironmentTemplateCommandOutput}
+ * @param DeleteEnvironmentTemplateInput - {@link DeleteEnvironmentTemplateInput}
+ * @returns {@link DeleteEnvironmentTemplateOutput}
  * @see {@link DeleteEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

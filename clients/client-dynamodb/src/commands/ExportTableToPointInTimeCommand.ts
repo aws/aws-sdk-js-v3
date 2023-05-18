@@ -80,8 +80,8 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  *
  * ```
  *
- * @param ExportTableToPointInTimeCommandInput - {@link ExportTableToPointInTimeCommandInput}
- * @returns {@link ExportTableToPointInTimeCommandOutput}
+ * @param ExportTableToPointInTimeInput - {@link ExportTableToPointInTimeInput}
+ * @returns {@link ExportTableToPointInTimeOutput}
  * @see {@link ExportTableToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link ExportTableToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

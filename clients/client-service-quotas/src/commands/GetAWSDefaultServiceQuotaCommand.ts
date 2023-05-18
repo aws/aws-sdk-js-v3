@@ -78,8 +78,8 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  *
  * ```
  *
- * @param GetAWSDefaultServiceQuotaCommandInput - {@link GetAWSDefaultServiceQuotaCommandInput}
- * @returns {@link GetAWSDefaultServiceQuotaCommandOutput}
+ * @param GetAWSDefaultServiceQuotaRequest - {@link GetAWSDefaultServiceQuotaRequest}
+ * @returns {@link GetAWSDefaultServiceQuotaResponse}
  * @see {@link GetAWSDefaultServiceQuotaCommandInput} for command's `input` shape.
  * @see {@link GetAWSDefaultServiceQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

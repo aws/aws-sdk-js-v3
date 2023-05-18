@@ -69,8 +69,8 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  *
  * ```
  *
- * @param SearchFlowTemplatesCommandInput - {@link SearchFlowTemplatesCommandInput}
- * @returns {@link SearchFlowTemplatesCommandOutput}
+ * @param SearchFlowTemplatesRequest - {@link SearchFlowTemplatesRequest}
+ * @returns {@link SearchFlowTemplatesResponse}
  * @see {@link SearchFlowTemplatesCommandInput} for command's `input` shape.
  * @see {@link SearchFlowTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

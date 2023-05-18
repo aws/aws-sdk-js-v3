@@ -117,8 +117,8 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  *
  * ```
  *
- * @param GetEventSourceMappingCommandInput - {@link GetEventSourceMappingCommandInput}
- * @returns {@link GetEventSourceMappingCommandOutput}
+ * @param GetEventSourceMappingRequest - {@link GetEventSourceMappingRequest}
+ * @returns {@link EventSourceMappingConfiguration}
  * @see {@link GetEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link GetEventSourceMappingCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

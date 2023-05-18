@@ -93,8 +93,8 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
  *
  * ```
  *
- * @param ListDataQualityRuleRecommendationRunsCommandInput - {@link ListDataQualityRuleRecommendationRunsCommandInput}
- * @returns {@link ListDataQualityRuleRecommendationRunsCommandOutput}
+ * @param ListDataQualityRuleRecommendationRunsRequest - {@link ListDataQualityRuleRecommendationRunsRequest}
+ * @returns {@link ListDataQualityRuleRecommendationRunsResponse}
  * @see {@link ListDataQualityRuleRecommendationRunsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRuleRecommendationRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

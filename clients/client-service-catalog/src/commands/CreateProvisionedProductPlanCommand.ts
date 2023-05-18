@@ -89,8 +89,8 @@ export interface CreateProvisionedProductPlanCommandOutput
  *
  * ```
  *
- * @param CreateProvisionedProductPlanCommandInput - {@link CreateProvisionedProductPlanCommandInput}
- * @returns {@link CreateProvisionedProductPlanCommandOutput}
+ * @param CreateProvisionedProductPlanInput - {@link CreateProvisionedProductPlanInput}
+ * @returns {@link CreateProvisionedProductPlanOutput}
  * @see {@link CreateProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link CreateProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

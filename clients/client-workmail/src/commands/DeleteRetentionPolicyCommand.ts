@@ -49,8 +49,8 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  *
  * ```
  *
- * @param DeleteRetentionPolicyCommandInput - {@link DeleteRetentionPolicyCommandInput}
- * @returns {@link DeleteRetentionPolicyCommandOutput}
+ * @param DeleteRetentionPolicyRequest - {@link DeleteRetentionPolicyRequest}
+ * @returns {@link DeleteRetentionPolicyResponse}
  * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

@@ -80,8 +80,8 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  *
  * ```
  *
- * @param UnassignPrivateNatGatewayAddressCommandInput - {@link UnassignPrivateNatGatewayAddressCommandInput}
- * @returns {@link UnassignPrivateNatGatewayAddressCommandOutput}
+ * @param UnassignPrivateNatGatewayAddressRequest - {@link UnassignPrivateNatGatewayAddressRequest}
+ * @returns {@link UnassignPrivateNatGatewayAddressResult}
  * @see {@link UnassignPrivateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link UnassignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

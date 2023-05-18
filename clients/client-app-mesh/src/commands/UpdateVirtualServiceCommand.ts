@@ -88,8 +88,8 @@ export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceO
  *
  * ```
  *
- * @param UpdateVirtualServiceCommandInput - {@link UpdateVirtualServiceCommandInput}
- * @returns {@link UpdateVirtualServiceCommandOutput}
+ * @param UpdateVirtualServiceInput - {@link UpdateVirtualServiceInput}
+ * @returns {@link UpdateVirtualServiceOutput}
  * @see {@link UpdateVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

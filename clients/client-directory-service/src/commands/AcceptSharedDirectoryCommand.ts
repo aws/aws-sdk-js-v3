@@ -64,8 +64,8 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  *
  * ```
  *
- * @param AcceptSharedDirectoryCommandInput - {@link AcceptSharedDirectoryCommandInput}
- * @returns {@link AcceptSharedDirectoryCommandOutput}
+ * @param AcceptSharedDirectoryRequest - {@link AcceptSharedDirectoryRequest}
+ * @returns {@link AcceptSharedDirectoryResult}
  * @see {@link AcceptSharedDirectoryCommandInput} for command's `input` shape.
  * @see {@link AcceptSharedDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

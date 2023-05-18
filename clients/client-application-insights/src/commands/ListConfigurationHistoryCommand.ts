@@ -82,8 +82,8 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  *
  * ```
  *
- * @param ListConfigurationHistoryCommandInput - {@link ListConfigurationHistoryCommandInput}
- * @returns {@link ListConfigurationHistoryCommandOutput}
+ * @param ListConfigurationHistoryRequest - {@link ListConfigurationHistoryRequest}
+ * @returns {@link ListConfigurationHistoryResponse}
  * @see {@link ListConfigurationHistoryCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationHistoryCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

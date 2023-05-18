@@ -49,8 +49,8 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DisassociateMemberAccountCommandInput - {@link DisassociateMemberAccountCommandInput}
- * @returns {@link DisassociateMemberAccountCommandOutput}
+ * @param DisassociateMemberAccountRequest - {@link DisassociateMemberAccountRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberAccountCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.

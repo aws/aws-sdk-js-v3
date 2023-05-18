@@ -86,8 +86,8 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  *
  * ```
  *
- * @param ListLinuxSubscriptionInstancesCommandInput - {@link ListLinuxSubscriptionInstancesCommandInput}
- * @returns {@link ListLinuxSubscriptionInstancesCommandOutput}
+ * @param ListLinuxSubscriptionInstancesRequest - {@link ListLinuxSubscriptionInstancesRequest}
+ * @returns {@link ListLinuxSubscriptionInstancesResponse}
  * @see {@link ListLinuxSubscriptionInstancesCommandInput} for command's `input` shape.
  * @see {@link ListLinuxSubscriptionInstancesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.

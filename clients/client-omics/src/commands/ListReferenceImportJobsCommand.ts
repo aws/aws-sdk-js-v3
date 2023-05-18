@@ -67,8 +67,8 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  *
  * ```
  *
- * @param ListReferenceImportJobsCommandInput - {@link ListReferenceImportJobsCommandInput}
- * @returns {@link ListReferenceImportJobsCommandOutput}
+ * @param ListReferenceImportJobsRequest - {@link ListReferenceImportJobsRequest}
+ * @returns {@link ListReferenceImportJobsResponse}
  * @see {@link ListReferenceImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListReferenceImportJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

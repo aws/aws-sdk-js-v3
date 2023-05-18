@@ -63,8 +63,8 @@ export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssoci
  *
  * ```
  *
- * @param UpdateExtensionAssociationCommandInput - {@link UpdateExtensionAssociationCommandInput}
- * @returns {@link UpdateExtensionAssociationCommandOutput}
+ * @param UpdateExtensionAssociationRequest - {@link UpdateExtensionAssociationRequest}
+ * @returns {@link ExtensionAssociation}
  * @see {@link UpdateExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

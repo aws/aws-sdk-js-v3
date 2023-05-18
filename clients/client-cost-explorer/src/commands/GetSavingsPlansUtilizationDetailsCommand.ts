@@ -192,8 +192,8 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  *
  * ```
  *
- * @param GetSavingsPlansUtilizationDetailsCommandInput - {@link GetSavingsPlansUtilizationDetailsCommandInput}
- * @returns {@link GetSavingsPlansUtilizationDetailsCommandOutput}
+ * @param GetSavingsPlansUtilizationDetailsRequest - {@link GetSavingsPlansUtilizationDetailsRequest}
+ * @returns {@link GetSavingsPlansUtilizationDetailsResponse}
  * @see {@link GetSavingsPlansUtilizationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansUtilizationDetailsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

@@ -115,8 +115,8 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
  *
  * ```
  *
- * @param UpdateMultiplexProgramCommandInput - {@link UpdateMultiplexProgramCommandInput}
- * @returns {@link UpdateMultiplexProgramCommandOutput}
+ * @param UpdateMultiplexProgramRequest - {@link UpdateMultiplexProgramRequest}
+ * @returns {@link UpdateMultiplexProgramResponse}
  * @see {@link UpdateMultiplexProgramCommandInput} for command's `input` shape.
  * @see {@link UpdateMultiplexProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

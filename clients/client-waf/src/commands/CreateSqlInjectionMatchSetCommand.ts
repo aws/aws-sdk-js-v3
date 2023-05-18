@@ -93,8 +93,8 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  *
  * ```
  *
- * @param CreateSqlInjectionMatchSetCommandInput - {@link CreateSqlInjectionMatchSetCommandInput}
- * @returns {@link CreateSqlInjectionMatchSetCommandOutput}
+ * @param CreateSqlInjectionMatchSetRequest - {@link CreateSqlInjectionMatchSetRequest}
+ * @returns {@link CreateSqlInjectionMatchSetResponse}
  * @see {@link CreateSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

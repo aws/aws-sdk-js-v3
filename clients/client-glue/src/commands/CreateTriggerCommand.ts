@@ -88,8 +88,8 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  *
  * ```
  *
- * @param CreateTriggerCommandInput - {@link CreateTriggerCommandInput}
- * @returns {@link CreateTriggerCommandOutput}
+ * @param CreateTriggerRequest - {@link CreateTriggerRequest}
+ * @returns {@link CreateTriggerResponse}
  * @see {@link CreateTriggerCommandInput} for command's `input` shape.
  * @see {@link CreateTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

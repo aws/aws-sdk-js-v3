@@ -53,8 +53,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *
  * ```
  *
- * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
- * @returns {@link DescribeResourcePolicyCommandOutput}
+ * @param DescribeResourcePolicyRequest - {@link DescribeResourcePolicyRequest}
+ * @returns {@link DescribeResourcePolicyResponse}
  * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

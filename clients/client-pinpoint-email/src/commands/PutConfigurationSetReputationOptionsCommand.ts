@@ -58,8 +58,8 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  *
  * ```
  *
- * @param PutConfigurationSetReputationOptionsCommandInput - {@link PutConfigurationSetReputationOptionsCommandInput}
- * @returns {@link PutConfigurationSetReputationOptionsCommandOutput}
+ * @param PutConfigurationSetReputationOptionsRequest - {@link PutConfigurationSetReputationOptionsRequest}
+ * @returns {@link PutConfigurationSetReputationOptionsResponse}
  * @see {@link PutConfigurationSetReputationOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetReputationOptionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

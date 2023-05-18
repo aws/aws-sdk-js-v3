@@ -60,8 +60,8 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  *
  * ```
  *
- * @param ListContributorInsightsCommandInput - {@link ListContributorInsightsCommandInput}
- * @returns {@link ListContributorInsightsCommandOutput}
+ * @param ListContributorInsightsInput - {@link ListContributorInsightsInput}
+ * @returns {@link ListContributorInsightsOutput}
  * @see {@link ListContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link ListContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

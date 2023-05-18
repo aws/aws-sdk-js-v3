@@ -54,8 +54,8 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  *
  * ```
  *
- * @param UpdateMulticastGroupCommandInput - {@link UpdateMulticastGroupCommandInput}
- * @returns {@link UpdateMulticastGroupCommandOutput}
+ * @param UpdateMulticastGroupRequest - {@link UpdateMulticastGroupRequest}
+ * @returns {@link UpdateMulticastGroupResponse}
  * @see {@link UpdateMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

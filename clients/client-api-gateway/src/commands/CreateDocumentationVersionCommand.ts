@@ -55,8 +55,8 @@ export interface CreateDocumentationVersionCommandOutput extends DocumentationVe
  *
  * ```
  *
- * @param CreateDocumentationVersionCommandInput - {@link CreateDocumentationVersionCommandInput}
- * @returns {@link CreateDocumentationVersionCommandOutput}
+ * @param CreateDocumentationVersionRequest - {@link CreateDocumentationVersionRequest}
+ * @returns {@link DocumentationVersion}
  * @see {@link CreateDocumentationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentationVersionCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

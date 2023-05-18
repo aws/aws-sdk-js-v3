@@ -73,8 +73,8 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  *
  * ```
  *
- * @param CreateAccessKeyCommandInput - {@link CreateAccessKeyCommandInput}
- * @returns {@link CreateAccessKeyCommandOutput}
+ * @param CreateAccessKeyRequest - {@link CreateAccessKeyRequest}
+ * @returns {@link CreateAccessKeyResponse}
  * @see {@link CreateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

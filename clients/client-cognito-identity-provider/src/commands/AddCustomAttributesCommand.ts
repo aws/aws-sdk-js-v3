@@ -70,8 +70,8 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  *
  * ```
  *
- * @param AddCustomAttributesCommandInput - {@link AddCustomAttributesCommandInput}
- * @returns {@link AddCustomAttributesCommandOutput}
+ * @param AddCustomAttributesRequest - {@link AddCustomAttributesRequest}
+ * @returns {@link AddCustomAttributesResponse}
  * @see {@link AddCustomAttributesCommandInput} for command's `input` shape.
  * @see {@link AddCustomAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

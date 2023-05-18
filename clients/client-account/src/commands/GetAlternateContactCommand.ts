@@ -69,8 +69,8 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  *
  * ```
  *
- * @param GetAlternateContactCommandInput - {@link GetAlternateContactCommandInput}
- * @returns {@link GetAlternateContactCommandOutput}
+ * @param GetAlternateContactRequest - {@link GetAlternateContactRequest}
+ * @returns {@link GetAlternateContactResponse}
  * @see {@link GetAlternateContactCommandInput} for command's `input` shape.
  * @see {@link GetAlternateContactCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

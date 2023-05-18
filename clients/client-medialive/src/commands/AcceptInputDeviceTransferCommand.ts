@@ -48,8 +48,8 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  *
  * ```
  *
- * @param AcceptInputDeviceTransferCommandInput - {@link AcceptInputDeviceTransferCommandInput}
- * @returns {@link AcceptInputDeviceTransferCommandOutput}
+ * @param AcceptInputDeviceTransferRequest - {@link AcceptInputDeviceTransferRequest}
+ * @returns {@link AcceptInputDeviceTransferResponse}
  * @see {@link AcceptInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptInputDeviceTransferCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

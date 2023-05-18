@@ -135,8 +135,8 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  *
  * ```
  *
- * @param GetServiceLastAccessedDetailsCommandInput - {@link GetServiceLastAccessedDetailsCommandInput}
- * @returns {@link GetServiceLastAccessedDetailsCommandOutput}
+ * @param GetServiceLastAccessedDetailsRequest - {@link GetServiceLastAccessedDetailsRequest}
+ * @returns {@link GetServiceLastAccessedDetailsResponse}
  * @see {@link GetServiceLastAccessedDetailsCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

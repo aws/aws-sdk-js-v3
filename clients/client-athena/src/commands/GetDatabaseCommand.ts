@@ -57,8 +57,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  *
  * ```
  *
- * @param GetDatabaseCommandInput - {@link GetDatabaseCommandInput}
- * @returns {@link GetDatabaseCommandOutput}
+ * @param GetDatabaseInput - {@link GetDatabaseInput}
+ * @returns {@link GetDatabaseOutput}
  * @see {@link GetDatabaseCommandInput} for command's `input` shape.
  * @see {@link GetDatabaseCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

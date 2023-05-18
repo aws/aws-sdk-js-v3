@@ -170,8 +170,8 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *
  * ```
  *
- * @param GenerateDataKeyCommandInput - {@link GenerateDataKeyCommandInput}
- * @returns {@link GenerateDataKeyCommandOutput}
+ * @param GenerateDataKeyRequest - {@link GenerateDataKeyRequest}
+ * @returns {@link GenerateDataKeyResponse}
  * @see {@link GenerateDataKeyCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

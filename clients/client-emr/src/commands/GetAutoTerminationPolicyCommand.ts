@@ -52,8 +52,8 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  *
  * ```
  *
- * @param GetAutoTerminationPolicyCommandInput - {@link GetAutoTerminationPolicyCommandInput}
- * @returns {@link GetAutoTerminationPolicyCommandOutput}
+ * @param GetAutoTerminationPolicyInput - {@link GetAutoTerminationPolicyInput}
+ * @returns {@link GetAutoTerminationPolicyOutput}
  * @see {@link GetAutoTerminationPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

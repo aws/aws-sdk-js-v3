@@ -59,8 +59,8 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
  *
  * ```
  *
- * @param ListIdentityPoolsCommandInput - {@link ListIdentityPoolsCommandInput}
- * @returns {@link ListIdentityPoolsCommandOutput}
+ * @param ListIdentityPoolsInput - {@link ListIdentityPoolsInput}
+ * @returns {@link ListIdentityPoolsResponse}
  * @see {@link ListIdentityPoolsCommandInput} for command's `input` shape.
  * @see {@link ListIdentityPoolsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

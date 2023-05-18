@@ -46,8 +46,8 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  *
  * ```
  *
- * @param ResetAllResourceLogLevelsCommandInput - {@link ResetAllResourceLogLevelsCommandInput}
- * @returns {@link ResetAllResourceLogLevelsCommandOutput}
+ * @param ResetAllResourceLogLevelsRequest - {@link ResetAllResourceLogLevelsRequest}
+ * @returns {@link ResetAllResourceLogLevelsResponse}
  * @see {@link ResetAllResourceLogLevelsCommandInput} for command's `input` shape.
  * @see {@link ResetAllResourceLogLevelsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

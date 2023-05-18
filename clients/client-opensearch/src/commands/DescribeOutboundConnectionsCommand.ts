@@ -94,8 +94,8 @@ export interface DescribeOutboundConnectionsCommandOutput
  *
  * ```
  *
- * @param DescribeOutboundConnectionsCommandInput - {@link DescribeOutboundConnectionsCommandInput}
- * @returns {@link DescribeOutboundConnectionsCommandOutput}
+ * @param DescribeOutboundConnectionsRequest - {@link DescribeOutboundConnectionsRequest}
+ * @returns {@link DescribeOutboundConnectionsResponse}
  * @see {@link DescribeOutboundConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOutboundConnectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

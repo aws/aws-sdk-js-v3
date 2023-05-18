@@ -48,8 +48,8 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  *
  * ```
  *
- * @param DeleteResourceDefinitionCommandInput - {@link DeleteResourceDefinitionCommandInput}
- * @returns {@link DeleteResourceDefinitionCommandOutput}
+ * @param DeleteResourceDefinitionRequest - {@link DeleteResourceDefinitionRequest}
+ * @returns {@link DeleteResourceDefinitionResponse}
  * @see {@link DeleteResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

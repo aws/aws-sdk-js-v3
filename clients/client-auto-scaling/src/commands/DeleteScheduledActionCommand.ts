@@ -49,8 +49,8 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
- * @returns {@link DeleteScheduledActionCommandOutput}
+ * @param DeleteScheduledActionType - {@link DeleteScheduledActionType}
+ * @returns {@link Unit}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

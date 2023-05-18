@@ -53,8 +53,8 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param DeleteMedicalTranscriptionJobCommandInput - {@link DeleteMedicalTranscriptionJobCommandInput}
- * @returns {@link DeleteMedicalTranscriptionJobCommandOutput}
+ * @param DeleteMedicalTranscriptionJobRequest - {@link DeleteMedicalTranscriptionJobRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteMedicalTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

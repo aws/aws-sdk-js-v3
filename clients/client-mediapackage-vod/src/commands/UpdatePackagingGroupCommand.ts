@@ -68,8 +68,8 @@ export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupR
  *
  * ```
  *
- * @param UpdatePackagingGroupCommandInput - {@link UpdatePackagingGroupCommandInput}
- * @returns {@link UpdatePackagingGroupCommandOutput}
+ * @param UpdatePackagingGroupRequest - {@link UpdatePackagingGroupRequest}
+ * @returns {@link UpdatePackagingGroupResponse}
  * @see {@link UpdatePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdatePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

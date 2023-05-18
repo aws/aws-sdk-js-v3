@@ -58,8 +58,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  *
  * ```
  *
- * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
- * @returns {@link DeleteLoadBalancerCommandOutput}
+ * @param DeleteLoadBalancerInput - {@link DeleteLoadBalancerInput}
+ * @returns {@link DeleteLoadBalancerOutput}
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

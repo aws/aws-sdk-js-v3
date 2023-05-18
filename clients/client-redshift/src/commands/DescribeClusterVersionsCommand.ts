@@ -65,8 +65,8 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  *
  * ```
  *
- * @param DescribeClusterVersionsCommandInput - {@link DescribeClusterVersionsCommandInput}
- * @returns {@link DescribeClusterVersionsCommandOutput}
+ * @param DescribeClusterVersionsMessage - {@link DescribeClusterVersionsMessage}
+ * @returns {@link ClusterVersionsMessage}
  * @see {@link DescribeClusterVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterVersionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

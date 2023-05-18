@@ -85,8 +85,8 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  *
  * ```
  *
- * @param DescribePublicIpv4PoolsCommandInput - {@link DescribePublicIpv4PoolsCommandInput}
- * @returns {@link DescribePublicIpv4PoolsCommandOutput}
+ * @param DescribePublicIpv4PoolsRequest - {@link DescribePublicIpv4PoolsRequest}
+ * @returns {@link DescribePublicIpv4PoolsResult}
  * @see {@link DescribePublicIpv4PoolsCommandInput} for command's `input` shape.
  * @see {@link DescribePublicIpv4PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

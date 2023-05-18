@@ -98,8 +98,8 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  *
  * ```
  *
- * @param CreateSamplingRuleCommandInput - {@link CreateSamplingRuleCommandInput}
- * @returns {@link CreateSamplingRuleCommandOutput}
+ * @param CreateSamplingRuleRequest - {@link CreateSamplingRuleRequest}
+ * @returns {@link CreateSamplingRuleResult}
  * @see {@link CreateSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

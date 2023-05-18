@@ -55,8 +55,8 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  *
  * ```
  *
- * @param DescribeProtectedResourceCommandInput - {@link DescribeProtectedResourceCommandInput}
- * @returns {@link DescribeProtectedResourceCommandOutput}
+ * @param DescribeProtectedResourceInput - {@link DescribeProtectedResourceInput}
+ * @returns {@link DescribeProtectedResourceOutput}
  * @see {@link DescribeProtectedResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectedResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

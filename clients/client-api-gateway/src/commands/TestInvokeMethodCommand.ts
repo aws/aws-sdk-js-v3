@@ -77,8 +77,8 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  *
  * ```
  *
- * @param TestInvokeMethodCommandInput - {@link TestInvokeMethodCommandInput}
- * @returns {@link TestInvokeMethodCommandOutput}
+ * @param TestInvokeMethodRequest - {@link TestInvokeMethodRequest}
+ * @returns {@link TestInvokeMethodResponse}
  * @see {@link TestInvokeMethodCommandInput} for command's `input` shape.
  * @see {@link TestInvokeMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

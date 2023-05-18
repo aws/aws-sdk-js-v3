@@ -70,8 +70,8 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  *
  * ```
  *
- * @param ListAssistantAssociationsCommandInput - {@link ListAssistantAssociationsCommandInput}
- * @returns {@link ListAssistantAssociationsCommandOutput}
+ * @param ListAssistantAssociationsRequest - {@link ListAssistantAssociationsRequest}
+ * @returns {@link ListAssistantAssociationsResponse}
  * @see {@link ListAssistantAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssistantAssociationsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

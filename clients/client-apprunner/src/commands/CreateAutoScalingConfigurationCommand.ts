@@ -83,8 +83,8 @@ export interface CreateAutoScalingConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateAutoScalingConfigurationCommandInput - {@link CreateAutoScalingConfigurationCommandInput}
- * @returns {@link CreateAutoScalingConfigurationCommandOutput}
+ * @param CreateAutoScalingConfigurationRequest - {@link CreateAutoScalingConfigurationRequest}
+ * @returns {@link CreateAutoScalingConfigurationResponse}
  * @see {@link CreateAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

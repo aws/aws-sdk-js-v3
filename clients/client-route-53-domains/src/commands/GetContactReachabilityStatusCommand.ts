@@ -60,8 +60,8 @@ export interface GetContactReachabilityStatusCommandOutput
  *
  * ```
  *
- * @param GetContactReachabilityStatusCommandInput - {@link GetContactReachabilityStatusCommandInput}
- * @returns {@link GetContactReachabilityStatusCommandOutput}
+ * @param GetContactReachabilityStatusRequest - {@link GetContactReachabilityStatusRequest}
+ * @returns {@link GetContactReachabilityStatusResponse}
  * @see {@link GetContactReachabilityStatusCommandInput} for command's `input` shape.
  * @see {@link GetContactReachabilityStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

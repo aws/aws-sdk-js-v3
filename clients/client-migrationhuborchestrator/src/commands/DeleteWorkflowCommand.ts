@@ -57,8 +57,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteMigrationWorkflowResp
  *
  * ```
  *
- * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
- * @returns {@link DeleteWorkflowCommandOutput}
+ * @param DeleteMigrationWorkflowRequest - {@link DeleteMigrationWorkflowRequest}
+ * @returns {@link DeleteMigrationWorkflowResponse}
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

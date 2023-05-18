@@ -49,8 +49,8 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  *
  * ```
  *
- * @param DeleteVodSourceCommandInput - {@link DeleteVodSourceCommandInput}
- * @returns {@link DeleteVodSourceCommandOutput}
+ * @param DeleteVodSourceRequest - {@link DeleteVodSourceRequest}
+ * @returns {@link DeleteVodSourceResponse}
  * @see {@link DeleteVodSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

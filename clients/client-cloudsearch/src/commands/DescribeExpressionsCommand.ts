@@ -68,8 +68,8 @@ export interface DescribeExpressionsCommandOutput extends DescribeExpressionsRes
  *
  * ```
  *
- * @param DescribeExpressionsCommandInput - {@link DescribeExpressionsCommandInput}
- * @returns {@link DescribeExpressionsCommandOutput}
+ * @param DescribeExpressionsRequest - {@link DescribeExpressionsRequest}
+ * @returns {@link DescribeExpressionsResponse}
  * @see {@link DescribeExpressionsCommandInput} for command's `input` shape.
  * @see {@link DescribeExpressionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

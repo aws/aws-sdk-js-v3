@@ -324,8 +324,8 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *
  * ```
  *
- * @param CreateDBInstanceReadReplicaCommandInput - {@link CreateDBInstanceReadReplicaCommandInput}
- * @returns {@link CreateDBInstanceReadReplicaCommandOutput}
+ * @param CreateDBInstanceReadReplicaMessage - {@link CreateDBInstanceReadReplicaMessage}
+ * @returns {@link CreateDBInstanceReadReplicaResult}
  * @see {@link CreateDBInstanceReadReplicaCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

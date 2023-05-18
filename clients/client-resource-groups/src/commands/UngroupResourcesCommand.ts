@@ -81,8 +81,8 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  *
  * ```
  *
- * @param UngroupResourcesCommandInput - {@link UngroupResourcesCommandInput}
- * @returns {@link UngroupResourcesCommandOutput}
+ * @param UngroupResourcesInput - {@link UngroupResourcesInput}
+ * @returns {@link UngroupResourcesOutput}
  * @see {@link UngroupResourcesCommandInput} for command's `input` shape.
  * @see {@link UngroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

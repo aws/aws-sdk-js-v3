@@ -77,8 +77,8 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  *
  * ```
  *
- * @param CreateExportJobCommandInput - {@link CreateExportJobCommandInput}
- * @returns {@link CreateExportJobCommandOutput}
+ * @param CreateExportJobRequest - {@link CreateExportJobRequest}
+ * @returns {@link CreateExportJobResponse}
  * @see {@link CreateExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateExportJobCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

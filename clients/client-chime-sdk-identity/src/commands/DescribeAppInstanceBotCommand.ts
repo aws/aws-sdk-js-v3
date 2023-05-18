@@ -68,8 +68,8 @@ export interface DescribeAppInstanceBotCommandOutput extends DescribeAppInstance
  *
  * ```
  *
- * @param DescribeAppInstanceBotCommandInput - {@link DescribeAppInstanceBotCommandInput}
- * @returns {@link DescribeAppInstanceBotCommandOutput}
+ * @param DescribeAppInstanceBotRequest - {@link DescribeAppInstanceBotRequest}
+ * @returns {@link DescribeAppInstanceBotResponse}
  * @see {@link DescribeAppInstanceBotCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceBotCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

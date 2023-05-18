@@ -63,8 +63,8 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  *
  * ```
  *
- * @param ListIdentityPoliciesCommandInput - {@link ListIdentityPoliciesCommandInput}
- * @returns {@link ListIdentityPoliciesCommandOutput}
+ * @param ListIdentityPoliciesRequest - {@link ListIdentityPoliciesRequest}
+ * @returns {@link ListIdentityPoliciesResponse}
  * @see {@link ListIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

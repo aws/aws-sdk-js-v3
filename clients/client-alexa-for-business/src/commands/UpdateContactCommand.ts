@@ -68,8 +68,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *
  * ```
  *
- * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
- * @returns {@link UpdateContactCommandOutput}
+ * @param UpdateContactRequest - {@link UpdateContactRequest}
+ * @returns {@link UpdateContactResponse}
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

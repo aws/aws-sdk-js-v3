@@ -78,8 +78,8 @@ export interface RotateIngestEndpointCredentialsCommandOutput
  *
  * ```
  *
- * @param RotateIngestEndpointCredentialsCommandInput - {@link RotateIngestEndpointCredentialsCommandInput}
- * @returns {@link RotateIngestEndpointCredentialsCommandOutput}
+ * @param RotateIngestEndpointCredentialsRequest - {@link RotateIngestEndpointCredentialsRequest}
+ * @returns {@link RotateIngestEndpointCredentialsResponse}
  * @see {@link RotateIngestEndpointCredentialsCommandInput} for command's `input` shape.
  * @see {@link RotateIngestEndpointCredentialsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

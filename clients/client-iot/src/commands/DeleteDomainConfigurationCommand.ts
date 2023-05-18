@@ -49,8 +49,8 @@ export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConf
  *
  * ```
  *
- * @param DeleteDomainConfigurationCommandInput - {@link DeleteDomainConfigurationCommandInput}
- * @returns {@link DeleteDomainConfigurationCommandOutput}
+ * @param DeleteDomainConfigurationRequest - {@link DeleteDomainConfigurationRequest}
+ * @returns {@link DeleteDomainConfigurationResponse}
  * @see {@link DeleteDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

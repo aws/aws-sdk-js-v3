@@ -97,8 +97,8 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  *
  * ```
  *
- * @param PutLifecycleHookCommandInput - {@link PutLifecycleHookCommandInput}
- * @returns {@link PutLifecycleHookCommandOutput}
+ * @param PutLifecycleHookType - {@link PutLifecycleHookType}
+ * @returns {@link PutLifecycleHookAnswer}
  * @see {@link PutLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

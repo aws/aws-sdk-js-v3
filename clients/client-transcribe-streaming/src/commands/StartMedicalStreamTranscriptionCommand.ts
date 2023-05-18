@@ -184,8 +184,8 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  *
  * ```
  *
- * @param StartMedicalStreamTranscriptionCommandInput - {@link StartMedicalStreamTranscriptionCommandInput}
- * @returns {@link StartMedicalStreamTranscriptionCommandOutput}
+ * @param StartMedicalStreamTranscriptionRequest - {@link StartMedicalStreamTranscriptionRequest}
+ * @returns {@link StartMedicalStreamTranscriptionResponse}
  * @see {@link StartMedicalStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMedicalStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.

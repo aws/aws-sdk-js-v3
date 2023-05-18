@@ -89,8 +89,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *
  * ```
  *
- * @param UpdateApplicationSettingsCommandInput - {@link UpdateApplicationSettingsCommandInput}
- * @returns {@link UpdateApplicationSettingsCommandOutput}
+ * @param UpdateApplicationSettingsRequest - {@link UpdateApplicationSettingsRequest}
+ * @returns {@link UpdateApplicationSettingsResponse}
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

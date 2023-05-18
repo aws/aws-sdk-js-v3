@@ -69,8 +69,8 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
  *
  * ```
  *
- * @param DescribeEffectiveInstanceAssociationsCommandInput - {@link DescribeEffectiveInstanceAssociationsCommandInput}
- * @returns {@link DescribeEffectiveInstanceAssociationsCommandOutput}
+ * @param DescribeEffectiveInstanceAssociationsRequest - {@link DescribeEffectiveInstanceAssociationsRequest}
+ * @returns {@link DescribeEffectiveInstanceAssociationsResult}
  * @see {@link DescribeEffectiveInstanceAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectiveInstanceAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -92,8 +92,8 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  *
  * ```
  *
- * @param PutAlarmCommandInput - {@link PutAlarmCommandInput}
- * @returns {@link PutAlarmCommandOutput}
+ * @param PutAlarmRequest - {@link PutAlarmRequest}
+ * @returns {@link PutAlarmResult}
  * @see {@link PutAlarmCommandInput} for command's `input` shape.
  * @see {@link PutAlarmCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

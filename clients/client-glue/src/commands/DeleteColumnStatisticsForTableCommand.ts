@@ -57,8 +57,8 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  *
  * ```
  *
- * @param DeleteColumnStatisticsForTableCommandInput - {@link DeleteColumnStatisticsForTableCommandInput}
- * @returns {@link DeleteColumnStatisticsForTableCommandOutput}
+ * @param DeleteColumnStatisticsForTableRequest - {@link DeleteColumnStatisticsForTableRequest}
+ * @returns {@link DeleteColumnStatisticsForTableResponse}
  * @see {@link DeleteColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link DeleteColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

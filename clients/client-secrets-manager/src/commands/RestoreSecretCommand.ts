@@ -59,8 +59,8 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  *
  * ```
  *
- * @param RestoreSecretCommandInput - {@link RestoreSecretCommandInput}
- * @returns {@link RestoreSecretCommandOutput}
+ * @param RestoreSecretRequest - {@link RestoreSecretRequest}
+ * @returns {@link RestoreSecretResponse}
  * @see {@link RestoreSecretCommandInput} for command's `input` shape.
  * @see {@link RestoreSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

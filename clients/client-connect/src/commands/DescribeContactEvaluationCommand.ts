@@ -229,8 +229,8 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  *
  * ```
  *
- * @param DescribeContactEvaluationCommandInput - {@link DescribeContactEvaluationCommandInput}
- * @returns {@link DescribeContactEvaluationCommandOutput}
+ * @param DescribeContactEvaluationRequest - {@link DescribeContactEvaluationRequest}
+ * @returns {@link DescribeContactEvaluationResponse}
  * @see {@link DescribeContactEvaluationCommandInput} for command's `input` shape.
  * @see {@link DescribeContactEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

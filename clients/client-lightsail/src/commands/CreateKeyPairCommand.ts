@@ -100,8 +100,8 @@ export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __Metad
  *
  * ```
  *
- * @param CreateKeyPairCommandInput - {@link CreateKeyPairCommandInput}
- * @returns {@link CreateKeyPairCommandOutput}
+ * @param CreateKeyPairRequest - {@link CreateKeyPairRequest}
+ * @returns {@link CreateKeyPairResult}
  * @see {@link CreateKeyPairCommandInput} for command's `input` shape.
  * @see {@link CreateKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

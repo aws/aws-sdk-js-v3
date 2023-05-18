@@ -49,8 +49,8 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  *
  * ```
  *
- * @param DeleteAllowListCommandInput - {@link DeleteAllowListCommandInput}
- * @returns {@link DeleteAllowListCommandOutput}
+ * @param DeleteAllowListRequest - {@link DeleteAllowListRequest}
+ * @returns {@link DeleteAllowListResponse}
  * @see {@link DeleteAllowListCommandInput} for command's `input` shape.
  * @see {@link DeleteAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

@@ -49,8 +49,8 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  *
  * ```
  *
- * @param StartAppReplicationCommandInput - {@link StartAppReplicationCommandInput}
- * @returns {@link StartAppReplicationCommandOutput}
+ * @param StartAppReplicationRequest - {@link StartAppReplicationRequest}
+ * @returns {@link StartAppReplicationResponse}
  * @see {@link StartAppReplicationCommandInput} for command's `input` shape.
  * @see {@link StartAppReplicationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

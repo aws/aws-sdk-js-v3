@@ -93,8 +93,8 @@ export interface DescribeResourceCollectionHealthCommandOutput
  *
  * ```
  *
- * @param DescribeResourceCollectionHealthCommandInput - {@link DescribeResourceCollectionHealthCommandInput}
- * @returns {@link DescribeResourceCollectionHealthCommandOutput}
+ * @param DescribeResourceCollectionHealthRequest - {@link DescribeResourceCollectionHealthRequest}
+ * @returns {@link DescribeResourceCollectionHealthResponse}
  * @see {@link DescribeResourceCollectionHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceCollectionHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

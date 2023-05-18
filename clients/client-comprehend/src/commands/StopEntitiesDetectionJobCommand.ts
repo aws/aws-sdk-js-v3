@@ -60,8 +60,8 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  *
  * ```
  *
- * @param StopEntitiesDetectionJobCommandInput - {@link StopEntitiesDetectionJobCommandInput}
- * @returns {@link StopEntitiesDetectionJobCommandOutput}
+ * @param StopEntitiesDetectionJobRequest - {@link StopEntitiesDetectionJobRequest}
+ * @returns {@link StopEntitiesDetectionJobResponse}
  * @see {@link StopEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

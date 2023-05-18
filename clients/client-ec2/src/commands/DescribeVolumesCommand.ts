@@ -100,8 +100,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  *
  * ```
  *
- * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
- * @returns {@link DescribeVolumesCommandOutput}
+ * @param DescribeVolumesRequest - {@link DescribeVolumesRequest}
+ * @returns {@link DescribeVolumesResult}
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -177,8 +177,8 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *
  * ```
  *
- * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
- * @returns {@link PutPolicyCommandOutput}
+ * @param PutPolicyRequest - {@link PutPolicyRequest}
+ * @returns {@link PutPolicyResponse}
  * @see {@link PutPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPolicyCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

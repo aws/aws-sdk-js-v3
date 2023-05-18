@@ -59,8 +59,8 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  *
  * ```
  *
- * @param GetBackendCommandInput - {@link GetBackendCommandInput}
- * @returns {@link GetBackendCommandOutput}
+ * @param GetBackendRequest - {@link GetBackendRequest}
+ * @returns {@link GetBackendResponse}
  * @see {@link GetBackendCommandInput} for command's `input` shape.
  * @see {@link GetBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

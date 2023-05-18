@@ -70,8 +70,8 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  *
  * ```
  *
- * @param DescribeCodeCoveragesCommandInput - {@link DescribeCodeCoveragesCommandInput}
- * @returns {@link DescribeCodeCoveragesCommandOutput}
+ * @param DescribeCodeCoveragesInput - {@link DescribeCodeCoveragesInput}
+ * @returns {@link DescribeCodeCoveragesOutput}
  * @see {@link DescribeCodeCoveragesCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeCoveragesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

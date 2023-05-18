@@ -116,8 +116,8 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
  *
  * ```
  *
- * @param ReadPresetCommandInput - {@link ReadPresetCommandInput}
- * @returns {@link ReadPresetCommandOutput}
+ * @param ReadPresetRequest - {@link ReadPresetRequest}
+ * @returns {@link ReadPresetResponse}
  * @see {@link ReadPresetCommandInput} for command's `input` shape.
  * @see {@link ReadPresetCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

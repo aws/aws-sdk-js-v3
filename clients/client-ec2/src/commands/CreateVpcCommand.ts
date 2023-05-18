@@ -117,8 +117,8 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  *
  * ```
  *
- * @param CreateVpcCommandInput - {@link CreateVpcCommandInput}
- * @returns {@link CreateVpcCommandOutput}
+ * @param CreateVpcRequest - {@link CreateVpcRequest}
+ * @returns {@link CreateVpcResult}
  * @see {@link CreateVpcCommandInput} for command's `input` shape.
  * @see {@link CreateVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

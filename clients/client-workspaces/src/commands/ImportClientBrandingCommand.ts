@@ -184,8 +184,8 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *
  * ```
  *
- * @param ImportClientBrandingCommandInput - {@link ImportClientBrandingCommandInput}
- * @returns {@link ImportClientBrandingCommandOutput}
+ * @param ImportClientBrandingRequest - {@link ImportClientBrandingRequest}
+ * @returns {@link ImportClientBrandingResult}
  * @see {@link ImportClientBrandingCommandInput} for command's `input` shape.
  * @see {@link ImportClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

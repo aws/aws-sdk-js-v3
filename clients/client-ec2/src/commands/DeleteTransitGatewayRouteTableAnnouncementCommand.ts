@@ -77,8 +77,8 @@ export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
  *
  * ```
  *
- * @param DeleteTransitGatewayRouteTableAnnouncementCommandInput - {@link DeleteTransitGatewayRouteTableAnnouncementCommandInput}
- * @returns {@link DeleteTransitGatewayRouteTableAnnouncementCommandOutput}
+ * @param DeleteTransitGatewayRouteTableAnnouncementRequest - {@link DeleteTransitGatewayRouteTableAnnouncementRequest}
+ * @returns {@link DeleteTransitGatewayRouteTableAnnouncementResult}
  * @see {@link DeleteTransitGatewayRouteTableAnnouncementCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayRouteTableAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

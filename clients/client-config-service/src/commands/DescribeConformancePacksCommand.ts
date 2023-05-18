@@ -75,8 +75,8 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  *
  * ```
  *
- * @param DescribeConformancePacksCommandInput - {@link DescribeConformancePacksCommandInput}
- * @returns {@link DescribeConformancePacksCommandOutput}
+ * @param DescribeConformancePacksRequest - {@link DescribeConformancePacksRequest}
+ * @returns {@link DescribeConformancePacksResponse}
  * @see {@link DescribeConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeConformancePacksCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

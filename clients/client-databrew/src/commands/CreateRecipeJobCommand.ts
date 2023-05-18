@@ -124,8 +124,8 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  *
  * ```
  *
- * @param CreateRecipeJobCommandInput - {@link CreateRecipeJobCommandInput}
- * @returns {@link CreateRecipeJobCommandOutput}
+ * @param CreateRecipeJobRequest - {@link CreateRecipeJobRequest}
+ * @returns {@link CreateRecipeJobResponse}
  * @see {@link CreateRecipeJobCommandInput} for command's `input` shape.
  * @see {@link CreateRecipeJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

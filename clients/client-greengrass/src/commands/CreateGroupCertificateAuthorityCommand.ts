@@ -56,8 +56,8 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  *
  * ```
  *
- * @param CreateGroupCertificateAuthorityCommandInput - {@link CreateGroupCertificateAuthorityCommandInput}
- * @returns {@link CreateGroupCertificateAuthorityCommandOutput}
+ * @param CreateGroupCertificateAuthorityRequest - {@link CreateGroupCertificateAuthorityRequest}
+ * @returns {@link CreateGroupCertificateAuthorityResponse}
  * @see {@link CreateGroupCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -96,8 +96,8 @@ export interface ListKeyPhrasesDetectionJobsCommandOutput
  *
  * ```
  *
- * @param ListKeyPhrasesDetectionJobsCommandInput - {@link ListKeyPhrasesDetectionJobsCommandInput}
- * @returns {@link ListKeyPhrasesDetectionJobsCommandOutput}
+ * @param ListKeyPhrasesDetectionJobsRequest - {@link ListKeyPhrasesDetectionJobsRequest}
+ * @returns {@link ListKeyPhrasesDetectionJobsResponse}
  * @see {@link ListKeyPhrasesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListKeyPhrasesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -75,8 +75,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  *
  * ```
  *
- * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
- * @returns {@link DescribeExecutionCommandOutput}
+ * @param DescribeExecutionInput - {@link DescribeExecutionInput}
+ * @returns {@link DescribeExecutionOutput}
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

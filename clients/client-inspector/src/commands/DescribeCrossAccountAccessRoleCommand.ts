@@ -56,8 +56,8 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  *
  * ```
  *
- * @param DescribeCrossAccountAccessRoleCommandInput - {@link DescribeCrossAccountAccessRoleCommandInput}
- * @returns {@link DescribeCrossAccountAccessRoleCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeCrossAccountAccessRoleResponse}
  * @see {@link DescribeCrossAccountAccessRoleCommandInput} for command's `input` shape.
  * @see {@link DescribeCrossAccountAccessRoleCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

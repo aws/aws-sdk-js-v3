@@ -97,8 +97,8 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  *
  * ```
  *
- * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
- * @returns {@link CreateServiceCommandOutput}
+ * @param CreateServiceInput - {@link CreateServiceInput}
+ * @returns {@link CreateServiceOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

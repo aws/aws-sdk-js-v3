@@ -107,8 +107,8 @@ export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, _
  *
  * ```
  *
- * @param GetWorkflowStepCommandInput - {@link GetWorkflowStepCommandInput}
- * @returns {@link GetWorkflowStepCommandOutput}
+ * @param GetWorkflowStepRequest - {@link GetWorkflowStepRequest}
+ * @returns {@link GetWorkflowStepResponse}
  * @see {@link GetWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

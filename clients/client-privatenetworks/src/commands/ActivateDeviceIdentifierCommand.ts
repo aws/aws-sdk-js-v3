@@ -68,8 +68,8 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  *
  * ```
  *
- * @param ActivateDeviceIdentifierCommandInput - {@link ActivateDeviceIdentifierCommandInput}
- * @returns {@link ActivateDeviceIdentifierCommandOutput}
+ * @param ActivateDeviceIdentifierRequest - {@link ActivateDeviceIdentifierRequest}
+ * @returns {@link ActivateDeviceIdentifierResponse}
  * @see {@link ActivateDeviceIdentifierCommandInput} for command's `input` shape.
  * @see {@link ActivateDeviceIdentifierCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

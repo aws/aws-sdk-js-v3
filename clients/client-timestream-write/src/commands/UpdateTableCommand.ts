@@ -94,8 +94,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *
  * ```
  *
- * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
- * @returns {@link UpdateTableCommandOutput}
+ * @param UpdateTableRequest - {@link UpdateTableRequest}
+ * @returns {@link UpdateTableResponse}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

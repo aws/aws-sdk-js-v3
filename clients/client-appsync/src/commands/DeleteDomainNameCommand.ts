@@ -48,8 +48,8 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  *
  * ```
  *
- * @param DeleteDomainNameCommandInput - {@link DeleteDomainNameCommandInput}
- * @returns {@link DeleteDomainNameCommandOutput}
+ * @param DeleteDomainNameRequest - {@link DeleteDomainNameRequest}
+ * @returns {@link DeleteDomainNameResponse}
  * @see {@link DeleteDomainNameCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainNameCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

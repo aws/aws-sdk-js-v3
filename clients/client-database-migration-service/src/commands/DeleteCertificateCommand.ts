@@ -65,8 +65,8 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  *
  * ```
  *
- * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
- * @returns {@link DeleteCertificateCommandOutput}
+ * @param DeleteCertificateMessage - {@link DeleteCertificateMessage}
+ * @returns {@link DeleteCertificateResponse}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

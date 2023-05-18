@@ -104,8 +104,8 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  *
  * ```
  *
- * @param CreateForecastCommandInput - {@link CreateForecastCommandInput}
- * @returns {@link CreateForecastCommandOutput}
+ * @param CreateForecastRequest - {@link CreateForecastRequest}
+ * @returns {@link CreateForecastResponse}
  * @see {@link CreateForecastCommandInput} for command's `input` shape.
  * @see {@link CreateForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

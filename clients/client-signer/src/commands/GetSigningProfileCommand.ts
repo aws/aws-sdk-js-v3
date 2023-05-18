@@ -83,8 +83,8 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  *
  * ```
  *
- * @param GetSigningProfileCommandInput - {@link GetSigningProfileCommandInput}
- * @returns {@link GetSigningProfileCommandOutput}
+ * @param GetSigningProfileRequest - {@link GetSigningProfileRequest}
+ * @returns {@link GetSigningProfileResponse}
  * @see {@link GetSigningProfileCommandInput} for command's `input` shape.
  * @see {@link GetSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

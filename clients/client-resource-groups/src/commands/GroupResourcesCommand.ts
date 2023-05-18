@@ -96,8 +96,8 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  *
  * ```
  *
- * @param GroupResourcesCommandInput - {@link GroupResourcesCommandInput}
- * @returns {@link GroupResourcesCommandOutput}
+ * @param GroupResourcesInput - {@link GroupResourcesInput}
+ * @returns {@link GroupResourcesOutput}
  * @see {@link GroupResourcesCommandInput} for command's `input` shape.
  * @see {@link GroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

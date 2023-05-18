@@ -65,8 +65,8 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  *
  * ```
  *
- * @param CreateLoginProfileCommandInput - {@link CreateLoginProfileCommandInput}
- * @returns {@link CreateLoginProfileCommandOutput}
+ * @param CreateLoginProfileRequest - {@link CreateLoginProfileRequest}
+ * @returns {@link CreateLoginProfileResponse}
  * @see {@link CreateLoginProfileCommandInput} for command's `input` shape.
  * @see {@link CreateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

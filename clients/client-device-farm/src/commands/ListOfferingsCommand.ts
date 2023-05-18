@@ -70,8 +70,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  *
  * ```
  *
- * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
- * @returns {@link ListOfferingsCommandOutput}
+ * @param ListOfferingsRequest - {@link ListOfferingsRequest}
+ * @returns {@link ListOfferingsResult}
  * @see {@link ListOfferingsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

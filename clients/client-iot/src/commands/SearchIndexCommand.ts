@@ -88,8 +88,8 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  *
  * ```
  *
- * @param SearchIndexCommandInput - {@link SearchIndexCommandInput}
- * @returns {@link SearchIndexCommandOutput}
+ * @param SearchIndexRequest - {@link SearchIndexRequest}
+ * @returns {@link SearchIndexResponse}
  * @see {@link SearchIndexCommandInput} for command's `input` shape.
  * @see {@link SearchIndexCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

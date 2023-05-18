@@ -66,8 +66,8 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  *
  * ```
  *
- * @param AssumeDecoratedRoleWithSAMLCommandInput - {@link AssumeDecoratedRoleWithSAMLCommandInput}
- * @returns {@link AssumeDecoratedRoleWithSAMLCommandOutput}
+ * @param AssumeDecoratedRoleWithSAMLRequest - {@link AssumeDecoratedRoleWithSAMLRequest}
+ * @returns {@link AssumeDecoratedRoleWithSAMLResponse}
  * @see {@link AssumeDecoratedRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeDecoratedRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

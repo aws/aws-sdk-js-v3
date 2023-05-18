@@ -56,8 +56,8 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  *
  * ```
  *
- * @param GetDomainNameCommandInput - {@link GetDomainNameCommandInput}
- * @returns {@link GetDomainNameCommandOutput}
+ * @param GetDomainNameRequest - {@link GetDomainNameRequest}
+ * @returns {@link GetDomainNameResponse}
  * @see {@link GetDomainNameCommandInput} for command's `input` shape.
  * @see {@link GetDomainNameCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

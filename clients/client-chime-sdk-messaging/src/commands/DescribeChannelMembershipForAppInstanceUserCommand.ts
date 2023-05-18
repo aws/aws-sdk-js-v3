@@ -86,8 +86,8 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  *
  * ```
  *
- * @param DescribeChannelMembershipForAppInstanceUserCommandInput - {@link DescribeChannelMembershipForAppInstanceUserCommandInput}
- * @returns {@link DescribeChannelMembershipForAppInstanceUserCommandOutput}
+ * @param DescribeChannelMembershipForAppInstanceUserRequest - {@link DescribeChannelMembershipForAppInstanceUserRequest}
+ * @returns {@link DescribeChannelMembershipForAppInstanceUserResponse}
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

@@ -68,8 +68,8 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  *
  * ```
  *
- * @param DescribePatchBaselinesCommandInput - {@link DescribePatchBaselinesCommandInput}
- * @returns {@link DescribePatchBaselinesCommandOutput}
+ * @param DescribePatchBaselinesRequest - {@link DescribePatchBaselinesRequest}
+ * @returns {@link DescribePatchBaselinesResult}
  * @see {@link DescribePatchBaselinesCommandInput} for command's `input` shape.
  * @see {@link DescribePatchBaselinesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

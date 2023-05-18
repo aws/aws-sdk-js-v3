@@ -55,8 +55,8 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteHostCommandInput - {@link DeleteHostCommandInput}
- * @returns {@link DeleteHostCommandOutput}
+ * @param DeleteHostInput - {@link DeleteHostInput}
+ * @returns {@link DeleteHostOutput}
  * @see {@link DeleteHostCommandInput} for command's `input` shape.
  * @see {@link DeleteHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

@@ -88,8 +88,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
- * @returns {@link UpdateOrganizationConfigurationCommandOutput}
+ * @param UpdateOrganizationConfigurationRequest - {@link UpdateOrganizationConfigurationRequest}
+ * @returns {@link UpdateOrganizationConfigurationResponse}
  * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

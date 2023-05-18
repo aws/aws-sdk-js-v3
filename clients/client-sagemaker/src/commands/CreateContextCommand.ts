@@ -70,8 +70,8 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  *
  * ```
  *
- * @param CreateContextCommandInput - {@link CreateContextCommandInput}
- * @returns {@link CreateContextCommandOutput}
+ * @param CreateContextRequest - {@link CreateContextRequest}
+ * @returns {@link CreateContextResponse}
  * @see {@link CreateContextCommandInput} for command's `input` shape.
  * @see {@link CreateContextCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -71,8 +71,8 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
  *
  * ```
  *
- * @param ListVodSourcesCommandInput - {@link ListVodSourcesCommandInput}
- * @returns {@link ListVodSourcesCommandOutput}
+ * @param ListVodSourcesRequest - {@link ListVodSourcesRequest}
+ * @returns {@link ListVodSourcesResponse}
  * @see {@link ListVodSourcesCommandInput} for command's `input` shape.
  * @see {@link ListVodSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

@@ -90,8 +90,8 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  *
  * ```
  *
- * @param DescribeTrustedAdvisorCheckRefreshStatusesCommandInput - {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput}
- * @returns {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput}
+ * @param DescribeTrustedAdvisorCheckRefreshStatusesRequest - {@link DescribeTrustedAdvisorCheckRefreshStatusesRequest}
+ * @returns {@link DescribeTrustedAdvisorCheckRefreshStatusesResponse}
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

@@ -71,8 +71,8 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  *
  * ```
  *
- * @param ListSimulationJobBatchesCommandInput - {@link ListSimulationJobBatchesCommandInput}
- * @returns {@link ListSimulationJobBatchesCommandOutput}
+ * @param ListSimulationJobBatchesRequest - {@link ListSimulationJobBatchesRequest}
+ * @returns {@link ListSimulationJobBatchesResponse}
  * @see {@link ListSimulationJobBatchesCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobBatchesCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

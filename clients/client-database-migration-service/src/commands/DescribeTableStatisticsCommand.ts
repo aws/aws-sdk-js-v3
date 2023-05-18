@@ -96,8 +96,8 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  *
  * ```
  *
- * @param DescribeTableStatisticsCommandInput - {@link DescribeTableStatisticsCommandInput}
- * @returns {@link DescribeTableStatisticsCommandOutput}
+ * @param DescribeTableStatisticsMessage - {@link DescribeTableStatisticsMessage}
+ * @returns {@link DescribeTableStatisticsResponse}
  * @see {@link DescribeTableStatisticsCommandInput} for command's `input` shape.
  * @see {@link DescribeTableStatisticsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

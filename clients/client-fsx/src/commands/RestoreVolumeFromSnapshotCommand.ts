@@ -533,8 +533,8 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  *
  * ```
  *
- * @param RestoreVolumeFromSnapshotCommandInput - {@link RestoreVolumeFromSnapshotCommandInput}
- * @returns {@link RestoreVolumeFromSnapshotCommandOutput}
+ * @param RestoreVolumeFromSnapshotRequest - {@link RestoreVolumeFromSnapshotRequest}
+ * @returns {@link RestoreVolumeFromSnapshotResponse}
  * @see {@link RestoreVolumeFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreVolumeFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

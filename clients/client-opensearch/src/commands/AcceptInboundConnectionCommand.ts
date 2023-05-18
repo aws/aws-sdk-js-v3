@@ -73,8 +73,8 @@ export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConne
  *
  * ```
  *
- * @param AcceptInboundConnectionCommandInput - {@link AcceptInboundConnectionCommandInput}
- * @returns {@link AcceptInboundConnectionCommandOutput}
+ * @param AcceptInboundConnectionRequest - {@link AcceptInboundConnectionRequest}
+ * @returns {@link AcceptInboundConnectionResponse}
  * @see {@link AcceptInboundConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptInboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

@@ -72,8 +72,8 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  *
  * ```
  *
- * @param CreateVehicleCommandInput - {@link CreateVehicleCommandInput}
- * @returns {@link CreateVehicleCommandOutput}
+ * @param CreateVehicleRequest - {@link CreateVehicleRequest}
+ * @returns {@link CreateVehicleResponse}
  * @see {@link CreateVehicleCommandInput} for command's `input` shape.
  * @see {@link CreateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

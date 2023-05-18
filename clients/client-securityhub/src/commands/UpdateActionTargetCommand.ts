@@ -50,8 +50,8 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  *
  * ```
  *
- * @param UpdateActionTargetCommandInput - {@link UpdateActionTargetCommandInput}
- * @returns {@link UpdateActionTargetCommandOutput}
+ * @param UpdateActionTargetRequest - {@link UpdateActionTargetRequest}
+ * @returns {@link UpdateActionTargetResponse}
  * @see {@link UpdateActionTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateActionTargetCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

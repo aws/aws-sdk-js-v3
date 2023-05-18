@@ -89,8 +89,8 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  *
  * ```
  *
- * @param CreateCustomRoutingEndpointGroupCommandInput - {@link CreateCustomRoutingEndpointGroupCommandInput}
- * @returns {@link CreateCustomRoutingEndpointGroupCommandOutput}
+ * @param CreateCustomRoutingEndpointGroupRequest - {@link CreateCustomRoutingEndpointGroupRequest}
+ * @returns {@link CreateCustomRoutingEndpointGroupResponse}
  * @see {@link CreateCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

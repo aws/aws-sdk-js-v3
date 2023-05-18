@@ -185,8 +185,8 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *
  * ```
  *
- * @param StartCallAnalyticsJobCommandInput - {@link StartCallAnalyticsJobCommandInput}
- * @returns {@link StartCallAnalyticsJobCommandOutput}
+ * @param StartCallAnalyticsJobRequest - {@link StartCallAnalyticsJobRequest}
+ * @returns {@link StartCallAnalyticsJobResponse}
  * @see {@link StartCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link StartCallAnalyticsJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

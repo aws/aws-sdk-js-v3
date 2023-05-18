@@ -52,8 +52,8 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  *
  * ```
  *
- * @param GetSnowballUsageCommandInput - {@link GetSnowballUsageCommandInput}
- * @returns {@link GetSnowballUsageCommandOutput}
+ * @param GetSnowballUsageRequest - {@link GetSnowballUsageRequest}
+ * @returns {@link GetSnowballUsageResult}
  * @see {@link GetSnowballUsageCommandInput} for command's `input` shape.
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

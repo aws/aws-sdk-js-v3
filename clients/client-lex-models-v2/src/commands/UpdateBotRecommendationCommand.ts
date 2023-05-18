@@ -94,8 +94,8 @@ export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommend
  *
  * ```
  *
- * @param UpdateBotRecommendationCommandInput - {@link UpdateBotRecommendationCommandInput}
- * @returns {@link UpdateBotRecommendationCommandOutput}
+ * @param UpdateBotRecommendationRequest - {@link UpdateBotRecommendationRequest}
+ * @returns {@link UpdateBotRecommendationResponse}
  * @see {@link UpdateBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link UpdateBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

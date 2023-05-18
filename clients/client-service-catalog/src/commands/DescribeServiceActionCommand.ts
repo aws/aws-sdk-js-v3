@@ -61,8 +61,8 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
  *
  * ```
  *
- * @param DescribeServiceActionCommandInput - {@link DescribeServiceActionCommandInput}
- * @returns {@link DescribeServiceActionCommandOutput}
+ * @param DescribeServiceActionInput - {@link DescribeServiceActionInput}
+ * @returns {@link DescribeServiceActionOutput}
  * @see {@link DescribeServiceActionCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

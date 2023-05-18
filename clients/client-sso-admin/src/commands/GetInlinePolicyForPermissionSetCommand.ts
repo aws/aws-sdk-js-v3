@@ -56,8 +56,8 @@ export interface GetInlinePolicyForPermissionSetCommandOutput
  *
  * ```
  *
- * @param GetInlinePolicyForPermissionSetCommandInput - {@link GetInlinePolicyForPermissionSetCommandInput}
- * @returns {@link GetInlinePolicyForPermissionSetCommandOutput}
+ * @param GetInlinePolicyForPermissionSetRequest - {@link GetInlinePolicyForPermissionSetRequest}
+ * @returns {@link GetInlinePolicyForPermissionSetResponse}
  * @see {@link GetInlinePolicyForPermissionSetCommandInput} for command's `input` shape.
  * @see {@link GetInlinePolicyForPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

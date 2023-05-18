@@ -54,8 +54,8 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  *
  * ```
  *
- * @param DeleteHumanLoopCommandInput - {@link DeleteHumanLoopCommandInput}
- * @returns {@link DeleteHumanLoopCommandOutput}
+ * @param DeleteHumanLoopRequest - {@link DeleteHumanLoopRequest}
+ * @returns {@link DeleteHumanLoopResponse}
  * @see {@link DeleteHumanLoopCommandInput} for command's `input` shape.
  * @see {@link DeleteHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.

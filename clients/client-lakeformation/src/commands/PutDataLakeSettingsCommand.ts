@@ -91,8 +91,8 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  *
  * ```
  *
- * @param PutDataLakeSettingsCommandInput - {@link PutDataLakeSettingsCommandInput}
- * @returns {@link PutDataLakeSettingsCommandOutput}
+ * @param PutDataLakeSettingsRequest - {@link PutDataLakeSettingsRequest}
+ * @returns {@link PutDataLakeSettingsResponse}
  * @see {@link PutDataLakeSettingsCommandInput} for command's `input` shape.
  * @see {@link PutDataLakeSettingsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

@@ -54,8 +54,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  *
  * ```
  *
- * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
- * @returns {@link DeleteLifecyclePolicyCommandOutput}
+ * @param DeleteLifecyclePolicyRequest - {@link DeleteLifecyclePolicyRequest}
+ * @returns {@link DeleteLifecyclePolicyResponse}
  * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

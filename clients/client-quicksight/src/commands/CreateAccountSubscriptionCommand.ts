@@ -99,8 +99,8 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  *
  * ```
  *
- * @param CreateAccountSubscriptionCommandInput - {@link CreateAccountSubscriptionCommandInput}
- * @returns {@link CreateAccountSubscriptionCommandOutput}
+ * @param CreateAccountSubscriptionRequest - {@link CreateAccountSubscriptionRequest}
+ * @returns {@link CreateAccountSubscriptionResponse}
  * @see {@link CreateAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

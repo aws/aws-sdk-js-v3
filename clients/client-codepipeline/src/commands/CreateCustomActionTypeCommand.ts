@@ -122,8 +122,8 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  *
  * ```
  *
- * @param CreateCustomActionTypeCommandInput - {@link CreateCustomActionTypeCommandInput}
- * @returns {@link CreateCustomActionTypeCommandOutput}
+ * @param CreateCustomActionTypeInput - {@link CreateCustomActionTypeInput}
+ * @returns {@link CreateCustomActionTypeOutput}
  * @see {@link CreateCustomActionTypeCommandInput} for command's `input` shape.
  * @see {@link CreateCustomActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

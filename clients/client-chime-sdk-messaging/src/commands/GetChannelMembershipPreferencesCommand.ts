@@ -84,8 +84,8 @@ export interface GetChannelMembershipPreferencesCommandOutput
  *
  * ```
  *
- * @param GetChannelMembershipPreferencesCommandInput - {@link GetChannelMembershipPreferencesCommandInput}
- * @returns {@link GetChannelMembershipPreferencesCommandOutput}
+ * @param GetChannelMembershipPreferencesRequest - {@link GetChannelMembershipPreferencesRequest}
+ * @returns {@link GetChannelMembershipPreferencesResponse}
  * @see {@link GetChannelMembershipPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetChannelMembershipPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

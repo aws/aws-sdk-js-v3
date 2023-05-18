@@ -71,8 +71,8 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  *
  * ```
  *
- * @param ListAutomaticTapeCreationPoliciesCommandInput - {@link ListAutomaticTapeCreationPoliciesCommandInput}
- * @returns {@link ListAutomaticTapeCreationPoliciesCommandOutput}
+ * @param ListAutomaticTapeCreationPoliciesInput - {@link ListAutomaticTapeCreationPoliciesInput}
+ * @returns {@link ListAutomaticTapeCreationPoliciesOutput}
  * @see {@link ListAutomaticTapeCreationPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAutomaticTapeCreationPoliciesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

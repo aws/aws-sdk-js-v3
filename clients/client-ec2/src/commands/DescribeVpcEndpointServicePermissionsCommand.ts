@@ -85,8 +85,8 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeVpcEndpointServicePermissionsCommandInput - {@link DescribeVpcEndpointServicePermissionsCommandInput}
- * @returns {@link DescribeVpcEndpointServicePermissionsCommandOutput}
+ * @param DescribeVpcEndpointServicePermissionsRequest - {@link DescribeVpcEndpointServicePermissionsRequest}
+ * @returns {@link DescribeVpcEndpointServicePermissionsResult}
  * @see {@link DescribeVpcEndpointServicePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

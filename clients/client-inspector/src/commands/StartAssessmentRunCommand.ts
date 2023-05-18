@@ -53,8 +53,8 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  *
  * ```
  *
- * @param StartAssessmentRunCommandInput - {@link StartAssessmentRunCommandInput}
- * @returns {@link StartAssessmentRunCommandOutput}
+ * @param StartAssessmentRunRequest - {@link StartAssessmentRunRequest}
+ * @returns {@link StartAssessmentRunResponse}
  * @see {@link StartAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

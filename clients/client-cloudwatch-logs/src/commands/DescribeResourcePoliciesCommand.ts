@@ -58,8 +58,8 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  *
  * ```
  *
- * @param DescribeResourcePoliciesCommandInput - {@link DescribeResourcePoliciesCommandInput}
- * @returns {@link DescribeResourcePoliciesCommandOutput}
+ * @param DescribeResourcePoliciesRequest - {@link DescribeResourcePoliciesRequest}
+ * @returns {@link DescribeResourcePoliciesResponse}
  * @see {@link DescribeResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

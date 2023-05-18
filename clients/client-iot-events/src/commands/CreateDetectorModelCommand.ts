@@ -445,8 +445,8 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
  *
  * ```
  *
- * @param CreateDetectorModelCommandInput - {@link CreateDetectorModelCommandInput}
- * @returns {@link CreateDetectorModelCommandOutput}
+ * @param CreateDetectorModelRequest - {@link CreateDetectorModelRequest}
+ * @returns {@link CreateDetectorModelResponse}
  * @see {@link CreateDetectorModelCommandInput} for command's `input` shape.
  * @see {@link CreateDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

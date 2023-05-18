@@ -69,8 +69,8 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  *
  * ```
  *
- * @param DescribeAttackStatisticsCommandInput - {@link DescribeAttackStatisticsCommandInput}
- * @returns {@link DescribeAttackStatisticsCommandOutput}
+ * @param DescribeAttackStatisticsRequest - {@link DescribeAttackStatisticsRequest}
+ * @returns {@link DescribeAttackStatisticsResponse}
  * @see {@link DescribeAttackStatisticsCommandInput} for command's `input` shape.
  * @see {@link DescribeAttackStatisticsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

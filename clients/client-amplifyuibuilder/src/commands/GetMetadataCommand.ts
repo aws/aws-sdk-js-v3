@@ -53,8 +53,8 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  *
  * ```
  *
- * @param GetMetadataCommandInput - {@link GetMetadataCommandInput}
- * @returns {@link GetMetadataCommandOutput}
+ * @param GetMetadataRequest - {@link GetMetadataRequest}
+ * @returns {@link GetMetadataResponse}
  * @see {@link GetMetadataCommandInput} for command's `input` shape.
  * @see {@link GetMetadataCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

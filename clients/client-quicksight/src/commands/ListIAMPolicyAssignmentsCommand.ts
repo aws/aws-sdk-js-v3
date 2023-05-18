@@ -64,8 +64,8 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
  *
  * ```
  *
- * @param ListIAMPolicyAssignmentsCommandInput - {@link ListIAMPolicyAssignmentsCommandInput}
- * @returns {@link ListIAMPolicyAssignmentsCommandOutput}
+ * @param ListIAMPolicyAssignmentsRequest - {@link ListIAMPolicyAssignmentsRequest}
+ * @returns {@link ListIAMPolicyAssignmentsResponse}
  * @see {@link ListIAMPolicyAssignmentsCommandInput} for command's `input` shape.
  * @see {@link ListIAMPolicyAssignmentsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

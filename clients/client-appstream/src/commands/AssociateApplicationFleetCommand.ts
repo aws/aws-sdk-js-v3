@@ -54,8 +54,8 @@ export interface AssociateApplicationFleetCommandOutput extends AssociateApplica
  *
  * ```
  *
- * @param AssociateApplicationFleetCommandInput - {@link AssociateApplicationFleetCommandInput}
- * @returns {@link AssociateApplicationFleetCommandOutput}
+ * @param AssociateApplicationFleetRequest - {@link AssociateApplicationFleetRequest}
+ * @returns {@link AssociateApplicationFleetResult}
  * @see {@link AssociateApplicationFleetCommandInput} for command's `input` shape.
  * @see {@link AssociateApplicationFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

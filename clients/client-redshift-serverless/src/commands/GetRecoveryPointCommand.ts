@@ -61,8 +61,8 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  *
  * ```
  *
- * @param GetRecoveryPointCommandInput - {@link GetRecoveryPointCommandInput}
- * @returns {@link GetRecoveryPointCommandOutput}
+ * @param GetRecoveryPointRequest - {@link GetRecoveryPointRequest}
+ * @returns {@link GetRecoveryPointResponse}
  * @see {@link GetRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

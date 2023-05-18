@@ -66,8 +66,8 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListRepositorySyncDefinitionsCommandInput - {@link ListRepositorySyncDefinitionsCommandInput}
- * @returns {@link ListRepositorySyncDefinitionsCommandOutput}
+ * @param ListRepositorySyncDefinitionsInput - {@link ListRepositorySyncDefinitionsInput}
+ * @returns {@link ListRepositorySyncDefinitionsOutput}
  * @see {@link ListRepositorySyncDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListRepositorySyncDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

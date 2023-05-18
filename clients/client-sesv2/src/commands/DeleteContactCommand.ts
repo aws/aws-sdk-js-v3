@@ -49,8 +49,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  *
  * ```
  *
- * @param DeleteContactCommandInput - {@link DeleteContactCommandInput}
- * @returns {@link DeleteContactCommandOutput}
+ * @param DeleteContactRequest - {@link DeleteContactRequest}
+ * @returns {@link DeleteContactResponse}
  * @see {@link DeleteContactCommandInput} for command's `input` shape.
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

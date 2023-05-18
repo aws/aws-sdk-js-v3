@@ -65,8 +65,8 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  *
  * ```
  *
- * @param InvokeAsyncCommandInput - {@link InvokeAsyncCommandInput}
- * @returns {@link InvokeAsyncCommandOutput}
+ * @param InvokeAsyncRequest - {@link InvokeAsyncRequest}
+ * @returns {@link InvokeAsyncResponse}
  * @see {@link InvokeAsyncCommandInput} for command's `input` shape.
  * @see {@link InvokeAsyncCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

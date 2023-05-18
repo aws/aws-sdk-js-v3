@@ -86,8 +86,8 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  *
  * ```
  *
- * @param DescribeFlowDefinitionCommandInput - {@link DescribeFlowDefinitionCommandInput}
- * @returns {@link DescribeFlowDefinitionCommandOutput}
+ * @param DescribeFlowDefinitionRequest - {@link DescribeFlowDefinitionRequest}
+ * @returns {@link DescribeFlowDefinitionResponse}
  * @see {@link DescribeFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

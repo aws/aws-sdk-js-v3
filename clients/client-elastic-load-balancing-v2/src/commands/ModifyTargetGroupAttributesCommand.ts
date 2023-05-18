@@ -65,8 +65,8 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  *
  * ```
  *
- * @param ModifyTargetGroupAttributesCommandInput - {@link ModifyTargetGroupAttributesCommandInput}
- * @returns {@link ModifyTargetGroupAttributesCommandOutput}
+ * @param ModifyTargetGroupAttributesInput - {@link ModifyTargetGroupAttributesInput}
+ * @returns {@link ModifyTargetGroupAttributesOutput}
  * @see {@link ModifyTargetGroupAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

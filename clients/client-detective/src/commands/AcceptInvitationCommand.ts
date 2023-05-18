@@ -51,8 +51,8 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
- * @returns {@link AcceptInvitationCommandOutput}
+ * @param AcceptInvitationRequest - {@link AcceptInvitationRequest}
+ * @returns {@link Unit}
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

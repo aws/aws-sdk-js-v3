@@ -54,8 +54,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
+ * @param ListEnvironmentsRequest - {@link ListEnvironmentsRequest}
+ * @returns {@link ListEnvironmentsResult}
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

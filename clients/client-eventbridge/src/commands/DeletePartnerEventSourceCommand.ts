@@ -53,8 +53,8 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeletePartnerEventSourceCommandInput - {@link DeletePartnerEventSourceCommandInput}
- * @returns {@link DeletePartnerEventSourceCommandOutput}
+ * @param DeletePartnerEventSourceRequest - {@link DeletePartnerEventSourceRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

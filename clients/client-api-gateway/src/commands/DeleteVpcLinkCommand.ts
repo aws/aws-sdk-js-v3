@@ -48,8 +48,8 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVpcLinkCommandInput - {@link DeleteVpcLinkCommandInput}
- * @returns {@link DeleteVpcLinkCommandOutput}
+ * @param DeleteVpcLinkRequest - {@link DeleteVpcLinkRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVpcLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

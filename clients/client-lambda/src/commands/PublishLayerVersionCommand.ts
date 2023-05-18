@@ -89,8 +89,8 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  *
  * ```
  *
- * @param PublishLayerVersionCommandInput - {@link PublishLayerVersionCommandInput}
- * @returns {@link PublishLayerVersionCommandOutput}
+ * @param PublishLayerVersionRequest - {@link PublishLayerVersionRequest}
+ * @returns {@link PublishLayerVersionResponse}
  * @see {@link PublishLayerVersionCommandInput} for command's `input` shape.
  * @see {@link PublishLayerVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

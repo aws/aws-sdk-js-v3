@@ -66,8 +66,8 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  *
  * ```
  *
- * @param UpdateBackendStorageCommandInput - {@link UpdateBackendStorageCommandInput}
- * @returns {@link UpdateBackendStorageCommandOutput}
+ * @param UpdateBackendStorageRequest - {@link UpdateBackendStorageRequest}
+ * @returns {@link UpdateBackendStorageResponse}
  * @see {@link UpdateBackendStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

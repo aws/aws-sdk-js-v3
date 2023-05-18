@@ -71,8 +71,8 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  *
  * ```
  *
- * @param ListLiveSourcesCommandInput - {@link ListLiveSourcesCommandInput}
- * @returns {@link ListLiveSourcesCommandOutput}
+ * @param ListLiveSourcesRequest - {@link ListLiveSourcesRequest}
+ * @returns {@link ListLiveSourcesResponse}
  * @see {@link ListLiveSourcesCommandInput} for command's `input` shape.
  * @see {@link ListLiveSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

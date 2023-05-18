@@ -53,8 +53,8 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  *
  * ```
  *
- * @param DeleteAccessLogSubscriptionCommandInput - {@link DeleteAccessLogSubscriptionCommandInput}
- * @returns {@link DeleteAccessLogSubscriptionCommandOutput}
+ * @param DeleteAccessLogSubscriptionRequest - {@link DeleteAccessLogSubscriptionRequest}
+ * @returns {@link DeleteAccessLogSubscriptionResponse}
  * @see {@link DeleteAccessLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

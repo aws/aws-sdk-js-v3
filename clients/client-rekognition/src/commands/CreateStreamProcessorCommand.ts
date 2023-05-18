@@ -133,8 +133,8 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  *
  * ```
  *
- * @param CreateStreamProcessorCommandInput - {@link CreateStreamProcessorCommandInput}
- * @returns {@link CreateStreamProcessorCommandOutput}
+ * @param CreateStreamProcessorRequest - {@link CreateStreamProcessorRequest}
+ * @returns {@link CreateStreamProcessorResponse}
  * @see {@link CreateStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link CreateStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

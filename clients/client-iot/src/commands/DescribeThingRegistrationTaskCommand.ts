@@ -67,8 +67,8 @@ export interface DescribeThingRegistrationTaskCommandOutput
  *
  * ```
  *
- * @param DescribeThingRegistrationTaskCommandInput - {@link DescribeThingRegistrationTaskCommandInput}
- * @returns {@link DescribeThingRegistrationTaskCommandOutput}
+ * @param DescribeThingRegistrationTaskRequest - {@link DescribeThingRegistrationTaskRequest}
+ * @returns {@link DescribeThingRegistrationTaskResponse}
  * @see {@link DescribeThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

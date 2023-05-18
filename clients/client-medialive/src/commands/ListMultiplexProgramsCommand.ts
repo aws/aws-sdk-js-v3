@@ -58,8 +58,8 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  *
  * ```
  *
- * @param ListMultiplexProgramsCommandInput - {@link ListMultiplexProgramsCommandInput}
- * @returns {@link ListMultiplexProgramsCommandOutput}
+ * @param ListMultiplexProgramsRequest - {@link ListMultiplexProgramsRequest}
+ * @returns {@link ListMultiplexProgramsResponse}
  * @see {@link ListMultiplexProgramsCommandInput} for command's `input` shape.
  * @see {@link ListMultiplexProgramsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

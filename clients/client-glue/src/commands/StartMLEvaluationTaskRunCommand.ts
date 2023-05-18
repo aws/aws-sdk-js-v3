@@ -55,8 +55,8 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  *
  * ```
  *
- * @param StartMLEvaluationTaskRunCommandInput - {@link StartMLEvaluationTaskRunCommandInput}
- * @returns {@link StartMLEvaluationTaskRunCommandOutput}
+ * @param StartMLEvaluationTaskRunRequest - {@link StartMLEvaluationTaskRunRequest}
+ * @returns {@link StartMLEvaluationTaskRunResponse}
  * @see {@link StartMLEvaluationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLEvaluationTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -85,8 +85,8 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  *
  * ```
  *
- * @param ModifyGlobalReplicationGroupCommandInput - {@link ModifyGlobalReplicationGroupCommandInput}
- * @returns {@link ModifyGlobalReplicationGroupCommandOutput}
+ * @param ModifyGlobalReplicationGroupMessage - {@link ModifyGlobalReplicationGroupMessage}
+ * @returns {@link ModifyGlobalReplicationGroupResult}
  * @see {@link ModifyGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

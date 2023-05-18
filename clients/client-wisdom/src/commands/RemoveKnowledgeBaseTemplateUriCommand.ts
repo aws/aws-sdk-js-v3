@@ -53,8 +53,8 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  *
  * ```
  *
- * @param RemoveKnowledgeBaseTemplateUriCommandInput - {@link RemoveKnowledgeBaseTemplateUriCommandInput}
- * @returns {@link RemoveKnowledgeBaseTemplateUriCommandOutput}
+ * @param RemoveKnowledgeBaseTemplateUriRequest - {@link RemoveKnowledgeBaseTemplateUriRequest}
+ * @returns {@link RemoveKnowledgeBaseTemplateUriResponse}
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandInput} for command's `input` shape.
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

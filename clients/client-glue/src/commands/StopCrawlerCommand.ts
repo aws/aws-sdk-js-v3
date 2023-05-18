@@ -48,8 +48,8 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  *
  * ```
  *
- * @param StopCrawlerCommandInput - {@link StopCrawlerCommandInput}
- * @returns {@link StopCrawlerCommandOutput}
+ * @param StopCrawlerRequest - {@link StopCrawlerRequest}
+ * @returns {@link StopCrawlerResponse}
  * @see {@link StopCrawlerCommandInput} for command's `input` shape.
  * @see {@link StopCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

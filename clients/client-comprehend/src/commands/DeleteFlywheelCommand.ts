@@ -51,8 +51,8 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  *
  * ```
  *
- * @param DeleteFlywheelCommandInput - {@link DeleteFlywheelCommandInput}
- * @returns {@link DeleteFlywheelCommandOutput}
+ * @param DeleteFlywheelRequest - {@link DeleteFlywheelRequest}
+ * @returns {@link DeleteFlywheelResponse}
  * @see {@link DeleteFlywheelCommandInput} for command's `input` shape.
  * @see {@link DeleteFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

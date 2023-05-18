@@ -62,8 +62,8 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  *
  * ```
  *
- * @param UndeploySystemInstanceCommandInput - {@link UndeploySystemInstanceCommandInput}
- * @returns {@link UndeploySystemInstanceCommandOutput}
+ * @param UndeploySystemInstanceRequest - {@link UndeploySystemInstanceRequest}
+ * @returns {@link UndeploySystemInstanceResponse}
  * @see {@link UndeploySystemInstanceCommandInput} for command's `input` shape.
  * @see {@link UndeploySystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

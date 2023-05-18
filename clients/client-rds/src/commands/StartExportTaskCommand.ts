@@ -87,8 +87,8 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  *
  * ```
  *
- * @param StartExportTaskCommandInput - {@link StartExportTaskCommandInput}
- * @returns {@link StartExportTaskCommandOutput}
+ * @param StartExportTaskMessage - {@link StartExportTaskMessage}
+ * @returns {@link ExportTask}
  * @see {@link StartExportTaskCommandInput} for command's `input` shape.
  * @see {@link StartExportTaskCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

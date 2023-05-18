@@ -61,8 +61,8 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  *
  * ```
  *
- * @param BatchDeleteConnectionCommandInput - {@link BatchDeleteConnectionCommandInput}
- * @returns {@link BatchDeleteConnectionCommandOutput}
+ * @param BatchDeleteConnectionRequest - {@link BatchDeleteConnectionRequest}
+ * @returns {@link BatchDeleteConnectionResponse}
  * @see {@link BatchDeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

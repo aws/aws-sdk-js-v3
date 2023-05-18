@@ -50,8 +50,8 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  *
  * ```
  *
- * @param UnregisterConnectorCommandInput - {@link UnregisterConnectorCommandInput}
- * @returns {@link UnregisterConnectorCommandOutput}
+ * @param UnregisterConnectorRequest - {@link UnregisterConnectorRequest}
+ * @returns {@link UnregisterConnectorResponse}
  * @see {@link UnregisterConnectorCommandInput} for command's `input` shape.
  * @see {@link UnregisterConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

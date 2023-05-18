@@ -48,8 +48,8 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  *
  * ```
  *
- * @param DeleteControlCommandInput - {@link DeleteControlCommandInput}
- * @returns {@link DeleteControlCommandOutput}
+ * @param DeleteControlRequest - {@link DeleteControlRequest}
+ * @returns {@link DeleteControlResponse}
  * @see {@link DeleteControlCommandInput} for command's `input` shape.
  * @see {@link DeleteControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

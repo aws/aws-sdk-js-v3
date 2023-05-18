@@ -62,8 +62,8 @@ export interface CreatePublishingDestinationCommandOutput
  *
  * ```
  *
- * @param CreatePublishingDestinationCommandInput - {@link CreatePublishingDestinationCommandInput}
- * @returns {@link CreatePublishingDestinationCommandOutput}
+ * @param CreatePublishingDestinationRequest - {@link CreatePublishingDestinationRequest}
+ * @returns {@link CreatePublishingDestinationResponse}
  * @see {@link CreatePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link CreatePublishingDestinationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

@@ -68,8 +68,8 @@ export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateExperienceCommandInput - {@link UpdateExperienceCommandInput}
- * @returns {@link UpdateExperienceCommandOutput}
+ * @param UpdateExperienceRequest - {@link UpdateExperienceRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateExperienceCommandInput} for command's `input` shape.
  * @see {@link UpdateExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

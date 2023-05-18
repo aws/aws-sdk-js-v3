@@ -81,8 +81,8 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
  *
  * ```
  *
- * @param UpdateBucketBundleCommandInput - {@link UpdateBucketBundleCommandInput}
- * @returns {@link UpdateBucketBundleCommandOutput}
+ * @param UpdateBucketBundleRequest - {@link UpdateBucketBundleRequest}
+ * @returns {@link UpdateBucketBundleResult}
  * @see {@link UpdateBucketBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateBucketBundleCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -178,8 +178,8 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  *
  * ```
  *
- * @param CreateClassificationJobCommandInput - {@link CreateClassificationJobCommandInput}
- * @returns {@link CreateClassificationJobCommandOutput}
+ * @param CreateClassificationJobRequest - {@link CreateClassificationJobRequest}
+ * @returns {@link CreateClassificationJobResponse}
  * @see {@link CreateClassificationJobCommandInput} for command's `input` shape.
  * @see {@link CreateClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

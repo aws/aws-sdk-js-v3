@@ -64,8 +64,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *
  * ```
  *
- * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
- * @returns {@link CreateEndpointCommandOutput}
+ * @param CreateEndpointRequest - {@link CreateEndpointRequest}
+ * @returns {@link CreateEndpointResponse}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

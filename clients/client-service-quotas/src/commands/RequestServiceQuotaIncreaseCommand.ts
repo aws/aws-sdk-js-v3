@@ -69,8 +69,8 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  *
  * ```
  *
- * @param RequestServiceQuotaIncreaseCommandInput - {@link RequestServiceQuotaIncreaseCommandInput}
- * @returns {@link RequestServiceQuotaIncreaseCommandOutput}
+ * @param RequestServiceQuotaIncreaseRequest - {@link RequestServiceQuotaIncreaseRequest}
+ * @returns {@link RequestServiceQuotaIncreaseResponse}
  * @see {@link RequestServiceQuotaIncreaseCommandInput} for command's `input` shape.
  * @see {@link RequestServiceQuotaIncreaseCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

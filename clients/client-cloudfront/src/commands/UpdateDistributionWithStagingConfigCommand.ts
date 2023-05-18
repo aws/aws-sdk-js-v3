@@ -401,8 +401,8 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  *
  * ```
  *
- * @param UpdateDistributionWithStagingConfigCommandInput - {@link UpdateDistributionWithStagingConfigCommandInput}
- * @returns {@link UpdateDistributionWithStagingConfigCommandOutput}
+ * @param UpdateDistributionWithStagingConfigRequest - {@link UpdateDistributionWithStagingConfigRequest}
+ * @returns {@link UpdateDistributionWithStagingConfigResult}
  * @see {@link UpdateDistributionWithStagingConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionWithStagingConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

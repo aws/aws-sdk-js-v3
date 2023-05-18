@@ -70,8 +70,8 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  *
  * ```
  *
- * @param UpdateUserSettingsCommandInput - {@link UpdateUserSettingsCommandInput}
- * @returns {@link UpdateUserSettingsCommandOutput}
+ * @param UpdateUserSettingsRequest - {@link UpdateUserSettingsRequest}
+ * @returns {@link UpdateUserSettingsResponse}
  * @see {@link UpdateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

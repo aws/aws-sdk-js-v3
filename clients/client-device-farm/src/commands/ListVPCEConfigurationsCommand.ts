@@ -61,8 +61,8 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  *
  * ```
  *
- * @param ListVPCEConfigurationsCommandInput - {@link ListVPCEConfigurationsCommandInput}
- * @returns {@link ListVPCEConfigurationsCommandOutput}
+ * @param ListVPCEConfigurationsRequest - {@link ListVPCEConfigurationsRequest}
+ * @returns {@link ListVPCEConfigurationsResult}
  * @see {@link ListVPCEConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListVPCEConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

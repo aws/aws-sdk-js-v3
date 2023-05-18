@@ -81,8 +81,8 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  *
  * ```
  *
- * @param ListGameServersCommandInput - {@link ListGameServersCommandInput}
- * @returns {@link ListGameServersCommandOutput}
+ * @param ListGameServersInput - {@link ListGameServersInput}
+ * @returns {@link ListGameServersOutput}
  * @see {@link ListGameServersCommandInput} for command's `input` shape.
  * @see {@link ListGameServersCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -64,8 +64,8 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  *
  * ```
  *
- * @param PutSipMediaApplicationLoggingConfigurationCommandInput - {@link PutSipMediaApplicationLoggingConfigurationCommandInput}
- * @returns {@link PutSipMediaApplicationLoggingConfigurationCommandOutput}
+ * @param PutSipMediaApplicationLoggingConfigurationRequest - {@link PutSipMediaApplicationLoggingConfigurationRequest}
+ * @returns {@link PutSipMediaApplicationLoggingConfigurationResponse}
  * @see {@link PutSipMediaApplicationLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutSipMediaApplicationLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

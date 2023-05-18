@@ -54,8 +54,8 @@ export interface GetAgentConfigurationCommandOutput extends GetAgentConfiguratio
  *
  * ```
  *
- * @param GetAgentConfigurationCommandInput - {@link GetAgentConfigurationCommandInput}
- * @returns {@link GetAgentConfigurationCommandOutput}
+ * @param GetAgentConfigurationRequest - {@link GetAgentConfigurationRequest}
+ * @returns {@link GetAgentConfigurationResponse}
  * @see {@link GetAgentConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAgentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

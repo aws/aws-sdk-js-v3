@@ -48,8 +48,8 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCodeRepositoryCommandInput - {@link DeleteCodeRepositoryCommandInput}
- * @returns {@link DeleteCodeRepositoryCommandOutput}
+ * @param DeleteCodeRepositoryInput - {@link DeleteCodeRepositoryInput}
+ * @returns {@link Unit}
  * @see {@link DeleteCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

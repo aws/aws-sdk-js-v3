@@ -57,8 +57,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *
  * ```
  *
- * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
- * @returns {@link CreateDeploymentCommandOutput}
+ * @param CreateDeploymentRequest - {@link CreateDeploymentRequest}
+ * @returns {@link CreateDeploymentResponse}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

@@ -52,8 +52,8 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  *
  * ```
  *
- * @param PutDraftAppVersionTemplateCommandInput - {@link PutDraftAppVersionTemplateCommandInput}
- * @returns {@link PutDraftAppVersionTemplateCommandOutput}
+ * @param PutDraftAppVersionTemplateRequest - {@link PutDraftAppVersionTemplateRequest}
+ * @returns {@link PutDraftAppVersionTemplateResponse}
  * @see {@link PutDraftAppVersionTemplateCommandInput} for command's `input` shape.
  * @see {@link PutDraftAppVersionTemplateCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

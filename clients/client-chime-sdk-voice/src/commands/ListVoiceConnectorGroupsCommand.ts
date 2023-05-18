@@ -67,8 +67,8 @@ export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnecto
  *
  * ```
  *
- * @param ListVoiceConnectorGroupsCommandInput - {@link ListVoiceConnectorGroupsCommandInput}
- * @returns {@link ListVoiceConnectorGroupsCommandOutput}
+ * @param ListVoiceConnectorGroupsRequest - {@link ListVoiceConnectorGroupsRequest}
+ * @returns {@link ListVoiceConnectorGroupsResponse}
  * @see {@link ListVoiceConnectorGroupsCommandInput} for command's `input` shape.
  * @see {@link ListVoiceConnectorGroupsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

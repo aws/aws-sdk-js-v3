@@ -59,8 +59,8 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  *
  * ```
  *
- * @param GetTargetResourceTypeCommandInput - {@link GetTargetResourceTypeCommandInput}
- * @returns {@link GetTargetResourceTypeCommandOutput}
+ * @param GetTargetResourceTypeRequest - {@link GetTargetResourceTypeRequest}
+ * @returns {@link GetTargetResourceTypeResponse}
  * @see {@link GetTargetResourceTypeCommandInput} for command's `input` shape.
  * @see {@link GetTargetResourceTypeCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

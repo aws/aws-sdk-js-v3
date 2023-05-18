@@ -53,8 +53,8 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  *
  * ```
  *
- * @param DescribeAddonConfigurationCommandInput - {@link DescribeAddonConfigurationCommandInput}
- * @returns {@link DescribeAddonConfigurationCommandOutput}
+ * @param DescribeAddonConfigurationRequest - {@link DescribeAddonConfigurationRequest}
+ * @returns {@link DescribeAddonConfigurationResponse}
  * @see {@link DescribeAddonConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAddonConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

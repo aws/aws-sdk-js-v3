@@ -73,8 +73,8 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  *
  * ```
  *
- * @param DescribeVaultCommandInput - {@link DescribeVaultCommandInput}
- * @returns {@link DescribeVaultCommandOutput}
+ * @param DescribeVaultInput - {@link DescribeVaultInput}
+ * @returns {@link DescribeVaultOutput}
  * @see {@link DescribeVaultCommandInput} for command's `input` shape.
  * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

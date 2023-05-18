@@ -51,8 +51,8 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  *
  * ```
  *
- * @param DeleteUsageReportSubscriptionCommandInput - {@link DeleteUsageReportSubscriptionCommandInput}
- * @returns {@link DeleteUsageReportSubscriptionCommandOutput}
+ * @param DeleteUsageReportSubscriptionRequest - {@link DeleteUsageReportSubscriptionRequest}
+ * @returns {@link DeleteUsageReportSubscriptionResult}
  * @see {@link DeleteUsageReportSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageReportSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

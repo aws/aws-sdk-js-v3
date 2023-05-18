@@ -48,8 +48,8 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  *
  * ```
  *
- * @param DeleteConfiguredTableCommandInput - {@link DeleteConfiguredTableCommandInput}
- * @returns {@link DeleteConfiguredTableCommandOutput}
+ * @param DeleteConfiguredTableInput - {@link DeleteConfiguredTableInput}
+ * @returns {@link DeleteConfiguredTableOutput}
  * @see {@link DeleteConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link DeleteConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

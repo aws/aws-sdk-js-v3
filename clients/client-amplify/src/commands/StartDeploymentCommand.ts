@@ -64,8 +64,8 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
  *
  * ```
  *
- * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
- * @returns {@link StartDeploymentCommandOutput}
+ * @param StartDeploymentRequest - {@link StartDeploymentRequest}
+ * @returns {@link StartDeploymentResult}
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

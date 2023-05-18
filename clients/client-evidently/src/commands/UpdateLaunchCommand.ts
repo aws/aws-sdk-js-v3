@@ -150,8 +150,8 @@ export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __Metad
  *
  * ```
  *
- * @param UpdateLaunchCommandInput - {@link UpdateLaunchCommandInput}
- * @returns {@link UpdateLaunchCommandOutput}
+ * @param UpdateLaunchRequest - {@link UpdateLaunchRequest}
+ * @returns {@link UpdateLaunchResponse}
  * @see {@link UpdateLaunchCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

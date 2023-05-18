@@ -62,8 +62,8 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  *
  * ```
  *
- * @param UpdateControlPanelCommandInput - {@link UpdateControlPanelCommandInput}
- * @returns {@link UpdateControlPanelCommandOutput}
+ * @param UpdateControlPanelRequest - {@link UpdateControlPanelRequest}
+ * @returns {@link UpdateControlPanelResponse}
  * @see {@link UpdateControlPanelCommandInput} for command's `input` shape.
  * @see {@link UpdateControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

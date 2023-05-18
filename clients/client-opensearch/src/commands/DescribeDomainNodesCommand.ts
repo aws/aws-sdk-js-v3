@@ -62,8 +62,8 @@ export interface DescribeDomainNodesCommandOutput extends DescribeDomainNodesRes
  *
  * ```
  *
- * @param DescribeDomainNodesCommandInput - {@link DescribeDomainNodesCommandInput}
- * @returns {@link DescribeDomainNodesCommandOutput}
+ * @param DescribeDomainNodesRequest - {@link DescribeDomainNodesRequest}
+ * @returns {@link DescribeDomainNodesResponse}
  * @see {@link DescribeDomainNodesCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainNodesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

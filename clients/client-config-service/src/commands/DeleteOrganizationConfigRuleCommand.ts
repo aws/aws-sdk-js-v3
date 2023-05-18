@@ -56,8 +56,8 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param DeleteOrganizationConfigRuleCommandInput - {@link DeleteOrganizationConfigRuleCommandInput}
- * @returns {@link DeleteOrganizationConfigRuleCommandOutput}
+ * @param DeleteOrganizationConfigRuleRequest - {@link DeleteOrganizationConfigRuleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteOrganizationConfigRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -71,8 +71,8 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *
  * ```
  *
- * @param CreateOrganizationalUnitCommandInput - {@link CreateOrganizationalUnitCommandInput}
- * @returns {@link CreateOrganizationalUnitCommandOutput}
+ * @param CreateOrganizationalUnitRequest - {@link CreateOrganizationalUnitRequest}
+ * @returns {@link CreateOrganizationalUnitResponse}
  * @see {@link CreateOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

@@ -80,8 +80,8 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  *
  * ```
  *
- * @param DescribeBatchInferenceJobCommandInput - {@link DescribeBatchInferenceJobCommandInput}
- * @returns {@link DescribeBatchInferenceJobCommandOutput}
+ * @param DescribeBatchInferenceJobRequest - {@link DescribeBatchInferenceJobRequest}
+ * @returns {@link DescribeBatchInferenceJobResponse}
  * @see {@link DescribeBatchInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

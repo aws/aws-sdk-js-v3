@@ -58,8 +58,8 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  *
  * ```
  *
- * @param GetControlOperationCommandInput - {@link GetControlOperationCommandInput}
- * @returns {@link GetControlOperationCommandOutput}
+ * @param GetControlOperationInput - {@link GetControlOperationInput}
+ * @returns {@link GetControlOperationOutput}
  * @see {@link GetControlOperationCommandInput} for command's `input` shape.
  * @see {@link GetControlOperationCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.

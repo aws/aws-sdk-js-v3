@@ -93,8 +93,8 @@ export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __Met
  *
  * ```
  *
- * @param DescribeAlarmCommandInput - {@link DescribeAlarmCommandInput}
- * @returns {@link DescribeAlarmCommandOutput}
+ * @param DescribeAlarmRequest - {@link DescribeAlarmRequest}
+ * @returns {@link DescribeAlarmResponse}
  * @see {@link DescribeAlarmCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

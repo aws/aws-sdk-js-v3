@@ -68,8 +68,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *
  * ```
  *
- * @param StartSessionCommandInput - {@link StartSessionCommandInput}
- * @returns {@link StartSessionCommandOutput}
+ * @param StartSessionRequest - {@link StartSessionRequest}
+ * @returns {@link StartSessionResponse}
  * @see {@link StartSessionCommandInput} for command's `input` shape.
  * @see {@link StartSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

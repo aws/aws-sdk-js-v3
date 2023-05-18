@@ -90,8 +90,8 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetPlaceCommandInput - {@link GetPlaceCommandInput}
- * @returns {@link GetPlaceCommandOutput}
+ * @param GetPlaceRequest - {@link GetPlaceRequest}
+ * @returns {@link GetPlaceResponse}
  * @see {@link GetPlaceCommandInput} for command's `input` shape.
  * @see {@link GetPlaceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

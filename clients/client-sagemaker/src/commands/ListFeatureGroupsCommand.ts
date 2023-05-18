@@ -70,8 +70,8 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  *
  * ```
  *
- * @param ListFeatureGroupsCommandInput - {@link ListFeatureGroupsCommandInput}
- * @returns {@link ListFeatureGroupsCommandOutput}
+ * @param ListFeatureGroupsRequest - {@link ListFeatureGroupsRequest}
+ * @returns {@link ListFeatureGroupsResponse}
  * @see {@link ListFeatureGroupsCommandInput} for command's `input` shape.
  * @see {@link ListFeatureGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

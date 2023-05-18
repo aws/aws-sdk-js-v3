@@ -71,8 +71,8 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  *
  * ```
  *
- * @param CreateHoursOfOperationCommandInput - {@link CreateHoursOfOperationCommandInput}
- * @returns {@link CreateHoursOfOperationCommandOutput}
+ * @param CreateHoursOfOperationRequest - {@link CreateHoursOfOperationRequest}
+ * @returns {@link CreateHoursOfOperationResponse}
  * @see {@link CreateHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link CreateHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

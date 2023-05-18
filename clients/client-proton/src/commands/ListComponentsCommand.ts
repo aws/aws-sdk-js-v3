@@ -72,8 +72,8 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  *
  * ```
  *
- * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
- * @returns {@link ListComponentsCommandOutput}
+ * @param ListComponentsInput - {@link ListComponentsInput}
+ * @returns {@link ListComponentsOutput}
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

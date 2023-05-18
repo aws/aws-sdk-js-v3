@@ -60,8 +60,8 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  *
  * ```
  *
- * @param ModifyCapacityReservationCommandInput - {@link ModifyCapacityReservationCommandInput}
- * @returns {@link ModifyCapacityReservationCommandOutput}
+ * @param ModifyCapacityReservationRequest - {@link ModifyCapacityReservationRequest}
+ * @returns {@link ModifyCapacityReservationResult}
  * @see {@link ModifyCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link ModifyCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

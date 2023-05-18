@@ -94,8 +94,8 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  *
  * ```
  *
- * @param StartSpeechSynthesisTaskCommandInput - {@link StartSpeechSynthesisTaskCommandInput}
- * @returns {@link StartSpeechSynthesisTaskCommandOutput}
+ * @param StartSpeechSynthesisTaskInput - {@link StartSpeechSynthesisTaskInput}
+ * @returns {@link StartSpeechSynthesisTaskOutput}
  * @see {@link StartSpeechSynthesisTaskCommandInput} for command's `input` shape.
  * @see {@link StartSpeechSynthesisTaskCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.

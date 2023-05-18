@@ -54,8 +54,8 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddRoleToDBInstanceCommandInput - {@link AddRoleToDBInstanceCommandInput}
- * @returns {@link AddRoleToDBInstanceCommandOutput}
+ * @param AddRoleToDBInstanceMessage - {@link AddRoleToDBInstanceMessage}
+ * @returns {@link Unit}
  * @see {@link AddRoleToDBInstanceCommandInput} for command's `input` shape.
  * @see {@link AddRoleToDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

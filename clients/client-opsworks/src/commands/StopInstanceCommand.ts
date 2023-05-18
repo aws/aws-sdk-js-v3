@@ -57,8 +57,8 @@ export interface StopInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopInstanceCommandInput - {@link StopInstanceCommandInput}
- * @returns {@link StopInstanceCommandOutput}
+ * @param StopInstanceRequest - {@link StopInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link StopInstanceCommandInput} for command's `input` shape.
  * @see {@link StopInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

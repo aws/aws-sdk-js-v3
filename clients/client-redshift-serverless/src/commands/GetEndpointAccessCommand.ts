@@ -83,8 +83,8 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  *
  * ```
  *
- * @param GetEndpointAccessCommandInput - {@link GetEndpointAccessCommandInput}
- * @returns {@link GetEndpointAccessCommandOutput}
+ * @param GetEndpointAccessRequest - {@link GetEndpointAccessRequest}
+ * @returns {@link GetEndpointAccessResponse}
  * @see {@link GetEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link GetEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

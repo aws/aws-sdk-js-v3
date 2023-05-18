@@ -272,8 +272,8 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  *
  * ```
  *
- * @param StopDBInstanceCommandInput - {@link StopDBInstanceCommandInput}
- * @returns {@link StopDBInstanceCommandOutput}
+ * @param StopDBInstanceMessage - {@link StopDBInstanceMessage}
+ * @returns {@link StopDBInstanceResult}
  * @see {@link StopDBInstanceCommandInput} for command's `input` shape.
  * @see {@link StopDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

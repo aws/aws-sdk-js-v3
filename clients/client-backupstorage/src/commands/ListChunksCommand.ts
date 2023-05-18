@@ -62,8 +62,8 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  *
  * ```
  *
- * @param ListChunksCommandInput - {@link ListChunksCommandInput}
- * @returns {@link ListChunksCommandOutput}
+ * @param ListChunksInput - {@link ListChunksInput}
+ * @returns {@link ListChunksOutput}
  * @see {@link ListChunksCommandInput} for command's `input` shape.
  * @see {@link ListChunksCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

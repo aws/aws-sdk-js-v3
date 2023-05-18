@@ -68,8 +68,8 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *
  * ```
  *
- * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
- * @returns {@link ListAliasesCommandOutput}
+ * @param ListAliasesRequest - {@link ListAliasesRequest}
+ * @returns {@link ListAliasesResponse}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

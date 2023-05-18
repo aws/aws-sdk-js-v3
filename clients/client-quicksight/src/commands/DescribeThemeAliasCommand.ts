@@ -58,8 +58,8 @@ export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasRespo
  *
  * ```
  *
- * @param DescribeThemeAliasCommandInput - {@link DescribeThemeAliasCommandInput}
- * @returns {@link DescribeThemeAliasCommandOutput}
+ * @param DescribeThemeAliasRequest - {@link DescribeThemeAliasRequest}
+ * @returns {@link DescribeThemeAliasResponse}
  * @see {@link DescribeThemeAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeThemeAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

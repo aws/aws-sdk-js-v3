@@ -59,8 +59,8 @@ export interface UpdateResourceProfileDetectionsCommandOutput
  *
  * ```
  *
- * @param UpdateResourceProfileDetectionsCommandInput - {@link UpdateResourceProfileDetectionsCommandInput}
- * @returns {@link UpdateResourceProfileDetectionsCommandOutput}
+ * @param UpdateResourceProfileDetectionsRequest - {@link UpdateResourceProfileDetectionsRequest}
+ * @returns {@link UpdateResourceProfileDetectionsResponse}
  * @see {@link UpdateResourceProfileDetectionsCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceProfileDetectionsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

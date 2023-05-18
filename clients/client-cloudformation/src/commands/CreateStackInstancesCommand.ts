@@ -89,8 +89,8 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  *
  * ```
  *
- * @param CreateStackInstancesCommandInput - {@link CreateStackInstancesCommandInput}
- * @returns {@link CreateStackInstancesCommandOutput}
+ * @param CreateStackInstancesInput - {@link CreateStackInstancesInput}
+ * @returns {@link CreateStackInstancesOutput}
  * @see {@link CreateStackInstancesCommandInput} for command's `input` shape.
  * @see {@link CreateStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

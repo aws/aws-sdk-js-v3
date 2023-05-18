@@ -78,8 +78,8 @@ export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGro
  *
  * ```
  *
- * @param ListAnomalousLogGroupsCommandInput - {@link ListAnomalousLogGroupsCommandInput}
- * @returns {@link ListAnomalousLogGroupsCommandOutput}
+ * @param ListAnomalousLogGroupsRequest - {@link ListAnomalousLogGroupsRequest}
+ * @returns {@link ListAnomalousLogGroupsResponse}
  * @see {@link ListAnomalousLogGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalousLogGroupsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

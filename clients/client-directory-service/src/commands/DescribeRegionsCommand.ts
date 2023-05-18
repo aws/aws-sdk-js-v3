@@ -71,8 +71,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  *
  * ```
  *
- * @param DescribeRegionsCommandInput - {@link DescribeRegionsCommandInput}
- * @returns {@link DescribeRegionsCommandOutput}
+ * @param DescribeRegionsRequest - {@link DescribeRegionsRequest}
+ * @returns {@link DescribeRegionsResult}
  * @see {@link DescribeRegionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

@@ -142,8 +142,8 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
  *
  * ```
  *
- * @param DescribeTableReplicaAutoScalingCommandInput - {@link DescribeTableReplicaAutoScalingCommandInput}
- * @returns {@link DescribeTableReplicaAutoScalingCommandOutput}
+ * @param DescribeTableReplicaAutoScalingInput - {@link DescribeTableReplicaAutoScalingInput}
+ * @returns {@link DescribeTableReplicaAutoScalingOutput}
  * @see {@link DescribeTableReplicaAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeTableReplicaAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -78,8 +78,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *
  * ```
  *
- * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
- * @returns {@link CreateSchemaCommandOutput}
+ * @param CreateSchemaRequest - {@link CreateSchemaRequest}
+ * @returns {@link CreateSchemaResponse}
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

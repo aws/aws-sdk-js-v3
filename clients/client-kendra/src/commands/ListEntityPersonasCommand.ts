@@ -62,8 +62,8 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  *
  * ```
  *
- * @param ListEntityPersonasCommandInput - {@link ListEntityPersonasCommandInput}
- * @returns {@link ListEntityPersonasCommandOutput}
+ * @param ListEntityPersonasRequest - {@link ListEntityPersonasRequest}
+ * @returns {@link ListEntityPersonasResponse}
  * @see {@link ListEntityPersonasCommandInput} for command's `input` shape.
  * @see {@link ListEntityPersonasCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

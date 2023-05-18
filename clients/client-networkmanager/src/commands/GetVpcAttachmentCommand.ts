@@ -88,8 +88,8 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  *
  * ```
  *
- * @param GetVpcAttachmentCommandInput - {@link GetVpcAttachmentCommandInput}
- * @returns {@link GetVpcAttachmentCommandOutput}
+ * @param GetVpcAttachmentRequest - {@link GetVpcAttachmentRequest}
+ * @returns {@link GetVpcAttachmentResponse}
  * @see {@link GetVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

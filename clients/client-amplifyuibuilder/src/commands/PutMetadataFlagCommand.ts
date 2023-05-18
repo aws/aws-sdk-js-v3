@@ -53,8 +53,8 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutMetadataFlagCommandInput - {@link PutMetadataFlagCommandInput}
- * @returns {@link PutMetadataFlagCommandOutput}
+ * @param PutMetadataFlagRequest - {@link PutMetadataFlagRequest}
+ * @returns {@link Unit}
  * @see {@link PutMetadataFlagCommandInput} for command's `input` shape.
  * @see {@link PutMetadataFlagCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

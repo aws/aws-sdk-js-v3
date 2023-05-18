@@ -97,8 +97,8 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  *
  * ```
  *
- * @param PrepareQueryCommandInput - {@link PrepareQueryCommandInput}
- * @returns {@link PrepareQueryCommandOutput}
+ * @param PrepareQueryRequest - {@link PrepareQueryRequest}
+ * @returns {@link PrepareQueryResponse}
  * @see {@link PrepareQueryCommandInput} for command's `input` shape.
  * @see {@link PrepareQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.

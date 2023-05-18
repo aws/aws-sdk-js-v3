@@ -52,8 +52,8 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  *
  * ```
  *
- * @param RemoveProfilePermissionCommandInput - {@link RemoveProfilePermissionCommandInput}
- * @returns {@link RemoveProfilePermissionCommandOutput}
+ * @param RemoveProfilePermissionRequest - {@link RemoveProfilePermissionRequest}
+ * @returns {@link RemoveProfilePermissionResponse}
  * @see {@link RemoveProfilePermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveProfilePermissionCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

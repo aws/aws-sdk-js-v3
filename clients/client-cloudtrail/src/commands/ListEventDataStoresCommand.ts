@@ -91,8 +91,8 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  *
  * ```
  *
- * @param ListEventDataStoresCommandInput - {@link ListEventDataStoresCommandInput}
- * @returns {@link ListEventDataStoresCommandOutput}
+ * @param ListEventDataStoresRequest - {@link ListEventDataStoresRequest}
+ * @returns {@link ListEventDataStoresResponse}
  * @see {@link ListEventDataStoresCommandInput} for command's `input` shape.
  * @see {@link ListEventDataStoresCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

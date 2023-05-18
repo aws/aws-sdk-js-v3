@@ -64,8 +64,8 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListLinksCommandInput - {@link ListLinksCommandInput}
- * @returns {@link ListLinksCommandOutput}
+ * @param ListLinksInput - {@link ListLinksInput}
+ * @returns {@link ListLinksOutput}
  * @see {@link ListLinksCommandInput} for command's `input` shape.
  * @see {@link ListLinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

@@ -168,8 +168,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  *
  * ```
  *
- * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
- * @returns {@link DescribeClusterCommandOutput}
+ * @param DescribeClusterInput - {@link DescribeClusterInput}
+ * @returns {@link DescribeClusterOutput}
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

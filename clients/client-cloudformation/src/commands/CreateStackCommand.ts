@@ -93,8 +93,8 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  *
  * ```
  *
- * @param CreateStackCommandInput - {@link CreateStackCommandInput}
- * @returns {@link CreateStackCommandOutput}
+ * @param CreateStackInput - {@link CreateStackInput}
+ * @returns {@link CreateStackOutput}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

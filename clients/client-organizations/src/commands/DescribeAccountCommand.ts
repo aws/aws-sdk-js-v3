@@ -64,8 +64,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *
  * ```
  *
- * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
- * @returns {@link DescribeAccountCommandOutput}
+ * @param DescribeAccountRequest - {@link DescribeAccountRequest}
+ * @returns {@link DescribeAccountResponse}
  * @see {@link DescribeAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

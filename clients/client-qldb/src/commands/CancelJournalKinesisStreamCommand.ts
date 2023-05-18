@@ -55,8 +55,8 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  *
  * ```
  *
- * @param CancelJournalKinesisStreamCommandInput - {@link CancelJournalKinesisStreamCommandInput}
- * @returns {@link CancelJournalKinesisStreamCommandOutput}
+ * @param CancelJournalKinesisStreamRequest - {@link CancelJournalKinesisStreamRequest}
+ * @returns {@link CancelJournalKinesisStreamResponse}
  * @see {@link CancelJournalKinesisStreamCommandInput} for command's `input` shape.
  * @see {@link CancelJournalKinesisStreamCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

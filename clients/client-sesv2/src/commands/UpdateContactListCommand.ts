@@ -57,8 +57,8 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
  *
  * ```
  *
- * @param UpdateContactListCommandInput - {@link UpdateContactListCommandInput}
- * @returns {@link UpdateContactListCommandOutput}
+ * @param UpdateContactListRequest - {@link UpdateContactListRequest}
+ * @returns {@link UpdateContactListResponse}
  * @see {@link UpdateContactListCommandInput} for command's `input` shape.
  * @see {@link UpdateContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

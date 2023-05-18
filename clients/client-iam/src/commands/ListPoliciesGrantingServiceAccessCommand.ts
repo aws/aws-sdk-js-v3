@@ -116,8 +116,8 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *
  * ```
  *
- * @param ListPoliciesGrantingServiceAccessCommandInput - {@link ListPoliciesGrantingServiceAccessCommandInput}
- * @returns {@link ListPoliciesGrantingServiceAccessCommandOutput}
+ * @param ListPoliciesGrantingServiceAccessRequest - {@link ListPoliciesGrantingServiceAccessRequest}
+ * @returns {@link ListPoliciesGrantingServiceAccessResponse}
  * @see {@link ListPoliciesGrantingServiceAccessCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesGrantingServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

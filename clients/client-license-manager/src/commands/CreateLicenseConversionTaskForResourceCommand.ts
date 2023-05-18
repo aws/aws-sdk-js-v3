@@ -65,8 +65,8 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  *
  * ```
  *
- * @param CreateLicenseConversionTaskForResourceCommandInput - {@link CreateLicenseConversionTaskForResourceCommandInput}
- * @returns {@link CreateLicenseConversionTaskForResourceCommandOutput}
+ * @param CreateLicenseConversionTaskForResourceRequest - {@link CreateLicenseConversionTaskForResourceRequest}
+ * @returns {@link CreateLicenseConversionTaskForResourceResponse}
  * @see {@link CreateLicenseConversionTaskForResourceCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConversionTaskForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

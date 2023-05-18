@@ -74,8 +74,8 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  *
  * ```
  *
- * @param GetQualificationScoreCommandInput - {@link GetQualificationScoreCommandInput}
- * @returns {@link GetQualificationScoreCommandOutput}
+ * @param GetQualificationScoreRequest - {@link GetQualificationScoreRequest}
+ * @returns {@link GetQualificationScoreResponse}
  * @see {@link GetQualificationScoreCommandInput} for command's `input` shape.
  * @see {@link GetQualificationScoreCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

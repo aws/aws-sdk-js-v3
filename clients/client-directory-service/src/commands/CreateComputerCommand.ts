@@ -72,8 +72,8 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  *
  * ```
  *
- * @param CreateComputerCommandInput - {@link CreateComputerCommandInput}
- * @returns {@link CreateComputerCommandOutput}
+ * @param CreateComputerRequest - {@link CreateComputerRequest}
+ * @returns {@link CreateComputerResult}
  * @see {@link CreateComputerCommandInput} for command's `input` shape.
  * @see {@link CreateComputerCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

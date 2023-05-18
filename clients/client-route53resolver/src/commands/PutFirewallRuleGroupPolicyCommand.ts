@@ -53,8 +53,8 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  *
  * ```
  *
- * @param PutFirewallRuleGroupPolicyCommandInput - {@link PutFirewallRuleGroupPolicyCommandInput}
- * @returns {@link PutFirewallRuleGroupPolicyCommandOutput}
+ * @param PutFirewallRuleGroupPolicyRequest - {@link PutFirewallRuleGroupPolicyRequest}
+ * @returns {@link PutFirewallRuleGroupPolicyResponse}
  * @see {@link PutFirewallRuleGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutFirewallRuleGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

@@ -59,8 +59,8 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  *
  * ```
  *
- * @param RemoveListenerCertificatesCommandInput - {@link RemoveListenerCertificatesCommandInput}
- * @returns {@link RemoveListenerCertificatesCommandOutput}
+ * @param RemoveListenerCertificatesInput - {@link RemoveListenerCertificatesInput}
+ * @returns {@link RemoveListenerCertificatesOutput}
  * @see {@link RemoveListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link RemoveListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteSolNetworkPackageCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteSolNetworkPackageCommandInput - {@link DeleteSolNetworkPackageCommandInput}
- * @returns {@link DeleteSolNetworkPackageCommandOutput}
+ * @param DeleteSolNetworkPackageInput - {@link DeleteSolNetworkPackageInput}
+ * @returns {@link Unit}
  * @see {@link DeleteSolNetworkPackageCommandInput} for command's `input` shape.
  * @see {@link DeleteSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

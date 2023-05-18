@@ -92,8 +92,8 @@ export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionR
  *
  * ```
  *
- * @param CreateLicenseVersionCommandInput - {@link CreateLicenseVersionCommandInput}
- * @returns {@link CreateLicenseVersionCommandOutput}
+ * @param CreateLicenseVersionRequest - {@link CreateLicenseVersionRequest}
+ * @returns {@link CreateLicenseVersionResponse}
  * @see {@link CreateLicenseVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseVersionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

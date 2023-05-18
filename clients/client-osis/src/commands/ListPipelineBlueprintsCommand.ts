@@ -53,8 +53,8 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  *
  * ```
  *
- * @param ListPipelineBlueprintsCommandInput - {@link ListPipelineBlueprintsCommandInput}
- * @returns {@link ListPipelineBlueprintsCommandOutput}
+ * @param ListPipelineBlueprintsRequest - {@link ListPipelineBlueprintsRequest}
+ * @returns {@link ListPipelineBlueprintsResponse}
  * @see {@link ListPipelineBlueprintsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

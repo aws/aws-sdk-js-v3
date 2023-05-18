@@ -74,8 +74,8 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
  *
  * ```
  *
- * @param ListEffectiveDeploymentsCommandInput - {@link ListEffectiveDeploymentsCommandInput}
- * @returns {@link ListEffectiveDeploymentsCommandOutput}
+ * @param ListEffectiveDeploymentsRequest - {@link ListEffectiveDeploymentsRequest}
+ * @returns {@link ListEffectiveDeploymentsResponse}
  * @see {@link ListEffectiveDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListEffectiveDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

@@ -55,8 +55,8 @@ export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAgentStatusCommandInput - {@link UpdateAgentStatusCommandInput}
- * @returns {@link UpdateAgentStatusCommandOutput}
+ * @param UpdateAgentStatusRequest - {@link UpdateAgentStatusRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

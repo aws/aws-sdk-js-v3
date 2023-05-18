@@ -68,8 +68,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  *
  * ```
  *
- * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
- * @returns {@link DescribeProjectCommandOutput}
+ * @param DescribeProjectRequest - {@link DescribeProjectRequest}
+ * @returns {@link DescribeProjectResponse}
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

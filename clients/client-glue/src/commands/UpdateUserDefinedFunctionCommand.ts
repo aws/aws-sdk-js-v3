@@ -62,8 +62,8 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  *
  * ```
  *
- * @param UpdateUserDefinedFunctionCommandInput - {@link UpdateUserDefinedFunctionCommandInput}
- * @returns {@link UpdateUserDefinedFunctionCommandOutput}
+ * @param UpdateUserDefinedFunctionRequest - {@link UpdateUserDefinedFunctionRequest}
+ * @returns {@link UpdateUserDefinedFunctionResponse}
  * @see {@link UpdateUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

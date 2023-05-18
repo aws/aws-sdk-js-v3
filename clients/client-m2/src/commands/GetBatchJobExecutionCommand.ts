@@ -70,8 +70,8 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  *
  * ```
  *
- * @param GetBatchJobExecutionCommandInput - {@link GetBatchJobExecutionCommandInput}
- * @returns {@link GetBatchJobExecutionCommandOutput}
+ * @param GetBatchJobExecutionRequest - {@link GetBatchJobExecutionRequest}
+ * @returns {@link GetBatchJobExecutionResponse}
  * @see {@link GetBatchJobExecutionCommandInput} for command's `input` shape.
  * @see {@link GetBatchJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

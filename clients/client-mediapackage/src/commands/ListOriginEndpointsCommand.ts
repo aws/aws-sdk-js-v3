@@ -222,8 +222,8 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  *
  * ```
  *
- * @param ListOriginEndpointsCommandInput - {@link ListOriginEndpointsCommandInput}
- * @returns {@link ListOriginEndpointsCommandOutput}
+ * @param ListOriginEndpointsRequest - {@link ListOriginEndpointsRequest}
+ * @returns {@link ListOriginEndpointsResponse}
  * @see {@link ListOriginEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListOriginEndpointsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

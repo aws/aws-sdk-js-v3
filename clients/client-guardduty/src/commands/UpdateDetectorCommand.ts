@@ -80,8 +80,8 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  *
  * ```
  *
- * @param UpdateDetectorCommandInput - {@link UpdateDetectorCommandInput}
- * @returns {@link UpdateDetectorCommandOutput}
+ * @param UpdateDetectorRequest - {@link UpdateDetectorRequest}
+ * @returns {@link UpdateDetectorResponse}
  * @see {@link UpdateDetectorCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

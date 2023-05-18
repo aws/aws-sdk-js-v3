@@ -48,8 +48,8 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  *
  * ```
  *
- * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
- * @returns {@link DeleteInstanceProfileCommandOutput}
+ * @param DeleteInstanceProfileRequest - {@link DeleteInstanceProfileRequest}
+ * @returns {@link DeleteInstanceProfileResult}
  * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

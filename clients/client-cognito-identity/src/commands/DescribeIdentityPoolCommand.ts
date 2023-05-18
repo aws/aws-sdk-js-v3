@@ -76,8 +76,8 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  *
  * ```
  *
- * @param DescribeIdentityPoolCommandInput - {@link DescribeIdentityPoolCommandInput}
- * @returns {@link DescribeIdentityPoolCommandOutput}
+ * @param DescribeIdentityPoolInput - {@link DescribeIdentityPoolInput}
+ * @returns {@link IdentityPool}
  * @see {@link DescribeIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

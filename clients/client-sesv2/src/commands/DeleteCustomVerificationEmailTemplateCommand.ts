@@ -61,8 +61,8 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput
  *
  * ```
  *
- * @param DeleteCustomVerificationEmailTemplateCommandInput - {@link DeleteCustomVerificationEmailTemplateCommandInput}
- * @returns {@link DeleteCustomVerificationEmailTemplateCommandOutput}
+ * @param DeleteCustomVerificationEmailTemplateRequest - {@link DeleteCustomVerificationEmailTemplateRequest}
+ * @returns {@link DeleteCustomVerificationEmailTemplateResponse}
  * @see {@link DeleteCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

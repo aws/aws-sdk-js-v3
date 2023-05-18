@@ -59,8 +59,8 @@ export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteEvaluationFormCommandInput - {@link DeleteEvaluationFormCommandInput}
- * @returns {@link DeleteEvaluationFormCommandOutput}
+ * @param DeleteEvaluationFormRequest - {@link DeleteEvaluationFormRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEvaluationFormCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationFormCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -55,8 +55,8 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  *
  * ```
  *
- * @param CopyFpgaImageCommandInput - {@link CopyFpgaImageCommandInput}
- * @returns {@link CopyFpgaImageCommandOutput}
+ * @param CopyFpgaImageRequest - {@link CopyFpgaImageRequest}
+ * @returns {@link CopyFpgaImageResult}
  * @see {@link CopyFpgaImageCommandInput} for command's `input` shape.
  * @see {@link CopyFpgaImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

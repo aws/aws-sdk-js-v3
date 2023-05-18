@@ -127,8 +127,8 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  *
  * ```
  *
- * @param DescribeChangeSetCommandInput - {@link DescribeChangeSetCommandInput}
- * @returns {@link DescribeChangeSetCommandOutput}
+ * @param DescribeChangeSetInput - {@link DescribeChangeSetInput}
+ * @returns {@link DescribeChangeSetOutput}
  * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

@@ -58,8 +58,8 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  *
  * ```
  *
- * @param GetSagemakerServicecatalogPortfolioStatusCommandInput - {@link GetSagemakerServicecatalogPortfolioStatusCommandInput}
- * @returns {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput}
+ * @param GetSagemakerServicecatalogPortfolioStatusInput - {@link GetSagemakerServicecatalogPortfolioStatusInput}
+ * @returns {@link GetSagemakerServicecatalogPortfolioStatusOutput}
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandInput} for command's `input` shape.
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -87,8 +87,8 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  *
  * ```
  *
- * @param DeleteCapacityProviderCommandInput - {@link DeleteCapacityProviderCommandInput}
- * @returns {@link DeleteCapacityProviderCommandOutput}
+ * @param DeleteCapacityProviderRequest - {@link DeleteCapacityProviderRequest}
+ * @returns {@link DeleteCapacityProviderResponse}
  * @see {@link DeleteCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

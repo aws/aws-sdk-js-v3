@@ -51,8 +51,8 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  *
  * ```
  *
- * @param GetJobDocumentCommandInput - {@link GetJobDocumentCommandInput}
- * @returns {@link GetJobDocumentCommandOutput}
+ * @param GetJobDocumentRequest - {@link GetJobDocumentRequest}
+ * @returns {@link GetJobDocumentResponse}
  * @see {@link GetJobDocumentCommandInput} for command's `input` shape.
  * @see {@link GetJobDocumentCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -53,8 +53,8 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  *
  * ```
  *
- * @param EnableControlCommandInput - {@link EnableControlCommandInput}
- * @returns {@link EnableControlCommandOutput}
+ * @param EnableControlInput - {@link EnableControlInput}
+ * @returns {@link EnableControlOutput}
  * @see {@link EnableControlCommandInput} for command's `input` shape.
  * @see {@link EnableControlCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.

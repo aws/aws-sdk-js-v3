@@ -93,8 +93,8 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *
  * ```
  *
- * @param UpdateScriptCommandInput - {@link UpdateScriptCommandInput}
- * @returns {@link UpdateScriptCommandOutput}
+ * @param UpdateScriptInput - {@link UpdateScriptInput}
+ * @returns {@link UpdateScriptOutput}
  * @see {@link UpdateScriptCommandInput} for command's `input` shape.
  * @see {@link UpdateScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

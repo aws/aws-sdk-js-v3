@@ -59,8 +59,8 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  *
  * ```
  *
- * @param UpdateLocationNfsCommandInput - {@link UpdateLocationNfsCommandInput}
- * @returns {@link UpdateLocationNfsCommandOutput}
+ * @param UpdateLocationNfsRequest - {@link UpdateLocationNfsRequest}
+ * @returns {@link UpdateLocationNfsResponse}
  * @see {@link UpdateLocationNfsCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationNfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

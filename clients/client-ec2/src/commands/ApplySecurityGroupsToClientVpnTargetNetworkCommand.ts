@@ -67,8 +67,8 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
  *
  * ```
  *
- * @param ApplySecurityGroupsToClientVpnTargetNetworkCommandInput - {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandInput}
- * @returns {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput}
+ * @param ApplySecurityGroupsToClientVpnTargetNetworkRequest - {@link ApplySecurityGroupsToClientVpnTargetNetworkRequest}
+ * @returns {@link ApplySecurityGroupsToClientVpnTargetNetworkResult}
  * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

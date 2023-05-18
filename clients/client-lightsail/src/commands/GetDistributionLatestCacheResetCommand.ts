@@ -57,8 +57,8 @@ export interface GetDistributionLatestCacheResetCommandOutput
  *
  * ```
  *
- * @param GetDistributionLatestCacheResetCommandInput - {@link GetDistributionLatestCacheResetCommandInput}
- * @returns {@link GetDistributionLatestCacheResetCommandOutput}
+ * @param GetDistributionLatestCacheResetRequest - {@link GetDistributionLatestCacheResetRequest}
+ * @returns {@link GetDistributionLatestCacheResetResult}
  * @see {@link GetDistributionLatestCacheResetCommandInput} for command's `input` shape.
  * @see {@link GetDistributionLatestCacheResetCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

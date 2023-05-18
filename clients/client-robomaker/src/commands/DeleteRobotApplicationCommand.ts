@@ -49,8 +49,8 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  *
  * ```
  *
- * @param DeleteRobotApplicationCommandInput - {@link DeleteRobotApplicationCommandInput}
- * @returns {@link DeleteRobotApplicationCommandOutput}
+ * @param DeleteRobotApplicationRequest - {@link DeleteRobotApplicationRequest}
+ * @returns {@link DeleteRobotApplicationResponse}
  * @see {@link DeleteRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

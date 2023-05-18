@@ -59,8 +59,8 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  *
  * ```
  *
- * @param BatchDeleteScheduledActionCommandInput - {@link BatchDeleteScheduledActionCommandInput}
- * @returns {@link BatchDeleteScheduledActionCommandOutput}
+ * @param BatchDeleteScheduledActionType - {@link BatchDeleteScheduledActionType}
+ * @returns {@link BatchDeleteScheduledActionAnswer}
  * @see {@link BatchDeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -115,8 +115,8 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  *
  * ```
  *
- * @param DeregisterOrganizationAdminAccountCommandInput - {@link DeregisterOrganizationAdminAccountCommandInput}
- * @returns {@link DeregisterOrganizationAdminAccountCommandOutput}
+ * @param DeregisterOrganizationAdminAccountRequest - {@link DeregisterOrganizationAdminAccountRequest}
+ * @returns {@link DeregisterOrganizationAdminAccountResponse}
  * @see {@link DeregisterOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DeregisterOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

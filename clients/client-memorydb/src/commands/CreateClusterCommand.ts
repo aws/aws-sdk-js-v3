@@ -149,8 +149,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * ```
  *
- * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
- * @returns {@link CreateClusterCommandOutput}
+ * @param CreateClusterRequest - {@link CreateClusterRequest}
+ * @returns {@link CreateClusterResponse}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

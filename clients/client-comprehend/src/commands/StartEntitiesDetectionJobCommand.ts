@@ -92,8 +92,8 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  *
  * ```
  *
- * @param StartEntitiesDetectionJobCommandInput - {@link StartEntitiesDetectionJobCommandInput}
- * @returns {@link StartEntitiesDetectionJobCommandOutput}
+ * @param StartEntitiesDetectionJobRequest - {@link StartEntitiesDetectionJobRequest}
+ * @returns {@link StartEntitiesDetectionJobResponse}
  * @see {@link StartEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

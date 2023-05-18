@@ -86,8 +86,8 @@ export interface ListProvisioningArtifactsForServiceActionCommandOutput
  *
  * ```
  *
- * @param ListProvisioningArtifactsForServiceActionCommandInput - {@link ListProvisioningArtifactsForServiceActionCommandInput}
- * @returns {@link ListProvisioningArtifactsForServiceActionCommandOutput}
+ * @param ListProvisioningArtifactsForServiceActionInput - {@link ListProvisioningArtifactsForServiceActionInput}
+ * @returns {@link ListProvisioningArtifactsForServiceActionOutput}
  * @see {@link ListProvisioningArtifactsForServiceActionCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningArtifactsForServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

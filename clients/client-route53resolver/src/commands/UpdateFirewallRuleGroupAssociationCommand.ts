@@ -75,8 +75,8 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
  *
  * ```
  *
- * @param UpdateFirewallRuleGroupAssociationCommandInput - {@link UpdateFirewallRuleGroupAssociationCommandInput}
- * @returns {@link UpdateFirewallRuleGroupAssociationCommandOutput}
+ * @param UpdateFirewallRuleGroupAssociationRequest - {@link UpdateFirewallRuleGroupAssociationRequest}
+ * @returns {@link UpdateFirewallRuleGroupAssociationResponse}
  * @see {@link UpdateFirewallRuleGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallRuleGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

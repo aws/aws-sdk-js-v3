@@ -88,8 +88,8 @@ export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput,
  *
  * ```
  *
- * @param ListRecordHistoryCommandInput - {@link ListRecordHistoryCommandInput}
- * @returns {@link ListRecordHistoryCommandOutput}
+ * @param ListRecordHistoryInput - {@link ListRecordHistoryInput}
+ * @returns {@link ListRecordHistoryOutput}
  * @see {@link ListRecordHistoryCommandInput} for command's `input` shape.
  * @see {@link ListRecordHistoryCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

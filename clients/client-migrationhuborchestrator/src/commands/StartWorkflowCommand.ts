@@ -58,8 +58,8 @@ export interface StartWorkflowCommandOutput extends StartMigrationWorkflowRespon
  *
  * ```
  *
- * @param StartWorkflowCommandInput - {@link StartWorkflowCommandInput}
- * @returns {@link StartWorkflowCommandOutput}
+ * @param StartMigrationWorkflowRequest - {@link StartMigrationWorkflowRequest}
+ * @returns {@link StartMigrationWorkflowResponse}
  * @see {@link StartWorkflowCommandInput} for command's `input` shape.
  * @see {@link StartWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

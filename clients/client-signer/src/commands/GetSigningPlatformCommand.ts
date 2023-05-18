@@ -76,8 +76,8 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  *
  * ```
  *
- * @param GetSigningPlatformCommandInput - {@link GetSigningPlatformCommandInput}
- * @returns {@link GetSigningPlatformCommandOutput}
+ * @param GetSigningPlatformRequest - {@link GetSigningPlatformRequest}
+ * @returns {@link GetSigningPlatformResponse}
  * @see {@link GetSigningPlatformCommandInput} for command's `input` shape.
  * @see {@link GetSigningPlatformCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

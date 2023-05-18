@@ -55,8 +55,8 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  *
  * ```
  *
- * @param CreateCapacityReservationCommandInput - {@link CreateCapacityReservationCommandInput}
- * @returns {@link CreateCapacityReservationCommandOutput}
+ * @param CreateCapacityReservationInput - {@link CreateCapacityReservationInput}
+ * @returns {@link CreateCapacityReservationOutput}
  * @see {@link CreateCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

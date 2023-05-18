@@ -269,8 +269,8 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  *
  * ```
  *
- * @param ResizeClusterCommandInput - {@link ResizeClusterCommandInput}
- * @returns {@link ResizeClusterCommandOutput}
+ * @param ResizeClusterMessage - {@link ResizeClusterMessage}
+ * @returns {@link ResizeClusterResult}
  * @see {@link ResizeClusterCommandInput} for command's `input` shape.
  * @see {@link ResizeClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

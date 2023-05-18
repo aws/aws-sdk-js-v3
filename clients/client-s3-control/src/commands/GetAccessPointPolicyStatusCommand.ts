@@ -56,8 +56,8 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  *
  * ```
  *
- * @param GetAccessPointPolicyStatusCommandInput - {@link GetAccessPointPolicyStatusCommandInput}
- * @returns {@link GetAccessPointPolicyStatusCommandOutput}
+ * @param GetAccessPointPolicyStatusRequest - {@link GetAccessPointPolicyStatusRequest}
+ * @returns {@link GetAccessPointPolicyStatusResult}
  * @see {@link GetAccessPointPolicyStatusCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

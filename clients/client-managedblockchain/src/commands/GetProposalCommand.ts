@@ -84,8 +84,8 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  *
  * ```
  *
- * @param GetProposalCommandInput - {@link GetProposalCommandInput}
- * @returns {@link GetProposalCommandOutput}
+ * @param GetProposalInput - {@link GetProposalInput}
+ * @returns {@link GetProposalOutput}
  * @see {@link GetProposalCommandInput} for command's `input` shape.
  * @see {@link GetProposalCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

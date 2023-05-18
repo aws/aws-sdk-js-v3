@@ -69,8 +69,8 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  *
  * ```
  *
- * @param DescribeSpendLimitsCommandInput - {@link DescribeSpendLimitsCommandInput}
- * @returns {@link DescribeSpendLimitsCommandOutput}
+ * @param DescribeSpendLimitsRequest - {@link DescribeSpendLimitsRequest}
+ * @returns {@link DescribeSpendLimitsResult}
  * @see {@link DescribeSpendLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpendLimitsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

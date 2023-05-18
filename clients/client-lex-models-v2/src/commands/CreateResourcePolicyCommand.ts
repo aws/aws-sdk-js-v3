@@ -53,8 +53,8 @@ export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyR
  *
  * ```
  *
- * @param CreateResourcePolicyCommandInput - {@link CreateResourcePolicyCommandInput}
- * @returns {@link CreateResourcePolicyCommandOutput}
+ * @param CreateResourcePolicyRequest - {@link CreateResourcePolicyRequest}
+ * @returns {@link CreateResourcePolicyResponse}
  * @see {@link CreateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

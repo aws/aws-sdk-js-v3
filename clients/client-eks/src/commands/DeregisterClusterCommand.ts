@@ -136,8 +136,8 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  *
  * ```
  *
- * @param DeregisterClusterCommandInput - {@link DeregisterClusterCommandInput}
- * @returns {@link DeregisterClusterCommandOutput}
+ * @param DeregisterClusterRequest - {@link DeregisterClusterRequest}
+ * @returns {@link DeregisterClusterResponse}
  * @see {@link DeregisterClusterCommandInput} for command's `input` shape.
  * @see {@link DeregisterClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

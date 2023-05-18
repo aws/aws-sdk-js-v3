@@ -61,8 +61,8 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  *
  * ```
  *
- * @param DescribeInterconnectLoaCommandInput - {@link DescribeInterconnectLoaCommandInput}
- * @returns {@link DescribeInterconnectLoaCommandOutput}
+ * @param DescribeInterconnectLoaRequest - {@link DescribeInterconnectLoaRequest}
+ * @returns {@link DescribeInterconnectLoaResponse}
  * @see {@link DescribeInterconnectLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectLoaCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

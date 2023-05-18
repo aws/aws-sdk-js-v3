@@ -60,8 +60,8 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  *
  * ```
  *
- * @param GetPartnerAccountCommandInput - {@link GetPartnerAccountCommandInput}
- * @returns {@link GetPartnerAccountCommandOutput}
+ * @param GetPartnerAccountRequest - {@link GetPartnerAccountRequest}
+ * @returns {@link GetPartnerAccountResponse}
  * @see {@link GetPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link GetPartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

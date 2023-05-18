@@ -150,8 +150,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *
  * ```
  *
- * @param CreateServerCommandInput - {@link CreateServerCommandInput}
- * @returns {@link CreateServerCommandOutput}
+ * @param CreateServerRequest - {@link CreateServerRequest}
+ * @returns {@link CreateServerResponse}
  * @see {@link CreateServerCommandInput} for command's `input` shape.
  * @see {@link CreateServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

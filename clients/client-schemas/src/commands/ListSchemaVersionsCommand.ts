@@ -61,8 +61,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  *
  * ```
  *
- * @param ListSchemaVersionsCommandInput - {@link ListSchemaVersionsCommandInput}
- * @returns {@link ListSchemaVersionsCommandOutput}
+ * @param ListSchemaVersionsRequest - {@link ListSchemaVersionsRequest}
+ * @returns {@link ListSchemaVersionsResponse}
  * @see {@link ListSchemaVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaVersionsCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

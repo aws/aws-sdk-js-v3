@@ -65,8 +65,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  *
  * ```
  *
- * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
- * @returns {@link ListDashboardsCommandOutput}
+ * @param ListDashboardsRequest - {@link ListDashboardsRequest}
+ * @returns {@link ListDashboardsResponse}
  * @see {@link ListDashboardsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

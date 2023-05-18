@@ -70,8 +70,8 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  *
  * ```
  *
- * @param DescribeGatewayCommandInput - {@link DescribeGatewayCommandInput}
- * @returns {@link DescribeGatewayCommandOutput}
+ * @param DescribeGatewayRequest - {@link DescribeGatewayRequest}
+ * @returns {@link DescribeGatewayResponse}
  * @see {@link DescribeGatewayCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

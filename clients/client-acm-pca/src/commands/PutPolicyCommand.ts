@@ -80,8 +80,8 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
- * @returns {@link PutPolicyCommandOutput}
+ * @param PutPolicyRequest - {@link PutPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link PutPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPolicyCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

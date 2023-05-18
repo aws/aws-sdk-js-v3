@@ -106,8 +106,8 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  *
  * ```
  *
- * @param DescribeEnvironmentsCommandInput - {@link DescribeEnvironmentsCommandInput}
- * @returns {@link DescribeEnvironmentsCommandOutput}
+ * @param DescribeEnvironmentsMessage - {@link DescribeEnvironmentsMessage}
+ * @returns {@link EnvironmentDescriptionsMessage}
  * @see {@link DescribeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

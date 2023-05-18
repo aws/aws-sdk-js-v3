@@ -51,8 +51,8 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  *
  * ```
  *
- * @param DeleteContainerRecipeCommandInput - {@link DeleteContainerRecipeCommandInput}
- * @returns {@link DeleteContainerRecipeCommandOutput}
+ * @param DeleteContainerRecipeRequest - {@link DeleteContainerRecipeRequest}
+ * @returns {@link DeleteContainerRecipeResponse}
  * @see {@link DeleteContainerRecipeCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

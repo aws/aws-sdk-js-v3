@@ -66,8 +66,8 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  *
  * ```
  *
- * @param GetIndexCommandInput - {@link GetIndexCommandInput}
- * @returns {@link GetIndexCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetIndexOutput}
  * @see {@link GetIndexCommandInput} for command's `input` shape.
  * @see {@link GetIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

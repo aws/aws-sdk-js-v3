@@ -88,8 +88,8 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResponse, __Met
  *
  * ```
  *
- * @param ListSnapshotsCommandInput - {@link ListSnapshotsCommandInput}
- * @returns {@link ListSnapshotsCommandOutput}
+ * @param ListSnapshotsRequest - {@link ListSnapshotsRequest}
+ * @returns {@link ListSnapshotsResponse}
  * @see {@link ListSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

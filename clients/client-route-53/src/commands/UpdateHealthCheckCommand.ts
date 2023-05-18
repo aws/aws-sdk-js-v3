@@ -128,8 +128,8 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  *
  * ```
  *
- * @param UpdateHealthCheckCommandInput - {@link UpdateHealthCheckCommandInput}
- * @returns {@link UpdateHealthCheckCommandOutput}
+ * @param UpdateHealthCheckRequest - {@link UpdateHealthCheckRequest}
+ * @returns {@link UpdateHealthCheckResponse}
  * @see {@link UpdateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link UpdateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

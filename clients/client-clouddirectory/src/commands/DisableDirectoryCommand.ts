@@ -51,8 +51,8 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  *
  * ```
  *
- * @param DisableDirectoryCommandInput - {@link DisableDirectoryCommandInput}
- * @returns {@link DisableDirectoryCommandOutput}
+ * @param DisableDirectoryRequest - {@link DisableDirectoryRequest}
+ * @returns {@link DisableDirectoryResponse}
  * @see {@link DisableDirectoryCommandInput} for command's `input` shape.
  * @see {@link DisableDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

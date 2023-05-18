@@ -84,8 +84,8 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  *
  * ```
  *
- * @param GetFolderCommandInput - {@link GetFolderCommandInput}
- * @returns {@link GetFolderCommandOutput}
+ * @param GetFolderInput - {@link GetFolderInput}
+ * @returns {@link GetFolderOutput}
  * @see {@link GetFolderCommandInput} for command's `input` shape.
  * @see {@link GetFolderCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

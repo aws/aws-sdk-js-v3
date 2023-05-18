@@ -63,8 +63,8 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  *
  * ```
  *
- * @param CreateAssessmentReportCommandInput - {@link CreateAssessmentReportCommandInput}
- * @returns {@link CreateAssessmentReportCommandOutput}
+ * @param CreateAssessmentReportRequest - {@link CreateAssessmentReportRequest}
+ * @returns {@link CreateAssessmentReportResponse}
  * @see {@link CreateAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

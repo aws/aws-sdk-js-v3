@@ -55,8 +55,8 @@ export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentRespo
  *
  * ```
  *
- * @param StopDevEnvironmentCommandInput - {@link StopDevEnvironmentCommandInput}
- * @returns {@link StopDevEnvironmentCommandOutput}
+ * @param StopDevEnvironmentRequest - {@link StopDevEnvironmentRequest}
+ * @returns {@link StopDevEnvironmentResponse}
  * @see {@link StopDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link StopDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

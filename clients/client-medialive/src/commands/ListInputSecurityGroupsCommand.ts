@@ -69,8 +69,8 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  *
  * ```
  *
- * @param ListInputSecurityGroupsCommandInput - {@link ListInputSecurityGroupsCommandInput}
- * @returns {@link ListInputSecurityGroupsCommandOutput}
+ * @param ListInputSecurityGroupsRequest - {@link ListInputSecurityGroupsRequest}
+ * @returns {@link ListInputSecurityGroupsResponse}
  * @see {@link ListInputSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link ListInputSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

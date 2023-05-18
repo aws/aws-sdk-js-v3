@@ -520,8 +520,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateJobCommandInput - {@link CreateJobCommandInput}
- * @returns {@link CreateJobCommandOutput}
+ * @param CreateJobRequest - {@link CreateJobRequest}
+ * @returns {@link CreateJobResponse}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

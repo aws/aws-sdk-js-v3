@@ -69,8 +69,8 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  *
  * ```
  *
- * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
- * @returns {@link ListAccessPoliciesCommandOutput}
+ * @param ListAccessPoliciesRequest - {@link ListAccessPoliciesRequest}
+ * @returns {@link ListAccessPoliciesResponse}
  * @see {@link ListAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

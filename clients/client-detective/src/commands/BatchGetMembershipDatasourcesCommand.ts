@@ -75,8 +75,8 @@ export interface BatchGetMembershipDatasourcesCommandOutput
  *
  * ```
  *
- * @param BatchGetMembershipDatasourcesCommandInput - {@link BatchGetMembershipDatasourcesCommandInput}
- * @returns {@link BatchGetMembershipDatasourcesCommandOutput}
+ * @param BatchGetMembershipDatasourcesRequest - {@link BatchGetMembershipDatasourcesRequest}
+ * @returns {@link BatchGetMembershipDatasourcesResponse}
  * @see {@link BatchGetMembershipDatasourcesCommandInput} for command's `input` shape.
  * @see {@link BatchGetMembershipDatasourcesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

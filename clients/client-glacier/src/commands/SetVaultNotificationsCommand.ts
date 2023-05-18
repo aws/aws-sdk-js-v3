@@ -92,8 +92,8 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetVaultNotificationsCommandInput - {@link SetVaultNotificationsCommandInput}
- * @returns {@link SetVaultNotificationsCommandOutput}
+ * @param SetVaultNotificationsInput - {@link SetVaultNotificationsInput}
+ * @returns {@link Unit}
  * @see {@link SetVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link SetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

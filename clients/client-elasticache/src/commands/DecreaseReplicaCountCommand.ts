@@ -188,8 +188,8 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  *
  * ```
  *
- * @param DecreaseReplicaCountCommandInput - {@link DecreaseReplicaCountCommandInput}
- * @returns {@link DecreaseReplicaCountCommandOutput}
+ * @param DecreaseReplicaCountMessage - {@link DecreaseReplicaCountMessage}
+ * @returns {@link DecreaseReplicaCountResult}
  * @see {@link DecreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link DecreaseReplicaCountCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

@@ -60,8 +60,8 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  *
  * ```
  *
- * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
- * @returns {@link DeleteCollectionCommandOutput}
+ * @param DeleteCollectionRequest - {@link DeleteCollectionRequest}
+ * @returns {@link DeleteCollectionResponse}
  * @see {@link DeleteCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

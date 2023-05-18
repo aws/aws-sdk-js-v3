@@ -49,8 +49,8 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  *
  * ```
  *
- * @param DeregisterApplicationCommandInput - {@link DeregisterApplicationCommandInput}
- * @returns {@link DeregisterApplicationCommandOutput}
+ * @param DeregisterApplicationInput - {@link DeregisterApplicationInput}
+ * @returns {@link DeregisterApplicationOutput}
  * @see {@link DeregisterApplicationCommandInput} for command's `input` shape.
  * @see {@link DeregisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

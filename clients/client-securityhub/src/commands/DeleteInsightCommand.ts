@@ -50,8 +50,8 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  *
  * ```
  *
- * @param DeleteInsightCommandInput - {@link DeleteInsightCommandInput}
- * @returns {@link DeleteInsightCommandOutput}
+ * @param DeleteInsightRequest - {@link DeleteInsightRequest}
+ * @returns {@link DeleteInsightResponse}
  * @see {@link DeleteInsightCommandInput} for command's `input` shape.
  * @see {@link DeleteInsightCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

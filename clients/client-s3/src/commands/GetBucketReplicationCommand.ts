@@ -143,8 +143,8 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  *
  * ```
  *
- * @param GetBucketReplicationCommandInput - {@link GetBucketReplicationCommandInput}
- * @returns {@link GetBucketReplicationCommandOutput}
+ * @param GetBucketReplicationRequest - {@link GetBucketReplicationRequest}
+ * @returns {@link GetBucketReplicationOutput}
  * @see {@link GetBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link GetBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

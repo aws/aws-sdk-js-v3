@@ -71,8 +71,8 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
  *
  * ```
  *
- * @param AssociatePrincipalWithPortfolioCommandInput - {@link AssociatePrincipalWithPortfolioCommandInput}
- * @returns {@link AssociatePrincipalWithPortfolioCommandOutput}
+ * @param AssociatePrincipalWithPortfolioInput - {@link AssociatePrincipalWithPortfolioInput}
+ * @returns {@link AssociatePrincipalWithPortfolioOutput}
  * @see {@link AssociatePrincipalWithPortfolioCommandInput} for command's `input` shape.
  * @see {@link AssociatePrincipalWithPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

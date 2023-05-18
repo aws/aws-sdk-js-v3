@@ -72,8 +72,8 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  *
  * ```
  *
- * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
- * @returns {@link CreateAliasCommandOutput}
+ * @param CreateAliasRequest - {@link CreateAliasRequest}
+ * @returns {@link AliasConfiguration}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

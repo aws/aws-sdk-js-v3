@@ -86,8 +86,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *
  * ```
  *
- * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
- * @returns {@link DescribeEventsCommandOutput}
+ * @param DescribeEventsMessage - {@link DescribeEventsMessage}
+ * @returns {@link DescribeEventsResponse}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

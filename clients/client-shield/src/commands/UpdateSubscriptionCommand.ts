@@ -52,8 +52,8 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  *
  * ```
  *
- * @param UpdateSubscriptionCommandInput - {@link UpdateSubscriptionCommandInput}
- * @returns {@link UpdateSubscriptionCommandOutput}
+ * @param UpdateSubscriptionRequest - {@link UpdateSubscriptionRequest}
+ * @returns {@link UpdateSubscriptionResponse}
  * @see {@link UpdateSubscriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

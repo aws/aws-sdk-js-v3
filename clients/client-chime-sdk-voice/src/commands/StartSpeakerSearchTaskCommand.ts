@@ -78,8 +78,8 @@ export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchT
  *
  * ```
  *
- * @param StartSpeakerSearchTaskCommandInput - {@link StartSpeakerSearchTaskCommandInput}
- * @returns {@link StartSpeakerSearchTaskCommandOutput}
+ * @param StartSpeakerSearchTaskRequest - {@link StartSpeakerSearchTaskRequest}
+ * @returns {@link StartSpeakerSearchTaskResponse}
  * @see {@link StartSpeakerSearchTaskCommandInput} for command's `input` shape.
  * @see {@link StartSpeakerSearchTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

@@ -75,8 +75,8 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  *
  * ```
  *
- * @param ModifySnapshotScheduleCommandInput - {@link ModifySnapshotScheduleCommandInput}
- * @returns {@link ModifySnapshotScheduleCommandOutput}
+ * @param ModifySnapshotScheduleMessage - {@link ModifySnapshotScheduleMessage}
+ * @returns {@link SnapshotSchedule}
  * @see {@link ModifySnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -271,8 +271,8 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
  *
  * ```
  *
- * @param DescribeRouteCommandInput - {@link DescribeRouteCommandInput}
- * @returns {@link DescribeRouteCommandOutput}
+ * @param DescribeRouteInput - {@link DescribeRouteInput}
+ * @returns {@link DescribeRouteOutput}
  * @see {@link DescribeRouteCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

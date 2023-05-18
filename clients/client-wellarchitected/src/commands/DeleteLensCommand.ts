@@ -64,8 +64,8 @@ export interface DeleteLensCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLensCommandInput - {@link DeleteLensCommandInput}
- * @returns {@link DeleteLensCommandOutput}
+ * @param DeleteLensInput - {@link DeleteLensInput}
+ * @returns {@link Unit}
  * @see {@link DeleteLensCommandInput} for command's `input` shape.
  * @see {@link DeleteLensCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

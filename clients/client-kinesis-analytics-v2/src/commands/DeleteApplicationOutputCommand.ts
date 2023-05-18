@@ -59,8 +59,8 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  *
  * ```
  *
- * @param DeleteApplicationOutputCommandInput - {@link DeleteApplicationOutputCommandInput}
- * @returns {@link DeleteApplicationOutputCommandOutput}
+ * @param DeleteApplicationOutputRequest - {@link DeleteApplicationOutputRequest}
+ * @returns {@link DeleteApplicationOutputResponse}
  * @see {@link DeleteApplicationOutputCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationOutputCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

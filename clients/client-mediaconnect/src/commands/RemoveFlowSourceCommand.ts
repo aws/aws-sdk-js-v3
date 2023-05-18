@@ -52,8 +52,8 @@ export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse,
  *
  * ```
  *
- * @param RemoveFlowSourceCommandInput - {@link RemoveFlowSourceCommandInput}
- * @returns {@link RemoveFlowSourceCommandOutput}
+ * @param RemoveFlowSourceRequest - {@link RemoveFlowSourceRequest}
+ * @returns {@link RemoveFlowSourceResponse}
  * @see {@link RemoveFlowSourceCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

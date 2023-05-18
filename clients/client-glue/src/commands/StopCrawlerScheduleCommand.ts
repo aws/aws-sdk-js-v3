@@ -50,8 +50,8 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  *
  * ```
  *
- * @param StopCrawlerScheduleCommandInput - {@link StopCrawlerScheduleCommandInput}
- * @returns {@link StopCrawlerScheduleCommandOutput}
+ * @param StopCrawlerScheduleRequest - {@link StopCrawlerScheduleRequest}
+ * @returns {@link StopCrawlerScheduleResponse}
  * @see {@link StopCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link StopCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

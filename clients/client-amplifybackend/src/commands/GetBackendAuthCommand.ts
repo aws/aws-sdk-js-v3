@@ -138,8 +138,8 @@ export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __M
  *
  * ```
  *
- * @param GetBackendAuthCommandInput - {@link GetBackendAuthCommandInput}
- * @returns {@link GetBackendAuthCommandOutput}
+ * @param GetBackendAuthRequest - {@link GetBackendAuthRequest}
+ * @returns {@link GetBackendAuthResponse}
  * @see {@link GetBackendAuthCommandInput} for command's `input` shape.
  * @see {@link GetBackendAuthCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

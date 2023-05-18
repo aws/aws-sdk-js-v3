@@ -142,8 +142,8 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  *
  * ```
  *
- * @param RegisterTaskWithMaintenanceWindowCommandInput - {@link RegisterTaskWithMaintenanceWindowCommandInput}
- * @returns {@link RegisterTaskWithMaintenanceWindowCommandOutput}
+ * @param RegisterTaskWithMaintenanceWindowRequest - {@link RegisterTaskWithMaintenanceWindowRequest}
+ * @returns {@link RegisterTaskWithMaintenanceWindowResult}
  * @see {@link RegisterTaskWithMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link RegisterTaskWithMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

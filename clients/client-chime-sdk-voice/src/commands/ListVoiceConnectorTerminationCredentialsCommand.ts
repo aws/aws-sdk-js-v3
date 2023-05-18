@@ -62,8 +62,8 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  *
  * ```
  *
- * @param ListVoiceConnectorTerminationCredentialsCommandInput - {@link ListVoiceConnectorTerminationCredentialsCommandInput}
- * @returns {@link ListVoiceConnectorTerminationCredentialsCommandOutput}
+ * @param ListVoiceConnectorTerminationCredentialsRequest - {@link ListVoiceConnectorTerminationCredentialsRequest}
+ * @returns {@link ListVoiceConnectorTerminationCredentialsResponse}
  * @see {@link ListVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

@@ -80,8 +80,8 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  *
  * ```
  *
- * @param GetBucketLoggingCommandInput - {@link GetBucketLoggingCommandInput}
- * @returns {@link GetBucketLoggingCommandOutput}
+ * @param GetBucketLoggingRequest - {@link GetBucketLoggingRequest}
+ * @returns {@link GetBucketLoggingOutput}
  * @see {@link GetBucketLoggingCommandInput} for command's `input` shape.
  * @see {@link GetBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

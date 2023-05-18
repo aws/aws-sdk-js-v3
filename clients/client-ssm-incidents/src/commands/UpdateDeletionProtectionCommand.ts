@@ -51,8 +51,8 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  *
  * ```
  *
- * @param UpdateDeletionProtectionCommandInput - {@link UpdateDeletionProtectionCommandInput}
- * @returns {@link UpdateDeletionProtectionCommandOutput}
+ * @param UpdateDeletionProtectionInput - {@link UpdateDeletionProtectionInput}
+ * @returns {@link UpdateDeletionProtectionOutput}
  * @see {@link UpdateDeletionProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateDeletionProtectionCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

@@ -66,8 +66,8 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  *
  * ```
  *
- * @param CreateKeysAndCertificateCommandInput - {@link CreateKeysAndCertificateCommandInput}
- * @returns {@link CreateKeysAndCertificateCommandOutput}
+ * @param CreateKeysAndCertificateRequest - {@link CreateKeysAndCertificateRequest}
+ * @returns {@link CreateKeysAndCertificateResponse}
  * @see {@link CreateKeysAndCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateKeysAndCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

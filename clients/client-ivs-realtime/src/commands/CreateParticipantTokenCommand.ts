@@ -78,8 +78,8 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  *
  * ```
  *
- * @param CreateParticipantTokenCommandInput - {@link CreateParticipantTokenCommandInput}
- * @returns {@link CreateParticipantTokenCommandOutput}
+ * @param CreateParticipantTokenRequest - {@link CreateParticipantTokenRequest}
+ * @returns {@link CreateParticipantTokenResponse}
  * @see {@link CreateParticipantTokenCommandInput} for command's `input` shape.
  * @see {@link CreateParticipantTokenCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

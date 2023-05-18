@@ -89,8 +89,8 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  *
  * ```
  *
- * @param GetJobRunsCommandInput - {@link GetJobRunsCommandInput}
- * @returns {@link GetJobRunsCommandOutput}
+ * @param GetJobRunsRequest - {@link GetJobRunsRequest}
+ * @returns {@link GetJobRunsResponse}
  * @see {@link GetJobRunsCommandInput} for command's `input` shape.
  * @see {@link GetJobRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

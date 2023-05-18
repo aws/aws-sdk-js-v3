@@ -60,8 +60,8 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  *
  * ```
  *
- * @param GetUploadStatusCommandInput - {@link GetUploadStatusCommandInput}
- * @returns {@link GetUploadStatusCommandOutput}
+ * @param GetUploadStatusRequest - {@link GetUploadStatusRequest}
+ * @returns {@link GetUploadStatusResponse}
  * @see {@link GetUploadStatusCommandInput} for command's `input` shape.
  * @see {@link GetUploadStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

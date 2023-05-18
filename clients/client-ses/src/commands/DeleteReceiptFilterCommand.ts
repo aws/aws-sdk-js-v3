@@ -51,8 +51,8 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  *
  * ```
  *
- * @param DeleteReceiptFilterCommandInput - {@link DeleteReceiptFilterCommandInput}
- * @returns {@link DeleteReceiptFilterCommandOutput}
+ * @param DeleteReceiptFilterRequest - {@link DeleteReceiptFilterRequest}
+ * @returns {@link DeleteReceiptFilterResponse}
  * @see {@link DeleteReceiptFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

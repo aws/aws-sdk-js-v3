@@ -286,8 +286,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *
  * ```
  *
- * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
- * @returns {@link UpdateDataSourceCommandOutput}
+ * @param UpdateDataSourceRequest - {@link UpdateDataSourceRequest}
+ * @returns {@link UpdateDataSourceResponse}
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

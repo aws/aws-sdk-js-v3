@@ -111,8 +111,8 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  *
  * ```
  *
- * @param CreateResourceSetCommandInput - {@link CreateResourceSetCommandInput}
- * @returns {@link CreateResourceSetCommandOutput}
+ * @param CreateResourceSetRequest - {@link CreateResourceSetRequest}
+ * @returns {@link CreateResourceSetResponse}
  * @see {@link CreateResourceSetCommandInput} for command's `input` shape.
  * @see {@link CreateResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListMetricAttributionMetricsCommandOutput
  *
  * ```
  *
- * @param ListMetricAttributionMetricsCommandInput - {@link ListMetricAttributionMetricsCommandInput}
- * @returns {@link ListMetricAttributionMetricsCommandOutput}
+ * @param ListMetricAttributionMetricsRequest - {@link ListMetricAttributionMetricsRequest}
+ * @returns {@link ListMetricAttributionMetricsResponse}
  * @see {@link ListMetricAttributionMetricsCommandInput} for command's `input` shape.
  * @see {@link ListMetricAttributionMetricsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

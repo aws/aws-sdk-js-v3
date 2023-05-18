@@ -63,8 +63,8 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  *
  * ```
  *
- * @param ModifyLunaClientCommandInput - {@link ModifyLunaClientCommandInput}
- * @returns {@link ModifyLunaClientCommandOutput}
+ * @param ModifyLunaClientRequest - {@link ModifyLunaClientRequest}
+ * @returns {@link ModifyLunaClientResponse}
  * @see {@link ModifyLunaClientCommandInput} for command's `input` shape.
  * @see {@link ModifyLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

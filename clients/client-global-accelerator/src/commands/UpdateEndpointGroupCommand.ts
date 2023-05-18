@@ -97,8 +97,8 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  *
  * ```
  *
- * @param UpdateEndpointGroupCommandInput - {@link UpdateEndpointGroupCommandInput}
- * @returns {@link UpdateEndpointGroupCommandOutput}
+ * @param UpdateEndpointGroupRequest - {@link UpdateEndpointGroupRequest}
+ * @returns {@link UpdateEndpointGroupResponse}
  * @see {@link UpdateEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

@@ -84,8 +84,8 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
  *
  * ```
  *
- * @param ListProxySessionsCommandInput - {@link ListProxySessionsCommandInput}
- * @returns {@link ListProxySessionsCommandOutput}
+ * @param ListProxySessionsRequest - {@link ListProxySessionsRequest}
+ * @returns {@link ListProxySessionsResponse}
  * @see {@link ListProxySessionsCommandInput} for command's `input` shape.
  * @see {@link ListProxySessionsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

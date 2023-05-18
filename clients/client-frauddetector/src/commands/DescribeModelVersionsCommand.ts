@@ -215,8 +215,8 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  *
  * ```
  *
- * @param DescribeModelVersionsCommandInput - {@link DescribeModelVersionsCommandInput}
- * @returns {@link DescribeModelVersionsCommandOutput}
+ * @param DescribeModelVersionsRequest - {@link DescribeModelVersionsRequest}
+ * @returns {@link DescribeModelVersionsResult}
  * @see {@link DescribeModelVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

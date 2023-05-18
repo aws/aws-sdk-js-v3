@@ -81,8 +81,8 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  *
  * ```
  *
- * @param RenewOfferingCommandInput - {@link RenewOfferingCommandInput}
- * @returns {@link RenewOfferingCommandOutput}
+ * @param RenewOfferingRequest - {@link RenewOfferingRequest}
+ * @returns {@link RenewOfferingResult}
  * @see {@link RenewOfferingCommandInput} for command's `input` shape.
  * @see {@link RenewOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

@@ -101,8 +101,8 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  *
  * ```
  *
- * @param GetImageRecipeCommandInput - {@link GetImageRecipeCommandInput}
- * @returns {@link GetImageRecipeCommandOutput}
+ * @param GetImageRecipeRequest - {@link GetImageRecipeRequest}
+ * @returns {@link GetImageRecipeResponse}
  * @see {@link GetImageRecipeCommandInput} for command's `input` shape.
  * @see {@link GetImageRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

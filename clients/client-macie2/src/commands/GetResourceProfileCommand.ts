@@ -63,8 +63,8 @@ export interface GetResourceProfileCommandOutput extends GetResourceProfileRespo
  *
  * ```
  *
- * @param GetResourceProfileCommandInput - {@link GetResourceProfileCommandInput}
- * @returns {@link GetResourceProfileCommandOutput}
+ * @param GetResourceProfileRequest - {@link GetResourceProfileRequest}
+ * @returns {@link GetResourceProfileResponse}
  * @see {@link GetResourceProfileCommandInput} for command's `input` shape.
  * @see {@link GetResourceProfileCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

@@ -75,8 +75,8 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  *
  * ```
  *
- * @param ListBackupsCommandInput - {@link ListBackupsCommandInput}
- * @returns {@link ListBackupsCommandOutput}
+ * @param ListBackupsInput - {@link ListBackupsInput}
+ * @returns {@link ListBackupsOutput}
  * @see {@link ListBackupsCommandInput} for command's `input` shape.
  * @see {@link ListBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

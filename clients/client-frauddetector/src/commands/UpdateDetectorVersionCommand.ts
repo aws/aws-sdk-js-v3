@@ -69,8 +69,8 @@ export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersio
  *
  * ```
  *
- * @param UpdateDetectorVersionCommandInput - {@link UpdateDetectorVersionCommandInput}
- * @returns {@link UpdateDetectorVersionCommandOutput}
+ * @param UpdateDetectorVersionRequest - {@link UpdateDetectorVersionRequest}
+ * @returns {@link UpdateDetectorVersionResult}
  * @see {@link UpdateDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

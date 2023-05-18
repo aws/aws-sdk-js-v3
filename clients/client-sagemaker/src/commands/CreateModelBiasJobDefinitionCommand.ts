@@ -148,8 +148,8 @@ export interface CreateModelBiasJobDefinitionCommandOutput
  *
  * ```
  *
- * @param CreateModelBiasJobDefinitionCommandInput - {@link CreateModelBiasJobDefinitionCommandInput}
- * @returns {@link CreateModelBiasJobDefinitionCommandOutput}
+ * @param CreateModelBiasJobDefinitionRequest - {@link CreateModelBiasJobDefinitionRequest}
+ * @returns {@link CreateModelBiasJobDefinitionResponse}
  * @see {@link CreateModelBiasJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateModelBiasJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

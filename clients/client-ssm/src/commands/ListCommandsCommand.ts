@@ -123,8 +123,8 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  *
  * ```
  *
- * @param ListCommandsCommandInput - {@link ListCommandsCommandInput}
- * @returns {@link ListCommandsCommandOutput}
+ * @param ListCommandsRequest - {@link ListCommandsRequest}
+ * @returns {@link ListCommandsResult}
  * @see {@link ListCommandsCommandInput} for command's `input` shape.
  * @see {@link ListCommandsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

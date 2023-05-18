@@ -469,8 +469,8 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  *
  * ```
  *
- * @param GetWorkflowExecutionHistoryCommandInput - {@link GetWorkflowExecutionHistoryCommandInput}
- * @returns {@link GetWorkflowExecutionHistoryCommandOutput}
+ * @param GetWorkflowExecutionHistoryInput - {@link GetWorkflowExecutionHistoryInput}
+ * @returns {@link History}
  * @see {@link GetWorkflowExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowExecutionHistoryCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

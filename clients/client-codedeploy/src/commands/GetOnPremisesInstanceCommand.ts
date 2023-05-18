@@ -63,8 +63,8 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  *
  * ```
  *
- * @param GetOnPremisesInstanceCommandInput - {@link GetOnPremisesInstanceCommandInput}
- * @returns {@link GetOnPremisesInstanceCommandOutput}
+ * @param GetOnPremisesInstanceInput - {@link GetOnPremisesInstanceInput}
+ * @returns {@link GetOnPremisesInstanceOutput}
  * @see {@link GetOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link GetOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

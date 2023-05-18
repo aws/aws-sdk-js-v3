@@ -55,8 +55,8 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  *
  * ```
  *
- * @param SendWorkflowStepStateCommandInput - {@link SendWorkflowStepStateCommandInput}
- * @returns {@link SendWorkflowStepStateCommandOutput}
+ * @param SendWorkflowStepStateRequest - {@link SendWorkflowStepStateRequest}
+ * @returns {@link SendWorkflowStepStateResponse}
  * @see {@link SendWorkflowStepStateCommandInput} for command's `input` shape.
  * @see {@link SendWorkflowStepStateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

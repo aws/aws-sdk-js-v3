@@ -56,8 +56,8 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  *
  * ```
  *
- * @param ListTypedLinkFacetNamesCommandInput - {@link ListTypedLinkFacetNamesCommandInput}
- * @returns {@link ListTypedLinkFacetNamesCommandOutput}
+ * @param ListTypedLinkFacetNamesRequest - {@link ListTypedLinkFacetNamesRequest}
+ * @returns {@link ListTypedLinkFacetNamesResponse}
  * @see {@link ListTypedLinkFacetNamesCommandInput} for command's `input` shape.
  * @see {@link ListTypedLinkFacetNamesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

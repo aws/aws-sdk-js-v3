@@ -52,8 +52,8 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param UpdateRoutingProfileNameCommandInput - {@link UpdateRoutingProfileNameCommandInput}
- * @returns {@link UpdateRoutingProfileNameCommandOutput}
+ * @param UpdateRoutingProfileNameRequest - {@link UpdateRoutingProfileNameRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateRoutingProfileNameCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

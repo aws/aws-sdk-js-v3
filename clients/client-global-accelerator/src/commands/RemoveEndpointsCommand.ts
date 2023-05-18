@@ -74,8 +74,8 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RemoveEndpointsCommandInput - {@link RemoveEndpointsCommandInput}
- * @returns {@link RemoveEndpointsCommandOutput}
+ * @param RemoveEndpointsRequest - {@link RemoveEndpointsRequest}
+ * @returns {@link Unit}
  * @see {@link RemoveEndpointsCommandInput} for command's `input` shape.
  * @see {@link RemoveEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

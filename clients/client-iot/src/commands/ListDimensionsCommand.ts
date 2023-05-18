@@ -55,8 +55,8 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  *
  * ```
  *
- * @param ListDimensionsCommandInput - {@link ListDimensionsCommandInput}
- * @returns {@link ListDimensionsCommandOutput}
+ * @param ListDimensionsRequest - {@link ListDimensionsRequest}
+ * @returns {@link ListDimensionsResponse}
  * @see {@link ListDimensionsCommandInput} for command's `input` shape.
  * @see {@link ListDimensionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

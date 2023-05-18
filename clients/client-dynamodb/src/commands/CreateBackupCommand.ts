@@ -88,8 +88,8 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  *
  * ```
  *
- * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
- * @returns {@link CreateBackupCommandOutput}
+ * @param CreateBackupInput - {@link CreateBackupInput}
+ * @returns {@link CreateBackupOutput}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

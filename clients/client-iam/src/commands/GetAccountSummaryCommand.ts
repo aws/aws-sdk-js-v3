@@ -53,8 +53,8 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  *
  * ```
  *
- * @param GetAccountSummaryCommandInput - {@link GetAccountSummaryCommandInput}
- * @returns {@link GetAccountSummaryCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetAccountSummaryResponse}
  * @see {@link GetAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

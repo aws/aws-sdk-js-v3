@@ -85,8 +85,8 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  *
  * ```
  *
- * @param ActivatePipelineCommandInput - {@link ActivatePipelineCommandInput}
- * @returns {@link ActivatePipelineCommandOutput}
+ * @param ActivatePipelineInput - {@link ActivatePipelineInput}
+ * @returns {@link ActivatePipelineOutput}
  * @see {@link ActivatePipelineCommandInput} for command's `input` shape.
  * @see {@link ActivatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

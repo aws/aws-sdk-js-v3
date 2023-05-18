@@ -85,8 +85,8 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  *
  * ```
  *
- * @param GetBucketTaggingCommandInput - {@link GetBucketTaggingCommandInput}
- * @returns {@link GetBucketTaggingCommandOutput}
+ * @param GetBucketTaggingRequest - {@link GetBucketTaggingRequest}
+ * @returns {@link GetBucketTaggingOutput}
  * @see {@link GetBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

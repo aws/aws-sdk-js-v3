@@ -50,8 +50,8 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RestartAppServerCommandInput - {@link RestartAppServerCommandInput}
- * @returns {@link RestartAppServerCommandOutput}
+ * @param RestartAppServerMessage - {@link RestartAppServerMessage}
+ * @returns {@link Unit}
  * @see {@link RestartAppServerCommandInput} for command's `input` shape.
  * @see {@link RestartAppServerCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -63,8 +63,8 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  *
  * ```
  *
- * @param RestoreSnapshotFromRecycleBinCommandInput - {@link RestoreSnapshotFromRecycleBinCommandInput}
- * @returns {@link RestoreSnapshotFromRecycleBinCommandOutput}
+ * @param RestoreSnapshotFromRecycleBinRequest - {@link RestoreSnapshotFromRecycleBinRequest}
+ * @returns {@link RestoreSnapshotFromRecycleBinResult}
  * @see {@link RestoreSnapshotFromRecycleBinCommandInput} for command's `input` shape.
  * @see {@link RestoreSnapshotFromRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

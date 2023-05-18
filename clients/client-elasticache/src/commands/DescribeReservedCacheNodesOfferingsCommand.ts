@@ -79,8 +79,8 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeReservedCacheNodesOfferingsCommandInput - {@link DescribeReservedCacheNodesOfferingsCommandInput}
- * @returns {@link DescribeReservedCacheNodesOfferingsCommandOutput}
+ * @param DescribeReservedCacheNodesOfferingsMessage - {@link DescribeReservedCacheNodesOfferingsMessage}
+ * @returns {@link ReservedCacheNodesOfferingMessage}
  * @see {@link DescribeReservedCacheNodesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedCacheNodesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

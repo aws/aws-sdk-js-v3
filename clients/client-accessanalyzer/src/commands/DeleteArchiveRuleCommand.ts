@@ -50,8 +50,8 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteArchiveRuleCommandInput - {@link DeleteArchiveRuleCommandInput}
- * @returns {@link DeleteArchiveRuleCommandOutput}
+ * @param DeleteArchiveRuleRequest - {@link DeleteArchiveRuleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

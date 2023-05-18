@@ -58,8 +58,8 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  *
  * ```
  *
- * @param ListOfferingPromotionsCommandInput - {@link ListOfferingPromotionsCommandInput}
- * @returns {@link ListOfferingPromotionsCommandOutput}
+ * @param ListOfferingPromotionsRequest - {@link ListOfferingPromotionsRequest}
+ * @returns {@link ListOfferingPromotionsResult}
  * @see {@link ListOfferingPromotionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingPromotionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

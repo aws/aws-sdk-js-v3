@@ -63,8 +63,8 @@ export interface ListWorkerFleetsCommandOutput extends ListWorkerFleetsResponse,
  *
  * ```
  *
- * @param ListWorkerFleetsCommandInput - {@link ListWorkerFleetsCommandInput}
- * @returns {@link ListWorkerFleetsCommandOutput}
+ * @param ListWorkerFleetsRequest - {@link ListWorkerFleetsRequest}
+ * @returns {@link ListWorkerFleetsResponse}
  * @see {@link ListWorkerFleetsCommandInput} for command's `input` shape.
  * @see {@link ListWorkerFleetsCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

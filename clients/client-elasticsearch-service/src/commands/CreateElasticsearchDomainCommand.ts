@@ -282,8 +282,8 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  *
  * ```
  *
- * @param CreateElasticsearchDomainCommandInput - {@link CreateElasticsearchDomainCommandInput}
- * @returns {@link CreateElasticsearchDomainCommandOutput}
+ * @param CreateElasticsearchDomainRequest - {@link CreateElasticsearchDomainRequest}
+ * @returns {@link CreateElasticsearchDomainResponse}
  * @see {@link CreateElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link CreateElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

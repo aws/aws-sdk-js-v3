@@ -89,8 +89,8 @@ export interface PostCommentForComparedCommitCommandOutput
  *
  * ```
  *
- * @param PostCommentForComparedCommitCommandInput - {@link PostCommentForComparedCommitCommandInput}
- * @returns {@link PostCommentForComparedCommitCommandOutput}
+ * @param PostCommentForComparedCommitInput - {@link PostCommentForComparedCommitInput}
+ * @returns {@link PostCommentForComparedCommitOutput}
  * @see {@link PostCommentForComparedCommitCommandInput} for command's `input` shape.
  * @see {@link PostCommentForComparedCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

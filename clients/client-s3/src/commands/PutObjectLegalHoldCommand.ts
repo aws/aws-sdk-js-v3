@@ -63,8 +63,8 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  *
  * ```
  *
- * @param PutObjectLegalHoldCommandInput - {@link PutObjectLegalHoldCommandInput}
- * @returns {@link PutObjectLegalHoldCommandOutput}
+ * @param PutObjectLegalHoldRequest - {@link PutObjectLegalHoldRequest}
+ * @returns {@link PutObjectLegalHoldOutput}
  * @see {@link PutObjectLegalHoldCommandInput} for command's `input` shape.
  * @see {@link PutObjectLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

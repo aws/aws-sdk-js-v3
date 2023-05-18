@@ -91,8 +91,8 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
  *
  * ```
  *
- * @param SwitchoverBlueGreenDeploymentCommandInput - {@link SwitchoverBlueGreenDeploymentCommandInput}
- * @returns {@link SwitchoverBlueGreenDeploymentCommandOutput}
+ * @param SwitchoverBlueGreenDeploymentRequest - {@link SwitchoverBlueGreenDeploymentRequest}
+ * @returns {@link SwitchoverBlueGreenDeploymentResponse}
  * @see {@link SwitchoverBlueGreenDeploymentCommandInput} for command's `input` shape.
  * @see {@link SwitchoverBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

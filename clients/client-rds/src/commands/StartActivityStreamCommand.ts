@@ -66,8 +66,8 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  *
  * ```
  *
- * @param StartActivityStreamCommandInput - {@link StartActivityStreamCommandInput}
- * @returns {@link StartActivityStreamCommandOutput}
+ * @param StartActivityStreamRequest - {@link StartActivityStreamRequest}
+ * @returns {@link StartActivityStreamResponse}
  * @see {@link StartActivityStreamCommandInput} for command's `input` shape.
  * @see {@link StartActivityStreamCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

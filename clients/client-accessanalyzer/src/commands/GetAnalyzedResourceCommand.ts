@@ -67,8 +67,8 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  *
  * ```
  *
- * @param GetAnalyzedResourceCommandInput - {@link GetAnalyzedResourceCommandInput}
- * @returns {@link GetAnalyzedResourceCommandOutput}
+ * @param GetAnalyzedResourceRequest - {@link GetAnalyzedResourceRequest}
+ * @returns {@link GetAnalyzedResourceResponse}
  * @see {@link GetAnalyzedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAnalyzedResourceCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

@@ -54,8 +54,8 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  *
  * ```
  *
- * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
- * @returns {@link DeleteListenerCommandOutput}
+ * @param DeleteListenerInput - {@link DeleteListenerInput}
+ * @returns {@link DeleteListenerOutput}
  * @see {@link DeleteListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

@@ -66,8 +66,8 @@ export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __Metadat
  *
  * ```
  *
- * @param DescribeTaskCommandInput - {@link DescribeTaskCommandInput}
- * @returns {@link DescribeTaskCommandOutput}
+ * @param DescribeTaskInput - {@link DescribeTaskInput}
+ * @returns {@link DescribeTaskOutput}
  * @see {@link DescribeTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.

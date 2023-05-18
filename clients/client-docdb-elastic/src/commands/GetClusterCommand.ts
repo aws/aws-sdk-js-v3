@@ -68,8 +68,8 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  *
  * ```
  *
- * @param GetClusterCommandInput - {@link GetClusterCommandInput}
- * @returns {@link GetClusterCommandOutput}
+ * @param GetClusterInput - {@link GetClusterInput}
+ * @returns {@link GetClusterOutput}
  * @see {@link GetClusterCommandInput} for command's `input` shape.
  * @see {@link GetClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

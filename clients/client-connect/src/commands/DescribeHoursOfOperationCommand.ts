@@ -74,8 +74,8 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  *
  * ```
  *
- * @param DescribeHoursOfOperationCommandInput - {@link DescribeHoursOfOperationCommandInput}
- * @returns {@link DescribeHoursOfOperationCommandOutput}
+ * @param DescribeHoursOfOperationRequest - {@link DescribeHoursOfOperationRequest}
+ * @returns {@link DescribeHoursOfOperationResponse}
  * @see {@link DescribeHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

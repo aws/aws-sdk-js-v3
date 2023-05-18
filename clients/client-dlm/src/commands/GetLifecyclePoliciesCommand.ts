@@ -73,8 +73,8 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  *
  * ```
  *
- * @param GetLifecyclePoliciesCommandInput - {@link GetLifecyclePoliciesCommandInput}
- * @returns {@link GetLifecyclePoliciesCommandOutput}
+ * @param GetLifecyclePoliciesRequest - {@link GetLifecyclePoliciesRequest}
+ * @returns {@link GetLifecyclePoliciesResponse}
  * @see {@link GetLifecyclePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePoliciesCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.

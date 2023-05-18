@@ -57,8 +57,8 @@ export interface CancelDataQualityRulesetEvaluationRunCommandOutput
  *
  * ```
  *
- * @param CancelDataQualityRulesetEvaluationRunCommandInput - {@link CancelDataQualityRulesetEvaluationRunCommandInput}
- * @returns {@link CancelDataQualityRulesetEvaluationRunCommandOutput}
+ * @param CancelDataQualityRulesetEvaluationRunRequest - {@link CancelDataQualityRulesetEvaluationRunRequest}
+ * @returns {@link CancelDataQualityRulesetEvaluationRunResponse}
  * @see {@link CancelDataQualityRulesetEvaluationRunCommandInput} for command's `input` shape.
  * @see {@link CancelDataQualityRulesetEvaluationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

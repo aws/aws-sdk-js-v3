@@ -94,8 +94,8 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  *
  * ```
  *
- * @param CreateCustomerGatewayCommandInput - {@link CreateCustomerGatewayCommandInput}
- * @returns {@link CreateCustomerGatewayCommandOutput}
+ * @param CreateCustomerGatewayRequest - {@link CreateCustomerGatewayRequest}
+ * @returns {@link CreateCustomerGatewayResult}
  * @see {@link CreateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

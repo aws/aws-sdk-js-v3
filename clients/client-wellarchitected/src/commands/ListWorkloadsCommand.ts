@@ -68,8 +68,8 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  *
  * ```
  *
- * @param ListWorkloadsCommandInput - {@link ListWorkloadsCommandInput}
- * @returns {@link ListWorkloadsCommandOutput}
+ * @param ListWorkloadsInput - {@link ListWorkloadsInput}
+ * @returns {@link ListWorkloadsOutput}
  * @see {@link ListWorkloadsCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

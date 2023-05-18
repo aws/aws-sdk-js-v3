@@ -67,8 +67,8 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  *
  * ```
  *
- * @param ListAssetPropertiesCommandInput - {@link ListAssetPropertiesCommandInput}
- * @returns {@link ListAssetPropertiesCommandOutput}
+ * @param ListAssetPropertiesRequest - {@link ListAssetPropertiesRequest}
+ * @returns {@link ListAssetPropertiesResponse}
  * @see {@link ListAssetPropertiesCommandInput} for command's `input` shape.
  * @see {@link ListAssetPropertiesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

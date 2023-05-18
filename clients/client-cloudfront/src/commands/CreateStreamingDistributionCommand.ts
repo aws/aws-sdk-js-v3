@@ -130,8 +130,8 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  *
  * ```
  *
- * @param CreateStreamingDistributionCommandInput - {@link CreateStreamingDistributionCommandInput}
- * @returns {@link CreateStreamingDistributionCommandOutput}
+ * @param CreateStreamingDistributionRequest - {@link CreateStreamingDistributionRequest}
+ * @returns {@link CreateStreamingDistributionResult}
  * @see {@link CreateStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -59,8 +59,8 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
  *
  * ```
  *
- * @param ListEmailTemplatesCommandInput - {@link ListEmailTemplatesCommandInput}
- * @returns {@link ListEmailTemplatesCommandOutput}
+ * @param ListEmailTemplatesRequest - {@link ListEmailTemplatesRequest}
+ * @returns {@link ListEmailTemplatesResponse}
  * @see {@link ListEmailTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListEmailTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

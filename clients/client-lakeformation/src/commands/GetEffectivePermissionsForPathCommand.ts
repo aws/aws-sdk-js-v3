@@ -132,8 +132,8 @@ export interface GetEffectivePermissionsForPathCommandOutput
  *
  * ```
  *
- * @param GetEffectivePermissionsForPathCommandInput - {@link GetEffectivePermissionsForPathCommandInput}
- * @returns {@link GetEffectivePermissionsForPathCommandOutput}
+ * @param GetEffectivePermissionsForPathRequest - {@link GetEffectivePermissionsForPathRequest}
+ * @returns {@link GetEffectivePermissionsForPathResponse}
  * @see {@link GetEffectivePermissionsForPathCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePermissionsForPathCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

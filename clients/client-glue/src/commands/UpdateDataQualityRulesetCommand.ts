@@ -54,8 +54,8 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  *
  * ```
  *
- * @param UpdateDataQualityRulesetCommandInput - {@link UpdateDataQualityRulesetCommandInput}
- * @returns {@link UpdateDataQualityRulesetCommandOutput}
+ * @param UpdateDataQualityRulesetRequest - {@link UpdateDataQualityRulesetRequest}
+ * @returns {@link UpdateDataQualityRulesetResponse}
  * @see {@link UpdateDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

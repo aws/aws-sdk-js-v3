@@ -188,8 +188,8 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *
  * ```
  *
- * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
- * @returns {@link CreateFleetCommandOutput}
+ * @param CreateFleetInput - {@link CreateFleetInput}
+ * @returns {@link CreateFleetOutput}
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

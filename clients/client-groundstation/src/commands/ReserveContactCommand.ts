@@ -57,8 +57,8 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  *
  * ```
  *
- * @param ReserveContactCommandInput - {@link ReserveContactCommandInput}
- * @returns {@link ReserveContactCommandOutput}
+ * @param ReserveContactRequest - {@link ReserveContactRequest}
+ * @returns {@link ContactIdResponse}
  * @see {@link ReserveContactCommandInput} for command's `input` shape.
  * @see {@link ReserveContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

@@ -98,8 +98,8 @@ export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigur
  *
  * ```
  *
- * @param GetLicenseConfigurationCommandInput - {@link GetLicenseConfigurationCommandInput}
- * @returns {@link GetLicenseConfigurationCommandOutput}
+ * @param GetLicenseConfigurationRequest - {@link GetLicenseConfigurationRequest}
+ * @returns {@link GetLicenseConfigurationResponse}
  * @see {@link GetLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

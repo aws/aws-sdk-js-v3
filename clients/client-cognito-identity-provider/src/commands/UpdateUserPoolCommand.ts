@@ -166,8 +166,8 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *
  * ```
  *
- * @param UpdateUserPoolCommandInput - {@link UpdateUserPoolCommandInput}
- * @returns {@link UpdateUserPoolCommandOutput}
+ * @param UpdateUserPoolRequest - {@link UpdateUserPoolRequest}
+ * @returns {@link UpdateUserPoolResponse}
  * @see {@link UpdateUserPoolCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

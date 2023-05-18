@@ -66,8 +66,8 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *
  * ```
  *
- * @param DeleteServiceLinkedRoleCommandInput - {@link DeleteServiceLinkedRoleCommandInput}
- * @returns {@link DeleteServiceLinkedRoleCommandOutput}
+ * @param DeleteServiceLinkedRoleRequest - {@link DeleteServiceLinkedRoleRequest}
+ * @returns {@link DeleteServiceLinkedRoleResponse}
  * @see {@link DeleteServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceLinkedRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

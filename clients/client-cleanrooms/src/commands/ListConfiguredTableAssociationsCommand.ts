@@ -69,8 +69,8 @@ export interface ListConfiguredTableAssociationsCommandOutput
  *
  * ```
  *
- * @param ListConfiguredTableAssociationsCommandInput - {@link ListConfiguredTableAssociationsCommandInput}
- * @returns {@link ListConfiguredTableAssociationsCommandOutput}
+ * @param ListConfiguredTableAssociationsInput - {@link ListConfiguredTableAssociationsInput}
+ * @returns {@link ListConfiguredTableAssociationsOutput}
  * @see {@link ListConfiguredTableAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListConfiguredTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

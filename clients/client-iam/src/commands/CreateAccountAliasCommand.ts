@@ -51,8 +51,8 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateAccountAliasCommandInput - {@link CreateAccountAliasCommandInput}
- * @returns {@link CreateAccountAliasCommandOutput}
+ * @param CreateAccountAliasRequest - {@link CreateAccountAliasRequest}
+ * @returns {@link Unit}
  * @see {@link CreateAccountAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

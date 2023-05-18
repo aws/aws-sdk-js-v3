@@ -117,8 +117,8 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  *
  * ```
  *
- * @param ListReceivedLicensesCommandInput - {@link ListReceivedLicensesCommandInput}
- * @returns {@link ListReceivedLicensesCommandOutput}
+ * @param ListReceivedLicensesRequest - {@link ListReceivedLicensesRequest}
+ * @returns {@link ListReceivedLicensesResponse}
  * @see {@link ListReceivedLicensesCommandInput} for command's `input` shape.
  * @see {@link ListReceivedLicensesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

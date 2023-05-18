@@ -99,8 +99,8 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  *
  * ```
  *
- * @param ListResourceDataSyncCommandInput - {@link ListResourceDataSyncCommandInput}
- * @returns {@link ListResourceDataSyncCommandOutput}
+ * @param ListResourceDataSyncRequest - {@link ListResourceDataSyncRequest}
+ * @returns {@link ListResourceDataSyncResult}
  * @see {@link ListResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link ListResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

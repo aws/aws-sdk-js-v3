@@ -63,8 +63,8 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  *
  * ```
  *
- * @param ListInstanceProfilesCommandInput - {@link ListInstanceProfilesCommandInput}
- * @returns {@link ListInstanceProfilesCommandOutput}
+ * @param ListInstanceProfilesRequest - {@link ListInstanceProfilesRequest}
+ * @returns {@link ListInstanceProfilesResult}
  * @see {@link ListInstanceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

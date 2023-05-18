@@ -95,8 +95,8 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  *
  * ```
  *
- * @param CreateWhatIfForecastCommandInput - {@link CreateWhatIfForecastCommandInput}
- * @returns {@link CreateWhatIfForecastCommandOutput}
+ * @param CreateWhatIfForecastRequest - {@link CreateWhatIfForecastRequest}
+ * @returns {@link CreateWhatIfForecastResponse}
  * @see {@link CreateWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link CreateWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

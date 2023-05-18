@@ -51,8 +51,8 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  *
  * ```
  *
- * @param RemoveIpRoutesCommandInput - {@link RemoveIpRoutesCommandInput}
- * @returns {@link RemoveIpRoutesCommandOutput}
+ * @param RemoveIpRoutesRequest - {@link RemoveIpRoutesRequest}
+ * @returns {@link RemoveIpRoutesResult}
  * @see {@link RemoveIpRoutesCommandInput} for command's `input` shape.
  * @see {@link RemoveIpRoutesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

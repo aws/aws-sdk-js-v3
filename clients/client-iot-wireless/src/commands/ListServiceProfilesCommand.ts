@@ -58,8 +58,8 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  *
  * ```
  *
- * @param ListServiceProfilesCommandInput - {@link ListServiceProfilesCommandInput}
- * @returns {@link ListServiceProfilesCommandOutput}
+ * @param ListServiceProfilesRequest - {@link ListServiceProfilesRequest}
+ * @returns {@link ListServiceProfilesResponse}
  * @see {@link ListServiceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListServiceProfilesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

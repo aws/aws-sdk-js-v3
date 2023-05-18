@@ -65,8 +65,8 @@ export interface GetNotificationConfigurationCommandOutput
  *
  * ```
  *
- * @param GetNotificationConfigurationCommandInput - {@link GetNotificationConfigurationCommandInput}
- * @returns {@link GetNotificationConfigurationCommandOutput}
+ * @param GetNotificationConfigurationRequest - {@link GetNotificationConfigurationRequest}
+ * @returns {@link GetNotificationConfigurationResponse}
  * @see {@link GetNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

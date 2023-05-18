@@ -52,8 +52,8 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
- * @returns {@link DeleteFunctionCommandOutput}
+ * @param DeleteFunctionRequest - {@link DeleteFunctionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

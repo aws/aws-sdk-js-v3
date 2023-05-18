@@ -98,8 +98,8 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *
  * ```
  *
- * @param CreateWorkloadCommandInput - {@link CreateWorkloadCommandInput}
- * @returns {@link CreateWorkloadCommandOutput}
+ * @param CreateWorkloadInput - {@link CreateWorkloadInput}
+ * @returns {@link CreateWorkloadOutput}
  * @see {@link CreateWorkloadCommandInput} for command's `input` shape.
  * @see {@link CreateWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

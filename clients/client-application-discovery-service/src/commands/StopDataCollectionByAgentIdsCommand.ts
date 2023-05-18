@@ -67,8 +67,8 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  *
  * ```
  *
- * @param StopDataCollectionByAgentIdsCommandInput - {@link StopDataCollectionByAgentIdsCommandInput}
- * @returns {@link StopDataCollectionByAgentIdsCommandOutput}
+ * @param StopDataCollectionByAgentIdsRequest - {@link StopDataCollectionByAgentIdsRequest}
+ * @returns {@link StopDataCollectionByAgentIdsResponse}
  * @see {@link StopDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StopDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

@@ -71,8 +71,8 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  *
  * ```
  *
- * @param AddFacetToObjectCommandInput - {@link AddFacetToObjectCommandInput}
- * @returns {@link AddFacetToObjectCommandOutput}
+ * @param AddFacetToObjectRequest - {@link AddFacetToObjectRequest}
+ * @returns {@link AddFacetToObjectResponse}
  * @see {@link AddFacetToObjectCommandInput} for command's `input` shape.
  * @see {@link AddFacetToObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

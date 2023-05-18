@@ -459,8 +459,8 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateTopicRuleCommandInput - {@link CreateTopicRuleCommandInput}
- * @returns {@link CreateTopicRuleCommandOutput}
+ * @param CreateTopicRuleRequest - {@link CreateTopicRuleRequest}
+ * @returns {@link Unit}
  * @see {@link CreateTopicRuleCommandInput} for command's `input` shape.
  * @see {@link CreateTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

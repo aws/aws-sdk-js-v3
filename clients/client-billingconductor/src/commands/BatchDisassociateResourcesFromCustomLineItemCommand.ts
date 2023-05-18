@@ -85,8 +85,8 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  *
  * ```
  *
- * @param BatchDisassociateResourcesFromCustomLineItemCommandInput - {@link BatchDisassociateResourcesFromCustomLineItemCommandInput}
- * @returns {@link BatchDisassociateResourcesFromCustomLineItemCommandOutput}
+ * @param BatchDisassociateResourcesFromCustomLineItemInput - {@link BatchDisassociateResourcesFromCustomLineItemInput}
+ * @returns {@link BatchDisassociateResourcesFromCustomLineItemOutput}
  * @see {@link BatchDisassociateResourcesFromCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateResourcesFromCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

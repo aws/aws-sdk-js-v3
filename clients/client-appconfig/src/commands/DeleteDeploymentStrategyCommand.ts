@@ -49,8 +49,8 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteDeploymentStrategyCommandInput - {@link DeleteDeploymentStrategyCommandInput}
- * @returns {@link DeleteDeploymentStrategyCommandOutput}
+ * @param DeleteDeploymentStrategyRequest - {@link DeleteDeploymentStrategyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

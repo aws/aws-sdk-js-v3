@@ -48,8 +48,8 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  *
  * ```
  *
- * @param DeleteWorkerCommandInput - {@link DeleteWorkerCommandInput}
- * @returns {@link DeleteWorkerCommandOutput}
+ * @param DeleteWorkerRequest - {@link DeleteWorkerRequest}
+ * @returns {@link DeleteWorkerResponse}
  * @see {@link DeleteWorkerCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

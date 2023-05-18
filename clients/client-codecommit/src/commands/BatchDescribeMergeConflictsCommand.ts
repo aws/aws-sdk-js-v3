@@ -126,8 +126,8 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  *
  * ```
  *
- * @param BatchDescribeMergeConflictsCommandInput - {@link BatchDescribeMergeConflictsCommandInput}
- * @returns {@link BatchDescribeMergeConflictsCommandOutput}
+ * @param BatchDescribeMergeConflictsInput - {@link BatchDescribeMergeConflictsInput}
+ * @returns {@link BatchDescribeMergeConflictsOutput}
  * @see {@link BatchDescribeMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

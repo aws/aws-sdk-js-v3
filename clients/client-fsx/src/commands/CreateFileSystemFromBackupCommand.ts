@@ -653,8 +653,8 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *
  * ```
  *
- * @param CreateFileSystemFromBackupCommandInput - {@link CreateFileSystemFromBackupCommandInput}
- * @returns {@link CreateFileSystemFromBackupCommandOutput}
+ * @param CreateFileSystemFromBackupRequest - {@link CreateFileSystemFromBackupRequest}
+ * @returns {@link CreateFileSystemFromBackupResponse}
  * @see {@link CreateFileSystemFromBackupCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

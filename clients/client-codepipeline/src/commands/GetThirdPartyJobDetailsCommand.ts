@@ -126,8 +126,8 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  *
  * ```
  *
- * @param GetThirdPartyJobDetailsCommandInput - {@link GetThirdPartyJobDetailsCommandInput}
- * @returns {@link GetThirdPartyJobDetailsCommandOutput}
+ * @param GetThirdPartyJobDetailsInput - {@link GetThirdPartyJobDetailsInput}
+ * @returns {@link GetThirdPartyJobDetailsOutput}
  * @see {@link GetThirdPartyJobDetailsCommandInput} for command's `input` shape.
  * @see {@link GetThirdPartyJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

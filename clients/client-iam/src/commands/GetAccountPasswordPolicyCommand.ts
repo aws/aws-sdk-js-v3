@@ -62,8 +62,8 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  *
  * ```
  *
- * @param GetAccountPasswordPolicyCommandInput - {@link GetAccountPasswordPolicyCommandInput}
- * @returns {@link GetAccountPasswordPolicyCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetAccountPasswordPolicyResponse}
  * @see {@link GetAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

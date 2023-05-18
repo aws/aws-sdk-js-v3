@@ -80,8 +80,8 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  *
  * ```
  *
- * @param DescribeLocationFsxOntapCommandInput - {@link DescribeLocationFsxOntapCommandInput}
- * @returns {@link DescribeLocationFsxOntapCommandOutput}
+ * @param DescribeLocationFsxOntapRequest - {@link DescribeLocationFsxOntapRequest}
+ * @returns {@link DescribeLocationFsxOntapResponse}
  * @see {@link DescribeLocationFsxOntapCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxOntapCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

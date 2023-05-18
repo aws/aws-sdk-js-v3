@@ -76,8 +76,8 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  *
  * ```
  *
- * @param DescribeAppBlocksCommandInput - {@link DescribeAppBlocksCommandInput}
- * @returns {@link DescribeAppBlocksCommandOutput}
+ * @param DescribeAppBlocksRequest - {@link DescribeAppBlocksRequest}
+ * @returns {@link DescribeAppBlocksResult}
  * @see {@link DescribeAppBlocksCommandInput} for command's `input` shape.
  * @see {@link DescribeAppBlocksCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

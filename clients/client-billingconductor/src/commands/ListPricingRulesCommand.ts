@@ -86,8 +86,8 @@ export interface ListPricingRulesCommandOutput extends ListPricingRulesOutput, _
  *
  * ```
  *
- * @param ListPricingRulesCommandInput - {@link ListPricingRulesCommandInput}
- * @returns {@link ListPricingRulesCommandOutput}
+ * @param ListPricingRulesInput - {@link ListPricingRulesInput}
+ * @returns {@link ListPricingRulesOutput}
  * @see {@link ListPricingRulesCommandInput} for command's `input` shape.
  * @see {@link ListPricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

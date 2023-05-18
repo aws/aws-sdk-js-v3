@@ -81,8 +81,8 @@ export interface AttachInstancesToLoadBalancerCommandOutput
  *
  * ```
  *
- * @param AttachInstancesToLoadBalancerCommandInput - {@link AttachInstancesToLoadBalancerCommandInput}
- * @returns {@link AttachInstancesToLoadBalancerCommandOutput}
+ * @param AttachInstancesToLoadBalancerRequest - {@link AttachInstancesToLoadBalancerRequest}
+ * @returns {@link AttachInstancesToLoadBalancerResult}
  * @see {@link AttachInstancesToLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link AttachInstancesToLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

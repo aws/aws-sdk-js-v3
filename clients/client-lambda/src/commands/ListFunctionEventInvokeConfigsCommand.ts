@@ -74,8 +74,8 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  *
  * ```
  *
- * @param ListFunctionEventInvokeConfigsCommandInput - {@link ListFunctionEventInvokeConfigsCommandInput}
- * @returns {@link ListFunctionEventInvokeConfigsCommandOutput}
+ * @param ListFunctionEventInvokeConfigsRequest - {@link ListFunctionEventInvokeConfigsRequest}
+ * @returns {@link ListFunctionEventInvokeConfigsResponse}
  * @see {@link ListFunctionEventInvokeConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionEventInvokeConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

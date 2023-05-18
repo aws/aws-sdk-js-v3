@@ -134,8 +134,8 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketTaggingCommandInput - {@link PutBucketTaggingCommandInput}
- * @returns {@link PutBucketTaggingCommandOutput}
+ * @param PutBucketTaggingRequest - {@link PutBucketTaggingRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

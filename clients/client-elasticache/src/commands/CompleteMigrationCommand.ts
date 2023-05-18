@@ -170,8 +170,8 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  *
  * ```
  *
- * @param CompleteMigrationCommandInput - {@link CompleteMigrationCommandInput}
- * @returns {@link CompleteMigrationCommandOutput}
+ * @param CompleteMigrationMessage - {@link CompleteMigrationMessage}
+ * @returns {@link CompleteMigrationResponse}
  * @see {@link CompleteMigrationCommandInput} for command's `input` shape.
  * @see {@link CompleteMigrationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

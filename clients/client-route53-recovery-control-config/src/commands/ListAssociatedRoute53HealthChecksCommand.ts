@@ -67,8 +67,8 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
  *
  * ```
  *
- * @param ListAssociatedRoute53HealthChecksCommandInput - {@link ListAssociatedRoute53HealthChecksCommandInput}
- * @returns {@link ListAssociatedRoute53HealthChecksCommandOutput}
+ * @param ListAssociatedRoute53HealthChecksRequest - {@link ListAssociatedRoute53HealthChecksRequest}
+ * @returns {@link ListAssociatedRoute53HealthChecksResponse}
  * @see {@link ListAssociatedRoute53HealthChecksCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedRoute53HealthChecksCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

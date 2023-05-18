@@ -55,8 +55,8 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  *
  * ```
  *
- * @param DeleteRefreshScheduleCommandInput - {@link DeleteRefreshScheduleCommandInput}
- * @returns {@link DeleteRefreshScheduleCommandOutput}
+ * @param DeleteRefreshScheduleRequest - {@link DeleteRefreshScheduleRequest}
+ * @returns {@link DeleteRefreshScheduleResponse}
  * @see {@link DeleteRefreshScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteRefreshScheduleCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

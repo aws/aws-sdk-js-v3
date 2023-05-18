@@ -58,8 +58,8 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  *
  * ```
  *
- * @param GetClassificationScopeCommandInput - {@link GetClassificationScopeCommandInput}
- * @returns {@link GetClassificationScopeCommandOutput}
+ * @param GetClassificationScopeRequest - {@link GetClassificationScopeRequest}
+ * @returns {@link GetClassificationScopeResponse}
  * @see {@link GetClassificationScopeCommandInput} for command's `input` shape.
  * @see {@link GetClassificationScopeCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

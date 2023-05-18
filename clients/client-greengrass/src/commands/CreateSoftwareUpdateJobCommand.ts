@@ -60,8 +60,8 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  *
  * ```
  *
- * @param CreateSoftwareUpdateJobCommandInput - {@link CreateSoftwareUpdateJobCommandInput}
- * @returns {@link CreateSoftwareUpdateJobCommandOutput}
+ * @param CreateSoftwareUpdateJobRequest - {@link CreateSoftwareUpdateJobRequest}
+ * @returns {@link CreateSoftwareUpdateJobResponse}
  * @see {@link CreateSoftwareUpdateJobCommandInput} for command's `input` shape.
  * @see {@link CreateSoftwareUpdateJobCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -77,8 +77,8 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  *
  * ```
  *
- * @param DescribeThingGroupCommandInput - {@link DescribeThingGroupCommandInput}
- * @returns {@link DescribeThingGroupCommandOutput}
+ * @param DescribeThingGroupRequest - {@link DescribeThingGroupRequest}
+ * @returns {@link DescribeThingGroupResponse}
  * @see {@link DescribeThingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

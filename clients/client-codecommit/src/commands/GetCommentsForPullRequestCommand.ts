@@ -92,8 +92,8 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  *
  * ```
  *
- * @param GetCommentsForPullRequestCommandInput - {@link GetCommentsForPullRequestCommandInput}
- * @returns {@link GetCommentsForPullRequestCommandOutput}
+ * @param GetCommentsForPullRequestInput - {@link GetCommentsForPullRequestInput}
+ * @returns {@link GetCommentsForPullRequestOutput}
  * @see {@link GetCommentsForPullRequestCommandInput} for command's `input` shape.
  * @see {@link GetCommentsForPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

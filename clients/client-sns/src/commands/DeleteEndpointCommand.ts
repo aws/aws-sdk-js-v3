@@ -52,8 +52,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
- * @returns {@link DeleteEndpointCommandOutput}
+ * @param DeleteEndpointInput - {@link DeleteEndpointInput}
+ * @returns {@link Unit}
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

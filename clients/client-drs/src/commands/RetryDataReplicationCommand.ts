@@ -152,8 +152,8 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  *
  * ```
  *
- * @param RetryDataReplicationCommandInput - {@link RetryDataReplicationCommandInput}
- * @returns {@link RetryDataReplicationCommandOutput}
+ * @param RetryDataReplicationRequest - {@link RetryDataReplicationRequest}
+ * @returns {@link SourceServer}
  * @see {@link RetryDataReplicationCommandInput} for command's `input` shape.
  * @see {@link RetryDataReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

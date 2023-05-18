@@ -53,8 +53,8 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DeleteAggregationAuthorizationCommandInput - {@link DeleteAggregationAuthorizationCommandInput}
- * @returns {@link DeleteAggregationAuthorizationCommandOutput}
+ * @param DeleteAggregationAuthorizationRequest - {@link DeleteAggregationAuthorizationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAggregationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteAggregationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -63,8 +63,8 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  *
  * ```
  *
- * @param GetGroupVersionCommandInput - {@link GetGroupVersionCommandInput}
- * @returns {@link GetGroupVersionCommandOutput}
+ * @param GetGroupVersionRequest - {@link GetGroupVersionRequest}
+ * @returns {@link GetGroupVersionResponse}
  * @see {@link GetGroupVersionCommandInput} for command's `input` shape.
  * @see {@link GetGroupVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

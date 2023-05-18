@@ -59,8 +59,8 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  *
  * ```
  *
- * @param GetLaunchConfigurationCommandInput - {@link GetLaunchConfigurationCommandInput}
- * @returns {@link GetLaunchConfigurationCommandOutput}
+ * @param GetLaunchConfigurationRequest - {@link GetLaunchConfigurationRequest}
+ * @returns {@link LaunchConfiguration}
  * @see {@link GetLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

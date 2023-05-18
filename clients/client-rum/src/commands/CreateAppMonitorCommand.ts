@@ -85,8 +85,8 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  *
  * ```
  *
- * @param CreateAppMonitorCommandInput - {@link CreateAppMonitorCommandInput}
- * @returns {@link CreateAppMonitorCommandOutput}
+ * @param CreateAppMonitorRequest - {@link CreateAppMonitorRequest}
+ * @returns {@link CreateAppMonitorResponse}
  * @see {@link CreateAppMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

@@ -77,8 +77,8 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  *
  * ```
  *
- * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
- * @returns {@link DescribeSessionsCommandOutput}
+ * @param DescribeSessionsRequest - {@link DescribeSessionsRequest}
+ * @returns {@link DescribeSessionsResponse}
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

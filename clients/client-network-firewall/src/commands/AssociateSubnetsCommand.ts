@@ -71,8 +71,8 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  *
  * ```
  *
- * @param AssociateSubnetsCommandInput - {@link AssociateSubnetsCommandInput}
- * @returns {@link AssociateSubnetsCommandOutput}
+ * @param AssociateSubnetsRequest - {@link AssociateSubnetsRequest}
+ * @returns {@link AssociateSubnetsResponse}
  * @see {@link AssociateSubnetsCommandInput} for command's `input` shape.
  * @see {@link AssociateSubnetsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

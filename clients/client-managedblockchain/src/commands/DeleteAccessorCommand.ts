@@ -58,8 +58,8 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  *
  * ```
  *
- * @param DeleteAccessorCommandInput - {@link DeleteAccessorCommandInput}
- * @returns {@link DeleteAccessorCommandOutput}
+ * @param DeleteAccessorInput - {@link DeleteAccessorInput}
+ * @returns {@link DeleteAccessorOutput}
  * @see {@link DeleteAccessorCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

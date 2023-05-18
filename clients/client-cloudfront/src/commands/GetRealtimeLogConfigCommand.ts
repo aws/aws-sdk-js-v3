@@ -70,8 +70,8 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  *
  * ```
  *
- * @param GetRealtimeLogConfigCommandInput - {@link GetRealtimeLogConfigCommandInput}
- * @returns {@link GetRealtimeLogConfigCommandOutput}
+ * @param GetRealtimeLogConfigRequest - {@link GetRealtimeLogConfigRequest}
+ * @returns {@link GetRealtimeLogConfigResult}
  * @see {@link GetRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link GetRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

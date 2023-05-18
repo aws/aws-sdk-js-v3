@@ -93,8 +93,8 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *
  * ```
  *
- * @param CreateGlobalClusterCommandInput - {@link CreateGlobalClusterCommandInput}
- * @returns {@link CreateGlobalClusterCommandOutput}
+ * @param CreateGlobalClusterMessage - {@link CreateGlobalClusterMessage}
+ * @returns {@link CreateGlobalClusterResult}
  * @see {@link CreateGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

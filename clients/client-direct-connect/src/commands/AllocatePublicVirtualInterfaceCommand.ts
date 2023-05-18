@@ -126,8 +126,8 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  *
  * ```
  *
- * @param AllocatePublicVirtualInterfaceCommandInput - {@link AllocatePublicVirtualInterfaceCommandInput}
- * @returns {@link AllocatePublicVirtualInterfaceCommandOutput}
+ * @param AllocatePublicVirtualInterfaceRequest - {@link AllocatePublicVirtualInterfaceRequest}
+ * @returns {@link VirtualInterface}
  * @see {@link AllocatePublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

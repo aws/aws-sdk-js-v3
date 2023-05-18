@@ -81,8 +81,8 @@ export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutpu
  *
  * ```
  *
- * @param DescribeReportPlanCommandInput - {@link DescribeReportPlanCommandInput}
- * @returns {@link DescribeReportPlanCommandOutput}
+ * @param DescribeReportPlanInput - {@link DescribeReportPlanInput}
+ * @returns {@link DescribeReportPlanOutput}
  * @see {@link DescribeReportPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

@@ -51,8 +51,8 @@ export interface GetAccountBalanceCommandOutput extends GetAccountBalanceRespons
  *
  * ```
  *
- * @param GetAccountBalanceCommandInput - {@link GetAccountBalanceCommandInput}
- * @returns {@link GetAccountBalanceCommandOutput}
+ * @param GetAccountBalanceRequest - {@link GetAccountBalanceRequest}
+ * @returns {@link GetAccountBalanceResponse}
  * @see {@link GetAccountBalanceCommandInput} for command's `input` shape.
  * @see {@link GetAccountBalanceCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  *
  * ```
  *
- * @param ListEulasCommandInput - {@link ListEulasCommandInput}
- * @returns {@link ListEulasCommandOutput}
+ * @param ListEulasRequest - {@link ListEulasRequest}
+ * @returns {@link ListEulasResponse}
  * @see {@link ListEulasCommandInput} for command's `input` shape.
  * @see {@link ListEulasCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

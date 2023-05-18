@@ -66,8 +66,8 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  *
  * ```
  *
- * @param PurchaseReservedElasticsearchInstanceOfferingCommandInput - {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput}
- * @returns {@link PurchaseReservedElasticsearchInstanceOfferingCommandOutput}
+ * @param PurchaseReservedElasticsearchInstanceOfferingRequest - {@link PurchaseReservedElasticsearchInstanceOfferingRequest}
+ * @returns {@link PurchaseReservedElasticsearchInstanceOfferingResponse}
  * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

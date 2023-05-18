@@ -56,8 +56,8 @@ export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInfer
  *
  * ```
  *
- * @param StopSNOMEDCTInferenceJobCommandInput - {@link StopSNOMEDCTInferenceJobCommandInput}
- * @returns {@link StopSNOMEDCTInferenceJobCommandOutput}
+ * @param StopSNOMEDCTInferenceJobRequest - {@link StopSNOMEDCTInferenceJobRequest}
+ * @returns {@link StopSNOMEDCTInferenceJobResponse}
  * @see {@link StopSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StopSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

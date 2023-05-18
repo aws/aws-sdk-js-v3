@@ -90,8 +90,8 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  *
  * ```
  *
- * @param StartSyncExecutionCommandInput - {@link StartSyncExecutionCommandInput}
- * @returns {@link StartSyncExecutionCommandOutput}
+ * @param StartSyncExecutionInput - {@link StartSyncExecutionInput}
+ * @returns {@link StartSyncExecutionOutput}
  * @see {@link StartSyncExecutionCommandInput} for command's `input` shape.
  * @see {@link StartSyncExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

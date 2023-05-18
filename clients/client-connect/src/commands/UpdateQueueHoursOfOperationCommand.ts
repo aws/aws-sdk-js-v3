@@ -54,8 +54,8 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param UpdateQueueHoursOfOperationCommandInput - {@link UpdateQueueHoursOfOperationCommandInput}
- * @returns {@link UpdateQueueHoursOfOperationCommandOutput}
+ * @param UpdateQueueHoursOfOperationRequest - {@link UpdateQueueHoursOfOperationRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateQueueHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

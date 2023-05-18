@@ -54,8 +54,8 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  *
  * ```
  *
- * @param StopExperimentCommandInput - {@link StopExperimentCommandInput}
- * @returns {@link StopExperimentCommandOutput}
+ * @param StopExperimentRequest - {@link StopExperimentRequest}
+ * @returns {@link StopExperimentResponse}
  * @see {@link StopExperimentCommandInput} for command's `input` shape.
  * @see {@link StopExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

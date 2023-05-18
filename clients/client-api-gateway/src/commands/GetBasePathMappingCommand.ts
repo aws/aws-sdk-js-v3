@@ -53,8 +53,8 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  *
  * ```
  *
- * @param GetBasePathMappingCommandInput - {@link GetBasePathMappingCommandInput}
- * @returns {@link GetBasePathMappingCommandOutput}
+ * @param GetBasePathMappingRequest - {@link GetBasePathMappingRequest}
+ * @returns {@link BasePathMapping}
  * @see {@link GetBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link GetBasePathMappingCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

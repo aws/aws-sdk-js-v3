@@ -57,8 +57,8 @@ export interface StopBotRecommendationCommandOutput extends StopBotRecommendatio
  *
  * ```
  *
- * @param StopBotRecommendationCommandInput - {@link StopBotRecommendationCommandInput}
- * @returns {@link StopBotRecommendationCommandOutput}
+ * @param StopBotRecommendationRequest - {@link StopBotRecommendationRequest}
+ * @returns {@link StopBotRecommendationResponse}
  * @see {@link StopBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link StopBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

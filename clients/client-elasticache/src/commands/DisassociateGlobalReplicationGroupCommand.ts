@@ -87,8 +87,8 @@ export interface DisassociateGlobalReplicationGroupCommandOutput
  *
  * ```
  *
- * @param DisassociateGlobalReplicationGroupCommandInput - {@link DisassociateGlobalReplicationGroupCommandInput}
- * @returns {@link DisassociateGlobalReplicationGroupCommandOutput}
+ * @param DisassociateGlobalReplicationGroupMessage - {@link DisassociateGlobalReplicationGroupMessage}
+ * @returns {@link DisassociateGlobalReplicationGroupResult}
  * @see {@link DisassociateGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

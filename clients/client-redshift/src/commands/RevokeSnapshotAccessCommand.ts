@@ -106,8 +106,8 @@ export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessR
  *
  * ```
  *
- * @param RevokeSnapshotAccessCommandInput - {@link RevokeSnapshotAccessCommandInput}
- * @returns {@link RevokeSnapshotAccessCommandOutput}
+ * @param RevokeSnapshotAccessMessage - {@link RevokeSnapshotAccessMessage}
+ * @returns {@link RevokeSnapshotAccessResult}
  * @see {@link RevokeSnapshotAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeSnapshotAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

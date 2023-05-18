@@ -65,8 +65,8 @@ export interface CompleteMultipartReadSetUploadCommandOutput
  *
  * ```
  *
- * @param CompleteMultipartReadSetUploadCommandInput - {@link CompleteMultipartReadSetUploadCommandInput}
- * @returns {@link CompleteMultipartReadSetUploadCommandOutput}
+ * @param CompleteMultipartReadSetUploadRequest - {@link CompleteMultipartReadSetUploadRequest}
+ * @returns {@link CompleteMultipartReadSetUploadResponse}
  * @see {@link CompleteMultipartReadSetUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteMultipartReadSetUploadCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

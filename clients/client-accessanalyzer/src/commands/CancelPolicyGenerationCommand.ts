@@ -48,8 +48,8 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  *
  * ```
  *
- * @param CancelPolicyGenerationCommandInput - {@link CancelPolicyGenerationCommandInput}
- * @returns {@link CancelPolicyGenerationCommandOutput}
+ * @param CancelPolicyGenerationRequest - {@link CancelPolicyGenerationRequest}
+ * @returns {@link CancelPolicyGenerationResponse}
  * @see {@link CancelPolicyGenerationCommandInput} for command's `input` shape.
  * @see {@link CancelPolicyGenerationCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

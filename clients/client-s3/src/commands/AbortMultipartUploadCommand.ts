@@ -92,8 +92,8 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *
  * ```
  *
- * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
- * @returns {@link AbortMultipartUploadCommandOutput}
+ * @param AbortMultipartUploadRequest - {@link AbortMultipartUploadRequest}
+ * @returns {@link AbortMultipartUploadOutput}
  * @see {@link AbortMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

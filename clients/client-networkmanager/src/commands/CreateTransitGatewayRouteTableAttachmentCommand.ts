@@ -100,8 +100,8 @@ export interface CreateTransitGatewayRouteTableAttachmentCommandOutput
  *
  * ```
  *
- * @param CreateTransitGatewayRouteTableAttachmentCommandInput - {@link CreateTransitGatewayRouteTableAttachmentCommandInput}
- * @returns {@link CreateTransitGatewayRouteTableAttachmentCommandOutput}
+ * @param CreateTransitGatewayRouteTableAttachmentRequest - {@link CreateTransitGatewayRouteTableAttachmentRequest}
+ * @returns {@link CreateTransitGatewayRouteTableAttachmentResponse}
  * @see {@link CreateTransitGatewayRouteTableAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayRouteTableAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

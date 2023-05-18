@@ -58,8 +58,8 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  *
  * ```
  *
- * @param GetQueueAttributesCommandInput - {@link GetQueueAttributesCommandInput}
- * @returns {@link GetQueueAttributesCommandOutput}
+ * @param GetQueueAttributesRequest - {@link GetQueueAttributesRequest}
+ * @returns {@link GetQueueAttributesResult}
  * @see {@link GetQueueAttributesCommandInput} for command's `input` shape.
  * @see {@link GetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

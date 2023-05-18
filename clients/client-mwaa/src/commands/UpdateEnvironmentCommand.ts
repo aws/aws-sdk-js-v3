@@ -100,8 +100,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
+ * @param UpdateEnvironmentInput - {@link UpdateEnvironmentInput}
+ * @returns {@link UpdateEnvironmentOutput}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.

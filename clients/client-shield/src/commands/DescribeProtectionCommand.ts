@@ -66,8 +66,8 @@ export interface DescribeProtectionCommandOutput extends DescribeProtectionRespo
  *
  * ```
  *
- * @param DescribeProtectionCommandInput - {@link DescribeProtectionCommandInput}
- * @returns {@link DescribeProtectionCommandOutput}
+ * @param DescribeProtectionRequest - {@link DescribeProtectionRequest}
+ * @returns {@link DescribeProtectionResponse}
  * @see {@link DescribeProtectionCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

@@ -53,8 +53,8 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  *
  * ```
  *
- * @param GetSinkPolicyCommandInput - {@link GetSinkPolicyCommandInput}
- * @returns {@link GetSinkPolicyCommandOutput}
+ * @param GetSinkPolicyInput - {@link GetSinkPolicyInput}
+ * @returns {@link GetSinkPolicyOutput}
  * @see {@link GetSinkPolicyCommandInput} for command's `input` shape.
  * @see {@link GetSinkPolicyCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

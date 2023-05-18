@@ -68,8 +68,8 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  *
  * ```
  *
- * @param PutKeywordCommandInput - {@link PutKeywordCommandInput}
- * @returns {@link PutKeywordCommandOutput}
+ * @param PutKeywordRequest - {@link PutKeywordRequest}
+ * @returns {@link PutKeywordResult}
  * @see {@link PutKeywordCommandInput} for command's `input` shape.
  * @see {@link PutKeywordCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

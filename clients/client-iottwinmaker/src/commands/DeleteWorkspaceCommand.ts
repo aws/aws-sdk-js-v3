@@ -48,8 +48,8 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  *
  * ```
  *
- * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
- * @returns {@link DeleteWorkspaceCommandOutput}
+ * @param DeleteWorkspaceRequest - {@link DeleteWorkspaceRequest}
+ * @returns {@link DeleteWorkspaceResponse}
  * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

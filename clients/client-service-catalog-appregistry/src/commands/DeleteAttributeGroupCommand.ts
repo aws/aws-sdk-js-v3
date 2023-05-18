@@ -62,8 +62,8 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
  *
  * ```
  *
- * @param DeleteAttributeGroupCommandInput - {@link DeleteAttributeGroupCommandInput}
- * @returns {@link DeleteAttributeGroupCommandOutput}
+ * @param DeleteAttributeGroupRequest - {@link DeleteAttributeGroupRequest}
+ * @returns {@link DeleteAttributeGroupResponse}
  * @see {@link DeleteAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

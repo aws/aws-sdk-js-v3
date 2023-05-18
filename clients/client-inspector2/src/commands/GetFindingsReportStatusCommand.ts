@@ -177,8 +177,8 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  *
  * ```
  *
- * @param GetFindingsReportStatusCommandInput - {@link GetFindingsReportStatusCommandInput}
- * @returns {@link GetFindingsReportStatusCommandOutput}
+ * @param GetFindingsReportStatusRequest - {@link GetFindingsReportStatusRequest}
+ * @returns {@link GetFindingsReportStatusResponse}
  * @see {@link GetFindingsReportStatusCommandInput} for command's `input` shape.
  * @see {@link GetFindingsReportStatusCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

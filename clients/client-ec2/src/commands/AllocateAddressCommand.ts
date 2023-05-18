@@ -88,8 +88,8 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  *
  * ```
  *
- * @param AllocateAddressCommandInput - {@link AllocateAddressCommandInput}
- * @returns {@link AllocateAddressCommandOutput}
+ * @param AllocateAddressRequest - {@link AllocateAddressRequest}
+ * @returns {@link AllocateAddressResult}
  * @see {@link AllocateAddressCommandInput} for command's `input` shape.
  * @see {@link AllocateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

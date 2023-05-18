@@ -68,8 +68,8 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  *
  * ```
  *
- * @param UpdateOriginAccessControlCommandInput - {@link UpdateOriginAccessControlCommandInput}
- * @returns {@link UpdateOriginAccessControlCommandOutput}
+ * @param UpdateOriginAccessControlRequest - {@link UpdateOriginAccessControlRequest}
+ * @returns {@link UpdateOriginAccessControlResult}
  * @see {@link UpdateOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

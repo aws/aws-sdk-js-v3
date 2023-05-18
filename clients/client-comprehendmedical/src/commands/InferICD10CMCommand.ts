@@ -101,8 +101,8 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  *
  * ```
  *
- * @param InferICD10CMCommandInput - {@link InferICD10CMCommandInput}
- * @returns {@link InferICD10CMCommandOutput}
+ * @param InferICD10CMRequest - {@link InferICD10CMRequest}
+ * @returns {@link InferICD10CMResponse}
  * @see {@link InferICD10CMCommandInput} for command's `input` shape.
  * @see {@link InferICD10CMCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

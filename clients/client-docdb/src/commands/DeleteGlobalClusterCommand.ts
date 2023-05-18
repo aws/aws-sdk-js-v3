@@ -72,8 +72,8 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  *
  * ```
  *
- * @param DeleteGlobalClusterCommandInput - {@link DeleteGlobalClusterCommandInput}
- * @returns {@link DeleteGlobalClusterCommandOutput}
+ * @param DeleteGlobalClusterMessage - {@link DeleteGlobalClusterMessage}
+ * @returns {@link DeleteGlobalClusterResult}
  * @see {@link DeleteGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

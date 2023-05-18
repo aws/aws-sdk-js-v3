@@ -52,8 +52,8 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  *
  * ```
  *
- * @param DeleteControlPanelCommandInput - {@link DeleteControlPanelCommandInput}
- * @returns {@link DeleteControlPanelCommandOutput}
+ * @param DeleteControlPanelRequest - {@link DeleteControlPanelRequest}
+ * @returns {@link DeleteControlPanelResponse}
  * @see {@link DeleteControlPanelCommandInput} for command's `input` shape.
  * @see {@link DeleteControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

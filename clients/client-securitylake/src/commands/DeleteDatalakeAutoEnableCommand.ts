@@ -60,8 +60,8 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  *
  * ```
  *
- * @param DeleteDatalakeAutoEnableCommandInput - {@link DeleteDatalakeAutoEnableCommandInput}
- * @returns {@link DeleteDatalakeAutoEnableCommandOutput}
+ * @param DeleteDatalakeAutoEnableRequest - {@link DeleteDatalakeAutoEnableRequest}
+ * @returns {@link DeleteDatalakeAutoEnableResponse}
  * @see {@link DeleteDatalakeAutoEnableCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeAutoEnableCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

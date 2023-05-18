@@ -74,8 +74,8 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  *
  * ```
  *
- * @param DescribeInstanceAccessControlAttributeConfigurationCommandInput - {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput}
- * @returns {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput}
+ * @param DescribeInstanceAccessControlAttributeConfigurationRequest - {@link DescribeInstanceAccessControlAttributeConfigurationRequest}
+ * @returns {@link DescribeInstanceAccessControlAttributeConfigurationResponse}
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

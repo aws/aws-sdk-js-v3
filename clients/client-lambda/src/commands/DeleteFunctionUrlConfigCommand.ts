@@ -50,8 +50,8 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteFunctionUrlConfigCommandInput - {@link DeleteFunctionUrlConfigCommandInput}
- * @returns {@link DeleteFunctionUrlConfigCommandOutput}
+ * @param DeleteFunctionUrlConfigRequest - {@link DeleteFunctionUrlConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

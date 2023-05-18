@@ -63,8 +63,8 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  *
  * ```
  *
- * @param AdminConfirmSignUpCommandInput - {@link AdminConfirmSignUpCommandInput}
- * @returns {@link AdminConfirmSignUpCommandOutput}
+ * @param AdminConfirmSignUpRequest - {@link AdminConfirmSignUpRequest}
+ * @returns {@link AdminConfirmSignUpResponse}
  * @see {@link AdminConfirmSignUpCommandInput} for command's `input` shape.
  * @see {@link AdminConfirmSignUpCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

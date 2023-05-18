@@ -79,8 +79,8 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  *
  * ```
  *
- * @param DescribeCachediSCSIVolumesCommandInput - {@link DescribeCachediSCSIVolumesCommandInput}
- * @returns {@link DescribeCachediSCSIVolumesCommandOutput}
+ * @param DescribeCachediSCSIVolumesInput - {@link DescribeCachediSCSIVolumesInput}
+ * @returns {@link DescribeCachediSCSIVolumesOutput}
  * @see {@link DescribeCachediSCSIVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeCachediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

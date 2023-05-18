@@ -64,8 +64,8 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  *
  * ```
  *
- * @param DescribePermissionsCommandInput - {@link DescribePermissionsCommandInput}
- * @returns {@link DescribePermissionsCommandOutput}
+ * @param DescribePermissionsRequest - {@link DescribePermissionsRequest}
+ * @returns {@link DescribePermissionsResult}
  * @see {@link DescribePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

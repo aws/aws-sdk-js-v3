@@ -106,8 +106,8 @@ export interface DescribeProblemObservationsCommandOutput
  *
  * ```
  *
- * @param DescribeProblemObservationsCommandInput - {@link DescribeProblemObservationsCommandInput}
- * @returns {@link DescribeProblemObservationsCommandOutput}
+ * @param DescribeProblemObservationsRequest - {@link DescribeProblemObservationsRequest}
+ * @returns {@link DescribeProblemObservationsResponse}
  * @see {@link DescribeProblemObservationsCommandInput} for command's `input` shape.
  * @see {@link DescribeProblemObservationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

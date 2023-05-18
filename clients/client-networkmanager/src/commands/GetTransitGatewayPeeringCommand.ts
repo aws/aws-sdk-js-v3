@@ -70,8 +70,8 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  *
  * ```
  *
- * @param GetTransitGatewayPeeringCommandInput - {@link GetTransitGatewayPeeringCommandInput}
- * @returns {@link GetTransitGatewayPeeringCommandOutput}
+ * @param GetTransitGatewayPeeringRequest - {@link GetTransitGatewayPeeringRequest}
+ * @returns {@link GetTransitGatewayPeeringResponse}
  * @see {@link GetTransitGatewayPeeringCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayPeeringCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

@@ -63,8 +63,8 @@ export interface DescribeAccountSubscriptionCommandOutput
  *
  * ```
  *
- * @param DescribeAccountSubscriptionCommandInput - {@link DescribeAccountSubscriptionCommandInput}
- * @returns {@link DescribeAccountSubscriptionCommandOutput}
+ * @param DescribeAccountSubscriptionRequest - {@link DescribeAccountSubscriptionRequest}
+ * @returns {@link DescribeAccountSubscriptionResponse}
  * @see {@link DescribeAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -68,8 +68,8 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  *
  * ```
  *
- * @param GetTestGridSessionCommandInput - {@link GetTestGridSessionCommandInput}
- * @returns {@link GetTestGridSessionCommandOutput}
+ * @param GetTestGridSessionRequest - {@link GetTestGridSessionRequest}
+ * @returns {@link GetTestGridSessionResult}
  * @see {@link GetTestGridSessionCommandInput} for command's `input` shape.
  * @see {@link GetTestGridSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

@@ -64,8 +64,8 @@ export interface CreateRuleGroupsNamespaceCommandOutput extends CreateRuleGroups
  *
  * ```
  *
- * @param CreateRuleGroupsNamespaceCommandInput - {@link CreateRuleGroupsNamespaceCommandInput}
- * @returns {@link CreateRuleGroupsNamespaceCommandOutput}
+ * @param CreateRuleGroupsNamespaceRequest - {@link CreateRuleGroupsNamespaceRequest}
+ * @returns {@link CreateRuleGroupsNamespaceResponse}
  * @see {@link CreateRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateRuleGroupsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

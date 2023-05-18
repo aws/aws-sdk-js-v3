@@ -63,8 +63,8 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  *
  * ```
  *
- * @param CreateApplicationInstanceCommandInput - {@link CreateApplicationInstanceCommandInput}
- * @returns {@link CreateApplicationInstanceCommandOutput}
+ * @param CreateApplicationInstanceRequest - {@link CreateApplicationInstanceRequest}
+ * @returns {@link CreateApplicationInstanceResponse}
  * @see {@link CreateApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

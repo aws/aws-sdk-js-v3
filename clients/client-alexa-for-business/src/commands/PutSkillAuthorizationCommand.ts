@@ -58,8 +58,8 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  *
  * ```
  *
- * @param PutSkillAuthorizationCommandInput - {@link PutSkillAuthorizationCommandInput}
- * @returns {@link PutSkillAuthorizationCommandOutput}
+ * @param PutSkillAuthorizationRequest - {@link PutSkillAuthorizationRequest}
+ * @returns {@link PutSkillAuthorizationResponse}
  * @see {@link PutSkillAuthorizationCommandInput} for command's `input` shape.
  * @see {@link PutSkillAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

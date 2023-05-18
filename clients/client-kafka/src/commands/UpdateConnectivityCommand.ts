@@ -72,8 +72,8 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  *
  * ```
  *
- * @param UpdateConnectivityCommandInput - {@link UpdateConnectivityCommandInput}
- * @returns {@link UpdateConnectivityCommandOutput}
+ * @param UpdateConnectivityRequest - {@link UpdateConnectivityRequest}
+ * @returns {@link UpdateConnectivityResponse}
  * @see {@link UpdateConnectivityCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectivityCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

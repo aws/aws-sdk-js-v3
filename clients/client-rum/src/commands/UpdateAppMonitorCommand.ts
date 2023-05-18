@@ -82,8 +82,8 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  *
  * ```
  *
- * @param UpdateAppMonitorCommandInput - {@link UpdateAppMonitorCommandInput}
- * @returns {@link UpdateAppMonitorCommandOutput}
+ * @param UpdateAppMonitorRequest - {@link UpdateAppMonitorRequest}
+ * @returns {@link UpdateAppMonitorResponse}
  * @see {@link UpdateAppMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

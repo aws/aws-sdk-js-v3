@@ -62,8 +62,8 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  *
  * ```
  *
- * @param AssociateConnectPeerCommandInput - {@link AssociateConnectPeerCommandInput}
- * @returns {@link AssociateConnectPeerCommandOutput}
+ * @param AssociateConnectPeerRequest - {@link AssociateConnectPeerRequest}
+ * @returns {@link AssociateConnectPeerResponse}
  * @see {@link AssociateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

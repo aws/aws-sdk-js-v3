@@ -49,8 +49,8 @@ export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __M
  *
  * ```
  *
- * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
- * @returns {@link DeleteResourceCommandOutput}
+ * @param DeleteResourceRequest - {@link DeleteResourceRequest}
+ * @returns {@link DeleteResourceResponse}
  * @see {@link DeleteResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

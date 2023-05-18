@@ -68,8 +68,8 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  *
  * ```
  *
- * @param BatchGetOnPremisesInstancesCommandInput - {@link BatchGetOnPremisesInstancesCommandInput}
- * @returns {@link BatchGetOnPremisesInstancesCommandOutput}
+ * @param BatchGetOnPremisesInstancesInput - {@link BatchGetOnPremisesInstancesInput}
+ * @returns {@link BatchGetOnPremisesInstancesOutput}
  * @see {@link BatchGetOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link BatchGetOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

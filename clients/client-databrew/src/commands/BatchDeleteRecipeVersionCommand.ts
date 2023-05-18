@@ -98,8 +98,8 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  *
  * ```
  *
- * @param BatchDeleteRecipeVersionCommandInput - {@link BatchDeleteRecipeVersionCommandInput}
- * @returns {@link BatchDeleteRecipeVersionCommandOutput}
+ * @param BatchDeleteRecipeVersionRequest - {@link BatchDeleteRecipeVersionRequest}
+ * @returns {@link BatchDeleteRecipeVersionResponse}
  * @see {@link BatchDeleteRecipeVersionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteRecipeVersionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

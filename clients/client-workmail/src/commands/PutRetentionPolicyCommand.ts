@@ -62,8 +62,8 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  *
  * ```
  *
- * @param PutRetentionPolicyCommandInput - {@link PutRetentionPolicyCommandInput}
- * @returns {@link PutRetentionPolicyCommandOutput}
+ * @param PutRetentionPolicyRequest - {@link PutRetentionPolicyRequest}
+ * @returns {@link PutRetentionPolicyResponse}
  * @see {@link PutRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

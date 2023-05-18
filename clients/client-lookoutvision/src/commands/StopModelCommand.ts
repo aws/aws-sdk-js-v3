@@ -56,8 +56,8 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  *
  * ```
  *
- * @param StopModelCommandInput - {@link StopModelCommandInput}
- * @returns {@link StopModelCommandOutput}
+ * @param StopModelRequest - {@link StopModelRequest}
+ * @returns {@link StopModelResponse}
  * @see {@link StopModelCommandInput} for command's `input` shape.
  * @see {@link StopModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

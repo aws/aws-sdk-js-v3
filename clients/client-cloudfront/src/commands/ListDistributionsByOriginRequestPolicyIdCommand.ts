@@ -76,8 +76,8 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  *
  * ```
  *
- * @param ListDistributionsByOriginRequestPolicyIdCommandInput - {@link ListDistributionsByOriginRequestPolicyIdCommandInput}
- * @returns {@link ListDistributionsByOriginRequestPolicyIdCommandOutput}
+ * @param ListDistributionsByOriginRequestPolicyIdRequest - {@link ListDistributionsByOriginRequestPolicyIdRequest}
+ * @returns {@link ListDistributionsByOriginRequestPolicyIdResult}
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

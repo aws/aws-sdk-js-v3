@@ -55,8 +55,8 @@ export interface DeleteMatchmakingConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteMatchmakingConfigurationCommandInput - {@link DeleteMatchmakingConfigurationCommandInput}
- * @returns {@link DeleteMatchmakingConfigurationCommandOutput}
+ * @param DeleteMatchmakingConfigurationInput - {@link DeleteMatchmakingConfigurationInput}
+ * @returns {@link DeleteMatchmakingConfigurationOutput}
  * @see {@link DeleteMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

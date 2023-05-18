@@ -62,8 +62,8 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  *
  * ```
  *
- * @param GetDelegationsCommandInput - {@link GetDelegationsCommandInput}
- * @returns {@link GetDelegationsCommandOutput}
+ * @param GetDelegationsRequest - {@link GetDelegationsRequest}
+ * @returns {@link GetDelegationsResponse}
  * @see {@link GetDelegationsCommandInput} for command's `input` shape.
  * @see {@link GetDelegationsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

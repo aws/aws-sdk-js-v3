@@ -93,8 +93,8 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  *
  * ```
  *
- * @param UpdateReportGroupCommandInput - {@link UpdateReportGroupCommandInput}
- * @returns {@link UpdateReportGroupCommandOutput}
+ * @param UpdateReportGroupInput - {@link UpdateReportGroupInput}
+ * @returns {@link UpdateReportGroupOutput}
  * @see {@link UpdateReportGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -91,8 +91,8 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *
  * ```
  *
- * @param UpdateLinkAttributesCommandInput - {@link UpdateLinkAttributesCommandInput}
- * @returns {@link UpdateLinkAttributesCommandOutput}
+ * @param UpdateLinkAttributesRequest - {@link UpdateLinkAttributesRequest}
+ * @returns {@link UpdateLinkAttributesResponse}
  * @see {@link UpdateLinkAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

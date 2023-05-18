@@ -70,8 +70,8 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  *
  * ```
  *
- * @param UpdateResourceShareCommandInput - {@link UpdateResourceShareCommandInput}
- * @returns {@link UpdateResourceShareCommandOutput}
+ * @param UpdateResourceShareRequest - {@link UpdateResourceShareRequest}
+ * @returns {@link UpdateResourceShareResponse}
  * @see {@link UpdateResourceShareCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

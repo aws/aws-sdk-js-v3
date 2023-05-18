@@ -136,8 +136,8 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *
  * ```
  *
- * @param ListObjectVersionsCommandInput - {@link ListObjectVersionsCommandInput}
- * @returns {@link ListObjectVersionsCommandOutput}
+ * @param ListObjectVersionsRequest - {@link ListObjectVersionsRequest}
+ * @returns {@link ListObjectVersionsOutput}
  * @see {@link ListObjectVersionsCommandInput} for command's `input` shape.
  * @see {@link ListObjectVersionsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

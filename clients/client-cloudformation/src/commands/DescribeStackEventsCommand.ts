@@ -77,8 +77,8 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  *
  * ```
  *
- * @param DescribeStackEventsCommandInput - {@link DescribeStackEventsCommandInput}
- * @returns {@link DescribeStackEventsCommandOutput}
+ * @param DescribeStackEventsInput - {@link DescribeStackEventsInput}
+ * @returns {@link DescribeStackEventsOutput}
  * @see {@link DescribeStackEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeStackEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

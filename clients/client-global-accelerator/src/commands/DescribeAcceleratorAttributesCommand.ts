@@ -64,8 +64,8 @@ export interface DescribeAcceleratorAttributesCommandOutput
  *
  * ```
  *
- * @param DescribeAcceleratorAttributesCommandInput - {@link DescribeAcceleratorAttributesCommandInput}
- * @returns {@link DescribeAcceleratorAttributesCommandOutput}
+ * @param DescribeAcceleratorAttributesRequest - {@link DescribeAcceleratorAttributesRequest}
+ * @returns {@link DescribeAcceleratorAttributesResponse}
  * @see {@link DescribeAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

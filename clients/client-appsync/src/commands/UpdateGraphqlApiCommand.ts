@@ -156,8 +156,8 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  *
  * ```
  *
- * @param UpdateGraphqlApiCommandInput - {@link UpdateGraphqlApiCommandInput}
- * @returns {@link UpdateGraphqlApiCommandOutput}
+ * @param UpdateGraphqlApiRequest - {@link UpdateGraphqlApiRequest}
+ * @returns {@link UpdateGraphqlApiResponse}
  * @see {@link UpdateGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link UpdateGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

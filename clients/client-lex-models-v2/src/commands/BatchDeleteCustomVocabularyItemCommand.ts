@@ -80,8 +80,8 @@ export interface BatchDeleteCustomVocabularyItemCommandOutput
  *
  * ```
  *
- * @param BatchDeleteCustomVocabularyItemCommandInput - {@link BatchDeleteCustomVocabularyItemCommandInput}
- * @returns {@link BatchDeleteCustomVocabularyItemCommandOutput}
+ * @param BatchDeleteCustomVocabularyItemRequest - {@link BatchDeleteCustomVocabularyItemRequest}
+ * @returns {@link BatchDeleteCustomVocabularyItemResponse}
  * @see {@link BatchDeleteCustomVocabularyItemCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteCustomVocabularyItemCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

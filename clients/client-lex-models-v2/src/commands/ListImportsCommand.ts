@@ -83,8 +83,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  *
  * ```
  *
- * @param ListImportsCommandInput - {@link ListImportsCommandInput}
- * @returns {@link ListImportsCommandOutput}
+ * @param ListImportsRequest - {@link ListImportsRequest}
+ * @returns {@link ListImportsResponse}
  * @see {@link ListImportsCommandInput} for command's `input` shape.
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

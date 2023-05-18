@@ -110,8 +110,8 @@ export interface DescribeNetworkInsightsPathsCommandOutput
  *
  * ```
  *
- * @param DescribeNetworkInsightsPathsCommandInput - {@link DescribeNetworkInsightsPathsCommandInput}
- * @returns {@link DescribeNetworkInsightsPathsCommandOutput}
+ * @param DescribeNetworkInsightsPathsRequest - {@link DescribeNetworkInsightsPathsRequest}
+ * @returns {@link DescribeNetworkInsightsPathsResult}
  * @see {@link DescribeNetworkInsightsPathsCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInsightsPathsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

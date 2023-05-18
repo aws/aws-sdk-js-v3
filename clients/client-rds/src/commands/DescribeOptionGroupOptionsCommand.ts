@@ -107,8 +107,8 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  *
  * ```
  *
- * @param DescribeOptionGroupOptionsCommandInput - {@link DescribeOptionGroupOptionsCommandInput}
- * @returns {@link DescribeOptionGroupOptionsCommandOutput}
+ * @param DescribeOptionGroupOptionsMessage - {@link DescribeOptionGroupOptionsMessage}
+ * @returns {@link OptionGroupOptionsMessage}
  * @see {@link DescribeOptionGroupOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptionGroupOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

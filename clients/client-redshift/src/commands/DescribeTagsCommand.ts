@@ -93,8 +93,8 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  *
  * ```
  *
- * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
- * @returns {@link DescribeTagsCommandOutput}
+ * @param DescribeTagsMessage - {@link DescribeTagsMessage}
+ * @returns {@link TaggedResourceListMessage}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

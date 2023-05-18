@@ -60,8 +60,8 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  *
  * ```
  *
- * @param StopSentimentDetectionJobCommandInput - {@link StopSentimentDetectionJobCommandInput}
- * @returns {@link StopSentimentDetectionJobCommandOutput}
+ * @param StopSentimentDetectionJobRequest - {@link StopSentimentDetectionJobRequest}
+ * @returns {@link StopSentimentDetectionJobResponse}
  * @see {@link StopSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

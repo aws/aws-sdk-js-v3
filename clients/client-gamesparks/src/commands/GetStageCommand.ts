@@ -64,8 +64,8 @@ export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer 
  *
  * ```
  *
- * @param GetStageCommandInput - {@link GetStageCommandInput}
- * @returns {@link GetStageCommandOutput}
+ * @param GetStageRequest - {@link GetStageRequest}
+ * @returns {@link GetStageResult}
  * @see {@link GetStageCommandInput} for command's `input` shape.
  * @see {@link GetStageCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

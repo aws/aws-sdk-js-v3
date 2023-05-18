@@ -79,8 +79,8 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  *
  * ```
  *
- * @param ModifyInstanceCreditSpecificationCommandInput - {@link ModifyInstanceCreditSpecificationCommandInput}
- * @returns {@link ModifyInstanceCreditSpecificationCommandOutput}
+ * @param ModifyInstanceCreditSpecificationRequest - {@link ModifyInstanceCreditSpecificationRequest}
+ * @returns {@link ModifyInstanceCreditSpecificationResult}
  * @see {@link ModifyInstanceCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

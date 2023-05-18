@@ -58,8 +58,8 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  *
  * ```
  *
- * @param ListEntitlementsCommandInput - {@link ListEntitlementsCommandInput}
- * @returns {@link ListEntitlementsCommandOutput}
+ * @param ListEntitlementsRequest - {@link ListEntitlementsRequest}
+ * @returns {@link ListEntitlementsResponse}
  * @see {@link ListEntitlementsCommandInput} for command's `input` shape.
  * @see {@link ListEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

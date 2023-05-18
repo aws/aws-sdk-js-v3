@@ -75,8 +75,8 @@ export interface ListResolverRuleAssociationsCommandOutput
  *
  * ```
  *
- * @param ListResolverRuleAssociationsCommandInput - {@link ListResolverRuleAssociationsCommandInput}
- * @returns {@link ListResolverRuleAssociationsCommandOutput}
+ * @param ListResolverRuleAssociationsRequest - {@link ListResolverRuleAssociationsRequest}
+ * @returns {@link ListResolverRuleAssociationsResponse}
  * @see {@link ListResolverRuleAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListResolverRuleAssociationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

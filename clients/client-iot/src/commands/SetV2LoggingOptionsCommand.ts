@@ -51,8 +51,8 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetV2LoggingOptionsCommandInput - {@link SetV2LoggingOptionsCommandInput}
- * @returns {@link SetV2LoggingOptionsCommandOutput}
+ * @param SetV2LoggingOptionsRequest - {@link SetV2LoggingOptionsRequest}
+ * @returns {@link Unit}
  * @see {@link SetV2LoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link SetV2LoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -58,8 +58,8 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  *
  * ```
  *
- * @param GetStreamCommandInput - {@link GetStreamCommandInput}
- * @returns {@link GetStreamCommandOutput}
+ * @param GetStreamRequest - {@link GetStreamRequest}
+ * @returns {@link GetStreamResponse}
  * @see {@link GetStreamCommandInput} for command's `input` shape.
  * @see {@link GetStreamCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

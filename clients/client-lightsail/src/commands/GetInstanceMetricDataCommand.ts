@@ -73,8 +73,8 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  *
  * ```
  *
- * @param GetInstanceMetricDataCommandInput - {@link GetInstanceMetricDataCommandInput}
- * @returns {@link GetInstanceMetricDataCommandOutput}
+ * @param GetInstanceMetricDataRequest - {@link GetInstanceMetricDataRequest}
+ * @returns {@link GetInstanceMetricDataResult}
  * @see {@link GetInstanceMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetInstanceMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

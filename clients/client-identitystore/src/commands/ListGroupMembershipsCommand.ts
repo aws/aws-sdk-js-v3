@@ -63,8 +63,8 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  *
  * ```
  *
- * @param ListGroupMembershipsCommandInput - {@link ListGroupMembershipsCommandInput}
- * @returns {@link ListGroupMembershipsCommandOutput}
+ * @param ListGroupMembershipsRequest - {@link ListGroupMembershipsRequest}
+ * @returns {@link ListGroupMembershipsResponse}
  * @see {@link ListGroupMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembershipsCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

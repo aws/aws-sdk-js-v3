@@ -92,8 +92,8 @@ export interface GetRotationCommandOutput extends GetRotationResult, __MetadataB
  *
  * ```
  *
- * @param GetRotationCommandInput - {@link GetRotationCommandInput}
- * @returns {@link GetRotationCommandOutput}
+ * @param GetRotationRequest - {@link GetRotationRequest}
+ * @returns {@link GetRotationResult}
  * @see {@link GetRotationCommandInput} for command's `input` shape.
  * @see {@link GetRotationCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

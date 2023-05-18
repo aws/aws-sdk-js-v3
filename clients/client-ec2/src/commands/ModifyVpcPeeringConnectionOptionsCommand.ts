@@ -100,8 +100,8 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
  *
  * ```
  *
- * @param ModifyVpcPeeringConnectionOptionsCommandInput - {@link ModifyVpcPeeringConnectionOptionsCommandInput}
- * @returns {@link ModifyVpcPeeringConnectionOptionsCommandOutput}
+ * @param ModifyVpcPeeringConnectionOptionsRequest - {@link ModifyVpcPeeringConnectionOptionsRequest}
+ * @returns {@link ModifyVpcPeeringConnectionOptionsResult}
  * @see {@link ModifyVpcPeeringConnectionOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcPeeringConnectionOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

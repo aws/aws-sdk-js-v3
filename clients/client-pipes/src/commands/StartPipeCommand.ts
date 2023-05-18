@@ -55,8 +55,8 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  *
  * ```
  *
- * @param StartPipeCommandInput - {@link StartPipeCommandInput}
- * @returns {@link StartPipeCommandOutput}
+ * @param StartPipeRequest - {@link StartPipeRequest}
+ * @returns {@link StartPipeResponse}
  * @see {@link StartPipeCommandInput} for command's `input` shape.
  * @see {@link StartPipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.

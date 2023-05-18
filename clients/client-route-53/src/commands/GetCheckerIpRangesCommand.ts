@@ -59,8 +59,8 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  *
  * ```
  *
- * @param GetCheckerIpRangesCommandInput - {@link GetCheckerIpRangesCommandInput}
- * @returns {@link GetCheckerIpRangesCommandOutput}
+ * @param GetCheckerIpRangesRequest - {@link GetCheckerIpRangesRequest}
+ * @returns {@link GetCheckerIpRangesResponse}
  * @see {@link GetCheckerIpRangesCommandInput} for command's `input` shape.
  * @see {@link GetCheckerIpRangesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

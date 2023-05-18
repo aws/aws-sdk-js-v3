@@ -79,8 +79,8 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateNodeCommandInput - {@link CreateNodeCommandInput}
- * @returns {@link CreateNodeCommandOutput}
+ * @param CreateNodeInput - {@link CreateNodeInput}
+ * @returns {@link CreateNodeOutput}
  * @see {@link CreateNodeCommandInput} for command's `input` shape.
  * @see {@link CreateNodeCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

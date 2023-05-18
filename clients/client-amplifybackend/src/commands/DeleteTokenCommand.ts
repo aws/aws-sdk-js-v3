@@ -51,8 +51,8 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  *
  * ```
  *
- * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
- * @returns {@link DeleteTokenCommandOutput}
+ * @param DeleteTokenRequest - {@link DeleteTokenRequest}
+ * @returns {@link DeleteTokenResponse}
  * @see {@link DeleteTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

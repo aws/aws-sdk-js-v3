@@ -58,8 +58,8 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  *
  * ```
  *
- * @param DescribeMyUserProfileCommandInput - {@link DescribeMyUserProfileCommandInput}
- * @returns {@link DescribeMyUserProfileCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeMyUserProfileResult}
  * @see {@link DescribeMyUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeMyUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

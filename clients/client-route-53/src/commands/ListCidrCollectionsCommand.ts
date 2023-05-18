@@ -60,8 +60,8 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  *
  * ```
  *
- * @param ListCidrCollectionsCommandInput - {@link ListCidrCollectionsCommandInput}
- * @returns {@link ListCidrCollectionsCommandOutput}
+ * @param ListCidrCollectionsRequest - {@link ListCidrCollectionsRequest}
+ * @returns {@link ListCidrCollectionsResponse}
  * @see {@link ListCidrCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCidrCollectionsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

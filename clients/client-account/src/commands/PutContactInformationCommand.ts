@@ -64,8 +64,8 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutContactInformationCommandInput - {@link PutContactInformationCommandInput}
- * @returns {@link PutContactInformationCommandOutput}
+ * @param PutContactInformationRequest - {@link PutContactInformationRequest}
+ * @returns {@link Unit}
  * @see {@link PutContactInformationCommandInput} for command's `input` shape.
  * @see {@link PutContactInformationCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

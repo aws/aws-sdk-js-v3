@@ -56,8 +56,8 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
  *
  * ```
  *
- * @param DisassociateWirelessGatewayFromThingCommandInput - {@link DisassociateWirelessGatewayFromThingCommandInput}
- * @returns {@link DisassociateWirelessGatewayFromThingCommandOutput}
+ * @param DisassociateWirelessGatewayFromThingRequest - {@link DisassociateWirelessGatewayFromThingRequest}
+ * @returns {@link DisassociateWirelessGatewayFromThingResponse}
  * @see {@link DisassociateWirelessGatewayFromThingCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessGatewayFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

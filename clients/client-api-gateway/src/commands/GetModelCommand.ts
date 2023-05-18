@@ -56,8 +56,8 @@ export interface GetModelCommandOutput extends Model, __MetadataBearer {}
  *
  * ```
  *
- * @param GetModelCommandInput - {@link GetModelCommandInput}
- * @returns {@link GetModelCommandOutput}
+ * @param GetModelRequest - {@link GetModelRequest}
+ * @returns {@link Model}
  * @see {@link GetModelCommandInput} for command's `input` shape.
  * @see {@link GetModelCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

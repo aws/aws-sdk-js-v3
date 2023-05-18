@@ -48,8 +48,8 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
  *
  * ```
  *
- * @param DeleteDeviceProfileCommandInput - {@link DeleteDeviceProfileCommandInput}
- * @returns {@link DeleteDeviceProfileCommandOutput}
+ * @param DeleteDeviceProfileRequest - {@link DeleteDeviceProfileRequest}
+ * @returns {@link DeleteDeviceProfileResponse}
  * @see {@link DeleteDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

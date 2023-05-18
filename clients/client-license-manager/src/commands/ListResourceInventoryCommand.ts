@@ -68,8 +68,8 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  *
  * ```
  *
- * @param ListResourceInventoryCommandInput - {@link ListResourceInventoryCommandInput}
- * @returns {@link ListResourceInventoryCommandOutput}
+ * @param ListResourceInventoryRequest - {@link ListResourceInventoryRequest}
+ * @returns {@link ListResourceInventoryResponse}
  * @see {@link ListResourceInventoryCommandInput} for command's `input` shape.
  * @see {@link ListResourceInventoryCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

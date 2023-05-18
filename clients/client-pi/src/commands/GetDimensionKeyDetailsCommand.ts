@@ -65,8 +65,8 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  *
  * ```
  *
- * @param GetDimensionKeyDetailsCommandInput - {@link GetDimensionKeyDetailsCommandInput}
- * @returns {@link GetDimensionKeyDetailsCommandOutput}
+ * @param GetDimensionKeyDetailsRequest - {@link GetDimensionKeyDetailsRequest}
+ * @returns {@link GetDimensionKeyDetailsResponse}
  * @see {@link GetDimensionKeyDetailsCommandInput} for command's `input` shape.
  * @see {@link GetDimensionKeyDetailsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.

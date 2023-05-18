@@ -56,8 +56,8 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  *
  * ```
  *
- * @param DeleteAccountSettingCommandInput - {@link DeleteAccountSettingCommandInput}
- * @returns {@link DeleteAccountSettingCommandOutput}
+ * @param DeleteAccountSettingRequest - {@link DeleteAccountSettingRequest}
+ * @returns {@link DeleteAccountSettingResponse}
  * @see {@link DeleteAccountSettingCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountSettingCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

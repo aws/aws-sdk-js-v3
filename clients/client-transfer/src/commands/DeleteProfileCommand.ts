@@ -48,8 +48,8 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
- * @returns {@link DeleteProfileCommandOutput}
+ * @param DeleteProfileRequest - {@link DeleteProfileRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

@@ -70,8 +70,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *
  * ```
  *
- * @param CreateConnectorCommandInput - {@link CreateConnectorCommandInput}
- * @returns {@link CreateConnectorCommandOutput}
+ * @param CreateConnectorRequest - {@link CreateConnectorRequest}
+ * @returns {@link CreateConnectorResponse}
  * @see {@link CreateConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

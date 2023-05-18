@@ -48,8 +48,8 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
  *
  * ```
  *
- * @param ForgetSmartHomeAppliancesCommandInput - {@link ForgetSmartHomeAppliancesCommandInput}
- * @returns {@link ForgetSmartHomeAppliancesCommandOutput}
+ * @param ForgetSmartHomeAppliancesRequest - {@link ForgetSmartHomeAppliancesRequest}
+ * @returns {@link ForgetSmartHomeAppliancesResponse}
  * @see {@link ForgetSmartHomeAppliancesCommandInput} for command's `input` shape.
  * @see {@link ForgetSmartHomeAppliancesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -59,8 +59,8 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  *
  * ```
  *
- * @param CancelTaskCommandInput - {@link CancelTaskCommandInput}
- * @returns {@link CancelTaskCommandOutput}
+ * @param CancelTaskInput - {@link CancelTaskInput}
+ * @returns {@link CancelTaskOutput}
  * @see {@link CancelTaskCommandInput} for command's `input` shape.
  * @see {@link CancelTaskCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.

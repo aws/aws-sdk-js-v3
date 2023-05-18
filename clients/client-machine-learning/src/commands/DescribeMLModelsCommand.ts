@@ -90,8 +90,8 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  *
  * ```
  *
- * @param DescribeMLModelsCommandInput - {@link DescribeMLModelsCommandInput}
- * @returns {@link DescribeMLModelsCommandOutput}
+ * @param DescribeMLModelsInput - {@link DescribeMLModelsInput}
+ * @returns {@link DescribeMLModelsOutput}
  * @see {@link DescribeMLModelsCommandInput} for command's `input` shape.
  * @see {@link DescribeMLModelsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

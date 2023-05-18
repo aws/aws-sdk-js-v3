@@ -84,8 +84,8 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  *
  * ```
  *
- * @param ListWebhooksCommandInput - {@link ListWebhooksCommandInput}
- * @returns {@link ListWebhooksCommandOutput}
+ * @param ListWebhooksInput - {@link ListWebhooksInput}
+ * @returns {@link ListWebhooksOutput}
  * @see {@link ListWebhooksCommandInput} for command's `input` shape.
  * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

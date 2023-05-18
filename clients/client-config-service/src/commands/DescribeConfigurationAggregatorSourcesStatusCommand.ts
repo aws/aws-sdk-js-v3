@@ -76,8 +76,8 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  *
  * ```
  *
- * @param DescribeConfigurationAggregatorSourcesStatusCommandInput - {@link DescribeConfigurationAggregatorSourcesStatusCommandInput}
- * @returns {@link DescribeConfigurationAggregatorSourcesStatusCommandOutput}
+ * @param DescribeConfigurationAggregatorSourcesStatusRequest - {@link DescribeConfigurationAggregatorSourcesStatusRequest}
+ * @returns {@link DescribeConfigurationAggregatorSourcesStatusResponse}
  * @see {@link DescribeConfigurationAggregatorSourcesStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationAggregatorSourcesStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

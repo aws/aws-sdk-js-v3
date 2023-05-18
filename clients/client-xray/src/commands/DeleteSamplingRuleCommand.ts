@@ -71,8 +71,8 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
  *
  * ```
  *
- * @param DeleteSamplingRuleCommandInput - {@link DeleteSamplingRuleCommandInput}
- * @returns {@link DeleteSamplingRuleCommandOutput}
+ * @param DeleteSamplingRuleRequest - {@link DeleteSamplingRuleRequest}
+ * @returns {@link DeleteSamplingRuleResult}
  * @see {@link DeleteSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

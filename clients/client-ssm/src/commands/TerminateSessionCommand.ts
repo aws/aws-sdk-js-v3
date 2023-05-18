@@ -51,8 +51,8 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  *
  * ```
  *
- * @param TerminateSessionCommandInput - {@link TerminateSessionCommandInput}
- * @returns {@link TerminateSessionCommandOutput}
+ * @param TerminateSessionRequest - {@link TerminateSessionRequest}
+ * @returns {@link TerminateSessionResponse}
  * @see {@link TerminateSessionCommandInput} for command's `input` shape.
  * @see {@link TerminateSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

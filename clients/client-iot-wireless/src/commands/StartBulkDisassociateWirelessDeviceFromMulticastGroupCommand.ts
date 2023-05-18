@@ -64,8 +64,8 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  *
  * ```
  *
- * @param StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput - {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput}
- * @returns {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput}
+ * @param StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest - {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest}
+ * @returns {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse}
  * @see {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

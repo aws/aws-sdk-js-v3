@@ -56,8 +56,8 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteConfigRuleCommandInput - {@link DeleteConfigRuleCommandInput}
- * @returns {@link DeleteConfigRuleCommandOutput}
+ * @param DeleteConfigRuleRequest - {@link DeleteConfigRuleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteConfigRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

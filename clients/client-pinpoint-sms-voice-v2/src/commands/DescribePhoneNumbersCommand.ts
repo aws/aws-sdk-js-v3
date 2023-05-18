@@ -94,8 +94,8 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  *
  * ```
  *
- * @param DescribePhoneNumbersCommandInput - {@link DescribePhoneNumbersCommandInput}
- * @returns {@link DescribePhoneNumbersCommandOutput}
+ * @param DescribePhoneNumbersRequest - {@link DescribePhoneNumbersRequest}
+ * @returns {@link DescribePhoneNumbersResult}
  * @see {@link DescribePhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link DescribePhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

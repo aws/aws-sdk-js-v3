@@ -74,8 +74,8 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *
  * ```
  *
- * @param ListOrganizationalUnitsForParentCommandInput - {@link ListOrganizationalUnitsForParentCommandInput}
- * @returns {@link ListOrganizationalUnitsForParentCommandOutput}
+ * @param ListOrganizationalUnitsForParentRequest - {@link ListOrganizationalUnitsForParentRequest}
+ * @returns {@link ListOrganizationalUnitsForParentResponse}
  * @see {@link ListOrganizationalUnitsForParentCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationalUnitsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

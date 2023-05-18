@@ -48,8 +48,8 @@ export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteModelCardCommandInput - {@link DeleteModelCardCommandInput}
- * @returns {@link DeleteModelCardCommandOutput}
+ * @param DeleteModelCardRequest - {@link DeleteModelCardRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteModelCardCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

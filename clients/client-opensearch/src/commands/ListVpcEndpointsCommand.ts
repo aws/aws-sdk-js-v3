@@ -58,8 +58,8 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  *
  * ```
  *
- * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
- * @returns {@link ListVpcEndpointsCommandOutput}
+ * @param ListVpcEndpointsRequest - {@link ListVpcEndpointsRequest}
+ * @returns {@link ListVpcEndpointsResponse}
  * @see {@link ListVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

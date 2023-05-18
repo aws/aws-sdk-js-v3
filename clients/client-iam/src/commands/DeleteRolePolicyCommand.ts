@@ -54,8 +54,8 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRolePolicyCommandInput - {@link DeleteRolePolicyCommandInput}
- * @returns {@link DeleteRolePolicyCommandOutput}
+ * @param DeleteRolePolicyRequest - {@link DeleteRolePolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRolePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -135,8 +135,8 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  *
  * ```
  *
- * @param DescribeBackupCommandInput - {@link DescribeBackupCommandInput}
- * @returns {@link DescribeBackupCommandOutput}
+ * @param DescribeBackupInput - {@link DescribeBackupInput}
+ * @returns {@link DescribeBackupOutput}
  * @see {@link DescribeBackupCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -109,8 +109,8 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  *
  * ```
  *
- * @param FailoverDBClusterCommandInput - {@link FailoverDBClusterCommandInput}
- * @returns {@link FailoverDBClusterCommandOutput}
+ * @param FailoverDBClusterMessage - {@link FailoverDBClusterMessage}
+ * @returns {@link FailoverDBClusterResult}
  * @see {@link FailoverDBClusterCommandInput} for command's `input` shape.
  * @see {@link FailoverDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

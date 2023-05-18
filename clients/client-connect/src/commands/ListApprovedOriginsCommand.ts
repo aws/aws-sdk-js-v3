@@ -56,8 +56,8 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  *
  * ```
  *
- * @param ListApprovedOriginsCommandInput - {@link ListApprovedOriginsCommandInput}
- * @returns {@link ListApprovedOriginsCommandOutput}
+ * @param ListApprovedOriginsRequest - {@link ListApprovedOriginsRequest}
+ * @returns {@link ListApprovedOriginsResponse}
  * @see {@link ListApprovedOriginsCommandInput} for command's `input` shape.
  * @see {@link ListApprovedOriginsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

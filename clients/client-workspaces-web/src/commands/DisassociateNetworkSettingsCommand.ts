@@ -53,8 +53,8 @@ export interface DisassociateNetworkSettingsCommandOutput
  *
  * ```
  *
- * @param DisassociateNetworkSettingsCommandInput - {@link DisassociateNetworkSettingsCommandInput}
- * @returns {@link DisassociateNetworkSettingsCommandOutput}
+ * @param DisassociateNetworkSettingsRequest - {@link DisassociateNetworkSettingsRequest}
+ * @returns {@link DisassociateNetworkSettingsResponse}
  * @see {@link DisassociateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

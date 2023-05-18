@@ -92,8 +92,8 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  *
  * ```
  *
- * @param SearchProvisionedProductsCommandInput - {@link SearchProvisionedProductsCommandInput}
- * @returns {@link SearchProvisionedProductsCommandOutput}
+ * @param SearchProvisionedProductsInput - {@link SearchProvisionedProductsInput}
+ * @returns {@link SearchProvisionedProductsOutput}
  * @see {@link SearchProvisionedProductsCommandInput} for command's `input` shape.
  * @see {@link SearchProvisionedProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

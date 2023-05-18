@@ -53,8 +53,8 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableMFADeviceCommandInput - {@link EnableMFADeviceCommandInput}
- * @returns {@link EnableMFADeviceCommandOutput}
+ * @param EnableMFADeviceRequest - {@link EnableMFADeviceRequest}
+ * @returns {@link Unit}
  * @see {@link EnableMFADeviceCommandInput} for command's `input` shape.
  * @see {@link EnableMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

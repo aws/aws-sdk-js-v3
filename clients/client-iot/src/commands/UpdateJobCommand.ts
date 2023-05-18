@@ -87,8 +87,8 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
- * @returns {@link UpdateJobCommandOutput}
+ * @param UpdateJobRequest - {@link UpdateJobRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateJobCommandInput} for command's `input` shape.
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

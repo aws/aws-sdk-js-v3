@@ -58,8 +58,8 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  *
  * ```
  *
- * @param RegisterVolumeCommandInput - {@link RegisterVolumeCommandInput}
- * @returns {@link RegisterVolumeCommandOutput}
+ * @param RegisterVolumeRequest - {@link RegisterVolumeRequest}
+ * @returns {@link RegisterVolumeResult}
  * @see {@link RegisterVolumeCommandInput} for command's `input` shape.
  * @see {@link RegisterVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

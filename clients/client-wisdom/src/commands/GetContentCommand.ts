@@ -70,8 +70,8 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  *
  * ```
  *
- * @param GetContentCommandInput - {@link GetContentCommandInput}
- * @returns {@link GetContentCommandOutput}
+ * @param GetContentRequest - {@link GetContentRequest}
+ * @returns {@link GetContentResponse}
  * @see {@link GetContentCommandInput} for command's `input` shape.
  * @see {@link GetContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

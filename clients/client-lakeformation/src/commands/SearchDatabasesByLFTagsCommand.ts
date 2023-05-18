@@ -77,8 +77,8 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  *
  * ```
  *
- * @param SearchDatabasesByLFTagsCommandInput - {@link SearchDatabasesByLFTagsCommandInput}
- * @returns {@link SearchDatabasesByLFTagsCommandOutput}
+ * @param SearchDatabasesByLFTagsRequest - {@link SearchDatabasesByLFTagsRequest}
+ * @returns {@link SearchDatabasesByLFTagsResponse}
  * @see {@link SearchDatabasesByLFTagsCommandInput} for command's `input` shape.
  * @see {@link SearchDatabasesByLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

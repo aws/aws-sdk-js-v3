@@ -68,8 +68,8 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  *
  * ```
  *
- * @param BatchDeleteImportDataCommandInput - {@link BatchDeleteImportDataCommandInput}
- * @returns {@link BatchDeleteImportDataCommandOutput}
+ * @param BatchDeleteImportDataRequest - {@link BatchDeleteImportDataRequest}
+ * @returns {@link BatchDeleteImportDataResponse}
  * @see {@link BatchDeleteImportDataCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteImportDataCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

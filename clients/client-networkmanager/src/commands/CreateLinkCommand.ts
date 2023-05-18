@@ -84,8 +84,8 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  *
  * ```
  *
- * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
- * @returns {@link CreateLinkCommandOutput}
+ * @param CreateLinkRequest - {@link CreateLinkRequest}
+ * @returns {@link CreateLinkResponse}
  * @see {@link CreateLinkCommandInput} for command's `input` shape.
  * @see {@link CreateLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

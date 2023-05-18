@@ -81,8 +81,8 @@ export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult,
  *
  * ```
  *
- * @param UpdateDomainEntryCommandInput - {@link UpdateDomainEntryCommandInput}
- * @returns {@link UpdateDomainEntryCommandOutput}
+ * @param UpdateDomainEntryRequest - {@link UpdateDomainEntryRequest}
+ * @returns {@link UpdateDomainEntryResult}
  * @see {@link UpdateDomainEntryCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -63,8 +63,8 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  *
  * ```
  *
- * @param DescribeBrokerEngineTypesCommandInput - {@link DescribeBrokerEngineTypesCommandInput}
- * @returns {@link DescribeBrokerEngineTypesCommandOutput}
+ * @param DescribeBrokerEngineTypesRequest - {@link DescribeBrokerEngineTypesRequest}
+ * @returns {@link DescribeBrokerEngineTypesResponse}
  * @see {@link DescribeBrokerEngineTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeBrokerEngineTypesCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.

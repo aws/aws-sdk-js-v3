@@ -79,8 +79,8 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  *
  * ```
  *
- * @param DescribeBotLocaleCommandInput - {@link DescribeBotLocaleCommandInput}
- * @returns {@link DescribeBotLocaleCommandOutput}
+ * @param DescribeBotLocaleRequest - {@link DescribeBotLocaleRequest}
+ * @returns {@link DescribeBotLocaleResponse}
  * @see {@link DescribeBotLocaleCommandInput} for command's `input` shape.
  * @see {@link DescribeBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

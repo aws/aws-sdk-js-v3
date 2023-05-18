@@ -53,8 +53,8 @@ export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse,
  *
  * ```
  *
- * @param DeleteVocabularyCommandInput - {@link DeleteVocabularyCommandInput}
- * @returns {@link DeleteVocabularyCommandOutput}
+ * @param DeleteVocabularyRequest - {@link DeleteVocabularyRequest}
+ * @returns {@link DeleteVocabularyResponse}
  * @see {@link DeleteVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

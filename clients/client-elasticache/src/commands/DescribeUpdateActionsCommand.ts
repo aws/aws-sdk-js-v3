@@ -119,8 +119,8 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  *
  * ```
  *
- * @param DescribeUpdateActionsCommandInput - {@link DescribeUpdateActionsCommandInput}
- * @returns {@link DescribeUpdateActionsCommandOutput}
+ * @param DescribeUpdateActionsMessage - {@link DescribeUpdateActionsMessage}
+ * @returns {@link UpdateActionsMessage}
  * @see {@link DescribeUpdateActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateActionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

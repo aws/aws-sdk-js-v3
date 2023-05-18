@@ -68,8 +68,8 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param CreateConnectorDefinitionVersionCommandInput - {@link CreateConnectorDefinitionVersionCommandInput}
- * @returns {@link CreateConnectorDefinitionVersionCommandOutput}
+ * @param CreateConnectorDefinitionVersionRequest - {@link CreateConnectorDefinitionVersionRequest}
+ * @returns {@link CreateConnectorDefinitionVersionResponse}
  * @see {@link CreateConnectorDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

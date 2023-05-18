@@ -65,8 +65,8 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  *
  * ```
  *
- * @param PutEventTypeCommandInput - {@link PutEventTypeCommandInput}
- * @returns {@link PutEventTypeCommandOutput}
+ * @param PutEventTypeRequest - {@link PutEventTypeRequest}
+ * @returns {@link PutEventTypeResult}
  * @see {@link PutEventTypeCommandInput} for command's `input` shape.
  * @see {@link PutEventTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteSiteCommandInput - {@link DeleteSiteCommandInput}
- * @returns {@link DeleteSiteCommandOutput}
+ * @param DeleteSiteRequest - {@link DeleteSiteRequest}
+ * @returns {@link DeleteSiteResponse}
  * @see {@link DeleteSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

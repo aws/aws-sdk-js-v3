@@ -75,8 +75,8 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  *
  * ```
  *
- * @param DescribeTargetHealthCommandInput - {@link DescribeTargetHealthCommandInput}
- * @returns {@link DescribeTargetHealthCommandOutput}
+ * @param DescribeTargetHealthInput - {@link DescribeTargetHealthInput}
+ * @returns {@link DescribeTargetHealthOutput}
  * @see {@link DescribeTargetHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

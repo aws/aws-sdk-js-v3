@@ -203,8 +203,8 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteItemCommandInput - {@link DeleteItemCommandInput}
- * @returns {@link DeleteItemCommandOutput}
+ * @param DeleteItemInput - {@link DeleteItemInput}
+ * @returns {@link DeleteItemOutput}
  * @see {@link DeleteItemCommandInput} for command's `input` shape.
  * @see {@link DeleteItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

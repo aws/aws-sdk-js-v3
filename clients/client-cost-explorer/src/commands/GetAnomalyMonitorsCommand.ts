@@ -134,8 +134,8 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  *
  * ```
  *
- * @param GetAnomalyMonitorsCommandInput - {@link GetAnomalyMonitorsCommandInput}
- * @returns {@link GetAnomalyMonitorsCommandOutput}
+ * @param GetAnomalyMonitorsRequest - {@link GetAnomalyMonitorsRequest}
+ * @returns {@link GetAnomalyMonitorsResponse}
  * @see {@link GetAnomalyMonitorsCommandInput} for command's `input` shape.
  * @see {@link GetAnomalyMonitorsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

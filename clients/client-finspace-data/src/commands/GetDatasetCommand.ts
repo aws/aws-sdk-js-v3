@@ -72,8 +72,8 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  *
  * ```
  *
- * @param GetDatasetCommandInput - {@link GetDatasetCommandInput}
- * @returns {@link GetDatasetCommandOutput}
+ * @param GetDatasetRequest - {@link GetDatasetRequest}
+ * @returns {@link GetDatasetResponse}
  * @see {@link GetDatasetCommandInput} for command's `input` shape.
  * @see {@link GetDatasetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

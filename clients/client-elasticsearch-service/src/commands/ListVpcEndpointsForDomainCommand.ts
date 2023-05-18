@@ -63,8 +63,8 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  *
  * ```
  *
- * @param ListVpcEndpointsForDomainCommandInput - {@link ListVpcEndpointsForDomainCommandInput}
- * @returns {@link ListVpcEndpointsForDomainCommandOutput}
+ * @param ListVpcEndpointsForDomainRequest - {@link ListVpcEndpointsForDomainRequest}
+ * @returns {@link ListVpcEndpointsForDomainResponse}
  * @see {@link ListVpcEndpointsForDomainCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointsForDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

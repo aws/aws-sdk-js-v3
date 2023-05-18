@@ -65,8 +65,8 @@ export interface UpdateVpcLinkCommandOutput extends UpdateVpcLinkResponse, __Met
  *
  * ```
  *
- * @param UpdateVpcLinkCommandInput - {@link UpdateVpcLinkCommandInput}
- * @returns {@link UpdateVpcLinkCommandOutput}
+ * @param UpdateVpcLinkRequest - {@link UpdateVpcLinkRequest}
+ * @returns {@link UpdateVpcLinkResponse}
  * @see {@link UpdateVpcLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

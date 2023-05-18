@@ -78,8 +78,8 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  *
  * ```
  *
- * @param DescribeFleetEventsCommandInput - {@link DescribeFleetEventsCommandInput}
- * @returns {@link DescribeFleetEventsCommandOutput}
+ * @param DescribeFleetEventsInput - {@link DescribeFleetEventsInput}
+ * @returns {@link DescribeFleetEventsOutput}
  * @see {@link DescribeFleetEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetEventsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

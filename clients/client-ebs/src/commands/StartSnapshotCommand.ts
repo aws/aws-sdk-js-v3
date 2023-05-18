@@ -84,8 +84,8 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  *
  * ```
  *
- * @param StartSnapshotCommandInput - {@link StartSnapshotCommandInput}
- * @returns {@link StartSnapshotCommandOutput}
+ * @param StartSnapshotRequest - {@link StartSnapshotRequest}
+ * @returns {@link StartSnapshotResponse}
  * @see {@link StartSnapshotCommandInput} for command's `input` shape.
  * @see {@link StartSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.

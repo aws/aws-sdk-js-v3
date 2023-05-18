@@ -61,8 +61,8 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
  *
  * ```
  *
- * @param DisassociateDelegationSignerFromDomainCommandInput - {@link DisassociateDelegationSignerFromDomainCommandInput}
- * @returns {@link DisassociateDelegationSignerFromDomainCommandOutput}
+ * @param DisassociateDelegationSignerFromDomainRequest - {@link DisassociateDelegationSignerFromDomainRequest}
+ * @returns {@link DisassociateDelegationSignerFromDomainResponse}
  * @see {@link DisassociateDelegationSignerFromDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateDelegationSignerFromDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

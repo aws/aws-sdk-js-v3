@@ -71,8 +71,8 @@ export interface ListIntegrationAssociationsCommandOutput
  *
  * ```
  *
- * @param ListIntegrationAssociationsCommandInput - {@link ListIntegrationAssociationsCommandInput}
- * @returns {@link ListIntegrationAssociationsCommandOutput}
+ * @param ListIntegrationAssociationsRequest - {@link ListIntegrationAssociationsRequest}
+ * @returns {@link ListIntegrationAssociationsResponse}
  * @see {@link ListIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

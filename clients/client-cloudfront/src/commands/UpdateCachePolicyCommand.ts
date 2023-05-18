@@ -148,8 +148,8 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
  *
  * ```
  *
- * @param UpdateCachePolicyCommandInput - {@link UpdateCachePolicyCommandInput}
- * @returns {@link UpdateCachePolicyCommandOutput}
+ * @param UpdateCachePolicyRequest - {@link UpdateCachePolicyRequest}
+ * @returns {@link UpdateCachePolicyResult}
  * @see {@link UpdateCachePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

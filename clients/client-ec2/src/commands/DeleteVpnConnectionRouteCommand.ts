@@ -52,8 +52,8 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteVpnConnectionRouteCommandInput - {@link DeleteVpnConnectionRouteCommandInput}
- * @returns {@link DeleteVpnConnectionRouteCommandOutput}
+ * @param DeleteVpnConnectionRouteRequest - {@link DeleteVpnConnectionRouteRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

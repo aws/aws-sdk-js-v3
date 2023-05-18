@@ -55,8 +55,8 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  *
  * ```
  *
- * @param PutEmailMonitoringConfigurationCommandInput - {@link PutEmailMonitoringConfigurationCommandInput}
- * @returns {@link PutEmailMonitoringConfigurationCommandOutput}
+ * @param PutEmailMonitoringConfigurationRequest - {@link PutEmailMonitoringConfigurationRequest}
+ * @returns {@link PutEmailMonitoringConfigurationResponse}
  * @see {@link PutEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

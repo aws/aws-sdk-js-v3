@@ -93,8 +93,8 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  *
  * ```
  *
- * @param StartReplicationTaskCommandInput - {@link StartReplicationTaskCommandInput}
- * @returns {@link StartReplicationTaskCommandOutput}
+ * @param StartReplicationTaskMessage - {@link StartReplicationTaskMessage}
+ * @returns {@link StartReplicationTaskResponse}
  * @see {@link StartReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

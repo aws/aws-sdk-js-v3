@@ -53,8 +53,8 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *
  * ```
  *
- * @param DeleteDataflowEndpointGroupCommandInput - {@link DeleteDataflowEndpointGroupCommandInput}
- * @returns {@link DeleteDataflowEndpointGroupCommandOutput}
+ * @param DeleteDataflowEndpointGroupRequest - {@link DeleteDataflowEndpointGroupRequest}
+ * @returns {@link DataflowEndpointGroupIdResponse}
  * @see {@link DeleteDataflowEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDataflowEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

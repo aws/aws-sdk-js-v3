@@ -89,8 +89,8 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
  *
  * ```
  *
- * @param ReimportApiCommandInput - {@link ReimportApiCommandInput}
- * @returns {@link ReimportApiCommandOutput}
+ * @param ReimportApiRequest - {@link ReimportApiRequest}
+ * @returns {@link ReimportApiResponse}
  * @see {@link ReimportApiCommandInput} for command's `input` shape.
  * @see {@link ReimportApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

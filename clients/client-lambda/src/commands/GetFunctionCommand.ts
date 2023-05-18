@@ -160,8 +160,8 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  *
  * ```
  *
- * @param GetFunctionCommandInput - {@link GetFunctionCommandInput}
- * @returns {@link GetFunctionCommandOutput}
+ * @param GetFunctionRequest - {@link GetFunctionRequest}
+ * @returns {@link GetFunctionResponse}
  * @see {@link GetFunctionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

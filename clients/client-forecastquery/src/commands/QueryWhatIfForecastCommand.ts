@@ -65,8 +65,8 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  *
  * ```
  *
- * @param QueryWhatIfForecastCommandInput - {@link QueryWhatIfForecastCommandInput}
- * @returns {@link QueryWhatIfForecastCommandOutput}
+ * @param QueryWhatIfForecastRequest - {@link QueryWhatIfForecastRequest}
+ * @returns {@link QueryWhatIfForecastResponse}
  * @see {@link QueryWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link QueryWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.

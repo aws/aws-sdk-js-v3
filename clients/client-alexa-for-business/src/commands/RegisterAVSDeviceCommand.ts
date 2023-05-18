@@ -62,8 +62,8 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  *
  * ```
  *
- * @param RegisterAVSDeviceCommandInput - {@link RegisterAVSDeviceCommandInput}
- * @returns {@link RegisterAVSDeviceCommandOutput}
+ * @param RegisterAVSDeviceRequest - {@link RegisterAVSDeviceRequest}
+ * @returns {@link RegisterAVSDeviceResponse}
  * @see {@link RegisterAVSDeviceCommandInput} for command's `input` shape.
  * @see {@link RegisterAVSDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

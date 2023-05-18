@@ -97,8 +97,8 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  *
  * ```
  *
- * @param CreateManagedEndpointCommandInput - {@link CreateManagedEndpointCommandInput}
- * @returns {@link CreateManagedEndpointCommandOutput}
+ * @param CreateManagedEndpointRequest - {@link CreateManagedEndpointRequest}
+ * @returns {@link CreateManagedEndpointResponse}
  * @see {@link CreateManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateManagedEndpointCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

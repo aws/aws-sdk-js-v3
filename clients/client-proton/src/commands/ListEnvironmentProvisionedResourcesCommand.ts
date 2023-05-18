@@ -66,8 +66,8 @@ export interface ListEnvironmentProvisionedResourcesCommandOutput
  *
  * ```
  *
- * @param ListEnvironmentProvisionedResourcesCommandInput - {@link ListEnvironmentProvisionedResourcesCommandInput}
- * @returns {@link ListEnvironmentProvisionedResourcesCommandOutput}
+ * @param ListEnvironmentProvisionedResourcesInput - {@link ListEnvironmentProvisionedResourcesInput}
+ * @returns {@link ListEnvironmentProvisionedResourcesOutput}
  * @see {@link ListEnvironmentProvisionedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

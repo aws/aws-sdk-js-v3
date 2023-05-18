@@ -58,8 +58,8 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  *
  * ```
  *
- * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
- * @returns {@link DeleteInvitationsCommandOutput}
+ * @param DeleteInvitationsRequest - {@link DeleteInvitationsRequest}
+ * @returns {@link DeleteInvitationsResponse}
  * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

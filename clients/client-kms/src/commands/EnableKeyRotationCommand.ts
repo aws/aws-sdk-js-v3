@@ -88,8 +88,8 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableKeyRotationCommandInput - {@link EnableKeyRotationCommandInput}
- * @returns {@link EnableKeyRotationCommandOutput}
+ * @param EnableKeyRotationRequest - {@link EnableKeyRotationRequest}
+ * @returns {@link Unit}
  * @see {@link EnableKeyRotationCommandInput} for command's `input` shape.
  * @see {@link EnableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

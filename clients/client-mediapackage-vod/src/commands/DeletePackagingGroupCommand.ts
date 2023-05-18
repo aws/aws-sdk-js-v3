@@ -48,8 +48,8 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  *
  * ```
  *
- * @param DeletePackagingGroupCommandInput - {@link DeletePackagingGroupCommandInput}
- * @returns {@link DeletePackagingGroupCommandOutput}
+ * @param DeletePackagingGroupRequest - {@link DeletePackagingGroupRequest}
+ * @returns {@link DeletePackagingGroupResponse}
  * @see {@link DeletePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

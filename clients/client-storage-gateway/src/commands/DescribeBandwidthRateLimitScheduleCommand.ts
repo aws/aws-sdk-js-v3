@@ -84,8 +84,8 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  *
  * ```
  *
- * @param DescribeBandwidthRateLimitScheduleCommandInput - {@link DescribeBandwidthRateLimitScheduleCommandInput}
- * @returns {@link DescribeBandwidthRateLimitScheduleCommandOutput}
+ * @param DescribeBandwidthRateLimitScheduleInput - {@link DescribeBandwidthRateLimitScheduleInput}
+ * @returns {@link DescribeBandwidthRateLimitScheduleOutput}
  * @see {@link DescribeBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

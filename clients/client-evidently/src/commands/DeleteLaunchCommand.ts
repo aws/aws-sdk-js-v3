@@ -50,8 +50,8 @@ export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __Metad
  *
  * ```
  *
- * @param DeleteLaunchCommandInput - {@link DeleteLaunchCommandInput}
- * @returns {@link DeleteLaunchCommandOutput}
+ * @param DeleteLaunchRequest - {@link DeleteLaunchRequest}
+ * @returns {@link DeleteLaunchResponse}
  * @see {@link DeleteLaunchCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

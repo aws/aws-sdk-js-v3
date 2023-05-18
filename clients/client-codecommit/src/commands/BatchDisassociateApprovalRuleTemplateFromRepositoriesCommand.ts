@@ -71,8 +71,8 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  *
  * ```
  *
- * @param BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput - {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput}
- * @returns {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput}
+ * @param BatchDisassociateApprovalRuleTemplateFromRepositoriesInput - {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesInput}
+ * @returns {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput}
  * @see {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

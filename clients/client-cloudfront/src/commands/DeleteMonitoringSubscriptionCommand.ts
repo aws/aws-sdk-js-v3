@@ -54,8 +54,8 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  *
  * ```
  *
- * @param DeleteMonitoringSubscriptionCommandInput - {@link DeleteMonitoringSubscriptionCommandInput}
- * @returns {@link DeleteMonitoringSubscriptionCommandOutput}
+ * @param DeleteMonitoringSubscriptionRequest - {@link DeleteMonitoringSubscriptionRequest}
+ * @returns {@link DeleteMonitoringSubscriptionResult}
  * @see {@link DeleteMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

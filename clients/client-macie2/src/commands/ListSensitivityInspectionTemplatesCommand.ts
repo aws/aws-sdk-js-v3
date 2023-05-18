@@ -65,8 +65,8 @@ export interface ListSensitivityInspectionTemplatesCommandOutput
  *
  * ```
  *
- * @param ListSensitivityInspectionTemplatesCommandInput - {@link ListSensitivityInspectionTemplatesCommandInput}
- * @returns {@link ListSensitivityInspectionTemplatesCommandOutput}
+ * @param ListSensitivityInspectionTemplatesRequest - {@link ListSensitivityInspectionTemplatesRequest}
+ * @returns {@link ListSensitivityInspectionTemplatesResponse}
  * @see {@link ListSensitivityInspectionTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListSensitivityInspectionTemplatesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

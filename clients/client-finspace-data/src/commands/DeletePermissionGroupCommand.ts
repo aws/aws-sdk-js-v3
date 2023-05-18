@@ -51,8 +51,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  *
  * ```
  *
- * @param DeletePermissionGroupCommandInput - {@link DeletePermissionGroupCommandInput}
- * @returns {@link DeletePermissionGroupCommandOutput}
+ * @param DeletePermissionGroupRequest - {@link DeletePermissionGroupRequest}
+ * @returns {@link DeletePermissionGroupResponse}
  * @see {@link DeletePermissionGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

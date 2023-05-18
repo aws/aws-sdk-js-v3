@@ -63,8 +63,8 @@ export interface ModifyCapacityReservationFleetCommandOutput
  *
  * ```
  *
- * @param ModifyCapacityReservationFleetCommandInput - {@link ModifyCapacityReservationFleetCommandInput}
- * @returns {@link ModifyCapacityReservationFleetCommandOutput}
+ * @param ModifyCapacityReservationFleetRequest - {@link ModifyCapacityReservationFleetRequest}
+ * @returns {@link ModifyCapacityReservationFleetResult}
  * @see {@link ModifyCapacityReservationFleetCommandInput} for command's `input` shape.
  * @see {@link ModifyCapacityReservationFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

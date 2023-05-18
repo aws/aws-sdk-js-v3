@@ -66,8 +66,8 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  *
  * ```
  *
- * @param PutProjectPolicyCommandInput - {@link PutProjectPolicyCommandInput}
- * @returns {@link PutProjectPolicyCommandOutput}
+ * @param PutProjectPolicyRequest - {@link PutProjectPolicyRequest}
+ * @returns {@link PutProjectPolicyResponse}
  * @see {@link PutProjectPolicyCommandInput} for command's `input` shape.
  * @see {@link PutProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

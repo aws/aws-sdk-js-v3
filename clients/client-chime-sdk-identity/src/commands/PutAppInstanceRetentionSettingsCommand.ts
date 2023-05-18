@@ -66,8 +66,8 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  *
  * ```
  *
- * @param PutAppInstanceRetentionSettingsCommandInput - {@link PutAppInstanceRetentionSettingsCommandInput}
- * @returns {@link PutAppInstanceRetentionSettingsCommandOutput}
+ * @param PutAppInstanceRetentionSettingsRequest - {@link PutAppInstanceRetentionSettingsRequest}
+ * @returns {@link PutAppInstanceRetentionSettingsResponse}
  * @see {@link PutAppInstanceRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link PutAppInstanceRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

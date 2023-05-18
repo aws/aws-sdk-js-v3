@@ -48,8 +48,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  *
  * ```
  *
- * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
- * @returns {@link DeleteApplicationCommandOutput}
+ * @param DeleteApplicationRequest - {@link DeleteApplicationRequest}
+ * @returns {@link DeleteApplicationResponse}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

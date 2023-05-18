@@ -58,8 +58,8 @@ export interface GetComponentVersionArtifactCommandOutput
  *
  * ```
  *
- * @param GetComponentVersionArtifactCommandInput - {@link GetComponentVersionArtifactCommandInput}
- * @returns {@link GetComponentVersionArtifactCommandOutput}
+ * @param GetComponentVersionArtifactRequest - {@link GetComponentVersionArtifactRequest}
+ * @returns {@link GetComponentVersionArtifactResponse}
  * @see {@link GetComponentVersionArtifactCommandInput} for command's `input` shape.
  * @see {@link GetComponentVersionArtifactCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

@@ -73,8 +73,8 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  *
  * ```
  *
- * @param GetCredentialsCommandInput - {@link GetCredentialsCommandInput}
- * @returns {@link GetCredentialsCommandOutput}
+ * @param GetCredentialsRequest - {@link GetCredentialsRequest}
+ * @returns {@link GetCredentialsResponse}
  * @see {@link GetCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetCredentialsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

@@ -122,8 +122,8 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  *
  * ```
  *
- * @param UpdateInAppTemplateCommandInput - {@link UpdateInAppTemplateCommandInput}
- * @returns {@link UpdateInAppTemplateCommandOutput}
+ * @param UpdateInAppTemplateRequest - {@link UpdateInAppTemplateRequest}
+ * @returns {@link UpdateInAppTemplateResponse}
  * @see {@link UpdateInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

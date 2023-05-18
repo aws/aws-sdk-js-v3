@@ -60,8 +60,8 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  *
  * ```
  *
- * @param PutInsightRuleCommandInput - {@link PutInsightRuleCommandInput}
- * @returns {@link PutInsightRuleCommandOutput}
+ * @param PutInsightRuleInput - {@link PutInsightRuleInput}
+ * @returns {@link PutInsightRuleOutput}
  * @see {@link PutInsightRuleCommandInput} for command's `input` shape.
  * @see {@link PutInsightRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

@@ -55,8 +55,8 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  *
  * ```
  *
- * @param GetOrganizationCustomRulePolicyCommandInput - {@link GetOrganizationCustomRulePolicyCommandInput}
- * @returns {@link GetOrganizationCustomRulePolicyCommandOutput}
+ * @param GetOrganizationCustomRulePolicyRequest - {@link GetOrganizationCustomRulePolicyRequest}
+ * @returns {@link GetOrganizationCustomRulePolicyResponse}
  * @see {@link GetOrganizationCustomRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

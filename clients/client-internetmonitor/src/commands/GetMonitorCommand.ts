@@ -72,8 +72,8 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  *
  * ```
  *
- * @param GetMonitorCommandInput - {@link GetMonitorCommandInput}
- * @returns {@link GetMonitorCommandOutput}
+ * @param GetMonitorInput - {@link GetMonitorInput}
+ * @returns {@link GetMonitorOutput}
  * @see {@link GetMonitorCommandInput} for command's `input` shape.
  * @see {@link GetMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.

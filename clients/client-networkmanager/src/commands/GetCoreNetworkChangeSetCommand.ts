@@ -91,8 +91,8 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  *
  * ```
  *
- * @param GetCoreNetworkChangeSetCommandInput - {@link GetCoreNetworkChangeSetCommandInput}
- * @returns {@link GetCoreNetworkChangeSetCommandOutput}
+ * @param GetCoreNetworkChangeSetRequest - {@link GetCoreNetworkChangeSetRequest}
+ * @returns {@link GetCoreNetworkChangeSetResponse}
  * @see {@link GetCoreNetworkChangeSetCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkChangeSetCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

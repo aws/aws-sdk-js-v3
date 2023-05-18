@@ -70,8 +70,8 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  *
  * ```
  *
- * @param DescribeResourceGroupsCommandInput - {@link DescribeResourceGroupsCommandInput}
- * @returns {@link DescribeResourceGroupsCommandOutput}
+ * @param DescribeResourceGroupsRequest - {@link DescribeResourceGroupsRequest}
+ * @returns {@link DescribeResourceGroupsResponse}
  * @see {@link DescribeResourceGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceGroupsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

@@ -167,8 +167,8 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param PutBucketInventoryConfigurationCommandInput - {@link PutBucketInventoryConfigurationCommandInput}
- * @returns {@link PutBucketInventoryConfigurationCommandOutput}
+ * @param PutBucketInventoryConfigurationRequest - {@link PutBucketInventoryConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketInventoryConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

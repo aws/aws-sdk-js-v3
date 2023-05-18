@@ -92,8 +92,8 @@ export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceRes
  *
  * ```
  *
- * @param DescribeInputDeviceCommandInput - {@link DescribeInputDeviceCommandInput}
- * @returns {@link DescribeInputDeviceCommandOutput}
+ * @param DescribeInputDeviceRequest - {@link DescribeInputDeviceRequest}
+ * @returns {@link DescribeInputDeviceResponse}
  * @see {@link DescribeInputDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

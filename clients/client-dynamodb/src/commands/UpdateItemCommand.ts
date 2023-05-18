@@ -206,8 +206,8 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *
  * ```
  *
- * @param UpdateItemCommandInput - {@link UpdateItemCommandInput}
- * @returns {@link UpdateItemCommandOutput}
+ * @param UpdateItemInput - {@link UpdateItemInput}
+ * @returns {@link UpdateItemOutput}
  * @see {@link UpdateItemCommandInput} for command's `input` shape.
  * @see {@link UpdateItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

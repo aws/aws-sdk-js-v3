@@ -62,8 +62,8 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  *
  * ```
  *
- * @param ListScenesCommandInput - {@link ListScenesCommandInput}
- * @returns {@link ListScenesCommandOutput}
+ * @param ListScenesRequest - {@link ListScenesRequest}
+ * @returns {@link ListScenesResponse}
  * @see {@link ListScenesCommandInput} for command's `input` shape.
  * @see {@link ListScenesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

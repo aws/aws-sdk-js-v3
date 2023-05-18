@@ -82,8 +82,8 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  *
  * ```
  *
- * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
- * @returns {@link UpdateProfileCommandOutput}
+ * @param UpdateProfileRequest - {@link UpdateProfileRequest}
+ * @returns {@link ProfileDetailResponse}
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

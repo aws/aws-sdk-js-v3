@@ -66,8 +66,8 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  *
  * ```
  *
- * @param AdvertiseByoipCidrCommandInput - {@link AdvertiseByoipCidrCommandInput}
- * @returns {@link AdvertiseByoipCidrCommandOutput}
+ * @param AdvertiseByoipCidrRequest - {@link AdvertiseByoipCidrRequest}
+ * @returns {@link AdvertiseByoipCidrResult}
  * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
  * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -59,8 +59,8 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  *
  * ```
  *
- * @param GetSolFunctionPackageDescriptorCommandInput - {@link GetSolFunctionPackageDescriptorCommandInput}
- * @returns {@link GetSolFunctionPackageDescriptorCommandOutput}
+ * @param GetSolFunctionPackageDescriptorInput - {@link GetSolFunctionPackageDescriptorInput}
+ * @returns {@link GetSolFunctionPackageDescriptorOutput}
  * @see {@link GetSolFunctionPackageDescriptorCommandInput} for command's `input` shape.
  * @see {@link GetSolFunctionPackageDescriptorCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

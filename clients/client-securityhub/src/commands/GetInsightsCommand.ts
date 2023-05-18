@@ -312,8 +312,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  *
  * ```
  *
- * @param GetInsightsCommandInput - {@link GetInsightsCommandInput}
- * @returns {@link GetInsightsCommandOutput}
+ * @param GetInsightsRequest - {@link GetInsightsRequest}
+ * @returns {@link GetInsightsResponse}
  * @see {@link GetInsightsCommandInput} for command's `input` shape.
  * @see {@link GetInsightsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

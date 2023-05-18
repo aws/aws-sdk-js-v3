@@ -53,8 +53,8 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  *
  * ```
  *
- * @param ListGitHubAccountTokenNamesCommandInput - {@link ListGitHubAccountTokenNamesCommandInput}
- * @returns {@link ListGitHubAccountTokenNamesCommandOutput}
+ * @param ListGitHubAccountTokenNamesInput - {@link ListGitHubAccountTokenNamesInput}
+ * @returns {@link ListGitHubAccountTokenNamesOutput}
  * @see {@link ListGitHubAccountTokenNamesCommandInput} for command's `input` shape.
  * @see {@link ListGitHubAccountTokenNamesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

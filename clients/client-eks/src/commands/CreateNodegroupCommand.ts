@@ -179,8 +179,8 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *
  * ```
  *
- * @param CreateNodegroupCommandInput - {@link CreateNodegroupCommandInput}
- * @returns {@link CreateNodegroupCommandOutput}
+ * @param CreateNodegroupRequest - {@link CreateNodegroupRequest}
+ * @returns {@link CreateNodegroupResponse}
  * @see {@link CreateNodegroupCommandInput} for command's `input` shape.
  * @see {@link CreateNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

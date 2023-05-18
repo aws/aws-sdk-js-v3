@@ -84,8 +84,8 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  *
  * ```
  *
- * @param UpdateImagePipelineCommandInput - {@link UpdateImagePipelineCommandInput}
- * @returns {@link UpdateImagePipelineCommandOutput}
+ * @param UpdateImagePipelineRequest - {@link UpdateImagePipelineRequest}
+ * @returns {@link UpdateImagePipelineResponse}
  * @see {@link UpdateImagePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdateImagePipelineCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

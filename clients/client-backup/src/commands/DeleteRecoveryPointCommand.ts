@@ -61,8 +61,8 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRecoveryPointCommandInput - {@link DeleteRecoveryPointCommandInput}
- * @returns {@link DeleteRecoveryPointCommandOutput}
+ * @param DeleteRecoveryPointInput - {@link DeleteRecoveryPointInput}
+ * @returns {@link Unit}
  * @see {@link DeleteRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

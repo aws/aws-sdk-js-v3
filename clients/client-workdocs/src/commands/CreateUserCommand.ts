@@ -89,8 +89,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *
  * ```
  *
- * @param CreateUserCommandInput - {@link CreateUserCommandInput}
- * @returns {@link CreateUserCommandOutput}
+ * @param CreateUserRequest - {@link CreateUserRequest}
+ * @returns {@link CreateUserResponse}
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

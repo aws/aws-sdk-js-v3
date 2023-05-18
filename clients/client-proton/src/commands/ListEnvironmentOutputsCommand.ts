@@ -61,8 +61,8 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  *
  * ```
  *
- * @param ListEnvironmentOutputsCommandInput - {@link ListEnvironmentOutputsCommandInput}
- * @returns {@link ListEnvironmentOutputsCommandOutput}
+ * @param ListEnvironmentOutputsInput - {@link ListEnvironmentOutputsInput}
+ * @returns {@link ListEnvironmentOutputsOutput}
  * @see {@link ListEnvironmentOutputsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentOutputsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

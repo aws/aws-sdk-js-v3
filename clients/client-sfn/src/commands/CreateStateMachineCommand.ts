@@ -97,8 +97,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *
  * ```
  *
- * @param CreateStateMachineCommandInput - {@link CreateStateMachineCommandInput}
- * @returns {@link CreateStateMachineCommandOutput}
+ * @param CreateStateMachineInput - {@link CreateStateMachineInput}
+ * @returns {@link CreateStateMachineOutput}
  * @see {@link CreateStateMachineCommandInput} for command's `input` shape.
  * @see {@link CreateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

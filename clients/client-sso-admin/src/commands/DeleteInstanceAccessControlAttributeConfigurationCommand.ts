@@ -60,8 +60,8 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteInstanceAccessControlAttributeConfigurationCommandInput - {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput}
- * @returns {@link DeleteInstanceAccessControlAttributeConfigurationCommandOutput}
+ * @param DeleteInstanceAccessControlAttributeConfigurationRequest - {@link DeleteInstanceAccessControlAttributeConfigurationRequest}
+ * @returns {@link DeleteInstanceAccessControlAttributeConfigurationResponse}
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

@@ -63,8 +63,8 @@ export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChanne
  *
  * ```
  *
- * @param GetApnsSandboxChannelCommandInput - {@link GetApnsSandboxChannelCommandInput}
- * @returns {@link GetApnsSandboxChannelCommandOutput}
+ * @param GetApnsSandboxChannelRequest - {@link GetApnsSandboxChannelRequest}
+ * @returns {@link GetApnsSandboxChannelResponse}
  * @see {@link GetApnsSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

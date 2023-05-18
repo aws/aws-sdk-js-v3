@@ -56,8 +56,8 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  *
  * ```
  *
- * @param ListTrustStoresCommandInput - {@link ListTrustStoresCommandInput}
- * @returns {@link ListTrustStoresCommandOutput}
+ * @param ListTrustStoresRequest - {@link ListTrustStoresRequest}
+ * @returns {@link ListTrustStoresResponse}
  * @see {@link ListTrustStoresCommandInput} for command's `input` shape.
  * @see {@link ListTrustStoresCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

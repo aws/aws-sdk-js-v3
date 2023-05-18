@@ -79,8 +79,8 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  *
  * ```
  *
- * @param BatchUpdateStandardsControlAssociationsCommandInput - {@link BatchUpdateStandardsControlAssociationsCommandInput}
- * @returns {@link BatchUpdateStandardsControlAssociationsCommandOutput}
+ * @param BatchUpdateStandardsControlAssociationsRequest - {@link BatchUpdateStandardsControlAssociationsRequest}
+ * @returns {@link BatchUpdateStandardsControlAssociationsResponse}
  * @see {@link BatchUpdateStandardsControlAssociationsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

@@ -54,8 +54,8 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  *
  * ```
  *
- * @param GetAddressBookCommandInput - {@link GetAddressBookCommandInput}
- * @returns {@link GetAddressBookCommandOutput}
+ * @param GetAddressBookRequest - {@link GetAddressBookRequest}
+ * @returns {@link GetAddressBookResponse}
  * @see {@link GetAddressBookCommandInput} for command's `input` shape.
  * @see {@link GetAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

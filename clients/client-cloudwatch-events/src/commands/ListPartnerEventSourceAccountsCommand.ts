@@ -67,8 +67,8 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  *
  * ```
  *
- * @param ListPartnerEventSourceAccountsCommandInput - {@link ListPartnerEventSourceAccountsCommandInput}
- * @returns {@link ListPartnerEventSourceAccountsCommandOutput}
+ * @param ListPartnerEventSourceAccountsRequest - {@link ListPartnerEventSourceAccountsRequest}
+ * @returns {@link ListPartnerEventSourceAccountsResponse}
  * @see {@link ListPartnerEventSourceAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerEventSourceAccountsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

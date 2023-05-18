@@ -164,8 +164,8 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  *
  * ```
  *
- * @param SearchInsightsCommandInput - {@link SearchInsightsCommandInput}
- * @returns {@link SearchInsightsCommandOutput}
+ * @param SearchInsightsRequest - {@link SearchInsightsRequest}
+ * @returns {@link SearchInsightsResponse}
  * @see {@link SearchInsightsCommandInput} for command's `input` shape.
  * @see {@link SearchInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

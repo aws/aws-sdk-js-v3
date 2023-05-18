@@ -62,8 +62,8 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  *
  * ```
  *
- * @param UpdateConferenceProviderCommandInput - {@link UpdateConferenceProviderCommandInput}
- * @returns {@link UpdateConferenceProviderCommandOutput}
+ * @param UpdateConferenceProviderRequest - {@link UpdateConferenceProviderRequest}
+ * @returns {@link UpdateConferenceProviderResponse}
  * @see {@link UpdateConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

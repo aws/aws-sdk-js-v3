@@ -442,8 +442,8 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  *
  * ```
  *
- * @param DescribeJobsCommandInput - {@link DescribeJobsCommandInput}
- * @returns {@link DescribeJobsCommandOutput}
+ * @param DescribeJobsRequest - {@link DescribeJobsRequest}
+ * @returns {@link DescribeJobsResponse}
  * @see {@link DescribeJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

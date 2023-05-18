@@ -90,8 +90,8 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  *
  * ```
  *
- * @param DescribePoolsCommandInput - {@link DescribePoolsCommandInput}
- * @returns {@link DescribePoolsCommandOutput}
+ * @param DescribePoolsRequest - {@link DescribePoolsRequest}
+ * @returns {@link DescribePoolsResult}
  * @see {@link DescribePoolsCommandInput} for command's `input` shape.
  * @see {@link DescribePoolsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

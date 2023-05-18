@@ -96,8 +96,8 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ModifyImageAttributeCommandInput - {@link ModifyImageAttributeCommandInput}
- * @returns {@link ModifyImageAttributeCommandOutput}
+ * @param ModifyImageAttributeRequest - {@link ModifyImageAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link ModifyImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

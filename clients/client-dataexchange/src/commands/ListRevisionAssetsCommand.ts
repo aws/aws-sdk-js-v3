@@ -136,8 +136,8 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  *
  * ```
  *
- * @param ListRevisionAssetsCommandInput - {@link ListRevisionAssetsCommandInput}
- * @returns {@link ListRevisionAssetsCommandOutput}
+ * @param ListRevisionAssetsRequest - {@link ListRevisionAssetsRequest}
+ * @returns {@link ListRevisionAssetsResponse}
  * @see {@link ListRevisionAssetsCommandInput} for command's `input` shape.
  * @see {@link ListRevisionAssetsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

@@ -65,8 +65,8 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  *
  * ```
  *
- * @param ListRegexPatternSetsCommandInput - {@link ListRegexPatternSetsCommandInput}
- * @returns {@link ListRegexPatternSetsCommandOutput}
+ * @param ListRegexPatternSetsRequest - {@link ListRegexPatternSetsRequest}
+ * @returns {@link ListRegexPatternSetsResponse}
  * @see {@link ListRegexPatternSetsCommandInput} for command's `input` shape.
  * @see {@link ListRegexPatternSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

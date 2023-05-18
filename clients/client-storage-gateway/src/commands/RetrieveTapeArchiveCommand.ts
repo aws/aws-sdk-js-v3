@@ -58,8 +58,8 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  *
  * ```
  *
- * @param RetrieveTapeArchiveCommandInput - {@link RetrieveTapeArchiveCommandInput}
- * @returns {@link RetrieveTapeArchiveCommandOutput}
+ * @param RetrieveTapeArchiveInput - {@link RetrieveTapeArchiveInput}
+ * @returns {@link RetrieveTapeArchiveOutput}
  * @see {@link RetrieveTapeArchiveCommandInput} for command's `input` shape.
  * @see {@link RetrieveTapeArchiveCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

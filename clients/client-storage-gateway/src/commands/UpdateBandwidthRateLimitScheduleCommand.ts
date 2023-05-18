@@ -72,8 +72,8 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  *
  * ```
  *
- * @param UpdateBandwidthRateLimitScheduleCommandInput - {@link UpdateBandwidthRateLimitScheduleCommandInput}
- * @returns {@link UpdateBandwidthRateLimitScheduleCommandOutput}
+ * @param UpdateBandwidthRateLimitScheduleInput - {@link UpdateBandwidthRateLimitScheduleInput}
+ * @returns {@link UpdateBandwidthRateLimitScheduleOutput}
  * @see {@link UpdateBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

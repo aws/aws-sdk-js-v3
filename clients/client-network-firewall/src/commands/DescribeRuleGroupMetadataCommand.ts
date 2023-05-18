@@ -63,8 +63,8 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  *
  * ```
  *
- * @param DescribeRuleGroupMetadataCommandInput - {@link DescribeRuleGroupMetadataCommandInput}
- * @returns {@link DescribeRuleGroupMetadataCommandOutput}
+ * @param DescribeRuleGroupMetadataRequest - {@link DescribeRuleGroupMetadataRequest}
+ * @returns {@link DescribeRuleGroupMetadataResponse}
  * @see {@link DescribeRuleGroupMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleGroupMetadataCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

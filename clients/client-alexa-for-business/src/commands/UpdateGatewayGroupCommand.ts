@@ -51,8 +51,8 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  *
  * ```
  *
- * @param UpdateGatewayGroupCommandInput - {@link UpdateGatewayGroupCommandInput}
- * @returns {@link UpdateGatewayGroupCommandOutput}
+ * @param UpdateGatewayGroupRequest - {@link UpdateGatewayGroupRequest}
+ * @returns {@link UpdateGatewayGroupResponse}
  * @see {@link UpdateGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

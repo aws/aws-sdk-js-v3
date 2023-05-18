@@ -55,8 +55,8 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  *
  * ```
  *
- * @param AssociateEnvironmentOperationsRoleCommandInput - {@link AssociateEnvironmentOperationsRoleCommandInput}
- * @returns {@link AssociateEnvironmentOperationsRoleCommandOutput}
+ * @param AssociateEnvironmentOperationsRoleMessage - {@link AssociateEnvironmentOperationsRoleMessage}
+ * @returns {@link Unit}
  * @see {@link AssociateEnvironmentOperationsRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateEnvironmentOperationsRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -54,8 +54,8 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteConfigurationTemplateCommandInput - {@link DeleteConfigurationTemplateCommandInput}
- * @returns {@link DeleteConfigurationTemplateCommandOutput}
+ * @param DeleteConfigurationTemplateMessage - {@link DeleteConfigurationTemplateMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

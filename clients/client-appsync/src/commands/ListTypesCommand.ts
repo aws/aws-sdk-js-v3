@@ -62,8 +62,8 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListTypesCommandInput - {@link ListTypesCommandInput}
- * @returns {@link ListTypesCommandOutput}
+ * @param ListTypesRequest - {@link ListTypesRequest}
+ * @returns {@link ListTypesResponse}
  * @see {@link ListTypesCommandInput} for command's `input` shape.
  * @see {@link ListTypesCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

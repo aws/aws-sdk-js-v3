@@ -49,8 +49,8 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  *
  * ```
  *
- * @param DeletePrefetchScheduleCommandInput - {@link DeletePrefetchScheduleCommandInput}
- * @returns {@link DeletePrefetchScheduleCommandOutput}
+ * @param DeletePrefetchScheduleRequest - {@link DeletePrefetchScheduleRequest}
+ * @returns {@link DeletePrefetchScheduleResponse}
  * @see {@link DeletePrefetchScheduleCommandInput} for command's `input` shape.
  * @see {@link DeletePrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

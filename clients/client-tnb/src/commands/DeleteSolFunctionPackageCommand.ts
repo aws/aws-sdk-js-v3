@@ -51,8 +51,8 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteSolFunctionPackageCommandInput - {@link DeleteSolFunctionPackageCommandInput}
- * @returns {@link DeleteSolFunctionPackageCommandOutput}
+ * @param DeleteSolFunctionPackageInput - {@link DeleteSolFunctionPackageInput}
+ * @returns {@link Unit}
  * @see {@link DeleteSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link DeleteSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

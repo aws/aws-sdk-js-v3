@@ -49,8 +49,8 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  *
  * ```
  *
- * @param UpdateConnectorDefinitionCommandInput - {@link UpdateConnectorDefinitionCommandInput}
- * @returns {@link UpdateConnectorDefinitionCommandOutput}
+ * @param UpdateConnectorDefinitionRequest - {@link UpdateConnectorDefinitionRequest}
+ * @returns {@link UpdateConnectorDefinitionResponse}
  * @see {@link UpdateConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

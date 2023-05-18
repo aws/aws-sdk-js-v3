@@ -70,8 +70,8 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  *
  * ```
  *
- * @param DescribePrincipalMappingCommandInput - {@link DescribePrincipalMappingCommandInput}
- * @returns {@link DescribePrincipalMappingCommandOutput}
+ * @param DescribePrincipalMappingRequest - {@link DescribePrincipalMappingRequest}
+ * @returns {@link DescribePrincipalMappingResponse}
  * @see {@link DescribePrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link DescribePrincipalMappingCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

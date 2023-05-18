@@ -55,8 +55,8 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  *
  * ```
  *
- * @param ArchiveFindingsCommandInput - {@link ArchiveFindingsCommandInput}
- * @returns {@link ArchiveFindingsCommandOutput}
+ * @param ArchiveFindingsRequest - {@link ArchiveFindingsRequest}
+ * @returns {@link ArchiveFindingsResponse}
  * @see {@link ArchiveFindingsCommandInput} for command's `input` shape.
  * @see {@link ArchiveFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

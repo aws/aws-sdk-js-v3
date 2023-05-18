@@ -60,8 +60,8 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
  *
  * ```
  *
- * @param DeleteNetworkInsightsAccessScopeAnalysisCommandInput - {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput}
- * @returns {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput}
+ * @param DeleteNetworkInsightsAccessScopeAnalysisRequest - {@link DeleteNetworkInsightsAccessScopeAnalysisRequest}
+ * @returns {@link DeleteNetworkInsightsAccessScopeAnalysisResult}
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

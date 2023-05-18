@@ -71,8 +71,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  *
  * ```
  *
- * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
- * @returns {@link ResetUserPasswordCommandOutput}
+ * @param ResetUserPasswordRequest - {@link ResetUserPasswordRequest}
+ * @returns {@link ResetUserPasswordResult}
  * @see {@link ResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

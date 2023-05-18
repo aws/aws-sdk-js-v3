@@ -76,8 +76,8 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  *
  * ```
  *
- * @param GetBotVersionsCommandInput - {@link GetBotVersionsCommandInput}
- * @returns {@link GetBotVersionsCommandOutput}
+ * @param GetBotVersionsRequest - {@link GetBotVersionsRequest}
+ * @returns {@link GetBotVersionsResponse}
  * @see {@link GetBotVersionsCommandInput} for command's `input` shape.
  * @see {@link GetBotVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisableRuleCommandInput - {@link DisableRuleCommandInput}
- * @returns {@link DisableRuleCommandOutput}
+ * @param DisableRuleRequest - {@link DisableRuleRequest}
+ * @returns {@link Unit}
  * @see {@link DisableRuleCommandInput} for command's `input` shape.
  * @see {@link DisableRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

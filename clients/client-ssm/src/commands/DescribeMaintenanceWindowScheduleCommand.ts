@@ -81,8 +81,8 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
  *
  * ```
  *
- * @param DescribeMaintenanceWindowScheduleCommandInput - {@link DescribeMaintenanceWindowScheduleCommandInput}
- * @returns {@link DescribeMaintenanceWindowScheduleCommandOutput}
+ * @param DescribeMaintenanceWindowScheduleRequest - {@link DescribeMaintenanceWindowScheduleRequest}
+ * @returns {@link DescribeMaintenanceWindowScheduleResult}
  * @see {@link DescribeMaintenanceWindowScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowScheduleCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

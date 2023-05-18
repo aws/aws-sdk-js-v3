@@ -60,8 +60,8 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AttachInstancesCommandInput - {@link AttachInstancesCommandInput}
- * @returns {@link AttachInstancesCommandOutput}
+ * @param AttachInstancesQuery - {@link AttachInstancesQuery}
+ * @returns {@link Unit}
  * @see {@link AttachInstancesCommandInput} for command's `input` shape.
  * @see {@link AttachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

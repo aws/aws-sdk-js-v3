@@ -64,8 +64,8 @@ export interface GetObjectMetadataCommandOutput
  *
  * ```
  *
- * @param GetObjectMetadataCommandInput - {@link GetObjectMetadataCommandInput}
- * @returns {@link GetObjectMetadataCommandOutput}
+ * @param GetObjectMetadataInput - {@link GetObjectMetadataInput}
+ * @returns {@link GetObjectMetadataOutput}
  * @see {@link GetObjectMetadataCommandInput} for command's `input` shape.
  * @see {@link GetObjectMetadataCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

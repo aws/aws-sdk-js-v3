@@ -96,8 +96,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  *
  * ```
  *
- * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
- * @returns {@link GetEnvironmentCommandOutput}
+ * @param GetEnvironmentRequest - {@link GetEnvironmentRequest}
+ * @returns {@link GetEnvironmentResponse}
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

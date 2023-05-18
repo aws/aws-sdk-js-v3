@@ -61,8 +61,8 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  *
  * ```
  *
- * @param GetVocabularyCommandInput - {@link GetVocabularyCommandInput}
- * @returns {@link GetVocabularyCommandOutput}
+ * @param GetVocabularyRequest - {@link GetVocabularyRequest}
+ * @returns {@link GetVocabularyResponse}
  * @see {@link GetVocabularyCommandInput} for command's `input` shape.
  * @see {@link GetVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

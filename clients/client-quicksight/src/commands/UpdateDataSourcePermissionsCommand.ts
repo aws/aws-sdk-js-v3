@@ -75,8 +75,8 @@ export interface UpdateDataSourcePermissionsCommandOutput
  *
  * ```
  *
- * @param UpdateDataSourcePermissionsCommandInput - {@link UpdateDataSourcePermissionsCommandInput}
- * @returns {@link UpdateDataSourcePermissionsCommandOutput}
+ * @param UpdateDataSourcePermissionsRequest - {@link UpdateDataSourcePermissionsRequest}
+ * @returns {@link UpdateDataSourcePermissionsResponse}
  * @see {@link UpdateDataSourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

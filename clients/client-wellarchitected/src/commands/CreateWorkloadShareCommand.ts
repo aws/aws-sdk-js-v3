@@ -61,8 +61,8 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  *
  * ```
  *
- * @param CreateWorkloadShareCommandInput - {@link CreateWorkloadShareCommandInput}
- * @returns {@link CreateWorkloadShareCommandOutput}
+ * @param CreateWorkloadShareInput - {@link CreateWorkloadShareInput}
+ * @returns {@link CreateWorkloadShareOutput}
  * @see {@link CreateWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link CreateWorkloadShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

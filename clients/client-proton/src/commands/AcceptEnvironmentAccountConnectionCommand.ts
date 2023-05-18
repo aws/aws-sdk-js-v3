@@ -70,8 +70,8 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
  *
  * ```
  *
- * @param AcceptEnvironmentAccountConnectionCommandInput - {@link AcceptEnvironmentAccountConnectionCommandInput}
- * @returns {@link AcceptEnvironmentAccountConnectionCommandOutput}
+ * @param AcceptEnvironmentAccountConnectionInput - {@link AcceptEnvironmentAccountConnectionInput}
+ * @returns {@link AcceptEnvironmentAccountConnectionOutput}
  * @see {@link AcceptEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

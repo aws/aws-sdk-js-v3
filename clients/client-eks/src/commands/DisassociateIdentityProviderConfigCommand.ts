@@ -86,8 +86,8 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  *
  * ```
  *
- * @param DisassociateIdentityProviderConfigCommandInput - {@link DisassociateIdentityProviderConfigCommandInput}
- * @returns {@link DisassociateIdentityProviderConfigCommandOutput}
+ * @param DisassociateIdentityProviderConfigRequest - {@link DisassociateIdentityProviderConfigRequest}
+ * @returns {@link DisassociateIdentityProviderConfigResponse}
  * @see {@link DisassociateIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

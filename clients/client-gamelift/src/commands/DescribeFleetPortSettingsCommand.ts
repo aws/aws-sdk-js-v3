@@ -87,8 +87,8 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  *
  * ```
  *
- * @param DescribeFleetPortSettingsCommandInput - {@link DescribeFleetPortSettingsCommandInput}
- * @returns {@link DescribeFleetPortSettingsCommandOutput}
+ * @param DescribeFleetPortSettingsInput - {@link DescribeFleetPortSettingsInput}
+ * @returns {@link DescribeFleetPortSettingsOutput}
  * @see {@link DescribeFleetPortSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetPortSettingsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

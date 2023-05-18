@@ -94,8 +94,8 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  *
  * ```
  *
- * @param UpdateModelPackageCommandInput - {@link UpdateModelPackageCommandInput}
- * @returns {@link UpdateModelPackageCommandOutput}
+ * @param UpdateModelPackageInput - {@link UpdateModelPackageInput}
+ * @returns {@link UpdateModelPackageOutput}
  * @see {@link UpdateModelPackageCommandInput} for command's `input` shape.
  * @see {@link UpdateModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

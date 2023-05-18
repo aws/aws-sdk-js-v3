@@ -360,8 +360,8 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *
  * ```
  *
- * @param PutTargetsCommandInput - {@link PutTargetsCommandInput}
- * @returns {@link PutTargetsCommandOutput}
+ * @param PutTargetsRequest - {@link PutTargetsRequest}
+ * @returns {@link PutTargetsResponse}
  * @see {@link PutTargetsCommandInput} for command's `input` shape.
  * @see {@link PutTargetsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

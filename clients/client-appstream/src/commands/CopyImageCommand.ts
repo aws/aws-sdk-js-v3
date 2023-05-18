@@ -53,8 +53,8 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  *
  * ```
  *
- * @param CopyImageCommandInput - {@link CopyImageCommandInput}
- * @returns {@link CopyImageCommandOutput}
+ * @param CopyImageRequest - {@link CopyImageRequest}
+ * @returns {@link CopyImageResponse}
  * @see {@link CopyImageCommandInput} for command's `input` shape.
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  *
  * ```
  *
- * @param DeleteTimelineEventCommandInput - {@link DeleteTimelineEventCommandInput}
- * @returns {@link DeleteTimelineEventCommandOutput}
+ * @param DeleteTimelineEventInput - {@link DeleteTimelineEventInput}
+ * @returns {@link DeleteTimelineEventOutput}
  * @see {@link DeleteTimelineEventCommandInput} for command's `input` shape.
  * @see {@link DeleteTimelineEventCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

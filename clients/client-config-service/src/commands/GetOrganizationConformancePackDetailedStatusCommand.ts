@@ -75,8 +75,8 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
  *
  * ```
  *
- * @param GetOrganizationConformancePackDetailedStatusCommandInput - {@link GetOrganizationConformancePackDetailedStatusCommandInput}
- * @returns {@link GetOrganizationConformancePackDetailedStatusCommandOutput}
+ * @param GetOrganizationConformancePackDetailedStatusRequest - {@link GetOrganizationConformancePackDetailedStatusRequest}
+ * @returns {@link GetOrganizationConformancePackDetailedStatusResponse}
  * @see {@link GetOrganizationConformancePackDetailedStatusCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationConformancePackDetailedStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

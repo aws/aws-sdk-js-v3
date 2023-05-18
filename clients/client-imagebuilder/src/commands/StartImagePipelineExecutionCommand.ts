@@ -58,8 +58,8 @@ export interface StartImagePipelineExecutionCommandOutput
  *
  * ```
  *
- * @param StartImagePipelineExecutionCommandInput - {@link StartImagePipelineExecutionCommandInput}
- * @returns {@link StartImagePipelineExecutionCommandOutput}
+ * @param StartImagePipelineExecutionRequest - {@link StartImagePipelineExecutionRequest}
+ * @returns {@link StartImagePipelineExecutionResponse}
  * @see {@link StartImagePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StartImagePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

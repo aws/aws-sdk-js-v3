@@ -88,8 +88,8 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  *
  * ```
  *
- * @param UpdateTrafficPolicyInstanceCommandInput - {@link UpdateTrafficPolicyInstanceCommandInput}
- * @returns {@link UpdateTrafficPolicyInstanceCommandOutput}
+ * @param UpdateTrafficPolicyInstanceRequest - {@link UpdateTrafficPolicyInstanceRequest}
+ * @returns {@link UpdateTrafficPolicyInstanceResponse}
  * @see {@link UpdateTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

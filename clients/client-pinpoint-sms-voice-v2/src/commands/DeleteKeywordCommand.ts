@@ -65,8 +65,8 @@ export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __Metad
  *
  * ```
  *
- * @param DeleteKeywordCommandInput - {@link DeleteKeywordCommandInput}
- * @returns {@link DeleteKeywordCommandOutput}
+ * @param DeleteKeywordRequest - {@link DeleteKeywordRequest}
+ * @returns {@link DeleteKeywordResult}
  * @see {@link DeleteKeywordCommandInput} for command's `input` shape.
  * @see {@link DeleteKeywordCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

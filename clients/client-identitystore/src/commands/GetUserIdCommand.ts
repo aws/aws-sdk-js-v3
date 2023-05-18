@@ -61,8 +61,8 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  *
  * ```
  *
- * @param GetUserIdCommandInput - {@link GetUserIdCommandInput}
- * @returns {@link GetUserIdCommandOutput}
+ * @param GetUserIdRequest - {@link GetUserIdRequest}
+ * @returns {@link GetUserIdResponse}
  * @see {@link GetUserIdCommandInput} for command's `input` shape.
  * @see {@link GetUserIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

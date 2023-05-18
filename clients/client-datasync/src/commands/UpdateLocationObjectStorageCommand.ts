@@ -66,8 +66,8 @@ export interface UpdateLocationObjectStorageCommandOutput
  *
  * ```
  *
- * @param UpdateLocationObjectStorageCommandInput - {@link UpdateLocationObjectStorageCommandInput}
- * @returns {@link UpdateLocationObjectStorageCommandOutput}
+ * @param UpdateLocationObjectStorageRequest - {@link UpdateLocationObjectStorageRequest}
+ * @returns {@link UpdateLocationObjectStorageResponse}
  * @see {@link UpdateLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationObjectStorageCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

@@ -308,8 +308,8 @@ export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineRespo
  *
  * ```
  *
- * @param ListJobsByPipelineCommandInput - {@link ListJobsByPipelineCommandInput}
- * @returns {@link ListJobsByPipelineCommandOutput}
+ * @param ListJobsByPipelineRequest - {@link ListJobsByPipelineRequest}
+ * @returns {@link ListJobsByPipelineResponse}
  * @see {@link ListJobsByPipelineCommandInput} for command's `input` shape.
  * @see {@link ListJobsByPipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

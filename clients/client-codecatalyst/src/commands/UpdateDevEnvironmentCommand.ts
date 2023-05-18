@@ -74,8 +74,8 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  *
  * ```
  *
- * @param UpdateDevEnvironmentCommandInput - {@link UpdateDevEnvironmentCommandInput}
- * @returns {@link UpdateDevEnvironmentCommandOutput}
+ * @param UpdateDevEnvironmentRequest - {@link UpdateDevEnvironmentRequest}
+ * @returns {@link UpdateDevEnvironmentResponse}
  * @see {@link UpdateDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

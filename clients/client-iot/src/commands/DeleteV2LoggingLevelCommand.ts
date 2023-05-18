@@ -50,8 +50,8 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteV2LoggingLevelCommandInput - {@link DeleteV2LoggingLevelCommandInput}
- * @returns {@link DeleteV2LoggingLevelCommandOutput}
+ * @param DeleteV2LoggingLevelRequest - {@link DeleteV2LoggingLevelRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteV2LoggingLevelCommandInput} for command's `input` shape.
  * @see {@link DeleteV2LoggingLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

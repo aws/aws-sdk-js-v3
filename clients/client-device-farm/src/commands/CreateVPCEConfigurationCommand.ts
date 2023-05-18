@@ -60,8 +60,8 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  *
  * ```
  *
- * @param CreateVPCEConfigurationCommandInput - {@link CreateVPCEConfigurationCommandInput}
- * @returns {@link CreateVPCEConfigurationCommandOutput}
+ * @param CreateVPCEConfigurationRequest - {@link CreateVPCEConfigurationRequest}
+ * @returns {@link CreateVPCEConfigurationResult}
  * @see {@link CreateVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

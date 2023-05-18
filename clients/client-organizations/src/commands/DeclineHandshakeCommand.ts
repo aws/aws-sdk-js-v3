@@ -86,8 +86,8 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *
  * ```
  *
- * @param DeclineHandshakeCommandInput - {@link DeclineHandshakeCommandInput}
- * @returns {@link DeclineHandshakeCommandOutput}
+ * @param DeclineHandshakeRequest - {@link DeclineHandshakeRequest}
+ * @returns {@link DeclineHandshakeResponse}
  * @see {@link DeclineHandshakeCommandInput} for command's `input` shape.
  * @see {@link DeclineHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

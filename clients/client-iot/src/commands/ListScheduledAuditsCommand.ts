@@ -61,8 +61,8 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  *
  * ```
  *
- * @param ListScheduledAuditsCommandInput - {@link ListScheduledAuditsCommandInput}
- * @returns {@link ListScheduledAuditsCommandOutput}
+ * @param ListScheduledAuditsRequest - {@link ListScheduledAuditsRequest}
+ * @returns {@link ListScheduledAuditsResponse}
  * @see {@link ListScheduledAuditsCommandInput} for command's `input` shape.
  * @see {@link ListScheduledAuditsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

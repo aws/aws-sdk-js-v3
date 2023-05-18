@@ -57,8 +57,8 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  *
  * ```
  *
- * @param ListBlueprintsCommandInput - {@link ListBlueprintsCommandInput}
- * @returns {@link ListBlueprintsCommandOutput}
+ * @param ListBlueprintsRequest - {@link ListBlueprintsRequest}
+ * @returns {@link ListBlueprintsResponse}
  * @see {@link ListBlueprintsCommandInput} for command's `input` shape.
  * @see {@link ListBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

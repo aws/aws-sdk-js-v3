@@ -150,8 +150,8 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *
  * ```
  *
- * @param CreateRemoteAccessSessionCommandInput - {@link CreateRemoteAccessSessionCommandInput}
- * @returns {@link CreateRemoteAccessSessionCommandOutput}
+ * @param CreateRemoteAccessSessionRequest - {@link CreateRemoteAccessSessionRequest}
+ * @returns {@link CreateRemoteAccessSessionResult}
  * @see {@link CreateRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link CreateRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

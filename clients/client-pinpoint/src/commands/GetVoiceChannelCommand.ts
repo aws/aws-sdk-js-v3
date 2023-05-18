@@ -61,8 +61,8 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  *
  * ```
  *
- * @param GetVoiceChannelCommandInput - {@link GetVoiceChannelCommandInput}
- * @returns {@link GetVoiceChannelCommandOutput}
+ * @param GetVoiceChannelRequest - {@link GetVoiceChannelRequest}
+ * @returns {@link GetVoiceChannelResponse}
  * @see {@link GetVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link GetVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

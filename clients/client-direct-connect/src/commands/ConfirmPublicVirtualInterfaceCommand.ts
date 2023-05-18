@@ -57,8 +57,8 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  *
  * ```
  *
- * @param ConfirmPublicVirtualInterfaceCommandInput - {@link ConfirmPublicVirtualInterfaceCommandInput}
- * @returns {@link ConfirmPublicVirtualInterfaceCommandOutput}
+ * @param ConfirmPublicVirtualInterfaceRequest - {@link ConfirmPublicVirtualInterfaceRequest}
+ * @returns {@link ConfirmPublicVirtualInterfaceResponse}
  * @see {@link ConfirmPublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmPublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

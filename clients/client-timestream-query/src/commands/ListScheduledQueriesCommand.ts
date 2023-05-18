@@ -76,8 +76,8 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  *
  * ```
  *
- * @param ListScheduledQueriesCommandInput - {@link ListScheduledQueriesCommandInput}
- * @returns {@link ListScheduledQueriesCommandOutput}
+ * @param ListScheduledQueriesRequest - {@link ListScheduledQueriesRequest}
+ * @returns {@link ListScheduledQueriesResponse}
  * @see {@link ListScheduledQueriesCommandInput} for command's `input` shape.
  * @see {@link ListScheduledQueriesCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.

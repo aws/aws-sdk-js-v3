@@ -61,8 +61,8 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  *
  * ```
  *
- * @param UpdateFileSystemAssociationCommandInput - {@link UpdateFileSystemAssociationCommandInput}
- * @returns {@link UpdateFileSystemAssociationCommandOutput}
+ * @param UpdateFileSystemAssociationInput - {@link UpdateFileSystemAssociationInput}
+ * @returns {@link UpdateFileSystemAssociationOutput}
  * @see {@link UpdateFileSystemAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemAssociationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

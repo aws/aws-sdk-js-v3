@@ -87,8 +87,8 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  *
  * ```
  *
- * @param ListSigningProfilesCommandInput - {@link ListSigningProfilesCommandInput}
- * @returns {@link ListSigningProfilesCommandOutput}
+ * @param ListSigningProfilesRequest - {@link ListSigningProfilesRequest}
+ * @returns {@link ListSigningProfilesResponse}
  * @see {@link ListSigningProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSigningProfilesCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

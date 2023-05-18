@@ -138,8 +138,8 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  *
  * ```
  *
- * @param GetUsageForecastCommandInput - {@link GetUsageForecastCommandInput}
- * @returns {@link GetUsageForecastCommandOutput}
+ * @param GetUsageForecastRequest - {@link GetUsageForecastRequest}
+ * @returns {@link GetUsageForecastResponse}
  * @see {@link GetUsageForecastCommandInput} for command's `input` shape.
  * @see {@link GetUsageForecastCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

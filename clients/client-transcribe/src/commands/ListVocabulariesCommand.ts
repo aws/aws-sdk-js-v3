@@ -64,8 +64,8 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  *
  * ```
  *
- * @param ListVocabulariesCommandInput - {@link ListVocabulariesCommandInput}
- * @returns {@link ListVocabulariesCommandOutput}
+ * @param ListVocabulariesRequest - {@link ListVocabulariesRequest}
+ * @returns {@link ListVocabulariesResponse}
  * @see {@link ListVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

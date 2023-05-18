@@ -57,8 +57,8 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  *
  * ```
  *
- * @param GetWirelessGatewayStatisticsCommandInput - {@link GetWirelessGatewayStatisticsCommandInput}
- * @returns {@link GetWirelessGatewayStatisticsCommandOutput}
+ * @param GetWirelessGatewayStatisticsRequest - {@link GetWirelessGatewayStatisticsRequest}
+ * @returns {@link GetWirelessGatewayStatisticsResponse}
  * @see {@link GetWirelessGatewayStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayStatisticsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

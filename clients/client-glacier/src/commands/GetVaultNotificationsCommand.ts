@@ -71,8 +71,8 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  *
  * ```
  *
- * @param GetVaultNotificationsCommandInput - {@link GetVaultNotificationsCommandInput}
- * @returns {@link GetVaultNotificationsCommandOutput}
+ * @param GetVaultNotificationsInput - {@link GetVaultNotificationsInput}
+ * @returns {@link GetVaultNotificationsOutput}
  * @see {@link GetVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link GetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

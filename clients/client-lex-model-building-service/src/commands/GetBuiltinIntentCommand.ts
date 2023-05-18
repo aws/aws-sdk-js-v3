@@ -64,8 +64,8 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  *
  * ```
  *
- * @param GetBuiltinIntentCommandInput - {@link GetBuiltinIntentCommandInput}
- * @returns {@link GetBuiltinIntentCommandOutput}
+ * @param GetBuiltinIntentRequest - {@link GetBuiltinIntentRequest}
+ * @returns {@link GetBuiltinIntentResponse}
  * @see {@link GetBuiltinIntentCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

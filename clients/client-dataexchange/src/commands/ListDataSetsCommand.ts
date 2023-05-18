@@ -68,8 +68,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  *
  * ```
  *
- * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
- * @returns {@link ListDataSetsCommandOutput}
+ * @param ListDataSetsRequest - {@link ListDataSetsRequest}
+ * @returns {@link ListDataSetsResponse}
  * @see {@link ListDataSetsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

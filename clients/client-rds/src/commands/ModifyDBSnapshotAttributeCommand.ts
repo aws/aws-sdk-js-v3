@@ -83,8 +83,8 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *
  * ```
  *
- * @param ModifyDBSnapshotAttributeCommandInput - {@link ModifyDBSnapshotAttributeCommandInput}
- * @returns {@link ModifyDBSnapshotAttributeCommandOutput}
+ * @param ModifyDBSnapshotAttributeMessage - {@link ModifyDBSnapshotAttributeMessage}
+ * @returns {@link ModifyDBSnapshotAttributeResult}
  * @see {@link ModifyDBSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

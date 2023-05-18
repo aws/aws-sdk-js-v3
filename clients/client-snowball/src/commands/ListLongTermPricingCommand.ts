@@ -67,8 +67,8 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  *
  * ```
  *
- * @param ListLongTermPricingCommandInput - {@link ListLongTermPricingCommandInput}
- * @returns {@link ListLongTermPricingCommandOutput}
+ * @param ListLongTermPricingRequest - {@link ListLongTermPricingRequest}
+ * @returns {@link ListLongTermPricingResult}
  * @see {@link ListLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link ListLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

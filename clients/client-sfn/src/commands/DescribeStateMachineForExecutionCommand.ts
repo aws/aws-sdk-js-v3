@@ -83,8 +83,8 @@ export interface DescribeStateMachineForExecutionCommandOutput
  *
  * ```
  *
- * @param DescribeStateMachineForExecutionCommandInput - {@link DescribeStateMachineForExecutionCommandInput}
- * @returns {@link DescribeStateMachineForExecutionCommandOutput}
+ * @param DescribeStateMachineForExecutionInput - {@link DescribeStateMachineForExecutionInput}
+ * @returns {@link DescribeStateMachineForExecutionOutput}
  * @see {@link DescribeStateMachineForExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeStateMachineForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

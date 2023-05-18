@@ -59,8 +59,8 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  *
  * ```
  *
- * @param ListPrincipalsForPortfolioCommandInput - {@link ListPrincipalsForPortfolioCommandInput}
- * @returns {@link ListPrincipalsForPortfolioCommandOutput}
+ * @param ListPrincipalsForPortfolioInput - {@link ListPrincipalsForPortfolioInput}
+ * @returns {@link ListPrincipalsForPortfolioOutput}
  * @see {@link ListPrincipalsForPortfolioCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsForPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

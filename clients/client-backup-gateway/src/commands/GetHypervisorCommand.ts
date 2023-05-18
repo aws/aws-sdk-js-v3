@@ -62,8 +62,8 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  *
  * ```
  *
- * @param GetHypervisorCommandInput - {@link GetHypervisorCommandInput}
- * @returns {@link GetHypervisorCommandOutput}
+ * @param GetHypervisorInput - {@link GetHypervisorInput}
+ * @returns {@link GetHypervisorOutput}
  * @see {@link GetHypervisorCommandInput} for command's `input` shape.
  * @see {@link GetHypervisorCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
  *
  * ```
  *
- * @param ImportClientVpnClientCertificateRevocationListCommandInput - {@link ImportClientVpnClientCertificateRevocationListCommandInput}
- * @returns {@link ImportClientVpnClientCertificateRevocationListCommandOutput}
+ * @param ImportClientVpnClientCertificateRevocationListRequest - {@link ImportClientVpnClientCertificateRevocationListRequest}
+ * @returns {@link ImportClientVpnClientCertificateRevocationListResult}
  * @see {@link ImportClientVpnClientCertificateRevocationListCommandInput} for command's `input` shape.
  * @see {@link ImportClientVpnClientCertificateRevocationListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

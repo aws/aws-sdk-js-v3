@@ -53,8 +53,8 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
  *
  * ```
  *
- * @param NotifyAppValidationOutputCommandInput - {@link NotifyAppValidationOutputCommandInput}
- * @returns {@link NotifyAppValidationOutputCommandOutput}
+ * @param NotifyAppValidationOutputRequest - {@link NotifyAppValidationOutputRequest}
+ * @returns {@link NotifyAppValidationOutputResponse}
  * @see {@link NotifyAppValidationOutputCommandInput} for command's `input` shape.
  * @see {@link NotifyAppValidationOutputCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

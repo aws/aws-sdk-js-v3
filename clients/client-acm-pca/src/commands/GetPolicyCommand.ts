@@ -80,8 +80,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  *
  * ```
  *
- * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
- * @returns {@link GetPolicyCommandOutput}
+ * @param GetPolicyRequest - {@link GetPolicyRequest}
+ * @returns {@link GetPolicyResponse}
  * @see {@link GetPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPolicyCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

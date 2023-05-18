@@ -72,8 +72,8 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  *
  * ```
  *
- * @param SendDataToWirelessDeviceCommandInput - {@link SendDataToWirelessDeviceCommandInput}
- * @returns {@link SendDataToWirelessDeviceCommandOutput}
+ * @param SendDataToWirelessDeviceRequest - {@link SendDataToWirelessDeviceRequest}
+ * @returns {@link SendDataToWirelessDeviceResponse}
  * @see {@link SendDataToWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link SendDataToWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

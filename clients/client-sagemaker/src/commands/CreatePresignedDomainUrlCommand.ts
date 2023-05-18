@@ -70,8 +70,8 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  *
  * ```
  *
- * @param CreatePresignedDomainUrlCommandInput - {@link CreatePresignedDomainUrlCommandInput}
- * @returns {@link CreatePresignedDomainUrlCommandOutput}
+ * @param CreatePresignedDomainUrlRequest - {@link CreatePresignedDomainUrlRequest}
+ * @returns {@link CreatePresignedDomainUrlResponse}
  * @see {@link CreatePresignedDomainUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedDomainUrlCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

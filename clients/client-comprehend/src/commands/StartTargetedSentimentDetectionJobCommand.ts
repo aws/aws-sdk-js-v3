@@ -95,8 +95,8 @@ export interface StartTargetedSentimentDetectionJobCommandOutput
  *
  * ```
  *
- * @param StartTargetedSentimentDetectionJobCommandInput - {@link StartTargetedSentimentDetectionJobCommandInput}
- * @returns {@link StartTargetedSentimentDetectionJobCommandOutput}
+ * @param StartTargetedSentimentDetectionJobRequest - {@link StartTargetedSentimentDetectionJobRequest}
+ * @returns {@link StartTargetedSentimentDetectionJobResponse}
  * @see {@link StartTargetedSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartTargetedSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

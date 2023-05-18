@@ -57,8 +57,8 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  *
  * ```
  *
- * @param StopLaunchCommandInput - {@link StopLaunchCommandInput}
- * @returns {@link StopLaunchCommandOutput}
+ * @param StopLaunchRequest - {@link StopLaunchRequest}
+ * @returns {@link StopLaunchResponse}
  * @see {@link StopLaunchCommandInput} for command's `input` shape.
  * @see {@link StopLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

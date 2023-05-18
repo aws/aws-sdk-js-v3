@@ -64,8 +64,8 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  *
  * ```
  *
- * @param ListContactChannelsCommandInput - {@link ListContactChannelsCommandInput}
- * @returns {@link ListContactChannelsCommandOutput}
+ * @param ListContactChannelsRequest - {@link ListContactChannelsRequest}
+ * @returns {@link ListContactChannelsResult}
  * @see {@link ListContactChannelsCommandInput} for command's `input` shape.
  * @see {@link ListContactChannelsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

@@ -56,8 +56,8 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
  *
  * ```
  *
- * @param GetResolverQueryLogConfigPolicyCommandInput - {@link GetResolverQueryLogConfigPolicyCommandInput}
- * @returns {@link GetResolverQueryLogConfigPolicyCommandOutput}
+ * @param GetResolverQueryLogConfigPolicyRequest - {@link GetResolverQueryLogConfigPolicyRequest}
+ * @returns {@link GetResolverQueryLogConfigPolicyResponse}
  * @see {@link GetResolverQueryLogConfigPolicyCommandInput} for command's `input` shape.
  * @see {@link GetResolverQueryLogConfigPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

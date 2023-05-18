@@ -49,8 +49,8 @@ export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAgreementCommandInput - {@link DeleteAgreementCommandInput}
- * @returns {@link DeleteAgreementCommandOutput}
+ * @param DeleteAgreementRequest - {@link DeleteAgreementRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAgreementCommandInput} for command's `input` shape.
  * @see {@link DeleteAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

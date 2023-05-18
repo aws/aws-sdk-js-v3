@@ -133,8 +133,8 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  *
  * ```
  *
- * @param DescribeClusterSnapshotsCommandInput - {@link DescribeClusterSnapshotsCommandInput}
- * @returns {@link DescribeClusterSnapshotsCommandOutput}
+ * @param DescribeClusterSnapshotsMessage - {@link DescribeClusterSnapshotsMessage}
+ * @returns {@link SnapshotMessage}
  * @see {@link DescribeClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

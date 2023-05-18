@@ -56,8 +56,8 @@ export interface UpdateAppInstanceBotCommandOutput extends UpdateAppInstanceBotR
  *
  * ```
  *
- * @param UpdateAppInstanceBotCommandInput - {@link UpdateAppInstanceBotCommandInput}
- * @returns {@link UpdateAppInstanceBotCommandOutput}
+ * @param UpdateAppInstanceBotRequest - {@link UpdateAppInstanceBotRequest}
+ * @returns {@link UpdateAppInstanceBotResponse}
  * @see {@link UpdateAppInstanceBotCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceBotCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

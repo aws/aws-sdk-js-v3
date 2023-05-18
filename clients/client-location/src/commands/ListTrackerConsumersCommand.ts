@@ -55,8 +55,8 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  *
  * ```
  *
- * @param ListTrackerConsumersCommandInput - {@link ListTrackerConsumersCommandInput}
- * @returns {@link ListTrackerConsumersCommandOutput}
+ * @param ListTrackerConsumersRequest - {@link ListTrackerConsumersRequest}
+ * @returns {@link ListTrackerConsumersResponse}
  * @see {@link ListTrackerConsumersCommandInput} for command's `input` shape.
  * @see {@link ListTrackerConsumersCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

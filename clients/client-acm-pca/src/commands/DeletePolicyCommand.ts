@@ -82,8 +82,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
- * @returns {@link DeletePolicyCommandOutput}
+ * @param DeletePolicyRequest - {@link DeletePolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

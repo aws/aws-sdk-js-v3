@@ -199,8 +199,8 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
  *
  * ```
  *
- * @param CreateContainerServiceCommandInput - {@link CreateContainerServiceCommandInput}
- * @returns {@link CreateContainerServiceCommandOutput}
+ * @param CreateContainerServiceRequest - {@link CreateContainerServiceRequest}
+ * @returns {@link CreateContainerServiceResult}
  * @see {@link CreateContainerServiceCommandInput} for command's `input` shape.
  * @see {@link CreateContainerServiceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

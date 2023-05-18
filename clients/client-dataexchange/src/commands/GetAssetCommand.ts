@@ -130,8 +130,8 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetAssetCommandInput - {@link GetAssetCommandInput}
- * @returns {@link GetAssetCommandOutput}
+ * @param GetAssetRequest - {@link GetAssetRequest}
+ * @returns {@link GetAssetResponse}
  * @see {@link GetAssetCommandInput} for command's `input` shape.
  * @see {@link GetAssetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

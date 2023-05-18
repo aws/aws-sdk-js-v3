@@ -49,8 +49,8 @@ export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse,
  *
  * ```
  *
- * @param DeleteLiveSourceCommandInput - {@link DeleteLiveSourceCommandInput}
- * @returns {@link DeleteLiveSourceCommandOutput}
+ * @param DeleteLiveSourceRequest - {@link DeleteLiveSourceRequest}
+ * @returns {@link DeleteLiveSourceResponse}
  * @see {@link DeleteLiveSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

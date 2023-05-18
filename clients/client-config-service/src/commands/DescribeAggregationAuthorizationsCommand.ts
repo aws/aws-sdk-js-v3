@@ -68,8 +68,8 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  *
  * ```
  *
- * @param DescribeAggregationAuthorizationsCommandInput - {@link DescribeAggregationAuthorizationsCommandInput}
- * @returns {@link DescribeAggregationAuthorizationsCommandOutput}
+ * @param DescribeAggregationAuthorizationsRequest - {@link DescribeAggregationAuthorizationsRequest}
+ * @returns {@link DescribeAggregationAuthorizationsResponse}
  * @see {@link DescribeAggregationAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregationAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

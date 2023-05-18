@@ -76,8 +76,8 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  *
  * ```
  *
- * @param GetObjectAttributesCommandInput - {@link GetObjectAttributesCommandInput}
- * @returns {@link GetObjectAttributesCommandOutput}
+ * @param GetObjectAttributesRequest - {@link GetObjectAttributesRequest}
+ * @returns {@link GetObjectAttributesResponse}
  * @see {@link GetObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link GetObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

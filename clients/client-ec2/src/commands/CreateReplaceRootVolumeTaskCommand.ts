@@ -86,8 +86,8 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  *
  * ```
  *
- * @param CreateReplaceRootVolumeTaskCommandInput - {@link CreateReplaceRootVolumeTaskCommandInput}
- * @returns {@link CreateReplaceRootVolumeTaskCommandOutput}
+ * @param CreateReplaceRootVolumeTaskRequest - {@link CreateReplaceRootVolumeTaskRequest}
+ * @returns {@link CreateReplaceRootVolumeTaskResult}
  * @see {@link CreateReplaceRootVolumeTaskCommandInput} for command's `input` shape.
  * @see {@link CreateReplaceRootVolumeTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

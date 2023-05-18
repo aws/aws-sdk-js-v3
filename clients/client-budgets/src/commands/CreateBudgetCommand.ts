@@ -124,8 +124,8 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *
  * ```
  *
- * @param CreateBudgetCommandInput - {@link CreateBudgetCommandInput}
- * @returns {@link CreateBudgetCommandOutput}
+ * @param CreateBudgetRequest - {@link CreateBudgetRequest}
+ * @returns {@link CreateBudgetResponse}
  * @see {@link CreateBudgetCommandInput} for command's `input` shape.
  * @see {@link CreateBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

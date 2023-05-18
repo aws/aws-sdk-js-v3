@@ -68,8 +68,8 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  *
  * ```
  *
- * @param ListByoipCidrsCommandInput - {@link ListByoipCidrsCommandInput}
- * @returns {@link ListByoipCidrsCommandOutput}
+ * @param ListByoipCidrsRequest - {@link ListByoipCidrsRequest}
+ * @returns {@link ListByoipCidrsResponse}
  * @see {@link ListByoipCidrsCommandInput} for command's `input` shape.
  * @see {@link ListByoipCidrsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

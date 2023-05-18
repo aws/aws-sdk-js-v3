@@ -74,8 +74,8 @@ export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBala
  *
  * ```
  *
- * @param UpdateLoadBalancerAttributeCommandInput - {@link UpdateLoadBalancerAttributeCommandInput}
- * @returns {@link UpdateLoadBalancerAttributeCommandOutput}
+ * @param UpdateLoadBalancerAttributeRequest - {@link UpdateLoadBalancerAttributeRequest}
+ * @returns {@link UpdateLoadBalancerAttributeResult}
  * @see {@link UpdateLoadBalancerAttributeCommandInput} for command's `input` shape.
  * @see {@link UpdateLoadBalancerAttributeCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

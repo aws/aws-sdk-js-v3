@@ -65,8 +65,8 @@ export interface CreateIntegrationAssociationCommandOutput
  *
  * ```
  *
- * @param CreateIntegrationAssociationCommandInput - {@link CreateIntegrationAssociationCommandInput}
- * @returns {@link CreateIntegrationAssociationCommandOutput}
+ * @param CreateIntegrationAssociationRequest - {@link CreateIntegrationAssociationRequest}
+ * @returns {@link CreateIntegrationAssociationResponse}
  * @see {@link CreateIntegrationAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationAssociationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

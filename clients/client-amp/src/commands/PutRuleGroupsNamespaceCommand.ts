@@ -61,8 +61,8 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  *
  * ```
  *
- * @param PutRuleGroupsNamespaceCommandInput - {@link PutRuleGroupsNamespaceCommandInput}
- * @returns {@link PutRuleGroupsNamespaceCommandOutput}
+ * @param PutRuleGroupsNamespaceRequest - {@link PutRuleGroupsNamespaceRequest}
+ * @returns {@link PutRuleGroupsNamespaceResponse}
  * @see {@link PutRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link PutRuleGroupsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

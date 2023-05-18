@@ -59,8 +59,8 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  *
  * ```
  *
- * @param ListObjectPoliciesCommandInput - {@link ListObjectPoliciesCommandInput}
- * @returns {@link ListObjectPoliciesCommandOutput}
+ * @param ListObjectPoliciesRequest - {@link ListObjectPoliciesRequest}
+ * @returns {@link ListObjectPoliciesResponse}
  * @see {@link ListObjectPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListObjectPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

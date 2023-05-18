@@ -58,8 +58,8 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  *
  * ```
  *
- * @param ListRepositoriesCommandInput - {@link ListRepositoriesCommandInput}
- * @returns {@link ListRepositoriesCommandOutput}
+ * @param ListRepositoriesInput - {@link ListRepositoriesInput}
+ * @returns {@link ListRepositoriesOutput}
  * @see {@link ListRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

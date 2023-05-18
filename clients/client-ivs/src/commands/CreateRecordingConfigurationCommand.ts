@@ -96,8 +96,8 @@ export interface CreateRecordingConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateRecordingConfigurationCommandInput - {@link CreateRecordingConfigurationCommandInput}
- * @returns {@link CreateRecordingConfigurationCommandOutput}
+ * @param CreateRecordingConfigurationRequest - {@link CreateRecordingConfigurationRequest}
+ * @returns {@link CreateRecordingConfigurationResponse}
  * @see {@link CreateRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteWhatIfForecastCommandInput - {@link DeleteWhatIfForecastCommandInput}
- * @returns {@link DeleteWhatIfForecastCommandOutput}
+ * @param DeleteWhatIfForecastRequest - {@link DeleteWhatIfForecastRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link DeleteWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

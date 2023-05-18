@@ -51,8 +51,8 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DeleteBackupVaultNotificationsCommandInput - {@link DeleteBackupVaultNotificationsCommandInput}
- * @returns {@link DeleteBackupVaultNotificationsCommandOutput}
+ * @param DeleteBackupVaultNotificationsInput - {@link DeleteBackupVaultNotificationsInput}
+ * @returns {@link Unit}
  * @see {@link DeleteBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

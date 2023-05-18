@@ -62,8 +62,8 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  *
  * ```
  *
- * @param CancelSpotInstanceRequestsCommandInput - {@link CancelSpotInstanceRequestsCommandInput}
- * @returns {@link CancelSpotInstanceRequestsCommandOutput}
+ * @param CancelSpotInstanceRequestsRequest - {@link CancelSpotInstanceRequestsRequest}
+ * @returns {@link CancelSpotInstanceRequestsResult}
  * @see {@link CancelSpotInstanceRequestsCommandInput} for command's `input` shape.
  * @see {@link CancelSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

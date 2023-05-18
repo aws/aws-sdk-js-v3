@@ -86,8 +86,8 @@ export interface AssociateIpamResourceDiscoveryCommandOutput
  *
  * ```
  *
- * @param AssociateIpamResourceDiscoveryCommandInput - {@link AssociateIpamResourceDiscoveryCommandInput}
- * @returns {@link AssociateIpamResourceDiscoveryCommandOutput}
+ * @param AssociateIpamResourceDiscoveryRequest - {@link AssociateIpamResourceDiscoveryRequest}
+ * @returns {@link AssociateIpamResourceDiscoveryResult}
  * @see {@link AssociateIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link AssociateIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -69,8 +69,8 @@ export interface UploadReadSetPartCommandOutput extends UploadReadSetPartRespons
  *
  * ```
  *
- * @param UploadReadSetPartCommandInput - {@link UploadReadSetPartCommandInput}
- * @returns {@link UploadReadSetPartCommandOutput}
+ * @param UploadReadSetPartRequest - {@link UploadReadSetPartRequest}
+ * @returns {@link UploadReadSetPartResponse}
  * @see {@link UploadReadSetPartCommandInput} for command's `input` shape.
  * @see {@link UploadReadSetPartCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

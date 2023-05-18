@@ -69,8 +69,8 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
+ * @param UpdateEnvironmentRequest - {@link UpdateEnvironmentRequest}
+ * @returns {@link Environment}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

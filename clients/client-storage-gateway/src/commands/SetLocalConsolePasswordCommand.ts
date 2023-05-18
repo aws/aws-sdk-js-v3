@@ -58,8 +58,8 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  *
  * ```
  *
- * @param SetLocalConsolePasswordCommandInput - {@link SetLocalConsolePasswordCommandInput}
- * @returns {@link SetLocalConsolePasswordCommandOutput}
+ * @param SetLocalConsolePasswordInput - {@link SetLocalConsolePasswordInput}
+ * @returns {@link SetLocalConsolePasswordOutput}
  * @see {@link SetLocalConsolePasswordCommandInput} for command's `input` shape.
  * @see {@link SetLocalConsolePasswordCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

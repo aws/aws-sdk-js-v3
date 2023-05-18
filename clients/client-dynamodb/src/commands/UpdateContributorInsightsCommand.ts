@@ -60,8 +60,8 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  *
  * ```
  *
- * @param UpdateContributorInsightsCommandInput - {@link UpdateContributorInsightsCommandInput}
- * @returns {@link UpdateContributorInsightsCommandOutput}
+ * @param UpdateContributorInsightsInput - {@link UpdateContributorInsightsInput}
+ * @returns {@link UpdateContributorInsightsOutput}
  * @see {@link UpdateContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link UpdateContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

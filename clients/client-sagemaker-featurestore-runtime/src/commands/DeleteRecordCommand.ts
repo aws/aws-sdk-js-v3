@@ -83,8 +83,8 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRecordCommandInput - {@link DeleteRecordCommandInput}
- * @returns {@link DeleteRecordCommandOutput}
+ * @param DeleteRecordRequest - {@link DeleteRecordRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRecordCommandInput} for command's `input` shape.
  * @see {@link DeleteRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.

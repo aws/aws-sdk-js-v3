@@ -56,8 +56,8 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  *
  * ```
  *
- * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
- * @returns {@link UpdateSettingsCommandOutput}
+ * @param UpdateSettingsRequest - {@link UpdateSettingsRequest}
+ * @returns {@link UpdateSettingsResult}
  * @see {@link UpdateSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

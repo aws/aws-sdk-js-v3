@@ -58,8 +58,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  *
  * ```
  *
- * @param CreateScheduleCommandInput - {@link CreateScheduleCommandInput}
- * @returns {@link CreateScheduleCommandOutput}
+ * @param CreateScheduleRequest - {@link CreateScheduleRequest}
+ * @returns {@link CreateScheduleResponse}
  * @see {@link CreateScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateScheduleCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

@@ -126,8 +126,8 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  *
  * ```
  *
- * @param InitiateJobCommandInput - {@link InitiateJobCommandInput}
- * @returns {@link InitiateJobCommandOutput}
+ * @param InitiateJobInput - {@link InitiateJobInput}
+ * @returns {@link InitiateJobOutput}
  * @see {@link InitiateJobCommandInput} for command's `input` shape.
  * @see {@link InitiateJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

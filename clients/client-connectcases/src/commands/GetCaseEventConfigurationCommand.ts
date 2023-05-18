@@ -64,8 +64,8 @@ export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConf
  *
  * ```
  *
- * @param GetCaseEventConfigurationCommandInput - {@link GetCaseEventConfigurationCommandInput}
- * @returns {@link GetCaseEventConfigurationCommandOutput}
+ * @param GetCaseEventConfigurationRequest - {@link GetCaseEventConfigurationRequest}
+ * @returns {@link GetCaseEventConfigurationResponse}
  * @see {@link GetCaseEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetCaseEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

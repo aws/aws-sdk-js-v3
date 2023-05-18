@@ -67,8 +67,8 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  *
  * ```
  *
- * @param CreateAgreementCommandInput - {@link CreateAgreementCommandInput}
- * @returns {@link CreateAgreementCommandOutput}
+ * @param CreateAgreementRequest - {@link CreateAgreementRequest}
+ * @returns {@link CreateAgreementResponse}
  * @see {@link CreateAgreementCommandInput} for command's `input` shape.
  * @see {@link CreateAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

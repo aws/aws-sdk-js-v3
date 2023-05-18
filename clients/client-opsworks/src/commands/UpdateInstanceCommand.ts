@@ -66,8 +66,8 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateInstanceCommandInput - {@link UpdateInstanceCommandInput}
- * @returns {@link UpdateInstanceCommandOutput}
+ * @param UpdateInstanceRequest - {@link UpdateInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

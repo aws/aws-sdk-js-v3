@@ -56,8 +56,8 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  *
  * ```
  *
- * @param DeleteCustomVocabularyCommandInput - {@link DeleteCustomVocabularyCommandInput}
- * @returns {@link DeleteCustomVocabularyCommandOutput}
+ * @param DeleteCustomVocabularyRequest - {@link DeleteCustomVocabularyRequest}
+ * @returns {@link DeleteCustomVocabularyResponse}
  * @see {@link DeleteCustomVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomVocabularyCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

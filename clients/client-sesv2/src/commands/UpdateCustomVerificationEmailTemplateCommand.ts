@@ -66,8 +66,8 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput
  *
  * ```
  *
- * @param UpdateCustomVerificationEmailTemplateCommandInput - {@link UpdateCustomVerificationEmailTemplateCommandInput}
- * @returns {@link UpdateCustomVerificationEmailTemplateCommandOutput}
+ * @param UpdateCustomVerificationEmailTemplateRequest - {@link UpdateCustomVerificationEmailTemplateRequest}
+ * @returns {@link UpdateCustomVerificationEmailTemplateResponse}
  * @see {@link UpdateCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

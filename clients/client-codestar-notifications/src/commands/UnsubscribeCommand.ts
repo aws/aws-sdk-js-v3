@@ -57,8 +57,8 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  *
  * ```
  *
- * @param UnsubscribeCommandInput - {@link UnsubscribeCommandInput}
- * @returns {@link UnsubscribeCommandOutput}
+ * @param UnsubscribeRequest - {@link UnsubscribeRequest}
+ * @returns {@link UnsubscribeResult}
  * @see {@link UnsubscribeCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.

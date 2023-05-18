@@ -52,8 +52,8 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  *
  * ```
  *
- * @param DeleteRoutingControlCommandInput - {@link DeleteRoutingControlCommandInput}
- * @returns {@link DeleteRoutingControlCommandOutput}
+ * @param DeleteRoutingControlRequest - {@link DeleteRoutingControlRequest}
+ * @returns {@link DeleteRoutingControlResponse}
  * @see {@link DeleteRoutingControlCommandInput} for command's `input` shape.
  * @see {@link DeleteRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

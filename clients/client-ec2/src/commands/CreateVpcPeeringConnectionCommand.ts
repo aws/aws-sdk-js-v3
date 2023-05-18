@@ -132,8 +132,8 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *
  * ```
  *
- * @param CreateVpcPeeringConnectionCommandInput - {@link CreateVpcPeeringConnectionCommandInput}
- * @returns {@link CreateVpcPeeringConnectionCommandOutput}
+ * @param CreateVpcPeeringConnectionRequest - {@link CreateVpcPeeringConnectionRequest}
+ * @returns {@link CreateVpcPeeringConnectionResult}
  * @see {@link CreateVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

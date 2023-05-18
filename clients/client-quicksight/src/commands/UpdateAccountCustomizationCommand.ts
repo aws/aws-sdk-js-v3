@@ -67,8 +67,8 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  *
  * ```
  *
- * @param UpdateAccountCustomizationCommandInput - {@link UpdateAccountCustomizationCommandInput}
- * @returns {@link UpdateAccountCustomizationCommandOutput}
+ * @param UpdateAccountCustomizationRequest - {@link UpdateAccountCustomizationRequest}
+ * @returns {@link UpdateAccountCustomizationResponse}
  * @see {@link UpdateAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

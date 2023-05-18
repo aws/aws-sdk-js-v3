@@ -85,8 +85,8 @@ export interface UpdateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  *
  * ```
  *
- * @param UpdateUsagePlanCommandInput - {@link UpdateUsagePlanCommandInput}
- * @returns {@link UpdateUsagePlanCommandOutput}
+ * @param UpdateUsagePlanRequest - {@link UpdateUsagePlanRequest}
+ * @returns {@link UsagePlan}
  * @see {@link UpdateUsagePlanCommandInput} for command's `input` shape.
  * @see {@link UpdateUsagePlanCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

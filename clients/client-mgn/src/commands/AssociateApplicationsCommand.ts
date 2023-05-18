@@ -51,8 +51,8 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  *
  * ```
  *
- * @param AssociateApplicationsCommandInput - {@link AssociateApplicationsCommandInput}
- * @returns {@link AssociateApplicationsCommandOutput}
+ * @param AssociateApplicationsRequest - {@link AssociateApplicationsRequest}
+ * @returns {@link AssociateApplicationsResponse}
  * @see {@link AssociateApplicationsCommandInput} for command's `input` shape.
  * @see {@link AssociateApplicationsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

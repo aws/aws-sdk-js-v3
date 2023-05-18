@@ -57,8 +57,8 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SuspendProcessesCommandInput - {@link SuspendProcessesCommandInput}
- * @returns {@link SuspendProcessesCommandOutput}
+ * @param ScalingProcessQuery - {@link ScalingProcessQuery}
+ * @returns {@link Unit}
  * @see {@link SuspendProcessesCommandInput} for command's `input` shape.
  * @see {@link SuspendProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -78,8 +78,8 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  *
  * ```
  *
- * @param ListPrefetchSchedulesCommandInput - {@link ListPrefetchSchedulesCommandInput}
- * @returns {@link ListPrefetchSchedulesCommandOutput}
+ * @param ListPrefetchSchedulesRequest - {@link ListPrefetchSchedulesRequest}
+ * @returns {@link ListPrefetchSchedulesResponse}
  * @see {@link ListPrefetchSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListPrefetchSchedulesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

@@ -93,8 +93,8 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  *
  * ```
  *
- * @param CreateAppBlockCommandInput - {@link CreateAppBlockCommandInput}
- * @returns {@link CreateAppBlockCommandOutput}
+ * @param CreateAppBlockRequest - {@link CreateAppBlockRequest}
+ * @returns {@link CreateAppBlockResult}
  * @see {@link CreateAppBlockCommandInput} for command's `input` shape.
  * @see {@link CreateAppBlockCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

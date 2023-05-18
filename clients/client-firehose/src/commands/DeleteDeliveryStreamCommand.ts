@@ -58,8 +58,8 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  *
  * ```
  *
- * @param DeleteDeliveryStreamCommandInput - {@link DeleteDeliveryStreamCommandInput}
- * @returns {@link DeleteDeliveryStreamCommandOutput}
+ * @param DeleteDeliveryStreamInput - {@link DeleteDeliveryStreamInput}
+ * @returns {@link DeleteDeliveryStreamOutput}
  * @see {@link DeleteDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

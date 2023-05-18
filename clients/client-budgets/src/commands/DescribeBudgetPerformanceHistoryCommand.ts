@@ -101,8 +101,8 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  *
  * ```
  *
- * @param DescribeBudgetPerformanceHistoryCommandInput - {@link DescribeBudgetPerformanceHistoryCommandInput}
- * @returns {@link DescribeBudgetPerformanceHistoryCommandOutput}
+ * @param DescribeBudgetPerformanceHistoryRequest - {@link DescribeBudgetPerformanceHistoryRequest}
+ * @returns {@link DescribeBudgetPerformanceHistoryResponse}
  * @see {@link DescribeBudgetPerformanceHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetPerformanceHistoryCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

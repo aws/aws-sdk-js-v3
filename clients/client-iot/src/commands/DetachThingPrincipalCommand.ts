@@ -56,8 +56,8 @@ export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalR
  *
  * ```
  *
- * @param DetachThingPrincipalCommandInput - {@link DetachThingPrincipalCommandInput}
- * @returns {@link DetachThingPrincipalCommandOutput}
+ * @param DetachThingPrincipalRequest - {@link DetachThingPrincipalRequest}
+ * @returns {@link DetachThingPrincipalResponse}
  * @see {@link DetachThingPrincipalCommandInput} for command's `input` shape.
  * @see {@link DetachThingPrincipalCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -61,8 +61,8 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  *
  * ```
  *
- * @param DisableHealthServiceAccessForOrganizationCommandInput - {@link DisableHealthServiceAccessForOrganizationCommandInput}
- * @returns {@link DisableHealthServiceAccessForOrganizationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link DisableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DisableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

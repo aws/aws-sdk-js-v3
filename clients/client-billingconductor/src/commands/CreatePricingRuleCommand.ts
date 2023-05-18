@@ -73,8 +73,8 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  *
  * ```
  *
- * @param CreatePricingRuleCommandInput - {@link CreatePricingRuleCommandInput}
- * @returns {@link CreatePricingRuleCommandOutput}
+ * @param CreatePricingRuleInput - {@link CreatePricingRuleInput}
+ * @returns {@link CreatePricingRuleOutput}
  * @see {@link CreatePricingRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

@@ -131,8 +131,8 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  *
  * ```
  *
- * @param StartEdgeConfigurationUpdateCommandInput - {@link StartEdgeConfigurationUpdateCommandInput}
- * @returns {@link StartEdgeConfigurationUpdateCommandOutput}
+ * @param StartEdgeConfigurationUpdateInput - {@link StartEdgeConfigurationUpdateInput}
+ * @returns {@link StartEdgeConfigurationUpdateOutput}
  * @see {@link StartEdgeConfigurationUpdateCommandInput} for command's `input` shape.
  * @see {@link StartEdgeConfigurationUpdateCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

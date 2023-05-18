@@ -58,8 +58,8 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  *
  * ```
  *
- * @param UpdateApiDestinationCommandInput - {@link UpdateApiDestinationCommandInput}
- * @returns {@link UpdateApiDestinationCommandOutput}
+ * @param UpdateApiDestinationRequest - {@link UpdateApiDestinationRequest}
+ * @returns {@link UpdateApiDestinationResponse}
  * @see {@link UpdateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

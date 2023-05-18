@@ -100,8 +100,8 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  *
  * ```
  *
- * @param DescribeWorkspacesCommandInput - {@link DescribeWorkspacesCommandInput}
- * @returns {@link DescribeWorkspacesCommandOutput}
+ * @param DescribeWorkspacesRequest - {@link DescribeWorkspacesRequest}
+ * @returns {@link DescribeWorkspacesResult}
  * @see {@link DescribeWorkspacesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

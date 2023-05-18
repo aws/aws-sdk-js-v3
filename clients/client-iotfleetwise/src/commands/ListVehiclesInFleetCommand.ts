@@ -58,8 +58,8 @@ export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetRes
  *
  * ```
  *
- * @param ListVehiclesInFleetCommandInput - {@link ListVehiclesInFleetCommandInput}
- * @returns {@link ListVehiclesInFleetCommandOutput}
+ * @param ListVehiclesInFleetRequest - {@link ListVehiclesInFleetRequest}
+ * @returns {@link ListVehiclesInFleetResponse}
  * @see {@link ListVehiclesInFleetCommandInput} for command's `input` shape.
  * @see {@link ListVehiclesInFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

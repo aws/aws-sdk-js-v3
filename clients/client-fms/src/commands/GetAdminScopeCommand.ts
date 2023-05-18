@@ -78,8 +78,8 @@ export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __Met
  *
  * ```
  *
- * @param GetAdminScopeCommandInput - {@link GetAdminScopeCommandInput}
- * @returns {@link GetAdminScopeCommandOutput}
+ * @param GetAdminScopeRequest - {@link GetAdminScopeRequest}
+ * @returns {@link GetAdminScopeResponse}
  * @see {@link GetAdminScopeCommandInput} for command's `input` shape.
  * @see {@link GetAdminScopeCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

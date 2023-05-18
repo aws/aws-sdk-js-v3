@@ -82,8 +82,8 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  *
  * ```
  *
- * @param DescribeLaunchTemplatesCommandInput - {@link DescribeLaunchTemplatesCommandInput}
- * @returns {@link DescribeLaunchTemplatesCommandOutput}
+ * @param DescribeLaunchTemplatesRequest - {@link DescribeLaunchTemplatesRequest}
+ * @returns {@link DescribeLaunchTemplatesResult}
  * @see {@link DescribeLaunchTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchTemplatesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

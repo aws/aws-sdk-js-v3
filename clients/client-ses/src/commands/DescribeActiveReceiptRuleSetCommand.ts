@@ -106,8 +106,8 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  *
  * ```
  *
- * @param DescribeActiveReceiptRuleSetCommandInput - {@link DescribeActiveReceiptRuleSetCommandInput}
- * @returns {@link DescribeActiveReceiptRuleSetCommandOutput}
+ * @param DescribeActiveReceiptRuleSetRequest - {@link DescribeActiveReceiptRuleSetRequest}
+ * @returns {@link DescribeActiveReceiptRuleSetResponse}
  * @see {@link DescribeActiveReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link DescribeActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

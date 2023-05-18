@@ -90,8 +90,8 @@ export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDep
  *
  * ```
  *
- * @param DescribeEdgeDeploymentPlanCommandInput - {@link DescribeEdgeDeploymentPlanCommandInput}
- * @returns {@link DescribeEdgeDeploymentPlanCommandOutput}
+ * @param DescribeEdgeDeploymentPlanRequest - {@link DescribeEdgeDeploymentPlanRequest}
+ * @returns {@link DescribeEdgeDeploymentPlanResponse}
  * @see {@link DescribeEdgeDeploymentPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeEdgeDeploymentPlanCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

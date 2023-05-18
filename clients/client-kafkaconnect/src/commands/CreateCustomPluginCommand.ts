@@ -62,8 +62,8 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  *
  * ```
  *
- * @param CreateCustomPluginCommandInput - {@link CreateCustomPluginCommandInput}
- * @returns {@link CreateCustomPluginCommandOutput}
+ * @param CreateCustomPluginRequest - {@link CreateCustomPluginRequest}
+ * @returns {@link CreateCustomPluginResponse}
  * @see {@link CreateCustomPluginCommandInput} for command's `input` shape.
  * @see {@link CreateCustomPluginCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

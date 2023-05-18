@@ -60,8 +60,8 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  *
  * ```
  *
- * @param UpdateNetworkProfileCommandInput - {@link UpdateNetworkProfileCommandInput}
- * @returns {@link UpdateNetworkProfileCommandOutput}
+ * @param UpdateNetworkProfileRequest - {@link UpdateNetworkProfileRequest}
+ * @returns {@link UpdateNetworkProfileResponse}
  * @see {@link UpdateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

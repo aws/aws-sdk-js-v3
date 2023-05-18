@@ -70,8 +70,8 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *
  * ```
  *
- * @param CreateEnvironmentEC2CommandInput - {@link CreateEnvironmentEC2CommandInput}
- * @returns {@link CreateEnvironmentEC2CommandOutput}
+ * @param CreateEnvironmentEC2Request - {@link CreateEnvironmentEC2Request}
+ * @returns {@link CreateEnvironmentEC2Result}
  * @see {@link CreateEnvironmentEC2CommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentEC2CommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

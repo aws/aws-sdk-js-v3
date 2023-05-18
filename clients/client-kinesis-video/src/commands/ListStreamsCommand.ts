@@ -70,8 +70,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *
  * ```
  *
- * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
- * @returns {@link ListStreamsCommandOutput}
+ * @param ListStreamsInput - {@link ListStreamsInput}
+ * @returns {@link ListStreamsOutput}
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

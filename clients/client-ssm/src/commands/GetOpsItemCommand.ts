@@ -93,8 +93,8 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  *
  * ```
  *
- * @param GetOpsItemCommandInput - {@link GetOpsItemCommandInput}
- * @returns {@link GetOpsItemCommandOutput}
+ * @param GetOpsItemRequest - {@link GetOpsItemRequest}
+ * @returns {@link GetOpsItemResponse}
  * @see {@link GetOpsItemCommandInput} for command's `input` shape.
  * @see {@link GetOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -256,8 +256,8 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *
  * ```
  *
- * @param SendUsersMessagesCommandInput - {@link SendUsersMessagesCommandInput}
- * @returns {@link SendUsersMessagesCommandOutput}
+ * @param SendUsersMessagesRequest - {@link SendUsersMessagesRequest}
+ * @returns {@link SendUsersMessagesResponse}
  * @see {@link SendUsersMessagesCommandInput} for command's `input` shape.
  * @see {@link SendUsersMessagesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

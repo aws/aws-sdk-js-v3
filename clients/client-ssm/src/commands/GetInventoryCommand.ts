@@ -116,8 +116,8 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  *
  * ```
  *
- * @param GetInventoryCommandInput - {@link GetInventoryCommandInput}
- * @returns {@link GetInventoryCommandOutput}
+ * @param GetInventoryRequest - {@link GetInventoryRequest}
+ * @returns {@link GetInventoryResult}
  * @see {@link GetInventoryCommandInput} for command's `input` shape.
  * @see {@link GetInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

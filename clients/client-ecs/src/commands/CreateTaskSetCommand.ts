@@ -166,8 +166,8 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *
  * ```
  *
- * @param CreateTaskSetCommandInput - {@link CreateTaskSetCommandInput}
- * @returns {@link CreateTaskSetCommandOutput}
+ * @param CreateTaskSetRequest - {@link CreateTaskSetRequest}
+ * @returns {@link CreateTaskSetResponse}
  * @see {@link CreateTaskSetCommandInput} for command's `input` shape.
  * @see {@link CreateTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

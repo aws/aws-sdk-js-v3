@@ -95,8 +95,8 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  *
  * ```
  *
- * @param AddFlowMediaStreamsCommandInput - {@link AddFlowMediaStreamsCommandInput}
- * @returns {@link AddFlowMediaStreamsCommandOutput}
+ * @param AddFlowMediaStreamsRequest - {@link AddFlowMediaStreamsRequest}
+ * @returns {@link AddFlowMediaStreamsResponse}
  * @see {@link AddFlowMediaStreamsCommandInput} for command's `input` shape.
  * @see {@link AddFlowMediaStreamsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

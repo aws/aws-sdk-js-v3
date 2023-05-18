@@ -56,8 +56,8 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  *
  * ```
  *
- * @param UpdateFleetCommandInput - {@link UpdateFleetCommandInput}
- * @returns {@link UpdateFleetCommandOutput}
+ * @param UpdateFleetRequest - {@link UpdateFleetRequest}
+ * @returns {@link UpdateFleetResponse}
  * @see {@link UpdateFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

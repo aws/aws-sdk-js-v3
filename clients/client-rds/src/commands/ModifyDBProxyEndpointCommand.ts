@@ -70,8 +70,8 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  *
  * ```
  *
- * @param ModifyDBProxyEndpointCommandInput - {@link ModifyDBProxyEndpointCommandInput}
- * @returns {@link ModifyDBProxyEndpointCommandOutput}
+ * @param ModifyDBProxyEndpointRequest - {@link ModifyDBProxyEndpointRequest}
+ * @returns {@link ModifyDBProxyEndpointResponse}
  * @see {@link ModifyDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

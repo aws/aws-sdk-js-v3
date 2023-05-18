@@ -48,8 +48,8 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  *
  * ```
  *
- * @param StartJobCommandInput - {@link StartJobCommandInput}
- * @returns {@link StartJobCommandOutput}
+ * @param StartJobRequest - {@link StartJobRequest}
+ * @returns {@link StartJobResponse}
  * @see {@link StartJobCommandInput} for command's `input` shape.
  * @see {@link StartJobCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

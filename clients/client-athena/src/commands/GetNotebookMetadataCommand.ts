@@ -57,8 +57,8 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  *
  * ```
  *
- * @param GetNotebookMetadataCommandInput - {@link GetNotebookMetadataCommandInput}
- * @returns {@link GetNotebookMetadataCommandOutput}
+ * @param GetNotebookMetadataInput - {@link GetNotebookMetadataInput}
+ * @returns {@link GetNotebookMetadataOutput}
  * @see {@link GetNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link GetNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

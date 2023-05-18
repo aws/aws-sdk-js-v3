@@ -92,8 +92,8 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  *
  * ```
  *
- * @param BatchCreateDelegationByAssessmentCommandInput - {@link BatchCreateDelegationByAssessmentCommandInput}
- * @returns {@link BatchCreateDelegationByAssessmentCommandOutput}
+ * @param BatchCreateDelegationByAssessmentRequest - {@link BatchCreateDelegationByAssessmentRequest}
+ * @returns {@link BatchCreateDelegationByAssessmentResponse}
  * @see {@link BatchCreateDelegationByAssessmentCommandInput} for command's `input` shape.
  * @see {@link BatchCreateDelegationByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

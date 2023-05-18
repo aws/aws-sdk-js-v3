@@ -290,8 +290,8 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  *
  * ```
  *
- * @param CreateConnectorProfileCommandInput - {@link CreateConnectorProfileCommandInput}
- * @returns {@link CreateConnectorProfileCommandOutput}
+ * @param CreateConnectorProfileRequest - {@link CreateConnectorProfileRequest}
+ * @returns {@link CreateConnectorProfileResponse}
  * @see {@link CreateConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorProfileCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

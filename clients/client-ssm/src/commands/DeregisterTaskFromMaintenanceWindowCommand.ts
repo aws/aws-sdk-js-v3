@@ -60,8 +60,8 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  *
  * ```
  *
- * @param DeregisterTaskFromMaintenanceWindowCommandInput - {@link DeregisterTaskFromMaintenanceWindowCommandInput}
- * @returns {@link DeregisterTaskFromMaintenanceWindowCommandOutput}
+ * @param DeregisterTaskFromMaintenanceWindowRequest - {@link DeregisterTaskFromMaintenanceWindowRequest}
+ * @returns {@link DeregisterTaskFromMaintenanceWindowResult}
  * @see {@link DeregisterTaskFromMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeregisterTaskFromMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

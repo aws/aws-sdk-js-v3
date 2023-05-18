@@ -51,8 +51,8 @@ export interface AssociateSourceServersCommandOutput extends AssociateSourceServ
  *
  * ```
  *
- * @param AssociateSourceServersCommandInput - {@link AssociateSourceServersCommandInput}
- * @returns {@link AssociateSourceServersCommandOutput}
+ * @param AssociateSourceServersRequest - {@link AssociateSourceServersRequest}
+ * @returns {@link AssociateSourceServersResponse}
  * @see {@link AssociateSourceServersCommandInput} for command's `input` shape.
  * @see {@link AssociateSourceServersCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

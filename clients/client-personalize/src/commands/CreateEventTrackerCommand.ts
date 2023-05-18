@@ -103,8 +103,8 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  *
  * ```
  *
- * @param CreateEventTrackerCommandInput - {@link CreateEventTrackerCommandInput}
- * @returns {@link CreateEventTrackerCommandOutput}
+ * @param CreateEventTrackerRequest - {@link CreateEventTrackerRequest}
+ * @returns {@link CreateEventTrackerResponse}
  * @see {@link CreateEventTrackerCommandInput} for command's `input` shape.
  * @see {@link CreateEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

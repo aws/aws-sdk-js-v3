@@ -57,8 +57,8 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  *
  * ```
  *
- * @param DescribeEntityAggregatesCommandInput - {@link DescribeEntityAggregatesCommandInput}
- * @returns {@link DescribeEntityAggregatesCommandOutput}
+ * @param DescribeEntityAggregatesRequest - {@link DescribeEntityAggregatesRequest}
+ * @returns {@link DescribeEntityAggregatesResponse}
  * @see {@link DescribeEntityAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

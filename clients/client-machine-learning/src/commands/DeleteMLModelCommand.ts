@@ -55,8 +55,8 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  *
  * ```
  *
- * @param DeleteMLModelCommandInput - {@link DeleteMLModelCommandInput}
- * @returns {@link DeleteMLModelCommandOutput}
+ * @param DeleteMLModelInput - {@link DeleteMLModelInput}
+ * @returns {@link DeleteMLModelOutput}
  * @see {@link DeleteMLModelCommandInput} for command's `input` shape.
  * @see {@link DeleteMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

@@ -64,8 +64,8 @@ export interface SubmitAttachmentStateChangesCommandOutput
  *
  * ```
  *
- * @param SubmitAttachmentStateChangesCommandInput - {@link SubmitAttachmentStateChangesCommandInput}
- * @returns {@link SubmitAttachmentStateChangesCommandOutput}
+ * @param SubmitAttachmentStateChangesRequest - {@link SubmitAttachmentStateChangesRequest}
+ * @returns {@link SubmitAttachmentStateChangesResponse}
  * @see {@link SubmitAttachmentStateChangesCommandInput} for command's `input` shape.
  * @see {@link SubmitAttachmentStateChangesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

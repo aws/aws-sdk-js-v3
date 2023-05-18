@@ -53,8 +53,8 @@ export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteRouteRequestParameterCommandInput - {@link DeleteRouteRequestParameterCommandInput}
- * @returns {@link DeleteRouteRequestParameterCommandOutput}
+ * @param DeleteRouteRequestParameterRequest - {@link DeleteRouteRequestParameterRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRouteRequestParameterCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteRequestParameterCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

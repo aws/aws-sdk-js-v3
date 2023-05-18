@@ -50,8 +50,8 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  *
  * ```
  *
- * @param DeleteFindingAggregatorCommandInput - {@link DeleteFindingAggregatorCommandInput}
- * @returns {@link DeleteFindingAggregatorCommandOutput}
+ * @param DeleteFindingAggregatorRequest - {@link DeleteFindingAggregatorRequest}
+ * @returns {@link DeleteFindingAggregatorResponse}
  * @see {@link DeleteFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link DeleteFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

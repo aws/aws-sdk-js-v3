@@ -89,8 +89,8 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeReservedDBInstancesOfferingsCommandInput - {@link DescribeReservedDBInstancesOfferingsCommandInput}
- * @returns {@link DescribeReservedDBInstancesOfferingsCommandOutput}
+ * @param DescribeReservedDBInstancesOfferingsMessage - {@link DescribeReservedDBInstancesOfferingsMessage}
+ * @returns {@link ReservedDBInstancesOfferingMessage}
  * @see {@link DescribeReservedDBInstancesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedDBInstancesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

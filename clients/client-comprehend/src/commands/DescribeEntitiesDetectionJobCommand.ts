@@ -92,8 +92,8 @@ export interface DescribeEntitiesDetectionJobCommandOutput
  *
  * ```
  *
- * @param DescribeEntitiesDetectionJobCommandInput - {@link DescribeEntitiesDetectionJobCommandInput}
- * @returns {@link DescribeEntitiesDetectionJobCommandOutput}
+ * @param DescribeEntitiesDetectionJobRequest - {@link DescribeEntitiesDetectionJobRequest}
+ * @returns {@link DescribeEntitiesDetectionJobResponse}
  * @see {@link DescribeEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

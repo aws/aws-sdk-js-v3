@@ -69,8 +69,8 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  *
  * ```
  *
- * @param ListCodeSigningConfigsCommandInput - {@link ListCodeSigningConfigsCommandInput}
- * @returns {@link ListCodeSigningConfigsCommandOutput}
+ * @param ListCodeSigningConfigsRequest - {@link ListCodeSigningConfigsRequest}
+ * @returns {@link ListCodeSigningConfigsResponse}
  * @see {@link ListCodeSigningConfigsCommandInput} for command's `input` shape.
  * @see {@link ListCodeSigningConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

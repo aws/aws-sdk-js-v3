@@ -60,8 +60,8 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  *
  * ```
  *
- * @param DescribeConnectClientAddInsCommandInput - {@link DescribeConnectClientAddInsCommandInput}
- * @returns {@link DescribeConnectClientAddInsCommandOutput}
+ * @param DescribeConnectClientAddInsRequest - {@link DescribeConnectClientAddInsRequest}
+ * @returns {@link DescribeConnectClientAddInsResult}
  * @see {@link DescribeConnectClientAddInsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectClientAddInsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -85,8 +85,8 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *
  * ```
  *
- * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
- * @returns {@link CreateClusterCommandOutput}
+ * @param CreateClusterInput - {@link CreateClusterInput}
+ * @returns {@link CreateClusterOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

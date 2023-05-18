@@ -66,8 +66,8 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  *
  * ```
  *
- * @param ListImagesInRecycleBinCommandInput - {@link ListImagesInRecycleBinCommandInput}
- * @returns {@link ListImagesInRecycleBinCommandOutput}
+ * @param ListImagesInRecycleBinRequest - {@link ListImagesInRecycleBinRequest}
+ * @returns {@link ListImagesInRecycleBinResult}
  * @see {@link ListImagesInRecycleBinCommandInput} for command's `input` shape.
  * @see {@link ListImagesInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

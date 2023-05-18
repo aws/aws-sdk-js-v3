@@ -54,8 +54,8 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  *
  * ```
  *
- * @param GetAuthPolicyCommandInput - {@link GetAuthPolicyCommandInput}
- * @returns {@link GetAuthPolicyCommandOutput}
+ * @param GetAuthPolicyRequest - {@link GetAuthPolicyRequest}
+ * @returns {@link GetAuthPolicyResponse}
  * @see {@link GetAuthPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAuthPolicyCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

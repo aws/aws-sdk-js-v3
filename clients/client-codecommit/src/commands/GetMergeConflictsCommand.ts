@@ -94,8 +94,8 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  *
  * ```
  *
- * @param GetMergeConflictsCommandInput - {@link GetMergeConflictsCommandInput}
- * @returns {@link GetMergeConflictsCommandOutput}
+ * @param GetMergeConflictsInput - {@link GetMergeConflictsInput}
+ * @returns {@link GetMergeConflictsOutput}
  * @see {@link GetMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link GetMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

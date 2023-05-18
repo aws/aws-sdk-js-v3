@@ -56,8 +56,8 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  *
  * ```
  *
- * @param VerifyDomainIdentityCommandInput - {@link VerifyDomainIdentityCommandInput}
- * @returns {@link VerifyDomainIdentityCommandOutput}
+ * @param VerifyDomainIdentityRequest - {@link VerifyDomainIdentityRequest}
+ * @returns {@link VerifyDomainIdentityResponse}
  * @see {@link VerifyDomainIdentityCommandInput} for command's `input` shape.
  * @see {@link VerifyDomainIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

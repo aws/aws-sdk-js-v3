@@ -63,8 +63,8 @@ export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __M
  *
  * ```
  *
- * @param ListFraudstersCommandInput - {@link ListFraudstersCommandInput}
- * @returns {@link ListFraudstersCommandOutput}
+ * @param ListFraudstersRequest - {@link ListFraudstersRequest}
+ * @returns {@link ListFraudstersResponse}
  * @see {@link ListFraudstersCommandInput} for command's `input` shape.
  * @see {@link ListFraudstersCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

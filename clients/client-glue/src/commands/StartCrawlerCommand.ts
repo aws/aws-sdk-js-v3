@@ -50,8 +50,8 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  *
  * ```
  *
- * @param StartCrawlerCommandInput - {@link StartCrawlerCommandInput}
- * @returns {@link StartCrawlerCommandOutput}
+ * @param StartCrawlerRequest - {@link StartCrawlerRequest}
+ * @returns {@link StartCrawlerResponse}
  * @see {@link StartCrawlerCommandInput} for command's `input` shape.
  * @see {@link StartCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -58,8 +58,8 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  *
  * ```
  *
- * @param GetConnectInstanceConfigCommandInput - {@link GetConnectInstanceConfigCommandInput}
- * @returns {@link GetConnectInstanceConfigCommandOutput}
+ * @param GetConnectInstanceConfigRequest - {@link GetConnectInstanceConfigRequest}
+ * @returns {@link GetConnectInstanceConfigResponse}
  * @see {@link GetConnectInstanceConfigCommandInput} for command's `input` shape.
  * @see {@link GetConnectInstanceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

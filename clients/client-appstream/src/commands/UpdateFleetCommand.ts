@@ -160,8 +160,8 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *
  * ```
  *
- * @param UpdateFleetCommandInput - {@link UpdateFleetCommandInput}
- * @returns {@link UpdateFleetCommandOutput}
+ * @param UpdateFleetRequest - {@link UpdateFleetRequest}
+ * @returns {@link UpdateFleetResult}
  * @see {@link UpdateFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

@@ -66,8 +66,8 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput
  *
  * ```
  *
- * @param AssociateTransitGatewayPolicyTableCommandInput - {@link AssociateTransitGatewayPolicyTableCommandInput}
- * @returns {@link AssociateTransitGatewayPolicyTableCommandOutput}
+ * @param AssociateTransitGatewayPolicyTableRequest - {@link AssociateTransitGatewayPolicyTableRequest}
+ * @returns {@link AssociateTransitGatewayPolicyTableResult}
  * @see {@link AssociateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -264,8 +264,8 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  *
  * ```
  *
- * @param ModifyRuleCommandInput - {@link ModifyRuleCommandInput}
- * @returns {@link ModifyRuleCommandOutput}
+ * @param ModifyRuleInput - {@link ModifyRuleInput}
+ * @returns {@link ModifyRuleOutput}
  * @see {@link ModifyRuleCommandInput} for command's `input` shape.
  * @see {@link ModifyRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

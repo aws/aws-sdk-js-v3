@@ -141,8 +141,8 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  *
  * ```
  *
- * @param PromoteReadReplicaDBClusterCommandInput - {@link PromoteReadReplicaDBClusterCommandInput}
- * @returns {@link PromoteReadReplicaDBClusterCommandOutput}
+ * @param PromoteReadReplicaDBClusterMessage - {@link PromoteReadReplicaDBClusterMessage}
+ * @returns {@link PromoteReadReplicaDBClusterResult}
  * @see {@link PromoteReadReplicaDBClusterCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

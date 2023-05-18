@@ -66,8 +66,8 @@ export interface PutRecommendationPreferencesCommandOutput
  *
  * ```
  *
- * @param PutRecommendationPreferencesCommandInput - {@link PutRecommendationPreferencesCommandInput}
- * @returns {@link PutRecommendationPreferencesCommandOutput}
+ * @param PutRecommendationPreferencesRequest - {@link PutRecommendationPreferencesRequest}
+ * @returns {@link PutRecommendationPreferencesResponse}
  * @see {@link PutRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

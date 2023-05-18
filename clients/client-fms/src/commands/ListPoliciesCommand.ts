@@ -63,8 +63,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *
  * ```
  *
- * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
- * @returns {@link ListPoliciesCommandOutput}
+ * @param ListPoliciesRequest - {@link ListPoliciesRequest}
+ * @returns {@link ListPoliciesResponse}
  * @see {@link ListPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

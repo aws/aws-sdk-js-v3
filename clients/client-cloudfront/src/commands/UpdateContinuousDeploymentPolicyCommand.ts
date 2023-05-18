@@ -127,8 +127,8 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  *
  * ```
  *
- * @param UpdateContinuousDeploymentPolicyCommandInput - {@link UpdateContinuousDeploymentPolicyCommandInput}
- * @returns {@link UpdateContinuousDeploymentPolicyCommandOutput}
+ * @param UpdateContinuousDeploymentPolicyRequest - {@link UpdateContinuousDeploymentPolicyRequest}
+ * @returns {@link UpdateContinuousDeploymentPolicyResult}
  * @see {@link UpdateContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

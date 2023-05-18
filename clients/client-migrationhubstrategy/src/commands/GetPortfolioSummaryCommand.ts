@@ -103,8 +103,8 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  *
  * ```
  *
- * @param GetPortfolioSummaryCommandInput - {@link GetPortfolioSummaryCommandInput}
- * @returns {@link GetPortfolioSummaryCommandOutput}
+ * @param GetPortfolioSummaryRequest - {@link GetPortfolioSummaryRequest}
+ * @returns {@link GetPortfolioSummaryResponse}
  * @see {@link GetPortfolioSummaryCommandInput} for command's `input` shape.
  * @see {@link GetPortfolioSummaryCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

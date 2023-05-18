@@ -92,8 +92,8 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  *
  * ```
  *
- * @param DescribeEngineDefaultClusterParametersCommandInput - {@link DescribeEngineDefaultClusterParametersCommandInput}
- * @returns {@link DescribeEngineDefaultClusterParametersCommandOutput}
+ * @param DescribeEngineDefaultClusterParametersMessage - {@link DescribeEngineDefaultClusterParametersMessage}
+ * @returns {@link DescribeEngineDefaultClusterParametersResult}
  * @see {@link DescribeEngineDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

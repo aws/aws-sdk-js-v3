@@ -97,8 +97,8 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteStreamingDistributionCommandInput - {@link DeleteStreamingDistributionCommandInput}
- * @returns {@link DeleteStreamingDistributionCommandOutput}
+ * @param DeleteStreamingDistributionRequest - {@link DeleteStreamingDistributionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -73,8 +73,8 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  *
  * ```
  *
- * @param ListCheckDetailsCommandInput - {@link ListCheckDetailsCommandInput}
- * @returns {@link ListCheckDetailsCommandOutput}
+ * @param ListCheckDetailsInput - {@link ListCheckDetailsInput}
+ * @returns {@link ListCheckDetailsOutput}
  * @see {@link ListCheckDetailsCommandInput} for command's `input` shape.
  * @see {@link ListCheckDetailsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

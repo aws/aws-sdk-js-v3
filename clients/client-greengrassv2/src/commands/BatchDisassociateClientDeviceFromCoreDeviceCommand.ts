@@ -72,8 +72,8 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
  *
  * ```
  *
- * @param BatchDisassociateClientDeviceFromCoreDeviceCommandInput - {@link BatchDisassociateClientDeviceFromCoreDeviceCommandInput}
- * @returns {@link BatchDisassociateClientDeviceFromCoreDeviceCommandOutput}
+ * @param BatchDisassociateClientDeviceFromCoreDeviceRequest - {@link BatchDisassociateClientDeviceFromCoreDeviceRequest}
+ * @returns {@link BatchDisassociateClientDeviceFromCoreDeviceResponse}
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateClientDeviceFromCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

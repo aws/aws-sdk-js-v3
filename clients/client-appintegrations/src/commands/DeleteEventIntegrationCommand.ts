@@ -49,8 +49,8 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  *
  * ```
  *
- * @param DeleteEventIntegrationCommandInput - {@link DeleteEventIntegrationCommandInput}
- * @returns {@link DeleteEventIntegrationCommandOutput}
+ * @param DeleteEventIntegrationRequest - {@link DeleteEventIntegrationRequest}
+ * @returns {@link DeleteEventIntegrationResponse}
  * @see {@link DeleteEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

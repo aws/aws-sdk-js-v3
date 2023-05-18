@@ -61,8 +61,8 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  *
  * ```
  *
- * @param ListDomainConfigurationsCommandInput - {@link ListDomainConfigurationsCommandInput}
- * @returns {@link ListDomainConfigurationsCommandOutput}
+ * @param ListDomainConfigurationsRequest - {@link ListDomainConfigurationsRequest}
+ * @returns {@link ListDomainConfigurationsResponse}
  * @see {@link ListDomainConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListDomainConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

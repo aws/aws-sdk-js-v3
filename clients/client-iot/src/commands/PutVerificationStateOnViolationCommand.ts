@@ -55,8 +55,8 @@ export interface PutVerificationStateOnViolationCommandOutput
  *
  * ```
  *
- * @param PutVerificationStateOnViolationCommandInput - {@link PutVerificationStateOnViolationCommandInput}
- * @returns {@link PutVerificationStateOnViolationCommandOutput}
+ * @param PutVerificationStateOnViolationRequest - {@link PutVerificationStateOnViolationRequest}
+ * @returns {@link PutVerificationStateOnViolationResponse}
  * @see {@link PutVerificationStateOnViolationCommandInput} for command's `input` shape.
  * @see {@link PutVerificationStateOnViolationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

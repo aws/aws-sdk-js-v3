@@ -138,8 +138,8 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  *
  * ```
  *
- * @param DescribeDataRepositoryAssociationsCommandInput - {@link DescribeDataRepositoryAssociationsCommandInput}
- * @returns {@link DescribeDataRepositoryAssociationsCommandOutput}
+ * @param DescribeDataRepositoryAssociationsRequest - {@link DescribeDataRepositoryAssociationsRequest}
+ * @returns {@link DescribeDataRepositoryAssociationsResponse}
  * @see {@link DescribeDataRepositoryAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataRepositoryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

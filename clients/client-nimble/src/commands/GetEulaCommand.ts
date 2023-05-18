@@ -56,8 +56,8 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetEulaCommandInput - {@link GetEulaCommandInput}
- * @returns {@link GetEulaCommandOutput}
+ * @param GetEulaRequest - {@link GetEulaRequest}
+ * @returns {@link GetEulaResponse}
  * @see {@link GetEulaCommandInput} for command's `input` shape.
  * @see {@link GetEulaCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

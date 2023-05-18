@@ -84,8 +84,8 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  *
  * ```
  *
- * @param StartInstancesCommandInput - {@link StartInstancesCommandInput}
- * @returns {@link StartInstancesCommandOutput}
+ * @param StartInstancesRequest - {@link StartInstancesRequest}
+ * @returns {@link StartInstancesResult}
  * @see {@link StartInstancesCommandInput} for command's `input` shape.
  * @see {@link StartInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

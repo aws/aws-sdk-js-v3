@@ -59,8 +59,8 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  *
  * ```
  *
- * @param GetGroupCommandInput - {@link GetGroupCommandInput}
- * @returns {@link GetGroupCommandOutput}
+ * @param GetGroupRequest - {@link GetGroupRequest}
+ * @returns {@link GetGroupResult}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

@@ -62,8 +62,8 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  *
  * ```
  *
- * @param GetGcmChannelCommandInput - {@link GetGcmChannelCommandInput}
- * @returns {@link GetGcmChannelCommandOutput}
+ * @param GetGcmChannelRequest - {@link GetGcmChannelRequest}
+ * @returns {@link GetGcmChannelResponse}
  * @see {@link GetGcmChannelCommandInput} for command's `input` shape.
  * @see {@link GetGcmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -75,8 +75,8 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  *
  * ```
  *
- * @param UpdateDistributionBundleCommandInput - {@link UpdateDistributionBundleCommandInput}
- * @returns {@link UpdateDistributionBundleCommandOutput}
+ * @param UpdateDistributionBundleRequest - {@link UpdateDistributionBundleRequest}
+ * @returns {@link UpdateDistributionBundleResult}
  * @see {@link UpdateDistributionBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionBundleCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

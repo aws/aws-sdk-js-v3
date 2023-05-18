@@ -69,8 +69,8 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  *
  * ```
  *
- * @param ListProposalsCommandInput - {@link ListProposalsCommandInput}
- * @returns {@link ListProposalsCommandOutput}
+ * @param ListProposalsInput - {@link ListProposalsInput}
+ * @returns {@link ListProposalsOutput}
  * @see {@link ListProposalsCommandInput} for command's `input` shape.
  * @see {@link ListProposalsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

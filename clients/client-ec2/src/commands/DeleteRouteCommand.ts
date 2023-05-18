@@ -52,8 +52,8 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
- * @returns {@link DeleteRouteCommandOutput}
+ * @param DeleteRouteRequest - {@link DeleteRouteRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

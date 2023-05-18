@@ -119,8 +119,8 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  *
  * ```
  *
- * @param GetPipelineCommandInput - {@link GetPipelineCommandInput}
- * @returns {@link GetPipelineCommandOutput}
+ * @param GetPipelineInput - {@link GetPipelineInput}
+ * @returns {@link GetPipelineOutput}
  * @see {@link GetPipelineCommandInput} for command's `input` shape.
  * @see {@link GetPipelineCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

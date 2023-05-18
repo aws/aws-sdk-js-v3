@@ -55,8 +55,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  *
  * ```
  *
- * @param ListGroupResourcesCommandInput - {@link ListGroupResourcesCommandInput}
- * @returns {@link ListGroupResourcesCommandOutput}
+ * @param ListGroupResourcesRequest - {@link ListGroupResourcesRequest}
+ * @returns {@link ListGroupResourcesResponse}
  * @see {@link ListGroupResourcesCommandInput} for command's `input` shape.
  * @see {@link ListGroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

@@ -95,8 +95,8 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  *
  * ```
  *
- * @param CreateConnectPeerCommandInput - {@link CreateConnectPeerCommandInput}
- * @returns {@link CreateConnectPeerCommandOutput}
+ * @param CreateConnectPeerRequest - {@link CreateConnectPeerRequest}
+ * @returns {@link CreateConnectPeerResponse}
  * @see {@link CreateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link CreateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

@@ -53,8 +53,8 @@ export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __Met
  *
  * ```
  *
- * @param PutUserStatusCommandInput - {@link PutUserStatusCommandInput}
- * @returns {@link PutUserStatusCommandOutput}
+ * @param PutUserStatusRequest - {@link PutUserStatusRequest}
+ * @returns {@link PutUserStatusResponse}
  * @see {@link PutUserStatusCommandInput} for command's `input` shape.
  * @see {@link PutUserStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

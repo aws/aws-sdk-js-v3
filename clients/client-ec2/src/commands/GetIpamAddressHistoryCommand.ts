@@ -72,8 +72,8 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  *
  * ```
  *
- * @param GetIpamAddressHistoryCommandInput - {@link GetIpamAddressHistoryCommandInput}
- * @returns {@link GetIpamAddressHistoryCommandOutput}
+ * @param GetIpamAddressHistoryRequest - {@link GetIpamAddressHistoryRequest}
+ * @returns {@link GetIpamAddressHistoryResult}
  * @see {@link GetIpamAddressHistoryCommandInput} for command's `input` shape.
  * @see {@link GetIpamAddressHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

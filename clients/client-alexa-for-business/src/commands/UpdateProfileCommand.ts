@@ -78,8 +78,8 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  *
  * ```
  *
- * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
- * @returns {@link UpdateProfileCommandOutput}
+ * @param UpdateProfileRequest - {@link UpdateProfileRequest}
+ * @returns {@link UpdateProfileResponse}
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

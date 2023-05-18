@@ -70,8 +70,8 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  *
  * ```
  *
- * @param CreateTapeWithBarcodeCommandInput - {@link CreateTapeWithBarcodeCommandInput}
- * @returns {@link CreateTapeWithBarcodeCommandOutput}
+ * @param CreateTapeWithBarcodeInput - {@link CreateTapeWithBarcodeInput}
+ * @returns {@link CreateTapeWithBarcodeOutput}
  * @see {@link CreateTapeWithBarcodeCommandInput} for command's `input` shape.
  * @see {@link CreateTapeWithBarcodeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

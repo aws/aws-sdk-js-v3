@@ -63,8 +63,8 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  *
  * ```
  *
- * @param ListZonalShiftsCommandInput - {@link ListZonalShiftsCommandInput}
- * @returns {@link ListZonalShiftsCommandOutput}
+ * @param ListZonalShiftsRequest - {@link ListZonalShiftsRequest}
+ * @returns {@link ListZonalShiftsResponse}
  * @see {@link ListZonalShiftsCommandInput} for command's `input` shape.
  * @see {@link ListZonalShiftsCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.

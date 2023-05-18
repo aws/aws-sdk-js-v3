@@ -120,8 +120,8 @@ export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
  *
  * ```
  *
- * @param PutMethodCommandInput - {@link PutMethodCommandInput}
- * @returns {@link PutMethodCommandOutput}
+ * @param PutMethodRequest - {@link PutMethodRequest}
+ * @returns {@link Method}
  * @see {@link PutMethodCommandInput} for command's `input` shape.
  * @see {@link PutMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

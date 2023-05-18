@@ -83,8 +83,8 @@ export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput,
  *
  * ```
  *
- * @param DescribeBackupJobCommandInput - {@link DescribeBackupJobCommandInput}
- * @returns {@link DescribeBackupJobCommandOutput}
+ * @param DescribeBackupJobInput - {@link DescribeBackupJobInput}
+ * @returns {@link DescribeBackupJobOutput}
  * @see {@link DescribeBackupJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

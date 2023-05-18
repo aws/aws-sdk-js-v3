@@ -82,8 +82,8 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  *
  * ```
  *
- * @param DeleteDirectConnectGatewayAssociationCommandInput - {@link DeleteDirectConnectGatewayAssociationCommandInput}
- * @returns {@link DeleteDirectConnectGatewayAssociationCommandOutput}
+ * @param DeleteDirectConnectGatewayAssociationRequest - {@link DeleteDirectConnectGatewayAssociationRequest}
+ * @returns {@link DeleteDirectConnectGatewayAssociationResult}
  * @see {@link DeleteDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

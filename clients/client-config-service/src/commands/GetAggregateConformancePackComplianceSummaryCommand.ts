@@ -79,8 +79,8 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
  *
  * ```
  *
- * @param GetAggregateConformancePackComplianceSummaryCommandInput - {@link GetAggregateConformancePackComplianceSummaryCommandInput}
- * @returns {@link GetAggregateConformancePackComplianceSummaryCommandOutput}
+ * @param GetAggregateConformancePackComplianceSummaryRequest - {@link GetAggregateConformancePackComplianceSummaryRequest}
+ * @returns {@link GetAggregateConformancePackComplianceSummaryResponse}
  * @see {@link GetAggregateConformancePackComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAggregateConformancePackComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

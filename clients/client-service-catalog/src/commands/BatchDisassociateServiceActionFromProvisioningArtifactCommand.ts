@@ -74,8 +74,8 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  *
  * ```
  *
- * @param BatchDisassociateServiceActionFromProvisioningArtifactCommandInput - {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput}
- * @returns {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput}
+ * @param BatchDisassociateServiceActionFromProvisioningArtifactInput - {@link BatchDisassociateServiceActionFromProvisioningArtifactInput}
+ * @returns {@link BatchDisassociateServiceActionFromProvisioningArtifactOutput}
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

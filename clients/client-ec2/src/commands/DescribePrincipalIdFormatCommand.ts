@@ -84,8 +84,8 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  *
  * ```
  *
- * @param DescribePrincipalIdFormatCommandInput - {@link DescribePrincipalIdFormatCommandInput}
- * @returns {@link DescribePrincipalIdFormatCommandOutput}
+ * @param DescribePrincipalIdFormatRequest - {@link DescribePrincipalIdFormatRequest}
+ * @returns {@link DescribePrincipalIdFormatResult}
  * @see {@link DescribePrincipalIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribePrincipalIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -74,8 +74,8 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
  *
  * ```
  *
- * @param UpdatePullRequestApprovalRuleContentCommandInput - {@link UpdatePullRequestApprovalRuleContentCommandInput}
- * @returns {@link UpdatePullRequestApprovalRuleContentCommandOutput}
+ * @param UpdatePullRequestApprovalRuleContentInput - {@link UpdatePullRequestApprovalRuleContentInput}
+ * @returns {@link UpdatePullRequestApprovalRuleContentOutput}
  * @see {@link UpdatePullRequestApprovalRuleContentCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestApprovalRuleContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

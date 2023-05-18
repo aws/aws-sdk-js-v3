@@ -77,8 +77,8 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  *
  * ```
  *
- * @param ListTokensCommandInput - {@link ListTokensCommandInput}
- * @returns {@link ListTokensCommandOutput}
+ * @param ListTokensRequest - {@link ListTokensRequest}
+ * @returns {@link ListTokensResponse}
  * @see {@link ListTokensCommandInput} for command's `input` shape.
  * @see {@link ListTokensCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

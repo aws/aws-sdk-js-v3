@@ -89,8 +89,8 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  *
  * ```
  *
- * @param UpdateAttendeeCapabilitiesCommandInput - {@link UpdateAttendeeCapabilitiesCommandInput}
- * @returns {@link UpdateAttendeeCapabilitiesCommandOutput}
+ * @param UpdateAttendeeCapabilitiesRequest - {@link UpdateAttendeeCapabilitiesRequest}
+ * @returns {@link UpdateAttendeeCapabilitiesResponse}
  * @see {@link UpdateAttendeeCapabilitiesCommandInput} for command's `input` shape.
  * @see {@link UpdateAttendeeCapabilitiesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

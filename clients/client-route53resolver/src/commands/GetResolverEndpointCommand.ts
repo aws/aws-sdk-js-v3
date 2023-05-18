@@ -67,8 +67,8 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
  *
  * ```
  *
- * @param GetResolverEndpointCommandInput - {@link GetResolverEndpointCommandInput}
- * @returns {@link GetResolverEndpointCommandOutput}
+ * @param GetResolverEndpointRequest - {@link GetResolverEndpointRequest}
+ * @returns {@link GetResolverEndpointResponse}
  * @see {@link GetResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link GetResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

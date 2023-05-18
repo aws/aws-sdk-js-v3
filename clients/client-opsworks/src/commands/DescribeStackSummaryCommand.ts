@@ -84,8 +84,8 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  *
  * ```
  *
- * @param DescribeStackSummaryCommandInput - {@link DescribeStackSummaryCommandInput}
- * @returns {@link DescribeStackSummaryCommandOutput}
+ * @param DescribeStackSummaryRequest - {@link DescribeStackSummaryRequest}
+ * @returns {@link DescribeStackSummaryResult}
  * @see {@link DescribeStackSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSummaryCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

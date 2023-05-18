@@ -49,8 +49,8 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  *
  * ```
  *
- * @param DeleteImpersonationRoleCommandInput - {@link DeleteImpersonationRoleCommandInput}
- * @returns {@link DeleteImpersonationRoleCommandOutput}
+ * @param DeleteImpersonationRoleRequest - {@link DeleteImpersonationRoleRequest}
+ * @returns {@link DeleteImpersonationRoleResponse}
  * @see {@link DeleteImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

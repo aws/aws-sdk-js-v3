@@ -101,8 +101,8 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  *
  * ```
  *
- * @param ModifyScheduledActionCommandInput - {@link ModifyScheduledActionCommandInput}
- * @returns {@link ModifyScheduledActionCommandOutput}
+ * @param ModifyScheduledActionMessage - {@link ModifyScheduledActionMessage}
+ * @returns {@link ScheduledAction}
  * @see {@link ModifyScheduledActionCommandInput} for command's `input` shape.
  * @see {@link ModifyScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  *
  * ```
  *
- * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
- * @returns {@link ListDatabasesCommandOutput}
+ * @param ListDatabasesRequest - {@link ListDatabasesRequest}
+ * @returns {@link ListDatabasesResponse}
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

@@ -79,8 +79,8 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  *
  * ```
  *
- * @param ListAssessmentFrameworkShareRequestsCommandInput - {@link ListAssessmentFrameworkShareRequestsCommandInput}
- * @returns {@link ListAssessmentFrameworkShareRequestsCommandOutput}
+ * @param ListAssessmentFrameworkShareRequestsRequest - {@link ListAssessmentFrameworkShareRequestsRequest}
+ * @returns {@link ListAssessmentFrameworkShareRequestsResponse}
  * @see {@link ListAssessmentFrameworkShareRequestsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworkShareRequestsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

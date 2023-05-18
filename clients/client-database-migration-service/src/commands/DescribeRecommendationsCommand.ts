@@ -99,8 +99,8 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  *
  * ```
  *
- * @param DescribeRecommendationsCommandInput - {@link DescribeRecommendationsCommandInput}
- * @returns {@link DescribeRecommendationsCommandOutput}
+ * @param DescribeRecommendationsRequest - {@link DescribeRecommendationsRequest}
+ * @returns {@link DescribeRecommendationsResponse}
  * @see {@link DescribeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

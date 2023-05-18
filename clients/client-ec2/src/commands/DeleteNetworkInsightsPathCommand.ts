@@ -51,8 +51,8 @@ export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkIns
  *
  * ```
  *
- * @param DeleteNetworkInsightsPathCommandInput - {@link DeleteNetworkInsightsPathCommandInput}
- * @returns {@link DeleteNetworkInsightsPathCommandOutput}
+ * @param DeleteNetworkInsightsPathRequest - {@link DeleteNetworkInsightsPathRequest}
+ * @returns {@link DeleteNetworkInsightsPathResult}
  * @see {@link DeleteNetworkInsightsPathCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsPathCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

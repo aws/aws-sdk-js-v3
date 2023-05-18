@@ -61,8 +61,8 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  *
  * ```
  *
- * @param RejectAssignmentCommandInput - {@link RejectAssignmentCommandInput}
- * @returns {@link RejectAssignmentCommandOutput}
+ * @param RejectAssignmentRequest - {@link RejectAssignmentRequest}
+ * @returns {@link RejectAssignmentResponse}
  * @see {@link RejectAssignmentCommandInput} for command's `input` shape.
  * @see {@link RejectAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

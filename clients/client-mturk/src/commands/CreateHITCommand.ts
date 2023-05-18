@@ -176,8 +176,8 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateHITCommandInput - {@link CreateHITCommandInput}
- * @returns {@link CreateHITCommandOutput}
+ * @param CreateHITRequest - {@link CreateHITRequest}
+ * @returns {@link CreateHITResponse}
  * @see {@link CreateHITCommandInput} for command's `input` shape.
  * @see {@link CreateHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

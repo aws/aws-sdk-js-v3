@@ -52,8 +52,8 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagAttendeeCommandInput - {@link UntagAttendeeCommandInput}
- * @returns {@link UntagAttendeeCommandOutput}
+ * @param UntagAttendeeRequest - {@link UntagAttendeeRequest}
+ * @returns {@link Unit}
  * @see {@link UntagAttendeeCommandInput} for command's `input` shape.
  * @see {@link UntagAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -54,8 +54,8 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  *
  * ```
  *
- * @param GetSkillGroupCommandInput - {@link GetSkillGroupCommandInput}
- * @returns {@link GetSkillGroupCommandOutput}
+ * @param GetSkillGroupRequest - {@link GetSkillGroupRequest}
+ * @returns {@link GetSkillGroupResponse}
  * @see {@link GetSkillGroupCommandInput} for command's `input` shape.
  * @see {@link GetSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

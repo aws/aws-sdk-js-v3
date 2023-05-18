@@ -83,8 +83,8 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *
  * ```
  *
- * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
- * @returns {@link ListGroupsCommandOutput}
+ * @param ListGroupsInput - {@link ListGroupsInput}
+ * @returns {@link ListGroupsOutput}
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

@@ -54,8 +54,8 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  *
  * ```
  *
- * @param ModifyAquaConfigurationCommandInput - {@link ModifyAquaConfigurationCommandInput}
- * @returns {@link ModifyAquaConfigurationCommandOutput}
+ * @param ModifyAquaInputMessage - {@link ModifyAquaInputMessage}
+ * @returns {@link ModifyAquaOutputMessage}
  * @see {@link ModifyAquaConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyAquaConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

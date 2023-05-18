@@ -56,8 +56,8 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param GetIdCommandInput - {@link GetIdCommandInput}
- * @returns {@link GetIdCommandOutput}
+ * @param GetIdInput - {@link GetIdInput}
+ * @returns {@link GetIdResponse}
  * @see {@link GetIdCommandInput} for command's `input` shape.
  * @see {@link GetIdCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

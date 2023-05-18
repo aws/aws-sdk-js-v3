@@ -63,8 +63,8 @@ export interface ListEndpointConfigsCommandOutput extends ListEndpointConfigsOut
  *
  * ```
  *
- * @param ListEndpointConfigsCommandInput - {@link ListEndpointConfigsCommandInput}
- * @returns {@link ListEndpointConfigsCommandOutput}
+ * @param ListEndpointConfigsInput - {@link ListEndpointConfigsInput}
+ * @returns {@link ListEndpointConfigsOutput}
  * @see {@link ListEndpointConfigsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

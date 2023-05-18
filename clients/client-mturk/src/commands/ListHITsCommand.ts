@@ -99,8 +99,8 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListHITsCommandInput - {@link ListHITsCommandInput}
- * @returns {@link ListHITsCommandOutput}
+ * @param ListHITsRequest - {@link ListHITsRequest}
+ * @returns {@link ListHITsResponse}
  * @see {@link ListHITsCommandInput} for command's `input` shape.
  * @see {@link ListHITsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

@@ -65,8 +65,8 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  *
  * ```
  *
- * @param BacktrackDBClusterCommandInput - {@link BacktrackDBClusterCommandInput}
- * @returns {@link BacktrackDBClusterCommandOutput}
+ * @param BacktrackDBClusterMessage - {@link BacktrackDBClusterMessage}
+ * @returns {@link DBClusterBacktrack}
  * @see {@link BacktrackDBClusterCommandInput} for command's `input` shape.
  * @see {@link BacktrackDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

@@ -118,8 +118,8 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
  *
  * ```
  *
- * @param DescribeMaintenanceWindowTasksCommandInput - {@link DescribeMaintenanceWindowTasksCommandInput}
- * @returns {@link DescribeMaintenanceWindowTasksCommandOutput}
+ * @param DescribeMaintenanceWindowTasksRequest - {@link DescribeMaintenanceWindowTasksRequest}
+ * @returns {@link DescribeMaintenanceWindowTasksResult}
  * @see {@link DescribeMaintenanceWindowTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowTasksCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

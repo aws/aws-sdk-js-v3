@@ -62,8 +62,8 @@ export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse,
  *
  * ```
  *
- * @param DeleteGcmChannelCommandInput - {@link DeleteGcmChannelCommandInput}
- * @returns {@link DeleteGcmChannelCommandOutput}
+ * @param DeleteGcmChannelRequest - {@link DeleteGcmChannelRequest}
+ * @returns {@link DeleteGcmChannelResponse}
  * @see {@link DeleteGcmChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteGcmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

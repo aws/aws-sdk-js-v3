@@ -76,8 +76,8 @@ export interface ListRecoveryPointsByResourceCommandOutput
  *
  * ```
  *
- * @param ListRecoveryPointsByResourceCommandInput - {@link ListRecoveryPointsByResourceCommandInput}
- * @returns {@link ListRecoveryPointsByResourceCommandOutput}
+ * @param ListRecoveryPointsByResourceInput - {@link ListRecoveryPointsByResourceInput}
+ * @returns {@link ListRecoveryPointsByResourceOutput}
  * @see {@link ListRecoveryPointsByResourceCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByResourceCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

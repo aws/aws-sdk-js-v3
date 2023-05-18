@@ -58,8 +58,8 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  *
  * ```
  *
- * @param DeactivateKeySigningKeyCommandInput - {@link DeactivateKeySigningKeyCommandInput}
- * @returns {@link DeactivateKeySigningKeyCommandOutput}
+ * @param DeactivateKeySigningKeyRequest - {@link DeactivateKeySigningKeyRequest}
+ * @returns {@link DeactivateKeySigningKeyResponse}
  * @see {@link DeactivateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link DeactivateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

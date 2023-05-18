@@ -52,8 +52,8 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  *
  * ```
  *
- * @param UpdatePrimaryEmailAddressCommandInput - {@link UpdatePrimaryEmailAddressCommandInput}
- * @returns {@link UpdatePrimaryEmailAddressCommandOutput}
+ * @param UpdatePrimaryEmailAddressRequest - {@link UpdatePrimaryEmailAddressRequest}
+ * @returns {@link UpdatePrimaryEmailAddressResponse}
  * @see {@link UpdatePrimaryEmailAddressCommandInput} for command's `input` shape.
  * @see {@link UpdatePrimaryEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

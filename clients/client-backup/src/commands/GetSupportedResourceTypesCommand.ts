@@ -50,8 +50,8 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  *
  * ```
  *
- * @param GetSupportedResourceTypesCommandInput - {@link GetSupportedResourceTypesCommandInput}
- * @returns {@link GetSupportedResourceTypesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetSupportedResourceTypesOutput}
  * @see {@link GetSupportedResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetSupportedResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

@@ -105,8 +105,8 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  *
  * ```
  *
- * @param CreateFunctionDefinitionCommandInput - {@link CreateFunctionDefinitionCommandInput}
- * @returns {@link CreateFunctionDefinitionCommandOutput}
+ * @param CreateFunctionDefinitionRequest - {@link CreateFunctionDefinitionRequest}
+ * @returns {@link CreateFunctionDefinitionResponse}
  * @see {@link CreateFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

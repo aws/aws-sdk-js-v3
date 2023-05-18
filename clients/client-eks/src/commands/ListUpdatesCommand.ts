@@ -58,8 +58,8 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  *
  * ```
  *
- * @param ListUpdatesCommandInput - {@link ListUpdatesCommandInput}
- * @returns {@link ListUpdatesCommandOutput}
+ * @param ListUpdatesRequest - {@link ListUpdatesRequest}
+ * @returns {@link ListUpdatesResponse}
  * @see {@link ListUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListUpdatesCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

@@ -126,8 +126,8 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  *
  * ```
  *
- * @param ModifyOptionGroupCommandInput - {@link ModifyOptionGroupCommandInput}
- * @returns {@link ModifyOptionGroupCommandOutput}
+ * @param ModifyOptionGroupMessage - {@link ModifyOptionGroupMessage}
+ * @returns {@link ModifyOptionGroupResult}
  * @see {@link ModifyOptionGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

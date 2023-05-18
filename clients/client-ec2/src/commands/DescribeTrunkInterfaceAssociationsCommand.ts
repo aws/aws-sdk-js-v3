@@ -91,8 +91,8 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
  *
  * ```
  *
- * @param DescribeTrunkInterfaceAssociationsCommandInput - {@link DescribeTrunkInterfaceAssociationsCommandInput}
- * @returns {@link DescribeTrunkInterfaceAssociationsCommandOutput}
+ * @param DescribeTrunkInterfaceAssociationsRequest - {@link DescribeTrunkInterfaceAssociationsRequest}
+ * @returns {@link DescribeTrunkInterfaceAssociationsResult}
  * @see {@link DescribeTrunkInterfaceAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrunkInterfaceAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

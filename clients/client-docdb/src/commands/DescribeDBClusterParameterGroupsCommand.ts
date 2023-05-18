@@ -73,8 +73,8 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *
  * ```
  *
- * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
- * @returns {@link DescribeDBClusterParameterGroupsCommandOutput}
+ * @param DescribeDBClusterParameterGroupsMessage - {@link DescribeDBClusterParameterGroupsMessage}
+ * @returns {@link DBClusterParameterGroupsMessage}
  * @see {@link DescribeDBClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

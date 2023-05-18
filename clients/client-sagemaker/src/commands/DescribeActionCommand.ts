@@ -91,8 +91,8 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
  *
  * ```
  *
- * @param DescribeActionCommandInput - {@link DescribeActionCommandInput}
- * @returns {@link DescribeActionCommandOutput}
+ * @param DescribeActionRequest - {@link DescribeActionRequest}
+ * @returns {@link DescribeActionResponse}
  * @see {@link DescribeActionCommandInput} for command's `input` shape.
  * @see {@link DescribeActionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

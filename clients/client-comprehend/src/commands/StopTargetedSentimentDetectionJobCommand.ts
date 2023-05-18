@@ -68,8 +68,8 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
  *
  * ```
  *
- * @param StopTargetedSentimentDetectionJobCommandInput - {@link StopTargetedSentimentDetectionJobCommandInput}
- * @returns {@link StopTargetedSentimentDetectionJobCommandOutput}
+ * @param StopTargetedSentimentDetectionJobRequest - {@link StopTargetedSentimentDetectionJobRequest}
+ * @returns {@link StopTargetedSentimentDetectionJobResponse}
  * @see {@link StopTargetedSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopTargetedSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

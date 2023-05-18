@@ -73,8 +73,8 @@ export interface ListStreamingSessionBackupsCommandOutput
  *
  * ```
  *
- * @param ListStreamingSessionBackupsCommandInput - {@link ListStreamingSessionBackupsCommandInput}
- * @returns {@link ListStreamingSessionBackupsCommandOutput}
+ * @param ListStreamingSessionBackupsRequest - {@link ListStreamingSessionBackupsRequest}
+ * @returns {@link ListStreamingSessionBackupsResponse}
  * @see {@link ListStreamingSessionBackupsCommandInput} for command's `input` shape.
  * @see {@link ListStreamingSessionBackupsCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

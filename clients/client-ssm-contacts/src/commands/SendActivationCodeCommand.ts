@@ -50,8 +50,8 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  *
  * ```
  *
- * @param SendActivationCodeCommandInput - {@link SendActivationCodeCommandInput}
- * @returns {@link SendActivationCodeCommandOutput}
+ * @param SendActivationCodeRequest - {@link SendActivationCodeRequest}
+ * @returns {@link SendActivationCodeResult}
  * @see {@link SendActivationCodeCommandInput} for command's `input` shape.
  * @see {@link SendActivationCodeCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

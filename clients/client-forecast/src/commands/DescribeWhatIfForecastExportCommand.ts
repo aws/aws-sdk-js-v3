@@ -94,8 +94,8 @@ export interface DescribeWhatIfForecastExportCommandOutput
  *
  * ```
  *
- * @param DescribeWhatIfForecastExportCommandInput - {@link DescribeWhatIfForecastExportCommandInput}
- * @returns {@link DescribeWhatIfForecastExportCommandOutput}
+ * @param DescribeWhatIfForecastExportRequest - {@link DescribeWhatIfForecastExportRequest}
+ * @returns {@link DescribeWhatIfForecastExportResponse}
  * @see {@link DescribeWhatIfForecastExportCommandInput} for command's `input` shape.
  * @see {@link DescribeWhatIfForecastExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

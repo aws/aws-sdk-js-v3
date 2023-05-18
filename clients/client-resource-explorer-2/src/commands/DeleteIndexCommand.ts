@@ -67,8 +67,8 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  *
  * ```
  *
- * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
- * @returns {@link DeleteIndexCommandOutput}
+ * @param DeleteIndexInput - {@link DeleteIndexInput}
+ * @returns {@link DeleteIndexOutput}
  * @see {@link DeleteIndexCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

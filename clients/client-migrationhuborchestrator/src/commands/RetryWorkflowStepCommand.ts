@@ -59,8 +59,8 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  *
  * ```
  *
- * @param RetryWorkflowStepCommandInput - {@link RetryWorkflowStepCommandInput}
- * @returns {@link RetryWorkflowStepCommandOutput}
+ * @param RetryWorkflowStepRequest - {@link RetryWorkflowStepRequest}
+ * @returns {@link RetryWorkflowStepResponse}
  * @see {@link RetryWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link RetryWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

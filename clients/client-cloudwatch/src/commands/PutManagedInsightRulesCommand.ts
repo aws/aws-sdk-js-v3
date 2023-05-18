@@ -84,8 +84,8 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  *
  * ```
  *
- * @param PutManagedInsightRulesCommandInput - {@link PutManagedInsightRulesCommandInput}
- * @returns {@link PutManagedInsightRulesCommandOutput}
+ * @param PutManagedInsightRulesInput - {@link PutManagedInsightRulesInput}
+ * @returns {@link PutManagedInsightRulesOutput}
  * @see {@link PutManagedInsightRulesCommandInput} for command's `input` shape.
  * @see {@link PutManagedInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

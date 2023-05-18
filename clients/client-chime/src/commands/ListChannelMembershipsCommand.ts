@@ -73,8 +73,8 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  *
  * ```
  *
- * @param ListChannelMembershipsCommandInput - {@link ListChannelMembershipsCommandInput}
- * @returns {@link ListChannelMembershipsCommandOutput}
+ * @param ListChannelMembershipsRequest - {@link ListChannelMembershipsRequest}
+ * @returns {@link ListChannelMembershipsResponse}
  * @see {@link ListChannelMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListChannelMembershipsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

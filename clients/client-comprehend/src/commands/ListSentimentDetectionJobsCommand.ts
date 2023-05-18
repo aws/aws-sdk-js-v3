@@ -94,8 +94,8 @@ export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDe
  *
  * ```
  *
- * @param ListSentimentDetectionJobsCommandInput - {@link ListSentimentDetectionJobsCommandInput}
- * @returns {@link ListSentimentDetectionJobsCommandOutput}
+ * @param ListSentimentDetectionJobsRequest - {@link ListSentimentDetectionJobsRequest}
+ * @returns {@link ListSentimentDetectionJobsResponse}
  * @see {@link ListSentimentDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListSentimentDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

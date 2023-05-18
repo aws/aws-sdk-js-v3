@@ -70,8 +70,8 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  *
  * ```
  *
- * @param InstantiateSolNetworkInstanceCommandInput - {@link InstantiateSolNetworkInstanceCommandInput}
- * @returns {@link InstantiateSolNetworkInstanceCommandOutput}
+ * @param InstantiateSolNetworkInstanceInput - {@link InstantiateSolNetworkInstanceInput}
+ * @returns {@link InstantiateSolNetworkInstanceOutput}
  * @see {@link InstantiateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link InstantiateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

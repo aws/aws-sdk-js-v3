@@ -67,8 +67,8 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  *
  * ```
  *
- * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
- * @returns {@link ListDevicesCommandOutput}
+ * @param ListDevicesInput - {@link ListDevicesInput}
+ * @returns {@link ListDevicesOutput}
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.

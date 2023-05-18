@@ -50,8 +50,8 @@ export interface DeleteContextCommandOutput extends DeleteContextResponse, __Met
  *
  * ```
  *
- * @param DeleteContextCommandInput - {@link DeleteContextCommandInput}
- * @returns {@link DeleteContextCommandOutput}
+ * @param DeleteContextRequest - {@link DeleteContextRequest}
+ * @returns {@link DeleteContextResponse}
  * @see {@link DeleteContextCommandInput} for command's `input` shape.
  * @see {@link DeleteContextCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

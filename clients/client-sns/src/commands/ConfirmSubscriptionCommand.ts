@@ -56,8 +56,8 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  *
  * ```
  *
- * @param ConfirmSubscriptionCommandInput - {@link ConfirmSubscriptionCommandInput}
- * @returns {@link ConfirmSubscriptionCommandOutput}
+ * @param ConfirmSubscriptionInput - {@link ConfirmSubscriptionInput}
+ * @returns {@link ConfirmSubscriptionResponse}
  * @see {@link ConfirmSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ConfirmSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

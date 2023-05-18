@@ -113,8 +113,8 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  *
  * ```
  *
- * @param DeleteAppVersionResourceCommandInput - {@link DeleteAppVersionResourceCommandInput}
- * @returns {@link DeleteAppVersionResourceCommandOutput}
+ * @param DeleteAppVersionResourceRequest - {@link DeleteAppVersionResourceRequest}
+ * @returns {@link DeleteAppVersionResourceResponse}
  * @see {@link DeleteAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

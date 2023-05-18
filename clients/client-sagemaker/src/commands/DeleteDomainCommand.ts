@@ -55,8 +55,8 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
- * @returns {@link DeleteDomainCommandOutput}
+ * @param DeleteDomainRequest - {@link DeleteDomainRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -86,8 +86,8 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  *
  * ```
  *
- * @param ListAssociatedResourcesCommandInput - {@link ListAssociatedResourcesCommandInput}
- * @returns {@link ListAssociatedResourcesCommandOutput}
+ * @param ListAssociatedResourcesRequest - {@link ListAssociatedResourcesRequest}
+ * @returns {@link ListAssociatedResourcesResponse}
  * @see {@link ListAssociatedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

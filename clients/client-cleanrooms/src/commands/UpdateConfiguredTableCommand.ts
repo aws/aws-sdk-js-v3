@@ -72,8 +72,8 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  *
  * ```
  *
- * @param UpdateConfiguredTableCommandInput - {@link UpdateConfiguredTableCommandInput}
- * @returns {@link UpdateConfiguredTableCommandOutput}
+ * @param UpdateConfiguredTableInput - {@link UpdateConfiguredTableInput}
+ * @returns {@link UpdateConfiguredTableOutput}
  * @see {@link UpdateConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

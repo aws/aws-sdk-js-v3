@@ -70,8 +70,8 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  *
  * ```
  *
- * @param CreateBotVersionCommandInput - {@link CreateBotVersionCommandInput}
- * @returns {@link CreateBotVersionCommandOutput}
+ * @param CreateBotVersionRequest - {@link CreateBotVersionRequest}
+ * @returns {@link CreateBotVersionResponse}
  * @see {@link CreateBotVersionCommandInput} for command's `input` shape.
  * @see {@link CreateBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

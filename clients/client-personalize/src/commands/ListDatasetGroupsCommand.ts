@@ -64,8 +64,8 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  *
  * ```
  *
- * @param ListDatasetGroupsCommandInput - {@link ListDatasetGroupsCommandInput}
- * @returns {@link ListDatasetGroupsCommandOutput}
+ * @param ListDatasetGroupsRequest - {@link ListDatasetGroupsRequest}
+ * @returns {@link ListDatasetGroupsResponse}
  * @see {@link ListDatasetGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetGroupsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

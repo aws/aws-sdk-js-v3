@@ -112,8 +112,8 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  *
  * ```
  *
- * @param UpdateWorkgroupCommandInput - {@link UpdateWorkgroupCommandInput}
- * @returns {@link UpdateWorkgroupCommandOutput}
+ * @param UpdateWorkgroupRequest - {@link UpdateWorkgroupRequest}
+ * @returns {@link UpdateWorkgroupResponse}
  * @see {@link UpdateWorkgroupCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

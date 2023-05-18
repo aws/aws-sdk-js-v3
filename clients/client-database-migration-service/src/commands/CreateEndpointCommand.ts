@@ -725,8 +725,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *
  * ```
  *
- * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
- * @returns {@link CreateEndpointCommandOutput}
+ * @param CreateEndpointMessage - {@link CreateEndpointMessage}
+ * @returns {@link CreateEndpointResponse}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

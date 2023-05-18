@@ -54,8 +54,8 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  *
  * ```
  *
- * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
- * @returns {@link DeleteDirectoryCommandOutput}
+ * @param DeleteDirectoryRequest - {@link DeleteDirectoryRequest}
+ * @returns {@link DeleteDirectoryResult}
  * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

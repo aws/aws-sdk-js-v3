@@ -62,8 +62,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  *
  * ```
  *
- * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
- * @returns {@link ListDomainsCommandOutput}
+ * @param ListDomainsRequest - {@link ListDomainsRequest}
+ * @returns {@link ListDomainsResponse}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

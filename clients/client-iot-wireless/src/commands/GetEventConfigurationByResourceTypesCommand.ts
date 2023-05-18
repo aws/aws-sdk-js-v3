@@ -80,8 +80,8 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
  *
  * ```
  *
- * @param GetEventConfigurationByResourceTypesCommandInput - {@link GetEventConfigurationByResourceTypesCommandInput}
- * @returns {@link GetEventConfigurationByResourceTypesCommandOutput}
+ * @param GetEventConfigurationByResourceTypesRequest - {@link GetEventConfigurationByResourceTypesRequest}
+ * @returns {@link GetEventConfigurationByResourceTypesResponse}
  * @see {@link GetEventConfigurationByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetEventConfigurationByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

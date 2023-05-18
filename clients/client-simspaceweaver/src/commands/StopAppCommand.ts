@@ -50,8 +50,8 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param StopAppCommandInput - {@link StopAppCommandInput}
- * @returns {@link StopAppCommandOutput}
+ * @param StopAppInput - {@link StopAppInput}
+ * @returns {@link StopAppOutput}
  * @see {@link StopAppCommandInput} for command's `input` shape.
  * @see {@link StopAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

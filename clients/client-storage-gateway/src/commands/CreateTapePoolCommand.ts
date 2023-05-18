@@ -60,8 +60,8 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  *
  * ```
  *
- * @param CreateTapePoolCommandInput - {@link CreateTapePoolCommandInput}
- * @returns {@link CreateTapePoolCommandOutput}
+ * @param CreateTapePoolInput - {@link CreateTapePoolInput}
+ * @returns {@link CreateTapePoolOutput}
  * @see {@link CreateTapePoolCommandInput} for command's `input` shape.
  * @see {@link CreateTapePoolCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

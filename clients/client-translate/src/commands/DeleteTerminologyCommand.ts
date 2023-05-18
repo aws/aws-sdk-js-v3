@@ -48,8 +48,8 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteTerminologyCommandInput - {@link DeleteTerminologyCommandInput}
- * @returns {@link DeleteTerminologyCommandOutput}
+ * @param DeleteTerminologyRequest - {@link DeleteTerminologyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteTerminologyCommandInput} for command's `input` shape.
  * @see {@link DeleteTerminologyCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

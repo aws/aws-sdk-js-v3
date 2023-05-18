@@ -65,8 +65,8 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  *
  * ```
  *
- * @param ListModelPackageGroupsCommandInput - {@link ListModelPackageGroupsCommandInput}
- * @returns {@link ListModelPackageGroupsCommandOutput}
+ * @param ListModelPackageGroupsInput - {@link ListModelPackageGroupsInput}
+ * @returns {@link ListModelPackageGroupsOutput}
  * @see {@link ListModelPackageGroupsCommandInput} for command's `input` shape.
  * @see {@link ListModelPackageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

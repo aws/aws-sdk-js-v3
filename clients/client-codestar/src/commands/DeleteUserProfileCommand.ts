@@ -52,8 +52,8 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  *
  * ```
  *
- * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
- * @returns {@link DeleteUserProfileCommandOutput}
+ * @param DeleteUserProfileRequest - {@link DeleteUserProfileRequest}
+ * @returns {@link DeleteUserProfileResult}
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

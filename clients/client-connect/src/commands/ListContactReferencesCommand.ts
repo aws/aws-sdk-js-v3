@@ -86,8 +86,8 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  *
  * ```
  *
- * @param ListContactReferencesCommandInput - {@link ListContactReferencesCommandInput}
- * @returns {@link ListContactReferencesCommandOutput}
+ * @param ListContactReferencesRequest - {@link ListContactReferencesRequest}
+ * @returns {@link ListContactReferencesResponse}
  * @see {@link ListContactReferencesCommandInput} for command's `input` shape.
  * @see {@link ListContactReferencesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

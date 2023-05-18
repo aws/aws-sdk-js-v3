@@ -81,8 +81,8 @@ export interface ListPackageVersionDependenciesCommandOutput
  *
  * ```
  *
- * @param ListPackageVersionDependenciesCommandInput - {@link ListPackageVersionDependenciesCommandInput}
- * @returns {@link ListPackageVersionDependenciesCommandOutput}
+ * @param ListPackageVersionDependenciesRequest - {@link ListPackageVersionDependenciesRequest}
+ * @returns {@link ListPackageVersionDependenciesResult}
  * @see {@link ListPackageVersionDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionDependenciesCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisassociateLensesCommandInput - {@link DisassociateLensesCommandInput}
- * @returns {@link DisassociateLensesCommandOutput}
+ * @param DisassociateLensesInput - {@link DisassociateLensesInput}
+ * @returns {@link Unit}
  * @see {@link DisassociateLensesCommandInput} for command's `input` shape.
  * @see {@link DisassociateLensesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

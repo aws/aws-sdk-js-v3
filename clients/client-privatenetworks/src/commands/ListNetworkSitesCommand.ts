@@ -111,8 +111,8 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  *
  * ```
  *
- * @param ListNetworkSitesCommandInput - {@link ListNetworkSitesCommandInput}
- * @returns {@link ListNetworkSitesCommandOutput}
+ * @param ListNetworkSitesRequest - {@link ListNetworkSitesRequest}
+ * @returns {@link ListNetworkSitesResponse}
  * @see {@link ListNetworkSitesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkSitesCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

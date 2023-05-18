@@ -118,8 +118,8 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  *
  * ```
  *
- * @param UpdateScalingPlanCommandInput - {@link UpdateScalingPlanCommandInput}
- * @returns {@link UpdateScalingPlanCommandOutput}
+ * @param UpdateScalingPlanRequest - {@link UpdateScalingPlanRequest}
+ * @returns {@link UpdateScalingPlanResponse}
  * @see {@link UpdateScalingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.

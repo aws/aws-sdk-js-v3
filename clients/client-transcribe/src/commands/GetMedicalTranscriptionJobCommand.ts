@@ -91,8 +91,8 @@ export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTrans
  *
  * ```
  *
- * @param GetMedicalTranscriptionJobCommandInput - {@link GetMedicalTranscriptionJobCommandInput}
- * @returns {@link GetMedicalTranscriptionJobCommandOutput}
+ * @param GetMedicalTranscriptionJobRequest - {@link GetMedicalTranscriptionJobRequest}
+ * @returns {@link GetMedicalTranscriptionJobResponse}
  * @see {@link GetMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link GetMedicalTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

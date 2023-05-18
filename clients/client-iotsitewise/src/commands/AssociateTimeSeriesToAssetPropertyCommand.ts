@@ -54,8 +54,8 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  *
  * ```
  *
- * @param AssociateTimeSeriesToAssetPropertyCommandInput - {@link AssociateTimeSeriesToAssetPropertyCommandInput}
- * @returns {@link AssociateTimeSeriesToAssetPropertyCommandOutput}
+ * @param AssociateTimeSeriesToAssetPropertyRequest - {@link AssociateTimeSeriesToAssetPropertyRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateTimeSeriesToAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link AssociateTimeSeriesToAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

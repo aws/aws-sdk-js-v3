@@ -544,8 +544,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *
  * ```
  *
- * @param DescribeFileSystemsCommandInput - {@link DescribeFileSystemsCommandInput}
- * @returns {@link DescribeFileSystemsCommandOutput}
+ * @param DescribeFileSystemsRequest - {@link DescribeFileSystemsRequest}
+ * @returns {@link DescribeFileSystemsResponse}
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

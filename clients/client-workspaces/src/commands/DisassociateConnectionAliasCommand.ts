@@ -56,8 +56,8 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  *
  * ```
  *
- * @param DisassociateConnectionAliasCommandInput - {@link DisassociateConnectionAliasCommandInput}
- * @returns {@link DisassociateConnectionAliasCommandOutput}
+ * @param DisassociateConnectionAliasRequest - {@link DisassociateConnectionAliasRequest}
+ * @returns {@link DisassociateConnectionAliasResult}
  * @see {@link DisassociateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

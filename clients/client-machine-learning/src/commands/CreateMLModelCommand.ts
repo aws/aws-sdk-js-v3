@@ -77,8 +77,8 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  *
  * ```
  *
- * @param CreateMLModelCommandInput - {@link CreateMLModelCommandInput}
- * @returns {@link CreateMLModelCommandOutput}
+ * @param CreateMLModelInput - {@link CreateMLModelInput}
+ * @returns {@link CreateMLModelOutput}
  * @see {@link CreateMLModelCommandInput} for command's `input` shape.
  * @see {@link CreateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

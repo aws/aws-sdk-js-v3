@@ -78,8 +78,8 @@ export interface GetWirelessGatewayCommandOutput extends GetWirelessGatewayRespo
  *
  * ```
  *
- * @param GetWirelessGatewayCommandInput - {@link GetWirelessGatewayCommandInput}
- * @returns {@link GetWirelessGatewayCommandOutput}
+ * @param GetWirelessGatewayRequest - {@link GetWirelessGatewayRequest}
+ * @returns {@link GetWirelessGatewayResponse}
  * @see {@link GetWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

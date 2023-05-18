@@ -192,8 +192,8 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  *
  * ```
  *
- * @param GetReservationUtilizationCommandInput - {@link GetReservationUtilizationCommandInput}
- * @returns {@link GetReservationUtilizationCommandOutput}
+ * @param GetReservationUtilizationRequest - {@link GetReservationUtilizationRequest}
+ * @returns {@link GetReservationUtilizationResponse}
  * @see {@link GetReservationUtilizationCommandInput} for command's `input` shape.
  * @see {@link GetReservationUtilizationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

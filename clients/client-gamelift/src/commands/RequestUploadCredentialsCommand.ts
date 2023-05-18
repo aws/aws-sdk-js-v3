@@ -78,8 +78,8 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  *
  * ```
  *
- * @param RequestUploadCredentialsCommandInput - {@link RequestUploadCredentialsCommandInput}
- * @returns {@link RequestUploadCredentialsCommandOutput}
+ * @param RequestUploadCredentialsInput - {@link RequestUploadCredentialsInput}
+ * @returns {@link RequestUploadCredentialsOutput}
  * @see {@link RequestUploadCredentialsCommandInput} for command's `input` shape.
  * @see {@link RequestUploadCredentialsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

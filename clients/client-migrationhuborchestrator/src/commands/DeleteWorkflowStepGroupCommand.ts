@@ -53,8 +53,8 @@ export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStep
  *
  * ```
  *
- * @param DeleteWorkflowStepGroupCommandInput - {@link DeleteWorkflowStepGroupCommandInput}
- * @returns {@link DeleteWorkflowStepGroupCommandOutput}
+ * @param DeleteWorkflowStepGroupRequest - {@link DeleteWorkflowStepGroupRequest}
+ * @returns {@link DeleteWorkflowStepGroupResponse}
  * @see {@link DeleteWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

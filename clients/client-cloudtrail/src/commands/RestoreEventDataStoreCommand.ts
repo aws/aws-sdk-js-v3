@@ -88,8 +88,8 @@ export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStor
  *
  * ```
  *
- * @param RestoreEventDataStoreCommandInput - {@link RestoreEventDataStoreCommandInput}
- * @returns {@link RestoreEventDataStoreCommandOutput}
+ * @param RestoreEventDataStoreRequest - {@link RestoreEventDataStoreRequest}
+ * @returns {@link RestoreEventDataStoreResponse}
  * @see {@link RestoreEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link RestoreEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

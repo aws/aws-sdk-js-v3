@@ -50,8 +50,8 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  *
  * ```
  *
- * @param DeleteIdentityCommandInput - {@link DeleteIdentityCommandInput}
- * @returns {@link DeleteIdentityCommandOutput}
+ * @param DeleteIdentityRequest - {@link DeleteIdentityRequest}
+ * @returns {@link DeleteIdentityResponse}
  * @see {@link DeleteIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

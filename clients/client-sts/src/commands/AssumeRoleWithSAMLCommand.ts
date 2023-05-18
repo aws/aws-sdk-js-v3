@@ -203,8 +203,8 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *
  * ```
  *
- * @param AssumeRoleWithSAMLCommandInput - {@link AssumeRoleWithSAMLCommandInput}
- * @returns {@link AssumeRoleWithSAMLCommandOutput}
+ * @param AssumeRoleWithSAMLRequest - {@link AssumeRoleWithSAMLRequest}
+ * @returns {@link AssumeRoleWithSAMLResponse}
  * @see {@link AssumeRoleWithSAMLCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithSAMLCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.

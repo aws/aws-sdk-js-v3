@@ -60,8 +60,8 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PurgeQueueCommandInput - {@link PurgeQueueCommandInput}
- * @returns {@link PurgeQueueCommandOutput}
+ * @param PurgeQueueRequest - {@link PurgeQueueRequest}
+ * @returns {@link Unit}
  * @see {@link PurgeQueueCommandInput} for command's `input` shape.
  * @see {@link PurgeQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

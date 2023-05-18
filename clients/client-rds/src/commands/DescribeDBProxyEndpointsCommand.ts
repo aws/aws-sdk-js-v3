@@ -80,8 +80,8 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  *
  * ```
  *
- * @param DescribeDBProxyEndpointsCommandInput - {@link DescribeDBProxyEndpointsCommandInput}
- * @returns {@link DescribeDBProxyEndpointsCommandOutput}
+ * @param DescribeDBProxyEndpointsRequest - {@link DescribeDBProxyEndpointsRequest}
+ * @returns {@link DescribeDBProxyEndpointsResponse}
  * @see {@link DescribeDBProxyEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyEndpointsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

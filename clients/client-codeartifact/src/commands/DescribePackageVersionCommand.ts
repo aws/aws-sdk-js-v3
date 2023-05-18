@@ -85,8 +85,8 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  *
  * ```
  *
- * @param DescribePackageVersionCommandInput - {@link DescribePackageVersionCommandInput}
- * @returns {@link DescribePackageVersionCommandOutput}
+ * @param DescribePackageVersionRequest - {@link DescribePackageVersionRequest}
+ * @returns {@link DescribePackageVersionResult}
  * @see {@link DescribePackageVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePackageVersionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

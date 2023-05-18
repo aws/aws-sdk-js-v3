@@ -94,8 +94,8 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  *
  * ```
  *
- * @param DescribeNFSFileSharesCommandInput - {@link DescribeNFSFileSharesCommandInput}
- * @returns {@link DescribeNFSFileSharesCommandOutput}
+ * @param DescribeNFSFileSharesInput - {@link DescribeNFSFileSharesInput}
+ * @returns {@link DescribeNFSFileSharesOutput}
  * @see {@link DescribeNFSFileSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeNFSFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

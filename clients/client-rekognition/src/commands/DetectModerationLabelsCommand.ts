@@ -93,8 +93,8 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  *
  * ```
  *
- * @param DetectModerationLabelsCommandInput - {@link DetectModerationLabelsCommandInput}
- * @returns {@link DetectModerationLabelsCommandOutput}
+ * @param DetectModerationLabelsRequest - {@link DetectModerationLabelsRequest}
+ * @returns {@link DetectModerationLabelsResponse}
  * @see {@link DetectModerationLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectModerationLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

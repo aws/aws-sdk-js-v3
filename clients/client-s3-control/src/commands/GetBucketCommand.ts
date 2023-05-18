@@ -82,8 +82,8 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  *
  * ```
  *
- * @param GetBucketCommandInput - {@link GetBucketCommandInput}
- * @returns {@link GetBucketCommandOutput}
+ * @param GetBucketRequest - {@link GetBucketRequest}
+ * @returns {@link GetBucketResult}
  * @see {@link GetBucketCommandInput} for command's `input` shape.
  * @see {@link GetBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

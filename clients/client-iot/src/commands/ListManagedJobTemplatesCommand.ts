@@ -63,8 +63,8 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  *
  * ```
  *
- * @param ListManagedJobTemplatesCommandInput - {@link ListManagedJobTemplatesCommandInput}
- * @returns {@link ListManagedJobTemplatesCommandOutput}
+ * @param ListManagedJobTemplatesRequest - {@link ListManagedJobTemplatesRequest}
+ * @returns {@link ListManagedJobTemplatesResponse}
  * @see {@link ListManagedJobTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListManagedJobTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

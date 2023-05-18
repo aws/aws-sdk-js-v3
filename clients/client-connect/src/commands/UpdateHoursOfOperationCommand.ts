@@ -66,8 +66,8 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateHoursOfOperationCommandInput - {@link UpdateHoursOfOperationCommandInput}
- * @returns {@link UpdateHoursOfOperationCommandOutput}
+ * @param UpdateHoursOfOperationRequest - {@link UpdateHoursOfOperationRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link UpdateHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

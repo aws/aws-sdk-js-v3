@@ -51,8 +51,8 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  *
  * ```
  *
- * @param DeletePublicIpv4PoolCommandInput - {@link DeletePublicIpv4PoolCommandInput}
- * @returns {@link DeletePublicIpv4PoolCommandOutput}
+ * @param DeletePublicIpv4PoolRequest - {@link DeletePublicIpv4PoolRequest}
+ * @returns {@link DeletePublicIpv4PoolResult}
  * @see {@link DeletePublicIpv4PoolCommandInput} for command's `input` shape.
  * @see {@link DeletePublicIpv4PoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

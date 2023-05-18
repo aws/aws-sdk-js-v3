@@ -62,8 +62,8 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  *
  * ```
  *
- * @param PutPositionConfigurationCommandInput - {@link PutPositionConfigurationCommandInput}
- * @returns {@link PutPositionConfigurationCommandOutput}
+ * @param PutPositionConfigurationRequest - {@link PutPositionConfigurationRequest}
+ * @returns {@link PutPositionConfigurationResponse}
  * @see {@link PutPositionConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPositionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

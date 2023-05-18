@@ -64,8 +64,8 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  *
  * ```
  *
- * @param ListWorkerConfigurationsCommandInput - {@link ListWorkerConfigurationsCommandInput}
- * @returns {@link ListWorkerConfigurationsCommandOutput}
+ * @param ListWorkerConfigurationsRequest - {@link ListWorkerConfigurationsRequest}
+ * @returns {@link ListWorkerConfigurationsResponse}
  * @see {@link ListWorkerConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListWorkerConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

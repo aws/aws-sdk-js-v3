@@ -210,8 +210,8 @@ export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsRespo
  *
  * ```
  *
- * @param GetSegmentVersionsCommandInput - {@link GetSegmentVersionsCommandInput}
- * @returns {@link GetSegmentVersionsCommandOutput}
+ * @param GetSegmentVersionsRequest - {@link GetSegmentVersionsRequest}
+ * @returns {@link GetSegmentVersionsResponse}
  * @see {@link GetSegmentVersionsCommandInput} for command's `input` shape.
  * @see {@link GetSegmentVersionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

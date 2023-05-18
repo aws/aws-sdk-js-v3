@@ -63,8 +63,8 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  *
  * ```
  *
- * @param GetDevicePoolCommandInput - {@link GetDevicePoolCommandInput}
- * @returns {@link GetDevicePoolCommandOutput}
+ * @param GetDevicePoolRequest - {@link GetDevicePoolRequest}
+ * @returns {@link GetDevicePoolResult}
  * @see {@link GetDevicePoolCommandInput} for command's `input` shape.
  * @see {@link GetDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

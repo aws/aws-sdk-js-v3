@@ -155,8 +155,8 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  *
  * ```
  *
- * @param ListVersionsByFunctionCommandInput - {@link ListVersionsByFunctionCommandInput}
- * @returns {@link ListVersionsByFunctionCommandOutput}
+ * @param ListVersionsByFunctionRequest - {@link ListVersionsByFunctionRequest}
+ * @returns {@link ListVersionsByFunctionResponse}
  * @see {@link ListVersionsByFunctionCommandInput} for command's `input` shape.
  * @see {@link ListVersionsByFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

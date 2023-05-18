@@ -104,8 +104,8 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param GetAppCommandInput - {@link GetAppCommandInput}
- * @returns {@link GetAppCommandOutput}
+ * @param GetAppRequest - {@link GetAppRequest}
+ * @returns {@link GetAppResponse}
  * @see {@link GetAppCommandInput} for command's `input` shape.
  * @see {@link GetAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

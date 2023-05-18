@@ -119,8 +119,8 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  *
  * ```
  *
- * @param AllocatePrivateVirtualInterfaceCommandInput - {@link AllocatePrivateVirtualInterfaceCommandInput}
- * @returns {@link AllocatePrivateVirtualInterfaceCommandOutput}
+ * @param AllocatePrivateVirtualInterfaceRequest - {@link AllocatePrivateVirtualInterfaceRequest}
+ * @returns {@link VirtualInterface}
  * @see {@link AllocatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

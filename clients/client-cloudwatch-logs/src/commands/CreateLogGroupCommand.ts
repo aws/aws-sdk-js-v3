@@ -80,8 +80,8 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateLogGroupCommandInput - {@link CreateLogGroupCommandInput}
- * @returns {@link CreateLogGroupCommandOutput}
+ * @param CreateLogGroupRequest - {@link CreateLogGroupRequest}
+ * @returns {@link Unit}
  * @see {@link CreateLogGroupCommandInput} for command's `input` shape.
  * @see {@link CreateLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

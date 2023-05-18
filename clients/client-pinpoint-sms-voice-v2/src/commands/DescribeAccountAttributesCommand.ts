@@ -67,8 +67,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *
  * ```
  *
- * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
- * @returns {@link DescribeAccountAttributesCommandOutput}
+ * @param DescribeAccountAttributesRequest - {@link DescribeAccountAttributesRequest}
+ * @returns {@link DescribeAccountAttributesResult}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

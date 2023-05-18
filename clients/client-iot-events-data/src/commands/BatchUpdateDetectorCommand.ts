@@ -78,8 +78,8 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  *
  * ```
  *
- * @param BatchUpdateDetectorCommandInput - {@link BatchUpdateDetectorCommandInput}
- * @returns {@link BatchUpdateDetectorCommandOutput}
+ * @param BatchUpdateDetectorRequest - {@link BatchUpdateDetectorRequest}
+ * @returns {@link BatchUpdateDetectorResponse}
  * @see {@link BatchUpdateDetectorCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateDetectorCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteEventActionCommandInput - {@link DeleteEventActionCommandInput}
- * @returns {@link DeleteEventActionCommandOutput}
+ * @param DeleteEventActionRequest - {@link DeleteEventActionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEventActionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

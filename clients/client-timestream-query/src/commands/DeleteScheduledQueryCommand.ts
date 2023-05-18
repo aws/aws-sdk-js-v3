@@ -49,8 +49,8 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteScheduledQueryCommandInput - {@link DeleteScheduledQueryCommandInput}
- * @returns {@link DeleteScheduledQueryCommandOutput}
+ * @param DeleteScheduledQueryRequest - {@link DeleteScheduledQueryRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.

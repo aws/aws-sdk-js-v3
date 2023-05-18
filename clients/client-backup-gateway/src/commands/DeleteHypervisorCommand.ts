@@ -50,8 +50,8 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  *
  * ```
  *
- * @param DeleteHypervisorCommandInput - {@link DeleteHypervisorCommandInput}
- * @returns {@link DeleteHypervisorCommandOutput}
+ * @param DeleteHypervisorInput - {@link DeleteHypervisorInput}
+ * @returns {@link DeleteHypervisorOutput}
  * @see {@link DeleteHypervisorCommandInput} for command's `input` shape.
  * @see {@link DeleteHypervisorCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

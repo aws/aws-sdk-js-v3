@@ -56,8 +56,8 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  *
  * ```
  *
- * @param GetLogRecordCommandInput - {@link GetLogRecordCommandInput}
- * @returns {@link GetLogRecordCommandOutput}
+ * @param GetLogRecordRequest - {@link GetLogRecordRequest}
+ * @returns {@link GetLogRecordResponse}
  * @see {@link GetLogRecordCommandInput} for command's `input` shape.
  * @see {@link GetLogRecordCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

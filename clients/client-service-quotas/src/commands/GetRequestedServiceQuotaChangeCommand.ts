@@ -70,8 +70,8 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  *
  * ```
  *
- * @param GetRequestedServiceQuotaChangeCommandInput - {@link GetRequestedServiceQuotaChangeCommandInput}
- * @returns {@link GetRequestedServiceQuotaChangeCommandOutput}
+ * @param GetRequestedServiceQuotaChangeRequest - {@link GetRequestedServiceQuotaChangeRequest}
+ * @returns {@link GetRequestedServiceQuotaChangeResponse}
  * @see {@link GetRequestedServiceQuotaChangeCommandInput} for command's `input` shape.
  * @see {@link GetRequestedServiceQuotaChangeCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

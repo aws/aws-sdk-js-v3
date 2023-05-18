@@ -66,8 +66,8 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  *
  * ```
  *
- * @param ConfigureLogsCommandInput - {@link ConfigureLogsCommandInput}
- * @returns {@link ConfigureLogsCommandOutput}
+ * @param ConfigureLogsRequest - {@link ConfigureLogsRequest}
+ * @returns {@link ConfigureLogsResponse}
  * @see {@link ConfigureLogsCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

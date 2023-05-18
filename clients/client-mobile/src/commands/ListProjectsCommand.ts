@@ -59,8 +59,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  *
  * ```
  *
- * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
- * @returns {@link ListProjectsCommandOutput}
+ * @param ListProjectsRequest - {@link ListProjectsRequest}
+ * @returns {@link ListProjectsResult}
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.

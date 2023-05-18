@@ -48,8 +48,8 @@ export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQuality
  *
  * ```
  *
- * @param DeleteDataQualityRulesetCommandInput - {@link DeleteDataQualityRulesetCommandInput}
- * @returns {@link DeleteDataQualityRulesetCommandOutput}
+ * @param DeleteDataQualityRulesetRequest - {@link DeleteDataQualityRulesetRequest}
+ * @returns {@link DeleteDataQualityRulesetResponse}
  * @see {@link DeleteDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

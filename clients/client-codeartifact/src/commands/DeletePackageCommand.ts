@@ -66,8 +66,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  *
  * ```
  *
- * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
- * @returns {@link DeletePackageCommandOutput}
+ * @param DeletePackageRequest - {@link DeletePackageRequest}
+ * @returns {@link DeletePackageResult}
  * @see {@link DeletePackageCommandInput} for command's `input` shape.
  * @see {@link DeletePackageCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

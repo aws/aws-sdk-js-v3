@@ -130,8 +130,8 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *
  * ```
  *
- * @param RunScheduledInstancesCommandInput - {@link RunScheduledInstancesCommandInput}
- * @returns {@link RunScheduledInstancesCommandOutput}
+ * @param RunScheduledInstancesRequest - {@link RunScheduledInstancesRequest}
+ * @returns {@link RunScheduledInstancesResult}
  * @see {@link RunScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

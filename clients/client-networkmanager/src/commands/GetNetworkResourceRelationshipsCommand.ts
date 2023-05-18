@@ -69,8 +69,8 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  *
  * ```
  *
- * @param GetNetworkResourceRelationshipsCommandInput - {@link GetNetworkResourceRelationshipsCommandInput}
- * @returns {@link GetNetworkResourceRelationshipsCommandOutput}
+ * @param GetNetworkResourceRelationshipsRequest - {@link GetNetworkResourceRelationshipsRequest}
+ * @returns {@link GetNetworkResourceRelationshipsResponse}
  * @see {@link GetNetworkResourceRelationshipsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceRelationshipsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

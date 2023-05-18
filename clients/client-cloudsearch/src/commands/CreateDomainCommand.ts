@@ -72,8 +72,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *
  * ```
  *
- * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
- * @returns {@link CreateDomainCommandOutput}
+ * @param CreateDomainRequest - {@link CreateDomainRequest}
+ * @returns {@link CreateDomainResponse}
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

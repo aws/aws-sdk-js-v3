@@ -111,8 +111,8 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  *
  * ```
  *
- * @param AcceptVpcPeeringConnectionCommandInput - {@link AcceptVpcPeeringConnectionCommandInput}
- * @returns {@link AcceptVpcPeeringConnectionCommandOutput}
+ * @param AcceptVpcPeeringConnectionRequest - {@link AcceptVpcPeeringConnectionRequest}
+ * @returns {@link AcceptVpcPeeringConnectionResult}
  * @see {@link AcceptVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

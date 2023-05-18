@@ -62,8 +62,8 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  *
  * ```
  *
- * @param GetRetentionSettingsCommandInput - {@link GetRetentionSettingsCommandInput}
- * @returns {@link GetRetentionSettingsCommandOutput}
+ * @param GetRetentionSettingsRequest - {@link GetRetentionSettingsRequest}
+ * @returns {@link GetRetentionSettingsResponse}
  * @see {@link GetRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

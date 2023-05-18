@@ -51,8 +51,8 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  *
  * ```
  *
- * @param DeleteTableVersionCommandInput - {@link DeleteTableVersionCommandInput}
- * @returns {@link DeleteTableVersionCommandOutput}
+ * @param DeleteTableVersionRequest - {@link DeleteTableVersionRequest}
+ * @returns {@link DeleteTableVersionResponse}
  * @see {@link DeleteTableVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

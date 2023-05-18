@@ -96,8 +96,8 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  *
  * ```
  *
- * @param CreateClusterSecurityGroupCommandInput - {@link CreateClusterSecurityGroupCommandInput}
- * @returns {@link CreateClusterSecurityGroupCommandOutput}
+ * @param CreateClusterSecurityGroupMessage - {@link CreateClusterSecurityGroupMessage}
+ * @returns {@link CreateClusterSecurityGroupResult}
  * @see {@link CreateClusterSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

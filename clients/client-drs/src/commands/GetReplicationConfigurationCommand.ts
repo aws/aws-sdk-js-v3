@@ -94,8 +94,8 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  *
  * ```
  *
- * @param GetReplicationConfigurationCommandInput - {@link GetReplicationConfigurationCommandInput}
- * @returns {@link GetReplicationConfigurationCommandOutput}
+ * @param GetReplicationConfigurationRequest - {@link GetReplicationConfigurationRequest}
+ * @returns {@link ReplicationConfiguration}
  * @see {@link GetReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

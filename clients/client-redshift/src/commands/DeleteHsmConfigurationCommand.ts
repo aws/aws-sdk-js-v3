@@ -48,8 +48,8 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteHsmConfigurationCommandInput - {@link DeleteHsmConfigurationCommandInput}
- * @returns {@link DeleteHsmConfigurationCommandOutput}
+ * @param DeleteHsmConfigurationMessage - {@link DeleteHsmConfigurationMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteHsmConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -63,8 +63,8 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  *
  * ```
  *
- * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
- * @returns {@link DeleteServerCommandOutput}
+ * @param DeleteServerRequest - {@link DeleteServerRequest}
+ * @returns {@link DeleteServerResponse}
  * @see {@link DeleteServerCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

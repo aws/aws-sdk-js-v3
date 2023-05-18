@@ -48,8 +48,8 @@ export interface StartCampaignCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartCampaignCommandInput - {@link StartCampaignCommandInput}
- * @returns {@link StartCampaignCommandOutput}
+ * @param StartCampaignRequest - {@link StartCampaignRequest}
+ * @returns {@link Unit}
  * @see {@link StartCampaignCommandInput} for command's `input` shape.
  * @see {@link StartCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

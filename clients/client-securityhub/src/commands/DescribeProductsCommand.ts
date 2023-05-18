@@ -73,8 +73,8 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  *
  * ```
  *
- * @param DescribeProductsCommandInput - {@link DescribeProductsCommandInput}
- * @returns {@link DescribeProductsCommandOutput}
+ * @param DescribeProductsRequest - {@link DescribeProductsRequest}
+ * @returns {@link DescribeProductsResponse}
  * @see {@link DescribeProductsCommandInput} for command's `input` shape.
  * @see {@link DescribeProductsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

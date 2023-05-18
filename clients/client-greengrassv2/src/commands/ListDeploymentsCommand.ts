@@ -66,8 +66,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  *
  * ```
  *
- * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
- * @returns {@link ListDeploymentsCommandOutput}
+ * @param ListDeploymentsRequest - {@link ListDeploymentsRequest}
+ * @returns {@link ListDeploymentsResponse}
  * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

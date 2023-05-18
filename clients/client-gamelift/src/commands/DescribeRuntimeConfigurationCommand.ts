@@ -82,8 +82,8 @@ export interface DescribeRuntimeConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeRuntimeConfigurationCommandInput - {@link DescribeRuntimeConfigurationCommandInput}
- * @returns {@link DescribeRuntimeConfigurationCommandOutput}
+ * @param DescribeRuntimeConfigurationInput - {@link DescribeRuntimeConfigurationInput}
+ * @returns {@link DescribeRuntimeConfigurationOutput}
  * @see {@link DescribeRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

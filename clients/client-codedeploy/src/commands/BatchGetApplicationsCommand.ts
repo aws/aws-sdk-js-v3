@@ -62,8 +62,8 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  *
  * ```
  *
- * @param BatchGetApplicationsCommandInput - {@link BatchGetApplicationsCommandInput}
- * @returns {@link BatchGetApplicationsCommandOutput}
+ * @param BatchGetApplicationsInput - {@link BatchGetApplicationsInput}
+ * @returns {@link BatchGetApplicationsOutput}
  * @see {@link BatchGetApplicationsCommandInput} for command's `input` shape.
  * @see {@link BatchGetApplicationsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

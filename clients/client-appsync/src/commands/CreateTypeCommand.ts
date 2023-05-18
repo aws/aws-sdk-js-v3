@@ -58,8 +58,8 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  *
  * ```
  *
- * @param CreateTypeCommandInput - {@link CreateTypeCommandInput}
- * @returns {@link CreateTypeCommandOutput}
+ * @param CreateTypeRequest - {@link CreateTypeRequest}
+ * @returns {@link CreateTypeResponse}
  * @see {@link CreateTypeCommandInput} for command's `input` shape.
  * @see {@link CreateTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

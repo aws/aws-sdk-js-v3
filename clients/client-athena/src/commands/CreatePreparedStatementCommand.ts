@@ -51,8 +51,8 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  *
  * ```
  *
- * @param CreatePreparedStatementCommandInput - {@link CreatePreparedStatementCommandInput}
- * @returns {@link CreatePreparedStatementCommandOutput}
+ * @param CreatePreparedStatementInput - {@link CreatePreparedStatementInput}
+ * @returns {@link CreatePreparedStatementOutput}
  * @see {@link CreatePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link CreatePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

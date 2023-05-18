@@ -174,8 +174,8 @@ export interface PostContentCommandOutput
  *
  * ```
  *
- * @param PostContentCommandInput - {@link PostContentCommandInput}
- * @returns {@link PostContentCommandOutput}
+ * @param PostContentRequest - {@link PostContentRequest}
+ * @returns {@link PostContentResponse}
  * @see {@link PostContentCommandInput} for command's `input` shape.
  * @see {@link PostContentCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.

@@ -68,8 +68,8 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  *
  * ```
  *
- * @param ListSyncJobsCommandInput - {@link ListSyncJobsCommandInput}
- * @returns {@link ListSyncJobsCommandOutput}
+ * @param ListSyncJobsRequest - {@link ListSyncJobsRequest}
+ * @returns {@link ListSyncJobsResponse}
  * @see {@link ListSyncJobsCommandInput} for command's `input` shape.
  * @see {@link ListSyncJobsCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

@@ -81,8 +81,8 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  *
  * ```
  *
- * @param GetDomainNamesCommandInput - {@link GetDomainNamesCommandInput}
- * @returns {@link GetDomainNamesCommandOutput}
+ * @param GetDomainNamesRequest - {@link GetDomainNamesRequest}
+ * @returns {@link GetDomainNamesResponse}
  * @see {@link GetDomainNamesCommandInput} for command's `input` shape.
  * @see {@link GetDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

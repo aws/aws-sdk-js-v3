@@ -136,8 +136,8 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  *
  * ```
  *
- * @param GetDocumentTextDetectionCommandInput - {@link GetDocumentTextDetectionCommandInput}
- * @returns {@link GetDocumentTextDetectionCommandOutput}
+ * @param GetDocumentTextDetectionRequest - {@link GetDocumentTextDetectionRequest}
+ * @returns {@link GetDocumentTextDetectionResponse}
  * @see {@link GetDocumentTextDetectionCommandInput} for command's `input` shape.
  * @see {@link GetDocumentTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

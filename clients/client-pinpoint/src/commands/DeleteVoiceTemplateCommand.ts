@@ -54,8 +54,8 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  *
  * ```
  *
- * @param DeleteVoiceTemplateCommandInput - {@link DeleteVoiceTemplateCommandInput}
- * @returns {@link DeleteVoiceTemplateCommandOutput}
+ * @param DeleteVoiceTemplateRequest - {@link DeleteVoiceTemplateRequest}
+ * @returns {@link DeleteVoiceTemplateResponse}
  * @see {@link DeleteVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

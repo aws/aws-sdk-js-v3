@@ -123,8 +123,8 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  *
  * ```
  *
- * @param ModifyTrafficMirrorFilterNetworkServicesCommandInput - {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput}
- * @returns {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput}
+ * @param ModifyTrafficMirrorFilterNetworkServicesRequest - {@link ModifyTrafficMirrorFilterNetworkServicesRequest}
+ * @returns {@link ModifyTrafficMirrorFilterNetworkServicesResult}
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -80,8 +80,8 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
  *
  * ```
  *
- * @param UpdateStreamingImageCommandInput - {@link UpdateStreamingImageCommandInput}
- * @returns {@link UpdateStreamingImageCommandOutput}
+ * @param UpdateStreamingImageRequest - {@link UpdateStreamingImageRequest}
+ * @returns {@link UpdateStreamingImageResponse}
  * @see {@link UpdateStreamingImageCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamingImageCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

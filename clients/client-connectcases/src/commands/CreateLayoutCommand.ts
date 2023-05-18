@@ -97,8 +97,8 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  *
  * ```
  *
- * @param CreateLayoutCommandInput - {@link CreateLayoutCommandInput}
- * @returns {@link CreateLayoutCommandOutput}
+ * @param CreateLayoutRequest - {@link CreateLayoutRequest}
+ * @returns {@link CreateLayoutResponse}
  * @see {@link CreateLayoutCommandInput} for command's `input` shape.
  * @see {@link CreateLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

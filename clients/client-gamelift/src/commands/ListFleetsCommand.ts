@@ -88,8 +88,8 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  *
  * ```
  *
- * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
- * @returns {@link ListFleetsCommandOutput}
+ * @param ListFleetsInput - {@link ListFleetsInput}
+ * @returns {@link ListFleetsOutput}
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

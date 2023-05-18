@@ -68,8 +68,8 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  *
  * ```
  *
- * @param ListSSHPublicKeysCommandInput - {@link ListSSHPublicKeysCommandInput}
- * @returns {@link ListSSHPublicKeysCommandOutput}
+ * @param ListSSHPublicKeysRequest - {@link ListSSHPublicKeysRequest}
+ * @returns {@link ListSSHPublicKeysResponse}
  * @see {@link ListSSHPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListSSHPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

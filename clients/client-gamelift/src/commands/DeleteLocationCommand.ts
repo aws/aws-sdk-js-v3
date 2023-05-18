@@ -50,8 +50,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  *
  * ```
  *
- * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
- * @returns {@link DeleteLocationCommandOutput}
+ * @param DeleteLocationInput - {@link DeleteLocationInput}
+ * @returns {@link DeleteLocationOutput}
  * @see {@link DeleteLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

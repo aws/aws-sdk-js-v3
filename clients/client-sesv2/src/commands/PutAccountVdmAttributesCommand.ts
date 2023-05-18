@@ -57,8 +57,8 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
  *
  * ```
  *
- * @param PutAccountVdmAttributesCommandInput - {@link PutAccountVdmAttributesCommandInput}
- * @returns {@link PutAccountVdmAttributesCommandOutput}
+ * @param PutAccountVdmAttributesRequest - {@link PutAccountVdmAttributesRequest}
+ * @returns {@link PutAccountVdmAttributesResponse}
  * @see {@link PutAccountVdmAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountVdmAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

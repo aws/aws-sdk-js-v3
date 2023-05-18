@@ -92,8 +92,8 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *
  * ```
  *
- * @param GetInstanceAccessCommandInput - {@link GetInstanceAccessCommandInput}
- * @returns {@link GetInstanceAccessCommandOutput}
+ * @param GetInstanceAccessInput - {@link GetInstanceAccessInput}
+ * @returns {@link GetInstanceAccessOutput}
  * @see {@link GetInstanceAccessCommandInput} for command's `input` shape.
  * @see {@link GetInstanceAccessCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

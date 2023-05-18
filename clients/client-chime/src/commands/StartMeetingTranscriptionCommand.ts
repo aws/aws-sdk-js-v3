@@ -86,8 +86,8 @@ export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTran
  *
  * ```
  *
- * @param StartMeetingTranscriptionCommandInput - {@link StartMeetingTranscriptionCommandInput}
- * @returns {@link StartMeetingTranscriptionCommandOutput}
+ * @param StartMeetingTranscriptionRequest - {@link StartMeetingTranscriptionRequest}
+ * @returns {@link StartMeetingTranscriptionResponse}
  * @see {@link StartMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

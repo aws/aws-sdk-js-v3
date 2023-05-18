@@ -55,8 +55,8 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  *
  * ```
  *
- * @param GetDashboardCommandInput - {@link GetDashboardCommandInput}
- * @returns {@link GetDashboardCommandOutput}
+ * @param GetDashboardInput - {@link GetDashboardInput}
+ * @returns {@link GetDashboardOutput}
  * @see {@link GetDashboardCommandInput} for command's `input` shape.
  * @see {@link GetDashboardCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

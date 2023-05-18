@@ -86,8 +86,8 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  *
  * ```
  *
- * @param RollbackStackCommandInput - {@link RollbackStackCommandInput}
- * @returns {@link RollbackStackCommandOutput}
+ * @param RollbackStackInput - {@link RollbackStackInput}
+ * @returns {@link RollbackStackOutput}
  * @see {@link RollbackStackCommandInput} for command's `input` shape.
  * @see {@link RollbackStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

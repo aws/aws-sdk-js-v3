@@ -54,8 +54,8 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  *
  * ```
  *
- * @param AssociateTeamMemberCommandInput - {@link AssociateTeamMemberCommandInput}
- * @returns {@link AssociateTeamMemberCommandOutput}
+ * @param AssociateTeamMemberRequest - {@link AssociateTeamMemberRequest}
+ * @returns {@link AssociateTeamMemberResult}
  * @see {@link AssociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link AssociateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

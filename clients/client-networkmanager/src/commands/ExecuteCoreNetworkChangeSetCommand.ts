@@ -54,8 +54,8 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
  *
  * ```
  *
- * @param ExecuteCoreNetworkChangeSetCommandInput - {@link ExecuteCoreNetworkChangeSetCommandInput}
- * @returns {@link ExecuteCoreNetworkChangeSetCommandOutput}
+ * @param ExecuteCoreNetworkChangeSetRequest - {@link ExecuteCoreNetworkChangeSetRequest}
+ * @returns {@link ExecuteCoreNetworkChangeSetResponse}
  * @see {@link ExecuteCoreNetworkChangeSetCommandInput} for command's `input` shape.
  * @see {@link ExecuteCoreNetworkChangeSetCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

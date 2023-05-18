@@ -64,8 +64,8 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  *
  * ```
  *
- * @param GetComplianceSummaryByConfigRuleCommandInput - {@link GetComplianceSummaryByConfigRuleCommandInput}
- * @returns {@link GetComplianceSummaryByConfigRuleCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetComplianceSummaryByConfigRuleResponse}
  * @see {@link GetComplianceSummaryByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

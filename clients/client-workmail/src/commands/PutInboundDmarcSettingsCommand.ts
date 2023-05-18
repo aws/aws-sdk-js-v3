@@ -49,8 +49,8 @@ export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSet
  *
  * ```
  *
- * @param PutInboundDmarcSettingsCommandInput - {@link PutInboundDmarcSettingsCommandInput}
- * @returns {@link PutInboundDmarcSettingsCommandOutput}
+ * @param PutInboundDmarcSettingsRequest - {@link PutInboundDmarcSettingsRequest}
+ * @returns {@link PutInboundDmarcSettingsResponse}
  * @see {@link PutInboundDmarcSettingsCommandInput} for command's `input` shape.
  * @see {@link PutInboundDmarcSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

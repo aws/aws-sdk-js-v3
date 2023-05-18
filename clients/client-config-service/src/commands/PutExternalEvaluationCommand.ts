@@ -56,8 +56,8 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  *
  * ```
  *
- * @param PutExternalEvaluationCommandInput - {@link PutExternalEvaluationCommandInput}
- * @returns {@link PutExternalEvaluationCommandOutput}
+ * @param PutExternalEvaluationRequest - {@link PutExternalEvaluationRequest}
+ * @returns {@link PutExternalEvaluationResponse}
  * @see {@link PutExternalEvaluationCommandInput} for command's `input` shape.
  * @see {@link PutExternalEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

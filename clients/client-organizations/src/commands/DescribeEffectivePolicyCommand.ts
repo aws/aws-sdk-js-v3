@@ -65,8 +65,8 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *
  * ```
  *
- * @param DescribeEffectivePolicyCommandInput - {@link DescribeEffectivePolicyCommandInput}
- * @returns {@link DescribeEffectivePolicyCommandOutput}
+ * @param DescribeEffectivePolicyRequest - {@link DescribeEffectivePolicyRequest}
+ * @returns {@link DescribeEffectivePolicyResponse}
  * @see {@link DescribeEffectivePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectivePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

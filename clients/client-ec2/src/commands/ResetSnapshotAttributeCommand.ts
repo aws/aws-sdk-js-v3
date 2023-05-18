@@ -52,8 +52,8 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResetSnapshotAttributeCommandInput - {@link ResetSnapshotAttributeCommandInput}
- * @returns {@link ResetSnapshotAttributeCommandOutput}
+ * @param ResetSnapshotAttributeRequest - {@link ResetSnapshotAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link ResetSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

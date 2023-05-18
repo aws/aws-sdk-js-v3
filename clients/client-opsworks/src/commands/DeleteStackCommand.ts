@@ -55,8 +55,8 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
- * @returns {@link DeleteStackCommandOutput}
+ * @param DeleteStackRequest - {@link DeleteStackRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

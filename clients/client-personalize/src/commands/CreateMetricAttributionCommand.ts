@@ -67,8 +67,8 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  *
  * ```
  *
- * @param CreateMetricAttributionCommandInput - {@link CreateMetricAttributionCommandInput}
- * @returns {@link CreateMetricAttributionCommandOutput}
+ * @param CreateMetricAttributionRequest - {@link CreateMetricAttributionRequest}
+ * @returns {@link CreateMetricAttributionResponse}
  * @see {@link CreateMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link CreateMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

@@ -68,8 +68,8 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  *
  * ```
  *
- * @param DescribeRulesPackagesCommandInput - {@link DescribeRulesPackagesCommandInput}
- * @returns {@link DescribeRulesPackagesCommandOutput}
+ * @param DescribeRulesPackagesRequest - {@link DescribeRulesPackagesRequest}
+ * @returns {@link DescribeRulesPackagesResponse}
  * @see {@link DescribeRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

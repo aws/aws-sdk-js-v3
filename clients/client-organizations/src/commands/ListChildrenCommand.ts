@@ -71,8 +71,8 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *
  * ```
  *
- * @param ListChildrenCommandInput - {@link ListChildrenCommandInput}
- * @returns {@link ListChildrenCommandOutput}
+ * @param ListChildrenRequest - {@link ListChildrenRequest}
+ * @returns {@link ListChildrenResponse}
  * @see {@link ListChildrenCommandInput} for command's `input` shape.
  * @see {@link ListChildrenCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

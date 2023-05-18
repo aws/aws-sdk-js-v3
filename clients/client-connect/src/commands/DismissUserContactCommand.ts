@@ -54,8 +54,8 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  *
  * ```
  *
- * @param DismissUserContactCommandInput - {@link DismissUserContactCommandInput}
- * @returns {@link DismissUserContactCommandOutput}
+ * @param DismissUserContactRequest - {@link DismissUserContactRequest}
+ * @returns {@link DismissUserContactResponse}
  * @see {@link DismissUserContactCommandInput} for command's `input` shape.
  * @see {@link DismissUserContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

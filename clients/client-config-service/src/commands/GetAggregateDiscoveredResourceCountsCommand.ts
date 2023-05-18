@@ -76,8 +76,8 @@ export interface GetAggregateDiscoveredResourceCountsCommandOutput
  *
  * ```
  *
- * @param GetAggregateDiscoveredResourceCountsCommandInput - {@link GetAggregateDiscoveredResourceCountsCommandInput}
- * @returns {@link GetAggregateDiscoveredResourceCountsCommandOutput}
+ * @param GetAggregateDiscoveredResourceCountsRequest - {@link GetAggregateDiscoveredResourceCountsRequest}
+ * @returns {@link GetAggregateDiscoveredResourceCountsResponse}
  * @see {@link GetAggregateDiscoveredResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetAggregateDiscoveredResourceCountsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

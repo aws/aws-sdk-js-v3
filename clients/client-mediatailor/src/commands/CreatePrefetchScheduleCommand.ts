@@ -89,8 +89,8 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *
  * ```
  *
- * @param CreatePrefetchScheduleCommandInput - {@link CreatePrefetchScheduleCommandInput}
- * @returns {@link CreatePrefetchScheduleCommandOutput}
+ * @param CreatePrefetchScheduleRequest - {@link CreatePrefetchScheduleRequest}
+ * @returns {@link CreatePrefetchScheduleResponse}
  * @see {@link CreatePrefetchScheduleCommandInput} for command's `input` shape.
  * @see {@link CreatePrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

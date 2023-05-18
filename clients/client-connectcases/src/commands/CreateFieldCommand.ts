@@ -55,8 +55,8 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  *
  * ```
  *
- * @param CreateFieldCommandInput - {@link CreateFieldCommandInput}
- * @returns {@link CreateFieldCommandOutput}
+ * @param CreateFieldRequest - {@link CreateFieldRequest}
+ * @returns {@link CreateFieldResponse}
  * @see {@link CreateFieldCommandInput} for command's `input` shape.
  * @see {@link CreateFieldCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

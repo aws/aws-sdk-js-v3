@@ -66,8 +66,8 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  *
  * ```
  *
- * @param ListReadSetActivationJobsCommandInput - {@link ListReadSetActivationJobsCommandInput}
- * @returns {@link ListReadSetActivationJobsCommandOutput}
+ * @param ListReadSetActivationJobsRequest - {@link ListReadSetActivationJobsRequest}
+ * @returns {@link ListReadSetActivationJobsResponse}
  * @see {@link ListReadSetActivationJobsCommandInput} for command's `input` shape.
  * @see {@link ListReadSetActivationJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

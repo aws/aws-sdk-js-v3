@@ -108,8 +108,8 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  *
  * ```
  *
- * @param TestAuthorizationCommandInput - {@link TestAuthorizationCommandInput}
- * @returns {@link TestAuthorizationCommandOutput}
+ * @param TestAuthorizationRequest - {@link TestAuthorizationRequest}
+ * @returns {@link TestAuthorizationResponse}
  * @see {@link TestAuthorizationCommandInput} for command's `input` shape.
  * @see {@link TestAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

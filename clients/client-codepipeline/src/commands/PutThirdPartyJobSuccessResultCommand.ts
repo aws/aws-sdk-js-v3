@@ -65,8 +65,8 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param PutThirdPartyJobSuccessResultCommandInput - {@link PutThirdPartyJobSuccessResultCommandInput}
- * @returns {@link PutThirdPartyJobSuccessResultCommandOutput}
+ * @param PutThirdPartyJobSuccessResultInput - {@link PutThirdPartyJobSuccessResultInput}
+ * @returns {@link Unit}
  * @see {@link PutThirdPartyJobSuccessResultCommandInput} for command's `input` shape.
  * @see {@link PutThirdPartyJobSuccessResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

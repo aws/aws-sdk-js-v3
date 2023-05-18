@@ -58,8 +58,8 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableKeyCommandInput - {@link EnableKeyCommandInput}
- * @returns {@link EnableKeyCommandOutput}
+ * @param EnableKeyRequest - {@link EnableKeyRequest}
+ * @returns {@link Unit}
  * @see {@link EnableKeyCommandInput} for command's `input` shape.
  * @see {@link EnableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

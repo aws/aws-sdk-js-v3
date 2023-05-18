@@ -54,8 +54,8 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  *
  * ```
  *
- * @param RebootBrokerCommandInput - {@link RebootBrokerCommandInput}
- * @returns {@link RebootBrokerCommandOutput}
+ * @param RebootBrokerRequest - {@link RebootBrokerRequest}
+ * @returns {@link RebootBrokerResponse}
  * @see {@link RebootBrokerCommandInput} for command's `input` shape.
  * @see {@link RebootBrokerCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

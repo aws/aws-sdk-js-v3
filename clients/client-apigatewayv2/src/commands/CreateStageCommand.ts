@@ -115,8 +115,8 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *
  * ```
  *
- * @param CreateStageCommandInput - {@link CreateStageCommandInput}
- * @returns {@link CreateStageCommandOutput}
+ * @param CreateStageRequest - {@link CreateStageRequest}
+ * @returns {@link CreateStageResponse}
  * @see {@link CreateStageCommandInput} for command's `input` shape.
  * @see {@link CreateStageCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

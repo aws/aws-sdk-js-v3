@@ -70,8 +70,8 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  *
  * ```
  *
- * @param DescribeElasticIpsCommandInput - {@link DescribeElasticIpsCommandInput}
- * @returns {@link DescribeElasticIpsCommandOutput}
+ * @param DescribeElasticIpsRequest - {@link DescribeElasticIpsRequest}
+ * @returns {@link DescribeElasticIpsResult}
  * @see {@link DescribeElasticIpsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticIpsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

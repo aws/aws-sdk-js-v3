@@ -69,8 +69,8 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  *
  * ```
  *
- * @param ProvisionIpamPoolCidrCommandInput - {@link ProvisionIpamPoolCidrCommandInput}
- * @returns {@link ProvisionIpamPoolCidrCommandOutput}
+ * @param ProvisionIpamPoolCidrRequest - {@link ProvisionIpamPoolCidrRequest}
+ * @returns {@link ProvisionIpamPoolCidrResult}
  * @see {@link ProvisionIpamPoolCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

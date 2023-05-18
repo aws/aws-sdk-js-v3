@@ -66,8 +66,8 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  *
  * ```
  *
- * @param UpdateInstanceProfileCommandInput - {@link UpdateInstanceProfileCommandInput}
- * @returns {@link UpdateInstanceProfileCommandOutput}
+ * @param UpdateInstanceProfileRequest - {@link UpdateInstanceProfileRequest}
+ * @returns {@link UpdateInstanceProfileResult}
  * @see {@link UpdateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

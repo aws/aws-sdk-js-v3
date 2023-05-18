@@ -66,8 +66,8 @@ export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  *
  * ```
  *
- * @param ArchiveWaveCommandInput - {@link ArchiveWaveCommandInput}
- * @returns {@link ArchiveWaveCommandOutput}
+ * @param ArchiveWaveRequest - {@link ArchiveWaveRequest}
+ * @returns {@link Wave}
  * @see {@link ArchiveWaveCommandInput} for command's `input` shape.
  * @see {@link ArchiveWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

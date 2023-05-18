@@ -63,8 +63,8 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  *
  * ```
  *
- * @param ListRecoveryPointsByLegalHoldCommandInput - {@link ListRecoveryPointsByLegalHoldCommandInput}
- * @returns {@link ListRecoveryPointsByLegalHoldCommandOutput}
+ * @param ListRecoveryPointsByLegalHoldInput - {@link ListRecoveryPointsByLegalHoldInput}
+ * @returns {@link ListRecoveryPointsByLegalHoldOutput}
  * @see {@link ListRecoveryPointsByLegalHoldCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

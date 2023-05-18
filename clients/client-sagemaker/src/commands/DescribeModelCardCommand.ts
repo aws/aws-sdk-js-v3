@@ -85,8 +85,8 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  *
  * ```
  *
- * @param DescribeModelCardCommandInput - {@link DescribeModelCardCommandInput}
- * @returns {@link DescribeModelCardCommandOutput}
+ * @param DescribeModelCardRequest - {@link DescribeModelCardRequest}
+ * @returns {@link DescribeModelCardResponse}
  * @see {@link DescribeModelCardCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

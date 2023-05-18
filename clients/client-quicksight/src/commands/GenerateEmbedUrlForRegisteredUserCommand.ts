@@ -117,8 +117,8 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *
  * ```
  *
- * @param GenerateEmbedUrlForRegisteredUserCommandInput - {@link GenerateEmbedUrlForRegisteredUserCommandInput}
- * @returns {@link GenerateEmbedUrlForRegisteredUserCommandOutput}
+ * @param GenerateEmbedUrlForRegisteredUserRequest - {@link GenerateEmbedUrlForRegisteredUserRequest}
+ * @returns {@link GenerateEmbedUrlForRegisteredUserResponse}
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

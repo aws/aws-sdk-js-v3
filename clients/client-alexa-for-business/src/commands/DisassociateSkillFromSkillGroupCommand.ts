@@ -54,8 +54,8 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
  *
  * ```
  *
- * @param DisassociateSkillFromSkillGroupCommandInput - {@link DisassociateSkillFromSkillGroupCommandInput}
- * @returns {@link DisassociateSkillFromSkillGroupCommandOutput}
+ * @param DisassociateSkillFromSkillGroupRequest - {@link DisassociateSkillFromSkillGroupRequest}
+ * @returns {@link DisassociateSkillFromSkillGroupResponse}
  * @see {@link DisassociateSkillFromSkillGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillFromSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

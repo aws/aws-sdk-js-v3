@@ -123,8 +123,8 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  *
  * ```
  *
- * @param GetMetricDataV2CommandInput - {@link GetMetricDataV2CommandInput}
- * @returns {@link GetMetricDataV2CommandOutput}
+ * @param GetMetricDataV2Request - {@link GetMetricDataV2Request}
+ * @returns {@link GetMetricDataV2Response}
  * @see {@link GetMetricDataV2CommandInput} for command's `input` shape.
  * @see {@link GetMetricDataV2CommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -107,8 +107,8 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  *
  * ```
  *
- * @param GetServiceLastAccessedDetailsWithEntitiesCommandInput - {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput}
- * @returns {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput}
+ * @param GetServiceLastAccessedDetailsWithEntitiesRequest - {@link GetServiceLastAccessedDetailsWithEntitiesRequest}
+ * @returns {@link GetServiceLastAccessedDetailsWithEntitiesResponse}
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

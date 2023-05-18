@@ -73,8 +73,8 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  *
  * ```
  *
- * @param StartAttachmentUploadCommandInput - {@link StartAttachmentUploadCommandInput}
- * @returns {@link StartAttachmentUploadCommandOutput}
+ * @param StartAttachmentUploadRequest - {@link StartAttachmentUploadRequest}
+ * @returns {@link StartAttachmentUploadResponse}
  * @see {@link StartAttachmentUploadCommandInput} for command's `input` shape.
  * @see {@link StartAttachmentUploadCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.

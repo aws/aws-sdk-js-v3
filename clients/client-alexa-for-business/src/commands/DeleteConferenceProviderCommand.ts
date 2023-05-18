@@ -48,8 +48,8 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
  *
  * ```
  *
- * @param DeleteConferenceProviderCommandInput - {@link DeleteConferenceProviderCommandInput}
- * @returns {@link DeleteConferenceProviderCommandOutput}
+ * @param DeleteConferenceProviderRequest - {@link DeleteConferenceProviderRequest}
+ * @returns {@link DeleteConferenceProviderResponse}
  * @see {@link DeleteConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

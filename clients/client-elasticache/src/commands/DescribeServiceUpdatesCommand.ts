@@ -71,8 +71,8 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  *
  * ```
  *
- * @param DescribeServiceUpdatesCommandInput - {@link DescribeServiceUpdatesCommandInput}
- * @returns {@link DescribeServiceUpdatesCommandOutput}
+ * @param DescribeServiceUpdatesMessage - {@link DescribeServiceUpdatesMessage}
+ * @returns {@link ServiceUpdatesMessage}
  * @see {@link DescribeServiceUpdatesCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceUpdatesCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

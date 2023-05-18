@@ -55,8 +55,8 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  *
  * ```
  *
- * @param UpdateAnomalyDetectorCommandInput - {@link UpdateAnomalyDetectorCommandInput}
- * @returns {@link UpdateAnomalyDetectorCommandOutput}
+ * @param UpdateAnomalyDetectorRequest - {@link UpdateAnomalyDetectorRequest}
+ * @returns {@link UpdateAnomalyDetectorResponse}
  * @see {@link UpdateAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link UpdateAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

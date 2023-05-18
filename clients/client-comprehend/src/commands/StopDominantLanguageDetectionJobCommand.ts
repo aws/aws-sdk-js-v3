@@ -65,8 +65,8 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  *
  * ```
  *
- * @param StopDominantLanguageDetectionJobCommandInput - {@link StopDominantLanguageDetectionJobCommandInput}
- * @returns {@link StopDominantLanguageDetectionJobCommandOutput}
+ * @param StopDominantLanguageDetectionJobRequest - {@link StopDominantLanguageDetectionJobRequest}
+ * @returns {@link StopDominantLanguageDetectionJobResponse}
  * @see {@link StopDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

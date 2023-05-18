@@ -91,8 +91,8 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  *
  * ```
  *
- * @param CreateLicenseCommandInput - {@link CreateLicenseCommandInput}
- * @returns {@link CreateLicenseCommandOutput}
+ * @param CreateLicenseRequest - {@link CreateLicenseRequest}
+ * @returns {@link CreateLicenseResponse}
  * @see {@link CreateLicenseCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

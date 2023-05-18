@@ -101,8 +101,8 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  *
  * ```
  *
- * @param StopDeploymentCommandInput - {@link StopDeploymentCommandInput}
- * @returns {@link StopDeploymentCommandOutput}
+ * @param StopDeploymentRequest - {@link StopDeploymentRequest}
+ * @returns {@link Deployment}
  * @see {@link StopDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

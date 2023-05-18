@@ -58,8 +58,8 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
- * @returns {@link DeleteSnapshotCommandOutput}
+ * @param DeleteSnapshotRequest - {@link DeleteSnapshotRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

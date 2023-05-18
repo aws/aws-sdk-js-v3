@@ -58,8 +58,8 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  *
  * ```
  *
- * @param AssociateAttributeGroupCommandInput - {@link AssociateAttributeGroupCommandInput}
- * @returns {@link AssociateAttributeGroupCommandOutput}
+ * @param AssociateAttributeGroupRequest - {@link AssociateAttributeGroupRequest}
+ * @returns {@link AssociateAttributeGroupResponse}
  * @see {@link AssociateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

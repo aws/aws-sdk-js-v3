@@ -56,8 +56,8 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSlotTypeCommandInput - {@link DeleteSlotTypeCommandInput}
- * @returns {@link DeleteSlotTypeCommandOutput}
+ * @param DeleteSlotTypeRequest - {@link DeleteSlotTypeRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSlotTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

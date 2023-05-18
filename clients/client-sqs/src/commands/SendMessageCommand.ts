@@ -92,8 +92,8 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  *
  * ```
  *
- * @param SendMessageCommandInput - {@link SendMessageCommandInput}
- * @returns {@link SendMessageCommandOutput}
+ * @param SendMessageRequest - {@link SendMessageRequest}
+ * @returns {@link SendMessageResult}
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

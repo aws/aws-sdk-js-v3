@@ -96,8 +96,8 @@ export interface GetLicenseCommandOutput extends GetLicenseResponse, __MetadataB
  *
  * ```
  *
- * @param GetLicenseCommandInput - {@link GetLicenseCommandInput}
- * @returns {@link GetLicenseCommandOutput}
+ * @param GetLicenseRequest - {@link GetLicenseRequest}
+ * @returns {@link GetLicenseResponse}
  * @see {@link GetLicenseCommandInput} for command's `input` shape.
  * @see {@link GetLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

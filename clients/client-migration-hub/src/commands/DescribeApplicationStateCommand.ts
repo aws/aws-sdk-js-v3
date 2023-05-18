@@ -51,8 +51,8 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  *
  * ```
  *
- * @param DescribeApplicationStateCommandInput - {@link DescribeApplicationStateCommandInput}
- * @returns {@link DescribeApplicationStateCommandOutput}
+ * @param DescribeApplicationStateRequest - {@link DescribeApplicationStateRequest}
+ * @returns {@link DescribeApplicationStateResult}
  * @see {@link DescribeApplicationStateCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

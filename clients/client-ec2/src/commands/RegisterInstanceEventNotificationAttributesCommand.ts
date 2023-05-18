@@ -72,8 +72,8 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  *
  * ```
  *
- * @param RegisterInstanceEventNotificationAttributesCommandInput - {@link RegisterInstanceEventNotificationAttributesCommandInput}
- * @returns {@link RegisterInstanceEventNotificationAttributesCommandOutput}
+ * @param RegisterInstanceEventNotificationAttributesRequest - {@link RegisterInstanceEventNotificationAttributesRequest}
+ * @returns {@link RegisterInstanceEventNotificationAttributesResult}
  * @see {@link RegisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -71,8 +71,8 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  *
  * ```
  *
- * @param SubmitContactEvaluationCommandInput - {@link SubmitContactEvaluationCommandInput}
- * @returns {@link SubmitContactEvaluationCommandOutput}
+ * @param SubmitContactEvaluationRequest - {@link SubmitContactEvaluationRequest}
+ * @returns {@link SubmitContactEvaluationResponse}
  * @see {@link SubmitContactEvaluationCommandInput} for command's `input` shape.
  * @see {@link SubmitContactEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -82,8 +82,8 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  *
  * ```
  *
- * @param ListResourceRequestsCommandInput - {@link ListResourceRequestsCommandInput}
- * @returns {@link ListResourceRequestsCommandOutput}
+ * @param ListResourceRequestsInput - {@link ListResourceRequestsInput}
+ * @returns {@link ListResourceRequestsOutput}
  * @see {@link ListResourceRequestsCommandInput} for command's `input` shape.
  * @see {@link ListResourceRequestsCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.

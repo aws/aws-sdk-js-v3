@@ -50,8 +50,8 @@ export interface AssociateHealthCheckCommandOutput extends AssociateHealthCheckR
  *
  * ```
  *
- * @param AssociateHealthCheckCommandInput - {@link AssociateHealthCheckCommandInput}
- * @returns {@link AssociateHealthCheckCommandOutput}
+ * @param AssociateHealthCheckRequest - {@link AssociateHealthCheckRequest}
+ * @returns {@link AssociateHealthCheckResponse}
  * @see {@link AssociateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link AssociateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

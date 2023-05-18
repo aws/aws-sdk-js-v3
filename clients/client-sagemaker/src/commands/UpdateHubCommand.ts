@@ -58,8 +58,8 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  *
  * ```
  *
- * @param UpdateHubCommandInput - {@link UpdateHubCommandInput}
- * @returns {@link UpdateHubCommandOutput}
+ * @param UpdateHubRequest - {@link UpdateHubRequest}
+ * @returns {@link UpdateHubResponse}
  * @see {@link UpdateHubCommandInput} for command's `input` shape.
  * @see {@link UpdateHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

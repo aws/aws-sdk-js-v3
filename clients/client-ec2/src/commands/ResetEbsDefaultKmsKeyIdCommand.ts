@@ -55,8 +55,8 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  *
  * ```
  *
- * @param ResetEbsDefaultKmsKeyIdCommandInput - {@link ResetEbsDefaultKmsKeyIdCommandInput}
- * @returns {@link ResetEbsDefaultKmsKeyIdCommandOutput}
+ * @param ResetEbsDefaultKmsKeyIdRequest - {@link ResetEbsDefaultKmsKeyIdRequest}
+ * @returns {@link ResetEbsDefaultKmsKeyIdResult}
  * @see {@link ResetEbsDefaultKmsKeyIdCommandInput} for command's `input` shape.
  * @see {@link ResetEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

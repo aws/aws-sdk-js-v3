@@ -76,8 +76,8 @@ export interface GetOrderCommandOutput extends GetOrderResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetOrderCommandInput - {@link GetOrderCommandInput}
- * @returns {@link GetOrderCommandOutput}
+ * @param GetOrderRequest - {@link GetOrderRequest}
+ * @returns {@link GetOrderResponse}
  * @see {@link GetOrderCommandInput} for command's `input` shape.
  * @see {@link GetOrderCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

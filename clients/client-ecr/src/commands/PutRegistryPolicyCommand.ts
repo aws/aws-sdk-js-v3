@@ -53,8 +53,8 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  *
  * ```
  *
- * @param PutRegistryPolicyCommandInput - {@link PutRegistryPolicyCommandInput}
- * @returns {@link PutRegistryPolicyCommandOutput}
+ * @param PutRegistryPolicyRequest - {@link PutRegistryPolicyRequest}
+ * @returns {@link PutRegistryPolicyResponse}
  * @see {@link PutRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRegistryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

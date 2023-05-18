@@ -70,8 +70,8 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  *
  * ```
  *
- * @param ListAvailableManagedRuleGroupVersionsCommandInput - {@link ListAvailableManagedRuleGroupVersionsCommandInput}
- * @returns {@link ListAvailableManagedRuleGroupVersionsCommandOutput}
+ * @param ListAvailableManagedRuleGroupVersionsRequest - {@link ListAvailableManagedRuleGroupVersionsRequest}
+ * @returns {@link ListAvailableManagedRuleGroupVersionsResponse}
  * @see {@link ListAvailableManagedRuleGroupVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagedRuleGroupVersionsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

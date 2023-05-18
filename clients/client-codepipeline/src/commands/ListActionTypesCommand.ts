@@ -88,8 +88,8 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  *
  * ```
  *
- * @param ListActionTypesCommandInput - {@link ListActionTypesCommandInput}
- * @returns {@link ListActionTypesCommandOutput}
+ * @param ListActionTypesInput - {@link ListActionTypesInput}
+ * @returns {@link ListActionTypesOutput}
  * @see {@link ListActionTypesCommandInput} for command's `input` shape.
  * @see {@link ListActionTypesCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

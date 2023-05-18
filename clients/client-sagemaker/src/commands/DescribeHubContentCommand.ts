@@ -78,8 +78,8 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  *
  * ```
  *
- * @param DescribeHubContentCommandInput - {@link DescribeHubContentCommandInput}
- * @returns {@link DescribeHubContentCommandOutput}
+ * @param DescribeHubContentRequest - {@link DescribeHubContentRequest}
+ * @returns {@link DescribeHubContentResponse}
  * @see {@link DescribeHubContentCommandInput} for command's `input` shape.
  * @see {@link DescribeHubContentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

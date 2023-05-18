@@ -59,8 +59,8 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  *
  * ```
  *
- * @param DescribeOrganizationHealthCommandInput - {@link DescribeOrganizationHealthCommandInput}
- * @returns {@link DescribeOrganizationHealthCommandOutput}
+ * @param DescribeOrganizationHealthRequest - {@link DescribeOrganizationHealthRequest}
+ * @returns {@link DescribeOrganizationHealthResponse}
  * @see {@link DescribeOrganizationHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

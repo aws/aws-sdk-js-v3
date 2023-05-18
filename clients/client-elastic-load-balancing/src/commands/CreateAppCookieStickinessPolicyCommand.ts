@@ -67,8 +67,8 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  *
  * ```
  *
- * @param CreateAppCookieStickinessPolicyCommandInput - {@link CreateAppCookieStickinessPolicyCommandInput}
- * @returns {@link CreateAppCookieStickinessPolicyCommandOutput}
+ * @param CreateAppCookieStickinessPolicyInput - {@link CreateAppCookieStickinessPolicyInput}
+ * @returns {@link CreateAppCookieStickinessPolicyOutput}
  * @see {@link CreateAppCookieStickinessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateAppCookieStickinessPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

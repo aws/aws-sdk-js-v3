@@ -73,8 +73,8 @@ export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningC
  *
  * ```
  *
- * @param UpdateCodeSigningConfigCommandInput - {@link UpdateCodeSigningConfigCommandInput}
- * @returns {@link UpdateCodeSigningConfigCommandOutput}
+ * @param UpdateCodeSigningConfigRequest - {@link UpdateCodeSigningConfigRequest}
+ * @returns {@link UpdateCodeSigningConfigResponse}
  * @see {@link UpdateCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -79,8 +79,8 @@ export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult,
  *
  * ```
  *
- * @param DeleteDomainEntryCommandInput - {@link DeleteDomainEntryCommandInput}
- * @returns {@link DeleteDomainEntryCommandOutput}
+ * @param DeleteDomainEntryRequest - {@link DeleteDomainEntryRequest}
+ * @returns {@link DeleteDomainEntryResult}
  * @see {@link DeleteDomainEntryCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

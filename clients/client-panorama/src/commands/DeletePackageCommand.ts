@@ -53,8 +53,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  *
  * ```
  *
- * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
- * @returns {@link DeletePackageCommandOutput}
+ * @param DeletePackageRequest - {@link DeletePackageRequest}
+ * @returns {@link DeletePackageResponse}
  * @see {@link DeletePackageCommandInput} for command's `input` shape.
  * @see {@link DeletePackageCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

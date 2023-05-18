@@ -209,8 +209,8 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  *
  * ```
  *
- * @param DescribePoliciesCommandInput - {@link DescribePoliciesCommandInput}
- * @returns {@link DescribePoliciesCommandOutput}
+ * @param DescribePoliciesType - {@link DescribePoliciesType}
+ * @returns {@link PoliciesType}
  * @see {@link DescribePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribePoliciesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

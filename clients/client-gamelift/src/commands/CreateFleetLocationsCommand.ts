@@ -85,8 +85,8 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *
  * ```
  *
- * @param CreateFleetLocationsCommandInput - {@link CreateFleetLocationsCommandInput}
- * @returns {@link CreateFleetLocationsCommandOutput}
+ * @param CreateFleetLocationsInput - {@link CreateFleetLocationsInput}
+ * @returns {@link CreateFleetLocationsOutput}
  * @see {@link CreateFleetLocationsCommandInput} for command's `input` shape.
  * @see {@link CreateFleetLocationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

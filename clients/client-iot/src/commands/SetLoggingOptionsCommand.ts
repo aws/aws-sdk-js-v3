@@ -54,8 +54,8 @@ export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetLoggingOptionsCommandInput - {@link SetLoggingOptionsCommandInput}
- * @returns {@link SetLoggingOptionsCommandOutput}
+ * @param SetLoggingOptionsRequest - {@link SetLoggingOptionsRequest}
+ * @returns {@link Unit}
  * @see {@link SetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link SetLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

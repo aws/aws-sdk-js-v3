@@ -80,8 +80,8 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
  *
  * ```
  *
- * @param DescribeInstanceAssociationsStatusCommandInput - {@link DescribeInstanceAssociationsStatusCommandInput}
- * @returns {@link DescribeInstanceAssociationsStatusCommandOutput}
+ * @param DescribeInstanceAssociationsStatusRequest - {@link DescribeInstanceAssociationsStatusRequest}
+ * @returns {@link DescribeInstanceAssociationsStatusResult}
  * @see {@link DescribeInstanceAssociationsStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAssociationsStatusCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

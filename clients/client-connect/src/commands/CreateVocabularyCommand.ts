@@ -61,8 +61,8 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  *
  * ```
  *
- * @param CreateVocabularyCommandInput - {@link CreateVocabularyCommandInput}
- * @returns {@link CreateVocabularyCommandOutput}
+ * @param CreateVocabularyRequest - {@link CreateVocabularyRequest}
+ * @returns {@link CreateVocabularyResponse}
  * @see {@link CreateVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

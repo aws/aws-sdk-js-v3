@@ -104,8 +104,8 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  *
  * ```
  *
- * @param PutBotAliasCommandInput - {@link PutBotAliasCommandInput}
- * @returns {@link PutBotAliasCommandOutput}
+ * @param PutBotAliasRequest - {@link PutBotAliasRequest}
+ * @returns {@link PutBotAliasResponse}
  * @see {@link PutBotAliasCommandInput} for command's `input` shape.
  * @see {@link PutBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

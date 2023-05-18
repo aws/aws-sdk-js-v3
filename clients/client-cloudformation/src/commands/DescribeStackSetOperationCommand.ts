@@ -96,8 +96,8 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  *
  * ```
  *
- * @param DescribeStackSetOperationCommandInput - {@link DescribeStackSetOperationCommandInput}
- * @returns {@link DescribeStackSetOperationCommandOutput}
+ * @param DescribeStackSetOperationInput - {@link DescribeStackSetOperationInput}
+ * @returns {@link DescribeStackSetOperationOutput}
  * @see {@link DescribeStackSetOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSetOperationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

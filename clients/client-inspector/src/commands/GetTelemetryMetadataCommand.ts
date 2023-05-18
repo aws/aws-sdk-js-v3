@@ -57,8 +57,8 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  *
  * ```
  *
- * @param GetTelemetryMetadataCommandInput - {@link GetTelemetryMetadataCommandInput}
- * @returns {@link GetTelemetryMetadataCommandOutput}
+ * @param GetTelemetryMetadataRequest - {@link GetTelemetryMetadataRequest}
+ * @returns {@link GetTelemetryMetadataResponse}
  * @see {@link GetTelemetryMetadataCommandInput} for command's `input` shape.
  * @see {@link GetTelemetryMetadataCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

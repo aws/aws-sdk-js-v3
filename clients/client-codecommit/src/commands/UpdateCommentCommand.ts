@@ -66,8 +66,8 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  *
  * ```
  *
- * @param UpdateCommentCommandInput - {@link UpdateCommentCommandInput}
- * @returns {@link UpdateCommentCommandOutput}
+ * @param UpdateCommentInput - {@link UpdateCommentInput}
+ * @returns {@link UpdateCommentOutput}
  * @see {@link UpdateCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateCommentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

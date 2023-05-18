@@ -60,8 +60,8 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  *
  * ```
  *
- * @param ListLogPatternSetsCommandInput - {@link ListLogPatternSetsCommandInput}
- * @returns {@link ListLogPatternSetsCommandOutput}
+ * @param ListLogPatternSetsRequest - {@link ListLogPatternSetsRequest}
+ * @returns {@link ListLogPatternSetsResponse}
  * @see {@link ListLogPatternSetsCommandInput} for command's `input` shape.
  * @see {@link ListLogPatternSetsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

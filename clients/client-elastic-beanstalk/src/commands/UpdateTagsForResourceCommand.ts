@@ -76,8 +76,8 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateTagsForResourceCommandInput - {@link UpdateTagsForResourceCommandInput}
- * @returns {@link UpdateTagsForResourceCommandOutput}
+ * @param UpdateTagsForResourceMessage - {@link UpdateTagsForResourceMessage}
+ * @returns {@link Unit}
  * @see {@link UpdateTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

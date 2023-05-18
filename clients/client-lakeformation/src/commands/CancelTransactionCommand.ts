@@ -48,8 +48,8 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  *
  * ```
  *
- * @param CancelTransactionCommandInput - {@link CancelTransactionCommandInput}
- * @returns {@link CancelTransactionCommandOutput}
+ * @param CancelTransactionRequest - {@link CancelTransactionRequest}
+ * @returns {@link CancelTransactionResponse}
  * @see {@link CancelTransactionCommandInput} for command's `input` shape.
  * @see {@link CancelTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

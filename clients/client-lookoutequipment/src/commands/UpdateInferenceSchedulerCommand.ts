@@ -69,8 +69,8 @@ export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param UpdateInferenceSchedulerCommandInput - {@link UpdateInferenceSchedulerCommandInput}
- * @returns {@link UpdateInferenceSchedulerCommandOutput}
+ * @param UpdateInferenceSchedulerRequest - {@link UpdateInferenceSchedulerRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link UpdateInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

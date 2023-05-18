@@ -104,8 +104,8 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *
  * ```
  *
- * @param UpdateBackupPlanCommandInput - {@link UpdateBackupPlanCommandInput}
- * @returns {@link UpdateBackupPlanCommandOutput}
+ * @param UpdateBackupPlanInput - {@link UpdateBackupPlanInput}
+ * @returns {@link UpdateBackupPlanOutput}
  * @see {@link UpdateBackupPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

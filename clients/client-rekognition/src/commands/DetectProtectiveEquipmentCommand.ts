@@ -144,8 +144,8 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *
  * ```
  *
- * @param DetectProtectiveEquipmentCommandInput - {@link DetectProtectiveEquipmentCommandInput}
- * @returns {@link DetectProtectiveEquipmentCommandOutput}
+ * @param DetectProtectiveEquipmentRequest - {@link DetectProtectiveEquipmentRequest}
+ * @returns {@link DetectProtectiveEquipmentResponse}
  * @see {@link DetectProtectiveEquipmentCommandInput} for command's `input` shape.
  * @see {@link DetectProtectiveEquipmentCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

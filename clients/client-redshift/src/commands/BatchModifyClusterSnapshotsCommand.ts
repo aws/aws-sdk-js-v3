@@ -66,8 +66,8 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  *
  * ```
  *
- * @param BatchModifyClusterSnapshotsCommandInput - {@link BatchModifyClusterSnapshotsCommandInput}
- * @returns {@link BatchModifyClusterSnapshotsCommandOutput}
+ * @param BatchModifyClusterSnapshotsMessage - {@link BatchModifyClusterSnapshotsMessage}
+ * @returns {@link BatchModifyClusterSnapshotsOutputMessage}
  * @see {@link BatchModifyClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link BatchModifyClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

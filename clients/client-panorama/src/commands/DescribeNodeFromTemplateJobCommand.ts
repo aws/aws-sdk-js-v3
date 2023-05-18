@@ -79,8 +79,8 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  *
  * ```
  *
- * @param DescribeNodeFromTemplateJobCommandInput - {@link DescribeNodeFromTemplateJobCommandInput}
- * @returns {@link DescribeNodeFromTemplateJobCommandOutput}
+ * @param DescribeNodeFromTemplateJobRequest - {@link DescribeNodeFromTemplateJobRequest}
+ * @returns {@link DescribeNodeFromTemplateJobResponse}
  * @see {@link DescribeNodeFromTemplateJobCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeFromTemplateJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListAppsCommandInput - {@link ListAppsCommandInput}
- * @returns {@link ListAppsCommandOutput}
+ * @param ListAppsRequest - {@link ListAppsRequest}
+ * @returns {@link ListAppsResponse}
  * @see {@link ListAppsCommandInput} for command's `input` shape.
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

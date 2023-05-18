@@ -58,8 +58,8 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  *
  * ```
  *
- * @param CreateCustomMetadataCommandInput - {@link CreateCustomMetadataCommandInput}
- * @returns {@link CreateCustomMetadataCommandOutput}
+ * @param CreateCustomMetadataRequest - {@link CreateCustomMetadataRequest}
+ * @returns {@link CreateCustomMetadataResponse}
  * @see {@link CreateCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

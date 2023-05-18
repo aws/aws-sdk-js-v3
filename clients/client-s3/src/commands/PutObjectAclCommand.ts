@@ -263,8 +263,8 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *
  * ```
  *
- * @param PutObjectAclCommandInput - {@link PutObjectAclCommandInput}
- * @returns {@link PutObjectAclCommandOutput}
+ * @param PutObjectAclRequest - {@link PutObjectAclRequest}
+ * @returns {@link PutObjectAclOutput}
  * @see {@link PutObjectAclCommandInput} for command's `input` shape.
  * @see {@link PutObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -84,8 +84,8 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  *
  * ```
  *
- * @param GetWebACLCommandInput - {@link GetWebACLCommandInput}
- * @returns {@link GetWebACLCommandOutput}
+ * @param GetWebACLRequest - {@link GetWebACLRequest}
+ * @returns {@link GetWebACLResponse}
  * @see {@link GetWebACLCommandInput} for command's `input` shape.
  * @see {@link GetWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

@@ -88,8 +88,8 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  *
  * ```
  *
- * @param ListEventPredictionsCommandInput - {@link ListEventPredictionsCommandInput}
- * @returns {@link ListEventPredictionsCommandOutput}
+ * @param ListEventPredictionsRequest - {@link ListEventPredictionsRequest}
+ * @returns {@link ListEventPredictionsResult}
  * @see {@link ListEventPredictionsCommandInput} for command's `input` shape.
  * @see {@link ListEventPredictionsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

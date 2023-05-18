@@ -55,8 +55,8 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  *
  * ```
  *
- * @param DeleteAccessPolicyCommandInput - {@link DeleteAccessPolicyCommandInput}
- * @returns {@link DeleteAccessPolicyCommandOutput}
+ * @param DeleteAccessPolicyRequest - {@link DeleteAccessPolicyRequest}
+ * @returns {@link DeleteAccessPolicyResponse}
  * @see {@link DeleteAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

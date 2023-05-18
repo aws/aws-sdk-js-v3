@@ -63,8 +63,8 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PublishCommandInput - {@link PublishCommandInput}
- * @returns {@link PublishCommandOutput}
+ * @param PublishRequest - {@link PublishRequest}
+ * @returns {@link Unit}
  * @see {@link PublishCommandInput} for command's `input` shape.
  * @see {@link PublishCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.

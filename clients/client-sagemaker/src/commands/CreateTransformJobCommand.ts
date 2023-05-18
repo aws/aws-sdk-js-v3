@@ -139,8 +139,8 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  *
  * ```
  *
- * @param CreateTransformJobCommandInput - {@link CreateTransformJobCommandInput}
- * @returns {@link CreateTransformJobCommandOutput}
+ * @param CreateTransformJobRequest - {@link CreateTransformJobRequest}
+ * @returns {@link CreateTransformJobResponse}
  * @see {@link CreateTransformJobCommandInput} for command's `input` shape.
  * @see {@link CreateTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

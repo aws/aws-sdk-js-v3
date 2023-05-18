@@ -85,8 +85,8 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  *
  * ```
  *
- * @param CreateRegexPatternSetCommandInput - {@link CreateRegexPatternSetCommandInput}
- * @returns {@link CreateRegexPatternSetCommandOutput}
+ * @param CreateRegexPatternSetRequest - {@link CreateRegexPatternSetRequest}
+ * @returns {@link CreateRegexPatternSetResponse}
  * @see {@link CreateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link CreateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

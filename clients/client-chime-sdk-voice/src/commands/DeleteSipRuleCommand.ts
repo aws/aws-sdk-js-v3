@@ -48,8 +48,8 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSipRuleCommandInput - {@link DeleteSipRuleCommandInput}
- * @returns {@link DeleteSipRuleCommandOutput}
+ * @param DeleteSipRuleRequest - {@link DeleteSipRuleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSipRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

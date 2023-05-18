@@ -88,8 +88,8 @@ export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBea
  *
  * ```
  *
- * @param CreatePoolCommandInput - {@link CreatePoolCommandInput}
- * @returns {@link CreatePoolCommandOutput}
+ * @param CreatePoolRequest - {@link CreatePoolRequest}
+ * @returns {@link CreatePoolResult}
  * @see {@link CreatePoolCommandInput} for command's `input` shape.
  * @see {@link CreatePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

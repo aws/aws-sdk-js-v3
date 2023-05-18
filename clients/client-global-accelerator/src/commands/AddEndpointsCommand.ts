@@ -85,8 +85,8 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  *
  * ```
  *
- * @param AddEndpointsCommandInput - {@link AddEndpointsCommandInput}
- * @returns {@link AddEndpointsCommandOutput}
+ * @param AddEndpointsRequest - {@link AddEndpointsRequest}
+ * @returns {@link AddEndpointsResponse}
  * @see {@link AddEndpointsCommandInput} for command's `input` shape.
  * @see {@link AddEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

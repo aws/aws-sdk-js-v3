@@ -68,8 +68,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  *
  * ```
  *
- * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
- * @returns {@link ListPublicKeysCommandOutput}
+ * @param ListPublicKeysRequest - {@link ListPublicKeysRequest}
+ * @returns {@link ListPublicKeysResponse}
  * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

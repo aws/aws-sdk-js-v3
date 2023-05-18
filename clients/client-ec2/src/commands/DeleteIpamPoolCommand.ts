@@ -92,8 +92,8 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  *
  * ```
  *
- * @param DeleteIpamPoolCommandInput - {@link DeleteIpamPoolCommandInput}
- * @returns {@link DeleteIpamPoolCommandOutput}
+ * @param DeleteIpamPoolRequest - {@link DeleteIpamPoolRequest}
+ * @returns {@link DeleteIpamPoolResult}
  * @see {@link DeleteIpamPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

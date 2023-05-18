@@ -49,8 +49,8 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
- * @returns {@link DeleteLinkCommandOutput}
+ * @param DeleteLinkInput - {@link DeleteLinkInput}
+ * @returns {@link DeleteLinkOutput}
  * @see {@link DeleteLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

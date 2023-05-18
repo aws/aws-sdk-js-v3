@@ -57,8 +57,8 @@ export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGr
  *
  * ```
  *
- * @param ListThingsInThingGroupCommandInput - {@link ListThingsInThingGroupCommandInput}
- * @returns {@link ListThingsInThingGroupCommandOutput}
+ * @param ListThingsInThingGroupRequest - {@link ListThingsInThingGroupRequest}
+ * @returns {@link ListThingsInThingGroupResponse}
  * @see {@link ListThingsInThingGroupCommandInput} for command's `input` shape.
  * @see {@link ListThingsInThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

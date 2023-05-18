@@ -50,8 +50,8 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AbortEnvironmentUpdateCommandInput - {@link AbortEnvironmentUpdateCommandInput}
- * @returns {@link AbortEnvironmentUpdateCommandOutput}
+ * @param AbortEnvironmentUpdateMessage - {@link AbortEnvironmentUpdateMessage}
+ * @returns {@link Unit}
  * @see {@link AbortEnvironmentUpdateCommandInput} for command's `input` shape.
  * @see {@link AbortEnvironmentUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

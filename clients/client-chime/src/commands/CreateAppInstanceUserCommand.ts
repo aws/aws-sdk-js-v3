@@ -65,8 +65,8 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  *
  * ```
  *
- * @param CreateAppInstanceUserCommandInput - {@link CreateAppInstanceUserCommandInput}
- * @returns {@link CreateAppInstanceUserCommandOutput}
+ * @param CreateAppInstanceUserRequest - {@link CreateAppInstanceUserRequest}
+ * @returns {@link CreateAppInstanceUserResponse}
  * @see {@link CreateAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

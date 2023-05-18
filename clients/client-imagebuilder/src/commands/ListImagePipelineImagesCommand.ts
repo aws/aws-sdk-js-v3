@@ -105,8 +105,8 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  *
  * ```
  *
- * @param ListImagePipelineImagesCommandInput - {@link ListImagePipelineImagesCommandInput}
- * @returns {@link ListImagePipelineImagesCommandOutput}
+ * @param ListImagePipelineImagesRequest - {@link ListImagePipelineImagesRequest}
+ * @returns {@link ListImagePipelineImagesResponse}
  * @see {@link ListImagePipelineImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagePipelineImagesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

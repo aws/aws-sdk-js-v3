@@ -59,8 +59,8 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutConfigurationCommandInput - {@link PutConfigurationCommandInput}
- * @returns {@link PutConfigurationCommandOutput}
+ * @param PutConfigurationRequest - {@link PutConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

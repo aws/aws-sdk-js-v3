@@ -75,8 +75,8 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  *
  * ```
  *
- * @param AssociateTrunkInterfaceCommandInput - {@link AssociateTrunkInterfaceCommandInput}
- * @returns {@link AssociateTrunkInterfaceCommandOutput}
+ * @param AssociateTrunkInterfaceRequest - {@link AssociateTrunkInterfaceRequest}
+ * @returns {@link AssociateTrunkInterfaceResult}
  * @see {@link AssociateTrunkInterfaceCommandInput} for command's `input` shape.
  * @see {@link AssociateTrunkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

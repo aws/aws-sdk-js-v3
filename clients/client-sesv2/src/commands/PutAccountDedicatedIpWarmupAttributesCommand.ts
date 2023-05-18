@@ -57,8 +57,8 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
  *
  * ```
  *
- * @param PutAccountDedicatedIpWarmupAttributesCommandInput - {@link PutAccountDedicatedIpWarmupAttributesCommandInput}
- * @returns {@link PutAccountDedicatedIpWarmupAttributesCommandOutput}
+ * @param PutAccountDedicatedIpWarmupAttributesRequest - {@link PutAccountDedicatedIpWarmupAttributesRequest}
+ * @returns {@link PutAccountDedicatedIpWarmupAttributesResponse}
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

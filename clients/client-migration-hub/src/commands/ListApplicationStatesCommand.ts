@@ -63,8 +63,8 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  *
  * ```
  *
- * @param ListApplicationStatesCommandInput - {@link ListApplicationStatesCommandInput}
- * @returns {@link ListApplicationStatesCommandOutput}
+ * @param ListApplicationStatesRequest - {@link ListApplicationStatesRequest}
+ * @returns {@link ListApplicationStatesResult}
  * @see {@link ListApplicationStatesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationStatesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

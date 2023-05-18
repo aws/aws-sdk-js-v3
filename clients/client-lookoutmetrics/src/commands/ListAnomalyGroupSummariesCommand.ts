@@ -72,8 +72,8 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  *
  * ```
  *
- * @param ListAnomalyGroupSummariesCommandInput - {@link ListAnomalyGroupSummariesCommandInput}
- * @returns {@link ListAnomalyGroupSummariesCommandOutput}
+ * @param ListAnomalyGroupSummariesRequest - {@link ListAnomalyGroupSummariesRequest}
+ * @returns {@link ListAnomalyGroupSummariesResponse}
  * @see {@link ListAnomalyGroupSummariesCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyGroupSummariesCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

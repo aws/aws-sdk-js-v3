@@ -84,8 +84,8 @@ export interface CreateMitigationActionCommandOutput extends CreateMitigationAct
  *
  * ```
  *
- * @param CreateMitigationActionCommandInput - {@link CreateMitigationActionCommandInput}
- * @returns {@link CreateMitigationActionCommandOutput}
+ * @param CreateMitigationActionRequest - {@link CreateMitigationActionRequest}
+ * @returns {@link CreateMitigationActionResponse}
  * @see {@link CreateMitigationActionCommandInput} for command's `input` shape.
  * @see {@link CreateMitigationActionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

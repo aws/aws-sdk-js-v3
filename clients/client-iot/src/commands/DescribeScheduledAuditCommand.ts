@@ -58,8 +58,8 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  *
  * ```
  *
- * @param DescribeScheduledAuditCommandInput - {@link DescribeScheduledAuditCommandInput}
- * @returns {@link DescribeScheduledAuditCommandOutput}
+ * @param DescribeScheduledAuditRequest - {@link DescribeScheduledAuditRequest}
+ * @returns {@link DescribeScheduledAuditResponse}
  * @see {@link DescribeScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledAuditCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

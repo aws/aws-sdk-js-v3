@@ -196,8 +196,8 @@ export interface ListPackagingConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListPackagingConfigurationsCommandInput - {@link ListPackagingConfigurationsCommandInput}
- * @returns {@link ListPackagingConfigurationsCommandOutput}
+ * @param ListPackagingConfigurationsRequest - {@link ListPackagingConfigurationsRequest}
+ * @returns {@link ListPackagingConfigurationsResponse}
  * @see {@link ListPackagingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListPackagingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

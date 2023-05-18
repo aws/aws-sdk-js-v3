@@ -76,8 +76,8 @@ export interface TestAvailabilityConfigurationCommandOutput
  *
  * ```
  *
- * @param TestAvailabilityConfigurationCommandInput - {@link TestAvailabilityConfigurationCommandInput}
- * @returns {@link TestAvailabilityConfigurationCommandOutput}
+ * @param TestAvailabilityConfigurationRequest - {@link TestAvailabilityConfigurationRequest}
+ * @returns {@link TestAvailabilityConfigurationResponse}
  * @see {@link TestAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link TestAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

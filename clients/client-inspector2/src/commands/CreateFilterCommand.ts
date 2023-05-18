@@ -175,8 +175,8 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *
  * ```
  *
- * @param CreateFilterCommandInput - {@link CreateFilterCommandInput}
- * @returns {@link CreateFilterCommandOutput}
+ * @param CreateFilterRequest - {@link CreateFilterRequest}
+ * @returns {@link CreateFilterResponse}
  * @see {@link CreateFilterCommandInput} for command's `input` shape.
  * @see {@link CreateFilterCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

@@ -104,8 +104,8 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *
  * ```
  *
- * @param UpdateRuleGroupCommandInput - {@link UpdateRuleGroupCommandInput}
- * @returns {@link UpdateRuleGroupCommandOutput}
+ * @param UpdateRuleGroupRequest - {@link UpdateRuleGroupRequest}
+ * @returns {@link UpdateRuleGroupResponse}
  * @see {@link UpdateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

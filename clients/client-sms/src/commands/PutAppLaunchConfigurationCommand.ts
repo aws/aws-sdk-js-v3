@@ -95,8 +95,8 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  *
  * ```
  *
- * @param PutAppLaunchConfigurationCommandInput - {@link PutAppLaunchConfigurationCommandInput}
- * @returns {@link PutAppLaunchConfigurationCommandOutput}
+ * @param PutAppLaunchConfigurationRequest - {@link PutAppLaunchConfigurationRequest}
+ * @returns {@link PutAppLaunchConfigurationResponse}
  * @see {@link PutAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

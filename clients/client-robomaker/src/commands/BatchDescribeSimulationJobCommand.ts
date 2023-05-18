@@ -207,8 +207,8 @@ export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSi
  *
  * ```
  *
- * @param BatchDescribeSimulationJobCommandInput - {@link BatchDescribeSimulationJobCommandInput}
- * @returns {@link BatchDescribeSimulationJobCommandOutput}
+ * @param BatchDescribeSimulationJobRequest - {@link BatchDescribeSimulationJobRequest}
+ * @returns {@link BatchDescribeSimulationJobResponse}
  * @see {@link BatchDescribeSimulationJobCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeSimulationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

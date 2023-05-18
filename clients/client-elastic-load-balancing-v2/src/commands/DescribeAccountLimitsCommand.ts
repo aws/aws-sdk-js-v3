@@ -83,8 +83,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *
  * ```
  *
- * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
- * @returns {@link DescribeAccountLimitsCommandOutput}
+ * @param DescribeAccountLimitsInput - {@link DescribeAccountLimitsInput}
+ * @returns {@link DescribeAccountLimitsOutput}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

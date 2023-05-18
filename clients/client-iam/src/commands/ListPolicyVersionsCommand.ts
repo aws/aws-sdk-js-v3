@@ -64,8 +64,8 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  *
  * ```
  *
- * @param ListPolicyVersionsCommandInput - {@link ListPolicyVersionsCommandInput}
- * @returns {@link ListPolicyVersionsCommandOutput}
+ * @param ListPolicyVersionsRequest - {@link ListPolicyVersionsRequest}
+ * @returns {@link ListPolicyVersionsResponse}
  * @see {@link ListPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

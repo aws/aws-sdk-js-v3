@@ -219,8 +219,8 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  *
  * ```
  *
- * @param StopTaskCommandInput - {@link StopTaskCommandInput}
- * @returns {@link StopTaskCommandOutput}
+ * @param StopTaskRequest - {@link StopTaskRequest}
+ * @returns {@link StopTaskResponse}
  * @see {@link StopTaskCommandInput} for command's `input` shape.
  * @see {@link StopTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

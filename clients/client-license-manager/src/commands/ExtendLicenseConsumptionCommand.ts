@@ -52,8 +52,8 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  *
  * ```
  *
- * @param ExtendLicenseConsumptionCommandInput - {@link ExtendLicenseConsumptionCommandInput}
- * @returns {@link ExtendLicenseConsumptionCommandOutput}
+ * @param ExtendLicenseConsumptionRequest - {@link ExtendLicenseConsumptionRequest}
+ * @returns {@link ExtendLicenseConsumptionResponse}
  * @see {@link ExtendLicenseConsumptionCommandInput} for command's `input` shape.
  * @see {@link ExtendLicenseConsumptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

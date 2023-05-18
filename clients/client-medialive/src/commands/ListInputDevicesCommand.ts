@@ -98,8 +98,8 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  *
  * ```
  *
- * @param ListInputDevicesCommandInput - {@link ListInputDevicesCommandInput}
- * @returns {@link ListInputDevicesCommandOutput}
+ * @param ListInputDevicesRequest - {@link ListInputDevicesRequest}
+ * @returns {@link ListInputDevicesResponse}
  * @see {@link ListInputDevicesCommandInput} for command's `input` shape.
  * @see {@link ListInputDevicesCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

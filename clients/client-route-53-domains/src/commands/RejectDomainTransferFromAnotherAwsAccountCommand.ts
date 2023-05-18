@@ -62,8 +62,8 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
  *
  * ```
  *
- * @param RejectDomainTransferFromAnotherAwsAccountCommandInput - {@link RejectDomainTransferFromAnotherAwsAccountCommandInput}
- * @returns {@link RejectDomainTransferFromAnotherAwsAccountCommandOutput}
+ * @param RejectDomainTransferFromAnotherAwsAccountRequest - {@link RejectDomainTransferFromAnotherAwsAccountRequest}
+ * @returns {@link RejectDomainTransferFromAnotherAwsAccountResponse}
  * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

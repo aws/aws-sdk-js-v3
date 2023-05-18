@@ -81,8 +81,8 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  *
  * ```
  *
- * @param StartQueryExecutionCommandInput - {@link StartQueryExecutionCommandInput}
- * @returns {@link StartQueryExecutionCommandOutput}
+ * @param StartQueryExecutionInput - {@link StartQueryExecutionInput}
+ * @returns {@link StartQueryExecutionOutput}
  * @see {@link StartQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link StartQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

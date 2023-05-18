@@ -58,8 +58,8 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  *
  * ```
  *
- * @param GetReferenceStoreCommandInput - {@link GetReferenceStoreCommandInput}
- * @returns {@link GetReferenceStoreCommandOutput}
+ * @param GetReferenceStoreRequest - {@link GetReferenceStoreRequest}
+ * @returns {@link GetReferenceStoreResponse}
  * @see {@link GetReferenceStoreCommandInput} for command's `input` shape.
  * @see {@link GetReferenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

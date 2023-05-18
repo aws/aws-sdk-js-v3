@@ -59,8 +59,8 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  *
  * ```
  *
- * @param GetEventIntegrationCommandInput - {@link GetEventIntegrationCommandInput}
- * @returns {@link GetEventIntegrationCommandOutput}
+ * @param GetEventIntegrationRequest - {@link GetEventIntegrationRequest}
+ * @returns {@link GetEventIntegrationResponse}
  * @see {@link GetEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

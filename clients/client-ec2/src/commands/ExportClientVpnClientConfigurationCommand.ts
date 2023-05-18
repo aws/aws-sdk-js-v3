@@ -61,8 +61,8 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  *
  * ```
  *
- * @param ExportClientVpnClientConfigurationCommandInput - {@link ExportClientVpnClientConfigurationCommandInput}
- * @returns {@link ExportClientVpnClientConfigurationCommandOutput}
+ * @param ExportClientVpnClientConfigurationRequest - {@link ExportClientVpnClientConfigurationRequest}
+ * @returns {@link ExportClientVpnClientConfigurationResult}
  * @see {@link ExportClientVpnClientConfigurationCommandInput} for command's `input` shape.
  * @see {@link ExportClientVpnClientConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -77,8 +77,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  *
  * ```
  *
- * @param DescribeJobLogItemsCommandInput - {@link DescribeJobLogItemsCommandInput}
- * @returns {@link DescribeJobLogItemsCommandOutput}
+ * @param DescribeJobLogItemsRequest - {@link DescribeJobLogItemsRequest}
+ * @returns {@link DescribeJobLogItemsResponse}
  * @see {@link DescribeJobLogItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobLogItemsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

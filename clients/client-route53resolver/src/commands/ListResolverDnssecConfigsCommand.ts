@@ -67,8 +67,8 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
  *
  * ```
  *
- * @param ListResolverDnssecConfigsCommandInput - {@link ListResolverDnssecConfigsCommandInput}
- * @returns {@link ListResolverDnssecConfigsCommandOutput}
+ * @param ListResolverDnssecConfigsRequest - {@link ListResolverDnssecConfigsRequest}
+ * @returns {@link ListResolverDnssecConfigsResponse}
  * @see {@link ListResolverDnssecConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverDnssecConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

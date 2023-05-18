@@ -63,8 +63,8 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  *
  * ```
  *
- * @param ListUserSettingsCommandInput - {@link ListUserSettingsCommandInput}
- * @returns {@link ListUserSettingsCommandOutput}
+ * @param ListUserSettingsRequest - {@link ListUserSettingsRequest}
+ * @returns {@link ListUserSettingsResponse}
  * @see {@link ListUserSettingsCommandInput} for command's `input` shape.
  * @see {@link ListUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

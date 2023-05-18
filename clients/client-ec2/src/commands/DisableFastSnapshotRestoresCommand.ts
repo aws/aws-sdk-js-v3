@@ -84,8 +84,8 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  *
  * ```
  *
- * @param DisableFastSnapshotRestoresCommandInput - {@link DisableFastSnapshotRestoresCommandInput}
- * @returns {@link DisableFastSnapshotRestoresCommandOutput}
+ * @param DisableFastSnapshotRestoresRequest - {@link DisableFastSnapshotRestoresRequest}
+ * @returns {@link DisableFastSnapshotRestoresResult}
  * @see {@link DisableFastSnapshotRestoresCommandInput} for command's `input` shape.
  * @see {@link DisableFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

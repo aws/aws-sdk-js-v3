@@ -62,8 +62,8 @@ export interface GetWorkUnitResultsCommandOutput
  *
  * ```
  *
- * @param GetWorkUnitResultsCommandInput - {@link GetWorkUnitResultsCommandInput}
- * @returns {@link GetWorkUnitResultsCommandOutput}
+ * @param GetWorkUnitResultsRequest - {@link GetWorkUnitResultsRequest}
+ * @returns {@link GetWorkUnitResultsResponse}
  * @see {@link GetWorkUnitResultsCommandInput} for command's `input` shape.
  * @see {@link GetWorkUnitResultsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

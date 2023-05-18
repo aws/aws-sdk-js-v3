@@ -73,8 +73,8 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  *
  * ```
  *
- * @param GetUICustomizationCommandInput - {@link GetUICustomizationCommandInput}
- * @returns {@link GetUICustomizationCommandOutput}
+ * @param GetUICustomizationRequest - {@link GetUICustomizationRequest}
+ * @returns {@link GetUICustomizationResponse}
  * @see {@link GetUICustomizationCommandInput} for command's `input` shape.
  * @see {@link GetUICustomizationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

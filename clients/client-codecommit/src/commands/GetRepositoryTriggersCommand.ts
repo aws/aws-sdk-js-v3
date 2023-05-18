@@ -63,8 +63,8 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  *
  * ```
  *
- * @param GetRepositoryTriggersCommandInput - {@link GetRepositoryTriggersCommandInput}
- * @returns {@link GetRepositoryTriggersCommandOutput}
+ * @param GetRepositoryTriggersInput - {@link GetRepositoryTriggersInput}
+ * @returns {@link GetRepositoryTriggersOutput}
  * @see {@link GetRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

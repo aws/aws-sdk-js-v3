@@ -79,8 +79,8 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  *
  * ```
  *
- * @param StartProductSubscriptionCommandInput - {@link StartProductSubscriptionCommandInput}
- * @returns {@link StartProductSubscriptionCommandOutput}
+ * @param StartProductSubscriptionRequest - {@link StartProductSubscriptionRequest}
+ * @returns {@link StartProductSubscriptionResponse}
  * @see {@link StartProductSubscriptionCommandInput} for command's `input` shape.
  * @see {@link StartProductSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

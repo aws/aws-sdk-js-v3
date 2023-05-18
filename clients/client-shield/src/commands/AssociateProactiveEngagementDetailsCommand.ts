@@ -67,8 +67,8 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  *
  * ```
  *
- * @param AssociateProactiveEngagementDetailsCommandInput - {@link AssociateProactiveEngagementDetailsCommandInput}
- * @returns {@link AssociateProactiveEngagementDetailsCommandOutput}
+ * @param AssociateProactiveEngagementDetailsRequest - {@link AssociateProactiveEngagementDetailsRequest}
+ * @returns {@link AssociateProactiveEngagementDetailsResponse}
  * @see {@link AssociateProactiveEngagementDetailsCommandInput} for command's `input` shape.
  * @see {@link AssociateProactiveEngagementDetailsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

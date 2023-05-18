@@ -66,8 +66,8 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  *
  * ```
  *
- * @param ListResourceEvaluationsCommandInput - {@link ListResourceEvaluationsCommandInput}
- * @returns {@link ListResourceEvaluationsCommandOutput}
+ * @param ListResourceEvaluationsRequest - {@link ListResourceEvaluationsRequest}
+ * @returns {@link ListResourceEvaluationsResponse}
  * @see {@link ListResourceEvaluationsCommandInput} for command's `input` shape.
  * @see {@link ListResourceEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

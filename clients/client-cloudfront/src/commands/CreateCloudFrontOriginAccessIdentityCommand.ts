@@ -74,8 +74,8 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
  *
  * ```
  *
- * @param CreateCloudFrontOriginAccessIdentityCommandInput - {@link CreateCloudFrontOriginAccessIdentityCommandInput}
- * @returns {@link CreateCloudFrontOriginAccessIdentityCommandOutput}
+ * @param CreateCloudFrontOriginAccessIdentityRequest - {@link CreateCloudFrontOriginAccessIdentityRequest}
+ * @returns {@link CreateCloudFrontOriginAccessIdentityResult}
  * @see {@link CreateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -85,8 +85,8 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  *
  * ```
  *
- * @param DescribeInboundConnectionsCommandInput - {@link DescribeInboundConnectionsCommandInput}
- * @returns {@link DescribeInboundConnectionsCommandOutput}
+ * @param DescribeInboundConnectionsRequest - {@link DescribeInboundConnectionsRequest}
+ * @returns {@link DescribeInboundConnectionsResponse}
  * @see {@link DescribeInboundConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInboundConnectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

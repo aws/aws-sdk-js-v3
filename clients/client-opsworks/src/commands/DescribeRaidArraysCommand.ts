@@ -78,8 +78,8 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  *
  * ```
  *
- * @param DescribeRaidArraysCommandInput - {@link DescribeRaidArraysCommandInput}
- * @returns {@link DescribeRaidArraysCommandOutput}
+ * @param DescribeRaidArraysRequest - {@link DescribeRaidArraysRequest}
+ * @returns {@link DescribeRaidArraysResult}
  * @see {@link DescribeRaidArraysCommandInput} for command's `input` shape.
  * @see {@link DescribeRaidArraysCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

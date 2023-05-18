@@ -65,8 +65,8 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  *
  * ```
  *
- * @param DeleteVpcEndpointsCommandInput - {@link DeleteVpcEndpointsCommandInput}
- * @returns {@link DeleteVpcEndpointsCommandOutput}
+ * @param DeleteVpcEndpointsRequest - {@link DeleteVpcEndpointsRequest}
+ * @returns {@link DeleteVpcEndpointsResult}
  * @see {@link DeleteVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

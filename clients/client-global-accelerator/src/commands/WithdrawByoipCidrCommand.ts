@@ -69,8 +69,8 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  *
  * ```
  *
- * @param WithdrawByoipCidrCommandInput - {@link WithdrawByoipCidrCommandInput}
- * @returns {@link WithdrawByoipCidrCommandOutput}
+ * @param WithdrawByoipCidrRequest - {@link WithdrawByoipCidrRequest}
+ * @returns {@link WithdrawByoipCidrResponse}
  * @see {@link WithdrawByoipCidrCommandInput} for command's `input` shape.
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

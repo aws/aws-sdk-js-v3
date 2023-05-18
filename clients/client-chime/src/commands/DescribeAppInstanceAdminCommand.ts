@@ -62,8 +62,8 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
  *
  * ```
  *
- * @param DescribeAppInstanceAdminCommandInput - {@link DescribeAppInstanceAdminCommandInput}
- * @returns {@link DescribeAppInstanceAdminCommandOutput}
+ * @param DescribeAppInstanceAdminRequest - {@link DescribeAppInstanceAdminRequest}
+ * @returns {@link DescribeAppInstanceAdminResponse}
  * @see {@link DescribeAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceAdminCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

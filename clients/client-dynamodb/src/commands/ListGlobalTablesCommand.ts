@@ -74,8 +74,8 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  *
  * ```
  *
- * @param ListGlobalTablesCommandInput - {@link ListGlobalTablesCommandInput}
- * @returns {@link ListGlobalTablesCommandOutput}
+ * @param ListGlobalTablesInput - {@link ListGlobalTablesInput}
+ * @returns {@link ListGlobalTablesOutput}
  * @see {@link ListGlobalTablesCommandInput} for command's `input` shape.
  * @see {@link ListGlobalTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

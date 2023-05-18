@@ -58,8 +58,8 @@ export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAlia
  *
  * ```
  *
- * @param DescribeTemplateAliasCommandInput - {@link DescribeTemplateAliasCommandInput}
- * @returns {@link DescribeTemplateAliasCommandOutput}
+ * @param DescribeTemplateAliasRequest - {@link DescribeTemplateAliasRequest}
+ * @returns {@link DescribeTemplateAliasResponse}
  * @see {@link DescribeTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

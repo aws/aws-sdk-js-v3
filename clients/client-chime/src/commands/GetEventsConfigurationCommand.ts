@@ -59,8 +59,8 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  *
  * ```
  *
- * @param GetEventsConfigurationCommandInput - {@link GetEventsConfigurationCommandInput}
- * @returns {@link GetEventsConfigurationCommandOutput}
+ * @param GetEventsConfigurationRequest - {@link GetEventsConfigurationRequest}
+ * @returns {@link GetEventsConfigurationResponse}
  * @see {@link GetEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetEventsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

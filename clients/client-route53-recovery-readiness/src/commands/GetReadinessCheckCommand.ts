@@ -59,8 +59,8 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  *
  * ```
  *
- * @param GetReadinessCheckCommandInput - {@link GetReadinessCheckCommandInput}
- * @returns {@link GetReadinessCheckCommandOutput}
+ * @param GetReadinessCheckRequest - {@link GetReadinessCheckRequest}
+ * @returns {@link GetReadinessCheckResponse}
  * @see {@link GetReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

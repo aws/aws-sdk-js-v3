@@ -50,8 +50,8 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  *
  * ```
  *
- * @param DeleteEphemerisCommandInput - {@link DeleteEphemerisCommandInput}
- * @returns {@link DeleteEphemerisCommandOutput}
+ * @param DeleteEphemerisRequest - {@link DeleteEphemerisRequest}
+ * @returns {@link EphemerisIdResponse}
  * @see {@link DeleteEphemerisCommandInput} for command's `input` shape.
  * @see {@link DeleteEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

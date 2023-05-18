@@ -128,8 +128,8 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  *
  * ```
  *
- * @param StartExperimentCommandInput - {@link StartExperimentCommandInput}
- * @returns {@link StartExperimentCommandOutput}
+ * @param StartExperimentRequest - {@link StartExperimentRequest}
+ * @returns {@link StartExperimentResponse}
  * @see {@link StartExperimentCommandInput} for command's `input` shape.
  * @see {@link StartExperimentCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

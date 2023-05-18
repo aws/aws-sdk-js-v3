@@ -83,8 +83,8 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  *
  * ```
  *
- * @param StartDocumentTextDetectionCommandInput - {@link StartDocumentTextDetectionCommandInput}
- * @returns {@link StartDocumentTextDetectionCommandOutput}
+ * @param StartDocumentTextDetectionRequest - {@link StartDocumentTextDetectionRequest}
+ * @returns {@link StartDocumentTextDetectionResponse}
  * @see {@link StartDocumentTextDetectionCommandInput} for command's `input` shape.
  * @see {@link StartDocumentTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

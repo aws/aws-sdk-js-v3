@@ -76,8 +76,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  *
  * ```
  *
- * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
- * @returns {@link DescribeUsersCommandOutput}
+ * @param DescribeUsersRequest - {@link DescribeUsersRequest}
+ * @returns {@link DescribeUsersResponse}
  * @see {@link DescribeUsersCommandInput} for command's `input` shape.
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

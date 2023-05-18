@@ -83,8 +83,8 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *
  * ```
  *
- * @param CreateWorkGroupCommandInput - {@link CreateWorkGroupCommandInput}
- * @returns {@link CreateWorkGroupCommandOutput}
+ * @param CreateWorkGroupInput - {@link CreateWorkGroupInput}
+ * @returns {@link CreateWorkGroupOutput}
  * @see {@link CreateWorkGroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkGroupCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  *
  * ```
  *
- * @param DisassociateRecoveryPointFromParentCommandInput - {@link DisassociateRecoveryPointFromParentCommandInput}
- * @returns {@link DisassociateRecoveryPointFromParentCommandOutput}
+ * @param DisassociateRecoveryPointFromParentInput - {@link DisassociateRecoveryPointFromParentInput}
+ * @returns {@link Unit}
  * @see {@link DisassociateRecoveryPointFromParentCommandInput} for command's `input` shape.
  * @see {@link DisassociateRecoveryPointFromParentCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

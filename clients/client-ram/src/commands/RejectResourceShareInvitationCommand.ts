@@ -79,8 +79,8 @@ export interface RejectResourceShareInvitationCommandOutput
  *
  * ```
  *
- * @param RejectResourceShareInvitationCommandInput - {@link RejectResourceShareInvitationCommandInput}
- * @returns {@link RejectResourceShareInvitationCommandOutput}
+ * @param RejectResourceShareInvitationRequest - {@link RejectResourceShareInvitationRequest}
+ * @returns {@link RejectResourceShareInvitationResponse}
  * @see {@link RejectResourceShareInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectResourceShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

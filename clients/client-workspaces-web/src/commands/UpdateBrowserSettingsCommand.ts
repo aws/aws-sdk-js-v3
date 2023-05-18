@@ -63,8 +63,8 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  *
  * ```
  *
- * @param UpdateBrowserSettingsCommandInput - {@link UpdateBrowserSettingsCommandInput}
- * @returns {@link UpdateBrowserSettingsCommandOutput}
+ * @param UpdateBrowserSettingsRequest - {@link UpdateBrowserSettingsRequest}
+ * @returns {@link UpdateBrowserSettingsResponse}
  * @see {@link UpdateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

@@ -224,8 +224,8 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *
  * ```
  *
- * @param CreateQueryLoggingConfigCommandInput - {@link CreateQueryLoggingConfigCommandInput}
- * @returns {@link CreateQueryLoggingConfigCommandOutput}
+ * @param CreateQueryLoggingConfigRequest - {@link CreateQueryLoggingConfigRequest}
+ * @returns {@link CreateQueryLoggingConfigResponse}
  * @see {@link CreateQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link CreateQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

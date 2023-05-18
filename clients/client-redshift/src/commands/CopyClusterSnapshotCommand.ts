@@ -111,8 +111,8 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  *
  * ```
  *
- * @param CopyClusterSnapshotCommandInput - {@link CopyClusterSnapshotCommandInput}
- * @returns {@link CopyClusterSnapshotCommandOutput}
+ * @param CopyClusterSnapshotMessage - {@link CopyClusterSnapshotMessage}
+ * @returns {@link CopyClusterSnapshotResult}
  * @see {@link CopyClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

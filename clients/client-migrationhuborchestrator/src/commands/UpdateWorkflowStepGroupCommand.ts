@@ -79,8 +79,8 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  *
  * ```
  *
- * @param UpdateWorkflowStepGroupCommandInput - {@link UpdateWorkflowStepGroupCommandInput}
- * @returns {@link UpdateWorkflowStepGroupCommandOutput}
+ * @param UpdateWorkflowStepGroupRequest - {@link UpdateWorkflowStepGroupRequest}
+ * @returns {@link UpdateWorkflowStepGroupResponse}
  * @see {@link UpdateWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

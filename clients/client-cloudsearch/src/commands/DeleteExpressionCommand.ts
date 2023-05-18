@@ -63,8 +63,8 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  *
  * ```
  *
- * @param DeleteExpressionCommandInput - {@link DeleteExpressionCommandInput}
- * @returns {@link DeleteExpressionCommandOutput}
+ * @param DeleteExpressionRequest - {@link DeleteExpressionRequest}
+ * @returns {@link DeleteExpressionResponse}
  * @see {@link DeleteExpressionCommandInput} for command's `input` shape.
  * @see {@link DeleteExpressionCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

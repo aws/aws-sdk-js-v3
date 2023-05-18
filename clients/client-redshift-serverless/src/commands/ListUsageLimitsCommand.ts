@@ -68,8 +68,8 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  *
  * ```
  *
- * @param ListUsageLimitsCommandInput - {@link ListUsageLimitsCommandInput}
- * @returns {@link ListUsageLimitsCommandOutput}
+ * @param ListUsageLimitsRequest - {@link ListUsageLimitsRequest}
+ * @returns {@link ListUsageLimitsResponse}
  * @see {@link ListUsageLimitsCommandInput} for command's `input` shape.
  * @see {@link ListUsageLimitsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

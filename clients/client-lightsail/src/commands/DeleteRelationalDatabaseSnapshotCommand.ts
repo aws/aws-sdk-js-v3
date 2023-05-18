@@ -76,8 +76,8 @@ export interface DeleteRelationalDatabaseSnapshotCommandOutput
  *
  * ```
  *
- * @param DeleteRelationalDatabaseSnapshotCommandInput - {@link DeleteRelationalDatabaseSnapshotCommandInput}
- * @returns {@link DeleteRelationalDatabaseSnapshotCommandOutput}
+ * @param DeleteRelationalDatabaseSnapshotRequest - {@link DeleteRelationalDatabaseSnapshotRequest}
+ * @returns {@link DeleteRelationalDatabaseSnapshotResult}
  * @see {@link DeleteRelationalDatabaseSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteRelationalDatabaseSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -54,8 +54,8 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  *
  * ```
  *
- * @param DisassociatePhoneNumberFromUserCommandInput - {@link DisassociatePhoneNumberFromUserCommandInput}
- * @returns {@link DisassociatePhoneNumberFromUserCommandOutput}
+ * @param DisassociatePhoneNumberFromUserRequest - {@link DisassociatePhoneNumberFromUserRequest}
+ * @returns {@link DisassociatePhoneNumberFromUserResponse}
  * @see {@link DisassociatePhoneNumberFromUserCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumberFromUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

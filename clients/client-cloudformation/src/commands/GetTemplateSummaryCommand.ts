@@ -99,8 +99,8 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  *
  * ```
  *
- * @param GetTemplateSummaryCommandInput - {@link GetTemplateSummaryCommandInput}
- * @returns {@link GetTemplateSummaryCommandOutput}
+ * @param GetTemplateSummaryInput - {@link GetTemplateSummaryInput}
+ * @returns {@link GetTemplateSummaryOutput}
  * @see {@link GetTemplateSummaryCommandInput} for command's `input` shape.
  * @see {@link GetTemplateSummaryCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

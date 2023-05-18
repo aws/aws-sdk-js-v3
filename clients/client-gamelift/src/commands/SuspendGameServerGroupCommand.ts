@@ -102,8 +102,8 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  *
  * ```
  *
- * @param SuspendGameServerGroupCommandInput - {@link SuspendGameServerGroupCommandInput}
- * @returns {@link SuspendGameServerGroupCommandOutput}
+ * @param SuspendGameServerGroupInput - {@link SuspendGameServerGroupInput}
+ * @returns {@link SuspendGameServerGroupOutput}
  * @see {@link SuspendGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link SuspendGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

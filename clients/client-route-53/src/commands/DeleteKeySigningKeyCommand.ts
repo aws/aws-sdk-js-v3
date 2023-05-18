@@ -62,8 +62,8 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  *
  * ```
  *
- * @param DeleteKeySigningKeyCommandInput - {@link DeleteKeySigningKeyCommandInput}
- * @returns {@link DeleteKeySigningKeyCommandOutput}
+ * @param DeleteKeySigningKeyRequest - {@link DeleteKeySigningKeyRequest}
+ * @returns {@link DeleteKeySigningKeyResponse}
  * @see {@link DeleteKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

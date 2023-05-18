@@ -110,8 +110,8 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  *
  * ```
  *
- * @param GetPatchBaselineCommandInput - {@link GetPatchBaselineCommandInput}
- * @returns {@link GetPatchBaselineCommandOutput}
+ * @param GetPatchBaselineRequest - {@link GetPatchBaselineRequest}
+ * @returns {@link GetPatchBaselineResult}
  * @see {@link GetPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link GetPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

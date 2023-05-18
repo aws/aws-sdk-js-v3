@@ -62,8 +62,8 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  *
  * ```
  *
- * @param DescribeRuleCommandInput - {@link DescribeRuleCommandInput}
- * @returns {@link DescribeRuleCommandOutput}
+ * @param DescribeRuleRequest - {@link DescribeRuleRequest}
+ * @returns {@link DescribeRuleResponse}
  * @see {@link DescribeRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

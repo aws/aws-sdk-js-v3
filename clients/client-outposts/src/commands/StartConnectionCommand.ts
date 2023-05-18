@@ -64,8 +64,8 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  *
  * ```
  *
- * @param StartConnectionCommandInput - {@link StartConnectionCommandInput}
- * @returns {@link StartConnectionCommandOutput}
+ * @param StartConnectionRequest - {@link StartConnectionRequest}
+ * @returns {@link StartConnectionResponse}
  * @see {@link StartConnectionCommandInput} for command's `input` shape.
  * @see {@link StartConnectionCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

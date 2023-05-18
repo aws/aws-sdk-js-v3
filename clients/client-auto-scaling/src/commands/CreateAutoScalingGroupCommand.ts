@@ -217,8 +217,8 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateAutoScalingGroupCommandInput - {@link CreateAutoScalingGroupCommandInput}
- * @returns {@link CreateAutoScalingGroupCommandOutput}
+ * @param CreateAutoScalingGroupType - {@link CreateAutoScalingGroupType}
+ * @returns {@link Unit}
  * @see {@link CreateAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

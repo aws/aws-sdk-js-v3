@@ -81,8 +81,8 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  *
  * ```
  *
- * @param ListOutpostsCommandInput - {@link ListOutpostsCommandInput}
- * @returns {@link ListOutpostsCommandOutput}
+ * @param ListOutpostsInput - {@link ListOutpostsInput}
+ * @returns {@link ListOutpostsOutput}
  * @see {@link ListOutpostsCommandInput} for command's `input` shape.
  * @see {@link ListOutpostsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  *
  * ```
  *
- * @param DeleteWorkerBlockCommandInput - {@link DeleteWorkerBlockCommandInput}
- * @returns {@link DeleteWorkerBlockCommandOutput}
+ * @param DeleteWorkerBlockRequest - {@link DeleteWorkerBlockRequest}
+ * @returns {@link DeleteWorkerBlockResponse}
  * @see {@link DeleteWorkerBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerBlockCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

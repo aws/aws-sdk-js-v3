@@ -70,8 +70,8 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  *
  * ```
  *
- * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
- * @returns {@link CreateStudioCommandOutput}
+ * @param CreateStudioInput - {@link CreateStudioInput}
+ * @returns {@link CreateStudioOutput}
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

@@ -89,8 +89,8 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  *
  * ```
  *
- * @param CreateEnvironmentTemplateCommandInput - {@link CreateEnvironmentTemplateCommandInput}
- * @returns {@link CreateEnvironmentTemplateCommandOutput}
+ * @param CreateEnvironmentTemplateInput - {@link CreateEnvironmentTemplateInput}
+ * @returns {@link CreateEnvironmentTemplateOutput}
  * @see {@link CreateEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

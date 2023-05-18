@@ -99,8 +99,8 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  *
  * ```
  *
- * @param DescribeDataSourcesCommandInput - {@link DescribeDataSourcesCommandInput}
- * @returns {@link DescribeDataSourcesCommandOutput}
+ * @param DescribeDataSourcesInput - {@link DescribeDataSourcesInput}
+ * @returns {@link DescribeDataSourcesOutput}
  * @see {@link DescribeDataSourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

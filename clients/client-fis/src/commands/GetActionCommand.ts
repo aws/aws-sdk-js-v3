@@ -67,8 +67,8 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  *
  * ```
  *
- * @param GetActionCommandInput - {@link GetActionCommandInput}
- * @returns {@link GetActionCommandOutput}
+ * @param GetActionRequest - {@link GetActionRequest}
+ * @returns {@link GetActionResponse}
  * @see {@link GetActionCommandInput} for command's `input` shape.
  * @see {@link GetActionCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

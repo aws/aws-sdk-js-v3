@@ -71,8 +71,8 @@ export interface RebootInstanceCommandOutput extends RebootInstanceResult, __Met
  *
  * ```
  *
- * @param RebootInstanceCommandInput - {@link RebootInstanceCommandInput}
- * @returns {@link RebootInstanceCommandOutput}
+ * @param RebootInstanceRequest - {@link RebootInstanceRequest}
+ * @returns {@link RebootInstanceResult}
  * @see {@link RebootInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

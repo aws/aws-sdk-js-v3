@@ -48,8 +48,8 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  *
  * ```
  *
- * @param ImportAppCatalogCommandInput - {@link ImportAppCatalogCommandInput}
- * @returns {@link ImportAppCatalogCommandOutput}
+ * @param ImportAppCatalogRequest - {@link ImportAppCatalogRequest}
+ * @returns {@link ImportAppCatalogResponse}
  * @see {@link ImportAppCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportAppCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

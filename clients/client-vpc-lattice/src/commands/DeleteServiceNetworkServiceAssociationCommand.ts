@@ -62,8 +62,8 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
  *
  * ```
  *
- * @param DeleteServiceNetworkServiceAssociationCommandInput - {@link DeleteServiceNetworkServiceAssociationCommandInput}
- * @returns {@link DeleteServiceNetworkServiceAssociationCommandOutput}
+ * @param DeleteServiceNetworkServiceAssociationRequest - {@link DeleteServiceNetworkServiceAssociationRequest}
+ * @returns {@link DeleteServiceNetworkServiceAssociationResponse}
  * @see {@link DeleteServiceNetworkServiceAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceNetworkServiceAssociationCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

@@ -54,8 +54,8 @@ export interface CreateBackendConfigCommandOutput extends CreateBackendConfigRes
  *
  * ```
  *
- * @param CreateBackendConfigCommandInput - {@link CreateBackendConfigCommandInput}
- * @returns {@link CreateBackendConfigCommandOutput}
+ * @param CreateBackendConfigRequest - {@link CreateBackendConfigRequest}
+ * @returns {@link CreateBackendConfigResponse}
  * @see {@link CreateBackendConfigCommandInput} for command's `input` shape.
  * @see {@link CreateBackendConfigCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

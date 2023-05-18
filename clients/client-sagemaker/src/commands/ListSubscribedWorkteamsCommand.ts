@@ -63,8 +63,8 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  *
  * ```
  *
- * @param ListSubscribedWorkteamsCommandInput - {@link ListSubscribedWorkteamsCommandInput}
- * @returns {@link ListSubscribedWorkteamsCommandOutput}
+ * @param ListSubscribedWorkteamsRequest - {@link ListSubscribedWorkteamsRequest}
+ * @returns {@link ListSubscribedWorkteamsResponse}
  * @see {@link ListSubscribedWorkteamsCommandInput} for command's `input` shape.
  * @see {@link ListSubscribedWorkteamsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

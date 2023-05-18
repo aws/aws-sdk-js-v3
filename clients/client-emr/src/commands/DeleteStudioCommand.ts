@@ -48,8 +48,8 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteStudioCommandInput - {@link DeleteStudioCommandInput}
- * @returns {@link DeleteStudioCommandOutput}
+ * @param DeleteStudioInput - {@link DeleteStudioInput}
+ * @returns {@link Unit}
  * @see {@link DeleteStudioCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

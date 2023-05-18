@@ -107,8 +107,8 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  *
  * ```
  *
- * @param DescribeAffectedEntitiesCommandInput - {@link DescribeAffectedEntitiesCommandInput}
- * @returns {@link DescribeAffectedEntitiesCommandOutput}
+ * @param DescribeAffectedEntitiesRequest - {@link DescribeAffectedEntitiesRequest}
+ * @returns {@link DescribeAffectedEntitiesResponse}
  * @see {@link DescribeAffectedEntitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedEntitiesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

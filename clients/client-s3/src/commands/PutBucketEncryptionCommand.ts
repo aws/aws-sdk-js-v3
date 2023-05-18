@@ -96,8 +96,8 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketEncryptionCommandInput - {@link PutBucketEncryptionCommandInput}
- * @returns {@link PutBucketEncryptionCommandOutput}
+ * @param PutBucketEncryptionRequest - {@link PutBucketEncryptionRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketEncryptionCommandInput} for command's `input` shape.
  * @see {@link PutBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

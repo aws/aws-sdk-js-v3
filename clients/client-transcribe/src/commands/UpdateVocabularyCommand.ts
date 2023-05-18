@@ -61,8 +61,8 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  *
  * ```
  *
- * @param UpdateVocabularyCommandInput - {@link UpdateVocabularyCommandInput}
- * @returns {@link UpdateVocabularyCommandOutput}
+ * @param UpdateVocabularyRequest - {@link UpdateVocabularyRequest}
+ * @returns {@link UpdateVocabularyResponse}
  * @see {@link UpdateVocabularyCommandInput} for command's `input` shape.
  * @see {@link UpdateVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

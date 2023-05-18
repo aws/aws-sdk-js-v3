@@ -65,8 +65,8 @@ export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutpu
  *
  * ```
  *
- * @param ListVirtualRoutersCommandInput - {@link ListVirtualRoutersCommandInput}
- * @returns {@link ListVirtualRoutersCommandOutput}
+ * @param ListVirtualRoutersInput - {@link ListVirtualRoutersInput}
+ * @returns {@link ListVirtualRoutersOutput}
  * @see {@link ListVirtualRoutersCommandInput} for command's `input` shape.
  * @see {@link ListVirtualRoutersCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

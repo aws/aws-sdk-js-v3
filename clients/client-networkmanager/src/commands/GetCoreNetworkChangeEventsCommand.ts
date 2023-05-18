@@ -68,8 +68,8 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  *
  * ```
  *
- * @param GetCoreNetworkChangeEventsCommandInput - {@link GetCoreNetworkChangeEventsCommandInput}
- * @returns {@link GetCoreNetworkChangeEventsCommandOutput}
+ * @param GetCoreNetworkChangeEventsRequest - {@link GetCoreNetworkChangeEventsRequest}
+ * @returns {@link GetCoreNetworkChangeEventsResponse}
  * @see {@link GetCoreNetworkChangeEventsCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkChangeEventsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

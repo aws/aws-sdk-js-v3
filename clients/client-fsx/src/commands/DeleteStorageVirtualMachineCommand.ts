@@ -55,8 +55,8 @@ export interface DeleteStorageVirtualMachineCommandOutput
  *
  * ```
  *
- * @param DeleteStorageVirtualMachineCommandInput - {@link DeleteStorageVirtualMachineCommandInput}
- * @returns {@link DeleteStorageVirtualMachineCommandOutput}
+ * @param DeleteStorageVirtualMachineRequest - {@link DeleteStorageVirtualMachineRequest}
+ * @returns {@link DeleteStorageVirtualMachineResponse}
  * @see {@link DeleteStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

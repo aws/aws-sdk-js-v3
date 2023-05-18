@@ -118,8 +118,8 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  *
  * ```
  *
- * @param CreateNatGatewayCommandInput - {@link CreateNatGatewayCommandInput}
- * @returns {@link CreateNatGatewayCommandOutput}
+ * @param CreateNatGatewayRequest - {@link CreateNatGatewayRequest}
+ * @returns {@link CreateNatGatewayResult}
  * @see {@link CreateNatGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -83,8 +83,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *
  * ```
  *
- * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
- * @returns {@link CreateChannelCommandOutput}
+ * @param CreateChannelRequest - {@link CreateChannelRequest}
+ * @returns {@link CreateChannelResponse}
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

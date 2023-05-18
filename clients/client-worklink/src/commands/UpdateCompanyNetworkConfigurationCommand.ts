@@ -65,8 +65,8 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateCompanyNetworkConfigurationCommandInput - {@link UpdateCompanyNetworkConfigurationCommandInput}
- * @returns {@link UpdateCompanyNetworkConfigurationCommandOutput}
+ * @param UpdateCompanyNetworkConfigurationRequest - {@link UpdateCompanyNetworkConfigurationRequest}
+ * @returns {@link UpdateCompanyNetworkConfigurationResponse}
  * @see {@link UpdateCompanyNetworkConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateCompanyNetworkConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

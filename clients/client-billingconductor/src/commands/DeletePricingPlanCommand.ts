@@ -51,8 +51,8 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  *
  * ```
  *
- * @param DeletePricingPlanCommandInput - {@link DeletePricingPlanCommandInput}
- * @returns {@link DeletePricingPlanCommandOutput}
+ * @param DeletePricingPlanInput - {@link DeletePricingPlanInput}
+ * @returns {@link DeletePricingPlanOutput}
  * @see {@link DeletePricingPlanCommandInput} for command's `input` shape.
  * @see {@link DeletePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

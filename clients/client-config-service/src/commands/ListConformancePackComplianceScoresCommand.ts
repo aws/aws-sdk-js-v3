@@ -79,8 +79,8 @@ export interface ListConformancePackComplianceScoresCommandOutput
  *
  * ```
  *
- * @param ListConformancePackComplianceScoresCommandInput - {@link ListConformancePackComplianceScoresCommandInput}
- * @returns {@link ListConformancePackComplianceScoresCommandOutput}
+ * @param ListConformancePackComplianceScoresRequest - {@link ListConformancePackComplianceScoresRequest}
+ * @returns {@link ListConformancePackComplianceScoresResponse}
  * @see {@link ListConformancePackComplianceScoresCommandInput} for command's `input` shape.
  * @see {@link ListConformancePackComplianceScoresCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

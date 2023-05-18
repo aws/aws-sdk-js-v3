@@ -164,8 +164,8 @@ export interface CreateLaunchProfileCommandOutput extends CreateLaunchProfileRes
  *
  * ```
  *
- * @param CreateLaunchProfileCommandInput - {@link CreateLaunchProfileCommandInput}
- * @returns {@link CreateLaunchProfileCommandOutput}
+ * @param CreateLaunchProfileRequest - {@link CreateLaunchProfileRequest}
+ * @returns {@link CreateLaunchProfileResponse}
  * @see {@link CreateLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchProfileCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

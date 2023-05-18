@@ -54,8 +54,8 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  *
  * ```
  *
- * @param GetAWSOrganizationsAccessStatusCommandInput - {@link GetAWSOrganizationsAccessStatusCommandInput}
- * @returns {@link GetAWSOrganizationsAccessStatusCommandOutput}
+ * @param GetAWSOrganizationsAccessStatusInput - {@link GetAWSOrganizationsAccessStatusInput}
+ * @returns {@link GetAWSOrganizationsAccessStatusOutput}
  * @see {@link GetAWSOrganizationsAccessStatusCommandInput} for command's `input` shape.
  * @see {@link GetAWSOrganizationsAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -51,8 +51,8 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  *
  * ```
  *
- * @param UpdateDeviceMetadataCommandInput - {@link UpdateDeviceMetadataCommandInput}
- * @returns {@link UpdateDeviceMetadataCommandOutput}
+ * @param UpdateDeviceMetadataRequest - {@link UpdateDeviceMetadataRequest}
+ * @returns {@link UpdateDeviceMetadataResponse}
  * @see {@link UpdateDeviceMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceMetadataCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

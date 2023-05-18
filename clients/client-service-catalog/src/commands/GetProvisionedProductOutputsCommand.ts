@@ -69,8 +69,8 @@ export interface GetProvisionedProductOutputsCommandOutput
  *
  * ```
  *
- * @param GetProvisionedProductOutputsCommandInput - {@link GetProvisionedProductOutputsCommandInput}
- * @returns {@link GetProvisionedProductOutputsCommandOutput}
+ * @param GetProvisionedProductOutputsInput - {@link GetProvisionedProductOutputsInput}
+ * @returns {@link GetProvisionedProductOutputsOutput}
  * @see {@link GetProvisionedProductOutputsCommandInput} for command's `input` shape.
  * @see {@link GetProvisionedProductOutputsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

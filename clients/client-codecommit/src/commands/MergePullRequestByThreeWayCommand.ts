@@ -121,8 +121,8 @@ export interface MergePullRequestByThreeWayCommandOutput extends MergePullReques
  *
  * ```
  *
- * @param MergePullRequestByThreeWayCommandInput - {@link MergePullRequestByThreeWayCommandInput}
- * @returns {@link MergePullRequestByThreeWayCommandOutput}
+ * @param MergePullRequestByThreeWayInput - {@link MergePullRequestByThreeWayInput}
+ * @returns {@link MergePullRequestByThreeWayOutput}
  * @see {@link MergePullRequestByThreeWayCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestByThreeWayCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

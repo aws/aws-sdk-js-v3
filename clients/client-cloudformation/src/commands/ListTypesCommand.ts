@@ -77,8 +77,8 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListTypesCommandInput - {@link ListTypesCommandInput}
- * @returns {@link ListTypesCommandOutput}
+ * @param ListTypesInput - {@link ListTypesInput}
+ * @returns {@link ListTypesOutput}
  * @see {@link ListTypesCommandInput} for command's `input` shape.
  * @see {@link ListTypesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

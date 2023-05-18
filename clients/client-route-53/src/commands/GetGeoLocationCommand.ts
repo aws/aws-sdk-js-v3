@@ -84,8 +84,8 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  *
  * ```
  *
- * @param GetGeoLocationCommandInput - {@link GetGeoLocationCommandInput}
- * @returns {@link GetGeoLocationCommandOutput}
+ * @param GetGeoLocationRequest - {@link GetGeoLocationRequest}
+ * @returns {@link GetGeoLocationResponse}
  * @see {@link GetGeoLocationCommandInput} for command's `input` shape.
  * @see {@link GetGeoLocationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

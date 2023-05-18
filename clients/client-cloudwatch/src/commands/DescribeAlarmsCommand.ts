@@ -161,8 +161,8 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  *
  * ```
  *
- * @param DescribeAlarmsCommandInput - {@link DescribeAlarmsCommandInput}
- * @returns {@link DescribeAlarmsCommandOutput}
+ * @param DescribeAlarmsInput - {@link DescribeAlarmsInput}
+ * @returns {@link DescribeAlarmsOutput}
  * @see {@link DescribeAlarmsCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

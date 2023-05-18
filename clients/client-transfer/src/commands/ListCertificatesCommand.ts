@@ -67,8 +67,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  *
  * ```
  *
- * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
- * @returns {@link ListCertificatesCommandOutput}
+ * @param ListCertificatesRequest - {@link ListCertificatesRequest}
+ * @returns {@link ListCertificatesResponse}
  * @see {@link ListCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

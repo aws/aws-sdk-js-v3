@@ -74,8 +74,8 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  *
  * ```
  *
- * @param UpdateApplicationVersionCommandInput - {@link UpdateApplicationVersionCommandInput}
- * @returns {@link UpdateApplicationVersionCommandOutput}
+ * @param UpdateApplicationVersionMessage - {@link UpdateApplicationVersionMessage}
+ * @returns {@link ApplicationVersionDescriptionMessage}
  * @see {@link UpdateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -66,8 +66,8 @@ export interface RemoveAttributesFromFindingsCommandOutput
  *
  * ```
  *
- * @param RemoveAttributesFromFindingsCommandInput - {@link RemoveAttributesFromFindingsCommandInput}
- * @returns {@link RemoveAttributesFromFindingsCommandOutput}
+ * @param RemoveAttributesFromFindingsRequest - {@link RemoveAttributesFromFindingsRequest}
+ * @returns {@link RemoveAttributesFromFindingsResponse}
  * @see {@link RemoveAttributesFromFindingsCommandInput} for command's `input` shape.
  * @see {@link RemoveAttributesFromFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

@@ -65,8 +65,8 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  *
  * ```
  *
- * @param BatchSnoozeAlarmCommandInput - {@link BatchSnoozeAlarmCommandInput}
- * @returns {@link BatchSnoozeAlarmCommandOutput}
+ * @param BatchSnoozeAlarmRequest - {@link BatchSnoozeAlarmRequest}
+ * @returns {@link BatchSnoozeAlarmResponse}
  * @see {@link BatchSnoozeAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchSnoozeAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

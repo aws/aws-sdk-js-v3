@@ -74,8 +74,8 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  *
  * ```
  *
- * @param DescribeAlarmHistoryCommandInput - {@link DescribeAlarmHistoryCommandInput}
- * @returns {@link DescribeAlarmHistoryCommandOutput}
+ * @param DescribeAlarmHistoryInput - {@link DescribeAlarmHistoryInput}
+ * @returns {@link DescribeAlarmHistoryOutput}
  * @see {@link DescribeAlarmHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmHistoryCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

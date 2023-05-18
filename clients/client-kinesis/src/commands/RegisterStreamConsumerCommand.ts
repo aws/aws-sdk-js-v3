@@ -69,8 +69,8 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *
  * ```
  *
- * @param RegisterStreamConsumerCommandInput - {@link RegisterStreamConsumerCommandInput}
- * @returns {@link RegisterStreamConsumerCommandOutput}
+ * @param RegisterStreamConsumerInput - {@link RegisterStreamConsumerInput}
+ * @returns {@link RegisterStreamConsumerOutput}
  * @see {@link RegisterStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link RegisterStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

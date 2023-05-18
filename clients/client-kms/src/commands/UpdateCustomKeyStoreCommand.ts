@@ -155,8 +155,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *
  * ```
  *
- * @param UpdateCustomKeyStoreCommandInput - {@link UpdateCustomKeyStoreCommandInput}
- * @returns {@link UpdateCustomKeyStoreCommandOutput}
+ * @param UpdateCustomKeyStoreRequest - {@link UpdateCustomKeyStoreRequest}
+ * @returns {@link UpdateCustomKeyStoreResponse}
  * @see {@link UpdateCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

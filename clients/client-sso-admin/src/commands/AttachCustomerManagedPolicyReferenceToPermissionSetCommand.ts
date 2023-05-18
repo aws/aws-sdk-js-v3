@@ -62,8 +62,8 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  *
  * ```
  *
- * @param AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput - {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput}
- * @returns {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput}
+ * @param AttachCustomerManagedPolicyReferenceToPermissionSetRequest - {@link AttachCustomerManagedPolicyReferenceToPermissionSetRequest}
+ * @returns {@link AttachCustomerManagedPolicyReferenceToPermissionSetResponse}
  * @see {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

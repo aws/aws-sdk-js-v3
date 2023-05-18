@@ -59,8 +59,8 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  *
  * ```
  *
- * @param ListLanguagesCommandInput - {@link ListLanguagesCommandInput}
- * @returns {@link ListLanguagesCommandOutput}
+ * @param ListLanguagesRequest - {@link ListLanguagesRequest}
+ * @returns {@link ListLanguagesResponse}
  * @see {@link ListLanguagesCommandInput} for command's `input` shape.
  * @see {@link ListLanguagesCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

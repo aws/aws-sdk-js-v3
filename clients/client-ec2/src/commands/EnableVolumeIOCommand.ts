@@ -50,8 +50,8 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableVolumeIOCommandInput - {@link EnableVolumeIOCommandInput}
- * @returns {@link EnableVolumeIOCommandOutput}
+ * @param EnableVolumeIORequest - {@link EnableVolumeIORequest}
+ * @returns {@link Unit}
  * @see {@link EnableVolumeIOCommandInput} for command's `input` shape.
  * @see {@link EnableVolumeIOCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

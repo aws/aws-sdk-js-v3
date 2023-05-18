@@ -64,8 +64,8 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  *
  * ```
  *
- * @param ListUserGroupsCommandInput - {@link ListUserGroupsCommandInput}
- * @returns {@link ListUserGroupsCommandOutput}
+ * @param ListUserGroupsRequest - {@link ListUserGroupsRequest}
+ * @returns {@link ListUserGroupsResponse}
  * @see {@link ListUserGroupsCommandInput} for command's `input` shape.
  * @see {@link ListUserGroupsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

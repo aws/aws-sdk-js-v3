@@ -80,8 +80,8 @@ export interface AcceptTransitGatewayVpcAttachmentCommandOutput
  *
  * ```
  *
- * @param AcceptTransitGatewayVpcAttachmentCommandInput - {@link AcceptTransitGatewayVpcAttachmentCommandInput}
- * @returns {@link AcceptTransitGatewayVpcAttachmentCommandOutput}
+ * @param AcceptTransitGatewayVpcAttachmentRequest - {@link AcceptTransitGatewayVpcAttachmentRequest}
+ * @returns {@link AcceptTransitGatewayVpcAttachmentResult}
  * @see {@link AcceptTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link AcceptTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -52,8 +52,8 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  *
  * ```
  *
- * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
- * @returns {@link DeleteConnectorCommandOutput}
+ * @param DeleteConnectorRequest - {@link DeleteConnectorRequest}
+ * @returns {@link DeleteConnectorResponse}
  * @see {@link DeleteConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

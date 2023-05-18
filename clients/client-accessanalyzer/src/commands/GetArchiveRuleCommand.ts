@@ -70,8 +70,8 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  *
  * ```
  *
- * @param GetArchiveRuleCommandInput - {@link GetArchiveRuleCommandInput}
- * @returns {@link GetArchiveRuleCommandOutput}
+ * @param GetArchiveRuleRequest - {@link GetArchiveRuleRequest}
+ * @returns {@link GetArchiveRuleResponse}
  * @see {@link GetArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link GetArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

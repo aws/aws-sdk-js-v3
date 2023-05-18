@@ -61,8 +61,8 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  *
  * ```
  *
- * @param GetMapTileCommandInput - {@link GetMapTileCommandInput}
- * @returns {@link GetMapTileCommandOutput}
+ * @param GetMapTileRequest - {@link GetMapTileRequest}
+ * @returns {@link GetMapTileResponse}
  * @see {@link GetMapTileCommandInput} for command's `input` shape.
  * @see {@link GetMapTileCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

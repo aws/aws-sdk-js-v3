@@ -77,8 +77,8 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  *
  * ```
  *
- * @param GetRoutesCommandInput - {@link GetRoutesCommandInput}
- * @returns {@link GetRoutesCommandOutput}
+ * @param GetRoutesRequest - {@link GetRoutesRequest}
+ * @returns {@link GetRoutesResponse}
  * @see {@link GetRoutesCommandInput} for command's `input` shape.
  * @see {@link GetRoutesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

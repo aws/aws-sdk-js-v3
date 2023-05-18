@@ -72,8 +72,8 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
  *
  * ```
  *
- * @param PutSipMediaApplicationAlexaSkillConfigurationCommandInput - {@link PutSipMediaApplicationAlexaSkillConfigurationCommandInput}
- * @returns {@link PutSipMediaApplicationAlexaSkillConfigurationCommandOutput}
+ * @param PutSipMediaApplicationAlexaSkillConfigurationRequest - {@link PutSipMediaApplicationAlexaSkillConfigurationRequest}
+ * @returns {@link PutSipMediaApplicationAlexaSkillConfigurationResponse}
  * @see {@link PutSipMediaApplicationAlexaSkillConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutSipMediaApplicationAlexaSkillConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  *
  * ```
  *
- * @param ListPolicyTagsCommandInput - {@link ListPolicyTagsCommandInput}
- * @returns {@link ListPolicyTagsCommandOutput}
+ * @param ListPolicyTagsRequest - {@link ListPolicyTagsRequest}
+ * @returns {@link ListPolicyTagsResponse}
  * @see {@link ListPolicyTagsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

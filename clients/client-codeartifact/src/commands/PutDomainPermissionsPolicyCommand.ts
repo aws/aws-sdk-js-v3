@@ -64,8 +64,8 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  *
  * ```
  *
- * @param PutDomainPermissionsPolicyCommandInput - {@link PutDomainPermissionsPolicyCommandInput}
- * @returns {@link PutDomainPermissionsPolicyCommandOutput}
+ * @param PutDomainPermissionsPolicyRequest - {@link PutDomainPermissionsPolicyRequest}
+ * @returns {@link PutDomainPermissionsPolicyResult}
  * @see {@link PutDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDomainPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

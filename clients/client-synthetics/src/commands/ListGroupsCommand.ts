@@ -59,8 +59,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *
  * ```
  *
- * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
- * @returns {@link ListGroupsCommandOutput}
+ * @param ListGroupsRequest - {@link ListGroupsRequest}
+ * @returns {@link ListGroupsResponse}
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

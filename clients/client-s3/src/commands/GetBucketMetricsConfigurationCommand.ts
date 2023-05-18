@@ -109,8 +109,8 @@ export interface GetBucketMetricsConfigurationCommandOutput
  *
  * ```
  *
- * @param GetBucketMetricsConfigurationCommandInput - {@link GetBucketMetricsConfigurationCommandInput}
- * @returns {@link GetBucketMetricsConfigurationCommandOutput}
+ * @param GetBucketMetricsConfigurationRequest - {@link GetBucketMetricsConfigurationRequest}
+ * @returns {@link GetBucketMetricsConfigurationOutput}
  * @see {@link GetBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

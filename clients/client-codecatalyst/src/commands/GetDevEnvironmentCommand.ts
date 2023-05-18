@@ -76,8 +76,8 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  *
  * ```
  *
- * @param GetDevEnvironmentCommandInput - {@link GetDevEnvironmentCommandInput}
- * @returns {@link GetDevEnvironmentCommandOutput}
+ * @param GetDevEnvironmentRequest - {@link GetDevEnvironmentRequest}
+ * @returns {@link GetDevEnvironmentResponse}
  * @see {@link GetDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

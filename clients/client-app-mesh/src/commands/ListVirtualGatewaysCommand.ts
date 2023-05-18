@@ -65,8 +65,8 @@ export interface ListVirtualGatewaysCommandOutput extends ListVirtualGatewaysOut
  *
  * ```
  *
- * @param ListVirtualGatewaysCommandInput - {@link ListVirtualGatewaysCommandInput}
- * @returns {@link ListVirtualGatewaysCommandOutput}
+ * @param ListVirtualGatewaysInput - {@link ListVirtualGatewaysInput}
+ * @returns {@link ListVirtualGatewaysOutput}
  * @see {@link ListVirtualGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListVirtualGatewaysCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

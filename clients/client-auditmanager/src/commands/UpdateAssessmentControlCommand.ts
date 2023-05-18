@@ -72,8 +72,8 @@ export interface UpdateAssessmentControlCommandOutput extends UpdateAssessmentCo
  *
  * ```
  *
- * @param UpdateAssessmentControlCommandInput - {@link UpdateAssessmentControlCommandInput}
- * @returns {@link UpdateAssessmentControlCommandOutput}
+ * @param UpdateAssessmentControlRequest - {@link UpdateAssessmentControlRequest}
+ * @returns {@link UpdateAssessmentControlResponse}
  * @see {@link UpdateAssessmentControlCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

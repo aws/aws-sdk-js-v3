@@ -48,8 +48,8 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  *
  * ```
  *
- * @param FlushApiCacheCommandInput - {@link FlushApiCacheCommandInput}
- * @returns {@link FlushApiCacheCommandOutput}
+ * @param FlushApiCacheRequest - {@link FlushApiCacheRequest}
+ * @returns {@link FlushApiCacheResponse}
  * @see {@link FlushApiCacheCommandInput} for command's `input` shape.
  * @see {@link FlushApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

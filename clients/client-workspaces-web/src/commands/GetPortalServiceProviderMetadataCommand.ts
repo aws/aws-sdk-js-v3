@@ -56,8 +56,8 @@ export interface GetPortalServiceProviderMetadataCommandOutput
  *
  * ```
  *
- * @param GetPortalServiceProviderMetadataCommandInput - {@link GetPortalServiceProviderMetadataCommandInput}
- * @returns {@link GetPortalServiceProviderMetadataCommandOutput}
+ * @param GetPortalServiceProviderMetadataRequest - {@link GetPortalServiceProviderMetadataRequest}
+ * @returns {@link GetPortalServiceProviderMetadataResponse}
  * @see {@link GetPortalServiceProviderMetadataCommandInput} for command's `input` shape.
  * @see {@link GetPortalServiceProviderMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

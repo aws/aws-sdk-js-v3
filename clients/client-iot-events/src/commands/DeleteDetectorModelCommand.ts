@@ -49,8 +49,8 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  *
  * ```
  *
- * @param DeleteDetectorModelCommandInput - {@link DeleteDetectorModelCommandInput}
- * @returns {@link DeleteDetectorModelCommandOutput}
+ * @param DeleteDetectorModelRequest - {@link DeleteDetectorModelRequest}
+ * @returns {@link DeleteDetectorModelResponse}
  * @see {@link DeleteDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

@@ -70,8 +70,8 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  *
  * ```
  *
- * @param UpdateSmsChannelCommandInput - {@link UpdateSmsChannelCommandInput}
- * @returns {@link UpdateSmsChannelCommandOutput}
+ * @param UpdateSmsChannelRequest - {@link UpdateSmsChannelRequest}
+ * @returns {@link UpdateSmsChannelResponse}
  * @see {@link UpdateSmsChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateSmsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -67,8 +67,8 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  *
  * ```
  *
- * @param UpdateServiceTemplateCommandInput - {@link UpdateServiceTemplateCommandInput}
- * @returns {@link UpdateServiceTemplateCommandOutput}
+ * @param UpdateServiceTemplateInput - {@link UpdateServiceTemplateInput}
+ * @returns {@link UpdateServiceTemplateOutput}
  * @see {@link UpdateServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

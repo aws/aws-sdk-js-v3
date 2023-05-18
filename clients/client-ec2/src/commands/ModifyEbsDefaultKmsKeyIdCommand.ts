@@ -58,8 +58,8 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
  *
  * ```
  *
- * @param ModifyEbsDefaultKmsKeyIdCommandInput - {@link ModifyEbsDefaultKmsKeyIdCommandInput}
- * @returns {@link ModifyEbsDefaultKmsKeyIdCommandOutput}
+ * @param ModifyEbsDefaultKmsKeyIdRequest - {@link ModifyEbsDefaultKmsKeyIdRequest}
+ * @returns {@link ModifyEbsDefaultKmsKeyIdResult}
  * @see {@link ModifyEbsDefaultKmsKeyIdCommandInput} for command's `input` shape.
  * @see {@link ModifyEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

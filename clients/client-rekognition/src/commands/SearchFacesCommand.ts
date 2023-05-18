@@ -87,8 +87,8 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  *
  * ```
  *
- * @param SearchFacesCommandInput - {@link SearchFacesCommandInput}
- * @returns {@link SearchFacesCommandOutput}
+ * @param SearchFacesRequest - {@link SearchFacesRequest}
+ * @returns {@link SearchFacesResponse}
  * @see {@link SearchFacesCommandInput} for command's `input` shape.
  * @see {@link SearchFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

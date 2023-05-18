@@ -69,8 +69,8 @@ export interface ImportHypervisorConfigurationCommandOutput
  *
  * ```
  *
- * @param ImportHypervisorConfigurationCommandInput - {@link ImportHypervisorConfigurationCommandInput}
- * @returns {@link ImportHypervisorConfigurationCommandOutput}
+ * @param ImportHypervisorConfigurationInput - {@link ImportHypervisorConfigurationInput}
+ * @returns {@link ImportHypervisorConfigurationOutput}
  * @see {@link ImportHypervisorConfigurationCommandInput} for command's `input` shape.
  * @see {@link ImportHypervisorConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

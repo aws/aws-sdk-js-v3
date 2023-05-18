@@ -53,8 +53,8 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  *
  * ```
  *
- * @param GetDiscoveredSchemaCommandInput - {@link GetDiscoveredSchemaCommandInput}
- * @returns {@link GetDiscoveredSchemaCommandOutput}
+ * @param GetDiscoveredSchemaRequest - {@link GetDiscoveredSchemaRequest}
+ * @returns {@link GetDiscoveredSchemaResponse}
  * @see {@link GetDiscoveredSchemaCommandInput} for command's `input` shape.
  * @see {@link GetDiscoveredSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

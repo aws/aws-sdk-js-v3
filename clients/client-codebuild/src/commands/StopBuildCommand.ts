@@ -231,8 +231,8 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  *
  * ```
  *
- * @param StopBuildCommandInput - {@link StopBuildCommandInput}
- * @returns {@link StopBuildCommandOutput}
+ * @param StopBuildInput - {@link StopBuildInput}
+ * @returns {@link StopBuildOutput}
  * @see {@link StopBuildCommandInput} for command's `input` shape.
  * @see {@link StopBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

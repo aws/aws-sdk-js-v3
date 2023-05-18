@@ -67,8 +67,8 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
+ * @param ListEnvironmentsRequest - {@link ListEnvironmentsRequest}
+ * @returns {@link Environments}
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

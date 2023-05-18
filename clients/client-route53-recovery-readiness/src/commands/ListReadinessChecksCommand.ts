@@ -65,8 +65,8 @@ export interface ListReadinessChecksCommandOutput extends ListReadinessChecksRes
  *
  * ```
  *
- * @param ListReadinessChecksCommandInput - {@link ListReadinessChecksCommandInput}
- * @returns {@link ListReadinessChecksCommandOutput}
+ * @param ListReadinessChecksRequest - {@link ListReadinessChecksRequest}
+ * @returns {@link ListReadinessChecksResponse}
  * @see {@link ListReadinessChecksCommandInput} for command's `input` shape.
  * @see {@link ListReadinessChecksCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

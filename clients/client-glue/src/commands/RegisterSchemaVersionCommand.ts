@@ -59,8 +59,8 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  *
  * ```
  *
- * @param RegisterSchemaVersionCommandInput - {@link RegisterSchemaVersionCommandInput}
- * @returns {@link RegisterSchemaVersionCommandOutput}
+ * @param RegisterSchemaVersionInput - {@link RegisterSchemaVersionInput}
+ * @returns {@link RegisterSchemaVersionResponse}
  * @see {@link RegisterSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link RegisterSchemaVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

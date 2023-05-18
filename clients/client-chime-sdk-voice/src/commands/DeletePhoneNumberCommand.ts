@@ -54,8 +54,8 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePhoneNumberCommandInput - {@link DeletePhoneNumberCommandInput}
- * @returns {@link DeletePhoneNumberCommandOutput}
+ * @param DeletePhoneNumberRequest - {@link DeletePhoneNumberRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DeletePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

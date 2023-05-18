@@ -57,8 +57,8 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  *
  * ```
  *
- * @param DisassociateConnectPeerCommandInput - {@link DisassociateConnectPeerCommandInput}
- * @returns {@link DisassociateConnectPeerCommandOutput}
+ * @param DisassociateConnectPeerRequest - {@link DisassociateConnectPeerRequest}
+ * @returns {@link DisassociateConnectPeerResponse}
  * @see {@link DisassociateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

@@ -86,8 +86,8 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListPartsCommandInput - {@link ListPartsCommandInput}
- * @returns {@link ListPartsCommandOutput}
+ * @param ListPartsInput - {@link ListPartsInput}
+ * @returns {@link ListPartsOutput}
  * @see {@link ListPartsCommandInput} for command's `input` shape.
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

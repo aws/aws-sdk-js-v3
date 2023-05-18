@@ -107,8 +107,8 @@ export interface GetNetworkSiteCommandOutput extends GetNetworkSiteResponse, __M
  *
  * ```
  *
- * @param GetNetworkSiteCommandInput - {@link GetNetworkSiteCommandInput}
- * @returns {@link GetNetworkSiteCommandOutput}
+ * @param GetNetworkSiteRequest - {@link GetNetworkSiteRequest}
+ * @returns {@link GetNetworkSiteResponse}
  * @see {@link GetNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link GetNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

@@ -98,8 +98,8 @@ export interface CreateCloudFormationChangeSetCommandOutput
  *
  * ```
  *
- * @param CreateCloudFormationChangeSetCommandInput - {@link CreateCloudFormationChangeSetCommandInput}
- * @returns {@link CreateCloudFormationChangeSetCommandOutput}
+ * @param CreateCloudFormationChangeSetRequest - {@link CreateCloudFormationChangeSetRequest}
+ * @returns {@link CreateCloudFormationChangeSetResponse}
  * @see {@link CreateCloudFormationChangeSetCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFormationChangeSetCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

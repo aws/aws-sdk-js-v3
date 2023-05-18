@@ -70,8 +70,8 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  *
  * ```
  *
- * @param ListCellsCommandInput - {@link ListCellsCommandInput}
- * @returns {@link ListCellsCommandOutput}
+ * @param ListCellsRequest - {@link ListCellsRequest}
+ * @returns {@link ListCellsResponse}
  * @see {@link ListCellsCommandInput} for command's `input` shape.
  * @see {@link ListCellsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

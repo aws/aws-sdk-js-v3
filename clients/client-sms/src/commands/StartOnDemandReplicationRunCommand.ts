@@ -57,8 +57,8 @@ export interface StartOnDemandReplicationRunCommandOutput
  *
  * ```
  *
- * @param StartOnDemandReplicationRunCommandInput - {@link StartOnDemandReplicationRunCommandInput}
- * @returns {@link StartOnDemandReplicationRunCommandOutput}
+ * @param StartOnDemandReplicationRunRequest - {@link StartOnDemandReplicationRunRequest}
+ * @returns {@link StartOnDemandReplicationRunResponse}
  * @see {@link StartOnDemandReplicationRunCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandReplicationRunCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

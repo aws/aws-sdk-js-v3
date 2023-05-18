@@ -81,8 +81,8 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  *
  * ```
  *
- * @param ListProtectionsCommandInput - {@link ListProtectionsCommandInput}
- * @returns {@link ListProtectionsCommandOutput}
+ * @param ListProtectionsRequest - {@link ListProtectionsRequest}
+ * @returns {@link ListProtectionsResponse}
  * @see {@link ListProtectionsCommandInput} for command's `input` shape.
  * @see {@link ListProtectionsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

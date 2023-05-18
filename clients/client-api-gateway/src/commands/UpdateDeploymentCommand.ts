@@ -69,8 +69,8 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
  *
  * ```
  *
- * @param UpdateDeploymentCommandInput - {@link UpdateDeploymentCommandInput}
- * @returns {@link UpdateDeploymentCommandOutput}
+ * @param UpdateDeploymentRequest - {@link UpdateDeploymentRequest}
+ * @returns {@link Deployment}
  * @see {@link UpdateDeploymentCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

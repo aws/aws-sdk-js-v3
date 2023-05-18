@@ -69,8 +69,8 @@ export interface DescribeUsageReportSubscriptionsCommandOutput
  *
  * ```
  *
- * @param DescribeUsageReportSubscriptionsCommandInput - {@link DescribeUsageReportSubscriptionsCommandInput}
- * @returns {@link DescribeUsageReportSubscriptionsCommandOutput}
+ * @param DescribeUsageReportSubscriptionsRequest - {@link DescribeUsageReportSubscriptionsRequest}
+ * @returns {@link DescribeUsageReportSubscriptionsResult}
  * @see {@link DescribeUsageReportSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeUsageReportSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

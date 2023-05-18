@@ -49,8 +49,8 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteQuickConnectCommandInput - {@link DeleteQuickConnectCommandInput}
- * @returns {@link DeleteQuickConnectCommandOutput}
+ * @param DeleteQuickConnectRequest - {@link DeleteQuickConnectRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteQuickConnectCommandInput} for command's `input` shape.
  * @see {@link DeleteQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

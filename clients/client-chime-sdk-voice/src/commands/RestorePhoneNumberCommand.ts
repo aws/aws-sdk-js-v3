@@ -83,8 +83,8 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  *
  * ```
  *
- * @param RestorePhoneNumberCommandInput - {@link RestorePhoneNumberCommandInput}
- * @returns {@link RestorePhoneNumberCommandOutput}
+ * @param RestorePhoneNumberRequest - {@link RestorePhoneNumberRequest}
+ * @returns {@link RestorePhoneNumberResponse}
  * @see {@link RestorePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link RestorePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

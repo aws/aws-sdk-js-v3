@@ -60,8 +60,8 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  *
  * ```
  *
- * @param CreateFindingAggregatorCommandInput - {@link CreateFindingAggregatorCommandInput}
- * @returns {@link CreateFindingAggregatorCommandOutput}
+ * @param CreateFindingAggregatorRequest - {@link CreateFindingAggregatorRequest}
+ * @returns {@link CreateFindingAggregatorResponse}
  * @see {@link CreateFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link CreateFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

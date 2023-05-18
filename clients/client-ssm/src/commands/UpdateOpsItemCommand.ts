@@ -83,8 +83,8 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  *
  * ```
  *
- * @param UpdateOpsItemCommandInput - {@link UpdateOpsItemCommandInput}
- * @returns {@link UpdateOpsItemCommandOutput}
+ * @param UpdateOpsItemRequest - {@link UpdateOpsItemRequest}
+ * @returns {@link UpdateOpsItemResponse}
  * @see {@link UpdateOpsItemCommandInput} for command's `input` shape.
  * @see {@link UpdateOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncC
  *
  * ```
  *
- * @param DeleteServiceSyncConfigCommandInput - {@link DeleteServiceSyncConfigCommandInput}
- * @returns {@link DeleteServiceSyncConfigCommandOutput}
+ * @param DeleteServiceSyncConfigInput - {@link DeleteServiceSyncConfigInput}
+ * @returns {@link DeleteServiceSyncConfigOutput}
  * @see {@link DeleteServiceSyncConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

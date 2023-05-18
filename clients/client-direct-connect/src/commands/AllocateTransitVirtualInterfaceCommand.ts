@@ -123,8 +123,8 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
  *
  * ```
  *
- * @param AllocateTransitVirtualInterfaceCommandInput - {@link AllocateTransitVirtualInterfaceCommandInput}
- * @returns {@link AllocateTransitVirtualInterfaceCommandOutput}
+ * @param AllocateTransitVirtualInterfaceRequest - {@link AllocateTransitVirtualInterfaceRequest}
+ * @returns {@link AllocateTransitVirtualInterfaceResult}
  * @see {@link AllocateTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

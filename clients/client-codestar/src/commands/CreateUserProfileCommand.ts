@@ -66,8 +66,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  *
  * ```
  *
- * @param CreateUserProfileCommandInput - {@link CreateUserProfileCommandInput}
- * @returns {@link CreateUserProfileCommandOutput}
+ * @param CreateUserProfileRequest - {@link CreateUserProfileRequest}
+ * @returns {@link CreateUserProfileResult}
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

@@ -60,8 +60,8 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  *
  * ```
  *
- * @param CreateCustomVerificationEmailTemplateCommandInput - {@link CreateCustomVerificationEmailTemplateCommandInput}
- * @returns {@link CreateCustomVerificationEmailTemplateCommandOutput}
+ * @param CreateCustomVerificationEmailTemplateRequest - {@link CreateCustomVerificationEmailTemplateRequest}
+ * @returns {@link Unit}
  * @see {@link CreateCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

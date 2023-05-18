@@ -59,8 +59,8 @@ export interface GetBackendJobCommandOutput extends GetBackendJobResponse, __Met
  *
  * ```
  *
- * @param GetBackendJobCommandInput - {@link GetBackendJobCommandInput}
- * @returns {@link GetBackendJobCommandOutput}
+ * @param GetBackendJobRequest - {@link GetBackendJobRequest}
+ * @returns {@link GetBackendJobResponse}
  * @see {@link GetBackendJobCommandInput} for command's `input` shape.
  * @see {@link GetBackendJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

@@ -58,8 +58,8 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  *
  * ```
  *
- * @param UpdateOpsMetadataCommandInput - {@link UpdateOpsMetadataCommandInput}
- * @returns {@link UpdateOpsMetadataCommandOutput}
+ * @param UpdateOpsMetadataRequest - {@link UpdateOpsMetadataRequest}
+ * @returns {@link UpdateOpsMetadataResult}
  * @see {@link UpdateOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

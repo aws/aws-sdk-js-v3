@@ -292,8 +292,8 @@ export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOut
  *
  * ```
  *
- * @param DescribeVirtualNodeCommandInput - {@link DescribeVirtualNodeCommandInput}
- * @returns {@link DescribeVirtualNodeCommandOutput}
+ * @param DescribeVirtualNodeInput - {@link DescribeVirtualNodeInput}
+ * @returns {@link DescribeVirtualNodeOutput}
  * @see {@link DescribeVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

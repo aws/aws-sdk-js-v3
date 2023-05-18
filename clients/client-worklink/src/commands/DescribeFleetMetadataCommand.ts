@@ -62,8 +62,8 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  *
  * ```
  *
- * @param DescribeFleetMetadataCommandInput - {@link DescribeFleetMetadataCommandInput}
- * @returns {@link DescribeFleetMetadataCommandOutput}
+ * @param DescribeFleetMetadataRequest - {@link DescribeFleetMetadataRequest}
+ * @returns {@link DescribeFleetMetadataResponse}
  * @see {@link DescribeFleetMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

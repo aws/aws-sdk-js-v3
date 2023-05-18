@@ -91,8 +91,8 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  *
  * ```
  *
- * @param SendChannelMessageCommandInput - {@link SendChannelMessageCommandInput}
- * @returns {@link SendChannelMessageCommandOutput}
+ * @param SendChannelMessageRequest - {@link SendChannelMessageRequest}
+ * @returns {@link SendChannelMessageResponse}
  * @see {@link SendChannelMessageCommandInput} for command's `input` shape.
  * @see {@link SendChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

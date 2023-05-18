@@ -107,8 +107,8 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  *
  * ```
  *
- * @param GetBucketsCommandInput - {@link GetBucketsCommandInput}
- * @returns {@link GetBucketsCommandOutput}
+ * @param GetBucketsRequest - {@link GetBucketsRequest}
+ * @returns {@link GetBucketsResult}
  * @see {@link GetBucketsCommandInput} for command's `input` shape.
  * @see {@link GetBucketsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

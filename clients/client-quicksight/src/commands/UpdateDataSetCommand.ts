@@ -292,8 +292,8 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *
  * ```
  *
- * @param UpdateDataSetCommandInput - {@link UpdateDataSetCommandInput}
- * @returns {@link UpdateDataSetCommandOutput}
+ * @param UpdateDataSetRequest - {@link UpdateDataSetRequest}
+ * @returns {@link UpdateDataSetResponse}
  * @see {@link UpdateDataSetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

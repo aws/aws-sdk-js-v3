@@ -74,8 +74,8 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  *
  * ```
  *
- * @param DescribeACLsCommandInput - {@link DescribeACLsCommandInput}
- * @returns {@link DescribeACLsCommandOutput}
+ * @param DescribeACLsRequest - {@link DescribeACLsRequest}
+ * @returns {@link DescribeACLsResponse}
  * @see {@link DescribeACLsCommandInput} for command's `input` shape.
  * @see {@link DescribeACLsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

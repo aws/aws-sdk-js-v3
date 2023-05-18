@@ -61,8 +61,8 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  *
  * ```
  *
- * @param UpdateReportDefinitionCommandInput - {@link UpdateReportDefinitionCommandInput}
- * @returns {@link UpdateReportDefinitionCommandOutput}
+ * @param UpdateReportDefinitionRequest - {@link UpdateReportDefinitionRequest}
+ * @returns {@link UpdateReportDefinitionResult}
  * @see {@link UpdateReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.

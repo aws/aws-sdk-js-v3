@@ -57,8 +57,8 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
  *
  * ```
  *
- * @param AssociateWirelessGatewayWithThingCommandInput - {@link AssociateWirelessGatewayWithThingCommandInput}
- * @returns {@link AssociateWirelessGatewayWithThingCommandOutput}
+ * @param AssociateWirelessGatewayWithThingRequest - {@link AssociateWirelessGatewayWithThingRequest}
+ * @returns {@link AssociateWirelessGatewayWithThingResponse}
  * @see {@link AssociateWirelessGatewayWithThingCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessGatewayWithThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

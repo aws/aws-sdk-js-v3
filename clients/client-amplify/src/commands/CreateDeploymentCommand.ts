@@ -59,8 +59,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  *
  * ```
  *
- * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
- * @returns {@link CreateDeploymentCommandOutput}
+ * @param CreateDeploymentRequest - {@link CreateDeploymentRequest}
+ * @returns {@link CreateDeploymentResult}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

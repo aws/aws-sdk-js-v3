@@ -51,8 +51,8 @@ export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param UpdateInstanceAttributeCommandInput - {@link UpdateInstanceAttributeCommandInput}
- * @returns {@link UpdateInstanceAttributeCommandOutput}
+ * @param UpdateInstanceAttributeRequest - {@link UpdateInstanceAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

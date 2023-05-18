@@ -56,8 +56,8 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  *
  * ```
  *
- * @param UpdateArchiveCommandInput - {@link UpdateArchiveCommandInput}
- * @returns {@link UpdateArchiveCommandOutput}
+ * @param UpdateArchiveRequest - {@link UpdateArchiveRequest}
+ * @returns {@link UpdateArchiveResponse}
  * @see {@link UpdateArchiveCommandInput} for command's `input` shape.
  * @see {@link UpdateArchiveCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

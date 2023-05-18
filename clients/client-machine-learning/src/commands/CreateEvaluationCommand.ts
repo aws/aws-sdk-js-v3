@@ -64,8 +64,8 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  *
  * ```
  *
- * @param CreateEvaluationCommandInput - {@link CreateEvaluationCommandInput}
- * @returns {@link CreateEvaluationCommandOutput}
+ * @param CreateEvaluationInput - {@link CreateEvaluationInput}
+ * @returns {@link CreateEvaluationOutput}
  * @see {@link CreateEvaluationCommandInput} for command's `input` shape.
  * @see {@link CreateEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

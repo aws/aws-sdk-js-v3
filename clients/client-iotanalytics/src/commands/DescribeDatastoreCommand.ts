@@ -108,8 +108,8 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  *
  * ```
  *
- * @param DescribeDatastoreCommandInput - {@link DescribeDatastoreCommandInput}
- * @returns {@link DescribeDatastoreCommandOutput}
+ * @param DescribeDatastoreRequest - {@link DescribeDatastoreRequest}
+ * @returns {@link DescribeDatastoreResponse}
  * @see {@link DescribeDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

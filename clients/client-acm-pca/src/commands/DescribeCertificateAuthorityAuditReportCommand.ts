@@ -66,8 +66,8 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  *
  * ```
  *
- * @param DescribeCertificateAuthorityAuditReportCommandInput - {@link DescribeCertificateAuthorityAuditReportCommandInput}
- * @returns {@link DescribeCertificateAuthorityAuditReportCommandOutput}
+ * @param DescribeCertificateAuthorityAuditReportRequest - {@link DescribeCertificateAuthorityAuditReportRequest}
+ * @returns {@link DescribeCertificateAuthorityAuditReportResponse}
  * @see {@link DescribeCertificateAuthorityAuditReportCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateAuthorityAuditReportCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

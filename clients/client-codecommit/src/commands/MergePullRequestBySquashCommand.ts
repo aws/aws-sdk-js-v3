@@ -121,8 +121,8 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  *
  * ```
  *
- * @param MergePullRequestBySquashCommandInput - {@link MergePullRequestBySquashCommandInput}
- * @returns {@link MergePullRequestBySquashCommandOutput}
+ * @param MergePullRequestBySquashInput - {@link MergePullRequestBySquashInput}
+ * @returns {@link MergePullRequestBySquashOutput}
  * @see {@link MergePullRequestBySquashCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestBySquashCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

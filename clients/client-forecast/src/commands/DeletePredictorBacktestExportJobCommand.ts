@@ -51,8 +51,8 @@ export interface DeletePredictorBacktestExportJobCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeletePredictorBacktestExportJobCommandInput - {@link DeletePredictorBacktestExportJobCommandInput}
- * @returns {@link DeletePredictorBacktestExportJobCommandOutput}
+ * @param DeletePredictorBacktestExportJobRequest - {@link DeletePredictorBacktestExportJobRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePredictorBacktestExportJobCommandInput} for command's `input` shape.
  * @see {@link DeletePredictorBacktestExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

@@ -57,8 +57,8 @@ export interface AssociateUserToPermissionGroupCommandOutput
  *
  * ```
  *
- * @param AssociateUserToPermissionGroupCommandInput - {@link AssociateUserToPermissionGroupCommandInput}
- * @returns {@link AssociateUserToPermissionGroupCommandOutput}
+ * @param AssociateUserToPermissionGroupRequest - {@link AssociateUserToPermissionGroupRequest}
+ * @returns {@link AssociateUserToPermissionGroupResponse}
  * @see {@link AssociateUserToPermissionGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateUserToPermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

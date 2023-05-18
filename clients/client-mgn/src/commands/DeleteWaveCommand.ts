@@ -48,8 +48,8 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteWaveCommandInput - {@link DeleteWaveCommandInput}
- * @returns {@link DeleteWaveCommandOutput}
+ * @param DeleteWaveRequest - {@link DeleteWaveRequest}
+ * @returns {@link DeleteWaveResponse}
  * @see {@link DeleteWaveCommandInput} for command's `input` shape.
  * @see {@link DeleteWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

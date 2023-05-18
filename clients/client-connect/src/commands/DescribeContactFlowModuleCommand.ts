@@ -62,8 +62,8 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  *
  * ```
  *
- * @param DescribeContactFlowModuleCommandInput - {@link DescribeContactFlowModuleCommandInput}
- * @returns {@link DescribeContactFlowModuleCommandOutput}
+ * @param DescribeContactFlowModuleRequest - {@link DescribeContactFlowModuleRequest}
+ * @returns {@link DescribeContactFlowModuleResponse}
  * @see {@link DescribeContactFlowModuleCommandInput} for command's `input` shape.
  * @see {@link DescribeContactFlowModuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

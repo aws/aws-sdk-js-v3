@@ -51,8 +51,8 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  *
  * ```
  *
- * @param StopSessionCommandInput - {@link StopSessionCommandInput}
- * @returns {@link StopSessionCommandOutput}
+ * @param StopSessionRequest - {@link StopSessionRequest}
+ * @returns {@link StopSessionResponse}
  * @see {@link StopSessionCommandInput} for command's `input` shape.
  * @see {@link StopSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

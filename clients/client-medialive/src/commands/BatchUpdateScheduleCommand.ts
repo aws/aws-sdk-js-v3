@@ -441,8 +441,8 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *
  * ```
  *
- * @param BatchUpdateScheduleCommandInput - {@link BatchUpdateScheduleCommandInput}
- * @returns {@link BatchUpdateScheduleCommandOutput}
+ * @param BatchUpdateScheduleRequest - {@link BatchUpdateScheduleRequest}
+ * @returns {@link BatchUpdateScheduleResponse}
  * @see {@link BatchUpdateScheduleCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

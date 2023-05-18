@@ -62,8 +62,8 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  *
  * ```
  *
- * @param GetJobUnlockCodeCommandInput - {@link GetJobUnlockCodeCommandInput}
- * @returns {@link GetJobUnlockCodeCommandOutput}
+ * @param GetJobUnlockCodeRequest - {@link GetJobUnlockCodeRequest}
+ * @returns {@link GetJobUnlockCodeResult}
  * @see {@link GetJobUnlockCodeCommandInput} for command's `input` shape.
  * @see {@link GetJobUnlockCodeCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

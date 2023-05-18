@@ -241,8 +241,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *
  * ```
  *
- * @param CreateJobCommandInput - {@link CreateJobCommandInput}
- * @returns {@link CreateJobCommandOutput}
+ * @param CreateJobRequest - {@link CreateJobRequest}
+ * @returns {@link CreateJobResult}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

@@ -72,8 +72,8 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  *
  * ```
  *
- * @param DescribeStackResourceCommandInput - {@link DescribeStackResourceCommandInput}
- * @returns {@link DescribeStackResourceCommandOutput}
+ * @param DescribeStackResourceInput - {@link DescribeStackResourceInput}
+ * @returns {@link DescribeStackResourceOutput}
  * @see {@link DescribeStackResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeStackResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

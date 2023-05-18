@@ -51,8 +51,8 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  *
  * ```
  *
- * @param UpdateTrialCommandInput - {@link UpdateTrialCommandInput}
- * @returns {@link UpdateTrialCommandOutput}
+ * @param UpdateTrialRequest - {@link UpdateTrialRequest}
+ * @returns {@link UpdateTrialResponse}
  * @see {@link UpdateTrialCommandInput} for command's `input` shape.
  * @see {@link UpdateTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

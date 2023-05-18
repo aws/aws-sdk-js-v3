@@ -49,8 +49,8 @@ export interface UpdateDiscoveryJobCommandOutput extends UpdateDiscoveryJobRespo
  *
  * ```
  *
- * @param UpdateDiscoveryJobCommandInput - {@link UpdateDiscoveryJobCommandInput}
- * @returns {@link UpdateDiscoveryJobCommandOutput}
+ * @param UpdateDiscoveryJobRequest - {@link UpdateDiscoveryJobRequest}
+ * @returns {@link UpdateDiscoveryJobResponse}
  * @see {@link UpdateDiscoveryJobCommandInput} for command's `input` shape.
  * @see {@link UpdateDiscoveryJobCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

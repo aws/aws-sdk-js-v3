@@ -61,8 +61,8 @@ export interface GetMulticastGroupCommandOutput extends GetMulticastGroupRespons
  *
  * ```
  *
- * @param GetMulticastGroupCommandInput - {@link GetMulticastGroupCommandInput}
- * @returns {@link GetMulticastGroupCommandOutput}
+ * @param GetMulticastGroupRequest - {@link GetMulticastGroupRequest}
+ * @returns {@link GetMulticastGroupResponse}
  * @see {@link GetMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link GetMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

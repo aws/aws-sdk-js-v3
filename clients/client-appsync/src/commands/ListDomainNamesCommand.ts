@@ -60,8 +60,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  *
  * ```
  *
- * @param ListDomainNamesCommandInput - {@link ListDomainNamesCommandInput}
- * @returns {@link ListDomainNamesCommandOutput}
+ * @param ListDomainNamesRequest - {@link ListDomainNamesRequest}
+ * @returns {@link ListDomainNamesResponse}
  * @see {@link ListDomainNamesCommandInput} for command's `input` shape.
  * @see {@link ListDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

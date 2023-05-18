@@ -52,8 +52,8 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDeploymentConfigCommandInput - {@link DeleteDeploymentConfigCommandInput}
- * @returns {@link DeleteDeploymentConfigCommandOutput}
+ * @param DeleteDeploymentConfigInput - {@link DeleteDeploymentConfigInput}
+ * @returns {@link Unit}
  * @see {@link DeleteDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -63,8 +63,8 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutRetentionPolicyCommandInput - {@link PutRetentionPolicyCommandInput}
- * @returns {@link PutRetentionPolicyCommandOutput}
+ * @param PutRetentionPolicyRequest - {@link PutRetentionPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link PutRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

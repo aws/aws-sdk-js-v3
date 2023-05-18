@@ -155,8 +155,8 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  *
  * ```
  *
- * @param CreateAppCommandInput - {@link CreateAppCommandInput}
- * @returns {@link CreateAppCommandOutput}
+ * @param CreateAppRequest - {@link CreateAppRequest}
+ * @returns {@link CreateAppResult}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

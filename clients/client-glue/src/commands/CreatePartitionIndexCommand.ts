@@ -56,8 +56,8 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  *
  * ```
  *
- * @param CreatePartitionIndexCommandInput - {@link CreatePartitionIndexCommandInput}
- * @returns {@link CreatePartitionIndexCommandOutput}
+ * @param CreatePartitionIndexRequest - {@link CreatePartitionIndexRequest}
+ * @returns {@link CreatePartitionIndexResponse}
  * @see {@link CreatePartitionIndexCommandInput} for command's `input` shape.
  * @see {@link CreatePartitionIndexCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

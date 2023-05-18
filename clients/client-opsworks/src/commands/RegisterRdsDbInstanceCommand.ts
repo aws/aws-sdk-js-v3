@@ -56,8 +56,8 @@ export interface RegisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RegisterRdsDbInstanceCommandInput - {@link RegisterRdsDbInstanceCommandInput}
- * @returns {@link RegisterRdsDbInstanceCommandOutput}
+ * @param RegisterRdsDbInstanceRequest - {@link RegisterRdsDbInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link RegisterRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterRdsDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

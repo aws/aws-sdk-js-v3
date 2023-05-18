@@ -80,8 +80,8 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  *
  * ```
  *
- * @param UpdateInstanceMetadataOptionsCommandInput - {@link UpdateInstanceMetadataOptionsCommandInput}
- * @returns {@link UpdateInstanceMetadataOptionsCommandOutput}
+ * @param UpdateInstanceMetadataOptionsRequest - {@link UpdateInstanceMetadataOptionsRequest}
+ * @returns {@link UpdateInstanceMetadataOptionsResult}
  * @see {@link UpdateInstanceMetadataOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

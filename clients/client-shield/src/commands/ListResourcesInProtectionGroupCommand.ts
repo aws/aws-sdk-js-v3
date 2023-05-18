@@ -60,8 +60,8 @@ export interface ListResourcesInProtectionGroupCommandOutput
  *
  * ```
  *
- * @param ListResourcesInProtectionGroupCommandInput - {@link ListResourcesInProtectionGroupCommandInput}
- * @returns {@link ListResourcesInProtectionGroupCommandOutput}
+ * @param ListResourcesInProtectionGroupRequest - {@link ListResourcesInProtectionGroupRequest}
+ * @returns {@link ListResourcesInProtectionGroupResponse}
  * @see {@link ListResourcesInProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link ListResourcesInProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

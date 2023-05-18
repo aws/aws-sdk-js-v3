@@ -123,8 +123,8 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  *
  * ```
  *
- * @param GetLambdaFunctionRecommendationsCommandInput - {@link GetLambdaFunctionRecommendationsCommandInput}
- * @returns {@link GetLambdaFunctionRecommendationsCommandOutput}
+ * @param GetLambdaFunctionRecommendationsRequest - {@link GetLambdaFunctionRecommendationsRequest}
+ * @returns {@link GetLambdaFunctionRecommendationsResponse}
  * @see {@link GetLambdaFunctionRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetLambdaFunctionRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  *
  * ```
  *
- * @param ListClusterSnapshotsCommandInput - {@link ListClusterSnapshotsCommandInput}
- * @returns {@link ListClusterSnapshotsCommandOutput}
+ * @param ListClusterSnapshotsInput - {@link ListClusterSnapshotsInput}
+ * @returns {@link ListClusterSnapshotsOutput}
  * @see {@link ListClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

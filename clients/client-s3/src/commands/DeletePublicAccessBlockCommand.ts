@@ -76,8 +76,8 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeletePublicAccessBlockCommandInput - {@link DeletePublicAccessBlockCommandInput}
- * @returns {@link DeletePublicAccessBlockCommandOutput}
+ * @param DeletePublicAccessBlockRequest - {@link DeletePublicAccessBlockRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link DeletePublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteApiCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteApiCommandInput - {@link DeleteApiCommandInput}
- * @returns {@link DeleteApiCommandOutput}
+ * @param DeleteApiRequest - {@link DeleteApiRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteApiCommandInput} for command's `input` shape.
  * @see {@link DeleteApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

@@ -75,8 +75,8 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  *
  * ```
  *
- * @param ListServiceVersionsCommandInput - {@link ListServiceVersionsCommandInput}
- * @returns {@link ListServiceVersionsCommandOutput}
+ * @param ListServiceVersionsRequest - {@link ListServiceVersionsRequest}
+ * @returns {@link ListServiceVersionsResult}
  * @see {@link ListServiceVersionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceVersionsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

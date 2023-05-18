@@ -276,8 +276,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateKeyCommandInput - {@link CreateKeyCommandInput}
- * @returns {@link CreateKeyCommandOutput}
+ * @param CreateKeyRequest - {@link CreateKeyRequest}
+ * @returns {@link CreateKeyResponse}
  * @see {@link CreateKeyCommandInput} for command's `input` shape.
  * @see {@link CreateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

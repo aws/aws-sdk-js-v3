@@ -59,8 +59,8 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  *
  * ```
  *
- * @param PutConfigurationSetDeliveryOptionsCommandInput - {@link PutConfigurationSetDeliveryOptionsCommandInput}
- * @returns {@link PutConfigurationSetDeliveryOptionsCommandOutput}
+ * @param PutConfigurationSetDeliveryOptionsRequest - {@link PutConfigurationSetDeliveryOptionsRequest}
+ * @returns {@link PutConfigurationSetDeliveryOptionsResponse}
  * @see {@link PutConfigurationSetDeliveryOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetDeliveryOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

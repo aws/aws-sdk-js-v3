@@ -64,8 +64,8 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  *
  * ```
  *
- * @param DeleteObjectsOnCancelCommandInput - {@link DeleteObjectsOnCancelCommandInput}
- * @returns {@link DeleteObjectsOnCancelCommandOutput}
+ * @param DeleteObjectsOnCancelRequest - {@link DeleteObjectsOnCancelRequest}
+ * @returns {@link DeleteObjectsOnCancelResponse}
  * @see {@link DeleteObjectsOnCancelCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectsOnCancelCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

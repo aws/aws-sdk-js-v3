@@ -88,8 +88,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *
  * ```
  *
- * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
- * @returns {@link CreatePipelineCommandOutput}
+ * @param CreatePipelineInput - {@link CreatePipelineInput}
+ * @returns {@link CreatePipelineOutput}
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

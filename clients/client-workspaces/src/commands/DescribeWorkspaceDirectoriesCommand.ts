@@ -116,8 +116,8 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  *
  * ```
  *
- * @param DescribeWorkspaceDirectoriesCommandInput - {@link DescribeWorkspaceDirectoriesCommandInput}
- * @returns {@link DescribeWorkspaceDirectoriesCommandOutput}
+ * @param DescribeWorkspaceDirectoriesRequest - {@link DescribeWorkspaceDirectoriesRequest}
+ * @returns {@link DescribeWorkspaceDirectoriesResult}
  * @see {@link DescribeWorkspaceDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

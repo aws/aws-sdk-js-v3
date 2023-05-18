@@ -50,8 +50,8 @@ export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __Metad
  *
  * ```
  *
- * @param DeleteOutcomeCommandInput - {@link DeleteOutcomeCommandInput}
- * @returns {@link DeleteOutcomeCommandOutput}
+ * @param DeleteOutcomeRequest - {@link DeleteOutcomeRequest}
+ * @returns {@link DeleteOutcomeResult}
  * @see {@link DeleteOutcomeCommandInput} for command's `input` shape.
  * @see {@link DeleteOutcomeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

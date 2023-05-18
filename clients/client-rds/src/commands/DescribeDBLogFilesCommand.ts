@@ -71,8 +71,8 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  *
  * ```
  *
- * @param DescribeDBLogFilesCommandInput - {@link DescribeDBLogFilesCommandInput}
- * @returns {@link DescribeDBLogFilesCommandOutput}
+ * @param DescribeDBLogFilesMessage - {@link DescribeDBLogFilesMessage}
+ * @returns {@link DescribeDBLogFilesResponse}
  * @see {@link DescribeDBLogFilesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBLogFilesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

@@ -91,8 +91,8 @@ export interface DescribeEnvironmentResourcesCommandOutput
  *
  * ```
  *
- * @param DescribeEnvironmentResourcesCommandInput - {@link DescribeEnvironmentResourcesCommandInput}
- * @returns {@link DescribeEnvironmentResourcesCommandOutput}
+ * @param DescribeEnvironmentResourcesMessage - {@link DescribeEnvironmentResourcesMessage}
+ * @returns {@link EnvironmentResourceDescriptionsMessage}
  * @see {@link DescribeEnvironmentResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentResourcesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

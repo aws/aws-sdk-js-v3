@@ -106,8 +106,8 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  *
  * ```
  *
- * @param GetAppCommandInput - {@link GetAppCommandInput}
- * @returns {@link GetAppCommandOutput}
+ * @param GetAppRequest - {@link GetAppRequest}
+ * @returns {@link GetAppResult}
  * @see {@link GetAppCommandInput} for command's `input` shape.
  * @see {@link GetAppCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

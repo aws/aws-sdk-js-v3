@@ -56,8 +56,8 @@ export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkP
  *
  * ```
  *
- * @param GetSolNetworkPackageContentCommandInput - {@link GetSolNetworkPackageContentCommandInput}
- * @returns {@link GetSolNetworkPackageContentCommandOutput}
+ * @param GetSolNetworkPackageContentInput - {@link GetSolNetworkPackageContentInput}
+ * @returns {@link GetSolNetworkPackageContentOutput}
  * @see {@link GetSolNetworkPackageContentCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  *
  * ```
  *
- * @param ValidateAssessmentReportIntegrityCommandInput - {@link ValidateAssessmentReportIntegrityCommandInput}
- * @returns {@link ValidateAssessmentReportIntegrityCommandOutput}
+ * @param ValidateAssessmentReportIntegrityRequest - {@link ValidateAssessmentReportIntegrityRequest}
+ * @returns {@link ValidateAssessmentReportIntegrityResponse}
  * @see {@link ValidateAssessmentReportIntegrityCommandInput} for command's `input` shape.
  * @see {@link ValidateAssessmentReportIntegrityCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

@@ -106,8 +106,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  *
  * ```
  *
- * @param ListExperimentsCommandInput - {@link ListExperimentsCommandInput}
- * @returns {@link ListExperimentsCommandOutput}
+ * @param ListExperimentsRequest - {@link ListExperimentsRequest}
+ * @returns {@link ListExperimentsResponse}
  * @see {@link ListExperimentsCommandInput} for command's `input` shape.
  * @see {@link ListExperimentsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

@@ -55,8 +55,8 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  *
  * ```
  *
- * @param PutBackupPolicyCommandInput - {@link PutBackupPolicyCommandInput}
- * @returns {@link PutBackupPolicyCommandOutput}
+ * @param PutBackupPolicyRequest - {@link PutBackupPolicyRequest}
+ * @returns {@link BackupPolicyDescription}
  * @see {@link PutBackupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBackupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

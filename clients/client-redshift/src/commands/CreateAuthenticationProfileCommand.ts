@@ -52,8 +52,8 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  *
  * ```
  *
- * @param CreateAuthenticationProfileCommandInput - {@link CreateAuthenticationProfileCommandInput}
- * @returns {@link CreateAuthenticationProfileCommandOutput}
+ * @param CreateAuthenticationProfileMessage - {@link CreateAuthenticationProfileMessage}
+ * @returns {@link CreateAuthenticationProfileResult}
  * @see {@link CreateAuthenticationProfileCommandInput} for command's `input` shape.
  * @see {@link CreateAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

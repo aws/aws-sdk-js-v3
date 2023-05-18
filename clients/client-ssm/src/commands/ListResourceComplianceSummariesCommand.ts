@@ -103,8 +103,8 @@ export interface ListResourceComplianceSummariesCommandOutput
  *
  * ```
  *
- * @param ListResourceComplianceSummariesCommandInput - {@link ListResourceComplianceSummariesCommandInput}
- * @returns {@link ListResourceComplianceSummariesCommandOutput}
+ * @param ListResourceComplianceSummariesRequest - {@link ListResourceComplianceSummariesRequest}
+ * @returns {@link ListResourceComplianceSummariesResult}
  * @see {@link ListResourceComplianceSummariesCommandInput} for command's `input` shape.
  * @see {@link ListResourceComplianceSummariesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

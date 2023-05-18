@@ -69,8 +69,8 @@ export interface ListAvailableResourceMetricsCommandOutput
  *
  * ```
  *
- * @param ListAvailableResourceMetricsCommandInput - {@link ListAvailableResourceMetricsCommandInput}
- * @returns {@link ListAvailableResourceMetricsCommandOutput}
+ * @param ListAvailableResourceMetricsRequest - {@link ListAvailableResourceMetricsRequest}
+ * @returns {@link ListAvailableResourceMetricsResponse}
  * @see {@link ListAvailableResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableResourceMetricsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.

@@ -55,8 +55,8 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeWorkspaceConfigurationCommandInput - {@link DescribeWorkspaceConfigurationCommandInput}
- * @returns {@link DescribeWorkspaceConfigurationCommandOutput}
+ * @param DescribeWorkspaceConfigurationRequest - {@link DescribeWorkspaceConfigurationRequest}
+ * @returns {@link DescribeWorkspaceConfigurationResponse}
  * @see {@link DescribeWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

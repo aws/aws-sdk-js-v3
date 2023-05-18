@@ -57,8 +57,8 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetStageCommandInput - {@link GetStageCommandInput}
- * @returns {@link GetStageCommandOutput}
+ * @param GetStageRequest - {@link GetStageRequest}
+ * @returns {@link GetStageResponse}
  * @see {@link GetStageCommandInput} for command's `input` shape.
  * @see {@link GetStageCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

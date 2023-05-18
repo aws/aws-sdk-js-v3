@@ -71,8 +71,8 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  *
  * ```
  *
- * @param GetRegexMatchSetCommandInput - {@link GetRegexMatchSetCommandInput}
- * @returns {@link GetRegexMatchSetCommandOutput}
+ * @param GetRegexMatchSetRequest - {@link GetRegexMatchSetRequest}
+ * @returns {@link GetRegexMatchSetResponse}
  * @see {@link GetRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetRegexMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

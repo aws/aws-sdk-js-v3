@@ -83,8 +83,8 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  *
  * ```
  *
- * @param BatchGetReportGroupsCommandInput - {@link BatchGetReportGroupsCommandInput}
- * @returns {@link BatchGetReportGroupsCommandOutput}
+ * @param BatchGetReportGroupsInput - {@link BatchGetReportGroupsInput}
+ * @returns {@link BatchGetReportGroupsOutput}
  * @see {@link BatchGetReportGroupsCommandInput} for command's `input` shape.
  * @see {@link BatchGetReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

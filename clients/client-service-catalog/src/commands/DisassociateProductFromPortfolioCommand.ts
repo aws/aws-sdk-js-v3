@@ -56,8 +56,8 @@ export interface DisassociateProductFromPortfolioCommandOutput
  *
  * ```
  *
- * @param DisassociateProductFromPortfolioCommandInput - {@link DisassociateProductFromPortfolioCommandInput}
- * @returns {@link DisassociateProductFromPortfolioCommandOutput}
+ * @param DisassociateProductFromPortfolioInput - {@link DisassociateProductFromPortfolioInput}
+ * @returns {@link DisassociateProductFromPortfolioOutput}
  * @see {@link DisassociateProductFromPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisassociateProductFromPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

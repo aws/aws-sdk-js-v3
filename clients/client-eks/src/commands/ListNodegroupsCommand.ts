@@ -57,8 +57,8 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  *
  * ```
  *
- * @param ListNodegroupsCommandInput - {@link ListNodegroupsCommandInput}
- * @returns {@link ListNodegroupsCommandOutput}
+ * @param ListNodegroupsRequest - {@link ListNodegroupsRequest}
+ * @returns {@link ListNodegroupsResponse}
  * @see {@link ListNodegroupsCommandInput} for command's `input` shape.
  * @see {@link ListNodegroupsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

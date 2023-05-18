@@ -101,8 +101,8 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  *
  * ```
  *
- * @param ModifyDBSnapshotCommandInput - {@link ModifyDBSnapshotCommandInput}
- * @returns {@link ModifyDBSnapshotCommandOutput}
+ * @param ModifyDBSnapshotMessage - {@link ModifyDBSnapshotMessage}
+ * @returns {@link ModifyDBSnapshotResult}
  * @see {@link ModifyDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

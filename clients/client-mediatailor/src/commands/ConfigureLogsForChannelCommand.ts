@@ -56,8 +56,8 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  *
  * ```
  *
- * @param ConfigureLogsForChannelCommandInput - {@link ConfigureLogsForChannelCommandInput}
- * @returns {@link ConfigureLogsForChannelCommandOutput}
+ * @param ConfigureLogsForChannelRequest - {@link ConfigureLogsForChannelRequest}
+ * @returns {@link ConfigureLogsForChannelResponse}
  * @see {@link ConfigureLogsForChannelCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsForChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

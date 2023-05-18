@@ -57,8 +57,8 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  *
  * ```
  *
- * @param DeleteScheduleGroupCommandInput - {@link DeleteScheduleGroupCommandInput}
- * @returns {@link DeleteScheduleGroupCommandOutput}
+ * @param DeleteScheduleGroupInput - {@link DeleteScheduleGroupInput}
+ * @returns {@link DeleteScheduleGroupOutput}
  * @see {@link DeleteScheduleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleGroupCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

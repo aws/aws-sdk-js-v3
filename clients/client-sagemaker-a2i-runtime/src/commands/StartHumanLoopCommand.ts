@@ -63,8 +63,8 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  *
  * ```
  *
- * @param StartHumanLoopCommandInput - {@link StartHumanLoopCommandInput}
- * @returns {@link StartHumanLoopCommandOutput}
+ * @param StartHumanLoopRequest - {@link StartHumanLoopRequest}
+ * @returns {@link StartHumanLoopResponse}
  * @see {@link StartHumanLoopCommandInput} for command's `input` shape.
  * @see {@link StartHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.

@@ -49,8 +49,8 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateCampaignNameCommandInput - {@link UpdateCampaignNameCommandInput}
- * @returns {@link UpdateCampaignNameCommandOutput}
+ * @param UpdateCampaignNameRequest - {@link UpdateCampaignNameRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateCampaignNameCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

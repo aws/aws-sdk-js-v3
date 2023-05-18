@@ -147,8 +147,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *
  * ```
  *
- * @param CreateAccountCommandInput - {@link CreateAccountCommandInput}
- * @returns {@link CreateAccountCommandOutput}
+ * @param CreateAccountRequest - {@link CreateAccountRequest}
+ * @returns {@link CreateAccountResponse}
  * @see {@link CreateAccountCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

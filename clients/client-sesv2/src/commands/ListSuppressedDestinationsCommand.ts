@@ -64,8 +64,8 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  *
  * ```
  *
- * @param ListSuppressedDestinationsCommandInput - {@link ListSuppressedDestinationsCommandInput}
- * @returns {@link ListSuppressedDestinationsCommandOutput}
+ * @param ListSuppressedDestinationsRequest - {@link ListSuppressedDestinationsRequest}
+ * @returns {@link ListSuppressedDestinationsResponse}
  * @see {@link ListSuppressedDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListSuppressedDestinationsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

@@ -98,8 +98,8 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  *
  * ```
  *
- * @param InferRxNormCommandInput - {@link InferRxNormCommandInput}
- * @returns {@link InferRxNormCommandOutput}
+ * @param InferRxNormRequest - {@link InferRxNormRequest}
+ * @returns {@link InferRxNormResponse}
  * @see {@link InferRxNormCommandInput} for command's `input` shape.
  * @see {@link InferRxNormCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

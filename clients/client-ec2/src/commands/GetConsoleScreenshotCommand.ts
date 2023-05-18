@@ -55,8 +55,8 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  *
  * ```
  *
- * @param GetConsoleScreenshotCommandInput - {@link GetConsoleScreenshotCommandInput}
- * @returns {@link GetConsoleScreenshotCommandOutput}
+ * @param GetConsoleScreenshotRequest - {@link GetConsoleScreenshotRequest}
+ * @returns {@link GetConsoleScreenshotResult}
  * @see {@link GetConsoleScreenshotCommandInput} for command's `input` shape.
  * @see {@link GetConsoleScreenshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

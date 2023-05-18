@@ -74,8 +74,8 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  *
  * ```
  *
- * @param ImportCrlCommandInput - {@link ImportCrlCommandInput}
- * @returns {@link ImportCrlCommandOutput}
+ * @param ImportCrlRequest - {@link ImportCrlRequest}
+ * @returns {@link CrlDetailResponse}
  * @see {@link ImportCrlCommandInput} for command's `input` shape.
  * @see {@link ImportCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

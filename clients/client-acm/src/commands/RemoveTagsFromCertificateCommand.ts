@@ -59,8 +59,8 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param RemoveTagsFromCertificateCommandInput - {@link RemoveTagsFromCertificateCommandInput}
- * @returns {@link RemoveTagsFromCertificateCommandOutput}
+ * @param RemoveTagsFromCertificateRequest - {@link RemoveTagsFromCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link RemoveTagsFromCertificateCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

@@ -81,8 +81,8 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  *
  * ```
  *
- * @param CancelReplicationTaskAssessmentRunCommandInput - {@link CancelReplicationTaskAssessmentRunCommandInput}
- * @returns {@link CancelReplicationTaskAssessmentRunCommandOutput}
+ * @param CancelReplicationTaskAssessmentRunMessage - {@link CancelReplicationTaskAssessmentRunMessage}
+ * @returns {@link CancelReplicationTaskAssessmentRunResponse}
  * @see {@link CancelReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link CancelReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -54,8 +54,8 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
  *
  * ```
  *
- * @param AssociateWirelessDeviceWithThingCommandInput - {@link AssociateWirelessDeviceWithThingCommandInput}
- * @returns {@link AssociateWirelessDeviceWithThingCommandOutput}
+ * @param AssociateWirelessDeviceWithThingRequest - {@link AssociateWirelessDeviceWithThingRequest}
+ * @returns {@link AssociateWirelessDeviceWithThingResponse}
  * @see {@link AssociateWirelessDeviceWithThingCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

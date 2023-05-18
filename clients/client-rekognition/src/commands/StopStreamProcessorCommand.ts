@@ -48,8 +48,8 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  *
  * ```
  *
- * @param StopStreamProcessorCommandInput - {@link StopStreamProcessorCommandInput}
- * @returns {@link StopStreamProcessorCommandOutput}
+ * @param StopStreamProcessorRequest - {@link StopStreamProcessorRequest}
+ * @returns {@link StopStreamProcessorResponse}
  * @see {@link StopStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link StopStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

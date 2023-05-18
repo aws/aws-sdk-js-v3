@@ -66,8 +66,8 @@ export interface DeleteDistributionCommandOutput extends DeleteDistributionResul
  *
  * ```
  *
- * @param DeleteDistributionCommandInput - {@link DeleteDistributionCommandInput}
- * @returns {@link DeleteDistributionCommandOutput}
+ * @param DeleteDistributionRequest - {@link DeleteDistributionRequest}
+ * @returns {@link DeleteDistributionResult}
  * @see {@link DeleteDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

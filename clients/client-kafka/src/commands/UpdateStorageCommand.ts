@@ -58,8 +58,8 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  *
  * ```
  *
- * @param UpdateStorageCommandInput - {@link UpdateStorageCommandInput}
- * @returns {@link UpdateStorageCommandOutput}
+ * @param UpdateStorageRequest - {@link UpdateStorageRequest}
+ * @returns {@link UpdateStorageResponse}
  * @see {@link UpdateStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateStorageCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

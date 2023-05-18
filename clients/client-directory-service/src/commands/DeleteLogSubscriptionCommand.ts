@@ -48,8 +48,8 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  *
  * ```
  *
- * @param DeleteLogSubscriptionCommandInput - {@link DeleteLogSubscriptionCommandInput}
- * @returns {@link DeleteLogSubscriptionCommandOutput}
+ * @param DeleteLogSubscriptionRequest - {@link DeleteLogSubscriptionRequest}
+ * @returns {@link DeleteLogSubscriptionResult}
  * @see {@link DeleteLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

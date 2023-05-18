@@ -88,8 +88,8 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  *
  * ```
  *
- * @param CreatePredictorBacktestExportJobCommandInput - {@link CreatePredictorBacktestExportJobCommandInput}
- * @returns {@link CreatePredictorBacktestExportJobCommandOutput}
+ * @param CreatePredictorBacktestExportJobRequest - {@link CreatePredictorBacktestExportJobRequest}
+ * @returns {@link CreatePredictorBacktestExportJobResponse}
  * @see {@link CreatePredictorBacktestExportJobCommandInput} for command's `input` shape.
  * @see {@link CreatePredictorBacktestExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

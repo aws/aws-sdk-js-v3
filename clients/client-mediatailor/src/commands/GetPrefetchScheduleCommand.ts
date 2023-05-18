@@ -71,8 +71,8 @@ export interface GetPrefetchScheduleCommandOutput extends GetPrefetchScheduleRes
  *
  * ```
  *
- * @param GetPrefetchScheduleCommandInput - {@link GetPrefetchScheduleCommandInput}
- * @returns {@link GetPrefetchScheduleCommandOutput}
+ * @param GetPrefetchScheduleRequest - {@link GetPrefetchScheduleRequest}
+ * @returns {@link GetPrefetchScheduleResponse}
  * @see {@link GetPrefetchScheduleCommandInput} for command's `input` shape.
  * @see {@link GetPrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

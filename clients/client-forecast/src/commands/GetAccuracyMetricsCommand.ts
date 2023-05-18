@@ -100,8 +100,8 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  *
  * ```
  *
- * @param GetAccuracyMetricsCommandInput - {@link GetAccuracyMetricsCommandInput}
- * @returns {@link GetAccuracyMetricsCommandOutput}
+ * @param GetAccuracyMetricsRequest - {@link GetAccuracyMetricsRequest}
+ * @returns {@link GetAccuracyMetricsResponse}
  * @see {@link GetAccuracyMetricsCommandInput} for command's `input` shape.
  * @see {@link GetAccuracyMetricsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

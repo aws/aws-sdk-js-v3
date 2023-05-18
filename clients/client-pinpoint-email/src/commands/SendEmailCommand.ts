@@ -114,8 +114,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *
  * ```
  *
- * @param SendEmailCommandInput - {@link SendEmailCommandInput}
- * @returns {@link SendEmailCommandOutput}
+ * @param SendEmailRequest - {@link SendEmailRequest}
+ * @returns {@link SendEmailResponse}
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

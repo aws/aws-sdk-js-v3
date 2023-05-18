@@ -48,8 +48,8 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteSinkCommandInput - {@link DeleteSinkCommandInput}
- * @returns {@link DeleteSinkCommandOutput}
+ * @param DeleteSinkInput - {@link DeleteSinkInput}
+ * @returns {@link DeleteSinkOutput}
  * @see {@link DeleteSinkCommandInput} for command's `input` shape.
  * @see {@link DeleteSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

@@ -99,8 +99,8 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  *
  * ```
  *
- * @param DescribeSlotTypeCommandInput - {@link DescribeSlotTypeCommandInput}
- * @returns {@link DescribeSlotTypeCommandOutput}
+ * @param DescribeSlotTypeRequest - {@link DescribeSlotTypeRequest}
+ * @returns {@link DescribeSlotTypeResponse}
  * @see {@link DescribeSlotTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

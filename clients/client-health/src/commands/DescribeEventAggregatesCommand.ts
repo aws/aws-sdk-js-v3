@@ -115,8 +115,8 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  *
  * ```
  *
- * @param DescribeEventAggregatesCommandInput - {@link DescribeEventAggregatesCommandInput}
- * @returns {@link DescribeEventAggregatesCommandOutput}
+ * @param DescribeEventAggregatesRequest - {@link DescribeEventAggregatesRequest}
+ * @returns {@link DescribeEventAggregatesResponse}
  * @see {@link DescribeEventAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

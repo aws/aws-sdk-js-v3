@@ -87,8 +87,8 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  *
  * ```
  *
- * @param CreateSecurityGroupCommandInput - {@link CreateSecurityGroupCommandInput}
- * @returns {@link CreateSecurityGroupCommandOutput}
+ * @param CreateSecurityGroupRequest - {@link CreateSecurityGroupRequest}
+ * @returns {@link CreateSecurityGroupResult}
  * @see {@link CreateSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

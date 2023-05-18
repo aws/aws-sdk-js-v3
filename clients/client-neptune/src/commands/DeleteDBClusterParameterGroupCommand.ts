@@ -52,8 +52,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param DeleteDBClusterParameterGroupCommandInput - {@link DeleteDBClusterParameterGroupCommandInput}
- * @returns {@link DeleteDBClusterParameterGroupCommandOutput}
+ * @param DeleteDBClusterParameterGroupMessage - {@link DeleteDBClusterParameterGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

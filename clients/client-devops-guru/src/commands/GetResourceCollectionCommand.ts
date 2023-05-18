@@ -69,8 +69,8 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  *
  * ```
  *
- * @param GetResourceCollectionCommandInput - {@link GetResourceCollectionCommandInput}
- * @returns {@link GetResourceCollectionCommandOutput}
+ * @param GetResourceCollectionRequest - {@link GetResourceCollectionRequest}
+ * @returns {@link GetResourceCollectionResponse}
  * @see {@link GetResourceCollectionCommandInput} for command's `input` shape.
  * @see {@link GetResourceCollectionCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

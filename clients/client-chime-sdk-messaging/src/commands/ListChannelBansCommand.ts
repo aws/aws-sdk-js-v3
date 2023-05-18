@@ -76,8 +76,8 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  *
  * ```
  *
- * @param ListChannelBansCommandInput - {@link ListChannelBansCommandInput}
- * @returns {@link ListChannelBansCommandOutput}
+ * @param ListChannelBansRequest - {@link ListChannelBansRequest}
+ * @returns {@link ListChannelBansResponse}
  * @see {@link ListChannelBansCommandInput} for command's `input` shape.
  * @see {@link ListChannelBansCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

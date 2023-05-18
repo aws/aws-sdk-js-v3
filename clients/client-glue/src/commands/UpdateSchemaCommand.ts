@@ -65,8 +65,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  *
  * ```
  *
- * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
- * @returns {@link UpdateSchemaCommandOutput}
+ * @param UpdateSchemaInput - {@link UpdateSchemaInput}
+ * @returns {@link UpdateSchemaResponse}
  * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

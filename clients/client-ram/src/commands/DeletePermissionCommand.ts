@@ -55,8 +55,8 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  *
  * ```
  *
- * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
- * @returns {@link DeletePermissionCommandOutput}
+ * @param DeletePermissionRequest - {@link DeletePermissionRequest}
+ * @returns {@link DeletePermissionResponse}
  * @see {@link DeletePermissionCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse,
  *
  * ```
  *
- * @param ListGroupMembersCommandInput - {@link ListGroupMembersCommandInput}
- * @returns {@link ListGroupMembersCommandOutput}
+ * @param ListGroupMembersRequest - {@link ListGroupMembersRequest}
+ * @returns {@link ListGroupMembersResponse}
  * @see {@link ListGroupMembersCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

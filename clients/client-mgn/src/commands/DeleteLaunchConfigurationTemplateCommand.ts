@@ -56,8 +56,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  *
  * ```
  *
- * @param DeleteLaunchConfigurationTemplateCommandInput - {@link DeleteLaunchConfigurationTemplateCommandInput}
- * @returns {@link DeleteLaunchConfigurationTemplateCommandOutput}
+ * @param DeleteLaunchConfigurationTemplateRequest - {@link DeleteLaunchConfigurationTemplateRequest}
+ * @returns {@link DeleteLaunchConfigurationTemplateResponse}
  * @see {@link DeleteLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

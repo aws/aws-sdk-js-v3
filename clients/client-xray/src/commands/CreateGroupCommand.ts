@@ -69,8 +69,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  *
  * ```
  *
- * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
- * @returns {@link CreateGroupCommandOutput}
+ * @param CreateGroupRequest - {@link CreateGroupRequest}
+ * @returns {@link CreateGroupResult}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

@@ -137,8 +137,8 @@ export interface GetResourceLFTagsCommandOutput extends GetResourceLFTagsRespons
  *
  * ```
  *
- * @param GetResourceLFTagsCommandInput - {@link GetResourceLFTagsCommandInput}
- * @returns {@link GetResourceLFTagsCommandOutput}
+ * @param GetResourceLFTagsRequest - {@link GetResourceLFTagsRequest}
+ * @returns {@link GetResourceLFTagsResponse}
  * @see {@link GetResourceLFTagsCommandInput} for command's `input` shape.
  * @see {@link GetResourceLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

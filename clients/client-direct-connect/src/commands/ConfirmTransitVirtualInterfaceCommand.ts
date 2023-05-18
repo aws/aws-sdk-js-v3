@@ -57,8 +57,8 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  *
  * ```
  *
- * @param ConfirmTransitVirtualInterfaceCommandInput - {@link ConfirmTransitVirtualInterfaceCommandInput}
- * @returns {@link ConfirmTransitVirtualInterfaceCommandOutput}
+ * @param ConfirmTransitVirtualInterfaceRequest - {@link ConfirmTransitVirtualInterfaceRequest}
+ * @returns {@link ConfirmTransitVirtualInterfaceResponse}
  * @see {@link ConfirmTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

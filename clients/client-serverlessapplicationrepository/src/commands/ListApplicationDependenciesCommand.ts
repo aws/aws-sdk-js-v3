@@ -68,8 +68,8 @@ export interface ListApplicationDependenciesCommandOutput
  *
  * ```
  *
- * @param ListApplicationDependenciesCommandInput - {@link ListApplicationDependenciesCommandInput}
- * @returns {@link ListApplicationDependenciesCommandOutput}
+ * @param ListApplicationDependenciesRequest - {@link ListApplicationDependenciesRequest}
+ * @returns {@link ListApplicationDependenciesResponse}
  * @see {@link ListApplicationDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationDependenciesCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

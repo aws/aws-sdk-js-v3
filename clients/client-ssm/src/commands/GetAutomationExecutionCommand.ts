@@ -236,8 +236,8 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  *
  * ```
  *
- * @param GetAutomationExecutionCommandInput - {@link GetAutomationExecutionCommandInput}
- * @returns {@link GetAutomationExecutionCommandOutput}
+ * @param GetAutomationExecutionRequest - {@link GetAutomationExecutionRequest}
+ * @returns {@link GetAutomationExecutionResult}
  * @see {@link GetAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link GetAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

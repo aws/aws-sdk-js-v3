@@ -77,8 +77,8 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  *
  * ```
  *
- * @param AssociateCustomDomainCommandInput - {@link AssociateCustomDomainCommandInput}
- * @returns {@link AssociateCustomDomainCommandOutput}
+ * @param AssociateCustomDomainRequest - {@link AssociateCustomDomainRequest}
+ * @returns {@link AssociateCustomDomainResponse}
  * @see {@link AssociateCustomDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateCustomDomainCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

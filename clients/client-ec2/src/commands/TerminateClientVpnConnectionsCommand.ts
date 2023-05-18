@@ -69,8 +69,8 @@ export interface TerminateClientVpnConnectionsCommandOutput
  *
  * ```
  *
- * @param TerminateClientVpnConnectionsCommandInput - {@link TerminateClientVpnConnectionsCommandInput}
- * @returns {@link TerminateClientVpnConnectionsCommandOutput}
+ * @param TerminateClientVpnConnectionsRequest - {@link TerminateClientVpnConnectionsRequest}
+ * @returns {@link TerminateClientVpnConnectionsResult}
  * @see {@link TerminateClientVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link TerminateClientVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -72,8 +72,8 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  *
  * ```
  *
- * @param PutImageCommandInput - {@link PutImageCommandInput}
- * @returns {@link PutImageCommandOutput}
+ * @param PutImageRequest - {@link PutImageRequest}
+ * @returns {@link PutImageResponse}
  * @see {@link PutImageCommandInput} for command's `input` shape.
  * @see {@link PutImageCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

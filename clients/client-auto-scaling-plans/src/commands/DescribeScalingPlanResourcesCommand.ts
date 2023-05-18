@@ -98,8 +98,8 @@ export interface DescribeScalingPlanResourcesCommandOutput
  *
  * ```
  *
- * @param DescribeScalingPlanResourcesCommandInput - {@link DescribeScalingPlanResourcesCommandInput}
- * @returns {@link DescribeScalingPlanResourcesCommandOutput}
+ * @param DescribeScalingPlanResourcesRequest - {@link DescribeScalingPlanResourcesRequest}
+ * @returns {@link DescribeScalingPlanResourcesResponse}
  * @see {@link DescribeScalingPlanResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPlanResourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.

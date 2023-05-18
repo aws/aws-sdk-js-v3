@@ -165,8 +165,8 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
  *
  * ```
  *
- * @param ListInstanceGroupsCommandInput - {@link ListInstanceGroupsCommandInput}
- * @returns {@link ListInstanceGroupsCommandOutput}
+ * @param ListInstanceGroupsInput - {@link ListInstanceGroupsInput}
+ * @returns {@link ListInstanceGroupsOutput}
  * @see {@link ListInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

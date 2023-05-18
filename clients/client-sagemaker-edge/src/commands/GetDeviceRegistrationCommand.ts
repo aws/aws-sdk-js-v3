@@ -52,8 +52,8 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  *
  * ```
  *
- * @param GetDeviceRegistrationCommandInput - {@link GetDeviceRegistrationCommandInput}
- * @returns {@link GetDeviceRegistrationCommandOutput}
+ * @param GetDeviceRegistrationRequest - {@link GetDeviceRegistrationRequest}
+ * @returns {@link GetDeviceRegistrationResult}
  * @see {@link GetDeviceRegistrationCommandInput} for command's `input` shape.
  * @see {@link GetDeviceRegistrationCommandOutput} for command's `response` shape.
  * @see {@link SagemakerEdgeClientResolvedConfig | config} for SagemakerEdgeClient's `config` shape.

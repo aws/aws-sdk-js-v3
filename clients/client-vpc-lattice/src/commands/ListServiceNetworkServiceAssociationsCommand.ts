@@ -89,8 +89,8 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
  *
  * ```
  *
- * @param ListServiceNetworkServiceAssociationsCommandInput - {@link ListServiceNetworkServiceAssociationsCommandInput}
- * @returns {@link ListServiceNetworkServiceAssociationsCommandOutput}
+ * @param ListServiceNetworkServiceAssociationsRequest - {@link ListServiceNetworkServiceAssociationsRequest}
+ * @returns {@link ListServiceNetworkServiceAssociationsResponse}
  * @see {@link ListServiceNetworkServiceAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListServiceNetworkServiceAssociationsCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

@@ -122,8 +122,8 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  *
  * ```
  *
- * @param SearchRoutingProfilesCommandInput - {@link SearchRoutingProfilesCommandInput}
- * @returns {@link SearchRoutingProfilesCommandOutput}
+ * @param SearchRoutingProfilesRequest - {@link SearchRoutingProfilesRequest}
+ * @returns {@link SearchRoutingProfilesResponse}
  * @see {@link SearchRoutingProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchRoutingProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  *
  * ```
  *
- * @param GetStreamKeyCommandInput - {@link GetStreamKeyCommandInput}
- * @returns {@link GetStreamKeyCommandOutput}
+ * @param GetStreamKeyRequest - {@link GetStreamKeyRequest}
+ * @returns {@link GetStreamKeyResponse}
  * @see {@link GetStreamKeyCommandInput} for command's `input` shape.
  * @see {@link GetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

@@ -78,8 +78,8 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  *
  * ```
  *
- * @param DescribeEphemerisCommandInput - {@link DescribeEphemerisCommandInput}
- * @returns {@link DescribeEphemerisCommandOutput}
+ * @param DescribeEphemerisRequest - {@link DescribeEphemerisRequest}
+ * @returns {@link DescribeEphemerisResponse}
  * @see {@link DescribeEphemerisCommandInput} for command's `input` shape.
  * @see {@link DescribeEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

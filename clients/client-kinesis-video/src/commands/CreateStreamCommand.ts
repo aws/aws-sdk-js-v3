@@ -64,8 +64,8 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  *
  * ```
  *
- * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
- * @returns {@link CreateStreamCommandOutput}
+ * @param CreateStreamInput - {@link CreateStreamInput}
+ * @returns {@link CreateStreamOutput}
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

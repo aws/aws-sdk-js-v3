@@ -57,8 +57,8 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  *
  * ```
  *
- * @param ListNamedShadowsForThingCommandInput - {@link ListNamedShadowsForThingCommandInput}
- * @returns {@link ListNamedShadowsForThingCommandOutput}
+ * @param ListNamedShadowsForThingRequest - {@link ListNamedShadowsForThingRequest}
+ * @returns {@link ListNamedShadowsForThingResponse}
  * @see {@link ListNamedShadowsForThingCommandInput} for command's `input` shape.
  * @see {@link ListNamedShadowsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.

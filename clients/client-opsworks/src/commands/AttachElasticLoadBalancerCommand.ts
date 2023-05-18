@@ -62,8 +62,8 @@ export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param AttachElasticLoadBalancerCommandInput - {@link AttachElasticLoadBalancerCommandInput}
- * @returns {@link AttachElasticLoadBalancerCommandOutput}
+ * @param AttachElasticLoadBalancerRequest - {@link AttachElasticLoadBalancerRequest}
+ * @returns {@link Unit}
  * @see {@link AttachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link AttachElasticLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

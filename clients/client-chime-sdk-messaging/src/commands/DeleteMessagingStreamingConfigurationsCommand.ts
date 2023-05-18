@@ -57,8 +57,8 @@ export interface DeleteMessagingStreamingConfigurationsCommandOutput extends __M
  *
  * ```
  *
- * @param DeleteMessagingStreamingConfigurationsCommandInput - {@link DeleteMessagingStreamingConfigurationsCommandInput}
- * @returns {@link DeleteMessagingStreamingConfigurationsCommandOutput}
+ * @param DeleteMessagingStreamingConfigurationsRequest - {@link DeleteMessagingStreamingConfigurationsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMessagingStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DeleteMessagingStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

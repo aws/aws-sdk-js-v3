@@ -112,8 +112,8 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  *
  * ```
  *
- * @param BatchPutAssetPropertyValueCommandInput - {@link BatchPutAssetPropertyValueCommandInput}
- * @returns {@link BatchPutAssetPropertyValueCommandOutput}
+ * @param BatchPutAssetPropertyValueRequest - {@link BatchPutAssetPropertyValueRequest}
+ * @returns {@link BatchPutAssetPropertyValueResponse}
  * @see {@link BatchPutAssetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link BatchPutAssetPropertyValueCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

@@ -128,8 +128,8 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  *
  * ```
  *
- * @param DescribeCanariesCommandInput - {@link DescribeCanariesCommandInput}
- * @returns {@link DescribeCanariesCommandOutput}
+ * @param DescribeCanariesRequest - {@link DescribeCanariesRequest}
+ * @returns {@link DescribeCanariesResponse}
  * @see {@link DescribeCanariesCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

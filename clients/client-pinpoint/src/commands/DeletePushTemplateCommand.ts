@@ -54,8 +54,8 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  *
  * ```
  *
- * @param DeletePushTemplateCommandInput - {@link DeletePushTemplateCommandInput}
- * @returns {@link DeletePushTemplateCommandOutput}
+ * @param DeletePushTemplateRequest - {@link DeletePushTemplateRequest}
+ * @returns {@link DeletePushTemplateResponse}
  * @see {@link DeletePushTemplateCommandInput} for command's `input` shape.
  * @see {@link DeletePushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

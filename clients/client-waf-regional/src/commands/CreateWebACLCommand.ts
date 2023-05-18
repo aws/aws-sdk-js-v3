@@ -127,8 +127,8 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *
  * ```
  *
- * @param CreateWebACLCommandInput - {@link CreateWebACLCommandInput}
- * @returns {@link CreateWebACLCommandOutput}
+ * @param CreateWebACLRequest - {@link CreateWebACLRequest}
+ * @returns {@link CreateWebACLResponse}
  * @see {@link CreateWebACLCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

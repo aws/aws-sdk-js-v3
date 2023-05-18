@@ -71,8 +71,8 @@ export interface ListProcessingJobsCommandOutput extends ListProcessingJobsRespo
  *
  * ```
  *
- * @param ListProcessingJobsCommandInput - {@link ListProcessingJobsCommandInput}
- * @returns {@link ListProcessingJobsCommandOutput}
+ * @param ListProcessingJobsRequest - {@link ListProcessingJobsRequest}
+ * @returns {@link ListProcessingJobsResponse}
  * @see {@link ListProcessingJobsCommandInput} for command's `input` shape.
  * @see {@link ListProcessingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

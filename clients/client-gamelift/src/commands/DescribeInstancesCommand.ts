@@ -104,8 +104,8 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput,
  *
  * ```
  *
- * @param DescribeInstancesCommandInput - {@link DescribeInstancesCommandInput}
- * @returns {@link DescribeInstancesCommandOutput}
+ * @param DescribeInstancesInput - {@link DescribeInstancesInput}
+ * @returns {@link DescribeInstancesOutput}
  * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

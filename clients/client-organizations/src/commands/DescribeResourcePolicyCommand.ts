@@ -56,8 +56,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *
  * ```
  *
- * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
- * @returns {@link DescribeResourcePolicyCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeResourcePolicyResponse}
  * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

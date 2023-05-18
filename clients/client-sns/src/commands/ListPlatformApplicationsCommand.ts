@@ -67,8 +67,8 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  *
  * ```
  *
- * @param ListPlatformApplicationsCommandInput - {@link ListPlatformApplicationsCommandInput}
- * @returns {@link ListPlatformApplicationsCommandOutput}
+ * @param ListPlatformApplicationsInput - {@link ListPlatformApplicationsInput}
+ * @returns {@link ListPlatformApplicationsResponse}
  * @see {@link ListPlatformApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListPlatformApplicationsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

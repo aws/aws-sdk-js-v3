@@ -88,8 +88,8 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  *
  * ```
  *
- * @param QueryLineageCommandInput - {@link QueryLineageCommandInput}
- * @returns {@link QueryLineageCommandOutput}
+ * @param QueryLineageRequest - {@link QueryLineageRequest}
+ * @returns {@link QueryLineageResponse}
  * @see {@link QueryLineageCommandInput} for command's `input` shape.
  * @see {@link QueryLineageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

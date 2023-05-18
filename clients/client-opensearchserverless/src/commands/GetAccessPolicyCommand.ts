@@ -64,8 +64,8 @@ export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, _
  *
  * ```
  *
- * @param GetAccessPolicyCommandInput - {@link GetAccessPolicyCommandInput}
- * @returns {@link GetAccessPolicyCommandOutput}
+ * @param GetAccessPolicyRequest - {@link GetAccessPolicyRequest}
+ * @returns {@link GetAccessPolicyResponse}
  * @see {@link GetAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

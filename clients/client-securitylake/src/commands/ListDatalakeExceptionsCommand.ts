@@ -67,8 +67,8 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  *
  * ```
  *
- * @param ListDatalakeExceptionsCommandInput - {@link ListDatalakeExceptionsCommandInput}
- * @returns {@link ListDatalakeExceptionsCommandOutput}
+ * @param ListDatalakeExceptionsRequest - {@link ListDatalakeExceptionsRequest}
+ * @returns {@link ListDatalakeExceptionsResponse}
  * @see {@link ListDatalakeExceptionsCommandInput} for command's `input` shape.
  * @see {@link ListDatalakeExceptionsCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

@@ -90,8 +90,8 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param GetHITCommandInput - {@link GetHITCommandInput}
- * @returns {@link GetHITCommandOutput}
+ * @param GetHITRequest - {@link GetHITRequest}
+ * @returns {@link GetHITResponse}
  * @see {@link GetHITCommandInput} for command's `input` shape.
  * @see {@link GetHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

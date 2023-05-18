@@ -54,8 +54,8 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  *
  * ```
  *
- * @param UpdateMonitoringAlertCommandInput - {@link UpdateMonitoringAlertCommandInput}
- * @returns {@link UpdateMonitoringAlertCommandOutput}
+ * @param UpdateMonitoringAlertRequest - {@link UpdateMonitoringAlertRequest}
+ * @returns {@link UpdateMonitoringAlertResponse}
  * @see {@link UpdateMonitoringAlertCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringAlertCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

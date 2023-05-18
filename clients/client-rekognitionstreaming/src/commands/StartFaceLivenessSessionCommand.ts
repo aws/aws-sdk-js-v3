@@ -184,8 +184,8 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *
  * ```
  *
- * @param StartFaceLivenessSessionCommandInput - {@link StartFaceLivenessSessionCommandInput}
- * @returns {@link StartFaceLivenessSessionCommandOutput}
+ * @param StartFaceLivenessSessionRequest - {@link StartFaceLivenessSessionRequest}
+ * @returns {@link StartFaceLivenessSessionResponse}
  * @see {@link StartFaceLivenessSessionCommandInput} for command's `input` shape.
  * @see {@link StartFaceLivenessSessionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionStreamingClientResolvedConfig | config} for RekognitionStreamingClient's `config` shape.

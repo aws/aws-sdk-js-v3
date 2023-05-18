@@ -71,8 +71,8 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  *
  * ```
  *
- * @param BatchCreateVariableCommandInput - {@link BatchCreateVariableCommandInput}
- * @returns {@link BatchCreateVariableCommandOutput}
+ * @param BatchCreateVariableRequest - {@link BatchCreateVariableRequest}
+ * @returns {@link BatchCreateVariableResult}
  * @see {@link BatchCreateVariableCommandInput} for command's `input` shape.
  * @see {@link BatchCreateVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -115,8 +115,8 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
- * @returns {@link UpdatePipelineCommandOutput}
+ * @param UpdatePipelineRequest - {@link UpdatePipelineRequest}
+ * @returns {@link Unit}
  * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

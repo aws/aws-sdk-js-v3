@@ -120,8 +120,8 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  *
  * ```
  *
- * @param GetJobDetailsCommandInput - {@link GetJobDetailsCommandInput}
- * @returns {@link GetJobDetailsCommandOutput}
+ * @param GetJobDetailsInput - {@link GetJobDetailsInput}
+ * @returns {@link GetJobDetailsOutput}
  * @see {@link GetJobDetailsCommandInput} for command's `input` shape.
  * @see {@link GetJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

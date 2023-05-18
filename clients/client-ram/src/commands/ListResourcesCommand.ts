@@ -75,8 +75,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  *
  * ```
  *
- * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
- * @returns {@link ListResourcesCommandOutput}
+ * @param ListResourcesRequest - {@link ListResourcesRequest}
+ * @returns {@link ListResourcesResponse}
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

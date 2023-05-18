@@ -69,8 +69,8 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  *
  * ```
  *
- * @param ListModelMetadataCommandInput - {@link ListModelMetadataCommandInput}
- * @returns {@link ListModelMetadataCommandOutput}
+ * @param ListModelMetadataRequest - {@link ListModelMetadataRequest}
+ * @returns {@link ListModelMetadataResponse}
  * @see {@link ListModelMetadataCommandInput} for command's `input` shape.
  * @see {@link ListModelMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

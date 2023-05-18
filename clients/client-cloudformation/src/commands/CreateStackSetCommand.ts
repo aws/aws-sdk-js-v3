@@ -83,8 +83,8 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  *
  * ```
  *
- * @param CreateStackSetCommandInput - {@link CreateStackSetCommandInput}
- * @returns {@link CreateStackSetCommandOutput}
+ * @param CreateStackSetInput - {@link CreateStackSetInput}
+ * @returns {@link CreateStackSetOutput}
  * @see {@link CreateStackSetCommandInput} for command's `input` shape.
  * @see {@link CreateStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

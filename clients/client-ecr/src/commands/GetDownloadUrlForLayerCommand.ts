@@ -60,8 +60,8 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  *
  * ```
  *
- * @param GetDownloadUrlForLayerCommandInput - {@link GetDownloadUrlForLayerCommandInput}
- * @returns {@link GetDownloadUrlForLayerCommandOutput}
+ * @param GetDownloadUrlForLayerRequest - {@link GetDownloadUrlForLayerRequest}
+ * @returns {@link GetDownloadUrlForLayerResponse}
  * @see {@link GetDownloadUrlForLayerCommandInput} for command's `input` shape.
  * @see {@link GetDownloadUrlForLayerCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

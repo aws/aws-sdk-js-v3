@@ -155,8 +155,8 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  *
  * ```
  *
- * @param UpdateMonitoringScheduleCommandInput - {@link UpdateMonitoringScheduleCommandInput}
- * @returns {@link UpdateMonitoringScheduleCommandOutput}
+ * @param UpdateMonitoringScheduleRequest - {@link UpdateMonitoringScheduleRequest}
+ * @returns {@link UpdateMonitoringScheduleResponse}
  * @see {@link UpdateMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

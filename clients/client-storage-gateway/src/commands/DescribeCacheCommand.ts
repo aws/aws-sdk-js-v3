@@ -62,8 +62,8 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  *
  * ```
  *
- * @param DescribeCacheCommandInput - {@link DescribeCacheCommandInput}
- * @returns {@link DescribeCacheCommandOutput}
+ * @param DescribeCacheInput - {@link DescribeCacheInput}
+ * @returns {@link DescribeCacheOutput}
  * @see {@link DescribeCacheCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

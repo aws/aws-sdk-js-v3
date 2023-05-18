@@ -58,8 +58,8 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  *
  * ```
  *
- * @param UpdateOrganizationalUnitCommandInput - {@link UpdateOrganizationalUnitCommandInput}
- * @returns {@link UpdateOrganizationalUnitCommandOutput}
+ * @param UpdateOrganizationalUnitRequest - {@link UpdateOrganizationalUnitRequest}
+ * @returns {@link UpdateOrganizationalUnitResponse}
  * @see {@link UpdateOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

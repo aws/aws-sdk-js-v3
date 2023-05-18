@@ -56,8 +56,8 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  *
  * ```
  *
- * @param GetPipelineBlueprintCommandInput - {@link GetPipelineBlueprintCommandInput}
- * @returns {@link GetPipelineBlueprintCommandOutput}
+ * @param GetPipelineBlueprintRequest - {@link GetPipelineBlueprintRequest}
+ * @returns {@link GetPipelineBlueprintResponse}
  * @see {@link GetPipelineBlueprintCommandInput} for command's `input` shape.
  * @see {@link GetPipelineBlueprintCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

@@ -67,8 +67,8 @@ export interface CreateCoreDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param CreateCoreDefinitionVersionCommandInput - {@link CreateCoreDefinitionVersionCommandInput}
- * @returns {@link CreateCoreDefinitionVersionCommandOutput}
+ * @param CreateCoreDefinitionVersionRequest - {@link CreateCoreDefinitionVersionRequest}
+ * @returns {@link CreateCoreDefinitionVersionResponse}
  * @see {@link CreateCoreDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateCoreDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

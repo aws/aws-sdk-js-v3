@@ -144,8 +144,8 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *
  * ```
  *
- * @param StartMatchmakingCommandInput - {@link StartMatchmakingCommandInput}
- * @returns {@link StartMatchmakingCommandOutput}
+ * @param StartMatchmakingInput - {@link StartMatchmakingInput}
+ * @returns {@link StartMatchmakingOutput}
  * @see {@link StartMatchmakingCommandInput} for command's `input` shape.
  * @see {@link StartMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

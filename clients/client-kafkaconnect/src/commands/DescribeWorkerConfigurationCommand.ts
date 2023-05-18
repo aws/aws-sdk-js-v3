@@ -68,8 +68,8 @@ export interface DescribeWorkerConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeWorkerConfigurationCommandInput - {@link DescribeWorkerConfigurationCommandInput}
- * @returns {@link DescribeWorkerConfigurationCommandOutput}
+ * @param DescribeWorkerConfigurationRequest - {@link DescribeWorkerConfigurationRequest}
+ * @returns {@link DescribeWorkerConfigurationResponse}
  * @see {@link DescribeWorkerConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

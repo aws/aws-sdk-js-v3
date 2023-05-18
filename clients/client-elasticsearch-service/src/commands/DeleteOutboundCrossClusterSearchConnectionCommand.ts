@@ -80,8 +80,8 @@ export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput
  *
  * ```
  *
- * @param DeleteOutboundCrossClusterSearchConnectionCommandInput - {@link DeleteOutboundCrossClusterSearchConnectionCommandInput}
- * @returns {@link DeleteOutboundCrossClusterSearchConnectionCommandOutput}
+ * @param DeleteOutboundCrossClusterSearchConnectionRequest - {@link DeleteOutboundCrossClusterSearchConnectionRequest}
+ * @returns {@link DeleteOutboundCrossClusterSearchConnectionResponse}
  * @see {@link DeleteOutboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteOutboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

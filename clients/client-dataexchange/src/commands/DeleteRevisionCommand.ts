@@ -49,8 +49,8 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRevisionCommandInput - {@link DeleteRevisionCommandInput}
- * @returns {@link DeleteRevisionCommandOutput}
+ * @param DeleteRevisionRequest - {@link DeleteRevisionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRevisionCommandInput} for command's `input` shape.
  * @see {@link DeleteRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

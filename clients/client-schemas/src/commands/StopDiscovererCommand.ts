@@ -51,8 +51,8 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  *
  * ```
  *
- * @param StopDiscovererCommandInput - {@link StopDiscovererCommandInput}
- * @returns {@link StopDiscovererCommandOutput}
+ * @param StopDiscovererRequest - {@link StopDiscovererRequest}
+ * @returns {@link StopDiscovererResponse}
  * @see {@link StopDiscovererCommandInput} for command's `input` shape.
  * @see {@link StopDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

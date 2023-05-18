@@ -81,8 +81,8 @@ export interface ListFraudsterRegistrationJobsCommandOutput
  *
  * ```
  *
- * @param ListFraudsterRegistrationJobsCommandInput - {@link ListFraudsterRegistrationJobsCommandInput}
- * @returns {@link ListFraudsterRegistrationJobsCommandOutput}
+ * @param ListFraudsterRegistrationJobsRequest - {@link ListFraudsterRegistrationJobsRequest}
+ * @returns {@link ListFraudsterRegistrationJobsResponse}
  * @see {@link ListFraudsterRegistrationJobsCommandInput} for command's `input` shape.
  * @see {@link ListFraudsterRegistrationJobsCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

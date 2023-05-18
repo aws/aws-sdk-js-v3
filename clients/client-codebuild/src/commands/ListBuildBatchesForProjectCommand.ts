@@ -59,8 +59,8 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  *
  * ```
  *
- * @param ListBuildBatchesForProjectCommandInput - {@link ListBuildBatchesForProjectCommandInput}
- * @returns {@link ListBuildBatchesForProjectCommandOutput}
+ * @param ListBuildBatchesForProjectInput - {@link ListBuildBatchesForProjectInput}
+ * @returns {@link ListBuildBatchesForProjectOutput}
  * @see {@link ListBuildBatchesForProjectCommandInput} for command's `input` shape.
  * @see {@link ListBuildBatchesForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

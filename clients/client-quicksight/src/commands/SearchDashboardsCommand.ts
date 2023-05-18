@@ -75,8 +75,8 @@ export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse,
  *
  * ```
  *
- * @param SearchDashboardsCommandInput - {@link SearchDashboardsCommandInput}
- * @returns {@link SearchDashboardsCommandOutput}
+ * @param SearchDashboardsRequest - {@link SearchDashboardsRequest}
+ * @returns {@link SearchDashboardsResponse}
  * @see {@link SearchDashboardsCommandInput} for command's `input` shape.
  * @see {@link SearchDashboardsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

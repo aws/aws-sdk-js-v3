@@ -61,8 +61,8 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  *
  * ```
  *
- * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
- * @returns {@link DeleteRouteCommandOutput}
+ * @param DeleteRouteRequest - {@link DeleteRouteRequest}
+ * @returns {@link DeleteRouteResponse}
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

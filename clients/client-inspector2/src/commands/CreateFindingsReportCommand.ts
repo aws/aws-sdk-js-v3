@@ -174,8 +174,8 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *
  * ```
  *
- * @param CreateFindingsReportCommandInput - {@link CreateFindingsReportCommandInput}
- * @returns {@link CreateFindingsReportCommandOutput}
+ * @param CreateFindingsReportRequest - {@link CreateFindingsReportRequest}
+ * @returns {@link CreateFindingsReportResponse}
  * @see {@link CreateFindingsReportCommandInput} for command's `input` shape.
  * @see {@link CreateFindingsReportCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

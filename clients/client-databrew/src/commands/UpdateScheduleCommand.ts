@@ -54,8 +54,8 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
  *
  * ```
  *
- * @param UpdateScheduleCommandInput - {@link UpdateScheduleCommandInput}
- * @returns {@link UpdateScheduleCommandOutput}
+ * @param UpdateScheduleRequest - {@link UpdateScheduleRequest}
+ * @returns {@link UpdateScheduleResponse}
  * @see {@link UpdateScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduleCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

@@ -81,8 +81,8 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *
  * ```
  *
- * @param ListAccountsForParentCommandInput - {@link ListAccountsForParentCommandInput}
- * @returns {@link ListAccountsForParentCommandOutput}
+ * @param ListAccountsForParentRequest - {@link ListAccountsForParentRequest}
+ * @returns {@link ListAccountsForParentResponse}
  * @see {@link ListAccountsForParentCommandInput} for command's `input` shape.
  * @see {@link ListAccountsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

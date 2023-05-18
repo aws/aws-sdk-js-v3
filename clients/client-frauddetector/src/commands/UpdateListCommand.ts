@@ -56,8 +56,8 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  *
  * ```
  *
- * @param UpdateListCommandInput - {@link UpdateListCommandInput}
- * @returns {@link UpdateListCommandOutput}
+ * @param UpdateListRequest - {@link UpdateListRequest}
+ * @returns {@link UpdateListResult}
  * @see {@link UpdateListCommandInput} for command's `input` shape.
  * @see {@link UpdateListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

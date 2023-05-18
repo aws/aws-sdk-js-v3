@@ -108,8 +108,8 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  *
  * ```
  *
- * @param PutIntegrationCommandInput - {@link PutIntegrationCommandInput}
- * @returns {@link PutIntegrationCommandOutput}
+ * @param PutIntegrationRequest - {@link PutIntegrationRequest}
+ * @returns {@link Integration}
  * @see {@link PutIntegrationCommandInput} for command's `input` shape.
  * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

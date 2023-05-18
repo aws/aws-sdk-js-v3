@@ -77,8 +77,8 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  *
  * ```
  *
- * @param CreateDevEnvironmentCommandInput - {@link CreateDevEnvironmentCommandInput}
- * @returns {@link CreateDevEnvironmentCommandOutput}
+ * @param CreateDevEnvironmentRequest - {@link CreateDevEnvironmentRequest}
+ * @returns {@link CreateDevEnvironmentResponse}
  * @see {@link CreateDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

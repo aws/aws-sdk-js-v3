@@ -70,8 +70,8 @@ export interface PutAggregationAuthorizationCommandOutput
  *
  * ```
  *
- * @param PutAggregationAuthorizationCommandInput - {@link PutAggregationAuthorizationCommandInput}
- * @returns {@link PutAggregationAuthorizationCommandOutput}
+ * @param PutAggregationAuthorizationRequest - {@link PutAggregationAuthorizationRequest}
+ * @returns {@link PutAggregationAuthorizationResponse}
  * @see {@link PutAggregationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link PutAggregationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

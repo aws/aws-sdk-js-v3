@@ -52,8 +52,8 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  *
  * ```
  *
- * @param GetConnectionStatusCommandInput - {@link GetConnectionStatusCommandInput}
- * @returns {@link GetConnectionStatusCommandOutput}
+ * @param GetConnectionStatusRequest - {@link GetConnectionStatusRequest}
+ * @returns {@link GetConnectionStatusResponse}
  * @see {@link GetConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link GetConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

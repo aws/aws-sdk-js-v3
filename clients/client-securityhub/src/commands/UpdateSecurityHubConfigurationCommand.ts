@@ -54,8 +54,8 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateSecurityHubConfigurationCommandInput - {@link UpdateSecurityHubConfigurationCommandInput}
- * @returns {@link UpdateSecurityHubConfigurationCommandOutput}
+ * @param UpdateSecurityHubConfigurationRequest - {@link UpdateSecurityHubConfigurationRequest}
+ * @returns {@link UpdateSecurityHubConfigurationResponse}
  * @see {@link UpdateSecurityHubConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityHubConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

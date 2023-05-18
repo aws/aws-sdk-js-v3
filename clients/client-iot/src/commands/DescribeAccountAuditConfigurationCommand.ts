@@ -71,8 +71,8 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeAccountAuditConfigurationCommandInput - {@link DescribeAccountAuditConfigurationCommandInput}
- * @returns {@link DescribeAccountAuditConfigurationCommandOutput}
+ * @param DescribeAccountAuditConfigurationRequest - {@link DescribeAccountAuditConfigurationRequest}
+ * @returns {@link DescribeAccountAuditConfigurationResponse}
  * @see {@link DescribeAccountAuditConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

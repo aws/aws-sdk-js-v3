@@ -57,8 +57,8 @@ export interface AssociateProductWithPortfolioCommandOutput
  *
  * ```
  *
- * @param AssociateProductWithPortfolioCommandInput - {@link AssociateProductWithPortfolioCommandInput}
- * @returns {@link AssociateProductWithPortfolioCommandOutput}
+ * @param AssociateProductWithPortfolioInput - {@link AssociateProductWithPortfolioInput}
+ * @returns {@link AssociateProductWithPortfolioOutput}
  * @see {@link AssociateProductWithPortfolioCommandInput} for command's `input` shape.
  * @see {@link AssociateProductWithPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

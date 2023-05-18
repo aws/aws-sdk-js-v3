@@ -139,8 +139,8 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  *
  * ```
  *
- * @param CreateDhcpOptionsCommandInput - {@link CreateDhcpOptionsCommandInput}
- * @returns {@link CreateDhcpOptionsCommandOutput}
+ * @param CreateDhcpOptionsRequest - {@link CreateDhcpOptionsRequest}
+ * @returns {@link CreateDhcpOptionsResult}
  * @see {@link CreateDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link CreateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

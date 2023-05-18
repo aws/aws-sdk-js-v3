@@ -59,8 +59,8 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  *
  * ```
  *
- * @param ListPartnerEventSourcesCommandInput - {@link ListPartnerEventSourcesCommandInput}
- * @returns {@link ListPartnerEventSourcesCommandOutput}
+ * @param ListPartnerEventSourcesRequest - {@link ListPartnerEventSourcesRequest}
+ * @returns {@link ListPartnerEventSourcesResponse}
  * @see {@link ListPartnerEventSourcesCommandInput} for command's `input` shape.
  * @see {@link ListPartnerEventSourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

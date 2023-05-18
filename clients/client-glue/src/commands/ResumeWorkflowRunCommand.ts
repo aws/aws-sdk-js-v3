@@ -57,8 +57,8 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  *
  * ```
  *
- * @param ResumeWorkflowRunCommandInput - {@link ResumeWorkflowRunCommandInput}
- * @returns {@link ResumeWorkflowRunCommandOutput}
+ * @param ResumeWorkflowRunRequest - {@link ResumeWorkflowRunRequest}
+ * @returns {@link ResumeWorkflowRunResponse}
  * @see {@link ResumeWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link ResumeWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

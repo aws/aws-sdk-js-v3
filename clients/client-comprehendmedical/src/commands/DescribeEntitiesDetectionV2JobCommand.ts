@@ -81,8 +81,8 @@ export interface DescribeEntitiesDetectionV2JobCommandOutput
  *
  * ```
  *
- * @param DescribeEntitiesDetectionV2JobCommandInput - {@link DescribeEntitiesDetectionV2JobCommandInput}
- * @returns {@link DescribeEntitiesDetectionV2JobCommandOutput}
+ * @param DescribeEntitiesDetectionV2JobRequest - {@link DescribeEntitiesDetectionV2JobRequest}
+ * @returns {@link DescribeEntitiesDetectionV2JobResponse}
  * @see {@link DescribeEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

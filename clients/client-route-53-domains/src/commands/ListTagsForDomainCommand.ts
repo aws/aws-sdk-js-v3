@@ -58,8 +58,8 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  *
  * ```
  *
- * @param ListTagsForDomainCommandInput - {@link ListTagsForDomainCommandInput}
- * @returns {@link ListTagsForDomainCommandOutput}
+ * @param ListTagsForDomainRequest - {@link ListTagsForDomainRequest}
+ * @returns {@link ListTagsForDomainResponse}
  * @see {@link ListTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link ListTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

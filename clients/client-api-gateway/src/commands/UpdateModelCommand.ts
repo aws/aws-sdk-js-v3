@@ -63,8 +63,8 @@ export interface UpdateModelCommandOutput extends Model, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
- * @returns {@link UpdateModelCommandOutput}
+ * @param UpdateModelRequest - {@link UpdateModelRequest}
+ * @returns {@link Model}
  * @see {@link UpdateModelCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

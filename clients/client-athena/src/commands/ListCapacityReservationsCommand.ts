@@ -67,8 +67,8 @@ export interface ListCapacityReservationsCommandOutput extends ListCapacityReser
  *
  * ```
  *
- * @param ListCapacityReservationsCommandInput - {@link ListCapacityReservationsCommandInput}
- * @returns {@link ListCapacityReservationsCommandOutput}
+ * @param ListCapacityReservationsInput - {@link ListCapacityReservationsInput}
+ * @returns {@link ListCapacityReservationsOutput}
  * @see {@link ListCapacityReservationsCommandInput} for command's `input` shape.
  * @see {@link ListCapacityReservationsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

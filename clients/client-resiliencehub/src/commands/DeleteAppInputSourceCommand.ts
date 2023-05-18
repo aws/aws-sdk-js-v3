@@ -72,8 +72,8 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  *
  * ```
  *
- * @param DeleteAppInputSourceCommandInput - {@link DeleteAppInputSourceCommandInput}
- * @returns {@link DeleteAppInputSourceCommandOutput}
+ * @param DeleteAppInputSourceRequest - {@link DeleteAppInputSourceRequest}
+ * @returns {@link DeleteAppInputSourceResponse}
  * @see {@link DeleteAppInputSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInputSourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

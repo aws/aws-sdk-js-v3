@@ -78,8 +78,8 @@ export interface BatchDetectDominantLanguageCommandOutput
  *
  * ```
  *
- * @param BatchDetectDominantLanguageCommandInput - {@link BatchDetectDominantLanguageCommandInput}
- * @returns {@link BatchDetectDominantLanguageCommandOutput}
+ * @param BatchDetectDominantLanguageRequest - {@link BatchDetectDominantLanguageRequest}
+ * @returns {@link BatchDetectDominantLanguageResponse}
  * @see {@link BatchDetectDominantLanguageCommandInput} for command's `input` shape.
  * @see {@link BatchDetectDominantLanguageCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

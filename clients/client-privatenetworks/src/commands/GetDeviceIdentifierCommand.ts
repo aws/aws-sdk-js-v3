@@ -67,8 +67,8 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  *
  * ```
  *
- * @param GetDeviceIdentifierCommandInput - {@link GetDeviceIdentifierCommandInput}
- * @returns {@link GetDeviceIdentifierCommandOutput}
+ * @param GetDeviceIdentifierRequest - {@link GetDeviceIdentifierRequest}
+ * @returns {@link GetDeviceIdentifierResponse}
  * @see {@link GetDeviceIdentifierCommandInput} for command's `input` shape.
  * @see {@link GetDeviceIdentifierCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

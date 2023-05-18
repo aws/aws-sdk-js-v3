@@ -87,8 +87,8 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  *
  * ```
  *
- * @param CreateSystemInstanceCommandInput - {@link CreateSystemInstanceCommandInput}
- * @returns {@link CreateSystemInstanceCommandOutput}
+ * @param CreateSystemInstanceRequest - {@link CreateSystemInstanceRequest}
+ * @returns {@link CreateSystemInstanceResponse}
  * @see {@link CreateSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateSystemInstanceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

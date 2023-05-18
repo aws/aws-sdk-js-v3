@@ -50,8 +50,8 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVocabularyFilterCommandInput - {@link DeleteVocabularyFilterCommandInput}
- * @returns {@link DeleteVocabularyFilterCommandOutput}
+ * @param DeleteVocabularyFilterRequest - {@link DeleteVocabularyFilterRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  *
  * ```
  *
- * @param ListHypervisorsCommandInput - {@link ListHypervisorsCommandInput}
- * @returns {@link ListHypervisorsCommandOutput}
+ * @param ListHypervisorsInput - {@link ListHypervisorsInput}
+ * @returns {@link ListHypervisorsOutput}
  * @see {@link ListHypervisorsCommandInput} for command's `input` shape.
  * @see {@link ListHypervisorsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

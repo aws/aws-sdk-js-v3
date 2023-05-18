@@ -76,8 +76,8 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  *
  * ```
  *
- * @param ListVirtualInterfaceTestHistoryCommandInput - {@link ListVirtualInterfaceTestHistoryCommandInput}
- * @returns {@link ListVirtualInterfaceTestHistoryCommandOutput}
+ * @param ListVirtualInterfaceTestHistoryRequest - {@link ListVirtualInterfaceTestHistoryRequest}
+ * @returns {@link ListVirtualInterfaceTestHistoryResponse}
  * @see {@link ListVirtualInterfaceTestHistoryCommandInput} for command's `input` shape.
  * @see {@link ListVirtualInterfaceTestHistoryCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

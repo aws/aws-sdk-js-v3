@@ -64,8 +64,8 @@ export interface CreateTrafficDistributionGroupCommandOutput
  *
  * ```
  *
- * @param CreateTrafficDistributionGroupCommandInput - {@link CreateTrafficDistributionGroupCommandInput}
- * @returns {@link CreateTrafficDistributionGroupCommandOutput}
+ * @param CreateTrafficDistributionGroupRequest - {@link CreateTrafficDistributionGroupRequest}
+ * @returns {@link CreateTrafficDistributionGroupResponse}
  * @see {@link CreateTrafficDistributionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficDistributionGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -60,8 +60,8 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  *
  * ```
  *
- * @param DeregisterPatchBaselineForPatchGroupCommandInput - {@link DeregisterPatchBaselineForPatchGroupCommandInput}
- * @returns {@link DeregisterPatchBaselineForPatchGroupCommandOutput}
+ * @param DeregisterPatchBaselineForPatchGroupRequest - {@link DeregisterPatchBaselineForPatchGroupRequest}
+ * @returns {@link DeregisterPatchBaselineForPatchGroupResult}
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

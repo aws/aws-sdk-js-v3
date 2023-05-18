@@ -58,8 +58,8 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  *
  * ```
  *
- * @param GetNamedQueryCommandInput - {@link GetNamedQueryCommandInput}
- * @returns {@link GetNamedQueryCommandOutput}
+ * @param GetNamedQueryInput - {@link GetNamedQueryInput}
+ * @returns {@link GetNamedQueryOutput}
  * @see {@link GetNamedQueryCommandInput} for command's `input` shape.
  * @see {@link GetNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

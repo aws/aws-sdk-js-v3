@@ -60,8 +60,8 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  *
  * ```
  *
- * @param GetEffectivePoliciesCommandInput - {@link GetEffectivePoliciesCommandInput}
- * @returns {@link GetEffectivePoliciesCommandOutput}
+ * @param GetEffectivePoliciesRequest - {@link GetEffectivePoliciesRequest}
+ * @returns {@link GetEffectivePoliciesResponse}
  * @see {@link GetEffectivePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

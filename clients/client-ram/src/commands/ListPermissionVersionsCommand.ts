@@ -73,8 +73,8 @@ export interface ListPermissionVersionsCommandOutput extends ListPermissionVersi
  *
  * ```
  *
- * @param ListPermissionVersionsCommandInput - {@link ListPermissionVersionsCommandInput}
- * @returns {@link ListPermissionVersionsCommandOutput}
+ * @param ListPermissionVersionsRequest - {@link ListPermissionVersionsRequest}
+ * @returns {@link ListPermissionVersionsResponse}
  * @see {@link ListPermissionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionVersionsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -137,8 +137,8 @@ export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __Metad
  *
  * ```
  *
- * @param GetOTAUpdateCommandInput - {@link GetOTAUpdateCommandInput}
- * @returns {@link GetOTAUpdateCommandOutput}
+ * @param GetOTAUpdateRequest - {@link GetOTAUpdateRequest}
+ * @returns {@link GetOTAUpdateResponse}
  * @see {@link GetOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link GetOTAUpdateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

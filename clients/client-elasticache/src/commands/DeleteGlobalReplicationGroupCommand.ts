@@ -93,8 +93,8 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  *
  * ```
  *
- * @param DeleteGlobalReplicationGroupCommandInput - {@link DeleteGlobalReplicationGroupCommandInput}
- * @returns {@link DeleteGlobalReplicationGroupCommandOutput}
+ * @param DeleteGlobalReplicationGroupMessage - {@link DeleteGlobalReplicationGroupMessage}
+ * @returns {@link DeleteGlobalReplicationGroupResult}
  * @see {@link DeleteGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

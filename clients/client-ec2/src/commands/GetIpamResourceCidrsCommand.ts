@@ -93,8 +93,8 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  *
  * ```
  *
- * @param GetIpamResourceCidrsCommandInput - {@link GetIpamResourceCidrsCommandInput}
- * @returns {@link GetIpamResourceCidrsCommandOutput}
+ * @param GetIpamResourceCidrsRequest - {@link GetIpamResourceCidrsRequest}
+ * @returns {@link GetIpamResourceCidrsResult}
  * @see {@link GetIpamResourceCidrsCommandInput} for command's `input` shape.
  * @see {@link GetIpamResourceCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

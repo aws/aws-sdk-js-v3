@@ -455,8 +455,8 @@ export interface DescribeSlotCommandOutput extends DescribeSlotResponse, __Metad
  *
  * ```
  *
- * @param DescribeSlotCommandInput - {@link DescribeSlotCommandInput}
- * @returns {@link DescribeSlotCommandOutput}
+ * @param DescribeSlotRequest - {@link DescribeSlotRequest}
+ * @returns {@link DescribeSlotResponse}
  * @see {@link DescribeSlotCommandInput} for command's `input` shape.
  * @see {@link DescribeSlotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

@@ -56,8 +56,8 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  *
  * ```
  *
- * @param CancelAuditMitigationActionsTaskCommandInput - {@link CancelAuditMitigationActionsTaskCommandInput}
- * @returns {@link CancelAuditMitigationActionsTaskCommandOutput}
+ * @param CancelAuditMitigationActionsTaskRequest - {@link CancelAuditMitigationActionsTaskRequest}
+ * @returns {@link CancelAuditMitigationActionsTaskResponse}
  * @see {@link CancelAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link CancelAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

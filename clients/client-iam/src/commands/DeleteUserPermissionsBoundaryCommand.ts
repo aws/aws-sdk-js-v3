@@ -56,8 +56,8 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param DeleteUserPermissionsBoundaryCommandInput - {@link DeleteUserPermissionsBoundaryCommandInput}
- * @returns {@link DeleteUserPermissionsBoundaryCommandOutput}
+ * @param DeleteUserPermissionsBoundaryRequest - {@link DeleteUserPermissionsBoundaryRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUserPermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPermissionsBoundaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -73,8 +73,8 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  *
  * ```
  *
- * @param AddCommunicationToCaseCommandInput - {@link AddCommunicationToCaseCommandInput}
- * @returns {@link AddCommunicationToCaseCommandOutput}
+ * @param AddCommunicationToCaseRequest - {@link AddCommunicationToCaseRequest}
+ * @returns {@link AddCommunicationToCaseResponse}
  * @see {@link AddCommunicationToCaseCommandInput} for command's `input` shape.
  * @see {@link AddCommunicationToCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

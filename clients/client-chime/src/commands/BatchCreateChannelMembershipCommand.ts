@@ -84,8 +84,8 @@ export interface BatchCreateChannelMembershipCommandOutput
  *
  * ```
  *
- * @param BatchCreateChannelMembershipCommandInput - {@link BatchCreateChannelMembershipCommandInput}
- * @returns {@link BatchCreateChannelMembershipCommandOutput}
+ * @param BatchCreateChannelMembershipRequest - {@link BatchCreateChannelMembershipRequest}
+ * @returns {@link BatchCreateChannelMembershipResponse}
  * @see {@link BatchCreateChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link BatchCreateChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

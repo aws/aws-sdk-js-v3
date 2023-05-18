@@ -67,8 +67,8 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  *
  * ```
  *
- * @param CreateBackupVaultCommandInput - {@link CreateBackupVaultCommandInput}
- * @returns {@link CreateBackupVaultCommandOutput}
+ * @param CreateBackupVaultInput - {@link CreateBackupVaultInput}
+ * @returns {@link CreateBackupVaultOutput}
  * @see {@link CreateBackupVaultCommandInput} for command's `input` shape.
  * @see {@link CreateBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

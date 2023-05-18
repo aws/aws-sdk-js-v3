@@ -59,8 +59,8 @@ export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachment
  *
  * ```
  *
- * @param ListPolicyAttachmentsCommandInput - {@link ListPolicyAttachmentsCommandInput}
- * @returns {@link ListPolicyAttachmentsCommandOutput}
+ * @param ListPolicyAttachmentsRequest - {@link ListPolicyAttachmentsRequest}
+ * @returns {@link ListPolicyAttachmentsResponse}
  * @see {@link ListPolicyAttachmentsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

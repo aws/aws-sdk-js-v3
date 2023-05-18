@@ -102,8 +102,8 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  *
  * ```
  *
- * @param CreateVirtualMFADeviceCommandInput - {@link CreateVirtualMFADeviceCommandInput}
- * @returns {@link CreateVirtualMFADeviceCommandOutput}
+ * @param CreateVirtualMFADeviceRequest - {@link CreateVirtualMFADeviceRequest}
+ * @returns {@link CreateVirtualMFADeviceResponse}
  * @see {@link CreateVirtualMFADeviceCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

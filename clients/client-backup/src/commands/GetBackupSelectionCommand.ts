@@ -98,8 +98,8 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
  *
  * ```
  *
- * @param GetBackupSelectionCommandInput - {@link GetBackupSelectionCommandInput}
- * @returns {@link GetBackupSelectionCommandOutput}
+ * @param GetBackupSelectionInput - {@link GetBackupSelectionInput}
+ * @returns {@link GetBackupSelectionOutput}
  * @see {@link GetBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link GetBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

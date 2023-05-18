@@ -76,8 +76,8 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  *
  * ```
  *
- * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
- * @returns {@link GetLensReviewCommandOutput}
+ * @param GetLensReviewInput - {@link GetLensReviewInput}
+ * @returns {@link GetLensReviewOutput}
  * @see {@link GetLensReviewCommandInput} for command's `input` shape.
  * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

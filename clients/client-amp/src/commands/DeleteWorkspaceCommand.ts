@@ -49,8 +49,8 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteWorkspaceCommandInput - {@link DeleteWorkspaceCommandInput}
- * @returns {@link DeleteWorkspaceCommandOutput}
+ * @param DeleteWorkspaceRequest - {@link DeleteWorkspaceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

@@ -65,8 +65,8 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateEdgePackagingJobCommandInput - {@link CreateEdgePackagingJobCommandInput}
- * @returns {@link CreateEdgePackagingJobCommandOutput}
+ * @param CreateEdgePackagingJobRequest - {@link CreateEdgePackagingJobRequest}
+ * @returns {@link Unit}
  * @see {@link CreateEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link CreateEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

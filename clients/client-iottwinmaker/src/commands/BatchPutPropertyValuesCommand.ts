@@ -163,8 +163,8 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  *
  * ```
  *
- * @param BatchPutPropertyValuesCommandInput - {@link BatchPutPropertyValuesCommandInput}
- * @returns {@link BatchPutPropertyValuesCommandOutput}
+ * @param BatchPutPropertyValuesRequest - {@link BatchPutPropertyValuesRequest}
+ * @returns {@link BatchPutPropertyValuesResponse}
  * @see {@link BatchPutPropertyValuesCommandInput} for command's `input` shape.
  * @see {@link BatchPutPropertyValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

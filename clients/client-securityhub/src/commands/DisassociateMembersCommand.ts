@@ -52,8 +52,8 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  *
  * ```
  *
- * @param DisassociateMembersCommandInput - {@link DisassociateMembersCommandInput}
- * @returns {@link DisassociateMembersCommandOutput}
+ * @param DisassociateMembersRequest - {@link DisassociateMembersRequest}
+ * @returns {@link DisassociateMembersResponse}
  * @see {@link DisassociateMembersCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

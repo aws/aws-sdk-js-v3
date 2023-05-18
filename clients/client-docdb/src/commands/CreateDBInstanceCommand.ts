@@ -149,8 +149,8 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *
  * ```
  *
- * @param CreateDBInstanceCommandInput - {@link CreateDBInstanceCommandInput}
- * @returns {@link CreateDBInstanceCommandOutput}
+ * @param CreateDBInstanceMessage - {@link CreateDBInstanceMessage}
+ * @returns {@link CreateDBInstanceResult}
  * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

@@ -75,8 +75,8 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  *
  * ```
  *
- * @param UpdateRecordsCommandInput - {@link UpdateRecordsCommandInput}
- * @returns {@link UpdateRecordsCommandOutput}
+ * @param UpdateRecordsRequest - {@link UpdateRecordsRequest}
+ * @returns {@link UpdateRecordsResponse}
  * @see {@link UpdateRecordsCommandInput} for command's `input` shape.
  * @see {@link UpdateRecordsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

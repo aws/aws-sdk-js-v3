@@ -88,8 +88,8 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  *
  * ```
  *
- * @param RegisterComputeCommandInput - {@link RegisterComputeCommandInput}
- * @returns {@link RegisterComputeCommandOutput}
+ * @param RegisterComputeInput - {@link RegisterComputeInput}
+ * @returns {@link RegisterComputeOutput}
  * @see {@link RegisterComputeCommandInput} for command's `input` shape.
  * @see {@link RegisterComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

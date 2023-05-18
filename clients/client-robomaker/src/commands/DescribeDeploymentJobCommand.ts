@@ -104,8 +104,8 @@ export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJo
  *
  * ```
  *
- * @param DescribeDeploymentJobCommandInput - {@link DescribeDeploymentJobCommandInput}
- * @returns {@link DescribeDeploymentJobCommandOutput}
+ * @param DescribeDeploymentJobRequest - {@link DescribeDeploymentJobRequest}
+ * @returns {@link DescribeDeploymentJobResponse}
  * @see {@link DescribeDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

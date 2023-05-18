@@ -160,8 +160,8 @@ export interface DescribeProcessingJobCommandOutput extends DescribeProcessingJo
  *
  * ```
  *
- * @param DescribeProcessingJobCommandInput - {@link DescribeProcessingJobCommandInput}
- * @returns {@link DescribeProcessingJobCommandOutput}
+ * @param DescribeProcessingJobRequest - {@link DescribeProcessingJobRequest}
+ * @returns {@link DescribeProcessingJobResponse}
  * @see {@link DescribeProcessingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeProcessingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -64,8 +64,8 @@ export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBeare
  *
  * ```
  *
- * @param UnpeerVpcCommandInput - {@link UnpeerVpcCommandInput}
- * @returns {@link UnpeerVpcCommandOutput}
+ * @param UnpeerVpcRequest - {@link UnpeerVpcRequest}
+ * @returns {@link UnpeerVpcResult}
  * @see {@link UnpeerVpcCommandInput} for command's `input` shape.
  * @see {@link UnpeerVpcCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

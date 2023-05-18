@@ -145,8 +145,8 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
  *
  * ```
  *
- * @param GetResponseHeadersPolicyConfigCommandInput - {@link GetResponseHeadersPolicyConfigCommandInput}
- * @returns {@link GetResponseHeadersPolicyConfigCommandOutput}
+ * @param GetResponseHeadersPolicyConfigRequest - {@link GetResponseHeadersPolicyConfigRequest}
+ * @returns {@link GetResponseHeadersPolicyConfigResult}
  * @see {@link GetResponseHeadersPolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetResponseHeadersPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

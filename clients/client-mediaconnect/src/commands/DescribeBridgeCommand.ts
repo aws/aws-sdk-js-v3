@@ -115,8 +115,8 @@ export interface DescribeBridgeCommandOutput extends DescribeBridgeResponse, __M
  *
  * ```
  *
- * @param DescribeBridgeCommandInput - {@link DescribeBridgeCommandInput}
- * @returns {@link DescribeBridgeCommandOutput}
+ * @param DescribeBridgeRequest - {@link DescribeBridgeRequest}
+ * @returns {@link DescribeBridgeResponse}
  * @see {@link DescribeBridgeCommandInput} for command's `input` shape.
  * @see {@link DescribeBridgeCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

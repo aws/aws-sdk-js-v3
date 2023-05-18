@@ -109,8 +109,8 @@ export interface CreateReservedInstancesListingCommandOutput
  *
  * ```
  *
- * @param CreateReservedInstancesListingCommandInput - {@link CreateReservedInstancesListingCommandInput}
- * @returns {@link CreateReservedInstancesListingCommandOutput}
+ * @param CreateReservedInstancesListingRequest - {@link CreateReservedInstancesListingRequest}
+ * @returns {@link CreateReservedInstancesListingResult}
  * @see {@link CreateReservedInstancesListingCommandInput} for command's `input` shape.
  * @see {@link CreateReservedInstancesListingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -203,8 +203,8 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  *
  * ```
  *
- * @param DescribeRuleGroupCommandInput - {@link DescribeRuleGroupCommandInput}
- * @returns {@link DescribeRuleGroupCommandOutput}
+ * @param DescribeRuleGroupRequest - {@link DescribeRuleGroupRequest}
+ * @returns {@link DescribeRuleGroupResponse}
  * @see {@link DescribeRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

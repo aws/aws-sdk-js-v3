@@ -50,8 +50,8 @@ export interface DeleteSecurityConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteSecurityConfigurationCommandInput - {@link DeleteSecurityConfigurationCommandInput}
- * @returns {@link DeleteSecurityConfigurationCommandOutput}
+ * @param DeleteSecurityConfigurationRequest - {@link DeleteSecurityConfigurationRequest}
+ * @returns {@link DeleteSecurityConfigurationResponse}
  * @see {@link DeleteSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

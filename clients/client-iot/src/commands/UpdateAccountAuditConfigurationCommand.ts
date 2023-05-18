@@ -68,8 +68,8 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateAccountAuditConfigurationCommandInput - {@link UpdateAccountAuditConfigurationCommandInput}
- * @returns {@link UpdateAccountAuditConfigurationCommandOutput}
+ * @param UpdateAccountAuditConfigurationRequest - {@link UpdateAccountAuditConfigurationRequest}
+ * @returns {@link UpdateAccountAuditConfigurationResponse}
  * @see {@link UpdateAccountAuditConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

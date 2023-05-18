@@ -62,8 +62,8 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  *
  * ```
  *
- * @param SetSecurityGroupsCommandInput - {@link SetSecurityGroupsCommandInput}
- * @returns {@link SetSecurityGroupsCommandOutput}
+ * @param SetSecurityGroupsInput - {@link SetSecurityGroupsInput}
+ * @returns {@link SetSecurityGroupsOutput}
  * @see {@link SetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link SetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

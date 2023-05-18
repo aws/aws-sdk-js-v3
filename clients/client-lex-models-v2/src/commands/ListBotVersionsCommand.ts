@@ -73,8 +73,8 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  *
  * ```
  *
- * @param ListBotVersionsCommandInput - {@link ListBotVersionsCommandInput}
- * @returns {@link ListBotVersionsCommandOutput}
+ * @param ListBotVersionsRequest - {@link ListBotVersionsRequest}
+ * @returns {@link ListBotVersionsResponse}
  * @see {@link ListBotVersionsCommandInput} for command's `input` shape.
  * @see {@link ListBotVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

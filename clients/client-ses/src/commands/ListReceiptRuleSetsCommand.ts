@@ -61,8 +61,8 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  *
  * ```
  *
- * @param ListReceiptRuleSetsCommandInput - {@link ListReceiptRuleSetsCommandInput}
- * @returns {@link ListReceiptRuleSetsCommandOutput}
+ * @param ListReceiptRuleSetsRequest - {@link ListReceiptRuleSetsRequest}
+ * @returns {@link ListReceiptRuleSetsResponse}
  * @see {@link ListReceiptRuleSetsCommandInput} for command's `input` shape.
  * @see {@link ListReceiptRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

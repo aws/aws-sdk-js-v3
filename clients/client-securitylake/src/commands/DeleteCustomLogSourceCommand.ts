@@ -50,8 +50,8 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  *
  * ```
  *
- * @param DeleteCustomLogSourceCommandInput - {@link DeleteCustomLogSourceCommandInput}
- * @returns {@link DeleteCustomLogSourceCommandOutput}
+ * @param DeleteCustomLogSourceRequest - {@link DeleteCustomLogSourceRequest}
+ * @returns {@link DeleteCustomLogSourceResponse}
  * @see {@link DeleteCustomLogSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

@@ -97,8 +97,8 @@ export interface UpdatePullRequestDescriptionCommandOutput
  *
  * ```
  *
- * @param UpdatePullRequestDescriptionCommandInput - {@link UpdatePullRequestDescriptionCommandInput}
- * @returns {@link UpdatePullRequestDescriptionCommandOutput}
+ * @param UpdatePullRequestDescriptionInput - {@link UpdatePullRequestDescriptionInput}
+ * @returns {@link UpdatePullRequestDescriptionOutput}
  * @see {@link UpdatePullRequestDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestDescriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

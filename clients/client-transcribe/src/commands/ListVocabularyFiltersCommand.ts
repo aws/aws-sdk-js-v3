@@ -61,8 +61,8 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
  *
  * ```
  *
- * @param ListVocabularyFiltersCommandInput - {@link ListVocabularyFiltersCommandInput}
- * @returns {@link ListVocabularyFiltersCommandOutput}
+ * @param ListVocabularyFiltersRequest - {@link ListVocabularyFiltersRequest}
+ * @returns {@link ListVocabularyFiltersResponse}
  * @see {@link ListVocabularyFiltersCommandInput} for command's `input` shape.
  * @see {@link ListVocabularyFiltersCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

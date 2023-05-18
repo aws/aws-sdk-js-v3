@@ -49,8 +49,8 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param FlushStageCacheCommandInput - {@link FlushStageCacheCommandInput}
- * @returns {@link FlushStageCacheCommandOutput}
+ * @param FlushStageCacheRequest - {@link FlushStageCacheRequest}
+ * @returns {@link Unit}
  * @see {@link FlushStageCacheCommandInput} for command's `input` shape.
  * @see {@link FlushStageCacheCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

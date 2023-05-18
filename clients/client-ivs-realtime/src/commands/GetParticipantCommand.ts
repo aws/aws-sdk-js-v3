@@ -61,8 +61,8 @@ export interface GetParticipantCommandOutput extends GetParticipantResponse, __M
  *
  * ```
  *
- * @param GetParticipantCommandInput - {@link GetParticipantCommandInput}
- * @returns {@link GetParticipantCommandOutput}
+ * @param GetParticipantRequest - {@link GetParticipantRequest}
+ * @returns {@link GetParticipantResponse}
  * @see {@link GetParticipantCommandInput} for command's `input` shape.
  * @see {@link GetParticipantCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

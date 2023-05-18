@@ -76,8 +76,8 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  *
  * ```
  *
- * @param UploadSigningCertificateCommandInput - {@link UploadSigningCertificateCommandInput}
- * @returns {@link UploadSigningCertificateCommandOutput}
+ * @param UploadSigningCertificateRequest - {@link UploadSigningCertificateRequest}
+ * @returns {@link UploadSigningCertificateResponse}
  * @see {@link UploadSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link UploadSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

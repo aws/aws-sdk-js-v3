@@ -50,8 +50,8 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  *
  * ```
  *
- * @param DeleteDetectorVersionCommandInput - {@link DeleteDetectorVersionCommandInput}
- * @returns {@link DeleteDetectorVersionCommandOutput}
+ * @param DeleteDetectorVersionRequest - {@link DeleteDetectorVersionRequest}
+ * @returns {@link DeleteDetectorVersionResult}
  * @see {@link DeleteDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

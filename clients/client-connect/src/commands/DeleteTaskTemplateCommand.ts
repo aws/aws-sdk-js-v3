@@ -49,8 +49,8 @@ export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateRespo
  *
  * ```
  *
- * @param DeleteTaskTemplateCommandInput - {@link DeleteTaskTemplateCommandInput}
- * @returns {@link DeleteTaskTemplateCommandOutput}
+ * @param DeleteTaskTemplateRequest - {@link DeleteTaskTemplateRequest}
+ * @returns {@link DeleteTaskTemplateResponse}
  * @see {@link DeleteTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

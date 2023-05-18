@@ -77,8 +77,8 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  *
  * ```
  *
- * @param AssociateNodeCommandInput - {@link AssociateNodeCommandInput}
- * @returns {@link AssociateNodeCommandOutput}
+ * @param AssociateNodeRequest - {@link AssociateNodeRequest}
+ * @returns {@link AssociateNodeResponse}
  * @see {@link AssociateNodeCommandInput} for command's `input` shape.
  * @see {@link AssociateNodeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

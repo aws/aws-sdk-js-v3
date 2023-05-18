@@ -171,8 +171,8 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *
  * ```
  *
- * @param IssueCertificateCommandInput - {@link IssueCertificateCommandInput}
- * @returns {@link IssueCertificateCommandOutput}
+ * @param IssueCertificateRequest - {@link IssueCertificateRequest}
+ * @returns {@link IssueCertificateResponse}
  * @see {@link IssueCertificateCommandInput} for command's `input` shape.
  * @see {@link IssueCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

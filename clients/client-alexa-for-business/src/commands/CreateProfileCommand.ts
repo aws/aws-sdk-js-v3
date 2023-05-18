@@ -85,8 +85,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *
  * ```
  *
- * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
- * @returns {@link CreateProfileCommandOutput}
+ * @param CreateProfileRequest - {@link CreateProfileRequest}
+ * @returns {@link CreateProfileResponse}
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

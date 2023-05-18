@@ -88,8 +88,8 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
  *
  * ```
  *
- * @param DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput - {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput}
- * @returns {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput}
+ * @param DescribeMaintenanceWindowExecutionTaskInvocationsRequest - {@link DescribeMaintenanceWindowExecutionTaskInvocationsRequest}
+ * @returns {@link DescribeMaintenanceWindowExecutionTaskInvocationsResult}
  * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

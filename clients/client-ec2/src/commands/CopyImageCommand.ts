@@ -77,8 +77,8 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  *
  * ```
  *
- * @param CopyImageCommandInput - {@link CopyImageCommandInput}
- * @returns {@link CopyImageCommandOutput}
+ * @param CopyImageRequest - {@link CopyImageRequest}
+ * @returns {@link CopyImageResult}
  * @see {@link CopyImageCommandInput} for command's `input` shape.
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

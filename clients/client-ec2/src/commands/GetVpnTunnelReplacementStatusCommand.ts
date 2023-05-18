@@ -63,8 +63,8 @@ export interface GetVpnTunnelReplacementStatusCommandOutput
  *
  * ```
  *
- * @param GetVpnTunnelReplacementStatusCommandInput - {@link GetVpnTunnelReplacementStatusCommandInput}
- * @returns {@link GetVpnTunnelReplacementStatusCommandOutput}
+ * @param GetVpnTunnelReplacementStatusRequest - {@link GetVpnTunnelReplacementStatusRequest}
+ * @returns {@link GetVpnTunnelReplacementStatusResult}
  * @see {@link GetVpnTunnelReplacementStatusCommandInput} for command's `input` shape.
  * @see {@link GetVpnTunnelReplacementStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

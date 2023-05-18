@@ -68,8 +68,8 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  *
  * ```
  *
- * @param GetEvaluationCommandInput - {@link GetEvaluationCommandInput}
- * @returns {@link GetEvaluationCommandOutput}
+ * @param GetEvaluationInput - {@link GetEvaluationInput}
+ * @returns {@link GetEvaluationOutput}
  * @see {@link GetEvaluationCommandInput} for command's `input` shape.
  * @see {@link GetEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

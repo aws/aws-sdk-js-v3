@@ -57,8 +57,8 @@ export interface DeleteAccessControlConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAccessControlConfigurationCommandInput - {@link DeleteAccessControlConfigurationCommandInput}
- * @returns {@link DeleteAccessControlConfigurationCommandOutput}
+ * @param DeleteAccessControlConfigurationRequest - {@link DeleteAccessControlConfigurationRequest}
+ * @returns {@link DeleteAccessControlConfigurationResponse}
  * @see {@link DeleteAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  *
  * ```
  *
- * @param GetDevicesInPlacementCommandInput - {@link GetDevicesInPlacementCommandInput}
- * @returns {@link GetDevicesInPlacementCommandOutput}
+ * @param GetDevicesInPlacementRequest - {@link GetDevicesInPlacementRequest}
+ * @returns {@link GetDevicesInPlacementResponse}
  * @see {@link GetDevicesInPlacementCommandInput} for command's `input` shape.
  * @see {@link GetDevicesInPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

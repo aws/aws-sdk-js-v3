@@ -147,8 +147,8 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  *
  * ```
  *
- * @param UpdateScheduleCommandInput - {@link UpdateScheduleCommandInput}
- * @returns {@link UpdateScheduleCommandOutput}
+ * @param UpdateScheduleInput - {@link UpdateScheduleInput}
+ * @returns {@link UpdateScheduleOutput}
  * @see {@link UpdateScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduleCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

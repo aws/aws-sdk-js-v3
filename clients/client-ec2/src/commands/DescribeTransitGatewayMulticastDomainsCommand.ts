@@ -93,8 +93,8 @@ export interface DescribeTransitGatewayMulticastDomainsCommandOutput
  *
  * ```
  *
- * @param DescribeTransitGatewayMulticastDomainsCommandInput - {@link DescribeTransitGatewayMulticastDomainsCommandInput}
- * @returns {@link DescribeTransitGatewayMulticastDomainsCommandOutput}
+ * @param DescribeTransitGatewayMulticastDomainsRequest - {@link DescribeTransitGatewayMulticastDomainsRequest}
+ * @returns {@link DescribeTransitGatewayMulticastDomainsResult}
  * @see {@link DescribeTransitGatewayMulticastDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayMulticastDomainsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

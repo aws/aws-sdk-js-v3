@@ -70,8 +70,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *
  * ```
  *
- * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
- * @returns {@link DescribeTagsCommandOutput}
+ * @param DescribeTagsRequest - {@link DescribeTagsRequest}
+ * @returns {@link DescribeTagsResponse}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

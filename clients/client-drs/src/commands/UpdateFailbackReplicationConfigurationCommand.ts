@@ -55,8 +55,8 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  *
  * ```
  *
- * @param UpdateFailbackReplicationConfigurationCommandInput - {@link UpdateFailbackReplicationConfigurationCommandInput}
- * @returns {@link UpdateFailbackReplicationConfigurationCommandOutput}
+ * @param UpdateFailbackReplicationConfigurationRequest - {@link UpdateFailbackReplicationConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateFailbackReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFailbackReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

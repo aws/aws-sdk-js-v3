@@ -54,8 +54,8 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
  *
  * ```
  *
- * @param CancelImportTaskCommandInput - {@link CancelImportTaskCommandInput}
- * @returns {@link CancelImportTaskCommandOutput}
+ * @param CancelImportTaskRequest - {@link CancelImportTaskRequest}
+ * @returns {@link CancelImportTaskResult}
  * @see {@link CancelImportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelImportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

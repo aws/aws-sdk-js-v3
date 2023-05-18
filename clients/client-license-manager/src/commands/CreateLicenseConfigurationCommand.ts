@@ -83,8 +83,8 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  *
  * ```
  *
- * @param CreateLicenseConfigurationCommandInput - {@link CreateLicenseConfigurationCommandInput}
- * @returns {@link CreateLicenseConfigurationCommandOutput}
+ * @param CreateLicenseConfigurationRequest - {@link CreateLicenseConfigurationRequest}
+ * @returns {@link CreateLicenseConfigurationResponse}
  * @see {@link CreateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

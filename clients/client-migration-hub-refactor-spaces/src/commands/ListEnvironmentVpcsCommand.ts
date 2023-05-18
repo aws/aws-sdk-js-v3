@@ -70,8 +70,8 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  *
  * ```
  *
- * @param ListEnvironmentVpcsCommandInput - {@link ListEnvironmentVpcsCommandInput}
- * @returns {@link ListEnvironmentVpcsCommandOutput}
+ * @param ListEnvironmentVpcsRequest - {@link ListEnvironmentVpcsRequest}
+ * @returns {@link ListEnvironmentVpcsResponse}
  * @see {@link ListEnvironmentVpcsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentVpcsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

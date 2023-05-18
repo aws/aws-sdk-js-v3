@@ -104,8 +104,8 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  *
  * ```
  *
- * @param DescribeNetworkAclsCommandInput - {@link DescribeNetworkAclsCommandInput}
- * @returns {@link DescribeNetworkAclsCommandOutput}
+ * @param DescribeNetworkAclsRequest - {@link DescribeNetworkAclsRequest}
+ * @returns {@link DescribeNetworkAclsResult}
  * @see {@link DescribeNetworkAclsCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkAclsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

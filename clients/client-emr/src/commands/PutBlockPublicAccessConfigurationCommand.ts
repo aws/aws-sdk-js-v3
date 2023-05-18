@@ -83,8 +83,8 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  *
  * ```
  *
- * @param PutBlockPublicAccessConfigurationCommandInput - {@link PutBlockPublicAccessConfigurationCommandInput}
- * @returns {@link PutBlockPublicAccessConfigurationCommandOutput}
+ * @param PutBlockPublicAccessConfigurationInput - {@link PutBlockPublicAccessConfigurationInput}
+ * @returns {@link PutBlockPublicAccessConfigurationOutput}
  * @see {@link PutBlockPublicAccessConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBlockPublicAccessConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

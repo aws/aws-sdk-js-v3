@@ -269,8 +269,8 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *
  * ```
  *
- * @param StartDBInstanceCommandInput - {@link StartDBInstanceCommandInput}
- * @returns {@link StartDBInstanceCommandOutput}
+ * @param StartDBInstanceMessage - {@link StartDBInstanceMessage}
+ * @returns {@link StartDBInstanceResult}
  * @see {@link StartDBInstanceCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

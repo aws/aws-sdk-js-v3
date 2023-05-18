@@ -187,8 +187,8 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  *
  * ```
  *
- * @param CreateSolutionCommandInput - {@link CreateSolutionCommandInput}
- * @returns {@link CreateSolutionCommandOutput}
+ * @param CreateSolutionRequest - {@link CreateSolutionRequest}
+ * @returns {@link CreateSolutionResponse}
  * @see {@link CreateSolutionCommandInput} for command's `input` shape.
  * @see {@link CreateSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

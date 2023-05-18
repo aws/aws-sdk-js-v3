@@ -91,8 +91,8 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  *
  * ```
  *
- * @param UpdateExtensionCommandInput - {@link UpdateExtensionCommandInput}
- * @returns {@link UpdateExtensionCommandOutput}
+ * @param UpdateExtensionRequest - {@link UpdateExtensionRequest}
+ * @returns {@link Extension}
  * @see {@link UpdateExtensionCommandInput} for command's `input` shape.
  * @see {@link UpdateExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -50,8 +50,8 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  *
  * ```
  *
- * @param UpdateLongTermPricingCommandInput - {@link UpdateLongTermPricingCommandInput}
- * @returns {@link UpdateLongTermPricingCommandOutput}
+ * @param UpdateLongTermPricingRequest - {@link UpdateLongTermPricingRequest}
+ * @returns {@link UpdateLongTermPricingResult}
  * @see {@link UpdateLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link UpdateLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

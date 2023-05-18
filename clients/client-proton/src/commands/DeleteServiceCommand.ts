@@ -82,8 +82,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  *
  * ```
  *
- * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
- * @returns {@link DeleteServiceCommandOutput}
+ * @param DeleteServiceInput - {@link DeleteServiceInput}
+ * @returns {@link DeleteServiceOutput}
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

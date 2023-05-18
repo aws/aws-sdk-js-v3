@@ -67,8 +67,8 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  *
  * ```
  *
- * @param GetBatchPredictionCommandInput - {@link GetBatchPredictionCommandInput}
- * @returns {@link GetBatchPredictionCommandOutput}
+ * @param GetBatchPredictionInput - {@link GetBatchPredictionInput}
+ * @returns {@link GetBatchPredictionOutput}
  * @see {@link GetBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link GetBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

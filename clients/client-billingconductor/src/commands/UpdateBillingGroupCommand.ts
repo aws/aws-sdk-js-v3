@@ -70,8 +70,8 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  *
  * ```
  *
- * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
- * @returns {@link UpdateBillingGroupCommandOutput}
+ * @param UpdateBillingGroupInput - {@link UpdateBillingGroupInput}
+ * @returns {@link UpdateBillingGroupOutput}
  * @see {@link UpdateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

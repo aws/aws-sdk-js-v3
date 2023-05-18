@@ -56,8 +56,8 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  *
  * ```
  *
- * @param AddPartnerCommandInput - {@link AddPartnerCommandInput}
- * @returns {@link AddPartnerCommandOutput}
+ * @param PartnerIntegrationInputMessage - {@link PartnerIntegrationInputMessage}
+ * @returns {@link PartnerIntegrationOutputMessage}
  * @see {@link AddPartnerCommandInput} for command's `input` shape.
  * @see {@link AddPartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

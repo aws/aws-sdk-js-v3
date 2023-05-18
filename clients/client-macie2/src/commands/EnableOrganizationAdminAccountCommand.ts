@@ -54,8 +54,8 @@ export interface EnableOrganizationAdminAccountCommandOutput
  *
  * ```
  *
- * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
- * @returns {@link EnableOrganizationAdminAccountCommandOutput}
+ * @param EnableOrganizationAdminAccountRequest - {@link EnableOrganizationAdminAccountRequest}
+ * @returns {@link EnableOrganizationAdminAccountResponse}
  * @see {@link EnableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

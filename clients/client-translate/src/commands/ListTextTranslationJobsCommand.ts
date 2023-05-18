@@ -98,8 +98,8 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  *
  * ```
  *
- * @param ListTextTranslationJobsCommandInput - {@link ListTextTranslationJobsCommandInput}
- * @returns {@link ListTextTranslationJobsCommandOutput}
+ * @param ListTextTranslationJobsRequest - {@link ListTextTranslationJobsRequest}
+ * @returns {@link ListTextTranslationJobsResponse}
  * @see {@link ListTextTranslationJobsCommandInput} for command's `input` shape.
  * @see {@link ListTextTranslationJobsCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

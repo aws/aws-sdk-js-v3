@@ -70,8 +70,8 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  *
  * ```
  *
- * @param CreateDeviceDefinitionCommandInput - {@link CreateDeviceDefinitionCommandInput}
- * @returns {@link CreateDeviceDefinitionCommandOutput}
+ * @param CreateDeviceDefinitionRequest - {@link CreateDeviceDefinitionRequest}
+ * @returns {@link CreateDeviceDefinitionResponse}
  * @see {@link CreateDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

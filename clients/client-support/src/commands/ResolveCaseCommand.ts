@@ -66,8 +66,8 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  *
  * ```
  *
- * @param ResolveCaseCommandInput - {@link ResolveCaseCommandInput}
- * @returns {@link ResolveCaseCommandOutput}
+ * @param ResolveCaseRequest - {@link ResolveCaseRequest}
+ * @returns {@link ResolveCaseResponse}
  * @see {@link ResolveCaseCommandInput} for command's `input` shape.
  * @see {@link ResolveCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

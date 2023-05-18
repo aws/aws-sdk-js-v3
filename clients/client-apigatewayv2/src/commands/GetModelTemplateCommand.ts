@@ -51,8 +51,8 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  *
  * ```
  *
- * @param GetModelTemplateCommandInput - {@link GetModelTemplateCommandInput}
- * @returns {@link GetModelTemplateCommandOutput}
+ * @param GetModelTemplateRequest - {@link GetModelTemplateRequest}
+ * @returns {@link GetModelTemplateResponse}
  * @see {@link GetModelTemplateCommandInput} for command's `input` shape.
  * @see {@link GetModelTemplateCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

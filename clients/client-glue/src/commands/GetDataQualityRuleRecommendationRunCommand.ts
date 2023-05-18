@@ -80,8 +80,8 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
  *
  * ```
  *
- * @param GetDataQualityRuleRecommendationRunCommandInput - {@link GetDataQualityRuleRecommendationRunCommandInput}
- * @returns {@link GetDataQualityRuleRecommendationRunCommandOutput}
+ * @param GetDataQualityRuleRecommendationRunRequest - {@link GetDataQualityRuleRecommendationRunRequest}
+ * @returns {@link GetDataQualityRuleRecommendationRunResponse}
  * @see {@link GetDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

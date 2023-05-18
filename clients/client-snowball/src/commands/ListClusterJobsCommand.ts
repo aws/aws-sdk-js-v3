@@ -65,8 +65,8 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  *
  * ```
  *
- * @param ListClusterJobsCommandInput - {@link ListClusterJobsCommandInput}
- * @returns {@link ListClusterJobsCommandOutput}
+ * @param ListClusterJobsRequest - {@link ListClusterJobsRequest}
+ * @returns {@link ListClusterJobsResult}
  * @see {@link ListClusterJobsCommandInput} for command's `input` shape.
  * @see {@link ListClusterJobsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

@@ -71,8 +71,8 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  *
  * ```
  *
- * @param CreateConnectorDefinitionCommandInput - {@link CreateConnectorDefinitionCommandInput}
- * @returns {@link CreateConnectorDefinitionCommandOutput}
+ * @param CreateConnectorDefinitionRequest - {@link CreateConnectorDefinitionRequest}
+ * @returns {@link CreateConnectorDefinitionResponse}
  * @see {@link CreateConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -83,8 +83,8 @@ export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __Metad
  *
  * ```
  *
- * @param UpdateStudioCommandInput - {@link UpdateStudioCommandInput}
- * @returns {@link UpdateStudioCommandOutput}
+ * @param UpdateStudioRequest - {@link UpdateStudioRequest}
+ * @returns {@link UpdateStudioResponse}
  * @see {@link UpdateStudioCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

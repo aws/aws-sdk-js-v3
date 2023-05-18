@@ -80,8 +80,8 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  *
  * ```
  *
- * @param CreateAdditionalAssignmentsForHITCommandInput - {@link CreateAdditionalAssignmentsForHITCommandInput}
- * @returns {@link CreateAdditionalAssignmentsForHITCommandOutput}
+ * @param CreateAdditionalAssignmentsForHITRequest - {@link CreateAdditionalAssignmentsForHITRequest}
+ * @returns {@link CreateAdditionalAssignmentsForHITResponse}
  * @see {@link CreateAdditionalAssignmentsForHITCommandInput} for command's `input` shape.
  * @see {@link CreateAdditionalAssignmentsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

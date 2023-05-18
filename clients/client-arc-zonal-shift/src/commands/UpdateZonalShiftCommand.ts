@@ -59,8 +59,8 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  *
  * ```
  *
- * @param UpdateZonalShiftCommandInput - {@link UpdateZonalShiftCommandInput}
- * @returns {@link UpdateZonalShiftCommandOutput}
+ * @param UpdateZonalShiftRequest - {@link UpdateZonalShiftRequest}
+ * @returns {@link ZonalShift}
  * @see {@link UpdateZonalShiftCommandInput} for command's `input` shape.
  * @see {@link UpdateZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.

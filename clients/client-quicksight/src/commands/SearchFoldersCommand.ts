@@ -71,8 +71,8 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  *
  * ```
  *
- * @param SearchFoldersCommandInput - {@link SearchFoldersCommandInput}
- * @returns {@link SearchFoldersCommandOutput}
+ * @param SearchFoldersRequest - {@link SearchFoldersRequest}
+ * @returns {@link SearchFoldersResponse}
  * @see {@link SearchFoldersCommandInput} for command's `input` shape.
  * @see {@link SearchFoldersCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

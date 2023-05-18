@@ -86,8 +86,8 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  *
  * ```
  *
- * @param CreateTrafficMirrorTargetCommandInput - {@link CreateTrafficMirrorTargetCommandInput}
- * @returns {@link CreateTrafficMirrorTargetCommandOutput}
+ * @param CreateTrafficMirrorTargetRequest - {@link CreateTrafficMirrorTargetRequest}
+ * @returns {@link CreateTrafficMirrorTargetResult}
  * @see {@link CreateTrafficMirrorTargetCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorTargetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

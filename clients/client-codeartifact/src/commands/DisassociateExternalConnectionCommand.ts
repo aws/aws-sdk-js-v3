@@ -80,8 +80,8 @@ export interface DisassociateExternalConnectionCommandOutput
  *
  * ```
  *
- * @param DisassociateExternalConnectionCommandInput - {@link DisassociateExternalConnectionCommandInput}
- * @returns {@link DisassociateExternalConnectionCommandOutput}
+ * @param DisassociateExternalConnectionRequest - {@link DisassociateExternalConnectionRequest}
+ * @returns {@link DisassociateExternalConnectionResult}
  * @see {@link DisassociateExternalConnectionCommandInput} for command's `input` shape.
  * @see {@link DisassociateExternalConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

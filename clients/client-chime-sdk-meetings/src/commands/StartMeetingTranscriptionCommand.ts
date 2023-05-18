@@ -86,8 +86,8 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param StartMeetingTranscriptionCommandInput - {@link StartMeetingTranscriptionCommandInput}
- * @returns {@link StartMeetingTranscriptionCommandOutput}
+ * @param StartMeetingTranscriptionRequest - {@link StartMeetingTranscriptionRequest}
+ * @returns {@link Unit}
  * @see {@link StartMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

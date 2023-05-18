@@ -55,8 +55,8 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RemoveTagsFromVaultCommandInput - {@link RemoveTagsFromVaultCommandInput}
- * @returns {@link RemoveTagsFromVaultCommandOutput}
+ * @param RemoveTagsFromVaultInput - {@link RemoveTagsFromVaultInput}
+ * @returns {@link Unit}
  * @see {@link RemoveTagsFromVaultCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

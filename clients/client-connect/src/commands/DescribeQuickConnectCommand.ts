@@ -73,8 +73,8 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  *
  * ```
  *
- * @param DescribeQuickConnectCommandInput - {@link DescribeQuickConnectCommandInput}
- * @returns {@link DescribeQuickConnectCommandOutput}
+ * @param DescribeQuickConnectRequest - {@link DescribeQuickConnectRequest}
+ * @returns {@link DescribeQuickConnectResponse}
  * @see {@link DescribeQuickConnectCommandInput} for command's `input` shape.
  * @see {@link DescribeQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

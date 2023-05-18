@@ -63,8 +63,8 @@ export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResul
  *
  * ```
  *
- * @param GetStageDeploymentCommandInput - {@link GetStageDeploymentCommandInput}
- * @returns {@link GetStageDeploymentCommandOutput}
+ * @param GetStageDeploymentRequest - {@link GetStageDeploymentRequest}
+ * @returns {@link GetStageDeploymentResult}
  * @see {@link GetStageDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetStageDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

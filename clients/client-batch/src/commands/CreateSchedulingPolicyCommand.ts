@@ -64,8 +64,8 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  *
  * ```
  *
- * @param CreateSchedulingPolicyCommandInput - {@link CreateSchedulingPolicyCommandInput}
- * @returns {@link CreateSchedulingPolicyCommandOutput}
+ * @param CreateSchedulingPolicyRequest - {@link CreateSchedulingPolicyRequest}
+ * @returns {@link CreateSchedulingPolicyResponse}
  * @see {@link CreateSchedulingPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateSchedulingPolicyCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

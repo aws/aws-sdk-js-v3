@@ -85,8 +85,8 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  *
  * ```
  *
- * @param DescribeRecoveryPointCommandInput - {@link DescribeRecoveryPointCommandInput}
- * @returns {@link DescribeRecoveryPointCommandOutput}
+ * @param DescribeRecoveryPointInput - {@link DescribeRecoveryPointInput}
+ * @returns {@link DescribeRecoveryPointOutput}
  * @see {@link DescribeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

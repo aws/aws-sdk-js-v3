@@ -58,8 +58,8 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  *
  * ```
  *
- * @param UpdateProvisioningTemplateCommandInput - {@link UpdateProvisioningTemplateCommandInput}
- * @returns {@link UpdateProvisioningTemplateCommandOutput}
+ * @param UpdateProvisioningTemplateRequest - {@link UpdateProvisioningTemplateRequest}
+ * @returns {@link UpdateProvisioningTemplateResponse}
  * @see {@link UpdateProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

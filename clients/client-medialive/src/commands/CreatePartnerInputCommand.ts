@@ -103,8 +103,8 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  *
  * ```
  *
- * @param CreatePartnerInputCommandInput - {@link CreatePartnerInputCommandInput}
- * @returns {@link CreatePartnerInputCommandOutput}
+ * @param CreatePartnerInputRequest - {@link CreatePartnerInputRequest}
+ * @returns {@link CreatePartnerInputResponse}
  * @see {@link CreatePartnerInputCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

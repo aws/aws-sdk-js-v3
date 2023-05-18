@@ -71,8 +71,8 @@ export interface ListServiceTemplateVersionsCommandOutput extends ListServiceTem
  *
  * ```
  *
- * @param ListServiceTemplateVersionsCommandInput - {@link ListServiceTemplateVersionsCommandInput}
- * @returns {@link ListServiceTemplateVersionsCommandOutput}
+ * @param ListServiceTemplateVersionsInput - {@link ListServiceTemplateVersionsInput}
+ * @returns {@link ListServiceTemplateVersionsOutput}
  * @see {@link ListServiceTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

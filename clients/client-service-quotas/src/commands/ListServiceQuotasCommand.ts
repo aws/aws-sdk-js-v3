@@ -83,8 +83,8 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  *
  * ```
  *
- * @param ListServiceQuotasCommandInput - {@link ListServiceQuotasCommandInput}
- * @returns {@link ListServiceQuotasCommandOutput}
+ * @param ListServiceQuotasRequest - {@link ListServiceQuotasRequest}
+ * @returns {@link ListServiceQuotasResponse}
  * @see {@link ListServiceQuotasCommandInput} for command's `input` shape.
  * @see {@link ListServiceQuotasCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

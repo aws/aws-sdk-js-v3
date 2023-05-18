@@ -77,8 +77,8 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  *
  * ```
  *
- * @param DescribeWorkspaceBundlesCommandInput - {@link DescribeWorkspaceBundlesCommandInput}
- * @returns {@link DescribeWorkspaceBundlesCommandOutput}
+ * @param DescribeWorkspaceBundlesRequest - {@link DescribeWorkspaceBundlesRequest}
+ * @returns {@link DescribeWorkspaceBundlesResult}
  * @see {@link DescribeWorkspaceBundlesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceBundlesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

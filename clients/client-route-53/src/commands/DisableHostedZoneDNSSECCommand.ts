@@ -57,8 +57,8 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  *
  * ```
  *
- * @param DisableHostedZoneDNSSECCommandInput - {@link DisableHostedZoneDNSSECCommandInput}
- * @returns {@link DisableHostedZoneDNSSECCommandOutput}
+ * @param DisableHostedZoneDNSSECRequest - {@link DisableHostedZoneDNSSECRequest}
+ * @returns {@link DisableHostedZoneDNSSECResponse}
  * @see {@link DisableHostedZoneDNSSECCommandInput} for command's `input` shape.
  * @see {@link DisableHostedZoneDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

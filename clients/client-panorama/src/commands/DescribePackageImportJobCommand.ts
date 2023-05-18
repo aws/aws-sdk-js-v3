@@ -89,8 +89,8 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  *
  * ```
  *
- * @param DescribePackageImportJobCommandInput - {@link DescribePackageImportJobCommandInput}
- * @returns {@link DescribePackageImportJobCommandOutput}
+ * @param DescribePackageImportJobRequest - {@link DescribePackageImportJobRequest}
+ * @returns {@link DescribePackageImportJobResponse}
  * @see {@link DescribePackageImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribePackageImportJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

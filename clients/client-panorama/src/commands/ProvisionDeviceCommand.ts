@@ -90,8 +90,8 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  *
  * ```
  *
- * @param ProvisionDeviceCommandInput - {@link ProvisionDeviceCommandInput}
- * @returns {@link ProvisionDeviceCommandOutput}
+ * @param ProvisionDeviceRequest - {@link ProvisionDeviceRequest}
+ * @returns {@link ProvisionDeviceResponse}
  * @see {@link ProvisionDeviceCommandInput} for command's `input` shape.
  * @see {@link ProvisionDeviceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

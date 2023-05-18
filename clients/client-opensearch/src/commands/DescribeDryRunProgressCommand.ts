@@ -199,8 +199,8 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  *
  * ```
  *
- * @param DescribeDryRunProgressCommandInput - {@link DescribeDryRunProgressCommandInput}
- * @returns {@link DescribeDryRunProgressCommandOutput}
+ * @param DescribeDryRunProgressRequest - {@link DescribeDryRunProgressRequest}
+ * @returns {@link DescribeDryRunProgressResponse}
  * @see {@link DescribeDryRunProgressCommandInput} for command's `input` shape.
  * @see {@link DescribeDryRunProgressCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

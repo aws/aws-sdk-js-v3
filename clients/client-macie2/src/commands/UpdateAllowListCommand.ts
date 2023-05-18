@@ -60,8 +60,8 @@ export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, _
  *
  * ```
  *
- * @param UpdateAllowListCommandInput - {@link UpdateAllowListCommandInput}
- * @returns {@link UpdateAllowListCommandOutput}
+ * @param UpdateAllowListRequest - {@link UpdateAllowListRequest}
+ * @returns {@link UpdateAllowListResponse}
  * @see {@link UpdateAllowListCommandInput} for command's `input` shape.
  * @see {@link UpdateAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

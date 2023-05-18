@@ -61,8 +61,8 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  *
  * ```
  *
- * @param UpdateWorkloadShareCommandInput - {@link UpdateWorkloadShareCommandInput}
- * @returns {@link UpdateWorkloadShareCommandOutput}
+ * @param UpdateWorkloadShareInput - {@link UpdateWorkloadShareInput}
+ * @returns {@link UpdateWorkloadShareOutput}
  * @see {@link UpdateWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkloadShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

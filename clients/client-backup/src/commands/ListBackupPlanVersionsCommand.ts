@@ -73,8 +73,8 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  *
  * ```
  *
- * @param ListBackupPlanVersionsCommandInput - {@link ListBackupPlanVersionsCommandInput}
- * @returns {@link ListBackupPlanVersionsCommandOutput}
+ * @param ListBackupPlanVersionsInput - {@link ListBackupPlanVersionsInput}
+ * @returns {@link ListBackupPlanVersionsOutput}
  * @see {@link ListBackupPlanVersionsCommandInput} for command's `input` shape.
  * @see {@link ListBackupPlanVersionsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

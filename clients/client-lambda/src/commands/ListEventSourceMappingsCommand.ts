@@ -125,8 +125,8 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  *
  * ```
  *
- * @param ListEventSourceMappingsCommandInput - {@link ListEventSourceMappingsCommandInput}
- * @returns {@link ListEventSourceMappingsCommandOutput}
+ * @param ListEventSourceMappingsRequest - {@link ListEventSourceMappingsRequest}
+ * @returns {@link ListEventSourceMappingsResponse}
  * @see {@link ListEventSourceMappingsCommandInput} for command's `input` shape.
  * @see {@link ListEventSourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

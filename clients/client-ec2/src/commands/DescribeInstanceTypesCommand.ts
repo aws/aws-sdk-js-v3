@@ -201,8 +201,8 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  *
  * ```
  *
- * @param DescribeInstanceTypesCommandInput - {@link DescribeInstanceTypesCommandInput}
- * @returns {@link DescribeInstanceTypesCommandOutput}
+ * @param DescribeInstanceTypesRequest - {@link DescribeInstanceTypesRequest}
+ * @returns {@link DescribeInstanceTypesResult}
  * @see {@link DescribeInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

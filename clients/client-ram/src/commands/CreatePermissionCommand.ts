@@ -79,8 +79,8 @@ export interface CreatePermissionCommandOutput extends CreatePermissionResponse,
  *
  * ```
  *
- * @param CreatePermissionCommandInput - {@link CreatePermissionCommandInput}
- * @returns {@link CreatePermissionCommandOutput}
+ * @param CreatePermissionRequest - {@link CreatePermissionRequest}
+ * @returns {@link CreatePermissionResponse}
  * @see {@link CreatePermissionCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

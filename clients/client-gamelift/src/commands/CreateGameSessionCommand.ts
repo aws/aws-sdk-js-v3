@@ -129,8 +129,8 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *
  * ```
  *
- * @param CreateGameSessionCommandInput - {@link CreateGameSessionCommandInput}
- * @returns {@link CreateGameSessionCommandOutput}
+ * @param CreateGameSessionInput - {@link CreateGameSessionInput}
+ * @returns {@link CreateGameSessionOutput}
  * @see {@link CreateGameSessionCommandInput} for command's `input` shape.
  * @see {@link CreateGameSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

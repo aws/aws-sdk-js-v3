@@ -82,8 +82,8 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  *
  * ```
  *
- * @param DescribeFastLaunchImagesCommandInput - {@link DescribeFastLaunchImagesCommandInput}
- * @returns {@link DescribeFastLaunchImagesCommandOutput}
+ * @param DescribeFastLaunchImagesRequest - {@link DescribeFastLaunchImagesRequest}
+ * @returns {@link DescribeFastLaunchImagesResult}
  * @see {@link DescribeFastLaunchImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeFastLaunchImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

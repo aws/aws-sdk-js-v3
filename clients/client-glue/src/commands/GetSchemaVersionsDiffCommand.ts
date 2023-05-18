@@ -64,8 +64,8 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  *
  * ```
  *
- * @param GetSchemaVersionsDiffCommandInput - {@link GetSchemaVersionsDiffCommandInput}
- * @returns {@link GetSchemaVersionsDiffCommandOutput}
+ * @param GetSchemaVersionsDiffInput - {@link GetSchemaVersionsDiffInput}
+ * @returns {@link GetSchemaVersionsDiffResponse}
  * @see {@link GetSchemaVersionsDiffCommandInput} for command's `input` shape.
  * @see {@link GetSchemaVersionsDiffCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

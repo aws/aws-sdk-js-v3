@@ -88,8 +88,8 @@ export interface ListEventsDetectionJobsCommandOutput extends ListEventsDetectio
  *
  * ```
  *
- * @param ListEventsDetectionJobsCommandInput - {@link ListEventsDetectionJobsCommandInput}
- * @returns {@link ListEventsDetectionJobsCommandOutput}
+ * @param ListEventsDetectionJobsRequest - {@link ListEventsDetectionJobsRequest}
+ * @returns {@link ListEventsDetectionJobsResponse}
  * @see {@link ListEventsDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListEventsDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

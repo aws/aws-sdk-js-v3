@@ -68,8 +68,8 @@ export interface UpdateWaveCommandOutput extends Wave, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateWaveCommandInput - {@link UpdateWaveCommandInput}
- * @returns {@link UpdateWaveCommandOutput}
+ * @param UpdateWaveRequest - {@link UpdateWaveRequest}
+ * @returns {@link Wave}
  * @see {@link UpdateWaveCommandInput} for command's `input` shape.
  * @see {@link UpdateWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

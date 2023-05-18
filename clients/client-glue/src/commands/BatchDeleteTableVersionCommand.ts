@@ -64,8 +64,8 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  *
  * ```
  *
- * @param BatchDeleteTableVersionCommandInput - {@link BatchDeleteTableVersionCommandInput}
- * @returns {@link BatchDeleteTableVersionCommandOutput}
+ * @param BatchDeleteTableVersionRequest - {@link BatchDeleteTableVersionRequest}
+ * @returns {@link BatchDeleteTableVersionResponse}
  * @see {@link BatchDeleteTableVersionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

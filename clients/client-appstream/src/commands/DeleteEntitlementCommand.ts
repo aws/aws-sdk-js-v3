@@ -49,8 +49,8 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  *
  * ```
  *
- * @param DeleteEntitlementCommandInput - {@link DeleteEntitlementCommandInput}
- * @returns {@link DeleteEntitlementCommandOutput}
+ * @param DeleteEntitlementRequest - {@link DeleteEntitlementRequest}
+ * @returns {@link DeleteEntitlementResult}
  * @see {@link DeleteEntitlementCommandInput} for command's `input` shape.
  * @see {@link DeleteEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

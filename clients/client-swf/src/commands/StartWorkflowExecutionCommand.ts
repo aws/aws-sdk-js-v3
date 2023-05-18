@@ -130,8 +130,8 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  *
  * ```
  *
- * @param StartWorkflowExecutionCommandInput - {@link StartWorkflowExecutionCommandInput}
- * @returns {@link StartWorkflowExecutionCommandOutput}
+ * @param StartWorkflowExecutionInput - {@link StartWorkflowExecutionInput}
+ * @returns {@link Run}
  * @see {@link StartWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link StartWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

@@ -50,8 +50,8 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateScheduledQueryCommandInput - {@link UpdateScheduledQueryCommandInput}
- * @returns {@link UpdateScheduledQueryCommandOutput}
+ * @param UpdateScheduledQueryRequest - {@link UpdateScheduledQueryRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.

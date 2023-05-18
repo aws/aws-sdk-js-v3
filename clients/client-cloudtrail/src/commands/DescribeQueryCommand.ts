@@ -65,8 +65,8 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  *
  * ```
  *
- * @param DescribeQueryCommandInput - {@link DescribeQueryCommandInput}
- * @returns {@link DescribeQueryCommandOutput}
+ * @param DescribeQueryRequest - {@link DescribeQueryRequest}
+ * @returns {@link DescribeQueryResponse}
  * @see {@link DescribeQueryCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

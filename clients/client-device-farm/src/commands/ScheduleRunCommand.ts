@@ -210,8 +210,8 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *
  * ```
  *
- * @param ScheduleRunCommandInput - {@link ScheduleRunCommandInput}
- * @returns {@link ScheduleRunCommandOutput}
+ * @param ScheduleRunRequest - {@link ScheduleRunRequest}
+ * @returns {@link ScheduleRunResult}
  * @see {@link ScheduleRunCommandInput} for command's `input` shape.
  * @see {@link ScheduleRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

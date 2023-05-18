@@ -56,8 +56,8 @@ export interface AbortMultipartReadSetUploadCommandOutput
  *
  * ```
  *
- * @param AbortMultipartReadSetUploadCommandInput - {@link AbortMultipartReadSetUploadCommandInput}
- * @returns {@link AbortMultipartReadSetUploadCommandOutput}
+ * @param AbortMultipartReadSetUploadRequest - {@link AbortMultipartReadSetUploadRequest}
+ * @returns {@link AbortMultipartReadSetUploadResponse}
  * @see {@link AbortMultipartReadSetUploadCommandInput} for command's `input` shape.
  * @see {@link AbortMultipartReadSetUploadCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

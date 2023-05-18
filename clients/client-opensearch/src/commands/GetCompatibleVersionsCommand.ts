@@ -58,8 +58,8 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  *
  * ```
  *
- * @param GetCompatibleVersionsCommandInput - {@link GetCompatibleVersionsCommandInput}
- * @returns {@link GetCompatibleVersionsCommandOutput}
+ * @param GetCompatibleVersionsRequest - {@link GetCompatibleVersionsRequest}
+ * @returns {@link GetCompatibleVersionsResponse}
  * @see {@link GetCompatibleVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

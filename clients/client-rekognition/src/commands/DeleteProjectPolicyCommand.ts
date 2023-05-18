@@ -52,8 +52,8 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  *
  * ```
  *
- * @param DeleteProjectPolicyCommandInput - {@link DeleteProjectPolicyCommandInput}
- * @returns {@link DeleteProjectPolicyCommandOutput}
+ * @param DeleteProjectPolicyRequest - {@link DeleteProjectPolicyRequest}
+ * @returns {@link DeleteProjectPolicyResponse}
  * @see {@link DeleteProjectPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectPolicyCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

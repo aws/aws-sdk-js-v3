@@ -109,8 +109,8 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  *
  * ```
  *
- * @param UpdateVirtualInterfaceAttributesCommandInput - {@link UpdateVirtualInterfaceAttributesCommandInput}
- * @returns {@link UpdateVirtualInterfaceAttributesCommandOutput}
+ * @param UpdateVirtualInterfaceAttributesRequest - {@link UpdateVirtualInterfaceAttributesRequest}
+ * @returns {@link VirtualInterface}
  * @see {@link UpdateVirtualInterfaceAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualInterfaceAttributesCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

@@ -439,8 +439,8 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  *
  * ```
  *
- * @param DescribeDetectorModelCommandInput - {@link DescribeDetectorModelCommandInput}
- * @returns {@link DescribeDetectorModelCommandOutput}
+ * @param DescribeDetectorModelRequest - {@link DescribeDetectorModelRequest}
+ * @returns {@link DescribeDetectorModelResponse}
  * @see {@link DescribeDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

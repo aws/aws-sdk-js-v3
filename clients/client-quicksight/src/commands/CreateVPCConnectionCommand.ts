@@ -73,8 +73,8 @@ export interface CreateVPCConnectionCommandOutput extends CreateVPCConnectionRes
  *
  * ```
  *
- * @param CreateVPCConnectionCommandInput - {@link CreateVPCConnectionCommandInput}
- * @returns {@link CreateVPCConnectionCommandOutput}
+ * @param CreateVPCConnectionRequest - {@link CreateVPCConnectionRequest}
+ * @returns {@link CreateVPCConnectionResponse}
  * @see {@link CreateVPCConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVPCConnectionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

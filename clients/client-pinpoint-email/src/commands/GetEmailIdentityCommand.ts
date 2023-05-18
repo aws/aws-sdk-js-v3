@@ -72,8 +72,8 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  *
  * ```
  *
- * @param GetEmailIdentityCommandInput - {@link GetEmailIdentityCommandInput}
- * @returns {@link GetEmailIdentityCommandOutput}
+ * @param GetEmailIdentityRequest - {@link GetEmailIdentityRequest}
+ * @returns {@link GetEmailIdentityResponse}
  * @see {@link GetEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

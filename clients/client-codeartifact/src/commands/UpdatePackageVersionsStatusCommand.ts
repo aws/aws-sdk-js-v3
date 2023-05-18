@@ -82,8 +82,8 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  *
  * ```
  *
- * @param UpdatePackageVersionsStatusCommandInput - {@link UpdatePackageVersionsStatusCommandInput}
- * @returns {@link UpdatePackageVersionsStatusCommandOutput}
+ * @param UpdatePackageVersionsStatusRequest - {@link UpdatePackageVersionsStatusRequest}
+ * @returns {@link UpdatePackageVersionsStatusResult}
  * @see {@link UpdatePackageVersionsStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePackageVersionsStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

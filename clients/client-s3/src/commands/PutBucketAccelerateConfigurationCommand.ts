@@ -95,8 +95,8 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *
  * ```
  *
- * @param PutBucketAccelerateConfigurationCommandInput - {@link PutBucketAccelerateConfigurationCommandInput}
- * @returns {@link PutBucketAccelerateConfigurationCommandOutput}
+ * @param PutBucketAccelerateConfigurationRequest - {@link PutBucketAccelerateConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketAccelerateConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

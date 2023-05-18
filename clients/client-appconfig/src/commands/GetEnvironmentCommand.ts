@@ -66,8 +66,8 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  *
  * ```
  *
- * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
- * @returns {@link GetEnvironmentCommandOutput}
+ * @param GetEnvironmentRequest - {@link GetEnvironmentRequest}
+ * @returns {@link Environment}
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

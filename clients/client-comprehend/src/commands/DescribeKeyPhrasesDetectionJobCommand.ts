@@ -90,8 +90,8 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
  *
  * ```
  *
- * @param DescribeKeyPhrasesDetectionJobCommandInput - {@link DescribeKeyPhrasesDetectionJobCommandInput}
- * @returns {@link DescribeKeyPhrasesDetectionJobCommandOutput}
+ * @param DescribeKeyPhrasesDetectionJobRequest - {@link DescribeKeyPhrasesDetectionJobRequest}
+ * @returns {@link DescribeKeyPhrasesDetectionJobResponse}
  * @see {@link DescribeKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

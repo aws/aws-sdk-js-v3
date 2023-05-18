@@ -82,8 +82,8 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  *
  * ```
  *
- * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
- * @returns {@link ListExecutionsCommandOutput}
+ * @param ListExecutionsRequest - {@link ListExecutionsRequest}
+ * @returns {@link ListExecutionsResponse}
  * @see {@link ListExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

@@ -346,8 +346,8 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *
  * ```
  *
- * @param StartBuildCommandInput - {@link StartBuildCommandInput}
- * @returns {@link StartBuildCommandOutput}
+ * @param StartBuildInput - {@link StartBuildInput}
+ * @returns {@link StartBuildOutput}
  * @see {@link StartBuildCommandInput} for command's `input` shape.
  * @see {@link StartBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

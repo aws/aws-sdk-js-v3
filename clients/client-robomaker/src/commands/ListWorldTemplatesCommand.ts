@@ -60,8 +60,8 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  *
  * ```
  *
- * @param ListWorldTemplatesCommandInput - {@link ListWorldTemplatesCommandInput}
- * @returns {@link ListWorldTemplatesCommandOutput}
+ * @param ListWorldTemplatesRequest - {@link ListWorldTemplatesRequest}
+ * @returns {@link ListWorldTemplatesResponse}
  * @see {@link ListWorldTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListWorldTemplatesCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

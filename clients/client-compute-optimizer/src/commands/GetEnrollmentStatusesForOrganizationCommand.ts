@@ -77,8 +77,8 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  *
  * ```
  *
- * @param GetEnrollmentStatusesForOrganizationCommandInput - {@link GetEnrollmentStatusesForOrganizationCommandInput}
- * @returns {@link GetEnrollmentStatusesForOrganizationCommandOutput}
+ * @param GetEnrollmentStatusesForOrganizationRequest - {@link GetEnrollmentStatusesForOrganizationRequest}
+ * @returns {@link GetEnrollmentStatusesForOrganizationResponse}
  * @see {@link GetEnrollmentStatusesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link GetEnrollmentStatusesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

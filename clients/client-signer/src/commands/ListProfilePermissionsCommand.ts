@@ -61,8 +61,8 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  *
  * ```
  *
- * @param ListProfilePermissionsCommandInput - {@link ListProfilePermissionsCommandInput}
- * @returns {@link ListProfilePermissionsCommandOutput}
+ * @param ListProfilePermissionsRequest - {@link ListProfilePermissionsRequest}
+ * @returns {@link ListProfilePermissionsResponse}
  * @see {@link ListProfilePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListProfilePermissionsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

@@ -76,8 +76,8 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  *
  * ```
  *
- * @param GetSchemaCommandInput - {@link GetSchemaCommandInput}
- * @returns {@link GetSchemaCommandOutput}
+ * @param GetSchemaInput - {@link GetSchemaInput}
+ * @returns {@link GetSchemaOutput}
  * @see {@link GetSchemaCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

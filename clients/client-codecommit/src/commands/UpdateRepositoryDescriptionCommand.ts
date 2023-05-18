@@ -56,8 +56,8 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param UpdateRepositoryDescriptionCommandInput - {@link UpdateRepositoryDescriptionCommandInput}
- * @returns {@link UpdateRepositoryDescriptionCommandOutput}
+ * @param UpdateRepositoryDescriptionInput - {@link UpdateRepositoryDescriptionInput}
+ * @returns {@link Unit}
  * @see {@link UpdateRepositoryDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryDescriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

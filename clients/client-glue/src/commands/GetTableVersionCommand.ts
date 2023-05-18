@@ -150,8 +150,8 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  *
  * ```
  *
- * @param GetTableVersionCommandInput - {@link GetTableVersionCommandInput}
- * @returns {@link GetTableVersionCommandOutput}
+ * @param GetTableVersionRequest - {@link GetTableVersionRequest}
+ * @returns {@link GetTableVersionResponse}
  * @see {@link GetTableVersionCommandInput} for command's `input` shape.
  * @see {@link GetTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

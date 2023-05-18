@@ -53,8 +53,8 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param UpdateAccountSendingEnabledCommandInput - {@link UpdateAccountSendingEnabledCommandInput}
- * @returns {@link UpdateAccountSendingEnabledCommandOutput}
+ * @param UpdateAccountSendingEnabledRequest - {@link UpdateAccountSendingEnabledRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

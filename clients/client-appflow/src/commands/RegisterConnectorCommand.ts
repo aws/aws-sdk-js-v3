@@ -60,8 +60,8 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  *
  * ```
  *
- * @param RegisterConnectorCommandInput - {@link RegisterConnectorCommandInput}
- * @returns {@link RegisterConnectorCommandOutput}
+ * @param RegisterConnectorRequest - {@link RegisterConnectorRequest}
+ * @returns {@link RegisterConnectorResponse}
  * @see {@link RegisterConnectorCommandInput} for command's `input` shape.
  * @see {@link RegisterConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

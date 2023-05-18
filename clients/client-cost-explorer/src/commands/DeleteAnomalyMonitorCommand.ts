@@ -48,8 +48,8 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  *
  * ```
  *
- * @param DeleteAnomalyMonitorCommandInput - {@link DeleteAnomalyMonitorCommandInput}
- * @returns {@link DeleteAnomalyMonitorCommandOutput}
+ * @param DeleteAnomalyMonitorRequest - {@link DeleteAnomalyMonitorRequest}
+ * @returns {@link DeleteAnomalyMonitorResponse}
  * @see {@link DeleteAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

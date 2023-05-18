@@ -83,8 +83,8 @@ export interface UpdateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateRestApiCommandInput - {@link UpdateRestApiCommandInput}
- * @returns {@link UpdateRestApiCommandOutput}
+ * @param UpdateRestApiRequest - {@link UpdateRestApiRequest}
+ * @returns {@link RestApi}
  * @see {@link UpdateRestApiCommandInput} for command's `input` shape.
  * @see {@link UpdateRestApiCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

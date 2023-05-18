@@ -97,8 +97,8 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  *
  * ```
  *
- * @param PutTemplateActionCommandInput - {@link PutTemplateActionCommandInput}
- * @returns {@link PutTemplateActionCommandOutput}
+ * @param PutTemplateActionRequest - {@link PutTemplateActionRequest}
+ * @returns {@link TemplateActionDocument}
  * @see {@link PutTemplateActionCommandInput} for command's `input` shape.
  * @see {@link PutTemplateActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

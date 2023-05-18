@@ -77,8 +77,8 @@ export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __Metadat
  *
  * ```
  *
- * @param GetEvidenceCommandInput - {@link GetEvidenceCommandInput}
- * @returns {@link GetEvidenceCommandOutput}
+ * @param GetEvidenceRequest - {@link GetEvidenceRequest}
+ * @returns {@link GetEvidenceResponse}
  * @see {@link GetEvidenceCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

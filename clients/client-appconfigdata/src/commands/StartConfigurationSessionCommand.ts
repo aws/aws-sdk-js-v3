@@ -56,8 +56,8 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  *
  * ```
  *
- * @param StartConfigurationSessionCommandInput - {@link StartConfigurationSessionCommandInput}
- * @returns {@link StartConfigurationSessionCommandOutput}
+ * @param StartConfigurationSessionRequest - {@link StartConfigurationSessionRequest}
+ * @returns {@link StartConfigurationSessionResponse}
  * @see {@link StartConfigurationSessionCommandInput} for command's `input` shape.
  * @see {@link StartConfigurationSessionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigDataClientResolvedConfig | config} for AppConfigDataClient's `config` shape.

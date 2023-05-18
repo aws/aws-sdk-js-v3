@@ -116,8 +116,8 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  *
  * ```
  *
- * @param ListAssetModelPropertiesCommandInput - {@link ListAssetModelPropertiesCommandInput}
- * @returns {@link ListAssetModelPropertiesCommandOutput}
+ * @param ListAssetModelPropertiesRequest - {@link ListAssetModelPropertiesRequest}
+ * @returns {@link ListAssetModelPropertiesResponse}
  * @see {@link ListAssetModelPropertiesCommandInput} for command's `input` shape.
  * @see {@link ListAssetModelPropertiesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

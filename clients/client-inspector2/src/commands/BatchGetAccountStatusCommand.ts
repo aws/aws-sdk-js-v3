@@ -91,8 +91,8 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  *
  * ```
  *
- * @param BatchGetAccountStatusCommandInput - {@link BatchGetAccountStatusCommandInput}
- * @returns {@link BatchGetAccountStatusCommandOutput}
+ * @param BatchGetAccountStatusRequest - {@link BatchGetAccountStatusRequest}
+ * @returns {@link BatchGetAccountStatusResponse}
  * @see {@link BatchGetAccountStatusCommandInput} for command's `input` shape.
  * @see {@link BatchGetAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

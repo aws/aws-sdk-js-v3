@@ -607,8 +607,8 @@ export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
- * @returns {@link UpdateDataSourceCommandOutput}
+ * @param UpdateDataSourceRequest - {@link UpdateDataSourceRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

@@ -79,8 +79,8 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  *
  * ```
  *
- * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
- * @returns {@link ListAliasesCommandOutput}
+ * @param ListAliasesInput - {@link ListAliasesInput}
+ * @returns {@link ListAliasesOutput}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

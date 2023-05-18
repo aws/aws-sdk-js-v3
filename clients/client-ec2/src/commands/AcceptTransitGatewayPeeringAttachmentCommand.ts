@@ -91,8 +91,8 @@ export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
  *
  * ```
  *
- * @param AcceptTransitGatewayPeeringAttachmentCommandInput - {@link AcceptTransitGatewayPeeringAttachmentCommandInput}
- * @returns {@link AcceptTransitGatewayPeeringAttachmentCommandOutput}
+ * @param AcceptTransitGatewayPeeringAttachmentRequest - {@link AcceptTransitGatewayPeeringAttachmentRequest}
+ * @returns {@link AcceptTransitGatewayPeeringAttachmentResult}
  * @see {@link AcceptTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link AcceptTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

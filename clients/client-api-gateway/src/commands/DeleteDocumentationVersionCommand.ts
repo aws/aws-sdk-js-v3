@@ -49,8 +49,8 @@ export interface DeleteDocumentationVersionCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteDocumentationVersionCommandInput - {@link DeleteDocumentationVersionCommandInput}
- * @returns {@link DeleteDocumentationVersionCommandOutput}
+ * @param DeleteDocumentationVersionRequest - {@link DeleteDocumentationVersionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDocumentationVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentationVersionCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

@@ -124,8 +124,8 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  *
  * ```
  *
- * @param ListActiveViolationsCommandInput - {@link ListActiveViolationsCommandInput}
- * @returns {@link ListActiveViolationsCommandOutput}
+ * @param ListActiveViolationsRequest - {@link ListActiveViolationsRequest}
+ * @returns {@link ListActiveViolationsResponse}
  * @see {@link ListActiveViolationsCommandInput} for command's `input` shape.
  * @see {@link ListActiveViolationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

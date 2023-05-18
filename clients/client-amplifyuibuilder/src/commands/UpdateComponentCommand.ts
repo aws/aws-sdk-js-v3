@@ -483,8 +483,8 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  *
  * ```
  *
- * @param UpdateComponentCommandInput - {@link UpdateComponentCommandInput}
- * @returns {@link UpdateComponentCommandOutput}
+ * @param UpdateComponentRequest - {@link UpdateComponentRequest}
+ * @returns {@link UpdateComponentResponse}
  * @see {@link UpdateComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

@@ -71,8 +71,8 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  *
  * ```
  *
- * @param GetRepositorySyncStatusCommandInput - {@link GetRepositorySyncStatusCommandInput}
- * @returns {@link GetRepositorySyncStatusCommandOutput}
+ * @param GetRepositorySyncStatusInput - {@link GetRepositorySyncStatusInput}
+ * @returns {@link GetRepositorySyncStatusOutput}
  * @see {@link GetRepositorySyncStatusCommandInput} for command's `input` shape.
  * @see {@link GetRepositorySyncStatusCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

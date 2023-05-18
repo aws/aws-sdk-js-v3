@@ -59,8 +59,8 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteInfrastructureConfigurationCommandInput - {@link DeleteInfrastructureConfigurationCommandInput}
- * @returns {@link DeleteInfrastructureConfigurationCommandOutput}
+ * @param DeleteInfrastructureConfigurationRequest - {@link DeleteInfrastructureConfigurationRequest}
+ * @returns {@link DeleteInfrastructureConfigurationResponse}
  * @see {@link DeleteInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

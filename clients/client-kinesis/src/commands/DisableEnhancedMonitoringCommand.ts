@@ -65,8 +65,8 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
  *
  * ```
  *
- * @param DisableEnhancedMonitoringCommandInput - {@link DisableEnhancedMonitoringCommandInput}
- * @returns {@link DisableEnhancedMonitoringCommandOutput}
+ * @param DisableEnhancedMonitoringInput - {@link DisableEnhancedMonitoringInput}
+ * @returns {@link EnhancedMonitoringOutput}
  * @see {@link DisableEnhancedMonitoringCommandInput} for command's `input` shape.
  * @see {@link DisableEnhancedMonitoringCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

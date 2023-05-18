@@ -53,8 +53,8 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  *
  * ```
  *
- * @param CreateApplicationSnapshotCommandInput - {@link CreateApplicationSnapshotCommandInput}
- * @returns {@link CreateApplicationSnapshotCommandOutput}
+ * @param CreateApplicationSnapshotRequest - {@link CreateApplicationSnapshotRequest}
+ * @returns {@link CreateApplicationSnapshotResponse}
  * @see {@link CreateApplicationSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationSnapshotCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

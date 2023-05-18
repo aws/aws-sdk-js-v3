@@ -87,8 +87,8 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  *
  * ```
  *
- * @param ListWirelessDevicesCommandInput - {@link ListWirelessDevicesCommandInput}
- * @returns {@link ListWirelessDevicesCommandOutput}
+ * @param ListWirelessDevicesRequest - {@link ListWirelessDevicesRequest}
+ * @returns {@link ListWirelessDevicesResponse}
  * @see {@link ListWirelessDevicesCommandInput} for command's `input` shape.
  * @see {@link ListWirelessDevicesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

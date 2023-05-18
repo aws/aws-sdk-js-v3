@@ -127,8 +127,8 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  *
  * ```
  *
- * @param DescribeStorageVirtualMachinesCommandInput - {@link DescribeStorageVirtualMachinesCommandInput}
- * @returns {@link DescribeStorageVirtualMachinesCommandOutput}
+ * @param DescribeStorageVirtualMachinesRequest - {@link DescribeStorageVirtualMachinesRequest}
+ * @returns {@link DescribeStorageVirtualMachinesResponse}
  * @see {@link DescribeStorageVirtualMachinesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageVirtualMachinesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

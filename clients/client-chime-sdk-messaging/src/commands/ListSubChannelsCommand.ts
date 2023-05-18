@@ -69,8 +69,8 @@ export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, _
  *
  * ```
  *
- * @param ListSubChannelsCommandInput - {@link ListSubChannelsCommandInput}
- * @returns {@link ListSubChannelsCommandOutput}
+ * @param ListSubChannelsRequest - {@link ListSubChannelsRequest}
+ * @returns {@link ListSubChannelsResponse}
  * @see {@link ListSubChannelsCommandInput} for command's `input` shape.
  * @see {@link ListSubChannelsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

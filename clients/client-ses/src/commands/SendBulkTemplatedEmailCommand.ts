@@ -136,8 +136,8 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  *
  * ```
  *
- * @param SendBulkTemplatedEmailCommandInput - {@link SendBulkTemplatedEmailCommandInput}
- * @returns {@link SendBulkTemplatedEmailCommandOutput}
+ * @param SendBulkTemplatedEmailRequest - {@link SendBulkTemplatedEmailRequest}
+ * @returns {@link SendBulkTemplatedEmailResponse}
  * @see {@link SendBulkTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendBulkTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

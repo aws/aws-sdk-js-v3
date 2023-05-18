@@ -68,8 +68,8 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  *
  * ```
  *
- * @param GetCanaryRunsCommandInput - {@link GetCanaryRunsCommandInput}
- * @returns {@link GetCanaryRunsCommandOutput}
+ * @param GetCanaryRunsRequest - {@link GetCanaryRunsRequest}
+ * @returns {@link GetCanaryRunsResponse}
  * @see {@link GetCanaryRunsCommandInput} for command's `input` shape.
  * @see {@link GetCanaryRunsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

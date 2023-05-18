@@ -48,8 +48,8 @@ export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotation
  *
  * ```
  *
- * @param CancelAnnotationImportJobCommandInput - {@link CancelAnnotationImportJobCommandInput}
- * @returns {@link CancelAnnotationImportJobCommandOutput}
+ * @param CancelAnnotationImportRequest - {@link CancelAnnotationImportRequest}
+ * @returns {@link CancelAnnotationImportResponse}
  * @see {@link CancelAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

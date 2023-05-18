@@ -66,8 +66,8 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  *
  * ```
  *
- * @param GetGroupCommandInput - {@link GetGroupCommandInput}
- * @returns {@link GetGroupCommandOutput}
+ * @param GetGroupInput - {@link GetGroupInput}
+ * @returns {@link GetGroupOutput}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

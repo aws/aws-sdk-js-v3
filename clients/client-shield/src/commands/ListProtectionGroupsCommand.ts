@@ -78,8 +78,8 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  *
  * ```
  *
- * @param ListProtectionGroupsCommandInput - {@link ListProtectionGroupsCommandInput}
- * @returns {@link ListProtectionGroupsCommandOutput}
+ * @param ListProtectionGroupsRequest - {@link ListProtectionGroupsRequest}
+ * @returns {@link ListProtectionGroupsResponse}
  * @see {@link ListProtectionGroupsCommandInput} for command's `input` shape.
  * @see {@link ListProtectionGroupsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

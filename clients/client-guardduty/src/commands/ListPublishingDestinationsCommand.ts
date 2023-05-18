@@ -60,8 +60,8 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  *
  * ```
  *
- * @param ListPublishingDestinationsCommandInput - {@link ListPublishingDestinationsCommandInput}
- * @returns {@link ListPublishingDestinationsCommandOutput}
+ * @param ListPublishingDestinationsRequest - {@link ListPublishingDestinationsRequest}
+ * @returns {@link ListPublishingDestinationsResponse}
  * @see {@link ListPublishingDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListPublishingDestinationsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

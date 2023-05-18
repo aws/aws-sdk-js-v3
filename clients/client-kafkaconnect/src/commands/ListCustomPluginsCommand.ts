@@ -77,8 +77,8 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  *
  * ```
  *
- * @param ListCustomPluginsCommandInput - {@link ListCustomPluginsCommandInput}
- * @returns {@link ListCustomPluginsCommandOutput}
+ * @param ListCustomPluginsRequest - {@link ListCustomPluginsRequest}
+ * @returns {@link ListCustomPluginsResponse}
  * @see {@link ListCustomPluginsCommandInput} for command's `input` shape.
  * @see {@link ListCustomPluginsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

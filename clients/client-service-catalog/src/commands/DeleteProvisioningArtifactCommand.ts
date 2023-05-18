@@ -53,8 +53,8 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  *
  * ```
  *
- * @param DeleteProvisioningArtifactCommandInput - {@link DeleteProvisioningArtifactCommandInput}
- * @returns {@link DeleteProvisioningArtifactCommandOutput}
+ * @param DeleteProvisioningArtifactInput - {@link DeleteProvisioningArtifactInput}
+ * @returns {@link DeleteProvisioningArtifactOutput}
  * @see {@link DeleteProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

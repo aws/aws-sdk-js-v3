@@ -62,8 +62,8 @@ export interface DisassociateCustomerGatewayCommandOutput
  *
  * ```
  *
- * @param DisassociateCustomerGatewayCommandInput - {@link DisassociateCustomerGatewayCommandInput}
- * @returns {@link DisassociateCustomerGatewayCommandOutput}
+ * @param DisassociateCustomerGatewayRequest - {@link DisassociateCustomerGatewayRequest}
+ * @returns {@link DisassociateCustomerGatewayResponse}
  * @see {@link DisassociateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

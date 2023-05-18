@@ -58,8 +58,8 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  *
  * ```
  *
- * @param ImportDocumentationPartsCommandInput - {@link ImportDocumentationPartsCommandInput}
- * @returns {@link ImportDocumentationPartsCommandOutput}
+ * @param ImportDocumentationPartsRequest - {@link ImportDocumentationPartsRequest}
+ * @returns {@link DocumentationPartIds}
  * @see {@link ImportDocumentationPartsCommandInput} for command's `input` shape.
  * @see {@link ImportDocumentationPartsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

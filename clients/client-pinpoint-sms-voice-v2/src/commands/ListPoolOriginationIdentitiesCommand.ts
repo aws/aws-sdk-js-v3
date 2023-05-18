@@ -83,8 +83,8 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  *
  * ```
  *
- * @param ListPoolOriginationIdentitiesCommandInput - {@link ListPoolOriginationIdentitiesCommandInput}
- * @returns {@link ListPoolOriginationIdentitiesCommandOutput}
+ * @param ListPoolOriginationIdentitiesRequest - {@link ListPoolOriginationIdentitiesRequest}
+ * @returns {@link ListPoolOriginationIdentitiesResult}
  * @see {@link ListPoolOriginationIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListPoolOriginationIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

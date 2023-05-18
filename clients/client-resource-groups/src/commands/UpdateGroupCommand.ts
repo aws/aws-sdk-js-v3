@@ -68,8 +68,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  *
  * ```
  *
- * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
- * @returns {@link UpdateGroupCommandOutput}
+ * @param UpdateGroupInput - {@link UpdateGroupInput}
+ * @returns {@link UpdateGroupOutput}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

@@ -91,8 +91,8 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  *
  * ```
  *
- * @param GetMappingCommandInput - {@link GetMappingCommandInput}
- * @returns {@link GetMappingCommandOutput}
+ * @param GetMappingRequest - {@link GetMappingRequest}
+ * @returns {@link GetMappingResponse}
  * @see {@link GetMappingCommandInput} for command's `input` shape.
  * @see {@link GetMappingCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -55,8 +55,8 @@ export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateRdsDbInstanceCommandInput - {@link UpdateRdsDbInstanceCommandInput}
- * @returns {@link UpdateRdsDbInstanceCommandOutput}
+ * @param UpdateRdsDbInstanceRequest - {@link UpdateRdsDbInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateRdsDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

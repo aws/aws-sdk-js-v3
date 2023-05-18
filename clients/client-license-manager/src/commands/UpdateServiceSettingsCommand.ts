@@ -53,8 +53,8 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  *
  * ```
  *
- * @param UpdateServiceSettingsCommandInput - {@link UpdateServiceSettingsCommandInput}
- * @returns {@link UpdateServiceSettingsCommandOutput}
+ * @param UpdateServiceSettingsRequest - {@link UpdateServiceSettingsRequest}
+ * @returns {@link UpdateServiceSettingsResponse}
  * @see {@link UpdateServiceSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSettingsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

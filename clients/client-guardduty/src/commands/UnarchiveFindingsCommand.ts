@@ -51,8 +51,8 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  *
  * ```
  *
- * @param UnarchiveFindingsCommandInput - {@link UnarchiveFindingsCommandInput}
- * @returns {@link UnarchiveFindingsCommandOutput}
+ * @param UnarchiveFindingsRequest - {@link UnarchiveFindingsRequest}
+ * @returns {@link UnarchiveFindingsResponse}
  * @see {@link UnarchiveFindingsCommandInput} for command's `input` shape.
  * @see {@link UnarchiveFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

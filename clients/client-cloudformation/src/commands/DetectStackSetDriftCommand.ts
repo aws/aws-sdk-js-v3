@@ -106,8 +106,8 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  *
  * ```
  *
- * @param DetectStackSetDriftCommandInput - {@link DetectStackSetDriftCommandInput}
- * @returns {@link DetectStackSetDriftCommandOutput}
+ * @param DetectStackSetDriftInput - {@link DetectStackSetDriftInput}
+ * @returns {@link DetectStackSetDriftOutput}
  * @see {@link DetectStackSetDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackSetDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

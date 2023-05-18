@@ -93,8 +93,8 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  *
  * ```
  *
- * @param DetectPHICommandInput - {@link DetectPHICommandInput}
- * @returns {@link DetectPHICommandOutput}
+ * @param DetectPHIRequest - {@link DetectPHIRequest}
+ * @returns {@link DetectPHIResponse}
  * @see {@link DetectPHICommandInput} for command's `input` shape.
  * @see {@link DetectPHICommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

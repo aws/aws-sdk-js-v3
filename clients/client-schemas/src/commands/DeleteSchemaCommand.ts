@@ -49,8 +49,8 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
- * @returns {@link DeleteSchemaCommandOutput}
+ * @param DeleteSchemaRequest - {@link DeleteSchemaRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

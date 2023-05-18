@@ -50,8 +50,8 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  *
  * ```
  *
- * @param CancelContactCommandInput - {@link CancelContactCommandInput}
- * @returns {@link CancelContactCommandOutput}
+ * @param CancelContactRequest - {@link CancelContactRequest}
+ * @returns {@link ContactIdResponse}
  * @see {@link CancelContactCommandInput} for command's `input` shape.
  * @see {@link CancelContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

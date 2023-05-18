@@ -86,8 +86,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, _
  *
  * ```
  *
- * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
- * @returns {@link CreateRepositoryCommandOutput}
+ * @param CreateRepositoryRequest - {@link CreateRepositoryRequest}
+ * @returns {@link CreateRepositoryResult}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

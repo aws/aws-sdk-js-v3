@@ -82,8 +82,8 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  *
  * ```
  *
- * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
- * @returns {@link GetAnnotationStoreCommandOutput}
+ * @param GetAnnotationStoreRequest - {@link GetAnnotationStoreRequest}
+ * @returns {@link GetAnnotationStoreResponse}
  * @see {@link GetAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link GetAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

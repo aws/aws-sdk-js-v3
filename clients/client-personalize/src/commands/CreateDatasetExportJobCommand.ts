@@ -83,8 +83,8 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  *
  * ```
  *
- * @param CreateDatasetExportJobCommandInput - {@link CreateDatasetExportJobCommandInput}
- * @returns {@link CreateDatasetExportJobCommandOutput}
+ * @param CreateDatasetExportJobRequest - {@link CreateDatasetExportJobRequest}
+ * @returns {@link CreateDatasetExportJobResponse}
  * @see {@link CreateDatasetExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetExportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

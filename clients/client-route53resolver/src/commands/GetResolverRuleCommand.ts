@@ -72,8 +72,8 @@ export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, _
  *
  * ```
  *
- * @param GetResolverRuleCommandInput - {@link GetResolverRuleCommandInput}
- * @returns {@link GetResolverRuleCommandOutput}
+ * @param GetResolverRuleRequest - {@link GetResolverRuleRequest}
+ * @returns {@link GetResolverRuleResponse}
  * @see {@link GetResolverRuleCommandInput} for command's `input` shape.
  * @see {@link GetResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

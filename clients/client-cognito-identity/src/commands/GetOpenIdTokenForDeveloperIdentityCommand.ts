@@ -80,8 +80,8 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  *
  * ```
  *
- * @param GetOpenIdTokenForDeveloperIdentityCommandInput - {@link GetOpenIdTokenForDeveloperIdentityCommandInput}
- * @returns {@link GetOpenIdTokenForDeveloperIdentityCommandOutput}
+ * @param GetOpenIdTokenForDeveloperIdentityInput - {@link GetOpenIdTokenForDeveloperIdentityInput}
+ * @returns {@link GetOpenIdTokenForDeveloperIdentityResponse}
  * @see {@link GetOpenIdTokenForDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link GetOpenIdTokenForDeveloperIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

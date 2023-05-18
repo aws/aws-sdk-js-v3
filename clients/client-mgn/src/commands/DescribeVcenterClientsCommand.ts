@@ -71,8 +71,8 @@ export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClie
  *
  * ```
  *
- * @param DescribeVcenterClientsCommandInput - {@link DescribeVcenterClientsCommandInput}
- * @returns {@link DescribeVcenterClientsCommandOutput}
+ * @param DescribeVcenterClientsRequest - {@link DescribeVcenterClientsRequest}
+ * @returns {@link DescribeVcenterClientsResponse}
  * @see {@link DescribeVcenterClientsCommandInput} for command's `input` shape.
  * @see {@link DescribeVcenterClientsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

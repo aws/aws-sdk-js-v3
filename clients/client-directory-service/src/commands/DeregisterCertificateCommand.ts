@@ -49,8 +49,8 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  *
  * ```
  *
- * @param DeregisterCertificateCommandInput - {@link DeregisterCertificateCommandInput}
- * @returns {@link DeregisterCertificateCommandOutput}
+ * @param DeregisterCertificateRequest - {@link DeregisterCertificateRequest}
+ * @returns {@link DeregisterCertificateResult}
  * @see {@link DeregisterCertificateCommandInput} for command's `input` shape.
  * @see {@link DeregisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

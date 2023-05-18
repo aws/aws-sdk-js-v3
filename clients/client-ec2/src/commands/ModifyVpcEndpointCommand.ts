@@ -80,8 +80,8 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  *
  * ```
  *
- * @param ModifyVpcEndpointCommandInput - {@link ModifyVpcEndpointCommandInput}
- * @returns {@link ModifyVpcEndpointCommandOutput}
+ * @param ModifyVpcEndpointRequest - {@link ModifyVpcEndpointRequest}
+ * @returns {@link ModifyVpcEndpointResult}
  * @see {@link ModifyVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

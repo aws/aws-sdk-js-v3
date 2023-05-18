@@ -75,8 +75,8 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  *
  * ```
  *
- * @param GetAssetPropertyValueCommandInput - {@link GetAssetPropertyValueCommandInput}
- * @returns {@link GetAssetPropertyValueCommandOutput}
+ * @param GetAssetPropertyValueRequest - {@link GetAssetPropertyValueRequest}
+ * @returns {@link GetAssetPropertyValueResponse}
  * @see {@link GetAssetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyValueCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

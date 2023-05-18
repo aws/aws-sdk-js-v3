@@ -51,8 +51,8 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  *
  * ```
  *
- * @param PublishRecipeCommandInput - {@link PublishRecipeCommandInput}
- * @returns {@link PublishRecipeCommandOutput}
+ * @param PublishRecipeRequest - {@link PublishRecipeRequest}
+ * @returns {@link PublishRecipeResponse}
  * @see {@link PublishRecipeCommandInput} for command's `input` shape.
  * @see {@link PublishRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

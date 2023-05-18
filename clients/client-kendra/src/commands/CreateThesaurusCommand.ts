@@ -68,8 +68,8 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  *
  * ```
  *
- * @param CreateThesaurusCommandInput - {@link CreateThesaurusCommandInput}
- * @returns {@link CreateThesaurusCommandOutput}
+ * @param CreateThesaurusRequest - {@link CreateThesaurusRequest}
+ * @returns {@link CreateThesaurusResponse}
  * @see {@link CreateThesaurusCommandInput} for command's `input` shape.
  * @see {@link CreateThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

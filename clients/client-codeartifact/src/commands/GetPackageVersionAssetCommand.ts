@@ -74,8 +74,8 @@ export interface GetPackageVersionAssetCommandOutput
  *
  * ```
  *
- * @param GetPackageVersionAssetCommandInput - {@link GetPackageVersionAssetCommandInput}
- * @returns {@link GetPackageVersionAssetCommandOutput}
+ * @param GetPackageVersionAssetRequest - {@link GetPackageVersionAssetRequest}
+ * @returns {@link GetPackageVersionAssetResult}
  * @see {@link GetPackageVersionAssetCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionAssetCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

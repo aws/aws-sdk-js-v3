@@ -81,8 +81,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBucketPolicyCommandInput - {@link DeleteBucketPolicyCommandInput}
- * @returns {@link DeleteBucketPolicyCommandOutput}
+ * @param DeleteBucketPolicyRequest - {@link DeleteBucketPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

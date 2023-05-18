@@ -67,8 +67,8 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param UntagCommandInput - {@link UntagCommandInput}
- * @returns {@link UntagCommandOutput}
+ * @param UntagInput - {@link UntagInput}
+ * @returns {@link UntagOutput}
  * @see {@link UntagCommandInput} for command's `input` shape.
  * @see {@link UntagCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

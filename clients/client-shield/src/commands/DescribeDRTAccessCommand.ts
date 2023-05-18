@@ -51,8 +51,8 @@ export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessRespons
  *
  * ```
  *
- * @param DescribeDRTAccessCommandInput - {@link DescribeDRTAccessCommandInput}
- * @returns {@link DescribeDRTAccessCommandOutput}
+ * @param DescribeDRTAccessRequest - {@link DescribeDRTAccessRequest}
+ * @returns {@link DescribeDRTAccessResponse}
  * @see {@link DescribeDRTAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeDRTAccessCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

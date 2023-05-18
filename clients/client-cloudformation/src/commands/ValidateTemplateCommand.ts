@@ -68,8 +68,8 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  *
  * ```
  *
- * @param ValidateTemplateCommandInput - {@link ValidateTemplateCommandInput}
- * @returns {@link ValidateTemplateCommandOutput}
+ * @param ValidateTemplateInput - {@link ValidateTemplateInput}
+ * @returns {@link ValidateTemplateOutput}
  * @see {@link ValidateTemplateCommandInput} for command's `input` shape.
  * @see {@link ValidateTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

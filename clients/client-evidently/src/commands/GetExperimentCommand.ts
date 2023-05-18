@@ -102,8 +102,8 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  *
  * ```
  *
- * @param GetExperimentCommandInput - {@link GetExperimentCommandInput}
- * @returns {@link GetExperimentCommandOutput}
+ * @param GetExperimentRequest - {@link GetExperimentRequest}
+ * @returns {@link GetExperimentResponse}
  * @see {@link GetExperimentCommandInput} for command's `input` shape.
  * @see {@link GetExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

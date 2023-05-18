@@ -50,8 +50,8 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopAssessmentRunCommandInput - {@link StopAssessmentRunCommandInput}
- * @returns {@link StopAssessmentRunCommandOutput}
+ * @param StopAssessmentRunRequest - {@link StopAssessmentRunRequest}
+ * @returns {@link Unit}
  * @see {@link StopAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

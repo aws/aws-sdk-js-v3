@@ -59,8 +59,8 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
  *
  * ```
  *
- * @param DeleteDefaultSenderIdCommandInput - {@link DeleteDefaultSenderIdCommandInput}
- * @returns {@link DeleteDefaultSenderIdCommandOutput}
+ * @param DeleteDefaultSenderIdRequest - {@link DeleteDefaultSenderIdRequest}
+ * @returns {@link DeleteDefaultSenderIdResult}
  * @see {@link DeleteDefaultSenderIdCommandInput} for command's `input` shape.
  * @see {@link DeleteDefaultSenderIdCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

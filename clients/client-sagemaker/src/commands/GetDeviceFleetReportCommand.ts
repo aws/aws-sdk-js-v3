@@ -79,8 +79,8 @@ export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportR
  *
  * ```
  *
- * @param GetDeviceFleetReportCommandInput - {@link GetDeviceFleetReportCommandInput}
- * @returns {@link GetDeviceFleetReportCommandOutput}
+ * @param GetDeviceFleetReportRequest - {@link GetDeviceFleetReportRequest}
+ * @returns {@link GetDeviceFleetReportResponse}
  * @see {@link GetDeviceFleetReportCommandInput} for command's `input` shape.
  * @see {@link GetDeviceFleetReportCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -64,8 +64,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *
  * ```
  *
- * @param CreateTopicCommandInput - {@link CreateTopicCommandInput}
- * @returns {@link CreateTopicCommandOutput}
+ * @param CreateTopicInput - {@link CreateTopicInput}
+ * @returns {@link CreateTopicResponse}
  * @see {@link CreateTopicCommandInput} for command's `input` shape.
  * @see {@link CreateTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

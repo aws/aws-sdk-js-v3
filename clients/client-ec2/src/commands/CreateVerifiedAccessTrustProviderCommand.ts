@@ -119,8 +119,8 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  *
  * ```
  *
- * @param CreateVerifiedAccessTrustProviderCommandInput - {@link CreateVerifiedAccessTrustProviderCommandInput}
- * @returns {@link CreateVerifiedAccessTrustProviderCommandOutput}
+ * @param CreateVerifiedAccessTrustProviderRequest - {@link CreateVerifiedAccessTrustProviderRequest}
+ * @returns {@link CreateVerifiedAccessTrustProviderResult}
  * @see {@link CreateVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

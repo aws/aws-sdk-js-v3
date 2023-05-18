@@ -100,8 +100,8 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
  *
  * ```
  *
- * @param GetHealthCheckCommandInput - {@link GetHealthCheckCommandInput}
- * @returns {@link GetHealthCheckCommandOutput}
+ * @param GetHealthCheckRequest - {@link GetHealthCheckRequest}
+ * @returns {@link GetHealthCheckResponse}
  * @see {@link GetHealthCheckCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

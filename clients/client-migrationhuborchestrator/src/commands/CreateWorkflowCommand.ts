@@ -105,8 +105,8 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  *
  * ```
  *
- * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
- * @returns {@link CreateWorkflowCommandOutput}
+ * @param CreateMigrationWorkflowRequest - {@link CreateMigrationWorkflowRequest}
+ * @returns {@link CreateMigrationWorkflowResponse}
  * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

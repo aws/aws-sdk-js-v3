@@ -57,8 +57,8 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  *
  * ```
  *
- * @param CreateSyncJobCommandInput - {@link CreateSyncJobCommandInput}
- * @returns {@link CreateSyncJobCommandOutput}
+ * @param CreateSyncJobRequest - {@link CreateSyncJobRequest}
+ * @returns {@link CreateSyncJobResponse}
  * @see {@link CreateSyncJobCommandInput} for command's `input` shape.
  * @see {@link CreateSyncJobCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

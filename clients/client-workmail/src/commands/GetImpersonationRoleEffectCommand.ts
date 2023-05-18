@@ -59,8 +59,8 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  *
  * ```
  *
- * @param GetImpersonationRoleEffectCommandInput - {@link GetImpersonationRoleEffectCommandInput}
- * @returns {@link GetImpersonationRoleEffectCommandOutput}
+ * @param GetImpersonationRoleEffectRequest - {@link GetImpersonationRoleEffectRequest}
+ * @returns {@link GetImpersonationRoleEffectResponse}
  * @see {@link GetImpersonationRoleEffectCommandInput} for command's `input` shape.
  * @see {@link GetImpersonationRoleEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

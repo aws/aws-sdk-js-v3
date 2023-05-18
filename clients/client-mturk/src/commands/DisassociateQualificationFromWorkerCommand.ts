@@ -65,8 +65,8 @@ export interface DisassociateQualificationFromWorkerCommandOutput
  *
  * ```
  *
- * @param DisassociateQualificationFromWorkerCommandInput - {@link DisassociateQualificationFromWorkerCommandInput}
- * @returns {@link DisassociateQualificationFromWorkerCommandOutput}
+ * @param DisassociateQualificationFromWorkerRequest - {@link DisassociateQualificationFromWorkerRequest}
+ * @returns {@link DisassociateQualificationFromWorkerResponse}
  * @see {@link DisassociateQualificationFromWorkerCommandInput} for command's `input` shape.
  * @see {@link DisassociateQualificationFromWorkerCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

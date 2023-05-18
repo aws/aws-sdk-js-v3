@@ -60,8 +60,8 @@ export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkR
  *
  * ```
  *
- * @param EnableVpcClassicLinkCommandInput - {@link EnableVpcClassicLinkCommandInput}
- * @returns {@link EnableVpcClassicLinkCommandOutput}
+ * @param EnableVpcClassicLinkRequest - {@link EnableVpcClassicLinkRequest}
+ * @returns {@link EnableVpcClassicLinkResult}
  * @see {@link EnableVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link EnableVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

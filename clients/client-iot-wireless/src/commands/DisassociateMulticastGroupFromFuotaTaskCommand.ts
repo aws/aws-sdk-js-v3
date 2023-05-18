@@ -58,8 +58,8 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
  *
  * ```
  *
- * @param DisassociateMulticastGroupFromFuotaTaskCommandInput - {@link DisassociateMulticastGroupFromFuotaTaskCommandInput}
- * @returns {@link DisassociateMulticastGroupFromFuotaTaskCommandOutput}
+ * @param DisassociateMulticastGroupFromFuotaTaskRequest - {@link DisassociateMulticastGroupFromFuotaTaskRequest}
+ * @returns {@link DisassociateMulticastGroupFromFuotaTaskResponse}
  * @see {@link DisassociateMulticastGroupFromFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DisassociateMulticastGroupFromFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -54,8 +54,8 @@ export interface RejectInvitationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RejectInvitationCommandInput - {@link RejectInvitationCommandInput}
- * @returns {@link RejectInvitationCommandOutput}
+ * @param RejectInvitationRequest - {@link RejectInvitationRequest}
+ * @returns {@link Unit}
  * @see {@link RejectInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

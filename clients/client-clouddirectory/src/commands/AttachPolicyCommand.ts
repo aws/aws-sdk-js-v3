@@ -55,8 +55,8 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  *
  * ```
  *
- * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
- * @returns {@link AttachPolicyCommandOutput}
+ * @param AttachPolicyRequest - {@link AttachPolicyRequest}
+ * @returns {@link AttachPolicyResponse}
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

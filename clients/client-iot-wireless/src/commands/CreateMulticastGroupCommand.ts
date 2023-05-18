@@ -63,8 +63,8 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  *
  * ```
  *
- * @param CreateMulticastGroupCommandInput - {@link CreateMulticastGroupCommandInput}
- * @returns {@link CreateMulticastGroupCommandOutput}
+ * @param CreateMulticastGroupRequest - {@link CreateMulticastGroupRequest}
+ * @returns {@link CreateMulticastGroupResponse}
  * @see {@link CreateMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link CreateMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

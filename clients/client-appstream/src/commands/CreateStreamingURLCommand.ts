@@ -56,8 +56,8 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  *
  * ```
  *
- * @param CreateStreamingURLCommandInput - {@link CreateStreamingURLCommandInput}
- * @returns {@link CreateStreamingURLCommandOutput}
+ * @param CreateStreamingURLRequest - {@link CreateStreamingURLRequest}
+ * @returns {@link CreateStreamingURLResult}
  * @see {@link CreateStreamingURLCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingURLCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

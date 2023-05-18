@@ -66,8 +66,8 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  *
  * ```
  *
- * @param UpdateFirewallPolicyChangeProtectionCommandInput - {@link UpdateFirewallPolicyChangeProtectionCommandInput}
- * @returns {@link UpdateFirewallPolicyChangeProtectionCommandOutput}
+ * @param UpdateFirewallPolicyChangeProtectionRequest - {@link UpdateFirewallPolicyChangeProtectionRequest}
+ * @returns {@link UpdateFirewallPolicyChangeProtectionResponse}
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

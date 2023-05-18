@@ -57,8 +57,8 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
  *
  * ```
  *
- * @param ValidatePipelineCommandInput - {@link ValidatePipelineCommandInput}
- * @returns {@link ValidatePipelineCommandOutput}
+ * @param ValidatePipelineRequest - {@link ValidatePipelineRequest}
+ * @returns {@link ValidatePipelineResponse}
  * @see {@link ValidatePipelineCommandInput} for command's `input` shape.
  * @see {@link ValidatePipelineCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

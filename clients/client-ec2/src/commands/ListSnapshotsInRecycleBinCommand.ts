@@ -64,8 +64,8 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  *
  * ```
  *
- * @param ListSnapshotsInRecycleBinCommandInput - {@link ListSnapshotsInRecycleBinCommandInput}
- * @returns {@link ListSnapshotsInRecycleBinCommandOutput}
+ * @param ListSnapshotsInRecycleBinRequest - {@link ListSnapshotsInRecycleBinRequest}
+ * @returns {@link ListSnapshotsInRecycleBinResult}
  * @see {@link ListSnapshotsInRecycleBinCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotsInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

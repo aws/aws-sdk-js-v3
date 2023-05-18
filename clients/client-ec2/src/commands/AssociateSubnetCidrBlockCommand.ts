@@ -60,8 +60,8 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  *
  * ```
  *
- * @param AssociateSubnetCidrBlockCommandInput - {@link AssociateSubnetCidrBlockCommandInput}
- * @returns {@link AssociateSubnetCidrBlockCommandOutput}
+ * @param AssociateSubnetCidrBlockRequest - {@link AssociateSubnetCidrBlockRequest}
+ * @returns {@link AssociateSubnetCidrBlockResult}
  * @see {@link AssociateSubnetCidrBlockCommandInput} for command's `input` shape.
  * @see {@link AssociateSubnetCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

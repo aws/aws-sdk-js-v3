@@ -174,8 +174,8 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  *
  * ```
  *
- * @param SendRawEmailCommandInput - {@link SendRawEmailCommandInput}
- * @returns {@link SendRawEmailCommandOutput}
+ * @param SendRawEmailRequest - {@link SendRawEmailRequest}
+ * @returns {@link SendRawEmailResponse}
  * @see {@link SendRawEmailCommandInput} for command's `input` shape.
  * @see {@link SendRawEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

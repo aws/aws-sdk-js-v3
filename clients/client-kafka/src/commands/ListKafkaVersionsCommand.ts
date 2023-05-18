@@ -57,8 +57,8 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
  *
  * ```
  *
- * @param ListKafkaVersionsCommandInput - {@link ListKafkaVersionsCommandInput}
- * @returns {@link ListKafkaVersionsCommandOutput}
+ * @param ListKafkaVersionsRequest - {@link ListKafkaVersionsRequest}
+ * @returns {@link ListKafkaVersionsResponse}
  * @see {@link ListKafkaVersionsCommandInput} for command's `input` shape.
  * @see {@link ListKafkaVersionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

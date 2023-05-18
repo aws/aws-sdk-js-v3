@@ -66,8 +66,8 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  *
  * ```
  *
- * @param UpdateDimensionCommandInput - {@link UpdateDimensionCommandInput}
- * @returns {@link UpdateDimensionCommandOutput}
+ * @param UpdateDimensionRequest - {@link UpdateDimensionRequest}
+ * @returns {@link UpdateDimensionResponse}
  * @see {@link UpdateDimensionCommandInput} for command's `input` shape.
  * @see {@link UpdateDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

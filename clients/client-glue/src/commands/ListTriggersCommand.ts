@@ -61,8 +61,8 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  *
  * ```
  *
- * @param ListTriggersCommandInput - {@link ListTriggersCommandInput}
- * @returns {@link ListTriggersCommandOutput}
+ * @param ListTriggersRequest - {@link ListTriggersRequest}
+ * @returns {@link ListTriggersResponse}
  * @see {@link ListTriggersCommandInput} for command's `input` shape.
  * @see {@link ListTriggersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -76,8 +76,8 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param PutBucketOwnershipControlsCommandInput - {@link PutBucketOwnershipControlsCommandInput}
- * @returns {@link PutBucketOwnershipControlsCommandOutput}
+ * @param PutBucketOwnershipControlsRequest - {@link PutBucketOwnershipControlsRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketOwnershipControlsCommandInput} for command's `input` shape.
  * @see {@link PutBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

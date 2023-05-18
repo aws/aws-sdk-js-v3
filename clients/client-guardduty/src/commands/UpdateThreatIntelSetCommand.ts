@@ -52,8 +52,8 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  *
  * ```
  *
- * @param UpdateThreatIntelSetCommandInput - {@link UpdateThreatIntelSetCommandInput}
- * @returns {@link UpdateThreatIntelSetCommandOutput}
+ * @param UpdateThreatIntelSetRequest - {@link UpdateThreatIntelSetRequest}
+ * @returns {@link UpdateThreatIntelSetResponse}
  * @see {@link UpdateThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link UpdateThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

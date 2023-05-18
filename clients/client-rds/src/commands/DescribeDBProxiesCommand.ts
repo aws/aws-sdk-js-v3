@@ -92,8 +92,8 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  *
  * ```
  *
- * @param DescribeDBProxiesCommandInput - {@link DescribeDBProxiesCommandInput}
- * @returns {@link DescribeDBProxiesCommandOutput}
+ * @param DescribeDBProxiesRequest - {@link DescribeDBProxiesRequest}
+ * @returns {@link DescribeDBProxiesResponse}
  * @see {@link DescribeDBProxiesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxiesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

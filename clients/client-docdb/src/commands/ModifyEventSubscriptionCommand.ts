@@ -71,8 +71,8 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *
  * ```
  *
- * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
- * @returns {@link ModifyEventSubscriptionCommandOutput}
+ * @param ModifyEventSubscriptionMessage - {@link ModifyEventSubscriptionMessage}
+ * @returns {@link ModifyEventSubscriptionResult}
  * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

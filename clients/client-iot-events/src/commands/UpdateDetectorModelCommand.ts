@@ -439,8 +439,8 @@ export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelRes
  *
  * ```
  *
- * @param UpdateDetectorModelCommandInput - {@link UpdateDetectorModelCommandInput}
- * @returns {@link UpdateDetectorModelCommandOutput}
+ * @param UpdateDetectorModelRequest - {@link UpdateDetectorModelRequest}
+ * @returns {@link UpdateDetectorModelResponse}
  * @see {@link UpdateDetectorModelCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

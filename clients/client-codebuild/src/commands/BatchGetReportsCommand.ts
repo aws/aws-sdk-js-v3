@@ -95,8 +95,8 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  *
  * ```
  *
- * @param BatchGetReportsCommandInput - {@link BatchGetReportsCommandInput}
- * @returns {@link BatchGetReportsCommandOutput}
+ * @param BatchGetReportsInput - {@link BatchGetReportsInput}
+ * @returns {@link BatchGetReportsOutput}
  * @see {@link BatchGetReportsCommandInput} for command's `input` shape.
  * @see {@link BatchGetReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

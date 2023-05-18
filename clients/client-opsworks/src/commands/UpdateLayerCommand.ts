@@ -119,8 +119,8 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateLayerCommandInput - {@link UpdateLayerCommandInput}
- * @returns {@link UpdateLayerCommandOutput}
+ * @param UpdateLayerRequest - {@link UpdateLayerRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateLayerCommandInput} for command's `input` shape.
  * @see {@link UpdateLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

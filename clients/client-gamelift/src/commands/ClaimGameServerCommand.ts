@@ -105,8 +105,8 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *
  * ```
  *
- * @param ClaimGameServerCommandInput - {@link ClaimGameServerCommandInput}
- * @returns {@link ClaimGameServerCommandOutput}
+ * @param ClaimGameServerInput - {@link ClaimGameServerInput}
+ * @returns {@link ClaimGameServerOutput}
  * @see {@link ClaimGameServerCommandInput} for command's `input` shape.
  * @see {@link ClaimGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

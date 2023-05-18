@@ -83,8 +83,8 @@ export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncry
  *
  * ```
  *
- * @param GetFieldLevelEncryptionCommandInput - {@link GetFieldLevelEncryptionCommandInput}
- * @returns {@link GetFieldLevelEncryptionCommandOutput}
+ * @param GetFieldLevelEncryptionRequest - {@link GetFieldLevelEncryptionRequest}
+ * @returns {@link GetFieldLevelEncryptionResult}
  * @see {@link GetFieldLevelEncryptionCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

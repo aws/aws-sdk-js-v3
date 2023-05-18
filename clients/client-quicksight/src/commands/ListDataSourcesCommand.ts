@@ -288,8 +288,8 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  *
  * ```
  *
- * @param ListDataSourcesCommandInput - {@link ListDataSourcesCommandInput}
- * @returns {@link ListDataSourcesCommandOutput}
+ * @param ListDataSourcesRequest - {@link ListDataSourcesRequest}
+ * @returns {@link ListDataSourcesResponse}
  * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
  * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

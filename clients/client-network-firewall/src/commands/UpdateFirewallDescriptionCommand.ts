@@ -57,8 +57,8 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  *
  * ```
  *
- * @param UpdateFirewallDescriptionCommandInput - {@link UpdateFirewallDescriptionCommandInput}
- * @returns {@link UpdateFirewallDescriptionCommandOutput}
+ * @param UpdateFirewallDescriptionRequest - {@link UpdateFirewallDescriptionRequest}
+ * @returns {@link UpdateFirewallDescriptionResponse}
  * @see {@link UpdateFirewallDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDescriptionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

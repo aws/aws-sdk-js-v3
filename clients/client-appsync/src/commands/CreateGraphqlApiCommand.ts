@@ -159,8 +159,8 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  *
  * ```
  *
- * @param CreateGraphqlApiCommandInput - {@link CreateGraphqlApiCommandInput}
- * @returns {@link CreateGraphqlApiCommandOutput}
+ * @param CreateGraphqlApiRequest - {@link CreateGraphqlApiRequest}
+ * @returns {@link CreateGraphqlApiResponse}
  * @see {@link CreateGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link CreateGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

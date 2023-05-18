@@ -50,8 +50,8 @@ export interface RedactConversationMessageCommandOutput extends RedactConversati
  *
  * ```
  *
- * @param RedactConversationMessageCommandInput - {@link RedactConversationMessageCommandInput}
- * @returns {@link RedactConversationMessageCommandOutput}
+ * @param RedactConversationMessageRequest - {@link RedactConversationMessageRequest}
+ * @returns {@link RedactConversationMessageResponse}
  * @see {@link RedactConversationMessageCommandInput} for command's `input` shape.
  * @see {@link RedactConversationMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

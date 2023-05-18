@@ -55,8 +55,8 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  *
  * ```
  *
- * @param DescribeHealthServiceStatusForOrganizationCommandInput - {@link DescribeHealthServiceStatusForOrganizationCommandInput}
- * @returns {@link DescribeHealthServiceStatusForOrganizationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeHealthServiceStatusForOrganizationResponse}
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

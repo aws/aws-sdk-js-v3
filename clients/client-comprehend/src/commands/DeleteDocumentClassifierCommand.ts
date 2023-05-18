@@ -54,8 +54,8 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  *
  * ```
  *
- * @param DeleteDocumentClassifierCommandInput - {@link DeleteDocumentClassifierCommandInput}
- * @returns {@link DeleteDocumentClassifierCommandOutput}
+ * @param DeleteDocumentClassifierRequest - {@link DeleteDocumentClassifierRequest}
+ * @returns {@link DeleteDocumentClassifierResponse}
  * @see {@link DeleteDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

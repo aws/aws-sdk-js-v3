@@ -167,8 +167,8 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  *
  * ```
  *
- * @param DescribeRulesCommandInput - {@link DescribeRulesCommandInput}
- * @returns {@link DescribeRulesCommandOutput}
+ * @param DescribeRulesInput - {@link DescribeRulesInput}
+ * @returns {@link DescribeRulesOutput}
  * @see {@link DescribeRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

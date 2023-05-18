@@ -89,8 +89,8 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  *
  * ```
  *
- * @param DescribeConfigurationAggregatorsCommandInput - {@link DescribeConfigurationAggregatorsCommandInput}
- * @returns {@link DescribeConfigurationAggregatorsCommandOutput}
+ * @param DescribeConfigurationAggregatorsRequest - {@link DescribeConfigurationAggregatorsRequest}
+ * @returns {@link DescribeConfigurationAggregatorsResponse}
  * @see {@link DescribeConfigurationAggregatorsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationAggregatorsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

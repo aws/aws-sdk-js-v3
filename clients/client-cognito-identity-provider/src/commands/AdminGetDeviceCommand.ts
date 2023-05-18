@@ -74,8 +74,8 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  *
  * ```
  *
- * @param AdminGetDeviceCommandInput - {@link AdminGetDeviceCommandInput}
- * @returns {@link AdminGetDeviceCommandOutput}
+ * @param AdminGetDeviceRequest - {@link AdminGetDeviceRequest}
+ * @returns {@link AdminGetDeviceResponse}
  * @see {@link AdminGetDeviceCommandInput} for command's `input` shape.
  * @see {@link AdminGetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

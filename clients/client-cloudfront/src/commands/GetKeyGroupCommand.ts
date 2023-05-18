@@ -67,8 +67,8 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  *
  * ```
  *
- * @param GetKeyGroupCommandInput - {@link GetKeyGroupCommandInput}
- * @returns {@link GetKeyGroupCommandOutput}
+ * @param GetKeyGroupRequest - {@link GetKeyGroupRequest}
+ * @returns {@link GetKeyGroupResult}
  * @see {@link GetKeyGroupCommandInput} for command's `input` shape.
  * @see {@link GetKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

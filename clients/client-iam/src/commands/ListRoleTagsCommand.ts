@@ -61,8 +61,8 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  *
  * ```
  *
- * @param ListRoleTagsCommandInput - {@link ListRoleTagsCommandInput}
- * @returns {@link ListRoleTagsCommandOutput}
+ * @param ListRoleTagsRequest - {@link ListRoleTagsRequest}
+ * @returns {@link ListRoleTagsResponse}
  * @see {@link ListRoleTagsCommandInput} for command's `input` shape.
  * @see {@link ListRoleTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -52,8 +52,8 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  *
  * ```
  *
- * @param CancelJobRunCommandInput - {@link CancelJobRunCommandInput}
- * @returns {@link CancelJobRunCommandOutput}
+ * @param CancelJobRunRequest - {@link CancelJobRunRequest}
+ * @returns {@link CancelJobRunResponse}
  * @see {@link CancelJobRunCommandInput} for command's `input` shape.
  * @see {@link CancelJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.

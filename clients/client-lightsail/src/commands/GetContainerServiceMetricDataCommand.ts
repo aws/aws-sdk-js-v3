@@ -76,8 +76,8 @@ export interface GetContainerServiceMetricDataCommandOutput
  *
  * ```
  *
- * @param GetContainerServiceMetricDataCommandInput - {@link GetContainerServiceMetricDataCommandInput}
- * @returns {@link GetContainerServiceMetricDataCommandOutput}
+ * @param GetContainerServiceMetricDataRequest - {@link GetContainerServiceMetricDataRequest}
+ * @returns {@link GetContainerServiceMetricDataResult}
  * @see {@link GetContainerServiceMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetContainerServiceMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

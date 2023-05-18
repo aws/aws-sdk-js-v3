@@ -78,8 +78,8 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  *
  * ```
  *
- * @param ListDeviceIdentifiersCommandInput - {@link ListDeviceIdentifiersCommandInput}
- * @returns {@link ListDeviceIdentifiersCommandOutput}
+ * @param ListDeviceIdentifiersRequest - {@link ListDeviceIdentifiersRequest}
+ * @returns {@link ListDeviceIdentifiersResponse}
  * @see {@link ListDeviceIdentifiersCommandInput} for command's `input` shape.
  * @see {@link ListDeviceIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

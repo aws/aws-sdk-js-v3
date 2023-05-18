@@ -77,8 +77,8 @@ export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesRes
  *
  * ```
  *
- * @param GetPartitionIndexesCommandInput - {@link GetPartitionIndexesCommandInput}
- * @returns {@link GetPartitionIndexesCommandOutput}
+ * @param GetPartitionIndexesRequest - {@link GetPartitionIndexesRequest}
+ * @returns {@link GetPartitionIndexesResponse}
  * @see {@link GetPartitionIndexesCommandInput} for command's `input` shape.
  * @see {@link GetPartitionIndexesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

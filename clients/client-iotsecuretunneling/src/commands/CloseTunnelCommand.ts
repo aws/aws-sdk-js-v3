@@ -56,8 +56,8 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  *
  * ```
  *
- * @param CloseTunnelCommandInput - {@link CloseTunnelCommandInput}
- * @returns {@link CloseTunnelCommandOutput}
+ * @param CloseTunnelRequest - {@link CloseTunnelRequest}
+ * @returns {@link CloseTunnelResponse}
  * @see {@link CloseTunnelCommandInput} for command's `input` shape.
  * @see {@link CloseTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.

@@ -78,8 +78,8 @@ export interface DescribeDefaultClusterParametersCommandOutput
  *
  * ```
  *
- * @param DescribeDefaultClusterParametersCommandInput - {@link DescribeDefaultClusterParametersCommandInput}
- * @returns {@link DescribeDefaultClusterParametersCommandOutput}
+ * @param DescribeDefaultClusterParametersMessage - {@link DescribeDefaultClusterParametersMessage}
+ * @returns {@link DescribeDefaultClusterParametersResult}
  * @see {@link DescribeDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

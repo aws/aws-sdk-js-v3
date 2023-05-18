@@ -70,8 +70,8 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  *
  * ```
  *
- * @param DescribeTestCasesCommandInput - {@link DescribeTestCasesCommandInput}
- * @returns {@link DescribeTestCasesCommandOutput}
+ * @param DescribeTestCasesInput - {@link DescribeTestCasesInput}
+ * @returns {@link DescribeTestCasesOutput}
  * @see {@link DescribeTestCasesCommandInput} for command's `input` shape.
  * @see {@link DescribeTestCasesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

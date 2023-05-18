@@ -106,8 +106,8 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  *
  * ```
  *
- * @param CreateDBProxyCommandInput - {@link CreateDBProxyCommandInput}
- * @returns {@link CreateDBProxyCommandOutput}
+ * @param CreateDBProxyRequest - {@link CreateDBProxyRequest}
+ * @returns {@link CreateDBProxyResponse}
  * @see {@link CreateDBProxyCommandInput} for command's `input` shape.
  * @see {@link CreateDBProxyCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

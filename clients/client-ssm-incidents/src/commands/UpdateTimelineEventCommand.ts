@@ -59,8 +59,8 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  *
  * ```
  *
- * @param UpdateTimelineEventCommandInput - {@link UpdateTimelineEventCommandInput}
- * @returns {@link UpdateTimelineEventCommandOutput}
+ * @param UpdateTimelineEventInput - {@link UpdateTimelineEventInput}
+ * @returns {@link UpdateTimelineEventOutput}
  * @see {@link UpdateTimelineEventCommandInput} for command's `input` shape.
  * @see {@link UpdateTimelineEventCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

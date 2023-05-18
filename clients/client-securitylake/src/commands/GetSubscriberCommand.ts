@@ -76,8 +76,8 @@ export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __Met
  *
  * ```
  *
- * @param GetSubscriberCommandInput - {@link GetSubscriberCommandInput}
- * @returns {@link GetSubscriberCommandOutput}
+ * @param GetSubscriberRequest - {@link GetSubscriberRequest}
+ * @returns {@link GetSubscriberResponse}
  * @see {@link GetSubscriberCommandInput} for command's `input` shape.
  * @see {@link GetSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

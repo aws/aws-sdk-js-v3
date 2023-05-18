@@ -51,8 +51,8 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  *
  * ```
  *
- * @param AssociateRoleToGroupCommandInput - {@link AssociateRoleToGroupCommandInput}
- * @returns {@link AssociateRoleToGroupCommandOutput}
+ * @param AssociateRoleToGroupRequest - {@link AssociateRoleToGroupRequest}
+ * @returns {@link AssociateRoleToGroupResponse}
  * @see {@link AssociateRoleToGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateRoleToGroupCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

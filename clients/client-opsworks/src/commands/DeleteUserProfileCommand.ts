@@ -52,8 +52,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
- * @returns {@link DeleteUserProfileCommandOutput}
+ * @param DeleteUserProfileRequest - {@link DeleteUserProfileRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

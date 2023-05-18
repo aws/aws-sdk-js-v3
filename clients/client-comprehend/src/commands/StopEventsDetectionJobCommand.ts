@@ -51,8 +51,8 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  *
  * ```
  *
- * @param StopEventsDetectionJobCommandInput - {@link StopEventsDetectionJobCommandInput}
- * @returns {@link StopEventsDetectionJobCommandOutput}
+ * @param StopEventsDetectionJobRequest - {@link StopEventsDetectionJobRequest}
+ * @returns {@link StopEventsDetectionJobResponse}
  * @see {@link StopEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopEventsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

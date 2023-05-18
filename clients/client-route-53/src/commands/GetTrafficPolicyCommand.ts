@@ -61,8 +61,8 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  *
  * ```
  *
- * @param GetTrafficPolicyCommandInput - {@link GetTrafficPolicyCommandInput}
- * @returns {@link GetTrafficPolicyCommandOutput}
+ * @param GetTrafficPolicyRequest - {@link GetTrafficPolicyRequest}
+ * @returns {@link GetTrafficPolicyResponse}
  * @see {@link GetTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

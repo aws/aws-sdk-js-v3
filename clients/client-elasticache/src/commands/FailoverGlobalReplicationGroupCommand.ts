@@ -84,8 +84,8 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  *
  * ```
  *
- * @param FailoverGlobalReplicationGroupCommandInput - {@link FailoverGlobalReplicationGroupCommandInput}
- * @returns {@link FailoverGlobalReplicationGroupCommandOutput}
+ * @param FailoverGlobalReplicationGroupMessage - {@link FailoverGlobalReplicationGroupMessage}
+ * @returns {@link FailoverGlobalReplicationGroupResult}
  * @see {@link FailoverGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link FailoverGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

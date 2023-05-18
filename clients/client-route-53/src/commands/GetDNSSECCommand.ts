@@ -75,8 +75,8 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  *
  * ```
  *
- * @param GetDNSSECCommandInput - {@link GetDNSSECCommandInput}
- * @returns {@link GetDNSSECCommandOutput}
+ * @param GetDNSSECRequest - {@link GetDNSSECRequest}
+ * @returns {@link GetDNSSECResponse}
  * @see {@link GetDNSSECCommandInput} for command's `input` shape.
  * @see {@link GetDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

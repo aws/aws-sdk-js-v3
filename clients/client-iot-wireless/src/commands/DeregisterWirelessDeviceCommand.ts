@@ -49,8 +49,8 @@ export interface DeregisterWirelessDeviceCommandOutput extends DeregisterWireles
  *
  * ```
  *
- * @param DeregisterWirelessDeviceCommandInput - {@link DeregisterWirelessDeviceCommandInput}
- * @returns {@link DeregisterWirelessDeviceCommandOutput}
+ * @param DeregisterWirelessDeviceRequest - {@link DeregisterWirelessDeviceRequest}
+ * @returns {@link DeregisterWirelessDeviceResponse}
  * @see {@link DeregisterWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link DeregisterWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

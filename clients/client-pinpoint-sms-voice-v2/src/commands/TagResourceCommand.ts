@@ -63,8 +63,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
+ * @param TagResourceRequest - {@link TagResourceRequest}
+ * @returns {@link TagResourceResult}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

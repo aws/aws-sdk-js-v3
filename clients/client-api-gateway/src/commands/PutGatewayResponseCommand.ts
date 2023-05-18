@@ -66,8 +66,8 @@ export interface PutGatewayResponseCommandOutput extends GatewayResponse, __Meta
  *
  * ```
  *
- * @param PutGatewayResponseCommandInput - {@link PutGatewayResponseCommandInput}
- * @returns {@link PutGatewayResponseCommandOutput}
+ * @param PutGatewayResponseRequest - {@link PutGatewayResponseRequest}
+ * @returns {@link GatewayResponse}
  * @see {@link PutGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link PutGatewayResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

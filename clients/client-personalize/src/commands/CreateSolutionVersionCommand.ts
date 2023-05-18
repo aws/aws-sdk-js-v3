@@ -124,8 +124,8 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  *
  * ```
  *
- * @param CreateSolutionVersionCommandInput - {@link CreateSolutionVersionCommandInput}
- * @returns {@link CreateSolutionVersionCommandOutput}
+ * @param CreateSolutionVersionRequest - {@link CreateSolutionVersionRequest}
+ * @returns {@link CreateSolutionVersionResponse}
  * @see {@link CreateSolutionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSolutionVersionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

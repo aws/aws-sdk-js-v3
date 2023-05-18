@@ -86,8 +86,8 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *
  * ```
  *
- * @param DecodeAuthorizationMessageCommandInput - {@link DecodeAuthorizationMessageCommandInput}
- * @returns {@link DecodeAuthorizationMessageCommandOutput}
+ * @param DecodeAuthorizationMessageRequest - {@link DecodeAuthorizationMessageRequest}
+ * @returns {@link DecodeAuthorizationMessageResponse}
  * @see {@link DecodeAuthorizationMessageCommandInput} for command's `input` shape.
  * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.

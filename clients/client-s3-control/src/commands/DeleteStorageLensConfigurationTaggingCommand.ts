@@ -68,8 +68,8 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
  *
  * ```
  *
- * @param DeleteStorageLensConfigurationTaggingCommandInput - {@link DeleteStorageLensConfigurationTaggingCommandInput}
- * @returns {@link DeleteStorageLensConfigurationTaggingCommandOutput}
+ * @param DeleteStorageLensConfigurationTaggingRequest - {@link DeleteStorageLensConfigurationTaggingRequest}
+ * @returns {@link DeleteStorageLensConfigurationTaggingResult}
  * @see {@link DeleteStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

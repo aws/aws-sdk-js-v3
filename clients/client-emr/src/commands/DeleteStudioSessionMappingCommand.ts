@@ -51,8 +51,8 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteStudioSessionMappingCommandInput - {@link DeleteStudioSessionMappingCommandInput}
- * @returns {@link DeleteStudioSessionMappingCommandOutput}
+ * @param DeleteStudioSessionMappingInput - {@link DeleteStudioSessionMappingInput}
+ * @returns {@link Unit}
  * @see {@link DeleteStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

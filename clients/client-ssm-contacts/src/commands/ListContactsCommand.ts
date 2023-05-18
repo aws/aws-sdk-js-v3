@@ -61,8 +61,8 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  *
  * ```
  *
- * @param ListContactsCommandInput - {@link ListContactsCommandInput}
- * @returns {@link ListContactsCommandOutput}
+ * @param ListContactsRequest - {@link ListContactsRequest}
+ * @returns {@link ListContactsResult}
  * @see {@link ListContactsCommandInput} for command's `input` shape.
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

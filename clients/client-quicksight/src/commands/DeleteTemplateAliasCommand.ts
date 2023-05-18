@@ -57,8 +57,8 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  *
  * ```
  *
- * @param DeleteTemplateAliasCommandInput - {@link DeleteTemplateAliasCommandInput}
- * @returns {@link DeleteTemplateAliasCommandOutput}
+ * @param DeleteTemplateAliasRequest - {@link DeleteTemplateAliasRequest}
+ * @returns {@link DeleteTemplateAliasResponse}
  * @see {@link DeleteTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

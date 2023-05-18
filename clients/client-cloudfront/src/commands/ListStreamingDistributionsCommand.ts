@@ -86,8 +86,8 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  *
  * ```
  *
- * @param ListStreamingDistributionsCommandInput - {@link ListStreamingDistributionsCommandInput}
- * @returns {@link ListStreamingDistributionsCommandOutput}
+ * @param ListStreamingDistributionsRequest - {@link ListStreamingDistributionsRequest}
+ * @returns {@link ListStreamingDistributionsResult}
  * @see {@link ListStreamingDistributionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamingDistributionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

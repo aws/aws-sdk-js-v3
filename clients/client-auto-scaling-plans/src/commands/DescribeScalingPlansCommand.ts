@@ -145,8 +145,8 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  *
  * ```
  *
- * @param DescribeScalingPlansCommandInput - {@link DescribeScalingPlansCommandInput}
- * @returns {@link DescribeScalingPlansCommandOutput}
+ * @param DescribeScalingPlansRequest - {@link DescribeScalingPlansRequest}
+ * @returns {@link DescribeScalingPlansResponse}
  * @see {@link DescribeScalingPlansCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPlansCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.

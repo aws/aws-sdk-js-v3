@@ -157,8 +157,8 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  *
  * ```
  *
- * @param GetInAppMessagesCommandInput - {@link GetInAppMessagesCommandInput}
- * @returns {@link GetInAppMessagesCommandOutput}
+ * @param GetInAppMessagesRequest - {@link GetInAppMessagesRequest}
+ * @returns {@link GetInAppMessagesResponse}
  * @see {@link GetInAppMessagesCommandInput} for command's `input` shape.
  * @see {@link GetInAppMessagesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

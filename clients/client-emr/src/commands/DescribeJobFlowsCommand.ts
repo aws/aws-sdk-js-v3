@@ -182,8 +182,8 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  *
  * ```
  *
- * @param DescribeJobFlowsCommandInput - {@link DescribeJobFlowsCommandInput}
- * @returns {@link DescribeJobFlowsCommandOutput}
+ * @param DescribeJobFlowsInput - {@link DescribeJobFlowsInput}
+ * @returns {@link DescribeJobFlowsOutput}
  * @see {@link DescribeJobFlowsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobFlowsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

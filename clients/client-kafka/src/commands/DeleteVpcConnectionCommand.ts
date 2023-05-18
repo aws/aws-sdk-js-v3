@@ -51,8 +51,8 @@ export interface DeleteVpcConnectionCommandOutput extends DeleteVpcConnectionRes
  *
  * ```
  *
- * @param DeleteVpcConnectionCommandInput - {@link DeleteVpcConnectionCommandInput}
- * @returns {@link DeleteVpcConnectionCommandOutput}
+ * @param DeleteVpcConnectionRequest - {@link DeleteVpcConnectionRequest}
+ * @returns {@link DeleteVpcConnectionResponse}
  * @see {@link DeleteVpcConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcConnectionCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

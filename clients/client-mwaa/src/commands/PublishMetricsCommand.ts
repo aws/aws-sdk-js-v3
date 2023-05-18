@@ -69,8 +69,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  *
  * ```
  *
- * @param PublishMetricsCommandInput - {@link PublishMetricsCommandInput}
- * @returns {@link PublishMetricsCommandOutput}
+ * @param PublishMetricsInput - {@link PublishMetricsInput}
+ * @returns {@link PublishMetricsOutput}
  * @see {@link PublishMetricsCommandInput} for command's `input` shape.
  * @see {@link PublishMetricsCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.

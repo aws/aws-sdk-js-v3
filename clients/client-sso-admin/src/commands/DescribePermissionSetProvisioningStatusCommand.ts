@@ -67,8 +67,8 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
  *
  * ```
  *
- * @param DescribePermissionSetProvisioningStatusCommandInput - {@link DescribePermissionSetProvisioningStatusCommandInput}
- * @returns {@link DescribePermissionSetProvisioningStatusCommandOutput}
+ * @param DescribePermissionSetProvisioningStatusRequest - {@link DescribePermissionSetProvisioningStatusRequest}
+ * @returns {@link DescribePermissionSetProvisioningStatusResponse}
  * @see {@link DescribePermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

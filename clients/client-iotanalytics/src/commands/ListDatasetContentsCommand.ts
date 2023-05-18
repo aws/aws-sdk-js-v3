@@ -66,8 +66,8 @@ export interface ListDatasetContentsCommandOutput extends ListDatasetContentsRes
  *
  * ```
  *
- * @param ListDatasetContentsCommandInput - {@link ListDatasetContentsCommandInput}
- * @returns {@link ListDatasetContentsCommandOutput}
+ * @param ListDatasetContentsRequest - {@link ListDatasetContentsRequest}
+ * @returns {@link ListDatasetContentsResponse}
  * @see {@link ListDatasetContentsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetContentsCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

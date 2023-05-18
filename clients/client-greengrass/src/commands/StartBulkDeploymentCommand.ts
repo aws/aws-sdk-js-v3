@@ -56,8 +56,8 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  *
  * ```
  *
- * @param StartBulkDeploymentCommandInput - {@link StartBulkDeploymentCommandInput}
- * @returns {@link StartBulkDeploymentCommandOutput}
+ * @param StartBulkDeploymentRequest - {@link StartBulkDeploymentRequest}
+ * @returns {@link StartBulkDeploymentResponse}
  * @see {@link StartBulkDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartBulkDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

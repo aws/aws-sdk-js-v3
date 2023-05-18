@@ -136,8 +136,8 @@ export interface PutRemediationConfigurationsCommandOutput
  *
  * ```
  *
- * @param PutRemediationConfigurationsCommandInput - {@link PutRemediationConfigurationsCommandInput}
- * @returns {@link PutRemediationConfigurationsCommandOutput}
+ * @param PutRemediationConfigurationsRequest - {@link PutRemediationConfigurationsRequest}
+ * @returns {@link PutRemediationConfigurationsResponse}
  * @see {@link PutRemediationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutRemediationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

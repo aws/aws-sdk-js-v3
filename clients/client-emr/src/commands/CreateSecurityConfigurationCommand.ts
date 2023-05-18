@@ -53,8 +53,8 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  *
  * ```
  *
- * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
- * @returns {@link CreateSecurityConfigurationCommandOutput}
+ * @param CreateSecurityConfigurationInput - {@link CreateSecurityConfigurationInput}
+ * @returns {@link CreateSecurityConfigurationOutput}
  * @see {@link CreateSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

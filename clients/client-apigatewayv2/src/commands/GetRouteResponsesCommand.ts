@@ -68,8 +68,8 @@ export interface GetRouteResponsesCommandOutput extends GetRouteResponsesRespons
  *
  * ```
  *
- * @param GetRouteResponsesCommandInput - {@link GetRouteResponsesCommandInput}
- * @returns {@link GetRouteResponsesCommandOutput}
+ * @param GetRouteResponsesRequest - {@link GetRouteResponsesRequest}
+ * @returns {@link GetRouteResponsesResponse}
  * @see {@link GetRouteResponsesCommandInput} for command's `input` shape.
  * @see {@link GetRouteResponsesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

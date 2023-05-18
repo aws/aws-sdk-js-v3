@@ -67,8 +67,8 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  *
  * ```
  *
- * @param GetSnapshotsCommandInput - {@link GetSnapshotsCommandInput}
- * @returns {@link GetSnapshotsCommandOutput}
+ * @param GetSnapshotsRequest - {@link GetSnapshotsRequest}
+ * @returns {@link GetSnapshotsResponse}
  * @see {@link GetSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

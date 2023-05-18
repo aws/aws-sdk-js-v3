@@ -104,8 +104,8 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  *
  * ```
  *
- * @param CreateThemeCommandInput - {@link CreateThemeCommandInput}
- * @returns {@link CreateThemeCommandOutput}
+ * @param CreateThemeRequest - {@link CreateThemeRequest}
+ * @returns {@link CreateThemeResponse}
  * @see {@link CreateThemeCommandInput} for command's `input` shape.
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

@@ -86,8 +86,8 @@ export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __M
  *
  * ```
  *
- * @param ListReportPlansCommandInput - {@link ListReportPlansCommandInput}
- * @returns {@link ListReportPlansCommandOutput}
+ * @param ListReportPlansInput - {@link ListReportPlansInput}
+ * @returns {@link ListReportPlansOutput}
  * @see {@link ListReportPlansCommandInput} for command's `input` shape.
  * @see {@link ListReportPlansCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

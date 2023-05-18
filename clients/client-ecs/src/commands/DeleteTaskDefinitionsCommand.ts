@@ -334,8 +334,8 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  *
  * ```
  *
- * @param DeleteTaskDefinitionsCommandInput - {@link DeleteTaskDefinitionsCommandInput}
- * @returns {@link DeleteTaskDefinitionsCommandOutput}
+ * @param DeleteTaskDefinitionsRequest - {@link DeleteTaskDefinitionsRequest}
+ * @returns {@link DeleteTaskDefinitionsResponse}
  * @see {@link DeleteTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

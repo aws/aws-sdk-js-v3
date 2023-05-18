@@ -62,8 +62,8 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  *
  * ```
  *
- * @param ListPortfoliosCommandInput - {@link ListPortfoliosCommandInput}
- * @returns {@link ListPortfoliosCommandOutput}
+ * @param ListPortfoliosInput - {@link ListPortfoliosInput}
+ * @returns {@link ListPortfoliosOutput}
  * @see {@link ListPortfoliosCommandInput} for command's `input` shape.
  * @see {@link ListPortfoliosCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

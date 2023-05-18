@@ -56,8 +56,8 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param CancelCertificateTransferCommandInput - {@link CancelCertificateTransferCommandInput}
- * @returns {@link CancelCertificateTransferCommandOutput}
+ * @param CancelCertificateTransferRequest - {@link CancelCertificateTransferRequest}
+ * @returns {@link Unit}
  * @see {@link CancelCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link CancelCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

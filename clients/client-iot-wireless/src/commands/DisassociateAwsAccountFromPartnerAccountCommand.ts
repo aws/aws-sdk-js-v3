@@ -58,8 +58,8 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
  *
  * ```
  *
- * @param DisassociateAwsAccountFromPartnerAccountCommandInput - {@link DisassociateAwsAccountFromPartnerAccountCommandInput}
- * @returns {@link DisassociateAwsAccountFromPartnerAccountCommandOutput}
+ * @param DisassociateAwsAccountFromPartnerAccountRequest - {@link DisassociateAwsAccountFromPartnerAccountRequest}
+ * @returns {@link DisassociateAwsAccountFromPartnerAccountResponse}
  * @see {@link DisassociateAwsAccountFromPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateAwsAccountFromPartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

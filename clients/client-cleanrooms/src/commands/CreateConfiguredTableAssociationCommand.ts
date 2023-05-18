@@ -75,8 +75,8 @@ export interface CreateConfiguredTableAssociationCommandOutput
  *
  * ```
  *
- * @param CreateConfiguredTableAssociationCommandInput - {@link CreateConfiguredTableAssociationCommandInput}
- * @returns {@link CreateConfiguredTableAssociationCommandOutput}
+ * @param CreateConfiguredTableAssociationInput - {@link CreateConfiguredTableAssociationInput}
+ * @returns {@link CreateConfiguredTableAssociationOutput}
  * @see {@link CreateConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

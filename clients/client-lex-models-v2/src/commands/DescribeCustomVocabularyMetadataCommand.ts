@@ -62,8 +62,8 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  *
  * ```
  *
- * @param DescribeCustomVocabularyMetadataCommandInput - {@link DescribeCustomVocabularyMetadataCommandInput}
- * @returns {@link DescribeCustomVocabularyMetadataCommandOutput}
+ * @param DescribeCustomVocabularyMetadataRequest - {@link DescribeCustomVocabularyMetadataRequest}
+ * @returns {@link DescribeCustomVocabularyMetadataResponse}
  * @see {@link DescribeCustomVocabularyMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomVocabularyMetadataCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

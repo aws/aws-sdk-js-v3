@@ -168,8 +168,8 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  *
  * ```
  *
- * @param SearchOrganizationInsightsCommandInput - {@link SearchOrganizationInsightsCommandInput}
- * @returns {@link SearchOrganizationInsightsCommandOutput}
+ * @param SearchOrganizationInsightsRequest - {@link SearchOrganizationInsightsRequest}
+ * @returns {@link SearchOrganizationInsightsResponse}
  * @see {@link SearchOrganizationInsightsCommandInput} for command's `input` shape.
  * @see {@link SearchOrganizationInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

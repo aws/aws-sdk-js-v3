@@ -82,8 +82,8 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *
  * ```
  *
- * @param DeleteSecretCommandInput - {@link DeleteSecretCommandInput}
- * @returns {@link DeleteSecretCommandOutput}
+ * @param DeleteSecretRequest - {@link DeleteSecretRequest}
+ * @returns {@link DeleteSecretResponse}
  * @see {@link DeleteSecretCommandInput} for command's `input` shape.
  * @see {@link DeleteSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

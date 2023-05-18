@@ -50,8 +50,8 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  *
  * ```
  *
- * @param DeleteStackSetCommandInput - {@link DeleteStackSetCommandInput}
- * @returns {@link DeleteStackSetCommandOutput}
+ * @param DeleteStackSetInput - {@link DeleteStackSetInput}
+ * @returns {@link DeleteStackSetOutput}
  * @see {@link DeleteStackSetCommandInput} for command's `input` shape.
  * @see {@link DeleteStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

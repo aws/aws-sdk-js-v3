@@ -51,8 +51,8 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  *
  * ```
  *
- * @param DeleteRegexPatternSetCommandInput - {@link DeleteRegexPatternSetCommandInput}
- * @returns {@link DeleteRegexPatternSetCommandOutput}
+ * @param DeleteRegexPatternSetRequest - {@link DeleteRegexPatternSetRequest}
+ * @returns {@link DeleteRegexPatternSetResponse}
  * @see {@link DeleteRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link DeleteRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

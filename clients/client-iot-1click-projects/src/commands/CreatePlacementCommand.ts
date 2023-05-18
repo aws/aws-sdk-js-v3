@@ -56,8 +56,8 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  *
  * ```
  *
- * @param CreatePlacementCommandInput - {@link CreatePlacementCommandInput}
- * @returns {@link CreatePlacementCommandOutput}
+ * @param CreatePlacementRequest - {@link CreatePlacementRequest}
+ * @returns {@link CreatePlacementResponse}
  * @see {@link CreatePlacementCommandInput} for command's `input` shape.
  * @see {@link CreatePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

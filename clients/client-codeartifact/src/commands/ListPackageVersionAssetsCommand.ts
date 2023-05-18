@@ -76,8 +76,8 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  *
  * ```
  *
- * @param ListPackageVersionAssetsCommandInput - {@link ListPackageVersionAssetsCommandInput}
- * @returns {@link ListPackageVersionAssetsCommandOutput}
+ * @param ListPackageVersionAssetsRequest - {@link ListPackageVersionAssetsRequest}
+ * @returns {@link ListPackageVersionAssetsResult}
  * @see {@link ListPackageVersionAssetsCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionAssetsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

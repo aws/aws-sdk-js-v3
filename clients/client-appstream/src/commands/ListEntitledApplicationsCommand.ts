@@ -58,8 +58,8 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  *
  * ```
  *
- * @param ListEntitledApplicationsCommandInput - {@link ListEntitledApplicationsCommandInput}
- * @returns {@link ListEntitledApplicationsCommandOutput}
+ * @param ListEntitledApplicationsRequest - {@link ListEntitledApplicationsRequest}
+ * @returns {@link ListEntitledApplicationsResult}
  * @see {@link ListEntitledApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListEntitledApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

@@ -64,8 +64,8 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  *
  * ```
  *
- * @param VerifyUserAttributeCommandInput - {@link VerifyUserAttributeCommandInput}
- * @returns {@link VerifyUserAttributeCommandOutput}
+ * @param VerifyUserAttributeRequest - {@link VerifyUserAttributeRequest}
+ * @returns {@link VerifyUserAttributeResponse}
  * @see {@link VerifyUserAttributeCommandInput} for command's `input` shape.
  * @see {@link VerifyUserAttributeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

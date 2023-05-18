@@ -72,8 +72,8 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  *
  * ```
  *
- * @param AssociateResolverQueryLogConfigCommandInput - {@link AssociateResolverQueryLogConfigCommandInput}
- * @returns {@link AssociateResolverQueryLogConfigCommandOutput}
+ * @param AssociateResolverQueryLogConfigRequest - {@link AssociateResolverQueryLogConfigRequest}
+ * @returns {@link AssociateResolverQueryLogConfigResponse}
  * @see {@link AssociateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

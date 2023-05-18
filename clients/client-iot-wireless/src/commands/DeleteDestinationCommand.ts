@@ -48,8 +48,8 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  *
  * ```
  *
- * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
- * @returns {@link DeleteDestinationCommandOutput}
+ * @param DeleteDestinationRequest - {@link DeleteDestinationRequest}
+ * @returns {@link DeleteDestinationResponse}
  * @see {@link DeleteDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

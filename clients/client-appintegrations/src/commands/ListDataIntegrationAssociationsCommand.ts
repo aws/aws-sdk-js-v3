@@ -69,8 +69,8 @@ export interface ListDataIntegrationAssociationsCommandOutput
  *
  * ```
  *
- * @param ListDataIntegrationAssociationsCommandInput - {@link ListDataIntegrationAssociationsCommandInput}
- * @returns {@link ListDataIntegrationAssociationsCommandOutput}
+ * @param ListDataIntegrationAssociationsRequest - {@link ListDataIntegrationAssociationsRequest}
+ * @returns {@link ListDataIntegrationAssociationsResponse}
  * @see {@link ListDataIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDataIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

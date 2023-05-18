@@ -67,8 +67,8 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  *
  * ```
  *
- * @param CreateHomeRegionControlCommandInput - {@link CreateHomeRegionControlCommandInput}
- * @returns {@link CreateHomeRegionControlCommandOutput}
+ * @param CreateHomeRegionControlRequest - {@link CreateHomeRegionControlRequest}
+ * @returns {@link CreateHomeRegionControlResult}
  * @see {@link CreateHomeRegionControlCommandInput} for command's `input` shape.
  * @see {@link CreateHomeRegionControlCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.

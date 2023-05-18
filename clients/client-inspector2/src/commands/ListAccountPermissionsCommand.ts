@@ -58,8 +58,8 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  *
  * ```
  *
- * @param ListAccountPermissionsCommandInput - {@link ListAccountPermissionsCommandInput}
- * @returns {@link ListAccountPermissionsCommandOutput}
+ * @param ListAccountPermissionsRequest - {@link ListAccountPermissionsRequest}
+ * @returns {@link ListAccountPermissionsResponse}
  * @see {@link ListAccountPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListAccountPermissionsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

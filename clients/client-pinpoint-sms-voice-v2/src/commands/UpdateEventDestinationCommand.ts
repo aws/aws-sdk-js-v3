@@ -94,8 +94,8 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  *
  * ```
  *
- * @param UpdateEventDestinationCommandInput - {@link UpdateEventDestinationCommandInput}
- * @returns {@link UpdateEventDestinationCommandOutput}
+ * @param UpdateEventDestinationRequest - {@link UpdateEventDestinationRequest}
+ * @returns {@link UpdateEventDestinationResult}
  * @see {@link UpdateEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

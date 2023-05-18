@@ -60,8 +60,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  *
  * ```
  *
- * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
- * @returns {@link ListArtifactsCommandOutput}
+ * @param ListArtifactsRequest - {@link ListArtifactsRequest}
+ * @returns {@link ListArtifactsResult}
  * @see {@link ListArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

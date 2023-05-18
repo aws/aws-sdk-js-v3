@@ -66,8 +66,8 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  *
  * ```
  *
- * @param CreateUserAccessLoggingSettingsCommandInput - {@link CreateUserAccessLoggingSettingsCommandInput}
- * @returns {@link CreateUserAccessLoggingSettingsCommandOutput}
+ * @param CreateUserAccessLoggingSettingsRequest - {@link CreateUserAccessLoggingSettingsRequest}
+ * @returns {@link CreateUserAccessLoggingSettingsResponse}
  * @see {@link CreateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

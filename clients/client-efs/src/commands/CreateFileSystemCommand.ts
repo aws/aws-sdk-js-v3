@@ -137,8 +137,8 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *
  * ```
  *
- * @param CreateFileSystemCommandInput - {@link CreateFileSystemCommandInput}
- * @returns {@link CreateFileSystemCommandOutput}
+ * @param CreateFileSystemRequest - {@link CreateFileSystemRequest}
+ * @returns {@link FileSystemDescription}
  * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

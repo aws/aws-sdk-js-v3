@@ -51,8 +51,8 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  *
  * ```
  *
- * @param DeleteThingCommandInput - {@link DeleteThingCommandInput}
- * @returns {@link DeleteThingCommandOutput}
+ * @param DeleteThingRequest - {@link DeleteThingRequest}
+ * @returns {@link DeleteThingResponse}
  * @see {@link DeleteThingCommandInput} for command's `input` shape.
  * @see {@link DeleteThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

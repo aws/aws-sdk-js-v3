@@ -60,8 +60,8 @@ export interface StartMonitoringMembersCommandOutput extends StartMonitoringMemb
  *
  * ```
  *
- * @param StartMonitoringMembersCommandInput - {@link StartMonitoringMembersCommandInput}
- * @returns {@link StartMonitoringMembersCommandOutput}
+ * @param StartMonitoringMembersRequest - {@link StartMonitoringMembersRequest}
+ * @returns {@link StartMonitoringMembersResponse}
  * @see {@link StartMonitoringMembersCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

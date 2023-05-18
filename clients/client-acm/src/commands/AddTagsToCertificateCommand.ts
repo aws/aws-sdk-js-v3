@@ -67,8 +67,8 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddTagsToCertificateCommandInput - {@link AddTagsToCertificateCommandInput}
- * @returns {@link AddTagsToCertificateCommandOutput}
+ * @param AddTagsToCertificateRequest - {@link AddTagsToCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link AddTagsToCertificateCommandInput} for command's `input` shape.
  * @see {@link AddTagsToCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

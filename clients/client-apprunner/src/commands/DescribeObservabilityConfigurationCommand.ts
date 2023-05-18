@@ -69,8 +69,8 @@ export interface DescribeObservabilityConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeObservabilityConfigurationCommandInput - {@link DescribeObservabilityConfigurationCommandInput}
- * @returns {@link DescribeObservabilityConfigurationCommandOutput}
+ * @param DescribeObservabilityConfigurationRequest - {@link DescribeObservabilityConfigurationRequest}
+ * @returns {@link DescribeObservabilityConfigurationResponse}
  * @see {@link DescribeObservabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeObservabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

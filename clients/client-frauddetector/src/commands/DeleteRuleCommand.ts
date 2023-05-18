@@ -53,8 +53,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  *
  * ```
  *
- * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
- * @returns {@link DeleteRuleCommandOutput}
+ * @param DeleteRuleRequest - {@link DeleteRuleRequest}
+ * @returns {@link DeleteRuleResult}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

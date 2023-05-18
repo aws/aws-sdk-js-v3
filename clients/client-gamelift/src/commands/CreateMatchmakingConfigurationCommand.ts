@@ -131,8 +131,8 @@ export interface CreateMatchmakingConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateMatchmakingConfigurationCommandInput - {@link CreateMatchmakingConfigurationCommandInput}
- * @returns {@link CreateMatchmakingConfigurationCommandOutput}
+ * @param CreateMatchmakingConfigurationInput - {@link CreateMatchmakingConfigurationInput}
+ * @returns {@link CreateMatchmakingConfigurationOutput}
  * @see {@link CreateMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

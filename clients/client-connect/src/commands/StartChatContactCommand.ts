@@ -94,8 +94,8 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *
  * ```
  *
- * @param StartChatContactCommandInput - {@link StartChatContactCommandInput}
- * @returns {@link StartChatContactCommandOutput}
+ * @param StartChatContactRequest - {@link StartChatContactRequest}
+ * @returns {@link StartChatContactResponse}
  * @see {@link StartChatContactCommandInput} for command's `input` shape.
  * @see {@link StartChatContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

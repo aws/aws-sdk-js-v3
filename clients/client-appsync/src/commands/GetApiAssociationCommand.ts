@@ -55,8 +55,8 @@ export interface GetApiAssociationCommandOutput extends GetApiAssociationRespons
  *
  * ```
  *
- * @param GetApiAssociationCommandInput - {@link GetApiAssociationCommandInput}
- * @returns {@link GetApiAssociationCommandOutput}
+ * @param GetApiAssociationRequest - {@link GetApiAssociationRequest}
+ * @returns {@link GetApiAssociationResponse}
  * @see {@link GetApiAssociationCommandInput} for command's `input` shape.
  * @see {@link GetApiAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

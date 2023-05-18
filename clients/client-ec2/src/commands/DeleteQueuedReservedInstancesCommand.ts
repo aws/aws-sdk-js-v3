@@ -68,8 +68,8 @@ export interface DeleteQueuedReservedInstancesCommandOutput
  *
  * ```
  *
- * @param DeleteQueuedReservedInstancesCommandInput - {@link DeleteQueuedReservedInstancesCommandInput}
- * @returns {@link DeleteQueuedReservedInstancesCommandOutput}
+ * @param DeleteQueuedReservedInstancesRequest - {@link DeleteQueuedReservedInstancesRequest}
+ * @returns {@link DeleteQueuedReservedInstancesResult}
  * @see {@link DeleteQueuedReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

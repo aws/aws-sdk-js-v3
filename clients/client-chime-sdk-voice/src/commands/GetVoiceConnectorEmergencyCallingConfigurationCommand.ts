@@ -68,8 +68,8 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  *
  * ```
  *
- * @param GetVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput}
- * @returns {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput}
+ * @param GetVoiceConnectorEmergencyCallingConfigurationRequest - {@link GetVoiceConnectorEmergencyCallingConfigurationRequest}
+ * @returns {@link GetVoiceConnectorEmergencyCallingConfigurationResponse}
  * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

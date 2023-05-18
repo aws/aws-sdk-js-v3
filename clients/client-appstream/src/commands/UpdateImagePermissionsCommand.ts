@@ -53,8 +53,8 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  *
  * ```
  *
- * @param UpdateImagePermissionsCommandInput - {@link UpdateImagePermissionsCommandInput}
- * @returns {@link UpdateImagePermissionsCommandOutput}
+ * @param UpdateImagePermissionsRequest - {@link UpdateImagePermissionsRequest}
+ * @returns {@link UpdateImagePermissionsResult}
  * @see {@link UpdateImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

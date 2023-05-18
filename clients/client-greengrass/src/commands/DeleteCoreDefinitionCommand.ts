@@ -48,8 +48,8 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  *
  * ```
  *
- * @param DeleteCoreDefinitionCommandInput - {@link DeleteCoreDefinitionCommandInput}
- * @returns {@link DeleteCoreDefinitionCommandOutput}
+ * @param DeleteCoreDefinitionRequest - {@link DeleteCoreDefinitionRequest}
+ * @returns {@link DeleteCoreDefinitionResponse}
  * @see {@link DeleteCoreDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

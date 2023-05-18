@@ -58,8 +58,8 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  *
  * ```
  *
- * @param CreateContactFlowModuleCommandInput - {@link CreateContactFlowModuleCommandInput}
- * @returns {@link CreateContactFlowModuleCommandOutput}
+ * @param CreateContactFlowModuleRequest - {@link CreateContactFlowModuleRequest}
+ * @returns {@link CreateContactFlowModuleResponse}
  * @see {@link CreateContactFlowModuleCommandInput} for command's `input` shape.
  * @see {@link CreateContactFlowModuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

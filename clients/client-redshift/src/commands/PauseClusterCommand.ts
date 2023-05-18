@@ -221,8 +221,8 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  *
  * ```
  *
- * @param PauseClusterCommandInput - {@link PauseClusterCommandInput}
- * @returns {@link PauseClusterCommandOutput}
+ * @param PauseClusterMessage - {@link PauseClusterMessage}
+ * @returns {@link PauseClusterResult}
  * @see {@link PauseClusterCommandInput} for command's `input` shape.
  * @see {@link PauseClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

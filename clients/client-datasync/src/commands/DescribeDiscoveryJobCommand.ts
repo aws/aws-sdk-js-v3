@@ -55,8 +55,8 @@ export interface DescribeDiscoveryJobCommandOutput extends DescribeDiscoveryJobR
  *
  * ```
  *
- * @param DescribeDiscoveryJobCommandInput - {@link DescribeDiscoveryJobCommandInput}
- * @returns {@link DescribeDiscoveryJobCommandOutput}
+ * @param DescribeDiscoveryJobRequest - {@link DescribeDiscoveryJobRequest}
+ * @returns {@link DescribeDiscoveryJobResponse}
  * @see {@link DescribeDiscoveryJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDiscoveryJobCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

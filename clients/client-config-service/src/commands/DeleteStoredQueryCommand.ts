@@ -48,8 +48,8 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  *
  * ```
  *
- * @param DeleteStoredQueryCommandInput - {@link DeleteStoredQueryCommandInput}
- * @returns {@link DeleteStoredQueryCommandOutput}
+ * @param DeleteStoredQueryRequest - {@link DeleteStoredQueryRequest}
+ * @returns {@link DeleteStoredQueryResponse}
  * @see {@link DeleteStoredQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteStoredQueryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

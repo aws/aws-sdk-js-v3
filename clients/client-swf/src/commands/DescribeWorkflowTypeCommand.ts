@@ -111,8 +111,8 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  *
  * ```
  *
- * @param DescribeWorkflowTypeCommandInput - {@link DescribeWorkflowTypeCommandInput}
- * @returns {@link DescribeWorkflowTypeCommandOutput}
+ * @param DescribeWorkflowTypeInput - {@link DescribeWorkflowTypeInput}
+ * @returns {@link WorkflowTypeDetail}
  * @see {@link DescribeWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

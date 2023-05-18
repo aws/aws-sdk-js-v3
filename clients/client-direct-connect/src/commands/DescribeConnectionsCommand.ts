@@ -87,8 +87,8 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
  *
  * ```
  *
- * @param DescribeConnectionsCommandInput - {@link DescribeConnectionsCommandInput}
- * @returns {@link DescribeConnectionsCommandOutput}
+ * @param DescribeConnectionsRequest - {@link DescribeConnectionsRequest}
+ * @returns {@link Connections}
  * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

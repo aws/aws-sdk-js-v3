@@ -67,8 +67,8 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  *
  * ```
  *
- * @param StartDataCollectionByAgentIdsCommandInput - {@link StartDataCollectionByAgentIdsCommandInput}
- * @returns {@link StartDataCollectionByAgentIdsCommandOutput}
+ * @param StartDataCollectionByAgentIdsRequest - {@link StartDataCollectionByAgentIdsRequest}
+ * @returns {@link StartDataCollectionByAgentIdsResponse}
  * @see {@link StartDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StartDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

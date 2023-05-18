@@ -68,8 +68,8 @@ export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPa
  *
  * ```
  *
- * @param CreateSolNetworkPackageCommandInput - {@link CreateSolNetworkPackageCommandInput}
- * @returns {@link CreateSolNetworkPackageCommandOutput}
+ * @param CreateSolNetworkPackageInput - {@link CreateSolNetworkPackageInput}
+ * @returns {@link CreateSolNetworkPackageOutput}
  * @see {@link CreateSolNetworkPackageCommandInput} for command's `input` shape.
  * @see {@link CreateSolNetworkPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

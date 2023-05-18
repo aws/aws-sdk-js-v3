@@ -52,8 +52,8 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  *
  * ```
  *
- * @param UpdateResourcePositionCommandInput - {@link UpdateResourcePositionCommandInput}
- * @returns {@link UpdateResourcePositionCommandOutput}
+ * @param UpdateResourcePositionRequest - {@link UpdateResourcePositionRequest}
+ * @returns {@link UpdateResourcePositionResponse}
  * @see {@link UpdateResourcePositionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourcePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

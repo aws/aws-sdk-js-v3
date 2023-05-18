@@ -71,8 +71,8 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  *
  * ```
  *
- * @param ListBillingGroupCostReportsCommandInput - {@link ListBillingGroupCostReportsCommandInput}
- * @returns {@link ListBillingGroupCostReportsCommandOutput}
+ * @param ListBillingGroupCostReportsInput - {@link ListBillingGroupCostReportsInput}
+ * @returns {@link ListBillingGroupCostReportsOutput}
  * @see {@link ListBillingGroupCostReportsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupCostReportsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

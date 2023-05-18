@@ -229,8 +229,8 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  *
  * ```
  *
- * @param GetTraceSummariesCommandInput - {@link GetTraceSummariesCommandInput}
- * @returns {@link GetTraceSummariesCommandOutput}
+ * @param GetTraceSummariesRequest - {@link GetTraceSummariesRequest}
+ * @returns {@link GetTraceSummariesResult}
  * @see {@link GetTraceSummariesCommandInput} for command's `input` shape.
  * @see {@link GetTraceSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

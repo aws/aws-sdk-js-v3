@@ -63,8 +63,8 @@ export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckR
  *
  * ```
  *
- * @param CreateReadinessCheckCommandInput - {@link CreateReadinessCheckCommandInput}
- * @returns {@link CreateReadinessCheckCommandOutput}
+ * @param CreateReadinessCheckRequest - {@link CreateReadinessCheckRequest}
+ * @returns {@link CreateReadinessCheckResponse}
  * @see {@link CreateReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link CreateReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

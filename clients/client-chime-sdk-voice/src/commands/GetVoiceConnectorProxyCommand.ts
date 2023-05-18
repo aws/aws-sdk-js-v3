@@ -62,8 +62,8 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  *
  * ```
  *
- * @param GetVoiceConnectorProxyCommandInput - {@link GetVoiceConnectorProxyCommandInput}
- * @returns {@link GetVoiceConnectorProxyCommandOutput}
+ * @param GetVoiceConnectorProxyRequest - {@link GetVoiceConnectorProxyRequest}
+ * @returns {@link GetVoiceConnectorProxyResponse}
  * @see {@link GetVoiceConnectorProxyCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorProxyCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

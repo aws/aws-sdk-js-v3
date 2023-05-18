@@ -56,8 +56,8 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  *
  * ```
  *
- * @param DeleteBackupVaultLockConfigurationCommandInput - {@link DeleteBackupVaultLockConfigurationCommandInput}
- * @returns {@link DeleteBackupVaultLockConfigurationCommandOutput}
+ * @param DeleteBackupVaultLockConfigurationInput - {@link DeleteBackupVaultLockConfigurationInput}
+ * @returns {@link Unit}
  * @see {@link DeleteBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

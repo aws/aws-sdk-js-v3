@@ -56,8 +56,8 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AdminAddUserToGroupCommandInput - {@link AdminAddUserToGroupCommandInput}
- * @returns {@link AdminAddUserToGroupCommandOutput}
+ * @param AdminAddUserToGroupRequest - {@link AdminAddUserToGroupRequest}
+ * @returns {@link Unit}
  * @see {@link AdminAddUserToGroupCommandInput} for command's `input` shape.
  * @see {@link AdminAddUserToGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

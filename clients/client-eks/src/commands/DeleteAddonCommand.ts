@@ -84,8 +84,8 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  *
  * ```
  *
- * @param DeleteAddonCommandInput - {@link DeleteAddonCommandInput}
- * @returns {@link DeleteAddonCommandOutput}
+ * @param DeleteAddonRequest - {@link DeleteAddonRequest}
+ * @returns {@link DeleteAddonResponse}
  * @see {@link DeleteAddonCommandInput} for command's `input` shape.
  * @see {@link DeleteAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

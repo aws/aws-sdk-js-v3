@@ -63,8 +63,8 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  *
  * ```
  *
- * @param ListDiscoveredResourcesCommandInput - {@link ListDiscoveredResourcesCommandInput}
- * @returns {@link ListDiscoveredResourcesCommandOutput}
+ * @param ListDiscoveredResourcesRequest - {@link ListDiscoveredResourcesRequest}
+ * @returns {@link ListDiscoveredResourcesResponse}
  * @see {@link ListDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDiscoveredResourcesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

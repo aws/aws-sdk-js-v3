@@ -128,8 +128,8 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  *
  * ```
  *
- * @param UpdateWorkloadCommandInput - {@link UpdateWorkloadCommandInput}
- * @returns {@link UpdateWorkloadCommandOutput}
+ * @param UpdateWorkloadInput - {@link UpdateWorkloadInput}
+ * @returns {@link UpdateWorkloadOutput}
  * @see {@link UpdateWorkloadCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

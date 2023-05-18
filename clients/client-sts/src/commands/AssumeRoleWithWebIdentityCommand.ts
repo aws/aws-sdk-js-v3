@@ -205,8 +205,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *
  * ```
  *
- * @param AssumeRoleWithWebIdentityCommandInput - {@link AssumeRoleWithWebIdentityCommandInput}
- * @returns {@link AssumeRoleWithWebIdentityCommandOutput}
+ * @param AssumeRoleWithWebIdentityRequest - {@link AssumeRoleWithWebIdentityRequest}
+ * @returns {@link AssumeRoleWithWebIdentityResponse}
  * @see {@link AssumeRoleWithWebIdentityCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleWithWebIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.

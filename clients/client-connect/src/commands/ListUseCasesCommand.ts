@@ -60,8 +60,8 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  *
  * ```
  *
- * @param ListUseCasesCommandInput - {@link ListUseCasesCommandInput}
- * @returns {@link ListUseCasesCommandOutput}
+ * @param ListUseCasesRequest - {@link ListUseCasesRequest}
+ * @returns {@link ListUseCasesResponse}
  * @see {@link ListUseCasesCommandInput} for command's `input` shape.
  * @see {@link ListUseCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

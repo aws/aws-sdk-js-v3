@@ -65,8 +65,8 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  *
  * ```
  *
- * @param ListAlgorithmsCommandInput - {@link ListAlgorithmsCommandInput}
- * @returns {@link ListAlgorithmsCommandOutput}
+ * @param ListAlgorithmsInput - {@link ListAlgorithmsInput}
+ * @returns {@link ListAlgorithmsOutput}
  * @see {@link ListAlgorithmsCommandInput} for command's `input` shape.
  * @see {@link ListAlgorithmsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

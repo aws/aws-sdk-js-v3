@@ -87,8 +87,8 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  *
  * ```
  *
- * @param CreateLanguageModelCommandInput - {@link CreateLanguageModelCommandInput}
- * @returns {@link CreateLanguageModelCommandOutput}
+ * @param CreateLanguageModelRequest - {@link CreateLanguageModelRequest}
+ * @returns {@link CreateLanguageModelResponse}
  * @see {@link CreateLanguageModelCommandInput} for command's `input` shape.
  * @see {@link CreateLanguageModelCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

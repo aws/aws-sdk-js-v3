@@ -61,8 +61,8 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  *
  * ```
  *
- * @param DescribeDatasetGroupCommandInput - {@link DescribeDatasetGroupCommandInput}
- * @returns {@link DescribeDatasetGroupCommandOutput}
+ * @param DescribeDatasetGroupRequest - {@link DescribeDatasetGroupRequest}
+ * @returns {@link DescribeDatasetGroupResponse}
  * @see {@link DescribeDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

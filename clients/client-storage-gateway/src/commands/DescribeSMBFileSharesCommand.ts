@@ -98,8 +98,8 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  *
  * ```
  *
- * @param DescribeSMBFileSharesCommandInput - {@link DescribeSMBFileSharesCommandInput}
- * @returns {@link DescribeSMBFileSharesCommandOutput}
+ * @param DescribeSMBFileSharesInput - {@link DescribeSMBFileSharesInput}
+ * @returns {@link DescribeSMBFileSharesOutput}
  * @see {@link DescribeSMBFileSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeSMBFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -91,8 +91,8 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  *
  * ```
  *
- * @param GetBackupPlanFromJSONCommandInput - {@link GetBackupPlanFromJSONCommandInput}
- * @returns {@link GetBackupPlanFromJSONCommandOutput}
+ * @param GetBackupPlanFromJSONInput - {@link GetBackupPlanFromJSONInput}
+ * @returns {@link GetBackupPlanFromJSONOutput}
  * @see {@link GetBackupPlanFromJSONCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanFromJSONCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

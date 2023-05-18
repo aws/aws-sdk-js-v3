@@ -58,8 +58,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *
  * ```
  *
- * @param CreateModelCommandInput - {@link CreateModelCommandInput}
- * @returns {@link CreateModelCommandOutput}
+ * @param CreateModelRequest - {@link CreateModelRequest}
+ * @returns {@link CreateModelResponse}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

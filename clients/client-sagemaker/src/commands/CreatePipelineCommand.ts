@@ -69,8 +69,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *
  * ```
  *
- * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
- * @returns {@link CreatePipelineCommandOutput}
+ * @param CreatePipelineRequest - {@link CreatePipelineRequest}
+ * @returns {@link CreatePipelineResponse}
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

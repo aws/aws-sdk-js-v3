@@ -62,8 +62,8 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  *
  * ```
  *
- * @param DistributeDatasetEntriesCommandInput - {@link DistributeDatasetEntriesCommandInput}
- * @returns {@link DistributeDatasetEntriesCommandOutput}
+ * @param DistributeDatasetEntriesRequest - {@link DistributeDatasetEntriesRequest}
+ * @returns {@link DistributeDatasetEntriesResponse}
  * @see {@link DistributeDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link DistributeDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

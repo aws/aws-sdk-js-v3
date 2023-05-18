@@ -60,8 +60,8 @@ export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataB
  *
  * ```
  *
- * @param GetNetworkCommandInput - {@link GetNetworkCommandInput}
- * @returns {@link GetNetworkCommandOutput}
+ * @param GetNetworkRequest - {@link GetNetworkRequest}
+ * @returns {@link GetNetworkResponse}
  * @see {@link GetNetworkCommandInput} for command's `input` shape.
  * @see {@link GetNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

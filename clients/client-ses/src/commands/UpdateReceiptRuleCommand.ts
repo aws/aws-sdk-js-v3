@@ -98,8 +98,8 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  *
  * ```
  *
- * @param UpdateReceiptRuleCommandInput - {@link UpdateReceiptRuleCommandInput}
- * @returns {@link UpdateReceiptRuleCommandOutput}
+ * @param UpdateReceiptRuleRequest - {@link UpdateReceiptRuleRequest}
+ * @returns {@link UpdateReceiptRuleResponse}
  * @see {@link UpdateReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

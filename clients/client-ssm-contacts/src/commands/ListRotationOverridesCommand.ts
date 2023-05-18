@@ -65,8 +65,8 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  *
  * ```
  *
- * @param ListRotationOverridesCommandInput - {@link ListRotationOverridesCommandInput}
- * @returns {@link ListRotationOverridesCommandOutput}
+ * @param ListRotationOverridesRequest - {@link ListRotationOverridesRequest}
+ * @returns {@link ListRotationOverridesResult}
  * @see {@link ListRotationOverridesCommandInput} for command's `input` shape.
  * @see {@link ListRotationOverridesCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

@@ -134,8 +134,8 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  *
  * ```
  *
- * @param CreateIntegrationWorkflowCommandInput - {@link CreateIntegrationWorkflowCommandInput}
- * @returns {@link CreateIntegrationWorkflowCommandOutput}
+ * @param CreateIntegrationWorkflowRequest - {@link CreateIntegrationWorkflowRequest}
+ * @returns {@link CreateIntegrationWorkflowResponse}
  * @see {@link CreateIntegrationWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationWorkflowCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

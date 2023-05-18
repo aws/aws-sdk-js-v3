@@ -97,8 +97,8 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  *
  * ```
  *
- * @param DescribeGameSessionQueuesCommandInput - {@link DescribeGameSessionQueuesCommandInput}
- * @returns {@link DescribeGameSessionQueuesCommandOutput}
+ * @param DescribeGameSessionQueuesInput - {@link DescribeGameSessionQueuesInput}
+ * @returns {@link DescribeGameSessionQueuesOutput}
  * @see {@link DescribeGameSessionQueuesCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionQueuesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

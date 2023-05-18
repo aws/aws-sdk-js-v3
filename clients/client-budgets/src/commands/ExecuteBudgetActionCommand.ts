@@ -58,8 +58,8 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  *
  * ```
  *
- * @param ExecuteBudgetActionCommandInput - {@link ExecuteBudgetActionCommandInput}
- * @returns {@link ExecuteBudgetActionCommandOutput}
+ * @param ExecuteBudgetActionRequest - {@link ExecuteBudgetActionRequest}
+ * @returns {@link ExecuteBudgetActionResponse}
  * @see {@link ExecuteBudgetActionCommandInput} for command's `input` shape.
  * @see {@link ExecuteBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

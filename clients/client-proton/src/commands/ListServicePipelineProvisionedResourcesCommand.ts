@@ -67,8 +67,8 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
  *
  * ```
  *
- * @param ListServicePipelineProvisionedResourcesCommandInput - {@link ListServicePipelineProvisionedResourcesCommandInput}
- * @returns {@link ListServicePipelineProvisionedResourcesCommandOutput}
+ * @param ListServicePipelineProvisionedResourcesInput - {@link ListServicePipelineProvisionedResourcesInput}
+ * @returns {@link ListServicePipelineProvisionedResourcesOutput}
  * @see {@link ListServicePipelineProvisionedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListServicePipelineProvisionedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

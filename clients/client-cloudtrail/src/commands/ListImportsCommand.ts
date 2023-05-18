@@ -65,8 +65,8 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  *
  * ```
  *
- * @param ListImportsCommandInput - {@link ListImportsCommandInput}
- * @returns {@link ListImportsCommandOutput}
+ * @param ListImportsRequest - {@link ListImportsRequest}
+ * @returns {@link ListImportsResponse}
  * @see {@link ListImportsCommandInput} for command's `input` shape.
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteOpenIDConnectProviderCommandInput - {@link DeleteOpenIDConnectProviderCommandInput}
- * @returns {@link DeleteOpenIDConnectProviderCommandOutput}
+ * @param DeleteOpenIDConnectProviderRequest - {@link DeleteOpenIDConnectProviderRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

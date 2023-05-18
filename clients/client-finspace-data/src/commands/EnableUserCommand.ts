@@ -51,8 +51,8 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
  *
  * ```
  *
- * @param EnableUserCommandInput - {@link EnableUserCommandInput}
- * @returns {@link EnableUserCommandOutput}
+ * @param EnableUserRequest - {@link EnableUserRequest}
+ * @returns {@link EnableUserResponse}
  * @see {@link EnableUserCommandInput} for command's `input` shape.
  * @see {@link EnableUserCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

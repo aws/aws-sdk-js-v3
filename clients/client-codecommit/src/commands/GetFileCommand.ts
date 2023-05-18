@@ -57,8 +57,8 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetFileCommandInput - {@link GetFileCommandInput}
- * @returns {@link GetFileCommandOutput}
+ * @param GetFileInput - {@link GetFileInput}
+ * @returns {@link GetFileOutput}
  * @see {@link GetFileCommandInput} for command's `input` shape.
  * @see {@link GetFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

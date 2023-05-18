@@ -83,8 +83,8 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  *
  * ```
  *
- * @param CreateQuerySuggestionsBlockListCommandInput - {@link CreateQuerySuggestionsBlockListCommandInput}
- * @returns {@link CreateQuerySuggestionsBlockListCommandOutput}
+ * @param CreateQuerySuggestionsBlockListRequest - {@link CreateQuerySuggestionsBlockListRequest}
+ * @returns {@link CreateQuerySuggestionsBlockListResponse}
  * @see {@link CreateQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link CreateQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

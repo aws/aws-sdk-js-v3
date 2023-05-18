@@ -61,8 +61,8 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  *
  * ```
  *
- * @param StartContactEvaluationCommandInput - {@link StartContactEvaluationCommandInput}
- * @returns {@link StartContactEvaluationCommandOutput}
+ * @param StartContactEvaluationRequest - {@link StartContactEvaluationRequest}
+ * @returns {@link StartContactEvaluationResponse}
  * @see {@link StartContactEvaluationCommandInput} for command's `input` shape.
  * @see {@link StartContactEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

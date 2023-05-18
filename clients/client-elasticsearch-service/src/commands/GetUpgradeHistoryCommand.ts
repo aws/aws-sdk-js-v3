@@ -73,8 +73,8 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  *
  * ```
  *
- * @param GetUpgradeHistoryCommandInput - {@link GetUpgradeHistoryCommandInput}
- * @returns {@link GetUpgradeHistoryCommandOutput}
+ * @param GetUpgradeHistoryRequest - {@link GetUpgradeHistoryRequest}
+ * @returns {@link GetUpgradeHistoryResponse}
  * @see {@link GetUpgradeHistoryCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeHistoryCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

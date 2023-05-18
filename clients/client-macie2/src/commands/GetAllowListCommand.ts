@@ -69,8 +69,8 @@ export interface GetAllowListCommandOutput extends GetAllowListResponse, __Metad
  *
  * ```
  *
- * @param GetAllowListCommandInput - {@link GetAllowListCommandInput}
- * @returns {@link GetAllowListCommandOutput}
+ * @param GetAllowListRequest - {@link GetAllowListRequest}
+ * @returns {@link GetAllowListResponse}
  * @see {@link GetAllowListCommandInput} for command's `input` shape.
  * @see {@link GetAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

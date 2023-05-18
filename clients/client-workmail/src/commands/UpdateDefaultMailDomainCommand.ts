@@ -49,8 +49,8 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  *
  * ```
  *
- * @param UpdateDefaultMailDomainCommandInput - {@link UpdateDefaultMailDomainCommandInput}
- * @returns {@link UpdateDefaultMailDomainCommandOutput}
+ * @param UpdateDefaultMailDomainRequest - {@link UpdateDefaultMailDomainRequest}
+ * @returns {@link UpdateDefaultMailDomainResponse}
  * @see {@link UpdateDefaultMailDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDefaultMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

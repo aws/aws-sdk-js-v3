@@ -801,8 +801,8 @@ export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __Met
  *
  * ```
  *
- * @param UpdateJourneyCommandInput - {@link UpdateJourneyCommandInput}
- * @returns {@link UpdateJourneyCommandOutput}
+ * @param UpdateJourneyRequest - {@link UpdateJourneyRequest}
+ * @returns {@link UpdateJourneyResponse}
  * @see {@link UpdateJourneyCommandInput} for command's `input` shape.
  * @see {@link UpdateJourneyCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

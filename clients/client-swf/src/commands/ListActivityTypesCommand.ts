@@ -94,8 +94,8 @@ export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __Met
  *
  * ```
  *
- * @param ListActivityTypesCommandInput - {@link ListActivityTypesCommandInput}
- * @returns {@link ListActivityTypesCommandOutput}
+ * @param ListActivityTypesInput - {@link ListActivityTypesInput}
+ * @returns {@link ActivityTypeInfos}
  * @see {@link ListActivityTypesCommandInput} for command's `input` shape.
  * @see {@link ListActivityTypesCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

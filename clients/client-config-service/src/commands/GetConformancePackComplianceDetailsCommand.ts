@@ -89,8 +89,8 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  *
  * ```
  *
- * @param GetConformancePackComplianceDetailsCommandInput - {@link GetConformancePackComplianceDetailsCommandInput}
- * @returns {@link GetConformancePackComplianceDetailsCommandOutput}
+ * @param GetConformancePackComplianceDetailsRequest - {@link GetConformancePackComplianceDetailsRequest}
+ * @returns {@link GetConformancePackComplianceDetailsResponse}
  * @see {@link GetConformancePackComplianceDetailsCommandInput} for command's `input` shape.
  * @see {@link GetConformancePackComplianceDetailsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

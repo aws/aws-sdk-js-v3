@@ -59,8 +59,8 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  *
  * ```
  *
- * @param ListServicesByNamespaceCommandInput - {@link ListServicesByNamespaceCommandInput}
- * @returns {@link ListServicesByNamespaceCommandOutput}
+ * @param ListServicesByNamespaceRequest - {@link ListServicesByNamespaceRequest}
+ * @returns {@link ListServicesByNamespaceResponse}
  * @see {@link ListServicesByNamespaceCommandInput} for command's `input` shape.
  * @see {@link ListServicesByNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

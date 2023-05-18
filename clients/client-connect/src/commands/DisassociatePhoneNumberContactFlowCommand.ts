@@ -62,8 +62,8 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  *
  * ```
  *
- * @param DisassociatePhoneNumberContactFlowCommandInput - {@link DisassociatePhoneNumberContactFlowCommandInput}
- * @returns {@link DisassociatePhoneNumberContactFlowCommandOutput}
+ * @param DisassociatePhoneNumberContactFlowRequest - {@link DisassociatePhoneNumberContactFlowRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociatePhoneNumberContactFlowCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumberContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

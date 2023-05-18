@@ -73,8 +73,8 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  *
  * ```
  *
- * @param GetRateBasedRuleCommandInput - {@link GetRateBasedRuleCommandInput}
- * @returns {@link GetRateBasedRuleCommandOutput}
+ * @param GetRateBasedRuleRequest - {@link GetRateBasedRuleRequest}
+ * @returns {@link GetRateBasedRuleResponse}
  * @see {@link GetRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

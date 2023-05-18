@@ -62,8 +62,8 @@ export interface DeleteBaiduChannelCommandOutput extends DeleteBaiduChannelRespo
  *
  * ```
  *
- * @param DeleteBaiduChannelCommandInput - {@link DeleteBaiduChannelCommandInput}
- * @returns {@link DeleteBaiduChannelCommandOutput}
+ * @param DeleteBaiduChannelRequest - {@link DeleteBaiduChannelRequest}
+ * @returns {@link DeleteBaiduChannelResponse}
  * @see {@link DeleteBaiduChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteBaiduChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

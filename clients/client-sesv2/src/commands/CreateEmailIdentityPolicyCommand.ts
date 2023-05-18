@@ -60,8 +60,8 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  *
  * ```
  *
- * @param CreateEmailIdentityPolicyCommandInput - {@link CreateEmailIdentityPolicyCommandInput}
- * @returns {@link CreateEmailIdentityPolicyCommandOutput}
+ * @param CreateEmailIdentityPolicyRequest - {@link CreateEmailIdentityPolicyRequest}
+ * @returns {@link CreateEmailIdentityPolicyResponse}
  * @see {@link CreateEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateEmailIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

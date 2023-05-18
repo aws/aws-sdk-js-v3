@@ -80,8 +80,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *
  * ```
  *
- * @param ListUsersCommandInput - {@link ListUsersCommandInput}
- * @returns {@link ListUsersCommandOutput}
+ * @param ListUsersRequest - {@link ListUsersRequest}
+ * @returns {@link ListUsersResponse}
  * @see {@link ListUsersCommandInput} for command's `input` shape.
  * @see {@link ListUsersCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

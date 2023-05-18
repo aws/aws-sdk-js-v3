@@ -57,8 +57,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  *
  * ```
  *
- * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
- * @returns {@link DeleteLoggingConfigurationCommandOutput}
+ * @param DeleteLoggingConfigurationRequest - {@link DeleteLoggingConfigurationRequest}
+ * @returns {@link DeleteLoggingConfigurationResponse}
  * @see {@link DeleteLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

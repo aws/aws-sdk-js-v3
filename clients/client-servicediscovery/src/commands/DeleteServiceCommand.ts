@@ -49,8 +49,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *
  * ```
  *
- * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
- * @returns {@link DeleteServiceCommandOutput}
+ * @param DeleteServiceRequest - {@link DeleteServiceRequest}
+ * @returns {@link DeleteServiceResponse}
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

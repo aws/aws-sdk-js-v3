@@ -74,8 +74,8 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  *
  * ```
  *
- * @param DisassociateUserCommandInput - {@link DisassociateUserCommandInput}
- * @returns {@link DisassociateUserCommandOutput}
+ * @param DisassociateUserRequest - {@link DisassociateUserRequest}
+ * @returns {@link DisassociateUserResponse}
  * @see {@link DisassociateUserCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

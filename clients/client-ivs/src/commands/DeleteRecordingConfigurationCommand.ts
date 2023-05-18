@@ -56,8 +56,8 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param DeleteRecordingConfigurationCommandInput - {@link DeleteRecordingConfigurationCommandInput}
- * @returns {@link DeleteRecordingConfigurationCommandOutput}
+ * @param DeleteRecordingConfigurationRequest - {@link DeleteRecordingConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

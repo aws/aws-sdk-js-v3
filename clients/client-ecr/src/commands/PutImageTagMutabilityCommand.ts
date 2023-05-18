@@ -56,8 +56,8 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  *
  * ```
  *
- * @param PutImageTagMutabilityCommandInput - {@link PutImageTagMutabilityCommandInput}
- * @returns {@link PutImageTagMutabilityCommandOutput}
+ * @param PutImageTagMutabilityRequest - {@link PutImageTagMutabilityRequest}
+ * @returns {@link PutImageTagMutabilityResponse}
  * @see {@link PutImageTagMutabilityCommandInput} for command's `input` shape.
  * @see {@link PutImageTagMutabilityCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

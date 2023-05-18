@@ -101,8 +101,8 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  *
  * ```
  *
- * @param CreateFlowLogsCommandInput - {@link CreateFlowLogsCommandInput}
- * @returns {@link CreateFlowLogsCommandOutput}
+ * @param CreateFlowLogsRequest - {@link CreateFlowLogsRequest}
+ * @returns {@link CreateFlowLogsResult}
  * @see {@link CreateFlowLogsCommandInput} for command's `input` shape.
  * @see {@link CreateFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

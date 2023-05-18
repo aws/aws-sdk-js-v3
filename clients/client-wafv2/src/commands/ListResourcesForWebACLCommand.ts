@@ -55,8 +55,8 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  *
  * ```
  *
- * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
- * @returns {@link ListResourcesForWebACLCommandOutput}
+ * @param ListResourcesForWebACLRequest - {@link ListResourcesForWebACLRequest}
+ * @returns {@link ListResourcesForWebACLResponse}
  * @see {@link ListResourcesForWebACLCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

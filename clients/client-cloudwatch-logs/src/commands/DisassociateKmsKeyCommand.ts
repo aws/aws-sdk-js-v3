@@ -53,8 +53,8 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisassociateKmsKeyCommandInput - {@link DisassociateKmsKeyCommandInput}
- * @returns {@link DisassociateKmsKeyCommandOutput}
+ * @param DisassociateKmsKeyRequest - {@link DisassociateKmsKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateKmsKeyCommandInput} for command's `input` shape.
  * @see {@link DisassociateKmsKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

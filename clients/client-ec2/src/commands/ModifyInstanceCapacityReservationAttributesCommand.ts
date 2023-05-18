@@ -69,8 +69,8 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  *
  * ```
  *
- * @param ModifyInstanceCapacityReservationAttributesCommandInput - {@link ModifyInstanceCapacityReservationAttributesCommandInput}
- * @returns {@link ModifyInstanceCapacityReservationAttributesCommandOutput}
+ * @param ModifyInstanceCapacityReservationAttributesRequest - {@link ModifyInstanceCapacityReservationAttributesRequest}
+ * @returns {@link ModifyInstanceCapacityReservationAttributesResult}
  * @see {@link ModifyInstanceCapacityReservationAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceCapacityReservationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -61,8 +61,8 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  *
  * ```
  *
- * @param UpdateSubnetChangeProtectionCommandInput - {@link UpdateSubnetChangeProtectionCommandInput}
- * @returns {@link UpdateSubnetChangeProtectionCommandOutput}
+ * @param UpdateSubnetChangeProtectionRequest - {@link UpdateSubnetChangeProtectionRequest}
+ * @returns {@link UpdateSubnetChangeProtectionResponse}
  * @see {@link UpdateSubnetChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetChangeProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  *
  * ```
  *
- * @param ListFindingsReportsCommandInput - {@link ListFindingsReportsCommandInput}
- * @returns {@link ListFindingsReportsCommandOutput}
+ * @param ListFindingsReportsRequest - {@link ListFindingsReportsRequest}
+ * @returns {@link ListFindingsReportsResponse}
  * @see {@link ListFindingsReportsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

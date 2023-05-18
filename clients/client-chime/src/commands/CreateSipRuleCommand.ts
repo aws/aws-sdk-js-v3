@@ -75,8 +75,8 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  *
  * ```
  *
- * @param CreateSipRuleCommandInput - {@link CreateSipRuleCommandInput}
- * @returns {@link CreateSipRuleCommandOutput}
+ * @param CreateSipRuleRequest - {@link CreateSipRuleRequest}
+ * @returns {@link CreateSipRuleResponse}
  * @see {@link CreateSipRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

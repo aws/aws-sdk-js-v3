@@ -80,8 +80,8 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  *
  * ```
  *
- * @param GetModelVersionCommandInput - {@link GetModelVersionCommandInput}
- * @returns {@link GetModelVersionCommandOutput}
+ * @param GetModelVersionRequest - {@link GetModelVersionRequest}
+ * @returns {@link GetModelVersionResult}
  * @see {@link GetModelVersionCommandInput} for command's `input` shape.
  * @see {@link GetModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

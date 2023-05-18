@@ -54,8 +54,8 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  *
  * ```
  *
- * @param ModifyPrivateDnsNameOptionsCommandInput - {@link ModifyPrivateDnsNameOptionsCommandInput}
- * @returns {@link ModifyPrivateDnsNameOptionsCommandOutput}
+ * @param ModifyPrivateDnsNameOptionsRequest - {@link ModifyPrivateDnsNameOptionsRequest}
+ * @returns {@link ModifyPrivateDnsNameOptionsResult}
  * @see {@link ModifyPrivateDnsNameOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyPrivateDnsNameOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -91,8 +91,8 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  *
  * ```
  *
- * @param UpdateProjectVisibilityCommandInput - {@link UpdateProjectVisibilityCommandInput}
- * @returns {@link UpdateProjectVisibilityCommandOutput}
+ * @param UpdateProjectVisibilityInput - {@link UpdateProjectVisibilityInput}
+ * @returns {@link UpdateProjectVisibilityOutput}
  * @see {@link UpdateProjectVisibilityCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectVisibilityCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

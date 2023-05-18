@@ -52,8 +52,8 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  *
  * ```
  *
- * @param DeleteDashboardsCommandInput - {@link DeleteDashboardsCommandInput}
- * @returns {@link DeleteDashboardsCommandOutput}
+ * @param DeleteDashboardsInput - {@link DeleteDashboardsInput}
+ * @returns {@link DeleteDashboardsOutput}
  * @see {@link DeleteDashboardsCommandInput} for command's `input` shape.
  * @see {@link DeleteDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

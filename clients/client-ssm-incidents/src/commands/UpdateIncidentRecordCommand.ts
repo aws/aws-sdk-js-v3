@@ -66,8 +66,8 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  *
  * ```
  *
- * @param UpdateIncidentRecordCommandInput - {@link UpdateIncidentRecordCommandInput}
- * @returns {@link UpdateIncidentRecordCommandOutput}
+ * @param UpdateIncidentRecordInput - {@link UpdateIncidentRecordInput}
+ * @returns {@link UpdateIncidentRecordOutput}
  * @see {@link UpdateIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link UpdateIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

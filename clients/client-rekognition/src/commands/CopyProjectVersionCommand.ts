@@ -80,8 +80,8 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *
  * ```
  *
- * @param CopyProjectVersionCommandInput - {@link CopyProjectVersionCommandInput}
- * @returns {@link CopyProjectVersionCommandOutput}
+ * @param CopyProjectVersionRequest - {@link CopyProjectVersionRequest}
+ * @returns {@link CopyProjectVersionResponse}
  * @see {@link CopyProjectVersionCommandInput} for command's `input` shape.
  * @see {@link CopyProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

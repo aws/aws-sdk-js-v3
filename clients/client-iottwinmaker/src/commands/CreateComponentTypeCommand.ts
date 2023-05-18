@@ -150,8 +150,8 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  *
  * ```
  *
- * @param CreateComponentTypeCommandInput - {@link CreateComponentTypeCommandInput}
- * @returns {@link CreateComponentTypeCommandOutput}
+ * @param CreateComponentTypeRequest - {@link CreateComponentTypeRequest}
+ * @returns {@link CreateComponentTypeResponse}
  * @see {@link CreateComponentTypeCommandInput} for command's `input` shape.
  * @see {@link CreateComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

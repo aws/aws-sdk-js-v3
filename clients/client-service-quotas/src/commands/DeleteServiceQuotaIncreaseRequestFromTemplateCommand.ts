@@ -60,8 +60,8 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *
  * ```
  *
- * @param DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput - {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput}
- * @returns {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput}
+ * @param DeleteServiceQuotaIncreaseRequestFromTemplateRequest - {@link DeleteServiceQuotaIncreaseRequestFromTemplateRequest}
+ * @returns {@link DeleteServiceQuotaIncreaseRequestFromTemplateResponse}
  * @see {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

@@ -87,8 +87,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
+ * @param ListEnvironmentsRequest - {@link ListEnvironmentsRequest}
+ * @returns {@link ListEnvironmentsResponse}
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

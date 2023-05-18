@@ -68,8 +68,8 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  *
  * ```
  *
- * @param RetrieveEnvironmentInfoCommandInput - {@link RetrieveEnvironmentInfoCommandInput}
- * @returns {@link RetrieveEnvironmentInfoCommandOutput}
+ * @param RetrieveEnvironmentInfoMessage - {@link RetrieveEnvironmentInfoMessage}
+ * @returns {@link RetrieveEnvironmentInfoResultMessage}
  * @see {@link RetrieveEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

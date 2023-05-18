@@ -85,8 +85,8 @@ export interface DescribeTransitGatewayRouteTablesCommandOutput
  *
  * ```
  *
- * @param DescribeTransitGatewayRouteTablesCommandInput - {@link DescribeTransitGatewayRouteTablesCommandInput}
- * @returns {@link DescribeTransitGatewayRouteTablesCommandOutput}
+ * @param DescribeTransitGatewayRouteTablesRequest - {@link DescribeTransitGatewayRouteTablesRequest}
+ * @returns {@link DescribeTransitGatewayRouteTablesResult}
  * @see {@link DescribeTransitGatewayRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

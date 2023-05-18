@@ -48,8 +48,8 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  *
  * ```
  *
- * @param RemoveApplicationInstanceCommandInput - {@link RemoveApplicationInstanceCommandInput}
- * @returns {@link RemoveApplicationInstanceCommandOutput}
+ * @param RemoveApplicationInstanceRequest - {@link RemoveApplicationInstanceRequest}
+ * @returns {@link RemoveApplicationInstanceResponse}
  * @see {@link RemoveApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link RemoveApplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

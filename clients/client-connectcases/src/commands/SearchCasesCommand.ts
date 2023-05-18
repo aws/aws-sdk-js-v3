@@ -151,8 +151,8 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *
  * ```
  *
- * @param SearchCasesCommandInput - {@link SearchCasesCommandInput}
- * @returns {@link SearchCasesCommandOutput}
+ * @param SearchCasesRequest - {@link SearchCasesRequest}
+ * @returns {@link SearchCasesResponse}
  * @see {@link SearchCasesCommandInput} for command's `input` shape.
  * @see {@link SearchCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

@@ -110,8 +110,8 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  *
  * ```
  *
- * @param GetActionTypeCommandInput - {@link GetActionTypeCommandInput}
- * @returns {@link GetActionTypeCommandOutput}
+ * @param GetActionTypeInput - {@link GetActionTypeInput}
+ * @returns {@link GetActionTypeOutput}
  * @see {@link GetActionTypeCommandInput} for command's `input` shape.
  * @see {@link GetActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

@@ -103,8 +103,8 @@ export interface ListOriginRequestPoliciesCommandOutput extends ListOriginReques
  *
  * ```
  *
- * @param ListOriginRequestPoliciesCommandInput - {@link ListOriginRequestPoliciesCommandInput}
- * @returns {@link ListOriginRequestPoliciesCommandOutput}
+ * @param ListOriginRequestPoliciesRequest - {@link ListOriginRequestPoliciesRequest}
+ * @returns {@link ListOriginRequestPoliciesResult}
  * @see {@link ListOriginRequestPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListOriginRequestPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

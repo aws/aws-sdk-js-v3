@@ -70,8 +70,8 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  *
  * ```
  *
- * @param DescribeServiceUpdatesCommandInput - {@link DescribeServiceUpdatesCommandInput}
- * @returns {@link DescribeServiceUpdatesCommandOutput}
+ * @param DescribeServiceUpdatesRequest - {@link DescribeServiceUpdatesRequest}
+ * @returns {@link DescribeServiceUpdatesResponse}
  * @see {@link DescribeServiceUpdatesCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceUpdatesCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

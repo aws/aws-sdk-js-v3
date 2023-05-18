@@ -51,8 +51,8 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  *
  * ```
  *
- * @param UpdateMapRunCommandInput - {@link UpdateMapRunCommandInput}
- * @returns {@link UpdateMapRunCommandOutput}
+ * @param UpdateMapRunInput - {@link UpdateMapRunInput}
+ * @returns {@link UpdateMapRunOutput}
  * @see {@link UpdateMapRunCommandInput} for command's `input` shape.
  * @see {@link UpdateMapRunCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

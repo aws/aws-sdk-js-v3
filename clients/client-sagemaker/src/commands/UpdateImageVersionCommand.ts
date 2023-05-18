@@ -65,8 +65,8 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  *
  * ```
  *
- * @param UpdateImageVersionCommandInput - {@link UpdateImageVersionCommandInput}
- * @returns {@link UpdateImageVersionCommandOutput}
+ * @param UpdateImageVersionRequest - {@link UpdateImageVersionRequest}
+ * @returns {@link UpdateImageVersionResponse}
  * @see {@link UpdateImageVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

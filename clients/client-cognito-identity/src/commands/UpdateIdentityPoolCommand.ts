@@ -98,8 +98,8 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  *
  * ```
  *
- * @param UpdateIdentityPoolCommandInput - {@link UpdateIdentityPoolCommandInput}
- * @returns {@link UpdateIdentityPoolCommandOutput}
+ * @param IdentityPool - {@link IdentityPool}
+ * @returns {@link IdentityPool}
  * @see {@link UpdateIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

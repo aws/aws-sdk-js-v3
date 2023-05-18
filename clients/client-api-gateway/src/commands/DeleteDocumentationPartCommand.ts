@@ -49,8 +49,8 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteDocumentationPartCommandInput - {@link DeleteDocumentationPartCommandInput}
- * @returns {@link DeleteDocumentationPartCommandOutput}
+ * @param DeleteDocumentationPartRequest - {@link DeleteDocumentationPartRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDocumentationPartCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentationPartCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

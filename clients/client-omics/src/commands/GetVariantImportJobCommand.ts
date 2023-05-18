@@ -68,8 +68,8 @@ export interface GetVariantImportJobCommandOutput extends GetVariantImportRespon
  *
  * ```
  *
- * @param GetVariantImportJobCommandInput - {@link GetVariantImportJobCommandInput}
- * @returns {@link GetVariantImportJobCommandOutput}
+ * @param GetVariantImportRequest - {@link GetVariantImportRequest}
+ * @returns {@link GetVariantImportResponse}
  * @see {@link GetVariantImportJobCommandInput} for command's `input` shape.
  * @see {@link GetVariantImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

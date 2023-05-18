@@ -171,8 +171,8 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  *
  * ```
  *
- * @param GetInstancesCommandInput - {@link GetInstancesCommandInput}
- * @returns {@link GetInstancesCommandOutput}
+ * @param GetInstancesRequest - {@link GetInstancesRequest}
+ * @returns {@link GetInstancesResult}
  * @see {@link GetInstancesCommandInput} for command's `input` shape.
  * @see {@link GetInstancesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

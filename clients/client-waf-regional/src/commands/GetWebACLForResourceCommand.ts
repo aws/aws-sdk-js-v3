@@ -61,8 +61,8 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  *
  * ```
  *
- * @param GetWebACLForResourceCommandInput - {@link GetWebACLForResourceCommandInput}
- * @returns {@link GetWebACLForResourceCommandOutput}
+ * @param GetWebACLForResourceRequest - {@link GetWebACLForResourceRequest}
+ * @returns {@link GetWebACLForResourceResponse}
  * @see {@link GetWebACLForResourceCommandInput} for command's `input` shape.
  * @see {@link GetWebACLForResourceCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

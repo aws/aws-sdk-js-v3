@@ -67,8 +67,8 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ModifyInstanceFleetCommandInput - {@link ModifyInstanceFleetCommandInput}
- * @returns {@link ModifyInstanceFleetCommandOutput}
+ * @param ModifyInstanceFleetInput - {@link ModifyInstanceFleetInput}
+ * @returns {@link Unit}
  * @see {@link ModifyInstanceFleetCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceFleetCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
- * @returns {@link DeleteStageCommandOutput}
+ * @param DeleteStageRequest - {@link DeleteStageRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteStageCommandInput} for command's `input` shape.
  * @see {@link DeleteStageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

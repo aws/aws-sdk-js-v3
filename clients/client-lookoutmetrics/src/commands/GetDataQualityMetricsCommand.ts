@@ -68,8 +68,8 @@ export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetric
  *
  * ```
  *
- * @param GetDataQualityMetricsCommandInput - {@link GetDataQualityMetricsCommandInput}
- * @returns {@link GetDataQualityMetricsCommandOutput}
+ * @param GetDataQualityMetricsRequest - {@link GetDataQualityMetricsRequest}
+ * @returns {@link GetDataQualityMetricsResponse}
  * @see {@link GetDataQualityMetricsCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityMetricsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

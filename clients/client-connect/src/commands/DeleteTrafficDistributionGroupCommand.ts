@@ -56,8 +56,8 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  *
  * ```
  *
- * @param DeleteTrafficDistributionGroupCommandInput - {@link DeleteTrafficDistributionGroupCommandInput}
- * @returns {@link DeleteTrafficDistributionGroupCommandOutput}
+ * @param DeleteTrafficDistributionGroupRequest - {@link DeleteTrafficDistributionGroupRequest}
+ * @returns {@link DeleteTrafficDistributionGroupResponse}
  * @see {@link DeleteTrafficDistributionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficDistributionGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

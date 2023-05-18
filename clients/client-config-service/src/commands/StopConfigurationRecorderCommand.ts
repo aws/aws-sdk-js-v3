@@ -48,8 +48,8 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param StopConfigurationRecorderCommandInput - {@link StopConfigurationRecorderCommandInput}
- * @returns {@link StopConfigurationRecorderCommandOutput}
+ * @param StopConfigurationRecorderRequest - {@link StopConfigurationRecorderRequest}
+ * @returns {@link Unit}
  * @see {@link StopConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link StopConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

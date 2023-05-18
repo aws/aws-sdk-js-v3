@@ -86,8 +86,8 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  *
  * ```
  *
- * @param DescribeValidDBInstanceModificationsCommandInput - {@link DescribeValidDBInstanceModificationsCommandInput}
- * @returns {@link DescribeValidDBInstanceModificationsCommandOutput}
+ * @param DescribeValidDBInstanceModificationsMessage - {@link DescribeValidDBInstanceModificationsMessage}
+ * @returns {@link DescribeValidDBInstanceModificationsResult}
  * @see {@link DescribeValidDBInstanceModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeValidDBInstanceModificationsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

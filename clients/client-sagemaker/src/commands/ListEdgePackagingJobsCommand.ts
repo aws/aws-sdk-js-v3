@@ -72,8 +72,8 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  *
  * ```
  *
- * @param ListEdgePackagingJobsCommandInput - {@link ListEdgePackagingJobsCommandInput}
- * @returns {@link ListEdgePackagingJobsCommandOutput}
+ * @param ListEdgePackagingJobsRequest - {@link ListEdgePackagingJobsRequest}
+ * @returns {@link ListEdgePackagingJobsResponse}
  * @see {@link ListEdgePackagingJobsCommandInput} for command's `input` shape.
  * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -65,8 +65,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  *
  * ```
  *
- * @param CreateEmailTemplateCommandInput - {@link CreateEmailTemplateCommandInput}
- * @returns {@link CreateEmailTemplateCommandOutput}
+ * @param CreateEmailTemplateRequest - {@link CreateEmailTemplateRequest}
+ * @returns {@link CreateEmailTemplateResponse}
  * @see {@link CreateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

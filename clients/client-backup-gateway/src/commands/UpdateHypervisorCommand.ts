@@ -61,8 +61,8 @@ export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, _
  *
  * ```
  *
- * @param UpdateHypervisorCommandInput - {@link UpdateHypervisorCommandInput}
- * @returns {@link UpdateHypervisorCommandOutput}
+ * @param UpdateHypervisorInput - {@link UpdateHypervisorInput}
+ * @returns {@link UpdateHypervisorOutput}
  * @see {@link UpdateHypervisorCommandInput} for command's `input` shape.
  * @see {@link UpdateHypervisorCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

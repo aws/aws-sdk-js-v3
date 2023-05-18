@@ -238,8 +238,8 @@ export interface BatchGetBuildsCommandOutput extends BatchGetBuildsOutput, __Met
  *
  * ```
  *
- * @param BatchGetBuildsCommandInput - {@link BatchGetBuildsCommandInput}
- * @returns {@link BatchGetBuildsCommandOutput}
+ * @param BatchGetBuildsInput - {@link BatchGetBuildsInput}
+ * @returns {@link BatchGetBuildsOutput}
  * @see {@link BatchGetBuildsCommandInput} for command's `input` shape.
  * @see {@link BatchGetBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -57,8 +57,8 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  *
  * ```
  *
- * @param RegisterPublisherCommandInput - {@link RegisterPublisherCommandInput}
- * @returns {@link RegisterPublisherCommandOutput}
+ * @param RegisterPublisherInput - {@link RegisterPublisherInput}
+ * @returns {@link RegisterPublisherOutput}
  * @see {@link RegisterPublisherCommandInput} for command's `input` shape.
  * @see {@link RegisterPublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

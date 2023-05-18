@@ -81,8 +81,8 @@ export interface PutVoiceConnectorOriginationCommandOutput
  *
  * ```
  *
- * @param PutVoiceConnectorOriginationCommandInput - {@link PutVoiceConnectorOriginationCommandInput}
- * @returns {@link PutVoiceConnectorOriginationCommandOutput}
+ * @param PutVoiceConnectorOriginationRequest - {@link PutVoiceConnectorOriginationRequest}
+ * @returns {@link PutVoiceConnectorOriginationResponse}
  * @see {@link PutVoiceConnectorOriginationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorOriginationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

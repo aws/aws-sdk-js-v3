@@ -57,8 +57,8 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  *
  * ```
  *
- * @param DeleteReplicationConfigurationTemplateCommandInput - {@link DeleteReplicationConfigurationTemplateCommandInput}
- * @returns {@link DeleteReplicationConfigurationTemplateCommandOutput}
+ * @param DeleteReplicationConfigurationTemplateRequest - {@link DeleteReplicationConfigurationTemplateRequest}
+ * @returns {@link DeleteReplicationConfigurationTemplateResponse}
  * @see {@link DeleteReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

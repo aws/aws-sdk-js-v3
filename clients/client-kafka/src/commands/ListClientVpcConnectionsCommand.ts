@@ -61,8 +61,8 @@ export interface ListClientVpcConnectionsCommandOutput extends ListClientVpcConn
  *
  * ```
  *
- * @param ListClientVpcConnectionsCommandInput - {@link ListClientVpcConnectionsCommandInput}
- * @returns {@link ListClientVpcConnectionsCommandOutput}
+ * @param ListClientVpcConnectionsRequest - {@link ListClientVpcConnectionsRequest}
+ * @returns {@link ListClientVpcConnectionsResponse}
  * @see {@link ListClientVpcConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListClientVpcConnectionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

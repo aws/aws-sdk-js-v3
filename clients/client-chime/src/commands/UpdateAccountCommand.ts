@@ -68,8 +68,8 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  *
  * ```
  *
- * @param UpdateAccountCommandInput - {@link UpdateAccountCommandInput}
- * @returns {@link UpdateAccountCommandOutput}
+ * @param UpdateAccountRequest - {@link UpdateAccountRequest}
+ * @returns {@link UpdateAccountResponse}
  * @see {@link UpdateAccountCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

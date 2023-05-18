@@ -84,8 +84,8 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  *
  * ```
  *
- * @param ListAWSDefaultServiceQuotasCommandInput - {@link ListAWSDefaultServiceQuotasCommandInput}
- * @returns {@link ListAWSDefaultServiceQuotasCommandOutput}
+ * @param ListAWSDefaultServiceQuotasRequest - {@link ListAWSDefaultServiceQuotasRequest}
+ * @returns {@link ListAWSDefaultServiceQuotasResponse}
  * @see {@link ListAWSDefaultServiceQuotasCommandInput} for command's `input` shape.
  * @see {@link ListAWSDefaultServiceQuotasCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

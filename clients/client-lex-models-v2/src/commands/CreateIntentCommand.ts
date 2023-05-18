@@ -943,8 +943,8 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  *
  * ```
  *
- * @param CreateIntentCommandInput - {@link CreateIntentCommandInput}
- * @returns {@link CreateIntentCommandOutput}
+ * @param CreateIntentRequest - {@link CreateIntentRequest}
+ * @returns {@link CreateIntentResponse}
  * @see {@link CreateIntentCommandInput} for command's `input` shape.
  * @see {@link CreateIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

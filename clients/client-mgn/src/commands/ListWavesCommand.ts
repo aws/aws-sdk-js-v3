@@ -78,8 +78,8 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListWavesCommandInput - {@link ListWavesCommandInput}
- * @returns {@link ListWavesCommandOutput}
+ * @param ListWavesRequest - {@link ListWavesRequest}
+ * @returns {@link ListWavesResponse}
  * @see {@link ListWavesCommandInput} for command's `input` shape.
  * @see {@link ListWavesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

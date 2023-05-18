@@ -55,8 +55,8 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  *
  * ```
  *
- * @param GetMonitoringSubscriptionCommandInput - {@link GetMonitoringSubscriptionCommandInput}
- * @returns {@link GetMonitoringSubscriptionCommandOutput}
+ * @param GetMonitoringSubscriptionRequest - {@link GetMonitoringSubscriptionRequest}
+ * @returns {@link GetMonitoringSubscriptionResult}
  * @see {@link GetMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

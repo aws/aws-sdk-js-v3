@@ -69,8 +69,8 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  *
  * ```
  *
- * @param ResetClusterParameterGroupCommandInput - {@link ResetClusterParameterGroupCommandInput}
- * @returns {@link ResetClusterParameterGroupCommandOutput}
+ * @param ResetClusterParameterGroupMessage - {@link ResetClusterParameterGroupMessage}
+ * @returns {@link ClusterParameterGroupNameMessage}
  * @see {@link ResetClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -61,8 +61,8 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  *
  * ```
  *
- * @param RegisterEcsClusterCommandInput - {@link RegisterEcsClusterCommandInput}
- * @returns {@link RegisterEcsClusterCommandOutput}
+ * @param RegisterEcsClusterRequest - {@link RegisterEcsClusterRequest}
+ * @returns {@link RegisterEcsClusterResult}
  * @see {@link RegisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link RegisterEcsClusterCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

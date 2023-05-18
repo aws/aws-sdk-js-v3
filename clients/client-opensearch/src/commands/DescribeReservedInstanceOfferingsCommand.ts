@@ -78,8 +78,8 @@ export interface DescribeReservedInstanceOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeReservedInstanceOfferingsCommandInput - {@link DescribeReservedInstanceOfferingsCommandInput}
- * @returns {@link DescribeReservedInstanceOfferingsCommandOutput}
+ * @param DescribeReservedInstanceOfferingsRequest - {@link DescribeReservedInstanceOfferingsRequest}
+ * @returns {@link DescribeReservedInstanceOfferingsResponse}
  * @see {@link DescribeReservedInstanceOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstanceOfferingsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

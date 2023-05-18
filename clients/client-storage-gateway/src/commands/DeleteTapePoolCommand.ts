@@ -52,8 +52,8 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  *
  * ```
  *
- * @param DeleteTapePoolCommandInput - {@link DeleteTapePoolCommandInput}
- * @returns {@link DeleteTapePoolCommandOutput}
+ * @param DeleteTapePoolInput - {@link DeleteTapePoolInput}
+ * @returns {@link DeleteTapePoolOutput}
  * @see {@link DeleteTapePoolCommandInput} for command's `input` shape.
  * @see {@link DeleteTapePoolCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -63,8 +63,8 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
  *
  * ```
  *
- * @param GetRepositoryPermissionsPolicyCommandInput - {@link GetRepositoryPermissionsPolicyCommandInput}
- * @returns {@link GetRepositoryPermissionsPolicyCommandOutput}
+ * @param GetRepositoryPermissionsPolicyRequest - {@link GetRepositoryPermissionsPolicyRequest}
+ * @returns {@link GetRepositoryPermissionsPolicyResult}
  * @see {@link GetRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

@@ -65,8 +65,8 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
- * @returns {@link SubmitFeedbackCommandOutput}
+ * @param SubmitFeedbackRequest - {@link SubmitFeedbackRequest}
+ * @returns {@link Unit}
  * @see {@link SubmitFeedbackCommandInput} for command's `input` shape.
  * @see {@link SubmitFeedbackCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

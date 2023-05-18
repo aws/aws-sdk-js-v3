@@ -54,8 +54,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *
  * ```
  *
- * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
- * @returns {@link GetResourcePolicyCommandOutput}
+ * @param GetResourcePolicyRequest - {@link GetResourcePolicyRequest}
+ * @returns {@link GetResourcePolicyResponse}
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

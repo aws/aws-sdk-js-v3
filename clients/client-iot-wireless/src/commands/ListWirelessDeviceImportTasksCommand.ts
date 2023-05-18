@@ -76,8 +76,8 @@ export interface ListWirelessDeviceImportTasksCommandOutput
  *
  * ```
  *
- * @param ListWirelessDeviceImportTasksCommandInput - {@link ListWirelessDeviceImportTasksCommandInput}
- * @returns {@link ListWirelessDeviceImportTasksCommandOutput}
+ * @param ListWirelessDeviceImportTasksRequest - {@link ListWirelessDeviceImportTasksRequest}
+ * @returns {@link ListWirelessDeviceImportTasksResponse}
  * @see {@link ListWirelessDeviceImportTasksCommandInput} for command's `input` shape.
  * @see {@link ListWirelessDeviceImportTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

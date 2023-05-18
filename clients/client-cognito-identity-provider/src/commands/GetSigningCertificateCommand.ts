@@ -57,8 +57,8 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  *
  * ```
  *
- * @param GetSigningCertificateCommandInput - {@link GetSigningCertificateCommandInput}
- * @returns {@link GetSigningCertificateCommandOutput}
+ * @param GetSigningCertificateRequest - {@link GetSigningCertificateRequest}
+ * @returns {@link GetSigningCertificateResponse}
  * @see {@link GetSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link GetSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -105,8 +105,8 @@ export interface DisassociateInstanceEventWindowCommandOutput
  *
  * ```
  *
- * @param DisassociateInstanceEventWindowCommandInput - {@link DisassociateInstanceEventWindowCommandInput}
- * @returns {@link DisassociateInstanceEventWindowCommandOutput}
+ * @param DisassociateInstanceEventWindowRequest - {@link DisassociateInstanceEventWindowRequest}
+ * @returns {@link DisassociateInstanceEventWindowResult}
  * @see {@link DisassociateInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link DisassociateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -88,8 +88,8 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  *
  * ```
  *
- * @param GetServiceCommandInput - {@link GetServiceCommandInput}
- * @returns {@link GetServiceCommandOutput}
+ * @param GetServiceRequest - {@link GetServiceRequest}
+ * @returns {@link GetServiceResponse}
  * @see {@link GetServiceCommandInput} for command's `input` shape.
  * @see {@link GetServiceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

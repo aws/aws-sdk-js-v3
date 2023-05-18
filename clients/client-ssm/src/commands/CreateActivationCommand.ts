@@ -76,8 +76,8 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  *
  * ```
  *
- * @param CreateActivationCommandInput - {@link CreateActivationCommandInput}
- * @returns {@link CreateActivationCommandOutput}
+ * @param CreateActivationRequest - {@link CreateActivationRequest}
+ * @returns {@link CreateActivationResult}
  * @see {@link CreateActivationCommandInput} for command's `input` shape.
  * @see {@link CreateActivationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

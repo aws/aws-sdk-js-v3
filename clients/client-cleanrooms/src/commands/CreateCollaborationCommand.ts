@@ -93,8 +93,8 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *
  * ```
  *
- * @param CreateCollaborationCommandInput - {@link CreateCollaborationCommandInput}
- * @returns {@link CreateCollaborationCommandOutput}
+ * @param CreateCollaborationInput - {@link CreateCollaborationInput}
+ * @returns {@link CreateCollaborationOutput}
  * @see {@link CreateCollaborationCommandInput} for command's `input` shape.
  * @see {@link CreateCollaborationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

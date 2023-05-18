@@ -62,8 +62,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  *
  * ```
  *
- * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
- * @returns {@link UpdateRouteCommandOutput}
+ * @param UpdateRouteRequest - {@link UpdateRouteRequest}
+ * @returns {@link UpdateRouteResponse}
  * @see {@link UpdateRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

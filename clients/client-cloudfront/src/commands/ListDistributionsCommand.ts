@@ -352,8 +352,8 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  *
  * ```
  *
- * @param ListDistributionsCommandInput - {@link ListDistributionsCommandInput}
- * @returns {@link ListDistributionsCommandOutput}
+ * @param ListDistributionsRequest - {@link ListDistributionsRequest}
+ * @returns {@link ListDistributionsResult}
  * @see {@link ListDistributionsCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

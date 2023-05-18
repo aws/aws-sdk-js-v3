@@ -54,8 +54,8 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DetachElasticLoadBalancerCommandInput - {@link DetachElasticLoadBalancerCommandInput}
- * @returns {@link DetachElasticLoadBalancerCommandOutput}
+ * @param DetachElasticLoadBalancerRequest - {@link DetachElasticLoadBalancerRequest}
+ * @returns {@link Unit}
  * @see {@link DetachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DetachElasticLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

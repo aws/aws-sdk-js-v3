@@ -69,8 +69,8 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  *
  * ```
  *
- * @param ModifyIpamScopeCommandInput - {@link ModifyIpamScopeCommandInput}
- * @returns {@link ModifyIpamScopeCommandOutput}
+ * @param ModifyIpamScopeRequest - {@link ModifyIpamScopeRequest}
+ * @returns {@link ModifyIpamScopeResult}
  * @see {@link ModifyIpamScopeCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

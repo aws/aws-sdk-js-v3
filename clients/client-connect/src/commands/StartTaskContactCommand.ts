@@ -68,8 +68,8 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *
  * ```
  *
- * @param StartTaskContactCommandInput - {@link StartTaskContactCommandInput}
- * @returns {@link StartTaskContactCommandOutput}
+ * @param StartTaskContactRequest - {@link StartTaskContactRequest}
+ * @returns {@link StartTaskContactResponse}
  * @see {@link StartTaskContactCommandInput} for command's `input` shape.
  * @see {@link StartTaskContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

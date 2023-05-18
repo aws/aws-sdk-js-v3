@@ -56,8 +56,8 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  *
  * ```
  *
- * @param DeleteDecoderManifestCommandInput - {@link DeleteDecoderManifestCommandInput}
- * @returns {@link DeleteDecoderManifestCommandOutput}
+ * @param DeleteDecoderManifestRequest - {@link DeleteDecoderManifestRequest}
+ * @returns {@link DeleteDecoderManifestResponse}
  * @see {@link DeleteDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link DeleteDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

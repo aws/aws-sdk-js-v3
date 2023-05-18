@@ -64,8 +64,8 @@ export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput,
  *
  * ```
  *
- * @param GetVirtualMachineCommandInput - {@link GetVirtualMachineCommandInput}
- * @returns {@link GetVirtualMachineCommandOutput}
+ * @param GetVirtualMachineInput - {@link GetVirtualMachineInput}
+ * @returns {@link GetVirtualMachineOutput}
  * @see {@link GetVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link GetVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

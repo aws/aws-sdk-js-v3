@@ -69,8 +69,8 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  *
  * ```
  *
- * @param GetRolePolicyCommandInput - {@link GetRolePolicyCommandInput}
- * @returns {@link GetRolePolicyCommandOutput}
+ * @param GetRolePolicyRequest - {@link GetRolePolicyRequest}
+ * @returns {@link GetRolePolicyResponse}
  * @see {@link GetRolePolicyCommandInput} for command's `input` shape.
  * @see {@link GetRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

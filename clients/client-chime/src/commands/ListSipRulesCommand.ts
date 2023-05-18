@@ -70,8 +70,8 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  *
  * ```
  *
- * @param ListSipRulesCommandInput - {@link ListSipRulesCommandInput}
- * @returns {@link ListSipRulesCommandOutput}
+ * @param ListSipRulesRequest - {@link ListSipRulesRequest}
+ * @returns {@link ListSipRulesResponse}
  * @see {@link ListSipRulesCommandInput} for command's `input` shape.
  * @see {@link ListSipRulesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

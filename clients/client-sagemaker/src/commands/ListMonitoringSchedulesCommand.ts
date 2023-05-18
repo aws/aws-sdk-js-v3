@@ -74,8 +74,8 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
  *
  * ```
  *
- * @param ListMonitoringSchedulesCommandInput - {@link ListMonitoringSchedulesCommandInput}
- * @returns {@link ListMonitoringSchedulesCommandOutput}
+ * @param ListMonitoringSchedulesRequest - {@link ListMonitoringSchedulesRequest}
+ * @returns {@link ListMonitoringSchedulesResponse}
  * @see {@link ListMonitoringSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringSchedulesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

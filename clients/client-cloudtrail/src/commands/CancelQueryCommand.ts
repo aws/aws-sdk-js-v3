@@ -57,8 +57,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  *
  * ```
  *
- * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
- * @returns {@link CancelQueryCommandOutput}
+ * @param CancelQueryRequest - {@link CancelQueryRequest}
+ * @returns {@link CancelQueryResponse}
  * @see {@link CancelQueryCommandInput} for command's `input` shape.
  * @see {@link CancelQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

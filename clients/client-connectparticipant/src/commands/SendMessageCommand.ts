@@ -65,8 +65,8 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *
  * ```
  *
- * @param SendMessageCommandInput - {@link SendMessageCommandInput}
- * @returns {@link SendMessageCommandOutput}
+ * @param SendMessageRequest - {@link SendMessageRequest}
+ * @returns {@link SendMessageResponse}
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.

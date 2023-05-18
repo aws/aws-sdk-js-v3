@@ -56,8 +56,8 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  *
  * ```
  *
- * @param UpdateFeatureGroupCommandInput - {@link UpdateFeatureGroupCommandInput}
- * @returns {@link UpdateFeatureGroupCommandOutput}
+ * @param UpdateFeatureGroupRequest - {@link UpdateFeatureGroupRequest}
+ * @returns {@link UpdateFeatureGroupResponse}
  * @see {@link UpdateFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

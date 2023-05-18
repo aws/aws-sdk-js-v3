@@ -52,8 +52,8 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  *
  * ```
  *
- * @param StopStackSetOperationCommandInput - {@link StopStackSetOperationCommandInput}
- * @returns {@link StopStackSetOperationCommandOutput}
+ * @param StopStackSetOperationInput - {@link StopStackSetOperationInput}
+ * @returns {@link StopStackSetOperationOutput}
  * @see {@link StopStackSetOperationCommandInput} for command's `input` shape.
  * @see {@link StopStackSetOperationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

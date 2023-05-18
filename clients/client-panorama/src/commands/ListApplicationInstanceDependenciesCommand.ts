@@ -67,8 +67,8 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  *
  * ```
  *
- * @param ListApplicationInstanceDependenciesCommandInput - {@link ListApplicationInstanceDependenciesCommandInput}
- * @returns {@link ListApplicationInstanceDependenciesCommandOutput}
+ * @param ListApplicationInstanceDependenciesRequest - {@link ListApplicationInstanceDependenciesRequest}
+ * @returns {@link ListApplicationInstanceDependenciesResponse}
  * @see {@link ListApplicationInstanceDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstanceDependenciesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

@@ -63,8 +63,8 @@ export interface ListStagesCommandOutput extends ListStagesResult, __MetadataBea
  *
  * ```
  *
- * @param ListStagesCommandInput - {@link ListStagesCommandInput}
- * @returns {@link ListStagesCommandOutput}
+ * @param ListStagesRequest - {@link ListStagesRequest}
+ * @returns {@link ListStagesResult}
  * @see {@link ListStagesCommandInput} for command's `input` shape.
  * @see {@link ListStagesCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

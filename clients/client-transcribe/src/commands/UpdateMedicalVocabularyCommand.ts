@@ -57,8 +57,8 @@ export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocab
  *
  * ```
  *
- * @param UpdateMedicalVocabularyCommandInput - {@link UpdateMedicalVocabularyCommandInput}
- * @returns {@link UpdateMedicalVocabularyCommandOutput}
+ * @param UpdateMedicalVocabularyRequest - {@link UpdateMedicalVocabularyRequest}
+ * @returns {@link UpdateMedicalVocabularyResponse}
  * @see {@link UpdateMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link UpdateMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -49,8 +49,8 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopLabelingJobCommandInput - {@link StopLabelingJobCommandInput}
- * @returns {@link StopLabelingJobCommandOutput}
+ * @param StopLabelingJobRequest - {@link StopLabelingJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopLabelingJobCommandInput} for command's `input` shape.
  * @see {@link StopLabelingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

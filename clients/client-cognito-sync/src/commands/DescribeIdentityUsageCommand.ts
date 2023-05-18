@@ -106,8 +106,8 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  *
  * ```
  *
- * @param DescribeIdentityUsageCommandInput - {@link DescribeIdentityUsageCommandInput}
- * @returns {@link DescribeIdentityUsageCommandOutput}
+ * @param DescribeIdentityUsageRequest - {@link DescribeIdentityUsageRequest}
+ * @returns {@link DescribeIdentityUsageResponse}
  * @see {@link DescribeIdentityUsageCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityUsageCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

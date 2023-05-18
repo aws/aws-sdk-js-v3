@@ -51,8 +51,8 @@ export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __Met
  *
  * ```
  *
- * @param GetQueryStateCommandInput - {@link GetQueryStateCommandInput}
- * @returns {@link GetQueryStateCommandOutput}
+ * @param GetQueryStateRequest - {@link GetQueryStateRequest}
+ * @returns {@link GetQueryStateResponse}
  * @see {@link GetQueryStateCommandInput} for command's `input` shape.
  * @see {@link GetQueryStateCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

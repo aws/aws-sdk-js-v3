@@ -49,8 +49,8 @@ export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteEdgeDeploymentStageCommandInput - {@link DeleteEdgeDeploymentStageCommandInput}
- * @returns {@link DeleteEdgeDeploymentStageCommandOutput}
+ * @param DeleteEdgeDeploymentStageRequest - {@link DeleteEdgeDeploymentStageRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEdgeDeploymentStageCommandInput} for command's `input` shape.
  * @see {@link DeleteEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

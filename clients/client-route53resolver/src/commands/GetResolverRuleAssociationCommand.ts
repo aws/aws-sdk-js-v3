@@ -58,8 +58,8 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  *
  * ```
  *
- * @param GetResolverRuleAssociationCommandInput - {@link GetResolverRuleAssociationCommandInput}
- * @returns {@link GetResolverRuleAssociationCommandOutput}
+ * @param GetResolverRuleAssociationRequest - {@link GetResolverRuleAssociationRequest}
+ * @returns {@link GetResolverRuleAssociationResponse}
  * @see {@link GetResolverRuleAssociationCommandInput} for command's `input` shape.
  * @see {@link GetResolverRuleAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

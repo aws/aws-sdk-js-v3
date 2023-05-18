@@ -326,8 +326,8 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *
  * ```
  *
- * @param CreateSimulationJobCommandInput - {@link CreateSimulationJobCommandInput}
- * @returns {@link CreateSimulationJobCommandOutput}
+ * @param CreateSimulationJobRequest - {@link CreateSimulationJobRequest}
+ * @returns {@link CreateSimulationJobResponse}
  * @see {@link CreateSimulationJobCommandInput} for command's `input` shape.
  * @see {@link CreateSimulationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

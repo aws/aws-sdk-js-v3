@@ -80,8 +80,8 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  *
  * ```
  *
- * @param ListScriptsCommandInput - {@link ListScriptsCommandInput}
- * @returns {@link ListScriptsCommandOutput}
+ * @param ListScriptsInput - {@link ListScriptsInput}
+ * @returns {@link ListScriptsOutput}
  * @see {@link ListScriptsCommandInput} for command's `input` shape.
  * @see {@link ListScriptsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

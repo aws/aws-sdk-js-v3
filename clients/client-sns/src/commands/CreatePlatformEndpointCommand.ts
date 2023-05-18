@@ -68,8 +68,8 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  *
  * ```
  *
- * @param CreatePlatformEndpointCommandInput - {@link CreatePlatformEndpointCommandInput}
- * @returns {@link CreatePlatformEndpointCommandOutput}
+ * @param CreatePlatformEndpointInput - {@link CreatePlatformEndpointInput}
+ * @returns {@link CreateEndpointResponse}
  * @see {@link CreatePlatformEndpointCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformEndpointCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

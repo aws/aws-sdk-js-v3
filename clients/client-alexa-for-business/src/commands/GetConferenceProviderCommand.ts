@@ -67,8 +67,8 @@ export interface GetConferenceProviderCommandOutput extends GetConferenceProvide
  *
  * ```
  *
- * @param GetConferenceProviderCommandInput - {@link GetConferenceProviderCommandInput}
- * @returns {@link GetConferenceProviderCommandOutput}
+ * @param GetConferenceProviderRequest - {@link GetConferenceProviderRequest}
+ * @returns {@link GetConferenceProviderResponse}
  * @see {@link GetConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link GetConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

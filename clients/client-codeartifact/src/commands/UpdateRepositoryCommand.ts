@@ -80,8 +80,8 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  *
  * ```
  *
- * @param UpdateRepositoryCommandInput - {@link UpdateRepositoryCommandInput}
- * @returns {@link UpdateRepositoryCommandOutput}
+ * @param UpdateRepositoryRequest - {@link UpdateRepositoryRequest}
+ * @returns {@link UpdateRepositoryResult}
  * @see {@link UpdateRepositoryCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

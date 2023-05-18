@@ -73,8 +73,8 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
  *
  * ```
  *
- * @param ListRoomMembershipsCommandInput - {@link ListRoomMembershipsCommandInput}
- * @returns {@link ListRoomMembershipsCommandOutput}
+ * @param ListRoomMembershipsRequest - {@link ListRoomMembershipsRequest}
+ * @returns {@link ListRoomMembershipsResponse}
  * @see {@link ListRoomMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListRoomMembershipsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

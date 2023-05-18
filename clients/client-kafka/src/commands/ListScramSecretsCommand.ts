@@ -55,8 +55,8 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
  *
  * ```
  *
- * @param ListScramSecretsCommandInput - {@link ListScramSecretsCommandInput}
- * @returns {@link ListScramSecretsCommandOutput}
+ * @param ListScramSecretsRequest - {@link ListScramSecretsRequest}
+ * @returns {@link ListScramSecretsResponse}
  * @see {@link ListScramSecretsCommandInput} for command's `input` shape.
  * @see {@link ListScramSecretsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

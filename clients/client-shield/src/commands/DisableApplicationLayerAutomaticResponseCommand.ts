@@ -58,8 +58,8 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  *
  * ```
  *
- * @param DisableApplicationLayerAutomaticResponseCommandInput - {@link DisableApplicationLayerAutomaticResponseCommandInput}
- * @returns {@link DisableApplicationLayerAutomaticResponseCommandOutput}
+ * @param DisableApplicationLayerAutomaticResponseRequest - {@link DisableApplicationLayerAutomaticResponseRequest}
+ * @returns {@link DisableApplicationLayerAutomaticResponseResponse}
  * @see {@link DisableApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link DisableApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

@@ -65,8 +65,8 @@ export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutpu
  *
  * ```
  *
- * @param GetClusterSnapshotCommandInput - {@link GetClusterSnapshotCommandInput}
- * @returns {@link GetClusterSnapshotCommandOutput}
+ * @param GetClusterSnapshotInput - {@link GetClusterSnapshotInput}
+ * @returns {@link GetClusterSnapshotOutput}
  * @see {@link GetClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

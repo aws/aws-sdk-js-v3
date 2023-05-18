@@ -59,8 +59,8 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  *
  * ```
  *
- * @param ListSecurityConfigurationsCommandInput - {@link ListSecurityConfigurationsCommandInput}
- * @returns {@link ListSecurityConfigurationsCommandOutput}
+ * @param ListSecurityConfigurationsInput - {@link ListSecurityConfigurationsInput}
+ * @returns {@link ListSecurityConfigurationsOutput}
  * @see {@link ListSecurityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

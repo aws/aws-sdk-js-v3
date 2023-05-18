@@ -56,8 +56,8 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
  *
  * ```
  *
- * @param UpdateAppInstanceCommandInput - {@link UpdateAppInstanceCommandInput}
- * @returns {@link UpdateAppInstanceCommandOutput}
+ * @param UpdateAppInstanceRequest - {@link UpdateAppInstanceRequest}
+ * @returns {@link UpdateAppInstanceResponse}
  * @see {@link UpdateAppInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

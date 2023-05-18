@@ -53,8 +53,8 @@ export interface CancelMulticastGroupSessionCommandOutput
  *
  * ```
  *
- * @param CancelMulticastGroupSessionCommandInput - {@link CancelMulticastGroupSessionCommandInput}
- * @returns {@link CancelMulticastGroupSessionCommandOutput}
+ * @param CancelMulticastGroupSessionRequest - {@link CancelMulticastGroupSessionRequest}
+ * @returns {@link CancelMulticastGroupSessionResponse}
  * @see {@link CancelMulticastGroupSessionCommandInput} for command's `input` shape.
  * @see {@link CancelMulticastGroupSessionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

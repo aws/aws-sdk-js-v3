@@ -49,8 +49,8 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  *
  * ```
  *
- * @param UpdateFunctionDefinitionCommandInput - {@link UpdateFunctionDefinitionCommandInput}
- * @returns {@link UpdateFunctionDefinitionCommandOutput}
+ * @param UpdateFunctionDefinitionRequest - {@link UpdateFunctionDefinitionRequest}
+ * @returns {@link UpdateFunctionDefinitionResponse}
  * @see {@link UpdateFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

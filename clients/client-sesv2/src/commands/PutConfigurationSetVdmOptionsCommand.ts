@@ -62,8 +62,8 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  *
  * ```
  *
- * @param PutConfigurationSetVdmOptionsCommandInput - {@link PutConfigurationSetVdmOptionsCommandInput}
- * @returns {@link PutConfigurationSetVdmOptionsCommandOutput}
+ * @param PutConfigurationSetVdmOptionsRequest - {@link PutConfigurationSetVdmOptionsRequest}
+ * @returns {@link PutConfigurationSetVdmOptionsResponse}
  * @see {@link PutConfigurationSetVdmOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetVdmOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

@@ -63,8 +63,8 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  *
  * ```
  *
- * @param ListWebhooksCommandInput - {@link ListWebhooksCommandInput}
- * @returns {@link ListWebhooksCommandOutput}
+ * @param ListWebhooksRequest - {@link ListWebhooksRequest}
+ * @returns {@link ListWebhooksResult}
  * @see {@link ListWebhooksCommandInput} for command's `input` shape.
  * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

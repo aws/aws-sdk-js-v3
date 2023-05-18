@@ -53,8 +53,8 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  *
  * ```
  *
- * @param StartSchemaCreationCommandInput - {@link StartSchemaCreationCommandInput}
- * @returns {@link StartSchemaCreationCommandOutput}
+ * @param StartSchemaCreationRequest - {@link StartSchemaCreationRequest}
+ * @returns {@link StartSchemaCreationResponse}
  * @see {@link StartSchemaCreationCommandInput} for command's `input` shape.
  * @see {@link StartSchemaCreationCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

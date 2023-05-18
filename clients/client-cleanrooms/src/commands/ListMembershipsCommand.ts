@@ -69,8 +69,8 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  *
  * ```
  *
- * @param ListMembershipsCommandInput - {@link ListMembershipsCommandInput}
- * @returns {@link ListMembershipsCommandOutput}
+ * @param ListMembershipsInput - {@link ListMembershipsInput}
+ * @returns {@link ListMembershipsOutput}
  * @see {@link ListMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListMembershipsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  *
  * ```
  *
- * @param ListComponentVersionsCommandInput - {@link ListComponentVersionsCommandInput}
- * @returns {@link ListComponentVersionsCommandOutput}
+ * @param ListComponentVersionsRequest - {@link ListComponentVersionsRequest}
+ * @returns {@link ListComponentVersionsResponse}
  * @see {@link ListComponentVersionsCommandInput} for command's `input` shape.
  * @see {@link ListComponentVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

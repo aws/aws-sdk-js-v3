@@ -60,8 +60,8 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  *
  * ```
  *
- * @param DisassociateServiceActionFromProvisioningArtifactCommandInput - {@link DisassociateServiceActionFromProvisioningArtifactCommandInput}
- * @returns {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput}
+ * @param DisassociateServiceActionFromProvisioningArtifactInput - {@link DisassociateServiceActionFromProvisioningArtifactInput}
+ * @returns {@link DisassociateServiceActionFromProvisioningArtifactOutput}
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

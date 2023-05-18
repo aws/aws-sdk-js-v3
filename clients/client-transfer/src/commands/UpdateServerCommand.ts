@@ -105,8 +105,8 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *
  * ```
  *
- * @param UpdateServerCommandInput - {@link UpdateServerCommandInput}
- * @returns {@link UpdateServerCommandOutput}
+ * @param UpdateServerRequest - {@link UpdateServerRequest}
+ * @returns {@link UpdateServerResponse}
  * @see {@link UpdateServerCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

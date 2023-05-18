@@ -105,8 +105,8 @@ export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionRespo
  *
  * ```
  *
- * @param DeleteBudgetActionCommandInput - {@link DeleteBudgetActionCommandInput}
- * @returns {@link DeleteBudgetActionCommandOutput}
+ * @param DeleteBudgetActionRequest - {@link DeleteBudgetActionRequest}
+ * @returns {@link DeleteBudgetActionResponse}
  * @see {@link DeleteBudgetActionCommandInput} for command's `input` shape.
  * @see {@link DeleteBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

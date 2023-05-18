@@ -64,8 +64,8 @@ export interface GetVpcLinkCommandOutput extends GetVpcLinkResponse, __MetadataB
  *
  * ```
  *
- * @param GetVpcLinkCommandInput - {@link GetVpcLinkCommandInput}
- * @returns {@link GetVpcLinkCommandOutput}
+ * @param GetVpcLinkRequest - {@link GetVpcLinkRequest}
+ * @returns {@link GetVpcLinkResponse}
  * @see {@link GetVpcLinkCommandInput} for command's `input` shape.
  * @see {@link GetVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

@@ -53,8 +53,8 @@ export interface DeletePlaybackConfigurationCommandOutput
  *
  * ```
  *
- * @param DeletePlaybackConfigurationCommandInput - {@link DeletePlaybackConfigurationCommandInput}
- * @returns {@link DeletePlaybackConfigurationCommandOutput}
+ * @param DeletePlaybackConfigurationRequest - {@link DeletePlaybackConfigurationRequest}
+ * @returns {@link DeletePlaybackConfigurationResponse}
  * @see {@link DeletePlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeletePlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

@@ -63,8 +63,8 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
  *
  * ```
  *
- * @param UpdateUserAccessLoggingSettingsCommandInput - {@link UpdateUserAccessLoggingSettingsCommandInput}
- * @returns {@link UpdateUserAccessLoggingSettingsCommandOutput}
+ * @param UpdateUserAccessLoggingSettingsRequest - {@link UpdateUserAccessLoggingSettingsRequest}
+ * @returns {@link UpdateUserAccessLoggingSettingsResponse}
  * @see {@link UpdateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

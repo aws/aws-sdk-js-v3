@@ -96,8 +96,8 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  *
  * ```
  *
- * @param RevokeClusterSecurityGroupIngressCommandInput - {@link RevokeClusterSecurityGroupIngressCommandInput}
- * @returns {@link RevokeClusterSecurityGroupIngressCommandOutput}
+ * @param RevokeClusterSecurityGroupIngressMessage - {@link RevokeClusterSecurityGroupIngressMessage}
+ * @returns {@link RevokeClusterSecurityGroupIngressResult}
  * @see {@link RevokeClusterSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

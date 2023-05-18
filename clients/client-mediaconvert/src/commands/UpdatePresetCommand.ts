@@ -1594,8 +1594,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *
  * ```
  *
- * @param UpdatePresetCommandInput - {@link UpdatePresetCommandInput}
- * @returns {@link UpdatePresetCommandOutput}
+ * @param UpdatePresetRequest - {@link UpdatePresetRequest}
+ * @returns {@link UpdatePresetResponse}
  * @see {@link UpdatePresetCommandInput} for command's `input` shape.
  * @see {@link UpdatePresetCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

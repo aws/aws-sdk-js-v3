@@ -562,8 +562,8 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  *
  * ```
  *
- * @param CreateVolumeCommandInput - {@link CreateVolumeCommandInput}
- * @returns {@link CreateVolumeCommandOutput}
+ * @param CreateVolumeRequest - {@link CreateVolumeRequest}
+ * @returns {@link CreateVolumeResponse}
  * @see {@link CreateVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

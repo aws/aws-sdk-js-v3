@@ -65,8 +65,8 @@ export interface DescribeStorageSystemCommandOutput extends DescribeStorageSyste
  *
  * ```
  *
- * @param DescribeStorageSystemCommandInput - {@link DescribeStorageSystemCommandInput}
- * @returns {@link DescribeStorageSystemCommandOutput}
+ * @param DescribeStorageSystemRequest - {@link DescribeStorageSystemRequest}
+ * @returns {@link DescribeStorageSystemResponse}
  * @see {@link DescribeStorageSystemCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageSystemCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

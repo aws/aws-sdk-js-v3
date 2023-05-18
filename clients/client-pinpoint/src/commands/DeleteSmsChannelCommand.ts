@@ -65,8 +65,8 @@ export interface DeleteSmsChannelCommandOutput extends DeleteSmsChannelResponse,
  *
  * ```
  *
- * @param DeleteSmsChannelCommandInput - {@link DeleteSmsChannelCommandInput}
- * @returns {@link DeleteSmsChannelCommandOutput}
+ * @param DeleteSmsChannelRequest - {@link DeleteSmsChannelRequest}
+ * @returns {@link DeleteSmsChannelResponse}
  * @see {@link DeleteSmsChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteSmsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

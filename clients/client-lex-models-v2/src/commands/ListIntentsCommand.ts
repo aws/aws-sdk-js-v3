@@ -91,8 +91,8 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  *
  * ```
  *
- * @param ListIntentsCommandInput - {@link ListIntentsCommandInput}
- * @returns {@link ListIntentsCommandOutput}
+ * @param ListIntentsRequest - {@link ListIntentsRequest}
+ * @returns {@link ListIntentsResponse}
  * @see {@link ListIntentsCommandInput} for command's `input` shape.
  * @see {@link ListIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

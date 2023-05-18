@@ -110,8 +110,8 @@ export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __Met
  *
  * ```
  *
- * @param GetGraphqlApiCommandInput - {@link GetGraphqlApiCommandInput}
- * @returns {@link GetGraphqlApiCommandOutput}
+ * @param GetGraphqlApiRequest - {@link GetGraphqlApiRequest}
+ * @returns {@link GetGraphqlApiResponse}
  * @see {@link GetGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link GetGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

@@ -67,8 +67,8 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  *
  * ```
  *
- * @param DescribeNotificationSubscriptionsCommandInput - {@link DescribeNotificationSubscriptionsCommandInput}
- * @returns {@link DescribeNotificationSubscriptionsCommandOutput}
+ * @param DescribeNotificationSubscriptionsRequest - {@link DescribeNotificationSubscriptionsRequest}
+ * @returns {@link DescribeNotificationSubscriptionsResponse}
  * @see {@link DescribeNotificationSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

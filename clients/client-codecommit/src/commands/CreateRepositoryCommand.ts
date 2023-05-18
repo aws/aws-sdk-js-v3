@@ -65,8 +65,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  *
  * ```
  *
- * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
- * @returns {@link CreateRepositoryCommandOutput}
+ * @param CreateRepositoryInput - {@link CreateRepositoryInput}
+ * @returns {@link CreateRepositoryOutput}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

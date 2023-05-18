@@ -75,8 +75,8 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetBlockCommandInput - {@link GetBlockCommandInput}
- * @returns {@link GetBlockCommandOutput}
+ * @param GetBlockRequest - {@link GetBlockRequest}
+ * @returns {@link GetBlockResponse}
  * @see {@link GetBlockCommandInput} for command's `input` shape.
  * @see {@link GetBlockCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

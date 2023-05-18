@@ -55,8 +55,8 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  *
  * ```
  *
- * @param SetIpAddressTypeCommandInput - {@link SetIpAddressTypeCommandInput}
- * @returns {@link SetIpAddressTypeCommandOutput}
+ * @param SetIpAddressTypeInput - {@link SetIpAddressTypeInput}
+ * @returns {@link SetIpAddressTypeOutput}
  * @see {@link SetIpAddressTypeCommandInput} for command's `input` shape.
  * @see {@link SetIpAddressTypeCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

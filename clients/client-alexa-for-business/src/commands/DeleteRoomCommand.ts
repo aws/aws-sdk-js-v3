@@ -48,8 +48,8 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteRoomCommandInput - {@link DeleteRoomCommandInput}
- * @returns {@link DeleteRoomCommandOutput}
+ * @param DeleteRoomRequest - {@link DeleteRoomRequest}
+ * @returns {@link DeleteRoomResponse}
  * @see {@link DeleteRoomCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

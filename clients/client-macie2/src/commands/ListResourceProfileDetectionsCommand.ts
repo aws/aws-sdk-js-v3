@@ -67,8 +67,8 @@ export interface ListResourceProfileDetectionsCommandOutput
  *
  * ```
  *
- * @param ListResourceProfileDetectionsCommandInput - {@link ListResourceProfileDetectionsCommandInput}
- * @returns {@link ListResourceProfileDetectionsCommandOutput}
+ * @param ListResourceProfileDetectionsRequest - {@link ListResourceProfileDetectionsRequest}
+ * @returns {@link ListResourceProfileDetectionsResponse}
  * @see {@link ListResourceProfileDetectionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceProfileDetectionsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

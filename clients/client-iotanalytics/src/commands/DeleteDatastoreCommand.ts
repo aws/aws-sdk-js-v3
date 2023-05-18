@@ -48,8 +48,8 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDatastoreCommandInput - {@link DeleteDatastoreCommandInput}
- * @returns {@link DeleteDatastoreCommandOutput}
+ * @param DeleteDatastoreRequest - {@link DeleteDatastoreRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDatastoreCommandInput} for command's `input` shape.
  * @see {@link DeleteDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

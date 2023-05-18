@@ -93,8 +93,8 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  *
  * ```
  *
- * @param CloneStackCommandInput - {@link CloneStackCommandInput}
- * @returns {@link CloneStackCommandOutput}
+ * @param CloneStackRequest - {@link CloneStackRequest}
+ * @returns {@link CloneStackResult}
  * @see {@link CloneStackCommandInput} for command's `input` shape.
  * @see {@link CloneStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

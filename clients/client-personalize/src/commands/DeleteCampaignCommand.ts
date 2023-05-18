@@ -53,8 +53,8 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
- * @returns {@link DeleteCampaignCommandOutput}
+ * @param DeleteCampaignRequest - {@link DeleteCampaignRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

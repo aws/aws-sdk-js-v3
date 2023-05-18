@@ -61,8 +61,8 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  *
  * ```
  *
- * @param ListRumMetricsDestinationsCommandInput - {@link ListRumMetricsDestinationsCommandInput}
- * @returns {@link ListRumMetricsDestinationsCommandOutput}
+ * @param ListRumMetricsDestinationsRequest - {@link ListRumMetricsDestinationsRequest}
+ * @returns {@link ListRumMetricsDestinationsResponse}
  * @see {@link ListRumMetricsDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListRumMetricsDestinationsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

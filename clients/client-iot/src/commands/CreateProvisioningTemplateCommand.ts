@@ -68,8 +68,8 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  *
  * ```
  *
- * @param CreateProvisioningTemplateCommandInput - {@link CreateProvisioningTemplateCommandInput}
- * @returns {@link CreateProvisioningTemplateCommandOutput}
+ * @param CreateProvisioningTemplateRequest - {@link CreateProvisioningTemplateRequest}
+ * @returns {@link CreateProvisioningTemplateResponse}
  * @see {@link CreateProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

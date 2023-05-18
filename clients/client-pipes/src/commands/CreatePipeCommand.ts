@@ -355,8 +355,8 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *
  * ```
  *
- * @param CreatePipeCommandInput - {@link CreatePipeCommandInput}
- * @returns {@link CreatePipeCommandOutput}
+ * @param CreatePipeRequest - {@link CreatePipeRequest}
+ * @returns {@link CreatePipeResponse}
  * @see {@link CreatePipeCommandInput} for command's `input` shape.
  * @see {@link CreatePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.

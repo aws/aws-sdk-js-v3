@@ -78,8 +78,8 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  *
  * ```
  *
- * @param BatchDeleteImageCommandInput - {@link BatchDeleteImageCommandInput}
- * @returns {@link BatchDeleteImageCommandOutput}
+ * @param BatchDeleteImageRequest - {@link BatchDeleteImageRequest}
+ * @returns {@link BatchDeleteImageResponse}
  * @see {@link BatchDeleteImageCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteImageCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

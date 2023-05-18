@@ -76,8 +76,8 @@ export interface GetServiceSyncBlockerSummaryCommandOutput
  *
  * ```
  *
- * @param GetServiceSyncBlockerSummaryCommandInput - {@link GetServiceSyncBlockerSummaryCommandInput}
- * @returns {@link GetServiceSyncBlockerSummaryCommandOutput}
+ * @param GetServiceSyncBlockerSummaryInput - {@link GetServiceSyncBlockerSummaryInput}
+ * @returns {@link GetServiceSyncBlockerSummaryOutput}
  * @see {@link GetServiceSyncBlockerSummaryCommandInput} for command's `input` shape.
  * @see {@link GetServiceSyncBlockerSummaryCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

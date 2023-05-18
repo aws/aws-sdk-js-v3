@@ -159,8 +159,8 @@ export interface CreateCostCategoryDefinitionCommandOutput
  *
  * ```
  *
- * @param CreateCostCategoryDefinitionCommandInput - {@link CreateCostCategoryDefinitionCommandInput}
- * @returns {@link CreateCostCategoryDefinitionCommandOutput}
+ * @param CreateCostCategoryDefinitionRequest - {@link CreateCostCategoryDefinitionRequest}
+ * @returns {@link CreateCostCategoryDefinitionResponse}
  * @see {@link CreateCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

@@ -138,8 +138,8 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *
  * ```
  *
- * @param CreateInputCommandInput - {@link CreateInputCommandInput}
- * @returns {@link CreateInputCommandOutput}
+ * @param CreateInputRequest - {@link CreateInputRequest}
+ * @returns {@link CreateInputResponse}
  * @see {@link CreateInputCommandInput} for command's `input` shape.
  * @see {@link CreateInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

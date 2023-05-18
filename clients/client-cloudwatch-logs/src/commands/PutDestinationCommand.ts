@@ -71,8 +71,8 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  *
  * ```
  *
- * @param PutDestinationCommandInput - {@link PutDestinationCommandInput}
- * @returns {@link PutDestinationCommandOutput}
+ * @param PutDestinationRequest - {@link PutDestinationRequest}
+ * @returns {@link PutDestinationResponse}
  * @see {@link PutDestinationCommandInput} for command's `input` shape.
  * @see {@link PutDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

@@ -77,8 +77,8 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
  *
  * ```
  *
- * @param ListEnvironmentAccountConnectionsCommandInput - {@link ListEnvironmentAccountConnectionsCommandInput}
- * @returns {@link ListEnvironmentAccountConnectionsCommandOutput}
+ * @param ListEnvironmentAccountConnectionsInput - {@link ListEnvironmentAccountConnectionsInput}
+ * @returns {@link ListEnvironmentAccountConnectionsOutput}
  * @see {@link ListEnvironmentAccountConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentAccountConnectionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

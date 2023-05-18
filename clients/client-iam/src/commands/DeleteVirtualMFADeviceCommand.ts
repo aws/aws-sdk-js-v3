@@ -52,8 +52,8 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVirtualMFADeviceCommandInput - {@link DeleteVirtualMFADeviceCommandInput}
- * @returns {@link DeleteVirtualMFADeviceCommandOutput}
+ * @param DeleteVirtualMFADeviceRequest - {@link DeleteVirtualMFADeviceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVirtualMFADeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

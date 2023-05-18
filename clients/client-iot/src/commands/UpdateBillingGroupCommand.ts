@@ -55,8 +55,8 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  *
  * ```
  *
- * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
- * @returns {@link UpdateBillingGroupCommandOutput}
+ * @param UpdateBillingGroupRequest - {@link UpdateBillingGroupRequest}
+ * @returns {@link UpdateBillingGroupResponse}
  * @see {@link UpdateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

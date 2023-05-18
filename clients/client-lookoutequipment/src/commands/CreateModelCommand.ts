@@ -87,8 +87,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *
  * ```
  *
- * @param CreateModelCommandInput - {@link CreateModelCommandInput}
- * @returns {@link CreateModelCommandOutput}
+ * @param CreateModelRequest - {@link CreateModelRequest}
+ * @returns {@link CreateModelResponse}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

@@ -62,8 +62,8 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  *
  * ```
  *
- * @param CreateDestinationCommandInput - {@link CreateDestinationCommandInput}
- * @returns {@link CreateDestinationCommandOutput}
+ * @param CreateDestinationRequest - {@link CreateDestinationRequest}
+ * @returns {@link CreateDestinationResponse}
  * @see {@link CreateDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

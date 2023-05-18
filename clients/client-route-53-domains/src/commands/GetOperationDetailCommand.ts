@@ -58,8 +58,8 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
  *
  * ```
  *
- * @param GetOperationDetailCommandInput - {@link GetOperationDetailCommandInput}
- * @returns {@link GetOperationDetailCommandOutput}
+ * @param GetOperationDetailRequest - {@link GetOperationDetailRequest}
+ * @returns {@link GetOperationDetailResponse}
  * @see {@link GetOperationDetailCommandInput} for command's `input` shape.
  * @see {@link GetOperationDetailCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

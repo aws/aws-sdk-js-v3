@@ -77,8 +77,8 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  *
  * ```
  *
- * @param DescribeDirectoryConfigsCommandInput - {@link DescribeDirectoryConfigsCommandInput}
- * @returns {@link DescribeDirectoryConfigsCommandOutput}
+ * @param DescribeDirectoryConfigsRequest - {@link DescribeDirectoryConfigsRequest}
+ * @returns {@link DescribeDirectoryConfigsResult}
  * @see {@link DescribeDirectoryConfigsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectoryConfigsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

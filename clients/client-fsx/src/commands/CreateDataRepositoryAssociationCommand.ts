@@ -141,8 +141,8 @@ export interface CreateDataRepositoryAssociationCommandOutput
  *
  * ```
  *
- * @param CreateDataRepositoryAssociationCommandInput - {@link CreateDataRepositoryAssociationCommandInput}
- * @returns {@link CreateDataRepositoryAssociationCommandOutput}
+ * @param CreateDataRepositoryAssociationRequest - {@link CreateDataRepositoryAssociationRequest}
+ * @returns {@link CreateDataRepositoryAssociationResponse}
  * @see {@link CreateDataRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDataRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

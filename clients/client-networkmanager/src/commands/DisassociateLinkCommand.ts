@@ -58,8 +58,8 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  *
  * ```
  *
- * @param DisassociateLinkCommandInput - {@link DisassociateLinkCommandInput}
- * @returns {@link DisassociateLinkCommandOutput}
+ * @param DisassociateLinkRequest - {@link DisassociateLinkRequest}
+ * @returns {@link DisassociateLinkResponse}
  * @see {@link DisassociateLinkCommandInput} for command's `input` shape.
  * @see {@link DisassociateLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

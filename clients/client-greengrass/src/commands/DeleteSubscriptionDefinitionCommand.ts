@@ -53,8 +53,8 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  *
  * ```
  *
- * @param DeleteSubscriptionDefinitionCommandInput - {@link DeleteSubscriptionDefinitionCommandInput}
- * @returns {@link DeleteSubscriptionDefinitionCommandOutput}
+ * @param DeleteSubscriptionDefinitionRequest - {@link DeleteSubscriptionDefinitionRequest}
+ * @returns {@link DeleteSubscriptionDefinitionResponse}
  * @see {@link DeleteSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

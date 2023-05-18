@@ -273,8 +273,8 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *
  * ```
  *
- * @param SendMessagesCommandInput - {@link SendMessagesCommandInput}
- * @returns {@link SendMessagesCommandOutput}
+ * @param SendMessagesRequest - {@link SendMessagesRequest}
+ * @returns {@link SendMessagesResponse}
  * @see {@link SendMessagesCommandInput} for command's `input` shape.
  * @see {@link SendMessagesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

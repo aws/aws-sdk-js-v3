@@ -68,8 +68,8 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  *
  * ```
  *
- * @param ListOrganizationPortfolioAccessCommandInput - {@link ListOrganizationPortfolioAccessCommandInput}
- * @returns {@link ListOrganizationPortfolioAccessCommandOutput}
+ * @param ListOrganizationPortfolioAccessInput - {@link ListOrganizationPortfolioAccessInput}
+ * @returns {@link ListOrganizationPortfolioAccessOutput}
  * @see {@link ListOrganizationPortfolioAccessCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationPortfolioAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

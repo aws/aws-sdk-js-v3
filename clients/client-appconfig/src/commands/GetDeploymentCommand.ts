@@ -99,8 +99,8 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  *
  * ```
  *
- * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
- * @returns {@link GetDeploymentCommandOutput}
+ * @param GetDeploymentRequest - {@link GetDeploymentRequest}
+ * @returns {@link Deployment}
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

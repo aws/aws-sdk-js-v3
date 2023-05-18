@@ -68,8 +68,8 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  *
  * ```
  *
- * @param ListBuiltInIntentsCommandInput - {@link ListBuiltInIntentsCommandInput}
- * @returns {@link ListBuiltInIntentsCommandOutput}
+ * @param ListBuiltInIntentsRequest - {@link ListBuiltInIntentsRequest}
+ * @returns {@link ListBuiltInIntentsResponse}
  * @see {@link ListBuiltInIntentsCommandInput} for command's `input` shape.
  * @see {@link ListBuiltInIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

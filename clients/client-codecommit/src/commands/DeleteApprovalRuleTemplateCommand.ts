@@ -50,8 +50,8 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  *
  * ```
  *
- * @param DeleteApprovalRuleTemplateCommandInput - {@link DeleteApprovalRuleTemplateCommandInput}
- * @returns {@link DeleteApprovalRuleTemplateCommandOutput}
+ * @param DeleteApprovalRuleTemplateInput - {@link DeleteApprovalRuleTemplateInput}
+ * @returns {@link DeleteApprovalRuleTemplateOutput}
  * @see {@link DeleteApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteApprovalRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

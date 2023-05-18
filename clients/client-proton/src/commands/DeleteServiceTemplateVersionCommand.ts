@@ -90,8 +90,8 @@ export interface DeleteServiceTemplateVersionCommandOutput
  *
  * ```
  *
- * @param DeleteServiceTemplateVersionCommandInput - {@link DeleteServiceTemplateVersionCommandInput}
- * @returns {@link DeleteServiceTemplateVersionCommandOutput}
+ * @param DeleteServiceTemplateVersionInput - {@link DeleteServiceTemplateVersionInput}
+ * @returns {@link DeleteServiceTemplateVersionOutput}
  * @see {@link DeleteServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

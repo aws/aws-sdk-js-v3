@@ -51,8 +51,8 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  *
  * ```
  *
- * @param DeleteReplicationJobCommandInput - {@link DeleteReplicationJobCommandInput}
- * @returns {@link DeleteReplicationJobCommandOutput}
+ * @param DeleteReplicationJobRequest - {@link DeleteReplicationJobRequest}
+ * @returns {@link DeleteReplicationJobResponse}
  * @see {@link DeleteReplicationJobCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

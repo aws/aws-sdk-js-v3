@@ -61,8 +61,8 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  *
  * ```
  *
- * @param ModifyWorkspaceCreationPropertiesCommandInput - {@link ModifyWorkspaceCreationPropertiesCommandInput}
- * @returns {@link ModifyWorkspaceCreationPropertiesCommandOutput}
+ * @param ModifyWorkspaceCreationPropertiesRequest - {@link ModifyWorkspaceCreationPropertiesRequest}
+ * @returns {@link ModifyWorkspaceCreationPropertiesResult}
  * @see {@link ModifyWorkspaceCreationPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceCreationPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

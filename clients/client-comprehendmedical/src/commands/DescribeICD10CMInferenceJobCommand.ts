@@ -78,8 +78,8 @@ export interface DescribeICD10CMInferenceJobCommandOutput
  *
  * ```
  *
- * @param DescribeICD10CMInferenceJobCommandInput - {@link DescribeICD10CMInferenceJobCommandInput}
- * @returns {@link DescribeICD10CMInferenceJobCommandOutput}
+ * @param DescribeICD10CMInferenceJobRequest - {@link DescribeICD10CMInferenceJobRequest}
+ * @returns {@link DescribeICD10CMInferenceJobResponse}
  * @see {@link DescribeICD10CMInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeICD10CMInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

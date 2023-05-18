@@ -50,8 +50,8 @@ export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateUserHierarchyCommandInput - {@link UpdateUserHierarchyCommandInput}
- * @returns {@link UpdateUserHierarchyCommandOutput}
+ * @param UpdateUserHierarchyRequest - {@link UpdateUserHierarchyRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserHierarchyCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

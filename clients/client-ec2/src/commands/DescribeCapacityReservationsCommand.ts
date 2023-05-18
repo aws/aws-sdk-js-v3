@@ -103,8 +103,8 @@ export interface DescribeCapacityReservationsCommandOutput
  *
  * ```
  *
- * @param DescribeCapacityReservationsCommandInput - {@link DescribeCapacityReservationsCommandInput}
- * @returns {@link DescribeCapacityReservationsCommandOutput}
+ * @param DescribeCapacityReservationsRequest - {@link DescribeCapacityReservationsRequest}
+ * @returns {@link DescribeCapacityReservationsResult}
  * @see {@link DescribeCapacityReservationsCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityReservationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

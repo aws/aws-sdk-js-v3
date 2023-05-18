@@ -56,8 +56,8 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  *
  * ```
  *
- * @param UpdateTagsForDomainCommandInput - {@link UpdateTagsForDomainCommandInput}
- * @returns {@link UpdateTagsForDomainCommandOutput}
+ * @param UpdateTagsForDomainRequest - {@link UpdateTagsForDomainRequest}
+ * @returns {@link UpdateTagsForDomainResponse}
  * @see {@link UpdateTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

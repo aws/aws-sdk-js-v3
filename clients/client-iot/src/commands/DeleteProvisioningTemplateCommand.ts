@@ -49,8 +49,8 @@ export interface DeleteProvisioningTemplateCommandOutput extends DeleteProvision
  *
  * ```
  *
- * @param DeleteProvisioningTemplateCommandInput - {@link DeleteProvisioningTemplateCommandInput}
- * @returns {@link DeleteProvisioningTemplateCommandOutput}
+ * @param DeleteProvisioningTemplateRequest - {@link DeleteProvisioningTemplateRequest}
+ * @returns {@link DeleteProvisioningTemplateResponse}
  * @see {@link DeleteProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

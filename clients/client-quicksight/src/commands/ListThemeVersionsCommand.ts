@@ -64,8 +64,8 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
  *
  * ```
  *
- * @param ListThemeVersionsCommandInput - {@link ListThemeVersionsCommandInput}
- * @returns {@link ListThemeVersionsCommandOutput}
+ * @param ListThemeVersionsRequest - {@link ListThemeVersionsRequest}
+ * @returns {@link ListThemeVersionsResponse}
  * @see {@link ListThemeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListThemeVersionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -75,8 +75,8 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  *
  * ```
  *
- * @param GetIntentVersionsCommandInput - {@link GetIntentVersionsCommandInput}
- * @returns {@link GetIntentVersionsCommandOutput}
+ * @param GetIntentVersionsRequest - {@link GetIntentVersionsRequest}
+ * @returns {@link GetIntentVersionsResponse}
  * @see {@link GetIntentVersionsCommandInput} for command's `input` shape.
  * @see {@link GetIntentVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

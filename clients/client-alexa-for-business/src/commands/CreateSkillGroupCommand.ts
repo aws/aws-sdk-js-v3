@@ -58,8 +58,8 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  *
  * ```
  *
- * @param CreateSkillGroupCommandInput - {@link CreateSkillGroupCommandInput}
- * @returns {@link CreateSkillGroupCommandOutput}
+ * @param CreateSkillGroupRequest - {@link CreateSkillGroupRequest}
+ * @returns {@link CreateSkillGroupResponse}
  * @see {@link CreateSkillGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

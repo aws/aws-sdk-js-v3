@@ -50,8 +50,8 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  *
  * ```
  *
- * @param ExportBackupPlanTemplateCommandInput - {@link ExportBackupPlanTemplateCommandInput}
- * @returns {@link ExportBackupPlanTemplateCommandOutput}
+ * @param ExportBackupPlanTemplateInput - {@link ExportBackupPlanTemplateInput}
+ * @returns {@link ExportBackupPlanTemplateOutput}
  * @see {@link ExportBackupPlanTemplateCommandInput} for command's `input` shape.
  * @see {@link ExportBackupPlanTemplateCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

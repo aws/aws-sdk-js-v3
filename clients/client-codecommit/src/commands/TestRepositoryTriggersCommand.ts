@@ -73,8 +73,8 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  *
  * ```
  *
- * @param TestRepositoryTriggersCommandInput - {@link TestRepositoryTriggersCommandInput}
- * @returns {@link TestRepositoryTriggersCommandOutput}
+ * @param TestRepositoryTriggersInput - {@link TestRepositoryTriggersInput}
+ * @returns {@link TestRepositoryTriggersOutput}
  * @see {@link TestRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link TestRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

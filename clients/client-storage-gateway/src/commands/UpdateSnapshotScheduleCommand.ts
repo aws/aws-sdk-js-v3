@@ -68,8 +68,8 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  *
  * ```
  *
- * @param UpdateSnapshotScheduleCommandInput - {@link UpdateSnapshotScheduleCommandInput}
- * @returns {@link UpdateSnapshotScheduleCommandOutput}
+ * @param UpdateSnapshotScheduleInput - {@link UpdateSnapshotScheduleInput}
+ * @returns {@link UpdateSnapshotScheduleOutput}
  * @see {@link UpdateSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -62,8 +62,8 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  *
  * ```
  *
- * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
- * @returns {@link UpdatePricingPlanCommandOutput}
+ * @param UpdatePricingPlanInput - {@link UpdatePricingPlanInput}
+ * @returns {@link UpdatePricingPlanOutput}
  * @see {@link UpdatePricingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdatePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

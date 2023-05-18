@@ -49,8 +49,8 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  *
  * ```
  *
- * @param DeleteParameterCommandInput - {@link DeleteParameterCommandInput}
- * @returns {@link DeleteParameterCommandOutput}
+ * @param DeleteParameterRequest - {@link DeleteParameterRequest}
+ * @returns {@link DeleteParameterResult}
  * @see {@link DeleteParameterCommandInput} for command's `input` shape.
  * @see {@link DeleteParameterCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

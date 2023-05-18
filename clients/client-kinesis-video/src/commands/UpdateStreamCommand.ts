@@ -61,8 +61,8 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  *
  * ```
  *
- * @param UpdateStreamCommandInput - {@link UpdateStreamCommandInput}
- * @returns {@link UpdateStreamCommandOutput}
+ * @param UpdateStreamInput - {@link UpdateStreamInput}
+ * @returns {@link UpdateStreamOutput}
  * @see {@link UpdateStreamCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

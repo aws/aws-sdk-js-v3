@@ -437,8 +437,8 @@ export interface GetCampaignVersionsCommandOutput extends GetCampaignVersionsRes
  *
  * ```
  *
- * @param GetCampaignVersionsCommandInput - {@link GetCampaignVersionsCommandInput}
- * @returns {@link GetCampaignVersionsCommandOutput}
+ * @param GetCampaignVersionsRequest - {@link GetCampaignVersionsRequest}
+ * @returns {@link GetCampaignVersionsResponse}
  * @see {@link GetCampaignVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCampaignVersionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

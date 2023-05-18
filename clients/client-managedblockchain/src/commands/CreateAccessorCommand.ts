@@ -60,8 +60,8 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  *
  * ```
  *
- * @param CreateAccessorCommandInput - {@link CreateAccessorCommandInput}
- * @returns {@link CreateAccessorCommandOutput}
+ * @param CreateAccessorInput - {@link CreateAccessorInput}
+ * @returns {@link CreateAccessorOutput}
  * @see {@link CreateAccessorCommandInput} for command's `input` shape.
  * @see {@link CreateAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

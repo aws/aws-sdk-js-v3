@@ -153,8 +153,8 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  *
  * ```
  *
- * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
- * @returns {@link DescribeJobCommandOutput}
+ * @param DescribeJobInput - {@link DescribeJobInput}
+ * @returns {@link GlacierJobDescription}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

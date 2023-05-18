@@ -169,8 +169,8 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param RespondDecisionTaskCompletedCommandInput - {@link RespondDecisionTaskCompletedCommandInput}
- * @returns {@link RespondDecisionTaskCompletedCommandOutput}
+ * @param RespondDecisionTaskCompletedInput - {@link RespondDecisionTaskCompletedInput}
+ * @returns {@link Unit}
  * @see {@link RespondDecisionTaskCompletedCommandInput} for command's `input` shape.
  * @see {@link RespondDecisionTaskCompletedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

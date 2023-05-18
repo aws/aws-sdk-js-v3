@@ -244,8 +244,8 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  *
  * ```
  *
- * @param GetExecutionHistoryCommandInput - {@link GetExecutionHistoryCommandInput}
- * @returns {@link GetExecutionHistoryCommandOutput}
+ * @param GetExecutionHistoryInput - {@link GetExecutionHistoryInput}
+ * @returns {@link GetExecutionHistoryOutput}
  * @see {@link GetExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetExecutionHistoryCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

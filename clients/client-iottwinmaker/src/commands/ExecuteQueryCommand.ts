@@ -67,8 +67,8 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  *
  * ```
  *
- * @param ExecuteQueryCommandInput - {@link ExecuteQueryCommandInput}
- * @returns {@link ExecuteQueryCommandOutput}
+ * @param ExecuteQueryRequest - {@link ExecuteQueryRequest}
+ * @returns {@link ExecuteQueryResponse}
  * @see {@link ExecuteQueryCommandInput} for command's `input` shape.
  * @see {@link ExecuteQueryCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

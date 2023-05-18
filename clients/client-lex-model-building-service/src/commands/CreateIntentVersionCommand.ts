@@ -170,8 +170,8 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  *
  * ```
  *
- * @param CreateIntentVersionCommandInput - {@link CreateIntentVersionCommandInput}
- * @returns {@link CreateIntentVersionCommandOutput}
+ * @param CreateIntentVersionRequest - {@link CreateIntentVersionRequest}
+ * @returns {@link CreateIntentVersionResponse}
  * @see {@link CreateIntentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateIntentVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

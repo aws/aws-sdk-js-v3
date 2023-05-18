@@ -69,8 +69,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *
  * ```
  *
- * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
- * @returns {@link DeleteBackupCommandOutput}
+ * @param DeleteBackupRequest - {@link DeleteBackupRequest}
+ * @returns {@link DeleteBackupResponse}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.

@@ -104,8 +104,8 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *
  * ```
  *
- * @param CreateSMBFileShareCommandInput - {@link CreateSMBFileShareCommandInput}
- * @returns {@link CreateSMBFileShareCommandOutput}
+ * @param CreateSMBFileShareInput - {@link CreateSMBFileShareInput}
+ * @returns {@link CreateSMBFileShareOutput}
  * @see {@link CreateSMBFileShareCommandInput} for command's `input` shape.
  * @see {@link CreateSMBFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

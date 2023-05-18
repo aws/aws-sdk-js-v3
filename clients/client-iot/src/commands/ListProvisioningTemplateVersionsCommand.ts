@@ -65,8 +65,8 @@ export interface ListProvisioningTemplateVersionsCommandOutput
  *
  * ```
  *
- * @param ListProvisioningTemplateVersionsCommandInput - {@link ListProvisioningTemplateVersionsCommandInput}
- * @returns {@link ListProvisioningTemplateVersionsCommandOutput}
+ * @param ListProvisioningTemplateVersionsRequest - {@link ListProvisioningTemplateVersionsRequest}
+ * @returns {@link ListProvisioningTemplateVersionsResponse}
  * @see {@link ListProvisioningTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

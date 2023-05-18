@@ -62,8 +62,8 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  *
  * ```
  *
- * @param SetDefaultMessageTypeCommandInput - {@link SetDefaultMessageTypeCommandInput}
- * @returns {@link SetDefaultMessageTypeCommandOutput}
+ * @param SetDefaultMessageTypeRequest - {@link SetDefaultMessageTypeRequest}
+ * @returns {@link SetDefaultMessageTypeResult}
  * @see {@link SetDefaultMessageTypeCommandInput} for command's `input` shape.
  * @see {@link SetDefaultMessageTypeCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

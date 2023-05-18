@@ -70,8 +70,8 @@ export interface DescribeAccountAssignmentCreationStatusCommandOutput
  *
  * ```
  *
- * @param DescribeAccountAssignmentCreationStatusCommandInput - {@link DescribeAccountAssignmentCreationStatusCommandInput}
- * @returns {@link DescribeAccountAssignmentCreationStatusCommandOutput}
+ * @param DescribeAccountAssignmentCreationStatusRequest - {@link DescribeAccountAssignmentCreationStatusRequest}
+ * @returns {@link DescribeAccountAssignmentCreationStatusResponse}
  * @see {@link DescribeAccountAssignmentCreationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAssignmentCreationStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

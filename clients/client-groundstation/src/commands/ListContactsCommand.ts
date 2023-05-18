@@ -84,8 +84,8 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  *
  * ```
  *
- * @param ListContactsCommandInput - {@link ListContactsCommandInput}
- * @returns {@link ListContactsCommandOutput}
+ * @param ListContactsRequest - {@link ListContactsRequest}
+ * @returns {@link ListContactsResponse}
  * @see {@link ListContactsCommandInput} for command's `input` shape.
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

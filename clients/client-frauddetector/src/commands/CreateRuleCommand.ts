@@ -67,8 +67,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  *
  * ```
  *
- * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
- * @returns {@link CreateRuleCommandOutput}
+ * @param CreateRuleRequest - {@link CreateRuleRequest}
+ * @returns {@link CreateRuleResult}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

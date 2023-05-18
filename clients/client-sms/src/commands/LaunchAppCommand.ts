@@ -48,8 +48,8 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  *
  * ```
  *
- * @param LaunchAppCommandInput - {@link LaunchAppCommandInput}
- * @returns {@link LaunchAppCommandOutput}
+ * @param LaunchAppRequest - {@link LaunchAppRequest}
+ * @returns {@link LaunchAppResponse}
  * @see {@link LaunchAppCommandInput} for command's `input` shape.
  * @see {@link LaunchAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

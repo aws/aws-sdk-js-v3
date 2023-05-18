@@ -117,8 +117,8 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  *
  * ```
  *
- * @param DescribeAuditFindingCommandInput - {@link DescribeAuditFindingCommandInput}
- * @returns {@link DescribeAuditFindingCommandOutput}
+ * @param DescribeAuditFindingRequest - {@link DescribeAuditFindingRequest}
+ * @returns {@link DescribeAuditFindingResponse}
  * @see {@link DescribeAuditFindingCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditFindingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

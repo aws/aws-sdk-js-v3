@@ -64,8 +64,8 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  *
  * ```
  *
- * @param UpdateDynamicThingGroupCommandInput - {@link UpdateDynamicThingGroupCommandInput}
- * @returns {@link UpdateDynamicThingGroupCommandOutput}
+ * @param UpdateDynamicThingGroupRequest - {@link UpdateDynamicThingGroupRequest}
+ * @returns {@link UpdateDynamicThingGroupResponse}
  * @see {@link UpdateDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDynamicThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

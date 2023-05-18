@@ -75,8 +75,8 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  *
  * ```
  *
- * @param CreateTestGridProjectCommandInput - {@link CreateTestGridProjectCommandInput}
- * @returns {@link CreateTestGridProjectCommandOutput}
+ * @param CreateTestGridProjectRequest - {@link CreateTestGridProjectRequest}
+ * @returns {@link CreateTestGridProjectResult}
  * @see {@link CreateTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link CreateTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

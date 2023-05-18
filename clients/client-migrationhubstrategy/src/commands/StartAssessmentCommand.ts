@@ -64,8 +64,8 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  *
  * ```
  *
- * @param StartAssessmentCommandInput - {@link StartAssessmentCommandInput}
- * @returns {@link StartAssessmentCommandOutput}
+ * @param StartAssessmentRequest - {@link StartAssessmentRequest}
+ * @returns {@link StartAssessmentResponse}
  * @see {@link StartAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

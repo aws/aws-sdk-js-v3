@@ -51,8 +51,8 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  *
  * ```
  *
- * @param StopJobRunCommandInput - {@link StopJobRunCommandInput}
- * @returns {@link StopJobRunCommandOutput}
+ * @param StopJobRunRequest - {@link StopJobRunRequest}
+ * @returns {@link StopJobRunResponse}
  * @see {@link StopJobRunCommandInput} for command's `input` shape.
  * @see {@link StopJobRunCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

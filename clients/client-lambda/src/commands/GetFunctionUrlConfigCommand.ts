@@ -72,8 +72,8 @@ export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigR
  *
  * ```
  *
- * @param GetFunctionUrlConfigCommandInput - {@link GetFunctionUrlConfigCommandInput}
- * @returns {@link GetFunctionUrlConfigCommandOutput}
+ * @param GetFunctionUrlConfigRequest - {@link GetFunctionUrlConfigRequest}
+ * @returns {@link GetFunctionUrlConfigResponse}
  * @see {@link GetFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

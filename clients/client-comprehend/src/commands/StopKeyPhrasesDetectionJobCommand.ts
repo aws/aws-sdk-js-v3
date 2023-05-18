@@ -60,8 +60,8 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  *
  * ```
  *
- * @param StopKeyPhrasesDetectionJobCommandInput - {@link StopKeyPhrasesDetectionJobCommandInput}
- * @returns {@link StopKeyPhrasesDetectionJobCommandOutput}
+ * @param StopKeyPhrasesDetectionJobRequest - {@link StopKeyPhrasesDetectionJobRequest}
+ * @returns {@link StopKeyPhrasesDetectionJobResponse}
  * @see {@link StopKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -88,8 +88,8 @@ export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePip
  *
  * ```
  *
- * @param GetMediaCapturePipelineCommandInput - {@link GetMediaCapturePipelineCommandInput}
- * @returns {@link GetMediaCapturePipelineCommandOutput}
+ * @param GetMediaCapturePipelineRequest - {@link GetMediaCapturePipelineRequest}
+ * @returns {@link GetMediaCapturePipelineResponse}
  * @see {@link GetMediaCapturePipelineCommandInput} for command's `input` shape.
  * @see {@link GetMediaCapturePipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -95,8 +95,8 @@ export interface GetWorkflowCommandOutput extends GetMigrationWorkflowResponse, 
  *
  * ```
  *
- * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
- * @returns {@link GetWorkflowCommandOutput}
+ * @param GetMigrationWorkflowRequest - {@link GetMigrationWorkflowRequest}
+ * @returns {@link GetMigrationWorkflowResponse}
  * @see {@link GetWorkflowCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

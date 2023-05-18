@@ -57,8 +57,8 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisassociateAddressCommandInput - {@link DisassociateAddressCommandInput}
- * @returns {@link DisassociateAddressCommandOutput}
+ * @param DisassociateAddressRequest - {@link DisassociateAddressRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

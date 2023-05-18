@@ -77,8 +77,8 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  *
  * ```
  *
- * @param AcknowledgeOrderReceiptCommandInput - {@link AcknowledgeOrderReceiptCommandInput}
- * @returns {@link AcknowledgeOrderReceiptCommandOutput}
+ * @param AcknowledgeOrderReceiptRequest - {@link AcknowledgeOrderReceiptRequest}
+ * @returns {@link AcknowledgeOrderReceiptResponse}
  * @see {@link AcknowledgeOrderReceiptCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeOrderReceiptCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

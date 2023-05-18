@@ -50,8 +50,8 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
  *
  * ```
  *
- * @param DeregisterComputeCommandInput - {@link DeregisterComputeCommandInput}
- * @returns {@link DeregisterComputeCommandOutput}
+ * @param DeregisterComputeInput - {@link DeregisterComputeInput}
+ * @returns {@link DeregisterComputeOutput}
  * @see {@link DeregisterComputeCommandInput} for command's `input` shape.
  * @see {@link DeregisterComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

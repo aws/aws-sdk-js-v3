@@ -99,8 +99,8 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  *
  * ```
  *
- * @param StopDBInstanceAutomatedBackupsReplicationCommandInput - {@link StopDBInstanceAutomatedBackupsReplicationCommandInput}
- * @returns {@link StopDBInstanceAutomatedBackupsReplicationCommandOutput}
+ * @param StopDBInstanceAutomatedBackupsReplicationMessage - {@link StopDBInstanceAutomatedBackupsReplicationMessage}
+ * @returns {@link StopDBInstanceAutomatedBackupsReplicationResult}
  * @see {@link StopDBInstanceAutomatedBackupsReplicationCommandInput} for command's `input` shape.
  * @see {@link StopDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

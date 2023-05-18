@@ -48,8 +48,8 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  *
  * ```
  *
- * @param CancelVariantImportJobCommandInput - {@link CancelVariantImportJobCommandInput}
- * @returns {@link CancelVariantImportJobCommandOutput}
+ * @param CancelVariantImportRequest - {@link CancelVariantImportRequest}
+ * @returns {@link CancelVariantImportResponse}
  * @see {@link CancelVariantImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelVariantImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

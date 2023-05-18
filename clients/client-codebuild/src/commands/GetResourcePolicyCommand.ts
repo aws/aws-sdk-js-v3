@@ -50,8 +50,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  *
  * ```
  *
- * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
- * @returns {@link GetResourcePolicyCommandOutput}
+ * @param GetResourcePolicyInput - {@link GetResourcePolicyInput}
+ * @returns {@link GetResourcePolicyOutput}
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

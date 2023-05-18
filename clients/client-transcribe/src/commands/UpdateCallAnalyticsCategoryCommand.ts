@@ -214,8 +214,8 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  *
  * ```
  *
- * @param UpdateCallAnalyticsCategoryCommandInput - {@link UpdateCallAnalyticsCategoryCommandInput}
- * @returns {@link UpdateCallAnalyticsCategoryCommandOutput}
+ * @param UpdateCallAnalyticsCategoryRequest - {@link UpdateCallAnalyticsCategoryRequest}
+ * @returns {@link UpdateCallAnalyticsCategoryResponse}
  * @see {@link UpdateCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link UpdateCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

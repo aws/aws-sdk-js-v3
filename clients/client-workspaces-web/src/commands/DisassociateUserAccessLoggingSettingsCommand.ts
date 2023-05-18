@@ -57,8 +57,8 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
  *
  * ```
  *
- * @param DisassociateUserAccessLoggingSettingsCommandInput - {@link DisassociateUserAccessLoggingSettingsCommandInput}
- * @returns {@link DisassociateUserAccessLoggingSettingsCommandOutput}
+ * @param DisassociateUserAccessLoggingSettingsRequest - {@link DisassociateUserAccessLoggingSettingsRequest}
+ * @returns {@link DisassociateUserAccessLoggingSettingsResponse}
  * @see {@link DisassociateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

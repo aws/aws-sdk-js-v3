@@ -58,8 +58,8 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  *
  * ```
  *
- * @param DescribeIdentityCommandInput - {@link DescribeIdentityCommandInput}
- * @returns {@link DescribeIdentityCommandOutput}
+ * @param DescribeIdentityInput - {@link DescribeIdentityInput}
+ * @returns {@link IdentityDescription}
  * @see {@link DescribeIdentityCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

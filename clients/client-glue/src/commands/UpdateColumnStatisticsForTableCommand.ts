@@ -175,8 +175,8 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  *
  * ```
  *
- * @param UpdateColumnStatisticsForTableCommandInput - {@link UpdateColumnStatisticsForTableCommandInput}
- * @returns {@link UpdateColumnStatisticsForTableCommandOutput}
+ * @param UpdateColumnStatisticsForTableRequest - {@link UpdateColumnStatisticsForTableRequest}
+ * @returns {@link UpdateColumnStatisticsForTableResponse}
  * @see {@link UpdateColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link UpdateColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

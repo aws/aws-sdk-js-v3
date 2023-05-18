@@ -100,8 +100,8 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  *
  * ```
  *
- * @param CreateConnectAttachmentCommandInput - {@link CreateConnectAttachmentCommandInput}
- * @returns {@link CreateConnectAttachmentCommandOutput}
+ * @param CreateConnectAttachmentRequest - {@link CreateConnectAttachmentRequest}
+ * @returns {@link CreateConnectAttachmentResponse}
  * @see {@link CreateConnectAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateConnectAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

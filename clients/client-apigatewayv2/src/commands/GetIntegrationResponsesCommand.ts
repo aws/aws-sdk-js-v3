@@ -67,8 +67,8 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  *
  * ```
  *
- * @param GetIntegrationResponsesCommandInput - {@link GetIntegrationResponsesCommandInput}
- * @returns {@link GetIntegrationResponsesCommandOutput}
+ * @param GetIntegrationResponsesRequest - {@link GetIntegrationResponsesRequest}
+ * @returns {@link GetIntegrationResponsesResponse}
  * @see {@link GetIntegrationResponsesCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationResponsesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

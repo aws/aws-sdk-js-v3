@@ -62,8 +62,8 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  *
  * ```
  *
- * @param CreateRunGroupCommandInput - {@link CreateRunGroupCommandInput}
- * @returns {@link CreateRunGroupCommandOutput}
+ * @param CreateRunGroupRequest - {@link CreateRunGroupRequest}
+ * @returns {@link CreateRunGroupResponse}
  * @see {@link CreateRunGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

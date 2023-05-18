@@ -85,8 +85,8 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  *
  * ```
  *
- * @param ModifyManagedPrefixListCommandInput - {@link ModifyManagedPrefixListCommandInput}
- * @returns {@link ModifyManagedPrefixListCommandOutput}
+ * @param ModifyManagedPrefixListRequest - {@link ModifyManagedPrefixListRequest}
+ * @returns {@link ModifyManagedPrefixListResult}
  * @see {@link ModifyManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link ModifyManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

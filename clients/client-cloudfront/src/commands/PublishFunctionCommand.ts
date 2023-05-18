@@ -73,8 +73,8 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  *
  * ```
  *
- * @param PublishFunctionCommandInput - {@link PublishFunctionCommandInput}
- * @returns {@link PublishFunctionCommandOutput}
+ * @param PublishFunctionRequest - {@link PublishFunctionRequest}
+ * @returns {@link PublishFunctionResult}
  * @see {@link PublishFunctionCommandInput} for command's `input` shape.
  * @see {@link PublishFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

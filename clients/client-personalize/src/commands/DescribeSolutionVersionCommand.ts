@@ -125,8 +125,8 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  *
  * ```
  *
- * @param DescribeSolutionVersionCommandInput - {@link DescribeSolutionVersionCommandInput}
- * @returns {@link DescribeSolutionVersionCommandOutput}
+ * @param DescribeSolutionVersionRequest - {@link DescribeSolutionVersionRequest}
+ * @returns {@link DescribeSolutionVersionResponse}
  * @see {@link DescribeSolutionVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeSolutionVersionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

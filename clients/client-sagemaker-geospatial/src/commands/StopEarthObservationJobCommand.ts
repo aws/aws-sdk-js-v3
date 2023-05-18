@@ -52,8 +52,8 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  *
  * ```
  *
- * @param StopEarthObservationJobCommandInput - {@link StopEarthObservationJobCommandInput}
- * @returns {@link StopEarthObservationJobCommandOutput}
+ * @param StopEarthObservationJobInput - {@link StopEarthObservationJobInput}
+ * @returns {@link StopEarthObservationJobOutput}
  * @see {@link StopEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link StopEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

@@ -70,8 +70,8 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  *
  * ```
  *
- * @param UpdateEndpointWeightsAndCapacitiesCommandInput - {@link UpdateEndpointWeightsAndCapacitiesCommandInput}
- * @returns {@link UpdateEndpointWeightsAndCapacitiesCommandOutput}
+ * @param UpdateEndpointWeightsAndCapacitiesInput - {@link UpdateEndpointWeightsAndCapacitiesInput}
+ * @returns {@link UpdateEndpointWeightsAndCapacitiesOutput}
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -73,8 +73,8 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  *
  * ```
  *
- * @param DescribeVTLDevicesCommandInput - {@link DescribeVTLDevicesCommandInput}
- * @returns {@link DescribeVTLDevicesCommandOutput}
+ * @param DescribeVTLDevicesInput - {@link DescribeVTLDevicesInput}
+ * @returns {@link DescribeVTLDevicesOutput}
  * @see {@link DescribeVTLDevicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVTLDevicesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

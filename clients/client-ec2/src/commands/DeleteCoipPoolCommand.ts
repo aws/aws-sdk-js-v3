@@ -64,8 +64,8 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  *
  * ```
  *
- * @param DeleteCoipPoolCommandInput - {@link DeleteCoipPoolCommandInput}
- * @returns {@link DeleteCoipPoolCommandOutput}
+ * @param DeleteCoipPoolRequest - {@link DeleteCoipPoolRequest}
+ * @returns {@link DeleteCoipPoolResult}
  * @see {@link DeleteCoipPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteCoipPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -52,8 +52,8 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  *
  * ```
  *
- * @param ConfirmConnectionCommandInput - {@link ConfirmConnectionCommandInput}
- * @returns {@link ConfirmConnectionCommandOutput}
+ * @param ConfirmConnectionRequest - {@link ConfirmConnectionRequest}
+ * @returns {@link ConfirmConnectionResponse}
  * @see {@link ConfirmConnectionCommandInput} for command's `input` shape.
  * @see {@link ConfirmConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

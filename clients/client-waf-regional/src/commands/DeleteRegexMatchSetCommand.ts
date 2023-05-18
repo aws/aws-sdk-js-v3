@@ -74,8 +74,8 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  *
  * ```
  *
- * @param DeleteRegexMatchSetCommandInput - {@link DeleteRegexMatchSetCommandInput}
- * @returns {@link DeleteRegexMatchSetCommandOutput}
+ * @param DeleteRegexMatchSetRequest - {@link DeleteRegexMatchSetRequest}
+ * @returns {@link DeleteRegexMatchSetResponse}
  * @see {@link DeleteRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteRegexMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

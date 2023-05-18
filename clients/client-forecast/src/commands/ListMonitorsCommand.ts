@@ -69,8 +69,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsResponse, __Metad
  *
  * ```
  *
- * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
- * @returns {@link ListMonitorsCommandOutput}
+ * @param ListMonitorsRequest - {@link ListMonitorsRequest}
+ * @returns {@link ListMonitorsResponse}
  * @see {@link ListMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

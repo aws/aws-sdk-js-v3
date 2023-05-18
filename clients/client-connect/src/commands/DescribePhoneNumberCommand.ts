@@ -76,8 +76,8 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  *
  * ```
  *
- * @param DescribePhoneNumberCommandInput - {@link DescribePhoneNumberCommandInput}
- * @returns {@link DescribePhoneNumberCommandOutput}
+ * @param DescribePhoneNumberRequest - {@link DescribePhoneNumberRequest}
+ * @returns {@link DescribePhoneNumberResponse}
  * @see {@link DescribePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DescribePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

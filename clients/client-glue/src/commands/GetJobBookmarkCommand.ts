@@ -77,8 +77,8 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  *
  * ```
  *
- * @param GetJobBookmarkCommandInput - {@link GetJobBookmarkCommandInput}
- * @returns {@link GetJobBookmarkCommandOutput}
+ * @param GetJobBookmarkRequest - {@link GetJobBookmarkRequest}
+ * @returns {@link GetJobBookmarkResponse}
  * @see {@link GetJobBookmarkCommandInput} for command's `input` shape.
  * @see {@link GetJobBookmarkCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

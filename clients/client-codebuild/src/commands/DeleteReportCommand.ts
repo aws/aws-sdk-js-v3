@@ -50,8 +50,8 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  *
  * ```
  *
- * @param DeleteReportCommandInput - {@link DeleteReportCommandInput}
- * @returns {@link DeleteReportCommandOutput}
+ * @param DeleteReportInput - {@link DeleteReportInput}
+ * @returns {@link DeleteReportOutput}
  * @see {@link DeleteReportCommandInput} for command's `input` shape.
  * @see {@link DeleteReportCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

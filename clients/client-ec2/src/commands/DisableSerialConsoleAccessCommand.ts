@@ -53,8 +53,8 @@ export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialCo
  *
  * ```
  *
- * @param DisableSerialConsoleAccessCommandInput - {@link DisableSerialConsoleAccessCommandInput}
- * @returns {@link DisableSerialConsoleAccessCommandOutput}
+ * @param DisableSerialConsoleAccessRequest - {@link DisableSerialConsoleAccessRequest}
+ * @returns {@link DisableSerialConsoleAccessResult}
  * @see {@link DisableSerialConsoleAccessCommandInput} for command's `input` shape.
  * @see {@link DisableSerialConsoleAccessCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

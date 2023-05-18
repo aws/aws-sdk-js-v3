@@ -63,8 +63,8 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  *
  * ```
  *
- * @param RefreshSchemasCommandInput - {@link RefreshSchemasCommandInput}
- * @returns {@link RefreshSchemasCommandOutput}
+ * @param RefreshSchemasMessage - {@link RefreshSchemasMessage}
+ * @returns {@link RefreshSchemasResponse}
  * @see {@link RefreshSchemasCommandInput} for command's `input` shape.
  * @see {@link RefreshSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

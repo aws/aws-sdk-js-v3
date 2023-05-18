@@ -48,8 +48,8 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  *
  * ```
  *
- * @param DeleteTrustStoreCommandInput - {@link DeleteTrustStoreCommandInput}
- * @returns {@link DeleteTrustStoreCommandOutput}
+ * @param DeleteTrustStoreRequest - {@link DeleteTrustStoreRequest}
+ * @returns {@link DeleteTrustStoreResponse}
  * @see {@link DeleteTrustStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

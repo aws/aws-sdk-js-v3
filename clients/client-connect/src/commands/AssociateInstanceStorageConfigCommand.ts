@@ -88,8 +88,8 @@ export interface AssociateInstanceStorageConfigCommandOutput
  *
  * ```
  *
- * @param AssociateInstanceStorageConfigCommandInput - {@link AssociateInstanceStorageConfigCommandInput}
- * @returns {@link AssociateInstanceStorageConfigCommandOutput}
+ * @param AssociateInstanceStorageConfigRequest - {@link AssociateInstanceStorageConfigRequest}
+ * @returns {@link AssociateInstanceStorageConfigResponse}
  * @see {@link AssociateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

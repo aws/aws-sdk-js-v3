@@ -80,8 +80,8 @@ export interface ListDistributionConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListDistributionConfigurationsCommandInput - {@link ListDistributionConfigurationsCommandInput}
- * @returns {@link ListDistributionConfigurationsCommandOutput}
+ * @param ListDistributionConfigurationsRequest - {@link ListDistributionConfigurationsRequest}
+ * @returns {@link ListDistributionConfigurationsResponse}
  * @see {@link ListDistributionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListDistributionConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

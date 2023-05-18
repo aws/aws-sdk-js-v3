@@ -71,8 +71,8 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  *
  * ```
  *
- * @param DescribeBuildCommandInput - {@link DescribeBuildCommandInput}
- * @returns {@link DescribeBuildCommandOutput}
+ * @param DescribeBuildInput - {@link DescribeBuildInput}
+ * @returns {@link DescribeBuildOutput}
  * @see {@link DescribeBuildCommandInput} for command's `input` shape.
  * @see {@link DescribeBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -74,8 +74,8 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  *
  * ```
  *
- * @param DescribeContinuousExportsCommandInput - {@link DescribeContinuousExportsCommandInput}
- * @returns {@link DescribeContinuousExportsCommandOutput}
+ * @param DescribeContinuousExportsRequest - {@link DescribeContinuousExportsRequest}
+ * @returns {@link DescribeContinuousExportsResponse}
  * @see {@link DescribeContinuousExportsCommandInput} for command's `input` shape.
  * @see {@link DescribeContinuousExportsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

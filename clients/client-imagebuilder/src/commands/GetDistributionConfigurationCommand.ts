@@ -137,8 +137,8 @@ export interface GetDistributionConfigurationCommandOutput
  *
  * ```
  *
- * @param GetDistributionConfigurationCommandInput - {@link GetDistributionConfigurationCommandInput}
- * @returns {@link GetDistributionConfigurationCommandOutput}
+ * @param GetDistributionConfigurationRequest - {@link GetDistributionConfigurationRequest}
+ * @returns {@link GetDistributionConfigurationResponse}
  * @see {@link GetDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetDistributionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

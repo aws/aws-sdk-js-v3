@@ -81,8 +81,8 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  *
  * ```
  *
- * @param AcceptAttachmentCommandInput - {@link AcceptAttachmentCommandInput}
- * @returns {@link AcceptAttachmentCommandOutput}
+ * @param AcceptAttachmentRequest - {@link AcceptAttachmentRequest}
+ * @returns {@link AcceptAttachmentResponse}
  * @see {@link AcceptAttachmentCommandInput} for command's `input` shape.
  * @see {@link AcceptAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

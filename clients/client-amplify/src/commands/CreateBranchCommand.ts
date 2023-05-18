@@ -112,8 +112,8 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  *
  * ```
  *
- * @param CreateBranchCommandInput - {@link CreateBranchCommandInput}
- * @returns {@link CreateBranchCommandOutput}
+ * @param CreateBranchRequest - {@link CreateBranchRequest}
+ * @returns {@link CreateBranchResult}
  * @see {@link CreateBranchCommandInput} for command's `input` shape.
  * @see {@link CreateBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

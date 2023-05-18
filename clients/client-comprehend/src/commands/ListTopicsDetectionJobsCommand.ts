@@ -94,8 +94,8 @@ export interface ListTopicsDetectionJobsCommandOutput extends ListTopicsDetectio
  *
  * ```
  *
- * @param ListTopicsDetectionJobsCommandInput - {@link ListTopicsDetectionJobsCommandInput}
- * @returns {@link ListTopicsDetectionJobsCommandOutput}
+ * @param ListTopicsDetectionJobsRequest - {@link ListTopicsDetectionJobsRequest}
+ * @returns {@link ListTopicsDetectionJobsResponse}
  * @see {@link ListTopicsDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

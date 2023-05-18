@@ -76,8 +76,8 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  *
  * ```
  *
- * @param ListEarthObservationJobsCommandInput - {@link ListEarthObservationJobsCommandInput}
- * @returns {@link ListEarthObservationJobsCommandOutput}
+ * @param ListEarthObservationJobInput - {@link ListEarthObservationJobInput}
+ * @returns {@link ListEarthObservationJobOutput}
  * @see {@link ListEarthObservationJobsCommandInput} for command's `input` shape.
  * @see {@link ListEarthObservationJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

@@ -59,8 +59,8 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  *
  * ```
  *
- * @param ListAssessmentTargetsCommandInput - {@link ListAssessmentTargetsCommandInput}
- * @returns {@link ListAssessmentTargetsCommandOutput}
+ * @param ListAssessmentTargetsRequest - {@link ListAssessmentTargetsRequest}
+ * @returns {@link ListAssessmentTargetsResponse}
  * @see {@link ListAssessmentTargetsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

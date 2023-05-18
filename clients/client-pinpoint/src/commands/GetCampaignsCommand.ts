@@ -436,8 +436,8 @@ export interface GetCampaignsCommandOutput extends GetCampaignsResponse, __Metad
  *
  * ```
  *
- * @param GetCampaignsCommandInput - {@link GetCampaignsCommandInput}
- * @returns {@link GetCampaignsCommandOutput}
+ * @param GetCampaignsRequest - {@link GetCampaignsRequest}
+ * @returns {@link GetCampaignsResponse}
  * @see {@link GetCampaignsCommandInput} for command's `input` shape.
  * @see {@link GetCampaignsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -66,8 +66,8 @@ export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsR
  *
  * ```
  *
- * @param DeleteSchemaVersionsCommandInput - {@link DeleteSchemaVersionsCommandInput}
- * @returns {@link DeleteSchemaVersionsCommandOutput}
+ * @param DeleteSchemaVersionsInput - {@link DeleteSchemaVersionsInput}
+ * @returns {@link DeleteSchemaVersionsResponse}
  * @see {@link DeleteSchemaVersionsCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaVersionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -89,8 +89,8 @@ export interface ExportImageCommandOutput extends ExportImageResult, __MetadataB
  *
  * ```
  *
- * @param ExportImageCommandInput - {@link ExportImageCommandInput}
- * @returns {@link ExportImageCommandOutput}
+ * @param ExportImageRequest - {@link ExportImageRequest}
+ * @returns {@link ExportImageResult}
  * @see {@link ExportImageCommandInput} for command's `input` shape.
  * @see {@link ExportImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

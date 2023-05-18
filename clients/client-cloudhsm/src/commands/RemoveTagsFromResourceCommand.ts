@@ -65,8 +65,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *
  * ```
  *
- * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
- * @returns {@link RemoveTagsFromResourceCommandOutput}
+ * @param RemoveTagsFromResourceRequest - {@link RemoveTagsFromResourceRequest}
+ * @returns {@link RemoveTagsFromResourceResponse}
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

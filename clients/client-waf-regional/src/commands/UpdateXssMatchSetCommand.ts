@@ -114,8 +114,8 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  *
  * ```
  *
- * @param UpdateXssMatchSetCommandInput - {@link UpdateXssMatchSetCommandInput}
- * @returns {@link UpdateXssMatchSetCommandOutput}
+ * @param UpdateXssMatchSetRequest - {@link UpdateXssMatchSetRequest}
+ * @returns {@link UpdateXssMatchSetResponse}
  * @see {@link UpdateXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

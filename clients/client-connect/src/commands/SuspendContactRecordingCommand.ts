@@ -55,8 +55,8 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  *
  * ```
  *
- * @param SuspendContactRecordingCommandInput - {@link SuspendContactRecordingCommandInput}
- * @returns {@link SuspendContactRecordingCommandOutput}
+ * @param SuspendContactRecordingRequest - {@link SuspendContactRecordingRequest}
+ * @returns {@link SuspendContactRecordingResponse}
  * @see {@link SuspendContactRecordingCommandInput} for command's `input` shape.
  * @see {@link SuspendContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

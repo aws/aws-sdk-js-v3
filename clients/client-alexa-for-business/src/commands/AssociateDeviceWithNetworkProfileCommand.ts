@@ -57,8 +57,8 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  *
  * ```
  *
- * @param AssociateDeviceWithNetworkProfileCommandInput - {@link AssociateDeviceWithNetworkProfileCommandInput}
- * @returns {@link AssociateDeviceWithNetworkProfileCommandOutput}
+ * @param AssociateDeviceWithNetworkProfileRequest - {@link AssociateDeviceWithNetworkProfileRequest}
+ * @returns {@link AssociateDeviceWithNetworkProfileResponse}
  * @see {@link AssociateDeviceWithNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

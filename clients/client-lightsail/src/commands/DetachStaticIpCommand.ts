@@ -68,8 +68,8 @@ export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __Met
  *
  * ```
  *
- * @param DetachStaticIpCommandInput - {@link DetachStaticIpCommandInput}
- * @returns {@link DetachStaticIpCommandOutput}
+ * @param DetachStaticIpRequest - {@link DetachStaticIpRequest}
+ * @returns {@link DetachStaticIpResult}
  * @see {@link DetachStaticIpCommandInput} for command's `input` shape.
  * @see {@link DetachStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

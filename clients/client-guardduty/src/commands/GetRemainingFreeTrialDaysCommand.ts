@@ -92,8 +92,8 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  *
  * ```
  *
- * @param GetRemainingFreeTrialDaysCommandInput - {@link GetRemainingFreeTrialDaysCommandInput}
- * @returns {@link GetRemainingFreeTrialDaysCommandOutput}
+ * @param GetRemainingFreeTrialDaysRequest - {@link GetRemainingFreeTrialDaysRequest}
+ * @returns {@link GetRemainingFreeTrialDaysResponse}
  * @see {@link GetRemainingFreeTrialDaysCommandInput} for command's `input` shape.
  * @see {@link GetRemainingFreeTrialDaysCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

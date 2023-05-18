@@ -65,8 +65,8 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  *
  * ```
  *
- * @param ListEventIntegrationsCommandInput - {@link ListEventIntegrationsCommandInput}
- * @returns {@link ListEventIntegrationsCommandOutput}
+ * @param ListEventIntegrationsRequest - {@link ListEventIntegrationsRequest}
+ * @returns {@link ListEventIntegrationsResponse}
  * @see {@link ListEventIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListEventIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

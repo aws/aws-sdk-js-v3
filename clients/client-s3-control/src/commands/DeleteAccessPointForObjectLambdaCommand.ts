@@ -72,8 +72,8 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeleteAccessPointForObjectLambdaCommandInput - {@link DeleteAccessPointForObjectLambdaCommandInput}
- * @returns {@link DeleteAccessPointForObjectLambdaCommandOutput}
+ * @param DeleteAccessPointForObjectLambdaRequest - {@link DeleteAccessPointForObjectLambdaRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAccessPointForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

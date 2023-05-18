@@ -62,8 +62,8 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  *
  * ```
  *
- * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
- * @returns {@link DeleteUsageLimitCommandOutput}
+ * @param DeleteUsageLimitRequest - {@link DeleteUsageLimitRequest}
+ * @returns {@link DeleteUsageLimitResponse}
  * @see {@link DeleteUsageLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

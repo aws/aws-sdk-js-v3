@@ -63,8 +63,8 @@ export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTempla
  *
  * ```
  *
- * @param GetSystemTemplateRevisionsCommandInput - {@link GetSystemTemplateRevisionsCommandInput}
- * @returns {@link GetSystemTemplateRevisionsCommandOutput}
+ * @param GetSystemTemplateRevisionsRequest - {@link GetSystemTemplateRevisionsRequest}
+ * @returns {@link GetSystemTemplateRevisionsResponse}
  * @see {@link GetSystemTemplateRevisionsCommandInput} for command's `input` shape.
  * @see {@link GetSystemTemplateRevisionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

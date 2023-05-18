@@ -78,8 +78,8 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
  *
  * ```
  *
- * @param ListFailuresForLicenseConfigurationOperationsCommandInput - {@link ListFailuresForLicenseConfigurationOperationsCommandInput}
- * @returns {@link ListFailuresForLicenseConfigurationOperationsCommandOutput}
+ * @param ListFailuresForLicenseConfigurationOperationsRequest - {@link ListFailuresForLicenseConfigurationOperationsRequest}
+ * @returns {@link ListFailuresForLicenseConfigurationOperationsResponse}
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandInput} for command's `input` shape.
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

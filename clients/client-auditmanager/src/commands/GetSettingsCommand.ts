@@ -73,8 +73,8 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  *
  * ```
  *
- * @param GetSettingsCommandInput - {@link GetSettingsCommandInput}
- * @returns {@link GetSettingsCommandOutput}
+ * @param GetSettingsRequest - {@link GetSettingsRequest}
+ * @returns {@link GetSettingsResponse}
  * @see {@link GetSettingsCommandInput} for command's `input` shape.
  * @see {@link GetSettingsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

@@ -56,8 +56,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *
  * ```
  *
- * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
- * @returns {@link PutResourcePolicyCommandOutput}
+ * @param PutResourcePolicyRequest - {@link PutResourcePolicyRequest}
+ * @returns {@link PutResourcePolicyResponse}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

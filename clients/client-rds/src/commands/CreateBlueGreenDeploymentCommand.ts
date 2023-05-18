@@ -102,8 +102,8 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  *
  * ```
  *
- * @param CreateBlueGreenDeploymentCommandInput - {@link CreateBlueGreenDeploymentCommandInput}
- * @returns {@link CreateBlueGreenDeploymentCommandOutput}
+ * @param CreateBlueGreenDeploymentRequest - {@link CreateBlueGreenDeploymentRequest}
+ * @returns {@link CreateBlueGreenDeploymentResponse}
  * @see {@link CreateBlueGreenDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

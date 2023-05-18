@@ -62,8 +62,8 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  *
  * ```
  *
- * @param DeleteHealthCheckCommandInput - {@link DeleteHealthCheckCommandInput}
- * @returns {@link DeleteHealthCheckCommandOutput}
+ * @param DeleteHealthCheckRequest - {@link DeleteHealthCheckRequest}
+ * @returns {@link DeleteHealthCheckResponse}
  * @see {@link DeleteHealthCheckCommandInput} for command's `input` shape.
  * @see {@link DeleteHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

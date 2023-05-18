@@ -90,8 +90,8 @@ export interface DescribeSentimentDetectionJobCommandOutput
  *
  * ```
  *
- * @param DescribeSentimentDetectionJobCommandInput - {@link DescribeSentimentDetectionJobCommandInput}
- * @returns {@link DescribeSentimentDetectionJobCommandOutput}
+ * @param DescribeSentimentDetectionJobRequest - {@link DescribeSentimentDetectionJobRequest}
+ * @returns {@link DescribeSentimentDetectionJobResponse}
  * @see {@link DescribeSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

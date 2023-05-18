@@ -52,8 +52,8 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  *
  * ```
  *
- * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
- * @returns {@link GetApplicationCommandOutput}
+ * @param GetApplicationRequest - {@link GetApplicationRequest}
+ * @returns {@link Application}
  * @see {@link GetApplicationCommandInput} for command's `input` shape.
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  *
  * ```
  *
- * @param ListRegionalBucketsCommandInput - {@link ListRegionalBucketsCommandInput}
- * @returns {@link ListRegionalBucketsCommandOutput}
+ * @param ListRegionalBucketsRequest - {@link ListRegionalBucketsRequest}
+ * @returns {@link ListRegionalBucketsResult}
  * @see {@link ListRegionalBucketsCommandInput} for command's `input` shape.
  * @see {@link ListRegionalBucketsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

@@ -79,8 +79,8 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  *
  * ```
  *
- * @param ListGeofencesCommandInput - {@link ListGeofencesCommandInput}
- * @returns {@link ListGeofencesCommandOutput}
+ * @param ListGeofencesRequest - {@link ListGeofencesRequest}
+ * @returns {@link ListGeofencesResponse}
  * @see {@link ListGeofencesCommandInput} for command's `input` shape.
  * @see {@link ListGeofencesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

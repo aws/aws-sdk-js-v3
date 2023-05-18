@@ -59,8 +59,8 @@ export interface CreateBackendCommandOutput extends CreateBackendResponse, __Met
  *
  * ```
  *
- * @param CreateBackendCommandInput - {@link CreateBackendCommandInput}
- * @returns {@link CreateBackendCommandOutput}
+ * @param CreateBackendRequest - {@link CreateBackendRequest}
+ * @returns {@link CreateBackendResponse}
  * @see {@link CreateBackendCommandInput} for command's `input` shape.
  * @see {@link CreateBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

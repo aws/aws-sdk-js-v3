@@ -49,8 +49,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  *
  * ```
  *
- * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
- * @returns {@link DeleteUserCommandOutput}
+ * @param DeleteUserRequest - {@link DeleteUserRequest}
+ * @returns {@link DeleteUserResult}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

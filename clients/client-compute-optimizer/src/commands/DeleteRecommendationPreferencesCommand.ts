@@ -63,8 +63,8 @@ export interface DeleteRecommendationPreferencesCommandOutput
  *
  * ```
  *
- * @param DeleteRecommendationPreferencesCommandInput - {@link DeleteRecommendationPreferencesCommandInput}
- * @returns {@link DeleteRecommendationPreferencesCommandOutput}
+ * @param DeleteRecommendationPreferencesRequest - {@link DeleteRecommendationPreferencesRequest}
+ * @returns {@link DeleteRecommendationPreferencesResponse}
  * @see {@link DeleteRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

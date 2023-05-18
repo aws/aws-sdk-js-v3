@@ -58,8 +58,8 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  *
  * ```
  *
- * @param ListThingPrincipalsCommandInput - {@link ListThingPrincipalsCommandInput}
- * @returns {@link ListThingPrincipalsCommandOutput}
+ * @param ListThingPrincipalsRequest - {@link ListThingPrincipalsRequest}
+ * @returns {@link ListThingPrincipalsResponse}
  * @see {@link ListThingPrincipalsCommandInput} for command's `input` shape.
  * @see {@link ListThingPrincipalsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

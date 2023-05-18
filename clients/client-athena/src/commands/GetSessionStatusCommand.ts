@@ -58,8 +58,8 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  *
  * ```
  *
- * @param GetSessionStatusCommandInput - {@link GetSessionStatusCommandInput}
- * @returns {@link GetSessionStatusCommandOutput}
+ * @param GetSessionStatusRequest - {@link GetSessionStatusRequest}
+ * @returns {@link GetSessionStatusResponse}
  * @see {@link GetSessionStatusCommandInput} for command's `input` shape.
  * @see {@link GetSessionStatusCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

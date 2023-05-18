@@ -64,8 +64,8 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
  *
  * ```
  *
- * @param AssociateTransitGatewayRouteTableCommandInput - {@link AssociateTransitGatewayRouteTableCommandInput}
- * @returns {@link AssociateTransitGatewayRouteTableCommandOutput}
+ * @param AssociateTransitGatewayRouteTableRequest - {@link AssociateTransitGatewayRouteTableRequest}
+ * @returns {@link AssociateTransitGatewayRouteTableResult}
  * @see {@link AssociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

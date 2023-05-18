@@ -49,8 +49,8 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
  *
  * ```
  *
- * @param StopThingRegistrationTaskCommandInput - {@link StopThingRegistrationTaskCommandInput}
- * @returns {@link StopThingRegistrationTaskCommandOutput}
+ * @param StopThingRegistrationTaskRequest - {@link StopThingRegistrationTaskRequest}
+ * @returns {@link StopThingRegistrationTaskResponse}
  * @see {@link StopThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link StopThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

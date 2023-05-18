@@ -67,8 +67,8 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  *
  * ```
  *
- * @param DescribeDirectConnectGatewaysCommandInput - {@link DescribeDirectConnectGatewaysCommandInput}
- * @returns {@link DescribeDirectConnectGatewaysCommandOutput}
+ * @param DescribeDirectConnectGatewaysRequest - {@link DescribeDirectConnectGatewaysRequest}
+ * @returns {@link DescribeDirectConnectGatewaysResult}
  * @see {@link DescribeDirectConnectGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewaysCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

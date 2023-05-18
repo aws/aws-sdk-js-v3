@@ -57,8 +57,8 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
  *
  * ```
  *
- * @param PutMobileDeviceAccessOverrideCommandInput - {@link PutMobileDeviceAccessOverrideCommandInput}
- * @returns {@link PutMobileDeviceAccessOverrideCommandOutput}
+ * @param PutMobileDeviceAccessOverrideRequest - {@link PutMobileDeviceAccessOverrideRequest}
+ * @returns {@link PutMobileDeviceAccessOverrideResponse}
  * @see {@link PutMobileDeviceAccessOverrideCommandInput} for command's `input` shape.
  * @see {@link PutMobileDeviceAccessOverrideCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

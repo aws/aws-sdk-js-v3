@@ -76,8 +76,8 @@ export interface UpdateEnvironmentTemplateVersionCommandOutput
  *
  * ```
  *
- * @param UpdateEnvironmentTemplateVersionCommandInput - {@link UpdateEnvironmentTemplateVersionCommandInput}
- * @returns {@link UpdateEnvironmentTemplateVersionCommandOutput}
+ * @param UpdateEnvironmentTemplateVersionInput - {@link UpdateEnvironmentTemplateVersionInput}
+ * @returns {@link UpdateEnvironmentTemplateVersionOutput}
  * @see {@link UpdateEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

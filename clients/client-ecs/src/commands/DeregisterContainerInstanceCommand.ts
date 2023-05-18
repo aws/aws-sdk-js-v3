@@ -146,8 +146,8 @@ export interface DeregisterContainerInstanceCommandOutput
  *
  * ```
  *
- * @param DeregisterContainerInstanceCommandInput - {@link DeregisterContainerInstanceCommandInput}
- * @returns {@link DeregisterContainerInstanceCommandOutput}
+ * @param DeregisterContainerInstanceRequest - {@link DeregisterContainerInstanceRequest}
+ * @returns {@link DeregisterContainerInstanceResponse}
  * @see {@link DeregisterContainerInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterContainerInstanceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

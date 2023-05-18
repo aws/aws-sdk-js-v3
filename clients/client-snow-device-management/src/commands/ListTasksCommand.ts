@@ -66,8 +66,8 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListTasksCommandInput - {@link ListTasksCommandInput}
- * @returns {@link ListTasksCommandOutput}
+ * @param ListTasksInput - {@link ListTasksInput}
+ * @returns {@link ListTasksOutput}
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.

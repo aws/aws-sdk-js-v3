@@ -189,8 +189,8 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *
  * ```
  *
- * @param GenerateOrganizationsAccessReportCommandInput - {@link GenerateOrganizationsAccessReportCommandInput}
- * @returns {@link GenerateOrganizationsAccessReportCommandOutput}
+ * @param GenerateOrganizationsAccessReportRequest - {@link GenerateOrganizationsAccessReportRequest}
+ * @returns {@link GenerateOrganizationsAccessReportResponse}
  * @see {@link GenerateOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GenerateOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DisconnectRecoveryInstanceCommandInput - {@link DisconnectRecoveryInstanceCommandInput}
- * @returns {@link DisconnectRecoveryInstanceCommandOutput}
+ * @param DisconnectRecoveryInstanceRequest - {@link DisconnectRecoveryInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link DisconnectRecoveryInstanceCommandInput} for command's `input` shape.
  * @see {@link DisconnectRecoveryInstanceCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

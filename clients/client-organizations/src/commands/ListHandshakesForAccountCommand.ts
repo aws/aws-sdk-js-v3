@@ -102,8 +102,8 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *
  * ```
  *
- * @param ListHandshakesForAccountCommandInput - {@link ListHandshakesForAccountCommandInput}
- * @returns {@link ListHandshakesForAccountCommandOutput}
+ * @param ListHandshakesForAccountRequest - {@link ListHandshakesForAccountRequest}
+ * @returns {@link ListHandshakesForAccountResponse}
  * @see {@link ListHandshakesForAccountCommandInput} for command's `input` shape.
  * @see {@link ListHandshakesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

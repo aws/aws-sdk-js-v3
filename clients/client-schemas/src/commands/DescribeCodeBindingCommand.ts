@@ -56,8 +56,8 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  *
  * ```
  *
- * @param DescribeCodeBindingCommandInput - {@link DescribeCodeBindingCommandInput}
- * @returns {@link DescribeCodeBindingCommandOutput}
+ * @param DescribeCodeBindingRequest - {@link DescribeCodeBindingRequest}
+ * @returns {@link DescribeCodeBindingResponse}
  * @see {@link DescribeCodeBindingCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeBindingCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

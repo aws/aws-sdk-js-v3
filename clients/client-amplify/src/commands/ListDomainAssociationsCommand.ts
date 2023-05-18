@@ -76,8 +76,8 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
  *
  * ```
  *
- * @param ListDomainAssociationsCommandInput - {@link ListDomainAssociationsCommandInput}
- * @returns {@link ListDomainAssociationsCommandOutput}
+ * @param ListDomainAssociationsRequest - {@link ListDomainAssociationsRequest}
+ * @returns {@link ListDomainAssociationsResult}
  * @see {@link ListDomainAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDomainAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

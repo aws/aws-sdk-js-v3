@@ -67,8 +67,8 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  *
  * ```
  *
- * @param DescribeTapeRecoveryPointsCommandInput - {@link DescribeTapeRecoveryPointsCommandInput}
- * @returns {@link DescribeTapeRecoveryPointsCommandOutput}
+ * @param DescribeTapeRecoveryPointsInput - {@link DescribeTapeRecoveryPointsInput}
+ * @returns {@link DescribeTapeRecoveryPointsOutput}
  * @see {@link DescribeTapeRecoveryPointsCommandInput} for command's `input` shape.
  * @see {@link DescribeTapeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

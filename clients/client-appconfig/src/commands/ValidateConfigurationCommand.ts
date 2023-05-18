@@ -50,8 +50,8 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ValidateConfigurationCommandInput - {@link ValidateConfigurationCommandInput}
- * @returns {@link ValidateConfigurationCommandOutput}
+ * @param ValidateConfigurationRequest - {@link ValidateConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link ValidateConfigurationCommandInput} for command's `input` shape.
  * @see {@link ValidateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  *
  * ```
  *
- * @param ListStagesCommandInput - {@link ListStagesCommandInput}
- * @returns {@link ListStagesCommandOutput}
+ * @param ListStagesRequest - {@link ListStagesRequest}
+ * @returns {@link ListStagesResponse}
  * @see {@link ListStagesCommandInput} for command's `input` shape.
  * @see {@link ListStagesCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

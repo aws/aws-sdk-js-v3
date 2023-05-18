@@ -56,8 +56,8 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  *
  * ```
  *
- * @param DisassociateAttributeGroupCommandInput - {@link DisassociateAttributeGroupCommandInput}
- * @returns {@link DisassociateAttributeGroupCommandOutput}
+ * @param DisassociateAttributeGroupRequest - {@link DisassociateAttributeGroupRequest}
+ * @returns {@link DisassociateAttributeGroupResponse}
  * @see {@link DisassociateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

@@ -78,8 +78,8 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  *
  * ```
  *
- * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
- * @returns {@link CreateEnvironmentCommandOutput}
+ * @param CreateEnvironmentRequest - {@link CreateEnvironmentRequest}
+ * @returns {@link Environment}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  *
  * ```
  *
- * @param ResetCacheParameterGroupCommandInput - {@link ResetCacheParameterGroupCommandInput}
- * @returns {@link ResetCacheParameterGroupCommandOutput}
+ * @param ResetCacheParameterGroupMessage - {@link ResetCacheParameterGroupMessage}
+ * @returns {@link CacheParameterGroupNameMessage}
  * @see {@link ResetCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

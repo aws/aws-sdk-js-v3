@@ -54,8 +54,8 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  *
  * ```
  *
- * @param DeleteAssessmentFrameworkShareCommandInput - {@link DeleteAssessmentFrameworkShareCommandInput}
- * @returns {@link DeleteAssessmentFrameworkShareCommandOutput}
+ * @param DeleteAssessmentFrameworkShareRequest - {@link DeleteAssessmentFrameworkShareRequest}
+ * @returns {@link DeleteAssessmentFrameworkShareResponse}
  * @see {@link DeleteAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  *
  * ```
  *
- * @param DisassociateApplicationsCommandInput - {@link DisassociateApplicationsCommandInput}
- * @returns {@link DisassociateApplicationsCommandOutput}
+ * @param DisassociateApplicationsRequest - {@link DisassociateApplicationsRequest}
+ * @returns {@link DisassociateApplicationsResponse}
  * @see {@link DisassociateApplicationsCommandInput} for command's `input` shape.
  * @see {@link DisassociateApplicationsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

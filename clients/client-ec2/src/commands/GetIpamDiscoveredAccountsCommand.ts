@@ -74,8 +74,8 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  *
  * ```
  *
- * @param GetIpamDiscoveredAccountsCommandInput - {@link GetIpamDiscoveredAccountsCommandInput}
- * @returns {@link GetIpamDiscoveredAccountsCommandOutput}
+ * @param GetIpamDiscoveredAccountsRequest - {@link GetIpamDiscoveredAccountsRequest}
+ * @returns {@link GetIpamDiscoveredAccountsResult}
  * @see {@link GetIpamDiscoveredAccountsCommandInput} for command's `input` shape.
  * @see {@link GetIpamDiscoveredAccountsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  *
  * ```
  *
- * @param DeleteAgentCommandInput - {@link DeleteAgentCommandInput}
- * @returns {@link DeleteAgentCommandOutput}
+ * @param DeleteAgentRequest - {@link DeleteAgentRequest}
+ * @returns {@link DeleteAgentResponse}
  * @see {@link DeleteAgentCommandInput} for command's `input` shape.
  * @see {@link DeleteAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

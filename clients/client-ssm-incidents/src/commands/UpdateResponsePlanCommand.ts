@@ -102,8 +102,8 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  *
  * ```
  *
- * @param UpdateResponsePlanCommandInput - {@link UpdateResponsePlanCommandInput}
- * @returns {@link UpdateResponsePlanCommandOutput}
+ * @param UpdateResponsePlanInput - {@link UpdateResponsePlanInput}
+ * @returns {@link UpdateResponsePlanOutput}
  * @see {@link UpdateResponsePlanCommandInput} for command's `input` shape.
  * @see {@link UpdateResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

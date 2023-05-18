@@ -69,8 +69,8 @@ export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse,
  *
  * ```
  *
- * @param ListConnectPeersCommandInput - {@link ListConnectPeersCommandInput}
- * @returns {@link ListConnectPeersCommandOutput}
+ * @param ListConnectPeersRequest - {@link ListConnectPeersRequest}
+ * @returns {@link ListConnectPeersResponse}
  * @see {@link ListConnectPeersCommandInput} for command's `input` shape.
  * @see {@link ListConnectPeersCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

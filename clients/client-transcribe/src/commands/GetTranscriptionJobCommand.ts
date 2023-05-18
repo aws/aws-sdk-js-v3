@@ -135,8 +135,8 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
  *
  * ```
  *
- * @param GetTranscriptionJobCommandInput - {@link GetTranscriptionJobCommandInput}
- * @returns {@link GetTranscriptionJobCommandOutput}
+ * @param GetTranscriptionJobRequest - {@link GetTranscriptionJobRequest}
+ * @returns {@link GetTranscriptionJobResponse}
  * @see {@link GetTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link GetTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -52,8 +52,8 @@ export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateQueueMaxContactsCommandInput - {@link UpdateQueueMaxContactsCommandInput}
- * @returns {@link UpdateQueueMaxContactsCommandOutput}
+ * @param UpdateQueueMaxContactsRequest - {@link UpdateQueueMaxContactsRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateQueueMaxContactsCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueMaxContactsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -58,8 +58,8 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  *
  * ```
  *
- * @param UpdateSchedulingPolicyCommandInput - {@link UpdateSchedulingPolicyCommandInput}
- * @returns {@link UpdateSchedulingPolicyCommandOutput}
+ * @param UpdateSchedulingPolicyRequest - {@link UpdateSchedulingPolicyRequest}
+ * @returns {@link UpdateSchedulingPolicyResponse}
  * @see {@link UpdateSchedulingPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateSchedulingPolicyCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

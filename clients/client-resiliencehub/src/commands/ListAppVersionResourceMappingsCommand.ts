@@ -77,8 +77,8 @@ export interface ListAppVersionResourceMappingsCommandOutput
  *
  * ```
  *
- * @param ListAppVersionResourceMappingsCommandInput - {@link ListAppVersionResourceMappingsCommandInput}
- * @returns {@link ListAppVersionResourceMappingsCommandOutput}
+ * @param ListAppVersionResourceMappingsRequest - {@link ListAppVersionResourceMappingsRequest}
+ * @returns {@link ListAppVersionResourceMappingsResponse}
  * @see {@link ListAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link ListAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

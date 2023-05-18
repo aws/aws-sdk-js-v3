@@ -76,8 +76,8 @@ export interface DescribeIngestionCommandOutput extends DescribeIngestionRespons
  *
  * ```
  *
- * @param DescribeIngestionCommandInput - {@link DescribeIngestionCommandInput}
- * @returns {@link DescribeIngestionCommandOutput}
+ * @param DescribeIngestionRequest - {@link DescribeIngestionRequest}
+ * @returns {@link DescribeIngestionResponse}
  * @see {@link DescribeIngestionCommandInput} for command's `input` shape.
  * @see {@link DescribeIngestionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

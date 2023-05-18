@@ -69,8 +69,8 @@ export interface AcceptAddressTransferCommandOutput extends AcceptAddressTransfe
  *
  * ```
  *
- * @param AcceptAddressTransferCommandInput - {@link AcceptAddressTransferCommandInput}
- * @returns {@link AcceptAddressTransferCommandOutput}
+ * @param AcceptAddressTransferRequest - {@link AcceptAddressTransferRequest}
+ * @returns {@link AcceptAddressTransferResult}
  * @see {@link AcceptAddressTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  *
  * ```
  *
- * @param DeleteRealtimeEndpointCommandInput - {@link DeleteRealtimeEndpointCommandInput}
- * @returns {@link DeleteRealtimeEndpointCommandOutput}
+ * @param DeleteRealtimeEndpointInput - {@link DeleteRealtimeEndpointInput}
+ * @returns {@link DeleteRealtimeEndpointOutput}
  * @see {@link DeleteRealtimeEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteRealtimeEndpointCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

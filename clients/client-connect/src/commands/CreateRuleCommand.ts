@@ -95,8 +95,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *
  * ```
  *
- * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
- * @returns {@link CreateRuleCommandOutput}
+ * @param CreateRuleRequest - {@link CreateRuleRequest}
+ * @returns {@link CreateRuleResponse}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

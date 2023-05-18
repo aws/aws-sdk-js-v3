@@ -122,8 +122,8 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  *
  * ```
  *
- * @param DescribePatchPropertiesCommandInput - {@link DescribePatchPropertiesCommandInput}
- * @returns {@link DescribePatchPropertiesCommandOutput}
+ * @param DescribePatchPropertiesRequest - {@link DescribePatchPropertiesRequest}
+ * @returns {@link DescribePatchPropertiesResult}
  * @see {@link DescribePatchPropertiesCommandInput} for command's `input` shape.
  * @see {@link DescribePatchPropertiesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

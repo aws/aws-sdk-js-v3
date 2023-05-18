@@ -63,8 +63,8 @@ export interface ListActivitiesCommandOutput extends ListActivitiesOutput, __Met
  *
  * ```
  *
- * @param ListActivitiesCommandInput - {@link ListActivitiesCommandInput}
- * @returns {@link ListActivitiesCommandOutput}
+ * @param ListActivitiesInput - {@link ListActivitiesInput}
+ * @returns {@link ListActivitiesOutput}
  * @see {@link ListActivitiesCommandInput} for command's `input` shape.
  * @see {@link ListActivitiesCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

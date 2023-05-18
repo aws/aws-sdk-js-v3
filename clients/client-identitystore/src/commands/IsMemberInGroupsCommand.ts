@@ -68,8 +68,8 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  *
  * ```
  *
- * @param IsMemberInGroupsCommandInput - {@link IsMemberInGroupsCommandInput}
- * @returns {@link IsMemberInGroupsCommandOutput}
+ * @param IsMemberInGroupsRequest - {@link IsMemberInGroupsRequest}
+ * @returns {@link IsMemberInGroupsResponse}
  * @see {@link IsMemberInGroupsCommandInput} for command's `input` shape.
  * @see {@link IsMemberInGroupsCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

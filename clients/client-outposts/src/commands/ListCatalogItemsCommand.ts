@@ -84,8 +84,8 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  *
  * ```
  *
- * @param ListCatalogItemsCommandInput - {@link ListCatalogItemsCommandInput}
- * @returns {@link ListCatalogItemsCommandOutput}
+ * @param ListCatalogItemsInput - {@link ListCatalogItemsInput}
+ * @returns {@link ListCatalogItemsOutput}
  * @see {@link ListCatalogItemsCommandInput} for command's `input` shape.
  * @see {@link ListCatalogItemsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

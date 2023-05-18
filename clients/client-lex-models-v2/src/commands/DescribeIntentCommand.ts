@@ -490,8 +490,8 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  *
  * ```
  *
- * @param DescribeIntentCommandInput - {@link DescribeIntentCommandInput}
- * @returns {@link DescribeIntentCommandOutput}
+ * @param DescribeIntentRequest - {@link DescribeIntentRequest}
+ * @returns {@link DescribeIntentResponse}
  * @see {@link DescribeIntentCommandInput} for command's `input` shape.
  * @see {@link DescribeIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

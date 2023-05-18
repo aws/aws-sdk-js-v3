@@ -69,8 +69,8 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  *
  * ```
  *
- * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
- * @returns {@link ListLocationsCommandOutput}
+ * @param ListLocationsRequest - {@link ListLocationsRequest}
+ * @returns {@link ListLocationsResponse}
  * @see {@link ListLocationsCommandInput} for command's `input` shape.
  * @see {@link ListLocationsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

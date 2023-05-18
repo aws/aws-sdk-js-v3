@@ -68,8 +68,8 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *
  * ```
  *
- * @param CreateOrganizationCommandInput - {@link CreateOrganizationCommandInput}
- * @returns {@link CreateOrganizationCommandOutput}
+ * @param CreateOrganizationRequest - {@link CreateOrganizationRequest}
+ * @returns {@link CreateOrganizationResponse}
  * @see {@link CreateOrganizationCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

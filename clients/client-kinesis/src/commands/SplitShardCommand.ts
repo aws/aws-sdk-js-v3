@@ -95,8 +95,8 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SplitShardCommandInput - {@link SplitShardCommandInput}
- * @returns {@link SplitShardCommandOutput}
+ * @param SplitShardInput - {@link SplitShardInput}
+ * @returns {@link Unit}
  * @see {@link SplitShardCommandInput} for command's `input` shape.
  * @see {@link SplitShardCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

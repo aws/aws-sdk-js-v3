@@ -62,8 +62,8 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  *
  * ```
  *
- * @param UpdateServiceSettingCommandInput - {@link UpdateServiceSettingCommandInput}
- * @returns {@link UpdateServiceSettingCommandOutput}
+ * @param UpdateServiceSettingRequest - {@link UpdateServiceSettingRequest}
+ * @returns {@link UpdateServiceSettingResult}
  * @see {@link UpdateServiceSettingCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

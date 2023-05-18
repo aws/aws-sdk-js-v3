@@ -63,8 +63,8 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  *
  * ```
  *
- * @param GetVoiceConnectorGroupCommandInput - {@link GetVoiceConnectorGroupCommandInput}
- * @returns {@link GetVoiceConnectorGroupCommandOutput}
+ * @param GetVoiceConnectorGroupRequest - {@link GetVoiceConnectorGroupRequest}
+ * @returns {@link GetVoiceConnectorGroupResponse}
  * @see {@link GetVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

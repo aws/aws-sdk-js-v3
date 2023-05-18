@@ -114,8 +114,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *
  * ```
  *
- * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
- * @returns {@link UpdateClusterCommandOutput}
+ * @param UpdateClusterRequest - {@link UpdateClusterRequest}
+ * @returns {@link UpdateClusterResponse}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

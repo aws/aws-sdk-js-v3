@@ -69,8 +69,8 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  *
  * ```
  *
- * @param ModifyLaunchTemplateCommandInput - {@link ModifyLaunchTemplateCommandInput}
- * @returns {@link ModifyLaunchTemplateCommandOutput}
+ * @param ModifyLaunchTemplateRequest - {@link ModifyLaunchTemplateRequest}
+ * @returns {@link ModifyLaunchTemplateResult}
  * @see {@link ModifyLaunchTemplateCommandInput} for command's `input` shape.
  * @see {@link ModifyLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

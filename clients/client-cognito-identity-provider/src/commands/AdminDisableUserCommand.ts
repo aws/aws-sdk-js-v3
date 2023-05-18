@@ -60,8 +60,8 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
  *
  * ```
  *
- * @param AdminDisableUserCommandInput - {@link AdminDisableUserCommandInput}
- * @returns {@link AdminDisableUserCommandOutput}
+ * @param AdminDisableUserRequest - {@link AdminDisableUserRequest}
+ * @returns {@link AdminDisableUserResponse}
  * @see {@link AdminDisableUserCommandInput} for command's `input` shape.
  * @see {@link AdminDisableUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

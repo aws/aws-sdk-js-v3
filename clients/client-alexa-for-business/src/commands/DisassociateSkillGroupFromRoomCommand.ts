@@ -55,8 +55,8 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  *
  * ```
  *
- * @param DisassociateSkillGroupFromRoomCommandInput - {@link DisassociateSkillGroupFromRoomCommandInput}
- * @returns {@link DisassociateSkillGroupFromRoomCommandOutput}
+ * @param DisassociateSkillGroupFromRoomRequest - {@link DisassociateSkillGroupFromRoomRequest}
+ * @returns {@link DisassociateSkillGroupFromRoomResponse}
  * @see {@link DisassociateSkillGroupFromRoomCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillGroupFromRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

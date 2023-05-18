@@ -60,8 +60,8 @@ export interface DescribeAuthenticationProfilesCommandOutput
  *
  * ```
  *
- * @param DescribeAuthenticationProfilesCommandInput - {@link DescribeAuthenticationProfilesCommandInput}
- * @returns {@link DescribeAuthenticationProfilesCommandOutput}
+ * @param DescribeAuthenticationProfilesMessage - {@link DescribeAuthenticationProfilesMessage}
+ * @returns {@link DescribeAuthenticationProfilesResult}
  * @see {@link DescribeAuthenticationProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeAuthenticationProfilesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

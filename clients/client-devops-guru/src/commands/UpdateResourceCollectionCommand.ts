@@ -67,8 +67,8 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  *
  * ```
  *
- * @param UpdateResourceCollectionCommandInput - {@link UpdateResourceCollectionCommandInput}
- * @returns {@link UpdateResourceCollectionCommandOutput}
+ * @param UpdateResourceCollectionRequest - {@link UpdateResourceCollectionRequest}
+ * @returns {@link UpdateResourceCollectionResponse}
  * @see {@link UpdateResourceCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCollectionCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

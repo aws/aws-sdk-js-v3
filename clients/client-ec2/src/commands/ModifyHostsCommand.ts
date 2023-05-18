@@ -76,8 +76,8 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  *
  * ```
  *
- * @param ModifyHostsCommandInput - {@link ModifyHostsCommandInput}
- * @returns {@link ModifyHostsCommandOutput}
+ * @param ModifyHostsRequest - {@link ModifyHostsRequest}
+ * @returns {@link ModifyHostsResult}
  * @see {@link ModifyHostsCommandInput} for command's `input` shape.
  * @see {@link ModifyHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

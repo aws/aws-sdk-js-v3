@@ -76,8 +76,8 @@ export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsRespo
  *
  * ```
  *
- * @param BatchGetBlueprintsCommandInput - {@link BatchGetBlueprintsCommandInput}
- * @returns {@link BatchGetBlueprintsCommandOutput}
+ * @param BatchGetBlueprintsRequest - {@link BatchGetBlueprintsRequest}
+ * @returns {@link BatchGetBlueprintsResponse}
  * @see {@link BatchGetBlueprintsCommandInput} for command's `input` shape.
  * @see {@link BatchGetBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -68,8 +68,8 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  *
  * ```
  *
- * @param CreateThingCommandInput - {@link CreateThingCommandInput}
- * @returns {@link CreateThingCommandOutput}
+ * @param CreateThingRequest - {@link CreateThingRequest}
+ * @returns {@link CreateThingResponse}
  * @see {@link CreateThingCommandInput} for command's `input` shape.
  * @see {@link CreateThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

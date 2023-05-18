@@ -86,8 +86,8 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  *
  * ```
  *
- * @param ListDomainDeliverabilityCampaignsCommandInput - {@link ListDomainDeliverabilityCampaignsCommandInput}
- * @returns {@link ListDomainDeliverabilityCampaignsCommandOutput}
+ * @param ListDomainDeliverabilityCampaignsRequest - {@link ListDomainDeliverabilityCampaignsRequest}
+ * @returns {@link ListDomainDeliverabilityCampaignsResponse}
  * @see {@link ListDomainDeliverabilityCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListDomainDeliverabilityCampaignsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

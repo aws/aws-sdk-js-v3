@@ -57,8 +57,8 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  *
  * ```
  *
- * @param DescribeReportCreationCommandInput - {@link DescribeReportCreationCommandInput}
- * @returns {@link DescribeReportCreationCommandOutput}
+ * @param DescribeReportCreationInput - {@link DescribeReportCreationInput}
+ * @returns {@link DescribeReportCreationOutput}
  * @see {@link DescribeReportCreationCommandInput} for command's `input` shape.
  * @see {@link DescribeReportCreationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.

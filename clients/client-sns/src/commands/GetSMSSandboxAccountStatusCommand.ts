@@ -57,8 +57,8 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  *
  * ```
  *
- * @param GetSMSSandboxAccountStatusCommandInput - {@link GetSMSSandboxAccountStatusCommandInput}
- * @returns {@link GetSMSSandboxAccountStatusCommandOutput}
+ * @param GetSMSSandboxAccountStatusInput - {@link GetSMSSandboxAccountStatusInput}
+ * @returns {@link GetSMSSandboxAccountStatusResult}
  * @see {@link GetSMSSandboxAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetSMSSandboxAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

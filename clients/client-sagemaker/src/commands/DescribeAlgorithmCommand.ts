@@ -262,8 +262,8 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  *
  * ```
  *
- * @param DescribeAlgorithmCommandInput - {@link DescribeAlgorithmCommandInput}
- * @returns {@link DescribeAlgorithmCommandOutput}
+ * @param DescribeAlgorithmInput - {@link DescribeAlgorithmInput}
+ * @returns {@link DescribeAlgorithmOutput}
  * @see {@link DescribeAlgorithmCommandInput} for command's `input` shape.
  * @see {@link DescribeAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

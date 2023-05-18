@@ -57,8 +57,8 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  *
  * ```
  *
- * @param PutMetricPolicyCommandInput - {@link PutMetricPolicyCommandInput}
- * @returns {@link PutMetricPolicyCommandOutput}
+ * @param PutMetricPolicyInput - {@link PutMetricPolicyInput}
+ * @returns {@link PutMetricPolicyOutput}
  * @see {@link PutMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link PutMetricPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

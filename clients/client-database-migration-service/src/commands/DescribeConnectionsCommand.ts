@@ -74,8 +74,8 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  *
  * ```
  *
- * @param DescribeConnectionsCommandInput - {@link DescribeConnectionsCommandInput}
- * @returns {@link DescribeConnectionsCommandOutput}
+ * @param DescribeConnectionsMessage - {@link DescribeConnectionsMessage}
+ * @returns {@link DescribeConnectionsResponse}
  * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

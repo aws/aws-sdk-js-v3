@@ -100,8 +100,8 @@ export interface ListDocumentClassificationJobsCommandOutput
  *
  * ```
  *
- * @param ListDocumentClassificationJobsCommandInput - {@link ListDocumentClassificationJobsCommandInput}
- * @returns {@link ListDocumentClassificationJobsCommandOutput}
+ * @param ListDocumentClassificationJobsRequest - {@link ListDocumentClassificationJobsRequest}
+ * @returns {@link ListDocumentClassificationJobsResponse}
  * @see {@link ListDocumentClassificationJobsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassificationJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

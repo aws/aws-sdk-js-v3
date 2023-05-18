@@ -275,8 +275,8 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  *
  * ```
  *
- * @param UpdateMaintenanceWindowTaskCommandInput - {@link UpdateMaintenanceWindowTaskCommandInput}
- * @returns {@link UpdateMaintenanceWindowTaskCommandOutput}
+ * @param UpdateMaintenanceWindowTaskRequest - {@link UpdateMaintenanceWindowTaskRequest}
+ * @returns {@link UpdateMaintenanceWindowTaskResult}
  * @see {@link UpdateMaintenanceWindowTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowTaskCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

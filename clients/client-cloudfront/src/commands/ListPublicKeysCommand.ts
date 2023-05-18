@@ -64,8 +64,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  *
  * ```
  *
- * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
- * @returns {@link ListPublicKeysCommandOutput}
+ * @param ListPublicKeysRequest - {@link ListPublicKeysRequest}
+ * @returns {@link ListPublicKeysResult}
  * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

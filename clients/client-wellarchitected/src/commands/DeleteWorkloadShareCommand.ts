@@ -50,8 +50,8 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteWorkloadShareCommandInput - {@link DeleteWorkloadShareCommandInput}
- * @returns {@link DeleteWorkloadShareCommandOutput}
+ * @param DeleteWorkloadShareInput - {@link DeleteWorkloadShareInput}
+ * @returns {@link Unit}
  * @see {@link DeleteWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkloadShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

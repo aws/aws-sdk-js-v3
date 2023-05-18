@@ -62,8 +62,8 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  *
  * ```
  *
- * @param GetLicenseConversionTaskCommandInput - {@link GetLicenseConversionTaskCommandInput}
- * @returns {@link GetLicenseConversionTaskCommandOutput}
+ * @param GetLicenseConversionTaskRequest - {@link GetLicenseConversionTaskRequest}
+ * @returns {@link GetLicenseConversionTaskResponse}
  * @see {@link GetLicenseConversionTaskCommandInput} for command's `input` shape.
  * @see {@link GetLicenseConversionTaskCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

@@ -62,8 +62,8 @@ export interface GetClassificationExportConfigurationCommandOutput
  *
  * ```
  *
- * @param GetClassificationExportConfigurationCommandInput - {@link GetClassificationExportConfigurationCommandInput}
- * @returns {@link GetClassificationExportConfigurationCommandOutput}
+ * @param GetClassificationExportConfigurationRequest - {@link GetClassificationExportConfigurationRequest}
+ * @returns {@link GetClassificationExportConfigurationResponse}
  * @see {@link GetClassificationExportConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetClassificationExportConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

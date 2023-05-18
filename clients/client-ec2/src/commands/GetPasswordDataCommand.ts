@@ -65,8 +65,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  *
  * ```
  *
- * @param GetPasswordDataCommandInput - {@link GetPasswordDataCommandInput}
- * @returns {@link GetPasswordDataCommandOutput}
+ * @param GetPasswordDataRequest - {@link GetPasswordDataRequest}
+ * @returns {@link GetPasswordDataResult}
  * @see {@link GetPasswordDataCommandInput} for command's `input` shape.
  * @see {@link GetPasswordDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

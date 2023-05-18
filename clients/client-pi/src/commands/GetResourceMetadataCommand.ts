@@ -58,8 +58,8 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  *
  * ```
  *
- * @param GetResourceMetadataCommandInput - {@link GetResourceMetadataCommandInput}
- * @returns {@link GetResourceMetadataCommandOutput}
+ * @param GetResourceMetadataRequest - {@link GetResourceMetadataRequest}
+ * @returns {@link GetResourceMetadataResponse}
  * @see {@link GetResourceMetadataCommandInput} for command's `input` shape.
  * @see {@link GetResourceMetadataCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.

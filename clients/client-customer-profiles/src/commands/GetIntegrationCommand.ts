@@ -63,8 +63,8 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  *
  * ```
  *
- * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
- * @returns {@link GetIntegrationCommandOutput}
+ * @param GetIntegrationRequest - {@link GetIntegrationRequest}
+ * @returns {@link GetIntegrationResponse}
  * @see {@link GetIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

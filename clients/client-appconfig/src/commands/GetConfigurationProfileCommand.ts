@@ -67,8 +67,8 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  *
  * ```
  *
- * @param GetConfigurationProfileCommandInput - {@link GetConfigurationProfileCommandInput}
- * @returns {@link GetConfigurationProfileCommandOutput}
+ * @param GetConfigurationProfileRequest - {@link GetConfigurationProfileRequest}
+ * @returns {@link ConfigurationProfile}
  * @see {@link GetConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

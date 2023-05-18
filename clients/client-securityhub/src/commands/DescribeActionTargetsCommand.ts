@@ -61,8 +61,8 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  *
  * ```
  *
- * @param DescribeActionTargetsCommandInput - {@link DescribeActionTargetsCommandInput}
- * @returns {@link DescribeActionTargetsCommandOutput}
+ * @param DescribeActionTargetsRequest - {@link DescribeActionTargetsRequest}
+ * @returns {@link DescribeActionTargetsResponse}
  * @see {@link DescribeActionTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeActionTargetsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

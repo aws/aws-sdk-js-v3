@@ -58,8 +58,8 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  *
  * ```
  *
- * @param SetPlatformApplicationAttributesCommandInput - {@link SetPlatformApplicationAttributesCommandInput}
- * @returns {@link SetPlatformApplicationAttributesCommandOutput}
+ * @param SetPlatformApplicationAttributesInput - {@link SetPlatformApplicationAttributesInput}
+ * @returns {@link Unit}
  * @see {@link SetPlatformApplicationAttributesCommandInput} for command's `input` shape.
  * @see {@link SetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

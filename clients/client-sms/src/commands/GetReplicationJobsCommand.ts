@@ -100,8 +100,8 @@ export interface GetReplicationJobsCommandOutput extends GetReplicationJobsRespo
  *
  * ```
  *
- * @param GetReplicationJobsCommandInput - {@link GetReplicationJobsCommandInput}
- * @returns {@link GetReplicationJobsCommandOutput}
+ * @param GetReplicationJobsRequest - {@link GetReplicationJobsRequest}
+ * @returns {@link GetReplicationJobsResponse}
  * @see {@link GetReplicationJobsCommandInput} for command's `input` shape.
  * @see {@link GetReplicationJobsCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

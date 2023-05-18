@@ -78,8 +78,8 @@ export interface DescribeExportConfigurationsCommandOutput
  *
  * ```
  *
- * @param DescribeExportConfigurationsCommandInput - {@link DescribeExportConfigurationsCommandInput}
- * @returns {@link DescribeExportConfigurationsCommandOutput}
+ * @param DescribeExportConfigurationsRequest - {@link DescribeExportConfigurationsRequest}
+ * @returns {@link DescribeExportConfigurationsResponse}
  * @see {@link DescribeExportConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeExportConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

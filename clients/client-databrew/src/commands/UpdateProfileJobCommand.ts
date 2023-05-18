@@ -128,8 +128,8 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  *
  * ```
  *
- * @param UpdateProfileJobCommandInput - {@link UpdateProfileJobCommandInput}
- * @returns {@link UpdateProfileJobCommandOutput}
+ * @param UpdateProfileJobRequest - {@link UpdateProfileJobRequest}
+ * @returns {@link UpdateProfileJobResponse}
  * @see {@link UpdateProfileJobCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

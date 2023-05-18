@@ -77,8 +77,8 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  *
  * ```
  *
- * @param CreateActionCommandInput - {@link CreateActionCommandInput}
- * @returns {@link CreateActionCommandOutput}
+ * @param CreateActionRequest - {@link CreateActionRequest}
+ * @returns {@link CreateActionResponse}
  * @see {@link CreateActionCommandInput} for command's `input` shape.
  * @see {@link CreateActionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

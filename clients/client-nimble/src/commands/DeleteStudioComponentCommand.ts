@@ -118,8 +118,8 @@ export interface DeleteStudioComponentCommandOutput extends DeleteStudioComponen
  *
  * ```
  *
- * @param DeleteStudioComponentCommandInput - {@link DeleteStudioComponentCommandInput}
- * @returns {@link DeleteStudioComponentCommandOutput}
+ * @param DeleteStudioComponentRequest - {@link DeleteStudioComponentRequest}
+ * @returns {@link DeleteStudioComponentResponse}
  * @see {@link DeleteStudioComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioComponentCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

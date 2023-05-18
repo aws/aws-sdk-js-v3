@@ -85,8 +85,8 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  *
  * ```
  *
- * @param GetDataIntegrationCommandInput - {@link GetDataIntegrationCommandInput}
- * @returns {@link GetDataIntegrationCommandOutput}
+ * @param GetDataIntegrationRequest - {@link GetDataIntegrationRequest}
+ * @returns {@link GetDataIntegrationResponse}
  * @see {@link GetDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

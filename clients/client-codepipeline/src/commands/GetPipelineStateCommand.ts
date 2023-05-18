@@ -105,8 +105,8 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  *
  * ```
  *
- * @param GetPipelineStateCommandInput - {@link GetPipelineStateCommandInput}
- * @returns {@link GetPipelineStateCommandOutput}
+ * @param GetPipelineStateInput - {@link GetPipelineStateInput}
+ * @returns {@link GetPipelineStateOutput}
  * @see {@link GetPipelineStateCommandInput} for command's `input` shape.
  * @see {@link GetPipelineStateCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

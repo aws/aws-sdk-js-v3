@@ -122,8 +122,8 @@ export interface ListReceivedLicensesForOrganizationCommandOutput
  *
  * ```
  *
- * @param ListReceivedLicensesForOrganizationCommandInput - {@link ListReceivedLicensesForOrganizationCommandInput}
- * @returns {@link ListReceivedLicensesForOrganizationCommandOutput}
+ * @param ListReceivedLicensesForOrganizationRequest - {@link ListReceivedLicensesForOrganizationRequest}
+ * @returns {@link ListReceivedLicensesForOrganizationResponse}
  * @see {@link ListReceivedLicensesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListReceivedLicensesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

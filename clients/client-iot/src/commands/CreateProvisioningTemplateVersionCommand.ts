@@ -64,8 +64,8 @@ export interface CreateProvisioningTemplateVersionCommandOutput
  *
  * ```
  *
- * @param CreateProvisioningTemplateVersionCommandInput - {@link CreateProvisioningTemplateVersionCommandInput}
- * @returns {@link CreateProvisioningTemplateVersionCommandOutput}
+ * @param CreateProvisioningTemplateVersionRequest - {@link CreateProvisioningTemplateVersionRequest}
+ * @returns {@link CreateProvisioningTemplateVersionResponse}
  * @see {@link CreateProvisioningTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

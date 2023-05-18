@@ -51,8 +51,8 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  *
  * ```
  *
- * @param DeletePlaceIndexCommandInput - {@link DeletePlaceIndexCommandInput}
- * @returns {@link DeletePlaceIndexCommandOutput}
+ * @param DeletePlaceIndexRequest - {@link DeletePlaceIndexRequest}
+ * @returns {@link DeletePlaceIndexResponse}
  * @see {@link DeletePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link DeletePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

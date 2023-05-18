@@ -70,8 +70,8 @@ export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
  *
  * ```
  *
- * @param AssociatePhoneNumbersWithVoiceConnectorCommandInput - {@link AssociatePhoneNumbersWithVoiceConnectorCommandInput}
- * @returns {@link AssociatePhoneNumbersWithVoiceConnectorCommandOutput}
+ * @param AssociatePhoneNumbersWithVoiceConnectorRequest - {@link AssociatePhoneNumbersWithVoiceConnectorRequest}
+ * @returns {@link AssociatePhoneNumbersWithVoiceConnectorResponse}
  * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

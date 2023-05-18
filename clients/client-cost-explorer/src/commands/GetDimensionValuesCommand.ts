@@ -142,8 +142,8 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  *
  * ```
  *
- * @param GetDimensionValuesCommandInput - {@link GetDimensionValuesCommandInput}
- * @returns {@link GetDimensionValuesCommandOutput}
+ * @param GetDimensionValuesRequest - {@link GetDimensionValuesRequest}
+ * @returns {@link GetDimensionValuesResponse}
  * @see {@link GetDimensionValuesCommandInput} for command's `input` shape.
  * @see {@link GetDimensionValuesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

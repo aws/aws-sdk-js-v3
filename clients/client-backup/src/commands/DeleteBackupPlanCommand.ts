@@ -55,8 +55,8 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  *
  * ```
  *
- * @param DeleteBackupPlanCommandInput - {@link DeleteBackupPlanCommandInput}
- * @returns {@link DeleteBackupPlanCommandOutput}
+ * @param DeleteBackupPlanInput - {@link DeleteBackupPlanInput}
+ * @returns {@link DeleteBackupPlanOutput}
  * @see {@link DeleteBackupPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

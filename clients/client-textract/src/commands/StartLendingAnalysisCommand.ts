@@ -97,8 +97,8 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  *
  * ```
  *
- * @param StartLendingAnalysisCommandInput - {@link StartLendingAnalysisCommandInput}
- * @returns {@link StartLendingAnalysisCommandOutput}
+ * @param StartLendingAnalysisRequest - {@link StartLendingAnalysisRequest}
+ * @returns {@link StartLendingAnalysisResponse}
  * @see {@link StartLendingAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartLendingAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

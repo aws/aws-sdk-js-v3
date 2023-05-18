@@ -53,8 +53,8 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateBranchCommandInput - {@link CreateBranchCommandInput}
- * @returns {@link CreateBranchCommandOutput}
+ * @param CreateBranchInput - {@link CreateBranchInput}
+ * @returns {@link Unit}
  * @see {@link CreateBranchCommandInput} for command's `input` shape.
  * @see {@link CreateBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

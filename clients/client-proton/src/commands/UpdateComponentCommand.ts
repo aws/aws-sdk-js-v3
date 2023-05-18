@@ -85,8 +85,8 @@ export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __M
  *
  * ```
  *
- * @param UpdateComponentCommandInput - {@link UpdateComponentCommandInput}
- * @returns {@link UpdateComponentCommandOutput}
+ * @param UpdateComponentInput - {@link UpdateComponentInput}
+ * @returns {@link UpdateComponentOutput}
  * @see {@link UpdateComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

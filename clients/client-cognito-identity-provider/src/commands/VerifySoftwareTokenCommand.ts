@@ -65,8 +65,8 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  *
  * ```
  *
- * @param VerifySoftwareTokenCommandInput - {@link VerifySoftwareTokenCommandInput}
- * @returns {@link VerifySoftwareTokenCommandOutput}
+ * @param VerifySoftwareTokenRequest - {@link VerifySoftwareTokenRequest}
+ * @returns {@link VerifySoftwareTokenResponse}
  * @see {@link VerifySoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link VerifySoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -66,8 +66,8 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  *
  * ```
  *
- * @param UpdateLinkCommandInput - {@link UpdateLinkCommandInput}
- * @returns {@link UpdateLinkCommandOutput}
+ * @param UpdateLinkInput - {@link UpdateLinkInput}
+ * @returns {@link UpdateLinkOutput}
  * @see {@link UpdateLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

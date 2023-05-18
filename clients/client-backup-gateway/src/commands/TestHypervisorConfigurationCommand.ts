@@ -56,8 +56,8 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  *
  * ```
  *
- * @param TestHypervisorConfigurationCommandInput - {@link TestHypervisorConfigurationCommandInput}
- * @returns {@link TestHypervisorConfigurationCommandOutput}
+ * @param TestHypervisorConfigurationInput - {@link TestHypervisorConfigurationInput}
+ * @returns {@link TestHypervisorConfigurationOutput}
  * @see {@link TestHypervisorConfigurationCommandInput} for command's `input` shape.
  * @see {@link TestHypervisorConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

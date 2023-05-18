@@ -101,8 +101,8 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  *
  * ```
  *
- * @param ModifyInstanceEventWindowCommandInput - {@link ModifyInstanceEventWindowCommandInput}
- * @returns {@link ModifyInstanceEventWindowCommandOutput}
+ * @param ModifyInstanceEventWindowRequest - {@link ModifyInstanceEventWindowRequest}
+ * @returns {@link ModifyInstanceEventWindowResult}
  * @see {@link ModifyInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

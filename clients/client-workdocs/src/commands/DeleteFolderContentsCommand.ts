@@ -49,8 +49,8 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFolderContentsCommandInput - {@link DeleteFolderContentsCommandInput}
- * @returns {@link DeleteFolderContentsCommandOutput}
+ * @param DeleteFolderContentsRequest - {@link DeleteFolderContentsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFolderContentsCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderContentsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

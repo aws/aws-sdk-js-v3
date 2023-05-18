@@ -56,8 +56,8 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
  *
  * ```
  *
- * @param DisassociateWirelessDeviceFromThingCommandInput - {@link DisassociateWirelessDeviceFromThingCommandInput}
- * @returns {@link DisassociateWirelessDeviceFromThingCommandOutput}
+ * @param DisassociateWirelessDeviceFromThingRequest - {@link DisassociateWirelessDeviceFromThingRequest}
+ * @returns {@link DisassociateWirelessDeviceFromThingResponse}
  * @see {@link DisassociateWirelessDeviceFromThingCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

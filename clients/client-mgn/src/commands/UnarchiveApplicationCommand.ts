@@ -66,8 +66,8 @@ export interface UnarchiveApplicationCommandOutput extends Application, __Metada
  *
  * ```
  *
- * @param UnarchiveApplicationCommandInput - {@link UnarchiveApplicationCommandInput}
- * @returns {@link UnarchiveApplicationCommandOutput}
+ * @param UnarchiveApplicationRequest - {@link UnarchiveApplicationRequest}
+ * @returns {@link Application}
  * @see {@link UnarchiveApplicationCommandInput} for command's `input` shape.
  * @see {@link UnarchiveApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

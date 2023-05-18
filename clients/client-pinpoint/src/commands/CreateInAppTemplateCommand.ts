@@ -121,8 +121,8 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  *
  * ```
  *
- * @param CreateInAppTemplateCommandInput - {@link CreateInAppTemplateCommandInput}
- * @returns {@link CreateInAppTemplateCommandOutput}
+ * @param CreateInAppTemplateRequest - {@link CreateInAppTemplateRequest}
+ * @returns {@link CreateInAppTemplateResponse}
  * @see {@link CreateInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

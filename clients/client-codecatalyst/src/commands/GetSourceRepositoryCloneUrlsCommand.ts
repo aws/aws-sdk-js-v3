@@ -58,8 +58,8 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  *
  * ```
  *
- * @param GetSourceRepositoryCloneUrlsCommandInput - {@link GetSourceRepositoryCloneUrlsCommandInput}
- * @returns {@link GetSourceRepositoryCloneUrlsCommandOutput}
+ * @param GetSourceRepositoryCloneUrlsRequest - {@link GetSourceRepositoryCloneUrlsRequest}
+ * @returns {@link GetSourceRepositoryCloneUrlsResponse}
  * @see {@link GetSourceRepositoryCloneUrlsCommandInput} for command's `input` shape.
  * @see {@link GetSourceRepositoryCloneUrlsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

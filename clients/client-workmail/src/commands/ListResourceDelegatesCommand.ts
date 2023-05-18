@@ -60,8 +60,8 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  *
  * ```
  *
- * @param ListResourceDelegatesCommandInput - {@link ListResourceDelegatesCommandInput}
- * @returns {@link ListResourceDelegatesCommandOutput}
+ * @param ListResourceDelegatesRequest - {@link ListResourceDelegatesRequest}
+ * @returns {@link ListResourceDelegatesResponse}
  * @see {@link ListResourceDelegatesCommandInput} for command's `input` shape.
  * @see {@link ListResourceDelegatesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

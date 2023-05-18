@@ -385,8 +385,8 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  *
  * ```
  *
- * @param GetDistributionCommandInput - {@link GetDistributionCommandInput}
- * @returns {@link GetDistributionCommandOutput}
+ * @param GetDistributionRequest - {@link GetDistributionRequest}
+ * @returns {@link GetDistributionResult}
  * @see {@link GetDistributionCommandInput} for command's `input` shape.
  * @see {@link GetDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

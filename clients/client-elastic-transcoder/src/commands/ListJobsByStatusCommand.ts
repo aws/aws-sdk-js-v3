@@ -307,8 +307,8 @@ export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse,
  *
  * ```
  *
- * @param ListJobsByStatusCommandInput - {@link ListJobsByStatusCommandInput}
- * @returns {@link ListJobsByStatusCommandOutput}
+ * @param ListJobsByStatusRequest - {@link ListJobsByStatusRequest}
+ * @returns {@link ListJobsByStatusResponse}
  * @see {@link ListJobsByStatusCommandInput} for command's `input` shape.
  * @see {@link ListJobsByStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

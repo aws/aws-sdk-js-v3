@@ -62,8 +62,8 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  *
  * ```
  *
- * @param DescribeWorkspaceCommandInput - {@link DescribeWorkspaceCommandInput}
- * @returns {@link DescribeWorkspaceCommandOutput}
+ * @param DescribeWorkspaceRequest - {@link DescribeWorkspaceRequest}
+ * @returns {@link DescribeWorkspaceResponse}
  * @see {@link DescribeWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

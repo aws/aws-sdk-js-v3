@@ -60,8 +60,8 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  *
  * ```
  *
- * @param DisassociateSigninDelegateGroupsFromAccountCommandInput - {@link DisassociateSigninDelegateGroupsFromAccountCommandInput}
- * @returns {@link DisassociateSigninDelegateGroupsFromAccountCommandOutput}
+ * @param DisassociateSigninDelegateGroupsFromAccountRequest - {@link DisassociateSigninDelegateGroupsFromAccountRequest}
+ * @returns {@link DisassociateSigninDelegateGroupsFromAccountResponse}
  * @see {@link DisassociateSigninDelegateGroupsFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateSigninDelegateGroupsFromAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -63,8 +63,8 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  *
  * ```
  *
- * @param UpdateGatewayInformationCommandInput - {@link UpdateGatewayInformationCommandInput}
- * @returns {@link UpdateGatewayInformationCommandOutput}
+ * @param UpdateGatewayInformationInput - {@link UpdateGatewayInformationInput}
+ * @returns {@link UpdateGatewayInformationOutput}
  * @see {@link UpdateGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -80,8 +80,8 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  *
  * ```
  *
- * @param ListAppAssessmentsCommandInput - {@link ListAppAssessmentsCommandInput}
- * @returns {@link ListAppAssessmentsCommandOutput}
+ * @param ListAppAssessmentsRequest - {@link ListAppAssessmentsRequest}
+ * @returns {@link ListAppAssessmentsResponse}
  * @see {@link ListAppAssessmentsCommandInput} for command's `input` shape.
  * @see {@link ListAppAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

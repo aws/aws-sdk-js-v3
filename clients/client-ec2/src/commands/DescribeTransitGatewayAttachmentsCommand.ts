@@ -91,8 +91,8 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  *
  * ```
  *
- * @param DescribeTransitGatewayAttachmentsCommandInput - {@link DescribeTransitGatewayAttachmentsCommandInput}
- * @returns {@link DescribeTransitGatewayAttachmentsCommandOutput}
+ * @param DescribeTransitGatewayAttachmentsRequest - {@link DescribeTransitGatewayAttachmentsRequest}
+ * @returns {@link DescribeTransitGatewayAttachmentsResult}
  * @see {@link DescribeTransitGatewayAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

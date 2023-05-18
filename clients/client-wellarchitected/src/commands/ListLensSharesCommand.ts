@@ -62,8 +62,8 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  *
  * ```
  *
- * @param ListLensSharesCommandInput - {@link ListLensSharesCommandInput}
- * @returns {@link ListLensSharesCommandOutput}
+ * @param ListLensSharesInput - {@link ListLensSharesInput}
+ * @returns {@link ListLensSharesOutput}
  * @see {@link ListLensSharesCommandInput} for command's `input` shape.
  * @see {@link ListLensSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

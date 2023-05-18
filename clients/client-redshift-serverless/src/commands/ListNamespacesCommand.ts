@@ -78,8 +78,8 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  *
  * ```
  *
- * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
- * @returns {@link ListNamespacesCommandOutput}
+ * @param ListNamespacesRequest - {@link ListNamespacesRequest}
+ * @returns {@link ListNamespacesResponse}
  * @see {@link ListNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

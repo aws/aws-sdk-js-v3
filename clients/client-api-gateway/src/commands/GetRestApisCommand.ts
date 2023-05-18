@@ -81,8 +81,8 @@ export interface GetRestApisCommandOutput extends RestApis, __MetadataBearer {}
  *
  * ```
  *
- * @param GetRestApisCommandInput - {@link GetRestApisCommandInput}
- * @returns {@link GetRestApisCommandOutput}
+ * @param GetRestApisRequest - {@link GetRestApisRequest}
+ * @returns {@link RestApis}
  * @see {@link GetRestApisCommandInput} for command's `input` shape.
  * @see {@link GetRestApisCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

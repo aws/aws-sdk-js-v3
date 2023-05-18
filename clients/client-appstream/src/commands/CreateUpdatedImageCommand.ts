@@ -117,8 +117,8 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  *
  * ```
  *
- * @param CreateUpdatedImageCommandInput - {@link CreateUpdatedImageCommandInput}
- * @returns {@link CreateUpdatedImageCommandOutput}
+ * @param CreateUpdatedImageRequest - {@link CreateUpdatedImageRequest}
+ * @returns {@link CreateUpdatedImageResult}
  * @see {@link CreateUpdatedImageCommandInput} for command's `input` shape.
  * @see {@link CreateUpdatedImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

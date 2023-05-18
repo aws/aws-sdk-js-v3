@@ -79,8 +79,8 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  *
  * ```
  *
- * @param CreateArtifactCommandInput - {@link CreateArtifactCommandInput}
- * @returns {@link CreateArtifactCommandOutput}
+ * @param CreateArtifactRequest - {@link CreateArtifactRequest}
+ * @returns {@link CreateArtifactResponse}
  * @see {@link CreateArtifactCommandInput} for command's `input` shape.
  * @see {@link CreateArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

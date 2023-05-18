@@ -63,8 +63,8 @@ export interface ListIdentityProviderConfigsCommandOutput
  *
  * ```
  *
- * @param ListIdentityProviderConfigsCommandInput - {@link ListIdentityProviderConfigsCommandInput}
- * @returns {@link ListIdentityProviderConfigsCommandOutput}
+ * @param ListIdentityProviderConfigsRequest - {@link ListIdentityProviderConfigsRequest}
+ * @returns {@link ListIdentityProviderConfigsResponse}
  * @see {@link ListIdentityProviderConfigsCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProviderConfigsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

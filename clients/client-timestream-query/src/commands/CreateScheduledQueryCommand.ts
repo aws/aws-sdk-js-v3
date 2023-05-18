@@ -123,8 +123,8 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *
  * ```
  *
- * @param CreateScheduledQueryCommandInput - {@link CreateScheduledQueryCommandInput}
- * @returns {@link CreateScheduledQueryCommandOutput}
+ * @param CreateScheduledQueryRequest - {@link CreateScheduledQueryRequest}
+ * @returns {@link CreateScheduledQueryResponse}
  * @see {@link CreateScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link CreateScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.

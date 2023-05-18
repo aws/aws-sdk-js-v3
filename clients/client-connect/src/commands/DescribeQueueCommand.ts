@@ -68,8 +68,8 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  *
  * ```
  *
- * @param DescribeQueueCommandInput - {@link DescribeQueueCommandInput}
- * @returns {@link DescribeQueueCommandOutput}
+ * @param DescribeQueueRequest - {@link DescribeQueueRequest}
+ * @returns {@link DescribeQueueResponse}
  * @see {@link DescribeQueueCommandInput} for command's `input` shape.
  * @see {@link DescribeQueueCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

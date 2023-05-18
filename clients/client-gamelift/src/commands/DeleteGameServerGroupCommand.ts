@@ -105,8 +105,8 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  *
  * ```
  *
- * @param DeleteGameServerGroupCommandInput - {@link DeleteGameServerGroupCommandInput}
- * @returns {@link DeleteGameServerGroupCommandOutput}
+ * @param DeleteGameServerGroupInput - {@link DeleteGameServerGroupInput}
+ * @returns {@link DeleteGameServerGroupOutput}
  * @see {@link DeleteGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

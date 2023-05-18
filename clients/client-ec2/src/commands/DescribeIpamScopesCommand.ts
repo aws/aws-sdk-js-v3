@@ -83,8 +83,8 @@ export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResul
  *
  * ```
  *
- * @param DescribeIpamScopesCommandInput - {@link DescribeIpamScopesCommandInput}
- * @returns {@link DescribeIpamScopesCommandOutput}
+ * @param DescribeIpamScopesRequest - {@link DescribeIpamScopesRequest}
+ * @returns {@link DescribeIpamScopesResult}
  * @see {@link DescribeIpamScopesCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamScopesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

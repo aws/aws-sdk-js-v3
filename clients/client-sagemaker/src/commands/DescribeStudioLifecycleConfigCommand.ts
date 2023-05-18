@@ -60,8 +60,8 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  *
  * ```
  *
- * @param DescribeStudioLifecycleConfigCommandInput - {@link DescribeStudioLifecycleConfigCommandInput}
- * @returns {@link DescribeStudioLifecycleConfigCommandOutput}
+ * @param DescribeStudioLifecycleConfigRequest - {@link DescribeStudioLifecycleConfigRequest}
+ * @returns {@link DescribeStudioLifecycleConfigResponse}
  * @see {@link DescribeStudioLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeStudioLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

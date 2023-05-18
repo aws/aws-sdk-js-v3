@@ -164,8 +164,8 @@ export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, _
  *
  * ```
  *
- * @param ChangeServerLifeCycleStateCommandInput - {@link ChangeServerLifeCycleStateCommandInput}
- * @returns {@link ChangeServerLifeCycleStateCommandOutput}
+ * @param ChangeServerLifeCycleStateRequest - {@link ChangeServerLifeCycleStateRequest}
+ * @returns {@link SourceServer}
  * @see {@link ChangeServerLifeCycleStateCommandInput} for command's `input` shape.
  * @see {@link ChangeServerLifeCycleStateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

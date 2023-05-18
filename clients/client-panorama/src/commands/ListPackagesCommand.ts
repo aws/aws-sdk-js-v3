@@ -62,8 +62,8 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  *
  * ```
  *
- * @param ListPackagesCommandInput - {@link ListPackagesCommandInput}
- * @returns {@link ListPackagesCommandOutput}
+ * @param ListPackagesRequest - {@link ListPackagesRequest}
+ * @returns {@link ListPackagesResponse}
  * @see {@link ListPackagesCommandInput} for command's `input` shape.
  * @see {@link ListPackagesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

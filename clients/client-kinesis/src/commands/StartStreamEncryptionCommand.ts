@@ -70,8 +70,8 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartStreamEncryptionCommandInput - {@link StartStreamEncryptionCommandInput}
- * @returns {@link StartStreamEncryptionCommandOutput}
+ * @param StartStreamEncryptionInput - {@link StartStreamEncryptionInput}
+ * @returns {@link Unit}
  * @see {@link StartStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StartStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

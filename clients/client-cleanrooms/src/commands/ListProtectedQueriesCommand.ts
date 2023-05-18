@@ -62,8 +62,8 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  *
  * ```
  *
- * @param ListProtectedQueriesCommandInput - {@link ListProtectedQueriesCommandInput}
- * @returns {@link ListProtectedQueriesCommandOutput}
+ * @param ListProtectedQueriesInput - {@link ListProtectedQueriesInput}
+ * @returns {@link ListProtectedQueriesOutput}
  * @see {@link ListProtectedQueriesCommandInput} for command's `input` shape.
  * @see {@link ListProtectedQueriesCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

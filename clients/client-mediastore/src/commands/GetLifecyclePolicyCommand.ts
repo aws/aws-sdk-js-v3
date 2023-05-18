@@ -50,8 +50,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  *
  * ```
  *
- * @param GetLifecyclePolicyCommandInput - {@link GetLifecyclePolicyCommandInput}
- * @returns {@link GetLifecyclePolicyCommandOutput}
+ * @param GetLifecyclePolicyInput - {@link GetLifecyclePolicyInput}
+ * @returns {@link GetLifecyclePolicyOutput}
  * @see {@link GetLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

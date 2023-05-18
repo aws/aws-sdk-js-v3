@@ -97,8 +97,8 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  *
  * ```
  *
- * @param CreateAcceleratorCommandInput - {@link CreateAcceleratorCommandInput}
- * @returns {@link CreateAcceleratorCommandOutput}
+ * @param CreateAcceleratorRequest - {@link CreateAcceleratorRequest}
+ * @returns {@link CreateAcceleratorResponse}
  * @see {@link CreateAcceleratorCommandInput} for command's `input` shape.
  * @see {@link CreateAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

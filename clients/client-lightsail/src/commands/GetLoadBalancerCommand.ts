@@ -93,8 +93,8 @@ export interface GetLoadBalancerCommandOutput extends GetLoadBalancerResult, __M
  *
  * ```
  *
- * @param GetLoadBalancerCommandInput - {@link GetLoadBalancerCommandInput}
- * @returns {@link GetLoadBalancerCommandOutput}
+ * @param GetLoadBalancerRequest - {@link GetLoadBalancerRequest}
+ * @returns {@link GetLoadBalancerResult}
  * @see {@link GetLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

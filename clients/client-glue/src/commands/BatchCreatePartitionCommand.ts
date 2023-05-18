@@ -130,8 +130,8 @@ export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionR
  *
  * ```
  *
- * @param BatchCreatePartitionCommandInput - {@link BatchCreatePartitionCommandInput}
- * @returns {@link BatchCreatePartitionCommandOutput}
+ * @param BatchCreatePartitionRequest - {@link BatchCreatePartitionRequest}
+ * @returns {@link BatchCreatePartitionResponse}
  * @see {@link BatchCreatePartitionCommandInput} for command's `input` shape.
  * @see {@link BatchCreatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

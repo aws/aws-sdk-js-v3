@@ -256,8 +256,8 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param QueryCommandInput - {@link QueryCommandInput}
- * @returns {@link QueryCommandOutput}
+ * @param QueryInput - {@link QueryInput}
+ * @returns {@link QueryOutput}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

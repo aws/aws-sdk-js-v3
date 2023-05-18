@@ -63,8 +63,8 @@ export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityType
  *
  * ```
  *
- * @param ListCustomEntityTypesCommandInput - {@link ListCustomEntityTypesCommandInput}
- * @returns {@link ListCustomEntityTypesCommandOutput}
+ * @param ListCustomEntityTypesRequest - {@link ListCustomEntityTypesRequest}
+ * @returns {@link ListCustomEntityTypesResponse}
  * @see {@link ListCustomEntityTypesCommandInput} for command's `input` shape.
  * @see {@link ListCustomEntityTypesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

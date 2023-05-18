@@ -59,8 +59,8 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  *
  * ```
  *
- * @param ListReleaseLabelsCommandInput - {@link ListReleaseLabelsCommandInput}
- * @returns {@link ListReleaseLabelsCommandOutput}
+ * @param ListReleaseLabelsInput - {@link ListReleaseLabelsInput}
+ * @returns {@link ListReleaseLabelsOutput}
  * @see {@link ListReleaseLabelsCommandInput} for command's `input` shape.
  * @see {@link ListReleaseLabelsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

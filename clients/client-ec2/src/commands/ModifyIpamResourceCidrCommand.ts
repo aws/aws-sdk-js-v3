@@ -78,8 +78,8 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  *
  * ```
  *
- * @param ModifyIpamResourceCidrCommandInput - {@link ModifyIpamResourceCidrCommandInput}
- * @returns {@link ModifyIpamResourceCidrCommandOutput}
+ * @param ModifyIpamResourceCidrRequest - {@link ModifyIpamResourceCidrRequest}
+ * @returns {@link ModifyIpamResourceCidrResult}
  * @see {@link ModifyIpamResourceCidrCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamResourceCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -64,8 +64,8 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  *
  * ```
  *
- * @param ExportTransitGatewayRoutesCommandInput - {@link ExportTransitGatewayRoutesCommandInput}
- * @returns {@link ExportTransitGatewayRoutesCommandOutput}
+ * @param ExportTransitGatewayRoutesRequest - {@link ExportTransitGatewayRoutesRequest}
+ * @returns {@link ExportTransitGatewayRoutesResult}
  * @see {@link ExportTransitGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link ExportTransitGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

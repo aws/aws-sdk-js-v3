@@ -65,8 +65,8 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  *
  * ```
  *
- * @param ModifyWorkspaceAccessPropertiesCommandInput - {@link ModifyWorkspaceAccessPropertiesCommandInput}
- * @returns {@link ModifyWorkspaceAccessPropertiesCommandOutput}
+ * @param ModifyWorkspaceAccessPropertiesRequest - {@link ModifyWorkspaceAccessPropertiesRequest}
+ * @returns {@link ModifyWorkspaceAccessPropertiesResult}
  * @see {@link ModifyWorkspaceAccessPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceAccessPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

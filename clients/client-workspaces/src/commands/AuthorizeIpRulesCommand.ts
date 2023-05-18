@@ -56,8 +56,8 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  *
  * ```
  *
- * @param AuthorizeIpRulesCommandInput - {@link AuthorizeIpRulesCommandInput}
- * @returns {@link AuthorizeIpRulesCommandOutput}
+ * @param AuthorizeIpRulesRequest - {@link AuthorizeIpRulesRequest}
+ * @returns {@link AuthorizeIpRulesResult}
  * @see {@link AuthorizeIpRulesCommandInput} for command's `input` shape.
  * @see {@link AuthorizeIpRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

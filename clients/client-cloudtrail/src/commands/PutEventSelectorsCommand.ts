@@ -178,8 +178,8 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *
  * ```
  *
- * @param PutEventSelectorsCommandInput - {@link PutEventSelectorsCommandInput}
- * @returns {@link PutEventSelectorsCommandOutput}
+ * @param PutEventSelectorsRequest - {@link PutEventSelectorsRequest}
+ * @returns {@link PutEventSelectorsResponse}
  * @see {@link PutEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link PutEventSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

@@ -70,8 +70,8 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  *
  * ```
  *
- * @param ListPhoneNumberOrdersCommandInput - {@link ListPhoneNumberOrdersCommandInput}
- * @returns {@link ListPhoneNumberOrdersCommandOutput}
+ * @param ListPhoneNumberOrdersRequest - {@link ListPhoneNumberOrdersRequest}
+ * @returns {@link ListPhoneNumberOrdersResponse}
  * @see {@link ListPhoneNumberOrdersCommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumberOrdersCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -75,8 +75,8 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  *
  * ```
  *
- * @param DescribeClientVpnRoutesCommandInput - {@link DescribeClientVpnRoutesCommandInput}
- * @returns {@link DescribeClientVpnRoutesCommandOutput}
+ * @param DescribeClientVpnRoutesRequest - {@link DescribeClientVpnRoutesRequest}
+ * @returns {@link DescribeClientVpnRoutesResult}
  * @see {@link DescribeClientVpnRoutesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

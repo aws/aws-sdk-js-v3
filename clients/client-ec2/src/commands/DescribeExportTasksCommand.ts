@@ -83,8 +83,8 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  *
  * ```
  *
- * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
- * @returns {@link DescribeExportTasksCommandOutput}
+ * @param DescribeExportTasksRequest - {@link DescribeExportTasksRequest}
+ * @returns {@link DescribeExportTasksResult}
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

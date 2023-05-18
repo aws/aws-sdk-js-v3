@@ -143,8 +143,8 @@ export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __Met
  *
  * ```
  *
- * @param ResumeServiceCommandInput - {@link ResumeServiceCommandInput}
- * @returns {@link ResumeServiceCommandOutput}
+ * @param ResumeServiceRequest - {@link ResumeServiceRequest}
+ * @returns {@link ResumeServiceResponse}
  * @see {@link ResumeServiceCommandInput} for command's `input` shape.
  * @see {@link ResumeServiceCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

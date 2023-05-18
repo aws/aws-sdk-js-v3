@@ -85,8 +85,8 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  *
  * ```
  *
- * @param GetCampaignCommandInput - {@link GetCampaignCommandInput}
- * @returns {@link GetCampaignCommandOutput}
+ * @param GetCampaignRequest - {@link GetCampaignRequest}
+ * @returns {@link GetCampaignResponse}
  * @see {@link GetCampaignCommandInput} for command's `input` shape.
  * @see {@link GetCampaignCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

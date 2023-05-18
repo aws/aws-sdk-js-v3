@@ -108,8 +108,8 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  *
  * ```
  *
- * @param UpdateNodegroupConfigCommandInput - {@link UpdateNodegroupConfigCommandInput}
- * @returns {@link UpdateNodegroupConfigCommandOutput}
+ * @param UpdateNodegroupConfigRequest - {@link UpdateNodegroupConfigRequest}
+ * @returns {@link UpdateNodegroupConfigResponse}
  * @see {@link UpdateNodegroupConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

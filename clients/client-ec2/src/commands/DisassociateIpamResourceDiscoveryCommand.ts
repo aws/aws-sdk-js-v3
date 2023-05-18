@@ -73,8 +73,8 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput
  *
  * ```
  *
- * @param DisassociateIpamResourceDiscoveryCommandInput - {@link DisassociateIpamResourceDiscoveryCommandInput}
- * @returns {@link DisassociateIpamResourceDiscoveryCommandOutput}
+ * @param DisassociateIpamResourceDiscoveryRequest - {@link DisassociateIpamResourceDiscoveryRequest}
+ * @returns {@link DisassociateIpamResourceDiscoveryResult}
  * @see {@link DisassociateIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link DisassociateIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

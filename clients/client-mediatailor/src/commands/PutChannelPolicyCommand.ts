@@ -49,8 +49,8 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  *
  * ```
  *
- * @param PutChannelPolicyCommandInput - {@link PutChannelPolicyCommandInput}
- * @returns {@link PutChannelPolicyCommandOutput}
+ * @param PutChannelPolicyRequest - {@link PutChannelPolicyRequest}
+ * @returns {@link PutChannelPolicyResponse}
  * @see {@link PutChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link PutChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

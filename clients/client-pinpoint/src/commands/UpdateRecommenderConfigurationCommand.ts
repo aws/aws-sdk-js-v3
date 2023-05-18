@@ -83,8 +83,8 @@ export interface UpdateRecommenderConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateRecommenderConfigurationCommandInput - {@link UpdateRecommenderConfigurationCommandInput}
- * @returns {@link UpdateRecommenderConfigurationCommandOutput}
+ * @param UpdateRecommenderConfigurationRequest - {@link UpdateRecommenderConfigurationRequest}
+ * @returns {@link UpdateRecommenderConfigurationResponse}
  * @see {@link UpdateRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

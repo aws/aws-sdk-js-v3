@@ -49,8 +49,8 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddUserToGroupCommandInput - {@link AddUserToGroupCommandInput}
- * @returns {@link AddUserToGroupCommandOutput}
+ * @param AddUserToGroupRequest - {@link AddUserToGroupRequest}
+ * @returns {@link Unit}
  * @see {@link AddUserToGroupCommandInput} for command's `input` shape.
  * @see {@link AddUserToGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

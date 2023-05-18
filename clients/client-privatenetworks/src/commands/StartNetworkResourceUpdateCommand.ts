@@ -118,8 +118,8 @@ export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkRes
  *
  * ```
  *
- * @param StartNetworkResourceUpdateCommandInput - {@link StartNetworkResourceUpdateCommandInput}
- * @returns {@link StartNetworkResourceUpdateCommandOutput}
+ * @param StartNetworkResourceUpdateRequest - {@link StartNetworkResourceUpdateRequest}
+ * @returns {@link StartNetworkResourceUpdateResponse}
  * @see {@link StartNetworkResourceUpdateCommandInput} for command's `input` shape.
  * @see {@link StartNetworkResourceUpdateCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

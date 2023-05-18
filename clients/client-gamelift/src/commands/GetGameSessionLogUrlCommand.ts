@@ -60,8 +60,8 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  *
  * ```
  *
- * @param GetGameSessionLogUrlCommandInput - {@link GetGameSessionLogUrlCommandInput}
- * @returns {@link GetGameSessionLogUrlCommandOutput}
+ * @param GetGameSessionLogUrlInput - {@link GetGameSessionLogUrlInput}
+ * @returns {@link GetGameSessionLogUrlOutput}
  * @see {@link GetGameSessionLogUrlCommandInput} for command's `input` shape.
  * @see {@link GetGameSessionLogUrlCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  *
  * ```
  *
- * @param DeleteSourceLocationCommandInput - {@link DeleteSourceLocationCommandInput}
- * @returns {@link DeleteSourceLocationCommandOutput}
+ * @param DeleteSourceLocationRequest - {@link DeleteSourceLocationRequest}
+ * @returns {@link DeleteSourceLocationResponse}
  * @see {@link DeleteSourceLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

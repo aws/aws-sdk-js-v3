@@ -80,8 +80,8 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param RespondActivityTaskFailedCommandInput - {@link RespondActivityTaskFailedCommandInput}
- * @returns {@link RespondActivityTaskFailedCommandOutput}
+ * @param RespondActivityTaskFailedInput - {@link RespondActivityTaskFailedInput}
+ * @returns {@link Unit}
  * @see {@link RespondActivityTaskFailedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskFailedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

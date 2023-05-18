@@ -84,8 +84,8 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  *
  * ```
  *
- * @param DescribeInstancePatchStatesCommandInput - {@link DescribeInstancePatchStatesCommandInput}
- * @returns {@link DescribeInstancePatchStatesCommandOutput}
+ * @param DescribeInstancePatchStatesRequest - {@link DescribeInstancePatchStatesRequest}
+ * @returns {@link DescribeInstancePatchStatesResult}
  * @see {@link DescribeInstancePatchStatesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchStatesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

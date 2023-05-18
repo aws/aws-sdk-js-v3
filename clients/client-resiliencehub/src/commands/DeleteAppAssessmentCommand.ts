@@ -53,8 +53,8 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  *
  * ```
  *
- * @param DeleteAppAssessmentCommandInput - {@link DeleteAppAssessmentCommandInput}
- * @returns {@link DeleteAppAssessmentCommandOutput}
+ * @param DeleteAppAssessmentRequest - {@link DeleteAppAssessmentRequest}
+ * @returns {@link DeleteAppAssessmentResponse}
  * @see {@link DeleteAppAssessmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAppAssessmentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

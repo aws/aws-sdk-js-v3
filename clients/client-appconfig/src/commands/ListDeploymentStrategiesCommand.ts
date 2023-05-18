@@ -63,8 +63,8 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  *
  * ```
  *
- * @param ListDeploymentStrategiesCommandInput - {@link ListDeploymentStrategiesCommandInput}
- * @returns {@link ListDeploymentStrategiesCommandOutput}
+ * @param ListDeploymentStrategiesRequest - {@link ListDeploymentStrategiesRequest}
+ * @returns {@link DeploymentStrategies}
  * @see {@link ListDeploymentStrategiesCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentStrategiesCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  *
  * ```
  *
- * @param DeleteQueuedSavingsPlanCommandInput - {@link DeleteQueuedSavingsPlanCommandInput}
- * @returns {@link DeleteQueuedSavingsPlanCommandOutput}
+ * @param DeleteQueuedSavingsPlanRequest - {@link DeleteQueuedSavingsPlanRequest}
+ * @returns {@link DeleteQueuedSavingsPlanResponse}
  * @see {@link DeleteQueuedSavingsPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedSavingsPlanCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.

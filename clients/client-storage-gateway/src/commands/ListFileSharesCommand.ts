@@ -64,8 +64,8 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  *
  * ```
  *
- * @param ListFileSharesCommandInput - {@link ListFileSharesCommandInput}
- * @returns {@link ListFileSharesCommandOutput}
+ * @param ListFileSharesInput - {@link ListFileSharesInput}
+ * @returns {@link ListFileSharesOutput}
  * @see {@link ListFileSharesCommandInput} for command's `input` shape.
  * @see {@link ListFileSharesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -68,8 +68,8 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  *
  * ```
  *
- * @param ImportGameConfigurationCommandInput - {@link ImportGameConfigurationCommandInput}
- * @returns {@link ImportGameConfigurationCommandOutput}
+ * @param ImportGameConfigurationRequest - {@link ImportGameConfigurationRequest}
+ * @returns {@link ImportGameConfigurationResult}
  * @see {@link ImportGameConfigurationCommandInput} for command's `input` shape.
  * @see {@link ImportGameConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

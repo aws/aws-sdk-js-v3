@@ -52,8 +52,8 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
- * @returns {@link DeleteUserCommandOutput}
+ * @param DeleteUserRequest - {@link DeleteUserRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -106,8 +106,8 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  *
  * ```
  *
- * @param DeleteCustomKeyStoreCommandInput - {@link DeleteCustomKeyStoreCommandInput}
- * @returns {@link DeleteCustomKeyStoreCommandOutput}
+ * @param DeleteCustomKeyStoreRequest - {@link DeleteCustomKeyStoreRequest}
+ * @returns {@link DeleteCustomKeyStoreResponse}
  * @see {@link DeleteCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

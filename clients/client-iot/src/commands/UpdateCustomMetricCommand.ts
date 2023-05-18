@@ -58,8 +58,8 @@ export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricRespo
  *
  * ```
  *
- * @param UpdateCustomMetricCommandInput - {@link UpdateCustomMetricCommandInput}
- * @returns {@link UpdateCustomMetricCommandOutput}
+ * @param UpdateCustomMetricRequest - {@link UpdateCustomMetricRequest}
+ * @returns {@link UpdateCustomMetricResponse}
  * @see {@link UpdateCustomMetricCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

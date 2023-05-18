@@ -71,8 +71,8 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  *
  * ```
  *
- * @param DeleteRepositoryPermissionsPolicyCommandInput - {@link DeleteRepositoryPermissionsPolicyCommandInput}
- * @returns {@link DeleteRepositoryPermissionsPolicyCommandOutput}
+ * @param DeleteRepositoryPermissionsPolicyRequest - {@link DeleteRepositoryPermissionsPolicyRequest}
+ * @returns {@link DeleteRepositoryPermissionsPolicyResult}
  * @see {@link DeleteRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

@@ -63,8 +63,8 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  *
  * ```
  *
- * @param GetFlowTemplateRevisionsCommandInput - {@link GetFlowTemplateRevisionsCommandInput}
- * @returns {@link GetFlowTemplateRevisionsCommandOutput}
+ * @param GetFlowTemplateRevisionsRequest - {@link GetFlowTemplateRevisionsRequest}
+ * @returns {@link GetFlowTemplateRevisionsResponse}
  * @see {@link GetFlowTemplateRevisionsCommandInput} for command's `input` shape.
  * @see {@link GetFlowTemplateRevisionsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

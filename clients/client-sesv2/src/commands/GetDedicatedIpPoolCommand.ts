@@ -53,8 +53,8 @@ export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolRespo
  *
  * ```
  *
- * @param GetDedicatedIpPoolCommandInput - {@link GetDedicatedIpPoolCommandInput}
- * @returns {@link GetDedicatedIpPoolCommandOutput}
+ * @param GetDedicatedIpPoolRequest - {@link GetDedicatedIpPoolRequest}
+ * @returns {@link GetDedicatedIpPoolResponse}
  * @see {@link GetDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link GetDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

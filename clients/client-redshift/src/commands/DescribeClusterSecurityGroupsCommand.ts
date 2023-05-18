@@ -112,8 +112,8 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  *
  * ```
  *
- * @param DescribeClusterSecurityGroupsCommandInput - {@link DescribeClusterSecurityGroupsCommandInput}
- * @returns {@link DescribeClusterSecurityGroupsCommandOutput}
+ * @param DescribeClusterSecurityGroupsMessage - {@link DescribeClusterSecurityGroupsMessage}
+ * @returns {@link ClusterSecurityGroupMessage}
  * @see {@link DescribeClusterSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

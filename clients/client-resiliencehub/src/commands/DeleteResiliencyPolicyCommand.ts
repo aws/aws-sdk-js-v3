@@ -51,8 +51,8 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  *
  * ```
  *
- * @param DeleteResiliencyPolicyCommandInput - {@link DeleteResiliencyPolicyCommandInput}
- * @returns {@link DeleteResiliencyPolicyCommandOutput}
+ * @param DeleteResiliencyPolicyRequest - {@link DeleteResiliencyPolicyRequest}
+ * @returns {@link DeleteResiliencyPolicyResponse}
  * @see {@link DeleteResiliencyPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResiliencyPolicyCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

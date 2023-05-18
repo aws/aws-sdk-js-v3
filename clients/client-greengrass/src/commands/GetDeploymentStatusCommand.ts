@@ -60,8 +60,8 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  *
  * ```
  *
- * @param GetDeploymentStatusCommandInput - {@link GetDeploymentStatusCommandInput}
- * @returns {@link GetDeploymentStatusCommandOutput}
+ * @param GetDeploymentStatusRequest - {@link GetDeploymentStatusRequest}
+ * @returns {@link GetDeploymentStatusResponse}
  * @see {@link GetDeploymentStatusCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentStatusCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

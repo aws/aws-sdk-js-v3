@@ -127,8 +127,8 @@ export interface ListStudioComponentsCommandOutput extends ListStudioComponentsR
  *
  * ```
  *
- * @param ListStudioComponentsCommandInput - {@link ListStudioComponentsCommandInput}
- * @returns {@link ListStudioComponentsCommandOutput}
+ * @param ListStudioComponentsRequest - {@link ListStudioComponentsRequest}
+ * @returns {@link ListStudioComponentsResponse}
  * @see {@link ListStudioComponentsCommandInput} for command's `input` shape.
  * @see {@link ListStudioComponentsCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

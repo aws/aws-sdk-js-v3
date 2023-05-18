@@ -62,8 +62,8 @@ export interface DescribeMetricCollectionTypesCommandOutput
  *
  * ```
  *
- * @param DescribeMetricCollectionTypesCommandInput - {@link DescribeMetricCollectionTypesCommandInput}
- * @returns {@link DescribeMetricCollectionTypesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeMetricCollectionTypesAnswer}
  * @see {@link DescribeMetricCollectionTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricCollectionTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

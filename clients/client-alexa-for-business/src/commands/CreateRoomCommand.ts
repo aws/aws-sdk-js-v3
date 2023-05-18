@@ -60,8 +60,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  *
  * ```
  *
- * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
- * @returns {@link CreateRoomCommandOutput}
+ * @param CreateRoomRequest - {@link CreateRoomRequest}
+ * @returns {@link CreateRoomResponse}
  * @see {@link CreateRoomCommandInput} for command's `input` shape.
  * @see {@link CreateRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

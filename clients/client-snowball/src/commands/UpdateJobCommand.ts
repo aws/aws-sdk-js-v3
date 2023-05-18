@@ -116,8 +116,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *
  * ```
  *
- * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
- * @returns {@link UpdateJobCommandOutput}
+ * @param UpdateJobRequest - {@link UpdateJobRequest}
+ * @returns {@link UpdateJobResult}
  * @see {@link UpdateJobCommandInput} for command's `input` shape.
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

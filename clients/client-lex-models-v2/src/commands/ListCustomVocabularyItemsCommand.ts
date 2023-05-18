@@ -66,8 +66,8 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  *
  * ```
  *
- * @param ListCustomVocabularyItemsCommandInput - {@link ListCustomVocabularyItemsCommandInput}
- * @returns {@link ListCustomVocabularyItemsCommandOutput}
+ * @param ListCustomVocabularyItemsRequest - {@link ListCustomVocabularyItemsRequest}
+ * @returns {@link ListCustomVocabularyItemsResponse}
  * @see {@link ListCustomVocabularyItemsCommandInput} for command's `input` shape.
  * @see {@link ListCustomVocabularyItemsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

@@ -62,8 +62,8 @@ export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperation
  *
  * ```
  *
- * @param ListHoursOfOperationsCommandInput - {@link ListHoursOfOperationsCommandInput}
- * @returns {@link ListHoursOfOperationsCommandOutput}
+ * @param ListHoursOfOperationsRequest - {@link ListHoursOfOperationsRequest}
+ * @returns {@link ListHoursOfOperationsResponse}
  * @see {@link ListHoursOfOperationsCommandInput} for command's `input` shape.
  * @see {@link ListHoursOfOperationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -75,8 +75,8 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  *
  * ```
  *
- * @param ResetDBParameterGroupCommandInput - {@link ResetDBParameterGroupCommandInput}
- * @returns {@link ResetDBParameterGroupCommandOutput}
+ * @param ResetDBParameterGroupMessage - {@link ResetDBParameterGroupMessage}
+ * @returns {@link DBParameterGroupNameMessage}
  * @see {@link ResetDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

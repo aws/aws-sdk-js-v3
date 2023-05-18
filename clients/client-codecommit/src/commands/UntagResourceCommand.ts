@@ -53,8 +53,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
+ * @param UntagResourceInput - {@link UntagResourceInput}
+ * @returns {@link Unit}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

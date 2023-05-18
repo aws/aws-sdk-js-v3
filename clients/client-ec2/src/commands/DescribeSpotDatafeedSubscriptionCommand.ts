@@ -65,8 +65,8 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  *
  * ```
  *
- * @param DescribeSpotDatafeedSubscriptionCommandInput - {@link DescribeSpotDatafeedSubscriptionCommandInput}
- * @returns {@link DescribeSpotDatafeedSubscriptionCommandOutput}
+ * @param DescribeSpotDatafeedSubscriptionRequest - {@link DescribeSpotDatafeedSubscriptionRequest}
+ * @returns {@link DescribeSpotDatafeedSubscriptionResult}
  * @see {@link DescribeSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

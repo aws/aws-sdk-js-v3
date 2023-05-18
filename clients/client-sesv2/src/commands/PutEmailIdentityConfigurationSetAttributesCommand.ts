@@ -58,8 +58,8 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  *
  * ```
  *
- * @param PutEmailIdentityConfigurationSetAttributesCommandInput - {@link PutEmailIdentityConfigurationSetAttributesCommandInput}
- * @returns {@link PutEmailIdentityConfigurationSetAttributesCommandOutput}
+ * @param PutEmailIdentityConfigurationSetAttributesRequest - {@link PutEmailIdentityConfigurationSetAttributesRequest}
+ * @returns {@link PutEmailIdentityConfigurationSetAttributesResponse}
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

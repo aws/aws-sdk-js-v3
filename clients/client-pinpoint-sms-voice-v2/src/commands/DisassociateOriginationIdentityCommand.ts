@@ -68,8 +68,8 @@ export interface DisassociateOriginationIdentityCommandOutput
  *
  * ```
  *
- * @param DisassociateOriginationIdentityCommandInput - {@link DisassociateOriginationIdentityCommandInput}
- * @returns {@link DisassociateOriginationIdentityCommandOutput}
+ * @param DisassociateOriginationIdentityRequest - {@link DisassociateOriginationIdentityRequest}
+ * @returns {@link DisassociateOriginationIdentityResult}
  * @see {@link DisassociateOriginationIdentityCommandInput} for command's `input` shape.
  * @see {@link DisassociateOriginationIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

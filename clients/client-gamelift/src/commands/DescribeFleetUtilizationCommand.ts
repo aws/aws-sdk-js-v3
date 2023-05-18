@@ -100,8 +100,8 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  *
  * ```
  *
- * @param DescribeFleetUtilizationCommandInput - {@link DescribeFleetUtilizationCommandInput}
- * @returns {@link DescribeFleetUtilizationCommandOutput}
+ * @param DescribeFleetUtilizationInput - {@link DescribeFleetUtilizationInput}
+ * @returns {@link DescribeFleetUtilizationOutput}
  * @see {@link DescribeFleetUtilizationCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetUtilizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -74,8 +74,8 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  *
  * ```
  *
- * @param CreateVpcIngressConnectionCommandInput - {@link CreateVpcIngressConnectionCommandInput}
- * @returns {@link CreateVpcIngressConnectionCommandOutput}
+ * @param CreateVpcIngressConnectionRequest - {@link CreateVpcIngressConnectionRequest}
+ * @returns {@link CreateVpcIngressConnectionResponse}
  * @see {@link CreateVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

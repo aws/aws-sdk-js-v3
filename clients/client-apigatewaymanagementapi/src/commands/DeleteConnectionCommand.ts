@@ -52,8 +52,8 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
- * @returns {@link DeleteConnectionCommandOutput}
+ * @param DeleteConnectionRequest - {@link DeleteConnectionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.

@@ -79,8 +79,8 @@ export interface CreateRobotApplicationVersionCommandOutput
  *
  * ```
  *
- * @param CreateRobotApplicationVersionCommandInput - {@link CreateRobotApplicationVersionCommandInput}
- * @returns {@link CreateRobotApplicationVersionCommandOutput}
+ * @param CreateRobotApplicationVersionRequest - {@link CreateRobotApplicationVersionRequest}
+ * @returns {@link CreateRobotApplicationVersionResponse}
  * @see {@link CreateRobotApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateRobotApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

@@ -67,8 +67,8 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  *
  * ```
  *
- * @param GetEmailTemplateCommandInput - {@link GetEmailTemplateCommandInput}
- * @returns {@link GetEmailTemplateCommandOutput}
+ * @param GetEmailTemplateRequest - {@link GetEmailTemplateRequest}
+ * @returns {@link GetEmailTemplateResponse}
  * @see {@link GetEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link GetEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

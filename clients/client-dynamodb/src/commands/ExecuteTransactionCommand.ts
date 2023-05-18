@@ -183,8 +183,8 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *
  * ```
  *
- * @param ExecuteTransactionCommandInput - {@link ExecuteTransactionCommandInput}
- * @returns {@link ExecuteTransactionCommandOutput}
+ * @param ExecuteTransactionInput - {@link ExecuteTransactionInput}
+ * @returns {@link ExecuteTransactionOutput}
  * @see {@link ExecuteTransactionCommandInput} for command's `input` shape.
  * @see {@link ExecuteTransactionCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

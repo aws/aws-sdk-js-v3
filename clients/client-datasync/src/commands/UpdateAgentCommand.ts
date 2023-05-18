@@ -49,8 +49,8 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *
  * ```
  *
- * @param UpdateAgentCommandInput - {@link UpdateAgentCommandInput}
- * @returns {@link UpdateAgentCommandOutput}
+ * @param UpdateAgentRequest - {@link UpdateAgentRequest}
+ * @returns {@link UpdateAgentResponse}
  * @see {@link UpdateAgentCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

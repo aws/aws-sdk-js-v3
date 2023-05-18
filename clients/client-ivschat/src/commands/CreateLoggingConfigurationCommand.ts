@@ -84,8 +84,8 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  *
  * ```
  *
- * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
- * @returns {@link CreateLoggingConfigurationCommandOutput}
+ * @param CreateLoggingConfigurationRequest - {@link CreateLoggingConfigurationRequest}
+ * @returns {@link CreateLoggingConfigurationResponse}
  * @see {@link CreateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.

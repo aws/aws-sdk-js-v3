@@ -59,8 +59,8 @@ export interface ListCasesForContactCommandOutput extends ListCasesForContactRes
  *
  * ```
  *
- * @param ListCasesForContactCommandInput - {@link ListCasesForContactCommandInput}
- * @returns {@link ListCasesForContactCommandOutput}
+ * @param ListCasesForContactRequest - {@link ListCasesForContactRequest}
+ * @returns {@link ListCasesForContactResponse}
  * @see {@link ListCasesForContactCommandInput} for command's `input` shape.
  * @see {@link ListCasesForContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

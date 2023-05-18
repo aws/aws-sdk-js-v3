@@ -79,8 +79,8 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param EnableCommandInput - {@link EnableCommandInput}
- * @returns {@link EnableCommandOutput}
+ * @param EnableRequest - {@link EnableRequest}
+ * @returns {@link EnableResponse}
  * @see {@link EnableCommandInput} for command's `input` shape.
  * @see {@link EnableCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

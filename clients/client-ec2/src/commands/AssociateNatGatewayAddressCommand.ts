@@ -70,8 +70,8 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  *
  * ```
  *
- * @param AssociateNatGatewayAddressCommandInput - {@link AssociateNatGatewayAddressCommandInput}
- * @returns {@link AssociateNatGatewayAddressCommandOutput}
+ * @param AssociateNatGatewayAddressRequest - {@link AssociateNatGatewayAddressRequest}
+ * @returns {@link AssociateNatGatewayAddressResult}
  * @see {@link AssociateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

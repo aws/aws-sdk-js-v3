@@ -62,8 +62,8 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  *
  * ```
  *
- * @param ListAccountSettingsCommandInput - {@link ListAccountSettingsCommandInput}
- * @returns {@link ListAccountSettingsCommandOutput}
+ * @param ListAccountSettingsRequest - {@link ListAccountSettingsRequest}
+ * @returns {@link ListAccountSettingsResponse}
  * @see {@link ListAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link ListAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

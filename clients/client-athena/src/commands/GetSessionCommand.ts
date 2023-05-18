@@ -86,8 +86,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *
  * ```
  *
- * @param GetSessionCommandInput - {@link GetSessionCommandInput}
- * @returns {@link GetSessionCommandOutput}
+ * @param GetSessionRequest - {@link GetSessionRequest}
+ * @returns {@link GetSessionResponse}
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

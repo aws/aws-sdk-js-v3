@@ -93,8 +93,8 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  *
  * ```
  *
- * @param GetComplianceDetailCommandInput - {@link GetComplianceDetailCommandInput}
- * @returns {@link GetComplianceDetailCommandOutput}
+ * @param GetComplianceDetailRequest - {@link GetComplianceDetailRequest}
+ * @returns {@link GetComplianceDetailResponse}
  * @see {@link GetComplianceDetailCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

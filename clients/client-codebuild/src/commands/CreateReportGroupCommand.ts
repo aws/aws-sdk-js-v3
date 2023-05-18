@@ -94,8 +94,8 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  *
  * ```
  *
- * @param CreateReportGroupCommandInput - {@link CreateReportGroupCommandInput}
- * @returns {@link CreateReportGroupCommandOutput}
+ * @param CreateReportGroupInput - {@link CreateReportGroupInput}
+ * @returns {@link CreateReportGroupOutput}
  * @see {@link CreateReportGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -68,8 +68,8 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  *
  * ```
  *
- * @param GetCatalogItemCommandInput - {@link GetCatalogItemCommandInput}
- * @returns {@link GetCatalogItemCommandOutput}
+ * @param GetCatalogItemInput - {@link GetCatalogItemInput}
+ * @returns {@link GetCatalogItemOutput}
  * @see {@link GetCatalogItemCommandInput} for command's `input` shape.
  * @see {@link GetCatalogItemCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

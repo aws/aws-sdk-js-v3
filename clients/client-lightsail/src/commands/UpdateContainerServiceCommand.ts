@@ -164,8 +164,8 @@ export interface UpdateContainerServiceCommandOutput extends UpdateContainerServ
  *
  * ```
  *
- * @param UpdateContainerServiceCommandInput - {@link UpdateContainerServiceCommandInput}
- * @returns {@link UpdateContainerServiceCommandOutput}
+ * @param UpdateContainerServiceRequest - {@link UpdateContainerServiceRequest}
+ * @returns {@link UpdateContainerServiceResult}
  * @see {@link UpdateContainerServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerServiceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

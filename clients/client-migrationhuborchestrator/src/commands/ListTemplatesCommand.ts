@@ -64,8 +64,8 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  *
  * ```
  *
- * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
- * @returns {@link ListTemplatesCommandOutput}
+ * @param ListMigrationWorkflowTemplatesRequest - {@link ListMigrationWorkflowTemplatesRequest}
+ * @returns {@link ListMigrationWorkflowTemplatesResponse}
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

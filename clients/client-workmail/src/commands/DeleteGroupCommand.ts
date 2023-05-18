@@ -49,8 +49,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  *
  * ```
  *
- * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
- * @returns {@link DeleteGroupCommandOutput}
+ * @param DeleteGroupRequest - {@link DeleteGroupRequest}
+ * @returns {@link DeleteGroupResponse}
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

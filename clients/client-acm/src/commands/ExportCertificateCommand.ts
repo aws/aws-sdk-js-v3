@@ -64,8 +64,8 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  *
  * ```
  *
- * @param ExportCertificateCommandInput - {@link ExportCertificateCommandInput}
- * @returns {@link ExportCertificateCommandOutput}
+ * @param ExportCertificateRequest - {@link ExportCertificateRequest}
+ * @returns {@link ExportCertificateResponse}
  * @see {@link ExportCertificateCommandInput} for command's `input` shape.
  * @see {@link ExportCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

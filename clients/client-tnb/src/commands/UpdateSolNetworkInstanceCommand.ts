@@ -67,8 +67,8 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  *
  * ```
  *
- * @param UpdateSolNetworkInstanceCommandInput - {@link UpdateSolNetworkInstanceCommandInput}
- * @returns {@link UpdateSolNetworkInstanceCommandOutput}
+ * @param UpdateSolNetworkInstanceInput - {@link UpdateSolNetworkInstanceInput}
+ * @returns {@link UpdateSolNetworkInstanceOutput}
  * @see {@link UpdateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

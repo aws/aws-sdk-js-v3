@@ -132,8 +132,8 @@ export interface ListImageScanFindingsCommandOutput extends ListImageScanFinding
  *
  * ```
  *
- * @param ListImageScanFindingsCommandInput - {@link ListImageScanFindingsCommandInput}
- * @returns {@link ListImageScanFindingsCommandOutput}
+ * @param ListImageScanFindingsRequest - {@link ListImageScanFindingsRequest}
+ * @returns {@link ListImageScanFindingsResponse}
  * @see {@link ListImageScanFindingsCommandInput} for command's `input` shape.
  * @see {@link ListImageScanFindingsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

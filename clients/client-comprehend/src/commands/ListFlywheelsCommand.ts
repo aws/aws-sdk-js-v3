@@ -69,8 +69,8 @@ export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __Met
  *
  * ```
  *
- * @param ListFlywheelsCommandInput - {@link ListFlywheelsCommandInput}
- * @returns {@link ListFlywheelsCommandOutput}
+ * @param ListFlywheelsRequest - {@link ListFlywheelsRequest}
+ * @returns {@link ListFlywheelsResponse}
  * @see {@link ListFlywheelsCommandInput} for command's `input` shape.
  * @see {@link ListFlywheelsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

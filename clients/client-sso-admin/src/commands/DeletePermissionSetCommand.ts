@@ -49,8 +49,8 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  *
  * ```
  *
- * @param DeletePermissionSetCommandInput - {@link DeletePermissionSetCommandInput}
- * @returns {@link DeletePermissionSetCommandOutput}
+ * @param DeletePermissionSetRequest - {@link DeletePermissionSetRequest}
+ * @returns {@link DeletePermissionSetResponse}
  * @see {@link DeletePermissionSetCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

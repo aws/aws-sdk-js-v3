@@ -67,8 +67,8 @@ export interface UpdateVPCConnectionCommandOutput extends UpdateVPCConnectionRes
  *
  * ```
  *
- * @param UpdateVPCConnectionCommandInput - {@link UpdateVPCConnectionCommandInput}
- * @returns {@link UpdateVPCConnectionCommandOutput}
+ * @param UpdateVPCConnectionRequest - {@link UpdateVPCConnectionRequest}
+ * @returns {@link UpdateVPCConnectionResponse}
  * @see {@link UpdateVPCConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateVPCConnectionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

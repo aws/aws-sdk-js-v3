@@ -59,8 +59,8 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  *
  * ```
  *
- * @param DeprovisionByoipCidrCommandInput - {@link DeprovisionByoipCidrCommandInput}
- * @returns {@link DeprovisionByoipCidrCommandOutput}
+ * @param DeprovisionByoipCidrRequest - {@link DeprovisionByoipCidrRequest}
+ * @returns {@link DeprovisionByoipCidrResult}
  * @see {@link DeprovisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

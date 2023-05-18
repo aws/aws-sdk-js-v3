@@ -67,8 +67,8 @@ export interface DescribeNotificationConfigurationsCommandOutput
  *
  * ```
  *
- * @param DescribeNotificationConfigurationsCommandInput - {@link DescribeNotificationConfigurationsCommandInput}
- * @returns {@link DescribeNotificationConfigurationsCommandOutput}
+ * @param DescribeNotificationConfigurationsType - {@link DescribeNotificationConfigurationsType}
+ * @returns {@link DescribeNotificationConfigurationsAnswer}
  * @see {@link DescribeNotificationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

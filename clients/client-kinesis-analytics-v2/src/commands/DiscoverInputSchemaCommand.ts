@@ -105,8 +105,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *
  * ```
  *
- * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
- * @returns {@link DiscoverInputSchemaCommandOutput}
+ * @param DiscoverInputSchemaRequest - {@link DiscoverInputSchemaRequest}
+ * @returns {@link DiscoverInputSchemaResponse}
  * @see {@link DiscoverInputSchemaCommandInput} for command's `input` shape.
  * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

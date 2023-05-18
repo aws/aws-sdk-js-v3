@@ -88,8 +88,8 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  *
  * ```
  *
- * @param UpdateFlowMediaStreamCommandInput - {@link UpdateFlowMediaStreamCommandInput}
- * @returns {@link UpdateFlowMediaStreamCommandOutput}
+ * @param UpdateFlowMediaStreamRequest - {@link UpdateFlowMediaStreamRequest}
+ * @returns {@link UpdateFlowMediaStreamResponse}
  * @see {@link UpdateFlowMediaStreamCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowMediaStreamCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

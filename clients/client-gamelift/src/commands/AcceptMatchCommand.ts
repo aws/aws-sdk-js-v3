@@ -80,8 +80,8 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *
  * ```
  *
- * @param AcceptMatchCommandInput - {@link AcceptMatchCommandInput}
- * @returns {@link AcceptMatchCommandOutput}
+ * @param AcceptMatchInput - {@link AcceptMatchInput}
+ * @returns {@link AcceptMatchOutput}
  * @see {@link AcceptMatchCommandInput} for command's `input` shape.
  * @see {@link AcceptMatchCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

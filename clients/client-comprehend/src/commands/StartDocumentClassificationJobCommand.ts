@@ -94,8 +94,8 @@ export interface StartDocumentClassificationJobCommandOutput
  *
  * ```
  *
- * @param StartDocumentClassificationJobCommandInput - {@link StartDocumentClassificationJobCommandInput}
- * @returns {@link StartDocumentClassificationJobCommandOutput}
+ * @param StartDocumentClassificationJobRequest - {@link StartDocumentClassificationJobRequest}
+ * @returns {@link StartDocumentClassificationJobResponse}
  * @see {@link StartDocumentClassificationJobCommandInput} for command's `input` shape.
  * @see {@link StartDocumentClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

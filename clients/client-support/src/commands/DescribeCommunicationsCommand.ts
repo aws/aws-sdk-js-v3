@@ -91,8 +91,8 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  *
  * ```
  *
- * @param DescribeCommunicationsCommandInput - {@link DescribeCommunicationsCommandInput}
- * @returns {@link DescribeCommunicationsCommandOutput}
+ * @param DescribeCommunicationsRequest - {@link DescribeCommunicationsRequest}
+ * @returns {@link DescribeCommunicationsResponse}
  * @see {@link DescribeCommunicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommunicationsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

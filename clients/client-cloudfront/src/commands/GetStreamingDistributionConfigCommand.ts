@@ -83,8 +83,8 @@ export interface GetStreamingDistributionConfigCommandOutput
  *
  * ```
  *
- * @param GetStreamingDistributionConfigCommandInput - {@link GetStreamingDistributionConfigCommandInput}
- * @returns {@link GetStreamingDistributionConfigCommandOutput}
+ * @param GetStreamingDistributionConfigRequest - {@link GetStreamingDistributionConfigRequest}
+ * @returns {@link GetStreamingDistributionConfigResult}
  * @see {@link GetStreamingDistributionConfigCommandInput} for command's `input` shape.
  * @see {@link GetStreamingDistributionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

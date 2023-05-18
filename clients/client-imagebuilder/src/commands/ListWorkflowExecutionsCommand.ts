@@ -71,8 +71,8 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  *
  * ```
  *
- * @param ListWorkflowExecutionsCommandInput - {@link ListWorkflowExecutionsCommandInput}
- * @returns {@link ListWorkflowExecutionsCommandOutput}
+ * @param ListWorkflowExecutionsRequest - {@link ListWorkflowExecutionsRequest}
+ * @returns {@link ListWorkflowExecutionsResponse}
  * @see {@link ListWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

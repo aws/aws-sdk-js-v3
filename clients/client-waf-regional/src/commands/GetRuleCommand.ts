@@ -69,8 +69,8 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetRuleCommandInput - {@link GetRuleCommandInput}
- * @returns {@link GetRuleCommandOutput}
+ * @param GetRuleRequest - {@link GetRuleRequest}
+ * @returns {@link GetRuleResponse}
  * @see {@link GetRuleCommandInput} for command's `input` shape.
  * @see {@link GetRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

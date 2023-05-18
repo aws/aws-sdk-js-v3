@@ -63,8 +63,8 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  *
  * ```
  *
- * @param GetCampaignStateBatchCommandInput - {@link GetCampaignStateBatchCommandInput}
- * @returns {@link GetCampaignStateBatchCommandOutput}
+ * @param GetCampaignStateBatchRequest - {@link GetCampaignStateBatchRequest}
+ * @returns {@link GetCampaignStateBatchResponse}
  * @see {@link GetCampaignStateBatchCommandInput} for command's `input` shape.
  * @see {@link GetCampaignStateBatchCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

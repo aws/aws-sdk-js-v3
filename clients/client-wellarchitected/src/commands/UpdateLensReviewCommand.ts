@@ -78,8 +78,8 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  *
  * ```
  *
- * @param UpdateLensReviewCommandInput - {@link UpdateLensReviewCommandInput}
- * @returns {@link UpdateLensReviewCommandOutput}
+ * @param UpdateLensReviewInput - {@link UpdateLensReviewInput}
+ * @returns {@link UpdateLensReviewOutput}
  * @see {@link UpdateLensReviewCommandInput} for command's `input` shape.
  * @see {@link UpdateLensReviewCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

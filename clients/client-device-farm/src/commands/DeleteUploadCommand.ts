@@ -48,8 +48,8 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  *
  * ```
  *
- * @param DeleteUploadCommandInput - {@link DeleteUploadCommandInput}
- * @returns {@link DeleteUploadCommandOutput}
+ * @param DeleteUploadRequest - {@link DeleteUploadRequest}
+ * @returns {@link DeleteUploadResult}
  * @see {@link DeleteUploadCommandInput} for command's `input` shape.
  * @see {@link DeleteUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

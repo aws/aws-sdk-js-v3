@@ -50,8 +50,8 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  *
  * ```
  *
- * @param DeleteWorkspaceImageCommandInput - {@link DeleteWorkspaceImageCommandInput}
- * @returns {@link DeleteWorkspaceImageCommandOutput}
+ * @param DeleteWorkspaceImageRequest - {@link DeleteWorkspaceImageRequest}
+ * @returns {@link DeleteWorkspaceImageResult}
  * @see {@link DeleteWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

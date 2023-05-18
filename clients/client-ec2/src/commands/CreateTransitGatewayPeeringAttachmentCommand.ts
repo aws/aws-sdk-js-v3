@@ -111,8 +111,8 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
  *
  * ```
  *
- * @param CreateTransitGatewayPeeringAttachmentCommandInput - {@link CreateTransitGatewayPeeringAttachmentCommandInput}
- * @returns {@link CreateTransitGatewayPeeringAttachmentCommandOutput}
+ * @param CreateTransitGatewayPeeringAttachmentRequest - {@link CreateTransitGatewayPeeringAttachmentRequest}
+ * @returns {@link CreateTransitGatewayPeeringAttachmentResult}
  * @see {@link CreateTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

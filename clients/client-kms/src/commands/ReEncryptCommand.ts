@@ -161,8 +161,8 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *
  * ```
  *
- * @param ReEncryptCommandInput - {@link ReEncryptCommandInput}
- * @returns {@link ReEncryptCommandOutput}
+ * @param ReEncryptRequest - {@link ReEncryptRequest}
+ * @returns {@link ReEncryptResponse}
  * @see {@link ReEncryptCommandInput} for command's `input` shape.
  * @see {@link ReEncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

@@ -91,8 +91,8 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  *
  * ```
  *
- * @param DescribeEventDetailsCommandInput - {@link DescribeEventDetailsCommandInput}
- * @returns {@link DescribeEventDetailsCommandOutput}
+ * @param DescribeEventDetailsRequest - {@link DescribeEventDetailsRequest}
+ * @returns {@link DescribeEventDetailsResponse}
  * @see {@link DescribeEventDetailsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventDetailsCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

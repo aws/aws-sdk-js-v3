@@ -75,8 +75,8 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  *
  * ```
  *
- * @param DeleteEndpointAccessCommandInput - {@link DeleteEndpointAccessCommandInput}
- * @returns {@link DeleteEndpointAccessCommandOutput}
+ * @param DeleteEndpointAccessMessage - {@link DeleteEndpointAccessMessage}
+ * @returns {@link EndpointAccess}
  * @see {@link DeleteEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

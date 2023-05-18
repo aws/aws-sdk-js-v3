@@ -72,8 +72,8 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  *
  * ```
  *
- * @param ListInstanceTypeDetailsCommandInput - {@link ListInstanceTypeDetailsCommandInput}
- * @returns {@link ListInstanceTypeDetailsCommandOutput}
+ * @param ListInstanceTypeDetailsRequest - {@link ListInstanceTypeDetailsRequest}
+ * @returns {@link ListInstanceTypeDetailsResponse}
  * @see {@link ListInstanceTypeDetailsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceTypeDetailsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

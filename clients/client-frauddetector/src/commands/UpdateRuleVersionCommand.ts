@@ -74,8 +74,8 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  *
  * ```
  *
- * @param UpdateRuleVersionCommandInput - {@link UpdateRuleVersionCommandInput}
- * @returns {@link UpdateRuleVersionCommandOutput}
+ * @param UpdateRuleVersionRequest - {@link UpdateRuleVersionRequest}
+ * @returns {@link UpdateRuleVersionResult}
  * @see {@link UpdateRuleVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

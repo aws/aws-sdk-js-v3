@@ -83,8 +83,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *
  * ```
  *
- * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
- * @returns {@link DeleteObjectCommandOutput}
+ * @param DeleteObjectRequest - {@link DeleteObjectRequest}
+ * @returns {@link DeleteObjectOutput}
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

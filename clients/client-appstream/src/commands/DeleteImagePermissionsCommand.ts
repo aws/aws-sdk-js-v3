@@ -49,8 +49,8 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  *
  * ```
  *
- * @param DeleteImagePermissionsCommandInput - {@link DeleteImagePermissionsCommandInput}
- * @returns {@link DeleteImagePermissionsCommandOutput}
+ * @param DeleteImagePermissionsRequest - {@link DeleteImagePermissionsRequest}
+ * @returns {@link DeleteImagePermissionsResult}
  * @see {@link DeleteImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DeleteImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

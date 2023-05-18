@@ -65,8 +65,8 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  *
  * ```
  *
- * @param DescribeTrafficSourcesCommandInput - {@link DescribeTrafficSourcesCommandInput}
- * @returns {@link DescribeTrafficSourcesCommandOutput}
+ * @param DescribeTrafficSourcesRequest - {@link DescribeTrafficSourcesRequest}
+ * @returns {@link DescribeTrafficSourcesResponse}
  * @see {@link DescribeTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -74,8 +74,8 @@ export interface StartFaceDetectionCommandOutput extends StartFaceDetectionRespo
  *
  * ```
  *
- * @param StartFaceDetectionCommandInput - {@link StartFaceDetectionCommandInput}
- * @returns {@link StartFaceDetectionCommandOutput}
+ * @param StartFaceDetectionRequest - {@link StartFaceDetectionRequest}
+ * @returns {@link StartFaceDetectionResponse}
  * @see {@link StartFaceDetectionCommandInput} for command's `input` shape.
  * @see {@link StartFaceDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

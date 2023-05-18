@@ -148,8 +148,8 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  *
  * ```
  *
- * @param CreateDocumentCommandInput - {@link CreateDocumentCommandInput}
- * @returns {@link CreateDocumentCommandOutput}
+ * @param CreateDocumentRequest - {@link CreateDocumentRequest}
+ * @returns {@link CreateDocumentResult}
  * @see {@link CreateDocumentCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

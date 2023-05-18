@@ -96,8 +96,8 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  *
  * ```
  *
- * @param ListLaunchPathsCommandInput - {@link ListLaunchPathsCommandInput}
- * @returns {@link ListLaunchPathsCommandOutput}
+ * @param ListLaunchPathsInput - {@link ListLaunchPathsInput}
+ * @returns {@link ListLaunchPathsOutput}
  * @see {@link ListLaunchPathsCommandInput} for command's `input` shape.
  * @see {@link ListLaunchPathsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

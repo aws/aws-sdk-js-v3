@@ -90,8 +90,8 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  *
  * ```
  *
- * @param UpdateLayoutCommandInput - {@link UpdateLayoutCommandInput}
- * @returns {@link UpdateLayoutCommandOutput}
+ * @param UpdateLayoutRequest - {@link UpdateLayoutRequest}
+ * @returns {@link UpdateLayoutResponse}
  * @see {@link UpdateLayoutCommandInput} for command's `input` shape.
  * @see {@link UpdateLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

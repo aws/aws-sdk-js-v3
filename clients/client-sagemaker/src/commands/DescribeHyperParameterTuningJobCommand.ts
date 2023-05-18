@@ -458,8 +458,8 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  *
  * ```
  *
- * @param DescribeHyperParameterTuningJobCommandInput - {@link DescribeHyperParameterTuningJobCommandInput}
- * @returns {@link DescribeHyperParameterTuningJobCommandOutput}
+ * @param DescribeHyperParameterTuningJobRequest - {@link DescribeHyperParameterTuningJobRequest}
+ * @returns {@link DescribeHyperParameterTuningJobResponse}
  * @see {@link DescribeHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

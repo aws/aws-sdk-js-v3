@@ -69,8 +69,8 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  *
  * ```
  *
- * @param CreatePullRequestApprovalRuleCommandInput - {@link CreatePullRequestApprovalRuleCommandInput}
- * @returns {@link CreatePullRequestApprovalRuleCommandOutput}
+ * @param CreatePullRequestApprovalRuleInput - {@link CreatePullRequestApprovalRuleInput}
+ * @returns {@link CreatePullRequestApprovalRuleOutput}
  * @see {@link CreatePullRequestApprovalRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePullRequestApprovalRuleCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListSourceRepositoryBranchesCommandOutput
  *
  * ```
  *
- * @param ListSourceRepositoryBranchesCommandInput - {@link ListSourceRepositoryBranchesCommandInput}
- * @returns {@link ListSourceRepositoryBranchesCommandOutput}
+ * @param ListSourceRepositoryBranchesRequest - {@link ListSourceRepositoryBranchesRequest}
+ * @returns {@link ListSourceRepositoryBranchesResponse}
  * @see {@link ListSourceRepositoryBranchesCommandInput} for command's `input` shape.
  * @see {@link ListSourceRepositoryBranchesCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

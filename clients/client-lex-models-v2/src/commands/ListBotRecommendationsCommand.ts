@@ -66,8 +66,8 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  *
  * ```
  *
- * @param ListBotRecommendationsCommandInput - {@link ListBotRecommendationsCommandInput}
- * @returns {@link ListBotRecommendationsCommandOutput}
+ * @param ListBotRecommendationsRequest - {@link ListBotRecommendationsRequest}
+ * @returns {@link ListBotRecommendationsResponse}
  * @see {@link ListBotRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListBotRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

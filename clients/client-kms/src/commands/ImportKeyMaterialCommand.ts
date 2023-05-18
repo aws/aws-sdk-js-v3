@@ -115,8 +115,8 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *
  * ```
  *
- * @param ImportKeyMaterialCommandInput - {@link ImportKeyMaterialCommandInput}
- * @returns {@link ImportKeyMaterialCommandOutput}
+ * @param ImportKeyMaterialRequest - {@link ImportKeyMaterialRequest}
+ * @returns {@link ImportKeyMaterialResponse}
  * @see {@link ImportKeyMaterialCommandInput} for command's `input` shape.
  * @see {@link ImportKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

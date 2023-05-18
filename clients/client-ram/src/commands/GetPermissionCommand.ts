@@ -70,8 +70,8 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  *
  * ```
  *
- * @param GetPermissionCommandInput - {@link GetPermissionCommandInput}
- * @returns {@link GetPermissionCommandOutput}
+ * @param GetPermissionRequest - {@link GetPermissionRequest}
+ * @returns {@link GetPermissionResponse}
  * @see {@link GetPermissionCommandInput} for command's `input` shape.
  * @see {@link GetPermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  *
  * ```
  *
- * @param DeleteSceneCommandInput - {@link DeleteSceneCommandInput}
- * @returns {@link DeleteSceneCommandOutput}
+ * @param DeleteSceneRequest - {@link DeleteSceneRequest}
+ * @returns {@link DeleteSceneResponse}
  * @see {@link DeleteSceneCommandInput} for command's `input` shape.
  * @see {@link DeleteSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

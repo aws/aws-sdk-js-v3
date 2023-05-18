@@ -57,8 +57,8 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  *
  * ```
  *
- * @param StartContactStreamingCommandInput - {@link StartContactStreamingCommandInput}
- * @returns {@link StartContactStreamingCommandOutput}
+ * @param StartContactStreamingRequest - {@link StartContactStreamingRequest}
+ * @returns {@link StartContactStreamingResponse}
  * @see {@link StartContactStreamingCommandInput} for command's `input` shape.
  * @see {@link StartContactStreamingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

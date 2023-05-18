@@ -54,8 +54,8 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  *
  * ```
  *
- * @param AssociatePricingRulesCommandInput - {@link AssociatePricingRulesCommandInput}
- * @returns {@link AssociatePricingRulesCommandOutput}
+ * @param AssociatePricingRulesInput - {@link AssociatePricingRulesInput}
+ * @returns {@link AssociatePricingRulesOutput}
  * @see {@link AssociatePricingRulesCommandInput} for command's `input` shape.
  * @see {@link AssociatePricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

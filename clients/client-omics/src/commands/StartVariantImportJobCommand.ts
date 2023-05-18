@@ -60,8 +60,8 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  *
  * ```
  *
- * @param StartVariantImportJobCommandInput - {@link StartVariantImportJobCommandInput}
- * @returns {@link StartVariantImportJobCommandOutput}
+ * @param StartVariantImportRequest - {@link StartVariantImportRequest}
+ * @returns {@link StartVariantImportResponse}
  * @see {@link StartVariantImportJobCommandInput} for command's `input` shape.
  * @see {@link StartVariantImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

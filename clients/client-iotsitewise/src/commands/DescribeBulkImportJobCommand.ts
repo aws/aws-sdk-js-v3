@@ -76,8 +76,8 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  *
  * ```
  *
- * @param DescribeBulkImportJobCommandInput - {@link DescribeBulkImportJobCommandInput}
- * @returns {@link DescribeBulkImportJobCommandOutput}
+ * @param DescribeBulkImportJobRequest - {@link DescribeBulkImportJobRequest}
+ * @returns {@link DescribeBulkImportJobResponse}
  * @see {@link DescribeBulkImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBulkImportJobCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

@@ -56,8 +56,8 @@ export interface UpdateMediaInsightsPipelineStatusCommandOutput extends __Metada
  *
  * ```
  *
- * @param UpdateMediaInsightsPipelineStatusCommandInput - {@link UpdateMediaInsightsPipelineStatusCommandInput}
- * @returns {@link UpdateMediaInsightsPipelineStatusCommandOutput}
+ * @param UpdateMediaInsightsPipelineStatusRequest - {@link UpdateMediaInsightsPipelineStatusRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateMediaInsightsPipelineStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateMediaInsightsPipelineStatusCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

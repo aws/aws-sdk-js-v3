@@ -93,8 +93,8 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  *
  * ```
  *
- * @param StartSigningJobCommandInput - {@link StartSigningJobCommandInput}
- * @returns {@link StartSigningJobCommandOutput}
+ * @param StartSigningJobRequest - {@link StartSigningJobRequest}
+ * @returns {@link StartSigningJobResponse}
  * @see {@link StartSigningJobCommandInput} for command's `input` shape.
  * @see {@link StartSigningJobCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

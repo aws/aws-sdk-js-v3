@@ -91,8 +91,8 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  *
  * ```
  *
- * @param PutEmailIdentityDkimSigningAttributesCommandInput - {@link PutEmailIdentityDkimSigningAttributesCommandInput}
- * @returns {@link PutEmailIdentityDkimSigningAttributesCommandOutput}
+ * @param PutEmailIdentityDkimSigningAttributesRequest - {@link PutEmailIdentityDkimSigningAttributesRequest}
+ * @returns {@link PutEmailIdentityDkimSigningAttributesResponse}
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

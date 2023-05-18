@@ -60,8 +60,8 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  *
  * ```
  *
- * @param UpdateVPCEConfigurationCommandInput - {@link UpdateVPCEConfigurationCommandInput}
- * @returns {@link UpdateVPCEConfigurationCommandOutput}
+ * @param UpdateVPCEConfigurationRequest - {@link UpdateVPCEConfigurationRequest}
+ * @returns {@link UpdateVPCEConfigurationResult}
  * @see {@link UpdateVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

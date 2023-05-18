@@ -101,8 +101,8 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *
  * ```
  *
- * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
- * @returns {@link CreateTaskCommandOutput}
+ * @param CreateTaskRequest - {@link CreateTaskRequest}
+ * @returns {@link CreateTaskResponse}
  * @see {@link CreateTaskCommandInput} for command's `input` shape.
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

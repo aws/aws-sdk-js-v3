@@ -68,8 +68,8 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  *
  * ```
  *
- * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
- * @returns {@link ListSchemasCommandOutput}
+ * @param ListSchemasInput - {@link ListSchemasInput}
+ * @returns {@link ListSchemasOutput}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

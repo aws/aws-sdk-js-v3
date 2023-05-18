@@ -50,8 +50,8 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  *
  * ```
  *
- * @param DeleteRulesetCommandInput - {@link DeleteRulesetCommandInput}
- * @returns {@link DeleteRulesetCommandOutput}
+ * @param DeleteRulesetRequest - {@link DeleteRulesetRequest}
+ * @returns {@link DeleteRulesetResponse}
  * @see {@link DeleteRulesetCommandInput} for command's `input` shape.
  * @see {@link DeleteRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

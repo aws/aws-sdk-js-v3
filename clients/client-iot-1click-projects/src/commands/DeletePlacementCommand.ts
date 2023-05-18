@@ -57,8 +57,8 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  *
  * ```
  *
- * @param DeletePlacementCommandInput - {@link DeletePlacementCommandInput}
- * @returns {@link DeletePlacementCommandOutput}
+ * @param DeletePlacementRequest - {@link DeletePlacementRequest}
+ * @returns {@link DeletePlacementResponse}
  * @see {@link DeletePlacementCommandInput} for command's `input` shape.
  * @see {@link DeletePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

@@ -72,8 +72,8 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  *
  * ```
  *
- * @param UpdateRulesetCommandInput - {@link UpdateRulesetCommandInput}
- * @returns {@link UpdateRulesetCommandOutput}
+ * @param UpdateRulesetRequest - {@link UpdateRulesetRequest}
+ * @returns {@link UpdateRulesetResponse}
  * @see {@link UpdateRulesetCommandInput} for command's `input` shape.
  * @see {@link UpdateRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  *
  * ```
  *
- * @param DeregisterFromWorkMailCommandInput - {@link DeregisterFromWorkMailCommandInput}
- * @returns {@link DeregisterFromWorkMailCommandOutput}
+ * @param DeregisterFromWorkMailRequest - {@link DeregisterFromWorkMailRequest}
+ * @returns {@link DeregisterFromWorkMailResponse}
  * @see {@link DeregisterFromWorkMailCommandInput} for command's `input` shape.
  * @see {@link DeregisterFromWorkMailCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

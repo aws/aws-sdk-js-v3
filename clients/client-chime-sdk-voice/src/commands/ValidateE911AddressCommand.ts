@@ -88,8 +88,8 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  *
  * ```
  *
- * @param ValidateE911AddressCommandInput - {@link ValidateE911AddressCommandInput}
- * @returns {@link ValidateE911AddressCommandOutput}
+ * @param ValidateE911AddressRequest - {@link ValidateE911AddressRequest}
+ * @returns {@link ValidateE911AddressResponse}
  * @see {@link ValidateE911AddressCommandInput} for command's `input` shape.
  * @see {@link ValidateE911AddressCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

@@ -55,8 +55,8 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  *
  * ```
  *
- * @param ModifyAvailabilityZoneGroupCommandInput - {@link ModifyAvailabilityZoneGroupCommandInput}
- * @returns {@link ModifyAvailabilityZoneGroupCommandOutput}
+ * @param ModifyAvailabilityZoneGroupRequest - {@link ModifyAvailabilityZoneGroupRequest}
+ * @returns {@link ModifyAvailabilityZoneGroupResult}
  * @see {@link ModifyAvailabilityZoneGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyAvailabilityZoneGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

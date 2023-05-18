@@ -90,8 +90,8 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  *
  * ```
  *
- * @param DescribeClusterParameterGroupsCommandInput - {@link DescribeClusterParameterGroupsCommandInput}
- * @returns {@link DescribeClusterParameterGroupsCommandOutput}
+ * @param DescribeClusterParameterGroupsMessage - {@link DescribeClusterParameterGroupsMessage}
+ * @returns {@link ClusterParameterGroupsMessage}
  * @see {@link DescribeClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

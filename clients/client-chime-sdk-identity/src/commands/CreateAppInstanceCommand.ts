@@ -65,8 +65,8 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  *
  * ```
  *
- * @param CreateAppInstanceCommandInput - {@link CreateAppInstanceCommandInput}
- * @returns {@link CreateAppInstanceCommandOutput}
+ * @param CreateAppInstanceRequest - {@link CreateAppInstanceRequest}
+ * @returns {@link CreateAppInstanceResponse}
  * @see {@link CreateAppInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

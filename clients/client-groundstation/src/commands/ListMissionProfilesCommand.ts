@@ -59,8 +59,8 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  *
  * ```
  *
- * @param ListMissionProfilesCommandInput - {@link ListMissionProfilesCommandInput}
- * @returns {@link ListMissionProfilesCommandOutput}
+ * @param ListMissionProfilesRequest - {@link ListMissionProfilesRequest}
+ * @returns {@link ListMissionProfilesResponse}
  * @see {@link ListMissionProfilesCommandInput} for command's `input` shape.
  * @see {@link ListMissionProfilesCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

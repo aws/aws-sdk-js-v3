@@ -87,8 +87,8 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  *
  * ```
  *
- * @param UpdateSpaceCommandInput - {@link UpdateSpaceCommandInput}
- * @returns {@link UpdateSpaceCommandOutput}
+ * @param UpdateSpaceRequest - {@link UpdateSpaceRequest}
+ * @returns {@link UpdateSpaceResponse}
  * @see {@link UpdateSpaceCommandInput} for command's `input` shape.
  * @see {@link UpdateSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

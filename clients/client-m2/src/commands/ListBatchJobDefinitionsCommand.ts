@@ -66,8 +66,8 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
  *
  * ```
  *
- * @param ListBatchJobDefinitionsCommandInput - {@link ListBatchJobDefinitionsCommandInput}
- * @returns {@link ListBatchJobDefinitionsCommandOutput}
+ * @param ListBatchJobDefinitionsRequest - {@link ListBatchJobDefinitionsRequest}
+ * @returns {@link ListBatchJobDefinitionsResponse}
  * @see {@link ListBatchJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListBatchJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

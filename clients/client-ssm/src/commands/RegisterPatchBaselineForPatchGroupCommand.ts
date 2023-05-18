@@ -60,8 +60,8 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  *
  * ```
  *
- * @param RegisterPatchBaselineForPatchGroupCommandInput - {@link RegisterPatchBaselineForPatchGroupCommandInput}
- * @returns {@link RegisterPatchBaselineForPatchGroupCommandOutput}
+ * @param RegisterPatchBaselineForPatchGroupRequest - {@link RegisterPatchBaselineForPatchGroupRequest}
+ * @returns {@link RegisterPatchBaselineForPatchGroupResult}
  * @see {@link RegisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link RegisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

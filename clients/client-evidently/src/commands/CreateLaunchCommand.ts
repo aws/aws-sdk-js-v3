@@ -158,8 +158,8 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  *
  * ```
  *
- * @param CreateLaunchCommandInput - {@link CreateLaunchCommandInput}
- * @returns {@link CreateLaunchCommandOutput}
+ * @param CreateLaunchRequest - {@link CreateLaunchRequest}
+ * @returns {@link CreateLaunchResponse}
  * @see {@link CreateLaunchCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

@@ -104,8 +104,8 @@ export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteRespons
  *
  * ```
  *
- * @param DeleteNetworkSiteCommandInput - {@link DeleteNetworkSiteCommandInput}
- * @returns {@link DeleteNetworkSiteCommandOutput}
+ * @param DeleteNetworkSiteRequest - {@link DeleteNetworkSiteRequest}
+ * @returns {@link DeleteNetworkSiteResponse}
  * @see {@link DeleteNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

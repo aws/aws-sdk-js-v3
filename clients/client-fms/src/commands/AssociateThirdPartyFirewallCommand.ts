@@ -52,8 +52,8 @@ export interface AssociateThirdPartyFirewallCommandOutput
  *
  * ```
  *
- * @param AssociateThirdPartyFirewallCommandInput - {@link AssociateThirdPartyFirewallCommandInput}
- * @returns {@link AssociateThirdPartyFirewallCommandOutput}
+ * @param AssociateThirdPartyFirewallRequest - {@link AssociateThirdPartyFirewallRequest}
+ * @returns {@link AssociateThirdPartyFirewallResponse}
  * @see {@link AssociateThirdPartyFirewallCommandInput} for command's `input` shape.
  * @see {@link AssociateThirdPartyFirewallCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

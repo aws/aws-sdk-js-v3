@@ -55,8 +55,8 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  *
  * ```
  *
- * @param ListDevelopmentSchemaArnsCommandInput - {@link ListDevelopmentSchemaArnsCommandInput}
- * @returns {@link ListDevelopmentSchemaArnsCommandOutput}
+ * @param ListDevelopmentSchemaArnsRequest - {@link ListDevelopmentSchemaArnsRequest}
+ * @returns {@link ListDevelopmentSchemaArnsResponse}
  * @see {@link ListDevelopmentSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListDevelopmentSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

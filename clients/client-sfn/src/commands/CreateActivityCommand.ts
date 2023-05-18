@@ -73,8 +73,8 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *
  * ```
  *
- * @param CreateActivityCommandInput - {@link CreateActivityCommandInput}
- * @returns {@link CreateActivityCommandOutput}
+ * @param CreateActivityInput - {@link CreateActivityInput}
+ * @returns {@link CreateActivityOutput}
  * @see {@link CreateActivityCommandInput} for command's `input` shape.
  * @see {@link CreateActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

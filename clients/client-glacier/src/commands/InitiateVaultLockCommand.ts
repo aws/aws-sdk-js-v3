@@ -88,8 +88,8 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  *
  * ```
  *
- * @param InitiateVaultLockCommandInput - {@link InitiateVaultLockCommandInput}
- * @returns {@link InitiateVaultLockCommandOutput}
+ * @param InitiateVaultLockInput - {@link InitiateVaultLockInput}
+ * @returns {@link InitiateVaultLockOutput}
  * @see {@link InitiateVaultLockCommandInput} for command's `input` shape.
  * @see {@link InitiateVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

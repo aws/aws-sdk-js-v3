@@ -75,8 +75,8 @@ export interface GetIdentityNotificationAttributesCommandOutput
  *
  * ```
  *
- * @param GetIdentityNotificationAttributesCommandInput - {@link GetIdentityNotificationAttributesCommandInput}
- * @returns {@link GetIdentityNotificationAttributesCommandOutput}
+ * @param GetIdentityNotificationAttributesRequest - {@link GetIdentityNotificationAttributesRequest}
+ * @returns {@link GetIdentityNotificationAttributesResponse}
  * @see {@link GetIdentityNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

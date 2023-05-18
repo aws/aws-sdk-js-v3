@@ -326,8 +326,8 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  *
  * ```
  *
- * @param DescribeFlowCommandInput - {@link DescribeFlowCommandInput}
- * @returns {@link DescribeFlowCommandOutput}
+ * @param DescribeFlowRequest - {@link DescribeFlowRequest}
+ * @returns {@link DescribeFlowResponse}
  * @see {@link DescribeFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

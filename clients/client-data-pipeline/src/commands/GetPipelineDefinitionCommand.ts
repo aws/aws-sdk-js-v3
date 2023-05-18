@@ -144,8 +144,8 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  *
  * ```
  *
- * @param GetPipelineDefinitionCommandInput - {@link GetPipelineDefinitionCommandInput}
- * @returns {@link GetPipelineDefinitionCommandOutput}
+ * @param GetPipelineDefinitionInput - {@link GetPipelineDefinitionInput}
+ * @returns {@link GetPipelineDefinitionOutput}
  * @see {@link GetPipelineDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetPipelineDefinitionCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

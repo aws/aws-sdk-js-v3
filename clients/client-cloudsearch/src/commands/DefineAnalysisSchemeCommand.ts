@@ -80,8 +80,8 @@ export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeR
  *
  * ```
  *
- * @param DefineAnalysisSchemeCommandInput - {@link DefineAnalysisSchemeCommandInput}
- * @returns {@link DefineAnalysisSchemeCommandOutput}
+ * @param DefineAnalysisSchemeRequest - {@link DefineAnalysisSchemeRequest}
+ * @returns {@link DefineAnalysisSchemeResponse}
  * @see {@link DefineAnalysisSchemeCommandInput} for command's `input` shape.
  * @see {@link DefineAnalysisSchemeCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

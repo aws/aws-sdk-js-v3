@@ -66,8 +66,8 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  *
  * ```
  *
- * @param GetOutcomesCommandInput - {@link GetOutcomesCommandInput}
- * @returns {@link GetOutcomesCommandOutput}
+ * @param GetOutcomesRequest - {@link GetOutcomesRequest}
+ * @returns {@link GetOutcomesResult}
  * @see {@link GetOutcomesCommandInput} for command's `input` shape.
  * @see {@link GetOutcomesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

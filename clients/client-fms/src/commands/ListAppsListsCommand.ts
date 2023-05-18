@@ -66,8 +66,8 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  *
  * ```
  *
- * @param ListAppsListsCommandInput - {@link ListAppsListsCommandInput}
- * @returns {@link ListAppsListsCommandOutput}
+ * @param ListAppsListsRequest - {@link ListAppsListsRequest}
+ * @returns {@link ListAppsListsResponse}
  * @see {@link ListAppsListsCommandInput} for command's `input` shape.
  * @see {@link ListAppsListsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

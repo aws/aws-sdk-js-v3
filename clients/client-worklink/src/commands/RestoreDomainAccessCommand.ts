@@ -51,8 +51,8 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  *
  * ```
  *
- * @param RestoreDomainAccessCommandInput - {@link RestoreDomainAccessCommandInput}
- * @returns {@link RestoreDomainAccessCommandOutput}
+ * @param RestoreDomainAccessRequest - {@link RestoreDomainAccessRequest}
+ * @returns {@link RestoreDomainAccessResponse}
  * @see {@link RestoreDomainAccessCommandInput} for command's `input` shape.
  * @see {@link RestoreDomainAccessCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

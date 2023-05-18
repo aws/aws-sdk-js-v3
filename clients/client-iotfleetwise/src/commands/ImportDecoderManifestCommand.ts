@@ -65,8 +65,8 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  *
  * ```
  *
- * @param ImportDecoderManifestCommandInput - {@link ImportDecoderManifestCommandInput}
- * @returns {@link ImportDecoderManifestCommandOutput}
+ * @param ImportDecoderManifestRequest - {@link ImportDecoderManifestRequest}
+ * @returns {@link ImportDecoderManifestResponse}
  * @see {@link ImportDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link ImportDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

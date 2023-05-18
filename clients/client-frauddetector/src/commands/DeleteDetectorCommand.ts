@@ -49,8 +49,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  *
  * ```
  *
- * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
- * @returns {@link DeleteDetectorCommandOutput}
+ * @param DeleteDetectorRequest - {@link DeleteDetectorRequest}
+ * @returns {@link DeleteDetectorResult}
  * @see {@link DeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

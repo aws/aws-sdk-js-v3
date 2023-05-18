@@ -72,8 +72,8 @@ export interface StartRelationalDatabaseCommandOutput extends StartRelationalDat
  *
  * ```
  *
- * @param StartRelationalDatabaseCommandInput - {@link StartRelationalDatabaseCommandInput}
- * @returns {@link StartRelationalDatabaseCommandOutput}
+ * @param StartRelationalDatabaseRequest - {@link StartRelationalDatabaseRequest}
+ * @returns {@link StartRelationalDatabaseResult}
  * @see {@link StartRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link StartRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

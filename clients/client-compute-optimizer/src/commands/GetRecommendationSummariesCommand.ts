@@ -120,8 +120,8 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *
  * ```
  *
- * @param GetRecommendationSummariesCommandInput - {@link GetRecommendationSummariesCommandInput}
- * @returns {@link GetRecommendationSummariesCommandOutput}
+ * @param GetRecommendationSummariesRequest - {@link GetRecommendationSummariesRequest}
+ * @returns {@link GetRecommendationSummariesResponse}
  * @see {@link GetRecommendationSummariesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

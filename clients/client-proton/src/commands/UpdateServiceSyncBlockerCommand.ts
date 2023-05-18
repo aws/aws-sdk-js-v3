@@ -67,8 +67,8 @@ export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSync
  *
  * ```
  *
- * @param UpdateServiceSyncBlockerCommandInput - {@link UpdateServiceSyncBlockerCommandInput}
- * @returns {@link UpdateServiceSyncBlockerCommandOutput}
+ * @param UpdateServiceSyncBlockerInput - {@link UpdateServiceSyncBlockerInput}
+ * @returns {@link UpdateServiceSyncBlockerOutput}
  * @see {@link UpdateServiceSyncBlockerCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSyncBlockerCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

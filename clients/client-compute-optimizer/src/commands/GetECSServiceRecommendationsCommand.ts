@@ -160,8 +160,8 @@ export interface GetECSServiceRecommendationsCommandOutput
  *
  * ```
  *
- * @param GetECSServiceRecommendationsCommandInput - {@link GetECSServiceRecommendationsCommandInput}
- * @returns {@link GetECSServiceRecommendationsCommandOutput}
+ * @param GetECSServiceRecommendationsRequest - {@link GetECSServiceRecommendationsRequest}
+ * @returns {@link GetECSServiceRecommendationsResponse}
  * @see {@link GetECSServiceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetECSServiceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

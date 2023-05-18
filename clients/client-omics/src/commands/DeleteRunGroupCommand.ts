@@ -48,8 +48,8 @@ export interface DeleteRunGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRunGroupCommandInput - {@link DeleteRunGroupCommandInput}
- * @returns {@link DeleteRunGroupCommandOutput}
+ * @param DeleteRunGroupRequest - {@link DeleteRunGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRunGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

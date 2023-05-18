@@ -63,8 +63,8 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  *
  * ```
  *
- * @param ListAccountRolesCommandInput - {@link ListAccountRolesCommandInput}
- * @returns {@link ListAccountRolesCommandOutput}
+ * @param ListAccountRolesRequest - {@link ListAccountRolesRequest}
+ * @returns {@link ListAccountRolesResponse}
  * @see {@link ListAccountRolesCommandInput} for command's `input` shape.
  * @see {@link ListAccountRolesCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.

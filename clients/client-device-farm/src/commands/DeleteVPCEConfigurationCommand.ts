@@ -48,8 +48,8 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  *
  * ```
  *
- * @param DeleteVPCEConfigurationCommandInput - {@link DeleteVPCEConfigurationCommandInput}
- * @returns {@link DeleteVPCEConfigurationCommandOutput}
+ * @param DeleteVPCEConfigurationRequest - {@link DeleteVPCEConfigurationRequest}
+ * @returns {@link DeleteVPCEConfigurationResult}
  * @see {@link DeleteVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

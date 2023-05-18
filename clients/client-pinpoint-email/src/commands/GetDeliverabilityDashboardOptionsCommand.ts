@@ -88,8 +88,8 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  *
  * ```
  *
- * @param GetDeliverabilityDashboardOptionsCommandInput - {@link GetDeliverabilityDashboardOptionsCommandInput}
- * @returns {@link GetDeliverabilityDashboardOptionsCommandOutput}
+ * @param GetDeliverabilityDashboardOptionsRequest - {@link GetDeliverabilityDashboardOptionsRequest}
+ * @returns {@link GetDeliverabilityDashboardOptionsResponse}
  * @see {@link GetDeliverabilityDashboardOptionsCommandInput} for command's `input` shape.
  * @see {@link GetDeliverabilityDashboardOptionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

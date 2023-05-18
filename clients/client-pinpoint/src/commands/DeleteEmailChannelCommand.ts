@@ -66,8 +66,8 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  *
  * ```
  *
- * @param DeleteEmailChannelCommandInput - {@link DeleteEmailChannelCommandInput}
- * @returns {@link DeleteEmailChannelCommandOutput}
+ * @param DeleteEmailChannelRequest - {@link DeleteEmailChannelRequest}
+ * @returns {@link DeleteEmailChannelResponse}
  * @see {@link DeleteEmailChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

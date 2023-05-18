@@ -54,8 +54,8 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  *
  * ```
  *
- * @param GetBackendAPIModelsCommandInput - {@link GetBackendAPIModelsCommandInput}
- * @returns {@link GetBackendAPIModelsCommandOutput}
+ * @param GetBackendAPIModelsRequest - {@link GetBackendAPIModelsRequest}
+ * @returns {@link GetBackendAPIModelsResponse}
  * @see {@link GetBackendAPIModelsCommandInput} for command's `input` shape.
  * @see {@link GetBackendAPIModelsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

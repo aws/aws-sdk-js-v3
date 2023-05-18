@@ -83,8 +83,8 @@ export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysRes
  *
  * ```
  *
- * @param DescribeVpnGatewaysCommandInput - {@link DescribeVpnGatewaysCommandInput}
- * @returns {@link DescribeVpnGatewaysCommandOutput}
+ * @param DescribeVpnGatewaysRequest - {@link DescribeVpnGatewaysRequest}
+ * @returns {@link DescribeVpnGatewaysResult}
  * @see {@link DescribeVpnGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeVpnGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

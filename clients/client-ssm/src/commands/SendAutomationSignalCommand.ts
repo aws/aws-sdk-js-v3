@@ -55,8 +55,8 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  *
  * ```
  *
- * @param SendAutomationSignalCommandInput - {@link SendAutomationSignalCommandInput}
- * @returns {@link SendAutomationSignalCommandOutput}
+ * @param SendAutomationSignalRequest - {@link SendAutomationSignalRequest}
+ * @returns {@link SendAutomationSignalResult}
  * @see {@link SendAutomationSignalCommandInput} for command's `input` shape.
  * @see {@link SendAutomationSignalCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -50,8 +50,8 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  *
  * ```
  *
- * @param GetChannelPolicyCommandInput - {@link GetChannelPolicyCommandInput}
- * @returns {@link GetChannelPolicyCommandOutput}
+ * @param GetChannelPolicyRequest - {@link GetChannelPolicyRequest}
+ * @returns {@link GetChannelPolicyResponse}
  * @see {@link GetChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link GetChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

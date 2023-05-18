@@ -167,8 +167,8 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  *
  * ```
  *
- * @param DescribeDirectoriesCommandInput - {@link DescribeDirectoriesCommandInput}
- * @returns {@link DescribeDirectoriesCommandOutput}
+ * @param DescribeDirectoriesRequest - {@link DescribeDirectoriesRequest}
+ * @returns {@link DescribeDirectoriesResult}
  * @see {@link DescribeDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

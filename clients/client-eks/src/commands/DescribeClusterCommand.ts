@@ -143,8 +143,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *
  * ```
  *
- * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
- * @returns {@link DescribeClusterCommandOutput}
+ * @param DescribeClusterRequest - {@link DescribeClusterRequest}
+ * @returns {@link DescribeClusterResponse}
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

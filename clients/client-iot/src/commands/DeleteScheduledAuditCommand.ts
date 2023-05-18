@@ -49,8 +49,8 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  *
  * ```
  *
- * @param DeleteScheduledAuditCommandInput - {@link DeleteScheduledAuditCommandInput}
- * @returns {@link DeleteScheduledAuditCommandOutput}
+ * @param DeleteScheduledAuditRequest - {@link DeleteScheduledAuditRequest}
+ * @returns {@link DeleteScheduledAuditResponse}
  * @see {@link DeleteScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledAuditCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

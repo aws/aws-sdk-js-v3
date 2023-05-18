@@ -54,8 +54,8 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  *
  * ```
  *
- * @param GetCertificateAuthorityCsrCommandInput - {@link GetCertificateAuthorityCsrCommandInput}
- * @returns {@link GetCertificateAuthorityCsrCommandOutput}
+ * @param GetCertificateAuthorityCsrRequest - {@link GetCertificateAuthorityCsrRequest}
+ * @returns {@link GetCertificateAuthorityCsrResponse}
  * @see {@link GetCertificateAuthorityCsrCommandInput} for command's `input` shape.
  * @see {@link GetCertificateAuthorityCsrCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

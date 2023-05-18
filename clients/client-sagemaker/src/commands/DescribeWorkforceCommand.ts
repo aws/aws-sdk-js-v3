@@ -91,8 +91,8 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  *
  * ```
  *
- * @param DescribeWorkforceCommandInput - {@link DescribeWorkforceCommandInput}
- * @returns {@link DescribeWorkforceCommandOutput}
+ * @param DescribeWorkforceRequest - {@link DescribeWorkforceRequest}
+ * @returns {@link DescribeWorkforceResponse}
  * @see {@link DescribeWorkforceCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

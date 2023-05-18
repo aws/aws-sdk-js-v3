@@ -68,8 +68,8 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  *
  * ```
  *
- * @param ListBackendJobsCommandInput - {@link ListBackendJobsCommandInput}
- * @returns {@link ListBackendJobsCommandOutput}
+ * @param ListBackendJobsRequest - {@link ListBackendJobsRequest}
+ * @returns {@link ListBackendJobsResponse}
  * @see {@link ListBackendJobsCommandInput} for command's `input` shape.
  * @see {@link ListBackendJobsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

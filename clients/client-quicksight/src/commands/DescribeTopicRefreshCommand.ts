@@ -58,8 +58,8 @@ export interface DescribeTopicRefreshCommandOutput extends DescribeTopicRefreshR
  *
  * ```
  *
- * @param DescribeTopicRefreshCommandInput - {@link DescribeTopicRefreshCommandInput}
- * @returns {@link DescribeTopicRefreshCommandOutput}
+ * @param DescribeTopicRefreshRequest - {@link DescribeTopicRefreshRequest}
+ * @returns {@link DescribeTopicRefreshResponse}
  * @see {@link DescribeTopicRefreshCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicRefreshCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

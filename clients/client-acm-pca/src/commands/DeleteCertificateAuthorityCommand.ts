@@ -68,8 +68,8 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteCertificateAuthorityCommandInput - {@link DeleteCertificateAuthorityCommandInput}
- * @returns {@link DeleteCertificateAuthorityCommandOutput}
+ * @param DeleteCertificateAuthorityRequest - {@link DeleteCertificateAuthorityRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

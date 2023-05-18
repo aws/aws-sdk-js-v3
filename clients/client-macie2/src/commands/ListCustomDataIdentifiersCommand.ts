@@ -60,8 +60,8 @@ export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataId
  *
  * ```
  *
- * @param ListCustomDataIdentifiersCommandInput - {@link ListCustomDataIdentifiersCommandInput}
- * @returns {@link ListCustomDataIdentifiersCommandOutput}
+ * @param ListCustomDataIdentifiersRequest - {@link ListCustomDataIdentifiersRequest}
+ * @returns {@link ListCustomDataIdentifiersResponse}
  * @see {@link ListCustomDataIdentifiersCommandInput} for command's `input` shape.
  * @see {@link ListCustomDataIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

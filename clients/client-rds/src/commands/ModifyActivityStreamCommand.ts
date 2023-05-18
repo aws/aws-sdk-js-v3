@@ -60,8 +60,8 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  *
  * ```
  *
- * @param ModifyActivityStreamCommandInput - {@link ModifyActivityStreamCommandInput}
- * @returns {@link ModifyActivityStreamCommandOutput}
+ * @param ModifyActivityStreamRequest - {@link ModifyActivityStreamRequest}
+ * @returns {@link ModifyActivityStreamResponse}
  * @see {@link ModifyActivityStreamCommandInput} for command's `input` shape.
  * @see {@link ModifyActivityStreamCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

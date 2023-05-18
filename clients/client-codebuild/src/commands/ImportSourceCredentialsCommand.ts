@@ -59,8 +59,8 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  *
  * ```
  *
- * @param ImportSourceCredentialsCommandInput - {@link ImportSourceCredentialsCommandInput}
- * @returns {@link ImportSourceCredentialsCommandOutput}
+ * @param ImportSourceCredentialsInput - {@link ImportSourceCredentialsInput}
+ * @returns {@link ImportSourceCredentialsOutput}
  * @see {@link ImportSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link ImportSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

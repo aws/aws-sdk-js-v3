@@ -82,8 +82,8 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  *
  * ```
  *
- * @param DescribeExperienceCommandInput - {@link DescribeExperienceCommandInput}
- * @returns {@link DescribeExperienceCommandOutput}
+ * @param DescribeExperienceRequest - {@link DescribeExperienceRequest}
+ * @returns {@link DescribeExperienceResponse}
  * @see {@link DescribeExperienceCommandInput} for command's `input` shape.
  * @see {@link DescribeExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

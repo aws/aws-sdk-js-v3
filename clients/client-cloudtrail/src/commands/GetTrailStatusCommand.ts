@@ -70,8 +70,8 @@ export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __M
  *
  * ```
  *
- * @param GetTrailStatusCommandInput - {@link GetTrailStatusCommandInput}
- * @returns {@link GetTrailStatusCommandOutput}
+ * @param GetTrailStatusRequest - {@link GetTrailStatusRequest}
+ * @returns {@link GetTrailStatusResponse}
  * @see {@link GetTrailStatusCommandInput} for command's `input` shape.
  * @see {@link GetTrailStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

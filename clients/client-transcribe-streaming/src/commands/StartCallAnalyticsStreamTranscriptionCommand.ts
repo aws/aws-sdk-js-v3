@@ -203,8 +203,8 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  *
  * ```
  *
- * @param StartCallAnalyticsStreamTranscriptionCommandInput - {@link StartCallAnalyticsStreamTranscriptionCommandInput}
- * @returns {@link StartCallAnalyticsStreamTranscriptionCommandOutput}
+ * @param StartCallAnalyticsStreamTranscriptionRequest - {@link StartCallAnalyticsStreamTranscriptionRequest}
+ * @returns {@link StartCallAnalyticsStreamTranscriptionResponse}
  * @see {@link StartCallAnalyticsStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartCallAnalyticsStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.

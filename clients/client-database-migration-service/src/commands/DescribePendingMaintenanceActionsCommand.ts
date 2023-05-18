@@ -87,8 +87,8 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  *
  * ```
  *
- * @param DescribePendingMaintenanceActionsCommandInput - {@link DescribePendingMaintenanceActionsCommandInput}
- * @returns {@link DescribePendingMaintenanceActionsCommandOutput}
+ * @param DescribePendingMaintenanceActionsMessage - {@link DescribePendingMaintenanceActionsMessage}
+ * @returns {@link DescribePendingMaintenanceActionsResponse}
  * @see {@link DescribePendingMaintenanceActionsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

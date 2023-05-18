@@ -125,8 +125,8 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  *
  * ```
  *
- * @param DetectTextCommandInput - {@link DetectTextCommandInput}
- * @returns {@link DetectTextCommandOutput}
+ * @param DetectTextRequest - {@link DetectTextRequest}
+ * @returns {@link DetectTextResponse}
  * @see {@link DetectTextCommandInput} for command's `input` shape.
  * @see {@link DetectTextCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

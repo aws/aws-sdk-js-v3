@@ -58,8 +58,8 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  *
  * ```
  *
- * @param DescribeDetectorModelAnalysisCommandInput - {@link DescribeDetectorModelAnalysisCommandInput}
- * @returns {@link DescribeDetectorModelAnalysisCommandOutput}
+ * @param DescribeDetectorModelAnalysisRequest - {@link DescribeDetectorModelAnalysisRequest}
+ * @returns {@link DescribeDetectorModelAnalysisResponse}
  * @see {@link DescribeDetectorModelAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorModelAnalysisCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

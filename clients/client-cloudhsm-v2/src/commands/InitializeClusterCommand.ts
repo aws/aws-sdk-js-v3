@@ -56,8 +56,8 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  *
  * ```
  *
- * @param InitializeClusterCommandInput - {@link InitializeClusterCommandInput}
- * @returns {@link InitializeClusterCommandOutput}
+ * @param InitializeClusterRequest - {@link InitializeClusterRequest}
+ * @returns {@link InitializeClusterResponse}
  * @see {@link InitializeClusterCommandInput} for command's `input` shape.
  * @see {@link InitializeClusterCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.

@@ -78,8 +78,8 @@ export interface DeleteAppVersionAppComponentCommandOutput
  *
  * ```
  *
- * @param DeleteAppVersionAppComponentCommandInput - {@link DeleteAppVersionAppComponentCommandInput}
- * @returns {@link DeleteAppVersionAppComponentCommandOutput}
+ * @param DeleteAppVersionAppComponentRequest - {@link DeleteAppVersionAppComponentRequest}
+ * @returns {@link DeleteAppVersionAppComponentResponse}
  * @see {@link DeleteAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

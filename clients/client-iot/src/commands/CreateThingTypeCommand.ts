@@ -65,8 +65,8 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  *
  * ```
  *
- * @param CreateThingTypeCommandInput - {@link CreateThingTypeCommandInput}
- * @returns {@link CreateThingTypeCommandOutput}
+ * @param CreateThingTypeRequest - {@link CreateThingTypeRequest}
+ * @returns {@link CreateThingTypeResponse}
  * @see {@link CreateThingTypeCommandInput} for command's `input` shape.
  * @see {@link CreateThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

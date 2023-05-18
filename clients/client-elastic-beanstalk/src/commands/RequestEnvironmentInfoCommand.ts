@@ -65,8 +65,8 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RequestEnvironmentInfoCommandInput - {@link RequestEnvironmentInfoCommandInput}
- * @returns {@link RequestEnvironmentInfoCommandOutput}
+ * @param RequestEnvironmentInfoMessage - {@link RequestEnvironmentInfoMessage}
+ * @returns {@link Unit}
  * @see {@link RequestEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RequestEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

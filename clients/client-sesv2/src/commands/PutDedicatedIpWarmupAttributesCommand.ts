@@ -54,8 +54,8 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  *
  * ```
  *
- * @param PutDedicatedIpWarmupAttributesCommandInput - {@link PutDedicatedIpWarmupAttributesCommandInput}
- * @returns {@link PutDedicatedIpWarmupAttributesCommandOutput}
+ * @param PutDedicatedIpWarmupAttributesRequest - {@link PutDedicatedIpWarmupAttributesRequest}
+ * @returns {@link PutDedicatedIpWarmupAttributesResponse}
  * @see {@link PutDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

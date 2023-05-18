@@ -62,8 +62,8 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  *
  * ```
  *
- * @param ListProfileTimesCommandInput - {@link ListProfileTimesCommandInput}
- * @returns {@link ListProfileTimesCommandOutput}
+ * @param ListProfileTimesRequest - {@link ListProfileTimesRequest}
+ * @returns {@link ListProfileTimesResponse}
  * @see {@link ListProfileTimesCommandInput} for command's `input` shape.
  * @see {@link ListProfileTimesCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

@@ -73,8 +73,8 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  *
  * ```
  *
- * @param CreateMicrosoftADCommandInput - {@link CreateMicrosoftADCommandInput}
- * @returns {@link CreateMicrosoftADCommandOutput}
+ * @param CreateMicrosoftADRequest - {@link CreateMicrosoftADRequest}
+ * @returns {@link CreateMicrosoftADResult}
  * @see {@link CreateMicrosoftADCommandInput} for command's `input` shape.
  * @see {@link CreateMicrosoftADCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

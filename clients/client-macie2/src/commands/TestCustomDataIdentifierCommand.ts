@@ -58,8 +58,8 @@ export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIde
  *
  * ```
  *
- * @param TestCustomDataIdentifierCommandInput - {@link TestCustomDataIdentifierCommandInput}
- * @returns {@link TestCustomDataIdentifierCommandOutput}
+ * @param TestCustomDataIdentifierRequest - {@link TestCustomDataIdentifierRequest}
+ * @returns {@link TestCustomDataIdentifierResponse}
  * @see {@link TestCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link TestCustomDataIdentifierCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

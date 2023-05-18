@@ -800,8 +800,8 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *
  * ```
  *
- * @param CreateJourneyCommandInput - {@link CreateJourneyCommandInput}
- * @returns {@link CreateJourneyCommandOutput}
+ * @param CreateJourneyRequest - {@link CreateJourneyRequest}
+ * @returns {@link CreateJourneyResponse}
  * @see {@link CreateJourneyCommandInput} for command's `input` shape.
  * @see {@link CreateJourneyCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

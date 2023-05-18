@@ -80,8 +80,8 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *
  * ```
  *
- * @param DescribeScalingPoliciesCommandInput - {@link DescribeScalingPoliciesCommandInput}
- * @returns {@link DescribeScalingPoliciesCommandOutput}
+ * @param DescribeScalingPoliciesInput - {@link DescribeScalingPoliciesInput}
+ * @returns {@link DescribeScalingPoliciesOutput}
  * @see {@link DescribeScalingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

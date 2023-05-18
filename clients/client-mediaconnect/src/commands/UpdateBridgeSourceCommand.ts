@@ -80,8 +80,8 @@ export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceRespo
  *
  * ```
  *
- * @param UpdateBridgeSourceCommandInput - {@link UpdateBridgeSourceCommandInput}
- * @returns {@link UpdateBridgeSourceCommandOutput}
+ * @param UpdateBridgeSourceRequest - {@link UpdateBridgeSourceRequest}
+ * @returns {@link UpdateBridgeSourceResponse}
  * @see {@link UpdateBridgeSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateBridgeSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

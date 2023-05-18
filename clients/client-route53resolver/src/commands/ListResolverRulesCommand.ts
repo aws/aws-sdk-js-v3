@@ -84,8 +84,8 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  *
  * ```
  *
- * @param ListResolverRulesCommandInput - {@link ListResolverRulesCommandInput}
- * @returns {@link ListResolverRulesCommandOutput}
+ * @param ListResolverRulesRequest - {@link ListResolverRulesRequest}
+ * @returns {@link ListResolverRulesResponse}
  * @see {@link ListResolverRulesCommandInput} for command's `input` shape.
  * @see {@link ListResolverRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

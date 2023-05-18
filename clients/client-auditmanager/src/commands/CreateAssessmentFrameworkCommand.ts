@@ -122,8 +122,8 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  *
  * ```
  *
- * @param CreateAssessmentFrameworkCommandInput - {@link CreateAssessmentFrameworkCommandInput}
- * @returns {@link CreateAssessmentFrameworkCommandOutput}
+ * @param CreateAssessmentFrameworkRequest - {@link CreateAssessmentFrameworkRequest}
+ * @returns {@link CreateAssessmentFrameworkResponse}
  * @see {@link CreateAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

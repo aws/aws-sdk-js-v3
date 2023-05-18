@@ -67,8 +67,8 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  *
  * ```
  *
- * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
- * @returns {@link ListFleetsCommandOutput}
+ * @param ListFleetsRequest - {@link ListFleetsRequest}
+ * @returns {@link ListFleetsResponse}
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

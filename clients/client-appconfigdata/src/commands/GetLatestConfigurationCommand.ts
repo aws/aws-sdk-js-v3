@@ -78,8 +78,8 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
  *
  * ```
  *
- * @param GetLatestConfigurationCommandInput - {@link GetLatestConfigurationCommandInput}
- * @returns {@link GetLatestConfigurationCommandOutput}
+ * @param GetLatestConfigurationRequest - {@link GetLatestConfigurationRequest}
+ * @returns {@link GetLatestConfigurationResponse}
  * @see {@link GetLatestConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLatestConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigDataClientResolvedConfig | config} for AppConfigDataClient's `config` shape.

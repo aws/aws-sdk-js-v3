@@ -72,8 +72,8 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  *
  * ```
  *
- * @param UpdateManagedRuleSetVersionExpiryDateCommandInput - {@link UpdateManagedRuleSetVersionExpiryDateCommandInput}
- * @returns {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput}
+ * @param UpdateManagedRuleSetVersionExpiryDateRequest - {@link UpdateManagedRuleSetVersionExpiryDateRequest}
+ * @returns {@link UpdateManagedRuleSetVersionExpiryDateResponse}
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandInput} for command's `input` shape.
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

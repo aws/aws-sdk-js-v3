@@ -98,8 +98,8 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  *
  * ```
  *
- * @param UpdateGeoMatchSetCommandInput - {@link UpdateGeoMatchSetCommandInput}
- * @returns {@link UpdateGeoMatchSetCommandOutput}
+ * @param UpdateGeoMatchSetRequest - {@link UpdateGeoMatchSetRequest}
+ * @returns {@link UpdateGeoMatchSetResponse}
  * @see {@link UpdateGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

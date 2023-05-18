@@ -65,8 +65,8 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
  *
  * ```
  *
- * @param ListCoreDefinitionsCommandInput - {@link ListCoreDefinitionsCommandInput}
- * @returns {@link ListCoreDefinitionsCommandOutput}
+ * @param ListCoreDefinitionsRequest - {@link ListCoreDefinitionsRequest}
+ * @returns {@link ListCoreDefinitionsResponse}
  * @see {@link ListCoreDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

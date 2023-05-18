@@ -56,8 +56,8 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteClusterSecurityGroupCommandInput - {@link DeleteClusterSecurityGroupCommandInput}
- * @returns {@link DeleteClusterSecurityGroupCommandOutput}
+ * @param DeleteClusterSecurityGroupMessage - {@link DeleteClusterSecurityGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteClusterSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

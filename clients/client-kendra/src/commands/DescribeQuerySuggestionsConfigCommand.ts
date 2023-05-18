@@ -77,8 +77,8 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  *
  * ```
  *
- * @param DescribeQuerySuggestionsConfigCommandInput - {@link DescribeQuerySuggestionsConfigCommandInput}
- * @returns {@link DescribeQuerySuggestionsConfigCommandOutput}
+ * @param DescribeQuerySuggestionsConfigRequest - {@link DescribeQuerySuggestionsConfigRequest}
+ * @returns {@link DescribeQuerySuggestionsConfigResponse}
  * @see {@link DescribeQuerySuggestionsConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeQuerySuggestionsConfigCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

@@ -75,8 +75,8 @@ export interface CreateSubscriptionDefinitionCommandOutput
  *
  * ```
  *
- * @param CreateSubscriptionDefinitionCommandInput - {@link CreateSubscriptionDefinitionCommandInput}
- * @returns {@link CreateSubscriptionDefinitionCommandOutput}
+ * @param CreateSubscriptionDefinitionRequest - {@link CreateSubscriptionDefinitionRequest}
+ * @returns {@link CreateSubscriptionDefinitionResponse}
  * @see {@link CreateSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

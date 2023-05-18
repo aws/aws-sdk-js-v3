@@ -58,8 +58,8 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  *
  * ```
  *
- * @param ListCidrLocationsCommandInput - {@link ListCidrLocationsCommandInput}
- * @returns {@link ListCidrLocationsCommandOutput}
+ * @param ListCidrLocationsRequest - {@link ListCidrLocationsRequest}
+ * @returns {@link ListCidrLocationsResponse}
  * @see {@link ListCidrLocationsCommandInput} for command's `input` shape.
  * @see {@link ListCidrLocationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

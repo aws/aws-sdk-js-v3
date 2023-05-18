@@ -88,8 +88,8 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  *
  * ```
  *
- * @param ListSharedEndpointsCommandInput - {@link ListSharedEndpointsCommandInput}
- * @returns {@link ListSharedEndpointsCommandOutput}
+ * @param ListSharedEndpointsRequest - {@link ListSharedEndpointsRequest}
+ * @returns {@link ListSharedEndpointsResult}
  * @see {@link ListSharedEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListSharedEndpointsCommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.

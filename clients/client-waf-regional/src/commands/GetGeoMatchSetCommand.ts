@@ -67,8 +67,8 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  *
  * ```
  *
- * @param GetGeoMatchSetCommandInput - {@link GetGeoMatchSetCommandInput}
- * @returns {@link GetGeoMatchSetCommandOutput}
+ * @param GetGeoMatchSetRequest - {@link GetGeoMatchSetRequest}
+ * @returns {@link GetGeoMatchSetResponse}
  * @see {@link GetGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

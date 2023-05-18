@@ -67,8 +67,8 @@ export interface SearchVocabulariesCommandOutput extends SearchVocabulariesRespo
  *
  * ```
  *
- * @param SearchVocabulariesCommandInput - {@link SearchVocabulariesCommandInput}
- * @returns {@link SearchVocabulariesCommandOutput}
+ * @param SearchVocabulariesRequest - {@link SearchVocabulariesRequest}
+ * @returns {@link SearchVocabulariesResponse}
  * @see {@link SearchVocabulariesCommandInput} for command's `input` shape.
  * @see {@link SearchVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

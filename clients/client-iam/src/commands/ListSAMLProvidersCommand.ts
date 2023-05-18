@@ -59,8 +59,8 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  *
  * ```
  *
- * @param ListSAMLProvidersCommandInput - {@link ListSAMLProvidersCommandInput}
- * @returns {@link ListSAMLProvidersCommandOutput}
+ * @param ListSAMLProvidersRequest - {@link ListSAMLProvidersRequest}
+ * @returns {@link ListSAMLProvidersResponse}
  * @see {@link ListSAMLProvidersCommandInput} for command's `input` shape.
  * @see {@link ListSAMLProvidersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

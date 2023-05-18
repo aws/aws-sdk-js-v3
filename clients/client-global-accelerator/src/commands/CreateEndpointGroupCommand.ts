@@ -100,8 +100,8 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  *
  * ```
  *
- * @param CreateEndpointGroupCommandInput - {@link CreateEndpointGroupCommandInput}
- * @returns {@link CreateEndpointGroupCommandOutput}
+ * @param CreateEndpointGroupRequest - {@link CreateEndpointGroupRequest}
+ * @returns {@link CreateEndpointGroupResponse}
  * @see {@link CreateEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

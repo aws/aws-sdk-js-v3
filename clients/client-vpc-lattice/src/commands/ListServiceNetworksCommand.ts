@@ -63,8 +63,8 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  *
  * ```
  *
- * @param ListServiceNetworksCommandInput - {@link ListServiceNetworksCommandInput}
- * @returns {@link ListServiceNetworksCommandOutput}
+ * @param ListServiceNetworksRequest - {@link ListServiceNetworksRequest}
+ * @returns {@link ListServiceNetworksResponse}
  * @see {@link ListServiceNetworksCommandInput} for command's `input` shape.
  * @see {@link ListServiceNetworksCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

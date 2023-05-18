@@ -68,8 +68,8 @@ export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __Metad
  *
  * ```
  *
- * @param UpdateOutpostCommandInput - {@link UpdateOutpostCommandInput}
- * @returns {@link UpdateOutpostCommandOutput}
+ * @param UpdateOutpostInput - {@link UpdateOutpostInput}
+ * @returns {@link UpdateOutpostOutput}
  * @see {@link UpdateOutpostCommandInput} for command's `input` shape.
  * @see {@link UpdateOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

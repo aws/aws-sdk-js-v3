@@ -61,8 +61,8 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  *
  * ```
  *
- * @param ExecuteChangeSetCommandInput - {@link ExecuteChangeSetCommandInput}
- * @returns {@link ExecuteChangeSetCommandOutput}
+ * @param ExecuteChangeSetInput - {@link ExecuteChangeSetInput}
+ * @returns {@link ExecuteChangeSetOutput}
  * @see {@link ExecuteChangeSetCommandInput} for command's `input` shape.
  * @see {@link ExecuteChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

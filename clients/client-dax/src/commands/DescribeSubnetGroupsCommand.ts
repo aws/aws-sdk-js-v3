@@ -68,8 +68,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  *
  * ```
  *
- * @param DescribeSubnetGroupsCommandInput - {@link DescribeSubnetGroupsCommandInput}
- * @returns {@link DescribeSubnetGroupsCommandOutput}
+ * @param DescribeSubnetGroupsRequest - {@link DescribeSubnetGroupsRequest}
+ * @returns {@link DescribeSubnetGroupsResponse}
  * @see {@link DescribeSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

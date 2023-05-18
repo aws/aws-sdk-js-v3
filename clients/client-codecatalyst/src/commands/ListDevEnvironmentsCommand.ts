@@ -91,8 +91,8 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
  *
  * ```
  *
- * @param ListDevEnvironmentsCommandInput - {@link ListDevEnvironmentsCommandInput}
- * @returns {@link ListDevEnvironmentsCommandOutput}
+ * @param ListDevEnvironmentsRequest - {@link ListDevEnvironmentsRequest}
+ * @returns {@link ListDevEnvironmentsResponse}
  * @see {@link ListDevEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListDevEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

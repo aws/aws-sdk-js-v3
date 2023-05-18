@@ -101,8 +101,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *
  * ```
  *
- * @param ListJobsCommandInput - {@link ListJobsCommandInput}
- * @returns {@link ListJobsCommandOutput}
+ * @param ListJobsRequest - {@link ListJobsRequest}
+ * @returns {@link ListJobsResult}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

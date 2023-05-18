@@ -82,8 +82,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *
  * ```
  *
- * @param DescribeBackupsCommandInput - {@link DescribeBackupsCommandInput}
- * @returns {@link DescribeBackupsCommandOutput}
+ * @param DescribeBackupsRequest - {@link DescribeBackupsRequest}
+ * @returns {@link DescribeBackupsResponse}
  * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.

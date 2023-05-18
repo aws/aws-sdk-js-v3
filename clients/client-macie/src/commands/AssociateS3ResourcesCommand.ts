@@ -73,8 +73,8 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  *
  * ```
  *
- * @param AssociateS3ResourcesCommandInput - {@link AssociateS3ResourcesCommandInput}
- * @returns {@link AssociateS3ResourcesCommandOutput}
+ * @param AssociateS3ResourcesRequest - {@link AssociateS3ResourcesRequest}
+ * @returns {@link AssociateS3ResourcesResult}
  * @see {@link AssociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link AssociateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.

@@ -92,8 +92,8 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  *
  * ```
  *
- * @param DescribeWorkspaceAuthenticationCommandInput - {@link DescribeWorkspaceAuthenticationCommandInput}
- * @returns {@link DescribeWorkspaceAuthenticationCommandOutput}
+ * @param DescribeWorkspaceAuthenticationRequest - {@link DescribeWorkspaceAuthenticationRequest}
+ * @returns {@link DescribeWorkspaceAuthenticationResponse}
  * @see {@link DescribeWorkspaceAuthenticationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

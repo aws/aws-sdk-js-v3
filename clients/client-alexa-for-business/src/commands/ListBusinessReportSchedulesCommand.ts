@@ -78,8 +78,8 @@ export interface ListBusinessReportSchedulesCommandOutput
  *
  * ```
  *
- * @param ListBusinessReportSchedulesCommandInput - {@link ListBusinessReportSchedulesCommandInput}
- * @returns {@link ListBusinessReportSchedulesCommandOutput}
+ * @param ListBusinessReportSchedulesRequest - {@link ListBusinessReportSchedulesRequest}
+ * @returns {@link ListBusinessReportSchedulesResponse}
  * @see {@link ListBusinessReportSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListBusinessReportSchedulesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

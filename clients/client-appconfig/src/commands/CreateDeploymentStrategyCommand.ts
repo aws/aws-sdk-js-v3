@@ -69,8 +69,8 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  *
  * ```
  *
- * @param CreateDeploymentStrategyCommandInput - {@link CreateDeploymentStrategyCommandInput}
- * @returns {@link CreateDeploymentStrategyCommandOutput}
+ * @param CreateDeploymentStrategyRequest - {@link CreateDeploymentStrategyRequest}
+ * @returns {@link DeploymentStrategy}
  * @see {@link CreateDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

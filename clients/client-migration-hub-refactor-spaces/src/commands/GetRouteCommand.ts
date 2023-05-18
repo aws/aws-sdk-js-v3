@@ -87,8 +87,8 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetRouteCommandInput - {@link GetRouteCommandInput}
- * @returns {@link GetRouteCommandOutput}
+ * @param GetRouteRequest - {@link GetRouteRequest}
+ * @returns {@link GetRouteResponse}
  * @see {@link GetRouteCommandInput} for command's `input` shape.
  * @see {@link GetRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

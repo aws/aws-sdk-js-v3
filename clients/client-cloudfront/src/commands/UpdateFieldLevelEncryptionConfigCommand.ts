@@ -118,8 +118,8 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
  *
  * ```
  *
- * @param UpdateFieldLevelEncryptionConfigCommandInput - {@link UpdateFieldLevelEncryptionConfigCommandInput}
- * @returns {@link UpdateFieldLevelEncryptionConfigCommandOutput}
+ * @param UpdateFieldLevelEncryptionConfigRequest - {@link UpdateFieldLevelEncryptionConfigRequest}
+ * @returns {@link UpdateFieldLevelEncryptionConfigResult}
  * @see {@link UpdateFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -60,8 +60,8 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  *
  * ```
  *
- * @param CreateBackendEnvironmentCommandInput - {@link CreateBackendEnvironmentCommandInput}
- * @returns {@link CreateBackendEnvironmentCommandOutput}
+ * @param CreateBackendEnvironmentRequest - {@link CreateBackendEnvironmentRequest}
+ * @returns {@link CreateBackendEnvironmentResult}
  * @see {@link CreateBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateBackendEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

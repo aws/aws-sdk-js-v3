@@ -58,8 +58,8 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateRegionSettingsCommandInput - {@link UpdateRegionSettingsCommandInput}
- * @returns {@link UpdateRegionSettingsCommandOutput}
+ * @param UpdateRegionSettingsInput - {@link UpdateRegionSettingsInput}
+ * @returns {@link Unit}
  * @see {@link UpdateRegionSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateRegionSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

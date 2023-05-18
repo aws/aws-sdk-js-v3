@@ -52,8 +52,8 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  *
  * ```
  *
- * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
- * @returns {@link DeleteBillingGroupCommandOutput}
+ * @param DeleteBillingGroupInput - {@link DeleteBillingGroupInput}
+ * @returns {@link DeleteBillingGroupOutput}
  * @see {@link DeleteBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

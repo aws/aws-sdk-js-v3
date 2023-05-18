@@ -63,8 +63,8 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  *
  * ```
  *
- * @param GetRuleGroupCommandInput - {@link GetRuleGroupCommandInput}
- * @returns {@link GetRuleGroupCommandOutput}
+ * @param GetRuleGroupRequest - {@link GetRuleGroupRequest}
+ * @returns {@link GetRuleGroupResponse}
  * @see {@link GetRuleGroupCommandInput} for command's `input` shape.
  * @see {@link GetRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

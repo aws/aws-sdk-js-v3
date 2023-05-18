@@ -52,8 +52,8 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  *
  * ```
  *
- * @param DeleteTrialComponentCommandInput - {@link DeleteTrialComponentCommandInput}
- * @returns {@link DeleteTrialComponentCommandOutput}
+ * @param DeleteTrialComponentRequest - {@link DeleteTrialComponentRequest}
+ * @returns {@link DeleteTrialComponentResponse}
  * @see {@link DeleteTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

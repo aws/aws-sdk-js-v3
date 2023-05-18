@@ -81,8 +81,8 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  *
  * ```
  *
- * @param CreateLocationS3CommandInput - {@link CreateLocationS3CommandInput}
- * @returns {@link CreateLocationS3CommandOutput}
+ * @param CreateLocationS3Request - {@link CreateLocationS3Request}
+ * @returns {@link CreateLocationS3Response}
  * @see {@link CreateLocationS3CommandInput} for command's `input` shape.
  * @see {@link CreateLocationS3CommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

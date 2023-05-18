@@ -84,8 +84,8 @@ export interface DeleteTransitGatewayConnectPeerCommandOutput
  *
  * ```
  *
- * @param DeleteTransitGatewayConnectPeerCommandInput - {@link DeleteTransitGatewayConnectPeerCommandInput}
- * @returns {@link DeleteTransitGatewayConnectPeerCommandOutput}
+ * @param DeleteTransitGatewayConnectPeerRequest - {@link DeleteTransitGatewayConnectPeerRequest}
+ * @returns {@link DeleteTransitGatewayConnectPeerResult}
  * @see {@link DeleteTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -84,8 +84,8 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  *
  * ```
  *
- * @param DescribeVpcEndpointConnectionNotificationsCommandInput - {@link DescribeVpcEndpointConnectionNotificationsCommandInput}
- * @returns {@link DescribeVpcEndpointConnectionNotificationsCommandOutput}
+ * @param DescribeVpcEndpointConnectionNotificationsRequest - {@link DescribeVpcEndpointConnectionNotificationsRequest}
+ * @returns {@link DescribeVpcEndpointConnectionNotificationsResult}
  * @see {@link DescribeVpcEndpointConnectionNotificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

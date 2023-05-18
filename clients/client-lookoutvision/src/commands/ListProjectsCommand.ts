@@ -64,8 +64,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  *
  * ```
  *
- * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
- * @returns {@link ListProjectsCommandOutput}
+ * @param ListProjectsRequest - {@link ListProjectsRequest}
+ * @returns {@link ListProjectsResponse}
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

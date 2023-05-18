@@ -111,8 +111,8 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *
  * ```
  *
- * @param CreatePushTemplateCommandInput - {@link CreatePushTemplateCommandInput}
- * @returns {@link CreatePushTemplateCommandOutput}
+ * @param CreatePushTemplateRequest - {@link CreatePushTemplateRequest}
+ * @returns {@link CreatePushTemplateResponse}
  * @see {@link CreatePushTemplateCommandInput} for command's `input` shape.
  * @see {@link CreatePushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

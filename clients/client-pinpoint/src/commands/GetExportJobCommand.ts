@@ -72,8 +72,8 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  *
  * ```
  *
- * @param GetExportJobCommandInput - {@link GetExportJobCommandInput}
- * @returns {@link GetExportJobCommandOutput}
+ * @param GetExportJobRequest - {@link GetExportJobRequest}
+ * @returns {@link GetExportJobResponse}
  * @see {@link GetExportJobCommandInput} for command's `input` shape.
  * @see {@link GetExportJobCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

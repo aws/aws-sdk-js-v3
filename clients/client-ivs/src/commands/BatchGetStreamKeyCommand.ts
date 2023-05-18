@@ -72,8 +72,8 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  *
  * ```
  *
- * @param BatchGetStreamKeyCommandInput - {@link BatchGetStreamKeyCommandInput}
- * @returns {@link BatchGetStreamKeyCommandOutput}
+ * @param BatchGetStreamKeyRequest - {@link BatchGetStreamKeyRequest}
+ * @returns {@link BatchGetStreamKeyResponse}
  * @see {@link BatchGetStreamKeyCommandInput} for command's `input` shape.
  * @see {@link BatchGetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

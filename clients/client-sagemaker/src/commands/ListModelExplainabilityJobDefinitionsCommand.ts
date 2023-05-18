@@ -74,8 +74,8 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListModelExplainabilityJobDefinitionsCommandInput - {@link ListModelExplainabilityJobDefinitionsCommandInput}
- * @returns {@link ListModelExplainabilityJobDefinitionsCommandOutput}
+ * @param ListModelExplainabilityJobDefinitionsRequest - {@link ListModelExplainabilityJobDefinitionsRequest}
+ * @returns {@link ListModelExplainabilityJobDefinitionsResponse}
  * @see {@link ListModelExplainabilityJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListModelExplainabilityJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

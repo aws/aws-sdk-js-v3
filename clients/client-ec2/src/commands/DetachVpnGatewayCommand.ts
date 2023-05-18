@@ -55,8 +55,8 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DetachVpnGatewayCommandInput - {@link DetachVpnGatewayCommandInput}
- * @returns {@link DetachVpnGatewayCommandOutput}
+ * @param DetachVpnGatewayRequest - {@link DetachVpnGatewayRequest}
+ * @returns {@link Unit}
  * @see {@link DetachVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link DetachVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

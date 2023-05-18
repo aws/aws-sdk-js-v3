@@ -164,8 +164,8 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  *
  * ```
  *
- * @param UpdatePatchBaselineCommandInput - {@link UpdatePatchBaselineCommandInput}
- * @returns {@link UpdatePatchBaselineCommandOutput}
+ * @param UpdatePatchBaselineRequest - {@link UpdatePatchBaselineRequest}
+ * @returns {@link UpdatePatchBaselineResult}
  * @see {@link UpdatePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link UpdatePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

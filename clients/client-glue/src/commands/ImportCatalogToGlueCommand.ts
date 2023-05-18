@@ -48,8 +48,8 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  *
  * ```
  *
- * @param ImportCatalogToGlueCommandInput - {@link ImportCatalogToGlueCommandInput}
- * @returns {@link ImportCatalogToGlueCommandOutput}
+ * @param ImportCatalogToGlueRequest - {@link ImportCatalogToGlueRequest}
+ * @returns {@link ImportCatalogToGlueResponse}
  * @see {@link ImportCatalogToGlueCommandInput} for command's `input` shape.
  * @see {@link ImportCatalogToGlueCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

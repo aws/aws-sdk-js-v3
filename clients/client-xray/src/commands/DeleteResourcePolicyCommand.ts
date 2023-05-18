@@ -49,8 +49,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *
  * ```
  *
- * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
- * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @param DeleteResourcePolicyRequest - {@link DeleteResourcePolicyRequest}
+ * @returns {@link DeleteResourcePolicyResult}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

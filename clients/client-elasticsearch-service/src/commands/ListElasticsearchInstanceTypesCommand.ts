@@ -65,8 +65,8 @@ export interface ListElasticsearchInstanceTypesCommandOutput
  *
  * ```
  *
- * @param ListElasticsearchInstanceTypesCommandInput - {@link ListElasticsearchInstanceTypesCommandInput}
- * @returns {@link ListElasticsearchInstanceTypesCommandOutput}
+ * @param ListElasticsearchInstanceTypesRequest - {@link ListElasticsearchInstanceTypesRequest}
+ * @returns {@link ListElasticsearchInstanceTypesResponse}
  * @see {@link ListElasticsearchInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link ListElasticsearchInstanceTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

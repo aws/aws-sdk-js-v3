@@ -58,8 +58,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  *
  * ```
  *
- * @param DisassociateFromAdministratorAccountCommandInput - {@link DisassociateFromAdministratorAccountCommandInput}
- * @returns {@link DisassociateFromAdministratorAccountCommandOutput}
+ * @param DisassociateFromAdministratorAccountRequest - {@link DisassociateFromAdministratorAccountRequest}
+ * @returns {@link DisassociateFromAdministratorAccountResponse}
  * @see {@link DisassociateFromAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

@@ -81,8 +81,8 @@ export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount
  *
  * ```
  *
- * @param CountPendingDecisionTasksCommandInput - {@link CountPendingDecisionTasksCommandInput}
- * @returns {@link CountPendingDecisionTasksCommandOutput}
+ * @param CountPendingDecisionTasksInput - {@link CountPendingDecisionTasksInput}
+ * @returns {@link PendingTaskCount}
  * @see {@link CountPendingDecisionTasksCommandInput} for command's `input` shape.
  * @see {@link CountPendingDecisionTasksCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

@@ -83,8 +83,8 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  *
  * ```
  *
- * @param DescribeConfigurationsCommandInput - {@link DescribeConfigurationsCommandInput}
- * @returns {@link DescribeConfigurationsCommandOutput}
+ * @param DescribeConfigurationsRequest - {@link DescribeConfigurationsRequest}
+ * @returns {@link DescribeConfigurationsResponse}
  * @see {@link DescribeConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

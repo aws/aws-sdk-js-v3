@@ -78,8 +78,8 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  *
  * ```
  *
- * @param CreateCustomLineItemCommandInput - {@link CreateCustomLineItemCommandInput}
- * @returns {@link CreateCustomLineItemCommandOutput}
+ * @param CreateCustomLineItemInput - {@link CreateCustomLineItemInput}
+ * @returns {@link CreateCustomLineItemOutput}
  * @see {@link CreateCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link CreateCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

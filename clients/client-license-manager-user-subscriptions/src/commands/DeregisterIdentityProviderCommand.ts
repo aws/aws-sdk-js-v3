@@ -74,8 +74,8 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  *
  * ```
  *
- * @param DeregisterIdentityProviderCommandInput - {@link DeregisterIdentityProviderCommandInput}
- * @returns {@link DeregisterIdentityProviderCommandOutput}
+ * @param DeregisterIdentityProviderRequest - {@link DeregisterIdentityProviderRequest}
+ * @returns {@link DeregisterIdentityProviderResponse}
  * @see {@link DeregisterIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeregisterIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

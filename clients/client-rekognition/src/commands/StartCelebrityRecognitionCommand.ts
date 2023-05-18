@@ -72,8 +72,8 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  *
  * ```
  *
- * @param StartCelebrityRecognitionCommandInput - {@link StartCelebrityRecognitionCommandInput}
- * @returns {@link StartCelebrityRecognitionCommandOutput}
+ * @param StartCelebrityRecognitionRequest - {@link StartCelebrityRecognitionRequest}
+ * @returns {@link StartCelebrityRecognitionResponse}
  * @see {@link StartCelebrityRecognitionCommandInput} for command's `input` shape.
  * @see {@link StartCelebrityRecognitionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

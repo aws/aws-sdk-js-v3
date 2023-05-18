@@ -51,8 +51,8 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  *
  * ```
  *
- * @param AssociateDeviceWithRoomCommandInput - {@link AssociateDeviceWithRoomCommandInput}
- * @returns {@link AssociateDeviceWithRoomCommandOutput}
+ * @param AssociateDeviceWithRoomRequest - {@link AssociateDeviceWithRoomRequest}
+ * @returns {@link AssociateDeviceWithRoomResponse}
  * @see {@link AssociateDeviceWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

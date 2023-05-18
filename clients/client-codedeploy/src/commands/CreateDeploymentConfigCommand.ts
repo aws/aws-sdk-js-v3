@@ -66,8 +66,8 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  *
  * ```
  *
- * @param CreateDeploymentConfigCommandInput - {@link CreateDeploymentConfigCommandInput}
- * @returns {@link CreateDeploymentConfigCommandOutput}
+ * @param CreateDeploymentConfigInput - {@link CreateDeploymentConfigInput}
+ * @returns {@link CreateDeploymentConfigOutput}
  * @see {@link CreateDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

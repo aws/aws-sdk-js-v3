@@ -52,8 +52,8 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  *
  * ```
  *
- * @param ModifyClientPropertiesCommandInput - {@link ModifyClientPropertiesCommandInput}
- * @returns {@link ModifyClientPropertiesCommandOutput}
+ * @param ModifyClientPropertiesRequest - {@link ModifyClientPropertiesRequest}
+ * @returns {@link ModifyClientPropertiesResult}
  * @see {@link ModifyClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -61,8 +61,8 @@ export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse,
  *
  * ```
  *
- * @param DeleteAdmChannelCommandInput - {@link DeleteAdmChannelCommandInput}
- * @returns {@link DeleteAdmChannelCommandOutput}
+ * @param DeleteAdmChannelRequest - {@link DeleteAdmChannelRequest}
+ * @returns {@link DeleteAdmChannelResponse}
  * @see {@link DeleteAdmChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

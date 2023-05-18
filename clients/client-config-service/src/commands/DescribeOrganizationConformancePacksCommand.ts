@@ -98,8 +98,8 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  *
  * ```
  *
- * @param DescribeOrganizationConformancePacksCommandInput - {@link DescribeOrganizationConformancePacksCommandInput}
- * @returns {@link DescribeOrganizationConformancePacksCommandOutput}
+ * @param DescribeOrganizationConformancePacksRequest - {@link DescribeOrganizationConformancePacksRequest}
+ * @returns {@link DescribeOrganizationConformancePacksResponse}
  * @see {@link DescribeOrganizationConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConformancePacksCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

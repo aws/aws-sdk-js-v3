@@ -76,8 +76,8 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  *
  * ```
  *
- * @param DescribeTableRestoreStatusCommandInput - {@link DescribeTableRestoreStatusCommandInput}
- * @returns {@link DescribeTableRestoreStatusCommandOutput}
+ * @param DescribeTableRestoreStatusMessage - {@link DescribeTableRestoreStatusMessage}
+ * @returns {@link TableRestoreStatusMessage}
  * @see {@link DescribeTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

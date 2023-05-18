@@ -51,8 +51,8 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteTopicCommandInput - {@link DeleteTopicCommandInput}
- * @returns {@link DeleteTopicCommandOutput}
+ * @param DeleteTopicInput - {@link DeleteTopicInput}
+ * @returns {@link Unit}
  * @see {@link DeleteTopicCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

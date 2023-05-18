@@ -63,8 +63,8 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  *
  * ```
  *
- * @param DescribeFeatureMetadataCommandInput - {@link DescribeFeatureMetadataCommandInput}
- * @returns {@link DescribeFeatureMetadataCommandOutput}
+ * @param DescribeFeatureMetadataRequest - {@link DescribeFeatureMetadataRequest}
+ * @returns {@link DescribeFeatureMetadataResponse}
  * @see {@link DescribeFeatureMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -83,8 +83,8 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  *
  * ```
  *
- * @param DescribeDBProxyTargetGroupsCommandInput - {@link DescribeDBProxyTargetGroupsCommandInput}
- * @returns {@link DescribeDBProxyTargetGroupsCommandOutput}
+ * @param DescribeDBProxyTargetGroupsRequest - {@link DescribeDBProxyTargetGroupsRequest}
+ * @returns {@link DescribeDBProxyTargetGroupsResponse}
  * @see {@link DescribeDBProxyTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

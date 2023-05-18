@@ -70,8 +70,8 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  *
  * ```
  *
- * @param DescribeSchedulingPoliciesCommandInput - {@link DescribeSchedulingPoliciesCommandInput}
- * @returns {@link DescribeSchedulingPoliciesCommandOutput}
+ * @param DescribeSchedulingPoliciesRequest - {@link DescribeSchedulingPoliciesRequest}
+ * @returns {@link DescribeSchedulingPoliciesResponse}
  * @see {@link DescribeSchedulingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeSchedulingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

@@ -136,8 +136,8 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  *
  * ```
  *
- * @param BatchCreateRumMetricDefinitionsCommandInput - {@link BatchCreateRumMetricDefinitionsCommandInput}
- * @returns {@link BatchCreateRumMetricDefinitionsCommandOutput}
+ * @param BatchCreateRumMetricDefinitionsRequest - {@link BatchCreateRumMetricDefinitionsRequest}
+ * @returns {@link BatchCreateRumMetricDefinitionsResponse}
  * @see {@link BatchCreateRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchCreateRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

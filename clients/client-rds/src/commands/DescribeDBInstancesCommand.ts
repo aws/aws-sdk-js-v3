@@ -276,8 +276,8 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  *
  * ```
  *
- * @param DescribeDBInstancesCommandInput - {@link DescribeDBInstancesCommandInput}
- * @returns {@link DescribeDBInstancesCommandOutput}
+ * @param DescribeDBInstancesMessage - {@link DescribeDBInstancesMessage}
+ * @returns {@link DBInstanceMessage}
  * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

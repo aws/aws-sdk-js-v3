@@ -71,8 +71,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  *
  * ```
  *
- * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
- * @returns {@link ListDevicesCommandOutput}
+ * @param ListDevicesRequest - {@link ListDevicesRequest}
+ * @returns {@link ListDevicesResponse}
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.

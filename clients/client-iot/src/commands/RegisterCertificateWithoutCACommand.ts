@@ -60,8 +60,8 @@ export interface RegisterCertificateWithoutCACommandOutput
  *
  * ```
  *
- * @param RegisterCertificateWithoutCACommandInput - {@link RegisterCertificateWithoutCACommandInput}
- * @returns {@link RegisterCertificateWithoutCACommandOutput}
+ * @param RegisterCertificateWithoutCARequest - {@link RegisterCertificateWithoutCARequest}
+ * @returns {@link RegisterCertificateWithoutCAResponse}
  * @see {@link RegisterCertificateWithoutCACommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateWithoutCACommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

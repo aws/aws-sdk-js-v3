@@ -82,8 +82,8 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  *
  * ```
  *
- * @param CreateForecastExportJobCommandInput - {@link CreateForecastExportJobCommandInput}
- * @returns {@link CreateForecastExportJobCommandOutput}
+ * @param CreateForecastExportJobRequest - {@link CreateForecastExportJobRequest}
+ * @returns {@link CreateForecastExportJobResponse}
  * @see {@link CreateForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

@@ -67,8 +67,8 @@ export interface DeleteObservabilityConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteObservabilityConfigurationCommandInput - {@link DeleteObservabilityConfigurationCommandInput}
- * @returns {@link DeleteObservabilityConfigurationCommandOutput}
+ * @param DeleteObservabilityConfigurationRequest - {@link DeleteObservabilityConfigurationRequest}
+ * @returns {@link DeleteObservabilityConfigurationResponse}
  * @see {@link DeleteObservabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteObservabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

@@ -65,8 +65,8 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  *
  * ```
  *
- * @param DescribeMetricAttributionCommandInput - {@link DescribeMetricAttributionCommandInput}
- * @returns {@link DescribeMetricAttributionCommandOutput}
+ * @param DescribeMetricAttributionRequest - {@link DescribeMetricAttributionRequest}
+ * @returns {@link DescribeMetricAttributionResponse}
  * @see {@link DescribeMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

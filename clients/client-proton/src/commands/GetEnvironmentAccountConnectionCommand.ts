@@ -69,8 +69,8 @@ export interface GetEnvironmentAccountConnectionCommandOutput
  *
  * ```
  *
- * @param GetEnvironmentAccountConnectionCommandInput - {@link GetEnvironmentAccountConnectionCommandInput}
- * @returns {@link GetEnvironmentAccountConnectionCommandOutput}
+ * @param GetEnvironmentAccountConnectionInput - {@link GetEnvironmentAccountConnectionInput}
+ * @returns {@link GetEnvironmentAccountConnectionOutput}
  * @see {@link GetEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

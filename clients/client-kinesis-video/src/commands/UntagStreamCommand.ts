@@ -56,8 +56,8 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  *
  * ```
  *
- * @param UntagStreamCommandInput - {@link UntagStreamCommandInput}
- * @returns {@link UntagStreamCommandOutput}
+ * @param UntagStreamInput - {@link UntagStreamInput}
+ * @returns {@link UntagStreamOutput}
  * @see {@link UntagStreamCommandInput} for command's `input` shape.
  * @see {@link UntagStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

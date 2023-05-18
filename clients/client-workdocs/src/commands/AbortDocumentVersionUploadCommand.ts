@@ -56,8 +56,8 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param AbortDocumentVersionUploadCommandInput - {@link AbortDocumentVersionUploadCommandInput}
- * @returns {@link AbortDocumentVersionUploadCommandOutput}
+ * @param AbortDocumentVersionUploadRequest - {@link AbortDocumentVersionUploadRequest}
+ * @returns {@link Unit}
  * @see {@link AbortDocumentVersionUploadCommandInput} for command's `input` shape.
  * @see {@link AbortDocumentVersionUploadCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

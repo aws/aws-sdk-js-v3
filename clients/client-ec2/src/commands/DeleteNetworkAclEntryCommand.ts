@@ -51,8 +51,8 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteNetworkAclEntryCommandInput - {@link DeleteNetworkAclEntryCommandInput}
- * @returns {@link DeleteNetworkAclEntryCommandOutput}
+ * @param DeleteNetworkAclEntryRequest - {@link DeleteNetworkAclEntryRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

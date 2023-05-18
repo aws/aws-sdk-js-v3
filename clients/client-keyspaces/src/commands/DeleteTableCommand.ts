@@ -53,8 +53,8 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  *
  * ```
  *
- * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
- * @returns {@link DeleteTableCommandOutput}
+ * @param DeleteTableRequest - {@link DeleteTableRequest}
+ * @returns {@link DeleteTableResponse}
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.

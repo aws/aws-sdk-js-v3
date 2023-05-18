@@ -67,8 +67,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *
  * ```
  *
- * @param CreateTemplateCommandInput - {@link CreateTemplateCommandInput}
- * @returns {@link CreateTemplateCommandOutput}
+ * @param CreateTemplateRequest - {@link CreateTemplateRequest}
+ * @returns {@link CreateTemplateResponse}
  * @see {@link CreateTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

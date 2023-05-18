@@ -53,8 +53,8 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  *
  * ```
  *
- * @param DeleteFunctionEventInvokeConfigCommandInput - {@link DeleteFunctionEventInvokeConfigCommandInput}
- * @returns {@link DeleteFunctionEventInvokeConfigCommandOutput}
+ * @param DeleteFunctionEventInvokeConfigRequest - {@link DeleteFunctionEventInvokeConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

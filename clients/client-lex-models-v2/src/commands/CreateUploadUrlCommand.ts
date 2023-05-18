@@ -50,8 +50,8 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  *
  * ```
  *
- * @param CreateUploadUrlCommandInput - {@link CreateUploadUrlCommandInput}
- * @returns {@link CreateUploadUrlCommandOutput}
+ * @param CreateUploadUrlRequest - {@link CreateUploadUrlRequest}
+ * @returns {@link CreateUploadUrlResponse}
  * @see {@link CreateUploadUrlCommandInput} for command's `input` shape.
  * @see {@link CreateUploadUrlCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

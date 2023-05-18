@@ -99,8 +99,8 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  *
  * ```
  *
- * @param PutPortfolioPreferencesCommandInput - {@link PutPortfolioPreferencesCommandInput}
- * @returns {@link PutPortfolioPreferencesCommandOutput}
+ * @param PutPortfolioPreferencesRequest - {@link PutPortfolioPreferencesRequest}
+ * @returns {@link PutPortfolioPreferencesResponse}
  * @see {@link PutPortfolioPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

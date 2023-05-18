@@ -54,8 +54,8 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  *
  * ```
  *
- * @param DeleteBranchCommandInput - {@link DeleteBranchCommandInput}
- * @returns {@link DeleteBranchCommandOutput}
+ * @param DeleteBranchInput - {@link DeleteBranchInput}
+ * @returns {@link DeleteBranchOutput}
  * @see {@link DeleteBranchCommandInput} for command's `input` shape.
  * @see {@link DeleteBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

@@ -55,8 +55,8 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  *
  * ```
  *
- * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
- * @returns {@link DeleteReportDefinitionCommandOutput}
+ * @param DeleteReportDefinitionRequest - {@link DeleteReportDefinitionRequest}
+ * @returns {@link DeleteReportDefinitionResult}
  * @see {@link DeleteReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.

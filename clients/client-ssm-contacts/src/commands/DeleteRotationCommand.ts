@@ -49,8 +49,8 @@ export interface DeleteRotationCommandOutput extends DeleteRotationResult, __Met
  *
  * ```
  *
- * @param DeleteRotationCommandInput - {@link DeleteRotationCommandInput}
- * @returns {@link DeleteRotationCommandOutput}
+ * @param DeleteRotationRequest - {@link DeleteRotationRequest}
+ * @returns {@link DeleteRotationResult}
  * @see {@link DeleteRotationCommandInput} for command's `input` shape.
  * @see {@link DeleteRotationCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

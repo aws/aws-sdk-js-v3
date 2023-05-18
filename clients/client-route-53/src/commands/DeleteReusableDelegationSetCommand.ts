@@ -58,8 +58,8 @@ export interface DeleteReusableDelegationSetCommandOutput
  *
  * ```
  *
- * @param DeleteReusableDelegationSetCommandInput - {@link DeleteReusableDelegationSetCommandInput}
- * @returns {@link DeleteReusableDelegationSetCommandOutput}
+ * @param DeleteReusableDelegationSetRequest - {@link DeleteReusableDelegationSetRequest}
+ * @returns {@link DeleteReusableDelegationSetResponse}
  * @see {@link DeleteReusableDelegationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

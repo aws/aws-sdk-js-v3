@@ -61,8 +61,8 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  *
  * ```
  *
- * @param DeleteUtterancesCommandInput - {@link DeleteUtterancesCommandInput}
- * @returns {@link DeleteUtterancesCommandOutput}
+ * @param DeleteUtterancesRequest - {@link DeleteUtterancesRequest}
+ * @returns {@link DeleteUtterancesResponse}
  * @see {@link DeleteUtterancesCommandInput} for command's `input` shape.
  * @see {@link DeleteUtterancesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

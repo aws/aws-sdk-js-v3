@@ -74,8 +74,8 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  *
  * ```
  *
- * @param BatchDeleteRumMetricDefinitionsCommandInput - {@link BatchDeleteRumMetricDefinitionsCommandInput}
- * @returns {@link BatchDeleteRumMetricDefinitionsCommandOutput}
+ * @param BatchDeleteRumMetricDefinitionsRequest - {@link BatchDeleteRumMetricDefinitionsRequest}
+ * @returns {@link BatchDeleteRumMetricDefinitionsResponse}
  * @see {@link BatchDeleteRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

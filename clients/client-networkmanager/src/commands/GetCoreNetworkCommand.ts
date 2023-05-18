@@ -83,8 +83,8 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  *
  * ```
  *
- * @param GetCoreNetworkCommandInput - {@link GetCoreNetworkCommandInput}
- * @returns {@link GetCoreNetworkCommandOutput}
+ * @param GetCoreNetworkRequest - {@link GetCoreNetworkRequest}
+ * @returns {@link GetCoreNetworkResponse}
  * @see {@link GetCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

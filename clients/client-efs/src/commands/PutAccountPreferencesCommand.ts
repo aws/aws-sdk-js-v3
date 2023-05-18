@@ -65,8 +65,8 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  *
  * ```
  *
- * @param PutAccountPreferencesCommandInput - {@link PutAccountPreferencesCommandInput}
- * @returns {@link PutAccountPreferencesCommandOutput}
+ * @param PutAccountPreferencesRequest - {@link PutAccountPreferencesRequest}
+ * @returns {@link PutAccountPreferencesResponse}
  * @see {@link PutAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

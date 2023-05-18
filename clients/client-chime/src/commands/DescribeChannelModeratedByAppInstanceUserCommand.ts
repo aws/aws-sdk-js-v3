@@ -77,8 +77,8 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  *
  * ```
  *
- * @param DescribeChannelModeratedByAppInstanceUserCommandInput - {@link DescribeChannelModeratedByAppInstanceUserCommandInput}
- * @returns {@link DescribeChannelModeratedByAppInstanceUserCommandOutput}
+ * @param DescribeChannelModeratedByAppInstanceUserRequest - {@link DescribeChannelModeratedByAppInstanceUserRequest}
+ * @returns {@link DescribeChannelModeratedByAppInstanceUserResponse}
  * @see {@link DescribeChannelModeratedByAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratedByAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -85,8 +85,8 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  *
  * ```
  *
- * @param CreateDatalakeCommandInput - {@link CreateDatalakeCommandInput}
- * @returns {@link CreateDatalakeCommandOutput}
+ * @param CreateDatalakeRequest - {@link CreateDatalakeRequest}
+ * @returns {@link CreateDatalakeResponse}
  * @see {@link CreateDatalakeCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

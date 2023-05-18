@@ -167,8 +167,8 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  *
  * ```
  *
- * @param SetRulePrioritiesCommandInput - {@link SetRulePrioritiesCommandInput}
- * @returns {@link SetRulePrioritiesCommandOutput}
+ * @param SetRulePrioritiesInput - {@link SetRulePrioritiesInput}
+ * @returns {@link SetRulePrioritiesOutput}
  * @see {@link SetRulePrioritiesCommandInput} for command's `input` shape.
  * @see {@link SetRulePrioritiesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

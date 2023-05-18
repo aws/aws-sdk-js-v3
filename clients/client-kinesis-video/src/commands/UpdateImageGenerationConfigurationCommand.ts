@@ -69,8 +69,8 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateImageGenerationConfigurationCommandInput - {@link UpdateImageGenerationConfigurationCommandInput}
- * @returns {@link UpdateImageGenerationConfigurationCommandOutput}
+ * @param UpdateImageGenerationConfigurationInput - {@link UpdateImageGenerationConfigurationInput}
+ * @returns {@link UpdateImageGenerationConfigurationOutput}
  * @see {@link UpdateImageGenerationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateImageGenerationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

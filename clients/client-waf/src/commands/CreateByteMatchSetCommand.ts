@@ -97,8 +97,8 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  *
  * ```
  *
- * @param CreateByteMatchSetCommandInput - {@link CreateByteMatchSetCommandInput}
- * @returns {@link CreateByteMatchSetCommandOutput}
+ * @param CreateByteMatchSetRequest - {@link CreateByteMatchSetRequest}
+ * @returns {@link CreateByteMatchSetResponse}
  * @see {@link CreateByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

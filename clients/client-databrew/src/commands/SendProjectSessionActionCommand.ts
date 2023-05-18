@@ -85,8 +85,8 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  *
  * ```
  *
- * @param SendProjectSessionActionCommandInput - {@link SendProjectSessionActionCommandInput}
- * @returns {@link SendProjectSessionActionCommandOutput}
+ * @param SendProjectSessionActionRequest - {@link SendProjectSessionActionRequest}
+ * @returns {@link SendProjectSessionActionResponse}
  * @see {@link SendProjectSessionActionCommandInput} for command's `input` shape.
  * @see {@link SendProjectSessionActionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

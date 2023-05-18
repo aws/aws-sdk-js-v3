@@ -71,8 +71,8 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  *
  * ```
  *
- * @param GetLegalHoldCommandInput - {@link GetLegalHoldCommandInput}
- * @returns {@link GetLegalHoldCommandOutput}
+ * @param GetLegalHoldInput - {@link GetLegalHoldInput}
+ * @returns {@link GetLegalHoldOutput}
  * @see {@link GetLegalHoldCommandInput} for command's `input` shape.
  * @see {@link GetLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

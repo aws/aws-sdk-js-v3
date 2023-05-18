@@ -62,8 +62,8 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  *
  * ```
  *
- * @param ListRoutingProfilesCommandInput - {@link ListRoutingProfilesCommandInput}
- * @returns {@link ListRoutingProfilesCommandOutput}
+ * @param ListRoutingProfilesRequest - {@link ListRoutingProfilesRequest}
+ * @returns {@link ListRoutingProfilesResponse}
  * @see {@link ListRoutingProfilesCommandInput} for command's `input` shape.
  * @see {@link ListRoutingProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

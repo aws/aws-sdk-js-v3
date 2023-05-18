@@ -59,8 +59,8 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  *
  * ```
  *
- * @param RedactChannelMessageCommandInput - {@link RedactChannelMessageCommandInput}
- * @returns {@link RedactChannelMessageCommandOutput}
+ * @param RedactChannelMessageRequest - {@link RedactChannelMessageRequest}
+ * @returns {@link RedactChannelMessageResponse}
  * @see {@link RedactChannelMessageCommandInput} for command's `input` shape.
  * @see {@link RedactChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

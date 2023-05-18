@@ -48,8 +48,8 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  *
  * ```
  *
- * @param DeleteDedicatedIpPoolCommandInput - {@link DeleteDedicatedIpPoolCommandInput}
- * @returns {@link DeleteDedicatedIpPoolCommandOutput}
+ * @param DeleteDedicatedIpPoolRequest - {@link DeleteDedicatedIpPoolRequest}
+ * @returns {@link DeleteDedicatedIpPoolResponse}
  * @see {@link DeleteDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

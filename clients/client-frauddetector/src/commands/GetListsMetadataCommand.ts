@@ -64,8 +64,8 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  *
  * ```
  *
- * @param GetListsMetadataCommandInput - {@link GetListsMetadataCommandInput}
- * @returns {@link GetListsMetadataCommandOutput}
+ * @param GetListsMetadataRequest - {@link GetListsMetadataRequest}
+ * @returns {@link GetListsMetadataResult}
  * @see {@link GetListsMetadataCommandInput} for command's `input` shape.
  * @see {@link GetListsMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

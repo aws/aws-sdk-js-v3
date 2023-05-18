@@ -78,8 +78,8 @@ export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermis
  *
  * ```
  *
- * @param UpdateFolderPermissionsCommandInput - {@link UpdateFolderPermissionsCommandInput}
- * @returns {@link UpdateFolderPermissionsCommandOutput}
+ * @param UpdateFolderPermissionsRequest - {@link UpdateFolderPermissionsRequest}
+ * @returns {@link UpdateFolderPermissionsResponse}
  * @see {@link UpdateFolderPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

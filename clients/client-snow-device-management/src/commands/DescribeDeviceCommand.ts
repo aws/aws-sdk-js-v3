@@ -89,8 +89,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __Met
  *
  * ```
  *
- * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
- * @returns {@link DescribeDeviceCommandOutput}
+ * @param DescribeDeviceInput - {@link DescribeDeviceInput}
+ * @returns {@link DescribeDeviceOutput}
  * @see {@link DescribeDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.

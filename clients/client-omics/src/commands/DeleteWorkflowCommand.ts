@@ -48,8 +48,8 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
- * @returns {@link DeleteWorkflowCommandOutput}
+ * @param DeleteWorkflowRequest - {@link DeleteWorkflowRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

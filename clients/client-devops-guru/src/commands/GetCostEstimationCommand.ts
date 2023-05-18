@@ -84,8 +84,8 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  *
  * ```
  *
- * @param GetCostEstimationCommandInput - {@link GetCostEstimationCommandInput}
- * @returns {@link GetCostEstimationCommandOutput}
+ * @param GetCostEstimationRequest - {@link GetCostEstimationRequest}
+ * @returns {@link GetCostEstimationResponse}
  * @see {@link GetCostEstimationCommandInput} for command's `input` shape.
  * @see {@link GetCostEstimationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

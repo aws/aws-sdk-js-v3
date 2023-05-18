@@ -84,8 +84,8 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  *
  * ```
  *
- * @param BundleInstanceCommandInput - {@link BundleInstanceCommandInput}
- * @returns {@link BundleInstanceCommandOutput}
+ * @param BundleInstanceRequest - {@link BundleInstanceRequest}
+ * @returns {@link BundleInstanceResult}
  * @see {@link BundleInstanceCommandInput} for command's `input` shape.
  * @see {@link BundleInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -261,8 +261,8 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  *
  * ```
  *
- * @param StopBuildBatchCommandInput - {@link StopBuildBatchCommandInput}
- * @returns {@link StopBuildBatchCommandOutput}
+ * @param StopBuildBatchInput - {@link StopBuildBatchInput}
+ * @returns {@link StopBuildBatchOutput}
  * @see {@link StopBuildBatchCommandInput} for command's `input` shape.
  * @see {@link StopBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -52,8 +52,8 @@ export interface RejectGrantCommandOutput extends RejectGrantResponse, __Metadat
  *
  * ```
  *
- * @param RejectGrantCommandInput - {@link RejectGrantCommandInput}
- * @returns {@link RejectGrantCommandOutput}
+ * @param RejectGrantRequest - {@link RejectGrantRequest}
+ * @returns {@link RejectGrantResponse}
  * @see {@link RejectGrantCommandInput} for command's `input` shape.
  * @see {@link RejectGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

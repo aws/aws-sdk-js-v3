@@ -57,8 +57,8 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  *
  * ```
  *
- * @param CreateScheduleGroupCommandInput - {@link CreateScheduleGroupCommandInput}
- * @returns {@link CreateScheduleGroupCommandOutput}
+ * @param CreateScheduleGroupInput - {@link CreateScheduleGroupInput}
+ * @returns {@link CreateScheduleGroupOutput}
  * @see {@link CreateScheduleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateScheduleGroupCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

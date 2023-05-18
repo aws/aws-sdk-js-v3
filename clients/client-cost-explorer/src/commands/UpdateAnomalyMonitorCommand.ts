@@ -52,8 +52,8 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  *
  * ```
  *
- * @param UpdateAnomalyMonitorCommandInput - {@link UpdateAnomalyMonitorCommandInput}
- * @returns {@link UpdateAnomalyMonitorCommandOutput}
+ * @param UpdateAnomalyMonitorRequest - {@link UpdateAnomalyMonitorRequest}
+ * @returns {@link UpdateAnomalyMonitorResponse}
  * @see {@link UpdateAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

@@ -64,8 +64,8 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  *
  * ```
  *
- * @param DescribeThingTypeCommandInput - {@link DescribeThingTypeCommandInput}
- * @returns {@link DescribeThingTypeCommandOutput}
+ * @param DescribeThingTypeRequest - {@link DescribeThingTypeRequest}
+ * @returns {@link DescribeThingTypeResponse}
  * @see {@link DescribeThingTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

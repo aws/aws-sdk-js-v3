@@ -71,8 +71,8 @@ export interface DescribeRetentionConfigurationsCommandOutput
  *
  * ```
  *
- * @param DescribeRetentionConfigurationsCommandInput - {@link DescribeRetentionConfigurationsCommandInput}
- * @returns {@link DescribeRetentionConfigurationsCommandOutput}
+ * @param DescribeRetentionConfigurationsRequest - {@link DescribeRetentionConfigurationsRequest}
+ * @returns {@link DescribeRetentionConfigurationsResponse}
  * @see {@link DescribeRetentionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRetentionConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

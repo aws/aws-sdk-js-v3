@@ -53,8 +53,8 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  *
  * ```
  *
- * @param GetBackupVaultAccessPolicyCommandInput - {@link GetBackupVaultAccessPolicyCommandInput}
- * @returns {@link GetBackupVaultAccessPolicyCommandOutput}
+ * @param GetBackupVaultAccessPolicyInput - {@link GetBackupVaultAccessPolicyInput}
+ * @returns {@link GetBackupVaultAccessPolicyOutput}
  * @see {@link GetBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link GetBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

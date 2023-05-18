@@ -77,8 +77,8 @@ export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServ
  *
  * ```
  *
- * @param DescribeVirtualServiceCommandInput - {@link DescribeVirtualServiceCommandInput}
- * @returns {@link DescribeVirtualServiceCommandOutput}
+ * @param DescribeVirtualServiceInput - {@link DescribeVirtualServiceInput}
+ * @returns {@link DescribeVirtualServiceOutput}
  * @see {@link DescribeVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

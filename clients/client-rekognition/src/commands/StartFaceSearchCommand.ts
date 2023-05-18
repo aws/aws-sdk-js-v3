@@ -74,8 +74,8 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  *
  * ```
  *
- * @param StartFaceSearchCommandInput - {@link StartFaceSearchCommandInput}
- * @returns {@link StartFaceSearchCommandOutput}
+ * @param StartFaceSearchRequest - {@link StartFaceSearchRequest}
+ * @returns {@link StartFaceSearchResponse}
  * @see {@link StartFaceSearchCommandInput} for command's `input` shape.
  * @see {@link StartFaceSearchCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

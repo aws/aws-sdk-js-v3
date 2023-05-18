@@ -86,8 +86,8 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  *
  * ```
  *
- * @param BatchGetDataQualityResultCommandInput - {@link BatchGetDataQualityResultCommandInput}
- * @returns {@link BatchGetDataQualityResultCommandOutput}
+ * @param BatchGetDataQualityResultRequest - {@link BatchGetDataQualityResultRequest}
+ * @returns {@link BatchGetDataQualityResultResponse}
  * @see {@link BatchGetDataQualityResultCommandInput} for command's `input` shape.
  * @see {@link BatchGetDataQualityResultCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

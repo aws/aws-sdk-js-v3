@@ -50,8 +50,8 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  *
  * ```
  *
- * @param RevokeVpcEndpointAccessCommandInput - {@link RevokeVpcEndpointAccessCommandInput}
- * @returns {@link RevokeVpcEndpointAccessCommandOutput}
+ * @param RevokeVpcEndpointAccessRequest - {@link RevokeVpcEndpointAccessRequest}
+ * @returns {@link RevokeVpcEndpointAccessResponse}
  * @see {@link RevokeVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

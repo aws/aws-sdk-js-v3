@@ -48,8 +48,8 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  *
  * ```
  *
- * @param CancelBatchPredictionJobCommandInput - {@link CancelBatchPredictionJobCommandInput}
- * @returns {@link CancelBatchPredictionJobCommandOutput}
+ * @param CancelBatchPredictionJobRequest - {@link CancelBatchPredictionJobRequest}
+ * @returns {@link CancelBatchPredictionJobResult}
  * @see {@link CancelBatchPredictionJobCommandInput} for command's `input` shape.
  * @see {@link CancelBatchPredictionJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -67,8 +67,8 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  *
  * ```
  *
- * @param UpdateAttributeGroupCommandInput - {@link UpdateAttributeGroupCommandInput}
- * @returns {@link UpdateAttributeGroupCommandOutput}
+ * @param UpdateAttributeGroupRequest - {@link UpdateAttributeGroupRequest}
+ * @returns {@link UpdateAttributeGroupResponse}
  * @see {@link UpdateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

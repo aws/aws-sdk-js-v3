@@ -89,8 +89,8 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *
  * ```
  *
- * @param PutPermissionPolicyCommandInput - {@link PutPermissionPolicyCommandInput}
- * @returns {@link PutPermissionPolicyCommandOutput}
+ * @param PutPermissionPolicyRequest - {@link PutPermissionPolicyRequest}
+ * @returns {@link PutPermissionPolicyResponse}
  * @see {@link PutPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

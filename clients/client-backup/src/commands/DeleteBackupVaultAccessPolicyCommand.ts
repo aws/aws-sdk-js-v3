@@ -51,8 +51,8 @@ export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param DeleteBackupVaultAccessPolicyCommandInput - {@link DeleteBackupVaultAccessPolicyCommandInput}
- * @returns {@link DeleteBackupVaultAccessPolicyCommandOutput}
+ * @param DeleteBackupVaultAccessPolicyInput - {@link DeleteBackupVaultAccessPolicyInput}
+ * @returns {@link Unit}
  * @see {@link DeleteBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

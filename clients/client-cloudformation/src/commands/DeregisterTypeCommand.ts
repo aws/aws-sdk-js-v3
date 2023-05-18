@@ -60,8 +60,8 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  *
  * ```
  *
- * @param DeregisterTypeCommandInput - {@link DeregisterTypeCommandInput}
- * @returns {@link DeregisterTypeCommandOutput}
+ * @param DeregisterTypeInput - {@link DeregisterTypeInput}
+ * @returns {@link DeregisterTypeOutput}
  * @see {@link DeregisterTypeCommandInput} for command's `input` shape.
  * @see {@link DeregisterTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

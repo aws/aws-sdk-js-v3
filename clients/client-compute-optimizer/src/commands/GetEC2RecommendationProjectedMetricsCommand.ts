@@ -90,8 +90,8 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  *
  * ```
  *
- * @param GetEC2RecommendationProjectedMetricsCommandInput - {@link GetEC2RecommendationProjectedMetricsCommandInput}
- * @returns {@link GetEC2RecommendationProjectedMetricsCommandOutput}
+ * @param GetEC2RecommendationProjectedMetricsRequest - {@link GetEC2RecommendationProjectedMetricsRequest}
+ * @returns {@link GetEC2RecommendationProjectedMetricsResponse}
  * @see {@link GetEC2RecommendationProjectedMetricsCommandInput} for command's `input` shape.
  * @see {@link GetEC2RecommendationProjectedMetricsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

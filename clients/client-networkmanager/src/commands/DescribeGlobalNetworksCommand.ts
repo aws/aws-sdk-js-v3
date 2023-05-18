@@ -72,8 +72,8 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  *
  * ```
  *
- * @param DescribeGlobalNetworksCommandInput - {@link DescribeGlobalNetworksCommandInput}
- * @returns {@link DescribeGlobalNetworksCommandOutput}
+ * @param DescribeGlobalNetworksRequest - {@link DescribeGlobalNetworksRequest}
+ * @returns {@link DescribeGlobalNetworksResponse}
  * @see {@link DescribeGlobalNetworksCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalNetworksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

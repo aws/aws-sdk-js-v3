@@ -95,8 +95,8 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  *
  * ```
  *
- * @param ListSigningJobsCommandInput - {@link ListSigningJobsCommandInput}
- * @returns {@link ListSigningJobsCommandOutput}
+ * @param ListSigningJobsRequest - {@link ListSigningJobsRequest}
+ * @returns {@link ListSigningJobsResponse}
  * @see {@link ListSigningJobsCommandInput} for command's `input` shape.
  * @see {@link ListSigningJobsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

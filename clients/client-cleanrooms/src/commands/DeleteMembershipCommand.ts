@@ -48,8 +48,8 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, _
  *
  * ```
  *
- * @param DeleteMembershipCommandInput - {@link DeleteMembershipCommandInput}
- * @returns {@link DeleteMembershipCommandOutput}
+ * @param DeleteMembershipInput - {@link DeleteMembershipInput}
+ * @returns {@link DeleteMembershipOutput}
  * @see {@link DeleteMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

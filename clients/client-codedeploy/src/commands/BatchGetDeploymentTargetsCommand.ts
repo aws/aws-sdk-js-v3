@@ -190,8 +190,8 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  *
  * ```
  *
- * @param BatchGetDeploymentTargetsCommandInput - {@link BatchGetDeploymentTargetsCommandInput}
- * @returns {@link BatchGetDeploymentTargetsCommandOutput}
+ * @param BatchGetDeploymentTargetsInput - {@link BatchGetDeploymentTargetsInput}
+ * @returns {@link BatchGetDeploymentTargetsOutput}
  * @see {@link BatchGetDeploymentTargetsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

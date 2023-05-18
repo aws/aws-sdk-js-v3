@@ -62,8 +62,8 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  *
  * ```
  *
- * @param CreateImportJobCommandInput - {@link CreateImportJobCommandInput}
- * @returns {@link CreateImportJobCommandOutput}
+ * @param CreateImportJobRequest - {@link CreateImportJobRequest}
+ * @returns {@link CreateImportJobResponse}
  * @see {@link CreateImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateImportJobCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

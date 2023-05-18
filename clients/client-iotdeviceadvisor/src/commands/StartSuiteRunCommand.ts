@@ -69,8 +69,8 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  *
  * ```
  *
- * @param StartSuiteRunCommandInput - {@link StartSuiteRunCommandInput}
- * @returns {@link StartSuiteRunCommandOutput}
+ * @param StartSuiteRunRequest - {@link StartSuiteRunRequest}
+ * @returns {@link StartSuiteRunResponse}
  * @see {@link StartSuiteRunCommandInput} for command's `input` shape.
  * @see {@link StartSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

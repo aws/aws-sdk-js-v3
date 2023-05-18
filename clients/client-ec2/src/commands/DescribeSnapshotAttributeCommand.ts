@@ -66,8 +66,8 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  *
  * ```
  *
- * @param DescribeSnapshotAttributeCommandInput - {@link DescribeSnapshotAttributeCommandInput}
- * @returns {@link DescribeSnapshotAttributeCommandOutput}
+ * @param DescribeSnapshotAttributeRequest - {@link DescribeSnapshotAttributeRequest}
+ * @returns {@link DescribeSnapshotAttributeResult}
  * @see {@link DescribeSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  *
  * ```
  *
- * @param DeleteCidrCollectionCommandInput - {@link DeleteCidrCollectionCommandInput}
- * @returns {@link DeleteCidrCollectionCommandOutput}
+ * @param DeleteCidrCollectionRequest - {@link DeleteCidrCollectionRequest}
+ * @returns {@link DeleteCidrCollectionResponse}
  * @see {@link DeleteCidrCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

@@ -75,8 +75,8 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  *
  * ```
  *
- * @param DescribeMountTargetSecurityGroupsCommandInput - {@link DescribeMountTargetSecurityGroupsCommandInput}
- * @returns {@link DescribeMountTargetSecurityGroupsCommandOutput}
+ * @param DescribeMountTargetSecurityGroupsRequest - {@link DescribeMountTargetSecurityGroupsRequest}
+ * @returns {@link DescribeMountTargetSecurityGroupsResponse}
  * @see {@link DescribeMountTargetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

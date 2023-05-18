@@ -68,8 +68,8 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  *
  * ```
  *
- * @param PutLifecycleEventHookExecutionStatusCommandInput - {@link PutLifecycleEventHookExecutionStatusCommandInput}
- * @returns {@link PutLifecycleEventHookExecutionStatusCommandOutput}
+ * @param PutLifecycleEventHookExecutionStatusInput - {@link PutLifecycleEventHookExecutionStatusInput}
+ * @returns {@link PutLifecycleEventHookExecutionStatusOutput}
  * @see {@link PutLifecycleEventHookExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleEventHookExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -62,8 +62,8 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  *
  * ```
  *
- * @param UpdateDomainConfigurationCommandInput - {@link UpdateDomainConfigurationCommandInput}
- * @returns {@link UpdateDomainConfigurationCommandOutput}
+ * @param UpdateDomainConfigurationRequest - {@link UpdateDomainConfigurationRequest}
+ * @returns {@link UpdateDomainConfigurationResponse}
  * @see {@link UpdateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

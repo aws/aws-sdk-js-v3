@@ -62,8 +62,8 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  *
  * ```
  *
- * @param ListEmailIdentitiesCommandInput - {@link ListEmailIdentitiesCommandInput}
- * @returns {@link ListEmailIdentitiesCommandOutput}
+ * @param ListEmailIdentitiesRequest - {@link ListEmailIdentitiesRequest}
+ * @returns {@link ListEmailIdentitiesResponse}
  * @see {@link ListEmailIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListEmailIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

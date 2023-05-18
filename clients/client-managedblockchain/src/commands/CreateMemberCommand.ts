@@ -80,8 +80,8 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  *
  * ```
  *
- * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
- * @returns {@link CreateMemberCommandOutput}
+ * @param CreateMemberInput - {@link CreateMemberInput}
+ * @returns {@link CreateMemberOutput}
  * @see {@link CreateMemberCommandInput} for command's `input` shape.
  * @see {@link CreateMemberCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

@@ -59,8 +59,8 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  *
  * ```
  *
- * @param RemoveTagsFromOnPremisesInstancesCommandInput - {@link RemoveTagsFromOnPremisesInstancesCommandInput}
- * @returns {@link RemoveTagsFromOnPremisesInstancesCommandOutput}
+ * @param RemoveTagsFromOnPremisesInstancesInput - {@link RemoveTagsFromOnPremisesInstancesInput}
+ * @returns {@link Unit}
  * @see {@link RemoveTagsFromOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -176,8 +176,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *
  * ```
  *
- * @param CreateCertificateAuthorityCommandInput - {@link CreateCertificateAuthorityCommandInput}
- * @returns {@link CreateCertificateAuthorityCommandOutput}
+ * @param CreateCertificateAuthorityRequest - {@link CreateCertificateAuthorityRequest}
+ * @returns {@link CreateCertificateAuthorityResponse}
  * @see {@link CreateCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

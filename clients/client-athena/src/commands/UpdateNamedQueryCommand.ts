@@ -52,8 +52,8 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  *
  * ```
  *
- * @param UpdateNamedQueryCommandInput - {@link UpdateNamedQueryCommandInput}
- * @returns {@link UpdateNamedQueryCommandOutput}
+ * @param UpdateNamedQueryInput - {@link UpdateNamedQueryInput}
+ * @returns {@link UpdateNamedQueryOutput}
  * @see {@link UpdateNamedQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

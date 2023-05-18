@@ -92,8 +92,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  *
  * ```
  *
- * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
- * @returns {@link CopySnapshotCommandOutput}
+ * @param CopySnapshotRequest - {@link CopySnapshotRequest}
+ * @returns {@link CopySnapshotResponse}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

@@ -89,8 +89,8 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  *
  * ```
  *
- * @param CreateOrderCommandInput - {@link CreateOrderCommandInput}
- * @returns {@link CreateOrderCommandOutput}
+ * @param CreateOrderInput - {@link CreateOrderInput}
+ * @returns {@link CreateOrderOutput}
  * @see {@link CreateOrderCommandInput} for command's `input` shape.
  * @see {@link CreateOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

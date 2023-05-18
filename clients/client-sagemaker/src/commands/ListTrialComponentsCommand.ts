@@ -116,8 +116,8 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  *
  * ```
  *
- * @param ListTrialComponentsCommandInput - {@link ListTrialComponentsCommandInput}
- * @returns {@link ListTrialComponentsCommandOutput}
+ * @param ListTrialComponentsRequest - {@link ListTrialComponentsRequest}
+ * @returns {@link ListTrialComponentsResponse}
  * @see {@link ListTrialComponentsCommandInput} for command's `input` shape.
  * @see {@link ListTrialComponentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

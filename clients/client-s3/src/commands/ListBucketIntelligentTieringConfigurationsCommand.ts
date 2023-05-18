@@ -111,8 +111,8 @@ export interface ListBucketIntelligentTieringConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListBucketIntelligentTieringConfigurationsCommandInput - {@link ListBucketIntelligentTieringConfigurationsCommandInput}
- * @returns {@link ListBucketIntelligentTieringConfigurationsCommandOutput}
+ * @param ListBucketIntelligentTieringConfigurationsRequest - {@link ListBucketIntelligentTieringConfigurationsRequest}
+ * @returns {@link ListBucketIntelligentTieringConfigurationsOutput}
  * @see {@link ListBucketIntelligentTieringConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketIntelligentTieringConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

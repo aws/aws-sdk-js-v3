@@ -84,8 +84,8 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  *
  * ```
  *
- * @param DescribePipelineExecutionCommandInput - {@link DescribePipelineExecutionCommandInput}
- * @returns {@link DescribePipelineExecutionCommandOutput}
+ * @param DescribePipelineExecutionRequest - {@link DescribePipelineExecutionRequest}
+ * @returns {@link DescribePipelineExecutionResponse}
  * @see {@link DescribePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
+ * @param ListEnvironmentsRequest - {@link ListEnvironmentsRequest}
+ * @returns {@link ListEnvironmentsResponse}
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

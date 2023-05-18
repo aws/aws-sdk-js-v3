@@ -67,8 +67,8 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateMapCommandInput - {@link CreateMapCommandInput}
- * @returns {@link CreateMapCommandOutput}
+ * @param CreateMapRequest - {@link CreateMapRequest}
+ * @returns {@link CreateMapResponse}
  * @see {@link CreateMapCommandInput} for command's `input` shape.
  * @see {@link CreateMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

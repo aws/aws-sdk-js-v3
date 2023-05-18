@@ -93,8 +93,8 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  *
  * ```
  *
- * @param UpdateBackendAPICommandInput - {@link UpdateBackendAPICommandInput}
- * @returns {@link UpdateBackendAPICommandOutput}
+ * @param UpdateBackendAPIRequest - {@link UpdateBackendAPIRequest}
+ * @returns {@link UpdateBackendAPIResponse}
  * @see {@link UpdateBackendAPICommandInput} for command's `input` shape.
  * @see {@link UpdateBackendAPICommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

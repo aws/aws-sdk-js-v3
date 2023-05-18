@@ -57,8 +57,8 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  *
  * ```
  *
- * @param UpdateResolverConfigCommandInput - {@link UpdateResolverConfigCommandInput}
- * @returns {@link UpdateResolverConfigCommandOutput}
+ * @param UpdateResolverConfigRequest - {@link UpdateResolverConfigRequest}
+ * @returns {@link UpdateResolverConfigResponse}
  * @see {@link UpdateResolverConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

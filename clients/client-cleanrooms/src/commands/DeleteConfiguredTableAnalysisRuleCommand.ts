@@ -54,8 +54,8 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  *
  * ```
  *
- * @param DeleteConfiguredTableAnalysisRuleCommandInput - {@link DeleteConfiguredTableAnalysisRuleCommandInput}
- * @returns {@link DeleteConfiguredTableAnalysisRuleCommandOutput}
+ * @param DeleteConfiguredTableAnalysisRuleInput - {@link DeleteConfiguredTableAnalysisRuleInput}
+ * @returns {@link DeleteConfiguredTableAnalysisRuleOutput}
  * @see {@link DeleteConfiguredTableAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteConfiguredTableAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

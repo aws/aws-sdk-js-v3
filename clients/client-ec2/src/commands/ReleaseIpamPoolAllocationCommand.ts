@@ -57,8 +57,8 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  *
  * ```
  *
- * @param ReleaseIpamPoolAllocationCommandInput - {@link ReleaseIpamPoolAllocationCommandInput}
- * @returns {@link ReleaseIpamPoolAllocationCommandOutput}
+ * @param ReleaseIpamPoolAllocationRequest - {@link ReleaseIpamPoolAllocationRequest}
+ * @returns {@link ReleaseIpamPoolAllocationResult}
  * @see {@link ReleaseIpamPoolAllocationCommandInput} for command's `input` shape.
  * @see {@link ReleaseIpamPoolAllocationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

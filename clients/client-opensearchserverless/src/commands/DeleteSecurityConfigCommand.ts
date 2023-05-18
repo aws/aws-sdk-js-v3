@@ -55,8 +55,8 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  *
  * ```
  *
- * @param DeleteSecurityConfigCommandInput - {@link DeleteSecurityConfigCommandInput}
- * @returns {@link DeleteSecurityConfigCommandOutput}
+ * @param DeleteSecurityConfigRequest - {@link DeleteSecurityConfigRequest}
+ * @returns {@link DeleteSecurityConfigResponse}
  * @see {@link DeleteSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

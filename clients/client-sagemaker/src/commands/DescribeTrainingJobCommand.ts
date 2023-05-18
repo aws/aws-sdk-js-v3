@@ -272,8 +272,8 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  *
  * ```
  *
- * @param DescribeTrainingJobCommandInput - {@link DescribeTrainingJobCommandInput}
- * @returns {@link DescribeTrainingJobCommandOutput}
+ * @param DescribeTrainingJobRequest - {@link DescribeTrainingJobRequest}
+ * @returns {@link DescribeTrainingJobResponse}
  * @see {@link DescribeTrainingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

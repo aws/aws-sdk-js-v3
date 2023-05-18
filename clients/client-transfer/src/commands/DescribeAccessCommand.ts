@@ -75,8 +75,8 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  *
  * ```
  *
- * @param DescribeAccessCommandInput - {@link DescribeAccessCommandInput}
- * @returns {@link DescribeAccessCommandOutput}
+ * @param DescribeAccessRequest - {@link DescribeAccessRequest}
+ * @returns {@link DescribeAccessResponse}
  * @see {@link DescribeAccessCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

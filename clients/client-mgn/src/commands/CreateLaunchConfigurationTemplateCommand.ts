@@ -163,8 +163,8 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  *
  * ```
  *
- * @param CreateLaunchConfigurationTemplateCommandInput - {@link CreateLaunchConfigurationTemplateCommandInput}
- * @returns {@link CreateLaunchConfigurationTemplateCommandOutput}
+ * @param CreateLaunchConfigurationTemplateRequest - {@link CreateLaunchConfigurationTemplateRequest}
+ * @returns {@link LaunchConfigurationTemplate}
  * @see {@link CreateLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

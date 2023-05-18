@@ -92,8 +92,8 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  *
  * ```
  *
- * @param DescribeSpeakerEnrollmentJobCommandInput - {@link DescribeSpeakerEnrollmentJobCommandInput}
- * @returns {@link DescribeSpeakerEnrollmentJobCommandOutput}
+ * @param DescribeSpeakerEnrollmentJobRequest - {@link DescribeSpeakerEnrollmentJobRequest}
+ * @returns {@link DescribeSpeakerEnrollmentJobResponse}
  * @see {@link DescribeSpeakerEnrollmentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSpeakerEnrollmentJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

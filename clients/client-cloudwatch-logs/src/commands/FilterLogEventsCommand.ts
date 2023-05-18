@@ -92,8 +92,8 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *
  * ```
  *
- * @param FilterLogEventsCommandInput - {@link FilterLogEventsCommandInput}
- * @returns {@link FilterLogEventsCommandOutput}
+ * @param FilterLogEventsRequest - {@link FilterLogEventsRequest}
+ * @returns {@link FilterLogEventsResponse}
  * @see {@link FilterLogEventsCommandInput} for command's `input` shape.
  * @see {@link FilterLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

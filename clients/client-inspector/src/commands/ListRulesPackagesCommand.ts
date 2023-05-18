@@ -54,8 +54,8 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  *
  * ```
  *
- * @param ListRulesPackagesCommandInput - {@link ListRulesPackagesCommandInput}
- * @returns {@link ListRulesPackagesCommandOutput}
+ * @param ListRulesPackagesRequest - {@link ListRulesPackagesRequest}
+ * @returns {@link ListRulesPackagesResponse}
  * @see {@link ListRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link ListRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

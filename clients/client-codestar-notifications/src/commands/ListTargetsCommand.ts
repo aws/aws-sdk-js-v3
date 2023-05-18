@@ -68,8 +68,8 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  *
  * ```
  *
- * @param ListTargetsCommandInput - {@link ListTargetsCommandInput}
- * @returns {@link ListTargetsCommandOutput}
+ * @param ListTargetsRequest - {@link ListTargetsRequest}
+ * @returns {@link ListTargetsResult}
  * @see {@link ListTargetsCommandInput} for command's `input` shape.
  * @see {@link ListTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.

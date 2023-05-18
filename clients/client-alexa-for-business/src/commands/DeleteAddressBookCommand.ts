@@ -48,8 +48,8 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  *
  * ```
  *
- * @param DeleteAddressBookCommandInput - {@link DeleteAddressBookCommandInput}
- * @returns {@link DeleteAddressBookCommandOutput}
+ * @param DeleteAddressBookRequest - {@link DeleteAddressBookRequest}
+ * @returns {@link DeleteAddressBookResponse}
  * @see {@link DeleteAddressBookCommandInput} for command's `input` shape.
  * @see {@link DeleteAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -66,8 +66,8 @@ export interface CreateWatchlistCommandOutput extends CreateWatchlistResponse, _
  *
  * ```
  *
- * @param CreateWatchlistCommandInput - {@link CreateWatchlistCommandInput}
- * @returns {@link CreateWatchlistCommandOutput}
+ * @param CreateWatchlistRequest - {@link CreateWatchlistRequest}
+ * @returns {@link CreateWatchlistResponse}
  * @see {@link CreateWatchlistCommandInput} for command's `input` shape.
  * @see {@link CreateWatchlistCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

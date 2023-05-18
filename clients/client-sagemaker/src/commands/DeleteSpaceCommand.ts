@@ -49,8 +49,8 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSpaceCommandInput - {@link DeleteSpaceCommandInput}
- * @returns {@link DeleteSpaceCommandOutput}
+ * @param DeleteSpaceRequest - {@link DeleteSpaceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSpaceCommandInput} for command's `input` shape.
  * @see {@link DeleteSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -76,8 +76,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  *
  * ```
  *
- * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
- * @returns {@link DeleteVolumeCommandOutput}
+ * @param DeleteVolumeRequest - {@link DeleteVolumeRequest}
+ * @returns {@link DeleteVolumeResponse}
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

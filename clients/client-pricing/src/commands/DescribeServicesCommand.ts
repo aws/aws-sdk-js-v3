@@ -68,8 +68,8 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *
  * ```
  *
- * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
- * @returns {@link DescribeServicesCommandOutput}
+ * @param DescribeServicesRequest - {@link DescribeServicesRequest}
+ * @returns {@link DescribeServicesResponse}
  * @see {@link DescribeServicesCommandInput} for command's `input` shape.
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.

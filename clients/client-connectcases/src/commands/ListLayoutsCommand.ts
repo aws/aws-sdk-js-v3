@@ -60,8 +60,8 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  *
  * ```
  *
- * @param ListLayoutsCommandInput - {@link ListLayoutsCommandInput}
- * @returns {@link ListLayoutsCommandOutput}
+ * @param ListLayoutsRequest - {@link ListLayoutsRequest}
+ * @returns {@link ListLayoutsResponse}
  * @see {@link ListLayoutsCommandInput} for command's `input` shape.
  * @see {@link ListLayoutsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

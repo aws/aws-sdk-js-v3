@@ -110,8 +110,8 @@ export interface PutAppValidationConfigurationCommandOutput
  *
  * ```
  *
- * @param PutAppValidationConfigurationCommandInput - {@link PutAppValidationConfigurationCommandInput}
- * @returns {@link PutAppValidationConfigurationCommandOutput}
+ * @param PutAppValidationConfigurationRequest - {@link PutAppValidationConfigurationRequest}
+ * @returns {@link PutAppValidationConfigurationResponse}
  * @see {@link PutAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppValidationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

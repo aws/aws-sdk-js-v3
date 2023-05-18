@@ -86,8 +86,8 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  *
  * ```
  *
- * @param DescribeNotebookExecutionCommandInput - {@link DescribeNotebookExecutionCommandInput}
- * @returns {@link DescribeNotebookExecutionCommandOutput}
+ * @param DescribeNotebookExecutionInput - {@link DescribeNotebookExecutionInput}
+ * @returns {@link DescribeNotebookExecutionOutput}
  * @see {@link DescribeNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

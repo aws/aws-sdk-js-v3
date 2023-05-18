@@ -376,8 +376,8 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *
  * ```
  *
- * @param CreateOriginEndpointCommandInput - {@link CreateOriginEndpointCommandInput}
- * @returns {@link CreateOriginEndpointCommandOutput}
+ * @param CreateOriginEndpointRequest - {@link CreateOriginEndpointRequest}
+ * @returns {@link CreateOriginEndpointResponse}
  * @see {@link CreateOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateOriginEndpointCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

@@ -131,8 +131,8 @@ export interface CreateTransitVirtualInterfaceCommandOutput
  *
  * ```
  *
- * @param CreateTransitVirtualInterfaceCommandInput - {@link CreateTransitVirtualInterfaceCommandInput}
- * @returns {@link CreateTransitVirtualInterfaceCommandOutput}
+ * @param CreateTransitVirtualInterfaceRequest - {@link CreateTransitVirtualInterfaceRequest}
+ * @returns {@link CreateTransitVirtualInterfaceResult}
  * @see {@link CreateTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

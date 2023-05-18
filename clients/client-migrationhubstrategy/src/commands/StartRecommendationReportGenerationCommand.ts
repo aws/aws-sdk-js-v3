@@ -68,8 +68,8 @@ export interface StartRecommendationReportGenerationCommandOutput
  *
  * ```
  *
- * @param StartRecommendationReportGenerationCommandInput - {@link StartRecommendationReportGenerationCommandInput}
- * @returns {@link StartRecommendationReportGenerationCommandOutput}
+ * @param StartRecommendationReportGenerationRequest - {@link StartRecommendationReportGenerationRequest}
+ * @returns {@link StartRecommendationReportGenerationResponse}
  * @see {@link StartRecommendationReportGenerationCommandInput} for command's `input` shape.
  * @see {@link StartRecommendationReportGenerationCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

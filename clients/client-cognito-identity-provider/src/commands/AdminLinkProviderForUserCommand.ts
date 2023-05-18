@@ -81,8 +81,8 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  *
  * ```
  *
- * @param AdminLinkProviderForUserCommandInput - {@link AdminLinkProviderForUserCommandInput}
- * @returns {@link AdminLinkProviderForUserCommandOutput}
+ * @param AdminLinkProviderForUserRequest - {@link AdminLinkProviderForUserRequest}
+ * @returns {@link AdminLinkProviderForUserResponse}
  * @see {@link AdminLinkProviderForUserCommandInput} for command's `input` shape.
  * @see {@link AdminLinkProviderForUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

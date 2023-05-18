@@ -61,8 +61,8 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  *
  * ```
  *
- * @param DescribeRuntimeVersionsCommandInput - {@link DescribeRuntimeVersionsCommandInput}
- * @returns {@link DescribeRuntimeVersionsCommandOutput}
+ * @param DescribeRuntimeVersionsRequest - {@link DescribeRuntimeVersionsRequest}
+ * @returns {@link DescribeRuntimeVersionsResponse}
  * @see {@link DescribeRuntimeVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeVersionsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

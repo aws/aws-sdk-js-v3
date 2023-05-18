@@ -118,8 +118,8 @@ export interface ListDetectMitigationActionsTasksCommandOutput
  *
  * ```
  *
- * @param ListDetectMitigationActionsTasksCommandInput - {@link ListDetectMitigationActionsTasksCommandInput}
- * @returns {@link ListDetectMitigationActionsTasksCommandOutput}
+ * @param ListDetectMitigationActionsTasksRequest - {@link ListDetectMitigationActionsTasksRequest}
+ * @returns {@link ListDetectMitigationActionsTasksResponse}
  * @see {@link ListDetectMitigationActionsTasksCommandInput} for command's `input` shape.
  * @see {@link ListDetectMitigationActionsTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

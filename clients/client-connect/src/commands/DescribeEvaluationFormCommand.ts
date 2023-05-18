@@ -194,8 +194,8 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  *
  * ```
  *
- * @param DescribeEvaluationFormCommandInput - {@link DescribeEvaluationFormCommandInput}
- * @returns {@link DescribeEvaluationFormCommandOutput}
+ * @param DescribeEvaluationFormRequest - {@link DescribeEvaluationFormRequest}
+ * @returns {@link DescribeEvaluationFormResponse}
  * @see {@link DescribeEvaluationFormCommandInput} for command's `input` shape.
  * @see {@link DescribeEvaluationFormCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

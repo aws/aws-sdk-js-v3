@@ -63,8 +63,8 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  *
  * ```
  *
- * @param GetEmailIdentityPoliciesCommandInput - {@link GetEmailIdentityPoliciesCommandInput}
- * @returns {@link GetEmailIdentityPoliciesCommandOutput}
+ * @param GetEmailIdentityPoliciesRequest - {@link GetEmailIdentityPoliciesRequest}
+ * @returns {@link GetEmailIdentityPoliciesResponse}
  * @see {@link GetEmailIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

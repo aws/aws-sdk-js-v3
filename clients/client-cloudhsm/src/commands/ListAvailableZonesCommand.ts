@@ -60,8 +60,8 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  *
  * ```
  *
- * @param ListAvailableZonesCommandInput - {@link ListAvailableZonesCommandInput}
- * @returns {@link ListAvailableZonesCommandOutput}
+ * @param ListAvailableZonesRequest - {@link ListAvailableZonesRequest}
+ * @returns {@link ListAvailableZonesResponse}
  * @see {@link ListAvailableZonesCommandInput} for command's `input` shape.
  * @see {@link ListAvailableZonesCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

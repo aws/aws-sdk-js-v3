@@ -55,8 +55,8 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  *
  * ```
  *
- * @param AssociateTrackerConsumerCommandInput - {@link AssociateTrackerConsumerCommandInput}
- * @returns {@link AssociateTrackerConsumerCommandOutput}
+ * @param AssociateTrackerConsumerRequest - {@link AssociateTrackerConsumerRequest}
+ * @returns {@link AssociateTrackerConsumerResponse}
  * @see {@link AssociateTrackerConsumerCommandInput} for command's `input` shape.
  * @see {@link AssociateTrackerConsumerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

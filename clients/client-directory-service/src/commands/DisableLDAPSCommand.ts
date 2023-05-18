@@ -49,8 +49,8 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  *
  * ```
  *
- * @param DisableLDAPSCommandInput - {@link DisableLDAPSCommandInput}
- * @returns {@link DisableLDAPSCommandOutput}
+ * @param DisableLDAPSRequest - {@link DisableLDAPSRequest}
+ * @returns {@link DisableLDAPSResult}
  * @see {@link DisableLDAPSCommandInput} for command's `input` shape.
  * @see {@link DisableLDAPSCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

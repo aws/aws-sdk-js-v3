@@ -50,8 +50,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  *
  * ```
  *
- * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
- * @returns {@link DeleteSnapshotCommandOutput}
+ * @param DeleteSnapshotRequest - {@link DeleteSnapshotRequest}
+ * @returns {@link DeleteSnapshotResult}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

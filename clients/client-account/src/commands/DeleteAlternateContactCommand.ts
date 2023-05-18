@@ -57,8 +57,8 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAlternateContactCommandInput - {@link DeleteAlternateContactCommandInput}
- * @returns {@link DeleteAlternateContactCommandOutput}
+ * @param DeleteAlternateContactRequest - {@link DeleteAlternateContactRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAlternateContactCommandInput} for command's `input` shape.
  * @see {@link DeleteAlternateContactCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

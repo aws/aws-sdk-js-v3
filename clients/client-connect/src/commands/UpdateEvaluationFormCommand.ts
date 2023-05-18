@@ -187,8 +187,8 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *
  * ```
  *
- * @param UpdateEvaluationFormCommandInput - {@link UpdateEvaluationFormCommandInput}
- * @returns {@link UpdateEvaluationFormCommandOutput}
+ * @param UpdateEvaluationFormRequest - {@link UpdateEvaluationFormRequest}
+ * @returns {@link UpdateEvaluationFormResponse}
  * @see {@link UpdateEvaluationFormCommandInput} for command's `input` shape.
  * @see {@link UpdateEvaluationFormCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

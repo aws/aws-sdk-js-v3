@@ -57,8 +57,8 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  *
  * ```
  *
- * @param DeleteEventStreamCommandInput - {@link DeleteEventStreamCommandInput}
- * @returns {@link DeleteEventStreamCommandOutput}
+ * @param DeleteEventStreamRequest - {@link DeleteEventStreamRequest}
+ * @returns {@link DeleteEventStreamResponse}
  * @see {@link DeleteEventStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

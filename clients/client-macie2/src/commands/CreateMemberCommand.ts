@@ -56,8 +56,8 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  *
  * ```
  *
- * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
- * @returns {@link CreateMemberCommandOutput}
+ * @param CreateMemberRequest - {@link CreateMemberRequest}
+ * @returns {@link CreateMemberResponse}
  * @see {@link CreateMemberCommandInput} for command's `input` shape.
  * @see {@link CreateMemberCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

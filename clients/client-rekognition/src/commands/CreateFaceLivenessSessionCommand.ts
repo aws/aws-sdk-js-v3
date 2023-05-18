@@ -64,8 +64,8 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  *
  * ```
  *
- * @param CreateFaceLivenessSessionCommandInput - {@link CreateFaceLivenessSessionCommandInput}
- * @returns {@link CreateFaceLivenessSessionCommandOutput}
+ * @param CreateFaceLivenessSessionRequest - {@link CreateFaceLivenessSessionRequest}
+ * @returns {@link CreateFaceLivenessSessionResponse}
  * @see {@link CreateFaceLivenessSessionCommandInput} for command's `input` shape.
  * @see {@link CreateFaceLivenessSessionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

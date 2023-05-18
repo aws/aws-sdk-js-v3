@@ -73,8 +73,8 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  *
  * ```
  *
- * @param BatchStartRecommendationsCommandInput - {@link BatchStartRecommendationsCommandInput}
- * @returns {@link BatchStartRecommendationsCommandOutput}
+ * @param BatchStartRecommendationsRequest - {@link BatchStartRecommendationsRequest}
+ * @returns {@link BatchStartRecommendationsResponse}
  * @see {@link BatchStartRecommendationsCommandInput} for command's `input` shape.
  * @see {@link BatchStartRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -94,8 +94,8 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  *
  * ```
  *
- * @param SubscribeToDatasetCommandInput - {@link SubscribeToDatasetCommandInput}
- * @returns {@link SubscribeToDatasetCommandOutput}
+ * @param SubscribeToDatasetRequest - {@link SubscribeToDatasetRequest}
+ * @returns {@link SubscribeToDatasetResponse}
  * @see {@link SubscribeToDatasetCommandInput} for command's `input` shape.
  * @see {@link SubscribeToDatasetCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

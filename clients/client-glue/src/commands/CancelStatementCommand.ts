@@ -50,8 +50,8 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  *
  * ```
  *
- * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
- * @returns {@link CancelStatementCommandOutput}
+ * @param CancelStatementRequest - {@link CancelStatementRequest}
+ * @returns {@link CancelStatementResponse}
  * @see {@link CancelStatementCommandInput} for command's `input` shape.
  * @see {@link CancelStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

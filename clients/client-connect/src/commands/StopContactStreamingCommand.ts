@@ -52,8 +52,8 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  *
  * ```
  *
- * @param StopContactStreamingCommandInput - {@link StopContactStreamingCommandInput}
- * @returns {@link StopContactStreamingCommandOutput}
+ * @param StopContactStreamingRequest - {@link StopContactStreamingRequest}
+ * @returns {@link StopContactStreamingResponse}
  * @see {@link StopContactStreamingCommandInput} for command's `input` shape.
  * @see {@link StopContactStreamingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

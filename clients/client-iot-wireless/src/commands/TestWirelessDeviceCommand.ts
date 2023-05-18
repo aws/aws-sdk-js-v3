@@ -50,8 +50,8 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  *
  * ```
  *
- * @param TestWirelessDeviceCommandInput - {@link TestWirelessDeviceCommandInput}
- * @returns {@link TestWirelessDeviceCommandOutput}
+ * @param TestWirelessDeviceRequest - {@link TestWirelessDeviceRequest}
+ * @returns {@link TestWirelessDeviceResponse}
  * @see {@link TestWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link TestWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

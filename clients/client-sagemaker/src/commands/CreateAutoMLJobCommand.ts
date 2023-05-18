@@ -121,8 +121,8 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *
  * ```
  *
- * @param CreateAutoMLJobCommandInput - {@link CreateAutoMLJobCommandInput}
- * @returns {@link CreateAutoMLJobCommandOutput}
+ * @param CreateAutoMLJobRequest - {@link CreateAutoMLJobRequest}
+ * @returns {@link CreateAutoMLJobResponse}
  * @see {@link CreateAutoMLJobCommandInput} for command's `input` shape.
  * @see {@link CreateAutoMLJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

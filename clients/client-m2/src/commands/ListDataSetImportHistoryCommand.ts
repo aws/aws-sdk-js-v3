@@ -65,8 +65,8 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  *
  * ```
  *
- * @param ListDataSetImportHistoryCommandInput - {@link ListDataSetImportHistoryCommandInput}
- * @returns {@link ListDataSetImportHistoryCommandOutput}
+ * @param ListDataSetImportHistoryRequest - {@link ListDataSetImportHistoryRequest}
+ * @returns {@link ListDataSetImportHistoryResponse}
  * @see {@link ListDataSetImportHistoryCommandInput} for command's `input` shape.
  * @see {@link ListDataSetImportHistoryCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

@@ -57,8 +57,8 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
  *
  * ```
  *
- * @param DisassociateWirelessGatewayFromCertificateCommandInput - {@link DisassociateWirelessGatewayFromCertificateCommandInput}
- * @returns {@link DisassociateWirelessGatewayFromCertificateCommandOutput}
+ * @param DisassociateWirelessGatewayFromCertificateRequest - {@link DisassociateWirelessGatewayFromCertificateRequest}
+ * @returns {@link DisassociateWirelessGatewayFromCertificateResponse}
  * @see {@link DisassociateWirelessGatewayFromCertificateCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessGatewayFromCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -67,8 +67,8 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  *
  * ```
  *
- * @param CreateCodeRepositoryCommandInput - {@link CreateCodeRepositoryCommandInput}
- * @returns {@link CreateCodeRepositoryCommandOutput}
+ * @param CreateCodeRepositoryInput - {@link CreateCodeRepositoryInput}
+ * @returns {@link CreateCodeRepositoryOutput}
  * @see {@link CreateCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

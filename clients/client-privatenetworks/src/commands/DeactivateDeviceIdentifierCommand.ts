@@ -65,8 +65,8 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  *
  * ```
  *
- * @param DeactivateDeviceIdentifierCommandInput - {@link DeactivateDeviceIdentifierCommandInput}
- * @returns {@link DeactivateDeviceIdentifierCommandOutput}
+ * @param DeactivateDeviceIdentifierRequest - {@link DeactivateDeviceIdentifierRequest}
+ * @returns {@link DeactivateDeviceIdentifierResponse}
  * @see {@link DeactivateDeviceIdentifierCommandInput} for command's `input` shape.
  * @see {@link DeactivateDeviceIdentifierCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

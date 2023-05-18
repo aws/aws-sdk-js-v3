@@ -92,8 +92,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  *
  * ```
  *
- * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
- * @returns {@link UpdatePhoneNumberCommandOutput}
+ * @param UpdatePhoneNumberRequest - {@link UpdatePhoneNumberRequest}
+ * @returns {@link UpdatePhoneNumberResponse}
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

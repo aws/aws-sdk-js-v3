@@ -60,8 +60,8 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  *
  * ```
  *
- * @param InvokeDeviceMethodCommandInput - {@link InvokeDeviceMethodCommandInput}
- * @returns {@link InvokeDeviceMethodCommandOutput}
+ * @param InvokeDeviceMethodRequest - {@link InvokeDeviceMethodRequest}
+ * @returns {@link InvokeDeviceMethodResponse}
  * @see {@link InvokeDeviceMethodCommandInput} for command's `input` shape.
  * @see {@link InvokeDeviceMethodCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.

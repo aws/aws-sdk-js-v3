@@ -151,8 +151,8 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *
  * ```
  *
- * @param GetSpotPlacementScoresCommandInput - {@link GetSpotPlacementScoresCommandInput}
- * @returns {@link GetSpotPlacementScoresCommandOutput}
+ * @param GetSpotPlacementScoresRequest - {@link GetSpotPlacementScoresRequest}
+ * @returns {@link GetSpotPlacementScoresResult}
  * @see {@link GetSpotPlacementScoresCommandInput} for command's `input` shape.
  * @see {@link GetSpotPlacementScoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

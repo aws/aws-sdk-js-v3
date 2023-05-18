@@ -73,8 +73,8 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  *
  * ```
  *
- * @param BatchPutScheduledUpdateGroupActionCommandInput - {@link BatchPutScheduledUpdateGroupActionCommandInput}
- * @returns {@link BatchPutScheduledUpdateGroupActionCommandOutput}
+ * @param BatchPutScheduledUpdateGroupActionType - {@link BatchPutScheduledUpdateGroupActionType}
+ * @returns {@link BatchPutScheduledUpdateGroupActionAnswer}
  * @see {@link BatchPutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
  * @see {@link BatchPutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

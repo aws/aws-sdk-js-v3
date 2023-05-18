@@ -48,8 +48,8 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  *
  * ```
  *
- * @param DeleteLoggerDefinitionCommandInput - {@link DeleteLoggerDefinitionCommandInput}
- * @returns {@link DeleteLoggerDefinitionCommandOutput}
+ * @param DeleteLoggerDefinitionRequest - {@link DeleteLoggerDefinitionRequest}
+ * @returns {@link DeleteLoggerDefinitionResponse}
  * @see {@link DeleteLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

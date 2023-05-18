@@ -62,8 +62,8 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddTagsToStreamCommandInput - {@link AddTagsToStreamCommandInput}
- * @returns {@link AddTagsToStreamCommandOutput}
+ * @param AddTagsToStreamInput - {@link AddTagsToStreamInput}
+ * @returns {@link Unit}
  * @see {@link AddTagsToStreamCommandInput} for command's `input` shape.
  * @see {@link AddTagsToStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

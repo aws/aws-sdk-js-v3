@@ -48,8 +48,8 @@ export interface DeleteRestApiCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRestApiCommandInput - {@link DeleteRestApiCommandInput}
- * @returns {@link DeleteRestApiCommandOutput}
+ * @param DeleteRestApiRequest - {@link DeleteRestApiRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRestApiCommandInput} for command's `input` shape.
  * @see {@link DeleteRestApiCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

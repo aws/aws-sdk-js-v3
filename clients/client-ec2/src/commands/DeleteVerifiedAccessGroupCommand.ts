@@ -67,8 +67,8 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  *
  * ```
  *
- * @param DeleteVerifiedAccessGroupCommandInput - {@link DeleteVerifiedAccessGroupCommandInput}
- * @returns {@link DeleteVerifiedAccessGroupCommandOutput}
+ * @param DeleteVerifiedAccessGroupRequest - {@link DeleteVerifiedAccessGroupRequest}
+ * @returns {@link DeleteVerifiedAccessGroupResult}
  * @see {@link DeleteVerifiedAccessGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

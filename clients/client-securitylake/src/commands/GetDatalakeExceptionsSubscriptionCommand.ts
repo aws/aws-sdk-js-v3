@@ -59,8 +59,8 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
  *
  * ```
  *
- * @param GetDatalakeExceptionsSubscriptionCommandInput - {@link GetDatalakeExceptionsSubscriptionCommandInput}
- * @returns {@link GetDatalakeExceptionsSubscriptionCommandOutput}
+ * @param GetDatalakeExceptionsSubscriptionRequest - {@link GetDatalakeExceptionsSubscriptionRequest}
+ * @returns {@link GetDatalakeExceptionsSubscriptionResponse}
  * @see {@link GetDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

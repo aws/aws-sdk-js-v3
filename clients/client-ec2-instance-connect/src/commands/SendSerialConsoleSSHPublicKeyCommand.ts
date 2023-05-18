@@ -65,8 +65,8 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  *
  * ```
  *
- * @param SendSerialConsoleSSHPublicKeyCommandInput - {@link SendSerialConsoleSSHPublicKeyCommandInput}
- * @returns {@link SendSerialConsoleSSHPublicKeyCommandOutput}
+ * @param SendSerialConsoleSSHPublicKeyRequest - {@link SendSerialConsoleSSHPublicKeyRequest}
+ * @returns {@link SendSerialConsoleSSHPublicKeyResponse}
  * @see {@link SendSerialConsoleSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link SendSerialConsoleSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.

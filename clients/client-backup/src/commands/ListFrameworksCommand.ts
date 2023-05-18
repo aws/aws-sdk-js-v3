@@ -61,8 +61,8 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  *
  * ```
  *
- * @param ListFrameworksCommandInput - {@link ListFrameworksCommandInput}
- * @returns {@link ListFrameworksCommandOutput}
+ * @param ListFrameworksInput - {@link ListFrameworksInput}
+ * @returns {@link ListFrameworksOutput}
  * @see {@link ListFrameworksCommandInput} for command's `input` shape.
  * @see {@link ListFrameworksCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

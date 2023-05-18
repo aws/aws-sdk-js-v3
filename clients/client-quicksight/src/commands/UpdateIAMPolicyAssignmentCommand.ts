@@ -71,8 +71,8 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  *
  * ```
  *
- * @param UpdateIAMPolicyAssignmentCommandInput - {@link UpdateIAMPolicyAssignmentCommandInput}
- * @returns {@link UpdateIAMPolicyAssignmentCommandOutput}
+ * @param UpdateIAMPolicyAssignmentRequest - {@link UpdateIAMPolicyAssignmentRequest}
+ * @returns {@link UpdateIAMPolicyAssignmentResponse}
  * @see {@link UpdateIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link UpdateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

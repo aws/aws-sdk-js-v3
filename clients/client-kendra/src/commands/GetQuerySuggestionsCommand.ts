@@ -198,8 +198,8 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  *
  * ```
  *
- * @param GetQuerySuggestionsCommandInput - {@link GetQuerySuggestionsCommandInput}
- * @returns {@link GetQuerySuggestionsCommandOutput}
+ * @param GetQuerySuggestionsRequest - {@link GetQuerySuggestionsRequest}
+ * @returns {@link GetQuerySuggestionsResponse}
  * @see {@link GetQuerySuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetQuerySuggestionsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

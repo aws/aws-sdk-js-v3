@@ -51,8 +51,8 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  *
  * ```
  *
- * @param ProvideAnomalyFeedbackCommandInput - {@link ProvideAnomalyFeedbackCommandInput}
- * @returns {@link ProvideAnomalyFeedbackCommandOutput}
+ * @param ProvideAnomalyFeedbackRequest - {@link ProvideAnomalyFeedbackRequest}
+ * @returns {@link ProvideAnomalyFeedbackResponse}
  * @see {@link ProvideAnomalyFeedbackCommandInput} for command's `input` shape.
  * @see {@link ProvideAnomalyFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

@@ -55,8 +55,8 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  *
  * ```
  *
- * @param DeleteDataIntegrationCommandInput - {@link DeleteDataIntegrationCommandInput}
- * @returns {@link DeleteDataIntegrationCommandOutput}
+ * @param DeleteDataIntegrationRequest - {@link DeleteDataIntegrationRequest}
+ * @returns {@link DeleteDataIntegrationResponse}
  * @see {@link DeleteDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

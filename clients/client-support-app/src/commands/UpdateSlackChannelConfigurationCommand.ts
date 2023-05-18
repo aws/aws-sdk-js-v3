@@ -69,8 +69,8 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateSlackChannelConfigurationCommandInput - {@link UpdateSlackChannelConfigurationCommandInput}
- * @returns {@link UpdateSlackChannelConfigurationCommandOutput}
+ * @param UpdateSlackChannelConfigurationRequest - {@link UpdateSlackChannelConfigurationRequest}
+ * @returns {@link UpdateSlackChannelConfigurationResult}
  * @see {@link UpdateSlackChannelConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSlackChannelConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

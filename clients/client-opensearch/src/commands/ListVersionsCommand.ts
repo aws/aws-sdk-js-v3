@@ -55,8 +55,8 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  *
  * ```
  *
- * @param ListVersionsCommandInput - {@link ListVersionsCommandInput}
- * @returns {@link ListVersionsCommandOutput}
+ * @param ListVersionsRequest - {@link ListVersionsRequest}
+ * @returns {@link ListVersionsResponse}
  * @see {@link ListVersionsCommandInput} for command's `input` shape.
  * @see {@link ListVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

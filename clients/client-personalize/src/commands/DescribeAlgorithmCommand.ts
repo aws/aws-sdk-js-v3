@@ -94,8 +94,8 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmRespons
  *
  * ```
  *
- * @param DescribeAlgorithmCommandInput - {@link DescribeAlgorithmCommandInput}
- * @returns {@link DescribeAlgorithmCommandOutput}
+ * @param DescribeAlgorithmRequest - {@link DescribeAlgorithmRequest}
+ * @returns {@link DescribeAlgorithmResponse}
  * @see {@link DescribeAlgorithmCommandInput} for command's `input` shape.
  * @see {@link DescribeAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

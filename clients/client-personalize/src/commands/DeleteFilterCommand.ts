@@ -48,8 +48,8 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFilterCommandInput - {@link DeleteFilterCommandInput}
- * @returns {@link DeleteFilterCommandOutput}
+ * @param DeleteFilterRequest - {@link DeleteFilterRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFilterCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

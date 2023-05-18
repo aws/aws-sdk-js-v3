@@ -60,8 +60,8 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param RegisterDelegatedAdministratorCommandInput - {@link RegisterDelegatedAdministratorCommandInput}
- * @returns {@link RegisterDelegatedAdministratorCommandOutput}
+ * @param RegisterDelegatedAdministratorRequest - {@link RegisterDelegatedAdministratorRequest}
+ * @returns {@link Unit}
  * @see {@link RegisterDelegatedAdministratorCommandInput} for command's `input` shape.
  * @see {@link RegisterDelegatedAdministratorCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

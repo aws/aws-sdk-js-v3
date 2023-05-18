@@ -62,8 +62,8 @@ export interface CreateRoutingControlCommandOutput extends CreateRoutingControlR
  *
  * ```
  *
- * @param CreateRoutingControlCommandInput - {@link CreateRoutingControlCommandInput}
- * @returns {@link CreateRoutingControlCommandOutput}
+ * @param CreateRoutingControlRequest - {@link CreateRoutingControlRequest}
+ * @returns {@link CreateRoutingControlResponse}
  * @see {@link CreateRoutingControlCommandInput} for command's `input` shape.
  * @see {@link CreateRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

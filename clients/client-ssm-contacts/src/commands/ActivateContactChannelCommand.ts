@@ -50,8 +50,8 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  *
  * ```
  *
- * @param ActivateContactChannelCommandInput - {@link ActivateContactChannelCommandInput}
- * @returns {@link ActivateContactChannelCommandOutput}
+ * @param ActivateContactChannelRequest - {@link ActivateContactChannelRequest}
+ * @returns {@link ActivateContactChannelResult}
  * @see {@link ActivateContactChannelCommandInput} for command's `input` shape.
  * @see {@link ActivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

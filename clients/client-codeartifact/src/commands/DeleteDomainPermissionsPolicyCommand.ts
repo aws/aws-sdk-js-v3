@@ -63,8 +63,8 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  *
  * ```
  *
- * @param DeleteDomainPermissionsPolicyCommandInput - {@link DeleteDomainPermissionsPolicyCommandInput}
- * @returns {@link DeleteDomainPermissionsPolicyCommandOutput}
+ * @param DeleteDomainPermissionsPolicyRequest - {@link DeleteDomainPermissionsPolicyRequest}
+ * @returns {@link DeleteDomainPermissionsPolicyResult}
  * @see {@link DeleteDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

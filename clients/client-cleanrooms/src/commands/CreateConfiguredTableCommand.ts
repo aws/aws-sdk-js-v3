@@ -84,8 +84,8 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  *
  * ```
  *
- * @param CreateConfiguredTableCommandInput - {@link CreateConfiguredTableCommandInput}
- * @returns {@link CreateConfiguredTableCommandOutput}
+ * @param CreateConfiguredTableInput - {@link CreateConfiguredTableInput}
+ * @returns {@link CreateConfiguredTableOutput}
  * @see {@link CreateConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link CreateConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

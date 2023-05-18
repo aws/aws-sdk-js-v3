@@ -159,8 +159,8 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  *
  * ```
  *
- * @param DescribeScheduledQueryCommandInput - {@link DescribeScheduledQueryCommandInput}
- * @returns {@link DescribeScheduledQueryCommandOutput}
+ * @param DescribeScheduledQueryRequest - {@link DescribeScheduledQueryRequest}
+ * @returns {@link DescribeScheduledQueryResponse}
  * @see {@link DescribeScheduledQueryCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.

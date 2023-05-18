@@ -161,8 +161,8 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  *
  * ```
  *
- * @param GetBucketLifecycleConfigurationCommandInput - {@link GetBucketLifecycleConfigurationCommandInput}
- * @returns {@link GetBucketLifecycleConfigurationCommandOutput}
+ * @param GetBucketLifecycleConfigurationRequest - {@link GetBucketLifecycleConfigurationRequest}
+ * @returns {@link GetBucketLifecycleConfigurationOutput}
  * @see {@link GetBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

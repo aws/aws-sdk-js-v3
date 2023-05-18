@@ -56,8 +56,8 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetSinkCommandInput - {@link GetSinkCommandInput}
- * @returns {@link GetSinkCommandOutput}
+ * @param GetSinkInput - {@link GetSinkInput}
+ * @returns {@link GetSinkOutput}
  * @see {@link GetSinkCommandInput} for command's `input` shape.
  * @see {@link GetSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

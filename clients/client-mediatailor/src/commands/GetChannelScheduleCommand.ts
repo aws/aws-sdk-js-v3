@@ -74,8 +74,8 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  *
  * ```
  *
- * @param GetChannelScheduleCommandInput - {@link GetChannelScheduleCommandInput}
- * @returns {@link GetChannelScheduleCommandOutput}
+ * @param GetChannelScheduleRequest - {@link GetChannelScheduleRequest}
+ * @returns {@link GetChannelScheduleResponse}
  * @see {@link GetChannelScheduleCommandInput} for command's `input` shape.
  * @see {@link GetChannelScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

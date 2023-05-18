@@ -164,8 +164,8 @@ export interface CreateCertificateCommandOutput extends CreateCertificateResult,
  *
  * ```
  *
- * @param CreateCertificateCommandInput - {@link CreateCertificateCommandInput}
- * @returns {@link CreateCertificateCommandOutput}
+ * @param CreateCertificateRequest - {@link CreateCertificateRequest}
+ * @returns {@link CreateCertificateResult}
  * @see {@link CreateCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -276,8 +276,8 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  *
  * ```
  *
- * @param ListClusterOperationsCommandInput - {@link ListClusterOperationsCommandInput}
- * @returns {@link ListClusterOperationsCommandOutput}
+ * @param ListClusterOperationsRequest - {@link ListClusterOperationsRequest}
+ * @returns {@link ListClusterOperationsResponse}
  * @see {@link ListClusterOperationsCommandInput} for command's `input` shape.
  * @see {@link ListClusterOperationsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

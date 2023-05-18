@@ -62,8 +62,8 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  *
  * ```
  *
- * @param ApplyEnvironmentManagedActionCommandInput - {@link ApplyEnvironmentManagedActionCommandInput}
- * @returns {@link ApplyEnvironmentManagedActionCommandOutput}
+ * @param ApplyEnvironmentManagedActionRequest - {@link ApplyEnvironmentManagedActionRequest}
+ * @returns {@link ApplyEnvironmentManagedActionResult}
  * @see {@link ApplyEnvironmentManagedActionCommandInput} for command's `input` shape.
  * @see {@link ApplyEnvironmentManagedActionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -77,8 +77,8 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  *
  * ```
  *
- * @param ListObjectAttributesCommandInput - {@link ListObjectAttributesCommandInput}
- * @returns {@link ListObjectAttributesCommandOutput}
+ * @param ListObjectAttributesRequest - {@link ListObjectAttributesRequest}
+ * @returns {@link ListObjectAttributesResponse}
  * @see {@link ListObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link ListObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

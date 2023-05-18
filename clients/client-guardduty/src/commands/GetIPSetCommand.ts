@@ -57,8 +57,8 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetIPSetCommandInput - {@link GetIPSetCommandInput}
- * @returns {@link GetIPSetCommandOutput}
+ * @param GetIPSetRequest - {@link GetIPSetRequest}
+ * @returns {@link GetIPSetResponse}
  * @see {@link GetIPSetCommandInput} for command's `input` shape.
  * @see {@link GetIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

@@ -131,8 +131,8 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *
  * ```
  *
- * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
- * @returns {@link DeleteFileSystemCommandOutput}
+ * @param DeleteFileSystemRequest - {@link DeleteFileSystemRequest}
+ * @returns {@link DeleteFileSystemResponse}
  * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

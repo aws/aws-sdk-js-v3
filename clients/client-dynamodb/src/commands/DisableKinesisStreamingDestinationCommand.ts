@@ -59,8 +59,8 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  *
  * ```
  *
- * @param DisableKinesisStreamingDestinationCommandInput - {@link DisableKinesisStreamingDestinationCommandInput}
- * @returns {@link DisableKinesisStreamingDestinationCommandOutput}
+ * @param KinesisStreamingDestinationInput - {@link KinesisStreamingDestinationInput}
+ * @returns {@link KinesisStreamingDestinationOutput}
  * @see {@link DisableKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link DisableKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

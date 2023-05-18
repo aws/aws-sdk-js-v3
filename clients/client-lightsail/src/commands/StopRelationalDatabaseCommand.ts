@@ -72,8 +72,8 @@ export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatab
  *
  * ```
  *
- * @param StopRelationalDatabaseCommandInput - {@link StopRelationalDatabaseCommandInput}
- * @returns {@link StopRelationalDatabaseCommandOutput}
+ * @param StopRelationalDatabaseRequest - {@link StopRelationalDatabaseRequest}
+ * @returns {@link StopRelationalDatabaseResult}
  * @see {@link StopRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link StopRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

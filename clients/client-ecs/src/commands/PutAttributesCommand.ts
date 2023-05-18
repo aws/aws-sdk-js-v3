@@ -68,8 +68,8 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  *
  * ```
  *
- * @param PutAttributesCommandInput - {@link PutAttributesCommandInput}
- * @returns {@link PutAttributesCommandOutput}
+ * @param PutAttributesRequest - {@link PutAttributesRequest}
+ * @returns {@link PutAttributesResponse}
  * @see {@link PutAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

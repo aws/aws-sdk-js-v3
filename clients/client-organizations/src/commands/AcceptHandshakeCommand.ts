@@ -110,8 +110,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *
  * ```
  *
- * @param AcceptHandshakeCommandInput - {@link AcceptHandshakeCommandInput}
- * @returns {@link AcceptHandshakeCommandOutput}
+ * @param AcceptHandshakeRequest - {@link AcceptHandshakeRequest}
+ * @returns {@link AcceptHandshakeResponse}
  * @see {@link AcceptHandshakeCommandInput} for command's `input` shape.
  * @see {@link AcceptHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

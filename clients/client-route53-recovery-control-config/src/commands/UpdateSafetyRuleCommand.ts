@@ -95,8 +95,8 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  *
  * ```
  *
- * @param UpdateSafetyRuleCommandInput - {@link UpdateSafetyRuleCommandInput}
- * @returns {@link UpdateSafetyRuleCommandOutput}
+ * @param UpdateSafetyRuleRequest - {@link UpdateSafetyRuleRequest}
+ * @returns {@link UpdateSafetyRuleResponse}
  * @see {@link UpdateSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

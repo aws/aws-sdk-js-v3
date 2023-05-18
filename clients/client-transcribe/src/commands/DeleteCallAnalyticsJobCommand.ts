@@ -50,8 +50,8 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  *
  * ```
  *
- * @param DeleteCallAnalyticsJobCommandInput - {@link DeleteCallAnalyticsJobCommandInput}
- * @returns {@link DeleteCallAnalyticsJobCommandOutput}
+ * @param DeleteCallAnalyticsJobRequest - {@link DeleteCallAnalyticsJobRequest}
+ * @returns {@link DeleteCallAnalyticsJobResponse}
  * @see {@link DeleteCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link DeleteCallAnalyticsJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

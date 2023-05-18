@@ -53,8 +53,8 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutMetadataCommandInput - {@link PutMetadataCommandInput}
- * @returns {@link PutMetadataCommandOutput}
+ * @param PutMetadataRequest - {@link PutMetadataRequest}
+ * @returns {@link Unit}
  * @see {@link PutMetadataCommandInput} for command's `input` shape.
  * @see {@link PutMetadataCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

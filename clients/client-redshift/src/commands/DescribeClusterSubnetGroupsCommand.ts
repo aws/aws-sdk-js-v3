@@ -96,8 +96,8 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  *
  * ```
  *
- * @param DescribeClusterSubnetGroupsCommandInput - {@link DescribeClusterSubnetGroupsCommandInput}
- * @returns {@link DescribeClusterSubnetGroupsCommandOutput}
+ * @param DescribeClusterSubnetGroupsMessage - {@link DescribeClusterSubnetGroupsMessage}
+ * @returns {@link ClusterSubnetGroupMessage}
  * @see {@link DescribeClusterSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

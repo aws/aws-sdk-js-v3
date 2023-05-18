@@ -58,8 +58,8 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
  *
  * ```
  *
- * @param CreateAddressBookCommandInput - {@link CreateAddressBookCommandInput}
- * @returns {@link CreateAddressBookCommandOutput}
+ * @param CreateAddressBookRequest - {@link CreateAddressBookRequest}
+ * @returns {@link CreateAddressBookResponse}
  * @see {@link CreateAddressBookCommandInput} for command's `input` shape.
  * @see {@link CreateAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -66,8 +66,8 @@ export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefini
  *
  * ```
  *
- * @param GetLoggerDefinitionVersionCommandInput - {@link GetLoggerDefinitionVersionCommandInput}
- * @returns {@link GetLoggerDefinitionVersionCommandOutput}
+ * @param GetLoggerDefinitionVersionRequest - {@link GetLoggerDefinitionVersionRequest}
+ * @returns {@link GetLoggerDefinitionVersionResponse}
  * @see {@link GetLoggerDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetLoggerDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

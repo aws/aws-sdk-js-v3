@@ -61,8 +61,8 @@ export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabul
  *
  * ```
  *
- * @param ListDefaultVocabulariesCommandInput - {@link ListDefaultVocabulariesCommandInput}
- * @returns {@link ListDefaultVocabulariesCommandOutput}
+ * @param ListDefaultVocabulariesRequest - {@link ListDefaultVocabulariesRequest}
+ * @returns {@link ListDefaultVocabulariesResponse}
  * @see {@link ListDefaultVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListDefaultVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

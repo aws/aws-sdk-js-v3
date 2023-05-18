@@ -70,8 +70,8 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  *
  * ```
  *
- * @param AssociateTargetsWithJobCommandInput - {@link AssociateTargetsWithJobCommandInput}
- * @returns {@link AssociateTargetsWithJobCommandOutput}
+ * @param AssociateTargetsWithJobRequest - {@link AssociateTargetsWithJobRequest}
+ * @returns {@link AssociateTargetsWithJobResponse}
  * @see {@link AssociateTargetsWithJobCommandInput} for command's `input` shape.
  * @see {@link AssociateTargetsWithJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -71,8 +71,8 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  *
  * ```
  *
- * @param DisassociateResourceShareCommandInput - {@link DisassociateResourceShareCommandInput}
- * @returns {@link DisassociateResourceShareCommandOutput}
+ * @param DisassociateResourceShareRequest - {@link DisassociateResourceShareRequest}
+ * @returns {@link DisassociateResourceShareResponse}
  * @see {@link DisassociateResourceShareCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -60,8 +60,8 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  *
  * ```
  *
- * @param EstimateTemplateCostCommandInput - {@link EstimateTemplateCostCommandInput}
- * @returns {@link EstimateTemplateCostCommandOutput}
+ * @param EstimateTemplateCostInput - {@link EstimateTemplateCostInput}
+ * @returns {@link EstimateTemplateCostOutput}
  * @see {@link EstimateTemplateCostCommandInput} for command's `input` shape.
  * @see {@link EstimateTemplateCostCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

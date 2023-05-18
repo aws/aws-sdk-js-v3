@@ -87,8 +87,8 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateInfrastructureConfigurationCommandInput - {@link UpdateInfrastructureConfigurationCommandInput}
- * @returns {@link UpdateInfrastructureConfigurationCommandOutput}
+ * @param UpdateInfrastructureConfigurationRequest - {@link UpdateInfrastructureConfigurationRequest}
+ * @returns {@link UpdateInfrastructureConfigurationResponse}
  * @see {@link UpdateInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

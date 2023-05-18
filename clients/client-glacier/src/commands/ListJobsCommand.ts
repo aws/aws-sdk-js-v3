@@ -173,8 +173,8 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  *
  * ```
  *
- * @param ListJobsCommandInput - {@link ListJobsCommandInput}
- * @returns {@link ListJobsCommandOutput}
+ * @param ListJobsInput - {@link ListJobsInput}
+ * @returns {@link ListJobsOutput}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

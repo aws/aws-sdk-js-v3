@@ -64,8 +64,8 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  *
  * ```
  *
- * @param ListSubscriptionsByTopicCommandInput - {@link ListSubscriptionsByTopicCommandInput}
- * @returns {@link ListSubscriptionsByTopicCommandOutput}
+ * @param ListSubscriptionsByTopicInput - {@link ListSubscriptionsByTopicInput}
+ * @returns {@link ListSubscriptionsByTopicResponse}
  * @see {@link ListSubscriptionsByTopicCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionsByTopicCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

@@ -794,8 +794,8 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *
  * ```
  *
- * @param UpdateCampaignCommandInput - {@link UpdateCampaignCommandInput}
- * @returns {@link UpdateCampaignCommandOutput}
+ * @param UpdateCampaignRequest - {@link UpdateCampaignRequest}
+ * @returns {@link UpdateCampaignResponse}
  * @see {@link UpdateCampaignCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

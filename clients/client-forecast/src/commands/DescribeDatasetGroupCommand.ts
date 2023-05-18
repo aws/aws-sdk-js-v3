@@ -82,8 +82,8 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  *
  * ```
  *
- * @param DescribeDatasetGroupCommandInput - {@link DescribeDatasetGroupCommandInput}
- * @returns {@link DescribeDatasetGroupCommandOutput}
+ * @param DescribeDatasetGroupRequest - {@link DescribeDatasetGroupRequest}
+ * @returns {@link DescribeDatasetGroupResponse}
  * @see {@link DescribeDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

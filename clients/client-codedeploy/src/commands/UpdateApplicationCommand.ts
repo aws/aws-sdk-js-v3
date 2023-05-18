@@ -49,8 +49,8 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
- * @returns {@link UpdateApplicationCommandOutput}
+ * @param UpdateApplicationInput - {@link UpdateApplicationInput}
+ * @returns {@link Unit}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

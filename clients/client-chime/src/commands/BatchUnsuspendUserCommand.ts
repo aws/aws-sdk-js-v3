@@ -70,8 +70,8 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  *
  * ```
  *
- * @param BatchUnsuspendUserCommandInput - {@link BatchUnsuspendUserCommandInput}
- * @returns {@link BatchUnsuspendUserCommandOutput}
+ * @param BatchUnsuspendUserRequest - {@link BatchUnsuspendUserRequest}
+ * @returns {@link BatchUnsuspendUserResponse}
  * @see {@link BatchUnsuspendUserCommandInput} for command's `input` shape.
  * @see {@link BatchUnsuspendUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

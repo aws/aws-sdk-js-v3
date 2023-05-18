@@ -77,8 +77,8 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  *
  * ```
  *
- * @param ListExplainabilitiesCommandInput - {@link ListExplainabilitiesCommandInput}
- * @returns {@link ListExplainabilitiesCommandOutput}
+ * @param ListExplainabilitiesRequest - {@link ListExplainabilitiesRequest}
+ * @returns {@link ListExplainabilitiesResponse}
  * @see {@link ListExplainabilitiesCommandInput} for command's `input` shape.
  * @see {@link ListExplainabilitiesCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

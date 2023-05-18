@@ -247,8 +247,8 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *
  * ```
  *
- * @param BatchGetItemCommandInput - {@link BatchGetItemCommandInput}
- * @returns {@link BatchGetItemCommandOutput}
+ * @param BatchGetItemInput - {@link BatchGetItemInput}
+ * @returns {@link BatchGetItemOutput}
  * @see {@link BatchGetItemCommandInput} for command's `input` shape.
  * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

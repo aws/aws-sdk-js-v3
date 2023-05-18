@@ -65,8 +65,8 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  *
  * ```
  *
- * @param DeleteCommentContentCommandInput - {@link DeleteCommentContentCommandInput}
- * @returns {@link DeleteCommentContentCommandOutput}
+ * @param DeleteCommentContentInput - {@link DeleteCommentContentInput}
+ * @returns {@link DeleteCommentContentOutput}
  * @see {@link DeleteCommentContentCommandInput} for command's `input` shape.
  * @see {@link DeleteCommentContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

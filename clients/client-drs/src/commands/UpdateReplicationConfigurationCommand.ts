@@ -132,8 +132,8 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  *
  * ```
  *
- * @param UpdateReplicationConfigurationCommandInput - {@link UpdateReplicationConfigurationCommandInput}
- * @returns {@link UpdateReplicationConfigurationCommandOutput}
+ * @param UpdateReplicationConfigurationRequest - {@link UpdateReplicationConfigurationRequest}
+ * @returns {@link ReplicationConfiguration}
  * @see {@link UpdateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

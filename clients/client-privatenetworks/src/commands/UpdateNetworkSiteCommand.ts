@@ -109,8 +109,8 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  *
  * ```
  *
- * @param UpdateNetworkSiteCommandInput - {@link UpdateNetworkSiteCommandInput}
- * @returns {@link UpdateNetworkSiteCommandOutput}
+ * @param UpdateNetworkSiteRequest - {@link UpdateNetworkSiteRequest}
+ * @returns {@link UpdateNetworkSiteResponse}
  * @see {@link UpdateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

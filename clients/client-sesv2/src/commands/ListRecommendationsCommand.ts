@@ -66,8 +66,8 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  *
  * ```
  *
- * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
- * @returns {@link ListRecommendationsCommandOutput}
+ * @param ListRecommendationsRequest - {@link ListRecommendationsRequest}
+ * @returns {@link ListRecommendationsResponse}
  * @see {@link ListRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

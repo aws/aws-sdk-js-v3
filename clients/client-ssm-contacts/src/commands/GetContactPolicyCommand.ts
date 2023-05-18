@@ -52,8 +52,8 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  *
  * ```
  *
- * @param GetContactPolicyCommandInput - {@link GetContactPolicyCommandInput}
- * @returns {@link GetContactPolicyCommandOutput}
+ * @param GetContactPolicyRequest - {@link GetContactPolicyRequest}
+ * @returns {@link GetContactPolicyResult}
  * @see {@link GetContactPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

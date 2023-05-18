@@ -92,8 +92,8 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  *
  * ```
  *
- * @param StartDeliveryStreamEncryptionCommandInput - {@link StartDeliveryStreamEncryptionCommandInput}
- * @returns {@link StartDeliveryStreamEncryptionCommandOutput}
+ * @param StartDeliveryStreamEncryptionInput - {@link StartDeliveryStreamEncryptionInput}
+ * @returns {@link StartDeliveryStreamEncryptionOutput}
  * @see {@link StartDeliveryStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StartDeliveryStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

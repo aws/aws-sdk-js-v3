@@ -69,8 +69,8 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  *
  * ```
  *
- * @param CreateIntegrationResponseCommandInput - {@link CreateIntegrationResponseCommandInput}
- * @returns {@link CreateIntegrationResponseCommandOutput}
+ * @param CreateIntegrationResponseRequest - {@link CreateIntegrationResponseRequest}
+ * @returns {@link CreateIntegrationResponseResponse}
  * @see {@link CreateIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

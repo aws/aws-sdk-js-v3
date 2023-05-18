@@ -70,8 +70,8 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  *
  * ```
  *
- * @param ListResourceServersCommandInput - {@link ListResourceServersCommandInput}
- * @returns {@link ListResourceServersCommandOutput}
+ * @param ListResourceServersRequest - {@link ListResourceServersRequest}
+ * @returns {@link ListResourceServersResponse}
  * @see {@link ListResourceServersCommandInput} for command's `input` shape.
  * @see {@link ListResourceServersCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

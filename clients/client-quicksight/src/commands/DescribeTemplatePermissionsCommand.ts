@@ -67,8 +67,8 @@ export interface DescribeTemplatePermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeTemplatePermissionsCommandInput - {@link DescribeTemplatePermissionsCommandInput}
- * @returns {@link DescribeTemplatePermissionsCommandOutput}
+ * @param DescribeTemplatePermissionsRequest - {@link DescribeTemplatePermissionsRequest}
+ * @returns {@link DescribeTemplatePermissionsResponse}
  * @see {@link DescribeTemplatePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplatePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

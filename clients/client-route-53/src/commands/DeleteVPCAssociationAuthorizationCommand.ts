@@ -72,8 +72,8 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  *
  * ```
  *
- * @param DeleteVPCAssociationAuthorizationCommandInput - {@link DeleteVPCAssociationAuthorizationCommandInput}
- * @returns {@link DeleteVPCAssociationAuthorizationCommandOutput}
+ * @param DeleteVPCAssociationAuthorizationRequest - {@link DeleteVPCAssociationAuthorizationRequest}
+ * @returns {@link DeleteVPCAssociationAuthorizationResponse}
  * @see {@link DeleteVPCAssociationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

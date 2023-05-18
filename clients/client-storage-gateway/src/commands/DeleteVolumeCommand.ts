@@ -62,8 +62,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  *
  * ```
  *
- * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
- * @returns {@link DeleteVolumeCommandOutput}
+ * @param DeleteVolumeInput - {@link DeleteVolumeInput}
+ * @returns {@link DeleteVolumeOutput}
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -91,8 +91,8 @@ export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBea
  *
  * ```
  *
- * @param GetDomainsCommandInput - {@link GetDomainsCommandInput}
- * @returns {@link GetDomainsCommandOutput}
+ * @param GetDomainsRequest - {@link GetDomainsRequest}
+ * @returns {@link GetDomainsResult}
  * @see {@link GetDomainsCommandInput} for command's `input` shape.
  * @see {@link GetDomainsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

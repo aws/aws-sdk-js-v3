@@ -78,8 +78,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *
  * ```
  *
- * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
- * @returns {@link CreateConnectionCommandOutput}
+ * @param CreateConnectionRequest - {@link CreateConnectionRequest}
+ * @returns {@link CreateConnectionResponse}
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

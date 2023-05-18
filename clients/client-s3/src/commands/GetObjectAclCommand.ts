@@ -108,8 +108,8 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  *
  * ```
  *
- * @param GetObjectAclCommandInput - {@link GetObjectAclCommandInput}
- * @returns {@link GetObjectAclCommandOutput}
+ * @param GetObjectAclRequest - {@link GetObjectAclRequest}
+ * @returns {@link GetObjectAclOutput}
  * @see {@link GetObjectAclCommandInput} for command's `input` shape.
  * @see {@link GetObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

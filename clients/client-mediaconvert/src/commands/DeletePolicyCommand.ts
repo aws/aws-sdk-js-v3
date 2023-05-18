@@ -46,8 +46,8 @@ export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __Metad
  *
  * ```
  *
- * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
- * @returns {@link DeletePolicyCommandOutput}
+ * @param DeletePolicyRequest - {@link DeletePolicyRequest}
+ * @returns {@link DeletePolicyResponse}
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

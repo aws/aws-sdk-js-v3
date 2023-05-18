@@ -62,8 +62,8 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  *
  * ```
  *
- * @param DescribeSpotFleetInstancesCommandInput - {@link DescribeSpotFleetInstancesCommandInput}
- * @returns {@link DescribeSpotFleetInstancesCommandOutput}
+ * @param DescribeSpotFleetInstancesRequest - {@link DescribeSpotFleetInstancesRequest}
+ * @returns {@link DescribeSpotFleetInstancesResponse}
  * @see {@link DescribeSpotFleetInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

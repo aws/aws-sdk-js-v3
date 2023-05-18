@@ -50,8 +50,8 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  *
  * ```
  *
- * @param DisassociateDeviceFromRoomCommandInput - {@link DisassociateDeviceFromRoomCommandInput}
- * @returns {@link DisassociateDeviceFromRoomCommandOutput}
+ * @param DisassociateDeviceFromRoomRequest - {@link DisassociateDeviceFromRoomRequest}
+ * @returns {@link DisassociateDeviceFromRoomResponse}
  * @see {@link DisassociateDeviceFromRoomCommandInput} for command's `input` shape.
  * @see {@link DisassociateDeviceFromRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

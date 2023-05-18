@@ -79,8 +79,8 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
  *
  * ```
  *
- * @param GetProxySessionCommandInput - {@link GetProxySessionCommandInput}
- * @returns {@link GetProxySessionCommandOutput}
+ * @param GetProxySessionRequest - {@link GetProxySessionRequest}
+ * @returns {@link GetProxySessionResponse}
  * @see {@link GetProxySessionCommandInput} for command's `input` shape.
  * @see {@link GetProxySessionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

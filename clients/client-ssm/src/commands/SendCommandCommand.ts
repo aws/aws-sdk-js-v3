@@ -162,8 +162,8 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *
  * ```
  *
- * @param SendCommandCommandInput - {@link SendCommandCommandInput}
- * @returns {@link SendCommandCommandOutput}
+ * @param SendCommandRequest - {@link SendCommandRequest}
+ * @returns {@link SendCommandResult}
  * @see {@link SendCommandCommandInput} for command's `input` shape.
  * @see {@link SendCommandCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

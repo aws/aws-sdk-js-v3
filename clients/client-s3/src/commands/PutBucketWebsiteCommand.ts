@@ -200,8 +200,8 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketWebsiteCommandInput - {@link PutBucketWebsiteCommandInput}
- * @returns {@link PutBucketWebsiteCommandOutput}
+ * @param PutBucketWebsiteRequest - {@link PutBucketWebsiteRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketWebsiteCommandInput} for command's `input` shape.
  * @see {@link PutBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

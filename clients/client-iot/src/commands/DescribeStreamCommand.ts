@@ -69,8 +69,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
  *
  * ```
  *
- * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
- * @returns {@link DescribeStreamCommandOutput}
+ * @param DescribeStreamRequest - {@link DescribeStreamRequest}
+ * @returns {@link DescribeStreamResponse}
  * @see {@link DescribeStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -203,8 +203,8 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  *
  * ```
  *
- * @param DeleteSegmentCommandInput - {@link DeleteSegmentCommandInput}
- * @returns {@link DeleteSegmentCommandOutput}
+ * @param DeleteSegmentRequest - {@link DeleteSegmentRequest}
+ * @returns {@link DeleteSegmentResponse}
  * @see {@link DeleteSegmentCommandInput} for command's `input` shape.
  * @see {@link DeleteSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

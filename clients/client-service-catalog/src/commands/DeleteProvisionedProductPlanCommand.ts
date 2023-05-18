@@ -55,8 +55,8 @@ export interface DeleteProvisionedProductPlanCommandOutput
  *
  * ```
  *
- * @param DeleteProvisionedProductPlanCommandInput - {@link DeleteProvisionedProductPlanCommandInput}
- * @returns {@link DeleteProvisionedProductPlanCommandOutput}
+ * @param DeleteProvisionedProductPlanInput - {@link DeleteProvisionedProductPlanInput}
+ * @returns {@link DeleteProvisionedProductPlanOutput}
  * @see {@link DeleteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

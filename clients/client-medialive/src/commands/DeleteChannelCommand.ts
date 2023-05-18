@@ -1053,8 +1053,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  *
  * ```
  *
- * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
- * @returns {@link DeleteChannelCommandOutput}
+ * @param DeleteChannelRequest - {@link DeleteChannelRequest}
+ * @returns {@link DeleteChannelResponse}
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

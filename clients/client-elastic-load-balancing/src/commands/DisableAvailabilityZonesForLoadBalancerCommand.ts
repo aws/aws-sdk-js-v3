@@ -72,8 +72,8 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  *
  * ```
  *
- * @param DisableAvailabilityZonesForLoadBalancerCommandInput - {@link DisableAvailabilityZonesForLoadBalancerCommandInput}
- * @returns {@link DisableAvailabilityZonesForLoadBalancerCommandOutput}
+ * @param RemoveAvailabilityZonesInput - {@link RemoveAvailabilityZonesInput}
+ * @returns {@link RemoveAvailabilityZonesOutput}
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

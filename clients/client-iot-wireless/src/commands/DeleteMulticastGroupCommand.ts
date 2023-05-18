@@ -48,8 +48,8 @@ export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupR
  *
  * ```
  *
- * @param DeleteMulticastGroupCommandInput - {@link DeleteMulticastGroupCommandInput}
- * @returns {@link DeleteMulticastGroupCommandOutput}
+ * @param DeleteMulticastGroupRequest - {@link DeleteMulticastGroupRequest}
+ * @returns {@link DeleteMulticastGroupResponse}
  * @see {@link DeleteMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

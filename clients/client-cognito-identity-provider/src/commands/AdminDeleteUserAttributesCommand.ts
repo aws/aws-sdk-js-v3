@@ -63,8 +63,8 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  *
  * ```
  *
- * @param AdminDeleteUserAttributesCommandInput - {@link AdminDeleteUserAttributesCommandInput}
- * @returns {@link AdminDeleteUserAttributesCommandOutput}
+ * @param AdminDeleteUserAttributesRequest - {@link AdminDeleteUserAttributesRequest}
+ * @returns {@link AdminDeleteUserAttributesResponse}
  * @see {@link AdminDeleteUserAttributesCommandInput} for command's `input` shape.
  * @see {@link AdminDeleteUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeletePlatformApplicationCommandInput - {@link DeletePlatformApplicationCommandInput}
- * @returns {@link DeletePlatformApplicationCommandOutput}
+ * @param DeletePlatformApplicationInput - {@link DeletePlatformApplicationInput}
+ * @returns {@link Unit}
  * @see {@link DeletePlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link DeletePlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

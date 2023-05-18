@@ -56,8 +56,8 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  *
  * ```
  *
- * @param DeleteTrafficPolicyInstanceCommandInput - {@link DeleteTrafficPolicyInstanceCommandInput}
- * @returns {@link DeleteTrafficPolicyInstanceCommandOutput}
+ * @param DeleteTrafficPolicyInstanceRequest - {@link DeleteTrafficPolicyInstanceRequest}
+ * @returns {@link DeleteTrafficPolicyInstanceResponse}
  * @see {@link DeleteTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

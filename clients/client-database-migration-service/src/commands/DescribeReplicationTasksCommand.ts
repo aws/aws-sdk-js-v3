@@ -100,8 +100,8 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  *
  * ```
  *
- * @param DescribeReplicationTasksCommandInput - {@link DescribeReplicationTasksCommandInput}
- * @returns {@link DescribeReplicationTasksCommandOutput}
+ * @param DescribeReplicationTasksMessage - {@link DescribeReplicationTasksMessage}
+ * @returns {@link DescribeReplicationTasksResponse}
  * @see {@link DescribeReplicationTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTasksCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -58,8 +58,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *
  * ```
  *
- * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
- * @returns {@link CreateWorkflowCommandOutput}
+ * @param CreateWorkflowRequest - {@link CreateWorkflowRequest}
+ * @returns {@link CreateWorkflowResponse}
  * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

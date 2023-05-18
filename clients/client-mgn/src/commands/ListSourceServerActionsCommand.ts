@@ -84,8 +84,8 @@ export interface ListSourceServerActionsCommandOutput extends ListSourceServerAc
  *
  * ```
  *
- * @param ListSourceServerActionsCommandInput - {@link ListSourceServerActionsCommandInput}
- * @returns {@link ListSourceServerActionsCommandOutput}
+ * @param ListSourceServerActionsRequest - {@link ListSourceServerActionsRequest}
+ * @returns {@link ListSourceServerActionsResponse}
  * @see {@link ListSourceServerActionsCommandInput} for command's `input` shape.
  * @see {@link ListSourceServerActionsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

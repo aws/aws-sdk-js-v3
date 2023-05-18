@@ -58,8 +58,8 @@ export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesRes
  *
  * ```
  *
- * @param ContainsPiiEntitiesCommandInput - {@link ContainsPiiEntitiesCommandInput}
- * @returns {@link ContainsPiiEntitiesCommandOutput}
+ * @param ContainsPiiEntitiesRequest - {@link ContainsPiiEntitiesRequest}
+ * @returns {@link ContainsPiiEntitiesResponse}
  * @see {@link ContainsPiiEntitiesCommandInput} for command's `input` shape.
  * @see {@link ContainsPiiEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

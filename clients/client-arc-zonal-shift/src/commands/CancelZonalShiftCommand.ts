@@ -56,8 +56,8 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  *
  * ```
  *
- * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
- * @returns {@link CancelZonalShiftCommandOutput}
+ * @param CancelZonalShiftRequest - {@link CancelZonalShiftRequest}
+ * @returns {@link ZonalShift}
  * @see {@link CancelZonalShiftCommandInput} for command's `input` shape.
  * @see {@link CancelZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.

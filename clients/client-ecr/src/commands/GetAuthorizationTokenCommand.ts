@@ -65,8 +65,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *
  * ```
  *
- * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
- * @returns {@link GetAuthorizationTokenCommandOutput}
+ * @param GetAuthorizationTokenRequest - {@link GetAuthorizationTokenRequest}
+ * @returns {@link GetAuthorizationTokenResponse}
  * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

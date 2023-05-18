@@ -79,8 +79,8 @@ export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerRespons
  *
  * ```
  *
- * @param DeleteConnectPeerCommandInput - {@link DeleteConnectPeerCommandInput}
- * @returns {@link DeleteConnectPeerCommandOutput}
+ * @param DeleteConnectPeerRequest - {@link DeleteConnectPeerRequest}
+ * @returns {@link DeleteConnectPeerResponse}
  * @see {@link DeleteConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

@@ -60,8 +60,8 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  *
  * ```
  *
- * @param AddTagsCommandInput - {@link AddTagsCommandInput}
- * @returns {@link AddTagsCommandOutput}
+ * @param AddTagsRequest - {@link AddTagsRequest}
+ * @returns {@link AddTagsResponse}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

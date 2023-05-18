@@ -160,8 +160,8 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  *
  * ```
  *
- * @param GetDeploymentTargetCommandInput - {@link GetDeploymentTargetCommandInput}
- * @returns {@link GetDeploymentTargetCommandOutput}
+ * @param GetDeploymentTargetInput - {@link GetDeploymentTargetInput}
+ * @returns {@link GetDeploymentTargetOutput}
  * @see {@link GetDeploymentTargetCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentTargetCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

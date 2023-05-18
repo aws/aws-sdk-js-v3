@@ -135,8 +135,8 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  *
  * ```
  *
- * @param UpdateOriginRequestPolicyCommandInput - {@link UpdateOriginRequestPolicyCommandInput}
- * @returns {@link UpdateOriginRequestPolicyCommandOutput}
+ * @param UpdateOriginRequestPolicyRequest - {@link UpdateOriginRequestPolicyRequest}
+ * @returns {@link UpdateOriginRequestPolicyResult}
  * @see {@link UpdateOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  *
  * ```
  *
- * @param ListModelCardVersionsCommandInput - {@link ListModelCardVersionsCommandInput}
- * @returns {@link ListModelCardVersionsCommandOutput}
+ * @param ListModelCardVersionsRequest - {@link ListModelCardVersionsRequest}
+ * @returns {@link ListModelCardVersionsResponse}
  * @see {@link ListModelCardVersionsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardVersionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

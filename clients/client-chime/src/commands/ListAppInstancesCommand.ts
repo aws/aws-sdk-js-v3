@@ -63,8 +63,8 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  *
  * ```
  *
- * @param ListAppInstancesCommandInput - {@link ListAppInstancesCommandInput}
- * @returns {@link ListAppInstancesCommandOutput}
+ * @param ListAppInstancesRequest - {@link ListAppInstancesRequest}
+ * @returns {@link ListAppInstancesResponse}
  * @see {@link ListAppInstancesCommandInput} for command's `input` shape.
  * @see {@link ListAppInstancesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

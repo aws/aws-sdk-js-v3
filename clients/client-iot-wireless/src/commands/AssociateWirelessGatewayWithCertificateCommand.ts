@@ -60,8 +60,8 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
  *
  * ```
  *
- * @param AssociateWirelessGatewayWithCertificateCommandInput - {@link AssociateWirelessGatewayWithCertificateCommandInput}
- * @returns {@link AssociateWirelessGatewayWithCertificateCommandOutput}
+ * @param AssociateWirelessGatewayWithCertificateRequest - {@link AssociateWirelessGatewayWithCertificateRequest}
+ * @returns {@link AssociateWirelessGatewayWithCertificateResponse}
  * @see {@link AssociateWirelessGatewayWithCertificateCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessGatewayWithCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

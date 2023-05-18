@@ -189,8 +189,8 @@ export interface DescribePackagingConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribePackagingConfigurationCommandInput - {@link DescribePackagingConfigurationCommandInput}
- * @returns {@link DescribePackagingConfigurationCommandOutput}
+ * @param DescribePackagingConfigurationRequest - {@link DescribePackagingConfigurationRequest}
+ * @returns {@link DescribePackagingConfigurationResponse}
  * @see {@link DescribePackagingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribePackagingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

@@ -49,8 +49,8 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ActivateEventSourceCommandInput - {@link ActivateEventSourceCommandInput}
- * @returns {@link ActivateEventSourceCommandOutput}
+ * @param ActivateEventSourceRequest - {@link ActivateEventSourceRequest}
+ * @returns {@link Unit}
  * @see {@link ActivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link ActivateEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

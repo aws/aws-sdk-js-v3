@@ -70,8 +70,8 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  *
  * ```
  *
- * @param ModifyReportDefinitionCommandInput - {@link ModifyReportDefinitionCommandInput}
- * @returns {@link ModifyReportDefinitionCommandOutput}
+ * @param ModifyReportDefinitionRequest - {@link ModifyReportDefinitionRequest}
+ * @returns {@link ModifyReportDefinitionResponse}
  * @see {@link ModifyReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link ModifyReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.

@@ -64,8 +64,8 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
  *
  * ```
  *
- * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
- * @returns {@link CreateTagsCommandOutput}
+ * @param CreateTagsRequest - {@link CreateTagsRequest}
+ * @returns {@link CreateTagsResponse}
  * @see {@link CreateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

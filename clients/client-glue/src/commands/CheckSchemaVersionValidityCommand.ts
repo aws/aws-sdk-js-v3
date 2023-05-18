@@ -52,8 +52,8 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  *
  * ```
  *
- * @param CheckSchemaVersionValidityCommandInput - {@link CheckSchemaVersionValidityCommandInput}
- * @returns {@link CheckSchemaVersionValidityCommandOutput}
+ * @param CheckSchemaVersionValidityInput - {@link CheckSchemaVersionValidityInput}
+ * @returns {@link CheckSchemaVersionValidityResponse}
  * @see {@link CheckSchemaVersionValidityCommandInput} for command's `input` shape.
  * @see {@link CheckSchemaVersionValidityCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

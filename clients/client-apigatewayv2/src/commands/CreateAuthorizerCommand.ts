@@ -84,8 +84,8 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  *
  * ```
  *
- * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
- * @returns {@link CreateAuthorizerCommandOutput}
+ * @param CreateAuthorizerRequest - {@link CreateAuthorizerRequest}
+ * @returns {@link CreateAuthorizerResponse}
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

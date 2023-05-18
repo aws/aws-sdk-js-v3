@@ -97,8 +97,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *
  * ```
  *
- * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
- * @returns {@link CreateProjectCommandOutput}
+ * @param CreateProjectRequest - {@link CreateProjectRequest}
+ * @returns {@link CreateProjectResult}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

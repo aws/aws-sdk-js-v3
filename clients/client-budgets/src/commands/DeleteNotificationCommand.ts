@@ -59,8 +59,8 @@ export interface DeleteNotificationCommandOutput extends DeleteNotificationRespo
  *
  * ```
  *
- * @param DeleteNotificationCommandInput - {@link DeleteNotificationCommandInput}
- * @returns {@link DeleteNotificationCommandOutput}
+ * @param DeleteNotificationRequest - {@link DeleteNotificationRequest}
+ * @returns {@link DeleteNotificationResponse}
  * @see {@link DeleteNotificationCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

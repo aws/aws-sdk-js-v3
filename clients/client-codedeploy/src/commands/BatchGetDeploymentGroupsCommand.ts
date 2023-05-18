@@ -218,8 +218,8 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  *
  * ```
  *
- * @param BatchGetDeploymentGroupsCommandInput - {@link BatchGetDeploymentGroupsCommandInput}
- * @returns {@link BatchGetDeploymentGroupsCommandOutput}
+ * @param BatchGetDeploymentGroupsInput - {@link BatchGetDeploymentGroupsInput}
+ * @returns {@link BatchGetDeploymentGroupsOutput}
  * @see {@link BatchGetDeploymentGroupsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

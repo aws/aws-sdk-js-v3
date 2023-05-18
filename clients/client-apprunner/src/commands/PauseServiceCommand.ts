@@ -140,8 +140,8 @@ export interface PauseServiceCommandOutput extends PauseServiceResponse, __Metad
  *
  * ```
  *
- * @param PauseServiceCommandInput - {@link PauseServiceCommandInput}
- * @returns {@link PauseServiceCommandOutput}
+ * @param PauseServiceRequest - {@link PauseServiceRequest}
+ * @returns {@link PauseServiceResponse}
  * @see {@link PauseServiceCommandInput} for command's `input` shape.
  * @see {@link PauseServiceCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

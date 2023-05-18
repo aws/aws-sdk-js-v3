@@ -1025,8 +1025,8 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  *
  * ```
  *
- * @param BatchGetJobsCommandInput - {@link BatchGetJobsCommandInput}
- * @returns {@link BatchGetJobsCommandOutput}
+ * @param BatchGetJobsRequest - {@link BatchGetJobsRequest}
+ * @returns {@link BatchGetJobsResponse}
  * @see {@link BatchGetJobsCommandInput} for command's `input` shape.
  * @see {@link BatchGetJobsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

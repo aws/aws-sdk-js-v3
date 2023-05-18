@@ -57,8 +57,8 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
  *
  * ```
  *
- * @param AssociateMulticastGroupWithFuotaTaskCommandInput - {@link AssociateMulticastGroupWithFuotaTaskCommandInput}
- * @returns {@link AssociateMulticastGroupWithFuotaTaskCommandOutput}
+ * @param AssociateMulticastGroupWithFuotaTaskRequest - {@link AssociateMulticastGroupWithFuotaTaskRequest}
+ * @returns {@link AssociateMulticastGroupWithFuotaTaskResponse}
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

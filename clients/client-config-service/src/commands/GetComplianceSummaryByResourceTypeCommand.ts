@@ -78,8 +78,8 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  *
  * ```
  *
- * @param GetComplianceSummaryByResourceTypeCommandInput - {@link GetComplianceSummaryByResourceTypeCommandInput}
- * @returns {@link GetComplianceSummaryByResourceTypeCommandOutput}
+ * @param GetComplianceSummaryByResourceTypeRequest - {@link GetComplianceSummaryByResourceTypeRequest}
+ * @returns {@link GetComplianceSummaryByResourceTypeResponse}
  * @see {@link GetComplianceSummaryByResourceTypeCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryByResourceTypeCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

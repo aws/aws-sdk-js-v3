@@ -69,8 +69,8 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  *
  * ```
  *
- * @param UpdateSecurityPolicyCommandInput - {@link UpdateSecurityPolicyCommandInput}
- * @returns {@link UpdateSecurityPolicyCommandOutput}
+ * @param UpdateSecurityPolicyRequest - {@link UpdateSecurityPolicyRequest}
+ * @returns {@link UpdateSecurityPolicyResponse}
  * @see {@link UpdateSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

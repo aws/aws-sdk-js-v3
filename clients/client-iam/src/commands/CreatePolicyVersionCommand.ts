@@ -64,8 +64,8 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  *
  * ```
  *
- * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
- * @returns {@link CreatePolicyVersionCommandOutput}
+ * @param CreatePolicyVersionRequest - {@link CreatePolicyVersionRequest}
+ * @returns {@link CreatePolicyVersionResponse}
  * @see {@link CreatePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

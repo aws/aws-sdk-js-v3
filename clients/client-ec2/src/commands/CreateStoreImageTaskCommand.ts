@@ -62,8 +62,8 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  *
  * ```
  *
- * @param CreateStoreImageTaskCommandInput - {@link CreateStoreImageTaskCommandInput}
- * @returns {@link CreateStoreImageTaskCommandOutput}
+ * @param CreateStoreImageTaskRequest - {@link CreateStoreImageTaskRequest}
+ * @returns {@link CreateStoreImageTaskResult}
  * @see {@link CreateStoreImageTaskCommandInput} for command's `input` shape.
  * @see {@link CreateStoreImageTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

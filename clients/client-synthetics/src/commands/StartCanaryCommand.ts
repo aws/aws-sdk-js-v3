@@ -50,8 +50,8 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  *
  * ```
  *
- * @param StartCanaryCommandInput - {@link StartCanaryCommandInput}
- * @returns {@link StartCanaryCommandOutput}
+ * @param StartCanaryRequest - {@link StartCanaryRequest}
+ * @returns {@link StartCanaryResponse}
  * @see {@link StartCanaryCommandInput} for command's `input` shape.
  * @see {@link StartCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

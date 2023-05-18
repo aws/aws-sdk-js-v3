@@ -54,8 +54,8 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  *
  * ```
  *
- * @param DescribeAccountHealthCommandInput - {@link DescribeAccountHealthCommandInput}
- * @returns {@link DescribeAccountHealthCommandOutput}
+ * @param DescribeAccountHealthRequest - {@link DescribeAccountHealthRequest}
+ * @returns {@link DescribeAccountHealthResponse}
  * @see {@link DescribeAccountHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

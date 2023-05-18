@@ -66,8 +66,8 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  *
  * ```
  *
- * @param DescribeComputeCommandInput - {@link DescribeComputeCommandInput}
- * @returns {@link DescribeComputeCommandOutput}
+ * @param DescribeComputeInput - {@link DescribeComputeInput}
+ * @returns {@link DescribeComputeOutput}
  * @see {@link DescribeComputeCommandInput} for command's `input` shape.
  * @see {@link DescribeComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

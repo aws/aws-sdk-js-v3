@@ -69,8 +69,8 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  *
  * ```
  *
- * @param ListStageDevicesCommandInput - {@link ListStageDevicesCommandInput}
- * @returns {@link ListStageDevicesCommandOutput}
+ * @param ListStageDevicesRequest - {@link ListStageDevicesRequest}
+ * @returns {@link ListStageDevicesResponse}
  * @see {@link ListStageDevicesCommandInput} for command's `input` shape.
  * @see {@link ListStageDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

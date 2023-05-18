@@ -90,8 +90,8 @@ export interface DescribeIpamResourceDiscoveriesCommandOutput
  *
  * ```
  *
- * @param DescribeIpamResourceDiscoveriesCommandInput - {@link DescribeIpamResourceDiscoveriesCommandInput}
- * @returns {@link DescribeIpamResourceDiscoveriesCommandOutput}
+ * @param DescribeIpamResourceDiscoveriesRequest - {@link DescribeIpamResourceDiscoveriesRequest}
+ * @returns {@link DescribeIpamResourceDiscoveriesResult}
  * @see {@link DescribeIpamResourceDiscoveriesCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamResourceDiscoveriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -106,8 +106,8 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RegisterWorkflowTypeCommandInput - {@link RegisterWorkflowTypeCommandInput}
- * @returns {@link RegisterWorkflowTypeCommandOutput}
+ * @param RegisterWorkflowTypeInput - {@link RegisterWorkflowTypeInput}
+ * @returns {@link Unit}
  * @see {@link RegisterWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

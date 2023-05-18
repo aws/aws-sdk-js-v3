@@ -79,8 +79,8 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
  *
  * ```
  *
- * @param ModifyEndpointAccessCommandInput - {@link ModifyEndpointAccessCommandInput}
- * @returns {@link ModifyEndpointAccessCommandOutput}
+ * @param ModifyEndpointAccessMessage - {@link ModifyEndpointAccessMessage}
+ * @returns {@link EndpointAccess}
  * @see {@link ModifyEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link ModifyEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

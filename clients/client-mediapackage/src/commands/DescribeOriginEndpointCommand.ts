@@ -215,8 +215,8 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
  *
  * ```
  *
- * @param DescribeOriginEndpointCommandInput - {@link DescribeOriginEndpointCommandInput}
- * @returns {@link DescribeOriginEndpointCommandOutput}
+ * @param DescribeOriginEndpointRequest - {@link DescribeOriginEndpointRequest}
+ * @returns {@link DescribeOriginEndpointResponse}
  * @see {@link DescribeOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeOriginEndpointCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

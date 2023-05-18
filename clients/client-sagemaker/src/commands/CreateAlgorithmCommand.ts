@@ -248,8 +248,8 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *
  * ```
  *
- * @param CreateAlgorithmCommandInput - {@link CreateAlgorithmCommandInput}
- * @returns {@link CreateAlgorithmCommandOutput}
+ * @param CreateAlgorithmInput - {@link CreateAlgorithmInput}
+ * @returns {@link CreateAlgorithmOutput}
  * @see {@link CreateAlgorithmCommandInput} for command's `input` shape.
  * @see {@link CreateAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRecommenderCommandInput - {@link DeleteRecommenderCommandInput}
- * @returns {@link DeleteRecommenderCommandOutput}
+ * @param DeleteRecommenderRequest - {@link DeleteRecommenderRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRecommenderCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

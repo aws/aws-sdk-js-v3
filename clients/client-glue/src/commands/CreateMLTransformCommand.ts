@@ -98,8 +98,8 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  *
  * ```
  *
- * @param CreateMLTransformCommandInput - {@link CreateMLTransformCommandInput}
- * @returns {@link CreateMLTransformCommandOutput}
+ * @param CreateMLTransformRequest - {@link CreateMLTransformRequest}
+ * @returns {@link CreateMLTransformResponse}
  * @see {@link CreateMLTransformCommandInput} for command's `input` shape.
  * @see {@link CreateMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

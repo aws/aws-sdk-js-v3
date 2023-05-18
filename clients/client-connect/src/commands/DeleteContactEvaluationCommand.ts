@@ -49,8 +49,8 @@ export interface DeleteContactEvaluationCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteContactEvaluationCommandInput - {@link DeleteContactEvaluationCommandInput}
- * @returns {@link DeleteContactEvaluationCommandOutput}
+ * @param DeleteContactEvaluationRequest - {@link DeleteContactEvaluationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteContactEvaluationCommandInput} for command's `input` shape.
  * @see {@link DeleteContactEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

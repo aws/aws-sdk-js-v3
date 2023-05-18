@@ -50,8 +50,8 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  *
  * ```
  *
- * @param DisassociateConnectorCommandInput - {@link DisassociateConnectorCommandInput}
- * @returns {@link DisassociateConnectorCommandOutput}
+ * @param DisassociateConnectorRequest - {@link DisassociateConnectorRequest}
+ * @returns {@link DisassociateConnectorResponse}
  * @see {@link DisassociateConnectorCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectorCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

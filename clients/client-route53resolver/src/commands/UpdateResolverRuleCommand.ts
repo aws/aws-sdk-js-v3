@@ -83,8 +83,8 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  *
  * ```
  *
- * @param UpdateResolverRuleCommandInput - {@link UpdateResolverRuleCommandInput}
- * @returns {@link UpdateResolverRuleCommandOutput}
+ * @param UpdateResolverRuleRequest - {@link UpdateResolverRuleRequest}
+ * @returns {@link UpdateResolverRuleResponse}
  * @see {@link UpdateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

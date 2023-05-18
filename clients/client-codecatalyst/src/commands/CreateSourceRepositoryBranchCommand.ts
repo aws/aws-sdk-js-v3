@@ -65,8 +65,8 @@ export interface CreateSourceRepositoryBranchCommandOutput
  *
  * ```
  *
- * @param CreateSourceRepositoryBranchCommandInput - {@link CreateSourceRepositoryBranchCommandInput}
- * @returns {@link CreateSourceRepositoryBranchCommandOutput}
+ * @param CreateSourceRepositoryBranchRequest - {@link CreateSourceRepositoryBranchRequest}
+ * @returns {@link CreateSourceRepositoryBranchResponse}
  * @see {@link CreateSourceRepositoryBranchCommandInput} for command's `input` shape.
  * @see {@link CreateSourceRepositoryBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

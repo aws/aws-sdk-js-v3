@@ -61,8 +61,8 @@ export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
  *
  * ```
  *
- * @param ModifyVpcEndpointServicePayerResponsibilityCommandInput - {@link ModifyVpcEndpointServicePayerResponsibilityCommandInput}
- * @returns {@link ModifyVpcEndpointServicePayerResponsibilityCommandOutput}
+ * @param ModifyVpcEndpointServicePayerResponsibilityRequest - {@link ModifyVpcEndpointServicePayerResponsibilityRequest}
+ * @returns {@link ModifyVpcEndpointServicePayerResponsibilityResult}
  * @see {@link ModifyVpcEndpointServicePayerResponsibilityCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointServicePayerResponsibilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

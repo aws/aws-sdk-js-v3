@@ -65,8 +65,8 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  *
  * ```
  *
- * @param ListSolutionsCommandInput - {@link ListSolutionsCommandInput}
- * @returns {@link ListSolutionsCommandOutput}
+ * @param ListSolutionsRequest - {@link ListSolutionsRequest}
+ * @returns {@link ListSolutionsResponse}
  * @see {@link ListSolutionsCommandInput} for command's `input` shape.
  * @see {@link ListSolutionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

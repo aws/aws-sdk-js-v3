@@ -85,8 +85,8 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  *
  * ```
  *
- * @param DescribeNetworkInterfaceAttributeCommandInput - {@link DescribeNetworkInterfaceAttributeCommandInput}
- * @returns {@link DescribeNetworkInterfaceAttributeCommandOutput}
+ * @param DescribeNetworkInterfaceAttributeRequest - {@link DescribeNetworkInterfaceAttributeRequest}
+ * @returns {@link DescribeNetworkInterfaceAttributeResult}
  * @see {@link DescribeNetworkInterfaceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

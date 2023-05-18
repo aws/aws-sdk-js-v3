@@ -54,8 +54,8 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  *
  * ```
  *
- * @param DeleteGroupMembershipCommandInput - {@link DeleteGroupMembershipCommandInput}
- * @returns {@link DeleteGroupMembershipCommandOutput}
+ * @param DeleteGroupMembershipRequest - {@link DeleteGroupMembershipRequest}
+ * @returns {@link DeleteGroupMembershipResponse}
  * @see {@link DeleteGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

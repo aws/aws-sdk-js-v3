@@ -88,8 +88,8 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *
  * ```
  *
- * @param ModifyDBClusterParameterGroupCommandInput - {@link ModifyDBClusterParameterGroupCommandInput}
- * @returns {@link ModifyDBClusterParameterGroupCommandOutput}
+ * @param ModifyDBClusterParameterGroupMessage - {@link ModifyDBClusterParameterGroupMessage}
+ * @returns {@link DBClusterParameterGroupNameMessage}
  * @see {@link ModifyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

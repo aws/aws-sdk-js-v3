@@ -54,8 +54,8 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
- * @returns {@link StopMeetingTranscriptionCommandOutput}
+ * @param StopMeetingTranscriptionRequest - {@link StopMeetingTranscriptionRequest}
+ * @returns {@link Unit}
  * @see {@link StopMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StopMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

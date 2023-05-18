@@ -115,8 +115,8 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *
  * ```
  *
- * @param CreatePatchBaselineCommandInput - {@link CreatePatchBaselineCommandInput}
- * @returns {@link CreatePatchBaselineCommandOutput}
+ * @param CreatePatchBaselineRequest - {@link CreatePatchBaselineRequest}
+ * @returns {@link CreatePatchBaselineResult}
  * @see {@link CreatePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link CreatePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -55,8 +55,8 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  *
  * ```
  *
- * @param PutLabelCommandInput - {@link PutLabelCommandInput}
- * @returns {@link PutLabelCommandOutput}
+ * @param PutLabelRequest - {@link PutLabelRequest}
+ * @returns {@link PutLabelResult}
  * @see {@link PutLabelCommandInput} for command's `input` shape.
  * @see {@link PutLabelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

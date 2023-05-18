@@ -57,8 +57,8 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  *
  * ```
  *
- * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
- * @returns {@link GetDeploymentCommandOutput}
+ * @param GetDeploymentRequest - {@link GetDeploymentRequest}
+ * @returns {@link GetDeploymentResponse}
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

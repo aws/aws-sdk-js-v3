@@ -65,8 +65,8 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  *
  * ```
  *
- * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
- * @returns {@link ListIdentityProvidersCommandOutput}
+ * @param ListIdentityProvidersRequest - {@link ListIdentityProvidersRequest}
+ * @returns {@link ListIdentityProvidersResponse}
  * @see {@link ListIdentityProvidersCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProvidersCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -56,8 +56,8 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  *
  * ```
  *
- * @param CompleteSnapshotCommandInput - {@link CompleteSnapshotCommandInput}
- * @returns {@link CompleteSnapshotCommandOutput}
+ * @param CompleteSnapshotRequest - {@link CompleteSnapshotRequest}
+ * @returns {@link CompleteSnapshotResponse}
  * @see {@link CompleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link CompleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.

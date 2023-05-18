@@ -49,8 +49,8 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  *
  * ```
  *
- * @param RemoveTemplateActionCommandInput - {@link RemoveTemplateActionCommandInput}
- * @returns {@link RemoveTemplateActionCommandOutput}
+ * @param RemoveTemplateActionRequest - {@link RemoveTemplateActionRequest}
+ * @returns {@link RemoveTemplateActionResponse}
  * @see {@link RemoveTemplateActionCommandInput} for command's `input` shape.
  * @see {@link RemoveTemplateActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

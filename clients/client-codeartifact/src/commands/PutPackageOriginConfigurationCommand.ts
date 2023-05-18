@@ -77,8 +77,8 @@ export interface PutPackageOriginConfigurationCommandOutput
  *
  * ```
  *
- * @param PutPackageOriginConfigurationCommandInput - {@link PutPackageOriginConfigurationCommandInput}
- * @returns {@link PutPackageOriginConfigurationCommandOutput}
+ * @param PutPackageOriginConfigurationRequest - {@link PutPackageOriginConfigurationRequest}
+ * @returns {@link PutPackageOriginConfigurationResult}
  * @see {@link PutPackageOriginConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPackageOriginConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

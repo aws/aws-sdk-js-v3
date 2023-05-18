@@ -63,8 +63,8 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  *
  * ```
  *
- * @param CreateLoadBalancerListenersCommandInput - {@link CreateLoadBalancerListenersCommandInput}
- * @returns {@link CreateLoadBalancerListenersCommandOutput}
+ * @param CreateLoadBalancerListenerInput - {@link CreateLoadBalancerListenerInput}
+ * @returns {@link CreateLoadBalancerListenerOutput}
  * @see {@link CreateLoadBalancerListenersCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

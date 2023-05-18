@@ -81,8 +81,8 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *
  * ```
  *
- * @param PutResourceAttributesCommandInput - {@link PutResourceAttributesCommandInput}
- * @returns {@link PutResourceAttributesCommandOutput}
+ * @param PutResourceAttributesRequest - {@link PutResourceAttributesRequest}
+ * @returns {@link PutResourceAttributesResult}
  * @see {@link PutResourceAttributesCommandInput} for command's `input` shape.
  * @see {@link PutResourceAttributesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

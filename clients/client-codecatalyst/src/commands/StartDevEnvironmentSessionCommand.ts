@@ -72,8 +72,8 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  *
  * ```
  *
- * @param StartDevEnvironmentSessionCommandInput - {@link StartDevEnvironmentSessionCommandInput}
- * @returns {@link StartDevEnvironmentSessionCommandOutput}
+ * @param StartDevEnvironmentSessionRequest - {@link StartDevEnvironmentSessionRequest}
+ * @returns {@link StartDevEnvironmentSessionResponse}
  * @see {@link StartDevEnvironmentSessionCommandInput} for command's `input` shape.
  * @see {@link StartDevEnvironmentSessionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

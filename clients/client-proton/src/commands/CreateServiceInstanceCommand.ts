@@ -81,8 +81,8 @@ export interface CreateServiceInstanceCommandOutput extends CreateServiceInstanc
  *
  * ```
  *
- * @param CreateServiceInstanceCommandInput - {@link CreateServiceInstanceCommandInput}
- * @returns {@link CreateServiceInstanceCommandOutput}
+ * @param CreateServiceInstanceInput - {@link CreateServiceInstanceInput}
+ * @returns {@link CreateServiceInstanceOutput}
  * @see {@link CreateServiceInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceInstanceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

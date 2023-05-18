@@ -153,8 +153,8 @@ export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataB
  *
  * ```
  *
- * @param GetCrawlerCommandInput - {@link GetCrawlerCommandInput}
- * @returns {@link GetCrawlerCommandOutput}
+ * @param GetCrawlerRequest - {@link GetCrawlerRequest}
+ * @returns {@link GetCrawlerResponse}
  * @see {@link GetCrawlerCommandInput} for command's `input` shape.
  * @see {@link GetCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -92,8 +92,8 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateMeshCommandInput - {@link CreateMeshCommandInput}
- * @returns {@link CreateMeshCommandOutput}
+ * @param CreateMeshInput - {@link CreateMeshInput}
+ * @returns {@link CreateMeshOutput}
  * @see {@link CreateMeshCommandInput} for command's `input` shape.
  * @see {@link CreateMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

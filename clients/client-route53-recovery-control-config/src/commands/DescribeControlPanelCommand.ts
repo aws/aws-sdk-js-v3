@@ -61,8 +61,8 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  *
  * ```
  *
- * @param DescribeControlPanelCommandInput - {@link DescribeControlPanelCommandInput}
- * @returns {@link DescribeControlPanelCommandOutput}
+ * @param DescribeControlPanelRequest - {@link DescribeControlPanelRequest}
+ * @returns {@link DescribeControlPanelResponse}
  * @see {@link DescribeControlPanelCommandInput} for command's `input` shape.
  * @see {@link DescribeControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

@@ -80,8 +80,8 @@ export interface ListSuggestedResiliencyPoliciesCommandOutput
  *
  * ```
  *
- * @param ListSuggestedResiliencyPoliciesCommandInput - {@link ListSuggestedResiliencyPoliciesCommandInput}
- * @returns {@link ListSuggestedResiliencyPoliciesCommandOutput}
+ * @param ListSuggestedResiliencyPoliciesRequest - {@link ListSuggestedResiliencyPoliciesRequest}
+ * @returns {@link ListSuggestedResiliencyPoliciesResponse}
  * @see {@link ListSuggestedResiliencyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSuggestedResiliencyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

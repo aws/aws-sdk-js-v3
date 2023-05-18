@@ -221,8 +221,8 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  *
  * ```
  *
- * @param DescribeTasksCommandInput - {@link DescribeTasksCommandInput}
- * @returns {@link DescribeTasksCommandOutput}
+ * @param DescribeTasksRequest - {@link DescribeTasksRequest}
+ * @returns {@link DescribeTasksResponse}
  * @see {@link DescribeTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

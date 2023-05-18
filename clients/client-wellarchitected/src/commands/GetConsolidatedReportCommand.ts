@@ -94,8 +94,8 @@ export interface GetConsolidatedReportCommandOutput extends GetConsolidatedRepor
  *
  * ```
  *
- * @param GetConsolidatedReportCommandInput - {@link GetConsolidatedReportCommandInput}
- * @returns {@link GetConsolidatedReportCommandOutput}
+ * @param GetConsolidatedReportInput - {@link GetConsolidatedReportInput}
+ * @returns {@link GetConsolidatedReportOutput}
  * @see {@link GetConsolidatedReportCommandInput} for command's `input` shape.
  * @see {@link GetConsolidatedReportCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

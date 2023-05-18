@@ -79,8 +79,8 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  *
  * ```
  *
- * @param CreateUserGroupCommandInput - {@link CreateUserGroupCommandInput}
- * @returns {@link CreateUserGroupCommandOutput}
+ * @param CreateUserGroupMessage - {@link CreateUserGroupMessage}
+ * @returns {@link UserGroup}
  * @see {@link CreateUserGroupCommandInput} for command's `input` shape.
  * @see {@link CreateUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

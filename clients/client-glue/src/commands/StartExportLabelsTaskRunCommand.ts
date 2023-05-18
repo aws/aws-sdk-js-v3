@@ -59,8 +59,8 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  *
  * ```
  *
- * @param StartExportLabelsTaskRunCommandInput - {@link StartExportLabelsTaskRunCommandInput}
- * @returns {@link StartExportLabelsTaskRunCommandOutput}
+ * @param StartExportLabelsTaskRunRequest - {@link StartExportLabelsTaskRunRequest}
+ * @returns {@link StartExportLabelsTaskRunResponse}
  * @see {@link StartExportLabelsTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartExportLabelsTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

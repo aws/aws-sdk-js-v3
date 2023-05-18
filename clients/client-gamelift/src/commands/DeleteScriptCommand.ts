@@ -66,8 +66,8 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteScriptCommandInput - {@link DeleteScriptCommandInput}
- * @returns {@link DeleteScriptCommandOutput}
+ * @param DeleteScriptInput - {@link DeleteScriptInput}
+ * @returns {@link Unit}
  * @see {@link DeleteScriptCommandInput} for command's `input` shape.
  * @see {@link DeleteScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

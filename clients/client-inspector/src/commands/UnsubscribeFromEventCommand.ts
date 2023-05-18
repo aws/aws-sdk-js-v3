@@ -51,8 +51,8 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UnsubscribeFromEventCommandInput - {@link UnsubscribeFromEventCommandInput}
- * @returns {@link UnsubscribeFromEventCommandOutput}
+ * @param UnsubscribeFromEventRequest - {@link UnsubscribeFromEventRequest}
+ * @returns {@link Unit}
  * @see {@link UnsubscribeFromEventCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeFromEventCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

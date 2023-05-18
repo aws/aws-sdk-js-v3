@@ -52,8 +52,8 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  *
  * ```
  *
- * @param StopAssessmentCommandInput - {@link StopAssessmentCommandInput}
- * @returns {@link StopAssessmentCommandOutput}
+ * @param StopAssessmentRequest - {@link StopAssessmentRequest}
+ * @returns {@link StopAssessmentResponse}
  * @see {@link StopAssessmentCommandInput} for command's `input` shape.
  * @see {@link StopAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

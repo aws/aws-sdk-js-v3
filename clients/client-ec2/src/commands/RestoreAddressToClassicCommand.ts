@@ -55,8 +55,8 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  *
  * ```
  *
- * @param RestoreAddressToClassicCommandInput - {@link RestoreAddressToClassicCommandInput}
- * @returns {@link RestoreAddressToClassicCommandOutput}
+ * @param RestoreAddressToClassicRequest - {@link RestoreAddressToClassicRequest}
+ * @returns {@link RestoreAddressToClassicResult}
  * @see {@link RestoreAddressToClassicCommandInput} for command's `input` shape.
  * @see {@link RestoreAddressToClassicCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

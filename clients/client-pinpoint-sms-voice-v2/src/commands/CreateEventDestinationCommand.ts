@@ -97,8 +97,8 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  *
  * ```
  *
- * @param CreateEventDestinationCommandInput - {@link CreateEventDestinationCommandInput}
- * @returns {@link CreateEventDestinationCommandOutput}
+ * @param CreateEventDestinationRequest - {@link CreateEventDestinationRequest}
+ * @returns {@link CreateEventDestinationResult}
  * @see {@link CreateEventDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

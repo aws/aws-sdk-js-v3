@@ -74,8 +74,8 @@ export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetSiteCommandInput - {@link GetSiteCommandInput}
- * @returns {@link GetSiteCommandOutput}
+ * @param GetSiteInput - {@link GetSiteInput}
+ * @returns {@link GetSiteOutput}
  * @see {@link GetSiteCommandInput} for command's `input` shape.
  * @see {@link GetSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

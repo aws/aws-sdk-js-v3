@@ -51,8 +51,8 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCacheSubnetGroupCommandInput - {@link DeleteCacheSubnetGroupCommandInput}
- * @returns {@link DeleteCacheSubnetGroupCommandOutput}
+ * @param DeleteCacheSubnetGroupMessage - {@link DeleteCacheSubnetGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

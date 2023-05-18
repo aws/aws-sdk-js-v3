@@ -73,8 +73,8 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  *
  * ```
  *
- * @param ListNotebookExecutionsCommandInput - {@link ListNotebookExecutionsCommandInput}
- * @returns {@link ListNotebookExecutionsCommandOutput}
+ * @param ListNotebookExecutionsInput - {@link ListNotebookExecutionsInput}
+ * @returns {@link ListNotebookExecutionsOutput}
  * @see {@link ListNotebookExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookExecutionsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

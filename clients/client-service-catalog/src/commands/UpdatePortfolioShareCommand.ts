@@ -73,8 +73,8 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  *
  * ```
  *
- * @param UpdatePortfolioShareCommandInput - {@link UpdatePortfolioShareCommandInput}
- * @returns {@link UpdatePortfolioShareCommandOutput}
+ * @param UpdatePortfolioShareInput - {@link UpdatePortfolioShareInput}
+ * @returns {@link UpdatePortfolioShareOutput}
  * @see {@link UpdatePortfolioShareCommandInput} for command's `input` shape.
  * @see {@link UpdatePortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

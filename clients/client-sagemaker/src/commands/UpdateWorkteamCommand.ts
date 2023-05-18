@@ -96,8 +96,8 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  *
  * ```
  *
- * @param UpdateWorkteamCommandInput - {@link UpdateWorkteamCommandInput}
- * @returns {@link UpdateWorkteamCommandOutput}
+ * @param UpdateWorkteamRequest - {@link UpdateWorkteamRequest}
+ * @returns {@link UpdateWorkteamResponse}
  * @see {@link UpdateWorkteamCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

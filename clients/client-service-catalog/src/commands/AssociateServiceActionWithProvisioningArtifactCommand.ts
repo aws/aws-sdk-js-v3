@@ -60,8 +60,8 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  *
  * ```
  *
- * @param AssociateServiceActionWithProvisioningArtifactCommandInput - {@link AssociateServiceActionWithProvisioningArtifactCommandInput}
- * @returns {@link AssociateServiceActionWithProvisioningArtifactCommandOutput}
+ * @param AssociateServiceActionWithProvisioningArtifactInput - {@link AssociateServiceActionWithProvisioningArtifactInput}
+ * @returns {@link AssociateServiceActionWithProvisioningArtifactOutput}
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

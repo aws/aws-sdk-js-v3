@@ -62,8 +62,8 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  *
  * ```
  *
- * @param DescribeContributorInsightsCommandInput - {@link DescribeContributorInsightsCommandInput}
- * @returns {@link DescribeContributorInsightsCommandOutput}
+ * @param DescribeContributorInsightsInput - {@link DescribeContributorInsightsInput}
+ * @returns {@link DescribeContributorInsightsOutput}
  * @see {@link DescribeContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link DescribeContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -85,8 +85,8 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  *
  * ```
  *
- * @param ProvisionByoipCidrCommandInput - {@link ProvisionByoipCidrCommandInput}
- * @returns {@link ProvisionByoipCidrCommandOutput}
+ * @param ProvisionByoipCidrRequest - {@link ProvisionByoipCidrRequest}
+ * @returns {@link ProvisionByoipCidrResult}
  * @see {@link ProvisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

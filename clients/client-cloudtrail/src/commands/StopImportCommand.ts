@@ -72,8 +72,8 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  *
  * ```
  *
- * @param StopImportCommandInput - {@link StopImportCommandInput}
- * @returns {@link StopImportCommandOutput}
+ * @param StopImportRequest - {@link StopImportRequest}
+ * @returns {@link StopImportResponse}
  * @see {@link StopImportCommandInput} for command's `input` shape.
  * @see {@link StopImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

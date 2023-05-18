@@ -71,8 +71,8 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListNodesCommandInput - {@link ListNodesCommandInput}
- * @returns {@link ListNodesCommandOutput}
+ * @param ListNodesRequest - {@link ListNodesRequest}
+ * @returns {@link ListNodesResponse}
  * @see {@link ListNodesCommandInput} for command's `input` shape.
  * @see {@link ListNodesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

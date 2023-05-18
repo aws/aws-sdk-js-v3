@@ -61,8 +61,8 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *
  * ```
  *
- * @param SubscribeCommandInput - {@link SubscribeCommandInput}
- * @returns {@link SubscribeCommandOutput}
+ * @param SubscribeInput - {@link SubscribeInput}
+ * @returns {@link SubscribeResponse}
  * @see {@link SubscribeCommandInput} for command's `input` shape.
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

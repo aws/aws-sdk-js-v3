@@ -56,8 +56,8 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  *
  * ```
  *
- * @param DiscoverPollEndpointCommandInput - {@link DiscoverPollEndpointCommandInput}
- * @returns {@link DiscoverPollEndpointCommandOutput}
+ * @param DiscoverPollEndpointRequest - {@link DiscoverPollEndpointRequest}
+ * @returns {@link DiscoverPollEndpointResponse}
  * @see {@link DiscoverPollEndpointCommandInput} for command's `input` shape.
  * @see {@link DiscoverPollEndpointCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

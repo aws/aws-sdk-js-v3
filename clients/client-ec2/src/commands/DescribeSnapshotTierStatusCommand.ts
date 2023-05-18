@@ -81,8 +81,8 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  *
  * ```
  *
- * @param DescribeSnapshotTierStatusCommandInput - {@link DescribeSnapshotTierStatusCommandInput}
- * @returns {@link DescribeSnapshotTierStatusCommandOutput}
+ * @param DescribeSnapshotTierStatusRequest - {@link DescribeSnapshotTierStatusRequest}
+ * @returns {@link DescribeSnapshotTierStatusResult}
  * @see {@link DescribeSnapshotTierStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotTierStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

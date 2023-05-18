@@ -85,8 +85,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param AddTagsCommandInput - {@link AddTagsCommandInput}
- * @returns {@link AddTagsCommandOutput}
+ * @param AddTagsInput - {@link AddTagsInput}
+ * @returns {@link AddTagsOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -59,8 +59,8 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  *
  * ```
  *
- * @param UpdateAgreementCommandInput - {@link UpdateAgreementCommandInput}
- * @returns {@link UpdateAgreementCommandOutput}
+ * @param UpdateAgreementRequest - {@link UpdateAgreementRequest}
+ * @returns {@link UpdateAgreementResponse}
  * @see {@link UpdateAgreementCommandInput} for command's `input` shape.
  * @see {@link UpdateAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

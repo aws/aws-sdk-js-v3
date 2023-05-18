@@ -60,8 +60,8 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  *
  * ```
  *
- * @param GetRunGroupCommandInput - {@link GetRunGroupCommandInput}
- * @returns {@link GetRunGroupCommandOutput}
+ * @param GetRunGroupRequest - {@link GetRunGroupRequest}
+ * @returns {@link GetRunGroupResponse}
  * @see {@link GetRunGroupCommandInput} for command's `input` shape.
  * @see {@link GetRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

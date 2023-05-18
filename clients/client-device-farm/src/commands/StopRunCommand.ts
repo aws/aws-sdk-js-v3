@@ -149,8 +149,8 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  *
  * ```
  *
- * @param StopRunCommandInput - {@link StopRunCommandInput}
- * @returns {@link StopRunCommandOutput}
+ * @param StopRunRequest - {@link StopRunRequest}
+ * @returns {@link StopRunResult}
  * @see {@link StopRunCommandInput} for command's `input` shape.
  * @see {@link StopRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

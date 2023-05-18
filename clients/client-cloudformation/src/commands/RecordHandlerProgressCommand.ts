@@ -55,8 +55,8 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  *
  * ```
  *
- * @param RecordHandlerProgressCommandInput - {@link RecordHandlerProgressCommandInput}
- * @returns {@link RecordHandlerProgressCommandOutput}
+ * @param RecordHandlerProgressInput - {@link RecordHandlerProgressInput}
+ * @returns {@link RecordHandlerProgressOutput}
  * @see {@link RecordHandlerProgressCommandInput} for command's `input` shape.
  * @see {@link RecordHandlerProgressCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

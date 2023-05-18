@@ -63,8 +63,8 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  *
  * ```
  *
- * @param CancelDataRepositoryTaskCommandInput - {@link CancelDataRepositoryTaskCommandInput}
- * @returns {@link CancelDataRepositoryTaskCommandOutput}
+ * @param CancelDataRepositoryTaskRequest - {@link CancelDataRepositoryTaskRequest}
+ * @returns {@link CancelDataRepositoryTaskResponse}
  * @see {@link CancelDataRepositoryTaskCommandInput} for command's `input` shape.
  * @see {@link CancelDataRepositoryTaskCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

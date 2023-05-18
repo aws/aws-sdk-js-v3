@@ -75,8 +75,8 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  *
  * ```
  *
- * @param GetCampaignActivitiesCommandInput - {@link GetCampaignActivitiesCommandInput}
- * @returns {@link GetCampaignActivitiesCommandOutput}
+ * @param GetCampaignActivitiesRequest - {@link GetCampaignActivitiesRequest}
+ * @returns {@link GetCampaignActivitiesResponse}
  * @see {@link GetCampaignActivitiesCommandInput} for command's `input` shape.
  * @see {@link GetCampaignActivitiesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

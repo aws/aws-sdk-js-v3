@@ -61,8 +61,8 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  *
  * ```
  *
- * @param ListVpcIngressConnectionsCommandInput - {@link ListVpcIngressConnectionsCommandInput}
- * @returns {@link ListVpcIngressConnectionsCommandOutput}
+ * @param ListVpcIngressConnectionsRequest - {@link ListVpcIngressConnectionsRequest}
+ * @returns {@link ListVpcIngressConnectionsResponse}
  * @see {@link ListVpcIngressConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListVpcIngressConnectionsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

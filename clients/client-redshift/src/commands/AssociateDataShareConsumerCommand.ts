@@ -67,8 +67,8 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  *
  * ```
  *
- * @param AssociateDataShareConsumerCommandInput - {@link AssociateDataShareConsumerCommandInput}
- * @returns {@link AssociateDataShareConsumerCommandOutput}
+ * @param AssociateDataShareConsumerMessage - {@link AssociateDataShareConsumerMessage}
+ * @returns {@link DataShare}
  * @see {@link AssociateDataShareConsumerCommandInput} for command's `input` shape.
  * @see {@link AssociateDataShareConsumerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

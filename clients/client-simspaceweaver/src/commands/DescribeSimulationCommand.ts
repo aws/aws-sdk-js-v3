@@ -91,8 +91,8 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  *
  * ```
  *
- * @param DescribeSimulationCommandInput - {@link DescribeSimulationCommandInput}
- * @returns {@link DescribeSimulationCommandOutput}
+ * @param DescribeSimulationInput - {@link DescribeSimulationInput}
+ * @returns {@link DescribeSimulationOutput}
  * @see {@link DescribeSimulationCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

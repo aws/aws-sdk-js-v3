@@ -105,8 +105,8 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  *
  * ```
  *
- * @param CreateEntityRecognizerCommandInput - {@link CreateEntityRecognizerCommandInput}
- * @returns {@link CreateEntityRecognizerCommandOutput}
+ * @param CreateEntityRecognizerRequest - {@link CreateEntityRecognizerRequest}
+ * @returns {@link CreateEntityRecognizerResponse}
  * @see {@link CreateEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link CreateEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

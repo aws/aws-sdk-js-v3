@@ -65,8 +65,8 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  *
  * ```
  *
- * @param CreateBatchPredictionCommandInput - {@link CreateBatchPredictionCommandInput}
- * @returns {@link CreateBatchPredictionCommandOutput}
+ * @param CreateBatchPredictionInput - {@link CreateBatchPredictionInput}
+ * @returns {@link CreateBatchPredictionOutput}
  * @see {@link CreateBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link CreateBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

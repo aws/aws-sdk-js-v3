@@ -55,8 +55,8 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
  *
  * ```
  *
- * @param ListAddonsCommandInput - {@link ListAddonsCommandInput}
- * @returns {@link ListAddonsCommandOutput}
+ * @param ListAddonsRequest - {@link ListAddonsRequest}
+ * @returns {@link ListAddonsResponse}
  * @see {@link ListAddonsCommandInput} for command's `input` shape.
  * @see {@link ListAddonsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

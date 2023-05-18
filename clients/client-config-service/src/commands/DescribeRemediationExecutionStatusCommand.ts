@@ -87,8 +87,8 @@ export interface DescribeRemediationExecutionStatusCommandOutput
  *
  * ```
  *
- * @param DescribeRemediationExecutionStatusCommandInput - {@link DescribeRemediationExecutionStatusCommandInput}
- * @returns {@link DescribeRemediationExecutionStatusCommandOutput}
+ * @param DescribeRemediationExecutionStatusRequest - {@link DescribeRemediationExecutionStatusRequest}
+ * @returns {@link DescribeRemediationExecutionStatusResponse}
  * @see {@link DescribeRemediationExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

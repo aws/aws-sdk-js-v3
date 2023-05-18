@@ -60,8 +60,8 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  *
  * ```
  *
- * @param ListOrganizationsCommandInput - {@link ListOrganizationsCommandInput}
- * @returns {@link ListOrganizationsCommandOutput}
+ * @param ListOrganizationsRequest - {@link ListOrganizationsRequest}
+ * @returns {@link ListOrganizationsResponse}
  * @see {@link ListOrganizationsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

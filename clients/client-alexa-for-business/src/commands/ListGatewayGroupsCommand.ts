@@ -59,8 +59,8 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  *
  * ```
  *
- * @param ListGatewayGroupsCommandInput - {@link ListGatewayGroupsCommandInput}
- * @returns {@link ListGatewayGroupsCommandOutput}
+ * @param ListGatewayGroupsRequest - {@link ListGatewayGroupsRequest}
+ * @returns {@link ListGatewayGroupsResponse}
  * @see {@link ListGatewayGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGatewayGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

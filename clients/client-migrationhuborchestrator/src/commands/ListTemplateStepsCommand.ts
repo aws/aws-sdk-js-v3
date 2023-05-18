@@ -74,8 +74,8 @@ export interface ListTemplateStepsCommandOutput extends ListTemplateStepsRespons
  *
  * ```
  *
- * @param ListTemplateStepsCommandInput - {@link ListTemplateStepsCommandInput}
- * @returns {@link ListTemplateStepsCommandOutput}
+ * @param ListTemplateStepsRequest - {@link ListTemplateStepsRequest}
+ * @returns {@link ListTemplateStepsResponse}
  * @see {@link ListTemplateStepsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateStepsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

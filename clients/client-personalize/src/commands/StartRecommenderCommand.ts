@@ -51,8 +51,8 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  *
  * ```
  *
- * @param StartRecommenderCommandInput - {@link StartRecommenderCommandInput}
- * @returns {@link StartRecommenderCommandOutput}
+ * @param StartRecommenderRequest - {@link StartRecommenderRequest}
+ * @returns {@link StartRecommenderResponse}
  * @see {@link StartRecommenderCommandInput} for command's `input` shape.
  * @see {@link StartRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

@@ -68,8 +68,8 @@ export interface ListRecommendedIntentsCommandOutput extends ListRecommendedInte
  *
  * ```
  *
- * @param ListRecommendedIntentsCommandInput - {@link ListRecommendedIntentsCommandInput}
- * @returns {@link ListRecommendedIntentsCommandOutput}
+ * @param ListRecommendedIntentsRequest - {@link ListRecommendedIntentsRequest}
+ * @returns {@link ListRecommendedIntentsResponse}
  * @see {@link ListRecommendedIntentsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendedIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

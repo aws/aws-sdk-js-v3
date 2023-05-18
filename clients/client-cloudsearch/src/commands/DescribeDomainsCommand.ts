@@ -77,8 +77,8 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  *
  * ```
  *
- * @param DescribeDomainsCommandInput - {@link DescribeDomainsCommandInput}
- * @returns {@link DescribeDomainsCommandOutput}
+ * @param DescribeDomainsRequest - {@link DescribeDomainsRequest}
+ * @returns {@link DescribeDomainsResponse}
  * @see {@link DescribeDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

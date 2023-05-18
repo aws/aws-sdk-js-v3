@@ -54,8 +54,8 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  *
  * ```
  *
- * @param RejectVpcPeeringConnectionCommandInput - {@link RejectVpcPeeringConnectionCommandInput}
- * @returns {@link RejectVpcPeeringConnectionCommandOutput}
+ * @param RejectVpcPeeringConnectionRequest - {@link RejectVpcPeeringConnectionRequest}
+ * @returns {@link RejectVpcPeeringConnectionResult}
  * @see {@link RejectVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

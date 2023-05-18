@@ -78,8 +78,8 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  *
  * ```
  *
- * @param UpdateReportPlanCommandInput - {@link UpdateReportPlanCommandInput}
- * @returns {@link UpdateReportPlanCommandOutput}
+ * @param UpdateReportPlanInput - {@link UpdateReportPlanInput}
+ * @returns {@link UpdateReportPlanOutput}
  * @see {@link UpdateReportPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

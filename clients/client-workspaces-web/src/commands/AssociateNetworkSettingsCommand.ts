@@ -52,8 +52,8 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  *
  * ```
  *
- * @param AssociateNetworkSettingsCommandInput - {@link AssociateNetworkSettingsCommandInput}
- * @returns {@link AssociateNetworkSettingsCommandOutput}
+ * @param AssociateNetworkSettingsRequest - {@link AssociateNetworkSettingsRequest}
+ * @returns {@link AssociateNetworkSettingsResponse}
  * @see {@link AssociateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

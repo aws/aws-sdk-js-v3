@@ -64,8 +64,8 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  *
  * ```
  *
- * @param ListTagsForStreamCommandInput - {@link ListTagsForStreamCommandInput}
- * @returns {@link ListTagsForStreamCommandOutput}
+ * @param ListTagsForStreamInput - {@link ListTagsForStreamInput}
+ * @returns {@link ListTagsForStreamOutput}
  * @see {@link ListTagsForStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

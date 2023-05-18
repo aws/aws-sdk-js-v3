@@ -52,8 +52,8 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableRuleCommandInput - {@link EnableRuleCommandInput}
- * @returns {@link EnableRuleCommandOutput}
+ * @param EnableRuleRequest - {@link EnableRuleRequest}
+ * @returns {@link Unit}
  * @see {@link EnableRuleCommandInput} for command's `input` shape.
  * @see {@link EnableRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

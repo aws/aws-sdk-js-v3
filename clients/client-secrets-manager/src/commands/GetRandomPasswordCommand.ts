@@ -70,8 +70,8 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  *
  * ```
  *
- * @param GetRandomPasswordCommandInput - {@link GetRandomPasswordCommandInput}
- * @returns {@link GetRandomPasswordCommandOutput}
+ * @param GetRandomPasswordRequest - {@link GetRandomPasswordRequest}
+ * @returns {@link GetRandomPasswordResponse}
  * @see {@link GetRandomPasswordCommandInput} for command's `input` shape.
  * @see {@link GetRandomPasswordCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

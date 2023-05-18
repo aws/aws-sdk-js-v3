@@ -105,8 +105,8 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  *
  * ```
  *
- * @param DescribeComplianceByConfigRuleCommandInput - {@link DescribeComplianceByConfigRuleCommandInput}
- * @returns {@link DescribeComplianceByConfigRuleCommandOutput}
+ * @param DescribeComplianceByConfigRuleRequest - {@link DescribeComplianceByConfigRuleRequest}
+ * @returns {@link DescribeComplianceByConfigRuleResponse}
  * @see {@link DescribeComplianceByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeComplianceByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

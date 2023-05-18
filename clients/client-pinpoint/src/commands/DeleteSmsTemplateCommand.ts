@@ -54,8 +54,8 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  *
  * ```
  *
- * @param DeleteSmsTemplateCommandInput - {@link DeleteSmsTemplateCommandInput}
- * @returns {@link DeleteSmsTemplateCommandOutput}
+ * @param DeleteSmsTemplateRequest - {@link DeleteSmsTemplateRequest}
+ * @returns {@link DeleteSmsTemplateResponse}
  * @see {@link DeleteSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteSmsTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

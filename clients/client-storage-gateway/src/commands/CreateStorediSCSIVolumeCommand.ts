@@ -76,8 +76,8 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  *
  * ```
  *
- * @param CreateStorediSCSIVolumeCommandInput - {@link CreateStorediSCSIVolumeCommandInput}
- * @returns {@link CreateStorediSCSIVolumeCommandOutput}
+ * @param CreateStorediSCSIVolumeInput - {@link CreateStorediSCSIVolumeInput}
+ * @returns {@link CreateStorediSCSIVolumeOutput}
  * @see {@link CreateStorediSCSIVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateStorediSCSIVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

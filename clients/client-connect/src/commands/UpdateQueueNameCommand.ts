@@ -52,8 +52,8 @@ export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateQueueNameCommandInput - {@link UpdateQueueNameCommandInput}
- * @returns {@link UpdateQueueNameCommandOutput}
+ * @param UpdateQueueNameRequest - {@link UpdateQueueNameRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateQueueNameCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

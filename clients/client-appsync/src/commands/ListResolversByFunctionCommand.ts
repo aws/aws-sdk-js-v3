@@ -88,8 +88,8 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
  *
  * ```
  *
- * @param ListResolversByFunctionCommandInput - {@link ListResolversByFunctionCommandInput}
- * @returns {@link ListResolversByFunctionCommandOutput}
+ * @param ListResolversByFunctionRequest - {@link ListResolversByFunctionRequest}
+ * @returns {@link ListResolversByFunctionResponse}
  * @see {@link ListResolversByFunctionCommandInput} for command's `input` shape.
  * @see {@link ListResolversByFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

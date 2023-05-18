@@ -70,8 +70,8 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *
  * ```
  *
- * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
- * @returns {@link ModifyLoadBalancerAttributesCommandOutput}
+ * @param ModifyLoadBalancerAttributesInput - {@link ModifyLoadBalancerAttributesInput}
+ * @returns {@link ModifyLoadBalancerAttributesOutput}
  * @see {@link ModifyLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

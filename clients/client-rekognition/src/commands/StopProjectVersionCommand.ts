@@ -52,8 +52,8 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  *
  * ```
  *
- * @param StopProjectVersionCommandInput - {@link StopProjectVersionCommandInput}
- * @returns {@link StopProjectVersionCommandOutput}
+ * @param StopProjectVersionRequest - {@link StopProjectVersionRequest}
+ * @returns {@link StopProjectVersionResponse}
  * @see {@link StopProjectVersionCommandInput} for command's `input` shape.
  * @see {@link StopProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

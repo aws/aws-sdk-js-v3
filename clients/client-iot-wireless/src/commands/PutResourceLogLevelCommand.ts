@@ -51,8 +51,8 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  *
  * ```
  *
- * @param PutResourceLogLevelCommandInput - {@link PutResourceLogLevelCommandInput}
- * @returns {@link PutResourceLogLevelCommandOutput}
+ * @param PutResourceLogLevelRequest - {@link PutResourceLogLevelRequest}
+ * @returns {@link PutResourceLogLevelResponse}
  * @see {@link PutResourceLogLevelCommandInput} for command's `input` shape.
  * @see {@link PutResourceLogLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -90,8 +90,8 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *
  * ```
  *
- * @param ModifyDBClusterSnapshotAttributeCommandInput - {@link ModifyDBClusterSnapshotAttributeCommandInput}
- * @returns {@link ModifyDBClusterSnapshotAttributeCommandOutput}
+ * @param ModifyDBClusterSnapshotAttributeMessage - {@link ModifyDBClusterSnapshotAttributeMessage}
+ * @returns {@link ModifyDBClusterSnapshotAttributeResult}
  * @see {@link ModifyDBClusterSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

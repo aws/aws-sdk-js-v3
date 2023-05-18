@@ -75,8 +75,8 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  *
  * ```
  *
- * @param CreatePackageImportJobCommandInput - {@link CreatePackageImportJobCommandInput}
- * @returns {@link CreatePackageImportJobCommandOutput}
+ * @param CreatePackageImportJobRequest - {@link CreatePackageImportJobRequest}
+ * @returns {@link CreatePackageImportJobResponse}
  * @see {@link CreatePackageImportJobCommandInput} for command's `input` shape.
  * @see {@link CreatePackageImportJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

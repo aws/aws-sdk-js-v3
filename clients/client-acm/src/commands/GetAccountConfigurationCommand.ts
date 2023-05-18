@@ -50,8 +50,8 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  *
  * ```
  *
- * @param GetAccountConfigurationCommandInput - {@link GetAccountConfigurationCommandInput}
- * @returns {@link GetAccountConfigurationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetAccountConfigurationResponse}
  * @see {@link GetAccountConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAccountConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

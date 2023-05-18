@@ -49,8 +49,8 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  *
  * ```
  *
- * @param UpdateCoreDefinitionCommandInput - {@link UpdateCoreDefinitionCommandInput}
- * @returns {@link UpdateCoreDefinitionCommandOutput}
+ * @param UpdateCoreDefinitionRequest - {@link UpdateCoreDefinitionRequest}
+ * @returns {@link UpdateCoreDefinitionResponse}
  * @see {@link UpdateCoreDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateCoreDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -82,8 +82,8 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *
  * ```
  *
- * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
- * @returns {@link AttachVolumeCommandOutput}
+ * @param AttachVolumeRequest - {@link AttachVolumeRequest}
+ * @returns {@link VolumeAttachment}
  * @see {@link AttachVolumeCommandInput} for command's `input` shape.
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

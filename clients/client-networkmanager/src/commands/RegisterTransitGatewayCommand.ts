@@ -62,8 +62,8 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  *
  * ```
  *
- * @param RegisterTransitGatewayCommandInput - {@link RegisterTransitGatewayCommandInput}
- * @returns {@link RegisterTransitGatewayCommandOutput}
+ * @param RegisterTransitGatewayRequest - {@link RegisterTransitGatewayRequest}
+ * @returns {@link RegisterTransitGatewayResponse}
  * @see {@link RegisterTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link RegisterTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

@@ -83,8 +83,8 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  *
  * ```
  *
- * @param ListDecoderManifestNetworkInterfacesCommandInput - {@link ListDecoderManifestNetworkInterfacesCommandInput}
- * @returns {@link ListDecoderManifestNetworkInterfacesCommandOutput}
+ * @param ListDecoderManifestNetworkInterfacesRequest - {@link ListDecoderManifestNetworkInterfacesRequest}
+ * @returns {@link ListDecoderManifestNetworkInterfacesResponse}
  * @see {@link ListDecoderManifestNetworkInterfacesCommandInput} for command's `input` shape.
  * @see {@link ListDecoderManifestNetworkInterfacesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

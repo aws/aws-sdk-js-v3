@@ -142,8 +142,8 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  *
  * ```
  *
- * @param CreateGameServerGroupCommandInput - {@link CreateGameServerGroupCommandInput}
- * @returns {@link CreateGameServerGroupCommandOutput}
+ * @param CreateGameServerGroupInput - {@link CreateGameServerGroupInput}
+ * @returns {@link CreateGameServerGroupOutput}
  * @see {@link CreateGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

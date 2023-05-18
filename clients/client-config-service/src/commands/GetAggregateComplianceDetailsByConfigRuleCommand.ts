@@ -93,8 +93,8 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  *
  * ```
  *
- * @param GetAggregateComplianceDetailsByConfigRuleCommandInput - {@link GetAggregateComplianceDetailsByConfigRuleCommandInput}
- * @returns {@link GetAggregateComplianceDetailsByConfigRuleCommandOutput}
+ * @param GetAggregateComplianceDetailsByConfigRuleRequest - {@link GetAggregateComplianceDetailsByConfigRuleRequest}
+ * @returns {@link GetAggregateComplianceDetailsByConfigRuleResponse}
  * @see {@link GetAggregateComplianceDetailsByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetAggregateComplianceDetailsByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

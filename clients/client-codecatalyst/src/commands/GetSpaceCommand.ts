@@ -53,8 +53,8 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetSpaceCommandInput - {@link GetSpaceCommandInput}
- * @returns {@link GetSpaceCommandOutput}
+ * @param GetSpaceRequest - {@link GetSpaceRequest}
+ * @returns {@link GetSpaceResponse}
  * @see {@link GetSpaceCommandInput} for command's `input` shape.
  * @see {@link GetSpaceCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

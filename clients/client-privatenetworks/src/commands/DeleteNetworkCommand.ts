@@ -61,8 +61,8 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  *
  * ```
  *
- * @param DeleteNetworkCommandInput - {@link DeleteNetworkCommandInput}
- * @returns {@link DeleteNetworkCommandOutput}
+ * @param DeleteNetworkRequest - {@link DeleteNetworkRequest}
+ * @returns {@link DeleteNetworkResponse}
  * @see {@link DeleteNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

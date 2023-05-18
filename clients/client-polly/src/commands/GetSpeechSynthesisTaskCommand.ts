@@ -73,8 +73,8 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  *
  * ```
  *
- * @param GetSpeechSynthesisTaskCommandInput - {@link GetSpeechSynthesisTaskCommandInput}
- * @returns {@link GetSpeechSynthesisTaskCommandOutput}
+ * @param GetSpeechSynthesisTaskInput - {@link GetSpeechSynthesisTaskInput}
+ * @returns {@link GetSpeechSynthesisTaskOutput}
  * @see {@link GetSpeechSynthesisTaskCommandInput} for command's `input` shape.
  * @see {@link GetSpeechSynthesisTaskCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.

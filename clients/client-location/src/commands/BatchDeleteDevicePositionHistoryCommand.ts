@@ -66,8 +66,8 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
  *
  * ```
  *
- * @param BatchDeleteDevicePositionHistoryCommandInput - {@link BatchDeleteDevicePositionHistoryCommandInput}
- * @returns {@link BatchDeleteDevicePositionHistoryCommandOutput}
+ * @param BatchDeleteDevicePositionHistoryRequest - {@link BatchDeleteDevicePositionHistoryRequest}
+ * @returns {@link BatchDeleteDevicePositionHistoryResponse}
  * @see {@link BatchDeleteDevicePositionHistoryCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDevicePositionHistoryCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

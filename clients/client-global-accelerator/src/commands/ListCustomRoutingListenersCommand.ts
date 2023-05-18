@@ -67,8 +67,8 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  *
  * ```
  *
- * @param ListCustomRoutingListenersCommandInput - {@link ListCustomRoutingListenersCommandInput}
- * @returns {@link ListCustomRoutingListenersCommandOutput}
+ * @param ListCustomRoutingListenersRequest - {@link ListCustomRoutingListenersRequest}
+ * @returns {@link ListCustomRoutingListenersResponse}
  * @see {@link ListCustomRoutingListenersCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingListenersCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

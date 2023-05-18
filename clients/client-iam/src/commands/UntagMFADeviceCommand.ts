@@ -53,8 +53,8 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagMFADeviceCommandInput - {@link UntagMFADeviceCommandInput}
- * @returns {@link UntagMFADeviceCommandOutput}
+ * @param UntagMFADeviceRequest - {@link UntagMFADeviceRequest}
+ * @returns {@link Unit}
  * @see {@link UntagMFADeviceCommandInput} for command's `input` shape.
  * @see {@link UntagMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

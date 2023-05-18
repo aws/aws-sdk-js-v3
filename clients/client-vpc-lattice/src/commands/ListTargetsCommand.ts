@@ -67,8 +67,8 @@ export interface ListTargetsCommandOutput extends ListTargetsResponse, __Metadat
  *
  * ```
  *
- * @param ListTargetsCommandInput - {@link ListTargetsCommandInput}
- * @returns {@link ListTargetsCommandOutput}
+ * @param ListTargetsRequest - {@link ListTargetsRequest}
+ * @returns {@link ListTargetsResponse}
  * @see {@link ListTargetsCommandInput} for command's `input` shape.
  * @see {@link ListTargetsCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

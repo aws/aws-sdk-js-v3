@@ -60,8 +60,8 @@ export interface GetOriginAccessControlCommandOutput extends GetOriginAccessCont
  *
  * ```
  *
- * @param GetOriginAccessControlCommandInput - {@link GetOriginAccessControlCommandInput}
- * @returns {@link GetOriginAccessControlCommandOutput}
+ * @param GetOriginAccessControlRequest - {@link GetOriginAccessControlRequest}
+ * @returns {@link GetOriginAccessControlResult}
  * @see {@link GetOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link GetOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

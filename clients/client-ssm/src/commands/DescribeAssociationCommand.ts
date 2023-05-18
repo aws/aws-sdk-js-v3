@@ -156,8 +156,8 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  *
  * ```
  *
- * @param DescribeAssociationCommandInput - {@link DescribeAssociationCommandInput}
- * @returns {@link DescribeAssociationCommandOutput}
+ * @param DescribeAssociationRequest - {@link DescribeAssociationRequest}
+ * @returns {@link DescribeAssociationResult}
  * @see {@link DescribeAssociationCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

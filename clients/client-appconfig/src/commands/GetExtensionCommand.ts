@@ -71,8 +71,8 @@ export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {
  *
  * ```
  *
- * @param GetExtensionCommandInput - {@link GetExtensionCommandInput}
- * @returns {@link GetExtensionCommandOutput}
+ * @param GetExtensionRequest - {@link GetExtensionRequest}
+ * @returns {@link Extension}
  * @see {@link GetExtensionCommandInput} for command's `input` shape.
  * @see {@link GetExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -69,8 +69,8 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopStreamEncryptionCommandInput - {@link StopStreamEncryptionCommandInput}
- * @returns {@link StopStreamEncryptionCommandOutput}
+ * @param StopStreamEncryptionInput - {@link StopStreamEncryptionInput}
+ * @returns {@link Unit}
  * @see {@link StopStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StopStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

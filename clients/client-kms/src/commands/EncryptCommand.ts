@@ -169,8 +169,8 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *
  * ```
  *
- * @param EncryptCommandInput - {@link EncryptCommandInput}
- * @returns {@link EncryptCommandOutput}
+ * @param EncryptRequest - {@link EncryptRequest}
+ * @returns {@link EncryptResponse}
  * @see {@link EncryptCommandInput} for command's `input` shape.
  * @see {@link EncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

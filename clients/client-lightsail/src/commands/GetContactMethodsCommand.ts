@@ -72,8 +72,8 @@ export interface GetContactMethodsCommandOutput extends GetContactMethodsResult,
  *
  * ```
  *
- * @param GetContactMethodsCommandInput - {@link GetContactMethodsCommandInput}
- * @returns {@link GetContactMethodsCommandOutput}
+ * @param GetContactMethodsRequest - {@link GetContactMethodsRequest}
+ * @returns {@link GetContactMethodsResult}
  * @see {@link GetContactMethodsCommandInput} for command's `input` shape.
  * @see {@link GetContactMethodsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

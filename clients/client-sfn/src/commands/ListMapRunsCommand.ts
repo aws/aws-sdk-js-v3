@@ -61,8 +61,8 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  *
  * ```
  *
- * @param ListMapRunsCommandInput - {@link ListMapRunsCommandInput}
- * @returns {@link ListMapRunsCommandOutput}
+ * @param ListMapRunsInput - {@link ListMapRunsInput}
+ * @returns {@link ListMapRunsOutput}
  * @see {@link ListMapRunsCommandInput} for command's `input` shape.
  * @see {@link ListMapRunsCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

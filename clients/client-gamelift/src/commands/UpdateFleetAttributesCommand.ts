@@ -75,8 +75,8 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  *
  * ```
  *
- * @param UpdateFleetAttributesCommandInput - {@link UpdateFleetAttributesCommandInput}
- * @returns {@link UpdateFleetAttributesCommandOutput}
+ * @param UpdateFleetAttributesInput - {@link UpdateFleetAttributesInput}
+ * @returns {@link UpdateFleetAttributesOutput}
  * @see {@link UpdateFleetAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

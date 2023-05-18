@@ -164,8 +164,8 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  *
  * ```
  *
- * @param GetPropertyValueCommandInput - {@link GetPropertyValueCommandInput}
- * @returns {@link GetPropertyValueCommandOutput}
+ * @param GetPropertyValueRequest - {@link GetPropertyValueRequest}
+ * @returns {@link GetPropertyValueResponse}
  * @see {@link GetPropertyValueCommandInput} for command's `input` shape.
  * @see {@link GetPropertyValueCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

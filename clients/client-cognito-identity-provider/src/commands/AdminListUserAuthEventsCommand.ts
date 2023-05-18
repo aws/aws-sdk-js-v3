@@ -94,8 +94,8 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  *
  * ```
  *
- * @param AdminListUserAuthEventsCommandInput - {@link AdminListUserAuthEventsCommandInput}
- * @returns {@link AdminListUserAuthEventsCommandOutput}
+ * @param AdminListUserAuthEventsRequest - {@link AdminListUserAuthEventsRequest}
+ * @returns {@link AdminListUserAuthEventsResponse}
  * @see {@link AdminListUserAuthEventsCommandInput} for command's `input` shape.
  * @see {@link AdminListUserAuthEventsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

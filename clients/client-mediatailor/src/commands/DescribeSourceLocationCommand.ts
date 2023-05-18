@@ -76,8 +76,8 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
  *
  * ```
  *
- * @param DescribeSourceLocationCommandInput - {@link DescribeSourceLocationCommandInput}
- * @returns {@link DescribeSourceLocationCommandOutput}
+ * @param DescribeSourceLocationRequest - {@link DescribeSourceLocationRequest}
+ * @returns {@link DescribeSourceLocationResponse}
  * @see {@link DescribeSourceLocationCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

@@ -77,8 +77,8 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *
  * ```
  *
- * @param DeleteTrustAnchorCommandInput - {@link DeleteTrustAnchorCommandInput}
- * @returns {@link DeleteTrustAnchorCommandOutput}
+ * @param ScalarTrustAnchorRequest - {@link ScalarTrustAnchorRequest}
+ * @returns {@link TrustAnchorDetailResponse}
  * @see {@link DeleteTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

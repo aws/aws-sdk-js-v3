@@ -53,8 +53,8 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  *
  * ```
  *
- * @param AssumeImpersonationRoleCommandInput - {@link AssumeImpersonationRoleCommandInput}
- * @returns {@link AssumeImpersonationRoleCommandOutput}
+ * @param AssumeImpersonationRoleRequest - {@link AssumeImpersonationRoleRequest}
+ * @returns {@link AssumeImpersonationRoleResponse}
  * @see {@link AssumeImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link AssumeImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

@@ -111,8 +111,8 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *
  * ```
  *
- * @param StartAutomationExecutionCommandInput - {@link StartAutomationExecutionCommandInput}
- * @returns {@link StartAutomationExecutionCommandOutput}
+ * @param StartAutomationExecutionRequest - {@link StartAutomationExecutionRequest}
+ * @returns {@link StartAutomationExecutionResult}
  * @see {@link StartAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link StartAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

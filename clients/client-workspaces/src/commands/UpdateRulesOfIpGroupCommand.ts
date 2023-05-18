@@ -55,8 +55,8 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  *
  * ```
  *
- * @param UpdateRulesOfIpGroupCommandInput - {@link UpdateRulesOfIpGroupCommandInput}
- * @returns {@link UpdateRulesOfIpGroupCommandOutput}
+ * @param UpdateRulesOfIpGroupRequest - {@link UpdateRulesOfIpGroupRequest}
+ * @returns {@link UpdateRulesOfIpGroupResult}
  * @see {@link UpdateRulesOfIpGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRulesOfIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -77,8 +77,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  *
  * ```
  *
- * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
- * @returns {@link ListFunctionsCommandOutput}
+ * @param ListFunctionsRequest - {@link ListFunctionsRequest}
+ * @returns {@link ListFunctionsResponse}
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

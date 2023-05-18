@@ -88,8 +88,8 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  *
  * ```
  *
- * @param CreateVpcPeeringAuthorizationCommandInput - {@link CreateVpcPeeringAuthorizationCommandInput}
- * @returns {@link CreateVpcPeeringAuthorizationCommandOutput}
+ * @param CreateVpcPeeringAuthorizationInput - {@link CreateVpcPeeringAuthorizationInput}
+ * @returns {@link CreateVpcPeeringAuthorizationOutput}
  * @see {@link CreateVpcPeeringAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

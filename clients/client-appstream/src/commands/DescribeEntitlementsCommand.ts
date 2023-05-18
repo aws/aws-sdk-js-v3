@@ -69,8 +69,8 @@ export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsR
  *
  * ```
  *
- * @param DescribeEntitlementsCommandInput - {@link DescribeEntitlementsCommandInput}
- * @returns {@link DescribeEntitlementsCommandOutput}
+ * @param DescribeEntitlementsRequest - {@link DescribeEntitlementsRequest}
+ * @returns {@link DescribeEntitlementsResult}
  * @see {@link DescribeEntitlementsCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

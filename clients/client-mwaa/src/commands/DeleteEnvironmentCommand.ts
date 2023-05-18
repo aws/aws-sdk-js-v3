@@ -48,8 +48,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  *
  * ```
  *
- * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
- * @returns {@link DeleteEnvironmentCommandOutput}
+ * @param DeleteEnvironmentInput - {@link DeleteEnvironmentInput}
+ * @returns {@link DeleteEnvironmentOutput}
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.

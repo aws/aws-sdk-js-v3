@@ -59,8 +59,8 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateOrgEc2DeepInspectionConfigurationCommandInput - {@link UpdateOrgEc2DeepInspectionConfigurationCommandInput}
- * @returns {@link UpdateOrgEc2DeepInspectionConfigurationCommandOutput}
+ * @param UpdateOrgEc2DeepInspectionConfigurationRequest - {@link UpdateOrgEc2DeepInspectionConfigurationRequest}
+ * @returns {@link UpdateOrgEc2DeepInspectionConfigurationResponse}
  * @see {@link UpdateOrgEc2DeepInspectionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateOrgEc2DeepInspectionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

@@ -140,8 +140,8 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *
  * ```
  *
- * @param PutIntegrationCommandInput - {@link PutIntegrationCommandInput}
- * @returns {@link PutIntegrationCommandOutput}
+ * @param PutIntegrationRequest - {@link PutIntegrationRequest}
+ * @returns {@link PutIntegrationResponse}
  * @see {@link PutIntegrationCommandInput} for command's `input` shape.
  * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

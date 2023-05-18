@@ -75,8 +75,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *
  * ```
  *
- * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
- * @returns {@link UpdateConfigurationSetEventDestinationCommandOutput}
+ * @param UpdateConfigurationSetEventDestinationRequest - {@link UpdateConfigurationSetEventDestinationRequest}
+ * @returns {@link UpdateConfigurationSetEventDestinationResponse}
  * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.

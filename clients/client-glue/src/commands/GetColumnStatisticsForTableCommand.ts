@@ -122,8 +122,8 @@ export interface GetColumnStatisticsForTableCommandOutput
  *
  * ```
  *
- * @param GetColumnStatisticsForTableCommandInput - {@link GetColumnStatisticsForTableCommandInput}
- * @returns {@link GetColumnStatisticsForTableCommandOutput}
+ * @param GetColumnStatisticsForTableRequest - {@link GetColumnStatisticsForTableRequest}
+ * @returns {@link GetColumnStatisticsForTableResponse}
  * @see {@link GetColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link GetColumnStatisticsForTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

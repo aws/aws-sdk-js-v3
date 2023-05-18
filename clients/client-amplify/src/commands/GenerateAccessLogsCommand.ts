@@ -54,8 +54,8 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  *
  * ```
  *
- * @param GenerateAccessLogsCommandInput - {@link GenerateAccessLogsCommandInput}
- * @returns {@link GenerateAccessLogsCommandOutput}
+ * @param GenerateAccessLogsRequest - {@link GenerateAccessLogsRequest}
+ * @returns {@link GenerateAccessLogsResult}
  * @see {@link GenerateAccessLogsCommandInput} for command's `input` shape.
  * @see {@link GenerateAccessLogsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

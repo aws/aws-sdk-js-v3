@@ -70,8 +70,8 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  *
  * ```
  *
- * @param GetTileCommandInput - {@link GetTileCommandInput}
- * @returns {@link GetTileCommandOutput}
+ * @param GetTileInput - {@link GetTileInput}
+ * @returns {@link GetTileOutput}
  * @see {@link GetTileCommandInput} for command's `input` shape.
  * @see {@link GetTileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  *
  * ```
  *
- * @param DeleteAnnotationStoreCommandInput - {@link DeleteAnnotationStoreCommandInput}
- * @returns {@link DeleteAnnotationStoreCommandOutput}
+ * @param DeleteAnnotationStoreRequest - {@link DeleteAnnotationStoreRequest}
+ * @returns {@link DeleteAnnotationStoreResponse}
  * @see {@link DeleteAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

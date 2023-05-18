@@ -49,8 +49,8 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  *
  * ```
  *
- * @param DeleteAssistantAssociationCommandInput - {@link DeleteAssistantAssociationCommandInput}
- * @returns {@link DeleteAssistantAssociationCommandOutput}
+ * @param DeleteAssistantAssociationRequest - {@link DeleteAssistantAssociationRequest}
+ * @returns {@link DeleteAssistantAssociationResponse}
  * @see {@link DeleteAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

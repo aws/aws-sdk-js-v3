@@ -88,8 +88,8 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  *
  * ```
  *
- * @param UpdateFlowEntitlementCommandInput - {@link UpdateFlowEntitlementCommandInput}
- * @returns {@link UpdateFlowEntitlementCommandOutput}
+ * @param UpdateFlowEntitlementRequest - {@link UpdateFlowEntitlementRequest}
+ * @returns {@link UpdateFlowEntitlementResponse}
  * @see {@link UpdateFlowEntitlementCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowEntitlementCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

@@ -76,8 +76,8 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  *
  * ```
  *
- * @param DescribeChannelModeratorCommandInput - {@link DescribeChannelModeratorCommandInput}
- * @returns {@link DescribeChannelModeratorCommandOutput}
+ * @param DescribeChannelModeratorRequest - {@link DescribeChannelModeratorRequest}
+ * @returns {@link DescribeChannelModeratorResponse}
  * @see {@link DescribeChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

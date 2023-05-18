@@ -53,8 +53,8 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  *
  * ```
  *
- * @param GetLayerVersionPolicyCommandInput - {@link GetLayerVersionPolicyCommandInput}
- * @returns {@link GetLayerVersionPolicyCommandOutput}
+ * @param GetLayerVersionPolicyRequest - {@link GetLayerVersionPolicyRequest}
+ * @returns {@link GetLayerVersionPolicyResponse}
  * @see {@link GetLayerVersionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetLayerVersionPolicyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

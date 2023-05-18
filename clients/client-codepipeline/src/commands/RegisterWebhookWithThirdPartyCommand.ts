@@ -54,8 +54,8 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  *
  * ```
  *
- * @param RegisterWebhookWithThirdPartyCommandInput - {@link RegisterWebhookWithThirdPartyCommandInput}
- * @returns {@link RegisterWebhookWithThirdPartyCommandOutput}
+ * @param RegisterWebhookWithThirdPartyInput - {@link RegisterWebhookWithThirdPartyInput}
+ * @returns {@link RegisterWebhookWithThirdPartyOutput}
  * @see {@link RegisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
  * @see {@link RegisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

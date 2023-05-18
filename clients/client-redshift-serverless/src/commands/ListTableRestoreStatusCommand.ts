@@ -76,8 +76,8 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  *
  * ```
  *
- * @param ListTableRestoreStatusCommandInput - {@link ListTableRestoreStatusCommandInput}
- * @returns {@link ListTableRestoreStatusCommandOutput}
+ * @param ListTableRestoreStatusRequest - {@link ListTableRestoreStatusRequest}
+ * @returns {@link ListTableRestoreStatusResponse}
  * @see {@link ListTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link ListTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

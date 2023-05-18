@@ -85,8 +85,8 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  *
  * ```
  *
- * @param ListIncidentRecordsCommandInput - {@link ListIncidentRecordsCommandInput}
- * @returns {@link ListIncidentRecordsCommandOutput}
+ * @param ListIncidentRecordsInput - {@link ListIncidentRecordsInput}
+ * @returns {@link ListIncidentRecordsOutput}
  * @see {@link ListIncidentRecordsCommandInput} for command's `input` shape.
  * @see {@link ListIncidentRecordsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

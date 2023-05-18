@@ -62,8 +62,8 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  *
  * ```
  *
- * @param DescribeMapCommandInput - {@link DescribeMapCommandInput}
- * @returns {@link DescribeMapCommandOutput}
+ * @param DescribeMapRequest - {@link DescribeMapRequest}
+ * @returns {@link DescribeMapResponse}
  * @see {@link DescribeMapCommandInput} for command's `input` shape.
  * @see {@link DescribeMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

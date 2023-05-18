@@ -69,8 +69,8 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  *
  * ```
  *
- * @param ListComputeCommandInput - {@link ListComputeCommandInput}
- * @returns {@link ListComputeCommandOutput}
+ * @param ListComputeInput - {@link ListComputeInput}
+ * @returns {@link ListComputeOutput}
  * @see {@link ListComputeCommandInput} for command's `input` shape.
  * @see {@link ListComputeCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

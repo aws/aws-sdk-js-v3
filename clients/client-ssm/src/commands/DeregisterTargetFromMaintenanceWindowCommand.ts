@@ -62,8 +62,8 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  *
  * ```
  *
- * @param DeregisterTargetFromMaintenanceWindowCommandInput - {@link DeregisterTargetFromMaintenanceWindowCommandInput}
- * @returns {@link DeregisterTargetFromMaintenanceWindowCommandOutput}
+ * @param DeregisterTargetFromMaintenanceWindowRequest - {@link DeregisterTargetFromMaintenanceWindowRequest}
+ * @returns {@link DeregisterTargetFromMaintenanceWindowResult}
  * @see {@link DeregisterTargetFromMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetFromMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

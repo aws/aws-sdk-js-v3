@@ -75,8 +75,8 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  *
  * ```
  *
- * @param ImportLensCommandInput - {@link ImportLensCommandInput}
- * @returns {@link ImportLensCommandOutput}
+ * @param ImportLensInput - {@link ImportLensInput}
+ * @returns {@link ImportLensOutput}
  * @see {@link ImportLensCommandInput} for command's `input` shape.
  * @see {@link ImportLensCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

@@ -115,8 +115,8 @@ export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForec
  *
  * ```
  *
- * @param DescribeWhatIfForecastCommandInput - {@link DescribeWhatIfForecastCommandInput}
- * @returns {@link DescribeWhatIfForecastCommandOutput}
+ * @param DescribeWhatIfForecastRequest - {@link DescribeWhatIfForecastRequest}
+ * @returns {@link DescribeWhatIfForecastResponse}
  * @see {@link DescribeWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link DescribeWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

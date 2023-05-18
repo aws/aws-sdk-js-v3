@@ -76,8 +76,8 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  *
  * ```
  *
- * @param CreateClusterParameterGroupCommandInput - {@link CreateClusterParameterGroupCommandInput}
- * @returns {@link CreateClusterParameterGroupCommandOutput}
+ * @param CreateClusterParameterGroupMessage - {@link CreateClusterParameterGroupMessage}
+ * @returns {@link CreateClusterParameterGroupResult}
  * @see {@link CreateClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

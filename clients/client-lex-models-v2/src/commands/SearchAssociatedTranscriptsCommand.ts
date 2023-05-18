@@ -80,8 +80,8 @@ export interface SearchAssociatedTranscriptsCommandOutput
  *
  * ```
  *
- * @param SearchAssociatedTranscriptsCommandInput - {@link SearchAssociatedTranscriptsCommandInput}
- * @returns {@link SearchAssociatedTranscriptsCommandOutput}
+ * @param SearchAssociatedTranscriptsRequest - {@link SearchAssociatedTranscriptsRequest}
+ * @returns {@link SearchAssociatedTranscriptsResponse}
  * @see {@link SearchAssociatedTranscriptsCommandInput} for command's `input` shape.
  * @see {@link SearchAssociatedTranscriptsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

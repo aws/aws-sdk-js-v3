@@ -70,8 +70,8 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  *
  * ```
  *
- * @param GetGroupQueryCommandInput - {@link GetGroupQueryCommandInput}
- * @returns {@link GetGroupQueryCommandOutput}
+ * @param GetGroupQueryInput - {@link GetGroupQueryInput}
+ * @returns {@link GetGroupQueryOutput}
  * @see {@link GetGroupQueryCommandInput} for command's `input` shape.
  * @see {@link GetGroupQueryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

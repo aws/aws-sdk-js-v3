@@ -170,8 +170,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *
  * ```
  *
- * @param AssumeRoleCommandInput - {@link AssumeRoleCommandInput}
- * @returns {@link AssumeRoleCommandOutput}
+ * @param AssumeRoleRequest - {@link AssumeRoleRequest}
+ * @returns {@link AssumeRoleResponse}
  * @see {@link AssumeRoleCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.

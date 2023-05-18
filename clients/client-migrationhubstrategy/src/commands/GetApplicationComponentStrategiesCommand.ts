@@ -77,8 +77,8 @@ export interface GetApplicationComponentStrategiesCommandOutput
  *
  * ```
  *
- * @param GetApplicationComponentStrategiesCommandInput - {@link GetApplicationComponentStrategiesCommandInput}
- * @returns {@link GetApplicationComponentStrategiesCommandOutput}
+ * @param GetApplicationComponentStrategiesRequest - {@link GetApplicationComponentStrategiesRequest}
+ * @returns {@link GetApplicationComponentStrategiesResponse}
  * @see {@link GetApplicationComponentStrategiesCommandInput} for command's `input` shape.
  * @see {@link GetApplicationComponentStrategiesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

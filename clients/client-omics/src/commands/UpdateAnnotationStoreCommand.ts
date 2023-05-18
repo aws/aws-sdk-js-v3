@@ -73,8 +73,8 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  *
  * ```
  *
- * @param UpdateAnnotationStoreCommandInput - {@link UpdateAnnotationStoreCommandInput}
- * @returns {@link UpdateAnnotationStoreCommandOutput}
+ * @param UpdateAnnotationStoreRequest - {@link UpdateAnnotationStoreRequest}
+ * @returns {@link UpdateAnnotationStoreResponse}
  * @see {@link UpdateAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

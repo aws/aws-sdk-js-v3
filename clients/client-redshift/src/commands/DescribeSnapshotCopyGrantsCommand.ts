@@ -76,8 +76,8 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  *
  * ```
  *
- * @param DescribeSnapshotCopyGrantsCommandInput - {@link DescribeSnapshotCopyGrantsCommandInput}
- * @returns {@link DescribeSnapshotCopyGrantsCommandOutput}
+ * @param DescribeSnapshotCopyGrantsMessage - {@link DescribeSnapshotCopyGrantsMessage}
+ * @returns {@link SnapshotCopyGrantMessage}
  * @see {@link DescribeSnapshotCopyGrantsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotCopyGrantsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

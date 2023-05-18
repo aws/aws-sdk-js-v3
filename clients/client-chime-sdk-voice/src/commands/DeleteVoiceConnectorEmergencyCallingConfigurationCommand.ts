@@ -53,8 +53,8 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput 
  *
  * ```
  *
- * @param DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput - {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput}
- * @returns {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput}
+ * @param DeleteVoiceConnectorEmergencyCallingConfigurationRequest - {@link DeleteVoiceConnectorEmergencyCallingConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

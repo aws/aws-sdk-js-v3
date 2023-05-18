@@ -48,8 +48,8 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
- * @returns {@link DeleteConnectorCommandOutput}
+ * @param DeleteConnectorRequest - {@link DeleteConnectorRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

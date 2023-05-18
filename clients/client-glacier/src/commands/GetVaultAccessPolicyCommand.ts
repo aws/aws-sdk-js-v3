@@ -58,8 +58,8 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  *
  * ```
  *
- * @param GetVaultAccessPolicyCommandInput - {@link GetVaultAccessPolicyCommandInput}
- * @returns {@link GetVaultAccessPolicyCommandOutput}
+ * @param GetVaultAccessPolicyInput - {@link GetVaultAccessPolicyInput}
+ * @returns {@link GetVaultAccessPolicyOutput}
  * @see {@link GetVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link GetVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

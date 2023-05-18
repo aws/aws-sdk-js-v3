@@ -87,8 +87,8 @@ export interface CreateIpamResourceDiscoveryCommandOutput extends CreateIpamReso
  *
  * ```
  *
- * @param CreateIpamResourceDiscoveryCommandInput - {@link CreateIpamResourceDiscoveryCommandInput}
- * @returns {@link CreateIpamResourceDiscoveryCommandOutput}
+ * @param CreateIpamResourceDiscoveryRequest - {@link CreateIpamResourceDiscoveryRequest}
+ * @returns {@link CreateIpamResourceDiscoveryResult}
  * @see {@link CreateIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link CreateIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

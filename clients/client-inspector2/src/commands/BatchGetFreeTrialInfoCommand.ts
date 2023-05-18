@@ -71,8 +71,8 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  *
  * ```
  *
- * @param BatchGetFreeTrialInfoCommandInput - {@link BatchGetFreeTrialInfoCommandInput}
- * @returns {@link BatchGetFreeTrialInfoCommandOutput}
+ * @param BatchGetFreeTrialInfoRequest - {@link BatchGetFreeTrialInfoRequest}
+ * @returns {@link BatchGetFreeTrialInfoResponse}
  * @see {@link BatchGetFreeTrialInfoCommandInput} for command's `input` shape.
  * @see {@link BatchGetFreeTrialInfoCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

@@ -72,8 +72,8 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DetachTypedLinkCommandInput - {@link DetachTypedLinkCommandInput}
- * @returns {@link DetachTypedLinkCommandOutput}
+ * @param DetachTypedLinkRequest - {@link DetachTypedLinkRequest}
+ * @returns {@link Unit}
  * @see {@link DetachTypedLinkCommandInput} for command's `input` shape.
  * @see {@link DetachTypedLinkCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

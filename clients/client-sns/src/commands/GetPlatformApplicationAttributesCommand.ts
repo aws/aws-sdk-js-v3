@@ -59,8 +59,8 @@ export interface GetPlatformApplicationAttributesCommandOutput
  *
  * ```
  *
- * @param GetPlatformApplicationAttributesCommandInput - {@link GetPlatformApplicationAttributesCommandInput}
- * @returns {@link GetPlatformApplicationAttributesCommandOutput}
+ * @param GetPlatformApplicationAttributesInput - {@link GetPlatformApplicationAttributesInput}
+ * @returns {@link GetPlatformApplicationAttributesResponse}
  * @see {@link GetPlatformApplicationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

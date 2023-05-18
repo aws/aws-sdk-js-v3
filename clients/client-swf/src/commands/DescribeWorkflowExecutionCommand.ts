@@ -122,8 +122,8 @@ export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutio
  *
  * ```
  *
- * @param DescribeWorkflowExecutionCommandInput - {@link DescribeWorkflowExecutionCommandInput}
- * @returns {@link DescribeWorkflowExecutionCommandOutput}
+ * @param DescribeWorkflowExecutionInput - {@link DescribeWorkflowExecutionInput}
+ * @returns {@link WorkflowExecutionDetail}
  * @see {@link DescribeWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

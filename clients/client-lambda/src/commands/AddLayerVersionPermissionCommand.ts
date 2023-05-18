@@ -62,8 +62,8 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  *
  * ```
  *
- * @param AddLayerVersionPermissionCommandInput - {@link AddLayerVersionPermissionCommandInput}
- * @returns {@link AddLayerVersionPermissionCommandOutput}
+ * @param AddLayerVersionPermissionRequest - {@link AddLayerVersionPermissionRequest}
+ * @returns {@link AddLayerVersionPermissionResponse}
  * @see {@link AddLayerVersionPermissionCommandInput} for command's `input` shape.
  * @see {@link AddLayerVersionPermissionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

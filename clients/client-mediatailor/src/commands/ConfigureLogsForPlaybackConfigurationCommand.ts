@@ -61,8 +61,8 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  *
  * ```
  *
- * @param ConfigureLogsForPlaybackConfigurationCommandInput - {@link ConfigureLogsForPlaybackConfigurationCommandInput}
- * @returns {@link ConfigureLogsForPlaybackConfigurationCommandOutput}
+ * @param ConfigureLogsForPlaybackConfigurationRequest - {@link ConfigureLogsForPlaybackConfigurationRequest}
+ * @returns {@link ConfigureLogsForPlaybackConfigurationResponse}
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

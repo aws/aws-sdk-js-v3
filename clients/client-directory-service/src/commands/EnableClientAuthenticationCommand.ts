@@ -49,8 +49,8 @@ export interface EnableClientAuthenticationCommandOutput extends EnableClientAut
  *
  * ```
  *
- * @param EnableClientAuthenticationCommandInput - {@link EnableClientAuthenticationCommandInput}
- * @returns {@link EnableClientAuthenticationCommandOutput}
+ * @param EnableClientAuthenticationRequest - {@link EnableClientAuthenticationRequest}
+ * @returns {@link EnableClientAuthenticationResult}
  * @see {@link EnableClientAuthenticationCommandInput} for command's `input` shape.
  * @see {@link EnableClientAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

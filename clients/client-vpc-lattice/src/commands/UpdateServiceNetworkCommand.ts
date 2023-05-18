@@ -54,8 +54,8 @@ export interface UpdateServiceNetworkCommandOutput extends UpdateServiceNetworkR
  *
  * ```
  *
- * @param UpdateServiceNetworkCommandInput - {@link UpdateServiceNetworkCommandInput}
- * @returns {@link UpdateServiceNetworkCommandOutput}
+ * @param UpdateServiceNetworkRequest - {@link UpdateServiceNetworkRequest}
+ * @returns {@link UpdateServiceNetworkResponse}
  * @see {@link UpdateServiceNetworkCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceNetworkCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

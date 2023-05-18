@@ -59,8 +59,8 @@ export interface UpdateEmergencyContactSettingsCommandOutput
  *
  * ```
  *
- * @param UpdateEmergencyContactSettingsCommandInput - {@link UpdateEmergencyContactSettingsCommandInput}
- * @returns {@link UpdateEmergencyContactSettingsCommandOutput}
+ * @param UpdateEmergencyContactSettingsRequest - {@link UpdateEmergencyContactSettingsRequest}
+ * @returns {@link UpdateEmergencyContactSettingsResponse}
  * @see {@link UpdateEmergencyContactSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateEmergencyContactSettingsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

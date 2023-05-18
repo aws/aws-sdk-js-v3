@@ -135,8 +135,8 @@ export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataB
  *
  * ```
  *
- * @param PollForJobsCommandInput - {@link PollForJobsCommandInput}
- * @returns {@link PollForJobsCommandOutput}
+ * @param PollForJobsInput - {@link PollForJobsInput}
+ * @returns {@link PollForJobsOutput}
  * @see {@link PollForJobsCommandInput} for command's `input` shape.
  * @see {@link PollForJobsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

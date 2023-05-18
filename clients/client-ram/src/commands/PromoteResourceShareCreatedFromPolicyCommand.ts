@@ -72,8 +72,8 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  *
  * ```
  *
- * @param PromoteResourceShareCreatedFromPolicyCommandInput - {@link PromoteResourceShareCreatedFromPolicyCommandInput}
- * @returns {@link PromoteResourceShareCreatedFromPolicyCommandOutput}
+ * @param PromoteResourceShareCreatedFromPolicyRequest - {@link PromoteResourceShareCreatedFromPolicyRequest}
+ * @returns {@link PromoteResourceShareCreatedFromPolicyResponse}
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandInput} for command's `input` shape.
  * @see {@link PromoteResourceShareCreatedFromPolicyCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

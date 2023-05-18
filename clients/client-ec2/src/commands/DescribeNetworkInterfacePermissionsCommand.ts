@@ -83,8 +83,8 @@ export interface DescribeNetworkInterfacePermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeNetworkInterfacePermissionsCommandInput - {@link DescribeNetworkInterfacePermissionsCommandInput}
- * @returns {@link DescribeNetworkInterfacePermissionsCommandOutput}
+ * @param DescribeNetworkInterfacePermissionsRequest - {@link DescribeNetworkInterfacePermissionsRequest}
+ * @returns {@link DescribeNetworkInterfacePermissionsResult}
  * @see {@link DescribeNetworkInterfacePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfacePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

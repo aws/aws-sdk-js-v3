@@ -58,8 +58,8 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  *
  * ```
  *
- * @param ListResponsePlansCommandInput - {@link ListResponsePlansCommandInput}
- * @returns {@link ListResponsePlansCommandOutput}
+ * @param ListResponsePlansInput - {@link ListResponsePlansInput}
+ * @returns {@link ListResponsePlansOutput}
  * @see {@link ListResponsePlansCommandInput} for command's `input` shape.
  * @see {@link ListResponsePlansCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

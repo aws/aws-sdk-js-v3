@@ -60,8 +60,8 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  *
  * ```
  *
- * @param ListUserTagsCommandInput - {@link ListUserTagsCommandInput}
- * @returns {@link ListUserTagsCommandOutput}
+ * @param ListUserTagsRequest - {@link ListUserTagsRequest}
+ * @returns {@link ListUserTagsResponse}
  * @see {@link ListUserTagsCommandInput} for command's `input` shape.
  * @see {@link ListUserTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

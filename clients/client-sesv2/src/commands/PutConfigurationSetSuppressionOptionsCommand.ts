@@ -60,8 +60,8 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  *
  * ```
  *
- * @param PutConfigurationSetSuppressionOptionsCommandInput - {@link PutConfigurationSetSuppressionOptionsCommandInput}
- * @returns {@link PutConfigurationSetSuppressionOptionsCommandOutput}
+ * @param PutConfigurationSetSuppressionOptionsRequest - {@link PutConfigurationSetSuppressionOptionsRequest}
+ * @returns {@link PutConfigurationSetSuppressionOptionsResponse}
  * @see {@link PutConfigurationSetSuppressionOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetSuppressionOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

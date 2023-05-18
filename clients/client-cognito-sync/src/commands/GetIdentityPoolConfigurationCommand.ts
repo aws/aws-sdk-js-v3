@@ -112,8 +112,8 @@ export interface GetIdentityPoolConfigurationCommandOutput
  *
  * ```
  *
- * @param GetIdentityPoolConfigurationCommandInput - {@link GetIdentityPoolConfigurationCommandInput}
- * @returns {@link GetIdentityPoolConfigurationCommandOutput}
+ * @param GetIdentityPoolConfigurationRequest - {@link GetIdentityPoolConfigurationRequest}
+ * @returns {@link GetIdentityPoolConfigurationResponse}
  * @see {@link GetIdentityPoolConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

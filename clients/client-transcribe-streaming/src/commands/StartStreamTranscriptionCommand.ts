@@ -206,8 +206,8 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *
  * ```
  *
- * @param StartStreamTranscriptionCommandInput - {@link StartStreamTranscriptionCommandInput}
- * @returns {@link StartStreamTranscriptionCommandOutput}
+ * @param StartStreamTranscriptionRequest - {@link StartStreamTranscriptionRequest}
+ * @returns {@link StartStreamTranscriptionResponse}
  * @see {@link StartStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.

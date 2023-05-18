@@ -66,8 +66,8 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  *
  * ```
  *
- * @param UpdateImpersonationRoleCommandInput - {@link UpdateImpersonationRoleCommandInput}
- * @returns {@link UpdateImpersonationRoleCommandOutput}
+ * @param UpdateImpersonationRoleRequest - {@link UpdateImpersonationRoleRequest}
+ * @returns {@link UpdateImpersonationRoleResponse}
  * @see {@link UpdateImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

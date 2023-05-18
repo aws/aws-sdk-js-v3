@@ -63,8 +63,8 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetVisibleToAllUsersCommandInput - {@link SetVisibleToAllUsersCommandInput}
- * @returns {@link SetVisibleToAllUsersCommandOutput}
+ * @param SetVisibleToAllUsersInput - {@link SetVisibleToAllUsersInput}
+ * @returns {@link Unit}
  * @see {@link SetVisibleToAllUsersCommandInput} for command's `input` shape.
  * @see {@link SetVisibleToAllUsersCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

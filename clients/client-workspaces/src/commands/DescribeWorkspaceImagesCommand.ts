@@ -76,8 +76,8 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  *
  * ```
  *
- * @param DescribeWorkspaceImagesCommandInput - {@link DescribeWorkspaceImagesCommandInput}
- * @returns {@link DescribeWorkspaceImagesCommandOutput}
+ * @param DescribeWorkspaceImagesRequest - {@link DescribeWorkspaceImagesRequest}
+ * @returns {@link DescribeWorkspaceImagesResult}
  * @see {@link DescribeWorkspaceImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceImagesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

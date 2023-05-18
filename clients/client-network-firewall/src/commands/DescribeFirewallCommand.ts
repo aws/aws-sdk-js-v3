@@ -109,8 +109,8 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  *
  * ```
  *
- * @param DescribeFirewallCommandInput - {@link DescribeFirewallCommandInput}
- * @returns {@link DescribeFirewallCommandOutput}
+ * @param DescribeFirewallRequest - {@link DescribeFirewallRequest}
+ * @returns {@link DescribeFirewallResponse}
  * @see {@link DescribeFirewallCommandInput} for command's `input` shape.
  * @see {@link DescribeFirewallCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

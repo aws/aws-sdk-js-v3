@@ -127,8 +127,8 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  *
  * ```
  *
- * @param CreateAppVersionResourceCommandInput - {@link CreateAppVersionResourceCommandInput}
- * @returns {@link CreateAppVersionResourceCommandOutput}
+ * @param CreateAppVersionResourceRequest - {@link CreateAppVersionResourceRequest}
+ * @returns {@link CreateAppVersionResourceResponse}
  * @see {@link CreateAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link CreateAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  *
  * ```
  *
- * @param ListFirewallRuleGroupsCommandInput - {@link ListFirewallRuleGroupsCommandInput}
- * @returns {@link ListFirewallRuleGroupsCommandOutput}
+ * @param ListFirewallRuleGroupsRequest - {@link ListFirewallRuleGroupsRequest}
+ * @returns {@link ListFirewallRuleGroupsResponse}
  * @see {@link ListFirewallRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

@@ -73,8 +73,8 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  *
  * ```
  *
- * @param UpdateGroupQueryCommandInput - {@link UpdateGroupQueryCommandInput}
- * @returns {@link UpdateGroupQueryCommandOutput}
+ * @param UpdateGroupQueryInput - {@link UpdateGroupQueryInput}
+ * @returns {@link UpdateGroupQueryOutput}
  * @see {@link UpdateGroupQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupQueryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

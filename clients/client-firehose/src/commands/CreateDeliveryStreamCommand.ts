@@ -522,8 +522,8 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *
  * ```
  *
- * @param CreateDeliveryStreamCommandInput - {@link CreateDeliveryStreamCommandInput}
- * @returns {@link CreateDeliveryStreamCommandOutput}
+ * @param CreateDeliveryStreamInput - {@link CreateDeliveryStreamInput}
+ * @returns {@link CreateDeliveryStreamOutput}
  * @see {@link CreateDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link CreateDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

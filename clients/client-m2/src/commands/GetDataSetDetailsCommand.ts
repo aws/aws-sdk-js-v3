@@ -82,8 +82,8 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  *
  * ```
  *
- * @param GetDataSetDetailsCommandInput - {@link GetDataSetDetailsCommandInput}
- * @returns {@link GetDataSetDetailsCommandOutput}
+ * @param GetDataSetDetailsRequest - {@link GetDataSetDetailsRequest}
+ * @returns {@link GetDataSetDetailsResponse}
  * @see {@link GetDataSetDetailsCommandInput} for command's `input` shape.
  * @see {@link GetDataSetDetailsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

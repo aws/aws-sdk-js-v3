@@ -51,8 +51,8 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param DeleteRetentionConfigurationCommandInput - {@link DeleteRetentionConfigurationCommandInput}
- * @returns {@link DeleteRetentionConfigurationCommandOutput}
+ * @param DeleteRetentionConfigurationRequest - {@link DeleteRetentionConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRetentionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

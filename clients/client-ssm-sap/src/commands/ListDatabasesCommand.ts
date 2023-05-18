@@ -66,8 +66,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  *
  * ```
  *
- * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
- * @returns {@link ListDatabasesCommandOutput}
+ * @param ListDatabasesInput - {@link ListDatabasesInput}
+ * @returns {@link ListDatabasesOutput}
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

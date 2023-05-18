@@ -123,8 +123,8 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  *
  * ```
  *
- * @param DescribeLagsCommandInput - {@link DescribeLagsCommandInput}
- * @returns {@link DescribeLagsCommandOutput}
+ * @param DescribeLagsRequest - {@link DescribeLagsRequest}
+ * @returns {@link Lags}
  * @see {@link DescribeLagsCommandInput} for command's `input` shape.
  * @see {@link DescribeLagsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

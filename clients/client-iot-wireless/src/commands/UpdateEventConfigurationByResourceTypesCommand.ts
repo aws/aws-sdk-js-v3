@@ -81,8 +81,8 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  *
  * ```
  *
- * @param UpdateEventConfigurationByResourceTypesCommandInput - {@link UpdateEventConfigurationByResourceTypesCommandInput}
- * @returns {@link UpdateEventConfigurationByResourceTypesCommandOutput}
+ * @param UpdateEventConfigurationByResourceTypesRequest - {@link UpdateEventConfigurationByResourceTypesRequest}
+ * @returns {@link UpdateEventConfigurationByResourceTypesResponse}
  * @see {@link UpdateEventConfigurationByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link UpdateEventConfigurationByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

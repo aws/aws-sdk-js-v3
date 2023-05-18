@@ -88,8 +88,8 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *
  * ```
  *
- * @param GetDashboardEmbedUrlCommandInput - {@link GetDashboardEmbedUrlCommandInput}
- * @returns {@link GetDashboardEmbedUrlCommandOutput}
+ * @param GetDashboardEmbedUrlRequest - {@link GetDashboardEmbedUrlRequest}
+ * @returns {@link GetDashboardEmbedUrlResponse}
  * @see {@link GetDashboardEmbedUrlCommandInput} for command's `input` shape.
  * @see {@link GetDashboardEmbedUrlCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

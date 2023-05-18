@@ -66,8 +66,8 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  *
  * ```
  *
- * @param ListDecoderManifestsCommandInput - {@link ListDecoderManifestsCommandInput}
- * @returns {@link ListDecoderManifestsCommandOutput}
+ * @param ListDecoderManifestsRequest - {@link ListDecoderManifestsRequest}
+ * @returns {@link ListDecoderManifestsResponse}
  * @see {@link ListDecoderManifestsCommandInput} for command's `input` shape.
  * @see {@link ListDecoderManifestsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

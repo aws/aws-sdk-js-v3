@@ -55,8 +55,8 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetFleetCommandInput - {@link GetFleetCommandInput}
- * @returns {@link GetFleetCommandOutput}
+ * @param GetFleetRequest - {@link GetFleetRequest}
+ * @returns {@link GetFleetResponse}
  * @see {@link GetFleetCommandInput} for command's `input` shape.
  * @see {@link GetFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

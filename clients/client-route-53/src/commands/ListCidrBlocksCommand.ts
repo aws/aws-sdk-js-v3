@@ -59,8 +59,8 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  *
  * ```
  *
- * @param ListCidrBlocksCommandInput - {@link ListCidrBlocksCommandInput}
- * @returns {@link ListCidrBlocksCommandOutput}
+ * @param ListCidrBlocksRequest - {@link ListCidrBlocksRequest}
+ * @returns {@link ListCidrBlocksResponse}
  * @see {@link ListCidrBlocksCommandInput} for command's `input` shape.
  * @see {@link ListCidrBlocksCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

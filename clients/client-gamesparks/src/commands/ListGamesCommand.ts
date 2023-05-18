@@ -61,8 +61,8 @@ export interface ListGamesCommandOutput extends ListGamesResult, __MetadataBeare
  *
  * ```
  *
- * @param ListGamesCommandInput - {@link ListGamesCommandInput}
- * @returns {@link ListGamesCommandOutput}
+ * @param ListGamesRequest - {@link ListGamesRequest}
+ * @returns {@link ListGamesResult}
  * @see {@link ListGamesCommandInput} for command's `input` shape.
  * @see {@link ListGamesCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

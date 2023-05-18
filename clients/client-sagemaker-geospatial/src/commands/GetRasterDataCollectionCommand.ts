@@ -72,8 +72,8 @@ export interface GetRasterDataCollectionCommandOutput extends GetRasterDataColle
  *
  * ```
  *
- * @param GetRasterDataCollectionCommandInput - {@link GetRasterDataCollectionCommandInput}
- * @returns {@link GetRasterDataCollectionCommandOutput}
+ * @param GetRasterDataCollectionInput - {@link GetRasterDataCollectionInput}
+ * @returns {@link GetRasterDataCollectionOutput}
  * @see {@link GetRasterDataCollectionCommandInput} for command's `input` shape.
  * @see {@link GetRasterDataCollectionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

@@ -68,8 +68,8 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  *
  * ```
  *
- * @param BatchStopJobRunCommandInput - {@link BatchStopJobRunCommandInput}
- * @returns {@link BatchStopJobRunCommandOutput}
+ * @param BatchStopJobRunRequest - {@link BatchStopJobRunRequest}
+ * @returns {@link BatchStopJobRunResponse}
  * @see {@link BatchStopJobRunCommandInput} for command's `input` shape.
  * @see {@link BatchStopJobRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

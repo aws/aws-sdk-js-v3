@@ -76,8 +76,8 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  *
  * ```
  *
- * @param SearchTransitGatewayRoutesCommandInput - {@link SearchTransitGatewayRoutesCommandInput}
- * @returns {@link SearchTransitGatewayRoutesCommandOutput}
+ * @param SearchTransitGatewayRoutesRequest - {@link SearchTransitGatewayRoutesRequest}
+ * @returns {@link SearchTransitGatewayRoutesResult}
  * @see {@link SearchTransitGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link SearchTransitGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

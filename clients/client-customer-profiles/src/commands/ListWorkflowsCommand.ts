@@ -66,8 +66,8 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  *
  * ```
  *
- * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
- * @returns {@link ListWorkflowsCommandOutput}
+ * @param ListWorkflowsRequest - {@link ListWorkflowsRequest}
+ * @returns {@link ListWorkflowsResponse}
  * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

@@ -123,8 +123,8 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  *
  * ```
  *
- * @param UpdateAppVersionResourceCommandInput - {@link UpdateAppVersionResourceCommandInput}
- * @returns {@link UpdateAppVersionResourceCommandOutput}
+ * @param UpdateAppVersionResourceRequest - {@link UpdateAppVersionResourceRequest}
+ * @returns {@link UpdateAppVersionResourceResponse}
  * @see {@link UpdateAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

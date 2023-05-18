@@ -68,8 +68,8 @@ export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBear
  *
  * ```
  *
- * @param GetAuthorizersCommandInput - {@link GetAuthorizersCommandInput}
- * @returns {@link GetAuthorizersCommandOutput}
+ * @param GetAuthorizersRequest - {@link GetAuthorizersRequest}
+ * @returns {@link Authorizers}
  * @see {@link GetAuthorizersCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizersCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

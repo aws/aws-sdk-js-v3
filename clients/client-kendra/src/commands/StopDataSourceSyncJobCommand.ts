@@ -50,8 +50,8 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopDataSourceSyncJobCommandInput - {@link StopDataSourceSyncJobCommandInput}
- * @returns {@link StopDataSourceSyncJobCommandOutput}
+ * @param StopDataSourceSyncJobRequest - {@link StopDataSourceSyncJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopDataSourceSyncJobCommandInput} for command's `input` shape.
  * @see {@link StopDataSourceSyncJobCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

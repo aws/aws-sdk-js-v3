@@ -59,8 +59,8 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
+ * @param ListTagsForResourceMessage - {@link ListTagsForResourceMessage}
+ * @returns {@link ResourceTagsDescriptionMessage}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

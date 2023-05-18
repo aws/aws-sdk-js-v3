@@ -428,8 +428,8 @@ export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __Met
  *
  * ```
  *
- * @param DeleteJourneyCommandInput - {@link DeleteJourneyCommandInput}
- * @returns {@link DeleteJourneyCommandOutput}
+ * @param DeleteJourneyRequest - {@link DeleteJourneyRequest}
+ * @returns {@link DeleteJourneyResponse}
  * @see {@link DeleteJourneyCommandInput} for command's `input` shape.
  * @see {@link DeleteJourneyCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

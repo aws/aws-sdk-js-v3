@@ -124,8 +124,8 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *
  * ```
  *
- * @param TerminateInstancesCommandInput - {@link TerminateInstancesCommandInput}
- * @returns {@link TerminateInstancesCommandOutput}
+ * @param TerminateInstancesRequest - {@link TerminateInstancesRequest}
+ * @returns {@link TerminateInstancesResult}
  * @see {@link TerminateInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

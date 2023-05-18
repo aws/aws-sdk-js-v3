@@ -58,8 +58,8 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param RestoreCertificateAuthorityCommandInput - {@link RestoreCertificateAuthorityCommandInput}
- * @returns {@link RestoreCertificateAuthorityCommandOutput}
+ * @param RestoreCertificateAuthorityRequest - {@link RestoreCertificateAuthorityRequest}
+ * @returns {@link Unit}
  * @see {@link RestoreCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link RestoreCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

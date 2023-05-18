@@ -65,8 +65,8 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateLogStreamCommandInput - {@link CreateLogStreamCommandInput}
- * @returns {@link CreateLogStreamCommandOutput}
+ * @param CreateLogStreamRequest - {@link CreateLogStreamRequest}
+ * @returns {@link Unit}
  * @see {@link CreateLogStreamCommandInput} for command's `input` shape.
  * @see {@link CreateLogStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

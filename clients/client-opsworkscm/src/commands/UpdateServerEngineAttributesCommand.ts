@@ -108,8 +108,8 @@ export interface UpdateServerEngineAttributesCommandOutput
  *
  * ```
  *
- * @param UpdateServerEngineAttributesCommandInput - {@link UpdateServerEngineAttributesCommandInput}
- * @returns {@link UpdateServerEngineAttributesCommandOutput}
+ * @param UpdateServerEngineAttributesRequest - {@link UpdateServerEngineAttributesRequest}
+ * @returns {@link UpdateServerEngineAttributesResponse}
  * @see {@link UpdateServerEngineAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateServerEngineAttributesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

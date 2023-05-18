@@ -64,8 +64,8 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  *
  * ```
  *
- * @param GetProjectCommandInput - {@link GetProjectCommandInput}
- * @returns {@link GetProjectCommandOutput}
+ * @param GetProjectRequest - {@link GetProjectRequest}
+ * @returns {@link GetProjectResult}
  * @see {@link GetProjectCommandInput} for command's `input` shape.
  * @see {@link GetProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

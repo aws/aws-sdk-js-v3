@@ -61,8 +61,8 @@ export interface UpdateBusinessReportScheduleCommandOutput
  *
  * ```
  *
- * @param UpdateBusinessReportScheduleCommandInput - {@link UpdateBusinessReportScheduleCommandInput}
- * @returns {@link UpdateBusinessReportScheduleCommandOutput}
+ * @param UpdateBusinessReportScheduleRequest - {@link UpdateBusinessReportScheduleRequest}
+ * @returns {@link UpdateBusinessReportScheduleResponse}
  * @see {@link UpdateBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

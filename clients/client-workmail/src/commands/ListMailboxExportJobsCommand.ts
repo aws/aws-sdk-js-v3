@@ -66,8 +66,8 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  *
  * ```
  *
- * @param ListMailboxExportJobsCommandInput - {@link ListMailboxExportJobsCommandInput}
- * @returns {@link ListMailboxExportJobsCommandOutput}
+ * @param ListMailboxExportJobsRequest - {@link ListMailboxExportJobsRequest}
+ * @returns {@link ListMailboxExportJobsResponse}
  * @see {@link ListMailboxExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxExportJobsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

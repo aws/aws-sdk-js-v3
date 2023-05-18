@@ -49,8 +49,8 @@ export interface DeleteResourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
- * @returns {@link DeleteResourceCommandOutput}
+ * @param DeleteResourceRequest - {@link DeleteResourceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

@@ -91,8 +91,8 @@ export interface DescribeConfigurationSettingsCommandOutput
  *
  * ```
  *
- * @param DescribeConfigurationSettingsCommandInput - {@link DescribeConfigurationSettingsCommandInput}
- * @returns {@link DescribeConfigurationSettingsCommandOutput}
+ * @param DescribeConfigurationSettingsMessage - {@link DescribeConfigurationSettingsMessage}
+ * @returns {@link ConfigurationSettingsDescriptions}
  * @see {@link DescribeConfigurationSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

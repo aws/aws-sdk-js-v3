@@ -82,8 +82,8 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  *
  * ```
  *
- * @param DescribeApplicationsCommandInput - {@link DescribeApplicationsCommandInput}
- * @returns {@link DescribeApplicationsCommandOutput}
+ * @param DescribeApplicationsRequest - {@link DescribeApplicationsRequest}
+ * @returns {@link DescribeApplicationsResult}
  * @see {@link DescribeApplicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

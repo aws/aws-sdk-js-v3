@@ -62,8 +62,8 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
  *
  * ```
  *
- * @param DescribeMailboxExportJobCommandInput - {@link DescribeMailboxExportJobCommandInput}
- * @returns {@link DescribeMailboxExportJobCommandOutput}
+ * @param DescribeMailboxExportJobRequest - {@link DescribeMailboxExportJobRequest}
+ * @returns {@link DescribeMailboxExportJobResponse}
  * @see {@link DescribeMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeMailboxExportJobCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

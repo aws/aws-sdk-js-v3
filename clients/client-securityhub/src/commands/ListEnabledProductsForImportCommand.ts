@@ -60,8 +60,8 @@ export interface ListEnabledProductsForImportCommandOutput
  *
  * ```
  *
- * @param ListEnabledProductsForImportCommandInput - {@link ListEnabledProductsForImportCommandInput}
- * @returns {@link ListEnabledProductsForImportCommandOutput}
+ * @param ListEnabledProductsForImportRequest - {@link ListEnabledProductsForImportRequest}
+ * @returns {@link ListEnabledProductsForImportResponse}
  * @see {@link ListEnabledProductsForImportCommandInput} for command's `input` shape.
  * @see {@link ListEnabledProductsForImportCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

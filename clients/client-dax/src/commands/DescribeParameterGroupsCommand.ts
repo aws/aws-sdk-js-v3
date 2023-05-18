@@ -61,8 +61,8 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  *
  * ```
  *
- * @param DescribeParameterGroupsCommandInput - {@link DescribeParameterGroupsCommandInput}
- * @returns {@link DescribeParameterGroupsCommandOutput}
+ * @param DescribeParameterGroupsRequest - {@link DescribeParameterGroupsRequest}
+ * @returns {@link DescribeParameterGroupsResponse}
  * @see {@link DescribeParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

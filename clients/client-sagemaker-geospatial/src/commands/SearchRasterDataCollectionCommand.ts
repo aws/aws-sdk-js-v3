@@ -156,8 +156,8 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  *
  * ```
  *
- * @param SearchRasterDataCollectionCommandInput - {@link SearchRasterDataCollectionCommandInput}
- * @returns {@link SearchRasterDataCollectionCommandOutput}
+ * @param SearchRasterDataCollectionInput - {@link SearchRasterDataCollectionInput}
+ * @returns {@link SearchRasterDataCollectionOutput}
  * @see {@link SearchRasterDataCollectionCommandInput} for command's `input` shape.
  * @see {@link SearchRasterDataCollectionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

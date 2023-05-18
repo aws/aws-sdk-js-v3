@@ -61,8 +61,8 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
  *
  * ```
  *
- * @param ListPlaceIndexesCommandInput - {@link ListPlaceIndexesCommandInput}
- * @returns {@link ListPlaceIndexesCommandOutput}
+ * @param ListPlaceIndexesRequest - {@link ListPlaceIndexesRequest}
+ * @returns {@link ListPlaceIndexesResponse}
  * @see {@link ListPlaceIndexesCommandInput} for command's `input` shape.
  * @see {@link ListPlaceIndexesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

@@ -51,8 +51,8 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  *
  * ```
  *
- * @param VerifyEmailIdentityCommandInput - {@link VerifyEmailIdentityCommandInput}
- * @returns {@link VerifyEmailIdentityCommandOutput}
+ * @param VerifyEmailIdentityRequest - {@link VerifyEmailIdentityRequest}
+ * @returns {@link VerifyEmailIdentityResponse}
  * @see {@link VerifyEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

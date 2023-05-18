@@ -55,8 +55,8 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  *
  * ```
  *
- * @param AddClientIDToOpenIDConnectProviderCommandInput - {@link AddClientIDToOpenIDConnectProviderCommandInput}
- * @returns {@link AddClientIDToOpenIDConnectProviderCommandOutput}
+ * @param AddClientIDToOpenIDConnectProviderRequest - {@link AddClientIDToOpenIDConnectProviderRequest}
+ * @returns {@link Unit}
  * @see {@link AddClientIDToOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link AddClientIDToOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -60,8 +60,8 @@ export interface PutCapacityAssignmentConfigurationCommandOutput
  *
  * ```
  *
- * @param PutCapacityAssignmentConfigurationCommandInput - {@link PutCapacityAssignmentConfigurationCommandInput}
- * @returns {@link PutCapacityAssignmentConfigurationCommandOutput}
+ * @param PutCapacityAssignmentConfigurationInput - {@link PutCapacityAssignmentConfigurationInput}
+ * @returns {@link PutCapacityAssignmentConfigurationOutput}
  * @see {@link PutCapacityAssignmentConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutCapacityAssignmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

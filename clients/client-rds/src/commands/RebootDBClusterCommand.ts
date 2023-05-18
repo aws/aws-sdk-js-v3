@@ -207,8 +207,8 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  *
  * ```
  *
- * @param RebootDBClusterCommandInput - {@link RebootDBClusterCommandInput}
- * @returns {@link RebootDBClusterCommandOutput}
+ * @param RebootDBClusterMessage - {@link RebootDBClusterMessage}
+ * @returns {@link RebootDBClusterResult}
  * @see {@link RebootDBClusterCommandInput} for command's `input` shape.
  * @see {@link RebootDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

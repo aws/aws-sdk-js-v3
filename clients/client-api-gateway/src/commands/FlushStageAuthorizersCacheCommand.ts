@@ -49,8 +49,8 @@ export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param FlushStageAuthorizersCacheCommandInput - {@link FlushStageAuthorizersCacheCommandInput}
- * @returns {@link FlushStageAuthorizersCacheCommandOutput}
+ * @param FlushStageAuthorizersCacheRequest - {@link FlushStageAuthorizersCacheRequest}
+ * @returns {@link Unit}
  * @see {@link FlushStageAuthorizersCacheCommandInput} for command's `input` shape.
  * @see {@link FlushStageAuthorizersCacheCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

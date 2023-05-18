@@ -1,8 +1,15 @@
-export * from "./LicenseManagerUserSubscriptions";
 // smithy-typescript generated code
+/* eslint-disable */
+/**
+ * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with
+ *       a per user subscription fee on Amazon EC2 instances.</p>
+ *
+ * @packageDocumentation
+ */
 export * from "./LicenseManagerUserSubscriptionsClient";
+export * from "./LicenseManagerUserSubscriptions";
 export * from "./commands";
-export * from "./models";
 export * from "./pagination";
+export * from "./models";
 
 export { LicenseManagerUserSubscriptionsServiceException } from "./models/LicenseManagerUserSubscriptionsServiceException";

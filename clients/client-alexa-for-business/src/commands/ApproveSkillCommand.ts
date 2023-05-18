@@ -49,8 +49,8 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  *
  * ```
  *
- * @param ApproveSkillCommandInput - {@link ApproveSkillCommandInput}
- * @returns {@link ApproveSkillCommandOutput}
+ * @param ApproveSkillRequest - {@link ApproveSkillRequest}
+ * @returns {@link ApproveSkillResponse}
  * @see {@link ApproveSkillCommandInput} for command's `input` shape.
  * @see {@link ApproveSkillCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

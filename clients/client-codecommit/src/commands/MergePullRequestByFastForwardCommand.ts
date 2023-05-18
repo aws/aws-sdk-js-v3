@@ -99,8 +99,8 @@ export interface MergePullRequestByFastForwardCommandOutput
  *
  * ```
  *
- * @param MergePullRequestByFastForwardCommandInput - {@link MergePullRequestByFastForwardCommandInput}
- * @returns {@link MergePullRequestByFastForwardCommandOutput}
+ * @param MergePullRequestByFastForwardInput - {@link MergePullRequestByFastForwardInput}
+ * @returns {@link MergePullRequestByFastForwardOutput}
  * @see {@link MergePullRequestByFastForwardCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestByFastForwardCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

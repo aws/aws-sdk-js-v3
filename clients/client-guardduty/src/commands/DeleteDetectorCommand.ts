@@ -48,8 +48,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  *
  * ```
  *
- * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
- * @returns {@link DeleteDetectorCommandOutput}
+ * @param DeleteDetectorRequest - {@link DeleteDetectorRequest}
+ * @returns {@link DeleteDetectorResponse}
  * @see {@link DeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

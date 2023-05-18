@@ -78,8 +78,8 @@ export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, _
  *
  * ```
  *
- * @param GetDiskSnapshotsCommandInput - {@link GetDiskSnapshotsCommandInput}
- * @returns {@link GetDiskSnapshotsCommandOutput}
+ * @param GetDiskSnapshotsRequest - {@link GetDiskSnapshotsRequest}
+ * @returns {@link GetDiskSnapshotsResult}
  * @see {@link GetDiskSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetDiskSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

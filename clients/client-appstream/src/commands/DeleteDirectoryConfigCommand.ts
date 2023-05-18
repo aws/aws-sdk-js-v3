@@ -48,8 +48,8 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  *
  * ```
  *
- * @param DeleteDirectoryConfigCommandInput - {@link DeleteDirectoryConfigCommandInput}
- * @returns {@link DeleteDirectoryConfigCommandOutput}
+ * @param DeleteDirectoryConfigRequest - {@link DeleteDirectoryConfigRequest}
+ * @returns {@link DeleteDirectoryConfigResult}
  * @see {@link DeleteDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

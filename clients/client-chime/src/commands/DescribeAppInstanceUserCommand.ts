@@ -60,8 +60,8 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  *
  * ```
  *
- * @param DescribeAppInstanceUserCommandInput - {@link DescribeAppInstanceUserCommandInput}
- * @returns {@link DescribeAppInstanceUserCommandOutput}
+ * @param DescribeAppInstanceUserRequest - {@link DescribeAppInstanceUserRequest}
+ * @returns {@link DescribeAppInstanceUserResponse}
  * @see {@link DescribeAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

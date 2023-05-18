@@ -73,8 +73,8 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  *
  * ```
  *
- * @param ListAccountAssociationsCommandInput - {@link ListAccountAssociationsCommandInput}
- * @returns {@link ListAccountAssociationsCommandOutput}
+ * @param ListAccountAssociationsInput - {@link ListAccountAssociationsInput}
+ * @returns {@link ListAccountAssociationsOutput}
  * @see {@link ListAccountAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssociationsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

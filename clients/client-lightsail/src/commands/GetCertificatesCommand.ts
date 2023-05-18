@@ -134,8 +134,8 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  *
  * ```
  *
- * @param GetCertificatesCommandInput - {@link GetCertificatesCommandInput}
- * @returns {@link GetCertificatesCommandOutput}
+ * @param GetCertificatesRequest - {@link GetCertificatesRequest}
+ * @returns {@link GetCertificatesResult}
  * @see {@link GetCertificatesCommandInput} for command's `input` shape.
  * @see {@link GetCertificatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

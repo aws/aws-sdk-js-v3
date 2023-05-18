@@ -71,8 +71,8 @@ export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, _
  *
  * ```
  *
- * @param BatchUpdateUserCommandInput - {@link BatchUpdateUserCommandInput}
- * @returns {@link BatchUpdateUserCommandOutput}
+ * @param BatchUpdateUserRequest - {@link BatchUpdateUserRequest}
+ * @returns {@link BatchUpdateUserResponse}
  * @see {@link BatchUpdateUserCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

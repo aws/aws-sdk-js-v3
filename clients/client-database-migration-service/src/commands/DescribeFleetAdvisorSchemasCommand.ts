@@ -93,8 +93,8 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
  *
  * ```
  *
- * @param DescribeFleetAdvisorSchemasCommandInput - {@link DescribeFleetAdvisorSchemasCommandInput}
- * @returns {@link DescribeFleetAdvisorSchemasCommandOutput}
+ * @param DescribeFleetAdvisorSchemasRequest - {@link DescribeFleetAdvisorSchemasRequest}
+ * @returns {@link DescribeFleetAdvisorSchemasResponse}
  * @see {@link DescribeFleetAdvisorSchemasCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

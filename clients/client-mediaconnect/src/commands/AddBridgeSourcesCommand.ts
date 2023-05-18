@@ -87,8 +87,8 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  *
  * ```
  *
- * @param AddBridgeSourcesCommandInput - {@link AddBridgeSourcesCommandInput}
- * @returns {@link AddBridgeSourcesCommandOutput}
+ * @param AddBridgeSourcesRequest - {@link AddBridgeSourcesRequest}
+ * @returns {@link AddBridgeSourcesResponse}
  * @see {@link AddBridgeSourcesCommandInput} for command's `input` shape.
  * @see {@link AddBridgeSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

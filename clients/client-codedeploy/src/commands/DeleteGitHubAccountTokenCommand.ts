@@ -50,8 +50,8 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  *
  * ```
  *
- * @param DeleteGitHubAccountTokenCommandInput - {@link DeleteGitHubAccountTokenCommandInput}
- * @returns {@link DeleteGitHubAccountTokenCommandOutput}
+ * @param DeleteGitHubAccountTokenInput - {@link DeleteGitHubAccountTokenInput}
+ * @returns {@link DeleteGitHubAccountTokenOutput}
  * @see {@link DeleteGitHubAccountTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteGitHubAccountTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

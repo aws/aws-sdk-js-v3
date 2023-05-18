@@ -50,8 +50,8 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  *
  * ```
  *
- * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
- * @returns {@link DeleteAppCommandOutput}
+ * @param DeleteAppInput - {@link DeleteAppInput}
+ * @returns {@link DeleteAppOutput}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

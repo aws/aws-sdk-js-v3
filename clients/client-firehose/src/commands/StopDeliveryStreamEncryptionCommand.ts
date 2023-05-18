@@ -72,8 +72,8 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  *
  * ```
  *
- * @param StopDeliveryStreamEncryptionCommandInput - {@link StopDeliveryStreamEncryptionCommandInput}
- * @returns {@link StopDeliveryStreamEncryptionCommandOutput}
+ * @param StopDeliveryStreamEncryptionInput - {@link StopDeliveryStreamEncryptionInput}
+ * @returns {@link StopDeliveryStreamEncryptionOutput}
  * @see {@link StopDeliveryStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StopDeliveryStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

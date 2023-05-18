@@ -74,8 +74,8 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  *
  * ```
  *
- * @param AddCustomRoutingEndpointsCommandInput - {@link AddCustomRoutingEndpointsCommandInput}
- * @returns {@link AddCustomRoutingEndpointsCommandOutput}
+ * @param AddCustomRoutingEndpointsRequest - {@link AddCustomRoutingEndpointsRequest}
+ * @returns {@link AddCustomRoutingEndpointsResponse}
  * @see {@link AddCustomRoutingEndpointsCommandInput} for command's `input` shape.
  * @see {@link AddCustomRoutingEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

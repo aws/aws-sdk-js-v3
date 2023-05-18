@@ -60,8 +60,8 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  *
  * ```
  *
- * @param ImportBackendAuthCommandInput - {@link ImportBackendAuthCommandInput}
- * @returns {@link ImportBackendAuthCommandOutput}
+ * @param ImportBackendAuthRequest - {@link ImportBackendAuthRequest}
+ * @returns {@link ImportBackendAuthResponse}
  * @see {@link ImportBackendAuthCommandInput} for command's `input` shape.
  * @see {@link ImportBackendAuthCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

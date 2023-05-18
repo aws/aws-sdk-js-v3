@@ -211,8 +211,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *
  * ```
  *
- * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
- * @returns {@link CompleteMultipartUploadCommandOutput}
+ * @param CompleteMultipartUploadRequest - {@link CompleteMultipartUploadRequest}
+ * @returns {@link CompleteMultipartUploadOutput}
  * @see {@link CompleteMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

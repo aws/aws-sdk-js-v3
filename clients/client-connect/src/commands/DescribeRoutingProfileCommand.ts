@@ -72,8 +72,8 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  *
  * ```
  *
- * @param DescribeRoutingProfileCommandInput - {@link DescribeRoutingProfileCommandInput}
- * @returns {@link DescribeRoutingProfileCommandOutput}
+ * @param DescribeRoutingProfileRequest - {@link DescribeRoutingProfileRequest}
+ * @returns {@link DescribeRoutingProfileResponse}
  * @see {@link DescribeRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeRoutingProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

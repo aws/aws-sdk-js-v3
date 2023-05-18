@@ -111,8 +111,8 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  *
  * ```
  *
- * @param GetHealthEventCommandInput - {@link GetHealthEventCommandInput}
- * @returns {@link GetHealthEventCommandOutput}
+ * @param GetHealthEventInput - {@link GetHealthEventInput}
+ * @returns {@link GetHealthEventOutput}
  * @see {@link GetHealthEventCommandInput} for command's `input` shape.
  * @see {@link GetHealthEventCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.

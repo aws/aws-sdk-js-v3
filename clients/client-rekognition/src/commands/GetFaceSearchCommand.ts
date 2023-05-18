@@ -204,8 +204,8 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *
  * ```
  *
- * @param GetFaceSearchCommandInput - {@link GetFaceSearchCommandInput}
- * @returns {@link GetFaceSearchCommandOutput}
+ * @param GetFaceSearchRequest - {@link GetFaceSearchRequest}
+ * @returns {@link GetFaceSearchResponse}
  * @see {@link GetFaceSearchCommandInput} for command's `input` shape.
  * @see {@link GetFaceSearchCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

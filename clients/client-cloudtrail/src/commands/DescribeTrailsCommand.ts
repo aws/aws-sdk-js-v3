@@ -73,8 +73,8 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  *
  * ```
  *
- * @param DescribeTrailsCommandInput - {@link DescribeTrailsCommandInput}
- * @returns {@link DescribeTrailsCommandOutput}
+ * @param DescribeTrailsRequest - {@link DescribeTrailsRequest}
+ * @returns {@link DescribeTrailsResponse}
  * @see {@link DescribeTrailsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrailsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

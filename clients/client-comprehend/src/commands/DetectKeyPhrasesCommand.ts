@@ -63,8 +63,8 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  *
  * ```
  *
- * @param DetectKeyPhrasesCommandInput - {@link DetectKeyPhrasesCommandInput}
- * @returns {@link DetectKeyPhrasesCommandOutput}
+ * @param DetectKeyPhrasesRequest - {@link DetectKeyPhrasesRequest}
+ * @returns {@link DetectKeyPhrasesResponse}
  * @see {@link DetectKeyPhrasesCommandInput} for command's `input` shape.
  * @see {@link DetectKeyPhrasesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

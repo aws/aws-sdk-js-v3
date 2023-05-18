@@ -66,8 +66,8 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  *
  * ```
  *
- * @param PutVoiceConnectorLoggingConfigurationCommandInput - {@link PutVoiceConnectorLoggingConfigurationCommandInput}
- * @returns {@link PutVoiceConnectorLoggingConfigurationCommandOutput}
+ * @param PutVoiceConnectorLoggingConfigurationRequest - {@link PutVoiceConnectorLoggingConfigurationRequest}
+ * @returns {@link PutVoiceConnectorLoggingConfigurationResponse}
  * @see {@link PutVoiceConnectorLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

@@ -70,8 +70,8 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  *
  * ```
  *
- * @param GetVariablesCommandInput - {@link GetVariablesCommandInput}
- * @returns {@link GetVariablesCommandOutput}
+ * @param GetVariablesRequest - {@link GetVariablesRequest}
+ * @returns {@link GetVariablesResult}
  * @see {@link GetVariablesCommandInput} for command's `input` shape.
  * @see {@link GetVariablesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

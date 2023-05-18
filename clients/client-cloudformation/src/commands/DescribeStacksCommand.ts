@@ -115,8 +115,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  *
  * ```
  *
- * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
- * @returns {@link DescribeStacksCommandOutput}
+ * @param DescribeStacksInput - {@link DescribeStacksInput}
+ * @returns {@link DescribeStacksOutput}
  * @see {@link DescribeStacksCommandInput} for command's `input` shape.
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

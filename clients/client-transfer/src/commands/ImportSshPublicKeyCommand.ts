@@ -58,8 +58,8 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  *
  * ```
  *
- * @param ImportSshPublicKeyCommandInput - {@link ImportSshPublicKeyCommandInput}
- * @returns {@link ImportSshPublicKeyCommandOutput}
+ * @param ImportSshPublicKeyRequest - {@link ImportSshPublicKeyRequest}
+ * @returns {@link ImportSshPublicKeyResponse}
  * @see {@link ImportSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link ImportSshPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

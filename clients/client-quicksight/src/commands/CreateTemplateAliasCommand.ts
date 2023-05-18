@@ -59,8 +59,8 @@ export interface CreateTemplateAliasCommandOutput extends CreateTemplateAliasRes
  *
  * ```
  *
- * @param CreateTemplateAliasCommandInput - {@link CreateTemplateAliasCommandInput}
- * @returns {@link CreateTemplateAliasCommandOutput}
+ * @param CreateTemplateAliasRequest - {@link CreateTemplateAliasRequest}
+ * @returns {@link CreateTemplateAliasResponse}
  * @see {@link CreateTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

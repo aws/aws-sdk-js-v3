@@ -48,8 +48,8 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteHsmClientCertificateCommandInput - {@link DeleteHsmClientCertificateCommandInput}
- * @returns {@link DeleteHsmClientCertificateCommandOutput}
+ * @param DeleteHsmClientCertificateMessage - {@link DeleteHsmClientCertificateMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteHsmClientCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

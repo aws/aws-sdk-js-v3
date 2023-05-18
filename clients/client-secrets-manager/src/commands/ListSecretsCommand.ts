@@ -109,8 +109,8 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  *
  * ```
  *
- * @param ListSecretsCommandInput - {@link ListSecretsCommandInput}
- * @returns {@link ListSecretsCommandOutput}
+ * @param ListSecretsRequest - {@link ListSecretsRequest}
+ * @returns {@link ListSecretsResponse}
  * @see {@link ListSecretsCommandInput} for command's `input` shape.
  * @see {@link ListSecretsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

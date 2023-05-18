@@ -285,8 +285,8 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *
  * ```
  *
- * @param RestoreTableToPointInTimeCommandInput - {@link RestoreTableToPointInTimeCommandInput}
- * @returns {@link RestoreTableToPointInTimeCommandOutput}
+ * @param RestoreTableToPointInTimeInput - {@link RestoreTableToPointInTimeInput}
+ * @returns {@link RestoreTableToPointInTimeOutput}
  * @see {@link RestoreTableToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreTableToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

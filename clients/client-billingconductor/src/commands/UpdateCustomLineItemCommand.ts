@@ -85,8 +85,8 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  *
  * ```
  *
- * @param UpdateCustomLineItemCommandInput - {@link UpdateCustomLineItemCommandInput}
- * @returns {@link UpdateCustomLineItemCommandOutput}
+ * @param UpdateCustomLineItemInput - {@link UpdateCustomLineItemInput}
+ * @returns {@link UpdateCustomLineItemOutput}
  * @see {@link UpdateCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

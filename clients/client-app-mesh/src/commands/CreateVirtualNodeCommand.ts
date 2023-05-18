@@ -547,8 +547,8 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *
  * ```
  *
- * @param CreateVirtualNodeCommandInput - {@link CreateVirtualNodeCommandInput}
- * @returns {@link CreateVirtualNodeCommandOutput}
+ * @param CreateVirtualNodeInput - {@link CreateVirtualNodeInput}
+ * @returns {@link CreateVirtualNodeOutput}
  * @see {@link CreateVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

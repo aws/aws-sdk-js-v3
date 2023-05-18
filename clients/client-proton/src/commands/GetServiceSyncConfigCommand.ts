@@ -56,8 +56,8 @@ export interface GetServiceSyncConfigCommandOutput extends GetServiceSyncConfigO
  *
  * ```
  *
- * @param GetServiceSyncConfigCommandInput - {@link GetServiceSyncConfigCommandInput}
- * @returns {@link GetServiceSyncConfigCommandOutput}
+ * @param GetServiceSyncConfigInput - {@link GetServiceSyncConfigInput}
+ * @returns {@link GetServiceSyncConfigOutput}
  * @see {@link GetServiceSyncConfigCommandInput} for command's `input` shape.
  * @see {@link GetServiceSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

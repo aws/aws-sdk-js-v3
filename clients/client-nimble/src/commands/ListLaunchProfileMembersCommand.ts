@@ -61,8 +61,8 @@ export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfile
  *
  * ```
  *
- * @param ListLaunchProfileMembersCommandInput - {@link ListLaunchProfileMembersCommandInput}
- * @returns {@link ListLaunchProfileMembersCommandOutput}
+ * @param ListLaunchProfileMembersRequest - {@link ListLaunchProfileMembersRequest}
+ * @returns {@link ListLaunchProfileMembersResponse}
  * @see {@link ListLaunchProfileMembersCommandInput} for command's `input` shape.
  * @see {@link ListLaunchProfileMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

@@ -57,8 +57,8 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
- * @returns {@link DeleteInstanceCommandOutput}
+ * @param DeleteInstanceRequest - {@link DeleteInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

@@ -73,8 +73,8 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *
  * ```
  *
- * @param ListAWSServiceAccessForOrganizationCommandInput - {@link ListAWSServiceAccessForOrganizationCommandInput}
- * @returns {@link ListAWSServiceAccessForOrganizationCommandOutput}
+ * @param ListAWSServiceAccessForOrganizationRequest - {@link ListAWSServiceAccessForOrganizationRequest}
+ * @returns {@link ListAWSServiceAccessForOrganizationResponse}
  * @see {@link ListAWSServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListAWSServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

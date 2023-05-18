@@ -52,8 +52,8 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAttendeeCommandInput - {@link DeleteAttendeeCommandInput}
- * @returns {@link DeleteAttendeeCommandOutput}
+ * @param DeleteAttendeeRequest - {@link DeleteAttendeeRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAttendeeCommandInput} for command's `input` shape.
  * @see {@link DeleteAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

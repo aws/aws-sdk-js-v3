@@ -80,8 +80,8 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  *
  * ```
  *
- * @param DescribeScalingActivitiesCommandInput - {@link DescribeScalingActivitiesCommandInput}
- * @returns {@link DescribeScalingActivitiesCommandOutput}
+ * @param DescribeScalingActivitiesType - {@link DescribeScalingActivitiesType}
+ * @returns {@link ActivitiesType}
  * @see {@link DescribeScalingActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -70,8 +70,8 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  *
  * ```
  *
- * @param CreateQuickConnectCommandInput - {@link CreateQuickConnectCommandInput}
- * @returns {@link CreateQuickConnectCommandOutput}
+ * @param CreateQuickConnectRequest - {@link CreateQuickConnectRequest}
+ * @returns {@link CreateQuickConnectResponse}
  * @see {@link CreateQuickConnectCommandInput} for command's `input` shape.
  * @see {@link CreateQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

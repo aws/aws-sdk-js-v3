@@ -63,8 +63,8 @@ export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBea
  *
  * ```
  *
- * @param ListModelsCommandInput - {@link ListModelsCommandInput}
- * @returns {@link ListModelsCommandOutput}
+ * @param ListModelsInput - {@link ListModelsInput}
+ * @returns {@link ListModelsOutput}
  * @see {@link ListModelsCommandInput} for command's `input` shape.
  * @see {@link ListModelsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

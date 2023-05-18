@@ -57,8 +57,8 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  *
  * ```
  *
- * @param ListTrailsCommandInput - {@link ListTrailsCommandInput}
- * @returns {@link ListTrailsCommandOutput}
+ * @param ListTrailsRequest - {@link ListTrailsRequest}
+ * @returns {@link ListTrailsResponse}
  * @see {@link ListTrailsCommandInput} for command's `input` shape.
  * @see {@link ListTrailsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

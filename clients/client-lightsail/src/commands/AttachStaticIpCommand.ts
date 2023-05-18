@@ -69,8 +69,8 @@ export interface AttachStaticIpCommandOutput extends AttachStaticIpResult, __Met
  *
  * ```
  *
- * @param AttachStaticIpCommandInput - {@link AttachStaticIpCommandInput}
- * @returns {@link AttachStaticIpCommandOutput}
+ * @param AttachStaticIpRequest - {@link AttachStaticIpRequest}
+ * @returns {@link AttachStaticIpResult}
  * @see {@link AttachStaticIpCommandInput} for command's `input` shape.
  * @see {@link AttachStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

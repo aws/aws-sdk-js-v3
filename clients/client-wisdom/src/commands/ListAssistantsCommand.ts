@@ -67,8 +67,8 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  *
  * ```
  *
- * @param ListAssistantsCommandInput - {@link ListAssistantsCommandInput}
- * @returns {@link ListAssistantsCommandOutput}
+ * @param ListAssistantsRequest - {@link ListAssistantsRequest}
+ * @returns {@link ListAssistantsResponse}
  * @see {@link ListAssistantsCommandInput} for command's `input` shape.
  * @see {@link ListAssistantsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

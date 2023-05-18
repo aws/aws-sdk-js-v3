@@ -63,8 +63,8 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  *
  * ```
  *
- * @param GetChangeLogsCommandInput - {@link GetChangeLogsCommandInput}
- * @returns {@link GetChangeLogsCommandOutput}
+ * @param GetChangeLogsRequest - {@link GetChangeLogsRequest}
+ * @returns {@link GetChangeLogsResponse}
  * @see {@link GetChangeLogsCommandInput} for command's `input` shape.
  * @see {@link GetChangeLogsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

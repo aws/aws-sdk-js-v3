@@ -59,8 +59,8 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  *
  * ```
  *
- * @param StopCalculationExecutionCommandInput - {@link StopCalculationExecutionCommandInput}
- * @returns {@link StopCalculationExecutionCommandOutput}
+ * @param StopCalculationExecutionRequest - {@link StopCalculationExecutionRequest}
+ * @returns {@link StopCalculationExecutionResponse}
  * @see {@link StopCalculationExecutionCommandInput} for command's `input` shape.
  * @see {@link StopCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

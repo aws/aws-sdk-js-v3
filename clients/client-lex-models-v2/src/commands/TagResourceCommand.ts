@@ -54,8 +54,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
+ * @param TagResourceRequest - {@link TagResourceRequest}
+ * @returns {@link TagResourceResponse}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

@@ -71,8 +71,8 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  *
  * ```
  *
- * @param UpdateCollaborationCommandInput - {@link UpdateCollaborationCommandInput}
- * @returns {@link UpdateCollaborationCommandOutput}
+ * @param UpdateCollaborationInput - {@link UpdateCollaborationInput}
+ * @returns {@link UpdateCollaborationOutput}
  * @see {@link UpdateCollaborationCommandInput} for command's `input` shape.
  * @see {@link UpdateCollaborationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

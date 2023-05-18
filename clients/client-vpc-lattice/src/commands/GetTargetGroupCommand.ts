@@ -82,8 +82,8 @@ export interface GetTargetGroupCommandOutput extends GetTargetGroupResponse, __M
  *
  * ```
  *
- * @param GetTargetGroupCommandInput - {@link GetTargetGroupCommandInput}
- * @returns {@link GetTargetGroupCommandOutput}
+ * @param GetTargetGroupRequest - {@link GetTargetGroupRequest}
+ * @returns {@link GetTargetGroupResponse}
  * @see {@link GetTargetGroupCommandInput} for command's `input` shape.
  * @see {@link GetTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

@@ -49,8 +49,8 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  *
  * ```
  *
- * @param CreateWorkerBlockCommandInput - {@link CreateWorkerBlockCommandInput}
- * @returns {@link CreateWorkerBlockCommandOutput}
+ * @param CreateWorkerBlockRequest - {@link CreateWorkerBlockRequest}
+ * @returns {@link CreateWorkerBlockResponse}
  * @see {@link CreateWorkerBlockCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerBlockCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

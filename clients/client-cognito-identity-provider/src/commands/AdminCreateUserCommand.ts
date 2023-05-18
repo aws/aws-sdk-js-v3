@@ -130,8 +130,8 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *
  * ```
  *
- * @param AdminCreateUserCommandInput - {@link AdminCreateUserCommandInput}
- * @returns {@link AdminCreateUserCommandOutput}
+ * @param AdminCreateUserRequest - {@link AdminCreateUserRequest}
+ * @returns {@link AdminCreateUserResponse}
  * @see {@link AdminCreateUserCommandInput} for command's `input` shape.
  * @see {@link AdminCreateUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

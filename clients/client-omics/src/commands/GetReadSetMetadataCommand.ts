@@ -85,8 +85,8 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  *
  * ```
  *
- * @param GetReadSetMetadataCommandInput - {@link GetReadSetMetadataCommandInput}
- * @returns {@link GetReadSetMetadataCommandOutput}
+ * @param GetReadSetMetadataRequest - {@link GetReadSetMetadataRequest}
+ * @returns {@link GetReadSetMetadataResponse}
  * @see {@link GetReadSetMetadataCommandInput} for command's `input` shape.
  * @see {@link GetReadSetMetadataCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

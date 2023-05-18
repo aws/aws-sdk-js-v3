@@ -69,8 +69,8 @@ export interface ListEventIntegrationAssociationsCommandOutput
  *
  * ```
  *
- * @param ListEventIntegrationAssociationsCommandInput - {@link ListEventIntegrationAssociationsCommandInput}
- * @returns {@link ListEventIntegrationAssociationsCommandOutput}
+ * @param ListEventIntegrationAssociationsRequest - {@link ListEventIntegrationAssociationsRequest}
+ * @returns {@link ListEventIntegrationAssociationsResponse}
  * @see {@link ListEventIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListEventIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

@@ -123,8 +123,8 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  *
  * ```
  *
- * @param ListRelatedResourcesForAuditFindingCommandInput - {@link ListRelatedResourcesForAuditFindingCommandInput}
- * @returns {@link ListRelatedResourcesForAuditFindingCommandOutput}
+ * @param ListRelatedResourcesForAuditFindingRequest - {@link ListRelatedResourcesForAuditFindingRequest}
+ * @returns {@link ListRelatedResourcesForAuditFindingResponse}
  * @see {@link ListRelatedResourcesForAuditFindingCommandInput} for command's `input` shape.
  * @see {@link ListRelatedResourcesForAuditFindingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

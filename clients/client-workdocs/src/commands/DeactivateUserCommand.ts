@@ -50,8 +50,8 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeactivateUserCommandInput - {@link DeactivateUserCommandInput}
- * @returns {@link DeactivateUserCommandOutput}
+ * @param DeactivateUserRequest - {@link DeactivateUserRequest}
+ * @returns {@link Unit}
  * @see {@link DeactivateUserCommandInput} for command's `input` shape.
  * @see {@link DeactivateUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

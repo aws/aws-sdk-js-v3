@@ -59,8 +59,8 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  *
  * ```
  *
- * @param GetAssociatedIpv6PoolCidrsCommandInput - {@link GetAssociatedIpv6PoolCidrsCommandInput}
- * @returns {@link GetAssociatedIpv6PoolCidrsCommandOutput}
+ * @param GetAssociatedIpv6PoolCidrsRequest - {@link GetAssociatedIpv6PoolCidrsRequest}
+ * @returns {@link GetAssociatedIpv6PoolCidrsResult}
  * @see {@link GetAssociatedIpv6PoolCidrsCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

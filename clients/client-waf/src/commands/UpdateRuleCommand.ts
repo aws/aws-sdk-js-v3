@@ -110,8 +110,8 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
- * @returns {@link UpdateRuleCommandOutput}
+ * @param UpdateRuleRequest - {@link UpdateRuleRequest}
+ * @returns {@link UpdateRuleResponse}
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteVPCConnectionCommandOutput extends DeleteVPCConnectionRes
  *
  * ```
  *
- * @param DeleteVPCConnectionCommandInput - {@link DeleteVPCConnectionCommandInput}
- * @returns {@link DeleteVPCConnectionCommandOutput}
+ * @param DeleteVPCConnectionRequest - {@link DeleteVPCConnectionRequest}
+ * @returns {@link DeleteVPCConnectionResponse}
  * @see {@link DeleteVPCConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVPCConnectionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

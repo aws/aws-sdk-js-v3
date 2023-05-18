@@ -84,8 +84,8 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  *
  * ```
  *
- * @param GenerateMacCommandInput - {@link GenerateMacCommandInput}
- * @returns {@link GenerateMacCommandOutput}
+ * @param GenerateMacRequest - {@link GenerateMacRequest}
+ * @returns {@link GenerateMacResponse}
  * @see {@link GenerateMacCommandInput} for command's `input` shape.
  * @see {@link GenerateMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

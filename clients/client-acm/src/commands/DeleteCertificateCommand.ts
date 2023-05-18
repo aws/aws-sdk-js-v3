@@ -55,8 +55,8 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
- * @returns {@link DeleteCertificateCommandOutput}
+ * @param DeleteCertificateRequest - {@link DeleteCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

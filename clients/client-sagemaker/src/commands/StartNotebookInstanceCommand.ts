@@ -51,8 +51,8 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartNotebookInstanceCommandInput - {@link StartNotebookInstanceCommandInput}
- * @returns {@link StartNotebookInstanceCommandOutput}
+ * @param StartNotebookInstanceInput - {@link StartNotebookInstanceInput}
+ * @returns {@link Unit}
  * @see {@link StartNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link StartNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

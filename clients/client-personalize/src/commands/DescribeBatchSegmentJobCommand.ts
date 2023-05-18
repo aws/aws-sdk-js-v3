@@ -75,8 +75,8 @@ export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegme
  *
  * ```
  *
- * @param DescribeBatchSegmentJobCommandInput - {@link DescribeBatchSegmentJobCommandInput}
- * @returns {@link DescribeBatchSegmentJobCommandOutput}
+ * @param DescribeBatchSegmentJobRequest - {@link DescribeBatchSegmentJobRequest}
+ * @returns {@link DescribeBatchSegmentJobResponse}
  * @see {@link DescribeBatchSegmentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchSegmentJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

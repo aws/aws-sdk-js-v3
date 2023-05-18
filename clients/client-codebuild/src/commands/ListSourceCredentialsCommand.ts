@@ -54,8 +54,8 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  *
  * ```
  *
- * @param ListSourceCredentialsCommandInput - {@link ListSourceCredentialsCommandInput}
- * @returns {@link ListSourceCredentialsCommandOutput}
+ * @param ListSourceCredentialsInput - {@link ListSourceCredentialsInput}
+ * @returns {@link ListSourceCredentialsOutput}
  * @see {@link ListSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

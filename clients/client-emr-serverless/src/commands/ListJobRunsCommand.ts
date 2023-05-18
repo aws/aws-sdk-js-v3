@@ -73,8 +73,8 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  *
  * ```
  *
- * @param ListJobRunsCommandInput - {@link ListJobRunsCommandInput}
- * @returns {@link ListJobRunsCommandOutput}
+ * @param ListJobRunsRequest - {@link ListJobRunsRequest}
+ * @returns {@link ListJobRunsResponse}
  * @see {@link ListJobRunsCommandInput} for command's `input` shape.
  * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.

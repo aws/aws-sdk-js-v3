@@ -91,8 +91,8 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  *
  * ```
  *
- * @param DescribeFlywheelCommandInput - {@link DescribeFlywheelCommandInput}
- * @returns {@link DescribeFlywheelCommandOutput}
+ * @param DescribeFlywheelRequest - {@link DescribeFlywheelRequest}
+ * @returns {@link DescribeFlywheelResponse}
  * @see {@link DescribeFlywheelCommandInput} for command's `input` shape.
  * @see {@link DescribeFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

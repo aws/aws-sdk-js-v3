@@ -78,8 +78,8 @@ export interface CreateServiceSpecificCredentialCommandOutput
  *
  * ```
  *
- * @param CreateServiceSpecificCredentialCommandInput - {@link CreateServiceSpecificCredentialCommandInput}
- * @returns {@link CreateServiceSpecificCredentialCommandOutput}
+ * @param CreateServiceSpecificCredentialRequest - {@link CreateServiceSpecificCredentialRequest}
+ * @returns {@link CreateServiceSpecificCredentialResponse}
  * @see {@link CreateServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link CreateServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

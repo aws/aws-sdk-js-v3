@@ -65,8 +65,8 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  *
  * ```
  *
- * @param ListTagOptionsCommandInput - {@link ListTagOptionsCommandInput}
- * @returns {@link ListTagOptionsCommandOutput}
+ * @param ListTagOptionsInput - {@link ListTagOptionsInput}
+ * @returns {@link ListTagOptionsOutput}
  * @see {@link ListTagOptionsCommandInput} for command's `input` shape.
  * @see {@link ListTagOptionsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

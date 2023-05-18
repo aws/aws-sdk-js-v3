@@ -49,8 +49,8 @@ export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param StopVoiceToneAnalysisTaskCommandInput - {@link StopVoiceToneAnalysisTaskCommandInput}
- * @returns {@link StopVoiceToneAnalysisTaskCommandOutput}
+ * @param StopVoiceToneAnalysisTaskRequest - {@link StopVoiceToneAnalysisTaskRequest}
+ * @returns {@link Unit}
  * @see {@link StopVoiceToneAnalysisTaskCommandInput} for command's `input` shape.
  * @see {@link StopVoiceToneAnalysisTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

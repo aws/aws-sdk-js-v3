@@ -71,8 +71,8 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  *
  * ```
  *
- * @param PutDeliverabilityDashboardOptionCommandInput - {@link PutDeliverabilityDashboardOptionCommandInput}
- * @returns {@link PutDeliverabilityDashboardOptionCommandOutput}
+ * @param PutDeliverabilityDashboardOptionRequest - {@link PutDeliverabilityDashboardOptionRequest}
+ * @returns {@link PutDeliverabilityDashboardOptionResponse}
  * @see {@link PutDeliverabilityDashboardOptionCommandInput} for command's `input` shape.
  * @see {@link PutDeliverabilityDashboardOptionCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

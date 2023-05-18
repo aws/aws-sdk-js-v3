@@ -57,8 +57,8 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  *
  * ```
  *
- * @param DeleteReplicationSubnetGroupCommandInput - {@link DeleteReplicationSubnetGroupCommandInput}
- * @returns {@link DeleteReplicationSubnetGroupCommandOutput}
+ * @param DeleteReplicationSubnetGroupMessage - {@link DeleteReplicationSubnetGroupMessage}
+ * @returns {@link DeleteReplicationSubnetGroupResponse}
  * @see {@link DeleteReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

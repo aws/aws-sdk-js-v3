@@ -88,8 +88,8 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  *
  * ```
  *
- * @param ListChannelMessagesCommandInput - {@link ListChannelMessagesCommandInput}
- * @returns {@link ListChannelMessagesCommandOutput}
+ * @param ListChannelMessagesRequest - {@link ListChannelMessagesRequest}
+ * @returns {@link ListChannelMessagesResponse}
  * @see {@link ListChannelMessagesCommandInput} for command's `input` shape.
  * @see {@link ListChannelMessagesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

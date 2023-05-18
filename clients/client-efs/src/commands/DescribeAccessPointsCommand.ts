@@ -88,8 +88,8 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  *
  * ```
  *
- * @param DescribeAccessPointsCommandInput - {@link DescribeAccessPointsCommandInput}
- * @returns {@link DescribeAccessPointsCommandOutput}
+ * @param DescribeAccessPointsRequest - {@link DescribeAccessPointsRequest}
+ * @returns {@link DescribeAccessPointsResponse}
  * @see {@link DescribeAccessPointsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

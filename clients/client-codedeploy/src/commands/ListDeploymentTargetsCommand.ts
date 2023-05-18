@@ -59,8 +59,8 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  *
  * ```
  *
- * @param ListDeploymentTargetsCommandInput - {@link ListDeploymentTargetsCommandInput}
- * @returns {@link ListDeploymentTargetsCommandOutput}
+ * @param ListDeploymentTargetsInput - {@link ListDeploymentTargetsInput}
+ * @returns {@link ListDeploymentTargetsOutput}
  * @see {@link ListDeploymentTargetsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

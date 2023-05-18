@@ -53,8 +53,8 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  *
  * ```
  *
- * @param StartOnDemandAuditTaskCommandInput - {@link StartOnDemandAuditTaskCommandInput}
- * @returns {@link StartOnDemandAuditTaskCommandOutput}
+ * @param StartOnDemandAuditTaskRequest - {@link StartOnDemandAuditTaskRequest}
+ * @returns {@link StartOnDemandAuditTaskResponse}
  * @see {@link StartOnDemandAuditTaskCommandInput} for command's `input` shape.
  * @see {@link StartOnDemandAuditTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

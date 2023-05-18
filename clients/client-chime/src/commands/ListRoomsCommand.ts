@@ -63,8 +63,8 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  *
  * ```
  *
- * @param ListRoomsCommandInput - {@link ListRoomsCommandInput}
- * @returns {@link ListRoomsCommandOutput}
+ * @param ListRoomsRequest - {@link ListRoomsRequest}
+ * @returns {@link ListRoomsResponse}
  * @see {@link ListRoomsCommandInput} for command's `input` shape.
  * @see {@link ListRoomsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -73,8 +73,8 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  *
  * ```
  *
- * @param ListPricingPlansCommandInput - {@link ListPricingPlansCommandInput}
- * @returns {@link ListPricingPlansCommandOutput}
+ * @param ListPricingPlansInput - {@link ListPricingPlansInput}
+ * @returns {@link ListPricingPlansOutput}
  * @see {@link ListPricingPlansCommandInput} for command's `input` shape.
  * @see {@link ListPricingPlansCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

@@ -54,8 +54,8 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  *
  * ```
  *
- * @param CancelMailboxExportJobCommandInput - {@link CancelMailboxExportJobCommandInput}
- * @returns {@link CancelMailboxExportJobCommandOutput}
+ * @param CancelMailboxExportJobRequest - {@link CancelMailboxExportJobRequest}
+ * @returns {@link CancelMailboxExportJobResponse}
  * @see {@link CancelMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelMailboxExportJobCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

@@ -84,8 +84,8 @@ export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkRespons
  *
  * ```
  *
- * @param UpdateCoreNetworkCommandInput - {@link UpdateCoreNetworkCommandInput}
- * @returns {@link UpdateCoreNetworkCommandOutput}
+ * @param UpdateCoreNetworkRequest - {@link UpdateCoreNetworkRequest}
+ * @returns {@link UpdateCoreNetworkResponse}
  * @see {@link UpdateCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link UpdateCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

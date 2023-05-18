@@ -73,8 +73,8 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
  *
  * ```
  *
- * @param GetMaintenanceWindowExecutionTaskInvocationCommandInput - {@link GetMaintenanceWindowExecutionTaskInvocationCommandInput}
- * @returns {@link GetMaintenanceWindowExecutionTaskInvocationCommandOutput}
+ * @param GetMaintenanceWindowExecutionTaskInvocationRequest - {@link GetMaintenanceWindowExecutionTaskInvocationRequest}
+ * @returns {@link GetMaintenanceWindowExecutionTaskInvocationResult}
  * @see {@link GetMaintenanceWindowExecutionTaskInvocationCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowExecutionTaskInvocationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

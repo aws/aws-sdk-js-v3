@@ -70,8 +70,8 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  *
  * ```
  *
- * @param StartPersonTrackingCommandInput - {@link StartPersonTrackingCommandInput}
- * @returns {@link StartPersonTrackingCommandOutput}
+ * @param StartPersonTrackingRequest - {@link StartPersonTrackingRequest}
+ * @returns {@link StartPersonTrackingResponse}
  * @see {@link StartPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link StartPersonTrackingCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

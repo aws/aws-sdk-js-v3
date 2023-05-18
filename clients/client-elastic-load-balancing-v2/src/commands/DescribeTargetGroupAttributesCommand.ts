@@ -85,8 +85,8 @@ export interface DescribeTargetGroupAttributesCommandOutput
  *
  * ```
  *
- * @param DescribeTargetGroupAttributesCommandInput - {@link DescribeTargetGroupAttributesCommandInput}
- * @returns {@link DescribeTargetGroupAttributesCommandOutput}
+ * @param DescribeTargetGroupAttributesInput - {@link DescribeTargetGroupAttributesInput}
+ * @returns {@link DescribeTargetGroupAttributesOutput}
  * @see {@link DescribeTargetGroupAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

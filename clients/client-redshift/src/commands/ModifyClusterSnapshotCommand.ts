@@ -100,8 +100,8 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  *
  * ```
  *
- * @param ModifyClusterSnapshotCommandInput - {@link ModifyClusterSnapshotCommandInput}
- * @returns {@link ModifyClusterSnapshotCommandOutput}
+ * @param ModifyClusterSnapshotMessage - {@link ModifyClusterSnapshotMessage}
+ * @returns {@link ModifyClusterSnapshotResult}
  * @see {@link ModifyClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

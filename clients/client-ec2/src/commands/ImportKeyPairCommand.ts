@@ -76,8 +76,8 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  *
  * ```
  *
- * @param ImportKeyPairCommandInput - {@link ImportKeyPairCommandInput}
- * @returns {@link ImportKeyPairCommandOutput}
+ * @param ImportKeyPairRequest - {@link ImportKeyPairRequest}
+ * @returns {@link ImportKeyPairResult}
  * @see {@link ImportKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

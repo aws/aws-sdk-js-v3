@@ -54,8 +54,8 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  *
  * ```
  *
- * @param UnclaimDeviceCommandInput - {@link UnclaimDeviceCommandInput}
- * @returns {@link UnclaimDeviceCommandOutput}
+ * @param UnclaimDeviceRequest - {@link UnclaimDeviceRequest}
+ * @returns {@link UnclaimDeviceResponse}
  * @see {@link UnclaimDeviceCommandInput} for command's `input` shape.
  * @see {@link UnclaimDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.

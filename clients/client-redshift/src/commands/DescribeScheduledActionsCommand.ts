@@ -96,8 +96,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  *
  * ```
  *
- * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
- * @returns {@link DescribeScheduledActionsCommandOutput}
+ * @param DescribeScheduledActionsMessage - {@link DescribeScheduledActionsMessage}
+ * @returns {@link ScheduledActionsMessage}
  * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

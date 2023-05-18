@@ -93,8 +93,8 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  *
  * ```
  *
- * @param ListRoutesCommandInput - {@link ListRoutesCommandInput}
- * @returns {@link ListRoutesCommandOutput}
+ * @param ListRoutesRequest - {@link ListRoutesRequest}
+ * @returns {@link ListRoutesResponse}
  * @see {@link ListRoutesCommandInput} for command's `input` shape.
  * @see {@link ListRoutesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

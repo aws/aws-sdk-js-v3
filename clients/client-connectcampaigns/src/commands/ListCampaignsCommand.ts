@@ -65,8 +65,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  *
  * ```
  *
- * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
- * @returns {@link ListCampaignsCommandOutput}
+ * @param ListCampaignsRequest - {@link ListCampaignsRequest}
+ * @returns {@link ListCampaignsResponse}
  * @see {@link ListCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListCampaignsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

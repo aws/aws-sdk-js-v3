@@ -55,8 +55,8 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeregisterVolumeCommandInput - {@link DeregisterVolumeCommandInput}
- * @returns {@link DeregisterVolumeCommandOutput}
+ * @param DeregisterVolumeRequest - {@link DeregisterVolumeRequest}
+ * @returns {@link Unit}
  * @see {@link DeregisterVolumeCommandInput} for command's `input` shape.
  * @see {@link DeregisterVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

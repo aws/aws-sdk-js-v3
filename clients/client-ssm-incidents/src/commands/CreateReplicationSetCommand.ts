@@ -59,8 +59,8 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  *
  * ```
  *
- * @param CreateReplicationSetCommandInput - {@link CreateReplicationSetCommandInput}
- * @returns {@link CreateReplicationSetCommandOutput}
+ * @param CreateReplicationSetInput - {@link CreateReplicationSetInput}
+ * @returns {@link CreateReplicationSetOutput}
  * @see {@link CreateReplicationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

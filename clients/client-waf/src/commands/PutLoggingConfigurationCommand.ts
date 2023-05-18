@@ -97,8 +97,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *
  * ```
  *
- * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
- * @returns {@link PutLoggingConfigurationCommandOutput}
+ * @param PutLoggingConfigurationRequest - {@link PutLoggingConfigurationRequest}
+ * @returns {@link PutLoggingConfigurationResponse}
  * @see {@link PutLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

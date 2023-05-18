@@ -55,8 +55,8 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  *
  * ```
  *
- * @param ListTagsCommandInput - {@link ListTagsCommandInput}
- * @returns {@link ListTagsCommandOutput}
+ * @param ListTagsRequest - {@link ListTagsRequest}
+ * @returns {@link ListTagsResult}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

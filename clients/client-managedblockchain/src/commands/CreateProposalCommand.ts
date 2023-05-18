@@ -73,8 +73,8 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  *
  * ```
  *
- * @param CreateProposalCommandInput - {@link CreateProposalCommandInput}
- * @returns {@link CreateProposalCommandOutput}
+ * @param CreateProposalInput - {@link CreateProposalInput}
+ * @returns {@link CreateProposalOutput}
  * @see {@link CreateProposalCommandInput} for command's `input` shape.
  * @see {@link CreateProposalCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

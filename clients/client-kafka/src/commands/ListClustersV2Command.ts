@@ -197,8 +197,8 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  *
  * ```
  *
- * @param ListClustersV2CommandInput - {@link ListClustersV2CommandInput}
- * @returns {@link ListClustersV2CommandOutput}
+ * @param ListClustersV2Request - {@link ListClustersV2Request}
+ * @returns {@link ListClustersV2Response}
  * @see {@link ListClustersV2CommandInput} for command's `input` shape.
  * @see {@link ListClustersV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

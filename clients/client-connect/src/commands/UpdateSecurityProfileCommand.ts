@@ -60,8 +60,8 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateSecurityProfileCommandInput - {@link UpdateSecurityProfileCommandInput}
- * @returns {@link UpdateSecurityProfileCommandOutput}
+ * @param UpdateSecurityProfileRequest - {@link UpdateSecurityProfileRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

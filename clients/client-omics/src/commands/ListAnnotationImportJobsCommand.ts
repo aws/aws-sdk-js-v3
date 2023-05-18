@@ -73,8 +73,8 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  *
  * ```
  *
- * @param ListAnnotationImportJobsCommandInput - {@link ListAnnotationImportJobsCommandInput}
- * @returns {@link ListAnnotationImportJobsCommandOutput}
+ * @param ListAnnotationImportJobsRequest - {@link ListAnnotationImportJobsRequest}
+ * @returns {@link ListAnnotationImportJobsResponse}
  * @see {@link ListAnnotationImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListAnnotationImportJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

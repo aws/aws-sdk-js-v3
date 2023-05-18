@@ -56,8 +56,8 @@ export interface EnableDelegatedAdminAccountCommandOutput
  *
  * ```
  *
- * @param EnableDelegatedAdminAccountCommandInput - {@link EnableDelegatedAdminAccountCommandInput}
- * @returns {@link EnableDelegatedAdminAccountCommandOutput}
+ * @param EnableDelegatedAdminAccountRequest - {@link EnableDelegatedAdminAccountRequest}
+ * @returns {@link EnableDelegatedAdminAccountResponse}
  * @see {@link EnableDelegatedAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableDelegatedAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

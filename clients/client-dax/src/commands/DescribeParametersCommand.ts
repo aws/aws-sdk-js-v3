@@ -72,8 +72,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  *
  * ```
  *
- * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
- * @returns {@link DescribeParametersCommandOutput}
+ * @param DescribeParametersRequest - {@link DescribeParametersRequest}
+ * @returns {@link DescribeParametersResponse}
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

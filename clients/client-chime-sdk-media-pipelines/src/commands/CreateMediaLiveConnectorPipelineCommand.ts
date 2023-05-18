@@ -154,8 +154,8 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  *
  * ```
  *
- * @param CreateMediaLiveConnectorPipelineCommandInput - {@link CreateMediaLiveConnectorPipelineCommandInput}
- * @returns {@link CreateMediaLiveConnectorPipelineCommandOutput}
+ * @param CreateMediaLiveConnectorPipelineRequest - {@link CreateMediaLiveConnectorPipelineRequest}
+ * @returns {@link CreateMediaLiveConnectorPipelineResponse}
  * @see {@link CreateMediaLiveConnectorPipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaLiveConnectorPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

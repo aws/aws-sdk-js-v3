@@ -63,8 +63,8 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  *
  * ```
  *
- * @param CreateSceneCommandInput - {@link CreateSceneCommandInput}
- * @returns {@link CreateSceneCommandOutput}
+ * @param CreateSceneRequest - {@link CreateSceneRequest}
+ * @returns {@link CreateSceneResponse}
  * @see {@link CreateSceneCommandInput} for command's `input` shape.
  * @see {@link CreateSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

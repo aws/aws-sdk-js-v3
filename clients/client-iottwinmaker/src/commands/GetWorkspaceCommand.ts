@@ -56,8 +56,8 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  *
  * ```
  *
- * @param GetWorkspaceCommandInput - {@link GetWorkspaceCommandInput}
- * @returns {@link GetWorkspaceCommandOutput}
+ * @param GetWorkspaceRequest - {@link GetWorkspaceRequest}
+ * @returns {@link GetWorkspaceResponse}
  * @see {@link GetWorkspaceCommandInput} for command's `input` shape.
  * @see {@link GetWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

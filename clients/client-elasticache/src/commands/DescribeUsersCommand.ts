@@ -79,8 +79,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  *
  * ```
  *
- * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
- * @returns {@link DescribeUsersCommandOutput}
+ * @param DescribeUsersMessage - {@link DescribeUsersMessage}
+ * @returns {@link DescribeUsersResult}
  * @see {@link DescribeUsersCommandInput} for command's `input` shape.
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

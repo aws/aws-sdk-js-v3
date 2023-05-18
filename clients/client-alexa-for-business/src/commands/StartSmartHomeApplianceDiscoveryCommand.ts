@@ -54,8 +54,8 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  *
  * ```
  *
- * @param StartSmartHomeApplianceDiscoveryCommandInput - {@link StartSmartHomeApplianceDiscoveryCommandInput}
- * @returns {@link StartSmartHomeApplianceDiscoveryCommandOutput}
+ * @param StartSmartHomeApplianceDiscoveryRequest - {@link StartSmartHomeApplianceDiscoveryRequest}
+ * @returns {@link StartSmartHomeApplianceDiscoveryResponse}
  * @see {@link StartSmartHomeApplianceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link StartSmartHomeApplianceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

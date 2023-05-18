@@ -76,8 +76,8 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  *
  * ```
  *
- * @param ListEndpointsByPlatformApplicationCommandInput - {@link ListEndpointsByPlatformApplicationCommandInput}
- * @returns {@link ListEndpointsByPlatformApplicationCommandOutput}
+ * @param ListEndpointsByPlatformApplicationInput - {@link ListEndpointsByPlatformApplicationInput}
+ * @returns {@link ListEndpointsByPlatformApplicationResponse}
  * @see {@link ListEndpointsByPlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsByPlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

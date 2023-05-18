@@ -50,8 +50,8 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  *
  * ```
  *
- * @param DeleteBlueprintCommandInput - {@link DeleteBlueprintCommandInput}
- * @returns {@link DeleteBlueprintCommandOutput}
+ * @param DeleteBlueprintRequest - {@link DeleteBlueprintRequest}
+ * @returns {@link DeleteBlueprintResponse}
  * @see {@link DeleteBlueprintCommandInput} for command's `input` shape.
  * @see {@link DeleteBlueprintCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

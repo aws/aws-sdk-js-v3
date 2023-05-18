@@ -56,8 +56,8 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  *
  * ```
  *
- * @param CheckIfPhoneNumberIsOptedOutCommandInput - {@link CheckIfPhoneNumberIsOptedOutCommandInput}
- * @returns {@link CheckIfPhoneNumberIsOptedOutCommandOutput}
+ * @param CheckIfPhoneNumberIsOptedOutInput - {@link CheckIfPhoneNumberIsOptedOutInput}
+ * @returns {@link CheckIfPhoneNumberIsOptedOutResponse}
  * @see {@link CheckIfPhoneNumberIsOptedOutCommandInput} for command's `input` shape.
  * @see {@link CheckIfPhoneNumberIsOptedOutCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

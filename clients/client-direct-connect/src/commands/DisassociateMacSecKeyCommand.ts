@@ -59,8 +59,8 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  *
  * ```
  *
- * @param DisassociateMacSecKeyCommandInput - {@link DisassociateMacSecKeyCommandInput}
- * @returns {@link DisassociateMacSecKeyCommandOutput}
+ * @param DisassociateMacSecKeyRequest - {@link DisassociateMacSecKeyRequest}
+ * @returns {@link DisassociateMacSecKeyResponse}
  * @see {@link DisassociateMacSecKeyCommandInput} for command's `input` shape.
  * @see {@link DisassociateMacSecKeyCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

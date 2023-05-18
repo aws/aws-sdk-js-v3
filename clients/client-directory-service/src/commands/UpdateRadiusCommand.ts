@@ -61,8 +61,8 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  *
  * ```
  *
- * @param UpdateRadiusCommandInput - {@link UpdateRadiusCommandInput}
- * @returns {@link UpdateRadiusCommandOutput}
+ * @param UpdateRadiusRequest - {@link UpdateRadiusRequest}
+ * @returns {@link UpdateRadiusResult}
  * @see {@link UpdateRadiusCommandInput} for command's `input` shape.
  * @see {@link UpdateRadiusCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

@@ -67,8 +67,8 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  *
  * ```
  *
- * @param CreateSolFunctionPackageCommandInput - {@link CreateSolFunctionPackageCommandInput}
- * @returns {@link CreateSolFunctionPackageCommandOutput}
+ * @param CreateSolFunctionPackageInput - {@link CreateSolFunctionPackageInput}
+ * @returns {@link CreateSolFunctionPackageOutput}
  * @see {@link CreateSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link CreateSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

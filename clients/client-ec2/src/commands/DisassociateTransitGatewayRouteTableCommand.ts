@@ -66,8 +66,8 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
  *
  * ```
  *
- * @param DisassociateTransitGatewayRouteTableCommandInput - {@link DisassociateTransitGatewayRouteTableCommandInput}
- * @returns {@link DisassociateTransitGatewayRouteTableCommandOutput}
+ * @param DisassociateTransitGatewayRouteTableRequest - {@link DisassociateTransitGatewayRouteTableRequest}
+ * @returns {@link DisassociateTransitGatewayRouteTableResult}
  * @see {@link DisassociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

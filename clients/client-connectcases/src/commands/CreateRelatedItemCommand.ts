@@ -70,8 +70,8 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *
  * ```
  *
- * @param CreateRelatedItemCommandInput - {@link CreateRelatedItemCommandInput}
- * @returns {@link CreateRelatedItemCommandOutput}
+ * @param CreateRelatedItemRequest - {@link CreateRelatedItemRequest}
+ * @returns {@link CreateRelatedItemResponse}
  * @see {@link CreateRelatedItemCommandInput} for command's `input` shape.
  * @see {@link CreateRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

@@ -71,8 +71,8 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
  *
  * ```
  *
- * @param ListApplicationInstanceNodeInstancesCommandInput - {@link ListApplicationInstanceNodeInstancesCommandInput}
- * @returns {@link ListApplicationInstanceNodeInstancesCommandOutput}
+ * @param ListApplicationInstanceNodeInstancesRequest - {@link ListApplicationInstanceNodeInstancesRequest}
+ * @returns {@link ListApplicationInstanceNodeInstancesResponse}
  * @see {@link ListApplicationInstanceNodeInstancesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstanceNodeInstancesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

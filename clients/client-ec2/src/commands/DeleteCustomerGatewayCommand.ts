@@ -50,8 +50,8 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCustomerGatewayCommandInput - {@link DeleteCustomerGatewayCommandInput}
- * @returns {@link DeleteCustomerGatewayCommandOutput}
+ * @param DeleteCustomerGatewayRequest - {@link DeleteCustomerGatewayRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

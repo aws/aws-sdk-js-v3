@@ -104,8 +104,8 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  *
  * ```
  *
- * @param CreateTargetGroupCommandInput - {@link CreateTargetGroupCommandInput}
- * @returns {@link CreateTargetGroupCommandOutput}
+ * @param CreateTargetGroupRequest - {@link CreateTargetGroupRequest}
+ * @returns {@link CreateTargetGroupResponse}
  * @see {@link CreateTargetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

@@ -86,8 +86,8 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  *
  * ```
  *
- * @param GetParametersByPathCommandInput - {@link GetParametersByPathCommandInput}
- * @returns {@link GetParametersByPathCommandOutput}
+ * @param GetParametersByPathRequest - {@link GetParametersByPathRequest}
+ * @returns {@link GetParametersByPathResult}
  * @see {@link GetParametersByPathCommandInput} for command's `input` shape.
  * @see {@link GetParametersByPathCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

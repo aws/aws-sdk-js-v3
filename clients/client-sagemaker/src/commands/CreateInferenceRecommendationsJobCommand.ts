@@ -149,8 +149,8 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  *
  * ```
  *
- * @param CreateInferenceRecommendationsJobCommandInput - {@link CreateInferenceRecommendationsJobCommandInput}
- * @returns {@link CreateInferenceRecommendationsJobCommandOutput}
+ * @param CreateInferenceRecommendationsJobRequest - {@link CreateInferenceRecommendationsJobRequest}
+ * @returns {@link CreateInferenceRecommendationsJobResponse}
  * @see {@link CreateInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link CreateInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

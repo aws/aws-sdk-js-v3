@@ -71,8 +71,8 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  *
  * ```
  *
- * @param ListLabelsCommandInput - {@link ListLabelsCommandInput}
- * @returns {@link ListLabelsCommandOutput}
+ * @param ListLabelsRequest - {@link ListLabelsRequest}
+ * @returns {@link ListLabelsResponse}
  * @see {@link ListLabelsCommandInput} for command's `input` shape.
  * @see {@link ListLabelsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

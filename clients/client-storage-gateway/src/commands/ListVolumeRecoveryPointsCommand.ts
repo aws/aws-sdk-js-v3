@@ -64,8 +64,8 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  *
  * ```
  *
- * @param ListVolumeRecoveryPointsCommandInput - {@link ListVolumeRecoveryPointsCommandInput}
- * @returns {@link ListVolumeRecoveryPointsCommandOutput}
+ * @param ListVolumeRecoveryPointsInput - {@link ListVolumeRecoveryPointsInput}
+ * @returns {@link ListVolumeRecoveryPointsOutput}
  * @see {@link ListVolumeRecoveryPointsCommandInput} for command's `input` shape.
  * @see {@link ListVolumeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

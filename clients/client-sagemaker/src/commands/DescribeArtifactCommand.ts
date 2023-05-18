@@ -93,8 +93,8 @@ export interface DescribeArtifactCommandOutput extends DescribeArtifactResponse,
  *
  * ```
  *
- * @param DescribeArtifactCommandInput - {@link DescribeArtifactCommandInput}
- * @returns {@link DescribeArtifactCommandOutput}
+ * @param DescribeArtifactRequest - {@link DescribeArtifactRequest}
+ * @returns {@link DescribeArtifactResponse}
  * @see {@link DescribeArtifactCommandInput} for command's `input` shape.
  * @see {@link DescribeArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

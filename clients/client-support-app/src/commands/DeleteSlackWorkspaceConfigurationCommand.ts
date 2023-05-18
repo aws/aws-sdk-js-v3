@@ -54,8 +54,8 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteSlackWorkspaceConfigurationCommandInput - {@link DeleteSlackWorkspaceConfigurationCommandInput}
- * @returns {@link DeleteSlackWorkspaceConfigurationCommandOutput}
+ * @param DeleteSlackWorkspaceConfigurationRequest - {@link DeleteSlackWorkspaceConfigurationRequest}
+ * @returns {@link DeleteSlackWorkspaceConfigurationResult}
  * @see {@link DeleteSlackWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSlackWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

@@ -106,8 +106,8 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  *
  * ```
  *
- * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
- * @returns {@link StartDeploymentCommandOutput}
+ * @param StartDeploymentRequest - {@link StartDeploymentRequest}
+ * @returns {@link Deployment}
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

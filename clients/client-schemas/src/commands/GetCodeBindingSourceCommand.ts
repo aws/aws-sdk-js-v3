@@ -53,8 +53,8 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  *
  * ```
  *
- * @param GetCodeBindingSourceCommandInput - {@link GetCodeBindingSourceCommandInput}
- * @returns {@link GetCodeBindingSourceCommandOutput}
+ * @param GetCodeBindingSourceRequest - {@link GetCodeBindingSourceRequest}
+ * @returns {@link GetCodeBindingSourceResponse}
  * @see {@link GetCodeBindingSourceCommandInput} for command's `input` shape.
  * @see {@link GetCodeBindingSourceCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

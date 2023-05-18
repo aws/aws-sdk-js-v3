@@ -66,8 +66,8 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeAutoScalingConfigurationCommandInput - {@link DescribeAutoScalingConfigurationCommandInput}
- * @returns {@link DescribeAutoScalingConfigurationCommandOutput}
+ * @param DescribeAutoScalingConfigurationRequest - {@link DescribeAutoScalingConfigurationRequest}
+ * @returns {@link DescribeAutoScalingConfigurationResponse}
  * @see {@link DescribeAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

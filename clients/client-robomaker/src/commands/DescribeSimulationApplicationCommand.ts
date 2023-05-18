@@ -87,8 +87,8 @@ export interface DescribeSimulationApplicationCommandOutput
  *
  * ```
  *
- * @param DescribeSimulationApplicationCommandInput - {@link DescribeSimulationApplicationCommandInput}
- * @returns {@link DescribeSimulationApplicationCommandOutput}
+ * @param DescribeSimulationApplicationRequest - {@link DescribeSimulationApplicationRequest}
+ * @returns {@link DescribeSimulationApplicationResponse}
  * @see {@link DescribeSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

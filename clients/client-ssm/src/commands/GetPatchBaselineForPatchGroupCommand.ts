@@ -58,8 +58,8 @@ export interface GetPatchBaselineForPatchGroupCommandOutput
  *
  * ```
  *
- * @param GetPatchBaselineForPatchGroupCommandInput - {@link GetPatchBaselineForPatchGroupCommandInput}
- * @returns {@link GetPatchBaselineForPatchGroupCommandOutput}
+ * @param GetPatchBaselineForPatchGroupRequest - {@link GetPatchBaselineForPatchGroupRequest}
+ * @returns {@link GetPatchBaselineForPatchGroupResult}
  * @see {@link GetPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link GetPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

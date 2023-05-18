@@ -55,8 +55,8 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  *
  * ```
  *
- * @param DeleteThemeCommandInput - {@link DeleteThemeCommandInput}
- * @returns {@link DeleteThemeCommandOutput}
+ * @param DeleteThemeRequest - {@link DeleteThemeRequest}
+ * @returns {@link DeleteThemeResponse}
  * @see {@link DeleteThemeCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

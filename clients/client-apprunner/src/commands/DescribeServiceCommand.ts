@@ -140,8 +140,8 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  *
  * ```
  *
- * @param DescribeServiceCommandInput - {@link DescribeServiceCommandInput}
- * @returns {@link DescribeServiceCommandOutput}
+ * @param DescribeServiceRequest - {@link DescribeServiceRequest}
+ * @returns {@link DescribeServiceResponse}
  * @see {@link DescribeServiceCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  *
  * ```
  *
- * @param ListCalculationExecutionsCommandInput - {@link ListCalculationExecutionsCommandInput}
- * @returns {@link ListCalculationExecutionsCommandOutput}
+ * @param ListCalculationExecutionsRequest - {@link ListCalculationExecutionsRequest}
+ * @returns {@link ListCalculationExecutionsResponse}
  * @see {@link ListCalculationExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListCalculationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

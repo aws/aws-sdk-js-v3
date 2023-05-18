@@ -79,8 +79,8 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  *
  * ```
  *
- * @param DeleteAttachmentCommandInput - {@link DeleteAttachmentCommandInput}
- * @returns {@link DeleteAttachmentCommandOutput}
+ * @param DeleteAttachmentRequest - {@link DeleteAttachmentRequest}
+ * @returns {@link DeleteAttachmentResponse}
  * @see {@link DeleteAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

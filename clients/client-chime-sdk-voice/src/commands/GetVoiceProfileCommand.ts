@@ -61,8 +61,8 @@ export interface GetVoiceProfileCommandOutput extends GetVoiceProfileResponse, _
  *
  * ```
  *
- * @param GetVoiceProfileCommandInput - {@link GetVoiceProfileCommandInput}
- * @returns {@link GetVoiceProfileCommandOutput}
+ * @param GetVoiceProfileRequest - {@link GetVoiceProfileRequest}
+ * @returns {@link GetVoiceProfileResponse}
  * @see {@link GetVoiceProfileCommandInput} for command's `input` shape.
  * @see {@link GetVoiceProfileCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

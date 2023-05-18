@@ -60,8 +60,8 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
  *
  * ```
  *
- * @param DescribePipelineDefinitionForExecutionCommandInput - {@link DescribePipelineDefinitionForExecutionCommandInput}
- * @returns {@link DescribePipelineDefinitionForExecutionCommandOutput}
+ * @param DescribePipelineDefinitionForExecutionRequest - {@link DescribePipelineDefinitionForExecutionRequest}
+ * @returns {@link DescribePipelineDefinitionForExecutionResponse}
  * @see {@link DescribePipelineDefinitionForExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineDefinitionForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

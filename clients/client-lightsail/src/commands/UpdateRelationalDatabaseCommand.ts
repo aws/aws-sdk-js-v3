@@ -86,8 +86,8 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  *
  * ```
  *
- * @param UpdateRelationalDatabaseCommandInput - {@link UpdateRelationalDatabaseCommandInput}
- * @returns {@link UpdateRelationalDatabaseCommandOutput}
+ * @param UpdateRelationalDatabaseRequest - {@link UpdateRelationalDatabaseRequest}
+ * @returns {@link UpdateRelationalDatabaseResult}
  * @see {@link UpdateRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link UpdateRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

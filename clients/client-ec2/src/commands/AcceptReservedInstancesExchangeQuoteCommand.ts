@@ -67,8 +67,8 @@ export interface AcceptReservedInstancesExchangeQuoteCommandOutput
  *
  * ```
  *
- * @param AcceptReservedInstancesExchangeQuoteCommandInput - {@link AcceptReservedInstancesExchangeQuoteCommandInput}
- * @returns {@link AcceptReservedInstancesExchangeQuoteCommandOutput}
+ * @param AcceptReservedInstancesExchangeQuoteRequest - {@link AcceptReservedInstancesExchangeQuoteRequest}
+ * @returns {@link AcceptReservedInstancesExchangeQuoteResult}
  * @see {@link AcceptReservedInstancesExchangeQuoteCommandInput} for command's `input` shape.
  * @see {@link AcceptReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

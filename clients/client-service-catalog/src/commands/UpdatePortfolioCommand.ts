@@ -77,8 +77,8 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  *
  * ```
  *
- * @param UpdatePortfolioCommandInput - {@link UpdatePortfolioCommandInput}
- * @returns {@link UpdatePortfolioCommandOutput}
+ * @param UpdatePortfolioInput - {@link UpdatePortfolioInput}
+ * @returns {@link UpdatePortfolioOutput}
  * @see {@link UpdatePortfolioCommandInput} for command's `input` shape.
  * @see {@link UpdatePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

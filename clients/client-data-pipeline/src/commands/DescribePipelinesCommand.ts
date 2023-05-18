@@ -132,8 +132,8 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  *
  * ```
  *
- * @param DescribePipelinesCommandInput - {@link DescribePipelinesCommandInput}
- * @returns {@link DescribePipelinesCommandOutput}
+ * @param DescribePipelinesInput - {@link DescribePipelinesInput}
+ * @returns {@link DescribePipelinesOutput}
  * @see {@link DescribePipelinesCommandInput} for command's `input` shape.
  * @see {@link DescribePipelinesCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

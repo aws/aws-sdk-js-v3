@@ -64,8 +64,8 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  *
  * ```
  *
- * @param UploadLayerPartCommandInput - {@link UploadLayerPartCommandInput}
- * @returns {@link UploadLayerPartCommandOutput}
+ * @param UploadLayerPartRequest - {@link UploadLayerPartRequest}
+ * @returns {@link UploadLayerPartResponse}
  * @see {@link UploadLayerPartCommandInput} for command's `input` shape.
  * @see {@link UploadLayerPartCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

@@ -70,8 +70,8 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  *
  * ```
  *
- * @param ModifyDBSubnetGroupCommandInput - {@link ModifyDBSubnetGroupCommandInput}
- * @returns {@link ModifyDBSubnetGroupCommandOutput}
+ * @param ModifyDBSubnetGroupMessage - {@link ModifyDBSubnetGroupMessage}
+ * @returns {@link ModifyDBSubnetGroupResult}
  * @see {@link ModifyDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

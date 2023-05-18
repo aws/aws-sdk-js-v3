@@ -71,8 +71,8 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  *
  * ```
  *
- * @param GetBucketAccessKeysCommandInput - {@link GetBucketAccessKeysCommandInput}
- * @returns {@link GetBucketAccessKeysCommandOutput}
+ * @param GetBucketAccessKeysRequest - {@link GetBucketAccessKeysRequest}
+ * @returns {@link GetBucketAccessKeysResult}
  * @see {@link GetBucketAccessKeysCommandInput} for command's `input` shape.
  * @see {@link GetBucketAccessKeysCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

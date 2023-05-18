@@ -87,8 +87,8 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  *
  * ```
  *
- * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
- * @returns {@link ListOrdersCommandOutput}
+ * @param ListOrdersRequest - {@link ListOrdersRequest}
+ * @returns {@link ListOrdersResponse}
  * @see {@link ListOrdersCommandInput} for command's `input` shape.
  * @see {@link ListOrdersCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

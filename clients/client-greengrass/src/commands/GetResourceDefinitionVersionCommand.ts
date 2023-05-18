@@ -106,8 +106,8 @@ export interface GetResourceDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param GetResourceDefinitionVersionCommandInput - {@link GetResourceDefinitionVersionCommandInput}
- * @returns {@link GetResourceDefinitionVersionCommandOutput}
+ * @param GetResourceDefinitionVersionRequest - {@link GetResourceDefinitionVersionRequest}
+ * @returns {@link GetResourceDefinitionVersionResponse}
  * @see {@link GetResourceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetResourceDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -92,8 +92,8 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  *
  * ```
  *
- * @param GetDeviceProfileCommandInput - {@link GetDeviceProfileCommandInput}
- * @returns {@link GetDeviceProfileCommandOutput}
+ * @param GetDeviceProfileRequest - {@link GetDeviceProfileRequest}
+ * @returns {@link GetDeviceProfileResponse}
  * @see {@link GetDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link GetDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

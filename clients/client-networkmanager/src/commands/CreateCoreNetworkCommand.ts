@@ -92,8 +92,8 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  *
  * ```
  *
- * @param CreateCoreNetworkCommandInput - {@link CreateCoreNetworkCommandInput}
- * @returns {@link CreateCoreNetworkCommandOutput}
+ * @param CreateCoreNetworkRequest - {@link CreateCoreNetworkRequest}
+ * @returns {@link CreateCoreNetworkResponse}
  * @see {@link CreateCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

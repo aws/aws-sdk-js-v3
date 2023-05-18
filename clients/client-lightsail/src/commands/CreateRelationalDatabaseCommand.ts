@@ -89,8 +89,8 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  *
  * ```
  *
- * @param CreateRelationalDatabaseCommandInput - {@link CreateRelationalDatabaseCommandInput}
- * @returns {@link CreateRelationalDatabaseCommandOutput}
+ * @param CreateRelationalDatabaseRequest - {@link CreateRelationalDatabaseRequest}
+ * @returns {@link CreateRelationalDatabaseResult}
  * @see {@link CreateRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

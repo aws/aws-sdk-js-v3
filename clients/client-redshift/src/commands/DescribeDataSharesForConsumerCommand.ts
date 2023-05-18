@@ -75,8 +75,8 @@ export interface DescribeDataSharesForConsumerCommandOutput
  *
  * ```
  *
- * @param DescribeDataSharesForConsumerCommandInput - {@link DescribeDataSharesForConsumerCommandInput}
- * @returns {@link DescribeDataSharesForConsumerCommandOutput}
+ * @param DescribeDataSharesForConsumerMessage - {@link DescribeDataSharesForConsumerMessage}
+ * @returns {@link DescribeDataSharesForConsumerResult}
  * @see {@link DescribeDataSharesForConsumerCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesForConsumerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

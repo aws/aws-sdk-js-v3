@@ -55,8 +55,8 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  *
  * ```
  *
- * @param ListFacetNamesCommandInput - {@link ListFacetNamesCommandInput}
- * @returns {@link ListFacetNamesCommandOutput}
+ * @param ListFacetNamesRequest - {@link ListFacetNamesRequest}
+ * @returns {@link ListFacetNamesResponse}
  * @see {@link ListFacetNamesCommandInput} for command's `input` shape.
  * @see {@link ListFacetNamesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

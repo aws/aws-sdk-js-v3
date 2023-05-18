@@ -58,8 +58,8 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResetInstanceAttributeCommandInput - {@link ResetInstanceAttributeCommandInput}
- * @returns {@link ResetInstanceAttributeCommandOutput}
+ * @param ResetInstanceAttributeRequest - {@link ResetInstanceAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link ResetInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

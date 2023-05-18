@@ -110,8 +110,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *
  * ```
  *
- * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
- * @returns {@link GetMetricDataCommandOutput}
+ * @param GetMetricDataRequest - {@link GetMetricDataRequest}
+ * @returns {@link GetMetricDataResponse}
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

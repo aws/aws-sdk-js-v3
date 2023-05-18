@@ -83,8 +83,8 @@ export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsRespo
  *
  * ```
  *
- * @param ListEndpointGroupsCommandInput - {@link ListEndpointGroupsCommandInput}
- * @returns {@link ListEndpointGroupsCommandOutput}
+ * @param ListEndpointGroupsRequest - {@link ListEndpointGroupsRequest}
+ * @returns {@link ListEndpointGroupsResponse}
  * @see {@link ListEndpointGroupsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointGroupsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

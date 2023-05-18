@@ -81,8 +81,8 @@ export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPol
  *
  * ```
  *
- * @param UpdateResiliencyPolicyCommandInput - {@link UpdateResiliencyPolicyCommandInput}
- * @returns {@link UpdateResiliencyPolicyCommandOutput}
+ * @param UpdateResiliencyPolicyRequest - {@link UpdateResiliencyPolicyRequest}
+ * @returns {@link UpdateResiliencyPolicyResponse}
  * @see {@link UpdateResiliencyPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateResiliencyPolicyCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

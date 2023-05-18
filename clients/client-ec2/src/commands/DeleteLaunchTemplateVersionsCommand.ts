@@ -77,8 +77,8 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  *
  * ```
  *
- * @param DeleteLaunchTemplateVersionsCommandInput - {@link DeleteLaunchTemplateVersionsCommandInput}
- * @returns {@link DeleteLaunchTemplateVersionsCommandOutput}
+ * @param DeleteLaunchTemplateVersionsRequest - {@link DeleteLaunchTemplateVersionsRequest}
+ * @returns {@link DeleteLaunchTemplateVersionsResult}
  * @see {@link DeleteLaunchTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

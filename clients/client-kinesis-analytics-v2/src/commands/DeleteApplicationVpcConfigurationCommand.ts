@@ -66,8 +66,8 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteApplicationVpcConfigurationCommandInput - {@link DeleteApplicationVpcConfigurationCommandInput}
- * @returns {@link DeleteApplicationVpcConfigurationCommandOutput}
+ * @param DeleteApplicationVpcConfigurationRequest - {@link DeleteApplicationVpcConfigurationRequest}
+ * @returns {@link DeleteApplicationVpcConfigurationResponse}
  * @see {@link DeleteApplicationVpcConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationVpcConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

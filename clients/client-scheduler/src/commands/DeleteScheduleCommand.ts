@@ -50,8 +50,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleOutput, __Met
  *
  * ```
  *
- * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
- * @returns {@link DeleteScheduleCommandOutput}
+ * @param DeleteScheduleInput - {@link DeleteScheduleInput}
+ * @returns {@link DeleteScheduleOutput}
  * @see {@link DeleteScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

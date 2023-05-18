@@ -68,8 +68,8 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  *
  * ```
  *
- * @param UpdateNotificationSettingsCommandInput - {@link UpdateNotificationSettingsCommandInput}
- * @returns {@link UpdateNotificationSettingsCommandOutput}
+ * @param UpdateNotificationSettingsRequest - {@link UpdateNotificationSettingsRequest}
+ * @returns {@link UpdateNotificationSettingsResponse}
  * @see {@link UpdateNotificationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationSettingsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

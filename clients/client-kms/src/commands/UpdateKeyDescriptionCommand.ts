@@ -70,8 +70,8 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateKeyDescriptionCommandInput - {@link UpdateKeyDescriptionCommandInput}
- * @returns {@link UpdateKeyDescriptionCommandOutput}
+ * @param UpdateKeyDescriptionRequest - {@link UpdateKeyDescriptionRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateKeyDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyDescriptionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

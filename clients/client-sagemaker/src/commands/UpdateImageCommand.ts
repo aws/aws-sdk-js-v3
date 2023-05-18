@@ -57,8 +57,8 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  *
  * ```
  *
- * @param UpdateImageCommandInput - {@link UpdateImageCommandInput}
- * @returns {@link UpdateImageCommandOutput}
+ * @param UpdateImageRequest - {@link UpdateImageRequest}
+ * @returns {@link UpdateImageResponse}
  * @see {@link UpdateImageCommandInput} for command's `input` shape.
  * @see {@link UpdateImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

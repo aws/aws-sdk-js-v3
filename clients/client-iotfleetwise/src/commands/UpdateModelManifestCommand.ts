@@ -60,8 +60,8 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  *
  * ```
  *
- * @param UpdateModelManifestCommandInput - {@link UpdateModelManifestCommandInput}
- * @returns {@link UpdateModelManifestCommandOutput}
+ * @param UpdateModelManifestRequest - {@link UpdateModelManifestRequest}
+ * @returns {@link UpdateModelManifestResponse}
  * @see {@link UpdateModelManifestCommandInput} for command's `input` shape.
  * @see {@link UpdateModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

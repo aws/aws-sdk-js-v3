@@ -151,8 +151,8 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  *
  * ```
  *
- * @param SearchProfilesCommandInput - {@link SearchProfilesCommandInput}
- * @returns {@link SearchProfilesCommandOutput}
+ * @param SearchProfilesRequest - {@link SearchProfilesRequest}
+ * @returns {@link SearchProfilesResponse}
  * @see {@link SearchProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchProfilesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

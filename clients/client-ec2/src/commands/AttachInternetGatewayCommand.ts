@@ -51,8 +51,8 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AttachInternetGatewayCommandInput - {@link AttachInternetGatewayCommandInput}
- * @returns {@link AttachInternetGatewayCommandOutput}
+ * @param AttachInternetGatewayRequest - {@link AttachInternetGatewayRequest}
+ * @returns {@link Unit}
  * @see {@link AttachInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link AttachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

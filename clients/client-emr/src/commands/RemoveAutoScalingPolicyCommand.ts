@@ -49,8 +49,8 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  *
  * ```
  *
- * @param RemoveAutoScalingPolicyCommandInput - {@link RemoveAutoScalingPolicyCommandInput}
- * @returns {@link RemoveAutoScalingPolicyCommandOutput}
+ * @param RemoveAutoScalingPolicyInput - {@link RemoveAutoScalingPolicyInput}
+ * @returns {@link RemoveAutoScalingPolicyOutput}
  * @see {@link RemoveAutoScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link RemoveAutoScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

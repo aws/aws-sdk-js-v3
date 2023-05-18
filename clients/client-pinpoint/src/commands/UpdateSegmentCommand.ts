@@ -339,8 +339,8 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *
  * ```
  *
- * @param UpdateSegmentCommandInput - {@link UpdateSegmentCommandInput}
- * @returns {@link UpdateSegmentCommandOutput}
+ * @param UpdateSegmentRequest - {@link UpdateSegmentRequest}
+ * @returns {@link UpdateSegmentResponse}
  * @see {@link UpdateSegmentCommandInput} for command's `input` shape.
  * @see {@link UpdateSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  *
  * ```
  *
- * @param DescribeScalingProcessTypesCommandInput - {@link DescribeScalingProcessTypesCommandInput}
- * @returns {@link DescribeScalingProcessTypesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link ProcessesType}
  * @see {@link DescribeScalingProcessTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingProcessTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

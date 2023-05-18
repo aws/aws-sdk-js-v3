@@ -72,8 +72,8 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  *
  * ```
  *
- * @param UpdateObjectAttributesCommandInput - {@link UpdateObjectAttributesCommandInput}
- * @returns {@link UpdateObjectAttributesCommandOutput}
+ * @param UpdateObjectAttributesRequest - {@link UpdateObjectAttributesRequest}
+ * @returns {@link UpdateObjectAttributesResponse}
  * @see {@link UpdateObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

@@ -96,8 +96,8 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  *
  * ```
  *
- * @param UpdateSourceLocationCommandInput - {@link UpdateSourceLocationCommandInput}
- * @returns {@link UpdateSourceLocationCommandOutput}
+ * @param UpdateSourceLocationRequest - {@link UpdateSourceLocationRequest}
+ * @returns {@link UpdateSourceLocationResponse}
  * @see {@link UpdateSourceLocationCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

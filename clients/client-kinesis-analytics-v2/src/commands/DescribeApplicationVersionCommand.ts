@@ -292,8 +292,8 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  *
  * ```
  *
- * @param DescribeApplicationVersionCommandInput - {@link DescribeApplicationVersionCommandInput}
- * @returns {@link DescribeApplicationVersionCommandOutput}
+ * @param DescribeApplicationVersionRequest - {@link DescribeApplicationVersionRequest}
+ * @returns {@link DescribeApplicationVersionResponse}
  * @see {@link DescribeApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

@@ -55,8 +55,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
- * @returns {@link UpdateUserCommandOutput}
+ * @param UpdateUserRequest - {@link UpdateUserRequest}
+ * @returns {@link UpdateUserResponse}
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

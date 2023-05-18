@@ -65,8 +65,8 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  *
  * ```
  *
- * @param ImportModelCommandInput - {@link ImportModelCommandInput}
- * @returns {@link ImportModelCommandOutput}
+ * @param ImportModelRequest - {@link ImportModelRequest}
+ * @returns {@link ImportModelResponse}
  * @see {@link ImportModelCommandInput} for command's `input` shape.
  * @see {@link ImportModelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

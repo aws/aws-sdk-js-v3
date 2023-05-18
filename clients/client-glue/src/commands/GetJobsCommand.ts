@@ -1021,8 +1021,8 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetJobsCommandInput - {@link GetJobsCommandInput}
- * @returns {@link GetJobsCommandOutput}
+ * @param GetJobsRequest - {@link GetJobsRequest}
+ * @returns {@link GetJobsResponse}
  * @see {@link GetJobsCommandInput} for command's `input` shape.
  * @see {@link GetJobsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

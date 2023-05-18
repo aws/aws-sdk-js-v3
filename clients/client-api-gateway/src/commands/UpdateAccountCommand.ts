@@ -65,8 +65,8 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAccountCommandInput - {@link UpdateAccountCommandInput}
- * @returns {@link UpdateAccountCommandOutput}
+ * @param UpdateAccountRequest - {@link UpdateAccountRequest}
+ * @returns {@link Account}
  * @see {@link UpdateAccountCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

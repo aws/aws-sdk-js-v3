@@ -89,8 +89,8 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  *
  * ```
  *
- * @param ListEndpointAccessCommandInput - {@link ListEndpointAccessCommandInput}
- * @returns {@link ListEndpointAccessCommandOutput}
+ * @param ListEndpointAccessRequest - {@link ListEndpointAccessRequest}
+ * @returns {@link ListEndpointAccessResponse}
  * @see {@link ListEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link ListEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

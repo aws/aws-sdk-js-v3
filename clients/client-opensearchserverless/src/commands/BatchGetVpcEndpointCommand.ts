@@ -79,8 +79,8 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  *
  * ```
  *
- * @param BatchGetVpcEndpointCommandInput - {@link BatchGetVpcEndpointCommandInput}
- * @returns {@link BatchGetVpcEndpointCommandOutput}
+ * @param BatchGetVpcEndpointRequest - {@link BatchGetVpcEndpointRequest}
+ * @returns {@link BatchGetVpcEndpointResponse}
  * @see {@link BatchGetVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link BatchGetVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

@@ -76,8 +76,8 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  *
  * ```
  *
- * @param DescribeCustomDomainsCommandInput - {@link DescribeCustomDomainsCommandInput}
- * @returns {@link DescribeCustomDomainsCommandOutput}
+ * @param DescribeCustomDomainsRequest - {@link DescribeCustomDomainsRequest}
+ * @returns {@link DescribeCustomDomainsResponse}
  * @see {@link DescribeCustomDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomDomainsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

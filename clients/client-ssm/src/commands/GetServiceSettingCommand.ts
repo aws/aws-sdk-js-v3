@@ -70,8 +70,8 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  *
  * ```
  *
- * @param GetServiceSettingCommandInput - {@link GetServiceSettingCommandInput}
- * @returns {@link GetServiceSettingCommandOutput}
+ * @param GetServiceSettingRequest - {@link GetServiceSettingRequest}
+ * @returns {@link GetServiceSettingResult}
  * @see {@link GetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

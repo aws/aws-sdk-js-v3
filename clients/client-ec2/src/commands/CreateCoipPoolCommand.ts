@@ -75,8 +75,8 @@ export interface CreateCoipPoolCommandOutput extends CreateCoipPoolResult, __Met
  *
  * ```
  *
- * @param CreateCoipPoolCommandInput - {@link CreateCoipPoolCommandInput}
- * @returns {@link CreateCoipPoolCommandOutput}
+ * @param CreateCoipPoolRequest - {@link CreateCoipPoolRequest}
+ * @returns {@link CreateCoipPoolResult}
  * @see {@link CreateCoipPoolCommandInput} for command's `input` shape.
  * @see {@link CreateCoipPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

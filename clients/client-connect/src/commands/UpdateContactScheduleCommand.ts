@@ -50,8 +50,8 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  *
  * ```
  *
- * @param UpdateContactScheduleCommandInput - {@link UpdateContactScheduleCommandInput}
- * @returns {@link UpdateContactScheduleCommandOutput}
+ * @param UpdateContactScheduleRequest - {@link UpdateContactScheduleRequest}
+ * @returns {@link UpdateContactScheduleResponse}
  * @see {@link UpdateContactScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateContactScheduleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

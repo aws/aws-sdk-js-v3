@@ -88,8 +88,8 @@ export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __Met
  *
  * ```
  *
- * @param ListEventLogsCommandInput - {@link ListEventLogsCommandInput}
- * @returns {@link ListEventLogsCommandOutput}
+ * @param ListEventLogsRequest - {@link ListEventLogsRequest}
+ * @returns {@link ListEventLogsResponse}
  * @see {@link ListEventLogsCommandInput} for command's `input` shape.
  * @see {@link ListEventLogsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

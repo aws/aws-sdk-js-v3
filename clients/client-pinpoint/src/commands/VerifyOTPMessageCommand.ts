@@ -57,8 +57,8 @@ export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse,
  *
  * ```
  *
- * @param VerifyOTPMessageCommandInput - {@link VerifyOTPMessageCommandInput}
- * @returns {@link VerifyOTPMessageCommandOutput}
+ * @param VerifyOTPMessageRequest - {@link VerifyOTPMessageRequest}
+ * @returns {@link VerifyOTPMessageResponse}
  * @see {@link VerifyOTPMessageCommandInput} for command's `input` shape.
  * @see {@link VerifyOTPMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

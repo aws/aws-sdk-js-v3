@@ -91,8 +91,8 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param SearchCommandInput - {@link SearchCommandInput}
- * @returns {@link SearchCommandOutput}
+ * @param SearchInput - {@link SearchInput}
+ * @returns {@link SearchOutput}
  * @see {@link SearchCommandInput} for command's `input` shape.
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

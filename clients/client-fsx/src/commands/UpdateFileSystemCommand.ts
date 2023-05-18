@@ -752,8 +752,8 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *
  * ```
  *
- * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
- * @returns {@link UpdateFileSystemCommandOutput}
+ * @param UpdateFileSystemRequest - {@link UpdateFileSystemRequest}
+ * @returns {@link UpdateFileSystemResponse}
  * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

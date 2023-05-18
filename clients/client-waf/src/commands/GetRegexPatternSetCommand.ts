@@ -64,8 +64,8 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  *
  * ```
  *
- * @param GetRegexPatternSetCommandInput - {@link GetRegexPatternSetCommandInput}
- * @returns {@link GetRegexPatternSetCommandOutput}
+ * @param GetRegexPatternSetRequest - {@link GetRegexPatternSetRequest}
+ * @returns {@link GetRegexPatternSetResponse}
  * @see {@link GetRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link GetRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

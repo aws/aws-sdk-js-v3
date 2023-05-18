@@ -52,8 +52,8 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  *
  * ```
  *
- * @param DescribeReturnShippingLabelCommandInput - {@link DescribeReturnShippingLabelCommandInput}
- * @returns {@link DescribeReturnShippingLabelCommandOutput}
+ * @param DescribeReturnShippingLabelRequest - {@link DescribeReturnShippingLabelRequest}
+ * @returns {@link DescribeReturnShippingLabelResult}
  * @see {@link DescribeReturnShippingLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReturnShippingLabelCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

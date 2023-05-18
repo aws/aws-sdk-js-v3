@@ -71,8 +71,8 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
  *
  * ```
  *
- * @param GetJourneyExecutionActivityMetricsCommandInput - {@link GetJourneyExecutionActivityMetricsCommandInput}
- * @returns {@link GetJourneyExecutionActivityMetricsCommandOutput}
+ * @param GetJourneyExecutionActivityMetricsRequest - {@link GetJourneyExecutionActivityMetricsRequest}
+ * @returns {@link GetJourneyExecutionActivityMetricsResponse}
  * @see {@link GetJourneyExecutionActivityMetricsCommandInput} for command's `input` shape.
  * @see {@link GetJourneyExecutionActivityMetricsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

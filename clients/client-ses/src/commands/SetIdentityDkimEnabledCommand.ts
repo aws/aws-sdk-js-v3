@@ -61,8 +61,8 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  *
  * ```
  *
- * @param SetIdentityDkimEnabledCommandInput - {@link SetIdentityDkimEnabledCommandInput}
- * @returns {@link SetIdentityDkimEnabledCommandOutput}
+ * @param SetIdentityDkimEnabledRequest - {@link SetIdentityDkimEnabledRequest}
+ * @returns {@link SetIdentityDkimEnabledResponse}
  * @see {@link SetIdentityDkimEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityDkimEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

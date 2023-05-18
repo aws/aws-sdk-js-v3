@@ -78,8 +78,8 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  *
  * ```
  *
- * @param UpdateSecurityConfigCommandInput - {@link UpdateSecurityConfigCommandInput}
- * @returns {@link UpdateSecurityConfigCommandOutput}
+ * @param UpdateSecurityConfigRequest - {@link UpdateSecurityConfigRequest}
+ * @returns {@link UpdateSecurityConfigResponse}
  * @see {@link UpdateSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

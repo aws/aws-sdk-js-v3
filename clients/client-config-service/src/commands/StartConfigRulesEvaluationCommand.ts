@@ -95,8 +95,8 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  *
  * ```
  *
- * @param StartConfigRulesEvaluationCommandInput - {@link StartConfigRulesEvaluationCommandInput}
- * @returns {@link StartConfigRulesEvaluationCommandOutput}
+ * @param StartConfigRulesEvaluationRequest - {@link StartConfigRulesEvaluationRequest}
+ * @returns {@link StartConfigRulesEvaluationResponse}
  * @see {@link StartConfigRulesEvaluationCommandInput} for command's `input` shape.
  * @see {@link StartConfigRulesEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

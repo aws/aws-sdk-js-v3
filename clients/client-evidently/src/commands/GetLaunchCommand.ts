@@ -109,8 +109,8 @@ export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBea
  *
  * ```
  *
- * @param GetLaunchCommandInput - {@link GetLaunchCommandInput}
- * @returns {@link GetLaunchCommandOutput}
+ * @param GetLaunchRequest - {@link GetLaunchRequest}
+ * @returns {@link GetLaunchResponse}
  * @see {@link GetLaunchCommandInput} for command's `input` shape.
  * @see {@link GetLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

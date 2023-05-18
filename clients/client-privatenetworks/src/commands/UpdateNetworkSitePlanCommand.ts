@@ -128,8 +128,8 @@ export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteRes
  *
  * ```
  *
- * @param UpdateNetworkSitePlanCommandInput - {@link UpdateNetworkSitePlanCommandInput}
- * @returns {@link UpdateNetworkSitePlanCommandOutput}
+ * @param UpdateNetworkSitePlanRequest - {@link UpdateNetworkSitePlanRequest}
+ * @returns {@link UpdateNetworkSiteResponse}
  * @see {@link UpdateNetworkSitePlanCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkSitePlanCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

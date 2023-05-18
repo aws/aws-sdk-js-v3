@@ -49,8 +49,8 @@ export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBackupVaultCommandInput - {@link DeleteBackupVaultCommandInput}
- * @returns {@link DeleteBackupVaultCommandOutput}
+ * @param DeleteBackupVaultInput - {@link DeleteBackupVaultInput}
+ * @returns {@link Unit}
  * @see {@link DeleteBackupVaultCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

@@ -134,8 +134,8 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *
  * ```
  *
- * @param CreateStackCommandInput - {@link CreateStackCommandInput}
- * @returns {@link CreateStackCommandOutput}
+ * @param CreateStackRequest - {@link CreateStackRequest}
+ * @returns {@link CreateStackResult}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

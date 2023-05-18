@@ -48,8 +48,8 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CancelRunCommandInput - {@link CancelRunCommandInput}
- * @returns {@link CancelRunCommandOutput}
+ * @param CancelRunRequest - {@link CancelRunRequest}
+ * @returns {@link Unit}
  * @see {@link CancelRunCommandInput} for command's `input` shape.
  * @see {@link CancelRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DisassociateQueueQuickConnectsCommandInput - {@link DisassociateQueueQuickConnectsCommandInput}
- * @returns {@link DisassociateQueueQuickConnectsCommandOutput}
+ * @param DisassociateQueueQuickConnectsRequest - {@link DisassociateQueueQuickConnectsRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateQueueQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link DisassociateQueueQuickConnectsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

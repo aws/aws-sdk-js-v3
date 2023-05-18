@@ -74,8 +74,8 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
  *
  * ```
  *
- * @param AdminListGroupsForUserCommandInput - {@link AdminListGroupsForUserCommandInput}
- * @returns {@link AdminListGroupsForUserCommandOutput}
+ * @param AdminListGroupsForUserRequest - {@link AdminListGroupsForUserRequest}
+ * @returns {@link AdminListGroupsForUserResponse}
  * @see {@link AdminListGroupsForUserCommandInput} for command's `input` shape.
  * @see {@link AdminListGroupsForUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

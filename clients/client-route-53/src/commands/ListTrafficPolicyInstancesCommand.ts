@@ -80,8 +80,8 @@ export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPoli
  *
  * ```
  *
- * @param ListTrafficPolicyInstancesCommandInput - {@link ListTrafficPolicyInstancesCommandInput}
- * @returns {@link ListTrafficPolicyInstancesCommandOutput}
+ * @param ListTrafficPolicyInstancesRequest - {@link ListTrafficPolicyInstancesRequest}
+ * @returns {@link ListTrafficPolicyInstancesResponse}
  * @see {@link ListTrafficPolicyInstancesCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

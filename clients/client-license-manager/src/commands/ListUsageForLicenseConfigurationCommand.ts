@@ -77,8 +77,8 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  *
  * ```
  *
- * @param ListUsageForLicenseConfigurationCommandInput - {@link ListUsageForLicenseConfigurationCommandInput}
- * @returns {@link ListUsageForLicenseConfigurationCommandOutput}
+ * @param ListUsageForLicenseConfigurationRequest - {@link ListUsageForLicenseConfigurationRequest}
+ * @returns {@link ListUsageForLicenseConfigurationResponse}
  * @see {@link ListUsageForLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link ListUsageForLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

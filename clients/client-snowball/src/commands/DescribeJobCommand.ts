@@ -272,8 +272,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  *
  * ```
  *
- * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
- * @returns {@link DescribeJobCommandOutput}
+ * @param DescribeJobRequest - {@link DescribeJobRequest}
+ * @returns {@link DescribeJobResult}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

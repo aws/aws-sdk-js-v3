@@ -53,8 +53,8 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  *
  * ```
  *
- * @param AssociateEntityToThingCommandInput - {@link AssociateEntityToThingCommandInput}
- * @returns {@link AssociateEntityToThingCommandOutput}
+ * @param AssociateEntityToThingRequest - {@link AssociateEntityToThingRequest}
+ * @returns {@link AssociateEntityToThingResponse}
  * @see {@link AssociateEntityToThingCommandInput} for command's `input` shape.
  * @see {@link AssociateEntityToThingCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

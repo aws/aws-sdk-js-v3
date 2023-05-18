@@ -60,8 +60,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  *
  * ```
  *
- * @param ListWorkspacesCommandInput - {@link ListWorkspacesCommandInput}
- * @returns {@link ListWorkspacesCommandOutput}
+ * @param ListWorkspacesRequest - {@link ListWorkspacesRequest}
+ * @returns {@link ListWorkspacesResponse}
  * @see {@link ListWorkspacesCommandInput} for command's `input` shape.
  * @see {@link ListWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

@@ -67,8 +67,8 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  *
  * ```
  *
- * @param DissociatePackageCommandInput - {@link DissociatePackageCommandInput}
- * @returns {@link DissociatePackageCommandOutput}
+ * @param DissociatePackageRequest - {@link DissociatePackageRequest}
+ * @returns {@link DissociatePackageResponse}
  * @see {@link DissociatePackageCommandInput} for command's `input` shape.
  * @see {@link DissociatePackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

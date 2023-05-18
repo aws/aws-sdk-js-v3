@@ -52,8 +52,8 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  *
  * ```
  *
- * @param UpdateConnectClientAddInCommandInput - {@link UpdateConnectClientAddInCommandInput}
- * @returns {@link UpdateConnectClientAddInCommandOutput}
+ * @param UpdateConnectClientAddInRequest - {@link UpdateConnectClientAddInRequest}
+ * @returns {@link UpdateConnectClientAddInResult}
  * @see {@link UpdateConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

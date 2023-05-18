@@ -114,8 +114,8 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  *
  * ```
  *
- * @param DescribeHostsCommandInput - {@link DescribeHostsCommandInput}
- * @returns {@link DescribeHostsCommandOutput}
+ * @param DescribeHostsRequest - {@link DescribeHostsRequest}
+ * @returns {@link DescribeHostsResult}
  * @see {@link DescribeHostsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

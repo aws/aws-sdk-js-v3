@@ -98,8 +98,8 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  *
  * ```
  *
- * @param BatchGetResourceConfigCommandInput - {@link BatchGetResourceConfigCommandInput}
- * @returns {@link BatchGetResourceConfigCommandOutput}
+ * @param BatchGetResourceConfigRequest - {@link BatchGetResourceConfigRequest}
+ * @returns {@link BatchGetResourceConfigResponse}
  * @see {@link BatchGetResourceConfigCommandInput} for command's `input` shape.
  * @see {@link BatchGetResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

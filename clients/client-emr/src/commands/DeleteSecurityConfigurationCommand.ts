@@ -48,8 +48,8 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  *
  * ```
  *
- * @param DeleteSecurityConfigurationCommandInput - {@link DeleteSecurityConfigurationCommandInput}
- * @returns {@link DeleteSecurityConfigurationCommandOutput}
+ * @param DeleteSecurityConfigurationInput - {@link DeleteSecurityConfigurationInput}
+ * @returns {@link DeleteSecurityConfigurationOutput}
  * @see {@link DeleteSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

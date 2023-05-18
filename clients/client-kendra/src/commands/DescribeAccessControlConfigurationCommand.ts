@@ -84,8 +84,8 @@ export interface DescribeAccessControlConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeAccessControlConfigurationCommandInput - {@link DescribeAccessControlConfigurationCommandInput}
- * @returns {@link DescribeAccessControlConfigurationCommandOutput}
+ * @param DescribeAccessControlConfigurationRequest - {@link DescribeAccessControlConfigurationRequest}
+ * @returns {@link DescribeAccessControlConfigurationResponse}
  * @see {@link DescribeAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

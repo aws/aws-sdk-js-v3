@@ -64,8 +64,8 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  *
  * ```
  *
- * @param DeleteSubnetCidrReservationCommandInput - {@link DeleteSubnetCidrReservationCommandInput}
- * @returns {@link DeleteSubnetCidrReservationCommandOutput}
+ * @param DeleteSubnetCidrReservationRequest - {@link DeleteSubnetCidrReservationRequest}
+ * @returns {@link DeleteSubnetCidrReservationResult}
  * @see {@link DeleteSubnetCidrReservationCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

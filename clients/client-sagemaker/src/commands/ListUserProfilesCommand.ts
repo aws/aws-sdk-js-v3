@@ -64,8 +64,8 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  *
  * ```
  *
- * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
- * @returns {@link ListUserProfilesCommandOutput}
+ * @param ListUserProfilesRequest - {@link ListUserProfilesRequest}
+ * @returns {@link ListUserProfilesResponse}
  * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

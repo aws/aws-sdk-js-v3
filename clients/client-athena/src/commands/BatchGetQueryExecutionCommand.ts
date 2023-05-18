@@ -124,8 +124,8 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  *
  * ```
  *
- * @param BatchGetQueryExecutionCommandInput - {@link BatchGetQueryExecutionCommandInput}
- * @returns {@link BatchGetQueryExecutionCommandOutput}
+ * @param BatchGetQueryExecutionInput - {@link BatchGetQueryExecutionInput}
+ * @returns {@link BatchGetQueryExecutionOutput}
  * @see {@link BatchGetQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link BatchGetQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

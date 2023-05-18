@@ -63,8 +63,8 @@ export interface ListCrossAccountAuthorizationsCommandOutput
  *
  * ```
  *
- * @param ListCrossAccountAuthorizationsCommandInput - {@link ListCrossAccountAuthorizationsCommandInput}
- * @returns {@link ListCrossAccountAuthorizationsCommandOutput}
+ * @param ListCrossAccountAuthorizationsRequest - {@link ListCrossAccountAuthorizationsRequest}
+ * @returns {@link ListCrossAccountAuthorizationsResponse}
  * @see {@link ListCrossAccountAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link ListCrossAccountAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

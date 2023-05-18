@@ -52,8 +52,8 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutNotificationChannelCommandInput - {@link PutNotificationChannelCommandInput}
- * @returns {@link PutNotificationChannelCommandOutput}
+ * @param PutNotificationChannelRequest - {@link PutNotificationChannelRequest}
+ * @returns {@link Unit}
  * @see {@link PutNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link PutNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

@@ -92,8 +92,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *
  * ```
  *
- * @param CreateNamespaceCommandInput - {@link CreateNamespaceCommandInput}
- * @returns {@link CreateNamespaceCommandOutput}
+ * @param CreateNamespaceRequest - {@link CreateNamespaceRequest}
+ * @returns {@link CreateNamespaceResponse}
  * @see {@link CreateNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreateNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

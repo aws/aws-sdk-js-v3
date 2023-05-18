@@ -68,8 +68,8 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  *
  * ```
  *
- * @param GetInventorySchemaCommandInput - {@link GetInventorySchemaCommandInput}
- * @returns {@link GetInventorySchemaCommandOutput}
+ * @param GetInventorySchemaRequest - {@link GetInventorySchemaRequest}
+ * @returns {@link GetInventorySchemaResult}
  * @see {@link GetInventorySchemaCommandInput} for command's `input` shape.
  * @see {@link GetInventorySchemaCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

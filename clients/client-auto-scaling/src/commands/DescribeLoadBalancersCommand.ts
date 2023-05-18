@@ -88,8 +88,8 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *
  * ```
  *
- * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
- * @returns {@link DescribeLoadBalancersCommandOutput}
+ * @param DescribeLoadBalancersRequest - {@link DescribeLoadBalancersRequest}
+ * @returns {@link DescribeLoadBalancersResponse}
  * @see {@link DescribeLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

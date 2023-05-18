@@ -65,8 +65,8 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  *
  * ```
  *
- * @param CreateServiceProfileCommandInput - {@link CreateServiceProfileCommandInput}
- * @returns {@link CreateServiceProfileCommandOutput}
+ * @param CreateServiceProfileRequest - {@link CreateServiceProfileRequest}
+ * @returns {@link CreateServiceProfileResponse}
  * @see {@link CreateServiceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateServiceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

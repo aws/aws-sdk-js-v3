@@ -48,8 +48,8 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  *
  * ```
  *
- * @param StopChannelCommandInput - {@link StopChannelCommandInput}
- * @returns {@link StopChannelCommandOutput}
+ * @param StopChannelRequest - {@link StopChannelRequest}
+ * @returns {@link StopChannelResponse}
  * @see {@link StopChannelCommandInput} for command's `input` shape.
  * @see {@link StopChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

@@ -90,8 +90,8 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  *
  * ```
  *
- * @param GetConfigurationSetCommandInput - {@link GetConfigurationSetCommandInput}
- * @returns {@link GetConfigurationSetCommandOutput}
+ * @param GetConfigurationSetRequest - {@link GetConfigurationSetRequest}
+ * @returns {@link GetConfigurationSetResponse}
  * @see {@link GetConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

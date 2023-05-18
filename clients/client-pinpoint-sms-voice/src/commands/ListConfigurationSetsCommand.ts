@@ -54,8 +54,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  *
  * ```
  *
- * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
- * @returns {@link ListConfigurationSetsCommandOutput}
+ * @param ListConfigurationSetsRequest - {@link ListConfigurationSetsRequest}
+ * @returns {@link ListConfigurationSetsResponse}
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.

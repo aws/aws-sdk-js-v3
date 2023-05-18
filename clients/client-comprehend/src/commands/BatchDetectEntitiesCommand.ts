@@ -95,8 +95,8 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  *
  * ```
  *
- * @param BatchDetectEntitiesCommandInput - {@link BatchDetectEntitiesCommandInput}
- * @returns {@link BatchDetectEntitiesCommandOutput}
+ * @param BatchDetectEntitiesRequest - {@link BatchDetectEntitiesRequest}
+ * @returns {@link BatchDetectEntitiesResponse}
  * @see {@link BatchDetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link BatchDetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

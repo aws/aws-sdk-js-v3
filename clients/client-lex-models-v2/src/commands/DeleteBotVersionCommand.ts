@@ -55,8 +55,8 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  *
  * ```
  *
- * @param DeleteBotVersionCommandInput - {@link DeleteBotVersionCommandInput}
- * @returns {@link DeleteBotVersionCommandOutput}
+ * @param DeleteBotVersionRequest - {@link DeleteBotVersionRequest}
+ * @returns {@link DeleteBotVersionResponse}
  * @see {@link DeleteBotVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

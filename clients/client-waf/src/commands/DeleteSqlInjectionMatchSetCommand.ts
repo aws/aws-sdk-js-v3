@@ -75,8 +75,8 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  *
  * ```
  *
- * @param DeleteSqlInjectionMatchSetCommandInput - {@link DeleteSqlInjectionMatchSetCommandInput}
- * @returns {@link DeleteSqlInjectionMatchSetCommandOutput}
+ * @param DeleteSqlInjectionMatchSetRequest - {@link DeleteSqlInjectionMatchSetRequest}
+ * @returns {@link DeleteSqlInjectionMatchSetResponse}
  * @see {@link DeleteSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

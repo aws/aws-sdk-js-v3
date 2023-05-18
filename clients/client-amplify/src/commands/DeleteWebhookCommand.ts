@@ -58,8 +58,8 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  *
  * ```
  *
- * @param DeleteWebhookCommandInput - {@link DeleteWebhookCommandInput}
- * @returns {@link DeleteWebhookCommandOutput}
+ * @param DeleteWebhookRequest - {@link DeleteWebhookRequest}
+ * @returns {@link DeleteWebhookResult}
  * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
  * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

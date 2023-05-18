@@ -162,8 +162,8 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *
  * ```
  *
- * @param CalculateRouteCommandInput - {@link CalculateRouteCommandInput}
- * @returns {@link CalculateRouteCommandOutput}
+ * @param CalculateRouteRequest - {@link CalculateRouteRequest}
+ * @returns {@link CalculateRouteResponse}
  * @see {@link CalculateRouteCommandInput} for command's `input` shape.
  * @see {@link CalculateRouteCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

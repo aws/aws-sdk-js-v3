@@ -60,8 +60,8 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  *
  * ```
  *
- * @param GetMapStyleDescriptorCommandInput - {@link GetMapStyleDescriptorCommandInput}
- * @returns {@link GetMapStyleDescriptorCommandOutput}
+ * @param GetMapStyleDescriptorRequest - {@link GetMapStyleDescriptorRequest}
+ * @returns {@link GetMapStyleDescriptorResponse}
  * @see {@link GetMapStyleDescriptorCommandInput} for command's `input` shape.
  * @see {@link GetMapStyleDescriptorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

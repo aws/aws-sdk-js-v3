@@ -54,8 +54,8 @@ export interface DeleteAvailabilityConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAvailabilityConfigurationCommandInput - {@link DeleteAvailabilityConfigurationCommandInput}
- * @returns {@link DeleteAvailabilityConfigurationCommandOutput}
+ * @param DeleteAvailabilityConfigurationRequest - {@link DeleteAvailabilityConfigurationRequest}
+ * @returns {@link DeleteAvailabilityConfigurationResponse}
  * @see {@link DeleteAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

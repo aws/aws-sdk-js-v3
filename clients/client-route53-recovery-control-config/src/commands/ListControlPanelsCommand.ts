@@ -66,8 +66,8 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  *
  * ```
  *
- * @param ListControlPanelsCommandInput - {@link ListControlPanelsCommandInput}
- * @returns {@link ListControlPanelsCommandOutput}
+ * @param ListControlPanelsRequest - {@link ListControlPanelsRequest}
+ * @returns {@link ListControlPanelsResponse}
  * @see {@link ListControlPanelsCommandInput} for command's `input` shape.
  * @see {@link ListControlPanelsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

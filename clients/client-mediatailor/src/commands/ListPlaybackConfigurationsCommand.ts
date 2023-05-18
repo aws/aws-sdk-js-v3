@@ -105,8 +105,8 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  *
  * ```
  *
- * @param ListPlaybackConfigurationsCommandInput - {@link ListPlaybackConfigurationsCommandInput}
- * @returns {@link ListPlaybackConfigurationsCommandOutput}
+ * @param ListPlaybackConfigurationsRequest - {@link ListPlaybackConfigurationsRequest}
+ * @returns {@link ListPlaybackConfigurationsResponse}
  * @see {@link ListPlaybackConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListPlaybackConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

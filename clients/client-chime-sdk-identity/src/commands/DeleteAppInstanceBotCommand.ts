@@ -48,8 +48,8 @@ export interface DeleteAppInstanceBotCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAppInstanceBotCommandInput - {@link DeleteAppInstanceBotCommandInput}
- * @returns {@link DeleteAppInstanceBotCommandOutput}
+ * @param DeleteAppInstanceBotRequest - {@link DeleteAppInstanceBotRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAppInstanceBotCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceBotCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

@@ -88,8 +88,8 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  *
  * ```
  *
- * @param PurchaseReservedDBInstancesOfferingCommandInput - {@link PurchaseReservedDBInstancesOfferingCommandInput}
- * @returns {@link PurchaseReservedDBInstancesOfferingCommandOutput}
+ * @param PurchaseReservedDBInstancesOfferingMessage - {@link PurchaseReservedDBInstancesOfferingMessage}
+ * @returns {@link PurchaseReservedDBInstancesOfferingResult}
  * @see {@link PurchaseReservedDBInstancesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

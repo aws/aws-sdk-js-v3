@@ -76,8 +76,8 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteImportedKeyMaterialCommandInput - {@link DeleteImportedKeyMaterialCommandInput}
- * @returns {@link DeleteImportedKeyMaterialCommandOutput}
+ * @param DeleteImportedKeyMaterialRequest - {@link DeleteImportedKeyMaterialRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteImportedKeyMaterialCommandInput} for command's `input` shape.
  * @see {@link DeleteImportedKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

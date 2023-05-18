@@ -56,8 +56,8 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  *
  * ```
  *
- * @param PutRuntimeManagementConfigCommandInput - {@link PutRuntimeManagementConfigCommandInput}
- * @returns {@link PutRuntimeManagementConfigCommandOutput}
+ * @param PutRuntimeManagementConfigRequest - {@link PutRuntimeManagementConfigRequest}
+ * @returns {@link PutRuntimeManagementConfigResponse}
  * @see {@link PutRuntimeManagementConfigCommandInput} for command's `input` shape.
  * @see {@link PutRuntimeManagementConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -49,8 +49,8 @@ export interface EnableRegionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableRegionCommandInput - {@link EnableRegionCommandInput}
- * @returns {@link EnableRegionCommandOutput}
+ * @param EnableRegionRequest - {@link EnableRegionRequest}
+ * @returns {@link Unit}
  * @see {@link EnableRegionCommandInput} for command's `input` shape.
  * @see {@link EnableRegionCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

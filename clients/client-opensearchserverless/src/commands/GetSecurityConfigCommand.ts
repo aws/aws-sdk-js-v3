@@ -69,8 +69,8 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  *
  * ```
  *
- * @param GetSecurityConfigCommandInput - {@link GetSecurityConfigCommandInput}
- * @returns {@link GetSecurityConfigCommandOutput}
+ * @param GetSecurityConfigRequest - {@link GetSecurityConfigRequest}
+ * @returns {@link GetSecurityConfigResponse}
  * @see {@link GetSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link GetSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

@@ -74,8 +74,8 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *
  * ```
  *
- * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
- * @returns {@link ResetDBClusterParameterGroupCommandOutput}
+ * @param ResetDBClusterParameterGroupMessage - {@link ResetDBClusterParameterGroupMessage}
+ * @returns {@link DBClusterParameterGroupNameMessage}
  * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

@@ -54,8 +54,8 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  *
  * ```
  *
- * @param RevokeVpcEndpointAccessCommandInput - {@link RevokeVpcEndpointAccessCommandInput}
- * @returns {@link RevokeVpcEndpointAccessCommandOutput}
+ * @param RevokeVpcEndpointAccessRequest - {@link RevokeVpcEndpointAccessRequest}
+ * @returns {@link RevokeVpcEndpointAccessResponse}
  * @see {@link RevokeVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

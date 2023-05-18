@@ -52,8 +52,8 @@ export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserS
  *
  * ```
  *
- * @param AssociateBrowserSettingsCommandInput - {@link AssociateBrowserSettingsCommandInput}
- * @returns {@link AssociateBrowserSettingsCommandOutput}
+ * @param AssociateBrowserSettingsRequest - {@link AssociateBrowserSettingsRequest}
+ * @returns {@link AssociateBrowserSettingsResponse}
  * @see {@link AssociateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

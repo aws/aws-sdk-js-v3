@@ -65,8 +65,8 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
  *
  * ```
  *
- * @param GetAppInstanceStreamingConfigurationsCommandInput - {@link GetAppInstanceStreamingConfigurationsCommandInput}
- * @returns {@link GetAppInstanceStreamingConfigurationsCommandOutput}
+ * @param GetAppInstanceStreamingConfigurationsRequest - {@link GetAppInstanceStreamingConfigurationsRequest}
+ * @returns {@link GetAppInstanceStreamingConfigurationsResponse}
  * @see {@link GetAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

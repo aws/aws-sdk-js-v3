@@ -69,8 +69,8 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  *
  * ```
  *
- * @param DescribeClientAuthenticationSettingsCommandInput - {@link DescribeClientAuthenticationSettingsCommandInput}
- * @returns {@link DescribeClientAuthenticationSettingsCommandOutput}
+ * @param DescribeClientAuthenticationSettingsRequest - {@link DescribeClientAuthenticationSettingsRequest}
+ * @returns {@link DescribeClientAuthenticationSettingsResult}
  * @see {@link DescribeClientAuthenticationSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientAuthenticationSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

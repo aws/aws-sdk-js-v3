@@ -61,8 +61,8 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  *
  * ```
  *
- * @param DetectDominantLanguageCommandInput - {@link DetectDominantLanguageCommandInput}
- * @returns {@link DetectDominantLanguageCommandOutput}
+ * @param DetectDominantLanguageRequest - {@link DetectDominantLanguageRequest}
+ * @returns {@link DetectDominantLanguageResponse}
  * @see {@link DetectDominantLanguageCommandInput} for command's `input` shape.
  * @see {@link DetectDominantLanguageCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

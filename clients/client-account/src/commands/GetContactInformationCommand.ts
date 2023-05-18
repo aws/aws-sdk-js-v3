@@ -69,8 +69,8 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  *
  * ```
  *
- * @param GetContactInformationCommandInput - {@link GetContactInformationCommandInput}
- * @returns {@link GetContactInformationCommandOutput}
+ * @param GetContactInformationRequest - {@link GetContactInformationRequest}
+ * @returns {@link GetContactInformationResponse}
  * @see {@link GetContactInformationCommandInput} for command's `input` shape.
  * @see {@link GetContactInformationCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

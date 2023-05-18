@@ -69,8 +69,8 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  *
  * ```
  *
- * @param ActivateGatewayCommandInput - {@link ActivateGatewayCommandInput}
- * @returns {@link ActivateGatewayCommandOutput}
+ * @param ActivateGatewayInput - {@link ActivateGatewayInput}
+ * @returns {@link ActivateGatewayOutput}
  * @see {@link ActivateGatewayCommandInput} for command's `input` shape.
  * @see {@link ActivateGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

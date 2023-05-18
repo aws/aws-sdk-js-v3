@@ -65,8 +65,8 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  *
  * ```
  *
- * @param CreateApprovalRuleTemplateCommandInput - {@link CreateApprovalRuleTemplateCommandInput}
- * @returns {@link CreateApprovalRuleTemplateCommandOutput}
+ * @param CreateApprovalRuleTemplateInput - {@link CreateApprovalRuleTemplateInput}
+ * @returns {@link CreateApprovalRuleTemplateOutput}
  * @see {@link CreateApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateApprovalRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteRuleGroupsNamespaceCommandInput - {@link DeleteRuleGroupsNamespaceCommandInput}
- * @returns {@link DeleteRuleGroupsNamespaceCommandOutput}
+ * @param DeleteRuleGroupsNamespaceRequest - {@link DeleteRuleGroupsNamespaceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

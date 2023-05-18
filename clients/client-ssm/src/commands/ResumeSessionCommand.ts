@@ -57,8 +57,8 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  *
  * ```
  *
- * @param ResumeSessionCommandInput - {@link ResumeSessionCommandInput}
- * @returns {@link ResumeSessionCommandOutput}
+ * @param ResumeSessionRequest - {@link ResumeSessionRequest}
+ * @returns {@link ResumeSessionResponse}
  * @see {@link ResumeSessionCommandInput} for command's `input` shape.
  * @see {@link ResumeSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

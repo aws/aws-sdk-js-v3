@@ -121,8 +121,8 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  *
  * ```
  *
- * @param ImportAsProvisionedProductCommandInput - {@link ImportAsProvisionedProductCommandInput}
- * @returns {@link ImportAsProvisionedProductCommandOutput}
+ * @param ImportAsProvisionedProductInput - {@link ImportAsProvisionedProductInput}
+ * @returns {@link ImportAsProvisionedProductOutput}
  * @see {@link ImportAsProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link ImportAsProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -72,8 +72,8 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  *
  * ```
  *
- * @param UpdateEntitlementCommandInput - {@link UpdateEntitlementCommandInput}
- * @returns {@link UpdateEntitlementCommandOutput}
+ * @param UpdateEntitlementRequest - {@link UpdateEntitlementRequest}
+ * @returns {@link UpdateEntitlementResult}
  * @see {@link UpdateEntitlementCommandInput} for command's `input` shape.
  * @see {@link UpdateEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

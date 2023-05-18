@@ -103,8 +103,8 @@ export interface BatchGetAggregateResourceConfigCommandOutput
  *
  * ```
  *
- * @param BatchGetAggregateResourceConfigCommandInput - {@link BatchGetAggregateResourceConfigCommandInput}
- * @returns {@link BatchGetAggregateResourceConfigCommandOutput}
+ * @param BatchGetAggregateResourceConfigRequest - {@link BatchGetAggregateResourceConfigRequest}
+ * @returns {@link BatchGetAggregateResourceConfigResponse}
  * @see {@link BatchGetAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link BatchGetAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

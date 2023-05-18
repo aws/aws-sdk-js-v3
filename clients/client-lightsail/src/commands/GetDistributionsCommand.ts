@@ -122,8 +122,8 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  *
  * ```
  *
- * @param GetDistributionsCommandInput - {@link GetDistributionsCommandInput}
- * @returns {@link GetDistributionsCommandOutput}
+ * @param GetDistributionsRequest - {@link GetDistributionsRequest}
+ * @returns {@link GetDistributionsResult}
  * @see {@link GetDistributionsCommandInput} for command's `input` shape.
  * @see {@link GetDistributionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

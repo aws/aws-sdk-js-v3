@@ -67,8 +67,8 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  *
  * ```
  *
- * @param DescribePackageCommandInput - {@link DescribePackageCommandInput}
- * @returns {@link DescribePackageCommandOutput}
+ * @param DescribePackageRequest - {@link DescribePackageRequest}
+ * @returns {@link DescribePackageResult}
  * @see {@link DescribePackageCommandInput} for command's `input` shape.
  * @see {@link DescribePackageCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

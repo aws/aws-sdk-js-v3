@@ -130,8 +130,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  *
  * ```
  *
- * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
- * @returns {@link UpdateDatasetCommandOutput}
+ * @param UpdateDatasetRequest - {@link UpdateDatasetRequest}
+ * @returns {@link UpdateDatasetResponse}
  * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

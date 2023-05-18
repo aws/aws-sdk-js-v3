@@ -92,8 +92,8 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  *
  * ```
  *
- * @param DescribeFlowExecutionRecordsCommandInput - {@link DescribeFlowExecutionRecordsCommandInput}
- * @returns {@link DescribeFlowExecutionRecordsCommandOutput}
+ * @param DescribeFlowExecutionRecordsRequest - {@link DescribeFlowExecutionRecordsRequest}
+ * @returns {@link DescribeFlowExecutionRecordsResponse}
  * @see {@link DescribeFlowExecutionRecordsCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowExecutionRecordsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

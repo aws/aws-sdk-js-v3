@@ -49,8 +49,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  *
  * ```
  *
- * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
- * @returns {@link DeleteProjectCommandOutput}
+ * @param DeleteProjectRequest - {@link DeleteProjectRequest}
+ * @returns {@link DeleteProjectResult}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

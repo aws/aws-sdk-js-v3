@@ -126,8 +126,8 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  *
  * ```
  *
- * @param DescribeManagedRuleGroupCommandInput - {@link DescribeManagedRuleGroupCommandInput}
- * @returns {@link DescribeManagedRuleGroupCommandOutput}
+ * @param DescribeManagedRuleGroupRequest - {@link DescribeManagedRuleGroupRequest}
+ * @returns {@link DescribeManagedRuleGroupResponse}
  * @see {@link DescribeManagedRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

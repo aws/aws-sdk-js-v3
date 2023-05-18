@@ -70,8 +70,8 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  *
  * ```
  *
- * @param UpdateQueueOutboundCallerConfigCommandInput - {@link UpdateQueueOutboundCallerConfigCommandInput}
- * @returns {@link UpdateQueueOutboundCallerConfigCommandOutput}
+ * @param UpdateQueueOutboundCallerConfigRequest - {@link UpdateQueueOutboundCallerConfigRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateQueueOutboundCallerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueOutboundCallerConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

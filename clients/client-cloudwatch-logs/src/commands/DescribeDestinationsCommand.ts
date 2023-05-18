@@ -62,8 +62,8 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  *
  * ```
  *
- * @param DescribeDestinationsCommandInput - {@link DescribeDestinationsCommandInput}
- * @returns {@link DescribeDestinationsCommandOutput}
+ * @param DescribeDestinationsRequest - {@link DescribeDestinationsRequest}
+ * @returns {@link DescribeDestinationsResponse}
  * @see {@link DescribeDestinationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDestinationsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

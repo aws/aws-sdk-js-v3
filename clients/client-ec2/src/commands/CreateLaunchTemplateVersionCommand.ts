@@ -558,8 +558,8 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *
  * ```
  *
- * @param CreateLaunchTemplateVersionCommandInput - {@link CreateLaunchTemplateVersionCommandInput}
- * @returns {@link CreateLaunchTemplateVersionCommandOutput}
+ * @param CreateLaunchTemplateVersionRequest - {@link CreateLaunchTemplateVersionRequest}
+ * @returns {@link CreateLaunchTemplateVersionResult}
  * @see {@link CreateLaunchTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

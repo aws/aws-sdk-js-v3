@@ -49,8 +49,8 @@ export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteAccessLogSettingsCommandInput - {@link DeleteAccessLogSettingsCommandInput}
- * @returns {@link DeleteAccessLogSettingsCommandOutput}
+ * @param DeleteAccessLogSettingsRequest - {@link DeleteAccessLogSettingsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAccessLogSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessLogSettingsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

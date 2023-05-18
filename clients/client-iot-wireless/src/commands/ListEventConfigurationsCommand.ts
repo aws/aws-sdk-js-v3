@@ -91,8 +91,8 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  *
  * ```
  *
- * @param ListEventConfigurationsCommandInput - {@link ListEventConfigurationsCommandInput}
- * @returns {@link ListEventConfigurationsCommandOutput}
+ * @param ListEventConfigurationsRequest - {@link ListEventConfigurationsRequest}
+ * @returns {@link ListEventConfigurationsResponse}
  * @see {@link ListEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

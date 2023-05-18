@@ -90,8 +90,8 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  *
  * ```
  *
- * @param AdminResetUserPasswordCommandInput - {@link AdminResetUserPasswordCommandInput}
- * @returns {@link AdminResetUserPasswordCommandOutput}
+ * @param AdminResetUserPasswordRequest - {@link AdminResetUserPasswordRequest}
+ * @returns {@link AdminResetUserPasswordResponse}
  * @see {@link AdminResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link AdminResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

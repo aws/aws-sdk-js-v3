@@ -86,8 +86,8 @@ export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutpu
  *
  * ```
  *
- * @param ListTimelineEventsCommandInput - {@link ListTimelineEventsCommandInput}
- * @returns {@link ListTimelineEventsCommandOutput}
+ * @param ListTimelineEventsInput - {@link ListTimelineEventsInput}
+ * @returns {@link ListTimelineEventsOutput}
  * @see {@link ListTimelineEventsCommandInput} for command's `input` shape.
  * @see {@link ListTimelineEventsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

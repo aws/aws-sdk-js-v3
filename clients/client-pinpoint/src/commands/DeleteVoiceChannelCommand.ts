@@ -61,8 +61,8 @@ export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelRespo
  *
  * ```
  *
- * @param DeleteVoiceChannelCommandInput - {@link DeleteVoiceChannelCommandInput}
- * @returns {@link DeleteVoiceChannelCommandOutput}
+ * @param DeleteVoiceChannelRequest - {@link DeleteVoiceChannelRequest}
+ * @returns {@link DeleteVoiceChannelResponse}
  * @see {@link DeleteVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

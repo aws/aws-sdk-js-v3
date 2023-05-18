@@ -63,8 +63,8 @@ export interface CreateContactListCommandOutput extends CreateContactListRespons
  *
  * ```
  *
- * @param CreateContactListCommandInput - {@link CreateContactListCommandInput}
- * @returns {@link CreateContactListCommandOutput}
+ * @param CreateContactListRequest - {@link CreateContactListRequest}
+ * @returns {@link CreateContactListResponse}
  * @see {@link CreateContactListCommandInput} for command's `input` shape.
  * @see {@link CreateContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

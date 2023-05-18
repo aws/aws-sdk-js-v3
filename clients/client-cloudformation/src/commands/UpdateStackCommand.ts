@@ -97,8 +97,8 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  *
  * ```
  *
- * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
- * @returns {@link UpdateStackCommandOutput}
+ * @param UpdateStackInput - {@link UpdateStackInput}
+ * @returns {@link UpdateStackOutput}
  * @see {@link UpdateStackCommandInput} for command's `input` shape.
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

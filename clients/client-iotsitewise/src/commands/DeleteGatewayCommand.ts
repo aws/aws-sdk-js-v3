@@ -49,8 +49,8 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
- * @returns {@link DeleteGatewayCommandOutput}
+ * @param DeleteGatewayRequest - {@link DeleteGatewayRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

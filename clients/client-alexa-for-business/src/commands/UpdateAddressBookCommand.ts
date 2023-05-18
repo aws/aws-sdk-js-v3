@@ -50,8 +50,8 @@ export interface UpdateAddressBookCommandOutput extends UpdateAddressBookRespons
  *
  * ```
  *
- * @param UpdateAddressBookCommandInput - {@link UpdateAddressBookCommandInput}
- * @returns {@link UpdateAddressBookCommandOutput}
+ * @param UpdateAddressBookRequest - {@link UpdateAddressBookRequest}
+ * @returns {@link UpdateAddressBookResponse}
  * @see {@link UpdateAddressBookCommandInput} for command's `input` shape.
  * @see {@link UpdateAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

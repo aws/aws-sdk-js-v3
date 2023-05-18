@@ -68,8 +68,8 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  *
  * ```
  *
- * @param DisassociateNodeCommandInput - {@link DisassociateNodeCommandInput}
- * @returns {@link DisassociateNodeCommandOutput}
+ * @param DisassociateNodeRequest - {@link DisassociateNodeRequest}
+ * @returns {@link DisassociateNodeResponse}
  * @see {@link DisassociateNodeCommandInput} for command's `input` shape.
  * @see {@link DisassociateNodeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

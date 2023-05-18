@@ -102,8 +102,8 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  *
  * ```
  *
- * @param GetKeyRotationStatusCommandInput - {@link GetKeyRotationStatusCommandInput}
- * @returns {@link GetKeyRotationStatusCommandOutput}
+ * @param GetKeyRotationStatusRequest - {@link GetKeyRotationStatusRequest}
+ * @returns {@link GetKeyRotationStatusResponse}
  * @see {@link GetKeyRotationStatusCommandInput} for command's `input` shape.
  * @see {@link GetKeyRotationStatusCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

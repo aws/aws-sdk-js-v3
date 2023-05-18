@@ -88,8 +88,8 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  *
  * ```
  *
- * @param ImportApiCommandInput - {@link ImportApiCommandInput}
- * @returns {@link ImportApiCommandOutput}
+ * @param ImportApiRequest - {@link ImportApiRequest}
+ * @returns {@link ImportApiResponse}
  * @see {@link ImportApiCommandInput} for command's `input` shape.
  * @see {@link ImportApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

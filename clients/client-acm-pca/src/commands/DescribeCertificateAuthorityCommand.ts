@@ -206,8 +206,8 @@ export interface DescribeCertificateAuthorityCommandOutput
  *
  * ```
  *
- * @param DescribeCertificateAuthorityCommandInput - {@link DescribeCertificateAuthorityCommandInput}
- * @returns {@link DescribeCertificateAuthorityCommandOutput}
+ * @param DescribeCertificateAuthorityRequest - {@link DescribeCertificateAuthorityRequest}
+ * @returns {@link DescribeCertificateAuthorityResponse}
  * @see {@link DescribeCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

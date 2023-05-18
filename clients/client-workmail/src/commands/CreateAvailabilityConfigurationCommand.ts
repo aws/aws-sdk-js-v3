@@ -67,8 +67,8 @@ export interface CreateAvailabilityConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateAvailabilityConfigurationCommandInput - {@link CreateAvailabilityConfigurationCommandInput}
- * @returns {@link CreateAvailabilityConfigurationCommandOutput}
+ * @param CreateAvailabilityConfigurationRequest - {@link CreateAvailabilityConfigurationRequest}
+ * @returns {@link CreateAvailabilityConfigurationResponse}
  * @see {@link CreateAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

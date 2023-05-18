@@ -79,8 +79,8 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  *
  * ```
  *
- * @param DescribeChangeSetCommandInput - {@link DescribeChangeSetCommandInput}
- * @returns {@link DescribeChangeSetCommandOutput}
+ * @param DescribeChangeSetRequest - {@link DescribeChangeSetRequest}
+ * @returns {@link DescribeChangeSetResponse}
  * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.

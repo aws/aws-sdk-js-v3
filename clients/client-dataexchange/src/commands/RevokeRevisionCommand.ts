@@ -62,8 +62,8 @@ export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __M
  *
  * ```
  *
- * @param RevokeRevisionCommandInput - {@link RevokeRevisionCommandInput}
- * @returns {@link RevokeRevisionCommandOutput}
+ * @param RevokeRevisionRequest - {@link RevokeRevisionRequest}
+ * @returns {@link RevokeRevisionResponse}
  * @see {@link RevokeRevisionCommandInput} for command's `input` shape.
  * @see {@link RevokeRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

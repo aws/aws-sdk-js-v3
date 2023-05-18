@@ -56,8 +56,8 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  *
  * ```
  *
- * @param ListKeywordsForDataSourceCommandInput - {@link ListKeywordsForDataSourceCommandInput}
- * @returns {@link ListKeywordsForDataSourceCommandOutput}
+ * @param ListKeywordsForDataSourceRequest - {@link ListKeywordsForDataSourceRequest}
+ * @returns {@link ListKeywordsForDataSourceResponse}
  * @see {@link ListKeywordsForDataSourceCommandInput} for command's `input` shape.
  * @see {@link ListKeywordsForDataSourceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

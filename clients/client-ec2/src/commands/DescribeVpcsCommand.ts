@@ -102,8 +102,8 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  *
  * ```
  *
- * @param DescribeVpcsCommandInput - {@link DescribeVpcsCommandInput}
- * @returns {@link DescribeVpcsCommandOutput}
+ * @param DescribeVpcsRequest - {@link DescribeVpcsRequest}
+ * @returns {@link DescribeVpcsResult}
  * @see {@link DescribeVpcsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

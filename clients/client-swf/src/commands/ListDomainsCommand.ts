@@ -92,8 +92,8 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  *
  * ```
  *
- * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
- * @returns {@link ListDomainsCommandOutput}
+ * @param ListDomainsInput - {@link ListDomainsInput}
+ * @returns {@link DomainInfos}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

@@ -48,8 +48,8 @@ export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopProcessingJobCommandInput - {@link StopProcessingJobCommandInput}
- * @returns {@link StopProcessingJobCommandOutput}
+ * @param StopProcessingJobRequest - {@link StopProcessingJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopProcessingJobCommandInput} for command's `input` shape.
  * @see {@link StopProcessingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

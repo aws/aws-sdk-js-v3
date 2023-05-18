@@ -85,8 +85,8 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  *
  * ```
  *
- * @param CreateDataSourceFromRDSCommandInput - {@link CreateDataSourceFromRDSCommandInput}
- * @returns {@link CreateDataSourceFromRDSCommandOutput}
+ * @param CreateDataSourceFromRDSInput - {@link CreateDataSourceFromRDSInput}
+ * @returns {@link CreateDataSourceFromRDSOutput}
  * @see {@link CreateDataSourceFromRDSCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromRDSCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

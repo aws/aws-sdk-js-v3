@@ -183,8 +183,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *
  * ```
  *
- * @param UpdateLifecyclePolicyCommandInput - {@link UpdateLifecyclePolicyCommandInput}
- * @returns {@link UpdateLifecyclePolicyCommandOutput}
+ * @param UpdateLifecyclePolicyRequest - {@link UpdateLifecyclePolicyRequest}
+ * @returns {@link UpdateLifecyclePolicyResponse}
  * @see {@link UpdateLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.

@@ -62,8 +62,8 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  *
  * ```
  *
- * @param DescribeFraudsterCommandInput - {@link DescribeFraudsterCommandInput}
- * @returns {@link DescribeFraudsterCommandOutput}
+ * @param DescribeFraudsterRequest - {@link DescribeFraudsterRequest}
+ * @returns {@link DescribeFraudsterResponse}
  * @see {@link DescribeFraudsterCommandInput} for command's `input` shape.
  * @see {@link DescribeFraudsterCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

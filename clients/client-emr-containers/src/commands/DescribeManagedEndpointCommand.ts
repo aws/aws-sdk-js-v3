@@ -111,8 +111,8 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  *
  * ```
  *
- * @param DescribeManagedEndpointCommandInput - {@link DescribeManagedEndpointCommandInput}
- * @returns {@link DescribeManagedEndpointCommandOutput}
+ * @param DescribeManagedEndpointRequest - {@link DescribeManagedEndpointRequest}
+ * @returns {@link DescribeManagedEndpointResponse}
  * @see {@link DescribeManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedEndpointCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

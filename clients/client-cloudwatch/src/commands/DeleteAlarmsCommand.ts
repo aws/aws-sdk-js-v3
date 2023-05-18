@@ -67,8 +67,8 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAlarmsCommandInput - {@link DeleteAlarmsCommandInput}
- * @returns {@link DeleteAlarmsCommandOutput}
+ * @param DeleteAlarmsInput - {@link DeleteAlarmsInput}
+ * @returns {@link Unit}
  * @see {@link DeleteAlarmsCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

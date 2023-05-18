@@ -74,8 +74,8 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  *
  * ```
  *
- * @param CreateCacheSecurityGroupCommandInput - {@link CreateCacheSecurityGroupCommandInput}
- * @returns {@link CreateCacheSecurityGroupCommandOutput}
+ * @param CreateCacheSecurityGroupMessage - {@link CreateCacheSecurityGroupMessage}
+ * @returns {@link CreateCacheSecurityGroupResult}
  * @see {@link CreateCacheSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

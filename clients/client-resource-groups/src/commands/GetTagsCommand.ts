@@ -65,8 +65,8 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetTagsCommandInput - {@link GetTagsCommandInput}
- * @returns {@link GetTagsCommandOutput}
+ * @param GetTagsInput - {@link GetTagsInput}
+ * @returns {@link GetTagsOutput}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

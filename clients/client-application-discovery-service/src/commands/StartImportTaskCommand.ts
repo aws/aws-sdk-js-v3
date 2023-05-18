@@ -101,8 +101,8 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  *
  * ```
  *
- * @param StartImportTaskCommandInput - {@link StartImportTaskCommandInput}
- * @returns {@link StartImportTaskCommandOutput}
+ * @param StartImportTaskRequest - {@link StartImportTaskRequest}
+ * @returns {@link StartImportTaskResponse}
  * @see {@link StartImportTaskCommandInput} for command's `input` shape.
  * @see {@link StartImportTaskCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  *
  * ```
  *
- * @param ListStreamKeysCommandInput - {@link ListStreamKeysCommandInput}
- * @returns {@link ListStreamKeysCommandOutput}
+ * @param ListStreamKeysRequest - {@link ListStreamKeysRequest}
+ * @returns {@link ListStreamKeysResponse}
  * @see {@link ListStreamKeysCommandInput} for command's `input` shape.
  * @see {@link ListStreamKeysCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

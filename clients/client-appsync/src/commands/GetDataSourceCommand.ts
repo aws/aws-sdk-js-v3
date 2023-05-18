@@ -102,8 +102,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  *
  * ```
  *
- * @param GetDataSourceCommandInput - {@link GetDataSourceCommandInput}
- * @returns {@link GetDataSourceCommandOutput}
+ * @param GetDataSourceRequest - {@link GetDataSourceRequest}
+ * @returns {@link GetDataSourceResponse}
  * @see {@link GetDataSourceCommandInput} for command's `input` shape.
  * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

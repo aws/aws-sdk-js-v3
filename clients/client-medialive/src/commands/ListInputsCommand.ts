@@ -103,8 +103,8 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  *
  * ```
  *
- * @param ListInputsCommandInput - {@link ListInputsCommandInput}
- * @returns {@link ListInputsCommandOutput}
+ * @param ListInputsRequest - {@link ListInputsRequest}
+ * @returns {@link ListInputsResponse}
  * @see {@link ListInputsCommandInput} for command's `input` shape.
  * @see {@link ListInputsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

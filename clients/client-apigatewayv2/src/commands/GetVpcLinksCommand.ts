@@ -70,8 +70,8 @@ export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __Metadat
  *
  * ```
  *
- * @param GetVpcLinksCommandInput - {@link GetVpcLinksCommandInput}
- * @returns {@link GetVpcLinksCommandOutput}
+ * @param GetVpcLinksRequest - {@link GetVpcLinksRequest}
+ * @returns {@link GetVpcLinksResponse}
  * @see {@link GetVpcLinksCommandInput} for command's `input` shape.
  * @see {@link GetVpcLinksCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

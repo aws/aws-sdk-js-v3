@@ -66,8 +66,8 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  *
  * ```
  *
- * @param DisassociateSubnetsCommandInput - {@link DisassociateSubnetsCommandInput}
- * @returns {@link DisassociateSubnetsCommandOutput}
+ * @param DisassociateSubnetsRequest - {@link DisassociateSubnetsRequest}
+ * @returns {@link DisassociateSubnetsResponse}
  * @see {@link DisassociateSubnetsCommandInput} for command's `input` shape.
  * @see {@link DisassociateSubnetsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

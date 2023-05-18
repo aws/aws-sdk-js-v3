@@ -49,8 +49,8 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBasePathMappingCommandInput - {@link DeleteBasePathMappingCommandInput}
- * @returns {@link DeleteBasePathMappingCommandOutput}
+ * @param DeleteBasePathMappingRequest - {@link DeleteBasePathMappingRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteBasePathMappingCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

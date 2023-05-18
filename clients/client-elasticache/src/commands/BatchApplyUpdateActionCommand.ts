@@ -72,8 +72,8 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  *
  * ```
  *
- * @param BatchApplyUpdateActionCommandInput - {@link BatchApplyUpdateActionCommandInput}
- * @returns {@link BatchApplyUpdateActionCommandOutput}
+ * @param BatchApplyUpdateActionMessage - {@link BatchApplyUpdateActionMessage}
+ * @returns {@link UpdateActionResultsMessage}
  * @see {@link BatchApplyUpdateActionCommandInput} for command's `input` shape.
  * @see {@link BatchApplyUpdateActionCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

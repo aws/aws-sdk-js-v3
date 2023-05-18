@@ -53,8 +53,8 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  *
  * ```
  *
- * @param StartSchemaExtensionCommandInput - {@link StartSchemaExtensionCommandInput}
- * @returns {@link StartSchemaExtensionCommandOutput}
+ * @param StartSchemaExtensionRequest - {@link StartSchemaExtensionRequest}
+ * @returns {@link StartSchemaExtensionResult}
  * @see {@link StartSchemaExtensionCommandInput} for command's `input` shape.
  * @see {@link StartSchemaExtensionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

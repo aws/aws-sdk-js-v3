@@ -55,8 +55,8 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  *
  * ```
  *
- * @param DeleteVpcPeeringConnectionCommandInput - {@link DeleteVpcPeeringConnectionCommandInput}
- * @returns {@link DeleteVpcPeeringConnectionCommandOutput}
+ * @param DeleteVpcPeeringConnectionRequest - {@link DeleteVpcPeeringConnectionRequest}
+ * @returns {@link DeleteVpcPeeringConnectionResult}
  * @see {@link DeleteVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -50,8 +50,8 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  *
  * ```
  *
- * @param StartCrawlerScheduleCommandInput - {@link StartCrawlerScheduleCommandInput}
- * @returns {@link StartCrawlerScheduleCommandOutput}
+ * @param StartCrawlerScheduleRequest - {@link StartCrawlerScheduleRequest}
+ * @returns {@link StartCrawlerScheduleResponse}
  * @see {@link StartCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link StartCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

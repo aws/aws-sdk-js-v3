@@ -50,8 +50,8 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAccessCommandInput - {@link DeleteAccessCommandInput}
- * @returns {@link DeleteAccessCommandOutput}
+ * @param DeleteAccessRequest - {@link DeleteAccessRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

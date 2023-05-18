@@ -114,8 +114,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *
  * ```
  *
- * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
- * @returns {@link CreateSnapshotCommandOutput}
+ * @param CreateSnapshotMessage - {@link CreateSnapshotMessage}
+ * @returns {@link CreateSnapshotResult}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

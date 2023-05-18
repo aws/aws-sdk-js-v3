@@ -56,8 +56,8 @@ export interface DisassociateGatewayFromServerCommandOutput
  *
  * ```
  *
- * @param DisassociateGatewayFromServerCommandInput - {@link DisassociateGatewayFromServerCommandInput}
- * @returns {@link DisassociateGatewayFromServerCommandOutput}
+ * @param DisassociateGatewayFromServerInput - {@link DisassociateGatewayFromServerInput}
+ * @returns {@link DisassociateGatewayFromServerOutput}
  * @see {@link DisassociateGatewayFromServerCommandInput} for command's `input` shape.
  * @see {@link DisassociateGatewayFromServerCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

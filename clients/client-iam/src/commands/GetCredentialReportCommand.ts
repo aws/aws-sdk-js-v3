@@ -52,8 +52,8 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  *
  * ```
  *
- * @param GetCredentialReportCommandInput - {@link GetCredentialReportCommandInput}
- * @returns {@link GetCredentialReportCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetCredentialReportResponse}
  * @see {@link GetCredentialReportCommandInput} for command's `input` shape.
  * @see {@link GetCredentialReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

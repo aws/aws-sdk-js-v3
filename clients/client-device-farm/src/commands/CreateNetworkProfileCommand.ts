@@ -74,8 +74,8 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  *
  * ```
  *
- * @param CreateNetworkProfileCommandInput - {@link CreateNetworkProfileCommandInput}
- * @returns {@link CreateNetworkProfileCommandOutput}
+ * @param CreateNetworkProfileRequest - {@link CreateNetworkProfileRequest}
+ * @returns {@link CreateNetworkProfileResult}
  * @see {@link CreateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

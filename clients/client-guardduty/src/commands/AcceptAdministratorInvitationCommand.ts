@@ -56,8 +56,8 @@ export interface AcceptAdministratorInvitationCommandOutput
  *
  * ```
  *
- * @param AcceptAdministratorInvitationCommandInput - {@link AcceptAdministratorInvitationCommandInput}
- * @returns {@link AcceptAdministratorInvitationCommandOutput}
+ * @param AcceptAdministratorInvitationRequest - {@link AcceptAdministratorInvitationRequest}
+ * @returns {@link AcceptAdministratorInvitationResponse}
  * @see {@link AcceptAdministratorInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptAdministratorInvitationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

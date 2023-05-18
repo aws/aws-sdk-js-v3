@@ -49,8 +49,8 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateGatewayCommandInput - {@link UpdateGatewayCommandInput}
- * @returns {@link UpdateGatewayCommandOutput}
+ * @param UpdateGatewayRequest - {@link UpdateGatewayRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

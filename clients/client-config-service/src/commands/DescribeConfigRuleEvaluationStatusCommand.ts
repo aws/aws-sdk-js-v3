@@ -82,8 +82,8 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  *
  * ```
  *
- * @param DescribeConfigRuleEvaluationStatusCommandInput - {@link DescribeConfigRuleEvaluationStatusCommandInput}
- * @returns {@link DescribeConfigRuleEvaluationStatusCommandOutput}
+ * @param DescribeConfigRuleEvaluationStatusRequest - {@link DescribeConfigRuleEvaluationStatusRequest}
+ * @returns {@link DescribeConfigRuleEvaluationStatusResponse}
  * @see {@link DescribeConfigRuleEvaluationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigRuleEvaluationStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

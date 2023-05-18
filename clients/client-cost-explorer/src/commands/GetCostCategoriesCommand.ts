@@ -142,8 +142,8 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  *
  * ```
  *
- * @param GetCostCategoriesCommandInput - {@link GetCostCategoriesCommandInput}
- * @returns {@link GetCostCategoriesCommandOutput}
+ * @param GetCostCategoriesRequest - {@link GetCostCategoriesRequest}
+ * @returns {@link GetCostCategoriesResponse}
  * @see {@link GetCostCategoriesCommandInput} for command's `input` shape.
  * @see {@link GetCostCategoriesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

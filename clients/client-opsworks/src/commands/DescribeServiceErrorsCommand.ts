@@ -69,8 +69,8 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  *
  * ```
  *
- * @param DescribeServiceErrorsCommandInput - {@link DescribeServiceErrorsCommandInput}
- * @returns {@link DescribeServiceErrorsCommandOutput}
+ * @param DescribeServiceErrorsRequest - {@link DescribeServiceErrorsRequest}
+ * @returns {@link DescribeServiceErrorsResult}
  * @see {@link DescribeServiceErrorsCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceErrorsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

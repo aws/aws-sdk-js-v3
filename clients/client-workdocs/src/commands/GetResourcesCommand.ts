@@ -109,8 +109,8 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  *
  * ```
  *
- * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
- * @returns {@link GetResourcesCommandOutput}
+ * @param GetResourcesRequest - {@link GetResourcesRequest}
+ * @returns {@link GetResourcesResponse}
  * @see {@link GetResourcesCommandInput} for command's `input` shape.
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

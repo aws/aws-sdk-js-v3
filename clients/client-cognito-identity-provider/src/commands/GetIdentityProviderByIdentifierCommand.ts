@@ -76,8 +76,8 @@ export interface GetIdentityProviderByIdentifierCommandOutput
  *
  * ```
  *
- * @param GetIdentityProviderByIdentifierCommandInput - {@link GetIdentityProviderByIdentifierCommandInput}
- * @returns {@link GetIdentityProviderByIdentifierCommandOutput}
+ * @param GetIdentityProviderByIdentifierRequest - {@link GetIdentityProviderByIdentifierRequest}
+ * @returns {@link GetIdentityProviderByIdentifierResponse}
  * @see {@link GetIdentityProviderByIdentifierCommandInput} for command's `input` shape.
  * @see {@link GetIdentityProviderByIdentifierCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

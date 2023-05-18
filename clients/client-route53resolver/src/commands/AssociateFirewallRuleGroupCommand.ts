@@ -75,8 +75,8 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  *
  * ```
  *
- * @param AssociateFirewallRuleGroupCommandInput - {@link AssociateFirewallRuleGroupCommandInput}
- * @returns {@link AssociateFirewallRuleGroupCommandOutput}
+ * @param AssociateFirewallRuleGroupRequest - {@link AssociateFirewallRuleGroupRequest}
+ * @returns {@link AssociateFirewallRuleGroupResponse}
  * @see {@link AssociateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

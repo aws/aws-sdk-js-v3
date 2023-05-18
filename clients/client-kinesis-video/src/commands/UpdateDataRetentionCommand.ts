@@ -76,8 +76,8 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  *
  * ```
  *
- * @param UpdateDataRetentionCommandInput - {@link UpdateDataRetentionCommandInput}
- * @returns {@link UpdateDataRetentionCommandOutput}
+ * @param UpdateDataRetentionInput - {@link UpdateDataRetentionInput}
+ * @returns {@link UpdateDataRetentionOutput}
  * @see {@link UpdateDataRetentionCommandInput} for command's `input` shape.
  * @see {@link UpdateDataRetentionCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

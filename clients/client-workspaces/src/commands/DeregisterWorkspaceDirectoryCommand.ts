@@ -66,8 +66,8 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  *
  * ```
  *
- * @param DeregisterWorkspaceDirectoryCommandInput - {@link DeregisterWorkspaceDirectoryCommandInput}
- * @returns {@link DeregisterWorkspaceDirectoryCommandOutput}
+ * @param DeregisterWorkspaceDirectoryRequest - {@link DeregisterWorkspaceDirectoryRequest}
+ * @returns {@link DeregisterWorkspaceDirectoryResult}
  * @see {@link DeregisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeregisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

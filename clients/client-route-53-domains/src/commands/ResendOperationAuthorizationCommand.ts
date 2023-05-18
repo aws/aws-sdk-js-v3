@@ -51,8 +51,8 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param ResendOperationAuthorizationCommandInput - {@link ResendOperationAuthorizationCommandInput}
- * @returns {@link ResendOperationAuthorizationCommandOutput}
+ * @param ResendOperationAuthorizationRequest - {@link ResendOperationAuthorizationRequest}
+ * @returns {@link Unit}
  * @see {@link ResendOperationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link ResendOperationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

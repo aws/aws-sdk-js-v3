@@ -117,8 +117,8 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  *
  * ```
  *
- * @param DetectDocumentTextCommandInput - {@link DetectDocumentTextCommandInput}
- * @returns {@link DetectDocumentTextCommandOutput}
+ * @param DetectDocumentTextRequest - {@link DetectDocumentTextRequest}
+ * @returns {@link DetectDocumentTextResponse}
  * @see {@link DetectDocumentTextCommandInput} for command's `input` shape.
  * @see {@link DetectDocumentTextCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

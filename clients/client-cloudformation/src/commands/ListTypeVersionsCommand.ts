@@ -68,8 +68,8 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  *
  * ```
  *
- * @param ListTypeVersionsCommandInput - {@link ListTypeVersionsCommandInput}
- * @returns {@link ListTypeVersionsCommandOutput}
+ * @param ListTypeVersionsInput - {@link ListTypeVersionsInput}
+ * @returns {@link ListTypeVersionsOutput}
  * @see {@link ListTypeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListTypeVersionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

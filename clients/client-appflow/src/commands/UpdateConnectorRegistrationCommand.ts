@@ -71,8 +71,8 @@ export interface UpdateConnectorRegistrationCommandOutput
  *
  * ```
  *
- * @param UpdateConnectorRegistrationCommandInput - {@link UpdateConnectorRegistrationCommandInput}
- * @returns {@link UpdateConnectorRegistrationCommandOutput}
+ * @param UpdateConnectorRegistrationRequest - {@link UpdateConnectorRegistrationRequest}
+ * @returns {@link UpdateConnectorRegistrationResponse}
  * @see {@link UpdateConnectorRegistrationCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorRegistrationCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

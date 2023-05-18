@@ -82,8 +82,8 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  *
  * ```
  *
- * @param ListMonitoredResourcesCommandInput - {@link ListMonitoredResourcesCommandInput}
- * @returns {@link ListMonitoredResourcesCommandOutput}
+ * @param ListMonitoredResourcesRequest - {@link ListMonitoredResourcesRequest}
+ * @returns {@link ListMonitoredResourcesResponse}
  * @see {@link ListMonitoredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListMonitoredResourcesCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

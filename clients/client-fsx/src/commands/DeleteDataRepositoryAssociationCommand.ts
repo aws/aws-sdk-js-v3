@@ -65,8 +65,8 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  *
  * ```
  *
- * @param DeleteDataRepositoryAssociationCommandInput - {@link DeleteDataRepositoryAssociationCommandInput}
- * @returns {@link DeleteDataRepositoryAssociationCommandOutput}
+ * @param DeleteDataRepositoryAssociationRequest - {@link DeleteDataRepositoryAssociationRequest}
+ * @returns {@link DeleteDataRepositoryAssociationResponse}
  * @see {@link DeleteDataRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDataRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

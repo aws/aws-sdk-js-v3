@@ -52,8 +52,8 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  *
  * ```
  *
- * @param DeleteServiceSpecificCredentialCommandInput - {@link DeleteServiceSpecificCredentialCommandInput}
- * @returns {@link DeleteServiceSpecificCredentialCommandOutput}
+ * @param DeleteServiceSpecificCredentialRequest - {@link DeleteServiceSpecificCredentialRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

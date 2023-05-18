@@ -72,8 +72,8 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  *
  * ```
  *
- * @param GetEvidenceFolderCommandInput - {@link GetEvidenceFolderCommandInput}
- * @returns {@link GetEvidenceFolderCommandOutput}
+ * @param GetEvidenceFolderRequest - {@link GetEvidenceFolderRequest}
+ * @returns {@link GetEvidenceFolderResponse}
  * @see {@link GetEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

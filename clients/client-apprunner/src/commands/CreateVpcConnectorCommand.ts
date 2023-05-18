@@ -76,8 +76,8 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  *
  * ```
  *
- * @param CreateVpcConnectorCommandInput - {@link CreateVpcConnectorCommandInput}
- * @returns {@link CreateVpcConnectorCommandOutput}
+ * @param CreateVpcConnectorRequest - {@link CreateVpcConnectorRequest}
+ * @returns {@link CreateVpcConnectorResponse}
  * @see {@link CreateVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

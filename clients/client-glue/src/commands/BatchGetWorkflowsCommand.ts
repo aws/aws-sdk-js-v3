@@ -307,8 +307,8 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  *
  * ```
  *
- * @param BatchGetWorkflowsCommandInput - {@link BatchGetWorkflowsCommandInput}
- * @returns {@link BatchGetWorkflowsCommandOutput}
+ * @param BatchGetWorkflowsRequest - {@link BatchGetWorkflowsRequest}
+ * @returns {@link BatchGetWorkflowsResponse}
  * @see {@link BatchGetWorkflowsCommandInput} for command's `input` shape.
  * @see {@link BatchGetWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

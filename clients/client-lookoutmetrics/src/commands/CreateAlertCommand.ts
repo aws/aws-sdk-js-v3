@@ -80,8 +80,8 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  *
  * ```
  *
- * @param CreateAlertCommandInput - {@link CreateAlertCommandInput}
- * @returns {@link CreateAlertCommandOutput}
+ * @param CreateAlertRequest - {@link CreateAlertRequest}
+ * @returns {@link CreateAlertResponse}
  * @see {@link CreateAlertCommandInput} for command's `input` shape.
  * @see {@link CreateAlertCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

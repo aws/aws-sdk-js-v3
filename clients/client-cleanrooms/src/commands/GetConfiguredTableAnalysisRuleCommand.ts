@@ -101,8 +101,8 @@ export interface GetConfiguredTableAnalysisRuleCommandOutput
  *
  * ```
  *
- * @param GetConfiguredTableAnalysisRuleCommandInput - {@link GetConfiguredTableAnalysisRuleCommandInput}
- * @returns {@link GetConfiguredTableAnalysisRuleCommandOutput}
+ * @param GetConfiguredTableAnalysisRuleInput - {@link GetConfiguredTableAnalysisRuleInput}
+ * @returns {@link GetConfiguredTableAnalysisRuleOutput}
  * @see {@link GetConfiguredTableAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link GetConfiguredTableAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

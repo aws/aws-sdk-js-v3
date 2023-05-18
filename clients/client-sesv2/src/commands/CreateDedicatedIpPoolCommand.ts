@@ -58,8 +58,8 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  *
  * ```
  *
- * @param CreateDedicatedIpPoolCommandInput - {@link CreateDedicatedIpPoolCommandInput}
- * @returns {@link CreateDedicatedIpPoolCommandOutput}
+ * @param CreateDedicatedIpPoolRequest - {@link CreateDedicatedIpPoolRequest}
+ * @returns {@link CreateDedicatedIpPoolResponse}
  * @see {@link CreateDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link CreateDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

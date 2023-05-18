@@ -68,8 +68,8 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  *
  * ```
  *
- * @param ListDevicePoolsCommandInput - {@link ListDevicePoolsCommandInput}
- * @returns {@link ListDevicePoolsCommandOutput}
+ * @param ListDevicePoolsRequest - {@link ListDevicePoolsRequest}
+ * @returns {@link ListDevicePoolsResult}
  * @see {@link ListDevicePoolsCommandInput} for command's `input` shape.
  * @see {@link ListDevicePoolsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

@@ -72,8 +72,8 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  *
  * ```
  *
- * @param CancelFlowExecutionsCommandInput - {@link CancelFlowExecutionsCommandInput}
- * @returns {@link CancelFlowExecutionsCommandOutput}
+ * @param CancelFlowExecutionsRequest - {@link CancelFlowExecutionsRequest}
+ * @returns {@link CancelFlowExecutionsResponse}
  * @see {@link CancelFlowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CancelFlowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

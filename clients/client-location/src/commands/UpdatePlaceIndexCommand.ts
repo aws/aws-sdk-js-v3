@@ -57,8 +57,8 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  *
  * ```
  *
- * @param UpdatePlaceIndexCommandInput - {@link UpdatePlaceIndexCommandInput}
- * @returns {@link UpdatePlaceIndexCommandOutput}
+ * @param UpdatePlaceIndexRequest - {@link UpdatePlaceIndexRequest}
+ * @returns {@link UpdatePlaceIndexResponse}
  * @see {@link UpdatePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link UpdatePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

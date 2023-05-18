@@ -94,8 +94,8 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  *
  * ```
  *
- * @param CreateAccessPointCommandInput - {@link CreateAccessPointCommandInput}
- * @returns {@link CreateAccessPointCommandOutput}
+ * @param CreateAccessPointRequest - {@link CreateAccessPointRequest}
+ * @returns {@link CreateAccessPointResult}
  * @see {@link CreateAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

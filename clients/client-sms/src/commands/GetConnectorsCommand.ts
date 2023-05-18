@@ -67,8 +67,8 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  *
  * ```
  *
- * @param GetConnectorsCommandInput - {@link GetConnectorsCommandInput}
- * @returns {@link GetConnectorsCommandOutput}
+ * @param GetConnectorsRequest - {@link GetConnectorsRequest}
+ * @returns {@link GetConnectorsResponse}
  * @see {@link GetConnectorsCommandInput} for command's `input` shape.
  * @see {@link GetConnectorsCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

@@ -1597,8 +1597,8 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *
  * ```
  *
- * @param CreatePresetCommandInput - {@link CreatePresetCommandInput}
- * @returns {@link CreatePresetCommandOutput}
+ * @param CreatePresetRequest - {@link CreatePresetRequest}
+ * @returns {@link CreatePresetResponse}
  * @see {@link CreatePresetCommandInput} for command's `input` shape.
  * @see {@link CreatePresetCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

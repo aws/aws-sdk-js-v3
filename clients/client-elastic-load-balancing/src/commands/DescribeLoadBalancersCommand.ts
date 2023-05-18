@@ -133,8 +133,8 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  *
  * ```
  *
- * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
- * @returns {@link DescribeLoadBalancersCommandOutput}
+ * @param DescribeAccessPointsInput - {@link DescribeAccessPointsInput}
+ * @returns {@link DescribeAccessPointsOutput}
  * @see {@link DescribeLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

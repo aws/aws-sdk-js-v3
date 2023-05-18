@@ -50,8 +50,8 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVoiceConnectorCommandInput - {@link DeleteVoiceConnectorCommandInput}
- * @returns {@link DeleteVoiceConnectorCommandOutput}
+ * @param DeleteVoiceConnectorRequest - {@link DeleteVoiceConnectorRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

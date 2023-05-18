@@ -64,8 +64,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListRulesCommandInput - {@link ListRulesCommandInput}
- * @returns {@link ListRulesCommandOutput}
+ * @param ListRulesRequest - {@link ListRulesRequest}
+ * @returns {@link ListRulesResponse}
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

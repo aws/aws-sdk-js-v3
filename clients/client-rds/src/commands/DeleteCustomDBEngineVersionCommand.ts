@@ -148,8 +148,8 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *
  * ```
  *
- * @param DeleteCustomDBEngineVersionCommandInput - {@link DeleteCustomDBEngineVersionCommandInput}
- * @returns {@link DeleteCustomDBEngineVersionCommandOutput}
+ * @param DeleteCustomDBEngineVersionMessage - {@link DeleteCustomDBEngineVersionMessage}
+ * @returns {@link DBEngineVersion}
  * @see {@link DeleteCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

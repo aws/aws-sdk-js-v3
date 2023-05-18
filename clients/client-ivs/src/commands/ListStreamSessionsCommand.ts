@@ -61,8 +61,8 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  *
  * ```
  *
- * @param ListStreamSessionsCommandInput - {@link ListStreamSessionsCommandInput}
- * @returns {@link ListStreamSessionsCommandOutput}
+ * @param ListStreamSessionsRequest - {@link ListStreamSessionsRequest}
+ * @returns {@link ListStreamSessionsResponse}
  * @see {@link ListStreamSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamSessionsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

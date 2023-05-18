@@ -63,8 +63,8 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  *
  * ```
  *
- * @param GetCrlCommandInput - {@link GetCrlCommandInput}
- * @returns {@link GetCrlCommandOutput}
+ * @param ScalarCrlRequest - {@link ScalarCrlRequest}
+ * @returns {@link CrlDetailResponse}
  * @see {@link GetCrlCommandInput} for command's `input` shape.
  * @see {@link GetCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

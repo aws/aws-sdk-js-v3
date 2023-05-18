@@ -55,8 +55,8 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
  *
  * ```
  *
- * @param GetSMSAttributesCommandInput - {@link GetSMSAttributesCommandInput}
- * @returns {@link GetSMSAttributesCommandOutput}
+ * @param GetSMSAttributesInput - {@link GetSMSAttributesInput}
+ * @returns {@link GetSMSAttributesResponse}
  * @see {@link GetSMSAttributesCommandInput} for command's `input` shape.
  * @see {@link GetSMSAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

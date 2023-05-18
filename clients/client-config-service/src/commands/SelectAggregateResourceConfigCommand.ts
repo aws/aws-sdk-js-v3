@@ -80,8 +80,8 @@ export interface SelectAggregateResourceConfigCommandOutput
  *
  * ```
  *
- * @param SelectAggregateResourceConfigCommandInput - {@link SelectAggregateResourceConfigCommandInput}
- * @returns {@link SelectAggregateResourceConfigCommandOutput}
+ * @param SelectAggregateResourceConfigRequest - {@link SelectAggregateResourceConfigRequest}
+ * @returns {@link SelectAggregateResourceConfigResponse}
  * @see {@link SelectAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link SelectAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

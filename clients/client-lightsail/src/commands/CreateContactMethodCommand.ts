@@ -73,8 +73,8 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  *
  * ```
  *
- * @param CreateContactMethodCommandInput - {@link CreateContactMethodCommandInput}
- * @returns {@link CreateContactMethodCommandOutput}
+ * @param CreateContactMethodRequest - {@link CreateContactMethodRequest}
+ * @returns {@link CreateContactMethodResult}
  * @see {@link CreateContactMethodCommandInput} for command's `input` shape.
  * @see {@link CreateContactMethodCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

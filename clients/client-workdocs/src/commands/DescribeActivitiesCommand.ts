@@ -144,8 +144,8 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  *
  * ```
  *
- * @param DescribeActivitiesCommandInput - {@link DescribeActivitiesCommandInput}
- * @returns {@link DescribeActivitiesCommandOutput}
+ * @param DescribeActivitiesRequest - {@link DescribeActivitiesRequest}
+ * @returns {@link DescribeActivitiesResponse}
  * @see {@link DescribeActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeActivitiesCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

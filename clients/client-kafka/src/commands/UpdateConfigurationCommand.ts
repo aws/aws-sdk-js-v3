@@ -57,8 +57,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *
  * ```
  *
- * @param UpdateConfigurationCommandInput - {@link UpdateConfigurationCommandInput}
- * @returns {@link UpdateConfigurationCommandOutput}
+ * @param UpdateConfigurationRequest - {@link UpdateConfigurationRequest}
+ * @returns {@link UpdateConfigurationResponse}
  * @see {@link UpdateConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

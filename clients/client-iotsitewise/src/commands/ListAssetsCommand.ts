@@ -95,8 +95,8 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  *
  * ```
  *
- * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
- * @returns {@link ListAssetsCommandOutput}
+ * @param ListAssetsRequest - {@link ListAssetsRequest}
+ * @returns {@link ListAssetsResponse}
  * @see {@link ListAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  *
  * ```
  *
- * @param DeleteVariantStoreCommandInput - {@link DeleteVariantStoreCommandInput}
- * @returns {@link DeleteVariantStoreCommandOutput}
+ * @param DeleteVariantStoreRequest - {@link DeleteVariantStoreRequest}
+ * @returns {@link DeleteVariantStoreResponse}
  * @see {@link DeleteVariantStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

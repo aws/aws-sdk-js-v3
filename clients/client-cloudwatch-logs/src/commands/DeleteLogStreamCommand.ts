@@ -50,8 +50,8 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLogStreamCommandInput - {@link DeleteLogStreamCommandInput}
- * @returns {@link DeleteLogStreamCommandOutput}
+ * @param DeleteLogStreamRequest - {@link DeleteLogStreamRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLogStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteLogStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

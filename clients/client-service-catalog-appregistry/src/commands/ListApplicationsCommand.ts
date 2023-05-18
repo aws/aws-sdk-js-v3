@@ -65,8 +65,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  *
  * ```
  *
- * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
- * @returns {@link ListApplicationsCommandOutput}
+ * @param ListApplicationsRequest - {@link ListApplicationsRequest}
+ * @returns {@link ListApplicationsResponse}
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

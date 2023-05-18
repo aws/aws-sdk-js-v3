@@ -86,8 +86,8 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  *
  * ```
  *
- * @param ListUserPoolsCommandInput - {@link ListUserPoolsCommandInput}
- * @returns {@link ListUserPoolsCommandOutput}
+ * @param ListUserPoolsRequest - {@link ListUserPoolsRequest}
+ * @returns {@link ListUserPoolsResponse}
  * @see {@link ListUserPoolsCommandInput} for command's `input` shape.
  * @see {@link ListUserPoolsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -69,8 +69,8 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  *
  * ```
  *
- * @param CreateRoomMembershipCommandInput - {@link CreateRoomMembershipCommandInput}
- * @returns {@link CreateRoomMembershipCommandOutput}
+ * @param CreateRoomMembershipRequest - {@link CreateRoomMembershipRequest}
+ * @returns {@link CreateRoomMembershipResponse}
  * @see {@link CreateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

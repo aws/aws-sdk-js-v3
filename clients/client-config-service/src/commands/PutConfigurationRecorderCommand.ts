@@ -71,8 +71,8 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param PutConfigurationRecorderCommandInput - {@link PutConfigurationRecorderCommandInput}
- * @returns {@link PutConfigurationRecorderCommandOutput}
+ * @param PutConfigurationRecorderRequest - {@link PutConfigurationRecorderRequest}
+ * @returns {@link Unit}
  * @see {@link PutConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

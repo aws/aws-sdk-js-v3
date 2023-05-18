@@ -214,8 +214,8 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param PutItemCommandInput - {@link PutItemCommandInput}
- * @returns {@link PutItemCommandOutput}
+ * @param PutItemInput - {@link PutItemInput}
+ * @returns {@link PutItemOutput}
  * @see {@link PutItemCommandInput} for command's `input` shape.
  * @see {@link PutItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -56,8 +56,8 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  *
  * ```
  *
- * @param ListFirewallDomainsCommandInput - {@link ListFirewallDomainsCommandInput}
- * @returns {@link ListFirewallDomainsCommandOutput}
+ * @param ListFirewallDomainsRequest - {@link ListFirewallDomainsRequest}
+ * @returns {@link ListFirewallDomainsResponse}
  * @see {@link ListFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

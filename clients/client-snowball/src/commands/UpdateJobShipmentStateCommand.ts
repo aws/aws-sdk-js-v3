@@ -49,8 +49,8 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  *
  * ```
  *
- * @param UpdateJobShipmentStateCommandInput - {@link UpdateJobShipmentStateCommandInput}
- * @returns {@link UpdateJobShipmentStateCommandOutput}
+ * @param UpdateJobShipmentStateRequest - {@link UpdateJobShipmentStateRequest}
+ * @returns {@link UpdateJobShipmentStateResult}
  * @see {@link UpdateJobShipmentStateCommandInput} for command's `input` shape.
  * @see {@link UpdateJobShipmentStateCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

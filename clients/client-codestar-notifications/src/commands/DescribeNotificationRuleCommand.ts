@@ -83,8 +83,8 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  *
  * ```
  *
- * @param DescribeNotificationRuleCommandInput - {@link DescribeNotificationRuleCommandInput}
- * @returns {@link DescribeNotificationRuleCommandOutput}
+ * @param DescribeNotificationRuleRequest - {@link DescribeNotificationRuleRequest}
+ * @returns {@link DescribeNotificationRuleResult}
  * @see {@link DescribeNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.

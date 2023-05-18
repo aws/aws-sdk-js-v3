@@ -77,8 +77,8 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  *
  * ```
  *
- * @param GetSignalingChannelEndpointCommandInput - {@link GetSignalingChannelEndpointCommandInput}
- * @returns {@link GetSignalingChannelEndpointCommandOutput}
+ * @param GetSignalingChannelEndpointInput - {@link GetSignalingChannelEndpointInput}
+ * @returns {@link GetSignalingChannelEndpointOutput}
  * @see {@link GetSignalingChannelEndpointCommandInput} for command's `input` shape.
  * @see {@link GetSignalingChannelEndpointCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

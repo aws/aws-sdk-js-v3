@@ -159,8 +159,8 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  *
  * ```
  *
- * @param UpdateFlowSourceCommandInput - {@link UpdateFlowSourceCommandInput}
- * @returns {@link UpdateFlowSourceCommandOutput}
+ * @param UpdateFlowSourceRequest - {@link UpdateFlowSourceRequest}
+ * @returns {@link UpdateFlowSourceResponse}
  * @see {@link UpdateFlowSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

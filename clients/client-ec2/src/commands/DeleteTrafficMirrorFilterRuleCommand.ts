@@ -53,8 +53,8 @@ export interface DeleteTrafficMirrorFilterRuleCommandOutput
  *
  * ```
  *
- * @param DeleteTrafficMirrorFilterRuleCommandInput - {@link DeleteTrafficMirrorFilterRuleCommandInput}
- * @returns {@link DeleteTrafficMirrorFilterRuleCommandOutput}
+ * @param DeleteTrafficMirrorFilterRuleRequest - {@link DeleteTrafficMirrorFilterRuleRequest}
+ * @returns {@link DeleteTrafficMirrorFilterRuleResult}
  * @see {@link DeleteTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

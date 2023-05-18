@@ -62,8 +62,8 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  *
  * ```
  *
- * @param ListDatasourcePackagesCommandInput - {@link ListDatasourcePackagesCommandInput}
- * @returns {@link ListDatasourcePackagesCommandOutput}
+ * @param ListDatasourcePackagesRequest - {@link ListDatasourcePackagesRequest}
+ * @returns {@link ListDatasourcePackagesResponse}
  * @see {@link ListDatasourcePackagesCommandInput} for command's `input` shape.
  * @see {@link ListDatasourcePackagesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

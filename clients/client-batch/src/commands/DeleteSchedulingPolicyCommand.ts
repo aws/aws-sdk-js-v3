@@ -49,8 +49,8 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  *
  * ```
  *
- * @param DeleteSchedulingPolicyCommandInput - {@link DeleteSchedulingPolicyCommandInput}
- * @returns {@link DeleteSchedulingPolicyCommandOutput}
+ * @param DeleteSchedulingPolicyRequest - {@link DeleteSchedulingPolicyRequest}
+ * @returns {@link DeleteSchedulingPolicyResponse}
  * @see {@link DeleteSchedulingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteSchedulingPolicyCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

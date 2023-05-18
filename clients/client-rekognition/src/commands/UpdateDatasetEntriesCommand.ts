@@ -72,8 +72,8 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *
  * ```
  *
- * @param UpdateDatasetEntriesCommandInput - {@link UpdateDatasetEntriesCommandInput}
- * @returns {@link UpdateDatasetEntriesCommandOutput}
+ * @param UpdateDatasetEntriesRequest - {@link UpdateDatasetEntriesRequest}
+ * @returns {@link UpdateDatasetEntriesResponse}
  * @see {@link UpdateDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

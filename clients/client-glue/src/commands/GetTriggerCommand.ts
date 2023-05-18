@@ -88,8 +88,8 @@ export interface GetTriggerCommandOutput extends GetTriggerResponse, __MetadataB
  *
  * ```
  *
- * @param GetTriggerCommandInput - {@link GetTriggerCommandInput}
- * @returns {@link GetTriggerCommandOutput}
+ * @param GetTriggerRequest - {@link GetTriggerRequest}
+ * @returns {@link GetTriggerResponse}
  * @see {@link GetTriggerCommandInput} for command's `input` shape.
  * @see {@link GetTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

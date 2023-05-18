@@ -79,8 +79,8 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  *
  * ```
  *
- * @param DescribeCoipPoolsCommandInput - {@link DescribeCoipPoolsCommandInput}
- * @returns {@link DescribeCoipPoolsCommandOutput}
+ * @param DescribeCoipPoolsRequest - {@link DescribeCoipPoolsRequest}
+ * @returns {@link DescribeCoipPoolsResult}
  * @see {@link DescribeCoipPoolsCommandInput} for command's `input` shape.
  * @see {@link DescribeCoipPoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

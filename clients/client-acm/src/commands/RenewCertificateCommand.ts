@@ -52,8 +52,8 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RenewCertificateCommandInput - {@link RenewCertificateCommandInput}
- * @returns {@link RenewCertificateCommandOutput}
+ * @param RenewCertificateRequest - {@link RenewCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link RenewCertificateCommandInput} for command's `input` shape.
  * @see {@link RenewCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

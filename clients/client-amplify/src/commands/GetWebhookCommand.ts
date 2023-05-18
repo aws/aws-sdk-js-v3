@@ -58,8 +58,8 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  *
  * ```
  *
- * @param GetWebhookCommandInput - {@link GetWebhookCommandInput}
- * @returns {@link GetWebhookCommandOutput}
+ * @param GetWebhookRequest - {@link GetWebhookRequest}
+ * @returns {@link GetWebhookResult}
  * @see {@link GetWebhookCommandInput} for command's `input` shape.
  * @see {@link GetWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

@@ -64,8 +64,8 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  *
  * ```
  *
- * @param DetachLoadBalancersCommandInput - {@link DetachLoadBalancersCommandInput}
- * @returns {@link DetachLoadBalancersCommandOutput}
+ * @param DetachLoadBalancersType - {@link DetachLoadBalancersType}
+ * @returns {@link DetachLoadBalancersResultType}
  * @see {@link DetachLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

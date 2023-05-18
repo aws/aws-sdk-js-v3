@@ -48,8 +48,8 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  *
  * ```
  *
- * @param DeregisterJobDefinitionCommandInput - {@link DeregisterJobDefinitionCommandInput}
- * @returns {@link DeregisterJobDefinitionCommandOutput}
+ * @param DeregisterJobDefinitionRequest - {@link DeregisterJobDefinitionRequest}
+ * @returns {@link DeregisterJobDefinitionResponse}
  * @see {@link DeregisterJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

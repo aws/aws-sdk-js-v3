@@ -65,8 +65,8 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  *
  * ```
  *
- * @param DescribeLunaClientCommandInput - {@link DescribeLunaClientCommandInput}
- * @returns {@link DescribeLunaClientCommandOutput}
+ * @param DescribeLunaClientRequest - {@link DescribeLunaClientRequest}
+ * @returns {@link DescribeLunaClientResponse}
  * @see {@link DescribeLunaClientCommandInput} for command's `input` shape.
  * @see {@link DescribeLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

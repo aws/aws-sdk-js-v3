@@ -66,8 +66,8 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  *
  * ```
  *
- * @param CreateParameterGroupCommandInput - {@link CreateParameterGroupCommandInput}
- * @returns {@link CreateParameterGroupCommandOutput}
+ * @param CreateParameterGroupRequest - {@link CreateParameterGroupRequest}
+ * @returns {@link CreateParameterGroupResponse}
  * @see {@link CreateParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

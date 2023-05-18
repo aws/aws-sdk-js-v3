@@ -77,8 +77,8 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  *
  * ```
  *
- * @param PutRetentionSettingsCommandInput - {@link PutRetentionSettingsCommandInput}
- * @returns {@link PutRetentionSettingsCommandOutput}
+ * @param PutRetentionSettingsRequest - {@link PutRetentionSettingsRequest}
+ * @returns {@link PutRetentionSettingsResponse}
  * @see {@link PutRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link PutRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

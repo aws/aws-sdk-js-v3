@@ -95,8 +95,8 @@ export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse,
  *
  * ```
  *
- * @param BatchGetTriggersCommandInput - {@link BatchGetTriggersCommandInput}
- * @returns {@link BatchGetTriggersCommandOutput}
+ * @param BatchGetTriggersRequest - {@link BatchGetTriggersRequest}
+ * @returns {@link BatchGetTriggersResponse}
  * @see {@link BatchGetTriggersCommandInput} for command's `input` shape.
  * @see {@link BatchGetTriggersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

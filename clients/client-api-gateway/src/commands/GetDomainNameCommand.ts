@@ -81,8 +81,8 @@ export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer
  *
  * ```
  *
- * @param GetDomainNameCommandInput - {@link GetDomainNameCommandInput}
- * @returns {@link GetDomainNameCommandOutput}
+ * @param GetDomainNameRequest - {@link GetDomainNameRequest}
+ * @returns {@link DomainName}
  * @see {@link GetDomainNameCommandInput} for command's `input` shape.
  * @see {@link GetDomainNameCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

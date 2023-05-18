@@ -53,8 +53,8 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartStackCommandInput - {@link StartStackCommandInput}
- * @returns {@link StartStackCommandOutput}
+ * @param StartStackRequest - {@link StartStackRequest}
+ * @returns {@link Unit}
  * @see {@link StartStackCommandInput} for command's `input` shape.
  * @see {@link StartStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

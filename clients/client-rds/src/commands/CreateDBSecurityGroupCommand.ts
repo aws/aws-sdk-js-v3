@@ -85,8 +85,8 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  *
  * ```
  *
- * @param CreateDBSecurityGroupCommandInput - {@link CreateDBSecurityGroupCommandInput}
- * @returns {@link CreateDBSecurityGroupCommandOutput}
+ * @param CreateDBSecurityGroupMessage - {@link CreateDBSecurityGroupMessage}
+ * @returns {@link CreateDBSecurityGroupResult}
  * @see {@link CreateDBSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

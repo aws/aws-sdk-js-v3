@@ -104,8 +104,8 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  *
  * ```
  *
- * @param CreateReplicationTaskCommandInput - {@link CreateReplicationTaskCommandInput}
- * @returns {@link CreateReplicationTaskCommandOutput}
+ * @param CreateReplicationTaskMessage - {@link CreateReplicationTaskMessage}
+ * @returns {@link CreateReplicationTaskResponse}
  * @see {@link CreateReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

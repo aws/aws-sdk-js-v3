@@ -133,8 +133,8 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  *
  * ```
  *
- * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
- * @returns {@link UpdateIPSetCommandOutput}
+ * @param UpdateIPSetRequest - {@link UpdateIPSetRequest}
+ * @returns {@link UpdateIPSetResponse}
  * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

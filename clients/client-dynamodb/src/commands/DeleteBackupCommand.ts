@@ -135,8 +135,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  *
  * ```
  *
- * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
- * @returns {@link DeleteBackupCommandOutput}
+ * @param DeleteBackupInput - {@link DeleteBackupInput}
+ * @returns {@link DeleteBackupOutput}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

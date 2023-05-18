@@ -50,8 +50,8 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  *
  * ```
  *
- * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
- * @returns {@link StopRecommenderCommandOutput}
+ * @param StopRecommenderRequest - {@link StopRecommenderRequest}
+ * @returns {@link StopRecommenderResponse}
  * @see {@link StopRecommenderCommandInput} for command's `input` shape.
  * @see {@link StopRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

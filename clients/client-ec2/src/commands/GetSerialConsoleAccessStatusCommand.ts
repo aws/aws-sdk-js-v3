@@ -55,8 +55,8 @@ export interface GetSerialConsoleAccessStatusCommandOutput
  *
  * ```
  *
- * @param GetSerialConsoleAccessStatusCommandInput - {@link GetSerialConsoleAccessStatusCommandInput}
- * @returns {@link GetSerialConsoleAccessStatusCommandOutput}
+ * @param GetSerialConsoleAccessStatusRequest - {@link GetSerialConsoleAccessStatusRequest}
+ * @returns {@link GetSerialConsoleAccessStatusResult}
  * @see {@link GetSerialConsoleAccessStatusCommandInput} for command's `input` shape.
  * @see {@link GetSerialConsoleAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

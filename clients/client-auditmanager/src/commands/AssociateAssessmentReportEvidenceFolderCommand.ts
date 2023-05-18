@@ -59,8 +59,8 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  *
  * ```
  *
- * @param AssociateAssessmentReportEvidenceFolderCommandInput - {@link AssociateAssessmentReportEvidenceFolderCommandInput}
- * @returns {@link AssociateAssessmentReportEvidenceFolderCommandOutput}
+ * @param AssociateAssessmentReportEvidenceFolderRequest - {@link AssociateAssessmentReportEvidenceFolderRequest}
+ * @returns {@link AssociateAssessmentReportEvidenceFolderResponse}
  * @see {@link AssociateAssessmentReportEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link AssociateAssessmentReportEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

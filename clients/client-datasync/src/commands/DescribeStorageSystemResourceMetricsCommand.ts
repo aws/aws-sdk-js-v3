@@ -96,8 +96,8 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
  *
  * ```
  *
- * @param DescribeStorageSystemResourceMetricsCommandInput - {@link DescribeStorageSystemResourceMetricsCommandInput}
- * @returns {@link DescribeStorageSystemResourceMetricsCommandOutput}
+ * @param DescribeStorageSystemResourceMetricsRequest - {@link DescribeStorageSystemResourceMetricsRequest}
+ * @returns {@link DescribeStorageSystemResourceMetricsResponse}
  * @see {@link DescribeStorageSystemResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageSystemResourceMetricsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

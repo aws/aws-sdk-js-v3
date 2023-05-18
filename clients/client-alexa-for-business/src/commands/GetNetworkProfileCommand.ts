@@ -67,8 +67,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  *
  * ```
  *
- * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
- * @returns {@link GetNetworkProfileCommandOutput}
+ * @param GetNetworkProfileRequest - {@link GetNetworkProfileRequest}
+ * @returns {@link GetNetworkProfileResponse}
  * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

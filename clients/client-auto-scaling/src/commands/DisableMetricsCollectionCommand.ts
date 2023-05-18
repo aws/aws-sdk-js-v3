@@ -51,8 +51,8 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DisableMetricsCollectionCommandInput - {@link DisableMetricsCollectionCommandInput}
- * @returns {@link DisableMetricsCollectionCommandOutput}
+ * @param DisableMetricsCollectionQuery - {@link DisableMetricsCollectionQuery}
+ * @returns {@link Unit}
  * @see {@link DisableMetricsCollectionCommandInput} for command's `input` shape.
  * @see {@link DisableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

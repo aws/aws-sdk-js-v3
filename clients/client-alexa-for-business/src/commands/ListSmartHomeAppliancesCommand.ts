@@ -59,8 +59,8 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  *
  * ```
  *
- * @param ListSmartHomeAppliancesCommandInput - {@link ListSmartHomeAppliancesCommandInput}
- * @returns {@link ListSmartHomeAppliancesCommandOutput}
+ * @param ListSmartHomeAppliancesRequest - {@link ListSmartHomeAppliancesRequest}
+ * @returns {@link ListSmartHomeAppliancesResponse}
  * @see {@link ListSmartHomeAppliancesCommandInput} for command's `input` shape.
  * @see {@link ListSmartHomeAppliancesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

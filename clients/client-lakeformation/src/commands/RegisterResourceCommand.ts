@@ -61,8 +61,8 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *
  * ```
  *
- * @param RegisterResourceCommandInput - {@link RegisterResourceCommandInput}
- * @returns {@link RegisterResourceCommandOutput}
+ * @param RegisterResourceRequest - {@link RegisterResourceRequest}
+ * @returns {@link RegisterResourceResponse}
  * @see {@link RegisterResourceCommandInput} for command's `input` shape.
  * @see {@link RegisterResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

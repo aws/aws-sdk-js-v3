@@ -77,8 +77,8 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  *
  * ```
  *
- * @param DescribeMapRunCommandInput - {@link DescribeMapRunCommandInput}
- * @returns {@link DescribeMapRunCommandOutput}
+ * @param DescribeMapRunInput - {@link DescribeMapRunInput}
+ * @returns {@link DescribeMapRunOutput}
  * @see {@link DescribeMapRunCommandInput} for command's `input` shape.
  * @see {@link DescribeMapRunCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

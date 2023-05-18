@@ -63,8 +63,8 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  *
  * ```
  *
- * @param GetSegmentCommandInput - {@link GetSegmentCommandInput}
- * @returns {@link GetSegmentCommandOutput}
+ * @param GetSegmentRequest - {@link GetSegmentRequest}
+ * @returns {@link GetSegmentResponse}
  * @see {@link GetSegmentCommandInput} for command's `input` shape.
  * @see {@link GetSegmentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

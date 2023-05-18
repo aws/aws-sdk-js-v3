@@ -52,8 +52,8 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  *
  * ```
  *
- * @param AddThingToBillingGroupCommandInput - {@link AddThingToBillingGroupCommandInput}
- * @returns {@link AddThingToBillingGroupCommandOutput}
+ * @param AddThingToBillingGroupRequest - {@link AddThingToBillingGroupRequest}
+ * @returns {@link AddThingToBillingGroupResponse}
  * @see {@link AddThingToBillingGroupCommandInput} for command's `input` shape.
  * @see {@link AddThingToBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

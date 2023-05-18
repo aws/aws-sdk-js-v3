@@ -58,8 +58,8 @@ export interface GetGroupCertificateAuthorityCommandOutput
  *
  * ```
  *
- * @param GetGroupCertificateAuthorityCommandInput - {@link GetGroupCertificateAuthorityCommandInput}
- * @returns {@link GetGroupCertificateAuthorityCommandOutput}
+ * @param GetGroupCertificateAuthorityRequest - {@link GetGroupCertificateAuthorityRequest}
+ * @returns {@link GetGroupCertificateAuthorityResponse}
  * @see {@link GetGroupCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link GetGroupCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

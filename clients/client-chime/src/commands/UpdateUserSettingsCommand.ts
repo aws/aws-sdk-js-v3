@@ -56,8 +56,8 @@ export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateUserSettingsCommandInput - {@link UpdateUserSettingsCommandInput}
- * @returns {@link UpdateUserSettingsCommandOutput}
+ * @param UpdateUserSettingsRequest - {@link UpdateUserSettingsRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

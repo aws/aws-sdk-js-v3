@@ -78,8 +78,8 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  *
  * ```
  *
- * @param UploadDocumentsCommandInput - {@link UploadDocumentsCommandInput}
- * @returns {@link UploadDocumentsCommandOutput}
+ * @param UploadDocumentsRequest - {@link UploadDocumentsRequest}
+ * @returns {@link UploadDocumentsResponse}
  * @see {@link UploadDocumentsCommandInput} for command's `input` shape.
  * @see {@link UploadDocumentsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.

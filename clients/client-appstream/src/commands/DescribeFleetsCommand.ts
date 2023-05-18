@@ -106,8 +106,8 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  *
  * ```
  *
- * @param DescribeFleetsCommandInput - {@link DescribeFleetsCommandInput}
- * @returns {@link DescribeFleetsCommandOutput}
+ * @param DescribeFleetsRequest - {@link DescribeFleetsRequest}
+ * @returns {@link DescribeFleetsResult}
  * @see {@link DescribeFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

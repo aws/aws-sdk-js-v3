@@ -70,8 +70,8 @@ export interface UpdateCustomRoutingListenerCommandOutput
  *
  * ```
  *
- * @param UpdateCustomRoutingListenerCommandInput - {@link UpdateCustomRoutingListenerCommandInput}
- * @returns {@link UpdateCustomRoutingListenerCommandOutput}
+ * @param UpdateCustomRoutingListenerRequest - {@link UpdateCustomRoutingListenerRequest}
+ * @returns {@link UpdateCustomRoutingListenerResponse}
  * @see {@link UpdateCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

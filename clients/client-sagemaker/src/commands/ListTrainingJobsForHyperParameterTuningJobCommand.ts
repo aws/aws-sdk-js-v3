@@ -87,8 +87,8 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  *
  * ```
  *
- * @param ListTrainingJobsForHyperParameterTuningJobCommandInput - {@link ListTrainingJobsForHyperParameterTuningJobCommandInput}
- * @returns {@link ListTrainingJobsForHyperParameterTuningJobCommandOutput}
+ * @param ListTrainingJobsForHyperParameterTuningJobRequest - {@link ListTrainingJobsForHyperParameterTuningJobRequest}
+ * @returns {@link ListTrainingJobsForHyperParameterTuningJobResponse}
  * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

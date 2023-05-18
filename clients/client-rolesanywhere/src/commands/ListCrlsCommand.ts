@@ -67,8 +67,8 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListCrlsCommandInput - {@link ListCrlsCommandInput}
- * @returns {@link ListCrlsCommandOutput}
+ * @param ListRequest - {@link ListRequest}
+ * @returns {@link ListCrlsResponse}
  * @see {@link ListCrlsCommandInput} for command's `input` shape.
  * @see {@link ListCrlsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

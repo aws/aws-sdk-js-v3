@@ -59,8 +59,8 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  *
  * ```
  *
- * @param ListResourceTypesCommandInput - {@link ListResourceTypesCommandInput}
- * @returns {@link ListResourceTypesCommandOutput}
+ * @param ListResourceTypesRequest - {@link ListResourceTypesRequest}
+ * @returns {@link ListResourceTypesResponse}
  * @see {@link ListResourceTypesCommandInput} for command's `input` shape.
  * @see {@link ListResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

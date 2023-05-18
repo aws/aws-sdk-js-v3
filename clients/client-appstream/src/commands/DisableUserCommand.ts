@@ -49,8 +49,8 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  *
  * ```
  *
- * @param DisableUserCommandInput - {@link DisableUserCommandInput}
- * @returns {@link DisableUserCommandOutput}
+ * @param DisableUserRequest - {@link DisableUserRequest}
+ * @returns {@link DisableUserResult}
  * @see {@link DisableUserCommandInput} for command's `input` shape.
  * @see {@link DisableUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

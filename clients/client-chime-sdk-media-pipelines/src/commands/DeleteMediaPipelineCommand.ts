@@ -52,8 +52,8 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
- * @returns {@link DeleteMediaPipelineCommandOutput}
+ * @param DeleteMediaPipelineRequest - {@link DeleteMediaPipelineRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMediaPipelineCommandInput} for command's `input` shape.
  * @see {@link DeleteMediaPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

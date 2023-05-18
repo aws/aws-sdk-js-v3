@@ -81,8 +81,8 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  *
  * ```
  *
- * @param DescribeActivationsCommandInput - {@link DescribeActivationsCommandInput}
- * @returns {@link DescribeActivationsCommandOutput}
+ * @param DescribeActivationsRequest - {@link DescribeActivationsRequest}
+ * @returns {@link DescribeActivationsResult}
  * @see {@link DescribeActivationsCommandInput} for command's `input` shape.
  * @see {@link DescribeActivationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

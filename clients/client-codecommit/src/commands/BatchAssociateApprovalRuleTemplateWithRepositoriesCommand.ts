@@ -71,8 +71,8 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
  *
  * ```
  *
- * @param BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput - {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput}
- * @returns {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput}
+ * @param BatchAssociateApprovalRuleTemplateWithRepositoriesInput - {@link BatchAssociateApprovalRuleTemplateWithRepositoriesInput}
+ * @returns {@link BatchAssociateApprovalRuleTemplateWithRepositoriesOutput}
  * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

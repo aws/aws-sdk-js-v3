@@ -63,8 +63,8 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
  *
  * ```
  *
- * @param DescribeWebsiteCertificateAuthorityCommandInput - {@link DescribeWebsiteCertificateAuthorityCommandInput}
- * @returns {@link DescribeWebsiteCertificateAuthorityCommandOutput}
+ * @param DescribeWebsiteCertificateAuthorityRequest - {@link DescribeWebsiteCertificateAuthorityRequest}
+ * @returns {@link DescribeWebsiteCertificateAuthorityResponse}
  * @see {@link DescribeWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DescribeWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

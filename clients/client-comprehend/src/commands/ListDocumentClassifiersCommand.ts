@@ -138,8 +138,8 @@ export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassi
  *
  * ```
  *
- * @param ListDocumentClassifiersCommandInput - {@link ListDocumentClassifiersCommandInput}
- * @returns {@link ListDocumentClassifiersCommandOutput}
+ * @param ListDocumentClassifiersRequest - {@link ListDocumentClassifiersRequest}
+ * @returns {@link ListDocumentClassifiersResponse}
  * @see {@link ListDocumentClassifiersCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassifiersCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

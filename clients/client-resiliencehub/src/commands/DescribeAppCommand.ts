@@ -65,8 +65,8 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  *
  * ```
  *
- * @param DescribeAppCommandInput - {@link DescribeAppCommandInput}
- * @returns {@link DescribeAppCommandOutput}
+ * @param DescribeAppRequest - {@link DescribeAppRequest}
+ * @returns {@link DescribeAppResponse}
  * @see {@link DescribeAppCommandInput} for command's `input` shape.
  * @see {@link DescribeAppCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

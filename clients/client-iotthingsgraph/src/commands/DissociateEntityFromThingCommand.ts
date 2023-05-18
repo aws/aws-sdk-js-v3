@@ -52,8 +52,8 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  *
  * ```
  *
- * @param DissociateEntityFromThingCommandInput - {@link DissociateEntityFromThingCommandInput}
- * @returns {@link DissociateEntityFromThingCommandOutput}
+ * @param DissociateEntityFromThingRequest - {@link DissociateEntityFromThingRequest}
+ * @returns {@link DissociateEntityFromThingResponse}
  * @see {@link DissociateEntityFromThingCommandInput} for command's `input` shape.
  * @see {@link DissociateEntityFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

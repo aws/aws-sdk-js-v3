@@ -59,8 +59,8 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *
  * ```
  *
- * @param CreateUserPoolDomainCommandInput - {@link CreateUserPoolDomainCommandInput}
- * @returns {@link CreateUserPoolDomainCommandOutput}
+ * @param CreateUserPoolDomainRequest - {@link CreateUserPoolDomainRequest}
+ * @returns {@link CreateUserPoolDomainResponse}
  * @see {@link CreateUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

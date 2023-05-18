@@ -54,8 +54,8 @@ export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReport
  *
  * ```
  *
- * @param GetAssessmentReportUrlCommandInput - {@link GetAssessmentReportUrlCommandInput}
- * @returns {@link GetAssessmentReportUrlCommandOutput}
+ * @param GetAssessmentReportUrlRequest - {@link GetAssessmentReportUrlRequest}
+ * @returns {@link GetAssessmentReportUrlResponse}
  * @see {@link GetAssessmentReportUrlCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentReportUrlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

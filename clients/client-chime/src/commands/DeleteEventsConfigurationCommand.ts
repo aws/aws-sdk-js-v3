@@ -49,8 +49,8 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteEventsConfigurationCommandInput - {@link DeleteEventsConfigurationCommandInput}
- * @returns {@link DeleteEventsConfigurationCommandOutput}
+ * @param DeleteEventsConfigurationRequest - {@link DeleteEventsConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -77,8 +77,8 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  *
  * ```
  *
- * @param GetDomainDeliverabilityCampaignCommandInput - {@link GetDomainDeliverabilityCampaignCommandInput}
- * @returns {@link GetDomainDeliverabilityCampaignCommandOutput}
+ * @param GetDomainDeliverabilityCampaignRequest - {@link GetDomainDeliverabilityCampaignRequest}
+ * @returns {@link GetDomainDeliverabilityCampaignResponse}
  * @see {@link GetDomainDeliverabilityCampaignCommandInput} for command's `input` shape.
  * @see {@link GetDomainDeliverabilityCampaignCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

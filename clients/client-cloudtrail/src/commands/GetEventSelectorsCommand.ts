@@ -121,8 +121,8 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  *
  * ```
  *
- * @param GetEventSelectorsCommandInput - {@link GetEventSelectorsCommandInput}
- * @returns {@link GetEventSelectorsCommandOutput}
+ * @param GetEventSelectorsRequest - {@link GetEventSelectorsRequest}
+ * @returns {@link GetEventSelectorsResponse}
  * @see {@link GetEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetEventSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

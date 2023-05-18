@@ -87,8 +87,8 @@ export interface DescribeFleetLocationCapacityCommandOutput
  *
  * ```
  *
- * @param DescribeFleetLocationCapacityCommandInput - {@link DescribeFleetLocationCapacityCommandInput}
- * @returns {@link DescribeFleetLocationCapacityCommandOutput}
+ * @param DescribeFleetLocationCapacityInput - {@link DescribeFleetLocationCapacityInput}
+ * @returns {@link DescribeFleetLocationCapacityOutput}
  * @see {@link DescribeFleetLocationCapacityCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetLocationCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

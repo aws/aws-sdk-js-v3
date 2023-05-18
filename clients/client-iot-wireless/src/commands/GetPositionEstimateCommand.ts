@@ -192,8 +192,8 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  *
  * ```
  *
- * @param GetPositionEstimateCommandInput - {@link GetPositionEstimateCommandInput}
- * @returns {@link GetPositionEstimateCommandOutput}
+ * @param GetPositionEstimateRequest - {@link GetPositionEstimateRequest}
+ * @returns {@link GetPositionEstimateResponse}
  * @see {@link GetPositionEstimateCommandInput} for command's `input` shape.
  * @see {@link GetPositionEstimateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

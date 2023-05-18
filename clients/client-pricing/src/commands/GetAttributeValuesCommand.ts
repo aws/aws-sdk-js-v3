@@ -61,8 +61,8 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  *
  * ```
  *
- * @param GetAttributeValuesCommandInput - {@link GetAttributeValuesCommandInput}
- * @returns {@link GetAttributeValuesCommandOutput}
+ * @param GetAttributeValuesRequest - {@link GetAttributeValuesRequest}
+ * @returns {@link GetAttributeValuesResponse}
  * @see {@link GetAttributeValuesCommandInput} for command's `input` shape.
  * @see {@link GetAttributeValuesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.

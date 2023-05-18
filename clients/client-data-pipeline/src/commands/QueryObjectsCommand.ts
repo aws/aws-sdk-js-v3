@@ -108,8 +108,8 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  *
  * ```
  *
- * @param QueryObjectsCommandInput - {@link QueryObjectsCommandInput}
- * @returns {@link QueryObjectsCommandOutput}
+ * @param QueryObjectsInput - {@link QueryObjectsInput}
+ * @returns {@link QueryObjectsOutput}
  * @see {@link QueryObjectsCommandInput} for command's `input` shape.
  * @see {@link QueryObjectsCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

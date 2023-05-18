@@ -88,8 +88,8 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
  *
  * ```
  *
- * @param CreateOutboundCrossClusterSearchConnectionCommandInput - {@link CreateOutboundCrossClusterSearchConnectionCommandInput}
- * @returns {@link CreateOutboundCrossClusterSearchConnectionCommandOutput}
+ * @param CreateOutboundCrossClusterSearchConnectionRequest - {@link CreateOutboundCrossClusterSearchConnectionRequest}
+ * @returns {@link CreateOutboundCrossClusterSearchConnectionResponse}
  * @see {@link CreateOutboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateOutboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

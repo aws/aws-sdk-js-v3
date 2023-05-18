@@ -83,8 +83,8 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *
  * ```
  *
- * @param AssociateAddressCommandInput - {@link AssociateAddressCommandInput}
- * @returns {@link AssociateAddressCommandOutput}
+ * @param AssociateAddressRequest - {@link AssociateAddressRequest}
+ * @returns {@link AssociateAddressResult}
  * @see {@link AssociateAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

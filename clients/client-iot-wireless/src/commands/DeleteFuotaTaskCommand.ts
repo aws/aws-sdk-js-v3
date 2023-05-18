@@ -48,8 +48,8 @@ export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, _
  *
  * ```
  *
- * @param DeleteFuotaTaskCommandInput - {@link DeleteFuotaTaskCommandInput}
- * @returns {@link DeleteFuotaTaskCommandOutput}
+ * @param DeleteFuotaTaskRequest - {@link DeleteFuotaTaskRequest}
+ * @returns {@link DeleteFuotaTaskResponse}
  * @see {@link DeleteFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

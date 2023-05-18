@@ -66,8 +66,8 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param UpdateAccountPasswordPolicyCommandInput - {@link UpdateAccountPasswordPolicyCommandInput}
- * @returns {@link UpdateAccountPasswordPolicyCommandOutput}
+ * @param UpdateAccountPasswordPolicyRequest - {@link UpdateAccountPasswordPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

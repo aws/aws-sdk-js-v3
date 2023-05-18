@@ -66,8 +66,8 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  *
  * ```
  *
- * @param DisassociateFraudsterCommandInput - {@link DisassociateFraudsterCommandInput}
- * @returns {@link DisassociateFraudsterCommandOutput}
+ * @param DisassociateFraudsterRequest - {@link DisassociateFraudsterRequest}
+ * @returns {@link DisassociateFraudsterResponse}
  * @see {@link DisassociateFraudsterCommandInput} for command's `input` shape.
  * @see {@link DisassociateFraudsterCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

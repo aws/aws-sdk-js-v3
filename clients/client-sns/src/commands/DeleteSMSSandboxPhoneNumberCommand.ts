@@ -57,8 +57,8 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  *
  * ```
  *
- * @param DeleteSMSSandboxPhoneNumberCommandInput - {@link DeleteSMSSandboxPhoneNumberCommandInput}
- * @returns {@link DeleteSMSSandboxPhoneNumberCommandOutput}
+ * @param DeleteSMSSandboxPhoneNumberInput - {@link DeleteSMSSandboxPhoneNumberInput}
+ * @returns {@link DeleteSMSSandboxPhoneNumberResult}
  * @see {@link DeleteSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DeleteSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

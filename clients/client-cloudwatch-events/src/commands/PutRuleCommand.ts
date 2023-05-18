@@ -108,8 +108,8 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  *
  * ```
  *
- * @param PutRuleCommandInput - {@link PutRuleCommandInput}
- * @returns {@link PutRuleCommandOutput}
+ * @param PutRuleRequest - {@link PutRuleRequest}
+ * @returns {@link PutRuleResponse}
  * @see {@link PutRuleCommandInput} for command's `input` shape.
  * @see {@link PutRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

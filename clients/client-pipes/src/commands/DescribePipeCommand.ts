@@ -355,8 +355,8 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  *
  * ```
  *
- * @param DescribePipeCommandInput - {@link DescribePipeCommandInput}
- * @returns {@link DescribePipeCommandOutput}
+ * @param DescribePipeRequest - {@link DescribePipeRequest}
+ * @returns {@link DescribePipeResponse}
  * @see {@link DescribePipeCommandInput} for command's `input` shape.
  * @see {@link DescribePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.

@@ -89,8 +89,8 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  *
  * ```
  *
- * @param DescribeTextTranslationJobCommandInput - {@link DescribeTextTranslationJobCommandInput}
- * @returns {@link DescribeTextTranslationJobCommandOutput}
+ * @param DescribeTextTranslationJobRequest - {@link DescribeTextTranslationJobRequest}
+ * @returns {@link DescribeTextTranslationJobResponse}
  * @see {@link DescribeTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

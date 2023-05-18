@@ -54,8 +54,8 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  *
  * ```
  *
- * @param UpdateProtectionGroupCommandInput - {@link UpdateProtectionGroupCommandInput}
- * @returns {@link UpdateProtectionGroupCommandOutput}
+ * @param UpdateProtectionGroupRequest - {@link UpdateProtectionGroupRequest}
+ * @returns {@link UpdateProtectionGroupResponse}
  * @see {@link UpdateProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

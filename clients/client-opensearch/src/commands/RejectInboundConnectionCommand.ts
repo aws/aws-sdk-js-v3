@@ -72,8 +72,8 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  *
  * ```
  *
- * @param RejectInboundConnectionCommandInput - {@link RejectInboundConnectionCommandInput}
- * @returns {@link RejectInboundConnectionCommandOutput}
+ * @param RejectInboundConnectionRequest - {@link RejectInboundConnectionRequest}
+ * @returns {@link RejectInboundConnectionResponse}
  * @see {@link RejectInboundConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectInboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

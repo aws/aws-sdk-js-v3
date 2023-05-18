@@ -85,8 +85,8 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  *
  * ```
  *
- * @param BatchAssociateResourcesToCustomLineItemCommandInput - {@link BatchAssociateResourcesToCustomLineItemCommandInput}
- * @returns {@link BatchAssociateResourcesToCustomLineItemCommandOutput}
+ * @param BatchAssociateResourcesToCustomLineItemInput - {@link BatchAssociateResourcesToCustomLineItemInput}
+ * @returns {@link BatchAssociateResourcesToCustomLineItemOutput}
  * @see {@link BatchAssociateResourcesToCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateResourcesToCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

@@ -251,8 +251,8 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *
  * ```
  *
- * @param CreateFunctionCommandInput - {@link CreateFunctionCommandInput}
- * @returns {@link CreateFunctionCommandOutput}
+ * @param CreateFunctionRequest - {@link CreateFunctionRequest}
+ * @returns {@link FunctionConfiguration}
  * @see {@link CreateFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -52,8 +52,8 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAssumeRolePolicyCommandInput - {@link UpdateAssumeRolePolicyCommandInput}
- * @returns {@link UpdateAssumeRolePolicyCommandOutput}
+ * @param UpdateAssumeRolePolicyRequest - {@link UpdateAssumeRolePolicyRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAssumeRolePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAssumeRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

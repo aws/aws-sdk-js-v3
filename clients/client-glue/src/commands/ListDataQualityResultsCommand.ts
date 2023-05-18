@@ -87,8 +87,8 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  *
  * ```
  *
- * @param ListDataQualityResultsCommandInput - {@link ListDataQualityResultsCommandInput}
- * @returns {@link ListDataQualityResultsCommandOutput}
+ * @param ListDataQualityResultsRequest - {@link ListDataQualityResultsRequest}
+ * @returns {@link ListDataQualityResultsResponse}
  * @see {@link ListDataQualityResultsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityResultsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

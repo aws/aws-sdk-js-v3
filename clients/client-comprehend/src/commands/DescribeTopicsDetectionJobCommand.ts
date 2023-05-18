@@ -85,8 +85,8 @@ export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsD
  *
  * ```
  *
- * @param DescribeTopicsDetectionJobCommandInput - {@link DescribeTopicsDetectionJobCommandInput}
- * @returns {@link DescribeTopicsDetectionJobCommandOutput}
+ * @param DescribeTopicsDetectionJobRequest - {@link DescribeTopicsDetectionJobRequest}
+ * @returns {@link DescribeTopicsDetectionJobResponse}
  * @see {@link DescribeTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

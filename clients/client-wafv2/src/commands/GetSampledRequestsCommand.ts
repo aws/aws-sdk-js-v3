@@ -114,8 +114,8 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  *
  * ```
  *
- * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
- * @returns {@link GetSampledRequestsCommandOutput}
+ * @param GetSampledRequestsRequest - {@link GetSampledRequestsRequest}
+ * @returns {@link GetSampledRequestsResponse}
  * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

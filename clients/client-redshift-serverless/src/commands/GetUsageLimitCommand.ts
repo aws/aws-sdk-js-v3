@@ -62,8 +62,8 @@ export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __Met
  *
  * ```
  *
- * @param GetUsageLimitCommandInput - {@link GetUsageLimitCommandInput}
- * @returns {@link GetUsageLimitCommandOutput}
+ * @param GetUsageLimitRequest - {@link GetUsageLimitRequest}
+ * @returns {@link GetUsageLimitResponse}
  * @see {@link GetUsageLimitCommandInput} for command's `input` shape.
  * @see {@link GetUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

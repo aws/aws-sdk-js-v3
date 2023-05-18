@@ -64,8 +64,8 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  *
  * ```
  *
- * @param AddAttributesToFindingsCommandInput - {@link AddAttributesToFindingsCommandInput}
- * @returns {@link AddAttributesToFindingsCommandOutput}
+ * @param AddAttributesToFindingsRequest - {@link AddAttributesToFindingsRequest}
+ * @returns {@link AddAttributesToFindingsResponse}
  * @see {@link AddAttributesToFindingsCommandInput} for command's `input` shape.
  * @see {@link AddAttributesToFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

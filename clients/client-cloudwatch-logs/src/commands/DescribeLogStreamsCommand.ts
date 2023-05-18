@@ -77,8 +77,8 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  *
  * ```
  *
- * @param DescribeLogStreamsCommandInput - {@link DescribeLogStreamsCommandInput}
- * @returns {@link DescribeLogStreamsCommandOutput}
+ * @param DescribeLogStreamsRequest - {@link DescribeLogStreamsRequest}
+ * @returns {@link DescribeLogStreamsResponse}
  * @see {@link DescribeLogStreamsCommandInput} for command's `input` shape.
  * @see {@link DescribeLogStreamsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

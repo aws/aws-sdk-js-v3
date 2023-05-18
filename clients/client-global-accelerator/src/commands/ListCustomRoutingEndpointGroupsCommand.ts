@@ -81,8 +81,8 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
  *
  * ```
  *
- * @param ListCustomRoutingEndpointGroupsCommandInput - {@link ListCustomRoutingEndpointGroupsCommandInput}
- * @returns {@link ListCustomRoutingEndpointGroupsCommandOutput}
+ * @param ListCustomRoutingEndpointGroupsRequest - {@link ListCustomRoutingEndpointGroupsRequest}
+ * @returns {@link ListCustomRoutingEndpointGroupsResponse}
  * @see {@link ListCustomRoutingEndpointGroupsCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingEndpointGroupsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

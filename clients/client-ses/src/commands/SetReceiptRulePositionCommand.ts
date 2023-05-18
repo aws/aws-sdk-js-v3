@@ -53,8 +53,8 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  *
  * ```
  *
- * @param SetReceiptRulePositionCommandInput - {@link SetReceiptRulePositionCommandInput}
- * @returns {@link SetReceiptRulePositionCommandOutput}
+ * @param SetReceiptRulePositionRequest - {@link SetReceiptRulePositionRequest}
+ * @returns {@link SetReceiptRulePositionResponse}
  * @see {@link SetReceiptRulePositionCommandInput} for command's `input` shape.
  * @see {@link SetReceiptRulePositionCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

@@ -67,8 +67,8 @@ export interface DescribeAnalysisPermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeAnalysisPermissionsCommandInput - {@link DescribeAnalysisPermissionsCommandInput}
- * @returns {@link DescribeAnalysisPermissionsCommandOutput}
+ * @param DescribeAnalysisPermissionsRequest - {@link DescribeAnalysisPermissionsRequest}
+ * @returns {@link DescribeAnalysisPermissionsResponse}
  * @see {@link DescribeAnalysisPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

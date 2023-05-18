@@ -61,8 +61,8 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  *
  * ```
  *
- * @param DeleteDefaultMessageTypeCommandInput - {@link DeleteDefaultMessageTypeCommandInput}
- * @returns {@link DeleteDefaultMessageTypeCommandOutput}
+ * @param DeleteDefaultMessageTypeRequest - {@link DeleteDefaultMessageTypeRequest}
+ * @returns {@link DeleteDefaultMessageTypeResult}
  * @see {@link DeleteDefaultMessageTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteDefaultMessageTypeCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

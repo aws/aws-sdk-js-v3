@@ -79,8 +79,8 @@ export interface DescribeConformancePackComplianceCommandOutput
  *
  * ```
  *
- * @param DescribeConformancePackComplianceCommandInput - {@link DescribeConformancePackComplianceCommandInput}
- * @returns {@link DescribeConformancePackComplianceCommandOutput}
+ * @param DescribeConformancePackComplianceRequest - {@link DescribeConformancePackComplianceRequest}
+ * @returns {@link DescribeConformancePackComplianceResponse}
  * @see {@link DescribeConformancePackComplianceCommandInput} for command's `input` shape.
  * @see {@link DescribeConformancePackComplianceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -64,8 +64,8 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  *
  * ```
  *
- * @param GetFuotaTaskCommandInput - {@link GetFuotaTaskCommandInput}
- * @returns {@link GetFuotaTaskCommandOutput}
+ * @param GetFuotaTaskRequest - {@link GetFuotaTaskRequest}
+ * @returns {@link GetFuotaTaskResponse}
  * @see {@link GetFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link GetFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

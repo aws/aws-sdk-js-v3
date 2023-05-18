@@ -100,8 +100,8 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  *
  * ```
  *
- * @param ListRecoveryPointsByBackupVaultCommandInput - {@link ListRecoveryPointsByBackupVaultCommandInput}
- * @returns {@link ListRecoveryPointsByBackupVaultCommandOutput}
+ * @param ListRecoveryPointsByBackupVaultInput - {@link ListRecoveryPointsByBackupVaultInput}
+ * @returns {@link ListRecoveryPointsByBackupVaultOutput}
  * @see {@link ListRecoveryPointsByBackupVaultCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

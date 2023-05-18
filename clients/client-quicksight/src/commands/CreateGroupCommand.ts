@@ -64,8 +64,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *
  * ```
  *
- * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
- * @returns {@link CreateGroupCommandOutput}
+ * @param CreateGroupRequest - {@link CreateGroupRequest}
+ * @returns {@link CreateGroupResponse}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

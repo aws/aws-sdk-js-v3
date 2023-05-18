@@ -53,8 +53,8 @@ export interface PutAccountSendingAttributesCommandOutput
  *
  * ```
  *
- * @param PutAccountSendingAttributesCommandInput - {@link PutAccountSendingAttributesCommandInput}
- * @returns {@link PutAccountSendingAttributesCommandOutput}
+ * @param PutAccountSendingAttributesRequest - {@link PutAccountSendingAttributesRequest}
+ * @returns {@link PutAccountSendingAttributesResponse}
  * @see {@link PutAccountSendingAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSendingAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

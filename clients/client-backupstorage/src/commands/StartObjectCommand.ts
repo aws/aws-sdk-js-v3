@@ -52,8 +52,8 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  *
  * ```
  *
- * @param StartObjectCommandInput - {@link StartObjectCommandInput}
- * @returns {@link StartObjectCommandOutput}
+ * @param StartObjectInput - {@link StartObjectInput}
+ * @returns {@link StartObjectOutput}
  * @see {@link StartObjectCommandInput} for command's `input` shape.
  * @see {@link StartObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

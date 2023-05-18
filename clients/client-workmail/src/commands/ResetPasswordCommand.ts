@@ -54,8 +54,8 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  *
  * ```
  *
- * @param ResetPasswordCommandInput - {@link ResetPasswordCommandInput}
- * @returns {@link ResetPasswordCommandOutput}
+ * @param ResetPasswordRequest - {@link ResetPasswordRequest}
+ * @returns {@link ResetPasswordResponse}
  * @see {@link ResetPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetPasswordCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

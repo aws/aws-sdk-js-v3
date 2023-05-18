@@ -142,8 +142,8 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  *
  * ```
  *
- * @param StartDBClusterCommandInput - {@link StartDBClusterCommandInput}
- * @returns {@link StartDBClusterCommandOutput}
+ * @param StartDBClusterMessage - {@link StartDBClusterMessage}
+ * @returns {@link StartDBClusterResult}
  * @see {@link StartDBClusterCommandInput} for command's `input` shape.
  * @see {@link StartDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

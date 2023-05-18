@@ -57,8 +57,8 @@ export interface DisassociateDiscoveredResourceCommandOutput
  *
  * ```
  *
- * @param DisassociateDiscoveredResourceCommandInput - {@link DisassociateDiscoveredResourceCommandInput}
- * @returns {@link DisassociateDiscoveredResourceCommandOutput}
+ * @param DisassociateDiscoveredResourceRequest - {@link DisassociateDiscoveredResourceRequest}
+ * @returns {@link DisassociateDiscoveredResourceResult}
  * @see {@link DisassociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateDiscoveredResourceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

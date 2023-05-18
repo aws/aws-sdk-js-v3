@@ -72,8 +72,8 @@ export interface GetRelationalDatabaseParametersCommandOutput
  *
  * ```
  *
- * @param GetRelationalDatabaseParametersCommandInput - {@link GetRelationalDatabaseParametersCommandInput}
- * @returns {@link GetRelationalDatabaseParametersCommandOutput}
+ * @param GetRelationalDatabaseParametersRequest - {@link GetRelationalDatabaseParametersRequest}
+ * @returns {@link GetRelationalDatabaseParametersResult}
  * @see {@link GetRelationalDatabaseParametersCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseParametersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

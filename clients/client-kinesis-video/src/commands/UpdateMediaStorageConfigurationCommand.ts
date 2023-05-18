@@ -68,8 +68,8 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateMediaStorageConfigurationCommandInput - {@link UpdateMediaStorageConfigurationCommandInput}
- * @returns {@link UpdateMediaStorageConfigurationCommandOutput}
+ * @param UpdateMediaStorageConfigurationInput - {@link UpdateMediaStorageConfigurationInput}
+ * @returns {@link UpdateMediaStorageConfigurationOutput}
  * @see {@link UpdateMediaStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateMediaStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

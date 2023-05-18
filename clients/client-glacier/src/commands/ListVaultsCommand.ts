@@ -80,8 +80,8 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  *
  * ```
  *
- * @param ListVaultsCommandInput - {@link ListVaultsCommandInput}
- * @returns {@link ListVaultsCommandOutput}
+ * @param ListVaultsInput - {@link ListVaultsInput}
+ * @returns {@link ListVaultsOutput}
  * @see {@link ListVaultsCommandInput} for command's `input` shape.
  * @see {@link ListVaultsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

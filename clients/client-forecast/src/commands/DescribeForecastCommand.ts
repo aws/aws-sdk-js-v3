@@ -109,8 +109,8 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  *
  * ```
  *
- * @param DescribeForecastCommandInput - {@link DescribeForecastCommandInput}
- * @returns {@link DescribeForecastCommandOutput}
+ * @param DescribeForecastRequest - {@link DescribeForecastRequest}
+ * @returns {@link DescribeForecastResponse}
  * @see {@link DescribeForecastCommandInput} for command's `input` shape.
  * @see {@link DescribeForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

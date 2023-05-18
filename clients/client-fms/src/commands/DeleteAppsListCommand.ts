@@ -48,8 +48,8 @@ export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAppsListCommandInput - {@link DeleteAppsListCommandInput}
- * @returns {@link DeleteAppsListCommandOutput}
+ * @param DeleteAppsListRequest - {@link DeleteAppsListRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAppsListCommandInput} for command's `input` shape.
  * @see {@link DeleteAppsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

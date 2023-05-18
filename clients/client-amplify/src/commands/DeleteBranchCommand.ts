@@ -87,8 +87,8 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  *
  * ```
  *
- * @param DeleteBranchCommandInput - {@link DeleteBranchCommandInput}
- * @returns {@link DeleteBranchCommandOutput}
+ * @param DeleteBranchRequest - {@link DeleteBranchRequest}
+ * @returns {@link DeleteBranchResult}
  * @see {@link DeleteBranchCommandInput} for command's `input` shape.
  * @see {@link DeleteBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

@@ -99,8 +99,8 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  *
  * ```
  *
- * @param ListWorkgroupsCommandInput - {@link ListWorkgroupsCommandInput}
- * @returns {@link ListWorkgroupsCommandOutput}
+ * @param ListWorkgroupsRequest - {@link ListWorkgroupsRequest}
+ * @returns {@link ListWorkgroupsResponse}
  * @see {@link ListWorkgroupsCommandInput} for command's `input` shape.
  * @see {@link ListWorkgroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

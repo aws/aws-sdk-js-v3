@@ -74,8 +74,8 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  *
  * ```
  *
- * @param BatchGetFieldCommandInput - {@link BatchGetFieldCommandInput}
- * @returns {@link BatchGetFieldCommandOutput}
+ * @param BatchGetFieldRequest - {@link BatchGetFieldRequest}
+ * @returns {@link BatchGetFieldResponse}
  * @see {@link BatchGetFieldCommandInput} for command's `input` shape.
  * @see {@link BatchGetFieldCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

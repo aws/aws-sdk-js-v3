@@ -81,8 +81,8 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  *
  * ```
  *
- * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
- * @returns {@link ListBillingGroupsCommandOutput}
+ * @param ListBillingGroupsInput - {@link ListBillingGroupsInput}
+ * @returns {@link ListBillingGroupsOutput}
  * @see {@link ListBillingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

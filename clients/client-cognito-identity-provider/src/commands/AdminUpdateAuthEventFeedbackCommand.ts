@@ -67,8 +67,8 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  *
  * ```
  *
- * @param AdminUpdateAuthEventFeedbackCommandInput - {@link AdminUpdateAuthEventFeedbackCommandInput}
- * @returns {@link AdminUpdateAuthEventFeedbackCommandOutput}
+ * @param AdminUpdateAuthEventFeedbackRequest - {@link AdminUpdateAuthEventFeedbackRequest}
+ * @returns {@link AdminUpdateAuthEventFeedbackResponse}
  * @see {@link AdminUpdateAuthEventFeedbackCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateAuthEventFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -78,8 +78,8 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  *
  * ```
  *
- * @param ListPredictorsCommandInput - {@link ListPredictorsCommandInput}
- * @returns {@link ListPredictorsCommandOutput}
+ * @param ListPredictorsRequest - {@link ListPredictorsRequest}
+ * @returns {@link ListPredictorsResponse}
  * @see {@link ListPredictorsCommandInput} for command's `input` shape.
  * @see {@link ListPredictorsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

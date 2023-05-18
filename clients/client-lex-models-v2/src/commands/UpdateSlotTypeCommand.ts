@@ -140,8 +140,8 @@ export interface UpdateSlotTypeCommandOutput extends UpdateSlotTypeResponse, __M
  *
  * ```
  *
- * @param UpdateSlotTypeCommandInput - {@link UpdateSlotTypeCommandInput}
- * @returns {@link UpdateSlotTypeCommandOutput}
+ * @param UpdateSlotTypeRequest - {@link UpdateSlotTypeRequest}
+ * @returns {@link UpdateSlotTypeResponse}
  * @see {@link UpdateSlotTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

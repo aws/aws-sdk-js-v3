@@ -50,8 +50,8 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
- * @returns {@link DeleteAccountAliasCommandOutput}
+ * @param DeleteAccountAliasRequest - {@link DeleteAccountAliasRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

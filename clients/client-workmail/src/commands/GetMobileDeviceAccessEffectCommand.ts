@@ -63,8 +63,8 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  *
  * ```
  *
- * @param GetMobileDeviceAccessEffectCommandInput - {@link GetMobileDeviceAccessEffectCommandInput}
- * @returns {@link GetMobileDeviceAccessEffectCommandOutput}
+ * @param GetMobileDeviceAccessEffectRequest - {@link GetMobileDeviceAccessEffectRequest}
+ * @returns {@link GetMobileDeviceAccessEffectResponse}
  * @see {@link GetMobileDeviceAccessEffectCommandInput} for command's `input` shape.
  * @see {@link GetMobileDeviceAccessEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

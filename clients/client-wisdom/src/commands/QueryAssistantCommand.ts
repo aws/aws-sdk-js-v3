@@ -92,8 +92,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  *
  * ```
  *
- * @param QueryAssistantCommandInput - {@link QueryAssistantCommandInput}
- * @returns {@link QueryAssistantCommandOutput}
+ * @param QueryAssistantRequest - {@link QueryAssistantRequest}
+ * @returns {@link QueryAssistantResponse}
  * @see {@link QueryAssistantCommandInput} for command's `input` shape.
  * @see {@link QueryAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

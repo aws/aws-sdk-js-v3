@@ -54,8 +54,8 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  *
  * ```
  *
- * @param UpdateSubscriptionDefinitionCommandInput - {@link UpdateSubscriptionDefinitionCommandInput}
- * @returns {@link UpdateSubscriptionDefinitionCommandOutput}
+ * @param UpdateSubscriptionDefinitionRequest - {@link UpdateSubscriptionDefinitionRequest}
+ * @returns {@link UpdateSubscriptionDefinitionResponse}
  * @see {@link UpdateSubscriptionDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

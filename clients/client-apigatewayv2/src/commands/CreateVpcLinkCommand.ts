@@ -73,8 +73,8 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  *
  * ```
  *
- * @param CreateVpcLinkCommandInput - {@link CreateVpcLinkCommandInput}
- * @returns {@link CreateVpcLinkCommandOutput}
+ * @param CreateVpcLinkRequest - {@link CreateVpcLinkRequest}
+ * @returns {@link CreateVpcLinkResponse}
  * @see {@link CreateVpcLinkCommandInput} for command's `input` shape.
  * @see {@link CreateVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

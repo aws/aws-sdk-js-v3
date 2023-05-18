@@ -60,8 +60,8 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  *
  * ```
  *
- * @param ListAppMonitorsCommandInput - {@link ListAppMonitorsCommandInput}
- * @returns {@link ListAppMonitorsCommandOutput}
+ * @param ListAppMonitorsRequest - {@link ListAppMonitorsRequest}
+ * @returns {@link ListAppMonitorsResponse}
  * @see {@link ListAppMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListAppMonitorsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

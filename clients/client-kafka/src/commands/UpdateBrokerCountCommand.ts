@@ -53,8 +53,8 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
  *
  * ```
  *
- * @param UpdateBrokerCountCommandInput - {@link UpdateBrokerCountCommandInput}
- * @returns {@link UpdateBrokerCountCommandOutput}
+ * @param UpdateBrokerCountRequest - {@link UpdateBrokerCountRequest}
+ * @returns {@link UpdateBrokerCountResponse}
  * @see {@link UpdateBrokerCountCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerCountCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

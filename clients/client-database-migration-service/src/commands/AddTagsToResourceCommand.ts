@@ -64,8 +64,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *
  * ```
  *
- * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
- * @returns {@link AddTagsToResourceCommandOutput}
+ * @param AddTagsToResourceMessage - {@link AddTagsToResourceMessage}
+ * @returns {@link AddTagsToResourceResponse}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

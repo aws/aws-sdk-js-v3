@@ -56,8 +56,8 @@ export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetSiteCommandInput - {@link GetSiteCommandInput}
- * @returns {@link GetSiteCommandOutput}
+ * @param GetSiteRequest - {@link GetSiteRequest}
+ * @returns {@link GetSiteResponse}
  * @see {@link GetSiteCommandInput} for command's `input` shape.
  * @see {@link GetSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

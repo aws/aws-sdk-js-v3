@@ -55,8 +55,8 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  *
  * ```
  *
- * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
- * @returns {@link DeleteMessageCommandOutput}
+ * @param DeleteMessageRequest - {@link DeleteMessageRequest}
+ * @returns {@link DeleteMessageResponse}
  * @see {@link DeleteMessageCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.

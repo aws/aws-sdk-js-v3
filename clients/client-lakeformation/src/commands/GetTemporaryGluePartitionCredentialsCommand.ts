@@ -76,8 +76,8 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  *
  * ```
  *
- * @param GetTemporaryGluePartitionCredentialsCommandInput - {@link GetTemporaryGluePartitionCredentialsCommandInput}
- * @returns {@link GetTemporaryGluePartitionCredentialsCommandOutput}
+ * @param GetTemporaryGluePartitionCredentialsRequest - {@link GetTemporaryGluePartitionCredentialsRequest}
+ * @returns {@link GetTemporaryGluePartitionCredentialsResponse}
  * @see {@link GetTemporaryGluePartitionCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetTemporaryGluePartitionCredentialsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

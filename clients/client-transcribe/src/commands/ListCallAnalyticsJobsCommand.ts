@@ -67,8 +67,8 @@ export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJob
  *
  * ```
  *
- * @param ListCallAnalyticsJobsCommandInput - {@link ListCallAnalyticsJobsCommandInput}
- * @returns {@link ListCallAnalyticsJobsCommandOutput}
+ * @param ListCallAnalyticsJobsRequest - {@link ListCallAnalyticsJobsRequest}
+ * @returns {@link ListCallAnalyticsJobsResponse}
  * @see {@link ListCallAnalyticsJobsCommandInput} for command's `input` shape.
  * @see {@link ListCallAnalyticsJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

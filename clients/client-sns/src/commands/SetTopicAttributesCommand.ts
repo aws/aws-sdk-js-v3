@@ -55,8 +55,8 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetTopicAttributesCommandInput - {@link SetTopicAttributesCommandInput}
- * @returns {@link SetTopicAttributesCommandOutput}
+ * @param SetTopicAttributesInput - {@link SetTopicAttributesInput}
+ * @returns {@link Unit}
  * @see {@link SetTopicAttributesCommandInput} for command's `input` shape.
  * @see {@link SetTopicAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

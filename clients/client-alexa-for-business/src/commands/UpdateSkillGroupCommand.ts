@@ -50,8 +50,8 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
  *
  * ```
  *
- * @param UpdateSkillGroupCommandInput - {@link UpdateSkillGroupCommandInput}
- * @returns {@link UpdateSkillGroupCommandOutput}
+ * @param UpdateSkillGroupRequest - {@link UpdateSkillGroupRequest}
+ * @returns {@link UpdateSkillGroupResponse}
  * @see {@link UpdateSkillGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -70,8 +70,8 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  *
  * ```
  *
- * @param DetectSyntaxCommandInput - {@link DetectSyntaxCommandInput}
- * @returns {@link DetectSyntaxCommandOutput}
+ * @param DetectSyntaxRequest - {@link DetectSyntaxRequest}
+ * @returns {@link DetectSyntaxResponse}
  * @see {@link DetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link DetectSyntaxCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

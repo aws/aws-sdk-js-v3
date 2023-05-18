@@ -80,8 +80,8 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  *
  * ```
  *
- * @param UpdateMonitoringCommandInput - {@link UpdateMonitoringCommandInput}
- * @returns {@link UpdateMonitoringCommandOutput}
+ * @param UpdateMonitoringRequest - {@link UpdateMonitoringRequest}
+ * @returns {@link UpdateMonitoringResponse}
  * @see {@link UpdateMonitoringCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  *
  * ```
  *
- * @param ListExtensionAssociationsCommandInput - {@link ListExtensionAssociationsCommandInput}
- * @returns {@link ListExtensionAssociationsCommandOutput}
+ * @param ListExtensionAssociationsRequest - {@link ListExtensionAssociationsRequest}
+ * @returns {@link ExtensionAssociations}
  * @see {@link ListExtensionAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

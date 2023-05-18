@@ -74,8 +74,8 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
  *
  * ```
  *
- * @param PutMessagingStreamingConfigurationsCommandInput - {@link PutMessagingStreamingConfigurationsCommandInput}
- * @returns {@link PutMessagingStreamingConfigurationsCommandOutput}
+ * @param PutMessagingStreamingConfigurationsRequest - {@link PutMessagingStreamingConfigurationsRequest}
+ * @returns {@link PutMessagingStreamingConfigurationsResponse}
  * @see {@link PutMessagingStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutMessagingStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

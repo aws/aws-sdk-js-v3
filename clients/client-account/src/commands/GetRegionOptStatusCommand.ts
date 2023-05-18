@@ -52,8 +52,8 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  *
  * ```
  *
- * @param GetRegionOptStatusCommandInput - {@link GetRegionOptStatusCommandInput}
- * @returns {@link GetRegionOptStatusCommandOutput}
+ * @param GetRegionOptStatusRequest - {@link GetRegionOptStatusRequest}
+ * @returns {@link GetRegionOptStatusResponse}
  * @see {@link GetRegionOptStatusCommandInput} for command's `input` shape.
  * @see {@link GetRegionOptStatusCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

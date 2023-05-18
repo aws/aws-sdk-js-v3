@@ -48,8 +48,8 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  *
  * ```
  *
- * @param GetHealthCheckCountCommandInput - {@link GetHealthCheckCountCommandInput}
- * @returns {@link GetHealthCheckCountCommandOutput}
+ * @param GetHealthCheckCountRequest - {@link GetHealthCheckCountRequest}
+ * @returns {@link GetHealthCheckCountResponse}
  * @see {@link GetHealthCheckCountCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

@@ -62,8 +62,8 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
  *
  * ```
  *
- * @param DescribeLocationEfsCommandInput - {@link DescribeLocationEfsCommandInput}
- * @returns {@link DescribeLocationEfsCommandOutput}
+ * @param DescribeLocationEfsRequest - {@link DescribeLocationEfsRequest}
+ * @returns {@link DescribeLocationEfsResponse}
  * @see {@link DescribeLocationEfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationEfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

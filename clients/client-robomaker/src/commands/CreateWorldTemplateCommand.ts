@@ -65,8 +65,8 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  *
  * ```
  *
- * @param CreateWorldTemplateCommandInput - {@link CreateWorldTemplateCommandInput}
- * @returns {@link CreateWorldTemplateCommandOutput}
+ * @param CreateWorldTemplateRequest - {@link CreateWorldTemplateRequest}
+ * @returns {@link CreateWorldTemplateResponse}
  * @see {@link CreateWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateWorldTemplateCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

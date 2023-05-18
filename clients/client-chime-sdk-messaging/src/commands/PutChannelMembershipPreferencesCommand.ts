@@ -91,8 +91,8 @@ export interface PutChannelMembershipPreferencesCommandOutput
  *
  * ```
  *
- * @param PutChannelMembershipPreferencesCommandInput - {@link PutChannelMembershipPreferencesCommandInput}
- * @returns {@link PutChannelMembershipPreferencesCommandOutput}
+ * @param PutChannelMembershipPreferencesRequest - {@link PutChannelMembershipPreferencesRequest}
+ * @returns {@link PutChannelMembershipPreferencesResponse}
  * @see {@link PutChannelMembershipPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutChannelMembershipPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

@@ -63,8 +63,8 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  *
  * ```
  *
- * @param GetSyncJobCommandInput - {@link GetSyncJobCommandInput}
- * @returns {@link GetSyncJobCommandOutput}
+ * @param GetSyncJobRequest - {@link GetSyncJobRequest}
+ * @returns {@link GetSyncJobResponse}
  * @see {@link GetSyncJobCommandInput} for command's `input` shape.
  * @see {@link GetSyncJobCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

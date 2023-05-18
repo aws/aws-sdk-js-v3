@@ -77,8 +77,8 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  *
  * ```
  *
- * @param CreateHITTypeCommandInput - {@link CreateHITTypeCommandInput}
- * @returns {@link CreateHITTypeCommandOutput}
+ * @param CreateHITTypeRequest - {@link CreateHITTypeRequest}
+ * @returns {@link CreateHITTypeResponse}
  * @see {@link CreateHITTypeCommandInput} for command's `input` shape.
  * @see {@link CreateHITTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

@@ -75,8 +75,8 @@ export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGrap
  *
  * ```
  *
- * @param GetInsightImpactGraphCommandInput - {@link GetInsightImpactGraphCommandInput}
- * @returns {@link GetInsightImpactGraphCommandOutput}
+ * @param GetInsightImpactGraphRequest - {@link GetInsightImpactGraphRequest}
+ * @returns {@link GetInsightImpactGraphResult}
  * @see {@link GetInsightImpactGraphCommandInput} for command's `input` shape.
  * @see {@link GetInsightImpactGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

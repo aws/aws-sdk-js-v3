@@ -61,8 +61,8 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  *
  * ```
  *
- * @param ListImportFailuresCommandInput - {@link ListImportFailuresCommandInput}
- * @returns {@link ListImportFailuresCommandOutput}
+ * @param ListImportFailuresRequest - {@link ListImportFailuresRequest}
+ * @returns {@link ListImportFailuresResponse}
  * @see {@link ListImportFailuresCommandInput} for command's `input` shape.
  * @see {@link ListImportFailuresCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

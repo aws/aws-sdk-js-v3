@@ -77,8 +77,8 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  *
  * ```
  *
- * @param GetDataQualityResultCommandInput - {@link GetDataQualityResultCommandInput}
- * @returns {@link GetDataQualityResultCommandOutput}
+ * @param GetDataQualityResultRequest - {@link GetDataQualityResultRequest}
+ * @returns {@link GetDataQualityResultResponse}
  * @see {@link GetDataQualityResultCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityResultCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

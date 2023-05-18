@@ -87,8 +87,8 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  *
  * ```
  *
- * @param GetBranchCommandInput - {@link GetBranchCommandInput}
- * @returns {@link GetBranchCommandOutput}
+ * @param GetBranchRequest - {@link GetBranchRequest}
+ * @returns {@link GetBranchResult}
  * @see {@link GetBranchCommandInput} for command's `input` shape.
  * @see {@link GetBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

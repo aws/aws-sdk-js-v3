@@ -55,8 +55,8 @@ export interface ListProjectAssetsCommandOutput extends ListProjectAssetsRespons
  *
  * ```
  *
- * @param ListProjectAssetsCommandInput - {@link ListProjectAssetsCommandInput}
- * @returns {@link ListProjectAssetsCommandOutput}
+ * @param ListProjectAssetsRequest - {@link ListProjectAssetsRequest}
+ * @returns {@link ListProjectAssetsResponse}
  * @see {@link ListProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link ListProjectAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

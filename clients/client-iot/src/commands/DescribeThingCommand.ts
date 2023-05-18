@@ -60,8 +60,8 @@ export interface DescribeThingCommandOutput extends DescribeThingResponse, __Met
  *
  * ```
  *
- * @param DescribeThingCommandInput - {@link DescribeThingCommandInput}
- * @returns {@link DescribeThingCommandOutput}
+ * @param DescribeThingRequest - {@link DescribeThingRequest}
+ * @returns {@link DescribeThingResponse}
  * @see {@link DescribeThingCommandInput} for command's `input` shape.
  * @see {@link DescribeThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -55,8 +55,8 @@ export interface GetExtensionCommandOutput extends GetExtensionResult, __Metadat
  *
  * ```
  *
- * @param GetExtensionCommandInput - {@link GetExtensionCommandInput}
- * @returns {@link GetExtensionCommandOutput}
+ * @param GetExtensionRequest - {@link GetExtensionRequest}
+ * @returns {@link GetExtensionResult}
  * @see {@link GetExtensionCommandInput} for command's `input` shape.
  * @see {@link GetExtensionCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  *
  * ```
  *
- * @param GetDecryptedAPIKeyCommandInput - {@link GetDecryptedAPIKeyCommandInput}
- * @returns {@link GetDecryptedAPIKeyCommandOutput}
+ * @param GetDecryptedAPIKeyRequest - {@link GetDecryptedAPIKeyRequest}
+ * @returns {@link GetDecryptedAPIKeyResponse}
  * @see {@link GetDecryptedAPIKeyCommandInput} for command's `input` shape.
  * @see {@link GetDecryptedAPIKeyCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

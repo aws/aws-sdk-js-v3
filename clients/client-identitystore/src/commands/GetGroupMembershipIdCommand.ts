@@ -55,8 +55,8 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  *
  * ```
  *
- * @param GetGroupMembershipIdCommandInput - {@link GetGroupMembershipIdCommandInput}
- * @returns {@link GetGroupMembershipIdCommandOutput}
+ * @param GetGroupMembershipIdRequest - {@link GetGroupMembershipIdRequest}
+ * @returns {@link GetGroupMembershipIdResponse}
  * @see {@link GetGroupMembershipIdCommandInput} for command's `input` shape.
  * @see {@link GetGroupMembershipIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

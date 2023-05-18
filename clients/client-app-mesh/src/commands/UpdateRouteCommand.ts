@@ -474,8 +474,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *
  * ```
  *
- * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
- * @returns {@link UpdateRouteCommandOutput}
+ * @param UpdateRouteInput - {@link UpdateRouteInput}
+ * @returns {@link UpdateRouteOutput}
  * @see {@link UpdateRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

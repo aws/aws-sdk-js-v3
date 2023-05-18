@@ -61,8 +61,8 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RegisterDevicesCommandInput - {@link RegisterDevicesCommandInput}
- * @returns {@link RegisterDevicesCommandOutput}
+ * @param RegisterDevicesRequest - {@link RegisterDevicesRequest}
+ * @returns {@link Unit}
  * @see {@link RegisterDevicesCommandInput} for command's `input` shape.
  * @see {@link RegisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

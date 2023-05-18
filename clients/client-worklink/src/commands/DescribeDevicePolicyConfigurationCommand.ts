@@ -60,8 +60,8 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeDevicePolicyConfigurationCommandInput - {@link DescribeDevicePolicyConfigurationCommandInput}
- * @returns {@link DescribeDevicePolicyConfigurationCommandOutput}
+ * @param DescribeDevicePolicyConfigurationRequest - {@link DescribeDevicePolicyConfigurationRequest}
+ * @returns {@link DescribeDevicePolicyConfigurationResponse}
  * @see {@link DescribeDevicePolicyConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDevicePolicyConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

@@ -62,8 +62,8 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  *
  * ```
  *
- * @param DescribeByoipCidrsCommandInput - {@link DescribeByoipCidrsCommandInput}
- * @returns {@link DescribeByoipCidrsCommandOutput}
+ * @param DescribeByoipCidrsRequest - {@link DescribeByoipCidrsRequest}
+ * @returns {@link DescribeByoipCidrsResult}
  * @see {@link DescribeByoipCidrsCommandInput} for command's `input` shape.
  * @see {@link DescribeByoipCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

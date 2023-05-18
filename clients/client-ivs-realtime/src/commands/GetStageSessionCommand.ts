@@ -55,8 +55,8 @@ export interface GetStageSessionCommandOutput extends GetStageSessionResponse, _
  *
  * ```
  *
- * @param GetStageSessionCommandInput - {@link GetStageSessionCommandInput}
- * @returns {@link GetStageSessionCommandOutput}
+ * @param GetStageSessionRequest - {@link GetStageSessionRequest}
+ * @returns {@link GetStageSessionResponse}
  * @see {@link GetStageSessionCommandInput} for command's `input` shape.
  * @see {@link GetStageSessionCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

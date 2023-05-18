@@ -94,8 +94,8 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  *
  * ```
  *
- * @param CreateInterconnectCommandInput - {@link CreateInterconnectCommandInput}
- * @returns {@link CreateInterconnectCommandOutput}
+ * @param CreateInterconnectRequest - {@link CreateInterconnectRequest}
+ * @returns {@link Interconnect}
  * @see {@link CreateInterconnectCommandInput} for command's `input` shape.
  * @see {@link CreateInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

@@ -75,8 +75,8 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  *
  * ```
  *
- * @param DescribeMaintenanceWindowsForTargetCommandInput - {@link DescribeMaintenanceWindowsForTargetCommandInput}
- * @returns {@link DescribeMaintenanceWindowsForTargetCommandOutput}
+ * @param DescribeMaintenanceWindowsForTargetRequest - {@link DescribeMaintenanceWindowsForTargetRequest}
+ * @returns {@link DescribeMaintenanceWindowsForTargetResult}
  * @see {@link DescribeMaintenanceWindowsForTargetCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsForTargetCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

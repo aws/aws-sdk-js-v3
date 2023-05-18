@@ -74,8 +74,8 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  *
  * ```
  *
- * @param ListNotebookInstanceLifecycleConfigsCommandInput - {@link ListNotebookInstanceLifecycleConfigsCommandInput}
- * @returns {@link ListNotebookInstanceLifecycleConfigsCommandOutput}
+ * @param ListNotebookInstanceLifecycleConfigsInput - {@link ListNotebookInstanceLifecycleConfigsInput}
+ * @returns {@link ListNotebookInstanceLifecycleConfigsOutput}
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

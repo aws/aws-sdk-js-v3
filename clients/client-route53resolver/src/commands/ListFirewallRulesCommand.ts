@@ -71,8 +71,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  *
  * ```
  *
- * @param ListFirewallRulesCommandInput - {@link ListFirewallRulesCommandInput}
- * @returns {@link ListFirewallRulesCommandOutput}
+ * @param ListFirewallRulesRequest - {@link ListFirewallRulesRequest}
+ * @returns {@link ListFirewallRulesResponse}
  * @see {@link ListFirewallRulesCommandInput} for command's `input` shape.
  * @see {@link ListFirewallRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

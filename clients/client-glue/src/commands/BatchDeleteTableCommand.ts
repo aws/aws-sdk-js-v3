@@ -73,8 +73,8 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  *
  * ```
  *
- * @param BatchDeleteTableCommandInput - {@link BatchDeleteTableCommandInput}
- * @returns {@link BatchDeleteTableCommandOutput}
+ * @param BatchDeleteTableRequest - {@link BatchDeleteTableRequest}
+ * @returns {@link BatchDeleteTableResponse}
  * @see {@link BatchDeleteTableCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -59,8 +59,8 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  *
  * ```
  *
- * @param CreatePermissionGroupCommandInput - {@link CreatePermissionGroupCommandInput}
- * @returns {@link CreatePermissionGroupCommandOutput}
+ * @param CreatePermissionGroupRequest - {@link CreatePermissionGroupRequest}
+ * @returns {@link CreatePermissionGroupResponse}
  * @see {@link CreatePermissionGroupCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

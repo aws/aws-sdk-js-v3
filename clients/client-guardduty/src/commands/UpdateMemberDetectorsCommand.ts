@@ -88,8 +88,8 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  *
  * ```
  *
- * @param UpdateMemberDetectorsCommandInput - {@link UpdateMemberDetectorsCommandInput}
- * @returns {@link UpdateMemberDetectorsCommandOutput}
+ * @param UpdateMemberDetectorsRequest - {@link UpdateMemberDetectorsRequest}
+ * @returns {@link UpdateMemberDetectorsResponse}
  * @see {@link UpdateMemberDetectorsCommandInput} for command's `input` shape.
  * @see {@link UpdateMemberDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

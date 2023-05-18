@@ -75,8 +75,8 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  *
  * ```
  *
- * @param GetNetworkTelemetryCommandInput - {@link GetNetworkTelemetryCommandInput}
- * @returns {@link GetNetworkTelemetryCommandOutput}
+ * @param GetNetworkTelemetryRequest - {@link GetNetworkTelemetryRequest}
+ * @returns {@link GetNetworkTelemetryResponse}
  * @see {@link GetNetworkTelemetryCommandInput} for command's `input` shape.
  * @see {@link GetNetworkTelemetryCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

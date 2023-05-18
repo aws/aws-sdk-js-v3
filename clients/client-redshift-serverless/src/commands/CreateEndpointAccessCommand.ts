@@ -90,8 +90,8 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  *
  * ```
  *
- * @param CreateEndpointAccessCommandInput - {@link CreateEndpointAccessCommandInput}
- * @returns {@link CreateEndpointAccessCommandOutput}
+ * @param CreateEndpointAccessRequest - {@link CreateEndpointAccessRequest}
+ * @returns {@link CreateEndpointAccessResponse}
  * @see {@link CreateEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

@@ -72,8 +72,8 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
  *
  * ```
  *
- * @param UpdateEnvironmentAccountConnectionCommandInput - {@link UpdateEnvironmentAccountConnectionCommandInput}
- * @returns {@link UpdateEnvironmentAccountConnectionCommandOutput}
+ * @param UpdateEnvironmentAccountConnectionInput - {@link UpdateEnvironmentAccountConnectionInput}
+ * @returns {@link UpdateEnvironmentAccountConnectionOutput}
  * @see {@link UpdateEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

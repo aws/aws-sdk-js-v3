@@ -68,8 +68,8 @@ export interface DeleteApnsVoipSandboxChannelCommandOutput
  *
  * ```
  *
- * @param DeleteApnsVoipSandboxChannelCommandInput - {@link DeleteApnsVoipSandboxChannelCommandInput}
- * @returns {@link DeleteApnsVoipSandboxChannelCommandOutput}
+ * @param DeleteApnsVoipSandboxChannelRequest - {@link DeleteApnsVoipSandboxChannelRequest}
+ * @returns {@link DeleteApnsVoipSandboxChannelResponse}
  * @see {@link DeleteApnsVoipSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

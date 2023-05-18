@@ -68,8 +68,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *
  * ```
  *
- * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
- * @returns {@link ImportCertificateCommandOutput}
+ * @param ImportCertificateRequest - {@link ImportCertificateRequest}
+ * @returns {@link ImportCertificateResponse}
  * @see {@link ImportCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

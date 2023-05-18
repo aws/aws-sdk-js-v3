@@ -134,8 +134,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  *
  * ```
  *
- * @param ListLoggingConfigurationsCommandInput - {@link ListLoggingConfigurationsCommandInput}
- * @returns {@link ListLoggingConfigurationsCommandOutput}
+ * @param ListLoggingConfigurationsRequest - {@link ListLoggingConfigurationsRequest}
+ * @returns {@link ListLoggingConfigurationsResponse}
  * @see {@link ListLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

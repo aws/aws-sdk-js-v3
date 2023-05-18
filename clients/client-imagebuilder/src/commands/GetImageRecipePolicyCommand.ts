@@ -51,8 +51,8 @@ export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyR
  *
  * ```
  *
- * @param GetImageRecipePolicyCommandInput - {@link GetImageRecipePolicyCommandInput}
- * @returns {@link GetImageRecipePolicyCommandOutput}
+ * @param GetImageRecipePolicyRequest - {@link GetImageRecipePolicyRequest}
+ * @returns {@link GetImageRecipePolicyResponse}
  * @see {@link GetImageRecipePolicyCommandInput} for command's `input` shape.
  * @see {@link GetImageRecipePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

@@ -103,8 +103,8 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  *
  * ```
  *
- * @param DescribeConnectorEntityCommandInput - {@link DescribeConnectorEntityCommandInput}
- * @returns {@link DescribeConnectorEntityCommandOutput}
+ * @param DescribeConnectorEntityRequest - {@link DescribeConnectorEntityRequest}
+ * @returns {@link DescribeConnectorEntityResponse}
  * @see {@link DescribeConnectorEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorEntityCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

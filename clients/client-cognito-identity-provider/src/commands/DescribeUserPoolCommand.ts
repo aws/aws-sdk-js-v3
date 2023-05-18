@@ -185,8 +185,8 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  *
  * ```
  *
- * @param DescribeUserPoolCommandInput - {@link DescribeUserPoolCommandInput}
- * @returns {@link DescribeUserPoolCommandOutput}
+ * @param DescribeUserPoolRequest - {@link DescribeUserPoolRequest}
+ * @returns {@link DescribeUserPoolResponse}
  * @see {@link DescribeUserPoolCommandInput} for command's `input` shape.
  * @see {@link DescribeUserPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

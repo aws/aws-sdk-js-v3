@@ -72,8 +72,8 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  *
  * ```
  *
- * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
- * @returns {@link DeleteCertificateCommandOutput}
+ * @param DeleteCertificateRequest - {@link DeleteCertificateRequest}
+ * @returns {@link DeleteCertificateResult}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

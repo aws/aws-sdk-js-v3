@@ -85,8 +85,8 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateApplicationMaintenanceConfigurationCommandInput - {@link UpdateApplicationMaintenanceConfigurationCommandInput}
- * @returns {@link UpdateApplicationMaintenanceConfigurationCommandOutput}
+ * @param UpdateApplicationMaintenanceConfigurationRequest - {@link UpdateApplicationMaintenanceConfigurationRequest}
+ * @returns {@link UpdateApplicationMaintenanceConfigurationResponse}
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

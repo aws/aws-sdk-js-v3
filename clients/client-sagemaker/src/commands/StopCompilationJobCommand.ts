@@ -53,8 +53,8 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopCompilationJobCommandInput - {@link StopCompilationJobCommandInput}
- * @returns {@link StopCompilationJobCommandOutput}
+ * @param StopCompilationJobRequest - {@link StopCompilationJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopCompilationJobCommandInput} for command's `input` shape.
  * @see {@link StopCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

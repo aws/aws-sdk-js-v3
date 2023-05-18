@@ -78,8 +78,8 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  *
  * ```
  *
- * @param CreateInternetGatewayCommandInput - {@link CreateInternetGatewayCommandInput}
- * @returns {@link CreateInternetGatewayCommandOutput}
+ * @param CreateInternetGatewayRequest - {@link CreateInternetGatewayRequest}
+ * @returns {@link CreateInternetGatewayResult}
  * @see {@link CreateInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

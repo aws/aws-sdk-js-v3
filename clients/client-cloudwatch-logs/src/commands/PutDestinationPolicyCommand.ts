@@ -52,8 +52,8 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutDestinationPolicyCommandInput - {@link PutDestinationPolicyCommandInput}
- * @returns {@link PutDestinationPolicyCommandOutput}
+ * @param PutDestinationPolicyRequest - {@link PutDestinationPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link PutDestinationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDestinationPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

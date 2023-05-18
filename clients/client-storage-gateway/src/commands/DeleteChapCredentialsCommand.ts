@@ -54,8 +54,8 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  *
  * ```
  *
- * @param DeleteChapCredentialsCommandInput - {@link DeleteChapCredentialsCommandInput}
- * @returns {@link DeleteChapCredentialsCommandOutput}
+ * @param DeleteChapCredentialsInput - {@link DeleteChapCredentialsInput}
+ * @returns {@link DeleteChapCredentialsOutput}
  * @see {@link DeleteChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

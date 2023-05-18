@@ -90,8 +90,8 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
- * @returns {@link UpdateAppCommandOutput}
+ * @param UpdateAppRequest - {@link UpdateAppRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAppCommandInput} for command's `input` shape.
  * @see {@link UpdateAppCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

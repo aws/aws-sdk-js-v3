@@ -91,8 +91,8 @@ export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurit
  *
  * ```
  *
- * @param DescribeSecurityGroupRulesCommandInput - {@link DescribeSecurityGroupRulesCommandInput}
- * @returns {@link DescribeSecurityGroupRulesCommandOutput}
+ * @param DescribeSecurityGroupRulesRequest - {@link DescribeSecurityGroupRulesRequest}
+ * @returns {@link DescribeSecurityGroupRulesResult}
  * @see {@link DescribeSecurityGroupRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

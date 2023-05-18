@@ -49,8 +49,8 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  *
  * ```
  *
- * @param DeleteIpGroupCommandInput - {@link DeleteIpGroupCommandInput}
- * @returns {@link DeleteIpGroupCommandOutput}
+ * @param DeleteIpGroupRequest - {@link DeleteIpGroupRequest}
+ * @returns {@link DeleteIpGroupResult}
  * @see {@link DeleteIpGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

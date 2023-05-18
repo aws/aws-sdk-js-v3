@@ -92,8 +92,8 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  *
  * ```
  *
- * @param GetComplianceSummaryCommandInput - {@link GetComplianceSummaryCommandInput}
- * @returns {@link GetComplianceSummaryCommandOutput}
+ * @param GetComplianceSummaryInput - {@link GetComplianceSummaryInput}
+ * @returns {@link GetComplianceSummaryOutput}
  * @see {@link GetComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.

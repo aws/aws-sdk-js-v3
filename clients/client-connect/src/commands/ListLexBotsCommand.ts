@@ -61,8 +61,8 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  *
  * ```
  *
- * @param ListLexBotsCommandInput - {@link ListLexBotsCommandInput}
- * @returns {@link ListLexBotsCommandOutput}
+ * @param ListLexBotsRequest - {@link ListLexBotsRequest}
+ * @returns {@link ListLexBotsResponse}
  * @see {@link ListLexBotsCommandInput} for command's `input` shape.
  * @see {@link ListLexBotsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

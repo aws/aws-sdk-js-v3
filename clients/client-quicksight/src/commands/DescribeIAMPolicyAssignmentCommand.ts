@@ -71,8 +71,8 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
  *
  * ```
  *
- * @param DescribeIAMPolicyAssignmentCommandInput - {@link DescribeIAMPolicyAssignmentCommandInput}
- * @returns {@link DescribeIAMPolicyAssignmentCommandOutput}
+ * @param DescribeIAMPolicyAssignmentRequest - {@link DescribeIAMPolicyAssignmentRequest}
+ * @returns {@link DescribeIAMPolicyAssignmentResponse}
  * @see {@link DescribeIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link DescribeIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

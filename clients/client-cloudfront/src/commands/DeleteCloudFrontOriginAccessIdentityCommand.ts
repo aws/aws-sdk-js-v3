@@ -52,8 +52,8 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  *
  * ```
  *
- * @param DeleteCloudFrontOriginAccessIdentityCommandInput - {@link DeleteCloudFrontOriginAccessIdentityCommandInput}
- * @returns {@link DeleteCloudFrontOriginAccessIdentityCommandOutput}
+ * @param DeleteCloudFrontOriginAccessIdentityRequest - {@link DeleteCloudFrontOriginAccessIdentityRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

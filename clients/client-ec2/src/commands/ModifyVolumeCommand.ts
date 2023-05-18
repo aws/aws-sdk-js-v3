@@ -89,8 +89,8 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  *
  * ```
  *
- * @param ModifyVolumeCommandInput - {@link ModifyVolumeCommandInput}
- * @returns {@link ModifyVolumeCommandOutput}
+ * @param ModifyVolumeRequest - {@link ModifyVolumeRequest}
+ * @returns {@link ModifyVolumeResult}
  * @see {@link ModifyVolumeCommandInput} for command's `input` shape.
  * @see {@link ModifyVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

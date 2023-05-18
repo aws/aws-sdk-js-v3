@@ -63,8 +63,8 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  *
  * ```
  *
- * @param ListNotificationsCommandInput - {@link ListNotificationsCommandInput}
- * @returns {@link ListNotificationsCommandOutput}
+ * @param ListNotificationsRequest - {@link ListNotificationsRequest}
+ * @returns {@link ListNotificationsResponse}
  * @see {@link ListNotificationsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

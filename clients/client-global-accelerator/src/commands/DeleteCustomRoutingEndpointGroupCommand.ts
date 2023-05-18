@@ -55,8 +55,8 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeleteCustomRoutingEndpointGroupCommandInput - {@link DeleteCustomRoutingEndpointGroupCommandInput}
- * @returns {@link DeleteCustomRoutingEndpointGroupCommandOutput}
+ * @param DeleteCustomRoutingEndpointGroupRequest - {@link DeleteCustomRoutingEndpointGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

@@ -72,8 +72,8 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __Met
  *
  * ```
  *
- * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
- * @returns {@link DeleteInstanceCommandOutput}
+ * @param DeleteInstanceRequest - {@link DeleteInstanceRequest}
+ * @returns {@link DeleteInstanceResult}
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

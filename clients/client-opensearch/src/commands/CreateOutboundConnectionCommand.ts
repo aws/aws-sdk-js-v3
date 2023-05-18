@@ -90,8 +90,8 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  *
  * ```
  *
- * @param CreateOutboundConnectionCommandInput - {@link CreateOutboundConnectionCommandInput}
- * @returns {@link CreateOutboundConnectionCommandOutput}
+ * @param CreateOutboundConnectionRequest - {@link CreateOutboundConnectionRequest}
+ * @returns {@link CreateOutboundConnectionResponse}
  * @see {@link CreateOutboundConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateOutboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

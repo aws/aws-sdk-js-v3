@@ -52,8 +52,8 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisassociateLexBotCommandInput - {@link DisassociateLexBotCommandInput}
- * @returns {@link DisassociateLexBotCommandOutput}
+ * @param DisassociateLexBotRequest - {@link DisassociateLexBotRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateLexBotCommandInput} for command's `input` shape.
  * @see {@link DisassociateLexBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

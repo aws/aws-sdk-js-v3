@@ -127,8 +127,8 @@ export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __Met
  *
  * ```
  *
- * @param GetBackendAPICommandInput - {@link GetBackendAPICommandInput}
- * @returns {@link GetBackendAPICommandOutput}
+ * @param GetBackendAPIRequest - {@link GetBackendAPIRequest}
+ * @returns {@link GetBackendAPIResponse}
  * @see {@link GetBackendAPICommandInput} for command's `input` shape.
  * @see {@link GetBackendAPICommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

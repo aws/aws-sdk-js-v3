@@ -106,8 +106,8 @@ export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __Met
  *
  * ```
  *
- * @param ImportSnapshotCommandInput - {@link ImportSnapshotCommandInput}
- * @returns {@link ImportSnapshotCommandOutput}
+ * @param ImportSnapshotRequest - {@link ImportSnapshotRequest}
+ * @returns {@link ImportSnapshotResult}
  * @see {@link ImportSnapshotCommandInput} for command's `input` shape.
  * @see {@link ImportSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

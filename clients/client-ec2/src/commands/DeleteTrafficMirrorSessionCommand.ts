@@ -51,8 +51,8 @@ export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMi
  *
  * ```
  *
- * @param DeleteTrafficMirrorSessionCommandInput - {@link DeleteTrafficMirrorSessionCommandInput}
- * @returns {@link DeleteTrafficMirrorSessionCommandOutput}
+ * @param DeleteTrafficMirrorSessionRequest - {@link DeleteTrafficMirrorSessionRequest}
+ * @returns {@link DeleteTrafficMirrorSessionResult}
  * @see {@link DeleteTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  *
  * ```
  *
- * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
- * @returns {@link DeleteWorkflowCommandOutput}
+ * @param DeleteWorkflowRequest - {@link DeleteWorkflowRequest}
+ * @returns {@link DeleteWorkflowResponse}
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

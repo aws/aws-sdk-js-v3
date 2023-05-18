@@ -73,8 +73,8 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  *
  * ```
  *
- * @param ResetPersonalPINCommandInput - {@link ResetPersonalPINCommandInput}
- * @returns {@link ResetPersonalPINCommandOutput}
+ * @param ResetPersonalPINRequest - {@link ResetPersonalPINRequest}
+ * @returns {@link ResetPersonalPINResponse}
  * @see {@link ResetPersonalPINCommandInput} for command's `input` shape.
  * @see {@link ResetPersonalPINCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

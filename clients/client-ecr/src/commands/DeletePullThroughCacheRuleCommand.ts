@@ -54,8 +54,8 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  *
  * ```
  *
- * @param DeletePullThroughCacheRuleCommandInput - {@link DeletePullThroughCacheRuleCommandInput}
- * @returns {@link DeletePullThroughCacheRuleCommandOutput}
+ * @param DeletePullThroughCacheRuleRequest - {@link DeletePullThroughCacheRuleRequest}
+ * @returns {@link DeletePullThroughCacheRuleResponse}
  * @see {@link DeletePullThroughCacheRuleCommandInput} for command's `input` shape.
  * @see {@link DeletePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

@@ -96,8 +96,8 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  *
  * ```
  *
- * @param StopImageBuilderCommandInput - {@link StopImageBuilderCommandInput}
- * @returns {@link StopImageBuilderCommandOutput}
+ * @param StopImageBuilderRequest - {@link StopImageBuilderRequest}
+ * @returns {@link StopImageBuilderResult}
  * @see {@link StopImageBuilderCommandInput} for command's `input` shape.
  * @see {@link StopImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

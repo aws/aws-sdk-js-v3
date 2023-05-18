@@ -87,8 +87,8 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  *
  * ```
  *
- * @param BatchGetSchemaCommandInput - {@link BatchGetSchemaCommandInput}
- * @returns {@link BatchGetSchemaCommandOutput}
+ * @param BatchGetSchemaInput - {@link BatchGetSchemaInput}
+ * @returns {@link BatchGetSchemaOutput}
  * @see {@link BatchGetSchemaCommandInput} for command's `input` shape.
  * @see {@link BatchGetSchemaCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

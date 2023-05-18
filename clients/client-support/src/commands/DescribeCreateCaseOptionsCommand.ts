@@ -87,8 +87,8 @@ export interface DescribeCreateCaseOptionsCommandOutput extends DescribeCreateCa
  *
  * ```
  *
- * @param DescribeCreateCaseOptionsCommandInput - {@link DescribeCreateCaseOptionsCommandInput}
- * @returns {@link DescribeCreateCaseOptionsCommandOutput}
+ * @param DescribeCreateCaseOptionsRequest - {@link DescribeCreateCaseOptionsRequest}
+ * @returns {@link DescribeCreateCaseOptionsResponse}
  * @see {@link DescribeCreateCaseOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeCreateCaseOptionsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

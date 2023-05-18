@@ -73,8 +73,8 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  *
  * ```
  *
- * @param SetUserMFAPreferenceCommandInput - {@link SetUserMFAPreferenceCommandInput}
- * @returns {@link SetUserMFAPreferenceCommandOutput}
+ * @param SetUserMFAPreferenceRequest - {@link SetUserMFAPreferenceRequest}
+ * @returns {@link SetUserMFAPreferenceResponse}
  * @see {@link SetUserMFAPreferenceCommandInput} for command's `input` shape.
  * @see {@link SetUserMFAPreferenceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

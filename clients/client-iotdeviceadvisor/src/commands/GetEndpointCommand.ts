@@ -53,8 +53,8 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  *
  * ```
  *
- * @param GetEndpointCommandInput - {@link GetEndpointCommandInput}
- * @returns {@link GetEndpointCommandOutput}
+ * @param GetEndpointRequest - {@link GetEndpointRequest}
+ * @returns {@link GetEndpointResponse}
  * @see {@link GetEndpointCommandInput} for command's `input` shape.
  * @see {@link GetEndpointCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

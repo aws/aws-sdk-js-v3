@@ -70,8 +70,8 @@ export interface ListReadSetUploadPartsCommandOutput extends ListReadSetUploadPa
  *
  * ```
  *
- * @param ListReadSetUploadPartsCommandInput - {@link ListReadSetUploadPartsCommandInput}
- * @returns {@link ListReadSetUploadPartsCommandOutput}
+ * @param ListReadSetUploadPartsRequest - {@link ListReadSetUploadPartsRequest}
+ * @returns {@link ListReadSetUploadPartsResponse}
  * @see {@link ListReadSetUploadPartsCommandInput} for command's `input` shape.
  * @see {@link ListReadSetUploadPartsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

@@ -60,8 +60,8 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDatabaseCommandInput - {@link DeleteDatabaseCommandInput}
- * @returns {@link DeleteDatabaseCommandOutput}
+ * @param DeleteDatabaseRequest - {@link DeleteDatabaseRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteNetworkInsightsAccessScopeCommandOutput
  *
  * ```
  *
- * @param DeleteNetworkInsightsAccessScopeCommandInput - {@link DeleteNetworkInsightsAccessScopeCommandInput}
- * @returns {@link DeleteNetworkInsightsAccessScopeCommandOutput}
+ * @param DeleteNetworkInsightsAccessScopeRequest - {@link DeleteNetworkInsightsAccessScopeRequest}
+ * @returns {@link DeleteNetworkInsightsAccessScopeResult}
  * @see {@link DeleteNetworkInsightsAccessScopeCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAccessScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -57,8 +57,8 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  *
  * ```
  *
- * @param DescribeCollectionCommandInput - {@link DescribeCollectionCommandInput}
- * @returns {@link DescribeCollectionCommandOutput}
+ * @param DescribeCollectionRequest - {@link DescribeCollectionRequest}
+ * @returns {@link DescribeCollectionResponse}
  * @see {@link DescribeCollectionCommandInput} for command's `input` shape.
  * @see {@link DescribeCollectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

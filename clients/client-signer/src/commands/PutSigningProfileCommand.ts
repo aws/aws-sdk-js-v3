@@ -75,8 +75,8 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  *
  * ```
  *
- * @param PutSigningProfileCommandInput - {@link PutSigningProfileCommandInput}
- * @returns {@link PutSigningProfileCommandOutput}
+ * @param PutSigningProfileRequest - {@link PutSigningProfileRequest}
+ * @returns {@link PutSigningProfileResponse}
  * @see {@link PutSigningProfileCommandInput} for command's `input` shape.
  * @see {@link PutSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

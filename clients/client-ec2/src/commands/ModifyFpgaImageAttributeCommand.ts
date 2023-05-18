@@ -94,8 +94,8 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
  *
  * ```
  *
- * @param ModifyFpgaImageAttributeCommandInput - {@link ModifyFpgaImageAttributeCommandInput}
- * @returns {@link ModifyFpgaImageAttributeCommandOutput}
+ * @param ModifyFpgaImageAttributeRequest - {@link ModifyFpgaImageAttributeRequest}
+ * @returns {@link ModifyFpgaImageAttributeResult}
  * @see {@link ModifyFpgaImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

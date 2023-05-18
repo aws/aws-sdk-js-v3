@@ -55,8 +55,8 @@ export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCol
  *
  * ```
  *
- * @param UpdateGeofenceCollectionCommandInput - {@link UpdateGeofenceCollectionCommandInput}
- * @returns {@link UpdateGeofenceCollectionCommandOutput}
+ * @param UpdateGeofenceCollectionRequest - {@link UpdateGeofenceCollectionRequest}
+ * @returns {@link UpdateGeofenceCollectionResponse}
  * @see {@link UpdateGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

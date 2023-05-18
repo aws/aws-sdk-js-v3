@@ -51,8 +51,8 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteMeetingCommandInput - {@link DeleteMeetingCommandInput}
- * @returns {@link DeleteMeetingCommandOutput}
+ * @param DeleteMeetingRequest - {@link DeleteMeetingRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMeetingCommandInput} for command's `input` shape.
  * @see {@link DeleteMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

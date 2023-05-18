@@ -67,8 +67,8 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
  *
  * ```
  *
- * @param GetDeploymentsCommandInput - {@link GetDeploymentsCommandInput}
- * @returns {@link GetDeploymentsCommandOutput}
+ * @param GetDeploymentsRequest - {@link GetDeploymentsRequest}
+ * @returns {@link Deployments}
  * @see {@link GetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

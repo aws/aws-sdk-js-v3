@@ -81,8 +81,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  *
  * ```
  *
- * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
- * @returns {@link CreateVpcEndpointCommandOutput}
+ * @param CreateVpcEndpointRequest - {@link CreateVpcEndpointRequest}
+ * @returns {@link CreateVpcEndpointResponse}
  * @see {@link CreateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

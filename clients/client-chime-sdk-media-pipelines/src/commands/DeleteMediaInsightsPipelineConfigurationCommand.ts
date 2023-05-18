@@ -56,8 +56,8 @@ export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends _
  *
  * ```
  *
- * @param DeleteMediaInsightsPipelineConfigurationCommandInput - {@link DeleteMediaInsightsPipelineConfigurationCommandInput}
- * @returns {@link DeleteMediaInsightsPipelineConfigurationCommandOutput}
+ * @param DeleteMediaInsightsPipelineConfigurationRequest - {@link DeleteMediaInsightsPipelineConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMediaInsightsPipelineConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteMediaInsightsPipelineConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

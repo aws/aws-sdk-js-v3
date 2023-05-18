@@ -70,8 +70,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  *
  * ```
  *
- * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
- * @returns {@link ApplyPendingMaintenanceActionCommandOutput}
+ * @param ApplyPendingMaintenanceActionMessage - {@link ApplyPendingMaintenanceActionMessage}
+ * @returns {@link ApplyPendingMaintenanceActionResult}
  * @see {@link ApplyPendingMaintenanceActionCommandInput} for command's `input` shape.
  * @see {@link ApplyPendingMaintenanceActionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

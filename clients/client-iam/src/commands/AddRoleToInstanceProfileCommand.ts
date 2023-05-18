@@ -61,8 +61,8 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param AddRoleToInstanceProfileCommandInput - {@link AddRoleToInstanceProfileCommandInput}
- * @returns {@link AddRoleToInstanceProfileCommandOutput}
+ * @param AddRoleToInstanceProfileRequest - {@link AddRoleToInstanceProfileRequest}
+ * @returns {@link Unit}
  * @see {@link AddRoleToInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link AddRoleToInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

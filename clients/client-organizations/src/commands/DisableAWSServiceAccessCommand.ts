@@ -103,8 +103,8 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DisableAWSServiceAccessCommandInput - {@link DisableAWSServiceAccessCommandInput}
- * @returns {@link DisableAWSServiceAccessCommandOutput}
+ * @param DisableAWSServiceAccessRequest - {@link DisableAWSServiceAccessRequest}
+ * @returns {@link Unit}
  * @see {@link DisableAWSServiceAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

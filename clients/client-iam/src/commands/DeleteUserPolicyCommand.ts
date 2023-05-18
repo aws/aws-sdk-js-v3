@@ -54,8 +54,8 @@ export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteUserPolicyCommandInput - {@link DeleteUserPolicyCommandInput}
- * @returns {@link DeleteUserPolicyCommandOutput}
+ * @param DeleteUserPolicyRequest - {@link DeleteUserPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUserPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

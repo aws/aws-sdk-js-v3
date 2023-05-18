@@ -72,8 +72,8 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  *
  * ```
  *
- * @param UpdateTaskExecutionCommandInput - {@link UpdateTaskExecutionCommandInput}
- * @returns {@link UpdateTaskExecutionCommandOutput}
+ * @param UpdateTaskExecutionRequest - {@link UpdateTaskExecutionRequest}
+ * @returns {@link UpdateTaskExecutionResponse}
  * @see {@link UpdateTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

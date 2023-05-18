@@ -74,8 +74,8 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  *
  * ```
  *
- * @param StopProductSubscriptionCommandInput - {@link StopProductSubscriptionCommandInput}
- * @returns {@link StopProductSubscriptionCommandOutput}
+ * @param StopProductSubscriptionRequest - {@link StopProductSubscriptionRequest}
+ * @returns {@link StopProductSubscriptionResponse}
  * @see {@link StopProductSubscriptionCommandInput} for command's `input` shape.
  * @see {@link StopProductSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

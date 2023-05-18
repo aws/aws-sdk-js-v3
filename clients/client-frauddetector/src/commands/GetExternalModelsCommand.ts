@@ -84,8 +84,8 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  *
  * ```
  *
- * @param GetExternalModelsCommandInput - {@link GetExternalModelsCommandInput}
- * @returns {@link GetExternalModelsCommandOutput}
+ * @param GetExternalModelsRequest - {@link GetExternalModelsRequest}
+ * @returns {@link GetExternalModelsResult}
  * @see {@link GetExternalModelsCommandInput} for command's `input` shape.
  * @see {@link GetExternalModelsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

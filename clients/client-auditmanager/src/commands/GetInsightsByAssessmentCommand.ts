@@ -57,8 +57,8 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  *
  * ```
  *
- * @param GetInsightsByAssessmentCommandInput - {@link GetInsightsByAssessmentCommandInput}
- * @returns {@link GetInsightsByAssessmentCommandOutput}
+ * @param GetInsightsByAssessmentRequest - {@link GetInsightsByAssessmentRequest}
+ * @returns {@link GetInsightsByAssessmentResponse}
  * @see {@link GetInsightsByAssessmentCommandInput} for command's `input` shape.
  * @see {@link GetInsightsByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

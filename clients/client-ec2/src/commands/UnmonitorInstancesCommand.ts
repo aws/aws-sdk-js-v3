@@ -62,8 +62,8 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  *
  * ```
  *
- * @param UnmonitorInstancesCommandInput - {@link UnmonitorInstancesCommandInput}
- * @returns {@link UnmonitorInstancesCommandOutput}
+ * @param UnmonitorInstancesRequest - {@link UnmonitorInstancesRequest}
+ * @returns {@link UnmonitorInstancesResult}
  * @see {@link UnmonitorInstancesCommandInput} for command's `input` shape.
  * @see {@link UnmonitorInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

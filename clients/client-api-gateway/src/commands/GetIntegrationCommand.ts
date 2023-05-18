@@ -86,8 +86,8 @@ export interface GetIntegrationCommandOutput extends Integration, __MetadataBear
  *
  * ```
  *
- * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
- * @returns {@link GetIntegrationCommandOutput}
+ * @param GetIntegrationRequest - {@link GetIntegrationRequest}
+ * @returns {@link Integration}
  * @see {@link GetIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

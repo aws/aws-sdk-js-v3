@@ -99,8 +99,8 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  *
  * ```
  *
- * @param UpdateDeviceCommandInput - {@link UpdateDeviceCommandInput}
- * @returns {@link UpdateDeviceCommandOutput}
+ * @param UpdateDeviceRequest - {@link UpdateDeviceRequest}
+ * @returns {@link UpdateDeviceResponse}
  * @see {@link UpdateDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

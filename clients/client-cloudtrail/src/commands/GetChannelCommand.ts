@@ -95,8 +95,8 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  *
  * ```
  *
- * @param GetChannelCommandInput - {@link GetChannelCommandInput}
- * @returns {@link GetChannelCommandOutput}
+ * @param GetChannelRequest - {@link GetChannelRequest}
+ * @returns {@link GetChannelResponse}
  * @see {@link GetChannelCommandInput} for command's `input` shape.
  * @see {@link GetChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

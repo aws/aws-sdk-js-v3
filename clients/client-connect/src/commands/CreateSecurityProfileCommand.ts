@@ -66,8 +66,8 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *
  * ```
  *
- * @param CreateSecurityProfileCommandInput - {@link CreateSecurityProfileCommandInput}
- * @returns {@link CreateSecurityProfileCommandOutput}
+ * @param CreateSecurityProfileRequest - {@link CreateSecurityProfileRequest}
+ * @returns {@link CreateSecurityProfileResponse}
  * @see {@link CreateSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

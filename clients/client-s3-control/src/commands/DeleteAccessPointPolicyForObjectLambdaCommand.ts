@@ -68,8 +68,8 @@ export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __M
  *
  * ```
  *
- * @param DeleteAccessPointPolicyForObjectLambdaCommandInput - {@link DeleteAccessPointPolicyForObjectLambdaCommandInput}
- * @returns {@link DeleteAccessPointPolicyForObjectLambdaCommandOutput}
+ * @param DeleteAccessPointPolicyForObjectLambdaRequest - {@link DeleteAccessPointPolicyForObjectLambdaRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

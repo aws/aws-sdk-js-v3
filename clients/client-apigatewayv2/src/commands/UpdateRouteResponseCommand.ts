@@ -72,8 +72,8 @@ export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseRes
  *
  * ```
  *
- * @param UpdateRouteResponseCommandInput - {@link UpdateRouteResponseCommandInput}
- * @returns {@link UpdateRouteResponseCommandOutput}
+ * @param UpdateRouteResponseRequest - {@link UpdateRouteResponseRequest}
+ * @returns {@link UpdateRouteResponseResponse}
  * @see {@link UpdateRouteResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

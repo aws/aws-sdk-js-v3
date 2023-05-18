@@ -74,8 +74,8 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteMeshCommandInput - {@link DeleteMeshCommandInput}
- * @returns {@link DeleteMeshCommandOutput}
+ * @param DeleteMeshInput - {@link DeleteMeshInput}
+ * @returns {@link DeleteMeshOutput}
  * @see {@link DeleteMeshCommandInput} for command's `input` shape.
  * @see {@link DeleteMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

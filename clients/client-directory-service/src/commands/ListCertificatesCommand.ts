@@ -61,8 +61,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  *
  * ```
  *
- * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
- * @returns {@link ListCertificatesCommandOutput}
+ * @param ListCertificatesRequest - {@link ListCertificatesRequest}
+ * @returns {@link ListCertificatesResult}
  * @see {@link ListCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

@@ -91,8 +91,8 @@ export interface GetStagesCommandOutput extends GetStagesResponse, __MetadataBea
  *
  * ```
  *
- * @param GetStagesCommandInput - {@link GetStagesCommandInput}
- * @returns {@link GetStagesCommandOutput}
+ * @param GetStagesRequest - {@link GetStagesRequest}
+ * @returns {@link GetStagesResponse}
  * @see {@link GetStagesCommandInput} for command's `input` shape.
  * @see {@link GetStagesCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

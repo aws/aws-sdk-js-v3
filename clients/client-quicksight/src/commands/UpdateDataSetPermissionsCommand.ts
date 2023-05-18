@@ -71,8 +71,8 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  *
  * ```
  *
- * @param UpdateDataSetPermissionsCommandInput - {@link UpdateDataSetPermissionsCommandInput}
- * @returns {@link UpdateDataSetPermissionsCommandOutput}
+ * @param UpdateDataSetPermissionsRequest - {@link UpdateDataSetPermissionsRequest}
+ * @returns {@link UpdateDataSetPermissionsResponse}
  * @see {@link UpdateDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

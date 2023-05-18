@@ -67,8 +67,8 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  *
  * ```
  *
- * @param ListVpcConnectorsCommandInput - {@link ListVpcConnectorsCommandInput}
- * @returns {@link ListVpcConnectorsCommandOutput}
+ * @param ListVpcConnectorsRequest - {@link ListVpcConnectorsRequest}
+ * @returns {@link ListVpcConnectorsResponse}
  * @see {@link ListVpcConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListVpcConnectorsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

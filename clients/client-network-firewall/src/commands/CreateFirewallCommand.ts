@@ -135,8 +135,8 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *
  * ```
  *
- * @param CreateFirewallCommandInput - {@link CreateFirewallCommandInput}
- * @returns {@link CreateFirewallCommandOutput}
+ * @param CreateFirewallRequest - {@link CreateFirewallRequest}
+ * @returns {@link CreateFirewallResponse}
  * @see {@link CreateFirewallCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

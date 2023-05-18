@@ -302,8 +302,8 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  *
  * ```
  *
- * @param DescribeDataSetCommandInput - {@link DescribeDataSetCommandInput}
- * @returns {@link DescribeDataSetCommandOutput}
+ * @param DescribeDataSetRequest - {@link DescribeDataSetRequest}
+ * @returns {@link DescribeDataSetResponse}
  * @see {@link DescribeDataSetCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSetCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

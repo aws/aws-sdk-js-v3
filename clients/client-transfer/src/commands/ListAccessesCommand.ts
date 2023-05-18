@@ -61,8 +61,8 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  *
  * ```
  *
- * @param ListAccessesCommandInput - {@link ListAccessesCommandInput}
- * @returns {@link ListAccessesCommandOutput}
+ * @param ListAccessesRequest - {@link ListAccessesRequest}
+ * @returns {@link ListAccessesResponse}
  * @see {@link ListAccessesCommandInput} for command's `input` shape.
  * @see {@link ListAccessesCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

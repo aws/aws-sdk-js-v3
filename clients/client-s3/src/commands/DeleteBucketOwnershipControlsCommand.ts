@@ -70,8 +70,8 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param DeleteBucketOwnershipControlsCommandInput - {@link DeleteBucketOwnershipControlsCommandInput}
- * @returns {@link DeleteBucketOwnershipControlsCommandOutput}
+ * @param DeleteBucketOwnershipControlsRequest - {@link DeleteBucketOwnershipControlsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketOwnershipControlsCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

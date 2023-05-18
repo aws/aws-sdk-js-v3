@@ -80,8 +80,8 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
  *
  * ```
  *
- * @param DescribeWarmPoolCommandInput - {@link DescribeWarmPoolCommandInput}
- * @returns {@link DescribeWarmPoolCommandOutput}
+ * @param DescribeWarmPoolType - {@link DescribeWarmPoolType}
+ * @returns {@link DescribeWarmPoolAnswer}
  * @see {@link DescribeWarmPoolCommandInput} for command's `input` shape.
  * @see {@link DescribeWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

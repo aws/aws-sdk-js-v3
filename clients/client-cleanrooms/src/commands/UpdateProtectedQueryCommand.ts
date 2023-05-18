@@ -88,8 +88,8 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  *
  * ```
  *
- * @param UpdateProtectedQueryCommandInput - {@link UpdateProtectedQueryCommandInput}
- * @returns {@link UpdateProtectedQueryCommandOutput}
+ * @param UpdateProtectedQueryInput - {@link UpdateProtectedQueryInput}
+ * @returns {@link UpdateProtectedQueryOutput}
  * @see {@link UpdateProtectedQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateProtectedQueryCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

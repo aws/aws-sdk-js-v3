@@ -66,8 +66,8 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  *
  * ```
  *
- * @param SelectResourceConfigCommandInput - {@link SelectResourceConfigCommandInput}
- * @returns {@link SelectResourceConfigCommandOutput}
+ * @param SelectResourceConfigRequest - {@link SelectResourceConfigRequest}
+ * @returns {@link SelectResourceConfigResponse}
  * @see {@link SelectResourceConfigCommandInput} for command's `input` shape.
  * @see {@link SelectResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

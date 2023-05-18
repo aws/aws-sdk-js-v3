@@ -208,8 +208,8 @@ export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetFormCommandInput - {@link GetFormCommandInput}
- * @returns {@link GetFormCommandOutput}
+ * @param GetFormRequest - {@link GetFormRequest}
+ * @returns {@link GetFormResponse}
  * @see {@link GetFormCommandInput} for command's `input` shape.
  * @see {@link GetFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

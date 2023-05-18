@@ -66,8 +66,8 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  *
  * ```
  *
- * @param GetIdentityPoliciesCommandInput - {@link GetIdentityPoliciesCommandInput}
- * @returns {@link GetIdentityPoliciesCommandOutput}
+ * @param GetIdentityPoliciesRequest - {@link GetIdentityPoliciesRequest}
+ * @returns {@link GetIdentityPoliciesResponse}
  * @see {@link GetIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

@@ -50,8 +50,8 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
- * @returns {@link AddRoleToDBClusterCommandOutput}
+ * @param AddRoleToDBClusterMessage - {@link AddRoleToDBClusterMessage}
+ * @returns {@link Unit}
  * @see {@link AddRoleToDBClusterCommandInput} for command's `input` shape.
  * @see {@link AddRoleToDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

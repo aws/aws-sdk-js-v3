@@ -67,8 +67,8 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput
  *
  * ```
  *
- * @param DisassociateTransitGatewayPolicyTableCommandInput - {@link DisassociateTransitGatewayPolicyTableCommandInput}
- * @returns {@link DisassociateTransitGatewayPolicyTableCommandOutput}
+ * @param DisassociateTransitGatewayPolicyTableRequest - {@link DisassociateTransitGatewayPolicyTableRequest}
+ * @returns {@link DisassociateTransitGatewayPolicyTableResult}
  * @see {@link DisassociateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

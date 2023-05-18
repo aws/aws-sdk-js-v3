@@ -49,8 +49,8 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  *
  * ```
  *
- * @param DisassociateSkillFromUsersCommandInput - {@link DisassociateSkillFromUsersCommandInput}
- * @returns {@link DisassociateSkillFromUsersCommandOutput}
+ * @param DisassociateSkillFromUsersRequest - {@link DisassociateSkillFromUsersRequest}
+ * @returns {@link DisassociateSkillFromUsersResponse}
  * @see {@link DisassociateSkillFromUsersCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillFromUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

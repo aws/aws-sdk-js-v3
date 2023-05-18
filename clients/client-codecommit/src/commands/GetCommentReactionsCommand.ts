@@ -66,8 +66,8 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
  *
  * ```
  *
- * @param GetCommentReactionsCommandInput - {@link GetCommentReactionsCommandInput}
- * @returns {@link GetCommentReactionsCommandOutput}
+ * @param GetCommentReactionsInput - {@link GetCommentReactionsInput}
+ * @returns {@link GetCommentReactionsOutput}
  * @see {@link GetCommentReactionsCommandInput} for command's `input` shape.
  * @see {@link GetCommentReactionsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

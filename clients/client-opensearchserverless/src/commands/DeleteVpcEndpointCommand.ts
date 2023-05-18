@@ -60,8 +60,8 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  *
  * ```
  *
- * @param DeleteVpcEndpointCommandInput - {@link DeleteVpcEndpointCommandInput}
- * @returns {@link DeleteVpcEndpointCommandOutput}
+ * @param DeleteVpcEndpointRequest - {@link DeleteVpcEndpointRequest}
+ * @returns {@link DeleteVpcEndpointResponse}
  * @see {@link DeleteVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

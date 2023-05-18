@@ -59,8 +59,8 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopServerCommandInput - {@link StopServerCommandInput}
- * @returns {@link StopServerCommandOutput}
+ * @param StopServerRequest - {@link StopServerRequest}
+ * @returns {@link Unit}
  * @see {@link StopServerCommandInput} for command's `input` shape.
  * @see {@link StopServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

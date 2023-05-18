@@ -66,8 +66,8 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  *
  * ```
  *
- * @param ListDatasetLabelsCommandInput - {@link ListDatasetLabelsCommandInput}
- * @returns {@link ListDatasetLabelsCommandOutput}
+ * @param ListDatasetLabelsRequest - {@link ListDatasetLabelsRequest}
+ * @returns {@link ListDatasetLabelsResponse}
  * @see {@link ListDatasetLabelsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

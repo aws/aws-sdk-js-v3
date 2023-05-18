@@ -50,8 +50,8 @@ export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareO
  *
  * ```
  *
- * @param AcceptPortfolioShareCommandInput - {@link AcceptPortfolioShareCommandInput}
- * @returns {@link AcceptPortfolioShareCommandOutput}
+ * @param AcceptPortfolioShareInput - {@link AcceptPortfolioShareInput}
+ * @returns {@link AcceptPortfolioShareOutput}
  * @see {@link AcceptPortfolioShareCommandInput} for command's `input` shape.
  * @see {@link AcceptPortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

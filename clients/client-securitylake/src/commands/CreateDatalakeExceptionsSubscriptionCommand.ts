@@ -58,8 +58,8 @@ export interface CreateDatalakeExceptionsSubscriptionCommandOutput
  *
  * ```
  *
- * @param CreateDatalakeExceptionsSubscriptionCommandInput - {@link CreateDatalakeExceptionsSubscriptionCommandInput}
- * @returns {@link CreateDatalakeExceptionsSubscriptionCommandOutput}
+ * @param CreateDatalakeExceptionsSubscriptionRequest - {@link CreateDatalakeExceptionsSubscriptionRequest}
+ * @returns {@link CreateDatalakeExceptionsSubscriptionResponse}
  * @see {@link CreateDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

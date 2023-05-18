@@ -74,8 +74,8 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  *
  * ```
  *
- * @param UpdateSipRuleCommandInput - {@link UpdateSipRuleCommandInput}
- * @returns {@link UpdateSipRuleCommandOutput}
+ * @param UpdateSipRuleRequest - {@link UpdateSipRuleRequest}
+ * @returns {@link UpdateSipRuleResponse}
  * @see {@link UpdateSipRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

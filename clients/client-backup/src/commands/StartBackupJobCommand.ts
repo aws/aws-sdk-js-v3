@@ -68,8 +68,8 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  *
  * ```
  *
- * @param StartBackupJobCommandInput - {@link StartBackupJobCommandInput}
- * @returns {@link StartBackupJobCommandOutput}
+ * @param StartBackupJobInput - {@link StartBackupJobInput}
+ * @returns {@link StartBackupJobOutput}
  * @see {@link StartBackupJobCommandInput} for command's `input` shape.
  * @see {@link StartBackupJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

@@ -161,8 +161,8 @@ export interface CreateBridgeCommandOutput extends CreateBridgeResponse, __Metad
  *
  * ```
  *
- * @param CreateBridgeCommandInput - {@link CreateBridgeCommandInput}
- * @returns {@link CreateBridgeCommandOutput}
+ * @param CreateBridgeRequest - {@link CreateBridgeRequest}
+ * @returns {@link CreateBridgeResponse}
  * @see {@link CreateBridgeCommandInput} for command's `input` shape.
  * @see {@link CreateBridgeCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

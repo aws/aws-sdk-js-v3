@@ -71,8 +71,8 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  *
  * ```
  *
- * @param UpdateAgentStatusCommandInput - {@link UpdateAgentStatusCommandInput}
- * @returns {@link UpdateAgentStatusCommandOutput}
+ * @param UpdateAgentStatusRequest - {@link UpdateAgentStatusRequest}
+ * @returns {@link UpdateAgentStatusResponse}
  * @see {@link UpdateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

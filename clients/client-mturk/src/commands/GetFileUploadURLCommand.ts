@@ -68,8 +68,8 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  *
  * ```
  *
- * @param GetFileUploadURLCommandInput - {@link GetFileUploadURLCommandInput}
- * @returns {@link GetFileUploadURLCommandOutput}
+ * @param GetFileUploadURLRequest - {@link GetFileUploadURLRequest}
+ * @returns {@link GetFileUploadURLResponse}
  * @see {@link GetFileUploadURLCommandInput} for command's `input` shape.
  * @see {@link GetFileUploadURLCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

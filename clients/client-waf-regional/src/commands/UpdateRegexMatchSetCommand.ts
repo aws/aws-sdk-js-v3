@@ -106,8 +106,8 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  *
  * ```
  *
- * @param UpdateRegexMatchSetCommandInput - {@link UpdateRegexMatchSetCommandInput}
- * @returns {@link UpdateRegexMatchSetCommandOutput}
+ * @param UpdateRegexMatchSetRequest - {@link UpdateRegexMatchSetRequest}
+ * @returns {@link UpdateRegexMatchSetResponse}
  * @see {@link UpdateRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

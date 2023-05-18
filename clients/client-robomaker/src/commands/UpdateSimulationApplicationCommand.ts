@@ -105,8 +105,8 @@ export interface UpdateSimulationApplicationCommandOutput
  *
  * ```
  *
- * @param UpdateSimulationApplicationCommandInput - {@link UpdateSimulationApplicationCommandInput}
- * @returns {@link UpdateSimulationApplicationCommandOutput}
+ * @param UpdateSimulationApplicationRequest - {@link UpdateSimulationApplicationRequest}
+ * @returns {@link UpdateSimulationApplicationResponse}
  * @see {@link UpdateSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

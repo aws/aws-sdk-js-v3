@@ -59,8 +59,8 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  *
  * ```
  *
- * @param UpdateTemplateAliasCommandInput - {@link UpdateTemplateAliasCommandInput}
- * @returns {@link UpdateTemplateAliasCommandOutput}
+ * @param UpdateTemplateAliasRequest - {@link UpdateTemplateAliasRequest}
+ * @returns {@link UpdateTemplateAliasResponse}
  * @see {@link UpdateTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

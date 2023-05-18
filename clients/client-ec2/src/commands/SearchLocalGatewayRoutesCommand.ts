@@ -76,8 +76,8 @@ export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewa
  *
  * ```
  *
- * @param SearchLocalGatewayRoutesCommandInput - {@link SearchLocalGatewayRoutesCommandInput}
- * @returns {@link SearchLocalGatewayRoutesCommandOutput}
+ * @param SearchLocalGatewayRoutesRequest - {@link SearchLocalGatewayRoutesRequest}
+ * @returns {@link SearchLocalGatewayRoutesResult}
  * @see {@link SearchLocalGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link SearchLocalGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

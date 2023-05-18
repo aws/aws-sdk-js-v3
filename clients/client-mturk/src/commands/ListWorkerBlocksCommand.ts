@@ -58,8 +58,8 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  *
  * ```
  *
- * @param ListWorkerBlocksCommandInput - {@link ListWorkerBlocksCommandInput}
- * @returns {@link ListWorkerBlocksCommandOutput}
+ * @param ListWorkerBlocksRequest - {@link ListWorkerBlocksRequest}
+ * @returns {@link ListWorkerBlocksResponse}
  * @see {@link ListWorkerBlocksCommandInput} for command's `input` shape.
  * @see {@link ListWorkerBlocksCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

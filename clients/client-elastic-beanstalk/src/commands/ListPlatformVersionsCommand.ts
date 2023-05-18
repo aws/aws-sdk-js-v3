@@ -84,8 +84,8 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  *
  * ```
  *
- * @param ListPlatformVersionsCommandInput - {@link ListPlatformVersionsCommandInput}
- * @returns {@link ListPlatformVersionsCommandOutput}
+ * @param ListPlatformVersionsRequest - {@link ListPlatformVersionsRequest}
+ * @returns {@link ListPlatformVersionsResult}
  * @see {@link ListPlatformVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPlatformVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

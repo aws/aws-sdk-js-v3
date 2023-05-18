@@ -69,8 +69,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  *
  * ```
  *
- * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
- * @returns {@link DescribeDeviceCommandOutput}
+ * @param DescribeDeviceRequest - {@link DescribeDeviceRequest}
+ * @returns {@link DescribeDeviceResponse}
  * @see {@link DescribeDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

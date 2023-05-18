@@ -61,8 +61,8 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  *
  * ```
  *
- * @param ModifyAddressAttributeCommandInput - {@link ModifyAddressAttributeCommandInput}
- * @returns {@link ModifyAddressAttributeCommandOutput}
+ * @param ModifyAddressAttributeRequest - {@link ModifyAddressAttributeRequest}
+ * @returns {@link ModifyAddressAttributeResult}
  * @see {@link ModifyAddressAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyAddressAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

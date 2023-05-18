@@ -62,8 +62,8 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
- * @returns {@link PutLoggingOptionsCommandOutput}
+ * @param PutLoggingOptionsRequest - {@link PutLoggingOptionsRequest}
+ * @returns {@link Unit}
  * @see {@link PutLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

@@ -98,8 +98,8 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *
  * ```
  *
- * @param RegisterScalableTargetCommandInput - {@link RegisterScalableTargetCommandInput}
- * @returns {@link RegisterScalableTargetCommandOutput}
+ * @param RegisterScalableTargetRequest - {@link RegisterScalableTargetRequest}
+ * @returns {@link RegisterScalableTargetResponse}
  * @see {@link RegisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link RegisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

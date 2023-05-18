@@ -61,8 +61,8 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  *
  * ```
  *
- * @param ListScheduleGroupsCommandInput - {@link ListScheduleGroupsCommandInput}
- * @returns {@link ListScheduleGroupsCommandOutput}
+ * @param ListScheduleGroupsInput - {@link ListScheduleGroupsInput}
+ * @returns {@link ListScheduleGroupsOutput}
  * @see {@link ListScheduleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListScheduleGroupsCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

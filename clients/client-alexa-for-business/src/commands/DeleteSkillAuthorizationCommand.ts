@@ -49,8 +49,8 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  *
  * ```
  *
- * @param DeleteSkillAuthorizationCommandInput - {@link DeleteSkillAuthorizationCommandInput}
- * @returns {@link DeleteSkillAuthorizationCommandOutput}
+ * @param DeleteSkillAuthorizationRequest - {@link DeleteSkillAuthorizationRequest}
+ * @returns {@link DeleteSkillAuthorizationResponse}
  * @see {@link DeleteSkillAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -113,8 +113,8 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  *
  * ```
  *
- * @param DeleteExperimentTemplateCommandInput - {@link DeleteExperimentTemplateCommandInput}
- * @returns {@link DeleteExperimentTemplateCommandOutput}
+ * @param DeleteExperimentTemplateRequest - {@link DeleteExperimentTemplateRequest}
+ * @returns {@link DeleteExperimentTemplateResponse}
  * @see {@link DeleteExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

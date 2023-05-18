@@ -99,8 +99,8 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  *
  * ```
  *
- * @param UpdateNFSFileShareCommandInput - {@link UpdateNFSFileShareCommandInput}
- * @returns {@link UpdateNFSFileShareCommandOutput}
+ * @param UpdateNFSFileShareInput - {@link UpdateNFSFileShareInput}
+ * @returns {@link UpdateNFSFileShareOutput}
  * @see {@link UpdateNFSFileShareCommandInput} for command's `input` shape.
  * @see {@link UpdateNFSFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

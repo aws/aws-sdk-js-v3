@@ -82,8 +82,8 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  *
  * ```
  *
- * @param DescribeWorldGenerationJobCommandInput - {@link DescribeWorldGenerationJobCommandInput}
- * @returns {@link DescribeWorldGenerationJobCommandOutput}
+ * @param DescribeWorldGenerationJobRequest - {@link DescribeWorldGenerationJobRequest}
+ * @returns {@link DescribeWorldGenerationJobResponse}
  * @see {@link DescribeWorldGenerationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldGenerationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

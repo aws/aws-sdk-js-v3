@@ -85,8 +85,8 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  *
  * ```
  *
- * @param StartPipelineCommandInput - {@link StartPipelineCommandInput}
- * @returns {@link StartPipelineCommandOutput}
+ * @param StartPipelineRequest - {@link StartPipelineRequest}
+ * @returns {@link StartPipelineResponse}
  * @see {@link StartPipelineCommandInput} for command's `input` shape.
  * @see {@link StartPipelineCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

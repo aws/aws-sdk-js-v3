@@ -62,8 +62,8 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  *
  * ```
  *
- * @param GetSAMLProviderCommandInput - {@link GetSAMLProviderCommandInput}
- * @returns {@link GetSAMLProviderCommandOutput}
+ * @param GetSAMLProviderRequest - {@link GetSAMLProviderRequest}
+ * @returns {@link GetSAMLProviderResponse}
  * @see {@link GetSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link GetSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

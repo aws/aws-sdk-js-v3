@@ -53,8 +53,8 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateAssetsCommandInput - {@link AssociateAssetsCommandInput}
- * @returns {@link AssociateAssetsCommandOutput}
+ * @param AssociateAssetsRequest - {@link AssociateAssetsRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateAssetsCommandInput} for command's `input` shape.
  * @see {@link AssociateAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

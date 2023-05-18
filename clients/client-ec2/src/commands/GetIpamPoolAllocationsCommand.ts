@@ -76,8 +76,8 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  *
  * ```
  *
- * @param GetIpamPoolAllocationsCommandInput - {@link GetIpamPoolAllocationsCommandInput}
- * @returns {@link GetIpamPoolAllocationsCommandOutput}
+ * @param GetIpamPoolAllocationsRequest - {@link GetIpamPoolAllocationsRequest}
+ * @returns {@link GetIpamPoolAllocationsResult}
  * @see {@link GetIpamPoolAllocationsCommandInput} for command's `input` shape.
  * @see {@link GetIpamPoolAllocationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

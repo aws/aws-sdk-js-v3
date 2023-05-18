@@ -61,8 +61,8 @@ export interface ListThingGroupsCommandOutput extends ListThingGroupsResponse, _
  *
  * ```
  *
- * @param ListThingGroupsCommandInput - {@link ListThingGroupsCommandInput}
- * @returns {@link ListThingGroupsCommandOutput}
+ * @param ListThingGroupsRequest - {@link ListThingGroupsRequest}
+ * @returns {@link ListThingGroupsResponse}
  * @see {@link ListThingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListThingGroupsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

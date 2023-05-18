@@ -61,8 +61,8 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  *
  * ```
  *
- * @param ListServicePipelineOutputsCommandInput - {@link ListServicePipelineOutputsCommandInput}
- * @returns {@link ListServicePipelineOutputsCommandOutput}
+ * @param ListServicePipelineOutputsInput - {@link ListServicePipelineOutputsInput}
+ * @returns {@link ListServicePipelineOutputsOutput}
  * @see {@link ListServicePipelineOutputsCommandInput} for command's `input` shape.
  * @see {@link ListServicePipelineOutputsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

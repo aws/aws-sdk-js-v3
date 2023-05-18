@@ -63,8 +63,8 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  *
  * ```
  *
- * @param TagDeliveryStreamCommandInput - {@link TagDeliveryStreamCommandInput}
- * @returns {@link TagDeliveryStreamCommandOutput}
+ * @param TagDeliveryStreamInput - {@link TagDeliveryStreamInput}
+ * @returns {@link TagDeliveryStreamOutput}
  * @see {@link TagDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link TagDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

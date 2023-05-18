@@ -60,8 +60,8 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  *
  * ```
  *
- * @param GetResourceCommandInput - {@link GetResourceCommandInput}
- * @returns {@link GetResourceCommandOutput}
+ * @param GetResourceInput - {@link GetResourceInput}
+ * @returns {@link GetResourceOutput}
  * @see {@link GetResourceCommandInput} for command's `input` shape.
  * @see {@link GetResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.

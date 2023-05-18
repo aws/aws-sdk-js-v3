@@ -89,8 +89,8 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
  *
  * ```
  *
- * @param DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput - {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput}
- * @returns {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput}
+ * @param DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest - {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest}
+ * @returns {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult}
  * @see {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -63,8 +63,8 @@ export interface DescribeScalingParametersCommandOutput extends DescribeScalingP
  *
  * ```
  *
- * @param DescribeScalingParametersCommandInput - {@link DescribeScalingParametersCommandInput}
- * @returns {@link DescribeScalingParametersCommandOutput}
+ * @param DescribeScalingParametersRequest - {@link DescribeScalingParametersRequest}
+ * @returns {@link DescribeScalingParametersResponse}
  * @see {@link DescribeScalingParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingParametersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

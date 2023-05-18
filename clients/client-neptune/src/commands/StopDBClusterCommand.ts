@@ -145,8 +145,8 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  *
  * ```
  *
- * @param StopDBClusterCommandInput - {@link StopDBClusterCommandInput}
- * @returns {@link StopDBClusterCommandOutput}
+ * @param StopDBClusterMessage - {@link StopDBClusterMessage}
+ * @returns {@link StopDBClusterResult}
  * @see {@link StopDBClusterCommandInput} for command's `input` shape.
  * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

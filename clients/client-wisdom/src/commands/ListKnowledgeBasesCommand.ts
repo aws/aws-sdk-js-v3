@@ -78,8 +78,8 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  *
  * ```
  *
- * @param ListKnowledgeBasesCommandInput - {@link ListKnowledgeBasesCommandInput}
- * @returns {@link ListKnowledgeBasesCommandOutput}
+ * @param ListKnowledgeBasesRequest - {@link ListKnowledgeBasesRequest}
+ * @returns {@link ListKnowledgeBasesResponse}
  * @see {@link ListKnowledgeBasesCommandInput} for command's `input` shape.
  * @see {@link ListKnowledgeBasesCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

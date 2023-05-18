@@ -82,8 +82,8 @@ export interface DeleteReservationCommandOutput extends DeleteReservationRespons
  *
  * ```
  *
- * @param DeleteReservationCommandInput - {@link DeleteReservationCommandInput}
- * @returns {@link DeleteReservationCommandOutput}
+ * @param DeleteReservationRequest - {@link DeleteReservationRequest}
+ * @returns {@link DeleteReservationResponse}
  * @see {@link DeleteReservationCommandInput} for command's `input` shape.
  * @see {@link DeleteReservationCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

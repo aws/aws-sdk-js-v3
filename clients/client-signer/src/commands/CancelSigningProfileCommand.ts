@@ -51,8 +51,8 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CancelSigningProfileCommandInput - {@link CancelSigningProfileCommandInput}
- * @returns {@link CancelSigningProfileCommandOutput}
+ * @param CancelSigningProfileRequest - {@link CancelSigningProfileRequest}
+ * @returns {@link Unit}
  * @see {@link CancelSigningProfileCommandInput} for command's `input` shape.
  * @see {@link CancelSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

@@ -104,8 +104,8 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param SignUpCommandInput - {@link SignUpCommandInput}
- * @returns {@link SignUpCommandOutput}
+ * @param SignUpRequest - {@link SignUpRequest}
+ * @returns {@link SignUpResponse}
  * @see {@link SignUpCommandInput} for command's `input` shape.
  * @see {@link SignUpCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

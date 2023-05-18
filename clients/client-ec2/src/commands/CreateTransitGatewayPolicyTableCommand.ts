@@ -78,8 +78,8 @@ export interface CreateTransitGatewayPolicyTableCommandOutput
  *
  * ```
  *
- * @param CreateTransitGatewayPolicyTableCommandInput - {@link CreateTransitGatewayPolicyTableCommandInput}
- * @returns {@link CreateTransitGatewayPolicyTableCommandOutput}
+ * @param CreateTransitGatewayPolicyTableRequest - {@link CreateTransitGatewayPolicyTableRequest}
+ * @returns {@link CreateTransitGatewayPolicyTableResult}
  * @see {@link CreateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

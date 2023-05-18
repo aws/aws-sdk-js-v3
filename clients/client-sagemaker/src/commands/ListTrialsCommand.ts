@@ -74,8 +74,8 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  *
  * ```
  *
- * @param ListTrialsCommandInput - {@link ListTrialsCommandInput}
- * @returns {@link ListTrialsCommandOutput}
+ * @param ListTrialsRequest - {@link ListTrialsRequest}
+ * @returns {@link ListTrialsResponse}
  * @see {@link ListTrialsCommandInput} for command's `input` shape.
  * @see {@link ListTrialsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -92,8 +92,8 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *
  * ```
  *
- * @param StartChangeSetCommandInput - {@link StartChangeSetCommandInput}
- * @returns {@link StartChangeSetCommandOutput}
+ * @param StartChangeSetRequest - {@link StartChangeSetRequest}
+ * @returns {@link StartChangeSetResponse}
  * @see {@link StartChangeSetCommandInput} for command's `input` shape.
  * @see {@link StartChangeSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.

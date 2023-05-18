@@ -175,8 +175,8 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *
  * ```
  *
- * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
- * @returns {@link UpdatePipelineCommandOutput}
+ * @param UpdatePipelineInput - {@link UpdatePipelineInput}
+ * @returns {@link UpdatePipelineOutput}
  * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  *
  * ```
  *
- * @param GetServicesInScopeCommandInput - {@link GetServicesInScopeCommandInput}
- * @returns {@link GetServicesInScopeCommandOutput}
+ * @param GetServicesInScopeRequest - {@link GetServicesInScopeRequest}
+ * @returns {@link GetServicesInScopeResponse}
  * @see {@link GetServicesInScopeCommandInput} for command's `input` shape.
  * @see {@link GetServicesInScopeCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  *
  * ```
  *
- * @param ListLFTagsCommandInput - {@link ListLFTagsCommandInput}
- * @returns {@link ListLFTagsCommandOutput}
+ * @param ListLFTagsRequest - {@link ListLFTagsRequest}
+ * @returns {@link ListLFTagsResponse}
  * @see {@link ListLFTagsCommandInput} for command's `input` shape.
  * @see {@link ListLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

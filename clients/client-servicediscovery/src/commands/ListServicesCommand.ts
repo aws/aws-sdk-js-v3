@@ -90,8 +90,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *
  * ```
  *
- * @param ListServicesCommandInput - {@link ListServicesCommandInput}
- * @returns {@link ListServicesCommandOutput}
+ * @param ListServicesRequest - {@link ListServicesRequest}
+ * @returns {@link ListServicesResponse}
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

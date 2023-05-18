@@ -78,8 +78,8 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput
  *
  * ```
  *
- * @param DeleteLoadBalancerTlsCertificateCommandInput - {@link DeleteLoadBalancerTlsCertificateCommandInput}
- * @returns {@link DeleteLoadBalancerTlsCertificateCommandOutput}
+ * @param DeleteLoadBalancerTlsCertificateRequest - {@link DeleteLoadBalancerTlsCertificateRequest}
+ * @returns {@link DeleteLoadBalancerTlsCertificateResult}
  * @see {@link DeleteLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

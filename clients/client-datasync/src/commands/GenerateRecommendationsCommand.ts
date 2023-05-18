@@ -60,8 +60,8 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  *
  * ```
  *
- * @param GenerateRecommendationsCommandInput - {@link GenerateRecommendationsCommandInput}
- * @returns {@link GenerateRecommendationsCommandOutput}
+ * @param GenerateRecommendationsRequest - {@link GenerateRecommendationsRequest}
+ * @returns {@link GenerateRecommendationsResponse}
  * @see {@link GenerateRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GenerateRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

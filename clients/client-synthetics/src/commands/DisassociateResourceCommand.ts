@@ -49,8 +49,8 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  *
  * ```
  *
- * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
- * @returns {@link DisassociateResourceCommandOutput}
+ * @param DisassociateResourceRequest - {@link DisassociateResourceRequest}
+ * @returns {@link DisassociateResourceResponse}
  * @see {@link DisassociateResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

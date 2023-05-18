@@ -68,8 +68,8 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  *
  * ```
  *
- * @param GetContactListCommandInput - {@link GetContactListCommandInput}
- * @returns {@link GetContactListCommandOutput}
+ * @param GetContactListRequest - {@link GetContactListRequest}
+ * @returns {@link GetContactListResponse}
  * @see {@link GetContactListCommandInput} for command's `input` shape.
  * @see {@link GetContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

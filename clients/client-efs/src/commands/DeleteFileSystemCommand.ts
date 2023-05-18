@@ -67,8 +67,8 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFileSystemCommandInput - {@link DeleteFileSystemCommandInput}
- * @returns {@link DeleteFileSystemCommandOutput}
+ * @param DeleteFileSystemRequest - {@link DeleteFileSystemRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

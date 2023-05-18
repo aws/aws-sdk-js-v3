@@ -78,8 +78,8 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  *
  * ```
  *
- * @param CreateSubnetCidrReservationCommandInput - {@link CreateSubnetCidrReservationCommandInput}
- * @returns {@link CreateSubnetCidrReservationCommandOutput}
+ * @param CreateSubnetCidrReservationRequest - {@link CreateSubnetCidrReservationRequest}
+ * @returns {@link CreateSubnetCidrReservationResult}
  * @see {@link CreateSubnetCidrReservationCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

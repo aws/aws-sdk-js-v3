@@ -56,8 +56,8 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *
  * ```
  *
- * @param UpdateRecommenderCommandInput - {@link UpdateRecommenderCommandInput}
- * @returns {@link UpdateRecommenderCommandOutput}
+ * @param UpdateRecommenderRequest - {@link UpdateRecommenderRequest}
+ * @returns {@link UpdateRecommenderResponse}
  * @see {@link UpdateRecommenderCommandInput} for command's `input` shape.
  * @see {@link UpdateRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

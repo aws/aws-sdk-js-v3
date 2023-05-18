@@ -104,8 +104,8 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  *
  * ```
  *
- * @param ComposeEnvironmentsCommandInput - {@link ComposeEnvironmentsCommandInput}
- * @returns {@link ComposeEnvironmentsCommandOutput}
+ * @param ComposeEnvironmentsMessage - {@link ComposeEnvironmentsMessage}
+ * @returns {@link EnvironmentDescriptionsMessage}
  * @see {@link ComposeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ComposeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

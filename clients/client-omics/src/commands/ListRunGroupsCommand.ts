@@ -64,8 +64,8 @@ export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __Met
  *
  * ```
  *
- * @param ListRunGroupsCommandInput - {@link ListRunGroupsCommandInput}
- * @returns {@link ListRunGroupsCommandOutput}
+ * @param ListRunGroupsRequest - {@link ListRunGroupsRequest}
+ * @returns {@link ListRunGroupsResponse}
  * @see {@link ListRunGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRunGroupsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

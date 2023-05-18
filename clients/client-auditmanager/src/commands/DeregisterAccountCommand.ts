@@ -57,8 +57,8 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  *
  * ```
  *
- * @param DeregisterAccountCommandInput - {@link DeregisterAccountCommandInput}
- * @returns {@link DeregisterAccountCommandOutput}
+ * @param DeregisterAccountRequest - {@link DeregisterAccountRequest}
+ * @returns {@link DeregisterAccountResponse}
  * @see {@link DeregisterAccountCommandInput} for command's `input` shape.
  * @see {@link DeregisterAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

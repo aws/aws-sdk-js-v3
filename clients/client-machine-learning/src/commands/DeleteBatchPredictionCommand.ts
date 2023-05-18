@@ -55,8 +55,8 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  *
  * ```
  *
- * @param DeleteBatchPredictionCommandInput - {@link DeleteBatchPredictionCommandInput}
- * @returns {@link DeleteBatchPredictionCommandOutput}
+ * @param DeleteBatchPredictionInput - {@link DeleteBatchPredictionInput}
+ * @returns {@link DeleteBatchPredictionOutput}
  * @see {@link DeleteBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

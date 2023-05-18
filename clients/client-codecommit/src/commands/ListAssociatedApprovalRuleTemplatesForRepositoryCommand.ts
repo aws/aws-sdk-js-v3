@@ -64,8 +64,8 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  *
  * ```
  *
- * @param ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput - {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput}
- * @returns {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput}
+ * @param ListAssociatedApprovalRuleTemplatesForRepositoryInput - {@link ListAssociatedApprovalRuleTemplatesForRepositoryInput}
+ * @returns {@link ListAssociatedApprovalRuleTemplatesForRepositoryOutput}
  * @see {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

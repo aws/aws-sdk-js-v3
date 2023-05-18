@@ -62,8 +62,8 @@ export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalD
  *
  * ```
  *
- * @param GetRelationalDatabaseEventsCommandInput - {@link GetRelationalDatabaseEventsCommandInput}
- * @returns {@link GetRelationalDatabaseEventsCommandOutput}
+ * @param GetRelationalDatabaseEventsRequest - {@link GetRelationalDatabaseEventsRequest}
+ * @returns {@link GetRelationalDatabaseEventsResult}
  * @see {@link GetRelationalDatabaseEventsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseEventsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

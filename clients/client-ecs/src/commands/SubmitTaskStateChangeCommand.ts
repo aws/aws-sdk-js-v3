@@ -93,8 +93,8 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  *
  * ```
  *
- * @param SubmitTaskStateChangeCommandInput - {@link SubmitTaskStateChangeCommandInput}
- * @returns {@link SubmitTaskStateChangeCommandOutput}
+ * @param SubmitTaskStateChangeRequest - {@link SubmitTaskStateChangeRequest}
+ * @returns {@link SubmitTaskStateChangeResponse}
  * @see {@link SubmitTaskStateChangeCommandInput} for command's `input` shape.
  * @see {@link SubmitTaskStateChangeCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

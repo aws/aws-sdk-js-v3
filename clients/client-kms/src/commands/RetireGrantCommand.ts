@@ -95,8 +95,8 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RetireGrantCommandInput - {@link RetireGrantCommandInput}
- * @returns {@link RetireGrantCommandOutput}
+ * @param RetireGrantRequest - {@link RetireGrantRequest}
+ * @returns {@link Unit}
  * @see {@link RetireGrantCommandInput} for command's `input` shape.
  * @see {@link RetireGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

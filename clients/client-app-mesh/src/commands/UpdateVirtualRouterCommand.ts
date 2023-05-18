@@ -88,8 +88,8 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
  *
  * ```
  *
- * @param UpdateVirtualRouterCommandInput - {@link UpdateVirtualRouterCommandInput}
- * @returns {@link UpdateVirtualRouterCommandOutput}
+ * @param UpdateVirtualRouterInput - {@link UpdateVirtualRouterInput}
+ * @returns {@link UpdateVirtualRouterOutput}
  * @see {@link UpdateVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

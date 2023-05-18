@@ -69,8 +69,8 @@ export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvalu
  *
  * ```
  *
- * @param UpdateContactEvaluationCommandInput - {@link UpdateContactEvaluationCommandInput}
- * @returns {@link UpdateContactEvaluationCommandOutput}
+ * @param UpdateContactEvaluationRequest - {@link UpdateContactEvaluationRequest}
+ * @returns {@link UpdateContactEvaluationResponse}
  * @see {@link UpdateContactEvaluationCommandInput} for command's `input` shape.
  * @see {@link UpdateContactEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

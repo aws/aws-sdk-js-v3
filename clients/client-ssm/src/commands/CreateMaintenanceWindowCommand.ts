@@ -78,8 +78,8 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  *
  * ```
  *
- * @param CreateMaintenanceWindowCommandInput - {@link CreateMaintenanceWindowCommandInput}
- * @returns {@link CreateMaintenanceWindowCommandOutput}
+ * @param CreateMaintenanceWindowRequest - {@link CreateMaintenanceWindowRequest}
+ * @returns {@link CreateMaintenanceWindowResult}
  * @see {@link CreateMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link CreateMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

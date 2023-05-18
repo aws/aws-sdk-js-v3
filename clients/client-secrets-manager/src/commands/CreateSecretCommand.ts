@@ -114,8 +114,8 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *
  * ```
  *
- * @param CreateSecretCommandInput - {@link CreateSecretCommandInput}
- * @returns {@link CreateSecretCommandOutput}
+ * @param CreateSecretRequest - {@link CreateSecretRequest}
+ * @returns {@link CreateSecretResponse}
  * @see {@link CreateSecretCommandInput} for command's `input` shape.
  * @see {@link CreateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

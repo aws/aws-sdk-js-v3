@@ -51,8 +51,8 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  *
  * ```
  *
- * @param GetV2LoggingOptionsCommandInput - {@link GetV2LoggingOptionsCommandInput}
- * @returns {@link GetV2LoggingOptionsCommandOutput}
+ * @param GetV2LoggingOptionsRequest - {@link GetV2LoggingOptionsRequest}
+ * @returns {@link GetV2LoggingOptionsResponse}
  * @see {@link GetV2LoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetV2LoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

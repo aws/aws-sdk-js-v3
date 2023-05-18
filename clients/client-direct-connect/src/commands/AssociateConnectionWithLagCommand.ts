@@ -97,8 +97,8 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  *
  * ```
  *
- * @param AssociateConnectionWithLagCommandInput - {@link AssociateConnectionWithLagCommandInput}
- * @returns {@link AssociateConnectionWithLagCommandOutput}
+ * @param AssociateConnectionWithLagRequest - {@link AssociateConnectionWithLagRequest}
+ * @returns {@link Connection}
  * @see {@link AssociateConnectionWithLagCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectionWithLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

@@ -73,8 +73,8 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  *
  * ```
  *
- * @param GetContextKeysForPrincipalPolicyCommandInput - {@link GetContextKeysForPrincipalPolicyCommandInput}
- * @returns {@link GetContextKeysForPrincipalPolicyCommandOutput}
+ * @param GetContextKeysForPrincipalPolicyRequest - {@link GetContextKeysForPrincipalPolicyRequest}
+ * @returns {@link GetContextKeysForPolicyResponse}
  * @see {@link GetContextKeysForPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContextKeysForPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

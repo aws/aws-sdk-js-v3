@@ -67,8 +67,8 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  *
  * ```
  *
- * @param GetApplicationPolicyCommandInput - {@link GetApplicationPolicyCommandInput}
- * @returns {@link GetApplicationPolicyCommandOutput}
+ * @param GetApplicationPolicyRequest - {@link GetApplicationPolicyRequest}
+ * @returns {@link GetApplicationPolicyResponse}
  * @see {@link GetApplicationPolicyCommandInput} for command's `input` shape.
  * @see {@link GetApplicationPolicyCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

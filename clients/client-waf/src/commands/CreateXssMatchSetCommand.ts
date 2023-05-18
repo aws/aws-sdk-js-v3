@@ -93,8 +93,8 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  *
  * ```
  *
- * @param CreateXssMatchSetCommandInput - {@link CreateXssMatchSetCommandInput}
- * @returns {@link CreateXssMatchSetCommandOutput}
+ * @param CreateXssMatchSetRequest - {@link CreateXssMatchSetRequest}
+ * @returns {@link CreateXssMatchSetResponse}
  * @see {@link CreateXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

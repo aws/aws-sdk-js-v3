@@ -77,8 +77,8 @@ export interface SynthesizeSpeechCommandOutput
  *
  * ```
  *
- * @param SynthesizeSpeechCommandInput - {@link SynthesizeSpeechCommandInput}
- * @returns {@link SynthesizeSpeechCommandOutput}
+ * @param SynthesizeSpeechInput - {@link SynthesizeSpeechInput}
+ * @returns {@link SynthesizeSpeechOutput}
  * @see {@link SynthesizeSpeechCommandInput} for command's `input` shape.
  * @see {@link SynthesizeSpeechCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.

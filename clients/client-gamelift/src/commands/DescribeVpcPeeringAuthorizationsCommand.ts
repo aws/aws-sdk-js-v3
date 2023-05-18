@@ -69,8 +69,8 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  *
  * ```
  *
- * @param DescribeVpcPeeringAuthorizationsCommandInput - {@link DescribeVpcPeeringAuthorizationsCommandInput}
- * @returns {@link DescribeVpcPeeringAuthorizationsCommandOutput}
+ * @param DescribeVpcPeeringAuthorizationsInput - {@link DescribeVpcPeeringAuthorizationsInput}
+ * @returns {@link DescribeVpcPeeringAuthorizationsOutput}
  * @see {@link DescribeVpcPeeringAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

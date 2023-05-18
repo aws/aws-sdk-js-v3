@@ -66,8 +66,8 @@ export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemRes
  *
  * ```
  *
- * @param UpdateStorageSystemCommandInput - {@link UpdateStorageSystemCommandInput}
- * @returns {@link UpdateStorageSystemCommandOutput}
+ * @param UpdateStorageSystemRequest - {@link UpdateStorageSystemRequest}
+ * @returns {@link UpdateStorageSystemResponse}
  * @see {@link UpdateStorageSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateStorageSystemCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

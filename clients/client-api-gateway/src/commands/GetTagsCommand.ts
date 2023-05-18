@@ -54,8 +54,8 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  *
  * ```
  *
- * @param GetTagsCommandInput - {@link GetTagsCommandInput}
- * @returns {@link GetTagsCommandOutput}
+ * @param GetTagsRequest - {@link GetTagsRequest}
+ * @returns {@link Tags}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

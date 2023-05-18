@@ -128,8 +128,8 @@ export interface DescribeTrialComponentCommandOutput extends DescribeTrialCompon
  *
  * ```
  *
- * @param DescribeTrialComponentCommandInput - {@link DescribeTrialComponentCommandInput}
- * @returns {@link DescribeTrialComponentCommandOutput}
+ * @param DescribeTrialComponentRequest - {@link DescribeTrialComponentRequest}
+ * @returns {@link DescribeTrialComponentResponse}
  * @see {@link DescribeTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

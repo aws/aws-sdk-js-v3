@@ -73,8 +73,8 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  *
  * ```
  *
- * @param CreateAssetCommandInput - {@link CreateAssetCommandInput}
- * @returns {@link CreateAssetCommandOutput}
+ * @param CreateAssetRequest - {@link CreateAssetRequest}
+ * @returns {@link CreateAssetResponse}
  * @see {@link CreateAssetCommandInput} for command's `input` shape.
  * @see {@link CreateAssetCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

@@ -64,8 +64,8 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  *
  * ```
  *
- * @param AssociateConfigurationItemsToApplicationCommandInput - {@link AssociateConfigurationItemsToApplicationCommandInput}
- * @returns {@link AssociateConfigurationItemsToApplicationCommandOutput}
+ * @param AssociateConfigurationItemsToApplicationRequest - {@link AssociateConfigurationItemsToApplicationRequest}
+ * @returns {@link AssociateConfigurationItemsToApplicationResponse}
  * @see {@link AssociateConfigurationItemsToApplicationCommandInput} for command's `input` shape.
  * @see {@link AssociateConfigurationItemsToApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

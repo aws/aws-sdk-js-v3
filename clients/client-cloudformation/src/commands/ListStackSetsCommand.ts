@@ -89,8 +89,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  *
  * ```
  *
- * @param ListStackSetsCommandInput - {@link ListStackSetsCommandInput}
- * @returns {@link ListStackSetsCommandOutput}
+ * @param ListStackSetsInput - {@link ListStackSetsInput}
+ * @returns {@link ListStackSetsOutput}
  * @see {@link ListStackSetsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

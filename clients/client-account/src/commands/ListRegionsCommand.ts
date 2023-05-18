@@ -63,8 +63,8 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  *
  * ```
  *
- * @param ListRegionsCommandInput - {@link ListRegionsCommandInput}
- * @returns {@link ListRegionsCommandOutput}
+ * @param ListRegionsRequest - {@link ListRegionsRequest}
+ * @returns {@link ListRegionsResponse}
  * @see {@link ListRegionsCommandInput} for command's `input` shape.
  * @see {@link ListRegionsCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

@@ -87,8 +87,8 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  *
  * ```
  *
- * @param CreateSnapshotFromVolumeRecoveryPointCommandInput - {@link CreateSnapshotFromVolumeRecoveryPointCommandInput}
- * @returns {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput}
+ * @param CreateSnapshotFromVolumeRecoveryPointInput - {@link CreateSnapshotFromVolumeRecoveryPointInput}
+ * @returns {@link CreateSnapshotFromVolumeRecoveryPointOutput}
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

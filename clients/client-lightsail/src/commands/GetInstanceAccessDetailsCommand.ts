@@ -79,8 +79,8 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  *
  * ```
  *
- * @param GetInstanceAccessDetailsCommandInput - {@link GetInstanceAccessDetailsCommandInput}
- * @returns {@link GetInstanceAccessDetailsCommandOutput}
+ * @param GetInstanceAccessDetailsRequest - {@link GetInstanceAccessDetailsRequest}
+ * @returns {@link GetInstanceAccessDetailsResult}
  * @see {@link GetInstanceAccessDetailsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

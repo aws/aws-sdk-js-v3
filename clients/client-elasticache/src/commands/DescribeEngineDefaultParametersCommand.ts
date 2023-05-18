@@ -92,8 +92,8 @@ export interface DescribeEngineDefaultParametersCommandOutput
  *
  * ```
  *
- * @param DescribeEngineDefaultParametersCommandInput - {@link DescribeEngineDefaultParametersCommandInput}
- * @returns {@link DescribeEngineDefaultParametersCommandOutput}
+ * @param DescribeEngineDefaultParametersMessage - {@link DescribeEngineDefaultParametersMessage}
+ * @returns {@link DescribeEngineDefaultParametersResult}
  * @see {@link DescribeEngineDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

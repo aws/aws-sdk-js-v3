@@ -111,8 +111,8 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  *
  * ```
  *
- * @param RebootNodeCommandInput - {@link RebootNodeCommandInput}
- * @returns {@link RebootNodeCommandOutput}
+ * @param RebootNodeRequest - {@link RebootNodeRequest}
+ * @returns {@link RebootNodeResponse}
  * @see {@link RebootNodeCommandInput} for command's `input` shape.
  * @see {@link RebootNodeCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

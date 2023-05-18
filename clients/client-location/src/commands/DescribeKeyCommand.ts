@@ -75,8 +75,8 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *
  * ```
  *
- * @param DescribeKeyCommandInput - {@link DescribeKeyCommandInput}
- * @returns {@link DescribeKeyCommandOutput}
+ * @param DescribeKeyRequest - {@link DescribeKeyRequest}
+ * @returns {@link DescribeKeyResponse}
  * @see {@link DescribeKeyCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

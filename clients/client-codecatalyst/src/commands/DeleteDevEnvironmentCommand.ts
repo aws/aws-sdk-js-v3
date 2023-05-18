@@ -54,8 +54,8 @@ export interface DeleteDevEnvironmentCommandOutput extends DeleteDevEnvironmentR
  *
  * ```
  *
- * @param DeleteDevEnvironmentCommandInput - {@link DeleteDevEnvironmentCommandInput}
- * @returns {@link DeleteDevEnvironmentCommandOutput}
+ * @param DeleteDevEnvironmentRequest - {@link DeleteDevEnvironmentRequest}
+ * @returns {@link DeleteDevEnvironmentResponse}
  * @see {@link DeleteDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

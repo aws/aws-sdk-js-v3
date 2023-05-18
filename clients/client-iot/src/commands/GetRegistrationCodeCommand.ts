@@ -49,8 +49,8 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  *
  * ```
  *
- * @param GetRegistrationCodeCommandInput - {@link GetRegistrationCodeCommandInput}
- * @returns {@link GetRegistrationCodeCommandOutput}
+ * @param GetRegistrationCodeRequest - {@link GetRegistrationCodeRequest}
+ * @returns {@link GetRegistrationCodeResponse}
  * @see {@link GetRegistrationCodeCommandInput} for command's `input` shape.
  * @see {@link GetRegistrationCodeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -92,8 +92,8 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  *
  * ```
  *
- * @param ValidatePolicyCommandInput - {@link ValidatePolicyCommandInput}
- * @returns {@link ValidatePolicyCommandOutput}
+ * @param ValidatePolicyRequest - {@link ValidatePolicyRequest}
+ * @returns {@link ValidatePolicyResponse}
  * @see {@link ValidatePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidatePolicyCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

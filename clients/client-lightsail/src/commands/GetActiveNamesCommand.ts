@@ -53,8 +53,8 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  *
  * ```
  *
- * @param GetActiveNamesCommandInput - {@link GetActiveNamesCommandInput}
- * @returns {@link GetActiveNamesCommandOutput}
+ * @param GetActiveNamesRequest - {@link GetActiveNamesRequest}
+ * @returns {@link GetActiveNamesResult}
  * @see {@link GetActiveNamesCommandInput} for command's `input` shape.
  * @see {@link GetActiveNamesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

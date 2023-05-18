@@ -62,8 +62,8 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  *
  * ```
  *
- * @param CreateProtectionCommandInput - {@link CreateProtectionCommandInput}
- * @returns {@link CreateProtectionCommandOutput}
+ * @param CreateProtectionRequest - {@link CreateProtectionRequest}
+ * @returns {@link CreateProtectionResponse}
  * @see {@link CreateProtectionCommandInput} for command's `input` shape.
  * @see {@link CreateProtectionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

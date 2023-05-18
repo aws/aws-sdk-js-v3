@@ -100,8 +100,8 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  *
  * ```
  *
- * @param StartProtectedQueryCommandInput - {@link StartProtectedQueryCommandInput}
- * @returns {@link StartProtectedQueryCommandOutput}
+ * @param StartProtectedQueryInput - {@link StartProtectedQueryInput}
+ * @returns {@link StartProtectedQueryOutput}
  * @see {@link StartProtectedQueryCommandInput} for command's `input` shape.
  * @see {@link StartProtectedQueryCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

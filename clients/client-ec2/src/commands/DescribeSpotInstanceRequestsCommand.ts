@@ -207,8 +207,8 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  *
  * ```
  *
- * @param DescribeSpotInstanceRequestsCommandInput - {@link DescribeSpotInstanceRequestsCommandInput}
- * @returns {@link DescribeSpotInstanceRequestsCommandOutput}
+ * @param DescribeSpotInstanceRequestsRequest - {@link DescribeSpotInstanceRequestsRequest}
+ * @returns {@link DescribeSpotInstanceRequestsResult}
  * @see {@link DescribeSpotInstanceRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

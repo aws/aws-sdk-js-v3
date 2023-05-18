@@ -50,8 +50,8 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartResourceScanCommandInput - {@link StartResourceScanCommandInput}
- * @returns {@link StartResourceScanCommandOutput}
+ * @param StartResourceScanRequest - {@link StartResourceScanRequest}
+ * @returns {@link Unit}
  * @see {@link StartResourceScanCommandInput} for command's `input` shape.
  * @see {@link StartResourceScanCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

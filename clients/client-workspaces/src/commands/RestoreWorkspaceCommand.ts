@@ -55,8 +55,8 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  *
  * ```
  *
- * @param RestoreWorkspaceCommandInput - {@link RestoreWorkspaceCommandInput}
- * @returns {@link RestoreWorkspaceCommandOutput}
+ * @param RestoreWorkspaceRequest - {@link RestoreWorkspaceRequest}
+ * @returns {@link RestoreWorkspaceResult}
  * @see {@link RestoreWorkspaceCommandInput} for command's `input` shape.
  * @see {@link RestoreWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

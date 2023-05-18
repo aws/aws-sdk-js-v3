@@ -63,8 +63,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  *
  * ```
  *
- * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
- * @returns {@link CreateMonitorCommandOutput}
+ * @param CreateMonitorRequest - {@link CreateMonitorRequest}
+ * @returns {@link CreateMonitorResponse}
  * @see {@link CreateMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

@@ -75,8 +75,8 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  *
  * ```
  *
- * @param RescoreCommandInput - {@link RescoreCommandInput}
- * @returns {@link RescoreCommandOutput}
+ * @param RescoreRequest - {@link RescoreRequest}
+ * @returns {@link RescoreResult}
  * @see {@link RescoreCommandInput} for command's `input` shape.
  * @see {@link RescoreCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.

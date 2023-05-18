@@ -72,8 +72,8 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  *
  * ```
  *
- * @param UpdateKeyCommandInput - {@link UpdateKeyCommandInput}
- * @returns {@link UpdateKeyCommandOutput}
+ * @param UpdateKeyRequest - {@link UpdateKeyRequest}
+ * @returns {@link UpdateKeyResponse}
  * @see {@link UpdateKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

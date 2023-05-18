@@ -65,8 +65,8 @@ export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __Met
  *
  * ```
  *
- * @param GetSmsChannelCommandInput - {@link GetSmsChannelCommandInput}
- * @returns {@link GetSmsChannelCommandOutput}
+ * @param GetSmsChannelRequest - {@link GetSmsChannelRequest}
+ * @returns {@link GetSmsChannelResponse}
  * @see {@link GetSmsChannelCommandInput} for command's `input` shape.
  * @see {@link GetSmsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -79,8 +79,8 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  *
  * ```
  *
- * @param UpdateFileSystemCommandInput - {@link UpdateFileSystemCommandInput}
- * @returns {@link UpdateFileSystemCommandOutput}
+ * @param UpdateFileSystemRequest - {@link UpdateFileSystemRequest}
+ * @returns {@link FileSystemDescription}
  * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

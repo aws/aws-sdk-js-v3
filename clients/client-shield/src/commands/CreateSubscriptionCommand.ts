@@ -51,8 +51,8 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  *
  * ```
  *
- * @param CreateSubscriptionCommandInput - {@link CreateSubscriptionCommandInput}
- * @returns {@link CreateSubscriptionCommandOutput}
+ * @param CreateSubscriptionRequest - {@link CreateSubscriptionRequest}
+ * @returns {@link CreateSubscriptionResponse}
  * @see {@link CreateSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

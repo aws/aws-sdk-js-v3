@@ -51,8 +51,8 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  *
  * ```
  *
- * @param DeleteIntegrationCommandInput - {@link DeleteIntegrationCommandInput}
- * @returns {@link DeleteIntegrationCommandOutput}
+ * @param DeleteIntegrationRequest - {@link DeleteIntegrationRequest}
+ * @returns {@link DeleteIntegrationResponse}
  * @see {@link DeleteIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

@@ -59,8 +59,8 @@ export interface BatchDisassociateResourceCommandOutput extends BatchDisassociat
  *
  * ```
  *
- * @param BatchDisassociateResourceCommandInput - {@link BatchDisassociateResourceCommandInput}
- * @returns {@link BatchDisassociateResourceCommandOutput}
+ * @param BatchDisassociateResourceRequest - {@link BatchDisassociateResourceRequest}
+ * @returns {@link BatchDisassociateResourceResponse}
  * @see {@link BatchDisassociateResourceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateResourceCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

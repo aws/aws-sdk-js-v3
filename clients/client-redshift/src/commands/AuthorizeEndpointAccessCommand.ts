@@ -64,8 +64,8 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  *
  * ```
  *
- * @param AuthorizeEndpointAccessCommandInput - {@link AuthorizeEndpointAccessCommandInput}
- * @returns {@link AuthorizeEndpointAccessCommandOutput}
+ * @param AuthorizeEndpointAccessMessage - {@link AuthorizeEndpointAccessMessage}
+ * @returns {@link EndpointAuthorization}
  * @see {@link AuthorizeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

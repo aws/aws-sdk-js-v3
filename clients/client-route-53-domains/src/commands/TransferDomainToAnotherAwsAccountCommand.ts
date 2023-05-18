@@ -84,8 +84,8 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  *
  * ```
  *
- * @param TransferDomainToAnotherAwsAccountCommandInput - {@link TransferDomainToAnotherAwsAccountCommandInput}
- * @returns {@link TransferDomainToAnotherAwsAccountCommandOutput}
+ * @param TransferDomainToAnotherAwsAccountRequest - {@link TransferDomainToAnotherAwsAccountRequest}
+ * @returns {@link TransferDomainToAnotherAwsAccountResponse}
  * @see {@link TransferDomainToAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link TransferDomainToAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

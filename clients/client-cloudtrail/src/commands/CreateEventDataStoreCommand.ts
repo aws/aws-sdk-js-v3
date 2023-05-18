@@ -128,8 +128,8 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *
  * ```
  *
- * @param CreateEventDataStoreCommandInput - {@link CreateEventDataStoreCommandInput}
- * @returns {@link CreateEventDataStoreCommandOutput}
+ * @param CreateEventDataStoreRequest - {@link CreateEventDataStoreRequest}
+ * @returns {@link CreateEventDataStoreResponse}
  * @see {@link CreateEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link CreateEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

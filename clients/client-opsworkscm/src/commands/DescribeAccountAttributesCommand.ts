@@ -59,8 +59,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *
  * ```
  *
- * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
- * @returns {@link DescribeAccountAttributesCommandOutput}
+ * @param DescribeAccountAttributesRequest - {@link DescribeAccountAttributesRequest}
+ * @returns {@link DescribeAccountAttributesResponse}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

@@ -94,8 +94,8 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  *
  * ```
  *
- * @param DescribeFlowLogsCommandInput - {@link DescribeFlowLogsCommandInput}
- * @returns {@link DescribeFlowLogsCommandOutput}
+ * @param DescribeFlowLogsRequest - {@link DescribeFlowLogsRequest}
+ * @returns {@link DescribeFlowLogsResult}
  * @see {@link DescribeFlowLogsCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

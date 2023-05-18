@@ -77,8 +77,8 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  *
  * ```
  *
- * @param DescribeCertificatesCommandInput - {@link DescribeCertificatesCommandInput}
- * @returns {@link DescribeCertificatesCommandOutput}
+ * @param DescribeCertificatesMessage - {@link DescribeCertificatesMessage}
+ * @returns {@link DescribeCertificatesResponse}
  * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

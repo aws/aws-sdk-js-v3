@@ -86,8 +86,8 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
  *
  * ```
  *
- * @param GetBlockPublicAccessConfigurationCommandInput - {@link GetBlockPublicAccessConfigurationCommandInput}
- * @returns {@link GetBlockPublicAccessConfigurationCommandOutput}
+ * @param GetBlockPublicAccessConfigurationInput - {@link GetBlockPublicAccessConfigurationInput}
+ * @returns {@link GetBlockPublicAccessConfigurationOutput}
  * @see {@link GetBlockPublicAccessConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBlockPublicAccessConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

@@ -96,8 +96,8 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *
  * ```
  *
- * @param ListTrainingJobsCommandInput - {@link ListTrainingJobsCommandInput}
- * @returns {@link ListTrainingJobsCommandOutput}
+ * @param ListTrainingJobsRequest - {@link ListTrainingJobsRequest}
+ * @returns {@link ListTrainingJobsResponse}
  * @see {@link ListTrainingJobsCommandInput} for command's `input` shape.
  * @see {@link ListTrainingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

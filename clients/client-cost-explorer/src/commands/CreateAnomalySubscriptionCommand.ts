@@ -141,8 +141,8 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  *
  * ```
  *
- * @param CreateAnomalySubscriptionCommandInput - {@link CreateAnomalySubscriptionCommandInput}
- * @returns {@link CreateAnomalySubscriptionCommandOutput}
+ * @param CreateAnomalySubscriptionRequest - {@link CreateAnomalySubscriptionRequest}
+ * @returns {@link CreateAnomalySubscriptionResponse}
  * @see {@link CreateAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

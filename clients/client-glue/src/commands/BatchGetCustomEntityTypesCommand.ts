@@ -63,8 +63,8 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  *
  * ```
  *
- * @param BatchGetCustomEntityTypesCommandInput - {@link BatchGetCustomEntityTypesCommandInput}
- * @returns {@link BatchGetCustomEntityTypesCommandOutput}
+ * @param BatchGetCustomEntityTypesRequest - {@link BatchGetCustomEntityTypesRequest}
+ * @returns {@link BatchGetCustomEntityTypesResponse}
  * @see {@link BatchGetCustomEntityTypesCommandInput} for command's `input` shape.
  * @see {@link BatchGetCustomEntityTypesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

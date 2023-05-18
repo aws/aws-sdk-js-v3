@@ -50,8 +50,8 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  *
  * ```
  *
- * @param DeleteResolverCommandInput - {@link DeleteResolverCommandInput}
- * @returns {@link DeleteResolverCommandOutput}
+ * @param DeleteResolverRequest - {@link DeleteResolverRequest}
+ * @returns {@link DeleteResolverResponse}
  * @see {@link DeleteResolverCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

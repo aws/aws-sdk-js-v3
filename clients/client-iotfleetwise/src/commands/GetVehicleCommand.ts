@@ -58,8 +58,8 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  *
  * ```
  *
- * @param GetVehicleCommandInput - {@link GetVehicleCommandInput}
- * @returns {@link GetVehicleCommandOutput}
+ * @param GetVehicleRequest - {@link GetVehicleRequest}
+ * @returns {@link GetVehicleResponse}
  * @see {@link GetVehicleCommandInput} for command's `input` shape.
  * @see {@link GetVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

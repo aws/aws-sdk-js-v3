@@ -55,8 +55,8 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetDesiredCapacityCommandInput - {@link SetDesiredCapacityCommandInput}
- * @returns {@link SetDesiredCapacityCommandOutput}
+ * @param SetDesiredCapacityType - {@link SetDesiredCapacityType}
+ * @returns {@link Unit}
  * @see {@link SetDesiredCapacityCommandInput} for command's `input` shape.
  * @see {@link SetDesiredCapacityCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

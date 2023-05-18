@@ -76,8 +76,8 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  *
  * ```
  *
- * @param DescribeRxNormInferenceJobCommandInput - {@link DescribeRxNormInferenceJobCommandInput}
- * @returns {@link DescribeRxNormInferenceJobCommandOutput}
+ * @param DescribeRxNormInferenceJobRequest - {@link DescribeRxNormInferenceJobRequest}
+ * @returns {@link DescribeRxNormInferenceJobResponse}
  * @see {@link DescribeRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeRxNormInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

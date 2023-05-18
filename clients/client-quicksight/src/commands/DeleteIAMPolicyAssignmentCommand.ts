@@ -54,8 +54,8 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
  *
  * ```
  *
- * @param DeleteIAMPolicyAssignmentCommandInput - {@link DeleteIAMPolicyAssignmentCommandInput}
- * @returns {@link DeleteIAMPolicyAssignmentCommandOutput}
+ * @param DeleteIAMPolicyAssignmentRequest - {@link DeleteIAMPolicyAssignmentRequest}
+ * @returns {@link DeleteIAMPolicyAssignmentResponse}
  * @see {@link DeleteIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link DeleteIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

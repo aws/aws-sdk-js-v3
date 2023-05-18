@@ -61,8 +61,8 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  *
  * ```
  *
- * @param ListSupportedResourceTypesCommandInput - {@link ListSupportedResourceTypesCommandInput}
- * @returns {@link ListSupportedResourceTypesCommandOutput}
+ * @param ListSupportedResourceTypesInput - {@link ListSupportedResourceTypesInput}
+ * @returns {@link ListSupportedResourceTypesOutput}
  * @see {@link ListSupportedResourceTypesCommandInput} for command's `input` shape.
  * @see {@link ListSupportedResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

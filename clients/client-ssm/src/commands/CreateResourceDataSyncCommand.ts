@@ -95,8 +95,8 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  *
  * ```
  *
- * @param CreateResourceDataSyncCommandInput - {@link CreateResourceDataSyncCommandInput}
- * @returns {@link CreateResourceDataSyncCommandOutput}
+ * @param CreateResourceDataSyncRequest - {@link CreateResourceDataSyncRequest}
+ * @returns {@link CreateResourceDataSyncResult}
  * @see {@link CreateResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

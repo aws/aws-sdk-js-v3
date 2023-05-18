@@ -62,8 +62,8 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  *
  * ```
  *
- * @param RegisterContainerImageCommandInput - {@link RegisterContainerImageCommandInput}
- * @returns {@link RegisterContainerImageCommandOutput}
+ * @param RegisterContainerImageRequest - {@link RegisterContainerImageRequest}
+ * @returns {@link RegisterContainerImageResult}
  * @see {@link RegisterContainerImageCommandInput} for command's `input` shape.
  * @see {@link RegisterContainerImageCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

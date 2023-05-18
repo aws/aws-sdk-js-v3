@@ -54,8 +54,8 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  *
  * ```
  *
- * @param SetActiveReceiptRuleSetCommandInput - {@link SetActiveReceiptRuleSetCommandInput}
- * @returns {@link SetActiveReceiptRuleSetCommandOutput}
+ * @param SetActiveReceiptRuleSetRequest - {@link SetActiveReceiptRuleSetRequest}
+ * @returns {@link SetActiveReceiptRuleSetResponse}
  * @see {@link SetActiveReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link SetActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

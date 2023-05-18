@@ -169,8 +169,8 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  *
  * ```
  *
- * @param UpdateExperimentTemplateCommandInput - {@link UpdateExperimentTemplateCommandInput}
- * @returns {@link UpdateExperimentTemplateCommandOutput}
+ * @param UpdateExperimentTemplateRequest - {@link UpdateExperimentTemplateRequest}
+ * @returns {@link UpdateExperimentTemplateResponse}
  * @see {@link UpdateExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

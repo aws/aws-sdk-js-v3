@@ -80,8 +80,8 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  *
  * ```
  *
- * @param UpdateSecurityCommandInput - {@link UpdateSecurityCommandInput}
- * @returns {@link UpdateSecurityCommandOutput}
+ * @param UpdateSecurityRequest - {@link UpdateSecurityRequest}
+ * @returns {@link UpdateSecurityResponse}
  * @see {@link UpdateSecurityCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

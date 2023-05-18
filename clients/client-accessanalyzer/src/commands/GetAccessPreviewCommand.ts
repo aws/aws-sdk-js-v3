@@ -165,8 +165,8 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  *
  * ```
  *
- * @param GetAccessPreviewCommandInput - {@link GetAccessPreviewCommandInput}
- * @returns {@link GetAccessPreviewCommandOutput}
+ * @param GetAccessPreviewRequest - {@link GetAccessPreviewRequest}
+ * @returns {@link GetAccessPreviewResponse}
  * @see {@link GetAccessPreviewCommandInput} for command's `input` shape.
  * @see {@link GetAccessPreviewCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

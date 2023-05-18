@@ -75,8 +75,8 @@ export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGr
  *
  * ```
  *
- * @param DescribeProfilingGroupCommandInput - {@link DescribeProfilingGroupCommandInput}
- * @returns {@link DescribeProfilingGroupCommandOutput}
+ * @param DescribeProfilingGroupRequest - {@link DescribeProfilingGroupRequest}
+ * @returns {@link DescribeProfilingGroupResponse}
  * @see {@link DescribeProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

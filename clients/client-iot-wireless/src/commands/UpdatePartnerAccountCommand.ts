@@ -56,8 +56,8 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  *
  * ```
  *
- * @param UpdatePartnerAccountCommandInput - {@link UpdatePartnerAccountCommandInput}
- * @returns {@link UpdatePartnerAccountCommandOutput}
+ * @param UpdatePartnerAccountRequest - {@link UpdatePartnerAccountRequest}
+ * @returns {@link UpdatePartnerAccountResponse}
  * @see {@link UpdatePartnerAccountCommandInput} for command's `input` shape.
  * @see {@link UpdatePartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

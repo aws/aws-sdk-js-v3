@@ -80,8 +80,8 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *
  * ```
  *
- * @param StartImportCommandInput - {@link StartImportCommandInput}
- * @returns {@link StartImportCommandOutput}
+ * @param StartImportRequest - {@link StartImportRequest}
+ * @returns {@link StartImportResponse}
  * @see {@link StartImportCommandInput} for command's `input` shape.
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

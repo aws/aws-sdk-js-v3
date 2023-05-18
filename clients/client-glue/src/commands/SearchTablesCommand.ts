@@ -165,8 +165,8 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  *
  * ```
  *
- * @param SearchTablesCommandInput - {@link SearchTablesCommandInput}
- * @returns {@link SearchTablesCommandOutput}
+ * @param SearchTablesRequest - {@link SearchTablesRequest}
+ * @returns {@link SearchTablesResponse}
  * @see {@link SearchTablesCommandInput} for command's `input` shape.
  * @see {@link SearchTablesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

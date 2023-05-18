@@ -137,8 +137,8 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  *
  * ```
  *
- * @param CreateProgramCommandInput - {@link CreateProgramCommandInput}
- * @returns {@link CreateProgramCommandOutput}
+ * @param CreateProgramRequest - {@link CreateProgramRequest}
+ * @returns {@link CreateProgramResponse}
  * @see {@link CreateProgramCommandInput} for command's `input` shape.
  * @see {@link CreateProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

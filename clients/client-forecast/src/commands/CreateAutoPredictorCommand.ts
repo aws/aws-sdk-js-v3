@@ -153,8 +153,8 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  *
  * ```
  *
- * @param CreateAutoPredictorCommandInput - {@link CreateAutoPredictorCommandInput}
- * @returns {@link CreateAutoPredictorCommandOutput}
+ * @param CreateAutoPredictorRequest - {@link CreateAutoPredictorRequest}
+ * @returns {@link CreateAutoPredictorResponse}
  * @see {@link CreateAutoPredictorCommandInput} for command's `input` shape.
  * @see {@link CreateAutoPredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

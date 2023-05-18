@@ -84,8 +84,8 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
  *
  * ```
  *
- * @param DescribeTrafficMirrorSessionsCommandInput - {@link DescribeTrafficMirrorSessionsCommandInput}
- * @returns {@link DescribeTrafficMirrorSessionsCommandOutput}
+ * @param DescribeTrafficMirrorSessionsRequest - {@link DescribeTrafficMirrorSessionsRequest}
+ * @returns {@link DescribeTrafficMirrorSessionsResult}
  * @see {@link DescribeTrafficMirrorSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorSessionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

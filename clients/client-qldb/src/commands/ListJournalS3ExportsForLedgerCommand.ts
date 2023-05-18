@@ -82,8 +82,8 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  *
  * ```
  *
- * @param ListJournalS3ExportsForLedgerCommandInput - {@link ListJournalS3ExportsForLedgerCommandInput}
- * @returns {@link ListJournalS3ExportsForLedgerCommandOutput}
+ * @param ListJournalS3ExportsForLedgerRequest - {@link ListJournalS3ExportsForLedgerRequest}
+ * @returns {@link ListJournalS3ExportsForLedgerResponse}
  * @see {@link ListJournalS3ExportsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalS3ExportsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

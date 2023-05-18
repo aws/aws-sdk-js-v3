@@ -71,8 +71,8 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  *
  * ```
  *
- * @param GetTableObjectsCommandInput - {@link GetTableObjectsCommandInput}
- * @returns {@link GetTableObjectsCommandOutput}
+ * @param GetTableObjectsRequest - {@link GetTableObjectsRequest}
+ * @returns {@link GetTableObjectsResponse}
  * @see {@link GetTableObjectsCommandInput} for command's `input` shape.
  * @see {@link GetTableObjectsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

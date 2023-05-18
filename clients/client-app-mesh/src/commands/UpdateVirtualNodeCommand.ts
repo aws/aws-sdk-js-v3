@@ -518,8 +518,8 @@ export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput,
  *
  * ```
  *
- * @param UpdateVirtualNodeCommandInput - {@link UpdateVirtualNodeCommandInput}
- * @returns {@link UpdateVirtualNodeCommandOutput}
+ * @param UpdateVirtualNodeInput - {@link UpdateVirtualNodeInput}
+ * @returns {@link UpdateVirtualNodeOutput}
  * @see {@link UpdateVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

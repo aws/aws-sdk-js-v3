@@ -65,8 +65,8 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  *
  * ```
  *
- * @param DescribeLifecycleHooksCommandInput - {@link DescribeLifecycleHooksCommandInput}
- * @returns {@link DescribeLifecycleHooksCommandOutput}
+ * @param DescribeLifecycleHooksType - {@link DescribeLifecycleHooksType}
+ * @returns {@link DescribeLifecycleHooksAnswer}
  * @see {@link DescribeLifecycleHooksCommandInput} for command's `input` shape.
  * @see {@link DescribeLifecycleHooksCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

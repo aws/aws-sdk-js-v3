@@ -55,8 +55,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  *
  * ```
  *
- * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
- * @returns {@link DeleteLoadBalancerCommandOutput}
+ * @param DeleteAccessPointInput - {@link DeleteAccessPointInput}
+ * @returns {@link DeleteAccessPointOutput}
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

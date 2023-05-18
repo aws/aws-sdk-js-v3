@@ -55,8 +55,8 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateUserPhoneConfigCommandInput - {@link UpdateUserPhoneConfigCommandInput}
- * @returns {@link UpdateUserPhoneConfigCommandOutput}
+ * @param UpdateUserPhoneConfigRequest - {@link UpdateUserPhoneConfigRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserPhoneConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPhoneConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

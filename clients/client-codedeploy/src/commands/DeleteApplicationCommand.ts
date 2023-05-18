@@ -48,8 +48,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
- * @returns {@link DeleteApplicationCommandOutput}
+ * @param DeleteApplicationInput - {@link DeleteApplicationInput}
+ * @returns {@link Unit}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

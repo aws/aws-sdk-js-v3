@@ -81,8 +81,8 @@ export interface PutVoiceConnectorTerminationCommandOutput
  *
  * ```
  *
- * @param PutVoiceConnectorTerminationCommandInput - {@link PutVoiceConnectorTerminationCommandInput}
- * @returns {@link PutVoiceConnectorTerminationCommandOutput}
+ * @param PutVoiceConnectorTerminationRequest - {@link PutVoiceConnectorTerminationRequest}
+ * @returns {@link PutVoiceConnectorTerminationResponse}
  * @see {@link PutVoiceConnectorTerminationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

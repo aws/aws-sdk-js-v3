@@ -48,8 +48,8 @@ export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomal
  *
  * ```
  *
- * @param DeactivateAnomalyDetectorCommandInput - {@link DeactivateAnomalyDetectorCommandInput}
- * @returns {@link DeactivateAnomalyDetectorCommandOutput}
+ * @param DeactivateAnomalyDetectorRequest - {@link DeactivateAnomalyDetectorRequest}
+ * @returns {@link DeactivateAnomalyDetectorResponse}
  * @see {@link DeactivateAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DeactivateAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

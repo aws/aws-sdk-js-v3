@@ -73,8 +73,8 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  *
  * ```
  *
- * @param ListAnomalyGroupTimeSeriesCommandInput - {@link ListAnomalyGroupTimeSeriesCommandInput}
- * @returns {@link ListAnomalyGroupTimeSeriesCommandOutput}
+ * @param ListAnomalyGroupTimeSeriesRequest - {@link ListAnomalyGroupTimeSeriesRequest}
+ * @returns {@link ListAnomalyGroupTimeSeriesResponse}
  * @see {@link ListAnomalyGroupTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyGroupTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

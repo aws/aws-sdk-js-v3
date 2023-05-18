@@ -70,8 +70,8 @@ export interface ListImportFileTaskCommandOutput extends ListImportFileTaskRespo
  *
  * ```
  *
- * @param ListImportFileTaskCommandInput - {@link ListImportFileTaskCommandInput}
- * @returns {@link ListImportFileTaskCommandOutput}
+ * @param ListImportFileTaskRequest - {@link ListImportFileTaskRequest}
+ * @returns {@link ListImportFileTaskResponse}
  * @see {@link ListImportFileTaskCommandInput} for command's `input` shape.
  * @see {@link ListImportFileTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

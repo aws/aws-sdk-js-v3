@@ -77,8 +77,8 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  *
  * ```
  *
- * @param ListEventActionsCommandInput - {@link ListEventActionsCommandInput}
- * @returns {@link ListEventActionsCommandOutput}
+ * @param ListEventActionsRequest - {@link ListEventActionsRequest}
+ * @returns {@link ListEventActionsResponse}
  * @see {@link ListEventActionsCommandInput} for command's `input` shape.
  * @see {@link ListEventActionsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

@@ -74,8 +74,8 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  *
  * ```
  *
- * @param UpdateNetworkProfileCommandInput - {@link UpdateNetworkProfileCommandInput}
- * @returns {@link UpdateNetworkProfileCommandOutput}
+ * @param UpdateNetworkProfileRequest - {@link UpdateNetworkProfileRequest}
+ * @returns {@link UpdateNetworkProfileResult}
  * @see {@link UpdateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

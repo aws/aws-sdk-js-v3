@@ -63,8 +63,8 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  *
  * ```
  *
- * @param ListListenersCommandInput - {@link ListListenersCommandInput}
- * @returns {@link ListListenersCommandOutput}
+ * @param ListListenersRequest - {@link ListListenersRequest}
+ * @returns {@link ListListenersResponse}
  * @see {@link ListListenersCommandInput} for command's `input` shape.
  * @see {@link ListListenersCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

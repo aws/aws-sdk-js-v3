@@ -67,8 +67,8 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  *
  * ```
  *
- * @param ListSolNetworkInstancesCommandInput - {@link ListSolNetworkInstancesCommandInput}
- * @returns {@link ListSolNetworkInstancesCommandOutput}
+ * @param ListSolNetworkInstancesInput - {@link ListSolNetworkInstancesInput}
+ * @returns {@link ListSolNetworkInstancesOutput}
  * @see {@link ListSolNetworkInstancesCommandInput} for command's `input` shape.
  * @see {@link ListSolNetworkInstancesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

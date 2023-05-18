@@ -66,8 +66,8 @@ export interface UpdateStageCommandOutput extends UpdateStageResult, __MetadataB
  *
  * ```
  *
- * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
- * @returns {@link UpdateStageCommandOutput}
+ * @param UpdateStageRequest - {@link UpdateStageRequest}
+ * @returns {@link UpdateStageResult}
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

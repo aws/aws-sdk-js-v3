@@ -66,8 +66,8 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  *
  * ```
  *
- * @param CreateControlPanelCommandInput - {@link CreateControlPanelCommandInput}
- * @returns {@link CreateControlPanelCommandOutput}
+ * @param CreateControlPanelRequest - {@link CreateControlPanelRequest}
+ * @returns {@link CreateControlPanelResponse}
  * @see {@link CreateControlPanelCommandInput} for command's `input` shape.
  * @see {@link CreateControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

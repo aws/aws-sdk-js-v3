@@ -96,8 +96,8 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  *
  * ```
  *
- * @param DisassociateConnectionFromLagCommandInput - {@link DisassociateConnectionFromLagCommandInput}
- * @returns {@link DisassociateConnectionFromLagCommandOutput}
+ * @param DisassociateConnectionFromLagRequest - {@link DisassociateConnectionFromLagRequest}
+ * @returns {@link Connection}
  * @see {@link DisassociateConnectionFromLagCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionFromLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  *
  * ```
  *
- * @param DeleteTypedLinkFacetCommandInput - {@link DeleteTypedLinkFacetCommandInput}
- * @returns {@link DeleteTypedLinkFacetCommandOutput}
+ * @param DeleteTypedLinkFacetRequest - {@link DeleteTypedLinkFacetRequest}
+ * @returns {@link DeleteTypedLinkFacetResponse}
  * @see {@link DeleteTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link DeleteTypedLinkFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

@@ -63,8 +63,8 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeWorkspaceImagePermissionsCommandInput - {@link DescribeWorkspaceImagePermissionsCommandInput}
- * @returns {@link DescribeWorkspaceImagePermissionsCommandOutput}
+ * @param DescribeWorkspaceImagePermissionsRequest - {@link DescribeWorkspaceImagePermissionsRequest}
+ * @returns {@link DescribeWorkspaceImagePermissionsResult}
  * @see {@link DescribeWorkspaceImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

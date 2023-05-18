@@ -76,8 +76,8 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  *
  * ```
  *
- * @param GetAnomalyGroupCommandInput - {@link GetAnomalyGroupCommandInput}
- * @returns {@link GetAnomalyGroupCommandOutput}
+ * @param GetAnomalyGroupRequest - {@link GetAnomalyGroupRequest}
+ * @returns {@link GetAnomalyGroupResponse}
  * @see {@link GetAnomalyGroupCommandInput} for command's `input` shape.
  * @see {@link GetAnomalyGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

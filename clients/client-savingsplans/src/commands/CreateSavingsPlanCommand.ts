@@ -57,8 +57,8 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  *
  * ```
  *
- * @param CreateSavingsPlanCommandInput - {@link CreateSavingsPlanCommandInput}
- * @returns {@link CreateSavingsPlanCommandOutput}
+ * @param CreateSavingsPlanRequest - {@link CreateSavingsPlanRequest}
+ * @returns {@link CreateSavingsPlanResponse}
  * @see {@link CreateSavingsPlanCommandInput} for command's `input` shape.
  * @see {@link CreateSavingsPlanCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.

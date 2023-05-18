@@ -51,8 +51,8 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFileSystemPolicyCommandInput - {@link DeleteFileSystemPolicyCommandInput}
- * @returns {@link DeleteFileSystemPolicyCommandOutput}
+ * @param DeleteFileSystemPolicyRequest - {@link DeleteFileSystemPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

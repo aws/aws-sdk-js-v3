@@ -82,8 +82,8 @@ export interface GetMultiRegionAccessPointPolicyCommandOutput
  *
  * ```
  *
- * @param GetMultiRegionAccessPointPolicyCommandInput - {@link GetMultiRegionAccessPointPolicyCommandInput}
- * @returns {@link GetMultiRegionAccessPointPolicyCommandOutput}
+ * @param GetMultiRegionAccessPointPolicyRequest - {@link GetMultiRegionAccessPointPolicyRequest}
+ * @returns {@link GetMultiRegionAccessPointPolicyResult}
  * @see {@link GetMultiRegionAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

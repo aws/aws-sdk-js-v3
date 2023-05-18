@@ -120,8 +120,8 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *
  * ```
  *
- * @param CreateConfigCommandInput - {@link CreateConfigCommandInput}
- * @returns {@link CreateConfigCommandOutput}
+ * @param CreateConfigRequest - {@link CreateConfigRequest}
+ * @returns {@link ConfigIdResponse}
  * @see {@link CreateConfigCommandInput} for command's `input` shape.
  * @see {@link CreateConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

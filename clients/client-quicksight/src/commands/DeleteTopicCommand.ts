@@ -54,8 +54,8 @@ export interface DeleteTopicCommandOutput extends DeleteTopicResponse, __Metadat
  *
  * ```
  *
- * @param DeleteTopicCommandInput - {@link DeleteTopicCommandInput}
- * @returns {@link DeleteTopicCommandOutput}
+ * @param DeleteTopicRequest - {@link DeleteTopicRequest}
+ * @returns {@link DeleteTopicResponse}
  * @see {@link DeleteTopicCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteConfigurationProfileCommandInput - {@link DeleteConfigurationProfileCommandInput}
- * @returns {@link DeleteConfigurationProfileCommandOutput}
+ * @param DeleteConfigurationProfileRequest - {@link DeleteConfigurationProfileRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

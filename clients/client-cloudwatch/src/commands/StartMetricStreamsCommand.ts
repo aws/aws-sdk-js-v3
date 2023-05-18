@@ -50,8 +50,8 @@ export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutpu
  *
  * ```
  *
- * @param StartMetricStreamsCommandInput - {@link StartMetricStreamsCommandInput}
- * @returns {@link StartMetricStreamsCommandOutput}
+ * @param StartMetricStreamsInput - {@link StartMetricStreamsInput}
+ * @returns {@link StartMetricStreamsOutput}
  * @see {@link StartMetricStreamsCommandInput} for command's `input` shape.
  * @see {@link StartMetricStreamsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

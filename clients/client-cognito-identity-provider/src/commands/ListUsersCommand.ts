@@ -82,8 +82,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *
  * ```
  *
- * @param ListUsersCommandInput - {@link ListUsersCommandInput}
- * @returns {@link ListUsersCommandOutput}
+ * @param ListUsersRequest - {@link ListUsersRequest}
+ * @returns {@link ListUsersResponse}
  * @see {@link ListUsersCommandInput} for command's `input` shape.
  * @see {@link ListUsersCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

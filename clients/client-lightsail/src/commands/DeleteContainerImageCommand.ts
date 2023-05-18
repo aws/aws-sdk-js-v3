@@ -50,8 +50,8 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  *
  * ```
  *
- * @param DeleteContainerImageCommandInput - {@link DeleteContainerImageCommandInput}
- * @returns {@link DeleteContainerImageCommandOutput}
+ * @param DeleteContainerImageRequest - {@link DeleteContainerImageRequest}
+ * @returns {@link DeleteContainerImageResult}
  * @see {@link DeleteContainerImageCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerImageCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

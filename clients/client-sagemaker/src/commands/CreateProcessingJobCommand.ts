@@ -155,8 +155,8 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  *
  * ```
  *
- * @param CreateProcessingJobCommandInput - {@link CreateProcessingJobCommandInput}
- * @returns {@link CreateProcessingJobCommandOutput}
+ * @param CreateProcessingJobRequest - {@link CreateProcessingJobRequest}
+ * @returns {@link CreateProcessingJobResponse}
  * @see {@link CreateProcessingJobCommandInput} for command's `input` shape.
  * @see {@link CreateProcessingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

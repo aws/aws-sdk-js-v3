@@ -76,8 +76,8 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  *
  * ```
  *
- * @param UpdateWirelessDeviceCommandInput - {@link UpdateWirelessDeviceCommandInput}
- * @returns {@link UpdateWirelessDeviceCommandOutput}
+ * @param UpdateWirelessDeviceRequest - {@link UpdateWirelessDeviceRequest}
+ * @returns {@link UpdateWirelessDeviceResponse}
  * @see {@link UpdateWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

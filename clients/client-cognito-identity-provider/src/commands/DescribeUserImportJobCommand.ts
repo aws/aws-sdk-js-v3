@@ -70,8 +70,8 @@ export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJo
  *
  * ```
  *
- * @param DescribeUserImportJobCommandInput - {@link DescribeUserImportJobCommandInput}
- * @returns {@link DescribeUserImportJobCommandOutput}
+ * @param DescribeUserImportJobRequest - {@link DescribeUserImportJobRequest}
+ * @returns {@link DescribeUserImportJobResponse}
  * @see {@link DescribeUserImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeUserImportJobCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -71,8 +71,8 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  *
  * ```
  *
- * @param DescribeRdsDbInstancesCommandInput - {@link DescribeRdsDbInstancesCommandInput}
- * @returns {@link DescribeRdsDbInstancesCommandOutput}
+ * @param DescribeRdsDbInstancesRequest - {@link DescribeRdsDbInstancesRequest}
+ * @returns {@link DescribeRdsDbInstancesResult}
  * @see {@link DescribeRdsDbInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeRdsDbInstancesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

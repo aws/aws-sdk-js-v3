@@ -59,8 +59,8 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  *
  * ```
  *
- * @param MonitorContactCommandInput - {@link MonitorContactCommandInput}
- * @returns {@link MonitorContactCommandOutput}
+ * @param MonitorContactRequest - {@link MonitorContactRequest}
+ * @returns {@link MonitorContactResponse}
  * @see {@link MonitorContactCommandInput} for command's `input` shape.
  * @see {@link MonitorContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -125,8 +125,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *
  * ```
  *
- * @param GetRecordsCommandInput - {@link GetRecordsCommandInput}
- * @returns {@link GetRecordsCommandOutput}
+ * @param GetRecordsInput - {@link GetRecordsInput}
+ * @returns {@link GetRecordsOutput}
  * @see {@link GetRecordsCommandInput} for command's `input` shape.
  * @see {@link GetRecordsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

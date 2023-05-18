@@ -109,8 +109,8 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  *
  * ```
  *
- * @param DescribeImportImageTasksCommandInput - {@link DescribeImportImageTasksCommandInput}
- * @returns {@link DescribeImportImageTasksCommandOutput}
+ * @param DescribeImportImageTasksRequest - {@link DescribeImportImageTasksRequest}
+ * @returns {@link DescribeImportImageTasksResult}
  * @see {@link DescribeImportImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

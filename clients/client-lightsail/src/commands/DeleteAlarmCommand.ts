@@ -72,8 +72,8 @@ export interface DeleteAlarmCommandOutput extends DeleteAlarmResult, __MetadataB
  *
  * ```
  *
- * @param DeleteAlarmCommandInput - {@link DeleteAlarmCommandInput}
- * @returns {@link DeleteAlarmCommandOutput}
+ * @param DeleteAlarmRequest - {@link DeleteAlarmRequest}
+ * @returns {@link DeleteAlarmResult}
  * @see {@link DeleteAlarmCommandInput} for command's `input` shape.
  * @see {@link DeleteAlarmCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

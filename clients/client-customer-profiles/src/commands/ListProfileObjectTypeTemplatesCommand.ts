@@ -63,8 +63,8 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  *
  * ```
  *
- * @param ListProfileObjectTypeTemplatesCommandInput - {@link ListProfileObjectTypeTemplatesCommandInput}
- * @returns {@link ListProfileObjectTypeTemplatesCommandOutput}
+ * @param ListProfileObjectTypeTemplatesRequest - {@link ListProfileObjectTypeTemplatesRequest}
+ * @returns {@link ListProfileObjectTypeTemplatesResponse}
  * @see {@link ListProfileObjectTypeTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListProfileObjectTypeTemplatesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

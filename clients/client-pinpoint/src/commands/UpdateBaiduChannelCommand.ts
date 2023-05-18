@@ -67,8 +67,8 @@ export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelRespo
  *
  * ```
  *
- * @param UpdateBaiduChannelCommandInput - {@link UpdateBaiduChannelCommandInput}
- * @returns {@link UpdateBaiduChannelCommandOutput}
+ * @param UpdateBaiduChannelRequest - {@link UpdateBaiduChannelRequest}
+ * @returns {@link UpdateBaiduChannelResponse}
  * @see {@link UpdateBaiduChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateBaiduChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

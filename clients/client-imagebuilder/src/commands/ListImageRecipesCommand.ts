@@ -74,8 +74,8 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  *
  * ```
  *
- * @param ListImageRecipesCommandInput - {@link ListImageRecipesCommandInput}
- * @returns {@link ListImageRecipesCommandOutput}
+ * @param ListImageRecipesRequest - {@link ListImageRecipesRequest}
+ * @returns {@link ListImageRecipesResponse}
  * @see {@link ListImageRecipesCommandInput} for command's `input` shape.
  * @see {@link ListImageRecipesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

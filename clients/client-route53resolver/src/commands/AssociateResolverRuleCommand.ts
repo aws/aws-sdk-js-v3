@@ -62,8 +62,8 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  *
  * ```
  *
- * @param AssociateResolverRuleCommandInput - {@link AssociateResolverRuleCommandInput}
- * @returns {@link AssociateResolverRuleCommandOutput}
+ * @param AssociateResolverRuleRequest - {@link AssociateResolverRuleRequest}
+ * @returns {@link AssociateResolverRuleResponse}
  * @see {@link AssociateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link AssociateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

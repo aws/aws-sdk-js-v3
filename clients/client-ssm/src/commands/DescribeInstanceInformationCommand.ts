@@ -107,8 +107,8 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  *
  * ```
  *
- * @param DescribeInstanceInformationCommandInput - {@link DescribeInstanceInformationCommandInput}
- * @returns {@link DescribeInstanceInformationCommandOutput}
+ * @param DescribeInstanceInformationRequest - {@link DescribeInstanceInformationRequest}
+ * @returns {@link DescribeInstanceInformationResult}
  * @see {@link DescribeInstanceInformationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceInformationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

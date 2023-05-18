@@ -53,8 +53,8 @@ export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaR
  *
  * ```
  *
- * @param UpgradeAppliedSchemaCommandInput - {@link UpgradeAppliedSchemaCommandInput}
- * @returns {@link UpgradeAppliedSchemaCommandOutput}
+ * @param UpgradeAppliedSchemaRequest - {@link UpgradeAppliedSchemaRequest}
+ * @returns {@link UpgradeAppliedSchemaResponse}
  * @see {@link UpgradeAppliedSchemaCommandInput} for command's `input` shape.
  * @see {@link UpgradeAppliedSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

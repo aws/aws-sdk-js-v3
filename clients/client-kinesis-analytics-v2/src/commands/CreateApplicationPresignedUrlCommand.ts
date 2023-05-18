@@ -73,8 +73,8 @@ export interface CreateApplicationPresignedUrlCommandOutput
  *
  * ```
  *
- * @param CreateApplicationPresignedUrlCommandInput - {@link CreateApplicationPresignedUrlCommandInput}
- * @returns {@link CreateApplicationPresignedUrlCommandOutput}
+ * @param CreateApplicationPresignedUrlRequest - {@link CreateApplicationPresignedUrlRequest}
+ * @returns {@link CreateApplicationPresignedUrlResponse}
  * @see {@link CreateApplicationPresignedUrlCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationPresignedUrlCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

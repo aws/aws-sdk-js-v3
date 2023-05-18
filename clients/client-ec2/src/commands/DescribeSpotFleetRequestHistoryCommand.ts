@@ -80,8 +80,8 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  *
  * ```
  *
- * @param DescribeSpotFleetRequestHistoryCommandInput - {@link DescribeSpotFleetRequestHistoryCommandInput}
- * @returns {@link DescribeSpotFleetRequestHistoryCommandOutput}
+ * @param DescribeSpotFleetRequestHistoryRequest - {@link DescribeSpotFleetRequestHistoryRequest}
+ * @returns {@link DescribeSpotFleetRequestHistoryResponse}
  * @see {@link DescribeSpotFleetRequestHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetRequestHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

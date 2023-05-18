@@ -64,8 +64,8 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  *
  * ```
  *
- * @param UpdateLocationSmbCommandInput - {@link UpdateLocationSmbCommandInput}
- * @returns {@link UpdateLocationSmbCommandOutput}
+ * @param UpdateLocationSmbRequest - {@link UpdateLocationSmbRequest}
+ * @returns {@link UpdateLocationSmbResponse}
  * @see {@link UpdateLocationSmbCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

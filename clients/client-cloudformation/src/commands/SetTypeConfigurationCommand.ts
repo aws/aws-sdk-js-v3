@@ -66,8 +66,8 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  *
  * ```
  *
- * @param SetTypeConfigurationCommandInput - {@link SetTypeConfigurationCommandInput}
- * @returns {@link SetTypeConfigurationCommandOutput}
+ * @param SetTypeConfigurationInput - {@link SetTypeConfigurationInput}
+ * @returns {@link SetTypeConfigurationOutput}
  * @see {@link SetTypeConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetTypeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

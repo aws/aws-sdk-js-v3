@@ -80,8 +80,8 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  *
  * ```
  *
- * @param UpdateStreamProcessorCommandInput - {@link UpdateStreamProcessorCommandInput}
- * @returns {@link UpdateStreamProcessorCommandOutput}
+ * @param UpdateStreamProcessorRequest - {@link UpdateStreamProcessorRequest}
+ * @returns {@link UpdateStreamProcessorResponse}
  * @see {@link UpdateStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

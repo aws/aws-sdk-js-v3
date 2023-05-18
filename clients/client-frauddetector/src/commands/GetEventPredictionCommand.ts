@@ -104,8 +104,8 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  *
  * ```
  *
- * @param GetEventPredictionCommandInput - {@link GetEventPredictionCommandInput}
- * @returns {@link GetEventPredictionCommandOutput}
+ * @param GetEventPredictionRequest - {@link GetEventPredictionRequest}
+ * @returns {@link GetEventPredictionResult}
  * @see {@link GetEventPredictionCommandInput} for command's `input` shape.
  * @see {@link GetEventPredictionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

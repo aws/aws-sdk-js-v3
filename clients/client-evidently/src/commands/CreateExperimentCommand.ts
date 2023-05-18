@@ -143,8 +143,8 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  *
  * ```
  *
- * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
- * @returns {@link CreateExperimentCommandOutput}
+ * @param CreateExperimentRequest - {@link CreateExperimentRequest}
+ * @returns {@link CreateExperimentResponse}
  * @see {@link CreateExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

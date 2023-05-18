@@ -153,8 +153,8 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  *
  * ```
  *
- * @param DescribeNetworkInterfacesCommandInput - {@link DescribeNetworkInterfacesCommandInput}
- * @returns {@link DescribeNetworkInterfacesCommandOutput}
+ * @param DescribeNetworkInterfacesRequest - {@link DescribeNetworkInterfacesRequest}
+ * @returns {@link DescribeNetworkInterfacesResult}
  * @see {@link DescribeNetworkInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

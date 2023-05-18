@@ -55,8 +55,8 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CancelJobExecutionCommandInput - {@link CancelJobExecutionCommandInput}
- * @returns {@link CancelJobExecutionCommandOutput}
+ * @param CancelJobExecutionRequest - {@link CancelJobExecutionRequest}
+ * @returns {@link Unit}
  * @see {@link CancelJobExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

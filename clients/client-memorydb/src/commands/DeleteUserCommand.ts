@@ -63,8 +63,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
- * @returns {@link DeleteUserCommandOutput}
+ * @param DeleteUserRequest - {@link DeleteUserRequest}
+ * @returns {@link DeleteUserResponse}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

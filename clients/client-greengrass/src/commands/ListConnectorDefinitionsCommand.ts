@@ -65,8 +65,8 @@ export interface ListConnectorDefinitionsCommandOutput extends ListConnectorDefi
  *
  * ```
  *
- * @param ListConnectorDefinitionsCommandInput - {@link ListConnectorDefinitionsCommandInput}
- * @returns {@link ListConnectorDefinitionsCommandOutput}
+ * @param ListConnectorDefinitionsRequest - {@link ListConnectorDefinitionsRequest}
+ * @returns {@link ListConnectorDefinitionsResponse}
  * @see {@link ListConnectorDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

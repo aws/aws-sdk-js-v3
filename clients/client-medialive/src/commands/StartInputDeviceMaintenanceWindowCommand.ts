@@ -54,8 +54,8 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  *
  * ```
  *
- * @param StartInputDeviceMaintenanceWindowCommandInput - {@link StartInputDeviceMaintenanceWindowCommandInput}
- * @returns {@link StartInputDeviceMaintenanceWindowCommandOutput}
+ * @param StartInputDeviceMaintenanceWindowRequest - {@link StartInputDeviceMaintenanceWindowRequest}
+ * @returns {@link StartInputDeviceMaintenanceWindowResponse}
  * @see {@link StartInputDeviceMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link StartInputDeviceMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

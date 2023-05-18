@@ -112,8 +112,8 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  *
  * ```
  *
- * @param ListActionExecutionsCommandInput - {@link ListActionExecutionsCommandInput}
- * @returns {@link ListActionExecutionsCommandOutput}
+ * @param ListActionExecutionsInput - {@link ListActionExecutionsInput}
+ * @returns {@link ListActionExecutionsOutput}
  * @see {@link ListActionExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListActionExecutionsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

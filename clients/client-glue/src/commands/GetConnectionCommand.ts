@@ -72,8 +72,8 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  *
  * ```
  *
- * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
- * @returns {@link GetConnectionCommandOutput}
+ * @param GetConnectionRequest - {@link GetConnectionRequest}
+ * @returns {@link GetConnectionResponse}
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

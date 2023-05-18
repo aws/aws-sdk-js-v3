@@ -100,8 +100,8 @@ export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsRes
  *
  * ```
  *
- * @param ListLicenseVersionsCommandInput - {@link ListLicenseVersionsCommandInput}
- * @returns {@link ListLicenseVersionsCommandOutput}
+ * @param ListLicenseVersionsRequest - {@link ListLicenseVersionsRequest}
+ * @returns {@link ListLicenseVersionsResponse}
  * @see {@link ListLicenseVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLicenseVersionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

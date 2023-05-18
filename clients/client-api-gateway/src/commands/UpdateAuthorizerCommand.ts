@@ -70,8 +70,8 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  *
  * ```
  *
- * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
- * @returns {@link UpdateAuthorizerCommandOutput}
+ * @param UpdateAuthorizerRequest - {@link UpdateAuthorizerRequest}
+ * @returns {@link Authorizer}
  * @see {@link UpdateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

@@ -72,8 +72,8 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  *
  * ```
  *
- * @param UpdateRoomMembershipCommandInput - {@link UpdateRoomMembershipCommandInput}
- * @returns {@link UpdateRoomMembershipCommandOutput}
+ * @param UpdateRoomMembershipRequest - {@link UpdateRoomMembershipRequest}
+ * @returns {@link UpdateRoomMembershipResponse}
  * @see {@link UpdateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

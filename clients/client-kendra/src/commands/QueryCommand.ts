@@ -400,8 +400,8 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *
  * ```
  *
- * @param QueryCommandInput - {@link QueryCommandInput}
- * @returns {@link QueryCommandOutput}
+ * @param QueryRequest - {@link QueryRequest}
+ * @returns {@link QueryResult}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

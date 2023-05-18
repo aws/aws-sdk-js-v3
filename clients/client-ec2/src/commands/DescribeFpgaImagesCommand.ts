@@ -108,8 +108,8 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  *
  * ```
  *
- * @param DescribeFpgaImagesCommandInput - {@link DescribeFpgaImagesCommandInput}
- * @returns {@link DescribeFpgaImagesCommandOutput}
+ * @param DescribeFpgaImagesRequest - {@link DescribeFpgaImagesRequest}
+ * @returns {@link DescribeFpgaImagesResult}
  * @see {@link DescribeFpgaImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeFpgaImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

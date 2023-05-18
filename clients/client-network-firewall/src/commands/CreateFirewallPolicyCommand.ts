@@ -140,8 +140,8 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *
  * ```
  *
- * @param CreateFirewallPolicyCommandInput - {@link CreateFirewallPolicyCommandInput}
- * @returns {@link CreateFirewallPolicyCommandOutput}
+ * @param CreateFirewallPolicyRequest - {@link CreateFirewallPolicyRequest}
+ * @returns {@link CreateFirewallPolicyResponse}
  * @see {@link CreateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

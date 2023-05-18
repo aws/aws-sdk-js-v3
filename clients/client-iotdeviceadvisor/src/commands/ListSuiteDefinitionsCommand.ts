@@ -69,8 +69,8 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  *
  * ```
  *
- * @param ListSuiteDefinitionsCommandInput - {@link ListSuiteDefinitionsCommandInput}
- * @returns {@link ListSuiteDefinitionsCommandOutput}
+ * @param ListSuiteDefinitionsRequest - {@link ListSuiteDefinitionsRequest}
+ * @returns {@link ListSuiteDefinitionsResponse}
  * @see {@link ListSuiteDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSuiteDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

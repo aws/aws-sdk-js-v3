@@ -95,8 +95,8 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  *
  * ```
  *
- * @param GrantFlowEntitlementsCommandInput - {@link GrantFlowEntitlementsCommandInput}
- * @returns {@link GrantFlowEntitlementsCommandOutput}
+ * @param GrantFlowEntitlementsRequest - {@link GrantFlowEntitlementsRequest}
+ * @returns {@link GrantFlowEntitlementsResponse}
  * @see {@link GrantFlowEntitlementsCommandInput} for command's `input` shape.
  * @see {@link GrantFlowEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

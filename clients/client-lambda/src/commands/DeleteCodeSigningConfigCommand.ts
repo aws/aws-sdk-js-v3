@@ -49,8 +49,8 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  *
  * ```
  *
- * @param DeleteCodeSigningConfigCommandInput - {@link DeleteCodeSigningConfigCommandInput}
- * @returns {@link DeleteCodeSigningConfigCommandOutput}
+ * @param DeleteCodeSigningConfigRequest - {@link DeleteCodeSigningConfigRequest}
+ * @returns {@link DeleteCodeSigningConfigResponse}
  * @see {@link DeleteCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

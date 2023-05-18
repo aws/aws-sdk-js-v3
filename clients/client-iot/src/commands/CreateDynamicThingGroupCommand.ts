@@ -74,8 +74,8 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  *
  * ```
  *
- * @param CreateDynamicThingGroupCommandInput - {@link CreateDynamicThingGroupCommandInput}
- * @returns {@link CreateDynamicThingGroupCommandOutput}
+ * @param CreateDynamicThingGroupRequest - {@link CreateDynamicThingGroupRequest}
+ * @returns {@link CreateDynamicThingGroupResponse}
  * @see {@link CreateDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDynamicThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

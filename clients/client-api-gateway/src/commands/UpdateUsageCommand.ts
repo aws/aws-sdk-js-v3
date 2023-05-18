@@ -69,8 +69,8 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateUsageCommandInput - {@link UpdateUsageCommandInput}
- * @returns {@link UpdateUsageCommandOutput}
+ * @param UpdateUsageRequest - {@link UpdateUsageRequest}
+ * @returns {@link Usage}
  * @see {@link UpdateUsageCommandInput} for command's `input` shape.
  * @see {@link UpdateUsageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

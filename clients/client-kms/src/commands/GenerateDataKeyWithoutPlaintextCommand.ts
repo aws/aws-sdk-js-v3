@@ -135,8 +135,8 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *
  * ```
  *
- * @param GenerateDataKeyWithoutPlaintextCommandInput - {@link GenerateDataKeyWithoutPlaintextCommandInput}
- * @returns {@link GenerateDataKeyWithoutPlaintextCommandOutput}
+ * @param GenerateDataKeyWithoutPlaintextRequest - {@link GenerateDataKeyWithoutPlaintextRequest}
+ * @returns {@link GenerateDataKeyWithoutPlaintextResponse}
  * @see {@link GenerateDataKeyWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

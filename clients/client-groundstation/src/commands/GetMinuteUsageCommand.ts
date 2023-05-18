@@ -55,8 +55,8 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
  *
  * ```
  *
- * @param GetMinuteUsageCommandInput - {@link GetMinuteUsageCommandInput}
- * @returns {@link GetMinuteUsageCommandOutput}
+ * @param GetMinuteUsageRequest - {@link GetMinuteUsageRequest}
+ * @returns {@link GetMinuteUsageResponse}
  * @see {@link GetMinuteUsageCommandInput} for command's `input` shape.
  * @see {@link GetMinuteUsageCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

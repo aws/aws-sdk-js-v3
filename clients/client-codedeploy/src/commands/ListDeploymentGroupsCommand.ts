@@ -56,8 +56,8 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  *
  * ```
  *
- * @param ListDeploymentGroupsCommandInput - {@link ListDeploymentGroupsCommandInput}
- * @returns {@link ListDeploymentGroupsCommandOutput}
+ * @param ListDeploymentGroupsInput - {@link ListDeploymentGroupsInput}
+ * @returns {@link ListDeploymentGroupsOutput}
  * @see {@link ListDeploymentGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

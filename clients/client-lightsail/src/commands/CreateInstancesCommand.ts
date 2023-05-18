@@ -97,8 +97,8 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  *
  * ```
  *
- * @param CreateInstancesCommandInput - {@link CreateInstancesCommandInput}
- * @returns {@link CreateInstancesCommandOutput}
+ * @param CreateInstancesRequest - {@link CreateInstancesRequest}
+ * @returns {@link CreateInstancesResult}
  * @see {@link CreateInstancesCommandInput} for command's `input` shape.
  * @see {@link CreateInstancesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

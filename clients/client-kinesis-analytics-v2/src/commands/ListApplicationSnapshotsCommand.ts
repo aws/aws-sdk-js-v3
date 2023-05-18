@@ -64,8 +64,8 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  *
  * ```
  *
- * @param ListApplicationSnapshotsCommandInput - {@link ListApplicationSnapshotsCommandInput}
- * @returns {@link ListApplicationSnapshotsCommandOutput}
+ * @param ListApplicationSnapshotsRequest - {@link ListApplicationSnapshotsRequest}
+ * @returns {@link ListApplicationSnapshotsResponse}
  * @see {@link ListApplicationSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

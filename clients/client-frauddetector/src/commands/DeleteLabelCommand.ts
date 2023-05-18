@@ -51,8 +51,8 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  *
  * ```
  *
- * @param DeleteLabelCommandInput - {@link DeleteLabelCommandInput}
- * @returns {@link DeleteLabelCommandOutput}
+ * @param DeleteLabelRequest - {@link DeleteLabelRequest}
+ * @returns {@link DeleteLabelResult}
  * @see {@link DeleteLabelCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

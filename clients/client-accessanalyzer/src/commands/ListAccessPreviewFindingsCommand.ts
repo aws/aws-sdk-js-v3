@@ -101,8 +101,8 @@ export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPrevie
  *
  * ```
  *
- * @param ListAccessPreviewFindingsCommandInput - {@link ListAccessPreviewFindingsCommandInput}
- * @returns {@link ListAccessPreviewFindingsCommandOutput}
+ * @param ListAccessPreviewFindingsRequest - {@link ListAccessPreviewFindingsRequest}
+ * @returns {@link ListAccessPreviewFindingsResponse}
  * @see {@link ListAccessPreviewFindingsCommandInput} for command's `input` shape.
  * @see {@link ListAccessPreviewFindingsCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

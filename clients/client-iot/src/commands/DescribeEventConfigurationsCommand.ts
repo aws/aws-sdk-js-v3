@@ -60,8 +60,8 @@ export interface DescribeEventConfigurationsCommandOutput
  *
  * ```
  *
- * @param DescribeEventConfigurationsCommandInput - {@link DescribeEventConfigurationsCommandInput}
- * @returns {@link DescribeEventConfigurationsCommandOutput}
+ * @param DescribeEventConfigurationsRequest - {@link DescribeEventConfigurationsRequest}
+ * @returns {@link DescribeEventConfigurationsResponse}
  * @see {@link DescribeEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

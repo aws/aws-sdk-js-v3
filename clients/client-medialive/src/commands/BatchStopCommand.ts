@@ -69,8 +69,8 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  *
  * ```
  *
- * @param BatchStopCommandInput - {@link BatchStopCommandInput}
- * @returns {@link BatchStopCommandOutput}
+ * @param BatchStopRequest - {@link BatchStopRequest}
+ * @returns {@link BatchStopResponse}
  * @see {@link BatchStopCommandInput} for command's `input` shape.
  * @see {@link BatchStopCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

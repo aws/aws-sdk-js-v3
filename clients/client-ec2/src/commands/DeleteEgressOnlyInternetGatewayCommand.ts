@@ -56,8 +56,8 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  *
  * ```
  *
- * @param DeleteEgressOnlyInternetGatewayCommandInput - {@link DeleteEgressOnlyInternetGatewayCommandInput}
- * @returns {@link DeleteEgressOnlyInternetGatewayCommandOutput}
+ * @param DeleteEgressOnlyInternetGatewayRequest - {@link DeleteEgressOnlyInternetGatewayRequest}
+ * @returns {@link DeleteEgressOnlyInternetGatewayResult}
  * @see {@link DeleteEgressOnlyInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

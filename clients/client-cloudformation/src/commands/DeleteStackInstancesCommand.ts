@@ -79,8 +79,8 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  *
  * ```
  *
- * @param DeleteStackInstancesCommandInput - {@link DeleteStackInstancesCommandInput}
- * @returns {@link DeleteStackInstancesCommandOutput}
+ * @param DeleteStackInstancesInput - {@link DeleteStackInstancesInput}
+ * @returns {@link DeleteStackInstancesOutput}
  * @see {@link DeleteStackInstancesCommandInput} for command's `input` shape.
  * @see {@link DeleteStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

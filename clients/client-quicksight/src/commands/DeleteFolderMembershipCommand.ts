@@ -54,8 +54,8 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  *
  * ```
  *
- * @param DeleteFolderMembershipCommandInput - {@link DeleteFolderMembershipCommandInput}
- * @returns {@link DeleteFolderMembershipCommandOutput}
+ * @param DeleteFolderMembershipRequest - {@link DeleteFolderMembershipRequest}
+ * @returns {@link DeleteFolderMembershipResponse}
  * @see {@link DeleteFolderMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

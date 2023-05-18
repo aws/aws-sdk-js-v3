@@ -59,8 +59,8 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  *
  * ```
  *
- * @param UpdateInstanceCustomHealthStatusCommandInput - {@link UpdateInstanceCustomHealthStatusCommandInput}
- * @returns {@link UpdateInstanceCustomHealthStatusCommandOutput}
+ * @param UpdateInstanceCustomHealthStatusRequest - {@link UpdateInstanceCustomHealthStatusRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateInstanceCustomHealthStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceCustomHealthStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

@@ -59,8 +59,8 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  *
  * ```
  *
- * @param GetDefaultRetentionPolicyCommandInput - {@link GetDefaultRetentionPolicyCommandInput}
- * @returns {@link GetDefaultRetentionPolicyCommandOutput}
+ * @param GetDefaultRetentionPolicyRequest - {@link GetDefaultRetentionPolicyRequest}
+ * @returns {@link GetDefaultRetentionPolicyResponse}
  * @see {@link GetDefaultRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDefaultRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

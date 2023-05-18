@@ -167,8 +167,8 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  *
  * ```
  *
- * @param CreateRateBasedRuleCommandInput - {@link CreateRateBasedRuleCommandInput}
- * @returns {@link CreateRateBasedRuleCommandOutput}
+ * @param CreateRateBasedRuleRequest - {@link CreateRateBasedRuleRequest}
+ * @returns {@link CreateRateBasedRuleResponse}
  * @see {@link CreateRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

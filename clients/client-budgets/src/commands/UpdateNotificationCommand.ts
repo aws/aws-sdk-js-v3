@@ -63,8 +63,8 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  *
  * ```
  *
- * @param UpdateNotificationCommandInput - {@link UpdateNotificationCommandInput}
- * @returns {@link UpdateNotificationCommandOutput}
+ * @param UpdateNotificationRequest - {@link UpdateNotificationRequest}
+ * @returns {@link UpdateNotificationResponse}
  * @see {@link UpdateNotificationCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

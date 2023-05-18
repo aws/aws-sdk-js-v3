@@ -72,8 +72,8 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  *
  * ```
  *
- * @param GetDetectorModelAnalysisResultsCommandInput - {@link GetDetectorModelAnalysisResultsCommandInput}
- * @returns {@link GetDetectorModelAnalysisResultsCommandOutput}
+ * @param GetDetectorModelAnalysisResultsRequest - {@link GetDetectorModelAnalysisResultsRequest}
+ * @returns {@link GetDetectorModelAnalysisResultsResponse}
  * @see {@link GetDetectorModelAnalysisResultsCommandInput} for command's `input` shape.
  * @see {@link GetDetectorModelAnalysisResultsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

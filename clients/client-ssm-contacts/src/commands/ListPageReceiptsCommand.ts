@@ -60,8 +60,8 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  *
  * ```
  *
- * @param ListPageReceiptsCommandInput - {@link ListPageReceiptsCommandInput}
- * @returns {@link ListPageReceiptsCommandOutput}
+ * @param ListPageReceiptsRequest - {@link ListPageReceiptsRequest}
+ * @returns {@link ListPageReceiptsResult}
  * @see {@link ListPageReceiptsCommandInput} for command's `input` shape.
  * @see {@link ListPageReceiptsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

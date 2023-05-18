@@ -63,8 +63,8 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  *
  * ```
  *
- * @param GetJourneyRunsCommandInput - {@link GetJourneyRunsCommandInput}
- * @returns {@link GetJourneyRunsCommandOutput}
+ * @param GetJourneyRunsRequest - {@link GetJourneyRunsRequest}
+ * @returns {@link GetJourneyRunsResponse}
  * @see {@link GetJourneyRunsCommandInput} for command's `input` shape.
  * @see {@link GetJourneyRunsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

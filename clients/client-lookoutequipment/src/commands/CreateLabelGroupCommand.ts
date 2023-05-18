@@ -63,8 +63,8 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  *
  * ```
  *
- * @param CreateLabelGroupCommandInput - {@link CreateLabelGroupCommandInput}
- * @returns {@link CreateLabelGroupCommandOutput}
+ * @param CreateLabelGroupRequest - {@link CreateLabelGroupRequest}
+ * @returns {@link CreateLabelGroupResponse}
  * @see {@link CreateLabelGroupCommandInput} for command's `input` shape.
  * @see {@link CreateLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

@@ -159,8 +159,8 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  *
  * ```
  *
- * @param RegisterDomainCommandInput - {@link RegisterDomainCommandInput}
- * @returns {@link RegisterDomainCommandOutput}
+ * @param RegisterDomainRequest - {@link RegisterDomainRequest}
+ * @returns {@link RegisterDomainResponse}
  * @see {@link RegisterDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

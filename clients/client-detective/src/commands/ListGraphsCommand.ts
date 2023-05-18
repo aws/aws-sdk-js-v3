@@ -60,8 +60,8 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  *
  * ```
  *
- * @param ListGraphsCommandInput - {@link ListGraphsCommandInput}
- * @returns {@link ListGraphsCommandOutput}
+ * @param ListGraphsRequest - {@link ListGraphsRequest}
+ * @returns {@link ListGraphsResponse}
  * @see {@link ListGraphsCommandInput} for command's `input` shape.
  * @see {@link ListGraphsCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

@@ -55,8 +55,8 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  *
  * ```
  *
- * @param ListApprovalRuleTemplatesCommandInput - {@link ListApprovalRuleTemplatesCommandInput}
- * @returns {@link ListApprovalRuleTemplatesCommandOutput}
+ * @param ListApprovalRuleTemplatesInput - {@link ListApprovalRuleTemplatesInput}
+ * @returns {@link ListApprovalRuleTemplatesOutput}
  * @see {@link ListApprovalRuleTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListApprovalRuleTemplatesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

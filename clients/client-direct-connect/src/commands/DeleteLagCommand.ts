@@ -120,8 +120,8 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLagCommandInput - {@link DeleteLagCommandInput}
- * @returns {@link DeleteLagCommandOutput}
+ * @param DeleteLagRequest - {@link DeleteLagRequest}
+ * @returns {@link Lag}
  * @see {@link DeleteLagCommandInput} for command's `input` shape.
  * @see {@link DeleteLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

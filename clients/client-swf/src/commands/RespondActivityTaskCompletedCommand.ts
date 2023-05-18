@@ -88,8 +88,8 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param RespondActivityTaskCompletedCommandInput - {@link RespondActivityTaskCompletedCommandInput}
- * @returns {@link RespondActivityTaskCompletedCommandOutput}
+ * @param RespondActivityTaskCompletedInput - {@link RespondActivityTaskCompletedInput}
+ * @returns {@link Unit}
  * @see {@link RespondActivityTaskCompletedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCompletedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

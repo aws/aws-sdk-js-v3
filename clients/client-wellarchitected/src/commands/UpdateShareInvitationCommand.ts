@@ -60,8 +60,8 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  *
  * ```
  *
- * @param UpdateShareInvitationCommandInput - {@link UpdateShareInvitationCommandInput}
- * @returns {@link UpdateShareInvitationCommandOutput}
+ * @param UpdateShareInvitationInput - {@link UpdateShareInvitationInput}
+ * @returns {@link UpdateShareInvitationOutput}
  * @see {@link UpdateShareInvitationCommandInput} for command's `input` shape.
  * @see {@link UpdateShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

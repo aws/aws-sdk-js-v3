@@ -49,8 +49,8 @@ export interface DeleteContactFlowCommandOutput extends DeleteContactFlowRespons
  *
  * ```
  *
- * @param DeleteContactFlowCommandInput - {@link DeleteContactFlowCommandInput}
- * @returns {@link DeleteContactFlowCommandOutput}
+ * @param DeleteContactFlowRequest - {@link DeleteContactFlowRequest}
+ * @returns {@link DeleteContactFlowResponse}
  * @see {@link DeleteContactFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

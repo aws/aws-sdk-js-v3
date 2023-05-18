@@ -66,8 +66,8 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  *
  * ```
  *
- * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
- * @returns {@link GetTemplateCommandOutput}
+ * @param GetTemplateRequest - {@link GetTemplateRequest}
+ * @returns {@link GetTemplateResponse}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

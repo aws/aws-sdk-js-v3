@@ -109,8 +109,8 @@ export interface UpdateMatchmakingConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateMatchmakingConfigurationCommandInput - {@link UpdateMatchmakingConfigurationCommandInput}
- * @returns {@link UpdateMatchmakingConfigurationCommandOutput}
+ * @param UpdateMatchmakingConfigurationInput - {@link UpdateMatchmakingConfigurationInput}
+ * @returns {@link UpdateMatchmakingConfigurationOutput}
  * @see {@link UpdateMatchmakingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateMatchmakingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

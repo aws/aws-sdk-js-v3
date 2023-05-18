@@ -46,8 +46,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  *
  * ```
  *
- * @param InitializeServiceCommandInput - {@link InitializeServiceCommandInput}
- * @returns {@link InitializeServiceCommandOutput}
+ * @param InitializeServiceRequest - {@link InitializeServiceRequest}
+ * @returns {@link InitializeServiceResponse}
  * @see {@link InitializeServiceCommandInput} for command's `input` shape.
  * @see {@link InitializeServiceCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

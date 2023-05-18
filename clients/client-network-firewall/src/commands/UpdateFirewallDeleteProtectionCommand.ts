@@ -64,8 +64,8 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  *
  * ```
  *
- * @param UpdateFirewallDeleteProtectionCommandInput - {@link UpdateFirewallDeleteProtectionCommandInput}
- * @returns {@link UpdateFirewallDeleteProtectionCommandOutput}
+ * @param UpdateFirewallDeleteProtectionRequest - {@link UpdateFirewallDeleteProtectionRequest}
+ * @returns {@link UpdateFirewallDeleteProtectionResponse}
  * @see {@link UpdateFirewallDeleteProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDeleteProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

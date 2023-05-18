@@ -63,8 +63,8 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  *
  * ```
  *
- * @param EnableSharingWithAwsOrganizationCommandInput - {@link EnableSharingWithAwsOrganizationCommandInput}
- * @returns {@link EnableSharingWithAwsOrganizationCommandOutput}
+ * @param EnableSharingWithAwsOrganizationRequest - {@link EnableSharingWithAwsOrganizationRequest}
+ * @returns {@link EnableSharingWithAwsOrganizationResponse}
  * @see {@link EnableSharingWithAwsOrganizationCommandInput} for command's `input` shape.
  * @see {@link EnableSharingWithAwsOrganizationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -80,8 +80,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *
  * ```
  *
- * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
- * @returns {@link CreateQueueCommandOutput}
+ * @param CreateQueueRequest - {@link CreateQueueRequest}
+ * @returns {@link CreateQueueResponse}
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

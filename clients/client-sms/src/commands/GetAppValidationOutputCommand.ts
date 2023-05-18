@@ -84,8 +84,8 @@ export interface GetAppValidationOutputCommandOutput extends GetAppValidationOut
  *
  * ```
  *
- * @param GetAppValidationOutputCommandInput - {@link GetAppValidationOutputCommandInput}
- * @returns {@link GetAppValidationOutputCommandOutput}
+ * @param GetAppValidationOutputRequest - {@link GetAppValidationOutputRequest}
+ * @returns {@link GetAppValidationOutputResponse}
  * @see {@link GetAppValidationOutputCommandInput} for command's `input` shape.
  * @see {@link GetAppValidationOutputCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

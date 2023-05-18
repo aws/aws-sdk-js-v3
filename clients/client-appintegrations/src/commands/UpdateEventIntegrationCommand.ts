@@ -49,8 +49,8 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  *
  * ```
  *
- * @param UpdateEventIntegrationCommandInput - {@link UpdateEventIntegrationCommandInput}
- * @returns {@link UpdateEventIntegrationCommandOutput}
+ * @param UpdateEventIntegrationRequest - {@link UpdateEventIntegrationRequest}
+ * @returns {@link UpdateEventIntegrationResponse}
  * @see {@link UpdateEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

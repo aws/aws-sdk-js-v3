@@ -90,8 +90,8 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  *
  * ```
  *
- * @param GetAccessPointCommandInput - {@link GetAccessPointCommandInput}
- * @returns {@link GetAccessPointCommandOutput}
+ * @param GetAccessPointRequest - {@link GetAccessPointRequest}
+ * @returns {@link GetAccessPointResult}
  * @see {@link GetAccessPointCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

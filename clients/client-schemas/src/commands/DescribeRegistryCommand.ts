@@ -55,8 +55,8 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  *
  * ```
  *
- * @param DescribeRegistryCommandInput - {@link DescribeRegistryCommandInput}
- * @returns {@link DescribeRegistryCommandOutput}
+ * @param DescribeRegistryRequest - {@link DescribeRegistryRequest}
+ * @returns {@link DescribeRegistryResponse}
  * @see {@link DescribeRegistryCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

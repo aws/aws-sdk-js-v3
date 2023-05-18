@@ -50,8 +50,8 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteForecastExportJobCommandInput - {@link DeleteForecastExportJobCommandInput}
- * @returns {@link DeleteForecastExportJobCommandOutput}
+ * @param DeleteForecastExportJobRequest - {@link DeleteForecastExportJobRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link DeleteForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

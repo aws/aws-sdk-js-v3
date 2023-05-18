@@ -81,8 +81,8 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  *
  * ```
  *
- * @param DescribeStateMachineCommandInput - {@link DescribeStateMachineCommandInput}
- * @returns {@link DescribeStateMachineCommandOutput}
+ * @param DescribeStateMachineInput - {@link DescribeStateMachineInput}
+ * @returns {@link DescribeStateMachineOutput}
  * @see {@link DescribeStateMachineCommandInput} for command's `input` shape.
  * @see {@link DescribeStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

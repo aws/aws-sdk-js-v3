@@ -66,8 +66,8 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateTaskCommandInput - {@link CreateTaskCommandInput}
- * @returns {@link CreateTaskCommandOutput}
+ * @param CreateTaskInput - {@link CreateTaskInput}
+ * @returns {@link CreateTaskOutput}
  * @see {@link CreateTaskCommandInput} for command's `input` shape.
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.

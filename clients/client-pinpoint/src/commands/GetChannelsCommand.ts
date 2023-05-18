@@ -64,8 +64,8 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  *
  * ```
  *
- * @param GetChannelsCommandInput - {@link GetChannelsCommandInput}
- * @returns {@link GetChannelsCommandOutput}
+ * @param GetChannelsRequest - {@link GetChannelsRequest}
+ * @returns {@link GetChannelsResponse}
  * @see {@link GetChannelsCommandInput} for command's `input` shape.
  * @see {@link GetChannelsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

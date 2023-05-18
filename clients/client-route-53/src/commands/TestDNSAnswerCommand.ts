@@ -66,8 +66,8 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  *
  * ```
  *
- * @param TestDNSAnswerCommandInput - {@link TestDNSAnswerCommandInput}
- * @returns {@link TestDNSAnswerCommandOutput}
+ * @param TestDNSAnswerRequest - {@link TestDNSAnswerRequest}
+ * @returns {@link TestDNSAnswerResponse}
  * @see {@link TestDNSAnswerCommandInput} for command's `input` shape.
  * @see {@link TestDNSAnswerCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

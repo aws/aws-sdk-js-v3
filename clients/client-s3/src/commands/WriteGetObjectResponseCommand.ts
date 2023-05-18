@@ -131,8 +131,8 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param WriteGetObjectResponseCommandInput - {@link WriteGetObjectResponseCommandInput}
- * @returns {@link WriteGetObjectResponseCommandOutput}
+ * @param WriteGetObjectResponseRequest - {@link WriteGetObjectResponseRequest}
+ * @returns {@link Unit}
  * @see {@link WriteGetObjectResponseCommandInput} for command's `input` shape.
  * @see {@link WriteGetObjectResponseCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

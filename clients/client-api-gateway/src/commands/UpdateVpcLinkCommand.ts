@@ -68,8 +68,8 @@ export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateVpcLinkCommandInput - {@link UpdateVpcLinkCommandInput}
- * @returns {@link UpdateVpcLinkCommandOutput}
+ * @param UpdateVpcLinkRequest - {@link UpdateVpcLinkRequest}
+ * @returns {@link VpcLink}
  * @see {@link UpdateVpcLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

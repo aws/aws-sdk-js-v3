@@ -87,8 +87,8 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *
  * ```
  *
- * @param ListCoreDevicesCommandInput - {@link ListCoreDevicesCommandInput}
- * @returns {@link ListCoreDevicesCommandOutput}
+ * @param ListCoreDevicesRequest - {@link ListCoreDevicesRequest}
+ * @returns {@link ListCoreDevicesResponse}
  * @see {@link ListCoreDevicesCommandInput} for command's `input` shape.
  * @see {@link ListCoreDevicesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

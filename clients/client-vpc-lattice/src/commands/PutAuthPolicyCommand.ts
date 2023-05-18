@@ -53,8 +53,8 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  *
  * ```
  *
- * @param PutAuthPolicyCommandInput - {@link PutAuthPolicyCommandInput}
- * @returns {@link PutAuthPolicyCommandOutput}
+ * @param PutAuthPolicyRequest - {@link PutAuthPolicyRequest}
+ * @returns {@link PutAuthPolicyResponse}
  * @see {@link PutAuthPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAuthPolicyCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

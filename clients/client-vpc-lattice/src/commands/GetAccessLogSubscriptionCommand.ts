@@ -56,8 +56,8 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  *
  * ```
  *
- * @param GetAccessLogSubscriptionCommandInput - {@link GetAccessLogSubscriptionCommandInput}
- * @returns {@link GetAccessLogSubscriptionCommandOutput}
+ * @param GetAccessLogSubscriptionRequest - {@link GetAccessLogSubscriptionRequest}
+ * @returns {@link GetAccessLogSubscriptionResponse}
  * @see {@link GetAccessLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetAccessLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

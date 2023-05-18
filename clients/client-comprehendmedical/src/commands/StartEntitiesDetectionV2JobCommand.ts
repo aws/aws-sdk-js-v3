@@ -69,8 +69,8 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  *
  * ```
  *
- * @param StartEntitiesDetectionV2JobCommandInput - {@link StartEntitiesDetectionV2JobCommandInput}
- * @returns {@link StartEntitiesDetectionV2JobCommandOutput}
+ * @param StartEntitiesDetectionV2JobRequest - {@link StartEntitiesDetectionV2JobRequest}
+ * @returns {@link StartEntitiesDetectionV2JobResponse}
  * @see {@link StartEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link StartEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

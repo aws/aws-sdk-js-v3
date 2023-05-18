@@ -60,8 +60,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  *
  * ```
  *
- * @param CreateWebhookCommandInput - {@link CreateWebhookCommandInput}
- * @returns {@link CreateWebhookCommandOutput}
+ * @param CreateWebhookRequest - {@link CreateWebhookRequest}
+ * @returns {@link CreateWebhookResult}
  * @see {@link CreateWebhookCommandInput} for command's `input` shape.
  * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

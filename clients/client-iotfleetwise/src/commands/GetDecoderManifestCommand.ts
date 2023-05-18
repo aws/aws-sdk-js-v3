@@ -56,8 +56,8 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  *
  * ```
  *
- * @param GetDecoderManifestCommandInput - {@link GetDecoderManifestCommandInput}
- * @returns {@link GetDecoderManifestCommandOutput}
+ * @param GetDecoderManifestRequest - {@link GetDecoderManifestRequest}
+ * @returns {@link GetDecoderManifestResponse}
  * @see {@link GetDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link GetDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

@@ -91,8 +91,8 @@ export interface DescribeInboundCrossClusterSearchConnectionsCommandOutput
  *
  * ```
  *
- * @param DescribeInboundCrossClusterSearchConnectionsCommandInput - {@link DescribeInboundCrossClusterSearchConnectionsCommandInput}
- * @returns {@link DescribeInboundCrossClusterSearchConnectionsCommandOutput}
+ * @param DescribeInboundCrossClusterSearchConnectionsRequest - {@link DescribeInboundCrossClusterSearchConnectionsRequest}
+ * @returns {@link DescribeInboundCrossClusterSearchConnectionsResponse}
  * @see {@link DescribeInboundCrossClusterSearchConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInboundCrossClusterSearchConnectionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

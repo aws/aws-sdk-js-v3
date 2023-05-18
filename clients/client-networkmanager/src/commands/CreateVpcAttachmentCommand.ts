@@ -103,8 +103,8 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  *
  * ```
  *
- * @param CreateVpcAttachmentCommandInput - {@link CreateVpcAttachmentCommandInput}
- * @returns {@link CreateVpcAttachmentCommandOutput}
+ * @param CreateVpcAttachmentRequest - {@link CreateVpcAttachmentRequest}
+ * @returns {@link CreateVpcAttachmentResponse}
  * @see {@link CreateVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

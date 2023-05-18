@@ -57,8 +57,8 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  *
  * ```
  *
- * @param GetDomainSuggestionsCommandInput - {@link GetDomainSuggestionsCommandInput}
- * @returns {@link GetDomainSuggestionsCommandOutput}
+ * @param GetDomainSuggestionsRequest - {@link GetDomainSuggestionsRequest}
+ * @returns {@link GetDomainSuggestionsResponse}
  * @see {@link GetDomainSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetDomainSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

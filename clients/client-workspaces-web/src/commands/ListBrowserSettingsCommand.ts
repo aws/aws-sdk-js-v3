@@ -56,8 +56,8 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  *
  * ```
  *
- * @param ListBrowserSettingsCommandInput - {@link ListBrowserSettingsCommandInput}
- * @returns {@link ListBrowserSettingsCommandOutput}
+ * @param ListBrowserSettingsRequest - {@link ListBrowserSettingsRequest}
+ * @returns {@link ListBrowserSettingsResponse}
  * @see {@link ListBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link ListBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

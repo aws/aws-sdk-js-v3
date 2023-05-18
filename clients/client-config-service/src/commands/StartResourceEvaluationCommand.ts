@@ -71,8 +71,8 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  *
  * ```
  *
- * @param StartResourceEvaluationCommandInput - {@link StartResourceEvaluationCommandInput}
- * @returns {@link StartResourceEvaluationCommandOutput}
+ * @param StartResourceEvaluationRequest - {@link StartResourceEvaluationRequest}
+ * @returns {@link StartResourceEvaluationResponse}
  * @see {@link StartResourceEvaluationCommandInput} for command's `input` shape.
  * @see {@link StartResourceEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -481,8 +481,8 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  *
  * ```
  *
- * @param DescribeDeliveryStreamCommandInput - {@link DescribeDeliveryStreamCommandInput}
- * @returns {@link DescribeDeliveryStreamCommandOutput}
+ * @param DescribeDeliveryStreamInput - {@link DescribeDeliveryStreamInput}
+ * @returns {@link DescribeDeliveryStreamOutput}
  * @see {@link DescribeDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

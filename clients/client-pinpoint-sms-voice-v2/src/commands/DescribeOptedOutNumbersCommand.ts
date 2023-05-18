@@ -83,8 +83,8 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  *
  * ```
  *
- * @param DescribeOptedOutNumbersCommandInput - {@link DescribeOptedOutNumbersCommandInput}
- * @returns {@link DescribeOptedOutNumbersCommandOutput}
+ * @param DescribeOptedOutNumbersRequest - {@link DescribeOptedOutNumbersRequest}
+ * @returns {@link DescribeOptedOutNumbersResult}
  * @see {@link DescribeOptedOutNumbersCommandInput} for command's `input` shape.
  * @see {@link DescribeOptedOutNumbersCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

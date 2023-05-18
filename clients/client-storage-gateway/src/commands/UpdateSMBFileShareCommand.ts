@@ -95,8 +95,8 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *
  * ```
  *
- * @param UpdateSMBFileShareCommandInput - {@link UpdateSMBFileShareCommandInput}
- * @returns {@link UpdateSMBFileShareCommandOutput}
+ * @param UpdateSMBFileShareInput - {@link UpdateSMBFileShareInput}
+ * @returns {@link UpdateSMBFileShareOutput}
  * @see {@link UpdateSMBFileShareCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

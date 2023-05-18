@@ -63,8 +63,8 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  *
  * ```
  *
- * @param DeleteCrlCommandInput - {@link DeleteCrlCommandInput}
- * @returns {@link DeleteCrlCommandOutput}
+ * @param ScalarCrlRequest - {@link ScalarCrlRequest}
+ * @returns {@link CrlDetailResponse}
  * @see {@link DeleteCrlCommandInput} for command's `input` shape.
  * @see {@link DeleteCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

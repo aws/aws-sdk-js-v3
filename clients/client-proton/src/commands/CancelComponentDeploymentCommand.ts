@@ -72,8 +72,8 @@ export interface CancelComponentDeploymentCommandOutput extends CancelComponentD
  *
  * ```
  *
- * @param CancelComponentDeploymentCommandInput - {@link CancelComponentDeploymentCommandInput}
- * @returns {@link CancelComponentDeploymentCommandOutput}
+ * @param CancelComponentDeploymentInput - {@link CancelComponentDeploymentInput}
+ * @returns {@link CancelComponentDeploymentOutput}
  * @see {@link CancelComponentDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelComponentDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

@@ -138,8 +138,8 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  *
  * ```
  *
- * @param CreateMeetingWithAttendeesCommandInput - {@link CreateMeetingWithAttendeesCommandInput}
- * @returns {@link CreateMeetingWithAttendeesCommandOutput}
+ * @param CreateMeetingWithAttendeesRequest - {@link CreateMeetingWithAttendeesRequest}
+ * @returns {@link CreateMeetingWithAttendeesResponse}
  * @see {@link CreateMeetingWithAttendeesCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingWithAttendeesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

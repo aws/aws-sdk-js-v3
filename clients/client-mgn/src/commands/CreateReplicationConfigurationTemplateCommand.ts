@@ -99,8 +99,8 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  *
  * ```
  *
- * @param CreateReplicationConfigurationTemplateCommandInput - {@link CreateReplicationConfigurationTemplateCommandInput}
- * @returns {@link CreateReplicationConfigurationTemplateCommandOutput}
+ * @param CreateReplicationConfigurationTemplateRequest - {@link CreateReplicationConfigurationTemplateRequest}
+ * @returns {@link ReplicationConfigurationTemplate}
  * @see {@link CreateReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

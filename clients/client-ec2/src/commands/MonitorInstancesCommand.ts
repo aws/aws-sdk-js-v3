@@ -63,8 +63,8 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  *
  * ```
  *
- * @param MonitorInstancesCommandInput - {@link MonitorInstancesCommandInput}
- * @returns {@link MonitorInstancesCommandOutput}
+ * @param MonitorInstancesRequest - {@link MonitorInstancesRequest}
+ * @returns {@link MonitorInstancesResult}
  * @see {@link MonitorInstancesCommandInput} for command's `input` shape.
  * @see {@link MonitorInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -68,8 +68,8 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  *
  * ```
  *
- * @param GetContactCommandInput - {@link GetContactCommandInput}
- * @returns {@link GetContactCommandOutput}
+ * @param GetContactRequest - {@link GetContactRequest}
+ * @returns {@link GetContactResponse}
  * @see {@link GetContactCommandInput} for command's `input` shape.
  * @see {@link GetContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

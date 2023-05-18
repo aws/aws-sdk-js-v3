@@ -71,8 +71,8 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  *
  * ```
  *
- * @param CancelBundleTaskCommandInput - {@link CancelBundleTaskCommandInput}
- * @returns {@link CancelBundleTaskCommandOutput}
+ * @param CancelBundleTaskRequest - {@link CancelBundleTaskRequest}
+ * @returns {@link CancelBundleTaskResult}
  * @see {@link CancelBundleTaskCommandInput} for command's `input` shape.
  * @see {@link CancelBundleTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

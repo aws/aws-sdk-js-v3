@@ -81,8 +81,8 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  *
  * ```
  *
- * @param ModifyIpamResourceDiscoveryCommandInput - {@link ModifyIpamResourceDiscoveryCommandInput}
- * @returns {@link ModifyIpamResourceDiscoveryCommandOutput}
+ * @param ModifyIpamResourceDiscoveryRequest - {@link ModifyIpamResourceDiscoveryRequest}
+ * @returns {@link ModifyIpamResourceDiscoveryResult}
  * @see {@link ModifyIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

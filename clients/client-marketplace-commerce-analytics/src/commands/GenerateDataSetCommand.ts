@@ -69,8 +69,8 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  *
  * ```
  *
- * @param GenerateDataSetCommandInput - {@link GenerateDataSetCommandInput}
- * @returns {@link GenerateDataSetCommandOutput}
+ * @param GenerateDataSetRequest - {@link GenerateDataSetRequest}
+ * @returns {@link GenerateDataSetResult}
  * @see {@link GenerateDataSetCommandInput} for command's `input` shape.
  * @see {@link GenerateDataSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for MarketplaceCommerceAnalyticsClient's `config` shape.

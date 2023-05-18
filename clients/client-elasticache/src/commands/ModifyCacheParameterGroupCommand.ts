@@ -58,8 +58,8 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  *
  * ```
  *
- * @param ModifyCacheParameterGroupCommandInput - {@link ModifyCacheParameterGroupCommandInput}
- * @returns {@link ModifyCacheParameterGroupCommandOutput}
+ * @param ModifyCacheParameterGroupMessage - {@link ModifyCacheParameterGroupMessage}
+ * @returns {@link CacheParameterGroupNameMessage}
  * @see {@link ModifyCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

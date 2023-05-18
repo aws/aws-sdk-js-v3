@@ -107,8 +107,8 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  *
  * ```
  *
- * @param DisassociateLicenseCommandInput - {@link DisassociateLicenseCommandInput}
- * @returns {@link DisassociateLicenseCommandOutput}
+ * @param DisassociateLicenseRequest - {@link DisassociateLicenseRequest}
+ * @returns {@link DisassociateLicenseResponse}
  * @see {@link DisassociateLicenseCommandInput} for command's `input` shape.
  * @see {@link DisassociateLicenseCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

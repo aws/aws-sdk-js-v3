@@ -54,8 +54,8 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  *
  * ```
  *
- * @param BatchDeleteWorldsCommandInput - {@link BatchDeleteWorldsCommandInput}
- * @returns {@link BatchDeleteWorldsCommandOutput}
+ * @param BatchDeleteWorldsRequest - {@link BatchDeleteWorldsRequest}
+ * @returns {@link BatchDeleteWorldsResponse}
  * @see {@link BatchDeleteWorldsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteWorldsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

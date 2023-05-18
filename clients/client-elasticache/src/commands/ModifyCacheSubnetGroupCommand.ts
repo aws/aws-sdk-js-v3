@@ -76,8 +76,8 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  *
  * ```
  *
- * @param ModifyCacheSubnetGroupCommandInput - {@link ModifyCacheSubnetGroupCommandInput}
- * @returns {@link ModifyCacheSubnetGroupCommandOutput}
+ * @param ModifyCacheSubnetGroupMessage - {@link ModifyCacheSubnetGroupMessage}
+ * @returns {@link ModifyCacheSubnetGroupResult}
  * @see {@link ModifyCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

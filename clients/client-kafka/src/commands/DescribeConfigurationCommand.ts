@@ -62,8 +62,8 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  *
  * ```
  *
- * @param DescribeConfigurationCommandInput - {@link DescribeConfigurationCommandInput}
- * @returns {@link DescribeConfigurationCommandOutput}
+ * @param DescribeConfigurationRequest - {@link DescribeConfigurationRequest}
+ * @returns {@link DescribeConfigurationResponse}
  * @see {@link DescribeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

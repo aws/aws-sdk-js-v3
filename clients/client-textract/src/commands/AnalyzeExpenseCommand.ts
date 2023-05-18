@@ -238,8 +238,8 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  *
  * ```
  *
- * @param AnalyzeExpenseCommandInput - {@link AnalyzeExpenseCommandInput}
- * @returns {@link AnalyzeExpenseCommandOutput}
+ * @param AnalyzeExpenseRequest - {@link AnalyzeExpenseRequest}
+ * @returns {@link AnalyzeExpenseResponse}
  * @see {@link AnalyzeExpenseCommandInput} for command's `input` shape.
  * @see {@link AnalyzeExpenseCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

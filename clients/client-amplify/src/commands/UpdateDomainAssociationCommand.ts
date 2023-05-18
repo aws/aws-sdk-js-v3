@@ -83,8 +83,8 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  *
  * ```
  *
- * @param UpdateDomainAssociationCommandInput - {@link UpdateDomainAssociationCommandInput}
- * @returns {@link UpdateDomainAssociationCommandOutput}
+ * @param UpdateDomainAssociationRequest - {@link UpdateDomainAssociationRequest}
+ * @returns {@link UpdateDomainAssociationResult}
  * @see {@link UpdateDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

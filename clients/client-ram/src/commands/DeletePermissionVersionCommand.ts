@@ -57,8 +57,8 @@ export interface DeletePermissionVersionCommandOutput extends DeletePermissionVe
  *
  * ```
  *
- * @param DeletePermissionVersionCommandInput - {@link DeletePermissionVersionCommandInput}
- * @returns {@link DeletePermissionVersionCommandOutput}
+ * @param DeletePermissionVersionRequest - {@link DeletePermissionVersionRequest}
+ * @returns {@link DeletePermissionVersionResponse}
  * @see {@link DeletePermissionVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionVersionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

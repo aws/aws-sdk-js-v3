@@ -62,8 +62,8 @@ export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult,
  *
  * ```
  *
- * @param GetKeyGroupConfigCommandInput - {@link GetKeyGroupConfigCommandInput}
- * @returns {@link GetKeyGroupConfigCommandOutput}
+ * @param GetKeyGroupConfigRequest - {@link GetKeyGroupConfigRequest}
+ * @returns {@link GetKeyGroupConfigResult}
  * @see {@link GetKeyGroupConfigCommandInput} for command's `input` shape.
  * @see {@link GetKeyGroupConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

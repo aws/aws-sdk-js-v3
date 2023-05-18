@@ -94,8 +94,8 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  *
  * ```
  *
- * @param CreateCommentCommandInput - {@link CreateCommentCommandInput}
- * @returns {@link CreateCommentCommandOutput}
+ * @param CreateCommentRequest - {@link CreateCommentRequest}
+ * @returns {@link CreateCommentResponse}
  * @see {@link CreateCommentCommandInput} for command's `input` shape.
  * @see {@link CreateCommentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

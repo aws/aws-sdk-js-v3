@@ -59,8 +59,8 @@ export interface ResendContactReachabilityEmailCommandOutput
  *
  * ```
  *
- * @param ResendContactReachabilityEmailCommandInput - {@link ResendContactReachabilityEmailCommandInput}
- * @returns {@link ResendContactReachabilityEmailCommandOutput}
+ * @param ResendContactReachabilityEmailRequest - {@link ResendContactReachabilityEmailRequest}
+ * @returns {@link ResendContactReachabilityEmailResponse}
  * @see {@link ResendContactReachabilityEmailCommandInput} for command's `input` shape.
  * @see {@link ResendContactReachabilityEmailCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

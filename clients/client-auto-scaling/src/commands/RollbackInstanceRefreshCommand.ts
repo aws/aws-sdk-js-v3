@@ -72,8 +72,8 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  *
  * ```
  *
- * @param RollbackInstanceRefreshCommandInput - {@link RollbackInstanceRefreshCommandInput}
- * @returns {@link RollbackInstanceRefreshCommandOutput}
+ * @param RollbackInstanceRefreshType - {@link RollbackInstanceRefreshType}
+ * @returns {@link RollbackInstanceRefreshAnswer}
  * @see {@link RollbackInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link RollbackInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

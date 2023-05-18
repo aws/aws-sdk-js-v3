@@ -49,8 +49,8 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteVerifiedEmailAddressCommandInput - {@link DeleteVerifiedEmailAddressCommandInput}
- * @returns {@link DeleteVerifiedEmailAddressCommandOutput}
+ * @param DeleteVerifiedEmailAddressRequest - {@link DeleteVerifiedEmailAddressRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVerifiedEmailAddressCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

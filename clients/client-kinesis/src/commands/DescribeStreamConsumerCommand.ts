@@ -65,8 +65,8 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  *
  * ```
  *
- * @param DescribeStreamConsumerCommandInput - {@link DescribeStreamConsumerCommandInput}
- * @returns {@link DescribeStreamConsumerCommandOutput}
+ * @param DescribeStreamConsumerInput - {@link DescribeStreamConsumerInput}
+ * @returns {@link DescribeStreamConsumerOutput}
  * @see {@link DescribeStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamConsumerCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

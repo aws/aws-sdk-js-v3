@@ -69,8 +69,8 @@ export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBea
  *
  * ```
  *
- * @param DeletePoolCommandInput - {@link DeletePoolCommandInput}
- * @returns {@link DeletePoolCommandOutput}
+ * @param DeletePoolRequest - {@link DeletePoolRequest}
+ * @returns {@link DeletePoolResult}
  * @see {@link DeletePoolCommandInput} for command's `input` shape.
  * @see {@link DeletePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

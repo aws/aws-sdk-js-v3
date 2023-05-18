@@ -133,8 +133,8 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *
  * ```
  *
- * @param DescribeInstanceStatusCommandInput - {@link DescribeInstanceStatusCommandInput}
- * @returns {@link DescribeInstanceStatusCommandOutput}
+ * @param DescribeInstanceStatusRequest - {@link DescribeInstanceStatusRequest}
+ * @returns {@link DescribeInstanceStatusResult}
  * @see {@link DescribeInstanceStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

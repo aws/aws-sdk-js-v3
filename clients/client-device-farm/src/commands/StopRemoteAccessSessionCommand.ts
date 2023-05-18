@@ -134,8 +134,8 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  *
  * ```
  *
- * @param StopRemoteAccessSessionCommandInput - {@link StopRemoteAccessSessionCommandInput}
- * @returns {@link StopRemoteAccessSessionCommandOutput}
+ * @param StopRemoteAccessSessionRequest - {@link StopRemoteAccessSessionRequest}
+ * @returns {@link StopRemoteAccessSessionResult}
  * @see {@link StopRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link StopRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

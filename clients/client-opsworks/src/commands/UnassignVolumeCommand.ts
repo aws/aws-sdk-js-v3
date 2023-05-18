@@ -55,8 +55,8 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UnassignVolumeCommandInput - {@link UnassignVolumeCommandInput}
- * @returns {@link UnassignVolumeCommandOutput}
+ * @param UnassignVolumeRequest - {@link UnassignVolumeRequest}
+ * @returns {@link Unit}
  * @see {@link UnassignVolumeCommandInput} for command's `input` shape.
  * @see {@link UnassignVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

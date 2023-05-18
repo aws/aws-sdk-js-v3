@@ -54,8 +54,8 @@ export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __Met
  *
  * ```
  *
- * @param DeleteDataSetCommandInput - {@link DeleteDataSetCommandInput}
- * @returns {@link DeleteDataSetCommandOutput}
+ * @param DeleteDataSetRequest - {@link DeleteDataSetRequest}
+ * @returns {@link DeleteDataSetResponse}
  * @see {@link DeleteDataSetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSetCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

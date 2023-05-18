@@ -48,8 +48,8 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  *
  * ```
  *
- * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
- * @returns {@link DeletePipelineCommandOutput}
+ * @param DeletePipelineRequest - {@link DeletePipelineRequest}
+ * @returns {@link DeletePipelineResponse}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

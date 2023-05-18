@@ -91,8 +91,8 @@ export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBea
  *
  * ```
  *
- * @param CreateDiskCommandInput - {@link CreateDiskCommandInput}
- * @returns {@link CreateDiskCommandOutput}
+ * @param CreateDiskRequest - {@link CreateDiskRequest}
+ * @returns {@link CreateDiskResult}
  * @see {@link CreateDiskCommandInput} for command's `input` shape.
  * @see {@link CreateDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

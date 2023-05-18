@@ -48,8 +48,8 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  *
  * ```
  *
- * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
- * @returns {@link DeleteIdentityProviderCommandOutput}
+ * @param DeleteIdentityProviderRequest - {@link DeleteIdentityProviderRequest}
+ * @returns {@link DeleteIdentityProviderResponse}
  * @see {@link DeleteIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

@@ -121,8 +121,8 @@ export interface DescribeAccountCustomizationCommandOutput
  *
  * ```
  *
- * @param DescribeAccountCustomizationCommandInput - {@link DescribeAccountCustomizationCommandInput}
- * @returns {@link DescribeAccountCustomizationCommandOutput}
+ * @param DescribeAccountCustomizationRequest - {@link DescribeAccountCustomizationRequest}
+ * @returns {@link DescribeAccountCustomizationResponse}
  * @see {@link DescribeAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

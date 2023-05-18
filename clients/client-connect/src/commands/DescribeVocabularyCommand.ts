@@ -63,8 +63,8 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  *
  * ```
  *
- * @param DescribeVocabularyCommandInput - {@link DescribeVocabularyCommandInput}
- * @returns {@link DescribeVocabularyCommandOutput}
+ * @param DescribeVocabularyRequest - {@link DescribeVocabularyRequest}
+ * @returns {@link DescribeVocabularyResponse}
  * @see {@link DescribeVocabularyCommandInput} for command's `input` shape.
  * @see {@link DescribeVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

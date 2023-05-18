@@ -84,8 +84,8 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  *
  * ```
  *
- * @param GetResolverCommandInput - {@link GetResolverCommandInput}
- * @returns {@link GetResolverCommandOutput}
+ * @param GetResolverRequest - {@link GetResolverRequest}
+ * @returns {@link GetResolverResponse}
  * @see {@link GetResolverCommandInput} for command's `input` shape.
  * @see {@link GetResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

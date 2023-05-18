@@ -52,8 +52,8 @@ export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenti
  *
  * ```
  *
- * @param ModifyAuthenticationProfileCommandInput - {@link ModifyAuthenticationProfileCommandInput}
- * @returns {@link ModifyAuthenticationProfileCommandOutput}
+ * @param ModifyAuthenticationProfileMessage - {@link ModifyAuthenticationProfileMessage}
+ * @returns {@link ModifyAuthenticationProfileResult}
  * @see {@link ModifyAuthenticationProfileCommandInput} for command's `input` shape.
  * @see {@link ModifyAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

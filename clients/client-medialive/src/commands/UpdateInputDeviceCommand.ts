@@ -103,8 +103,8 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  *
  * ```
  *
- * @param UpdateInputDeviceCommandInput - {@link UpdateInputDeviceCommandInput}
- * @returns {@link UpdateInputDeviceCommandOutput}
+ * @param UpdateInputDeviceRequest - {@link UpdateInputDeviceRequest}
+ * @returns {@link UpdateInputDeviceResponse}
  * @see {@link UpdateInputDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

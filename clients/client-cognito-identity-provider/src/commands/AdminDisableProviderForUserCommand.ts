@@ -87,8 +87,8 @@ export interface AdminDisableProviderForUserCommandOutput
  *
  * ```
  *
- * @param AdminDisableProviderForUserCommandInput - {@link AdminDisableProviderForUserCommandInput}
- * @returns {@link AdminDisableProviderForUserCommandOutput}
+ * @param AdminDisableProviderForUserRequest - {@link AdminDisableProviderForUserRequest}
+ * @returns {@link AdminDisableProviderForUserResponse}
  * @see {@link AdminDisableProviderForUserCommandInput} for command's `input` shape.
  * @see {@link AdminDisableProviderForUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -225,8 +225,8 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  *
  * ```
  *
- * @param EnableSnapshotCopyCommandInput - {@link EnableSnapshotCopyCommandInput}
- * @returns {@link EnableSnapshotCopyCommandOutput}
+ * @param EnableSnapshotCopyMessage - {@link EnableSnapshotCopyMessage}
+ * @returns {@link EnableSnapshotCopyResult}
  * @see {@link EnableSnapshotCopyCommandInput} for command's `input` shape.
  * @see {@link EnableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

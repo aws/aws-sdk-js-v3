@@ -53,8 +53,8 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisassociateRouteTableCommandInput - {@link DisassociateRouteTableCommandInput}
- * @returns {@link DisassociateRouteTableCommandOutput}
+ * @param DisassociateRouteTableRequest - {@link DisassociateRouteTableRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateRouteTableCommandInput} for command's `input` shape.
  * @see {@link DisassociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

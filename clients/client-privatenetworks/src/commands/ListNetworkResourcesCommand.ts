@@ -112,8 +112,8 @@ export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesR
  *
  * ```
  *
- * @param ListNetworkResourcesCommandInput - {@link ListNetworkResourcesCommandInput}
- * @returns {@link ListNetworkResourcesCommandOutput}
+ * @param ListNetworkResourcesRequest - {@link ListNetworkResourcesRequest}
+ * @returns {@link ListNetworkResourcesResponse}
  * @see {@link ListNetworkResourcesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkResourcesCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

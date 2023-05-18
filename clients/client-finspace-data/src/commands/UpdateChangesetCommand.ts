@@ -59,8 +59,8 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
  *
  * ```
  *
- * @param UpdateChangesetCommandInput - {@link UpdateChangesetCommandInput}
- * @returns {@link UpdateChangesetCommandOutput}
+ * @param UpdateChangesetRequest - {@link UpdateChangesetRequest}
+ * @returns {@link UpdateChangesetResponse}
  * @see {@link UpdateChangesetCommandInput} for command's `input` shape.
  * @see {@link UpdateChangesetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

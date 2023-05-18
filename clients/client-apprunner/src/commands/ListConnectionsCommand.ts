@@ -61,8 +61,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  *
  * ```
  *
- * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
- * @returns {@link ListConnectionsCommandOutput}
+ * @param ListConnectionsRequest - {@link ListConnectionsRequest}
+ * @returns {@link ListConnectionsResponse}
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

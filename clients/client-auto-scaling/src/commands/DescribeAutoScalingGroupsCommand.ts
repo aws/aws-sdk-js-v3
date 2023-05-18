@@ -252,8 +252,8 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *
  * ```
  *
- * @param DescribeAutoScalingGroupsCommandInput - {@link DescribeAutoScalingGroupsCommandInput}
- * @returns {@link DescribeAutoScalingGroupsCommandOutput}
+ * @param AutoScalingGroupNamesType - {@link AutoScalingGroupNamesType}
+ * @returns {@link AutoScalingGroupsType}
  * @see {@link DescribeAutoScalingGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

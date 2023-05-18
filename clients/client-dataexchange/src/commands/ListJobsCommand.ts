@@ -213,8 +213,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListJobsCommandInput - {@link ListJobsCommandInput}
- * @returns {@link ListJobsCommandOutput}
+ * @param ListJobsRequest - {@link ListJobsRequest}
+ * @returns {@link ListJobsResponse}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

@@ -72,8 +72,8 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  *
  * ```
  *
- * @param ListLanguageModelsCommandInput - {@link ListLanguageModelsCommandInput}
- * @returns {@link ListLanguageModelsCommandOutput}
+ * @param ListLanguageModelsRequest - {@link ListLanguageModelsRequest}
+ * @returns {@link ListLanguageModelsResponse}
  * @see {@link ListLanguageModelsCommandInput} for command's `input` shape.
  * @see {@link ListLanguageModelsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

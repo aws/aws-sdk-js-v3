@@ -83,8 +83,8 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  *
  * ```
  *
- * @param CreateCacheSubnetGroupCommandInput - {@link CreateCacheSubnetGroupCommandInput}
- * @returns {@link CreateCacheSubnetGroupCommandOutput}
+ * @param CreateCacheSubnetGroupMessage - {@link CreateCacheSubnetGroupMessage}
+ * @returns {@link CreateCacheSubnetGroupResult}
  * @see {@link CreateCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

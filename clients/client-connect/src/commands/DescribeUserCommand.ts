@@ -78,8 +78,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *
  * ```
  *
- * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
- * @returns {@link DescribeUserCommandOutput}
+ * @param DescribeUserRequest - {@link DescribeUserRequest}
+ * @returns {@link DescribeUserResponse}
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

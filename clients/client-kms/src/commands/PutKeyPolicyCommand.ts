@@ -63,8 +63,8 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutKeyPolicyCommandInput - {@link PutKeyPolicyCommandInput}
- * @returns {@link PutKeyPolicyCommandOutput}
+ * @param PutKeyPolicyRequest - {@link PutKeyPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link PutKeyPolicyCommandInput} for command's `input` shape.
  * @see {@link PutKeyPolicyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

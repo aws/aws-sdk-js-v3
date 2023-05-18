@@ -58,8 +58,8 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  *
  * ```
  *
- * @param CreateAssessmentTargetCommandInput - {@link CreateAssessmentTargetCommandInput}
- * @returns {@link CreateAssessmentTargetCommandOutput}
+ * @param CreateAssessmentTargetRequest - {@link CreateAssessmentTargetRequest}
+ * @returns {@link CreateAssessmentTargetResponse}
  * @see {@link CreateAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

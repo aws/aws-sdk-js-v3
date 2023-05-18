@@ -76,8 +76,8 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  *
  * ```
  *
- * @param UpdateFunctionEventInvokeConfigCommandInput - {@link UpdateFunctionEventInvokeConfigCommandInput}
- * @returns {@link UpdateFunctionEventInvokeConfigCommandOutput}
+ * @param UpdateFunctionEventInvokeConfigRequest - {@link UpdateFunctionEventInvokeConfigRequest}
+ * @returns {@link FunctionEventInvokeConfig}
  * @see {@link UpdateFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

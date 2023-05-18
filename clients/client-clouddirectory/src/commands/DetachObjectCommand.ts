@@ -55,8 +55,8 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  *
  * ```
  *
- * @param DetachObjectCommandInput - {@link DetachObjectCommandInput}
- * @returns {@link DetachObjectCommandOutput}
+ * @param DetachObjectRequest - {@link DetachObjectRequest}
+ * @returns {@link DetachObjectResponse}
  * @see {@link DetachObjectCommandInput} for command's `input` shape.
  * @see {@link DetachObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

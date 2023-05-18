@@ -69,8 +69,8 @@ export interface GetClusterSessionCredentialsCommandOutput
  *
  * ```
  *
- * @param GetClusterSessionCredentialsCommandInput - {@link GetClusterSessionCredentialsCommandInput}
- * @returns {@link GetClusterSessionCredentialsCommandOutput}
+ * @param GetClusterSessionCredentialsInput - {@link GetClusterSessionCredentialsInput}
+ * @returns {@link GetClusterSessionCredentialsOutput}
  * @see {@link GetClusterSessionCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetClusterSessionCredentialsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

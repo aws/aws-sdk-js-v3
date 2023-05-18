@@ -80,8 +80,8 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  *
  * ```
  *
- * @param GetDocumentCommandInput - {@link GetDocumentCommandInput}
- * @returns {@link GetDocumentCommandOutput}
+ * @param GetDocumentRequest - {@link GetDocumentRequest}
+ * @returns {@link GetDocumentResult}
  * @see {@link GetDocumentCommandInput} for command's `input` shape.
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

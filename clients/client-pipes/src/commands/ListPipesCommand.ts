@@ -75,8 +75,8 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListPipesCommandInput - {@link ListPipesCommandInput}
- * @returns {@link ListPipesCommandOutput}
+ * @param ListPipesRequest - {@link ListPipesRequest}
+ * @returns {@link ListPipesResponse}
  * @see {@link ListPipesCommandInput} for command's `input` shape.
  * @see {@link ListPipesCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.

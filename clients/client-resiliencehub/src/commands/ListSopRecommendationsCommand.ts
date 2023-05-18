@@ -72,8 +72,8 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  *
  * ```
  *
- * @param ListSopRecommendationsCommandInput - {@link ListSopRecommendationsCommandInput}
- * @returns {@link ListSopRecommendationsCommandOutput}
+ * @param ListSopRecommendationsRequest - {@link ListSopRecommendationsRequest}
+ * @returns {@link ListSopRecommendationsResponse}
  * @see {@link ListSopRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListSopRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

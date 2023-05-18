@@ -49,8 +49,8 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  *
  * ```
  *
- * @param UpdateCrawlerScheduleCommandInput - {@link UpdateCrawlerScheduleCommandInput}
- * @returns {@link UpdateCrawlerScheduleCommandOutput}
+ * @param UpdateCrawlerScheduleRequest - {@link UpdateCrawlerScheduleRequest}
+ * @returns {@link UpdateCrawlerScheduleResponse}
  * @see {@link UpdateCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

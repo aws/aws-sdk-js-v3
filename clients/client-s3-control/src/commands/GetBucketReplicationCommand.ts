@@ -156,8 +156,8 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationR
  *
  * ```
  *
- * @param GetBucketReplicationCommandInput - {@link GetBucketReplicationCommandInput}
- * @returns {@link GetBucketReplicationCommandOutput}
+ * @param GetBucketReplicationRequest - {@link GetBucketReplicationRequest}
+ * @returns {@link GetBucketReplicationResult}
  * @see {@link GetBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link GetBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

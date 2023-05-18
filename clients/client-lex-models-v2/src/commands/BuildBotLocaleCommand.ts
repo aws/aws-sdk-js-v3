@@ -58,8 +58,8 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  *
  * ```
  *
- * @param BuildBotLocaleCommandInput - {@link BuildBotLocaleCommandInput}
- * @returns {@link BuildBotLocaleCommandOutput}
+ * @param BuildBotLocaleRequest - {@link BuildBotLocaleRequest}
+ * @returns {@link BuildBotLocaleResponse}
  * @see {@link BuildBotLocaleCommandInput} for command's `input` shape.
  * @see {@link BuildBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

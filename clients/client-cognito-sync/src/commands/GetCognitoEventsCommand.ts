@@ -52,8 +52,8 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  *
  * ```
  *
- * @param GetCognitoEventsCommandInput - {@link GetCognitoEventsCommandInput}
- * @returns {@link GetCognitoEventsCommandOutput}
+ * @param GetCognitoEventsRequest - {@link GetCognitoEventsRequest}
+ * @returns {@link GetCognitoEventsResponse}
  * @see {@link GetCognitoEventsCommandInput} for command's `input` shape.
  * @see {@link GetCognitoEventsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

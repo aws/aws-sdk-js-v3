@@ -107,8 +107,8 @@ export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecom
  *
  * ```
  *
- * @param DescribeBotRecommendationCommandInput - {@link DescribeBotRecommendationCommandInput}
- * @returns {@link DescribeBotRecommendationCommandOutput}
+ * @param DescribeBotRecommendationRequest - {@link DescribeBotRecommendationRequest}
+ * @returns {@link DescribeBotRecommendationResponse}
  * @see {@link DescribeBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link DescribeBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

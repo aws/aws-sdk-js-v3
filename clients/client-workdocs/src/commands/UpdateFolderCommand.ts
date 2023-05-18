@@ -53,8 +53,8 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateFolderCommandInput - {@link UpdateFolderCommandInput}
- * @returns {@link UpdateFolderCommandOutput}
+ * @param UpdateFolderRequest - {@link UpdateFolderRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateFolderCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

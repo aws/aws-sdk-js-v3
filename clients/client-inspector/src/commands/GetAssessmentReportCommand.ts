@@ -54,8 +54,8 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  *
  * ```
  *
- * @param GetAssessmentReportCommandInput - {@link GetAssessmentReportCommandInput}
- * @returns {@link GetAssessmentReportCommandOutput}
+ * @param GetAssessmentReportRequest - {@link GetAssessmentReportRequest}
+ * @returns {@link GetAssessmentReportResponse}
  * @see {@link GetAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

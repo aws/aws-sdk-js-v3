@@ -58,8 +58,8 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  *
  * ```
  *
- * @param GetAccessControlEffectCommandInput - {@link GetAccessControlEffectCommandInput}
- * @returns {@link GetAccessControlEffectCommandOutput}
+ * @param GetAccessControlEffectRequest - {@link GetAccessControlEffectRequest}
+ * @returns {@link GetAccessControlEffectResponse}
  * @see {@link GetAccessControlEffectCommandInput} for command's `input` shape.
  * @see {@link GetAccessControlEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

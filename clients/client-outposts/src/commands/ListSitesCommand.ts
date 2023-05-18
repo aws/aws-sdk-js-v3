@@ -91,8 +91,8 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListSitesCommandInput - {@link ListSitesCommandInput}
- * @returns {@link ListSitesCommandOutput}
+ * @param ListSitesInput - {@link ListSitesInput}
+ * @returns {@link ListSitesOutput}
  * @see {@link ListSitesCommandInput} for command's `input` shape.
  * @see {@link ListSitesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

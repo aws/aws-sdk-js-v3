@@ -71,8 +71,8 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  *
  * ```
  *
- * @param AddSourceIdentifierToSubscriptionCommandInput - {@link AddSourceIdentifierToSubscriptionCommandInput}
- * @returns {@link AddSourceIdentifierToSubscriptionCommandOutput}
+ * @param AddSourceIdentifierToSubscriptionMessage - {@link AddSourceIdentifierToSubscriptionMessage}
+ * @returns {@link AddSourceIdentifierToSubscriptionResult}
  * @see {@link AddSourceIdentifierToSubscriptionCommandInput} for command's `input` shape.
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

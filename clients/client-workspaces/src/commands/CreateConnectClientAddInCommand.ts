@@ -54,8 +54,8 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  *
  * ```
  *
- * @param CreateConnectClientAddInCommandInput - {@link CreateConnectClientAddInCommandInput}
- * @returns {@link CreateConnectClientAddInCommandOutput}
+ * @param CreateConnectClientAddInRequest - {@link CreateConnectClientAddInRequest}
+ * @returns {@link CreateConnectClientAddInResult}
  * @see {@link CreateConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link CreateConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -88,8 +88,8 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  *
  * ```
  *
- * @param UpdateApplicationResourceLifecycleCommandInput - {@link UpdateApplicationResourceLifecycleCommandInput}
- * @returns {@link UpdateApplicationResourceLifecycleCommandOutput}
+ * @param UpdateApplicationResourceLifecycleMessage - {@link UpdateApplicationResourceLifecycleMessage}
+ * @returns {@link ApplicationResourceLifecycleDescriptionMessage}
  * @see {@link UpdateApplicationResourceLifecycleCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationResourceLifecycleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

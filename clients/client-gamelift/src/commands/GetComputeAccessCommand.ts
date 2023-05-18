@@ -85,8 +85,8 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  *
  * ```
  *
- * @param GetComputeAccessCommandInput - {@link GetComputeAccessCommandInput}
- * @returns {@link GetComputeAccessCommandOutput}
+ * @param GetComputeAccessInput - {@link GetComputeAccessInput}
+ * @returns {@link GetComputeAccessOutput}
  * @see {@link GetComputeAccessCommandInput} for command's `input` shape.
  * @see {@link GetComputeAccessCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

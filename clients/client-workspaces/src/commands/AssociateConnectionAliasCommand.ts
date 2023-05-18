@@ -58,8 +58,8 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  *
  * ```
  *
- * @param AssociateConnectionAliasCommandInput - {@link AssociateConnectionAliasCommandInput}
- * @returns {@link AssociateConnectionAliasCommandOutput}
+ * @param AssociateConnectionAliasRequest - {@link AssociateConnectionAliasRequest}
+ * @returns {@link AssociateConnectionAliasResult}
  * @see {@link AssociateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -53,8 +53,8 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  *
  * ```
  *
- * @param GetTopicAttributesCommandInput - {@link GetTopicAttributesCommandInput}
- * @returns {@link GetTopicAttributesCommandOutput}
+ * @param GetTopicAttributesInput - {@link GetTopicAttributesInput}
+ * @returns {@link GetTopicAttributesResponse}
  * @see {@link GetTopicAttributesCommandInput} for command's `input` shape.
  * @see {@link GetTopicAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

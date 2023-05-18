@@ -185,8 +185,8 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *
  * ```
  *
- * @param StartInstanceRefreshCommandInput - {@link StartInstanceRefreshCommandInput}
- * @returns {@link StartInstanceRefreshCommandOutput}
+ * @param StartInstanceRefreshType - {@link StartInstanceRefreshType}
+ * @returns {@link StartInstanceRefreshAnswer}
  * @see {@link StartInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link StartInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

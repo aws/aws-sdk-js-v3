@@ -66,8 +66,8 @@ export interface GetHypervisorPropertyMappingsCommandOutput
  *
  * ```
  *
- * @param GetHypervisorPropertyMappingsCommandInput - {@link GetHypervisorPropertyMappingsCommandInput}
- * @returns {@link GetHypervisorPropertyMappingsCommandOutput}
+ * @param GetHypervisorPropertyMappingsInput - {@link GetHypervisorPropertyMappingsInput}
+ * @returns {@link GetHypervisorPropertyMappingsOutput}
  * @see {@link GetHypervisorPropertyMappingsCommandInput} for command's `input` shape.
  * @see {@link GetHypervisorPropertyMappingsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

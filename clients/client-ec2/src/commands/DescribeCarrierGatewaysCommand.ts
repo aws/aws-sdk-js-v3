@@ -77,8 +77,8 @@ export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGat
  *
  * ```
  *
- * @param DescribeCarrierGatewaysCommandInput - {@link DescribeCarrierGatewaysCommandInput}
- * @returns {@link DescribeCarrierGatewaysCommandOutput}
+ * @param DescribeCarrierGatewaysRequest - {@link DescribeCarrierGatewaysRequest}
+ * @returns {@link DescribeCarrierGatewaysResult}
  * @see {@link DescribeCarrierGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeCarrierGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceE
  *
  * ```
  *
- * @param DeleteInferenceExperimentCommandInput - {@link DeleteInferenceExperimentCommandInput}
- * @returns {@link DeleteInferenceExperimentCommandOutput}
+ * @param DeleteInferenceExperimentRequest - {@link DeleteInferenceExperimentRequest}
+ * @returns {@link DeleteInferenceExperimentResponse}
  * @see {@link DeleteInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

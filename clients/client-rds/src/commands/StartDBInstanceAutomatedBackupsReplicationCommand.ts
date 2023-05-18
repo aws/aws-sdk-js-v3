@@ -103,8 +103,8 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  *
  * ```
  *
- * @param StartDBInstanceAutomatedBackupsReplicationCommandInput - {@link StartDBInstanceAutomatedBackupsReplicationCommandInput}
- * @returns {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput}
+ * @param StartDBInstanceAutomatedBackupsReplicationMessage - {@link StartDBInstanceAutomatedBackupsReplicationMessage}
+ * @returns {@link StartDBInstanceAutomatedBackupsReplicationResult}
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

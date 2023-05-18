@@ -68,8 +68,8 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  *
  * ```
  *
- * @param GetRelationalDatabaseBlueprintsCommandInput - {@link GetRelationalDatabaseBlueprintsCommandInput}
- * @returns {@link GetRelationalDatabaseBlueprintsCommandOutput}
+ * @param GetRelationalDatabaseBlueprintsRequest - {@link GetRelationalDatabaseBlueprintsRequest}
+ * @returns {@link GetRelationalDatabaseBlueprintsResult}
  * @see {@link GetRelationalDatabaseBlueprintsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

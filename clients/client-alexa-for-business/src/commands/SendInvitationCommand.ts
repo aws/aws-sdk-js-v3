@@ -49,8 +49,8 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  *
  * ```
  *
- * @param SendInvitationCommandInput - {@link SendInvitationCommandInput}
- * @returns {@link SendInvitationCommandOutput}
+ * @param SendInvitationRequest - {@link SendInvitationRequest}
+ * @returns {@link SendInvitationResponse}
  * @see {@link SendInvitationCommandInput} for command's `input` shape.
  * @see {@link SendInvitationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

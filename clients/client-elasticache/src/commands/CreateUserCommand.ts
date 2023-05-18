@@ -82,8 +82,8 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  *
  * ```
  *
- * @param CreateUserCommandInput - {@link CreateUserCommandInput}
- * @returns {@link CreateUserCommandOutput}
+ * @param CreateUserMessage - {@link CreateUserMessage}
+ * @returns {@link User}
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  *
  * ```
  *
- * @param ListQuickConnectsCommandInput - {@link ListQuickConnectsCommandInput}
- * @returns {@link ListQuickConnectsCommandOutput}
+ * @param ListQuickConnectsRequest - {@link ListQuickConnectsRequest}
+ * @returns {@link ListQuickConnectsResponse}
  * @see {@link ListQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link ListQuickConnectsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

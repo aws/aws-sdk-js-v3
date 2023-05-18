@@ -68,8 +68,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  *
  * ```
  *
- * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
- * @returns {@link DeleteClusterCommandOutput}
+ * @param DeleteClusterInput - {@link DeleteClusterInput}
+ * @returns {@link DeleteClusterOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

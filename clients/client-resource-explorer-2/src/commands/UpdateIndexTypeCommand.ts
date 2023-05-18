@@ -114,8 +114,8 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *
  * ```
  *
- * @param UpdateIndexTypeCommandInput - {@link UpdateIndexTypeCommandInput}
- * @returns {@link UpdateIndexTypeCommandOutput}
+ * @param UpdateIndexTypeInput - {@link UpdateIndexTypeInput}
+ * @returns {@link UpdateIndexTypeOutput}
  * @see {@link UpdateIndexTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexTypeCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

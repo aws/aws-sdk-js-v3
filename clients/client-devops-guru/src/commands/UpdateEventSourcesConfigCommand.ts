@@ -54,8 +54,8 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  *
  * ```
  *
- * @param UpdateEventSourcesConfigCommandInput - {@link UpdateEventSourcesConfigCommandInput}
- * @returns {@link UpdateEventSourcesConfigCommandOutput}
+ * @param UpdateEventSourcesConfigRequest - {@link UpdateEventSourcesConfigRequest}
+ * @returns {@link UpdateEventSourcesConfigResponse}
  * @see {@link UpdateEventSourcesConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateEventSourcesConfigCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

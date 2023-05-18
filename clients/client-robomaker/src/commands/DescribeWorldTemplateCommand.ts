@@ -58,8 +58,8 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  *
  * ```
  *
- * @param DescribeWorldTemplateCommandInput - {@link DescribeWorldTemplateCommandInput}
- * @returns {@link DescribeWorldTemplateCommandOutput}
+ * @param DescribeWorldTemplateRequest - {@link DescribeWorldTemplateRequest}
+ * @returns {@link DescribeWorldTemplateResponse}
  * @see {@link DescribeWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldTemplateCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

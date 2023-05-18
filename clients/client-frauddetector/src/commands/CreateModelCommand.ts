@@ -57,8 +57,8 @@ export interface CreateModelCommandOutput extends CreateModelResult, __MetadataB
  *
  * ```
  *
- * @param CreateModelCommandInput - {@link CreateModelCommandInput}
- * @returns {@link CreateModelCommandOutput}
+ * @param CreateModelRequest - {@link CreateModelRequest}
+ * @returns {@link CreateModelResult}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

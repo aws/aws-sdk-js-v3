@@ -61,8 +61,8 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  *
  * ```
  *
- * @param GetResourceSetCommandInput - {@link GetResourceSetCommandInput}
- * @returns {@link GetResourceSetCommandOutput}
+ * @param GetResourceSetRequest - {@link GetResourceSetRequest}
+ * @returns {@link GetResourceSetResponse}
  * @see {@link GetResourceSetCommandInput} for command's `input` shape.
  * @see {@link GetResourceSetCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

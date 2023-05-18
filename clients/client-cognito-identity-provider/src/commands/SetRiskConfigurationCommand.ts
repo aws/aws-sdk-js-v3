@@ -173,8 +173,8 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  *
  * ```
  *
- * @param SetRiskConfigurationCommandInput - {@link SetRiskConfigurationCommandInput}
- * @returns {@link SetRiskConfigurationCommandOutput}
+ * @param SetRiskConfigurationRequest - {@link SetRiskConfigurationRequest}
+ * @returns {@link SetRiskConfigurationResponse}
  * @see {@link SetRiskConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetRiskConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

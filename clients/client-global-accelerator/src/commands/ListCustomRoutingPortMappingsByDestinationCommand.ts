@@ -89,8 +89,8 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  *
  * ```
  *
- * @param ListCustomRoutingPortMappingsByDestinationCommandInput - {@link ListCustomRoutingPortMappingsByDestinationCommandInput}
- * @returns {@link ListCustomRoutingPortMappingsByDestinationCommandOutput}
+ * @param ListCustomRoutingPortMappingsByDestinationRequest - {@link ListCustomRoutingPortMappingsByDestinationRequest}
+ * @returns {@link ListCustomRoutingPortMappingsByDestinationResponse}
  * @see {@link ListCustomRoutingPortMappingsByDestinationCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingPortMappingsByDestinationCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

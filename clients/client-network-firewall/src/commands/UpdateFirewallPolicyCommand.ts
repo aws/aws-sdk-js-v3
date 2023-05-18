@@ -133,8 +133,8 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  *
  * ```
  *
- * @param UpdateFirewallPolicyCommandInput - {@link UpdateFirewallPolicyCommandInput}
- * @returns {@link UpdateFirewallPolicyCommandOutput}
+ * @param UpdateFirewallPolicyRequest - {@link UpdateFirewallPolicyRequest}
+ * @returns {@link UpdateFirewallPolicyResponse}
  * @see {@link UpdateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

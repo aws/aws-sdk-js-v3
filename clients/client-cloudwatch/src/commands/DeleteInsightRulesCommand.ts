@@ -62,8 +62,8 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  *
  * ```
  *
- * @param DeleteInsightRulesCommandInput - {@link DeleteInsightRulesCommandInput}
- * @returns {@link DeleteInsightRulesCommandOutput}
+ * @param DeleteInsightRulesInput - {@link DeleteInsightRulesInput}
+ * @returns {@link DeleteInsightRulesOutput}
  * @see {@link DeleteInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DeleteInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

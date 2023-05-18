@@ -144,8 +144,8 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param QueryCommandInput - {@link QueryCommandInput}
- * @returns {@link QueryCommandOutput}
+ * @param QueryRequest - {@link QueryRequest}
+ * @returns {@link QueryResponse}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.

@@ -134,8 +134,8 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  *
  * ```
  *
- * @param UpdateExperimentCommandInput - {@link UpdateExperimentCommandInput}
- * @returns {@link UpdateExperimentCommandOutput}
+ * @param UpdateExperimentRequest - {@link UpdateExperimentRequest}
+ * @returns {@link UpdateExperimentResponse}
  * @see {@link UpdateExperimentCommandInput} for command's `input` shape.
  * @see {@link UpdateExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

@@ -54,8 +54,8 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  *
  * ```
  *
- * @param PutEmailIdentityDkimAttributesCommandInput - {@link PutEmailIdentityDkimAttributesCommandInput}
- * @returns {@link PutEmailIdentityDkimAttributesCommandOutput}
+ * @param PutEmailIdentityDkimAttributesRequest - {@link PutEmailIdentityDkimAttributesRequest}
+ * @returns {@link PutEmailIdentityDkimAttributesResponse}
  * @see {@link PutEmailIdentityDkimAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

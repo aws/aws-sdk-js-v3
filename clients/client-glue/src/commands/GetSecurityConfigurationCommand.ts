@@ -69,8 +69,8 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  *
  * ```
  *
- * @param GetSecurityConfigurationCommandInput - {@link GetSecurityConfigurationCommandInput}
- * @returns {@link GetSecurityConfigurationCommandOutput}
+ * @param GetSecurityConfigurationRequest - {@link GetSecurityConfigurationRequest}
+ * @returns {@link GetSecurityConfigurationResponse}
  * @see {@link GetSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

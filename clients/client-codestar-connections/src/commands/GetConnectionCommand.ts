@@ -61,8 +61,8 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  *
  * ```
  *
- * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
- * @returns {@link GetConnectionCommandOutput}
+ * @param GetConnectionInput - {@link GetConnectionInput}
+ * @returns {@link GetConnectionOutput}
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

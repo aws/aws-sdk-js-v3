@@ -63,8 +63,8 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  *
  * ```
  *
- * @param ListAccessLogSubscriptionsCommandInput - {@link ListAccessLogSubscriptionsCommandInput}
- * @returns {@link ListAccessLogSubscriptionsCommandOutput}
+ * @param ListAccessLogSubscriptionsRequest - {@link ListAccessLogSubscriptionsRequest}
+ * @returns {@link ListAccessLogSubscriptionsResponse}
  * @see {@link ListAccessLogSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListAccessLogSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

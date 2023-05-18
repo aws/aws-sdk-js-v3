@@ -128,8 +128,8 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  *
  * ```
  *
- * @param ListViolationEventsCommandInput - {@link ListViolationEventsCommandInput}
- * @returns {@link ListViolationEventsCommandOutput}
+ * @param ListViolationEventsRequest - {@link ListViolationEventsRequest}
+ * @returns {@link ListViolationEventsResponse}
  * @see {@link ListViolationEventsCommandInput} for command's `input` shape.
  * @see {@link ListViolationEventsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

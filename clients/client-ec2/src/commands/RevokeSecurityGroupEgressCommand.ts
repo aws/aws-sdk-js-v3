@@ -145,8 +145,8 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  *
  * ```
  *
- * @param RevokeSecurityGroupEgressCommandInput - {@link RevokeSecurityGroupEgressCommandInput}
- * @returns {@link RevokeSecurityGroupEgressCommandOutput}
+ * @param RevokeSecurityGroupEgressRequest - {@link RevokeSecurityGroupEgressRequest}
+ * @returns {@link RevokeSecurityGroupEgressResult}
  * @see {@link RevokeSecurityGroupEgressCommandInput} for command's `input` shape.
  * @see {@link RevokeSecurityGroupEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

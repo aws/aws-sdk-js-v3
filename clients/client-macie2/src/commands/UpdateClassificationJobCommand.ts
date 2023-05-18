@@ -49,8 +49,8 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
  *
  * ```
  *
- * @param UpdateClassificationJobCommandInput - {@link UpdateClassificationJobCommandInput}
- * @returns {@link UpdateClassificationJobCommandOutput}
+ * @param UpdateClassificationJobRequest - {@link UpdateClassificationJobRequest}
+ * @returns {@link UpdateClassificationJobResponse}
  * @see {@link UpdateClassificationJobCommandInput} for command's `input` shape.
  * @see {@link UpdateClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

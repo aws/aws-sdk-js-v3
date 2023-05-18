@@ -122,8 +122,8 @@ export interface GetResourcesCommandOutput extends Resources, __MetadataBearer {
  *
  * ```
  *
- * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
- * @returns {@link GetResourcesCommandOutput}
+ * @param GetResourcesRequest - {@link GetResourcesRequest}
+ * @returns {@link Resources}
  * @see {@link GetResourcesCommandInput} for command's `input` shape.
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

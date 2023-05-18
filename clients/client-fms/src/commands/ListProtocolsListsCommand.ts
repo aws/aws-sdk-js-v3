@@ -62,8 +62,8 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  *
  * ```
  *
- * @param ListProtocolsListsCommandInput - {@link ListProtocolsListsCommandInput}
- * @returns {@link ListProtocolsListsCommandOutput}
+ * @param ListProtocolsListsRequest - {@link ListProtocolsListsRequest}
+ * @returns {@link ListProtocolsListsResponse}
  * @see {@link ListProtocolsListsCommandInput} for command's `input` shape.
  * @see {@link ListProtocolsListsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

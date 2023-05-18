@@ -63,8 +63,8 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  *
  * ```
  *
- * @param DescribeChapCredentialsCommandInput - {@link DescribeChapCredentialsCommandInput}
- * @returns {@link DescribeChapCredentialsCommandOutput}
+ * @param DescribeChapCredentialsInput - {@link DescribeChapCredentialsInput}
+ * @returns {@link DescribeChapCredentialsOutput}
  * @see {@link DescribeChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link DescribeChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

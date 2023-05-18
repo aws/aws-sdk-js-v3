@@ -66,8 +66,8 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  *
  * ```
  *
- * @param GetCrawlerMetricsCommandInput - {@link GetCrawlerMetricsCommandInput}
- * @returns {@link GetCrawlerMetricsCommandOutput}
+ * @param GetCrawlerMetricsRequest - {@link GetCrawlerMetricsRequest}
+ * @returns {@link GetCrawlerMetricsResponse}
  * @see {@link GetCrawlerMetricsCommandInput} for command's `input` shape.
  * @see {@link GetCrawlerMetricsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

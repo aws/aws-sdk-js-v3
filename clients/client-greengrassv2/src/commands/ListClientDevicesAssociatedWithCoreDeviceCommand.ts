@@ -68,8 +68,8 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
  *
  * ```
  *
- * @param ListClientDevicesAssociatedWithCoreDeviceCommandInput - {@link ListClientDevicesAssociatedWithCoreDeviceCommandInput}
- * @returns {@link ListClientDevicesAssociatedWithCoreDeviceCommandOutput}
+ * @param ListClientDevicesAssociatedWithCoreDeviceRequest - {@link ListClientDevicesAssociatedWithCoreDeviceRequest}
+ * @returns {@link ListClientDevicesAssociatedWithCoreDeviceResponse}
  * @see {@link ListClientDevicesAssociatedWithCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link ListClientDevicesAssociatedWithCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

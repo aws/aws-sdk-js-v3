@@ -78,8 +78,8 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  *
  * ```
  *
- * @param ListApplicationInstancesCommandInput - {@link ListApplicationInstancesCommandInput}
- * @returns {@link ListApplicationInstancesCommandOutput}
+ * @param ListApplicationInstancesRequest - {@link ListApplicationInstancesRequest}
+ * @returns {@link ListApplicationInstancesResponse}
  * @see {@link ListApplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

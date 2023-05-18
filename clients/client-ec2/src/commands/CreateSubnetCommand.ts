@@ -124,8 +124,8 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *
  * ```
  *
- * @param CreateSubnetCommandInput - {@link CreateSubnetCommandInput}
- * @returns {@link CreateSubnetCommandOutput}
+ * @param CreateSubnetRequest - {@link CreateSubnetRequest}
+ * @returns {@link CreateSubnetResult}
  * @see {@link CreateSubnetCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

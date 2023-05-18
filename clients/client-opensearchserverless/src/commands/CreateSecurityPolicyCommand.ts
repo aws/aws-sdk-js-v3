@@ -71,8 +71,8 @@ export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyR
  *
  * ```
  *
- * @param CreateSecurityPolicyCommandInput - {@link CreateSecurityPolicyCommandInput}
- * @returns {@link CreateSecurityPolicyCommandOutput}
+ * @param CreateSecurityPolicyRequest - {@link CreateSecurityPolicyRequest}
+ * @returns {@link CreateSecurityPolicyResponse}
  * @see {@link CreateSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

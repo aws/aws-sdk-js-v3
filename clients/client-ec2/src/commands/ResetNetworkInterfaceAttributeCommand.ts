@@ -53,8 +53,8 @@ export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param ResetNetworkInterfaceAttributeCommandInput - {@link ResetNetworkInterfaceAttributeCommandInput}
- * @returns {@link ResetNetworkInterfaceAttributeCommandOutput}
+ * @param ResetNetworkInterfaceAttributeRequest - {@link ResetNetworkInterfaceAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link ResetNetworkInterfaceAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

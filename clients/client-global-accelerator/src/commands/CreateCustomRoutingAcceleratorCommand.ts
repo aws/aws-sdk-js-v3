@@ -99,8 +99,8 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  *
  * ```
  *
- * @param CreateCustomRoutingAcceleratorCommandInput - {@link CreateCustomRoutingAcceleratorCommandInput}
- * @returns {@link CreateCustomRoutingAcceleratorCommandOutput}
+ * @param CreateCustomRoutingAcceleratorRequest - {@link CreateCustomRoutingAcceleratorRequest}
+ * @returns {@link CreateCustomRoutingAcceleratorResponse}
  * @see {@link CreateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

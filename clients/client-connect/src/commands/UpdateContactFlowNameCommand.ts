@@ -53,8 +53,8 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  *
  * ```
  *
- * @param UpdateContactFlowNameCommandInput - {@link UpdateContactFlowNameCommandInput}
- * @returns {@link UpdateContactFlowNameCommandOutput}
+ * @param UpdateContactFlowNameRequest - {@link UpdateContactFlowNameRequest}
+ * @returns {@link UpdateContactFlowNameResponse}
  * @see {@link UpdateContactFlowNameCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

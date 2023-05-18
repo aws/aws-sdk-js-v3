@@ -76,8 +76,8 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  *
  * ```
  *
- * @param DescribePortalCommandInput - {@link DescribePortalCommandInput}
- * @returns {@link DescribePortalCommandOutput}
+ * @param DescribePortalRequest - {@link DescribePortalRequest}
+ * @returns {@link DescribePortalResponse}
  * @see {@link DescribePortalCommandInput} for command's `input` shape.
  * @see {@link DescribePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

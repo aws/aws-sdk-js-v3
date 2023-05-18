@@ -63,8 +63,8 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  *
  * ```
  *
- * @param UpdateAppImageConfigCommandInput - {@link UpdateAppImageConfigCommandInput}
- * @returns {@link UpdateAppImageConfigCommandOutput}
+ * @param UpdateAppImageConfigRequest - {@link UpdateAppImageConfigRequest}
+ * @returns {@link UpdateAppImageConfigResponse}
  * @see {@link UpdateAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

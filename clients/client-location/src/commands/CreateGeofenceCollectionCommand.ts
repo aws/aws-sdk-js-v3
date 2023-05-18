@@ -59,8 +59,8 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  *
  * ```
  *
- * @param CreateGeofenceCollectionCommandInput - {@link CreateGeofenceCollectionCommandInput}
- * @returns {@link CreateGeofenceCollectionCommandOutput}
+ * @param CreateGeofenceCollectionRequest - {@link CreateGeofenceCollectionRequest}
+ * @returns {@link CreateGeofenceCollectionResponse}
  * @see {@link CreateGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

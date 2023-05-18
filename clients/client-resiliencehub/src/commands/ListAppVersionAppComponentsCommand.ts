@@ -72,8 +72,8 @@ export interface ListAppVersionAppComponentsCommandOutput
  *
  * ```
  *
- * @param ListAppVersionAppComponentsCommandInput - {@link ListAppVersionAppComponentsCommandInput}
- * @returns {@link ListAppVersionAppComponentsCommandOutput}
+ * @param ListAppVersionAppComponentsRequest - {@link ListAppVersionAppComponentsRequest}
+ * @returns {@link ListAppVersionAppComponentsResponse}
  * @see {@link ListAppVersionAppComponentsCommandInput} for command's `input` shape.
  * @see {@link ListAppVersionAppComponentsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

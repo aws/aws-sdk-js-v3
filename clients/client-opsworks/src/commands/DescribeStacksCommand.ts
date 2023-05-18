@@ -97,8 +97,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  *
  * ```
  *
- * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
- * @returns {@link DescribeStacksCommandOutput}
+ * @param DescribeStacksRequest - {@link DescribeStacksRequest}
+ * @returns {@link DescribeStacksResult}
  * @see {@link DescribeStacksCommandInput} for command's `input` shape.
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

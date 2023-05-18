@@ -48,8 +48,8 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  *
  * ```
  *
- * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
- * @returns {@link DeleteEndpointCommandOutput}
+ * @param DeleteEndpointRequest - {@link DeleteEndpointRequest}
+ * @returns {@link DeleteEndpointResponse}
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

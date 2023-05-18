@@ -54,8 +54,8 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  *
  * ```
  *
- * @param UpdateSAMLProviderCommandInput - {@link UpdateSAMLProviderCommandInput}
- * @returns {@link UpdateSAMLProviderCommandOutput}
+ * @param UpdateSAMLProviderRequest - {@link UpdateSAMLProviderRequest}
+ * @returns {@link UpdateSAMLProviderResponse}
  * @see {@link UpdateSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

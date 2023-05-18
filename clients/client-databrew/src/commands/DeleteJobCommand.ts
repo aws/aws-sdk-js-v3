@@ -50,8 +50,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  *
  * ```
  *
- * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
- * @returns {@link DeleteJobCommandOutput}
+ * @param DeleteJobRequest - {@link DeleteJobRequest}
+ * @returns {@link DeleteJobResponse}
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

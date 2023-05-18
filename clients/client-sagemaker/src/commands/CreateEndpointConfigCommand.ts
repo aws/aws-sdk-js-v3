@@ -205,8 +205,8 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *
  * ```
  *
- * @param CreateEndpointConfigCommandInput - {@link CreateEndpointConfigCommandInput}
- * @returns {@link CreateEndpointConfigCommandOutput}
+ * @param CreateEndpointConfigInput - {@link CreateEndpointConfigInput}
+ * @returns {@link CreateEndpointConfigOutput}
  * @see {@link CreateEndpointConfigCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

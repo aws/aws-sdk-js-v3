@@ -59,8 +59,8 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  *
  * ```
  *
- * @param DeleteBuildBatchCommandInput - {@link DeleteBuildBatchCommandInput}
- * @returns {@link DeleteBuildBatchCommandOutput}
+ * @param DeleteBuildBatchInput - {@link DeleteBuildBatchInput}
+ * @returns {@link DeleteBuildBatchOutput}
  * @see {@link DeleteBuildBatchCommandInput} for command's `input` shape.
  * @see {@link DeleteBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -67,8 +67,8 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  *
  * ```
  *
- * @param UpdateMissionProfileCommandInput - {@link UpdateMissionProfileCommandInput}
- * @returns {@link UpdateMissionProfileCommandOutput}
+ * @param UpdateMissionProfileRequest - {@link UpdateMissionProfileRequest}
+ * @returns {@link MissionProfileIdResponse}
  * @see {@link UpdateMissionProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

@@ -78,8 +78,8 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *
  * ```
  *
- * @param CreateBulkImportJobCommandInput - {@link CreateBulkImportJobCommandInput}
- * @returns {@link CreateBulkImportJobCommandOutput}
+ * @param CreateBulkImportJobRequest - {@link CreateBulkImportJobRequest}
+ * @returns {@link CreateBulkImportJobResponse}
  * @see {@link CreateBulkImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateBulkImportJobCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

@@ -67,8 +67,8 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  *
  * ```
  *
- * @param CreateWorkspaceImageCommandInput - {@link CreateWorkspaceImageCommandInput}
- * @returns {@link CreateWorkspaceImageCommandOutput}
+ * @param CreateWorkspaceImageRequest - {@link CreateWorkspaceImageRequest}
+ * @returns {@link CreateWorkspaceImageResult}
  * @see {@link CreateWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

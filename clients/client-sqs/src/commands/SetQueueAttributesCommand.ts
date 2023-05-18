@@ -67,8 +67,8 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetQueueAttributesCommandInput - {@link SetQueueAttributesCommandInput}
- * @returns {@link SetQueueAttributesCommandOutput}
+ * @param SetQueueAttributesRequest - {@link SetQueueAttributesRequest}
+ * @returns {@link Unit}
  * @see {@link SetQueueAttributesCommandInput} for command's `input` shape.
  * @see {@link SetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

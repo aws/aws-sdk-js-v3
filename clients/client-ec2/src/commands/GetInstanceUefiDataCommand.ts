@@ -62,8 +62,8 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  *
  * ```
  *
- * @param GetInstanceUefiDataCommandInput - {@link GetInstanceUefiDataCommandInput}
- * @returns {@link GetInstanceUefiDataCommandOutput}
+ * @param GetInstanceUefiDataRequest - {@link GetInstanceUefiDataRequest}
+ * @returns {@link GetInstanceUefiDataResult}
  * @see {@link GetInstanceUefiDataCommandInput} for command's `input` shape.
  * @see {@link GetInstanceUefiDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

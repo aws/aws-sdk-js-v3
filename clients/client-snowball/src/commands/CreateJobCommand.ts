@@ -286,8 +286,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *
  * ```
  *
- * @param CreateJobCommandInput - {@link CreateJobCommandInput}
- * @returns {@link CreateJobCommandOutput}
+ * @param CreateJobRequest - {@link CreateJobRequest}
+ * @returns {@link CreateJobResult}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

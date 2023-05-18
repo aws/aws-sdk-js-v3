@@ -73,8 +73,8 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  *
  * ```
  *
- * @param DescribeBotCommandInput - {@link DescribeBotCommandInput}
- * @returns {@link DescribeBotCommandOutput}
+ * @param DescribeBotRequest - {@link DescribeBotRequest}
+ * @returns {@link DescribeBotResponse}
  * @see {@link DescribeBotCommandInput} for command's `input` shape.
  * @see {@link DescribeBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

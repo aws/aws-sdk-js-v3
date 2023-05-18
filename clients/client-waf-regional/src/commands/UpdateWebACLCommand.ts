@@ -154,8 +154,8 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *
  * ```
  *
- * @param UpdateWebACLCommandInput - {@link UpdateWebACLCommandInput}
- * @returns {@link UpdateWebACLCommandOutput}
+ * @param UpdateWebACLRequest - {@link UpdateWebACLRequest}
+ * @returns {@link UpdateWebACLResponse}
  * @see {@link UpdateWebACLCommandInput} for command's `input` shape.
  * @see {@link UpdateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

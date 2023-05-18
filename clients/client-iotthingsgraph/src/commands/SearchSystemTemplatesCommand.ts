@@ -69,8 +69,8 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  *
  * ```
  *
- * @param SearchSystemTemplatesCommandInput - {@link SearchSystemTemplatesCommandInput}
- * @returns {@link SearchSystemTemplatesCommandOutput}
+ * @param SearchSystemTemplatesRequest - {@link SearchSystemTemplatesRequest}
+ * @returns {@link SearchSystemTemplatesResponse}
  * @see {@link SearchSystemTemplatesCommandInput} for command's `input` shape.
  * @see {@link SearchSystemTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

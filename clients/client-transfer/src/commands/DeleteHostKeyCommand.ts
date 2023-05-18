@@ -49,8 +49,8 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteHostKeyCommandInput - {@link DeleteHostKeyCommandInput}
- * @returns {@link DeleteHostKeyCommandOutput}
+ * @param DeleteHostKeyRequest - {@link DeleteHostKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteHostKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

@@ -52,8 +52,8 @@ export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyR
  *
  * ```
  *
- * @param AssociateSecurityKeyCommandInput - {@link AssociateSecurityKeyCommandInput}
- * @returns {@link AssociateSecurityKeyCommandOutput}
+ * @param AssociateSecurityKeyRequest - {@link AssociateSecurityKeyRequest}
+ * @returns {@link AssociateSecurityKeyResponse}
  * @see {@link AssociateSecurityKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateSecurityKeyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

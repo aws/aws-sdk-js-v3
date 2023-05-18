@@ -61,8 +61,8 @@ export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTempl
  *
  * ```
  *
- * @param ListNodeFromTemplateJobsCommandInput - {@link ListNodeFromTemplateJobsCommandInput}
- * @returns {@link ListNodeFromTemplateJobsCommandOutput}
+ * @param ListNodeFromTemplateJobsRequest - {@link ListNodeFromTemplateJobsRequest}
+ * @returns {@link ListNodeFromTemplateJobsResponse}
  * @see {@link ListNodeFromTemplateJobsCommandInput} for command's `input` shape.
  * @see {@link ListNodeFromTemplateJobsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

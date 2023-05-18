@@ -95,8 +95,8 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  *
  * ```
  *
- * @param RequestPhoneNumberCommandInput - {@link RequestPhoneNumberCommandInput}
- * @returns {@link RequestPhoneNumberCommandOutput}
+ * @param RequestPhoneNumberRequest - {@link RequestPhoneNumberRequest}
+ * @returns {@link RequestPhoneNumberResult}
  * @see {@link RequestPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link RequestPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

@@ -66,8 +66,8 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  *
  * ```
  *
- * @param GetRelationalDatabaseMasterUserPasswordCommandInput - {@link GetRelationalDatabaseMasterUserPasswordCommandInput}
- * @returns {@link GetRelationalDatabaseMasterUserPasswordCommandOutput}
+ * @param GetRelationalDatabaseMasterUserPasswordRequest - {@link GetRelationalDatabaseMasterUserPasswordRequest}
+ * @returns {@link GetRelationalDatabaseMasterUserPasswordResult}
  * @see {@link GetRelationalDatabaseMasterUserPasswordCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseMasterUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

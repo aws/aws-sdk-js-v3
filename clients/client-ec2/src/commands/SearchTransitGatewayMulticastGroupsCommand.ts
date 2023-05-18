@@ -84,8 +84,8 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
  *
  * ```
  *
- * @param SearchTransitGatewayMulticastGroupsCommandInput - {@link SearchTransitGatewayMulticastGroupsCommandInput}
- * @returns {@link SearchTransitGatewayMulticastGroupsCommandOutput}
+ * @param SearchTransitGatewayMulticastGroupsRequest - {@link SearchTransitGatewayMulticastGroupsRequest}
+ * @returns {@link SearchTransitGatewayMulticastGroupsResult}
  * @see {@link SearchTransitGatewayMulticastGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchTransitGatewayMulticastGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

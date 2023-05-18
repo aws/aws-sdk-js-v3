@@ -91,8 +91,8 @@ export interface ListTrafficPolicyInstancesByPolicyCommandOutput
  *
  * ```
  *
- * @param ListTrafficPolicyInstancesByPolicyCommandInput - {@link ListTrafficPolicyInstancesByPolicyCommandInput}
- * @returns {@link ListTrafficPolicyInstancesByPolicyCommandOutput}
+ * @param ListTrafficPolicyInstancesByPolicyRequest - {@link ListTrafficPolicyInstancesByPolicyRequest}
+ * @returns {@link ListTrafficPolicyInstancesByPolicyResponse}
  * @see {@link ListTrafficPolicyInstancesByPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesByPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

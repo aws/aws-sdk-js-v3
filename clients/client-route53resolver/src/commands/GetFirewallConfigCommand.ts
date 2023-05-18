@@ -56,8 +56,8 @@ export interface GetFirewallConfigCommandOutput extends GetFirewallConfigRespons
  *
  * ```
  *
- * @param GetFirewallConfigCommandInput - {@link GetFirewallConfigCommandInput}
- * @returns {@link GetFirewallConfigCommandOutput}
+ * @param GetFirewallConfigRequest - {@link GetFirewallConfigRequest}
+ * @returns {@link GetFirewallConfigResponse}
  * @see {@link GetFirewallConfigCommandInput} for command's `input` shape.
  * @see {@link GetFirewallConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

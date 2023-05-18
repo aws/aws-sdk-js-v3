@@ -99,8 +99,8 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  *
  * ```
  *
- * @param GetPortfolioPreferencesCommandInput - {@link GetPortfolioPreferencesCommandInput}
- * @returns {@link GetPortfolioPreferencesCommandOutput}
+ * @param GetPortfolioPreferencesRequest - {@link GetPortfolioPreferencesRequest}
+ * @returns {@link GetPortfolioPreferencesResponse}
  * @see {@link GetPortfolioPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

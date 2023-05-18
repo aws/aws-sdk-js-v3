@@ -81,8 +81,8 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
  *
  * ```
  *
- * @param ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput - {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput}
- * @returns {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput}
+ * @param ListRequestedServiceQuotaChangeHistoryByQuotaRequest - {@link ListRequestedServiceQuotaChangeHistoryByQuotaRequest}
+ * @returns {@link ListRequestedServiceQuotaChangeHistoryByQuotaResponse}
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput} for command's `input` shape.
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

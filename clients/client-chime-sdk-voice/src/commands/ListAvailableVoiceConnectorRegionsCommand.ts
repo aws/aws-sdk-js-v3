@@ -55,8 +55,8 @@ export interface ListAvailableVoiceConnectorRegionsCommandOutput
  *
  * ```
  *
- * @param ListAvailableVoiceConnectorRegionsCommandInput - {@link ListAvailableVoiceConnectorRegionsCommandInput}
- * @returns {@link ListAvailableVoiceConnectorRegionsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link ListAvailableVoiceConnectorRegionsResponse}
  * @see {@link ListAvailableVoiceConnectorRegionsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableVoiceConnectorRegionsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

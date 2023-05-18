@@ -113,8 +113,8 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *
  * ```
  *
- * @param PutRecordBatchCommandInput - {@link PutRecordBatchCommandInput}
- * @returns {@link PutRecordBatchCommandOutput}
+ * @param PutRecordBatchInput - {@link PutRecordBatchInput}
+ * @returns {@link PutRecordBatchOutput}
  * @see {@link PutRecordBatchCommandInput} for command's `input` shape.
  * @see {@link PutRecordBatchCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

@@ -48,8 +48,8 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  *
  * ```
  *
- * @param AssociateSkillWithUsersCommandInput - {@link AssociateSkillWithUsersCommandInput}
- * @returns {@link AssociateSkillWithUsersCommandOutput}
+ * @param AssociateSkillWithUsersRequest - {@link AssociateSkillWithUsersRequest}
+ * @returns {@link AssociateSkillWithUsersResponse}
  * @see {@link AssociateSkillWithUsersCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillWithUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

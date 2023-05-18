@@ -70,8 +70,8 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  *
  * ```
  *
- * @param DescribePublisherCommandInput - {@link DescribePublisherCommandInput}
- * @returns {@link DescribePublisherCommandOutput}
+ * @param DescribePublisherInput - {@link DescribePublisherInput}
+ * @returns {@link DescribePublisherOutput}
  * @see {@link DescribePublisherCommandInput} for command's `input` shape.
  * @see {@link DescribePublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

@@ -116,8 +116,8 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  *
  * ```
  *
- * @param ClassifyDocumentCommandInput - {@link ClassifyDocumentCommandInput}
- * @returns {@link ClassifyDocumentCommandOutput}
+ * @param ClassifyDocumentRequest - {@link ClassifyDocumentRequest}
+ * @returns {@link ClassifyDocumentResponse}
  * @see {@link ClassifyDocumentCommandInput} for command's `input` shape.
  * @see {@link ClassifyDocumentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

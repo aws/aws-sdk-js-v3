@@ -48,8 +48,8 @@ export interface DeleteVoiceConnectorProxyCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteVoiceConnectorProxyCommandInput - {@link DeleteVoiceConnectorProxyCommandInput}
- * @returns {@link DeleteVoiceConnectorProxyCommandOutput}
+ * @param DeleteVoiceConnectorProxyRequest - {@link DeleteVoiceConnectorProxyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceConnectorProxyCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorProxyCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

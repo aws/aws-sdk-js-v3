@@ -52,8 +52,8 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  *
  * ```
  *
- * @param RunStatementCommandInput - {@link RunStatementCommandInput}
- * @returns {@link RunStatementCommandOutput}
+ * @param RunStatementRequest - {@link RunStatementRequest}
+ * @returns {@link RunStatementResponse}
  * @see {@link RunStatementCommandInput} for command's `input` shape.
  * @see {@link RunStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

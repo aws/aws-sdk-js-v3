@@ -61,8 +61,8 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  *
  * ```
  *
- * @param PutVoiceConnectorTerminationCredentialsCommandInput - {@link PutVoiceConnectorTerminationCredentialsCommandInput}
- * @returns {@link PutVoiceConnectorTerminationCredentialsCommandOutput}
+ * @param PutVoiceConnectorTerminationCredentialsRequest - {@link PutVoiceConnectorTerminationCredentialsRequest}
+ * @returns {@link Unit}
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

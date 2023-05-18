@@ -119,8 +119,8 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *
  * ```
  *
- * @param UpdateBrokerCommandInput - {@link UpdateBrokerCommandInput}
- * @returns {@link UpdateBrokerCommandOutput}
+ * @param UpdateBrokerRequest - {@link UpdateBrokerRequest}
+ * @returns {@link UpdateBrokerResponse}
  * @see {@link UpdateBrokerCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.

@@ -55,8 +55,8 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  *
  * ```
  *
- * @param GenerateTemplateCommandInput - {@link GenerateTemplateCommandInput}
- * @returns {@link GenerateTemplateCommandOutput}
+ * @param GenerateTemplateRequest - {@link GenerateTemplateRequest}
+ * @returns {@link GenerateTemplateResponse}
  * @see {@link GenerateTemplateCommandInput} for command's `input` shape.
  * @see {@link GenerateTemplateCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

@@ -121,8 +121,8 @@ export interface GetMLTransformCommandOutput extends GetMLTransformResponse, __M
  *
  * ```
  *
- * @param GetMLTransformCommandInput - {@link GetMLTransformCommandInput}
- * @returns {@link GetMLTransformCommandOutput}
+ * @param GetMLTransformRequest - {@link GetMLTransformRequest}
+ * @returns {@link GetMLTransformResponse}
  * @see {@link GetMLTransformCommandInput} for command's `input` shape.
  * @see {@link GetMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

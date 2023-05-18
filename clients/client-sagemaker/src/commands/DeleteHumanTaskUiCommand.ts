@@ -52,8 +52,8 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  *
  * ```
  *
- * @param DeleteHumanTaskUiCommandInput - {@link DeleteHumanTaskUiCommandInput}
- * @returns {@link DeleteHumanTaskUiCommandOutput}
+ * @param DeleteHumanTaskUiRequest - {@link DeleteHumanTaskUiRequest}
+ * @returns {@link DeleteHumanTaskUiResponse}
  * @see {@link DeleteHumanTaskUiCommandInput} for command's `input` shape.
  * @see {@link DeleteHumanTaskUiCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -51,8 +51,8 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  *
  * ```
  *
- * @param GetKeyspaceCommandInput - {@link GetKeyspaceCommandInput}
- * @returns {@link GetKeyspaceCommandOutput}
+ * @param GetKeyspaceRequest - {@link GetKeyspaceRequest}
+ * @returns {@link GetKeyspaceResponse}
  * @see {@link GetKeyspaceCommandInput} for command's `input` shape.
  * @see {@link GetKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.

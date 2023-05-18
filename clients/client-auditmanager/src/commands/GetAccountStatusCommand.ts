@@ -48,8 +48,8 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  *
  * ```
  *
- * @param GetAccountStatusCommandInput - {@link GetAccountStatusCommandInput}
- * @returns {@link GetAccountStatusCommandOutput}
+ * @param GetAccountStatusRequest - {@link GetAccountStatusRequest}
+ * @returns {@link GetAccountStatusResponse}
  * @see {@link GetAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

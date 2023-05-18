@@ -152,8 +152,8 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *
  * ```
  *
- * @param CreateWorkspacesCommandInput - {@link CreateWorkspacesCommandInput}
- * @returns {@link CreateWorkspacesCommandOutput}
+ * @param CreateWorkspacesRequest - {@link CreateWorkspacesRequest}
+ * @returns {@link CreateWorkspacesResult}
  * @see {@link CreateWorkspacesCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

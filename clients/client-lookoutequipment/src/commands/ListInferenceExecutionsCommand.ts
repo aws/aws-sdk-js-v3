@@ -91,8 +91,8 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  *
  * ```
  *
- * @param ListInferenceExecutionsCommandInput - {@link ListInferenceExecutionsCommandInput}
- * @returns {@link ListInferenceExecutionsCommandOutput}
+ * @param ListInferenceExecutionsRequest - {@link ListInferenceExecutionsRequest}
+ * @returns {@link ListInferenceExecutionsResponse}
  * @see {@link ListInferenceExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceExecutionsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

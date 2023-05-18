@@ -99,8 +99,8 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  *
  * ```
  *
- * @param ListDocumentsCommandInput - {@link ListDocumentsCommandInput}
- * @returns {@link ListDocumentsCommandOutput}
+ * @param ListDocumentsRequest - {@link ListDocumentsRequest}
+ * @returns {@link ListDocumentsResult}
  * @see {@link ListDocumentsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

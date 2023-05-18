@@ -66,8 +66,8 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  *
  * ```
  *
- * @param UpdateNotebookInstanceLifecycleConfigCommandInput - {@link UpdateNotebookInstanceLifecycleConfigCommandInput}
- * @returns {@link UpdateNotebookInstanceLifecycleConfigCommandOutput}
+ * @param UpdateNotebookInstanceLifecycleConfigInput - {@link UpdateNotebookInstanceLifecycleConfigInput}
+ * @returns {@link UpdateNotebookInstanceLifecycleConfigOutput}
  * @see {@link UpdateNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

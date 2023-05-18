@@ -59,8 +59,8 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  *
  * ```
  *
- * @param ListContainerInstancesCommandInput - {@link ListContainerInstancesCommandInput}
- * @returns {@link ListContainerInstancesCommandOutput}
+ * @param ListContainerInstancesRequest - {@link ListContainerInstancesRequest}
+ * @returns {@link ListContainerInstancesResponse}
  * @see {@link ListContainerInstancesCommandInput} for command's `input` shape.
  * @see {@link ListContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

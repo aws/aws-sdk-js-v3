@@ -52,8 +52,8 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param MoveAccountCommandInput - {@link MoveAccountCommandInput}
- * @returns {@link MoveAccountCommandOutput}
+ * @param MoveAccountRequest - {@link MoveAccountRequest}
+ * @returns {@link Unit}
  * @see {@link MoveAccountCommandInput} for command's `input` shape.
  * @see {@link MoveAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

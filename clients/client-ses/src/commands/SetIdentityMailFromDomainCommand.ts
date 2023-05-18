@@ -59,8 +59,8 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  *
  * ```
  *
- * @param SetIdentityMailFromDomainCommandInput - {@link SetIdentityMailFromDomainCommandInput}
- * @returns {@link SetIdentityMailFromDomainCommandOutput}
+ * @param SetIdentityMailFromDomainRequest - {@link SetIdentityMailFromDomainRequest}
+ * @returns {@link SetIdentityMailFromDomainResponse}
  * @see {@link SetIdentityMailFromDomainCommandInput} for command's `input` shape.
  * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

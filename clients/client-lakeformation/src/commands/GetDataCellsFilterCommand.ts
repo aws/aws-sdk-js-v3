@@ -71,8 +71,8 @@ export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterRespo
  *
  * ```
  *
- * @param GetDataCellsFilterCommandInput - {@link GetDataCellsFilterCommandInput}
- * @returns {@link GetDataCellsFilterCommandOutput}
+ * @param GetDataCellsFilterRequest - {@link GetDataCellsFilterRequest}
+ * @returns {@link GetDataCellsFilterResponse}
  * @see {@link GetDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link GetDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

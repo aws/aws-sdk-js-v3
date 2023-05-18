@@ -308,8 +308,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *
  * ```
  *
- * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
- * @returns {@link UpdateFindingsCommandOutput}
+ * @param UpdateFindingsRequest - {@link UpdateFindingsRequest}
+ * @returns {@link UpdateFindingsResponse}
  * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

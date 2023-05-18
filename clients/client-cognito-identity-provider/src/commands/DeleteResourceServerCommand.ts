@@ -54,8 +54,8 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteResourceServerCommandInput - {@link DeleteResourceServerCommandInput}
- * @returns {@link DeleteResourceServerCommandOutput}
+ * @param DeleteResourceServerRequest - {@link DeleteResourceServerRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteResourceServerCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

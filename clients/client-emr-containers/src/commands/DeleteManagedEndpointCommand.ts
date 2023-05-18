@@ -54,8 +54,8 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  *
  * ```
  *
- * @param DeleteManagedEndpointCommandInput - {@link DeleteManagedEndpointCommandInput}
- * @returns {@link DeleteManagedEndpointCommandOutput}
+ * @param DeleteManagedEndpointRequest - {@link DeleteManagedEndpointRequest}
+ * @returns {@link DeleteManagedEndpointResponse}
  * @see {@link DeleteManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteManagedEndpointCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

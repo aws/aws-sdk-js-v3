@@ -56,8 +56,8 @@ export interface DeleteTopicRefreshScheduleCommandOutput extends DeleteTopicRefr
  *
  * ```
  *
- * @param DeleteTopicRefreshScheduleCommandInput - {@link DeleteTopicRefreshScheduleCommandInput}
- * @returns {@link DeleteTopicRefreshScheduleCommandOutput}
+ * @param DeleteTopicRefreshScheduleRequest - {@link DeleteTopicRefreshScheduleRequest}
+ * @returns {@link DeleteTopicRefreshScheduleResponse}
  * @see {@link DeleteTopicRefreshScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicRefreshScheduleCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

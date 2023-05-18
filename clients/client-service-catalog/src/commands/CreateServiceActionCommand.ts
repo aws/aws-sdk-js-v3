@@ -67,8 +67,8 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  *
  * ```
  *
- * @param CreateServiceActionCommandInput - {@link CreateServiceActionCommandInput}
- * @returns {@link CreateServiceActionCommandOutput}
+ * @param CreateServiceActionInput - {@link CreateServiceActionInput}
+ * @returns {@link CreateServiceActionOutput}
  * @see {@link CreateServiceActionCommandInput} for command's `input` shape.
  * @see {@link CreateServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

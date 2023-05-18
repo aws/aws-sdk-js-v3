@@ -230,8 +230,8 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  *
  * ```
  *
- * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
- * @returns {@link GetDeploymentCommandOutput}
+ * @param GetDeploymentInput - {@link GetDeploymentInput}
+ * @returns {@link GetDeploymentOutput}
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

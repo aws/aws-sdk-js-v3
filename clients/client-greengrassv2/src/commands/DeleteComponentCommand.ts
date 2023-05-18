@@ -54,8 +54,8 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
- * @returns {@link DeleteComponentCommandOutput}
+ * @param DeleteComponentRequest - {@link DeleteComponentRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

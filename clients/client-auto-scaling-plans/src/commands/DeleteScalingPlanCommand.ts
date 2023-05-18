@@ -53,8 +53,8 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  *
  * ```
  *
- * @param DeleteScalingPlanCommandInput - {@link DeleteScalingPlanCommandInput}
- * @returns {@link DeleteScalingPlanCommandOutput}
+ * @param DeleteScalingPlanRequest - {@link DeleteScalingPlanRequest}
+ * @returns {@link DeleteScalingPlanResponse}
  * @see {@link DeleteScalingPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.

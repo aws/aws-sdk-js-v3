@@ -62,8 +62,8 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  *
  * ```
  *
- * @param CreateKeyspaceCommandInput - {@link CreateKeyspaceCommandInput}
- * @returns {@link CreateKeyspaceCommandOutput}
+ * @param CreateKeyspaceRequest - {@link CreateKeyspaceRequest}
+ * @returns {@link CreateKeyspaceResponse}
  * @see {@link CreateKeyspaceCommandInput} for command's `input` shape.
  * @see {@link CreateKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.

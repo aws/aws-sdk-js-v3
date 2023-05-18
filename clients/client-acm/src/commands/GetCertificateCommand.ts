@@ -54,8 +54,8 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  *
  * ```
  *
- * @param GetCertificateCommandInput - {@link GetCertificateCommandInput}
- * @returns {@link GetCertificateCommandOutput}
+ * @param GetCertificateRequest - {@link GetCertificateRequest}
+ * @returns {@link GetCertificateResponse}
  * @see {@link GetCertificateCommandInput} for command's `input` shape.
  * @see {@link GetCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

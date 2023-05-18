@@ -83,8 +83,8 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  *
  * ```
  *
- * @param GetCurrentUserCommandInput - {@link GetCurrentUserCommandInput}
- * @returns {@link GetCurrentUserCommandOutput}
+ * @param GetCurrentUserRequest - {@link GetCurrentUserRequest}
+ * @returns {@link GetCurrentUserResponse}
  * @see {@link GetCurrentUserCommandInput} for command's `input` shape.
  * @see {@link GetCurrentUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

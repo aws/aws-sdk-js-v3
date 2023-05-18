@@ -53,8 +53,8 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  *
  * ```
  *
- * @param RejectInvitationCommandInput - {@link RejectInvitationCommandInput}
- * @returns {@link RejectInvitationCommandOutput}
+ * @param RejectInvitationInput - {@link RejectInvitationInput}
+ * @returns {@link RejectInvitationOutput}
  * @see {@link RejectInvitationCommandInput} for command's `input` shape.
  * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

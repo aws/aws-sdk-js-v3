@@ -69,8 +69,8 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  *
  * ```
  *
- * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
- * @returns {@link DeleteResourceCommandOutput}
+ * @param DeleteResourceInput - {@link DeleteResourceInput}
+ * @returns {@link DeleteResourceOutput}
  * @see {@link DeleteResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.

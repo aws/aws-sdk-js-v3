@@ -130,8 +130,8 @@ export interface UpdateBridgeCommandOutput extends UpdateBridgeResponse, __Metad
  *
  * ```
  *
- * @param UpdateBridgeCommandInput - {@link UpdateBridgeCommandInput}
- * @returns {@link UpdateBridgeCommandOutput}
+ * @param UpdateBridgeRequest - {@link UpdateBridgeRequest}
+ * @returns {@link UpdateBridgeResponse}
  * @see {@link UpdateBridgeCommandInput} for command's `input` shape.
  * @see {@link UpdateBridgeCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

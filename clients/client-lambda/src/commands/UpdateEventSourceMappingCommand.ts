@@ -271,8 +271,8 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *
  * ```
  *
- * @param UpdateEventSourceMappingCommandInput - {@link UpdateEventSourceMappingCommandInput}
- * @returns {@link UpdateEventSourceMappingCommandOutput}
+ * @param UpdateEventSourceMappingRequest - {@link UpdateEventSourceMappingRequest}
+ * @returns {@link EventSourceMappingConfiguration}
  * @see {@link UpdateEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateEventSourceMappingCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

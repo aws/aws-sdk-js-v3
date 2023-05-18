@@ -48,8 +48,8 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
- * @returns {@link DeletePipelineCommandOutput}
+ * @param DeletePipelineInput - {@link DeletePipelineInput}
+ * @returns {@link Unit}
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

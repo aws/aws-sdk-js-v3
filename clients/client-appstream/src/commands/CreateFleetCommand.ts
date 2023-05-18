@@ -139,8 +139,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *
  * ```
  *
- * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
- * @returns {@link CreateFleetCommandOutput}
+ * @param CreateFleetRequest - {@link CreateFleetRequest}
+ * @returns {@link CreateFleetResult}
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

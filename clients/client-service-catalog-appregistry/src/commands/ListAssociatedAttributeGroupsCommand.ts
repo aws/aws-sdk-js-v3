@@ -64,8 +64,8 @@ export interface ListAssociatedAttributeGroupsCommandOutput
  *
  * ```
  *
- * @param ListAssociatedAttributeGroupsCommandInput - {@link ListAssociatedAttributeGroupsCommandInput}
- * @returns {@link ListAssociatedAttributeGroupsCommandOutput}
+ * @param ListAssociatedAttributeGroupsRequest - {@link ListAssociatedAttributeGroupsRequest}
+ * @returns {@link ListAssociatedAttributeGroupsResponse}
  * @see {@link ListAssociatedAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAttributeGroupsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

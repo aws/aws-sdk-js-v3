@@ -88,8 +88,8 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  *
  * ```
  *
- * @param GetTemplateStepCommandInput - {@link GetTemplateStepCommandInput}
- * @returns {@link GetTemplateStepCommandOutput}
+ * @param GetTemplateStepRequest - {@link GetTemplateStepRequest}
+ * @returns {@link GetTemplateStepResponse}
  * @see {@link GetTemplateStepCommandInput} for command's `input` shape.
  * @see {@link GetTemplateStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

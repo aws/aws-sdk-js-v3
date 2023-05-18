@@ -92,8 +92,8 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  *
  * ```
  *
- * @param DescribeProgramCommandInput - {@link DescribeProgramCommandInput}
- * @returns {@link DescribeProgramCommandOutput}
+ * @param DescribeProgramRequest - {@link DescribeProgramRequest}
+ * @returns {@link DescribeProgramResponse}
  * @see {@link DescribeProgramCommandInput} for command's `input` shape.
  * @see {@link DescribeProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

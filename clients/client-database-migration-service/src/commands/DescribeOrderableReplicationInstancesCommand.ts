@@ -80,8 +80,8 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  *
  * ```
  *
- * @param DescribeOrderableReplicationInstancesCommandInput - {@link DescribeOrderableReplicationInstancesCommandInput}
- * @returns {@link DescribeOrderableReplicationInstancesCommandOutput}
+ * @param DescribeOrderableReplicationInstancesMessage - {@link DescribeOrderableReplicationInstancesMessage}
+ * @returns {@link DescribeOrderableReplicationInstancesResponse}
  * @see {@link DescribeOrderableReplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

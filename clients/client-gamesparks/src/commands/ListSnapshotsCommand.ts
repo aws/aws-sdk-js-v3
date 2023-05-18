@@ -60,8 +60,8 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResult, __Metad
  *
  * ```
  *
- * @param ListSnapshotsCommandInput - {@link ListSnapshotsCommandInput}
- * @returns {@link ListSnapshotsCommandOutput}
+ * @param ListSnapshotsRequest - {@link ListSnapshotsRequest}
+ * @returns {@link ListSnapshotsResult}
  * @see {@link ListSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

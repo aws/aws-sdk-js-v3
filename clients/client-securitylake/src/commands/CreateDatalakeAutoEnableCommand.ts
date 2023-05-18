@@ -57,8 +57,8 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  *
  * ```
  *
- * @param CreateDatalakeAutoEnableCommandInput - {@link CreateDatalakeAutoEnableCommandInput}
- * @returns {@link CreateDatalakeAutoEnableCommandOutput}
+ * @param CreateDatalakeAutoEnableRequest - {@link CreateDatalakeAutoEnableRequest}
+ * @returns {@link CreateDatalakeAutoEnableResponse}
  * @see {@link CreateDatalakeAutoEnableCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeAutoEnableCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

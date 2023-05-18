@@ -57,8 +57,8 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  *
  * ```
  *
- * @param ListSharedReportGroupsCommandInput - {@link ListSharedReportGroupsCommandInput}
- * @returns {@link ListSharedReportGroupsCommandOutput}
+ * @param ListSharedReportGroupsInput - {@link ListSharedReportGroupsInput}
+ * @returns {@link ListSharedReportGroupsOutput}
  * @see {@link ListSharedReportGroupsCommandInput} for command's `input` shape.
  * @see {@link ListSharedReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -61,8 +61,8 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  *
  * ```
  *
- * @param DescribePageCommandInput - {@link DescribePageCommandInput}
- * @returns {@link DescribePageCommandOutput}
+ * @param DescribePageRequest - {@link DescribePageRequest}
+ * @returns {@link DescribePageResult}
  * @see {@link DescribePageCommandInput} for command's `input` shape.
  * @see {@link DescribePageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

@@ -86,8 +86,8 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
  *
  * ```
  *
- * @param CreateVpnGatewayCommandInput - {@link CreateVpnGatewayCommandInput}
- * @returns {@link CreateVpnGatewayCommandOutput}
+ * @param CreateVpnGatewayRequest - {@link CreateVpnGatewayRequest}
+ * @returns {@link CreateVpnGatewayResult}
  * @see {@link CreateVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

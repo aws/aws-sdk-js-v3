@@ -97,8 +97,8 @@ export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnaps
  *
  * ```
  *
- * @param CreateDiskFromSnapshotCommandInput - {@link CreateDiskFromSnapshotCommandInput}
- * @returns {@link CreateDiskFromSnapshotCommandOutput}
+ * @param CreateDiskFromSnapshotRequest - {@link CreateDiskFromSnapshotRequest}
+ * @returns {@link CreateDiskFromSnapshotResult}
  * @see {@link CreateDiskFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDiskFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -71,8 +71,8 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  *
  * ```
  *
- * @param UpdateLicenseConfigurationCommandInput - {@link UpdateLicenseConfigurationCommandInput}
- * @returns {@link UpdateLicenseConfigurationCommandOutput}
+ * @param UpdateLicenseConfigurationRequest - {@link UpdateLicenseConfigurationRequest}
+ * @returns {@link UpdateLicenseConfigurationResponse}
  * @see {@link UpdateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

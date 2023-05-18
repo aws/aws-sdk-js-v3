@@ -53,8 +53,8 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  *
  * ```
  *
- * @param CreateMilestoneCommandInput - {@link CreateMilestoneCommandInput}
- * @returns {@link CreateMilestoneCommandOutput}
+ * @param CreateMilestoneInput - {@link CreateMilestoneInput}
+ * @returns {@link CreateMilestoneOutput}
  * @see {@link CreateMilestoneCommandInput} for command's `input` shape.
  * @see {@link CreateMilestoneCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

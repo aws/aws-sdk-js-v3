@@ -78,8 +78,8 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  *
  * ```
  *
- * @param PutResourceSetCommandInput - {@link PutResourceSetCommandInput}
- * @returns {@link PutResourceSetCommandOutput}
+ * @param PutResourceSetRequest - {@link PutResourceSetRequest}
+ * @returns {@link PutResourceSetResponse}
  * @see {@link PutResourceSetCommandInput} for command's `input` shape.
  * @see {@link PutResourceSetCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

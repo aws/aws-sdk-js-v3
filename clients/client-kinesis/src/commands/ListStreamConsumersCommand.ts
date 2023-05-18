@@ -63,8 +63,8 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  *
  * ```
  *
- * @param ListStreamConsumersCommandInput - {@link ListStreamConsumersCommandInput}
- * @returns {@link ListStreamConsumersCommandOutput}
+ * @param ListStreamConsumersInput - {@link ListStreamConsumersInput}
+ * @returns {@link ListStreamConsumersOutput}
  * @see {@link ListStreamConsumersCommandInput} for command's `input` shape.
  * @see {@link ListStreamConsumersCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

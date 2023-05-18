@@ -132,8 +132,8 @@ export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsC
  *
  * ```
  *
- * @param GetCallAnalyticsCategoryCommandInput - {@link GetCallAnalyticsCategoryCommandInput}
- * @returns {@link GetCallAnalyticsCategoryCommandOutput}
+ * @param GetCallAnalyticsCategoryRequest - {@link GetCallAnalyticsCategoryRequest}
+ * @returns {@link GetCallAnalyticsCategoryResponse}
  * @see {@link GetCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link GetCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

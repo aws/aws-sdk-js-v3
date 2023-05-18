@@ -65,8 +65,8 @@ export interface ListConnectorDefinitionVersionsCommandOutput
  *
  * ```
  *
- * @param ListConnectorDefinitionVersionsCommandInput - {@link ListConnectorDefinitionVersionsCommandInput}
- * @returns {@link ListConnectorDefinitionVersionsCommandOutput}
+ * @param ListConnectorDefinitionVersionsRequest - {@link ListConnectorDefinitionVersionsRequest}
+ * @returns {@link ListConnectorDefinitionVersionsResponse}
  * @see {@link ListConnectorDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

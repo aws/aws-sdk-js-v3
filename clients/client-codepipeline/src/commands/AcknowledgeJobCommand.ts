@@ -52,8 +52,8 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  *
  * ```
  *
- * @param AcknowledgeJobCommandInput - {@link AcknowledgeJobCommandInput}
- * @returns {@link AcknowledgeJobCommandOutput}
+ * @param AcknowledgeJobInput - {@link AcknowledgeJobInput}
+ * @returns {@link AcknowledgeJobOutput}
  * @see {@link AcknowledgeJobCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeJobCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

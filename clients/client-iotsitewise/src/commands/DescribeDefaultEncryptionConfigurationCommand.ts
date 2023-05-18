@@ -67,8 +67,8 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeDefaultEncryptionConfigurationCommandInput - {@link DescribeDefaultEncryptionConfigurationCommandInput}
- * @returns {@link DescribeDefaultEncryptionConfigurationCommandOutput}
+ * @param DescribeDefaultEncryptionConfigurationRequest - {@link DescribeDefaultEncryptionConfigurationRequest}
+ * @returns {@link DescribeDefaultEncryptionConfigurationResponse}
  * @see {@link DescribeDefaultEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

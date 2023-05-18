@@ -70,8 +70,8 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  *
  * ```
  *
- * @param CreateCellCommandInput - {@link CreateCellCommandInput}
- * @returns {@link CreateCellCommandOutput}
+ * @param CreateCellRequest - {@link CreateCellRequest}
+ * @returns {@link CreateCellResponse}
  * @see {@link CreateCellCommandInput} for command's `input` shape.
  * @see {@link CreateCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

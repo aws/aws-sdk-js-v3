@@ -70,8 +70,8 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  *
  * ```
  *
- * @param ListInputRoutingsCommandInput - {@link ListInputRoutingsCommandInput}
- * @returns {@link ListInputRoutingsCommandOutput}
+ * @param ListInputRoutingsRequest - {@link ListInputRoutingsRequest}
+ * @returns {@link ListInputRoutingsResponse}
  * @see {@link ListInputRoutingsCommandInput} for command's `input` shape.
  * @see {@link ListInputRoutingsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

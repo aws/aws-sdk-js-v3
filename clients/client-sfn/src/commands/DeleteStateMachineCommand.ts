@@ -59,8 +59,8 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  *
  * ```
  *
- * @param DeleteStateMachineCommandInput - {@link DeleteStateMachineCommandInput}
- * @returns {@link DeleteStateMachineCommandOutput}
+ * @param DeleteStateMachineInput - {@link DeleteStateMachineInput}
+ * @returns {@link DeleteStateMachineOutput}
  * @see {@link DeleteStateMachineCommandInput} for command's `input` shape.
  * @see {@link DeleteStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

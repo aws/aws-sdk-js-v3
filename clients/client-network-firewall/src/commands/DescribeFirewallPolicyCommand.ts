@@ -126,8 +126,8 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  *
  * ```
  *
- * @param DescribeFirewallPolicyCommandInput - {@link DescribeFirewallPolicyCommandInput}
- * @returns {@link DescribeFirewallPolicyCommandOutput}
+ * @param DescribeFirewallPolicyRequest - {@link DescribeFirewallPolicyRequest}
+ * @returns {@link DescribeFirewallPolicyResponse}
  * @see {@link DescribeFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

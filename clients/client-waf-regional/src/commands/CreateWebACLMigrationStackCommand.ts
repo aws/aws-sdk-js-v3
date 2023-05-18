@@ -59,8 +59,8 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  *
  * ```
  *
- * @param CreateWebACLMigrationStackCommandInput - {@link CreateWebACLMigrationStackCommandInput}
- * @returns {@link CreateWebACLMigrationStackCommandOutput}
+ * @param CreateWebACLMigrationStackRequest - {@link CreateWebACLMigrationStackRequest}
+ * @returns {@link CreateWebACLMigrationStackResponse}
  * @see {@link CreateWebACLMigrationStackCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLMigrationStackCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

@@ -299,8 +299,8 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *
  * ```
  *
- * @param CreateAssociationBatchCommandInput - {@link CreateAssociationBatchCommandInput}
- * @returns {@link CreateAssociationBatchCommandOutput}
+ * @param CreateAssociationBatchRequest - {@link CreateAssociationBatchRequest}
+ * @returns {@link CreateAssociationBatchResult}
  * @see {@link CreateAssociationBatchCommandInput} for command's `input` shape.
  * @see {@link CreateAssociationBatchCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

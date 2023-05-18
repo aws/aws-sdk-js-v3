@@ -120,8 +120,8 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  *
  * ```
  *
- * @param DescribeNodegroupCommandInput - {@link DescribeNodegroupCommandInput}
- * @returns {@link DescribeNodegroupCommandOutput}
+ * @param DescribeNodegroupRequest - {@link DescribeNodegroupRequest}
+ * @returns {@link DescribeNodegroupResponse}
  * @see {@link DescribeNodegroupCommandInput} for command's `input` shape.
  * @see {@link DescribeNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

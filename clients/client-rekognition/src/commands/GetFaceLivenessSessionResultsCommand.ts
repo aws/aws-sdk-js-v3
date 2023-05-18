@@ -96,8 +96,8 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  *
  * ```
  *
- * @param GetFaceLivenessSessionResultsCommandInput - {@link GetFaceLivenessSessionResultsCommandInput}
- * @returns {@link GetFaceLivenessSessionResultsCommandOutput}
+ * @param GetFaceLivenessSessionResultsRequest - {@link GetFaceLivenessSessionResultsRequest}
+ * @returns {@link GetFaceLivenessSessionResultsResponse}
  * @see {@link GetFaceLivenessSessionResultsCommandInput} for command's `input` shape.
  * @see {@link GetFaceLivenessSessionResultsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

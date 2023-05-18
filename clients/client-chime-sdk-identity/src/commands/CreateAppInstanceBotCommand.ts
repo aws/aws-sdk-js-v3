@@ -72,8 +72,8 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  *
  * ```
  *
- * @param CreateAppInstanceBotCommandInput - {@link CreateAppInstanceBotCommandInput}
- * @returns {@link CreateAppInstanceBotCommandOutput}
+ * @param CreateAppInstanceBotRequest - {@link CreateAppInstanceBotRequest}
+ * @returns {@link CreateAppInstanceBotResponse}
  * @see {@link CreateAppInstanceBotCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceBotCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

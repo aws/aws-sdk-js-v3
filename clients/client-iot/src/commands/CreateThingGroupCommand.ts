@@ -73,8 +73,8 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  *
  * ```
  *
- * @param CreateThingGroupCommandInput - {@link CreateThingGroupCommandInput}
- * @returns {@link CreateThingGroupCommandOutput}
+ * @param CreateThingGroupRequest - {@link CreateThingGroupRequest}
+ * @returns {@link CreateThingGroupResponse}
  * @see {@link CreateThingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

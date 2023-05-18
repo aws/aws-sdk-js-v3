@@ -95,8 +95,8 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  *
  * ```
  *
- * @param ModifyTransitGatewayCommandInput - {@link ModifyTransitGatewayCommandInput}
- * @returns {@link ModifyTransitGatewayCommandOutput}
+ * @param ModifyTransitGatewayRequest - {@link ModifyTransitGatewayRequest}
+ * @returns {@link ModifyTransitGatewayResult}
  * @see {@link ModifyTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link ModifyTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

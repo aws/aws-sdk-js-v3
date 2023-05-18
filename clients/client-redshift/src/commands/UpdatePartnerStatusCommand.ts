@@ -57,8 +57,8 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  *
  * ```
  *
- * @param UpdatePartnerStatusCommandInput - {@link UpdatePartnerStatusCommandInput}
- * @returns {@link UpdatePartnerStatusCommandOutput}
+ * @param UpdatePartnerStatusInputMessage - {@link UpdatePartnerStatusInputMessage}
+ * @returns {@link PartnerIntegrationOutputMessage}
  * @see {@link UpdatePartnerStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePartnerStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

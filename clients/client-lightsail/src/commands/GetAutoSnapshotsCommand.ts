@@ -65,8 +65,8 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  *
  * ```
  *
- * @param GetAutoSnapshotsCommandInput - {@link GetAutoSnapshotsCommandInput}
- * @returns {@link GetAutoSnapshotsCommandOutput}
+ * @param GetAutoSnapshotsRequest - {@link GetAutoSnapshotsRequest}
+ * @returns {@link GetAutoSnapshotsResult}
  * @see {@link GetAutoSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetAutoSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

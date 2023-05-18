@@ -51,8 +51,8 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param StartConfigurationRecorderCommandInput - {@link StartConfigurationRecorderCommandInput}
- * @returns {@link StartConfigurationRecorderCommandOutput}
+ * @param StartConfigurationRecorderRequest - {@link StartConfigurationRecorderRequest}
+ * @returns {@link Unit}
  * @see {@link StartConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link StartConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

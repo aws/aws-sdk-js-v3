@@ -107,8 +107,8 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  *
  * ```
  *
- * @param InitiateAuthCommandInput - {@link InitiateAuthCommandInput}
- * @returns {@link InitiateAuthCommandOutput}
+ * @param InitiateAuthRequest - {@link InitiateAuthRequest}
+ * @returns {@link InitiateAuthResponse}
  * @see {@link InitiateAuthCommandInput} for command's `input` shape.
  * @see {@link InitiateAuthCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

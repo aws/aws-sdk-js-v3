@@ -62,8 +62,8 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  *
  * ```
  *
- * @param CopyBackupToRegionCommandInput - {@link CopyBackupToRegionCommandInput}
- * @returns {@link CopyBackupToRegionCommandOutput}
+ * @param CopyBackupToRegionRequest - {@link CopyBackupToRegionRequest}
+ * @returns {@link CopyBackupToRegionResponse}
  * @see {@link CopyBackupToRegionCommandInput} for command's `input` shape.
  * @see {@link CopyBackupToRegionCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.

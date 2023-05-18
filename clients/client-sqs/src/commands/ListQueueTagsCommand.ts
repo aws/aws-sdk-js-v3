@@ -58,8 +58,8 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  *
  * ```
  *
- * @param ListQueueTagsCommandInput - {@link ListQueueTagsCommandInput}
- * @returns {@link ListQueueTagsCommandOutput}
+ * @param ListQueueTagsRequest - {@link ListQueueTagsRequest}
+ * @returns {@link ListQueueTagsResult}
  * @see {@link ListQueueTagsCommandInput} for command's `input` shape.
  * @see {@link ListQueueTagsCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

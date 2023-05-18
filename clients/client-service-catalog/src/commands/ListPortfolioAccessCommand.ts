@@ -58,8 +58,8 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  *
  * ```
  *
- * @param ListPortfolioAccessCommandInput - {@link ListPortfolioAccessCommandInput}
- * @returns {@link ListPortfolioAccessCommandOutput}
+ * @param ListPortfolioAccessInput - {@link ListPortfolioAccessInput}
+ * @returns {@link ListPortfolioAccessOutput}
  * @see {@link ListPortfolioAccessCommandInput} for command's `input` shape.
  * @see {@link ListPortfolioAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -65,8 +65,8 @@ export interface DeregisterDelegatedAdministratorCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeregisterDelegatedAdministratorCommandInput - {@link DeregisterDelegatedAdministratorCommandInput}
- * @returns {@link DeregisterDelegatedAdministratorCommandOutput}
+ * @param DeregisterDelegatedAdministratorRequest - {@link DeregisterDelegatedAdministratorRequest}
+ * @returns {@link Unit}
  * @see {@link DeregisterDelegatedAdministratorCommandInput} for command's `input` shape.
  * @see {@link DeregisterDelegatedAdministratorCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

@@ -87,8 +87,8 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
  *
  * ```
  *
- * @param DescribeDirectConnectGatewayAssociationProposalsCommandInput - {@link DescribeDirectConnectGatewayAssociationProposalsCommandInput}
- * @returns {@link DescribeDirectConnectGatewayAssociationProposalsCommandOutput}
+ * @param DescribeDirectConnectGatewayAssociationProposalsRequest - {@link DescribeDirectConnectGatewayAssociationProposalsRequest}
+ * @returns {@link DescribeDirectConnectGatewayAssociationProposalsResult}
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

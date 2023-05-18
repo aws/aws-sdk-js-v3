@@ -215,8 +215,8 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *
  * ```
  *
- * @param GetDevicePoolCompatibilityCommandInput - {@link GetDevicePoolCompatibilityCommandInput}
- * @returns {@link GetDevicePoolCompatibilityCommandOutput}
+ * @param GetDevicePoolCompatibilityRequest - {@link GetDevicePoolCompatibilityRequest}
+ * @returns {@link GetDevicePoolCompatibilityResult}
  * @see {@link GetDevicePoolCompatibilityCommandInput} for command's `input` shape.
  * @see {@link GetDevicePoolCompatibilityCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

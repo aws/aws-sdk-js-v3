@@ -62,8 +62,8 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  *
  * ```
  *
- * @param DescribeInsightRulesCommandInput - {@link DescribeInsightRulesCommandInput}
- * @returns {@link DescribeInsightRulesCommandOutput}
+ * @param DescribeInsightRulesInput - {@link DescribeInsightRulesInput}
+ * @returns {@link DescribeInsightRulesOutput}
  * @see {@link DescribeInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

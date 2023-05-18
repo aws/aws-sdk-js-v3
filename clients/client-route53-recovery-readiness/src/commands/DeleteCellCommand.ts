@@ -52,8 +52,8 @@ export interface DeleteCellCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCellCommandInput - {@link DeleteCellCommandInput}
- * @returns {@link DeleteCellCommandOutput}
+ * @param DeleteCellRequest - {@link DeleteCellRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCellCommandInput} for command's `input` shape.
  * @see {@link DeleteCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

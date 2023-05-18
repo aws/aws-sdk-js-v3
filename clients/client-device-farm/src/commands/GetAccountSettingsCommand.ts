@@ -67,8 +67,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  *
  * ```
  *
- * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
- * @returns {@link GetAccountSettingsCommandOutput}
+ * @param GetAccountSettingsRequest - {@link GetAccountSettingsRequest}
+ * @returns {@link GetAccountSettingsResult}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

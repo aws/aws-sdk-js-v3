@@ -62,8 +62,8 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  *
  * ```
  *
- * @param ListTableColumnsCommandInput - {@link ListTableColumnsCommandInput}
- * @returns {@link ListTableColumnsCommandOutput}
+ * @param ListTableColumnsRequest - {@link ListTableColumnsRequest}
+ * @returns {@link ListTableColumnsResult}
  * @see {@link ListTableColumnsCommandInput} for command's `input` shape.
  * @see {@link ListTableColumnsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

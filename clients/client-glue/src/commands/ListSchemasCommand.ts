@@ -67,8 +67,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *
  * ```
  *
- * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
- * @returns {@link ListSchemasCommandOutput}
+ * @param ListSchemasInput - {@link ListSchemasInput}
+ * @returns {@link ListSchemasResponse}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

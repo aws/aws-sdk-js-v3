@@ -178,8 +178,8 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *
  * ```
  *
- * @param BatchPutDocumentCommandInput - {@link BatchPutDocumentCommandInput}
- * @returns {@link BatchPutDocumentCommandOutput}
+ * @param BatchPutDocumentRequest - {@link BatchPutDocumentRequest}
+ * @returns {@link BatchPutDocumentResponse}
  * @see {@link BatchPutDocumentCommandInput} for command's `input` shape.
  * @see {@link BatchPutDocumentCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

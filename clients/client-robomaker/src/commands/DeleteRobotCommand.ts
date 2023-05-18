@@ -53,8 +53,8 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
  *
  * ```
  *
- * @param DeleteRobotCommandInput - {@link DeleteRobotCommandInput}
- * @returns {@link DeleteRobotCommandOutput}
+ * @param DeleteRobotRequest - {@link DeleteRobotRequest}
+ * @returns {@link DeleteRobotResponse}
  * @see {@link DeleteRobotCommandInput} for command's `input` shape.
  * @see {@link DeleteRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

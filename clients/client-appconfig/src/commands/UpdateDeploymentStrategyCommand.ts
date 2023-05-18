@@ -62,8 +62,8 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  *
  * ```
  *
- * @param UpdateDeploymentStrategyCommandInput - {@link UpdateDeploymentStrategyCommandInput}
- * @returns {@link UpdateDeploymentStrategyCommandOutput}
+ * @param UpdateDeploymentStrategyRequest - {@link UpdateDeploymentStrategyRequest}
+ * @returns {@link DeploymentStrategy}
  * @see {@link UpdateDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -145,8 +145,8 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  *
  * ```
  *
- * @param GetMaintenanceWindowTaskCommandInput - {@link GetMaintenanceWindowTaskCommandInput}
- * @returns {@link GetMaintenanceWindowTaskCommandOutput}
+ * @param GetMaintenanceWindowTaskRequest - {@link GetMaintenanceWindowTaskRequest}
+ * @returns {@link GetMaintenanceWindowTaskResult}
  * @see {@link GetMaintenanceWindowTaskCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowTaskCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

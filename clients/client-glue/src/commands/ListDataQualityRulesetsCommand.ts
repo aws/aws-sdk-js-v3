@@ -80,8 +80,8 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  *
  * ```
  *
- * @param ListDataQualityRulesetsCommandInput - {@link ListDataQualityRulesetsCommandInput}
- * @returns {@link ListDataQualityRulesetsCommandOutput}
+ * @param ListDataQualityRulesetsRequest - {@link ListDataQualityRulesetsRequest}
+ * @returns {@link ListDataQualityRulesetsResponse}
  * @see {@link ListDataQualityRulesetsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRulesetsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

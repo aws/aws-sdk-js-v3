@@ -81,8 +81,8 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  *
  * ```
  *
- * @param SearchContentCommandInput - {@link SearchContentCommandInput}
- * @returns {@link SearchContentCommandOutput}
+ * @param SearchContentRequest - {@link SearchContentRequest}
+ * @returns {@link SearchContentResponse}
  * @see {@link SearchContentCommandInput} for command's `input` shape.
  * @see {@link SearchContentCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

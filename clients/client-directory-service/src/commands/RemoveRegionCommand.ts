@@ -50,8 +50,8 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  *
  * ```
  *
- * @param RemoveRegionCommandInput - {@link RemoveRegionCommandInput}
- * @returns {@link RemoveRegionCommandOutput}
+ * @param RemoveRegionRequest - {@link RemoveRegionRequest}
+ * @returns {@link RemoveRegionResult}
  * @see {@link RemoveRegionCommandInput} for command's `input` shape.
  * @see {@link RemoveRegionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

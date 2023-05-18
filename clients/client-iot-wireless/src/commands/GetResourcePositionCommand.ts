@@ -53,8 +53,8 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionRes
  *
  * ```
  *
- * @param GetResourcePositionCommandInput - {@link GetResourcePositionCommandInput}
- * @returns {@link GetResourcePositionCommandOutput}
+ * @param GetResourcePositionRequest - {@link GetResourcePositionRequest}
+ * @returns {@link GetResourcePositionResponse}
  * @see {@link GetResourcePositionCommandInput} for command's `input` shape.
  * @see {@link GetResourcePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -80,8 +80,8 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  *
  * ```
  *
- * @param DeleteFargateProfileCommandInput - {@link DeleteFargateProfileCommandInput}
- * @returns {@link DeleteFargateProfileCommandOutput}
+ * @param DeleteFargateProfileRequest - {@link DeleteFargateProfileRequest}
+ * @returns {@link DeleteFargateProfileResponse}
  * @see {@link DeleteFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

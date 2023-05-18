@@ -82,8 +82,8 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  *
  * ```
  *
- * @param DescribeReservationCommandInput - {@link DescribeReservationCommandInput}
- * @returns {@link DescribeReservationCommandOutput}
+ * @param DescribeReservationRequest - {@link DescribeReservationRequest}
+ * @returns {@link DescribeReservationResponse}
  * @see {@link DescribeReservationCommandInput} for command's `input` shape.
  * @see {@link DescribeReservationCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

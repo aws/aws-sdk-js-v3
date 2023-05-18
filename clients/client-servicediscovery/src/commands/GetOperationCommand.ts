@@ -65,8 +65,8 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  *
  * ```
  *
- * @param GetOperationCommandInput - {@link GetOperationCommandInput}
- * @returns {@link GetOperationCommandOutput}
+ * @param GetOperationRequest - {@link GetOperationRequest}
+ * @returns {@link GetOperationResponse}
  * @see {@link GetOperationCommandInput} for command's `input` shape.
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

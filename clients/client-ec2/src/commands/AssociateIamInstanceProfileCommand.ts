@@ -64,8 +64,8 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  *
  * ```
  *
- * @param AssociateIamInstanceProfileCommandInput - {@link AssociateIamInstanceProfileCommandInput}
- * @returns {@link AssociateIamInstanceProfileCommandOutput}
+ * @param AssociateIamInstanceProfileRequest - {@link AssociateIamInstanceProfileRequest}
+ * @returns {@link AssociateIamInstanceProfileResult}
  * @see {@link AssociateIamInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link AssociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

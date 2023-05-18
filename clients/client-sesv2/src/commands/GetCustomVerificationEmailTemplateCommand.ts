@@ -68,8 +68,8 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  *
  * ```
  *
- * @param GetCustomVerificationEmailTemplateCommandInput - {@link GetCustomVerificationEmailTemplateCommandInput}
- * @returns {@link GetCustomVerificationEmailTemplateCommandOutput}
+ * @param GetCustomVerificationEmailTemplateRequest - {@link GetCustomVerificationEmailTemplateRequest}
+ * @returns {@link GetCustomVerificationEmailTemplateResponse}
  * @see {@link GetCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link GetCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

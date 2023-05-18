@@ -70,8 +70,8 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  *
  * ```
  *
- * @param AddApplicationInputProcessingConfigurationCommandInput - {@link AddApplicationInputProcessingConfigurationCommandInput}
- * @returns {@link AddApplicationInputProcessingConfigurationCommandOutput}
+ * @param AddApplicationInputProcessingConfigurationRequest - {@link AddApplicationInputProcessingConfigurationRequest}
+ * @returns {@link AddApplicationInputProcessingConfigurationResponse}
  * @see {@link AddApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
  * @see {@link AddApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.

@@ -74,8 +74,8 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  *
  * ```
  *
- * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
- * @returns {@link DescribeGlobalClustersCommandOutput}
+ * @param DescribeGlobalClustersMessage - {@link DescribeGlobalClustersMessage}
+ * @returns {@link GlobalClustersMessage}
  * @see {@link DescribeGlobalClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalClustersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

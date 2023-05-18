@@ -67,8 +67,8 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateSubscriptionNotificationConfigurationCommandInput - {@link CreateSubscriptionNotificationConfigurationCommandInput}
- * @returns {@link CreateSubscriptionNotificationConfigurationCommandOutput}
+ * @param CreateSubscriptionNotificationConfigurationRequest - {@link CreateSubscriptionNotificationConfigurationRequest}
+ * @returns {@link CreateSubscriptionNotificationConfigurationResponse}
  * @see {@link CreateSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

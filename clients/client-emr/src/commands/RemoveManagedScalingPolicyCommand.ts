@@ -48,8 +48,8 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  *
  * ```
  *
- * @param RemoveManagedScalingPolicyCommandInput - {@link RemoveManagedScalingPolicyCommandInput}
- * @returns {@link RemoveManagedScalingPolicyCommandOutput}
+ * @param RemoveManagedScalingPolicyInput - {@link RemoveManagedScalingPolicyInput}
+ * @returns {@link RemoveManagedScalingPolicyOutput}
  * @see {@link RemoveManagedScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link RemoveManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

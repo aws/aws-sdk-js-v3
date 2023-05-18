@@ -73,8 +73,8 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  *
  * ```
  *
- * @param DetectStackDriftCommandInput - {@link DetectStackDriftCommandInput}
- * @returns {@link DetectStackDriftCommandOutput}
+ * @param DetectStackDriftInput - {@link DetectStackDriftInput}
+ * @returns {@link DetectStackDriftOutput}
  * @see {@link DetectStackDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

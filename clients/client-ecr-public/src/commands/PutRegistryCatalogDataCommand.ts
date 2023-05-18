@@ -52,8 +52,8 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  *
  * ```
  *
- * @param PutRegistryCatalogDataCommandInput - {@link PutRegistryCatalogDataCommandInput}
- * @returns {@link PutRegistryCatalogDataCommandOutput}
+ * @param PutRegistryCatalogDataRequest - {@link PutRegistryCatalogDataRequest}
+ * @returns {@link PutRegistryCatalogDataResponse}
  * @see {@link PutRegistryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link PutRegistryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

@@ -76,8 +76,8 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  *
  * ```
  *
- * @param DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput - {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput}
- * @returns {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput}
+ * @param DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest - {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest}
+ * @returns {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult}
  * @see {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

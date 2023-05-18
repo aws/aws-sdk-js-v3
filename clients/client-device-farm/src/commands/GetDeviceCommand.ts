@@ -99,8 +99,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  *
  * ```
  *
- * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
- * @returns {@link GetDeviceCommandOutput}
+ * @param GetDeviceRequest - {@link GetDeviceRequest}
+ * @returns {@link GetDeviceResult}
  * @see {@link GetDeviceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

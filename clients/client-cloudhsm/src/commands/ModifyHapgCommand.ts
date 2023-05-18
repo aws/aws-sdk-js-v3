@@ -64,8 +64,8 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  *
  * ```
  *
- * @param ModifyHapgCommandInput - {@link ModifyHapgCommandInput}
- * @returns {@link ModifyHapgCommandOutput}
+ * @param ModifyHapgRequest - {@link ModifyHapgRequest}
+ * @returns {@link ModifyHapgResponse}
  * @see {@link ModifyHapgCommandInput} for command's `input` shape.
  * @see {@link ModifyHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

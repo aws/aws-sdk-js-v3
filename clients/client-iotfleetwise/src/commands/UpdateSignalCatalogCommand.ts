@@ -141,8 +141,8 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  *
  * ```
  *
- * @param UpdateSignalCatalogCommandInput - {@link UpdateSignalCatalogCommandInput}
- * @returns {@link UpdateSignalCatalogCommandOutput}
+ * @param UpdateSignalCatalogRequest - {@link UpdateSignalCatalogRequest}
+ * @returns {@link UpdateSignalCatalogResponse}
  * @see {@link UpdateSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link UpdateSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

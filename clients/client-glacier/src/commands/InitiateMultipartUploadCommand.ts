@@ -87,8 +87,8 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  *
  * ```
  *
- * @param InitiateMultipartUploadCommandInput - {@link InitiateMultipartUploadCommandInput}
- * @returns {@link InitiateMultipartUploadCommandOutput}
+ * @param InitiateMultipartUploadInput - {@link InitiateMultipartUploadInput}
+ * @returns {@link InitiateMultipartUploadOutput}
  * @see {@link InitiateMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

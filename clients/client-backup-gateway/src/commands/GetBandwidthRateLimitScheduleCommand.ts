@@ -70,8 +70,8 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  *
  * ```
  *
- * @param GetBandwidthRateLimitScheduleCommandInput - {@link GetBandwidthRateLimitScheduleCommandInput}
- * @returns {@link GetBandwidthRateLimitScheduleCommandOutput}
+ * @param GetBandwidthRateLimitScheduleInput - {@link GetBandwidthRateLimitScheduleInput}
+ * @returns {@link GetBandwidthRateLimitScheduleOutput}
  * @see {@link GetBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link GetBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

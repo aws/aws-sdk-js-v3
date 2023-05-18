@@ -75,8 +75,8 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  *
  * ```
  *
- * @param ListAssetsCommandInput - {@link ListAssetsCommandInput}
- * @returns {@link ListAssetsCommandOutput}
+ * @param ListAssetsInput - {@link ListAssetsInput}
+ * @returns {@link ListAssetsOutput}
  * @see {@link ListAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssetsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

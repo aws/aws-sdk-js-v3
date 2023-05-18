@@ -49,8 +49,8 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  *
  * ```
  *
- * @param RebootInputDeviceCommandInput - {@link RebootInputDeviceCommandInput}
- * @returns {@link RebootInputDeviceCommandOutput}
+ * @param RebootInputDeviceRequest - {@link RebootInputDeviceRequest}
+ * @returns {@link RebootInputDeviceResponse}
  * @see {@link RebootInputDeviceCommandInput} for command's `input` shape.
  * @see {@link RebootInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  *
  * ```
  *
- * @param DeletePartitionCommandInput - {@link DeletePartitionCommandInput}
- * @returns {@link DeletePartitionCommandOutput}
+ * @param DeletePartitionRequest - {@link DeletePartitionRequest}
+ * @returns {@link DeletePartitionResponse}
  * @see {@link DeletePartitionCommandInput} for command's `input` shape.
  * @see {@link DeletePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -50,8 +50,8 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
- * @returns {@link PutDataProtectionPolicyCommandOutput}
+ * @param PutDataProtectionPolicyInput - {@link PutDataProtectionPolicyInput}
+ * @returns {@link Unit}
  * @see {@link PutDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

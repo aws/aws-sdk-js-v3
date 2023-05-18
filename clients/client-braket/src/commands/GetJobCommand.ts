@@ -111,8 +111,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param GetJobCommandInput - {@link GetJobCommandInput}
- * @returns {@link GetJobCommandOutput}
+ * @param GetJobRequest - {@link GetJobRequest}
+ * @returns {@link GetJobResponse}
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.

@@ -57,8 +57,8 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  *
  * ```
  *
- * @param CreateCidrCollectionCommandInput - {@link CreateCidrCollectionCommandInput}
- * @returns {@link CreateCidrCollectionCommandOutput}
+ * @param CreateCidrCollectionRequest - {@link CreateCidrCollectionRequest}
+ * @returns {@link CreateCidrCollectionResponse}
  * @see {@link CreateCidrCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCidrCollectionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

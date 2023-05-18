@@ -54,8 +54,8 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  *
  * ```
  *
- * @param GetBulkPublishDetailsCommandInput - {@link GetBulkPublishDetailsCommandInput}
- * @returns {@link GetBulkPublishDetailsCommandOutput}
+ * @param GetBulkPublishDetailsRequest - {@link GetBulkPublishDetailsRequest}
+ * @returns {@link GetBulkPublishDetailsResponse}
  * @see {@link GetBulkPublishDetailsCommandInput} for command's `input` shape.
  * @see {@link GetBulkPublishDetailsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

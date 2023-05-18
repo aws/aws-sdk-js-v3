@@ -89,8 +89,8 @@ export interface UpdateRotationCommandOutput extends UpdateRotationResult, __Met
  *
  * ```
  *
- * @param UpdateRotationCommandInput - {@link UpdateRotationCommandInput}
- * @returns {@link UpdateRotationCommandOutput}
+ * @param UpdateRotationRequest - {@link UpdateRotationRequest}
+ * @returns {@link UpdateRotationResult}
  * @see {@link UpdateRotationCommandInput} for command's `input` shape.
  * @see {@link UpdateRotationCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

@@ -78,8 +78,8 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  *
  * ```
  *
- * @param EvaluateCodeCommandInput - {@link EvaluateCodeCommandInput}
- * @returns {@link EvaluateCodeCommandOutput}
+ * @param EvaluateCodeRequest - {@link EvaluateCodeRequest}
+ * @returns {@link EvaluateCodeResponse}
  * @see {@link EvaluateCodeCommandInput} for command's `input` shape.
  * @see {@link EvaluateCodeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

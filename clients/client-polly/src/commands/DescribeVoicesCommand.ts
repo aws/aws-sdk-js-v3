@@ -83,8 +83,8 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  *
  * ```
  *
- * @param DescribeVoicesCommandInput - {@link DescribeVoicesCommandInput}
- * @returns {@link DescribeVoicesCommandOutput}
+ * @param DescribeVoicesInput - {@link DescribeVoicesInput}
+ * @returns {@link DescribeVoicesOutput}
  * @see {@link DescribeVoicesCommandInput} for command's `input` shape.
  * @see {@link DescribeVoicesCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.

@@ -67,8 +67,8 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  *
  * ```
  *
- * @param DetachLoadBalancerFromSubnetsCommandInput - {@link DetachLoadBalancerFromSubnetsCommandInput}
- * @returns {@link DetachLoadBalancerFromSubnetsCommandOutput}
+ * @param DetachLoadBalancerFromSubnetsInput - {@link DetachLoadBalancerFromSubnetsInput}
+ * @returns {@link DetachLoadBalancerFromSubnetsOutput}
  * @see {@link DetachLoadBalancerFromSubnetsCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancerFromSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

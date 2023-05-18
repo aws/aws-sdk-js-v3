@@ -54,8 +54,8 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  *
  * ```
  *
- * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
- * @returns {@link UpdateApplicationCommandOutput}
+ * @param UpdateApplicationRequest - {@link UpdateApplicationRequest}
+ * @returns {@link Application}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

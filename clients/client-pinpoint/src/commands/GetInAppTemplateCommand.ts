@@ -123,8 +123,8 @@ export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse,
  *
  * ```
  *
- * @param GetInAppTemplateCommandInput - {@link GetInAppTemplateCommandInput}
- * @returns {@link GetInAppTemplateCommandOutput}
+ * @param GetInAppTemplateRequest - {@link GetInAppTemplateRequest}
+ * @returns {@link GetInAppTemplateResponse}
  * @see {@link GetInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link GetInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

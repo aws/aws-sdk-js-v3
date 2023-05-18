@@ -77,8 +77,8 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  *
  * ```
  *
- * @param CreateOptOutListCommandInput - {@link CreateOptOutListCommandInput}
- * @returns {@link CreateOptOutListCommandOutput}
+ * @param CreateOptOutListRequest - {@link CreateOptOutListRequest}
+ * @returns {@link CreateOptOutListResult}
  * @see {@link CreateOptOutListCommandInput} for command's `input` shape.
  * @see {@link CreateOptOutListCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

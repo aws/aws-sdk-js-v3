@@ -105,8 +105,8 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  *
  * ```
  *
- * @param DescribeDBClusterSnapshotsCommandInput - {@link DescribeDBClusterSnapshotsCommandInput}
- * @returns {@link DescribeDBClusterSnapshotsCommandOutput}
+ * @param DescribeDBClusterSnapshotsMessage - {@link DescribeDBClusterSnapshotsMessage}
+ * @returns {@link DBClusterSnapshotMessage}
  * @see {@link DescribeDBClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

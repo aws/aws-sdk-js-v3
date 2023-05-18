@@ -107,8 +107,8 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *
  * ```
  *
- * @param UpdateDistributionCommandInput - {@link UpdateDistributionCommandInput}
- * @returns {@link UpdateDistributionCommandOutput}
+ * @param UpdateDistributionRequest - {@link UpdateDistributionRequest}
+ * @returns {@link UpdateDistributionResult}
  * @see {@link UpdateDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

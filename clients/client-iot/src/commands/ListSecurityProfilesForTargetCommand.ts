@@ -71,8 +71,8 @@ export interface ListSecurityProfilesForTargetCommandOutput
  *
  * ```
  *
- * @param ListSecurityProfilesForTargetCommandInput - {@link ListSecurityProfilesForTargetCommandInput}
- * @returns {@link ListSecurityProfilesForTargetCommandOutput}
+ * @param ListSecurityProfilesForTargetRequest - {@link ListSecurityProfilesForTargetRequest}
+ * @returns {@link ListSecurityProfilesForTargetResponse}
  * @see {@link ListSecurityProfilesForTargetCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilesForTargetCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

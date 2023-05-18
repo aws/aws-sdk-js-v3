@@ -82,8 +82,8 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  *
  * ```
  *
- * @param RegisterAgentCommandInput - {@link RegisterAgentCommandInput}
- * @returns {@link RegisterAgentCommandOutput}
+ * @param RegisterAgentRequest - {@link RegisterAgentRequest}
+ * @returns {@link RegisterAgentResponse}
  * @see {@link RegisterAgentCommandInput} for command's `input` shape.
  * @see {@link RegisterAgentCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

@@ -52,8 +52,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  *
  * ```
  *
- * @param UpdateDataSourceCommandInput - {@link UpdateDataSourceCommandInput}
- * @returns {@link UpdateDataSourceCommandOutput}
+ * @param UpdateDataSourceInput - {@link UpdateDataSourceInput}
+ * @returns {@link UpdateDataSourceOutput}
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

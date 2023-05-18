@@ -109,8 +109,8 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  *
  * ```
  *
- * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
- * @returns {@link CreateIndexCommandOutput}
+ * @param CreateIndexInput - {@link CreateIndexInput}
+ * @returns {@link CreateIndexOutput}
  * @see {@link CreateIndexCommandInput} for command's `input` shape.
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

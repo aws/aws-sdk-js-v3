@@ -69,8 +69,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *
  * ```
  *
- * @param StartRunCommandInput - {@link StartRunCommandInput}
- * @returns {@link StartRunCommandOutput}
+ * @param StartRunRequest - {@link StartRunRequest}
+ * @returns {@link StartRunResponse}
  * @see {@link StartRunCommandInput} for command's `input` shape.
  * @see {@link StartRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

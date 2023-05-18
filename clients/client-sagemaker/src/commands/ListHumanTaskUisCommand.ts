@@ -61,8 +61,8 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  *
  * ```
  *
- * @param ListHumanTaskUisCommandInput - {@link ListHumanTaskUisCommandInput}
- * @returns {@link ListHumanTaskUisCommandOutput}
+ * @param ListHumanTaskUisRequest - {@link ListHumanTaskUisRequest}
+ * @returns {@link ListHumanTaskUisResponse}
  * @see {@link ListHumanTaskUisCommandInput} for command's `input` shape.
  * @see {@link ListHumanTaskUisCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

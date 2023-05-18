@@ -62,8 +62,8 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  *
  * ```
  *
- * @param SendTestEventNotificationCommandInput - {@link SendTestEventNotificationCommandInput}
- * @returns {@link SendTestEventNotificationCommandOutput}
+ * @param SendTestEventNotificationRequest - {@link SendTestEventNotificationRequest}
+ * @returns {@link SendTestEventNotificationResponse}
  * @see {@link SendTestEventNotificationCommandInput} for command's `input` shape.
  * @see {@link SendTestEventNotificationCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

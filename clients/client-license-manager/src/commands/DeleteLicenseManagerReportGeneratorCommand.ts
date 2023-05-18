@@ -58,8 +58,8 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  *
  * ```
  *
- * @param DeleteLicenseManagerReportGeneratorCommandInput - {@link DeleteLicenseManagerReportGeneratorCommandInput}
- * @returns {@link DeleteLicenseManagerReportGeneratorCommandOutput}
+ * @param DeleteLicenseManagerReportGeneratorRequest - {@link DeleteLicenseManagerReportGeneratorRequest}
+ * @returns {@link DeleteLicenseManagerReportGeneratorResponse}
  * @see {@link DeleteLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

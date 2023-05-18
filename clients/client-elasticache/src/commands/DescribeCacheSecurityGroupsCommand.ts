@@ -70,8 +70,8 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  *
  * ```
  *
- * @param DescribeCacheSecurityGroupsCommandInput - {@link DescribeCacheSecurityGroupsCommandInput}
- * @returns {@link DescribeCacheSecurityGroupsCommandOutput}
+ * @param DescribeCacheSecurityGroupsMessage - {@link DescribeCacheSecurityGroupsMessage}
+ * @returns {@link CacheSecurityGroupMessage}
  * @see {@link DescribeCacheSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

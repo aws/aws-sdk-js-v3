@@ -133,8 +133,8 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  *
  * ```
  *
- * @param DescribeConnectorCommandInput - {@link DescribeConnectorCommandInput}
- * @returns {@link DescribeConnectorCommandOutput}
+ * @param DescribeConnectorRequest - {@link DescribeConnectorRequest}
+ * @returns {@link DescribeConnectorResponse}
  * @see {@link DescribeConnectorCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

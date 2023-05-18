@@ -62,8 +62,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *
  * ```
  *
- * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
- * @returns {@link CreateIndexCommandOutput}
+ * @param CreateIndexRequest - {@link CreateIndexRequest}
+ * @returns {@link CreateIndexResponse}
  * @see {@link CreateIndexCommandInput} for command's `input` shape.
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

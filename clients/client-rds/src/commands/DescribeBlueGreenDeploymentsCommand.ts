@@ -98,8 +98,8 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  *
  * ```
  *
- * @param DescribeBlueGreenDeploymentsCommandInput - {@link DescribeBlueGreenDeploymentsCommandInput}
- * @returns {@link DescribeBlueGreenDeploymentsCommandOutput}
+ * @param DescribeBlueGreenDeploymentsRequest - {@link DescribeBlueGreenDeploymentsRequest}
+ * @returns {@link DescribeBlueGreenDeploymentsResponse}
  * @see {@link DescribeBlueGreenDeploymentsCommandInput} for command's `input` shape.
  * @see {@link DescribeBlueGreenDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

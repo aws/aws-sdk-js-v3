@@ -142,8 +142,8 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *
  * ```
  *
- * @param CreateReplicationInstanceCommandInput - {@link CreateReplicationInstanceCommandInput}
- * @returns {@link CreateReplicationInstanceCommandOutput}
+ * @param CreateReplicationInstanceMessage - {@link CreateReplicationInstanceMessage}
+ * @returns {@link CreateReplicationInstanceResponse}
  * @see {@link CreateReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

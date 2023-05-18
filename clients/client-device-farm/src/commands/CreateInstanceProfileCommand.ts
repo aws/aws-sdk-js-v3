@@ -66,8 +66,8 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  *
  * ```
  *
- * @param CreateInstanceProfileCommandInput - {@link CreateInstanceProfileCommandInput}
- * @returns {@link CreateInstanceProfileCommandOutput}
+ * @param CreateInstanceProfileRequest - {@link CreateInstanceProfileRequest}
+ * @returns {@link CreateInstanceProfileResult}
  * @see {@link CreateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

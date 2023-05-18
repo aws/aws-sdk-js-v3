@@ -53,8 +53,8 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  *
  * ```
  *
- * @param UpdateHITReviewStatusCommandInput - {@link UpdateHITReviewStatusCommandInput}
- * @returns {@link UpdateHITReviewStatusCommandOutput}
+ * @param UpdateHITReviewStatusRequest - {@link UpdateHITReviewStatusRequest}
+ * @returns {@link UpdateHITReviewStatusResponse}
  * @see {@link UpdateHITReviewStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateHITReviewStatusCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

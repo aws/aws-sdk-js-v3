@@ -50,8 +50,8 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteMedicalVocabularyCommandInput - {@link DeleteMedicalVocabularyCommandInput}
- * @returns {@link DeleteMedicalVocabularyCommandOutput}
+ * @param DeleteMedicalVocabularyRequest - {@link DeleteMedicalVocabularyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

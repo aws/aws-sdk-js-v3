@@ -64,8 +64,8 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
  *
  * ```
  *
- * @param GetHealthCheckLastFailureReasonCommandInput - {@link GetHealthCheckLastFailureReasonCommandInput}
- * @returns {@link GetHealthCheckLastFailureReasonCommandOutput}
+ * @param GetHealthCheckLastFailureReasonRequest - {@link GetHealthCheckLastFailureReasonRequest}
+ * @returns {@link GetHealthCheckLastFailureReasonResponse}
  * @see {@link GetHealthCheckLastFailureReasonCommandInput} for command's `input` shape.
  * @see {@link GetHealthCheckLastFailureReasonCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

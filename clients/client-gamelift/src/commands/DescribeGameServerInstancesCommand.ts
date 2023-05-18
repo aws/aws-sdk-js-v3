@@ -85,8 +85,8 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  *
  * ```
  *
- * @param DescribeGameServerInstancesCommandInput - {@link DescribeGameServerInstancesCommandInput}
- * @returns {@link DescribeGameServerInstancesCommandOutput}
+ * @param DescribeGameServerInstancesInput - {@link DescribeGameServerInstancesInput}
+ * @returns {@link DescribeGameServerInstancesOutput}
  * @see {@link DescribeGameServerInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeGameServerInstancesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

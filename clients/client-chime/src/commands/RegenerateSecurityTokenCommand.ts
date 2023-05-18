@@ -65,8 +65,8 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
  *
  * ```
  *
- * @param RegenerateSecurityTokenCommandInput - {@link RegenerateSecurityTokenCommandInput}
- * @returns {@link RegenerateSecurityTokenCommandOutput}
+ * @param RegenerateSecurityTokenRequest - {@link RegenerateSecurityTokenRequest}
+ * @returns {@link RegenerateSecurityTokenResponse}
  * @see {@link RegenerateSecurityTokenCommandInput} for command's `input` shape.
  * @see {@link RegenerateSecurityTokenCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

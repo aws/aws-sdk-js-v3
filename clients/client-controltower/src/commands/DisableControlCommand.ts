@@ -53,8 +53,8 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  *
  * ```
  *
- * @param DisableControlCommandInput - {@link DisableControlCommandInput}
- * @returns {@link DisableControlCommandOutput}
+ * @param DisableControlInput - {@link DisableControlInput}
+ * @returns {@link DisableControlOutput}
  * @see {@link DisableControlCommandInput} for command's `input` shape.
  * @see {@link DisableControlCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.

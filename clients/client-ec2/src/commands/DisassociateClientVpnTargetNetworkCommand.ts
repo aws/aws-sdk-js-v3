@@ -80,8 +80,8 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  *
  * ```
  *
- * @param DisassociateClientVpnTargetNetworkCommandInput - {@link DisassociateClientVpnTargetNetworkCommandInput}
- * @returns {@link DisassociateClientVpnTargetNetworkCommandOutput}
+ * @param DisassociateClientVpnTargetNetworkRequest - {@link DisassociateClientVpnTargetNetworkRequest}
+ * @returns {@link DisassociateClientVpnTargetNetworkResult}
  * @see {@link DisassociateClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link DisassociateClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

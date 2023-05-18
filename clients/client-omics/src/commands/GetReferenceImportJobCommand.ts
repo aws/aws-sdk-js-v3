@@ -69,8 +69,8 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  *
  * ```
  *
- * @param GetReferenceImportJobCommandInput - {@link GetReferenceImportJobCommandInput}
- * @returns {@link GetReferenceImportJobCommandOutput}
+ * @param GetReferenceImportJobRequest - {@link GetReferenceImportJobRequest}
+ * @returns {@link GetReferenceImportJobResponse}
  * @see {@link GetReferenceImportJobCommandInput} for command's `input` shape.
  * @see {@link GetReferenceImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

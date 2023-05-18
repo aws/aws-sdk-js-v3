@@ -54,8 +54,8 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSolutionCommandInput - {@link DeleteSolutionCommandInput}
- * @returns {@link DeleteSolutionCommandOutput}
+ * @param DeleteSolutionRequest - {@link DeleteSolutionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSolutionCommandInput} for command's `input` shape.
  * @see {@link DeleteSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

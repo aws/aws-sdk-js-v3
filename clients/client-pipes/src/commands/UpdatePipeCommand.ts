@@ -341,8 +341,8 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  *
  * ```
  *
- * @param UpdatePipeCommandInput - {@link UpdatePipeCommandInput}
- * @returns {@link UpdatePipeCommandOutput}
+ * @param UpdatePipeRequest - {@link UpdatePipeRequest}
+ * @returns {@link UpdatePipeResponse}
  * @see {@link UpdatePipeCommandInput} for command's `input` shape.
  * @see {@link UpdatePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.

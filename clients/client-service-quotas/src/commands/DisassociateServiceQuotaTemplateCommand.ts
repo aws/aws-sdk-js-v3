@@ -53,8 +53,8 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  *
  * ```
  *
- * @param DisassociateServiceQuotaTemplateCommandInput - {@link DisassociateServiceQuotaTemplateCommandInput}
- * @returns {@link DisassociateServiceQuotaTemplateCommandOutput}
+ * @param DisassociateServiceQuotaTemplateRequest - {@link DisassociateServiceQuotaTemplateRequest}
+ * @returns {@link DisassociateServiceQuotaTemplateResponse}
  * @see {@link DisassociateServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

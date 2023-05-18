@@ -56,8 +56,8 @@ export interface DeleteRumMetricsDestinationCommandOutput
  *
  * ```
  *
- * @param DeleteRumMetricsDestinationCommandInput - {@link DeleteRumMetricsDestinationCommandInput}
- * @returns {@link DeleteRumMetricsDestinationCommandOutput}
+ * @param DeleteRumMetricsDestinationRequest - {@link DeleteRumMetricsDestinationRequest}
+ * @returns {@link DeleteRumMetricsDestinationResponse}
  * @see {@link DeleteRumMetricsDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteRumMetricsDestinationCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

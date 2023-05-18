@@ -111,8 +111,8 @@ export interface DescribeBudgetActionsForAccountCommandOutput
  *
  * ```
  *
- * @param DescribeBudgetActionsForAccountCommandInput - {@link DescribeBudgetActionsForAccountCommandInput}
- * @returns {@link DescribeBudgetActionsForAccountCommandOutput}
+ * @param DescribeBudgetActionsForAccountRequest - {@link DescribeBudgetActionsForAccountRequest}
+ * @returns {@link DescribeBudgetActionsForAccountResponse}
  * @see {@link DescribeBudgetActionsForAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetActionsForAccountCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

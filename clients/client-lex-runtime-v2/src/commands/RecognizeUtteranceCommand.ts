@@ -148,8 +148,8 @@ export interface RecognizeUtteranceCommandOutput
  *
  * ```
  *
- * @param RecognizeUtteranceCommandInput - {@link RecognizeUtteranceCommandInput}
- * @returns {@link RecognizeUtteranceCommandOutput}
+ * @param RecognizeUtteranceRequest - {@link RecognizeUtteranceRequest}
+ * @returns {@link RecognizeUtteranceResponse}
  * @see {@link RecognizeUtteranceCommandInput} for command's `input` shape.
  * @see {@link RecognizeUtteranceCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.

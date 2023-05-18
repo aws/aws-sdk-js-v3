@@ -57,8 +57,8 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  *
  * ```
  *
- * @param DeleteCostCategoryDefinitionCommandInput - {@link DeleteCostCategoryDefinitionCommandInput}
- * @returns {@link DeleteCostCategoryDefinitionCommandOutput}
+ * @param DeleteCostCategoryDefinitionRequest - {@link DeleteCostCategoryDefinitionRequest}
+ * @returns {@link DeleteCostCategoryDefinitionResponse}
  * @see {@link DeleteCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

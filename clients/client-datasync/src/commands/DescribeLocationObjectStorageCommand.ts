@@ -65,8 +65,8 @@ export interface DescribeLocationObjectStorageCommandOutput
  *
  * ```
  *
- * @param DescribeLocationObjectStorageCommandInput - {@link DescribeLocationObjectStorageCommandInput}
- * @returns {@link DescribeLocationObjectStorageCommandOutput}
+ * @param DescribeLocationObjectStorageRequest - {@link DescribeLocationObjectStorageRequest}
+ * @returns {@link DescribeLocationObjectStorageResponse}
  * @see {@link DescribeLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationObjectStorageCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

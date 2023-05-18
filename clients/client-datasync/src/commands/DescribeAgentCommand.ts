@@ -66,8 +66,8 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  *
  * ```
  *
- * @param DescribeAgentCommandInput - {@link DescribeAgentCommandInput}
- * @returns {@link DescribeAgentCommandOutput}
+ * @param DescribeAgentRequest - {@link DescribeAgentRequest}
+ * @returns {@link DescribeAgentResponse}
  * @see {@link DescribeAgentCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

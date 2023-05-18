@@ -65,8 +65,8 @@ export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinition
  *
  * ```
  *
- * @param ListLoggerDefinitionsCommandInput - {@link ListLoggerDefinitionsCommandInput}
- * @returns {@link ListLoggerDefinitionsCommandOutput}
+ * @param ListLoggerDefinitionsRequest - {@link ListLoggerDefinitionsRequest}
+ * @returns {@link ListLoggerDefinitionsResponse}
  * @see {@link ListLoggerDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListLoggerDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

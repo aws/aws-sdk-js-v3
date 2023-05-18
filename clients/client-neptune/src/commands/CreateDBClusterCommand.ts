@@ -188,8 +188,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * ```
  *
- * @param CreateDBClusterCommandInput - {@link CreateDBClusterCommandInput}
- * @returns {@link CreateDBClusterCommandOutput}
+ * @param CreateDBClusterMessage - {@link CreateDBClusterMessage}
+ * @returns {@link CreateDBClusterResult}
  * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

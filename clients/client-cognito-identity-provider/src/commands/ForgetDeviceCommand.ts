@@ -54,8 +54,8 @@ export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ForgetDeviceCommandInput - {@link ForgetDeviceCommandInput}
- * @returns {@link ForgetDeviceCommandOutput}
+ * @param ForgetDeviceRequest - {@link ForgetDeviceRequest}
+ * @returns {@link Unit}
  * @see {@link ForgetDeviceCommandInput} for command's `input` shape.
  * @see {@link ForgetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

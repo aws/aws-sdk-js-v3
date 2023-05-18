@@ -62,8 +62,8 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  *
  * ```
  *
- * @param ListDeliveryStreamsCommandInput - {@link ListDeliveryStreamsCommandInput}
- * @returns {@link ListDeliveryStreamsCommandOutput}
+ * @param ListDeliveryStreamsInput - {@link ListDeliveryStreamsInput}
+ * @returns {@link ListDeliveryStreamsOutput}
  * @see {@link ListDeliveryStreamsCommandInput} for command's `input` shape.
  * @see {@link ListDeliveryStreamsCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

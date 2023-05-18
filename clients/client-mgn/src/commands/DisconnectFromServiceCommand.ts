@@ -161,8 +161,8 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  *
  * ```
  *
- * @param DisconnectFromServiceCommandInput - {@link DisconnectFromServiceCommandInput}
- * @returns {@link DisconnectFromServiceCommandOutput}
+ * @param DisconnectFromServiceRequest - {@link DisconnectFromServiceRequest}
+ * @returns {@link SourceServer}
  * @see {@link DisconnectFromServiceCommandInput} for command's `input` shape.
  * @see {@link DisconnectFromServiceCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

@@ -71,8 +71,8 @@ export interface GetSubscriptionDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param GetSubscriptionDefinitionVersionCommandInput - {@link GetSubscriptionDefinitionVersionCommandInput}
- * @returns {@link GetSubscriptionDefinitionVersionCommandOutput}
+ * @param GetSubscriptionDefinitionVersionRequest - {@link GetSubscriptionDefinitionVersionRequest}
+ * @returns {@link GetSubscriptionDefinitionVersionResponse}
  * @see {@link GetSubscriptionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

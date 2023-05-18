@@ -237,8 +237,8 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *
  * ```
  *
- * @param CreateAssociationCommandInput - {@link CreateAssociationCommandInput}
- * @returns {@link CreateAssociationCommandOutput}
+ * @param CreateAssociationRequest - {@link CreateAssociationRequest}
+ * @returns {@link CreateAssociationResult}
  * @see {@link CreateAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

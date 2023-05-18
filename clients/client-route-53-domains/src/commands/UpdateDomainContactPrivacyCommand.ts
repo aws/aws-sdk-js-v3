@@ -75,8 +75,8 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  *
  * ```
  *
- * @param UpdateDomainContactPrivacyCommandInput - {@link UpdateDomainContactPrivacyCommandInput}
- * @returns {@link UpdateDomainContactPrivacyCommandOutput}
+ * @param UpdateDomainContactPrivacyRequest - {@link UpdateDomainContactPrivacyRequest}
+ * @returns {@link UpdateDomainContactPrivacyResponse}
  * @see {@link UpdateDomainContactPrivacyCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainContactPrivacyCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

@@ -96,8 +96,8 @@ export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDete
  *
  * ```
  *
- * @param ListEntitiesDetectionJobsCommandInput - {@link ListEntitiesDetectionJobsCommandInput}
- * @returns {@link ListEntitiesDetectionJobsCommandOutput}
+ * @param ListEntitiesDetectionJobsRequest - {@link ListEntitiesDetectionJobsRequest}
+ * @returns {@link ListEntitiesDetectionJobsResponse}
  * @see {@link ListEntitiesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositor
  *
  * ```
  *
- * @param ListSourceRepositoriesCommandInput - {@link ListSourceRepositoriesCommandInput}
- * @returns {@link ListSourceRepositoriesCommandOutput}
+ * @param ListSourceRepositoriesRequest - {@link ListSourceRepositoriesRequest}
+ * @returns {@link ListSourceRepositoriesResponse}
  * @see {@link ListSourceRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListSourceRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

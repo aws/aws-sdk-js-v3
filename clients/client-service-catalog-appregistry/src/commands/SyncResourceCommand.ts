@@ -58,8 +58,8 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  *
  * ```
  *
- * @param SyncResourceCommandInput - {@link SyncResourceCommandInput}
- * @returns {@link SyncResourceCommandOutput}
+ * @param SyncResourceRequest - {@link SyncResourceRequest}
+ * @returns {@link SyncResourceResponse}
  * @see {@link SyncResourceCommandInput} for command's `input` shape.
  * @see {@link SyncResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

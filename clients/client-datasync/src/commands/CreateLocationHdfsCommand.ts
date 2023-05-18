@@ -77,8 +77,8 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  *
  * ```
  *
- * @param CreateLocationHdfsCommandInput - {@link CreateLocationHdfsCommandInput}
- * @returns {@link CreateLocationHdfsCommandOutput}
+ * @param CreateLocationHdfsRequest - {@link CreateLocationHdfsRequest}
+ * @returns {@link CreateLocationHdfsResponse}
  * @see {@link CreateLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationHdfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

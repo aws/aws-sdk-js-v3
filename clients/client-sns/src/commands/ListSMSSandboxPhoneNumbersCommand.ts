@@ -66,8 +66,8 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  *
  * ```
  *
- * @param ListSMSSandboxPhoneNumbersCommandInput - {@link ListSMSSandboxPhoneNumbersCommandInput}
- * @returns {@link ListSMSSandboxPhoneNumbersCommandOutput}
+ * @param ListSMSSandboxPhoneNumbersInput - {@link ListSMSSandboxPhoneNumbersInput}
+ * @returns {@link ListSMSSandboxPhoneNumbersResult}
  * @see {@link ListSMSSandboxPhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link ListSMSSandboxPhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

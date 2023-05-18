@@ -122,8 +122,8 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  *
  * ```
  *
- * @param DescribeTrafficMirrorFiltersCommandInput - {@link DescribeTrafficMirrorFiltersCommandInput}
- * @returns {@link DescribeTrafficMirrorFiltersCommandOutput}
+ * @param DescribeTrafficMirrorFiltersRequest - {@link DescribeTrafficMirrorFiltersRequest}
+ * @returns {@link DescribeTrafficMirrorFiltersResult}
  * @see {@link DescribeTrafficMirrorFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorFiltersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

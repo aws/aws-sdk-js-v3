@@ -68,8 +68,8 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  *
  * ```
  *
- * @param ListQueriesCommandInput - {@link ListQueriesCommandInput}
- * @returns {@link ListQueriesCommandOutput}
+ * @param ListQueriesRequest - {@link ListQueriesRequest}
+ * @returns {@link ListQueriesResponse}
  * @see {@link ListQueriesCommandInput} for command's `input` shape.
  * @see {@link ListQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

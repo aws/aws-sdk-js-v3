@@ -158,8 +158,8 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *
  * ```
  *
- * @param CreateAccessPreviewCommandInput - {@link CreateAccessPreviewCommandInput}
- * @returns {@link CreateAccessPreviewCommandOutput}
+ * @param CreateAccessPreviewRequest - {@link CreateAccessPreviewRequest}
+ * @returns {@link CreateAccessPreviewResponse}
  * @see {@link CreateAccessPreviewCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPreviewCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

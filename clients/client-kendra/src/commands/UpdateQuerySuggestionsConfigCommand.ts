@@ -76,8 +76,8 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param UpdateQuerySuggestionsConfigCommandInput - {@link UpdateQuerySuggestionsConfigCommandInput}
- * @returns {@link UpdateQuerySuggestionsConfigCommandOutput}
+ * @param UpdateQuerySuggestionsConfigRequest - {@link UpdateQuerySuggestionsConfigRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateQuerySuggestionsConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateQuerySuggestionsConfigCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

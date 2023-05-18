@@ -61,8 +61,8 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateLensesCommandInput - {@link AssociateLensesCommandInput}
- * @returns {@link AssociateLensesCommandOutput}
+ * @param AssociateLensesInput - {@link AssociateLensesInput}
+ * @returns {@link Unit}
  * @see {@link AssociateLensesCommandInput} for command's `input` shape.
  * @see {@link AssociateLensesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

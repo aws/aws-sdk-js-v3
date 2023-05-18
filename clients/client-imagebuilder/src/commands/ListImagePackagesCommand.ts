@@ -60,8 +60,8 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  *
  * ```
  *
- * @param ListImagePackagesCommandInput - {@link ListImagePackagesCommandInput}
- * @returns {@link ListImagePackagesCommandOutput}
+ * @param ListImagePackagesRequest - {@link ListImagePackagesRequest}
+ * @returns {@link ListImagePackagesResponse}
  * @see {@link ListImagePackagesCommandInput} for command's `input` shape.
  * @see {@link ListImagePackagesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

@@ -81,8 +81,8 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  *
  * ```
  *
- * @param UpdateSiteAddressCommandInput - {@link UpdateSiteAddressCommandInput}
- * @returns {@link UpdateSiteAddressCommandOutput}
+ * @param UpdateSiteAddressInput - {@link UpdateSiteAddressInput}
+ * @returns {@link UpdateSiteAddressOutput}
  * @see {@link UpdateSiteAddressCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteAddressCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

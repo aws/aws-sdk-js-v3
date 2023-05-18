@@ -61,8 +61,8 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  *
  * ```
  *
- * @param UpdateVoiceConnectorCommandInput - {@link UpdateVoiceConnectorCommandInput}
- * @returns {@link UpdateVoiceConnectorCommandOutput}
+ * @param UpdateVoiceConnectorRequest - {@link UpdateVoiceConnectorRequest}
+ * @returns {@link UpdateVoiceConnectorResponse}
  * @see {@link UpdateVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

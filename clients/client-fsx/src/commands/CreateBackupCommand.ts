@@ -596,8 +596,8 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *
  * ```
  *
- * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
- * @returns {@link CreateBackupCommandOutput}
+ * @param CreateBackupRequest - {@link CreateBackupRequest}
+ * @returns {@link CreateBackupResponse}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

@@ -85,8 +85,8 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  *
  * ```
  *
- * @param DescribeConfigurationOptionsCommandInput - {@link DescribeConfigurationOptionsCommandInput}
- * @returns {@link DescribeConfigurationOptionsCommandOutput}
+ * @param DescribeConfigurationOptionsMessage - {@link DescribeConfigurationOptionsMessage}
+ * @returns {@link ConfigurationOptionsDescription}
  * @see {@link DescribeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

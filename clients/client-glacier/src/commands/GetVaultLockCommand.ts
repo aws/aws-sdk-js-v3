@@ -81,8 +81,8 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  *
  * ```
  *
- * @param GetVaultLockCommandInput - {@link GetVaultLockCommandInput}
- * @returns {@link GetVaultLockCommandOutput}
+ * @param GetVaultLockInput - {@link GetVaultLockInput}
+ * @returns {@link GetVaultLockOutput}
  * @see {@link GetVaultLockCommandInput} for command's `input` shape.
  * @see {@link GetVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

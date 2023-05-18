@@ -57,8 +57,8 @@ export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMem
  *
  * ```
  *
- * @param GetLaunchProfileMemberCommandInput - {@link GetLaunchProfileMemberCommandInput}
- * @returns {@link GetLaunchProfileMemberCommandOutput}
+ * @param GetLaunchProfileMemberRequest - {@link GetLaunchProfileMemberRequest}
+ * @returns {@link GetLaunchProfileMemberResponse}
  * @see {@link GetLaunchProfileMemberCommandInput} for command's `input` shape.
  * @see {@link GetLaunchProfileMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

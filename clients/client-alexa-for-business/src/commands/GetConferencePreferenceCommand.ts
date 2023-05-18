@@ -50,8 +50,8 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  *
  * ```
  *
- * @param GetConferencePreferenceCommandInput - {@link GetConferencePreferenceCommandInput}
- * @returns {@link GetConferencePreferenceCommandOutput}
+ * @param GetConferencePreferenceRequest - {@link GetConferencePreferenceRequest}
+ * @returns {@link GetConferencePreferenceResponse}
  * @see {@link GetConferencePreferenceCommandInput} for command's `input` shape.
  * @see {@link GetConferencePreferenceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  *
  * ```
  *
- * @param DeleteDeviceDefinitionCommandInput - {@link DeleteDeviceDefinitionCommandInput}
- * @returns {@link DeleteDeviceDefinitionCommandOutput}
+ * @param DeleteDeviceDefinitionRequest - {@link DeleteDeviceDefinitionRequest}
+ * @returns {@link DeleteDeviceDefinitionResponse}
  * @see {@link DeleteDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

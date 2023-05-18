@@ -53,8 +53,8 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  *
  * ```
  *
- * @param DescribeTimeToLiveCommandInput - {@link DescribeTimeToLiveCommandInput}
- * @returns {@link DescribeTimeToLiveCommandOutput}
+ * @param DescribeTimeToLiveInput - {@link DescribeTimeToLiveInput}
+ * @returns {@link DescribeTimeToLiveOutput}
  * @see {@link DescribeTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeToLiveCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

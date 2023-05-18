@@ -57,8 +57,8 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  *
  * ```
  *
- * @param RegisterRobotCommandInput - {@link RegisterRobotCommandInput}
- * @returns {@link RegisterRobotCommandOutput}
+ * @param RegisterRobotRequest - {@link RegisterRobotRequest}
+ * @returns {@link RegisterRobotResponse}
  * @see {@link RegisterRobotCommandInput} for command's `input` shape.
  * @see {@link RegisterRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

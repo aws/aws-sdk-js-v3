@@ -49,8 +49,8 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  *
  * ```
  *
- * @param DeleteRunCommandInput - {@link DeleteRunCommandInput}
- * @returns {@link DeleteRunCommandOutput}
+ * @param DeleteRunRequest - {@link DeleteRunRequest}
+ * @returns {@link DeleteRunResult}
  * @see {@link DeleteRunCommandInput} for command's `input` shape.
  * @see {@link DeleteRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

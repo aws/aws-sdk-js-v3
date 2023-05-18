@@ -70,8 +70,8 @@ export interface UpdateIntegrationResponseCommandOutput extends UpdateIntegratio
  *
  * ```
  *
- * @param UpdateIntegrationResponseCommandInput - {@link UpdateIntegrationResponseCommandInput}
- * @returns {@link UpdateIntegrationResponseCommandOutput}
+ * @param UpdateIntegrationResponseRequest - {@link UpdateIntegrationResponseRequest}
+ * @returns {@link UpdateIntegrationResponseResponse}
  * @see {@link UpdateIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

@@ -53,8 +53,8 @@ export interface DisassociateBrowserSettingsCommandOutput
  *
  * ```
  *
- * @param DisassociateBrowserSettingsCommandInput - {@link DisassociateBrowserSettingsCommandInput}
- * @returns {@link DisassociateBrowserSettingsCommandOutput}
+ * @param DisassociateBrowserSettingsRequest - {@link DisassociateBrowserSettingsRequest}
+ * @returns {@link DisassociateBrowserSettingsResponse}
  * @see {@link DisassociateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

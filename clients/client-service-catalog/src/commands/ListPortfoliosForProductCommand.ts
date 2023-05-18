@@ -63,8 +63,8 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  *
  * ```
  *
- * @param ListPortfoliosForProductCommandInput - {@link ListPortfoliosForProductCommandInput}
- * @returns {@link ListPortfoliosForProductCommandOutput}
+ * @param ListPortfoliosForProductInput - {@link ListPortfoliosForProductInput}
+ * @returns {@link ListPortfoliosForProductOutput}
  * @see {@link ListPortfoliosForProductCommandInput} for command's `input` shape.
  * @see {@link ListPortfoliosForProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

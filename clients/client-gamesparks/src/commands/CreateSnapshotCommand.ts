@@ -63,8 +63,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *
  * ```
  *
- * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
- * @returns {@link CreateSnapshotCommandOutput}
+ * @param CreateSnapshotRequest - {@link CreateSnapshotRequest}
+ * @returns {@link CreateSnapshotResult}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

@@ -55,8 +55,8 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  *
  * ```
  *
- * @param RemoveAllBackendsCommandInput - {@link RemoveAllBackendsCommandInput}
- * @returns {@link RemoveAllBackendsCommandOutput}
+ * @param RemoveAllBackendsRequest - {@link RemoveAllBackendsRequest}
+ * @returns {@link RemoveAllBackendsResponse}
  * @see {@link RemoveAllBackendsCommandInput} for command's `input` shape.
  * @see {@link RemoveAllBackendsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

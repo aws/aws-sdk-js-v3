@@ -64,8 +64,8 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  *
  * ```
  *
- * @param DescribeAgentVersionsCommandInput - {@link DescribeAgentVersionsCommandInput}
- * @returns {@link DescribeAgentVersionsCommandOutput}
+ * @param DescribeAgentVersionsRequest - {@link DescribeAgentVersionsRequest}
+ * @returns {@link DescribeAgentVersionsResult}
  * @see {@link DescribeAgentVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

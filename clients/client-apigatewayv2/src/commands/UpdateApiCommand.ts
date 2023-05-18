@@ -112,8 +112,8 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  *
  * ```
  *
- * @param UpdateApiCommandInput - {@link UpdateApiCommandInput}
- * @returns {@link UpdateApiCommandOutput}
+ * @param UpdateApiRequest - {@link UpdateApiRequest}
+ * @returns {@link UpdateApiResponse}
  * @see {@link UpdateApiCommandInput} for command's `input` shape.
  * @see {@link UpdateApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

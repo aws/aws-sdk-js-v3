@@ -69,8 +69,8 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  *
  * ```
  *
- * @param ListExperiencesCommandInput - {@link ListExperiencesCommandInput}
- * @returns {@link ListExperiencesCommandOutput}
+ * @param ListExperiencesRequest - {@link ListExperiencesRequest}
+ * @returns {@link ListExperiencesResponse}
  * @see {@link ListExperiencesCommandInput} for command's `input` shape.
  * @see {@link ListExperiencesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

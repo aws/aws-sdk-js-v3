@@ -63,8 +63,8 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListFaqsCommandInput - {@link ListFaqsCommandInput}
- * @returns {@link ListFaqsCommandOutput}
+ * @param ListFaqsRequest - {@link ListFaqsRequest}
+ * @returns {@link ListFaqsResponse}
  * @see {@link ListFaqsCommandInput} for command's `input` shape.
  * @see {@link ListFaqsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

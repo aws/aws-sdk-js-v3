@@ -59,8 +59,8 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  *
  * ```
  *
- * @param GetDataSetImportTaskCommandInput - {@link GetDataSetImportTaskCommandInput}
- * @returns {@link GetDataSetImportTaskCommandOutput}
+ * @param GetDataSetImportTaskRequest - {@link GetDataSetImportTaskRequest}
+ * @returns {@link GetDataSetImportTaskResponse}
  * @see {@link GetDataSetImportTaskCommandInput} for command's `input` shape.
  * @see {@link GetDataSetImportTaskCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

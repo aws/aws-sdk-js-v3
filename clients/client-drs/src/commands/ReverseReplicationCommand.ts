@@ -53,8 +53,8 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  *
  * ```
  *
- * @param ReverseReplicationCommandInput - {@link ReverseReplicationCommandInput}
- * @returns {@link ReverseReplicationCommandOutput}
+ * @param ReverseReplicationRequest - {@link ReverseReplicationRequest}
+ * @returns {@link ReverseReplicationResponse}
  * @see {@link ReverseReplicationCommandInput} for command's `input` shape.
  * @see {@link ReverseReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

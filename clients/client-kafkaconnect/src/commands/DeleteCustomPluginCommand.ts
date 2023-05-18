@@ -51,8 +51,8 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  *
  * ```
  *
- * @param DeleteCustomPluginCommandInput - {@link DeleteCustomPluginCommandInput}
- * @returns {@link DeleteCustomPluginCommandOutput}
+ * @param DeleteCustomPluginRequest - {@link DeleteCustomPluginRequest}
+ * @returns {@link DeleteCustomPluginResponse}
  * @see {@link DeleteCustomPluginCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomPluginCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

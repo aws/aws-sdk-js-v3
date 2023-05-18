@@ -51,8 +51,8 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteInstanceOnboardingJobCommandInput - {@link DeleteInstanceOnboardingJobCommandInput}
- * @returns {@link DeleteInstanceOnboardingJobCommandOutput}
+ * @param DeleteInstanceOnboardingJobRequest - {@link DeleteInstanceOnboardingJobRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteInstanceOnboardingJobCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceOnboardingJobCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

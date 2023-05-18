@@ -50,8 +50,8 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  *
  * ```
  *
- * @param GetAdminAccountCommandInput - {@link GetAdminAccountCommandInput}
- * @returns {@link GetAdminAccountCommandOutput}
+ * @param GetAdminAccountRequest - {@link GetAdminAccountRequest}
+ * @returns {@link GetAdminAccountResponse}
  * @see {@link GetAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

@@ -78,8 +78,8 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  *
  * ```
  *
- * @param BatchUpdateVehicleCommandInput - {@link BatchUpdateVehicleCommandInput}
- * @returns {@link BatchUpdateVehicleCommandOutput}
+ * @param BatchUpdateVehicleRequest - {@link BatchUpdateVehicleRequest}
+ * @returns {@link BatchUpdateVehicleResponse}
  * @see {@link BatchUpdateVehicleCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

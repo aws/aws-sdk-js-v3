@@ -63,8 +63,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *
  * ```
  *
- * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
- * @returns {@link UpdateAccountSettingsCommandOutput}
+ * @param UpdateAccountSettingsRequest - {@link UpdateAccountSettingsRequest}
+ * @returns {@link UpdateAccountSettingsResponse}
  * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

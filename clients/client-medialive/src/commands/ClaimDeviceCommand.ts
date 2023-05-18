@@ -48,8 +48,8 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  *
  * ```
  *
- * @param ClaimDeviceCommandInput - {@link ClaimDeviceCommandInput}
- * @returns {@link ClaimDeviceCommandOutput}
+ * @param ClaimDeviceRequest - {@link ClaimDeviceRequest}
+ * @returns {@link ClaimDeviceResponse}
  * @see {@link ClaimDeviceCommandInput} for command's `input` shape.
  * @see {@link ClaimDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

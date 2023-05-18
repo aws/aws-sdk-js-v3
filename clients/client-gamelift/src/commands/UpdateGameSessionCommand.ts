@@ -85,8 +85,8 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  *
  * ```
  *
- * @param UpdateGameSessionCommandInput - {@link UpdateGameSessionCommandInput}
- * @returns {@link UpdateGameSessionCommandOutput}
+ * @param UpdateGameSessionInput - {@link UpdateGameSessionInput}
+ * @returns {@link UpdateGameSessionOutput}
  * @see {@link UpdateGameSessionCommandInput} for command's `input` shape.
  * @see {@link UpdateGameSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

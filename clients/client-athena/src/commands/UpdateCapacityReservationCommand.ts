@@ -49,8 +49,8 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  *
  * ```
  *
- * @param UpdateCapacityReservationCommandInput - {@link UpdateCapacityReservationCommandInput}
- * @returns {@link UpdateCapacityReservationCommandOutput}
+ * @param UpdateCapacityReservationInput - {@link UpdateCapacityReservationInput}
+ * @returns {@link UpdateCapacityReservationOutput}
  * @see {@link UpdateCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link UpdateCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

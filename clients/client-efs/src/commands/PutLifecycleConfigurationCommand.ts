@@ -107,8 +107,8 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *
  * ```
  *
- * @param PutLifecycleConfigurationCommandInput - {@link PutLifecycleConfigurationCommandInput}
- * @returns {@link PutLifecycleConfigurationCommandOutput}
+ * @param PutLifecycleConfigurationRequest - {@link PutLifecycleConfigurationRequest}
+ * @returns {@link LifecycleConfigurationDescription}
  * @see {@link PutLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

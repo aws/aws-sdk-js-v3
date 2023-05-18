@@ -57,8 +57,8 @@ export interface DescribeAppVersionCommandOutput extends DescribeAppVersionRespo
  *
  * ```
  *
- * @param DescribeAppVersionCommandInput - {@link DescribeAppVersionCommandInput}
- * @returns {@link DescribeAppVersionCommandOutput}
+ * @param DescribeAppVersionRequest - {@link DescribeAppVersionRequest}
+ * @returns {@link DescribeAppVersionResponse}
  * @see {@link DescribeAppVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

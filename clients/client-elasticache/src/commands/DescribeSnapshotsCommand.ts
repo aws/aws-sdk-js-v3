@@ -116,8 +116,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  *
  * ```
  *
- * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
- * @returns {@link DescribeSnapshotsCommandOutput}
+ * @param DescribeSnapshotsMessage - {@link DescribeSnapshotsMessage}
+ * @returns {@link DescribeSnapshotsListMessage}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

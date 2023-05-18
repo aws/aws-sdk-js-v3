@@ -75,8 +75,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  *
  * ```
  *
- * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
- * @returns {@link CreateDirectoryCommandOutput}
+ * @param CreateDirectoryRequest - {@link CreateDirectoryRequest}
+ * @returns {@link CreateDirectoryResult}
  * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

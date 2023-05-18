@@ -65,8 +65,8 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  *
  * ```
  *
- * @param ListSqlInjectionMatchSetsCommandInput - {@link ListSqlInjectionMatchSetsCommandInput}
- * @returns {@link ListSqlInjectionMatchSetsCommandOutput}
+ * @param ListSqlInjectionMatchSetsRequest - {@link ListSqlInjectionMatchSetsRequest}
+ * @returns {@link ListSqlInjectionMatchSetsResponse}
  * @see {@link ListSqlInjectionMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListSqlInjectionMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

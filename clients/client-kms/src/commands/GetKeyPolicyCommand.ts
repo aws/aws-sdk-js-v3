@@ -58,8 +58,8 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  *
  * ```
  *
- * @param GetKeyPolicyCommandInput - {@link GetKeyPolicyCommandInput}
- * @returns {@link GetKeyPolicyCommandOutput}
+ * @param GetKeyPolicyRequest - {@link GetKeyPolicyRequest}
+ * @returns {@link GetKeyPolicyResponse}
  * @see {@link GetKeyPolicyCommandInput} for command's `input` shape.
  * @see {@link GetKeyPolicyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

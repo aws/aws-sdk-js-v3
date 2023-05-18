@@ -71,8 +71,8 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  *
  * ```
  *
- * @param CreateNetworkInterfacePermissionCommandInput - {@link CreateNetworkInterfacePermissionCommandInput}
- * @returns {@link CreateNetworkInterfacePermissionCommandOutput}
+ * @param CreateNetworkInterfacePermissionRequest - {@link CreateNetworkInterfacePermissionRequest}
+ * @returns {@link CreateNetworkInterfacePermissionResult}
  * @see {@link CreateNetworkInterfacePermissionCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInterfacePermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

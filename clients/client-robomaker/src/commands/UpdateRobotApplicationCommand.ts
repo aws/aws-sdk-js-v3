@@ -84,8 +84,8 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  *
  * ```
  *
- * @param UpdateRobotApplicationCommandInput - {@link UpdateRobotApplicationCommandInput}
- * @returns {@link UpdateRobotApplicationCommandOutput}
+ * @param UpdateRobotApplicationRequest - {@link UpdateRobotApplicationRequest}
+ * @returns {@link UpdateRobotApplicationResponse}
  * @see {@link UpdateRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

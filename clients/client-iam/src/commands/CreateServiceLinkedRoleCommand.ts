@@ -83,8 +83,8 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  *
  * ```
  *
- * @param CreateServiceLinkedRoleCommandInput - {@link CreateServiceLinkedRoleCommandInput}
- * @returns {@link CreateServiceLinkedRoleCommandOutput}
+ * @param CreateServiceLinkedRoleRequest - {@link CreateServiceLinkedRoleRequest}
+ * @returns {@link CreateServiceLinkedRoleResponse}
  * @see {@link CreateServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link CreateServiceLinkedRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

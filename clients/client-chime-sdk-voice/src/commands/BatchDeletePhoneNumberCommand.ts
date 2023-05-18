@@ -69,8 +69,8 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  *
  * ```
  *
- * @param BatchDeletePhoneNumberCommandInput - {@link BatchDeletePhoneNumberCommandInput}
- * @returns {@link BatchDeletePhoneNumberCommandOutput}
+ * @param BatchDeletePhoneNumberRequest - {@link BatchDeletePhoneNumberRequest}
+ * @returns {@link BatchDeletePhoneNumberResponse}
  * @see {@link BatchDeletePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link BatchDeletePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

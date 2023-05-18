@@ -68,8 +68,8 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetHostCommandInput - {@link GetHostCommandInput}
- * @returns {@link GetHostCommandOutput}
+ * @param GetHostInput - {@link GetHostInput}
+ * @returns {@link GetHostOutput}
  * @see {@link GetHostCommandInput} for command's `input` shape.
  * @see {@link GetHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

@@ -76,8 +76,8 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  *
  * ```
  *
- * @param CreateKeyGroupCommandInput - {@link CreateKeyGroupCommandInput}
- * @returns {@link CreateKeyGroupCommandOutput}
+ * @param CreateKeyGroupRequest - {@link CreateKeyGroupRequest}
+ * @returns {@link CreateKeyGroupResult}
  * @see {@link CreateKeyGroupCommandInput} for command's `input` shape.
  * @see {@link CreateKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

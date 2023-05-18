@@ -62,8 +62,8 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
  *
  * ```
  *
- * @param DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput - {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput}
- * @returns {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput}
+ * @param DetachCustomerManagedPolicyReferenceFromPermissionSetRequest - {@link DetachCustomerManagedPolicyReferenceFromPermissionSetRequest}
+ * @returns {@link DetachCustomerManagedPolicyReferenceFromPermissionSetResponse}
  * @see {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

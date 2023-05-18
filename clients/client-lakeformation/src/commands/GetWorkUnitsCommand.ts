@@ -60,8 +60,8 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  *
  * ```
  *
- * @param GetWorkUnitsCommandInput - {@link GetWorkUnitsCommandInput}
- * @returns {@link GetWorkUnitsCommandOutput}
+ * @param GetWorkUnitsRequest - {@link GetWorkUnitsRequest}
+ * @returns {@link GetWorkUnitsResponse}
  * @see {@link GetWorkUnitsCommandInput} for command's `input` shape.
  * @see {@link GetWorkUnitsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

@@ -60,8 +60,8 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  *
  * ```
  *
- * @param GetMemberCommandInput - {@link GetMemberCommandInput}
- * @returns {@link GetMemberCommandOutput}
+ * @param GetMemberRequest - {@link GetMemberRequest}
+ * @returns {@link GetMemberResponse}
  * @see {@link GetMemberCommandInput} for command's `input` shape.
  * @see {@link GetMemberCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

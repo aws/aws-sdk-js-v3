@@ -52,8 +52,8 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  *
  * ```
  *
- * @param StopSimulationCommandInput - {@link StopSimulationCommandInput}
- * @returns {@link StopSimulationCommandOutput}
+ * @param StopSimulationInput - {@link StopSimulationInput}
+ * @returns {@link StopSimulationOutput}
  * @see {@link StopSimulationCommandInput} for command's `input` shape.
  * @see {@link StopSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

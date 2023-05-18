@@ -66,8 +66,8 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  *
  * ```
  *
- * @param DeliverConfigSnapshotCommandInput - {@link DeliverConfigSnapshotCommandInput}
- * @returns {@link DeliverConfigSnapshotCommandOutput}
+ * @param DeliverConfigSnapshotRequest - {@link DeliverConfigSnapshotRequest}
+ * @returns {@link DeliverConfigSnapshotResponse}
  * @see {@link DeliverConfigSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeliverConfigSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

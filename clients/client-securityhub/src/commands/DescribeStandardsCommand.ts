@@ -64,8 +64,8 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *
  * ```
  *
- * @param DescribeStandardsCommandInput - {@link DescribeStandardsCommandInput}
- * @returns {@link DescribeStandardsCommandOutput}
+ * @param DescribeStandardsRequest - {@link DescribeStandardsRequest}
+ * @returns {@link DescribeStandardsResponse}
  * @see {@link DescribeStandardsCommandInput} for command's `input` shape.
  * @see {@link DescribeStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

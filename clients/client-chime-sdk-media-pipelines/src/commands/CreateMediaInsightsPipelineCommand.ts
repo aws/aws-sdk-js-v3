@@ -157,8 +157,8 @@ export interface CreateMediaInsightsPipelineCommandOutput
  *
  * ```
  *
- * @param CreateMediaInsightsPipelineCommandInput - {@link CreateMediaInsightsPipelineCommandInput}
- * @returns {@link CreateMediaInsightsPipelineCommandOutput}
+ * @param CreateMediaInsightsPipelineRequest - {@link CreateMediaInsightsPipelineRequest}
+ * @returns {@link CreateMediaInsightsPipelineResponse}
  * @see {@link CreateMediaInsightsPipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaInsightsPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

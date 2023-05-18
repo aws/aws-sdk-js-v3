@@ -57,8 +57,8 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  *
  * ```
  *
- * @param RemoveClientIDFromOpenIDConnectProviderCommandInput - {@link RemoveClientIDFromOpenIDConnectProviderCommandInput}
- * @returns {@link RemoveClientIDFromOpenIDConnectProviderCommandOutput}
+ * @param RemoveClientIDFromOpenIDConnectProviderRequest - {@link RemoveClientIDFromOpenIDConnectProviderRequest}
+ * @returns {@link Unit}
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

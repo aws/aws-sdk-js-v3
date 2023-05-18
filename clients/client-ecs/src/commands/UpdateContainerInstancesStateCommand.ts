@@ -195,8 +195,8 @@ export interface UpdateContainerInstancesStateCommandOutput
  *
  * ```
  *
- * @param UpdateContainerInstancesStateCommandInput - {@link UpdateContainerInstancesStateCommandInput}
- * @returns {@link UpdateContainerInstancesStateCommandOutput}
+ * @param UpdateContainerInstancesStateRequest - {@link UpdateContainerInstancesStateRequest}
+ * @returns {@link UpdateContainerInstancesStateResponse}
  * @see {@link UpdateContainerInstancesStateCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerInstancesStateCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

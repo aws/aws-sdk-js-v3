@@ -55,8 +55,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
+ * @param UntagResourceRequest - {@link UntagResourceRequest}
+ * @returns {@link UntagResourceResponse}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.

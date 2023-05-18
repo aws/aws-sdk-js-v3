@@ -66,8 +66,8 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  *
  * ```
  *
- * @param GetPositionConfigurationCommandInput - {@link GetPositionConfigurationCommandInput}
- * @returns {@link GetPositionConfigurationCommandOutput}
+ * @param GetPositionConfigurationRequest - {@link GetPositionConfigurationRequest}
+ * @returns {@link GetPositionConfigurationResponse}
  * @see {@link GetPositionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetPositionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

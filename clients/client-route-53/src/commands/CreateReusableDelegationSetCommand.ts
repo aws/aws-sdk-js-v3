@@ -118,8 +118,8 @@ export interface CreateReusableDelegationSetCommandOutput
  *
  * ```
  *
- * @param CreateReusableDelegationSetCommandInput - {@link CreateReusableDelegationSetCommandInput}
- * @returns {@link CreateReusableDelegationSetCommandOutput}
+ * @param CreateReusableDelegationSetRequest - {@link CreateReusableDelegationSetRequest}
+ * @returns {@link CreateReusableDelegationSetResponse}
  * @see {@link CreateReusableDelegationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

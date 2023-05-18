@@ -59,8 +59,8 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  *
  * ```
  *
- * @param GetTrustStoreCertificateCommandInput - {@link GetTrustStoreCertificateCommandInput}
- * @returns {@link GetTrustStoreCertificateCommandOutput}
+ * @param GetTrustStoreCertificateRequest - {@link GetTrustStoreCertificateRequest}
+ * @returns {@link GetTrustStoreCertificateResponse}
  * @see {@link GetTrustStoreCertificateCommandInput} for command's `input` shape.
  * @see {@link GetTrustStoreCertificateCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

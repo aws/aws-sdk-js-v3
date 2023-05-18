@@ -86,8 +86,8 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  *
  * ```
  *
- * @param DescribeUserHierarchyGroupCommandInput - {@link DescribeUserHierarchyGroupCommandInput}
- * @returns {@link DescribeUserHierarchyGroupCommandOutput}
+ * @param DescribeUserHierarchyGroupRequest - {@link DescribeUserHierarchyGroupRequest}
+ * @returns {@link DescribeUserHierarchyGroupResponse}
  * @see {@link DescribeUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

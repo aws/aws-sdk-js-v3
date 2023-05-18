@@ -111,8 +111,8 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  *
  * ```
  *
- * @param UpdateByteMatchSetCommandInput - {@link UpdateByteMatchSetCommandInput}
- * @returns {@link UpdateByteMatchSetCommandOutput}
+ * @param UpdateByteMatchSetRequest - {@link UpdateByteMatchSetRequest}
+ * @returns {@link UpdateByteMatchSetResponse}
  * @see {@link UpdateByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

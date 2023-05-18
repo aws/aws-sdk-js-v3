@@ -60,8 +60,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *
  * ```
  *
- * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
- * @returns {@link GetShardIteratorCommandOutput}
+ * @param GetShardIteratorInput - {@link GetShardIteratorInput}
+ * @returns {@link GetShardIteratorOutput}
  * @see {@link GetShardIteratorCommandInput} for command's `input` shape.
  * @see {@link GetShardIteratorCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.

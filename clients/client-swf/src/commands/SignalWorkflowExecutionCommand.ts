@@ -87,8 +87,8 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param SignalWorkflowExecutionCommandInput - {@link SignalWorkflowExecutionCommandInput}
- * @returns {@link SignalWorkflowExecutionCommandOutput}
+ * @param SignalWorkflowExecutionInput - {@link SignalWorkflowExecutionInput}
+ * @returns {@link Unit}
  * @see {@link SignalWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link SignalWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  *
  * ```
  *
- * @param DeleteTriggerCommandInput - {@link DeleteTriggerCommandInput}
- * @returns {@link DeleteTriggerCommandOutput}
+ * @param DeleteTriggerRequest - {@link DeleteTriggerRequest}
+ * @returns {@link DeleteTriggerResponse}
  * @see {@link DeleteTriggerCommandInput} for command's `input` shape.
  * @see {@link DeleteTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

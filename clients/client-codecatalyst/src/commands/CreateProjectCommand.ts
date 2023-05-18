@@ -55,8 +55,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *
  * ```
  *
- * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
- * @returns {@link CreateProjectCommandOutput}
+ * @param CreateProjectRequest - {@link CreateProjectRequest}
+ * @returns {@link CreateProjectResponse}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

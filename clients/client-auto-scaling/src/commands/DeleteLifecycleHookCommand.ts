@@ -52,8 +52,8 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  *
  * ```
  *
- * @param DeleteLifecycleHookCommandInput - {@link DeleteLifecycleHookCommandInput}
- * @returns {@link DeleteLifecycleHookCommandOutput}
+ * @param DeleteLifecycleHookType - {@link DeleteLifecycleHookType}
+ * @returns {@link DeleteLifecycleHookAnswer}
  * @see {@link DeleteLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecycleHookCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -55,8 +55,8 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  *
  * ```
  *
- * @param PutAlertManagerDefinitionCommandInput - {@link PutAlertManagerDefinitionCommandInput}
- * @returns {@link PutAlertManagerDefinitionCommandOutput}
+ * @param PutAlertManagerDefinitionRequest - {@link PutAlertManagerDefinitionRequest}
+ * @returns {@link PutAlertManagerDefinitionResponse}
  * @see {@link PutAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

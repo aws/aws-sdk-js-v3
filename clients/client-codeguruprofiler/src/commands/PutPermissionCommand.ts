@@ -81,8 +81,8 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  *
  * ```
  *
- * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
- * @returns {@link PutPermissionCommandOutput}
+ * @param PutPermissionRequest - {@link PutPermissionRequest}
+ * @returns {@link PutPermissionResponse}
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

@@ -61,8 +61,8 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  *
  * ```
  *
- * @param CreateDataQualityRulesetCommandInput - {@link CreateDataQualityRulesetCommandInput}
- * @returns {@link CreateDataQualityRulesetCommandOutput}
+ * @param CreateDataQualityRulesetRequest - {@link CreateDataQualityRulesetRequest}
+ * @returns {@link CreateDataQualityRulesetResponse}
  * @see {@link CreateDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link CreateDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

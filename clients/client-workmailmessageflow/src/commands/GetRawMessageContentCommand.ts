@@ -63,8 +63,8 @@ export interface GetRawMessageContentCommandOutput
  *
  * ```
  *
- * @param GetRawMessageContentCommandInput - {@link GetRawMessageContentCommandInput}
- * @returns {@link GetRawMessageContentCommandOutput}
+ * @param GetRawMessageContentRequest - {@link GetRawMessageContentRequest}
+ * @returns {@link GetRawMessageContentResponse}
  * @see {@link GetRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link GetRawMessageContentCommandOutput} for command's `response` shape.
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.

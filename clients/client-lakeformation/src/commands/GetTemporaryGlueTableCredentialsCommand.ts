@@ -68,8 +68,8 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  *
  * ```
  *
- * @param GetTemporaryGlueTableCredentialsCommandInput - {@link GetTemporaryGlueTableCredentialsCommandInput}
- * @returns {@link GetTemporaryGlueTableCredentialsCommandOutput}
+ * @param GetTemporaryGlueTableCredentialsRequest - {@link GetTemporaryGlueTableCredentialsRequest}
+ * @returns {@link GetTemporaryGlueTableCredentialsResponse}
  * @see {@link GetTemporaryGlueTableCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetTemporaryGlueTableCredentialsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

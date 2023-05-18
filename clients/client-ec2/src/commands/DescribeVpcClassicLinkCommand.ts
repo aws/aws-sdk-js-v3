@@ -75,8 +75,8 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  *
  * ```
  *
- * @param DescribeVpcClassicLinkCommandInput - {@link DescribeVpcClassicLinkCommandInput}
- * @returns {@link DescribeVpcClassicLinkCommandOutput}
+ * @param DescribeVpcClassicLinkRequest - {@link DescribeVpcClassicLinkRequest}
+ * @returns {@link DescribeVpcClassicLinkResult}
  * @see {@link DescribeVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

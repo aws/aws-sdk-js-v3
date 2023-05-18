@@ -60,8 +60,8 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  *
  * ```
  *
- * @param TransferCertificateCommandInput - {@link TransferCertificateCommandInput}
- * @returns {@link TransferCertificateCommandOutput}
+ * @param TransferCertificateRequest - {@link TransferCertificateRequest}
+ * @returns {@link TransferCertificateResponse}
  * @see {@link TransferCertificateCommandInput} for command's `input` shape.
  * @see {@link TransferCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

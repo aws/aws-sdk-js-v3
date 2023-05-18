@@ -115,8 +115,8 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  *
  * ```
  *
- * @param CreateWirelessDeviceCommandInput - {@link CreateWirelessDeviceCommandInput}
- * @returns {@link CreateWirelessDeviceCommandOutput}
+ * @param CreateWirelessDeviceRequest - {@link CreateWirelessDeviceRequest}
+ * @returns {@link CreateWirelessDeviceResponse}
  * @see {@link CreateWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link CreateWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

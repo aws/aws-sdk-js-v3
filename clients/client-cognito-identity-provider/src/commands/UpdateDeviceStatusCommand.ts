@@ -59,8 +59,8 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  *
  * ```
  *
- * @param UpdateDeviceStatusCommandInput - {@link UpdateDeviceStatusCommandInput}
- * @returns {@link UpdateDeviceStatusCommandOutput}
+ * @param UpdateDeviceStatusRequest - {@link UpdateDeviceStatusRequest}
+ * @returns {@link UpdateDeviceStatusResponse}
  * @see {@link UpdateDeviceStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStatusCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -58,8 +58,8 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  *
  * ```
  *
- * @param DisassociateWirelessDeviceFromMulticastGroupCommandInput - {@link DisassociateWirelessDeviceFromMulticastGroupCommandInput}
- * @returns {@link DisassociateWirelessDeviceFromMulticastGroupCommandOutput}
+ * @param DisassociateWirelessDeviceFromMulticastGroupRequest - {@link DisassociateWirelessDeviceFromMulticastGroupRequest}
+ * @returns {@link DisassociateWirelessDeviceFromMulticastGroupResponse}
  * @see {@link DisassociateWirelessDeviceFromMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

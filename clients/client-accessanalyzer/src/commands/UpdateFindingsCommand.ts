@@ -54,8 +54,8 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
- * @returns {@link UpdateFindingsCommandOutput}
+ * @param UpdateFindingsRequest - {@link UpdateFindingsRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

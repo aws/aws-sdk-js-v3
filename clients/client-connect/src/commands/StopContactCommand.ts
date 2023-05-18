@@ -61,8 +61,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *
  * ```
  *
- * @param StopContactCommandInput - {@link StopContactCommandInput}
- * @returns {@link StopContactCommandOutput}
+ * @param StopContactRequest - {@link StopContactRequest}
+ * @returns {@link StopContactResponse}
  * @see {@link StopContactCommandInput} for command's `input` shape.
  * @see {@link StopContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

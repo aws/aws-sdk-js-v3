@@ -56,8 +56,8 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  *
  * ```
  *
- * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
- * @returns {@link DeleteScheduledActionCommandOutput}
+ * @param DeleteScheduledActionRequest - {@link DeleteScheduledActionRequest}
+ * @returns {@link DeleteScheduledActionResponse}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

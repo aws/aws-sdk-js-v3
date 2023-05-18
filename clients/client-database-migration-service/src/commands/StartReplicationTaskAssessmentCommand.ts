@@ -105,8 +105,8 @@ export interface StartReplicationTaskAssessmentCommandOutput
  *
  * ```
  *
- * @param StartReplicationTaskAssessmentCommandInput - {@link StartReplicationTaskAssessmentCommandInput}
- * @returns {@link StartReplicationTaskAssessmentCommandOutput}
+ * @param StartReplicationTaskAssessmentMessage - {@link StartReplicationTaskAssessmentMessage}
+ * @returns {@link StartReplicationTaskAssessmentResponse}
  * @see {@link StartReplicationTaskAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskAssessmentCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

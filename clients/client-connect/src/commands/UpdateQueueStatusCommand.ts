@@ -51,8 +51,8 @@ export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateQueueStatusCommandInput - {@link UpdateQueueStatusCommandInput}
- * @returns {@link UpdateQueueStatusCommandOutput}
+ * @param UpdateQueueStatusRequest - {@link UpdateQueueStatusRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateQueueStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

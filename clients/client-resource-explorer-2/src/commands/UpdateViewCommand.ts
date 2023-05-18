@@ -81,8 +81,8 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  *
  * ```
  *
- * @param UpdateViewCommandInput - {@link UpdateViewCommandInput}
- * @returns {@link UpdateViewCommandOutput}
+ * @param UpdateViewInput - {@link UpdateViewInput}
+ * @returns {@link UpdateViewOutput}
  * @see {@link UpdateViewCommandInput} for command's `input` shape.
  * @see {@link UpdateViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

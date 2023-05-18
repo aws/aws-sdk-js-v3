@@ -53,8 +53,8 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  *
  * ```
  *
- * @param TestRenderTemplateCommandInput - {@link TestRenderTemplateCommandInput}
- * @returns {@link TestRenderTemplateCommandOutput}
+ * @param TestRenderTemplateRequest - {@link TestRenderTemplateRequest}
+ * @returns {@link TestRenderTemplateResponse}
  * @see {@link TestRenderTemplateCommandInput} for command's `input` shape.
  * @see {@link TestRenderTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

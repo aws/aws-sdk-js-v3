@@ -65,8 +65,8 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  *
  * ```
  *
- * @param UpdateDocumentDefaultVersionCommandInput - {@link UpdateDocumentDefaultVersionCommandInput}
- * @returns {@link UpdateDocumentDefaultVersionCommandOutput}
+ * @param UpdateDocumentDefaultVersionRequest - {@link UpdateDocumentDefaultVersionRequest}
+ * @returns {@link UpdateDocumentDefaultVersionResult}
  * @see {@link UpdateDocumentDefaultVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentDefaultVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

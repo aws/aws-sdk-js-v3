@@ -69,8 +69,8 @@ export interface CreateSecurityConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
- * @returns {@link CreateSecurityConfigurationCommandOutput}
+ * @param CreateSecurityConfigurationRequest - {@link CreateSecurityConfigurationRequest}
+ * @returns {@link CreateSecurityConfigurationResponse}
  * @see {@link CreateSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

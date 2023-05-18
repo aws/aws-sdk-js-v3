@@ -67,8 +67,8 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  *
  * ```
  *
- * @param ReplaceTransitGatewayRouteCommandInput - {@link ReplaceTransitGatewayRouteCommandInput}
- * @returns {@link ReplaceTransitGatewayRouteCommandOutput}
+ * @param ReplaceTransitGatewayRouteRequest - {@link ReplaceTransitGatewayRouteRequest}
+ * @returns {@link ReplaceTransitGatewayRouteResult}
  * @see {@link ReplaceTransitGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link ReplaceTransitGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

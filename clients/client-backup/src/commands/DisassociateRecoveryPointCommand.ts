@@ -52,8 +52,8 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DisassociateRecoveryPointCommandInput - {@link DisassociateRecoveryPointCommandInput}
- * @returns {@link DisassociateRecoveryPointCommandOutput}
+ * @param DisassociateRecoveryPointInput - {@link DisassociateRecoveryPointInput}
+ * @returns {@link Unit}
  * @see {@link DisassociateRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DisassociateRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DeleteImportCommandOutput extends DeleteImportResponse, __Metad
  *
  * ```
  *
- * @param DeleteImportCommandInput - {@link DeleteImportCommandInput}
- * @returns {@link DeleteImportCommandOutput}
+ * @param DeleteImportRequest - {@link DeleteImportRequest}
+ * @returns {@link DeleteImportResponse}
  * @see {@link DeleteImportCommandInput} for command's `input` shape.
  * @see {@link DeleteImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

@@ -60,8 +60,8 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  *
  * ```
  *
- * @param ListExportErrorsCommandInput - {@link ListExportErrorsCommandInput}
- * @returns {@link ListExportErrorsCommandOutput}
+ * @param ListExportErrorsRequest - {@link ListExportErrorsRequest}
+ * @returns {@link ListExportErrorsResponse}
  * @see {@link ListExportErrorsCommandInput} for command's `input` shape.
  * @see {@link ListExportErrorsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

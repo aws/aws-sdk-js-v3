@@ -69,8 +69,8 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetIdentityPoolRolesCommandInput - {@link SetIdentityPoolRolesCommandInput}
- * @returns {@link SetIdentityPoolRolesCommandOutput}
+ * @param SetIdentityPoolRolesInput - {@link SetIdentityPoolRolesInput}
+ * @returns {@link Unit}
  * @see {@link SetIdentityPoolRolesCommandInput} for command's `input` shape.
  * @see {@link SetIdentityPoolRolesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

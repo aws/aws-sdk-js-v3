@@ -97,8 +97,8 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  *
  * ```
  *
- * @param GetResourceMetricsCommandInput - {@link GetResourceMetricsCommandInput}
- * @returns {@link GetResourceMetricsCommandOutput}
+ * @param GetResourceMetricsRequest - {@link GetResourceMetricsRequest}
+ * @returns {@link GetResourceMetricsResponse}
  * @see {@link GetResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link GetResourceMetricsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.

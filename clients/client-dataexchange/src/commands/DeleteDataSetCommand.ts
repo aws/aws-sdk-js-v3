@@ -48,8 +48,8 @@ export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDataSetCommandInput - {@link DeleteDataSetCommandInput}
- * @returns {@link DeleteDataSetCommandOutput}
+ * @param DeleteDataSetRequest - {@link DeleteDataSetRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDataSetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

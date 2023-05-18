@@ -98,8 +98,8 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  *
  * ```
  *
- * @param DescribeInstancePatchStatesForPatchGroupCommandInput - {@link DescribeInstancePatchStatesForPatchGroupCommandInput}
- * @returns {@link DescribeInstancePatchStatesForPatchGroupCommandOutput}
+ * @param DescribeInstancePatchStatesForPatchGroupRequest - {@link DescribeInstancePatchStatesForPatchGroupRequest}
+ * @returns {@link DescribeInstancePatchStatesForPatchGroupResult}
  * @see {@link DescribeInstancePatchStatesForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchStatesForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

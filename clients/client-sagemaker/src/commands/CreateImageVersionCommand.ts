@@ -63,8 +63,8 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  *
  * ```
  *
- * @param CreateImageVersionCommandInput - {@link CreateImageVersionCommandInput}
- * @returns {@link CreateImageVersionCommandOutput}
+ * @param CreateImageVersionRequest - {@link CreateImageVersionRequest}
+ * @returns {@link CreateImageVersionResponse}
  * @see {@link CreateImageVersionCommandInput} for command's `input` shape.
  * @see {@link CreateImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -82,8 +82,8 @@ export interface DeleteTLSInspectionConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteTLSInspectionConfigurationCommandInput - {@link DeleteTLSInspectionConfigurationCommandInput}
- * @returns {@link DeleteTLSInspectionConfigurationCommandOutput}
+ * @param DeleteTLSInspectionConfigurationRequest - {@link DeleteTLSInspectionConfigurationRequest}
+ * @returns {@link DeleteTLSInspectionConfigurationResponse}
  * @see {@link DeleteTLSInspectionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteTLSInspectionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

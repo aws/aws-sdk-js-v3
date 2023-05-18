@@ -326,8 +326,8 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  *
  * ```
  *
- * @param DescribeTaskDefinitionCommandInput - {@link DescribeTaskDefinitionCommandInput}
- * @returns {@link DescribeTaskDefinitionCommandOutput}
+ * @param DescribeTaskDefinitionRequest - {@link DescribeTaskDefinitionRequest}
+ * @returns {@link DescribeTaskDefinitionResponse}
  * @see {@link DescribeTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

@@ -71,8 +71,8 @@ export interface ResetServiceSpecificCredentialCommandOutput
  *
  * ```
  *
- * @param ResetServiceSpecificCredentialCommandInput - {@link ResetServiceSpecificCredentialCommandInput}
- * @returns {@link ResetServiceSpecificCredentialCommandOutput}
+ * @param ResetServiceSpecificCredentialRequest - {@link ResetServiceSpecificCredentialRequest}
+ * @returns {@link ResetServiceSpecificCredentialResponse}
  * @see {@link ResetServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link ResetServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

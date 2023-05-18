@@ -75,8 +75,8 @@ export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResul
  *
  * ```
  *
- * @param DescribeRepositoryCommandInput - {@link DescribeRepositoryCommandInput}
- * @returns {@link DescribeRepositoryCommandOutput}
+ * @param DescribeRepositoryRequest - {@link DescribeRepositoryRequest}
+ * @returns {@link DescribeRepositoryResult}
  * @see {@link DescribeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

@@ -72,8 +72,8 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  *
  * ```
  *
- * @param CreateTapesCommandInput - {@link CreateTapesCommandInput}
- * @returns {@link CreateTapesCommandOutput}
+ * @param CreateTapesInput - {@link CreateTapesInput}
+ * @returns {@link CreateTapesOutput}
  * @see {@link CreateTapesCommandInput} for command's `input` shape.
  * @see {@link CreateTapesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

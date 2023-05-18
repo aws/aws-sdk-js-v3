@@ -62,8 +62,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *
  * ```
  *
- * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
- * @returns {@link ListSchemasCommandOutput}
+ * @param ListSchemasRequest - {@link ListSchemasRequest}
+ * @returns {@link ListSchemasResponse}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  *
  * ```
  *
- * @param GetAssociationForServiceQuotaTemplateCommandInput - {@link GetAssociationForServiceQuotaTemplateCommandInput}
- * @returns {@link GetAssociationForServiceQuotaTemplateCommandOutput}
+ * @param GetAssociationForServiceQuotaTemplateRequest - {@link GetAssociationForServiceQuotaTemplateRequest}
+ * @returns {@link GetAssociationForServiceQuotaTemplateResponse}
  * @see {@link GetAssociationForServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link GetAssociationForServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

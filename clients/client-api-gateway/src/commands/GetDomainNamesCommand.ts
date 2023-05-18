@@ -87,8 +87,8 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  *
  * ```
  *
- * @param GetDomainNamesCommandInput - {@link GetDomainNamesCommandInput}
- * @returns {@link GetDomainNamesCommandOutput}
+ * @param GetDomainNamesRequest - {@link GetDomainNamesRequest}
+ * @returns {@link DomainNames}
  * @see {@link GetDomainNamesCommandInput} for command's `input` shape.
  * @see {@link GetDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

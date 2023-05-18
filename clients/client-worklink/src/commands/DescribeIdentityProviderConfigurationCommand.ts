@@ -63,8 +63,8 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeIdentityProviderConfigurationCommandInput - {@link DescribeIdentityProviderConfigurationCommandInput}
- * @returns {@link DescribeIdentityProviderConfigurationCommandOutput}
+ * @param DescribeIdentityProviderConfigurationRequest - {@link DescribeIdentityProviderConfigurationRequest}
+ * @returns {@link DescribeIdentityProviderConfigurationResponse}
  * @see {@link DescribeIdentityProviderConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

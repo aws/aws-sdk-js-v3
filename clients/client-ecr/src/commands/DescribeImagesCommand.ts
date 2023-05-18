@@ -94,8 +94,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  *
  * ```
  *
- * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
- * @returns {@link DescribeImagesCommandOutput}
+ * @param DescribeImagesRequest - {@link DescribeImagesRequest}
+ * @returns {@link DescribeImagesResponse}
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

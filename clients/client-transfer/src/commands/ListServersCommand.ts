@@ -64,8 +64,8 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  *
  * ```
  *
- * @param ListServersCommandInput - {@link ListServersCommandInput}
- * @returns {@link ListServersCommandOutput}
+ * @param ListServersRequest - {@link ListServersRequest}
+ * @returns {@link ListServersResponse}
  * @see {@link ListServersCommandInput} for command's `input` shape.
  * @see {@link ListServersCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

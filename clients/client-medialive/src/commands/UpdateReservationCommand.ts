@@ -89,8 +89,8 @@ export interface UpdateReservationCommandOutput extends UpdateReservationRespons
  *
  * ```
  *
- * @param UpdateReservationCommandInput - {@link UpdateReservationCommandInput}
- * @returns {@link UpdateReservationCommandOutput}
+ * @param UpdateReservationRequest - {@link UpdateReservationRequest}
+ * @returns {@link UpdateReservationResponse}
  * @see {@link UpdateReservationCommandInput} for command's `input` shape.
  * @see {@link UpdateReservationCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

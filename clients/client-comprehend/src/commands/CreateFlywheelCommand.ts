@@ -101,8 +101,8 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  *
  * ```
  *
- * @param CreateFlywheelCommandInput - {@link CreateFlywheelCommandInput}
- * @returns {@link CreateFlywheelCommandOutput}
+ * @param CreateFlywheelRequest - {@link CreateFlywheelRequest}
+ * @returns {@link CreateFlywheelResponse}
  * @see {@link CreateFlywheelCommandInput} for command's `input` shape.
  * @see {@link CreateFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

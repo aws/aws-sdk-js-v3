@@ -88,8 +88,8 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  *
  * ```
  *
- * @param ListRecipeVersionsCommandInput - {@link ListRecipeVersionsCommandInput}
- * @returns {@link ListRecipeVersionsCommandOutput}
+ * @param ListRecipeVersionsRequest - {@link ListRecipeVersionsRequest}
+ * @returns {@link ListRecipeVersionsResponse}
  * @see {@link ListRecipeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListRecipeVersionsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

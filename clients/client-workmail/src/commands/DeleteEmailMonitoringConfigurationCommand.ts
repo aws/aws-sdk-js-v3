@@ -56,8 +56,8 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteEmailMonitoringConfigurationCommandInput - {@link DeleteEmailMonitoringConfigurationCommandInput}
- * @returns {@link DeleteEmailMonitoringConfigurationCommandOutput}
+ * @param DeleteEmailMonitoringConfigurationRequest - {@link DeleteEmailMonitoringConfigurationRequest}
+ * @returns {@link DeleteEmailMonitoringConfigurationResponse}
  * @see {@link DeleteEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

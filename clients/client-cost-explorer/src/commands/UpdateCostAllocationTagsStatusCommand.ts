@@ -69,8 +69,8 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  *
  * ```
  *
- * @param UpdateCostAllocationTagsStatusCommandInput - {@link UpdateCostAllocationTagsStatusCommandInput}
- * @returns {@link UpdateCostAllocationTagsStatusCommandOutput}
+ * @param UpdateCostAllocationTagsStatusRequest - {@link UpdateCostAllocationTagsStatusRequest}
+ * @returns {@link UpdateCostAllocationTagsStatusResponse}
  * @see {@link UpdateCostAllocationTagsStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateCostAllocationTagsStatusCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

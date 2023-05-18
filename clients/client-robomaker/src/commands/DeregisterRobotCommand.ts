@@ -57,8 +57,8 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  *
  * ```
  *
- * @param DeregisterRobotCommandInput - {@link DeregisterRobotCommandInput}
- * @returns {@link DeregisterRobotCommandOutput}
+ * @param DeregisterRobotRequest - {@link DeregisterRobotRequest}
+ * @returns {@link DeregisterRobotResponse}
  * @see {@link DeregisterRobotCommandInput} for command's `input` shape.
  * @see {@link DeregisterRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

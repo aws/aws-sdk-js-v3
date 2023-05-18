@@ -55,8 +55,8 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  *
  * ```
  *
- * @param DeleteApplicationsCommandInput - {@link DeleteApplicationsCommandInput}
- * @returns {@link DeleteApplicationsCommandOutput}
+ * @param DeleteApplicationsRequest - {@link DeleteApplicationsRequest}
+ * @returns {@link DeleteApplicationsResponse}
  * @see {@link DeleteApplicationsCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

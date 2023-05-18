@@ -233,8 +233,8 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *
  * ```
  *
- * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
- * @returns {@link CreateListenerCommandOutput}
+ * @param CreateListenerInput - {@link CreateListenerInput}
+ * @returns {@link CreateListenerOutput}
  * @see {@link CreateListenerCommandInput} for command's `input` shape.
  * @see {@link CreateListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

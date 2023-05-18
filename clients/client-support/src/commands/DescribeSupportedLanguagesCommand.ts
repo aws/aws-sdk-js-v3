@@ -74,8 +74,8 @@ export interface DescribeSupportedLanguagesCommandOutput extends DescribeSupport
  *
  * ```
  *
- * @param DescribeSupportedLanguagesCommandInput - {@link DescribeSupportedLanguagesCommandInput}
- * @returns {@link DescribeSupportedLanguagesCommandOutput}
+ * @param DescribeSupportedLanguagesRequest - {@link DescribeSupportedLanguagesRequest}
+ * @returns {@link DescribeSupportedLanguagesResponse}
  * @see {@link DescribeSupportedLanguagesCommandInput} for command's `input` shape.
  * @see {@link DescribeSupportedLanguagesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

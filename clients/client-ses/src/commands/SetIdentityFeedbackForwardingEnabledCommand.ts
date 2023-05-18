@@ -67,8 +67,8 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  *
  * ```
  *
- * @param SetIdentityFeedbackForwardingEnabledCommandInput - {@link SetIdentityFeedbackForwardingEnabledCommandInput}
- * @returns {@link SetIdentityFeedbackForwardingEnabledCommandOutput}
+ * @param SetIdentityFeedbackForwardingEnabledRequest - {@link SetIdentityFeedbackForwardingEnabledRequest}
+ * @returns {@link SetIdentityFeedbackForwardingEnabledResponse}
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityFeedbackForwardingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

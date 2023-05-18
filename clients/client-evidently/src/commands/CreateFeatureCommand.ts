@@ -109,8 +109,8 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  *
  * ```
  *
- * @param CreateFeatureCommandInput - {@link CreateFeatureCommandInput}
- * @returns {@link CreateFeatureCommandOutput}
+ * @param CreateFeatureRequest - {@link CreateFeatureRequest}
+ * @returns {@link CreateFeatureResponse}
  * @see {@link CreateFeatureCommandInput} for command's `input` shape.
  * @see {@link CreateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

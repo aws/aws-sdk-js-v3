@@ -94,8 +94,8 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  *
  * ```
  *
- * @param AssociateVPCWithHostedZoneCommandInput - {@link AssociateVPCWithHostedZoneCommandInput}
- * @returns {@link AssociateVPCWithHostedZoneCommandOutput}
+ * @param AssociateVPCWithHostedZoneRequest - {@link AssociateVPCWithHostedZoneRequest}
+ * @returns {@link AssociateVPCWithHostedZoneResponse}
  * @see {@link AssociateVPCWithHostedZoneCommandInput} for command's `input` shape.
  * @see {@link AssociateVPCWithHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

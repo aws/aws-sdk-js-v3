@@ -56,8 +56,8 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  *
  * ```
  *
- * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
- * @returns {@link ListProjectsCommandOutput}
+ * @param ListProjectsInput - {@link ListProjectsInput}
+ * @returns {@link ListProjectsOutput}
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

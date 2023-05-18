@@ -111,8 +111,8 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
  *
  * ```
  *
- * @param DescribeOrganizationResourceCollectionHealthCommandInput - {@link DescribeOrganizationResourceCollectionHealthCommandInput}
- * @returns {@link DescribeOrganizationResourceCollectionHealthCommandOutput}
+ * @param DescribeOrganizationResourceCollectionHealthRequest - {@link DescribeOrganizationResourceCollectionHealthRequest}
+ * @returns {@link DescribeOrganizationResourceCollectionHealthResponse}
  * @see {@link DescribeOrganizationResourceCollectionHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationResourceCollectionHealthCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

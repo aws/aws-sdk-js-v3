@@ -101,8 +101,8 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *
  * ```
  *
- * @param UpdateCanaryCommandInput - {@link UpdateCanaryCommandInput}
- * @returns {@link UpdateCanaryCommandOutput}
+ * @param UpdateCanaryRequest - {@link UpdateCanaryRequest}
+ * @returns {@link UpdateCanaryResponse}
  * @see {@link UpdateCanaryCommandInput} for command's `input` shape.
  * @see {@link UpdateCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

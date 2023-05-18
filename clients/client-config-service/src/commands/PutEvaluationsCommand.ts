@@ -70,8 +70,8 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  *
  * ```
  *
- * @param PutEvaluationsCommandInput - {@link PutEvaluationsCommandInput}
- * @returns {@link PutEvaluationsCommandOutput}
+ * @param PutEvaluationsRequest - {@link PutEvaluationsRequest}
+ * @returns {@link PutEvaluationsResponse}
  * @see {@link PutEvaluationsCommandInput} for command's `input` shape.
  * @see {@link PutEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

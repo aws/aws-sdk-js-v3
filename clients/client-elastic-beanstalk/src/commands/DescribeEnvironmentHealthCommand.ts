@@ -93,8 +93,8 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  *
  * ```
  *
- * @param DescribeEnvironmentHealthCommandInput - {@link DescribeEnvironmentHealthCommandInput}
- * @returns {@link DescribeEnvironmentHealthCommandOutput}
+ * @param DescribeEnvironmentHealthRequest - {@link DescribeEnvironmentHealthRequest}
+ * @returns {@link DescribeEnvironmentHealthResult}
  * @see {@link DescribeEnvironmentHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

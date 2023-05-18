@@ -56,8 +56,8 @@ export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetRespons
  *
  * ```
  *
- * @param UpdateWorkerFleetCommandInput - {@link UpdateWorkerFleetCommandInput}
- * @returns {@link UpdateWorkerFleetCommandOutput}
+ * @param UpdateWorkerFleetRequest - {@link UpdateWorkerFleetRequest}
+ * @returns {@link UpdateWorkerFleetResponse}
  * @see {@link UpdateWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

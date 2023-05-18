@@ -49,8 +49,8 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  *
  * ```
  *
- * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
- * @returns {@link DeleteFunctionCommandOutput}
+ * @param DeleteFunctionRequest - {@link DeleteFunctionRequest}
+ * @returns {@link DeleteFunctionResponse}
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

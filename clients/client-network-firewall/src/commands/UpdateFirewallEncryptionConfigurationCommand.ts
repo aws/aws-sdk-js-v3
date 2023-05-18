@@ -71,8 +71,8 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateFirewallEncryptionConfigurationCommandInput - {@link UpdateFirewallEncryptionConfigurationCommandInput}
- * @returns {@link UpdateFirewallEncryptionConfigurationCommandOutput}
+ * @param UpdateFirewallEncryptionConfigurationRequest - {@link UpdateFirewallEncryptionConfigurationRequest}
+ * @returns {@link UpdateFirewallEncryptionConfigurationResponse}
  * @see {@link UpdateFirewallEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

@@ -117,8 +117,8 @@ export interface GetStudioComponentCommandOutput extends GetStudioComponentRespo
  *
  * ```
  *
- * @param GetStudioComponentCommandInput - {@link GetStudioComponentCommandInput}
- * @returns {@link GetStudioComponentCommandOutput}
+ * @param GetStudioComponentRequest - {@link GetStudioComponentRequest}
+ * @returns {@link GetStudioComponentResponse}
  * @see {@link GetStudioComponentCommandInput} for command's `input` shape.
  * @see {@link GetStudioComponentCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

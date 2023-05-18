@@ -59,8 +59,8 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  *
  * ```
  *
- * @param GetComputeAuthTokenCommandInput - {@link GetComputeAuthTokenCommandInput}
- * @returns {@link GetComputeAuthTokenCommandOutput}
+ * @param GetComputeAuthTokenInput - {@link GetComputeAuthTokenInput}
+ * @returns {@link GetComputeAuthTokenOutput}
  * @see {@link GetComputeAuthTokenCommandInput} for command's `input` shape.
  * @see {@link GetComputeAuthTokenCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

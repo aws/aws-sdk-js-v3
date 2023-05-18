@@ -48,8 +48,8 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  *
  * ```
  *
- * @param DeleteApiDestinationCommandInput - {@link DeleteApiDestinationCommandInput}
- * @returns {@link DeleteApiDestinationCommandOutput}
+ * @param DeleteApiDestinationRequest - {@link DeleteApiDestinationRequest}
+ * @returns {@link DeleteApiDestinationResponse}
  * @see {@link DeleteApiDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

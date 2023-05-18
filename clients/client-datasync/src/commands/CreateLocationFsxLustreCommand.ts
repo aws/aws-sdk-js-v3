@@ -60,8 +60,8 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  *
  * ```
  *
- * @param CreateLocationFsxLustreCommandInput - {@link CreateLocationFsxLustreCommandInput}
- * @returns {@link CreateLocationFsxLustreCommandOutput}
+ * @param CreateLocationFsxLustreRequest - {@link CreateLocationFsxLustreRequest}
+ * @returns {@link CreateLocationFsxLustreResponse}
  * @see {@link CreateLocationFsxLustreCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxLustreCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

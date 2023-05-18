@@ -85,8 +85,8 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
  *
  * ```
  *
- * @param DisassociateResolverEndpointIpAddressCommandInput - {@link DisassociateResolverEndpointIpAddressCommandInput}
- * @returns {@link DisassociateResolverEndpointIpAddressCommandOutput}
+ * @param DisassociateResolverEndpointIpAddressRequest - {@link DisassociateResolverEndpointIpAddressRequest}
+ * @returns {@link DisassociateResolverEndpointIpAddressResponse}
  * @see {@link DisassociateResolverEndpointIpAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverEndpointIpAddressCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

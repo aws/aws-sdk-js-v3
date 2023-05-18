@@ -79,8 +79,8 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  *
  * ```
  *
- * @param GetConnectPeerCommandInput - {@link GetConnectPeerCommandInput}
- * @returns {@link GetConnectPeerCommandOutput}
+ * @param GetConnectPeerRequest - {@link GetConnectPeerRequest}
+ * @returns {@link GetConnectPeerResponse}
  * @see {@link GetConnectPeerCommandInput} for command's `input` shape.
  * @see {@link GetConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

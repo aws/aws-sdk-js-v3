@@ -52,8 +52,8 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  *
  * ```
  *
- * @param UpdateBatchPredictionCommandInput - {@link UpdateBatchPredictionCommandInput}
- * @returns {@link UpdateBatchPredictionCommandOutput}
+ * @param UpdateBatchPredictionInput - {@link UpdateBatchPredictionInput}
+ * @returns {@link UpdateBatchPredictionOutput}
  * @see {@link UpdateBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link UpdateBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

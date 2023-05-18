@@ -66,8 +66,8 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateArchiveRuleCommandInput - {@link CreateArchiveRuleCommandInput}
- * @returns {@link CreateArchiveRuleCommandOutput}
+ * @param CreateArchiveRuleRequest - {@link CreateArchiveRuleRequest}
+ * @returns {@link Unit}
  * @see {@link CreateArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link CreateArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

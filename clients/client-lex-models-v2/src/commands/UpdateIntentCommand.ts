@@ -920,8 +920,8 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
  *
  * ```
  *
- * @param UpdateIntentCommandInput - {@link UpdateIntentCommandInput}
- * @returns {@link UpdateIntentCommandOutput}
+ * @param UpdateIntentRequest - {@link UpdateIntentRequest}
+ * @returns {@link UpdateIntentResponse}
  * @see {@link UpdateIntentCommandInput} for command's `input` shape.
  * @see {@link UpdateIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

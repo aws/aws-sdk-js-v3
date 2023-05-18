@@ -59,8 +59,8 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  *
  * ```
  *
- * @param CreateEventBusCommandInput - {@link CreateEventBusCommandInput}
- * @returns {@link CreateEventBusCommandOutput}
+ * @param CreateEventBusRequest - {@link CreateEventBusRequest}
+ * @returns {@link CreateEventBusResponse}
  * @see {@link CreateEventBusCommandInput} for command's `input` shape.
  * @see {@link CreateEventBusCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

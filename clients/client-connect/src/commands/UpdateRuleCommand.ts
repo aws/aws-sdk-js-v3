@@ -88,8 +88,8 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
- * @returns {@link UpdateRuleCommandOutput}
+ * @param UpdateRuleRequest - {@link UpdateRuleRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

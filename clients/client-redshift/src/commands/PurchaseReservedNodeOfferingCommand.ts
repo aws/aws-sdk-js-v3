@@ -80,8 +80,8 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  *
  * ```
  *
- * @param PurchaseReservedNodeOfferingCommandInput - {@link PurchaseReservedNodeOfferingCommandInput}
- * @returns {@link PurchaseReservedNodeOfferingCommandOutput}
+ * @param PurchaseReservedNodeOfferingMessage - {@link PurchaseReservedNodeOfferingMessage}
+ * @returns {@link PurchaseReservedNodeOfferingResult}
  * @see {@link PurchaseReservedNodeOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedNodeOfferingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

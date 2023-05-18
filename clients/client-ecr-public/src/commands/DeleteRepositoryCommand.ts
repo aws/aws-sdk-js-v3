@@ -60,8 +60,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  *
  * ```
  *
- * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
- * @returns {@link DeleteRepositoryCommandOutput}
+ * @param DeleteRepositoryRequest - {@link DeleteRepositoryRequest}
+ * @returns {@link DeleteRepositoryResponse}
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

@@ -63,8 +63,8 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  *
  * ```
  *
- * @param DescribeOperatingSystemsCommandInput - {@link DescribeOperatingSystemsCommandInput}
- * @returns {@link DescribeOperatingSystemsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeOperatingSystemsResponse}
  * @see {@link DescribeOperatingSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeOperatingSystemsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

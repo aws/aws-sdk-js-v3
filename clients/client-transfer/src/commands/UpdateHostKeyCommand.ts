@@ -54,8 +54,8 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  *
  * ```
  *
- * @param UpdateHostKeyCommandInput - {@link UpdateHostKeyCommandInput}
- * @returns {@link UpdateHostKeyCommandOutput}
+ * @param UpdateHostKeyRequest - {@link UpdateHostKeyRequest}
+ * @returns {@link UpdateHostKeyResponse}
  * @see {@link UpdateHostKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

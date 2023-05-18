@@ -51,8 +51,8 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  *
  * ```
  *
- * @param DeleteComputeEnvironmentCommandInput - {@link DeleteComputeEnvironmentCommandInput}
- * @returns {@link DeleteComputeEnvironmentCommandOutput}
+ * @param DeleteComputeEnvironmentRequest - {@link DeleteComputeEnvironmentRequest}
+ * @returns {@link DeleteComputeEnvironmentResponse}
  * @see {@link DeleteComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

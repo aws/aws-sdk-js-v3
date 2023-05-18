@@ -60,8 +60,8 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  *
  * ```
  *
- * @param DescribeGeofenceCollectionCommandInput - {@link DescribeGeofenceCollectionCommandInput}
- * @returns {@link DescribeGeofenceCollectionCommandOutput}
+ * @param DescribeGeofenceCollectionRequest - {@link DescribeGeofenceCollectionRequest}
+ * @returns {@link DescribeGeofenceCollectionResponse}
  * @see {@link DescribeGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link DescribeGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

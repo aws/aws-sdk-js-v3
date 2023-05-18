@@ -73,8 +73,8 @@ export interface DescribeConnectionAliasesCommandOutput extends DescribeConnecti
  *
  * ```
  *
- * @param DescribeConnectionAliasesCommandInput - {@link DescribeConnectionAliasesCommandInput}
- * @returns {@link DescribeConnectionAliasesCommandOutput}
+ * @param DescribeConnectionAliasesRequest - {@link DescribeConnectionAliasesRequest}
+ * @returns {@link DescribeConnectionAliasesResult}
  * @see {@link DescribeConnectionAliasesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

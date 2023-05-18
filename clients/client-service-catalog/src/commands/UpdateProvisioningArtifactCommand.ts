@@ -70,8 +70,8 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  *
  * ```
  *
- * @param UpdateProvisioningArtifactCommandInput - {@link UpdateProvisioningArtifactCommandInput}
- * @returns {@link UpdateProvisioningArtifactCommandOutput}
+ * @param UpdateProvisioningArtifactInput - {@link UpdateProvisioningArtifactInput}
+ * @returns {@link UpdateProvisioningArtifactOutput}
  * @see {@link UpdateProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

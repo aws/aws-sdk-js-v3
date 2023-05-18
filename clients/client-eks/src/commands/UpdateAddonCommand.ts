@@ -76,8 +76,8 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
  *
  * ```
  *
- * @param UpdateAddonCommandInput - {@link UpdateAddonCommandInput}
- * @returns {@link UpdateAddonCommandOutput}
+ * @param UpdateAddonRequest - {@link UpdateAddonRequest}
+ * @returns {@link UpdateAddonResponse}
  * @see {@link UpdateAddonCommandInput} for command's `input` shape.
  * @see {@link UpdateAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

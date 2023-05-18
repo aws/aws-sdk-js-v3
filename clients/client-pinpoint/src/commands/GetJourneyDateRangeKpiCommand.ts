@@ -83,8 +83,8 @@ export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRange
  *
  * ```
  *
- * @param GetJourneyDateRangeKpiCommandInput - {@link GetJourneyDateRangeKpiCommandInput}
- * @returns {@link GetJourneyDateRangeKpiCommandOutput}
+ * @param GetJourneyDateRangeKpiRequest - {@link GetJourneyDateRangeKpiRequest}
+ * @returns {@link GetJourneyDateRangeKpiResponse}
  * @see {@link GetJourneyDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetJourneyDateRangeKpiCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

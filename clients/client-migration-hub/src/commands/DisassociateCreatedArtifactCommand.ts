@@ -67,8 +67,8 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  *
  * ```
  *
- * @param DisassociateCreatedArtifactCommandInput - {@link DisassociateCreatedArtifactCommandInput}
- * @returns {@link DisassociateCreatedArtifactCommandOutput}
+ * @param DisassociateCreatedArtifactRequest - {@link DisassociateCreatedArtifactRequest}
+ * @returns {@link DisassociateCreatedArtifactResult}
  * @see {@link DisassociateCreatedArtifactCommandInput} for command's `input` shape.
  * @see {@link DisassociateCreatedArtifactCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

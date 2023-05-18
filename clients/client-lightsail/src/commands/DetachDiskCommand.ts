@@ -73,8 +73,8 @@ export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBea
  *
  * ```
  *
- * @param DetachDiskCommandInput - {@link DetachDiskCommandInput}
- * @returns {@link DetachDiskCommandOutput}
+ * @param DetachDiskRequest - {@link DetachDiskRequest}
+ * @returns {@link DetachDiskResult}
  * @see {@link DetachDiskCommandInput} for command's `input` shape.
  * @see {@link DetachDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

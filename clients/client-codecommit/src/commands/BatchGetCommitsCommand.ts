@@ -80,8 +80,8 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  *
  * ```
  *
- * @param BatchGetCommitsCommandInput - {@link BatchGetCommitsCommandInput}
- * @returns {@link BatchGetCommitsCommandOutput}
+ * @param BatchGetCommitsInput - {@link BatchGetCommitsInput}
+ * @returns {@link BatchGetCommitsOutput}
  * @see {@link BatchGetCommitsCommandInput} for command's `input` shape.
  * @see {@link BatchGetCommitsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

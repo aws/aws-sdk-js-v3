@@ -53,8 +53,8 @@ export interface DeletePackagingConfigurationCommandOutput
  *
  * ```
  *
- * @param DeletePackagingConfigurationCommandInput - {@link DeletePackagingConfigurationCommandInput}
- * @returns {@link DeletePackagingConfigurationCommandOutput}
+ * @param DeletePackagingConfigurationRequest - {@link DeletePackagingConfigurationRequest}
+ * @returns {@link DeletePackagingConfigurationResponse}
  * @see {@link DeletePackagingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeletePackagingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

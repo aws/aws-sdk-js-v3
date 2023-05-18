@@ -128,8 +128,8 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  *
  * ```
  *
- * @param StartAppAssessmentCommandInput - {@link StartAppAssessmentCommandInput}
- * @returns {@link StartAppAssessmentCommandOutput}
+ * @param StartAppAssessmentRequest - {@link StartAppAssessmentRequest}
+ * @returns {@link StartAppAssessmentResponse}
  * @see {@link StartAppAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartAppAssessmentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

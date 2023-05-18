@@ -57,8 +57,8 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  *
  * ```
  *
- * @param CancelInstanceRefreshCommandInput - {@link CancelInstanceRefreshCommandInput}
- * @returns {@link CancelInstanceRefreshCommandOutput}
+ * @param CancelInstanceRefreshType - {@link CancelInstanceRefreshType}
+ * @returns {@link CancelInstanceRefreshAnswer}
  * @see {@link CancelInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link CancelInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

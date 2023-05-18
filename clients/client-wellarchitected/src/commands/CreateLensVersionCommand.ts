@@ -60,8 +60,8 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  *
  * ```
  *
- * @param CreateLensVersionCommandInput - {@link CreateLensVersionCommandInput}
- * @returns {@link CreateLensVersionCommandOutput}
+ * @param CreateLensVersionInput - {@link CreateLensVersionInput}
+ * @returns {@link CreateLensVersionOutput}
  * @see {@link CreateLensVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLensVersionCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

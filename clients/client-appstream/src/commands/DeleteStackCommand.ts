@@ -48,8 +48,8 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  *
  * ```
  *
- * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
- * @returns {@link DeleteStackCommandOutput}
+ * @param DeleteStackRequest - {@link DeleteStackRequest}
+ * @returns {@link DeleteStackResult}
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

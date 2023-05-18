@@ -68,8 +68,8 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ReleaseAddressCommandInput - {@link ReleaseAddressCommandInput}
- * @returns {@link ReleaseAddressCommandOutput}
+ * @param ReleaseAddressRequest - {@link ReleaseAddressRequest}
+ * @returns {@link Unit}
  * @see {@link ReleaseAddressCommandInput} for command's `input` shape.
  * @see {@link ReleaseAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

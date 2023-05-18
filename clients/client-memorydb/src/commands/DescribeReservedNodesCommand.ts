@@ -76,8 +76,8 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  *
  * ```
  *
- * @param DescribeReservedNodesCommandInput - {@link DescribeReservedNodesCommandInput}
- * @returns {@link DescribeReservedNodesCommandOutput}
+ * @param DescribeReservedNodesRequest - {@link DescribeReservedNodesRequest}
+ * @returns {@link DescribeReservedNodesResponse}
  * @see {@link DescribeReservedNodesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodesCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

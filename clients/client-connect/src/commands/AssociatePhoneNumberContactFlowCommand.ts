@@ -64,8 +64,8 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  *
  * ```
  *
- * @param AssociatePhoneNumberContactFlowCommandInput - {@link AssociatePhoneNumberContactFlowCommandInput}
- * @returns {@link AssociatePhoneNumberContactFlowCommandOutput}
+ * @param AssociatePhoneNumberContactFlowRequest - {@link AssociatePhoneNumberContactFlowRequest}
+ * @returns {@link Unit}
  * @see {@link AssociatePhoneNumberContactFlowCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumberContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

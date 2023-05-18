@@ -115,8 +115,8 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
  *
  * ```
  *
- * @param DescribeDetectMitigationActionsTaskCommandInput - {@link DescribeDetectMitigationActionsTaskCommandInput}
- * @returns {@link DescribeDetectMitigationActionsTaskCommandOutput}
+ * @param DescribeDetectMitigationActionsTaskRequest - {@link DescribeDetectMitigationActionsTaskRequest}
+ * @returns {@link DescribeDetectMitigationActionsTaskResponse}
  * @see {@link DescribeDetectMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

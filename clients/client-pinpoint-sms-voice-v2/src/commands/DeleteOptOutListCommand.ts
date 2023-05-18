@@ -59,8 +59,8 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  *
  * ```
  *
- * @param DeleteOptOutListCommandInput - {@link DeleteOptOutListCommandInput}
- * @returns {@link DeleteOptOutListCommandOutput}
+ * @param DeleteOptOutListRequest - {@link DeleteOptOutListRequest}
+ * @returns {@link DeleteOptOutListResult}
  * @see {@link DeleteOptOutListCommandInput} for command's `input` shape.
  * @see {@link DeleteOptOutListCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

@@ -64,8 +64,8 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  *
  * ```
  *
- * @param UpdateVoiceChannelCommandInput - {@link UpdateVoiceChannelCommandInput}
- * @returns {@link UpdateVoiceChannelCommandOutput}
+ * @param UpdateVoiceChannelRequest - {@link UpdateVoiceChannelRequest}
+ * @returns {@link UpdateVoiceChannelResponse}
  * @see {@link UpdateVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

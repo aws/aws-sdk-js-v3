@@ -71,8 +71,8 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
  *
  * ```
  *
- * @param DisassociatePhoneNumbersFromVoiceConnectorCommandInput - {@link DisassociatePhoneNumbersFromVoiceConnectorCommandInput}
- * @returns {@link DisassociatePhoneNumbersFromVoiceConnectorCommandOutput}
+ * @param DisassociatePhoneNumbersFromVoiceConnectorRequest - {@link DisassociatePhoneNumbersFromVoiceConnectorRequest}
+ * @returns {@link DisassociatePhoneNumbersFromVoiceConnectorResponse}
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

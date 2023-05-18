@@ -49,8 +49,8 @@ export interface EnableTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableTopicRuleCommandInput - {@link EnableTopicRuleCommandInput}
- * @returns {@link EnableTopicRuleCommandOutput}
+ * @param EnableTopicRuleRequest - {@link EnableTopicRuleRequest}
+ * @returns {@link Unit}
  * @see {@link EnableTopicRuleCommandInput} for command's `input` shape.
  * @see {@link EnableTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

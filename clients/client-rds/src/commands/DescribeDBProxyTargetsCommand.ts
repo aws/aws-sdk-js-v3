@@ -77,8 +77,8 @@ export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTarg
  *
  * ```
  *
- * @param DescribeDBProxyTargetsCommandInput - {@link DescribeDBProxyTargetsCommandInput}
- * @returns {@link DescribeDBProxyTargetsCommandOutput}
+ * @param DescribeDBProxyTargetsRequest - {@link DescribeDBProxyTargetsRequest}
+ * @returns {@link DescribeDBProxyTargetsResponse}
  * @see {@link DescribeDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

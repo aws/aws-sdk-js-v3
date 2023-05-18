@@ -55,8 +55,8 @@ export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateDevicesCommandInput - {@link UpdateDevicesCommandInput}
- * @returns {@link UpdateDevicesCommandOutput}
+ * @param UpdateDevicesRequest - {@link UpdateDevicesRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateDevicesCommandInput} for command's `input` shape.
  * @see {@link UpdateDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

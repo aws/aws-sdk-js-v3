@@ -54,8 +54,8 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  *
  * ```
  *
- * @param DescribeFeedbackCommandInput - {@link DescribeFeedbackCommandInput}
- * @returns {@link DescribeFeedbackCommandOutput}
+ * @param DescribeFeedbackRequest - {@link DescribeFeedbackRequest}
+ * @returns {@link DescribeFeedbackResponse}
  * @see {@link DescribeFeedbackCommandInput} for command's `input` shape.
  * @see {@link DescribeFeedbackCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

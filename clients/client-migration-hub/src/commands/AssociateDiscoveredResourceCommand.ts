@@ -55,8 +55,8 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  *
  * ```
  *
- * @param AssociateDiscoveredResourceCommandInput - {@link AssociateDiscoveredResourceCommandInput}
- * @returns {@link AssociateDiscoveredResourceCommandOutput}
+ * @param AssociateDiscoveredResourceRequest - {@link AssociateDiscoveredResourceRequest}
+ * @returns {@link AssociateDiscoveredResourceResult}
  * @see {@link AssociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateDiscoveredResourceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

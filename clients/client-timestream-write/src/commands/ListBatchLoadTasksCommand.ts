@@ -66,8 +66,8 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  *
  * ```
  *
- * @param ListBatchLoadTasksCommandInput - {@link ListBatchLoadTasksCommandInput}
- * @returns {@link ListBatchLoadTasksCommandOutput}
+ * @param ListBatchLoadTasksRequest - {@link ListBatchLoadTasksRequest}
+ * @returns {@link ListBatchLoadTasksResponse}
  * @see {@link ListBatchLoadTasksCommandInput} for command's `input` shape.
  * @see {@link ListBatchLoadTasksCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

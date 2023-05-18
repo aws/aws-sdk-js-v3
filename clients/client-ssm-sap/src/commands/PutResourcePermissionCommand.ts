@@ -52,8 +52,8 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  *
  * ```
  *
- * @param PutResourcePermissionCommandInput - {@link PutResourcePermissionCommandInput}
- * @returns {@link PutResourcePermissionCommandOutput}
+ * @param PutResourcePermissionInput - {@link PutResourcePermissionInput}
+ * @returns {@link PutResourcePermissionOutput}
  * @see {@link PutResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link PutResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

@@ -66,8 +66,8 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagLogGroupCommandInput - {@link TagLogGroupCommandInput}
- * @returns {@link TagLogGroupCommandOutput}
+ * @param TagLogGroupRequest - {@link TagLogGroupRequest}
+ * @returns {@link Unit}
  * @see {@link TagLogGroupCommandInput} for command's `input` shape.
  * @see {@link TagLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

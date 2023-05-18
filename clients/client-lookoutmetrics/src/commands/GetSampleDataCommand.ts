@@ -81,8 +81,8 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  *
  * ```
  *
- * @param GetSampleDataCommandInput - {@link GetSampleDataCommandInput}
- * @returns {@link GetSampleDataCommandOutput}
+ * @param GetSampleDataRequest - {@link GetSampleDataRequest}
+ * @returns {@link GetSampleDataResponse}
  * @see {@link GetSampleDataCommandInput} for command's `input` shape.
  * @see {@link GetSampleDataCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

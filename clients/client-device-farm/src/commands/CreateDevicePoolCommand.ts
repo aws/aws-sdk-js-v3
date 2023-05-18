@@ -73,8 +73,8 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  *
  * ```
  *
- * @param CreateDevicePoolCommandInput - {@link CreateDevicePoolCommandInput}
- * @returns {@link CreateDevicePoolCommandOutput}
+ * @param CreateDevicePoolRequest - {@link CreateDevicePoolRequest}
+ * @returns {@link CreateDevicePoolResult}
  * @see {@link CreateDevicePoolCommandInput} for command's `input` shape.
  * @see {@link CreateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

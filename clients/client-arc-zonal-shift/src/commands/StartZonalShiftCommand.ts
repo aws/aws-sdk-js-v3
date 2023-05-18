@@ -68,8 +68,8 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  *
  * ```
  *
- * @param StartZonalShiftCommandInput - {@link StartZonalShiftCommandInput}
- * @returns {@link StartZonalShiftCommandOutput}
+ * @param StartZonalShiftRequest - {@link StartZonalShiftRequest}
+ * @returns {@link ZonalShift}
  * @see {@link StartZonalShiftCommandInput} for command's `input` shape.
  * @see {@link StartZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.

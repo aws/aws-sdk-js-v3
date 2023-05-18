@@ -61,8 +61,8 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  *
  * ```
  *
- * @param ListDevicesJobsCommandInput - {@link ListDevicesJobsCommandInput}
- * @returns {@link ListDevicesJobsCommandOutput}
+ * @param ListDevicesJobsRequest - {@link ListDevicesJobsRequest}
+ * @returns {@link ListDevicesJobsResponse}
  * @see {@link ListDevicesJobsCommandInput} for command's `input` shape.
  * @see {@link ListDevicesJobsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

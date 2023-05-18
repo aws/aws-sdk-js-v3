@@ -66,8 +66,8 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  *
  * ```
  *
- * @param GetSipRuleCommandInput - {@link GetSipRuleCommandInput}
- * @returns {@link GetSipRuleCommandOutput}
+ * @param GetSipRuleRequest - {@link GetSipRuleRequest}
+ * @returns {@link GetSipRuleResponse}
  * @see {@link GetSipRuleCommandInput} for command's `input` shape.
  * @see {@link GetSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

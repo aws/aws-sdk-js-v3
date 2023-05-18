@@ -58,8 +58,8 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  *
  * ```
  *
- * @param GetMetricPolicyCommandInput - {@link GetMetricPolicyCommandInput}
- * @returns {@link GetMetricPolicyCommandOutput}
+ * @param GetMetricPolicyInput - {@link GetMetricPolicyInput}
+ * @returns {@link GetMetricPolicyOutput}
  * @see {@link GetMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link GetMetricPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

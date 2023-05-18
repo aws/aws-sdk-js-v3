@@ -69,8 +69,8 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *
  * ```
  *
- * @param CreateDataSetCommandInput - {@link CreateDataSetCommandInput}
- * @returns {@link CreateDataSetCommandOutput}
+ * @param CreateDataSetRequest - {@link CreateDataSetRequest}
+ * @returns {@link CreateDataSetResponse}
  * @see {@link CreateDataSetCommandInput} for command's `input` shape.
  * @see {@link CreateDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

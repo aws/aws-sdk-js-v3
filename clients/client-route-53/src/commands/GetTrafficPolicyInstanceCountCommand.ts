@@ -54,8 +54,8 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  *
  * ```
  *
- * @param GetTrafficPolicyInstanceCountCommandInput - {@link GetTrafficPolicyInstanceCountCommandInput}
- * @returns {@link GetTrafficPolicyInstanceCountCommandOutput}
+ * @param GetTrafficPolicyInstanceCountRequest - {@link GetTrafficPolicyInstanceCountRequest}
+ * @returns {@link GetTrafficPolicyInstanceCountResponse}
  * @see {@link GetTrafficPolicyInstanceCountCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

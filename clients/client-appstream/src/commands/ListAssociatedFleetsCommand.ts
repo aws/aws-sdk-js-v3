@@ -54,8 +54,8 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  *
  * ```
  *
- * @param ListAssociatedFleetsCommandInput - {@link ListAssociatedFleetsCommandInput}
- * @returns {@link ListAssociatedFleetsCommandOutput}
+ * @param ListAssociatedFleetsRequest - {@link ListAssociatedFleetsRequest}
+ * @returns {@link ListAssociatedFleetsResult}
  * @see {@link ListAssociatedFleetsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

@@ -60,8 +60,8 @@ export interface GetThingRuntimeConfigurationCommandOutput
  *
  * ```
  *
- * @param GetThingRuntimeConfigurationCommandInput - {@link GetThingRuntimeConfigurationCommandInput}
- * @returns {@link GetThingRuntimeConfigurationCommandOutput}
+ * @param GetThingRuntimeConfigurationRequest - {@link GetThingRuntimeConfigurationRequest}
+ * @returns {@link GetThingRuntimeConfigurationResponse}
  * @see {@link GetThingRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetThingRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

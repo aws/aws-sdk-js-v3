@@ -88,8 +88,8 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
  *
  * ```
  *
- * @param DeleteVerifiedAccessTrustProviderCommandInput - {@link DeleteVerifiedAccessTrustProviderCommandInput}
- * @returns {@link DeleteVerifiedAccessTrustProviderCommandOutput}
+ * @param DeleteVerifiedAccessTrustProviderRequest - {@link DeleteVerifiedAccessTrustProviderRequest}
+ * @returns {@link DeleteVerifiedAccessTrustProviderResult}
  * @see {@link DeleteVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

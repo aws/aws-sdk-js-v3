@@ -74,8 +74,8 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
  *
  * ```
  *
- * @param GetAccessPointPolicyForObjectLambdaCommandInput - {@link GetAccessPointPolicyForObjectLambdaCommandInput}
- * @returns {@link GetAccessPointPolicyForObjectLambdaCommandOutput}
+ * @param GetAccessPointPolicyForObjectLambdaRequest - {@link GetAccessPointPolicyForObjectLambdaRequest}
+ * @returns {@link GetAccessPointPolicyForObjectLambdaResult}
  * @see {@link GetAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

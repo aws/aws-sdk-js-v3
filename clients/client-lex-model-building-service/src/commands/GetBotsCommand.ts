@@ -80,8 +80,8 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetBotsCommandInput - {@link GetBotsCommandInput}
- * @returns {@link GetBotsCommandOutput}
+ * @param GetBotsRequest - {@link GetBotsRequest}
+ * @returns {@link GetBotsResponse}
  * @see {@link GetBotsCommandInput} for command's `input` shape.
  * @see {@link GetBotsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

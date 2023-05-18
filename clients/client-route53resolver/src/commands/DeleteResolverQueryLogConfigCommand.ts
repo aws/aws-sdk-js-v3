@@ -74,8 +74,8 @@ export interface DeleteResolverQueryLogConfigCommandOutput
  *
  * ```
  *
- * @param DeleteResolverQueryLogConfigCommandInput - {@link DeleteResolverQueryLogConfigCommandInput}
- * @returns {@link DeleteResolverQueryLogConfigCommandOutput}
+ * @param DeleteResolverQueryLogConfigRequest - {@link DeleteResolverQueryLogConfigRequest}
+ * @returns {@link DeleteResolverQueryLogConfigResponse}
  * @see {@link DeleteResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

@@ -103,8 +103,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *
  * ```
  *
- * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
- * @returns {@link CreateEventSubscriptionCommandOutput}
+ * @param CreateEventSubscriptionMessage - {@link CreateEventSubscriptionMessage}
+ * @returns {@link CreateEventSubscriptionResult}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

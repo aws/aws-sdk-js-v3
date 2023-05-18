@@ -74,8 +74,8 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  *
  * ```
  *
- * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
- * @returns {@link CreateListenerCommandOutput}
+ * @param CreateListenerRequest - {@link CreateListenerRequest}
+ * @returns {@link CreateListenerResponse}
  * @see {@link CreateListenerCommandInput} for command's `input` shape.
  * @see {@link CreateListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

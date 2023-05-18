@@ -94,8 +94,8 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  *
  * ```
  *
- * @param DescribeAddonVersionsCommandInput - {@link DescribeAddonVersionsCommandInput}
- * @returns {@link DescribeAddonVersionsCommandOutput}
+ * @param DescribeAddonVersionsRequest - {@link DescribeAddonVersionsRequest}
+ * @returns {@link DescribeAddonVersionsResponse}
  * @see {@link DescribeAddonVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAddonVersionsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

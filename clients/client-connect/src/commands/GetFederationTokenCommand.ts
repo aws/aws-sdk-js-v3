@@ -70,8 +70,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *
  * ```
  *
- * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
- * @returns {@link GetFederationTokenCommandOutput}
+ * @param GetFederationTokenRequest - {@link GetFederationTokenRequest}
+ * @returns {@link GetFederationTokenResponse}
  * @see {@link GetFederationTokenCommandInput} for command's `input` shape.
  * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

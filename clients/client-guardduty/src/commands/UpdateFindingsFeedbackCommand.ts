@@ -53,8 +53,8 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  *
  * ```
  *
- * @param UpdateFindingsFeedbackCommandInput - {@link UpdateFindingsFeedbackCommandInput}
- * @returns {@link UpdateFindingsFeedbackCommandOutput}
+ * @param UpdateFindingsFeedbackRequest - {@link UpdateFindingsFeedbackRequest}
+ * @returns {@link UpdateFindingsFeedbackResponse}
  * @see {@link UpdateFindingsFeedbackCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsFeedbackCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

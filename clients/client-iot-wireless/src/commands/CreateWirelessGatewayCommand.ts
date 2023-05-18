@@ -81,8 +81,8 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  *
  * ```
  *
- * @param CreateWirelessGatewayCommandInput - {@link CreateWirelessGatewayCommandInput}
- * @returns {@link CreateWirelessGatewayCommandOutput}
+ * @param CreateWirelessGatewayRequest - {@link CreateWirelessGatewayRequest}
+ * @returns {@link CreateWirelessGatewayResponse}
  * @see {@link CreateWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateWirelessGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

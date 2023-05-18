@@ -92,8 +92,8 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RevokeGrantCommandInput - {@link RevokeGrantCommandInput}
- * @returns {@link RevokeGrantCommandOutput}
+ * @param RevokeGrantRequest - {@link RevokeGrantRequest}
+ * @returns {@link Unit}
  * @see {@link RevokeGrantCommandInput} for command's `input` shape.
  * @see {@link RevokeGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

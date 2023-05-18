@@ -85,8 +85,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  *
  * ```
  *
- * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
- * @returns {@link ListOfferingsCommandOutput}
+ * @param ListOfferingsRequest - {@link ListOfferingsRequest}
+ * @returns {@link ListOfferingsResponse}
  * @see {@link ListOfferingsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

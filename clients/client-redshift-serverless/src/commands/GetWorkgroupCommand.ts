@@ -95,8 +95,8 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  *
  * ```
  *
- * @param GetWorkgroupCommandInput - {@link GetWorkgroupCommandInput}
- * @returns {@link GetWorkgroupCommandOutput}
+ * @param GetWorkgroupRequest - {@link GetWorkgroupRequest}
+ * @returns {@link GetWorkgroupResponse}
  * @see {@link GetWorkgroupCommandInput} for command's `input` shape.
  * @see {@link GetWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

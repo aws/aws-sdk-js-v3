@@ -51,8 +51,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
- * @returns {@link DeleteTagsCommandOutput}
+ * @param DeleteTagsRequest - {@link DeleteTagsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.

@@ -70,8 +70,8 @@ export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestin
  *
  * ```
  *
- * @param GetTopicRuleDestinationCommandInput - {@link GetTopicRuleDestinationCommandInput}
- * @returns {@link GetTopicRuleDestinationCommandOutput}
+ * @param GetTopicRuleDestinationRequest - {@link GetTopicRuleDestinationRequest}
+ * @returns {@link GetTopicRuleDestinationResponse}
  * @see {@link GetTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link GetTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

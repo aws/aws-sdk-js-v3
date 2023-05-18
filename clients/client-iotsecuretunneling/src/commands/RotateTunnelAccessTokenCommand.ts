@@ -75,8 +75,8 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  *
  * ```
  *
- * @param RotateTunnelAccessTokenCommandInput - {@link RotateTunnelAccessTokenCommandInput}
- * @returns {@link RotateTunnelAccessTokenCommandOutput}
+ * @param RotateTunnelAccessTokenRequest - {@link RotateTunnelAccessTokenRequest}
+ * @returns {@link RotateTunnelAccessTokenResponse}
  * @see {@link RotateTunnelAccessTokenCommandInput} for command's `input` shape.
  * @see {@link RotateTunnelAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.

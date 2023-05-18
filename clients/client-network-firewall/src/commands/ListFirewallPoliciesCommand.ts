@@ -59,8 +59,8 @@ export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesR
  *
  * ```
  *
- * @param ListFirewallPoliciesCommandInput - {@link ListFirewallPoliciesCommandInput}
- * @returns {@link ListFirewallPoliciesCommandOutput}
+ * @param ListFirewallPoliciesRequest - {@link ListFirewallPoliciesRequest}
+ * @returns {@link ListFirewallPoliciesResponse}
  * @see {@link ListFirewallPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListFirewallPoliciesCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

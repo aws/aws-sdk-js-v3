@@ -128,8 +128,8 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  *
  * ```
  *
- * @param StartModelPackagingJobCommandInput - {@link StartModelPackagingJobCommandInput}
- * @returns {@link StartModelPackagingJobCommandOutput}
+ * @param StartModelPackagingJobRequest - {@link StartModelPackagingJobRequest}
+ * @returns {@link StartModelPackagingJobResponse}
  * @see {@link StartModelPackagingJobCommandInput} for command's `input` shape.
  * @see {@link StartModelPackagingJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

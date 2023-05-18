@@ -48,8 +48,8 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  *
  * ```
  *
- * @param DisassociateMemberCommandInput - {@link DisassociateMemberCommandInput}
- * @returns {@link DisassociateMemberCommandOutput}
+ * @param DisassociateMemberRequest - {@link DisassociateMemberRequest}
+ * @returns {@link DisassociateMemberResponse}
  * @see {@link DisassociateMemberCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

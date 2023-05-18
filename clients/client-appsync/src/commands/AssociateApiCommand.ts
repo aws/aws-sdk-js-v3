@@ -56,8 +56,8 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  *
  * ```
  *
- * @param AssociateApiCommandInput - {@link AssociateApiCommandInput}
- * @returns {@link AssociateApiCommandOutput}
+ * @param AssociateApiRequest - {@link AssociateApiRequest}
+ * @returns {@link AssociateApiResponse}
  * @see {@link AssociateApiCommandInput} for command's `input` shape.
  * @see {@link AssociateApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

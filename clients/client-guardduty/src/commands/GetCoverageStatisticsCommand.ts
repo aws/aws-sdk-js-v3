@@ -78,8 +78,8 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  *
  * ```
  *
- * @param GetCoverageStatisticsCommandInput - {@link GetCoverageStatisticsCommandInput}
- * @returns {@link GetCoverageStatisticsCommandOutput}
+ * @param GetCoverageStatisticsRequest - {@link GetCoverageStatisticsRequest}
+ * @returns {@link GetCoverageStatisticsResponse}
  * @see {@link GetCoverageStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetCoverageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

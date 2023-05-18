@@ -94,8 +94,8 @@ export interface ListRecommendationTemplatesCommandOutput
  *
  * ```
  *
- * @param ListRecommendationTemplatesCommandInput - {@link ListRecommendationTemplatesCommandInput}
- * @returns {@link ListRecommendationTemplatesCommandOutput}
+ * @param ListRecommendationTemplatesRequest - {@link ListRecommendationTemplatesRequest}
+ * @returns {@link ListRecommendationTemplatesResponse}
  * @see {@link ListRecommendationTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

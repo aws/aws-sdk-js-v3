@@ -55,8 +55,8 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  *
  * ```
  *
- * @param RegisterCertificateCommandInput - {@link RegisterCertificateCommandInput}
- * @returns {@link RegisterCertificateCommandOutput}
+ * @param RegisterCertificateRequest - {@link RegisterCertificateRequest}
+ * @returns {@link RegisterCertificateResult}
  * @see {@link RegisterCertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

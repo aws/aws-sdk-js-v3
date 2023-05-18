@@ -48,8 +48,8 @@ export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDat
  *
  * ```
  *
- * @param DeleteCustomDataIdentifierCommandInput - {@link DeleteCustomDataIdentifierCommandInput}
- * @returns {@link DeleteCustomDataIdentifierCommandOutput}
+ * @param DeleteCustomDataIdentifierRequest - {@link DeleteCustomDataIdentifierRequest}
+ * @returns {@link DeleteCustomDataIdentifierResponse}
  * @see {@link DeleteCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomDataIdentifierCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

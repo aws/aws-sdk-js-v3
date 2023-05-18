@@ -53,8 +53,8 @@ export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __M
  *
  * ```
  *
- * @param DeleteDatalakeCommandInput - {@link DeleteDatalakeCommandInput}
- * @returns {@link DeleteDatalakeCommandOutput}
+ * @param DeleteDatalakeRequest - {@link DeleteDatalakeRequest}
+ * @returns {@link DeleteDatalakeResponse}
  * @see {@link DeleteDatalakeCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

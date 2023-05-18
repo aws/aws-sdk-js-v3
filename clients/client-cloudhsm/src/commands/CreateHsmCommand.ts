@@ -76,8 +76,8 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateHsmCommandInput - {@link CreateHsmCommandInput}
- * @returns {@link CreateHsmCommandOutput}
+ * @param CreateHsmRequest - {@link CreateHsmRequest}
+ * @returns {@link CreateHsmResponse}
  * @see {@link CreateHsmCommandInput} for command's `input` shape.
  * @see {@link CreateHsmCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

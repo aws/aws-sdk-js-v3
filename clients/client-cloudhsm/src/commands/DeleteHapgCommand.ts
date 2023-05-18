@@ -60,8 +60,8 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteHapgCommandInput - {@link DeleteHapgCommandInput}
- * @returns {@link DeleteHapgCommandOutput}
+ * @param DeleteHapgRequest - {@link DeleteHapgRequest}
+ * @returns {@link DeleteHapgResponse}
  * @see {@link DeleteHapgCommandInput} for command's `input` shape.
  * @see {@link DeleteHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

@@ -83,8 +83,8 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  *
  * ```
  *
- * @param UpdateProxySessionCommandInput - {@link UpdateProxySessionCommandInput}
- * @returns {@link UpdateProxySessionCommandOutput}
+ * @param UpdateProxySessionRequest - {@link UpdateProxySessionRequest}
+ * @returns {@link UpdateProxySessionResponse}
  * @see {@link UpdateProxySessionCommandInput} for command's `input` shape.
  * @see {@link UpdateProxySessionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

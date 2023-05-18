@@ -112,8 +112,8 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  *
  * ```
  *
- * @param DescribeInstancesHealthCommandInput - {@link DescribeInstancesHealthCommandInput}
- * @returns {@link DescribeInstancesHealthCommandOutput}
+ * @param DescribeInstancesHealthRequest - {@link DescribeInstancesHealthRequest}
+ * @returns {@link DescribeInstancesHealthResult}
  * @see {@link DescribeInstancesHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

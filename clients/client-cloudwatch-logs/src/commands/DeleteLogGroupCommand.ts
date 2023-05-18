@@ -49,8 +49,8 @@ export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLogGroupCommandInput - {@link DeleteLogGroupCommandInput}
- * @returns {@link DeleteLogGroupCommandOutput}
+ * @param DeleteLogGroupRequest - {@link DeleteLogGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLogGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

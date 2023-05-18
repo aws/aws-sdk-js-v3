@@ -58,8 +58,8 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  *
  * ```
  *
- * @param StartDeviceAuthorizationCommandInput - {@link StartDeviceAuthorizationCommandInput}
- * @returns {@link StartDeviceAuthorizationCommandOutput}
+ * @param StartDeviceAuthorizationRequest - {@link StartDeviceAuthorizationRequest}
+ * @returns {@link StartDeviceAuthorizationResponse}
  * @see {@link StartDeviceAuthorizationCommandInput} for command's `input` shape.
  * @see {@link StartDeviceAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.

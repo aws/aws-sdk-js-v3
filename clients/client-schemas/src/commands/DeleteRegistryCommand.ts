@@ -48,8 +48,8 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRegistryCommandInput - {@link DeleteRegistryCommandInput}
- * @returns {@link DeleteRegistryCommandOutput}
+ * @param DeleteRegistryRequest - {@link DeleteRegistryRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

@@ -49,8 +49,8 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  *
  * ```
  *
- * @param CancelBatchJobExecutionCommandInput - {@link CancelBatchJobExecutionCommandInput}
- * @returns {@link CancelBatchJobExecutionCommandOutput}
+ * @param CancelBatchJobExecutionRequest - {@link CancelBatchJobExecutionRequest}
+ * @returns {@link CancelBatchJobExecutionResponse}
  * @see {@link CancelBatchJobExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelBatchJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

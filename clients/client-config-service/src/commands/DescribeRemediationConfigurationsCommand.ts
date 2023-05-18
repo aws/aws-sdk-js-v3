@@ -91,8 +91,8 @@ export interface DescribeRemediationConfigurationsCommandOutput
  *
  * ```
  *
- * @param DescribeRemediationConfigurationsCommandInput - {@link DescribeRemediationConfigurationsCommandInput}
- * @returns {@link DescribeRemediationConfigurationsCommandOutput}
+ * @param DescribeRemediationConfigurationsRequest - {@link DescribeRemediationConfigurationsRequest}
+ * @returns {@link DescribeRemediationConfigurationsResponse}
  * @see {@link DescribeRemediationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

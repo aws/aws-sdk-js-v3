@@ -66,8 +66,8 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  *
  * ```
  *
- * @param GetPackageVersionReadmeCommandInput - {@link GetPackageVersionReadmeCommandInput}
- * @returns {@link GetPackageVersionReadmeCommandOutput}
+ * @param GetPackageVersionReadmeRequest - {@link GetPackageVersionReadmeRequest}
+ * @returns {@link GetPackageVersionReadmeResult}
  * @see {@link GetPackageVersionReadmeCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionReadmeCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

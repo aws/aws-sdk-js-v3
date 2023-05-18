@@ -60,8 +60,8 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  *
  * ```
  *
- * @param ListSimulationsCommandInput - {@link ListSimulationsCommandInput}
- * @returns {@link ListSimulationsCommandOutput}
+ * @param ListSimulationsInput - {@link ListSimulationsInput}
+ * @returns {@link ListSimulationsOutput}
  * @see {@link ListSimulationsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationsCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

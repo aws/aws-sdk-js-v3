@@ -72,8 +72,8 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
  *
  * ```
  *
- * @param RejectEnvironmentAccountConnectionCommandInput - {@link RejectEnvironmentAccountConnectionCommandInput}
- * @returns {@link RejectEnvironmentAccountConnectionCommandOutput}
+ * @param RejectEnvironmentAccountConnectionInput - {@link RejectEnvironmentAccountConnectionInput}
+ * @returns {@link RejectEnvironmentAccountConnectionOutput}
  * @see {@link RejectEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

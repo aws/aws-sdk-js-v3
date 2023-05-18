@@ -67,8 +67,8 @@ export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChang
  *
  * ```
  *
- * @param GetPipelineChangeProgressCommandInput - {@link GetPipelineChangeProgressCommandInput}
- * @returns {@link GetPipelineChangeProgressCommandOutput}
+ * @param GetPipelineChangeProgressRequest - {@link GetPipelineChangeProgressRequest}
+ * @returns {@link GetPipelineChangeProgressResponse}
  * @see {@link GetPipelineChangeProgressCommandInput} for command's `input` shape.
  * @see {@link GetPipelineChangeProgressCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

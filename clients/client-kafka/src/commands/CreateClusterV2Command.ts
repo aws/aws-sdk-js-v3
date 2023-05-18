@@ -180,8 +180,8 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *
  * ```
  *
- * @param CreateClusterV2CommandInput - {@link CreateClusterV2CommandInput}
- * @returns {@link CreateClusterV2CommandOutput}
+ * @param CreateClusterV2Request - {@link CreateClusterV2Request}
+ * @returns {@link CreateClusterV2Response}
  * @see {@link CreateClusterV2CommandInput} for command's `input` shape.
  * @see {@link CreateClusterV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

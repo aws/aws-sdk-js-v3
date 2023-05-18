@@ -77,8 +77,8 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  *
  * ```
  *
- * @param ListSpeechSynthesisTasksCommandInput - {@link ListSpeechSynthesisTasksCommandInput}
- * @returns {@link ListSpeechSynthesisTasksCommandOutput}
+ * @param ListSpeechSynthesisTasksInput - {@link ListSpeechSynthesisTasksInput}
+ * @returns {@link ListSpeechSynthesisTasksOutput}
  * @see {@link ListSpeechSynthesisTasksCommandInput} for command's `input` shape.
  * @see {@link ListSpeechSynthesisTasksCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.

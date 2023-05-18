@@ -73,8 +73,8 @@ export interface DescribePortfolioShareStatusCommandOutput
  *
  * ```
  *
- * @param DescribePortfolioShareStatusCommandInput - {@link DescribePortfolioShareStatusCommandInput}
- * @returns {@link DescribePortfolioShareStatusCommandOutput}
+ * @param DescribePortfolioShareStatusInput - {@link DescribePortfolioShareStatusInput}
+ * @returns {@link DescribePortfolioShareStatusOutput}
  * @see {@link DescribePortfolioShareStatusCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioShareStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

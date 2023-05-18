@@ -70,8 +70,8 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  *
  * ```
  *
- * @param GetMeetingCommandInput - {@link GetMeetingCommandInput}
- * @returns {@link GetMeetingCommandOutput}
+ * @param GetMeetingRequest - {@link GetMeetingRequest}
+ * @returns {@link GetMeetingResponse}
  * @see {@link GetMeetingCommandInput} for command's `input` shape.
  * @see {@link GetMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

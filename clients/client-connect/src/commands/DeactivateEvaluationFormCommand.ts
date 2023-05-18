@@ -55,8 +55,8 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  *
  * ```
  *
- * @param DeactivateEvaluationFormCommandInput - {@link DeactivateEvaluationFormCommandInput}
- * @returns {@link DeactivateEvaluationFormCommandOutput}
+ * @param DeactivateEvaluationFormRequest - {@link DeactivateEvaluationFormRequest}
+ * @returns {@link DeactivateEvaluationFormResponse}
  * @see {@link DeactivateEvaluationFormCommandInput} for command's `input` shape.
  * @see {@link DeactivateEvaluationFormCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -75,8 +75,8 @@ export interface DescribeDomainHealthCommandOutput extends DescribeDomainHealthR
  *
  * ```
  *
- * @param DescribeDomainHealthCommandInput - {@link DescribeDomainHealthCommandInput}
- * @returns {@link DescribeDomainHealthCommandOutput}
+ * @param DescribeDomainHealthRequest - {@link DescribeDomainHealthRequest}
+ * @returns {@link DescribeDomainHealthResponse}
  * @see {@link DescribeDomainHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainHealthCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

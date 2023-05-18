@@ -95,8 +95,8 @@ export interface PutSourceServerActionCommandOutput extends SourceServerActionDo
  *
  * ```
  *
- * @param PutSourceServerActionCommandInput - {@link PutSourceServerActionCommandInput}
- * @returns {@link PutSourceServerActionCommandOutput}
+ * @param PutSourceServerActionRequest - {@link PutSourceServerActionRequest}
+ * @returns {@link SourceServerActionDocument}
  * @see {@link PutSourceServerActionCommandInput} for command's `input` shape.
  * @see {@link PutSourceServerActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

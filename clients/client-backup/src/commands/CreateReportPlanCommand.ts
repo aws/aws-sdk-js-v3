@@ -83,8 +83,8 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  *
  * ```
  *
- * @param CreateReportPlanCommandInput - {@link CreateReportPlanCommandInput}
- * @returns {@link CreateReportPlanCommandOutput}
+ * @param CreateReportPlanInput - {@link CreateReportPlanInput}
+ * @returns {@link CreateReportPlanOutput}
  * @see {@link CreateReportPlanCommandInput} for command's `input` shape.
  * @see {@link CreateReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

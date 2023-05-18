@@ -59,8 +59,8 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  *
  * ```
  *
- * @param UpdateEnvironmentMembershipCommandInput - {@link UpdateEnvironmentMembershipCommandInput}
- * @returns {@link UpdateEnvironmentMembershipCommandOutput}
+ * @param UpdateEnvironmentMembershipRequest - {@link UpdateEnvironmentMembershipRequest}
+ * @returns {@link UpdateEnvironmentMembershipResult}
  * @see {@link UpdateEnvironmentMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

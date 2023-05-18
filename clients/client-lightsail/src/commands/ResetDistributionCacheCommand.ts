@@ -71,8 +71,8 @@ export interface ResetDistributionCacheCommandOutput extends ResetDistributionCa
  *
  * ```
  *
- * @param ResetDistributionCacheCommandInput - {@link ResetDistributionCacheCommandInput}
- * @returns {@link ResetDistributionCacheCommandOutput}
+ * @param ResetDistributionCacheRequest - {@link ResetDistributionCacheRequest}
+ * @returns {@link ResetDistributionCacheResult}
  * @see {@link ResetDistributionCacheCommandInput} for command's `input` shape.
  * @see {@link ResetDistributionCacheCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

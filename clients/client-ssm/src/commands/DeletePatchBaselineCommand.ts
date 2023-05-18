@@ -50,8 +50,8 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  *
  * ```
  *
- * @param DeletePatchBaselineCommandInput - {@link DeletePatchBaselineCommandInput}
- * @returns {@link DeletePatchBaselineCommandOutput}
+ * @param DeletePatchBaselineRequest - {@link DeletePatchBaselineRequest}
+ * @returns {@link DeletePatchBaselineResult}
  * @see {@link DeletePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DeletePatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

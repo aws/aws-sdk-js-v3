@@ -49,8 +49,8 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  *
  * ```
  *
- * @param DeactivateContactChannelCommandInput - {@link DeactivateContactChannelCommandInput}
- * @returns {@link DeactivateContactChannelCommandOutput}
+ * @param DeactivateContactChannelRequest - {@link DeactivateContactChannelRequest}
+ * @returns {@link DeactivateContactChannelResult}
  * @see {@link DeactivateContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeactivateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

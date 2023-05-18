@@ -141,8 +141,8 @@ export interface PutClusterCapacityProvidersCommandOutput
  *
  * ```
  *
- * @param PutClusterCapacityProvidersCommandInput - {@link PutClusterCapacityProvidersCommandInput}
- * @returns {@link PutClusterCapacityProvidersCommandOutput}
+ * @param PutClusterCapacityProvidersRequest - {@link PutClusterCapacityProvidersRequest}
+ * @returns {@link PutClusterCapacityProvidersResponse}
  * @see {@link PutClusterCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link PutClusterCapacityProvidersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

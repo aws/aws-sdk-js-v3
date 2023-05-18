@@ -63,8 +63,8 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  *
  * ```
  *
- * @param ListStudioSessionMappingsCommandInput - {@link ListStudioSessionMappingsCommandInput}
- * @returns {@link ListStudioSessionMappingsCommandOutput}
+ * @param ListStudioSessionMappingsInput - {@link ListStudioSessionMappingsInput}
+ * @returns {@link ListStudioSessionMappingsOutput}
  * @see {@link ListStudioSessionMappingsCommandInput} for command's `input` shape.
  * @see {@link ListStudioSessionMappingsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

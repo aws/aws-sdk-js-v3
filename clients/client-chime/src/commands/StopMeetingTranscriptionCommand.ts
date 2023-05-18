@@ -48,8 +48,8 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  *
  * ```
  *
- * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
- * @returns {@link StopMeetingTranscriptionCommandOutput}
+ * @param StopMeetingTranscriptionRequest - {@link StopMeetingTranscriptionRequest}
+ * @returns {@link StopMeetingTranscriptionResponse}
  * @see {@link StopMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StopMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

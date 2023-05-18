@@ -109,8 +109,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param SignCommandInput - {@link SignCommandInput}
- * @returns {@link SignCommandOutput}
+ * @param SignRequest - {@link SignRequest}
+ * @returns {@link SignResponse}
  * @see {@link SignCommandInput} for command's `input` shape.
  * @see {@link SignCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

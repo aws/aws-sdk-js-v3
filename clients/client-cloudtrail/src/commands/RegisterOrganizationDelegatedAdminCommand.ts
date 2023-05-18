@@ -57,8 +57,8 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  *
  * ```
  *
- * @param RegisterOrganizationDelegatedAdminCommandInput - {@link RegisterOrganizationDelegatedAdminCommandInput}
- * @returns {@link RegisterOrganizationDelegatedAdminCommandOutput}
+ * @param RegisterOrganizationDelegatedAdminRequest - {@link RegisterOrganizationDelegatedAdminRequest}
+ * @returns {@link RegisterOrganizationDelegatedAdminResponse}
  * @see {@link RegisterOrganizationDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link RegisterOrganizationDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

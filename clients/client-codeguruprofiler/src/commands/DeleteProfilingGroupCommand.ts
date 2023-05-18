@@ -48,8 +48,8 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  *
  * ```
  *
- * @param DeleteProfilingGroupCommandInput - {@link DeleteProfilingGroupCommandInput}
- * @returns {@link DeleteProfilingGroupCommandOutput}
+ * @param DeleteProfilingGroupRequest - {@link DeleteProfilingGroupRequest}
+ * @returns {@link DeleteProfilingGroupResponse}
  * @see {@link DeleteProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

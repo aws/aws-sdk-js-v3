@@ -72,8 +72,8 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
  *
  * ```
  *
- * @param StartElasticsearchServiceSoftwareUpdateCommandInput - {@link StartElasticsearchServiceSoftwareUpdateCommandInput}
- * @returns {@link StartElasticsearchServiceSoftwareUpdateCommandOutput}
+ * @param StartElasticsearchServiceSoftwareUpdateRequest - {@link StartElasticsearchServiceSoftwareUpdateRequest}
+ * @returns {@link StartElasticsearchServiceSoftwareUpdateResponse}
  * @see {@link StartElasticsearchServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link StartElasticsearchServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

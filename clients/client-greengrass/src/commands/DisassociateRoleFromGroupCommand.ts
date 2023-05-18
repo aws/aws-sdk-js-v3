@@ -50,8 +50,8 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  *
  * ```
  *
- * @param DisassociateRoleFromGroupCommandInput - {@link DisassociateRoleFromGroupCommandInput}
- * @returns {@link DisassociateRoleFromGroupCommandOutput}
+ * @param DisassociateRoleFromGroupRequest - {@link DisassociateRoleFromGroupRequest}
+ * @returns {@link DisassociateRoleFromGroupResponse}
  * @see {@link DisassociateRoleFromGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateRoleFromGroupCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

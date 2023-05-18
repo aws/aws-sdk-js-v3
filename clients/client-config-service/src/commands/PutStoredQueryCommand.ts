@@ -68,8 +68,8 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  *
  * ```
  *
- * @param PutStoredQueryCommandInput - {@link PutStoredQueryCommandInput}
- * @returns {@link PutStoredQueryCommandOutput}
+ * @param PutStoredQueryRequest - {@link PutStoredQueryRequest}
+ * @returns {@link PutStoredQueryResponse}
  * @see {@link PutStoredQueryCommandInput} for command's `input` shape.
  * @see {@link PutStoredQueryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -65,8 +65,8 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  *
  * ```
  *
- * @param GetClusterCredentialsWithIAMCommandInput - {@link GetClusterCredentialsWithIAMCommandInput}
- * @returns {@link GetClusterCredentialsWithIAMCommandOutput}
+ * @param GetClusterCredentialsWithIAMMessage - {@link GetClusterCredentialsWithIAMMessage}
+ * @returns {@link ClusterExtendedCredentials}
  * @see {@link GetClusterCredentialsWithIAMCommandInput} for command's `input` shape.
  * @see {@link GetClusterCredentialsWithIAMCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

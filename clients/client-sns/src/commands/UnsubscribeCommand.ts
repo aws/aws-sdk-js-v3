@@ -59,8 +59,8 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UnsubscribeCommandInput - {@link UnsubscribeCommandInput}
- * @returns {@link UnsubscribeCommandOutput}
+ * @param UnsubscribeInput - {@link UnsubscribeInput}
+ * @returns {@link Unit}
  * @see {@link UnsubscribeCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

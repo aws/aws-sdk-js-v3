@@ -118,8 +118,8 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  *
  * ```
  *
- * @param RunPipelineActivityCommandInput - {@link RunPipelineActivityCommandInput}
- * @returns {@link RunPipelineActivityCommandOutput}
+ * @param RunPipelineActivityRequest - {@link RunPipelineActivityRequest}
+ * @returns {@link RunPipelineActivityResponse}
  * @see {@link RunPipelineActivityCommandInput} for command's `input` shape.
  * @see {@link RunPipelineActivityCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

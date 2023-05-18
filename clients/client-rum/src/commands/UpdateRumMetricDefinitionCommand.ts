@@ -62,8 +62,8 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  *
  * ```
  *
- * @param UpdateRumMetricDefinitionCommandInput - {@link UpdateRumMetricDefinitionCommandInput}
- * @returns {@link UpdateRumMetricDefinitionCommandOutput}
+ * @param UpdateRumMetricDefinitionRequest - {@link UpdateRumMetricDefinitionRequest}
+ * @returns {@link UpdateRumMetricDefinitionResponse}
  * @see {@link UpdateRumMetricDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateRumMetricDefinitionCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

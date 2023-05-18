@@ -59,8 +59,8 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  *
  * ```
  *
- * @param ListPromptsCommandInput - {@link ListPromptsCommandInput}
- * @returns {@link ListPromptsCommandOutput}
+ * @param ListPromptsRequest - {@link ListPromptsRequest}
+ * @returns {@link ListPromptsResponse}
  * @see {@link ListPromptsCommandInput} for command's `input` shape.
  * @see {@link ListPromptsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

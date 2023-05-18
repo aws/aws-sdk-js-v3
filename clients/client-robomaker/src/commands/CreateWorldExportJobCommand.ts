@@ -73,8 +73,8 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  *
  * ```
  *
- * @param CreateWorldExportJobCommandInput - {@link CreateWorldExportJobCommandInput}
- * @returns {@link CreateWorldExportJobCommandOutput}
+ * @param CreateWorldExportJobRequest - {@link CreateWorldExportJobRequest}
+ * @returns {@link CreateWorldExportJobResponse}
  * @see {@link CreateWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateWorldExportJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

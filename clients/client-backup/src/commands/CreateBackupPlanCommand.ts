@@ -109,8 +109,8 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *
  * ```
  *
- * @param CreateBackupPlanCommandInput - {@link CreateBackupPlanCommandInput}
- * @returns {@link CreateBackupPlanCommandOutput}
+ * @param CreateBackupPlanInput - {@link CreateBackupPlanInput}
+ * @returns {@link CreateBackupPlanOutput}
  * @see {@link CreateBackupPlanCommandInput} for command's `input` shape.
  * @see {@link CreateBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

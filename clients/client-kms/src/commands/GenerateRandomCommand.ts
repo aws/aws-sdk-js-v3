@@ -80,8 +80,8 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *
  * ```
  *
- * @param GenerateRandomCommandInput - {@link GenerateRandomCommandInput}
- * @returns {@link GenerateRandomCommandOutput}
+ * @param GenerateRandomRequest - {@link GenerateRandomRequest}
+ * @returns {@link GenerateRandomResponse}
  * @see {@link GenerateRandomCommandInput} for command's `input` shape.
  * @see {@link GenerateRandomCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

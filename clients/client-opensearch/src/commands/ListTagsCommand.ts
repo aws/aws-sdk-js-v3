@@ -56,8 +56,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListTagsCommandInput - {@link ListTagsCommandInput}
- * @returns {@link ListTagsCommandOutput}
+ * @param ListTagsRequest - {@link ListTagsRequest}
+ * @returns {@link ListTagsResponse}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

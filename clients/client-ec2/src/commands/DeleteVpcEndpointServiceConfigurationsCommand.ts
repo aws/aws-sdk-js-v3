@@ -73,8 +73,8 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
  *
  * ```
  *
- * @param DeleteVpcEndpointServiceConfigurationsCommandInput - {@link DeleteVpcEndpointServiceConfigurationsCommandInput}
- * @returns {@link DeleteVpcEndpointServiceConfigurationsCommandOutput}
+ * @param DeleteVpcEndpointServiceConfigurationsRequest - {@link DeleteVpcEndpointServiceConfigurationsRequest}
+ * @returns {@link DeleteVpcEndpointServiceConfigurationsResult}
  * @see {@link DeleteVpcEndpointServiceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointServiceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

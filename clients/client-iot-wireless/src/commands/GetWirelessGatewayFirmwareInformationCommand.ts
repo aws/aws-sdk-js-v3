@@ -65,8 +65,8 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  *
  * ```
  *
- * @param GetWirelessGatewayFirmwareInformationCommandInput - {@link GetWirelessGatewayFirmwareInformationCommandInput}
- * @returns {@link GetWirelessGatewayFirmwareInformationCommandOutput}
+ * @param GetWirelessGatewayFirmwareInformationRequest - {@link GetWirelessGatewayFirmwareInformationRequest}
+ * @returns {@link GetWirelessGatewayFirmwareInformationResponse}
  * @see {@link GetWirelessGatewayFirmwareInformationCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayFirmwareInformationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

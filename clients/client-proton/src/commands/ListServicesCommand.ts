@@ -63,8 +63,8 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  *
  * ```
  *
- * @param ListServicesCommandInput - {@link ListServicesCommandInput}
- * @returns {@link ListServicesCommandOutput}
+ * @param ListServicesInput - {@link ListServicesInput}
+ * @returns {@link ListServicesOutput}
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

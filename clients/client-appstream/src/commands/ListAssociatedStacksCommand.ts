@@ -54,8 +54,8 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
  *
  * ```
  *
- * @param ListAssociatedStacksCommandInput - {@link ListAssociatedStacksCommandInput}
- * @returns {@link ListAssociatedStacksCommandOutput}
+ * @param ListAssociatedStacksRequest - {@link ListAssociatedStacksRequest}
+ * @returns {@link ListAssociatedStacksResult}
  * @see {@link ListAssociatedStacksCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedStacksCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

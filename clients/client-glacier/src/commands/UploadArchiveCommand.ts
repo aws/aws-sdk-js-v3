@@ -96,8 +96,8 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  *
  * ```
  *
- * @param UploadArchiveCommandInput - {@link UploadArchiveCommandInput}
- * @returns {@link UploadArchiveCommandOutput}
+ * @param UploadArchiveInput - {@link UploadArchiveInput}
+ * @returns {@link ArchiveCreationOutput}
  * @see {@link UploadArchiveCommandInput} for command's `input` shape.
  * @see {@link UploadArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

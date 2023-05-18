@@ -81,8 +81,8 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  *
  * ```
  *
- * @param UpdateRelatedItemsCommandInput - {@link UpdateRelatedItemsCommandInput}
- * @returns {@link UpdateRelatedItemsCommandOutput}
+ * @param UpdateRelatedItemsInput - {@link UpdateRelatedItemsInput}
+ * @returns {@link UpdateRelatedItemsOutput}
  * @see {@link UpdateRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link UpdateRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

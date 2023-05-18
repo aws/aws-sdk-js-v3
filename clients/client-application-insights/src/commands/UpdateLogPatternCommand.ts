@@ -64,8 +64,8 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  *
  * ```
  *
- * @param UpdateLogPatternCommandInput - {@link UpdateLogPatternCommandInput}
- * @returns {@link UpdateLogPatternCommandOutput}
+ * @param UpdateLogPatternRequest - {@link UpdateLogPatternRequest}
+ * @returns {@link UpdateLogPatternResponse}
  * @see {@link UpdateLogPatternCommandInput} for command's `input` shape.
  * @see {@link UpdateLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

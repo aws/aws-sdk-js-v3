@@ -57,8 +57,8 @@ export interface DeleteInlinePolicyFromPermissionSetCommandOutput
  *
  * ```
  *
- * @param DeleteInlinePolicyFromPermissionSetCommandInput - {@link DeleteInlinePolicyFromPermissionSetCommandInput}
- * @returns {@link DeleteInlinePolicyFromPermissionSetCommandOutput}
+ * @param DeleteInlinePolicyFromPermissionSetRequest - {@link DeleteInlinePolicyFromPermissionSetRequest}
+ * @returns {@link DeleteInlinePolicyFromPermissionSetResponse}
  * @see {@link DeleteInlinePolicyFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DeleteInlinePolicyFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

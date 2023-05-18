@@ -96,8 +96,8 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  *
  * ```
  *
- * @param DeleteImageBuilderCommandInput - {@link DeleteImageBuilderCommandInput}
- * @returns {@link DeleteImageBuilderCommandOutput}
+ * @param DeleteImageBuilderRequest - {@link DeleteImageBuilderRequest}
+ * @returns {@link DeleteImageBuilderResult}
  * @see {@link DeleteImageBuilderCommandInput} for command's `input` shape.
  * @see {@link DeleteImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

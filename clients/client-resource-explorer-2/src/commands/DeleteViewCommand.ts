@@ -57,8 +57,8 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteViewCommandInput - {@link DeleteViewCommandInput}
- * @returns {@link DeleteViewCommandOutput}
+ * @param DeleteViewInput - {@link DeleteViewInput}
+ * @returns {@link DeleteViewOutput}
  * @see {@link DeleteViewCommandInput} for command's `input` shape.
  * @see {@link DeleteViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

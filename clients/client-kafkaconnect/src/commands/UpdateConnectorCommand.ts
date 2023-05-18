@@ -69,8 +69,8 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *
  * ```
  *
- * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
- * @returns {@link UpdateConnectorCommandOutput}
+ * @param UpdateConnectorRequest - {@link UpdateConnectorRequest}
+ * @returns {@link UpdateConnectorResponse}
  * @see {@link UpdateConnectorCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

@@ -64,8 +64,8 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  *
  * ```
  *
- * @param CreateGrantVersionCommandInput - {@link CreateGrantVersionCommandInput}
- * @returns {@link CreateGrantVersionCommandOutput}
+ * @param CreateGrantVersionRequest - {@link CreateGrantVersionRequest}
+ * @returns {@link CreateGrantVersionResponse}
  * @see {@link CreateGrantVersionCommandInput} for command's `input` shape.
  * @see {@link CreateGrantVersionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

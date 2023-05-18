@@ -148,8 +148,8 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  *
  * ```
  *
- * @param UpdateComponentTypeCommandInput - {@link UpdateComponentTypeCommandInput}
- * @returns {@link UpdateComponentTypeCommandOutput}
+ * @param UpdateComponentTypeRequest - {@link UpdateComponentTypeRequest}
+ * @returns {@link UpdateComponentTypeResponse}
  * @see {@link UpdateComponentTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  *
  * ```
  *
- * @param ListVirtualMachinesCommandInput - {@link ListVirtualMachinesCommandInput}
- * @returns {@link ListVirtualMachinesCommandOutput}
+ * @param ListVirtualMachinesInput - {@link ListVirtualMachinesInput}
+ * @returns {@link ListVirtualMachinesOutput}
  * @see {@link ListVirtualMachinesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualMachinesCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

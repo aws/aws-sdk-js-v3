@@ -74,8 +74,8 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  *
  * ```
  *
- * @param OpenTunnelCommandInput - {@link OpenTunnelCommandInput}
- * @returns {@link OpenTunnelCommandOutput}
+ * @param OpenTunnelRequest - {@link OpenTunnelRequest}
+ * @returns {@link OpenTunnelResponse}
  * @see {@link OpenTunnelCommandInput} for command's `input` shape.
  * @see {@link OpenTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.

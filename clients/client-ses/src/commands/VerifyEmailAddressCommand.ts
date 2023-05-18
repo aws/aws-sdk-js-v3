@@ -49,8 +49,8 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param VerifyEmailAddressCommandInput - {@link VerifyEmailAddressCommandInput}
- * @returns {@link VerifyEmailAddressCommandOutput}
+ * @param VerifyEmailAddressRequest - {@link VerifyEmailAddressRequest}
+ * @returns {@link Unit}
  * @see {@link VerifyEmailAddressCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

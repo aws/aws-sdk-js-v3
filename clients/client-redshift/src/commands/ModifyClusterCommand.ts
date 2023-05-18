@@ -256,8 +256,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *
  * ```
  *
- * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
- * @returns {@link ModifyClusterCommandOutput}
+ * @param ModifyClusterMessage - {@link ModifyClusterMessage}
+ * @returns {@link ModifyClusterResult}
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

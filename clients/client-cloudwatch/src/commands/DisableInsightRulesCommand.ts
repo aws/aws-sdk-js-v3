@@ -60,8 +60,8 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  *
  * ```
  *
- * @param DisableInsightRulesCommandInput - {@link DisableInsightRulesCommandInput}
- * @returns {@link DisableInsightRulesCommandOutput}
+ * @param DisableInsightRulesInput - {@link DisableInsightRulesInput}
+ * @returns {@link DisableInsightRulesOutput}
  * @see {@link DisableInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DisableInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

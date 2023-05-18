@@ -78,8 +78,8 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  *
  * ```
  *
- * @param UpdateAnalysisPermissionsCommandInput - {@link UpdateAnalysisPermissionsCommandInput}
- * @returns {@link UpdateAnalysisPermissionsCommandOutput}
+ * @param UpdateAnalysisPermissionsRequest - {@link UpdateAnalysisPermissionsRequest}
+ * @returns {@link UpdateAnalysisPermissionsResponse}
  * @see {@link UpdateAnalysisPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateAnalysisPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

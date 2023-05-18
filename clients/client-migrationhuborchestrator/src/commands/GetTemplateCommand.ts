@@ -71,8 +71,8 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  *
  * ```
  *
- * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
- * @returns {@link GetTemplateCommandOutput}
+ * @param GetMigrationWorkflowTemplateRequest - {@link GetMigrationWorkflowTemplateRequest}
+ * @returns {@link GetMigrationWorkflowTemplateResponse}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

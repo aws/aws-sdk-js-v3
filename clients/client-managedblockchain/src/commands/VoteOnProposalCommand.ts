@@ -56,8 +56,8 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  *
  * ```
  *
- * @param VoteOnProposalCommandInput - {@link VoteOnProposalCommandInput}
- * @returns {@link VoteOnProposalCommandOutput}
+ * @param VoteOnProposalInput - {@link VoteOnProposalInput}
+ * @returns {@link VoteOnProposalOutput}
  * @see {@link VoteOnProposalCommandInput} for command's `input` shape.
  * @see {@link VoteOnProposalCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

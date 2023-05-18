@@ -64,8 +64,8 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  *
  * ```
  *
- * @param DisassociateConfigurationItemsFromApplicationCommandInput - {@link DisassociateConfigurationItemsFromApplicationCommandInput}
- * @returns {@link DisassociateConfigurationItemsFromApplicationCommandOutput}
+ * @param DisassociateConfigurationItemsFromApplicationRequest - {@link DisassociateConfigurationItemsFromApplicationRequest}
+ * @returns {@link DisassociateConfigurationItemsFromApplicationResponse}
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandInput} for command's `input` shape.
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

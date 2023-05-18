@@ -74,8 +74,8 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  *
  * ```
  *
- * @param AssociateEnclaveCertificateIamRoleCommandInput - {@link AssociateEnclaveCertificateIamRoleCommandInput}
- * @returns {@link AssociateEnclaveCertificateIamRoleCommandOutput}
+ * @param AssociateEnclaveCertificateIamRoleRequest - {@link AssociateEnclaveCertificateIamRoleRequest}
+ * @returns {@link AssociateEnclaveCertificateIamRoleResult}
  * @see {@link AssociateEnclaveCertificateIamRoleCommandInput} for command's `input` shape.
  * @see {@link AssociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

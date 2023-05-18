@@ -72,8 +72,8 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  *
  * ```
  *
- * @param LookupPolicyCommandInput - {@link LookupPolicyCommandInput}
- * @returns {@link LookupPolicyCommandOutput}
+ * @param LookupPolicyRequest - {@link LookupPolicyRequest}
+ * @returns {@link LookupPolicyResponse}
  * @see {@link LookupPolicyCommandInput} for command's `input` shape.
  * @see {@link LookupPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

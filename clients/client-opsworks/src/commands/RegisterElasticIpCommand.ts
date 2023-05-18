@@ -58,8 +58,8 @@ export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult,
  *
  * ```
  *
- * @param RegisterElasticIpCommandInput - {@link RegisterElasticIpCommandInput}
- * @returns {@link RegisterElasticIpCommandOutput}
+ * @param RegisterElasticIpRequest - {@link RegisterElasticIpRequest}
+ * @returns {@link RegisterElasticIpResult}
  * @see {@link RegisterElasticIpCommandInput} for command's `input` shape.
  * @see {@link RegisterElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

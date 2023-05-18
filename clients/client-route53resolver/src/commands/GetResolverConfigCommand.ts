@@ -56,8 +56,8 @@ export interface GetResolverConfigCommandOutput extends GetResolverConfigRespons
  *
  * ```
  *
- * @param GetResolverConfigCommandInput - {@link GetResolverConfigCommandInput}
- * @returns {@link GetResolverConfigCommandOutput}
+ * @param GetResolverConfigRequest - {@link GetResolverConfigRequest}
+ * @returns {@link GetResolverConfigResponse}
  * @see {@link GetResolverConfigCommandInput} for command's `input` shape.
  * @see {@link GetResolverConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

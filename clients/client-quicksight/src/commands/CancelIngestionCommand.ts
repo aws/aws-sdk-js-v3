@@ -55,8 +55,8 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  *
  * ```
  *
- * @param CancelIngestionCommandInput - {@link CancelIngestionCommandInput}
- * @returns {@link CancelIngestionCommandOutput}
+ * @param CancelIngestionRequest - {@link CancelIngestionRequest}
+ * @returns {@link CancelIngestionResponse}
  * @see {@link CancelIngestionCommandInput} for command's `input` shape.
  * @see {@link CancelIngestionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

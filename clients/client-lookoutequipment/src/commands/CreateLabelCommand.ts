@@ -59,8 +59,8 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  *
  * ```
  *
- * @param CreateLabelCommandInput - {@link CreateLabelCommandInput}
- * @returns {@link CreateLabelCommandOutput}
+ * @param CreateLabelRequest - {@link CreateLabelRequest}
+ * @returns {@link CreateLabelResponse}
  * @see {@link CreateLabelCommandInput} for command's `input` shape.
  * @see {@link CreateLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

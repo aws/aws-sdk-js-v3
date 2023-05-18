@@ -57,8 +57,8 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  *
  * ```
  *
- * @param UpdateConfigurationSetReputationMetricsEnabledCommandInput - {@link UpdateConfigurationSetReputationMetricsEnabledCommandInput}
- * @returns {@link UpdateConfigurationSetReputationMetricsEnabledCommandOutput}
+ * @param UpdateConfigurationSetReputationMetricsEnabledRequest - {@link UpdateConfigurationSetReputationMetricsEnabledRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateConfigurationSetReputationMetricsEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetReputationMetricsEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

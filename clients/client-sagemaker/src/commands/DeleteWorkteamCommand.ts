@@ -50,8 +50,8 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
  *
  * ```
  *
- * @param DeleteWorkteamCommandInput - {@link DeleteWorkteamCommandInput}
- * @returns {@link DeleteWorkteamCommandOutput}
+ * @param DeleteWorkteamRequest - {@link DeleteWorkteamRequest}
+ * @returns {@link DeleteWorkteamResponse}
  * @see {@link DeleteWorkteamCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

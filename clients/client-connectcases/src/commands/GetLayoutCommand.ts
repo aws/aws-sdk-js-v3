@@ -88,8 +88,8 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  *
  * ```
  *
- * @param GetLayoutCommandInput - {@link GetLayoutCommandInput}
- * @returns {@link GetLayoutCommandOutput}
+ * @param GetLayoutRequest - {@link GetLayoutRequest}
+ * @returns {@link GetLayoutResponse}
  * @see {@link GetLayoutCommandInput} for command's `input` shape.
  * @see {@link GetLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

@@ -109,8 +109,8 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  *
  * ```
  *
- * @param GenerateEmbedUrlForAnonymousUserCommandInput - {@link GenerateEmbedUrlForAnonymousUserCommandInput}
- * @returns {@link GenerateEmbedUrlForAnonymousUserCommandOutput}
+ * @param GenerateEmbedUrlForAnonymousUserRequest - {@link GenerateEmbedUrlForAnonymousUserRequest}
+ * @returns {@link GenerateEmbedUrlForAnonymousUserResponse}
  * @see {@link GenerateEmbedUrlForAnonymousUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForAnonymousUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

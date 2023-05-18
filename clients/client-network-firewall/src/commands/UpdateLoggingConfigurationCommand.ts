@@ -99,8 +99,8 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  *
  * ```
  *
- * @param UpdateLoggingConfigurationCommandInput - {@link UpdateLoggingConfigurationCommandInput}
- * @returns {@link UpdateLoggingConfigurationCommandOutput}
+ * @param UpdateLoggingConfigurationRequest - {@link UpdateLoggingConfigurationRequest}
+ * @returns {@link UpdateLoggingConfigurationResponse}
  * @see {@link UpdateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

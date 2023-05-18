@@ -51,8 +51,8 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteConformancePackCommandInput - {@link DeleteConformancePackCommandInput}
- * @returns {@link DeleteConformancePackCommandOutput}
+ * @param DeleteConformancePackRequest - {@link DeleteConformancePackRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteConformancePackCommandInput} for command's `input` shape.
  * @see {@link DeleteConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

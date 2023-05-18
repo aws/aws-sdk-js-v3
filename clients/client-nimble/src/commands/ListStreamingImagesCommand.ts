@@ -82,8 +82,8 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  *
  * ```
  *
- * @param ListStreamingImagesCommandInput - {@link ListStreamingImagesCommandInput}
- * @returns {@link ListStreamingImagesCommandOutput}
+ * @param ListStreamingImagesRequest - {@link ListStreamingImagesRequest}
+ * @returns {@link ListStreamingImagesResponse}
  * @see {@link ListStreamingImagesCommandInput} for command's `input` shape.
  * @see {@link ListStreamingImagesCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

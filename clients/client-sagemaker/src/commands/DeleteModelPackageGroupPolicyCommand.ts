@@ -51,8 +51,8 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param DeleteModelPackageGroupPolicyCommandInput - {@link DeleteModelPackageGroupPolicyCommandInput}
- * @returns {@link DeleteModelPackageGroupPolicyCommandOutput}
+ * @param DeleteModelPackageGroupPolicyInput - {@link DeleteModelPackageGroupPolicyInput}
+ * @returns {@link Unit}
  * @see {@link DeleteModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

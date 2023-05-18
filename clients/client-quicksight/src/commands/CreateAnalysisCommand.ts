@@ -4389,8 +4389,8 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *
  * ```
  *
- * @param CreateAnalysisCommandInput - {@link CreateAnalysisCommandInput}
- * @returns {@link CreateAnalysisCommandOutput}
+ * @param CreateAnalysisRequest - {@link CreateAnalysisRequest}
+ * @returns {@link CreateAnalysisResponse}
  * @see {@link CreateAnalysisCommandInput} for command's `input` shape.
  * @see {@link CreateAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

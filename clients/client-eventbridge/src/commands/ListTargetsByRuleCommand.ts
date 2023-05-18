@@ -182,8 +182,8 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  *
  * ```
  *
- * @param ListTargetsByRuleCommandInput - {@link ListTargetsByRuleCommandInput}
- * @returns {@link ListTargetsByRuleCommandOutput}
+ * @param ListTargetsByRuleRequest - {@link ListTargetsByRuleRequest}
+ * @returns {@link ListTargetsByRuleResponse}
  * @see {@link ListTargetsByRuleCommandInput} for command's `input` shape.
  * @see {@link ListTargetsByRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

@@ -62,8 +62,8 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteFileCommandInput - {@link DeleteFileCommandInput}
- * @returns {@link DeleteFileCommandOutput}
+ * @param DeleteFileInput - {@link DeleteFileInput}
+ * @returns {@link DeleteFileOutput}
  * @see {@link DeleteFileCommandInput} for command's `input` shape.
  * @see {@link DeleteFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

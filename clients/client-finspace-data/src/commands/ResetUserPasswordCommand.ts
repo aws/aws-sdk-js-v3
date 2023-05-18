@@ -56,8 +56,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  *
  * ```
  *
- * @param ResetUserPasswordCommandInput - {@link ResetUserPasswordCommandInput}
- * @returns {@link ResetUserPasswordCommandOutput}
+ * @param ResetUserPasswordRequest - {@link ResetUserPasswordRequest}
+ * @returns {@link ResetUserPasswordResponse}
  * @see {@link ResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

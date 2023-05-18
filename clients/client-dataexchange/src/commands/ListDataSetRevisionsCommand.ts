@@ -67,8 +67,8 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  *
  * ```
  *
- * @param ListDataSetRevisionsCommandInput - {@link ListDataSetRevisionsCommandInput}
- * @returns {@link ListDataSetRevisionsCommandOutput}
+ * @param ListDataSetRevisionsRequest - {@link ListDataSetRevisionsRequest}
+ * @returns {@link ListDataSetRevisionsResponse}
  * @see {@link ListDataSetRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetRevisionsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

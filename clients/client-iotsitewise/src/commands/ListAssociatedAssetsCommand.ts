@@ -93,8 +93,8 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *
  * ```
  *
- * @param ListAssociatedAssetsCommandInput - {@link ListAssociatedAssetsCommandInput}
- * @returns {@link ListAssociatedAssetsCommandOutput}
+ * @param ListAssociatedAssetsRequest - {@link ListAssociatedAssetsRequest}
+ * @returns {@link ListAssociatedAssetsResponse}
  * @see {@link ListAssociatedAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

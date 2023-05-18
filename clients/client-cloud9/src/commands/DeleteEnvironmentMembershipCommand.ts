@@ -49,8 +49,8 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  *
  * ```
  *
- * @param DeleteEnvironmentMembershipCommandInput - {@link DeleteEnvironmentMembershipCommandInput}
- * @returns {@link DeleteEnvironmentMembershipCommandOutput}
+ * @param DeleteEnvironmentMembershipRequest - {@link DeleteEnvironmentMembershipRequest}
+ * @returns {@link DeleteEnvironmentMembershipResult}
  * @see {@link DeleteEnvironmentMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

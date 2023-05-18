@@ -71,8 +71,8 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  *
  * ```
  *
- * @param CreateRecipeCommandInput - {@link CreateRecipeCommandInput}
- * @returns {@link CreateRecipeCommandOutput}
+ * @param CreateRecipeRequest - {@link CreateRecipeRequest}
+ * @returns {@link CreateRecipeResponse}
  * @see {@link CreateRecipeCommandInput} for command's `input` shape.
  * @see {@link CreateRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

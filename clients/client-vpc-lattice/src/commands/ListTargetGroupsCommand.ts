@@ -72,8 +72,8 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  *
  * ```
  *
- * @param ListTargetGroupsCommandInput - {@link ListTargetGroupsCommandInput}
- * @returns {@link ListTargetGroupsCommandOutput}
+ * @param ListTargetGroupsRequest - {@link ListTargetGroupsRequest}
+ * @returns {@link ListTargetGroupsResponse}
  * @see {@link ListTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link ListTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

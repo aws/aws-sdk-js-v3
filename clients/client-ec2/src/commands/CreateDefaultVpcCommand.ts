@@ -100,8 +100,8 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  *
  * ```
  *
- * @param CreateDefaultVpcCommandInput - {@link CreateDefaultVpcCommandInput}
- * @returns {@link CreateDefaultVpcCommandOutput}
+ * @param CreateDefaultVpcRequest - {@link CreateDefaultVpcRequest}
+ * @returns {@link CreateDefaultVpcResult}
  * @see {@link CreateDefaultVpcCommandInput} for command's `input` shape.
  * @see {@link CreateDefaultVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

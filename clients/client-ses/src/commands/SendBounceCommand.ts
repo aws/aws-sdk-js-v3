@@ -92,8 +92,8 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  *
  * ```
  *
- * @param SendBounceCommandInput - {@link SendBounceCommandInput}
- * @returns {@link SendBounceCommandOutput}
+ * @param SendBounceRequest - {@link SendBounceRequest}
+ * @returns {@link SendBounceResponse}
  * @see {@link SendBounceCommandInput} for command's `input` shape.
  * @see {@link SendBounceCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

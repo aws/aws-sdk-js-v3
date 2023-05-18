@@ -83,8 +83,8 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  *
  * ```
  *
- * @param DescribeManagedPrefixListsCommandInput - {@link DescribeManagedPrefixListsCommandInput}
- * @returns {@link DescribeManagedPrefixListsCommandOutput}
+ * @param DescribeManagedPrefixListsRequest - {@link DescribeManagedPrefixListsRequest}
+ * @returns {@link DescribeManagedPrefixListsResult}
  * @see {@link DescribeManagedPrefixListsCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedPrefixListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -58,8 +58,8 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  *
  * ```
  *
- * @param ListPullRequestsCommandInput - {@link ListPullRequestsCommandInput}
- * @returns {@link ListPullRequestsCommandOutput}
+ * @param ListPullRequestsInput - {@link ListPullRequestsInput}
+ * @returns {@link ListPullRequestsOutput}
  * @see {@link ListPullRequestsCommandInput} for command's `input` shape.
  * @see {@link ListPullRequestsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

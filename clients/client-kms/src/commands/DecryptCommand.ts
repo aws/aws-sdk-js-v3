@@ -158,8 +158,8 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *
  * ```
  *
- * @param DecryptCommandInput - {@link DecryptCommandInput}
- * @returns {@link DecryptCommandOutput}
+ * @param DecryptRequest - {@link DecryptRequest}
+ * @returns {@link DecryptResponse}
  * @see {@link DecryptCommandInput} for command's `input` shape.
  * @see {@link DecryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

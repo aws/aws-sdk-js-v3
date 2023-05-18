@@ -60,8 +60,8 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  *
  * ```
  *
- * @param WithdrawByoipCidrCommandInput - {@link WithdrawByoipCidrCommandInput}
- * @returns {@link WithdrawByoipCidrCommandOutput}
+ * @param WithdrawByoipCidrRequest - {@link WithdrawByoipCidrRequest}
+ * @returns {@link WithdrawByoipCidrResult}
  * @see {@link WithdrawByoipCidrCommandInput} for command's `input` shape.
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

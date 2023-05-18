@@ -86,8 +86,8 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
  *
  * ```
  *
- * @param StopReplicationTaskCommandInput - {@link StopReplicationTaskCommandInput}
- * @returns {@link StopReplicationTaskCommandOutput}
+ * @param StopReplicationTaskMessage - {@link StopReplicationTaskMessage}
+ * @returns {@link StopReplicationTaskResponse}
  * @see {@link StopReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link StopReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

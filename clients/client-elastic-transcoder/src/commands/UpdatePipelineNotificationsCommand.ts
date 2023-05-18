@@ -107,8 +107,8 @@ export interface UpdatePipelineNotificationsCommandOutput
  *
  * ```
  *
- * @param UpdatePipelineNotificationsCommandInput - {@link UpdatePipelineNotificationsCommandInput}
- * @returns {@link UpdatePipelineNotificationsCommandOutput}
+ * @param UpdatePipelineNotificationsRequest - {@link UpdatePipelineNotificationsRequest}
+ * @returns {@link UpdatePipelineNotificationsResponse}
  * @see {@link UpdatePipelineNotificationsCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineNotificationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

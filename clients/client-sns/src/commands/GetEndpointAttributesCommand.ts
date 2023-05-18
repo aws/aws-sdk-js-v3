@@ -54,8 +54,8 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  *
  * ```
  *
- * @param GetEndpointAttributesCommandInput - {@link GetEndpointAttributesCommandInput}
- * @returns {@link GetEndpointAttributesCommandOutput}
+ * @param GetEndpointAttributesInput - {@link GetEndpointAttributesInput}
+ * @returns {@link GetEndpointAttributesResponse}
  * @see {@link GetEndpointAttributesCommandInput} for command's `input` shape.
  * @see {@link GetEndpointAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

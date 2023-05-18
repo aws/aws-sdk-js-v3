@@ -62,8 +62,8 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  *
  * ```
  *
- * @param GetReportGroupTrendCommandInput - {@link GetReportGroupTrendCommandInput}
- * @returns {@link GetReportGroupTrendCommandOutput}
+ * @param GetReportGroupTrendInput - {@link GetReportGroupTrendInput}
+ * @returns {@link GetReportGroupTrendOutput}
  * @see {@link GetReportGroupTrendCommandInput} for command's `input` shape.
  * @see {@link GetReportGroupTrendCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -71,8 +71,8 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  *
  * ```
  *
- * @param BatchGetSecurityControlsCommandInput - {@link BatchGetSecurityControlsCommandInput}
- * @returns {@link BatchGetSecurityControlsCommandOutput}
+ * @param BatchGetSecurityControlsRequest - {@link BatchGetSecurityControlsRequest}
+ * @returns {@link BatchGetSecurityControlsResponse}
  * @see {@link BatchGetSecurityControlsCommandInput} for command's `input` shape.
  * @see {@link BatchGetSecurityControlsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

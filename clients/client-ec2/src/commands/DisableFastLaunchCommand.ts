@@ -71,8 +71,8 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  *
  * ```
  *
- * @param DisableFastLaunchCommandInput - {@link DisableFastLaunchCommandInput}
- * @returns {@link DisableFastLaunchCommandOutput}
+ * @param DisableFastLaunchRequest - {@link DisableFastLaunchRequest}
+ * @returns {@link DisableFastLaunchResult}
  * @see {@link DisableFastLaunchCommandInput} for command's `input` shape.
  * @see {@link DisableFastLaunchCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

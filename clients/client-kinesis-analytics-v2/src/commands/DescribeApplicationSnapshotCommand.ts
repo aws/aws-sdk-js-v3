@@ -62,8 +62,8 @@ export interface DescribeApplicationSnapshotCommandOutput
  *
  * ```
  *
- * @param DescribeApplicationSnapshotCommandInput - {@link DescribeApplicationSnapshotCommandInput}
- * @returns {@link DescribeApplicationSnapshotCommandOutput}
+ * @param DescribeApplicationSnapshotRequest - {@link DescribeApplicationSnapshotRequest}
+ * @returns {@link DescribeApplicationSnapshotResponse}
  * @see {@link DescribeApplicationSnapshotCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationSnapshotCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

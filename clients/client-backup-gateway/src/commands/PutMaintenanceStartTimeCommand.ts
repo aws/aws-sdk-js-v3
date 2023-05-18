@@ -54,8 +54,8 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  *
  * ```
  *
- * @param PutMaintenanceStartTimeCommandInput - {@link PutMaintenanceStartTimeCommandInput}
- * @returns {@link PutMaintenanceStartTimeCommandOutput}
+ * @param PutMaintenanceStartTimeInput - {@link PutMaintenanceStartTimeInput}
+ * @returns {@link PutMaintenanceStartTimeOutput}
  * @see {@link PutMaintenanceStartTimeCommandInput} for command's `input` shape.
  * @see {@link PutMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

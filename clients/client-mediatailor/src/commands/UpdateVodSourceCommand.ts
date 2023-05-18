@@ -72,8 +72,8 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
  *
  * ```
  *
- * @param UpdateVodSourceCommandInput - {@link UpdateVodSourceCommandInput}
- * @returns {@link UpdateVodSourceCommandOutput}
+ * @param UpdateVodSourceRequest - {@link UpdateVodSourceRequest}
+ * @returns {@link UpdateVodSourceResponse}
  * @see {@link UpdateVodSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

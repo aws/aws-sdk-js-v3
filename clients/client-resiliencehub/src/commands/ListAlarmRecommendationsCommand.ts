@@ -71,8 +71,8 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  *
  * ```
  *
- * @param ListAlarmRecommendationsCommandInput - {@link ListAlarmRecommendationsCommandInput}
- * @returns {@link ListAlarmRecommendationsCommandOutput}
+ * @param ListAlarmRecommendationsRequest - {@link ListAlarmRecommendationsRequest}
+ * @returns {@link ListAlarmRecommendationsResponse}
  * @see {@link ListAlarmRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListAlarmRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRoomCommandInput - {@link DeleteRoomCommandInput}
- * @returns {@link DeleteRoomCommandOutput}
+ * @param DeleteRoomRequest - {@link DeleteRoomRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRoomCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

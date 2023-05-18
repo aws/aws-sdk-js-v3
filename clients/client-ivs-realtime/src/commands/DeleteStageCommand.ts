@@ -48,8 +48,8 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  *
  * ```
  *
- * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
- * @returns {@link DeleteStageCommandOutput}
+ * @param DeleteStageRequest - {@link DeleteStageRequest}
+ * @returns {@link DeleteStageResponse}
  * @see {@link DeleteStageCommandInput} for command's `input` shape.
  * @see {@link DeleteStageCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

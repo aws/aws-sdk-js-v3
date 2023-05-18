@@ -55,8 +55,8 @@ export interface DisassociatePricingRulesCommandOutput extends DisassociatePrici
  *
  * ```
  *
- * @param DisassociatePricingRulesCommandInput - {@link DisassociatePricingRulesCommandInput}
- * @returns {@link DisassociatePricingRulesCommandOutput}
+ * @param DisassociatePricingRulesInput - {@link DisassociatePricingRulesInput}
+ * @returns {@link DisassociatePricingRulesOutput}
  * @see {@link DisassociatePricingRulesCommandInput} for command's `input` shape.
  * @see {@link DisassociatePricingRulesCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

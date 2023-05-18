@@ -164,8 +164,8 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  *
  * ```
  *
- * @param ModifyVpnConnectionOptionsCommandInput - {@link ModifyVpnConnectionOptionsCommandInput}
- * @returns {@link ModifyVpnConnectionOptionsCommandOutput}
+ * @param ModifyVpnConnectionOptionsRequest - {@link ModifyVpnConnectionOptionsRequest}
+ * @returns {@link ModifyVpnConnectionOptionsResult}
  * @see {@link ModifyVpnConnectionOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnConnectionOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

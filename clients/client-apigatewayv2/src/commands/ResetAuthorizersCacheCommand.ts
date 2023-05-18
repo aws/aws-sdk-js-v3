@@ -49,8 +49,8 @@ export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResetAuthorizersCacheCommandInput - {@link ResetAuthorizersCacheCommandInput}
- * @returns {@link ResetAuthorizersCacheCommandOutput}
+ * @param ResetAuthorizersCacheRequest - {@link ResetAuthorizersCacheRequest}
+ * @returns {@link Unit}
  * @see {@link ResetAuthorizersCacheCommandInput} for command's `input` shape.
  * @see {@link ResetAuthorizersCacheCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

@@ -67,8 +67,8 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
  *
  * ```
  *
- * @param ListManagedPoliciesInPermissionSetCommandInput - {@link ListManagedPoliciesInPermissionSetCommandInput}
- * @returns {@link ListManagedPoliciesInPermissionSetCommandOutput}
+ * @param ListManagedPoliciesInPermissionSetRequest - {@link ListManagedPoliciesInPermissionSetRequest}
+ * @returns {@link ListManagedPoliciesInPermissionSetResponse}
  * @see {@link ListManagedPoliciesInPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ListManagedPoliciesInPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

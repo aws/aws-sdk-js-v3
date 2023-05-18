@@ -54,8 +54,8 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  *
  * ```
  *
- * @param ResolveAppVersionResourcesCommandInput - {@link ResolveAppVersionResourcesCommandInput}
- * @returns {@link ResolveAppVersionResourcesCommandOutput}
+ * @param ResolveAppVersionResourcesRequest - {@link ResolveAppVersionResourcesRequest}
+ * @returns {@link ResolveAppVersionResourcesResponse}
  * @see {@link ResolveAppVersionResourcesCommandInput} for command's `input` shape.
  * @see {@link ResolveAppVersionResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

@@ -92,8 +92,8 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  *
  * ```
  *
- * @param UpdatePullRequestTitleCommandInput - {@link UpdatePullRequestTitleCommandInput}
- * @returns {@link UpdatePullRequestTitleCommandOutput}
+ * @param UpdatePullRequestTitleInput - {@link UpdatePullRequestTitleInput}
+ * @returns {@link UpdatePullRequestTitleOutput}
  * @see {@link UpdatePullRequestTitleCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestTitleCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

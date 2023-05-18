@@ -68,8 +68,8 @@ export interface StopInferenceExperimentCommandOutput extends StopInferenceExper
  *
  * ```
  *
- * @param StopInferenceExperimentCommandInput - {@link StopInferenceExperimentCommandInput}
- * @returns {@link StopInferenceExperimentCommandOutput}
+ * @param StopInferenceExperimentRequest - {@link StopInferenceExperimentRequest}
+ * @returns {@link StopInferenceExperimentResponse}
  * @see {@link StopInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link StopInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

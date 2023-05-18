@@ -58,8 +58,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  *
  * ```
  *
- * @param ListSpacesCommandInput - {@link ListSpacesCommandInput}
- * @returns {@link ListSpacesCommandOutput}
+ * @param ListSpacesRequest - {@link ListSpacesRequest}
+ * @returns {@link ListSpacesResponse}
  * @see {@link ListSpacesCommandInput} for command's `input` shape.
  * @see {@link ListSpacesCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

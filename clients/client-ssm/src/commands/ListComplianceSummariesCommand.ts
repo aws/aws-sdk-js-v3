@@ -89,8 +89,8 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  *
  * ```
  *
- * @param ListComplianceSummariesCommandInput - {@link ListComplianceSummariesCommandInput}
- * @returns {@link ListComplianceSummariesCommandOutput}
+ * @param ListComplianceSummariesRequest - {@link ListComplianceSummariesRequest}
+ * @returns {@link ListComplianceSummariesResult}
  * @see {@link ListComplianceSummariesCommandInput} for command's `input` shape.
  * @see {@link ListComplianceSummariesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

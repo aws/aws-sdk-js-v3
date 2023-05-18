@@ -64,8 +64,8 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
  *
  * ```
  *
- * @param DeleteVoiceMessageSpendLimitOverrideCommandInput - {@link DeleteVoiceMessageSpendLimitOverrideCommandInput}
- * @returns {@link DeleteVoiceMessageSpendLimitOverrideCommandOutput}
+ * @param DeleteVoiceMessageSpendLimitOverrideRequest - {@link DeleteVoiceMessageSpendLimitOverrideRequest}
+ * @returns {@link DeleteVoiceMessageSpendLimitOverrideResult}
  * @see {@link DeleteVoiceMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

@@ -55,8 +55,8 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  *
  * ```
  *
- * @param TagProjectCommandInput - {@link TagProjectCommandInput}
- * @returns {@link TagProjectCommandOutput}
+ * @param TagProjectRequest - {@link TagProjectRequest}
+ * @returns {@link TagProjectResult}
  * @see {@link TagProjectCommandInput} for command's `input` shape.
  * @see {@link TagProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

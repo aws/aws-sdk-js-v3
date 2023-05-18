@@ -57,8 +57,8 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
- * @returns {@link DeleteInstanceProfileCommandOutput}
+ * @param DeleteInstanceProfileRequest - {@link DeleteInstanceProfileRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

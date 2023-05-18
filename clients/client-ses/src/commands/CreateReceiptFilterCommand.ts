@@ -56,8 +56,8 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  *
  * ```
  *
- * @param CreateReceiptFilterCommandInput - {@link CreateReceiptFilterCommandInput}
- * @returns {@link CreateReceiptFilterCommandOutput}
+ * @param CreateReceiptFilterRequest - {@link CreateReceiptFilterRequest}
+ * @returns {@link CreateReceiptFilterResponse}
  * @see {@link CreateReceiptFilterCommandInput} for command's `input` shape.
  * @see {@link CreateReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

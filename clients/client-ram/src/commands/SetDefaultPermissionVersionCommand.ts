@@ -60,8 +60,8 @@ export interface SetDefaultPermissionVersionCommandOutput
  *
  * ```
  *
- * @param SetDefaultPermissionVersionCommandInput - {@link SetDefaultPermissionVersionCommandInput}
- * @returns {@link SetDefaultPermissionVersionCommandOutput}
+ * @param SetDefaultPermissionVersionRequest - {@link SetDefaultPermissionVersionRequest}
+ * @returns {@link SetDefaultPermissionVersionResponse}
  * @see {@link SetDefaultPermissionVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPermissionVersionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

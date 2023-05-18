@@ -51,8 +51,8 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  *
  * ```
  *
- * @param UpdateMailboxQuotaCommandInput - {@link UpdateMailboxQuotaCommandInput}
- * @returns {@link UpdateMailboxQuotaCommandOutput}
+ * @param UpdateMailboxQuotaRequest - {@link UpdateMailboxQuotaRequest}
+ * @returns {@link UpdateMailboxQuotaResponse}
  * @see {@link UpdateMailboxQuotaCommandInput} for command's `input` shape.
  * @see {@link UpdateMailboxQuotaCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

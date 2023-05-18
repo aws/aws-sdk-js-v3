@@ -83,8 +83,8 @@ export interface ListReceivedGrantsCommandOutput extends ListReceivedGrantsRespo
  *
  * ```
  *
- * @param ListReceivedGrantsCommandInput - {@link ListReceivedGrantsCommandInput}
- * @returns {@link ListReceivedGrantsCommandOutput}
+ * @param ListReceivedGrantsRequest - {@link ListReceivedGrantsRequest}
+ * @returns {@link ListReceivedGrantsResponse}
  * @see {@link ListReceivedGrantsCommandInput} for command's `input` shape.
  * @see {@link ListReceivedGrantsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

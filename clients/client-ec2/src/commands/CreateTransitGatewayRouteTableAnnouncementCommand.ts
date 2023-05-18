@@ -89,8 +89,8 @@ export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
  *
  * ```
  *
- * @param CreateTransitGatewayRouteTableAnnouncementCommandInput - {@link CreateTransitGatewayRouteTableAnnouncementCommandInput}
- * @returns {@link CreateTransitGatewayRouteTableAnnouncementCommandOutput}
+ * @param CreateTransitGatewayRouteTableAnnouncementRequest - {@link CreateTransitGatewayRouteTableAnnouncementRequest}
+ * @returns {@link CreateTransitGatewayRouteTableAnnouncementResult}
  * @see {@link CreateTransitGatewayRouteTableAnnouncementCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayRouteTableAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteIntentVersionCommandInput - {@link DeleteIntentVersionCommandInput}
- * @returns {@link DeleteIntentVersionCommandOutput}
+ * @param DeleteIntentVersionRequest - {@link DeleteIntentVersionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteIntentVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteIntentVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

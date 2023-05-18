@@ -63,8 +63,8 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  *
  * ```
  *
- * @param ListTopicRulesCommandInput - {@link ListTopicRulesCommandInput}
- * @returns {@link ListTopicRulesCommandOutput}
+ * @param ListTopicRulesRequest - {@link ListTopicRulesRequest}
+ * @returns {@link ListTopicRulesResponse}
  * @see {@link ListTopicRulesCommandInput} for command's `input` shape.
  * @see {@link ListTopicRulesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

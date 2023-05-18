@@ -118,8 +118,8 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *
  * ```
  *
- * @param CreateKnowledgeBaseCommandInput - {@link CreateKnowledgeBaseCommandInput}
- * @returns {@link CreateKnowledgeBaseCommandOutput}
+ * @param CreateKnowledgeBaseRequest - {@link CreateKnowledgeBaseRequest}
+ * @returns {@link CreateKnowledgeBaseResponse}
  * @see {@link CreateKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link CreateKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

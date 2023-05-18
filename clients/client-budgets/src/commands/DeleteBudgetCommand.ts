@@ -52,8 +52,8 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  *
  * ```
  *
- * @param DeleteBudgetCommandInput - {@link DeleteBudgetCommandInput}
- * @returns {@link DeleteBudgetCommandOutput}
+ * @param DeleteBudgetRequest - {@link DeleteBudgetRequest}
+ * @returns {@link DeleteBudgetResponse}
  * @see {@link DeleteBudgetCommandInput} for command's `input` shape.
  * @see {@link DeleteBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

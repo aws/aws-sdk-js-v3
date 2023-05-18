@@ -57,8 +57,8 @@ export interface GetVerifiedAccessEndpointPolicyCommandOutput
  *
  * ```
  *
- * @param GetVerifiedAccessEndpointPolicyCommandInput - {@link GetVerifiedAccessEndpointPolicyCommandInput}
- * @returns {@link GetVerifiedAccessEndpointPolicyCommandOutput}
+ * @param GetVerifiedAccessEndpointPolicyRequest - {@link GetVerifiedAccessEndpointPolicyRequest}
+ * @returns {@link GetVerifiedAccessEndpointPolicyResult}
  * @see {@link GetVerifiedAccessEndpointPolicyCommandInput} for command's `input` shape.
  * @see {@link GetVerifiedAccessEndpointPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

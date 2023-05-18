@@ -49,8 +49,8 @@ export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionRes
  *
  * ```
  *
- * @param UpdateMemberSessionCommandInput - {@link UpdateMemberSessionCommandInput}
- * @returns {@link UpdateMemberSessionCommandOutput}
+ * @param UpdateMemberSessionRequest - {@link UpdateMemberSessionRequest}
+ * @returns {@link UpdateMemberSessionResponse}
  * @see {@link UpdateMemberSessionCommandInput} for command's `input` shape.
  * @see {@link UpdateMemberSessionCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

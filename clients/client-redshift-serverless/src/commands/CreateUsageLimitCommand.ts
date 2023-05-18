@@ -67,8 +67,8 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  *
  * ```
  *
- * @param CreateUsageLimitCommandInput - {@link CreateUsageLimitCommandInput}
- * @returns {@link CreateUsageLimitCommandOutput}
+ * @param CreateUsageLimitRequest - {@link CreateUsageLimitRequest}
+ * @returns {@link CreateUsageLimitResponse}
  * @see {@link CreateUsageLimitCommandInput} for command's `input` shape.
  * @see {@link CreateUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

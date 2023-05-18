@@ -1,8 +1,14 @@
-export * from "./BackupStorage";
 // smithy-typescript generated code
+/* eslint-disable */
+/**
+ * The frontend service for Cryo Storage.
+ *
+ * @packageDocumentation
+ */
 export * from "./BackupStorageClient";
+export * from "./BackupStorage";
 export * from "./commands";
-export * from "./models";
 export * from "./pagination";
+export * from "./models";
 
 export { BackupStorageServiceException } from "./models/BackupStorageServiceException";

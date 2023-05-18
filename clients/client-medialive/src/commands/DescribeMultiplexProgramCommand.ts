@@ -97,8 +97,8 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  *
  * ```
  *
- * @param DescribeMultiplexProgramCommandInput - {@link DescribeMultiplexProgramCommandInput}
- * @returns {@link DescribeMultiplexProgramCommandOutput}
+ * @param DescribeMultiplexProgramRequest - {@link DescribeMultiplexProgramRequest}
+ * @returns {@link DescribeMultiplexProgramResponse}
  * @see {@link DescribeMultiplexProgramCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiplexProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

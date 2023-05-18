@@ -59,8 +59,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  *
  * ```
  *
- * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
- * @returns {@link GetConfigurationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetConfigurationResponse}
  * @see {@link GetConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

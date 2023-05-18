@@ -55,8 +55,8 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateVolumeCommandInput - {@link UpdateVolumeCommandInput}
- * @returns {@link UpdateVolumeCommandOutput}
+ * @param UpdateVolumeRequest - {@link UpdateVolumeRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateVolumeCommandInput} for command's `input` shape.
  * @see {@link UpdateVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

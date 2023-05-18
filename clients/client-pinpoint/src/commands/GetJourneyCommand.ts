@@ -428,8 +428,8 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
  *
  * ```
  *
- * @param GetJourneyCommandInput - {@link GetJourneyCommandInput}
- * @returns {@link GetJourneyCommandOutput}
+ * @param GetJourneyRequest - {@link GetJourneyRequest}
+ * @returns {@link GetJourneyResponse}
  * @see {@link GetJourneyCommandInput} for command's `input` shape.
  * @see {@link GetJourneyCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

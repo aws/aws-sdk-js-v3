@@ -48,8 +48,8 @@ export interface DeleteMonitorCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteMonitorCommandInput - {@link DeleteMonitorCommandInput}
- * @returns {@link DeleteMonitorCommandOutput}
+ * @param DeleteMonitorRequest - {@link DeleteMonitorRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

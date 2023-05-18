@@ -74,8 +74,8 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  *
  * ```
  *
- * @param GetTestCommandInput - {@link GetTestCommandInput}
- * @returns {@link GetTestCommandOutput}
+ * @param GetTestRequest - {@link GetTestRequest}
+ * @returns {@link GetTestResult}
  * @see {@link GetTestCommandInput} for command's `input` shape.
  * @see {@link GetTestCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

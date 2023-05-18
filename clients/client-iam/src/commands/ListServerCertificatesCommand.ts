@@ -74,8 +74,8 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  *
  * ```
  *
- * @param ListServerCertificatesCommandInput - {@link ListServerCertificatesCommandInput}
- * @returns {@link ListServerCertificatesCommandOutput}
+ * @param ListServerCertificatesRequest - {@link ListServerCertificatesRequest}
+ * @returns {@link ListServerCertificatesResponse}
  * @see {@link ListServerCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListServerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

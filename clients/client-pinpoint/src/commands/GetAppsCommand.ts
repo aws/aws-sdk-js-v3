@@ -64,8 +64,8 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetAppsCommandInput - {@link GetAppsCommandInput}
- * @returns {@link GetAppsCommandOutput}
+ * @param GetAppsRequest - {@link GetAppsRequest}
+ * @returns {@link GetAppsResponse}
  * @see {@link GetAppsCommandInput} for command's `input` shape.
  * @see {@link GetAppsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

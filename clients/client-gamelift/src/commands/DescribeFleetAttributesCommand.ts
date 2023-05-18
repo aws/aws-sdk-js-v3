@@ -123,8 +123,8 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  *
  * ```
  *
- * @param DescribeFleetAttributesCommandInput - {@link DescribeFleetAttributesCommandInput}
- * @returns {@link DescribeFleetAttributesCommandOutput}
+ * @param DescribeFleetAttributesInput - {@link DescribeFleetAttributesInput}
+ * @returns {@link DescribeFleetAttributesOutput}
  * @see {@link DescribeFleetAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

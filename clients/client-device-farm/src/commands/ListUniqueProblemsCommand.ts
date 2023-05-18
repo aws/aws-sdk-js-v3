@@ -134,8 +134,8 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  *
  * ```
  *
- * @param ListUniqueProblemsCommandInput - {@link ListUniqueProblemsCommandInput}
- * @returns {@link ListUniqueProblemsCommandOutput}
+ * @param ListUniqueProblemsRequest - {@link ListUniqueProblemsRequest}
+ * @returns {@link ListUniqueProblemsResult}
  * @see {@link ListUniqueProblemsCommandInput} for command's `input` shape.
  * @see {@link ListUniqueProblemsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

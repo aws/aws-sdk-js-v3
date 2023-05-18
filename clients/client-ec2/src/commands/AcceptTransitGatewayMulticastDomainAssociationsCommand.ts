@@ -76,8 +76,8 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
  *
  * ```
  *
- * @param AcceptTransitGatewayMulticastDomainAssociationsCommandInput - {@link AcceptTransitGatewayMulticastDomainAssociationsCommandInput}
- * @returns {@link AcceptTransitGatewayMulticastDomainAssociationsCommandOutput}
+ * @param AcceptTransitGatewayMulticastDomainAssociationsRequest - {@link AcceptTransitGatewayMulticastDomainAssociationsRequest}
+ * @returns {@link AcceptTransitGatewayMulticastDomainAssociationsResult}
  * @see {@link AcceptTransitGatewayMulticastDomainAssociationsCommandInput} for command's `input` shape.
  * @see {@link AcceptTransitGatewayMulticastDomainAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

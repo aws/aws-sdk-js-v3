@@ -64,8 +64,8 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  *
  * ```
  *
- * @param CreateSubscriberCommandInput - {@link CreateSubscriberCommandInput}
- * @returns {@link CreateSubscriberCommandOutput}
+ * @param CreateSubscriberRequest - {@link CreateSubscriberRequest}
+ * @returns {@link CreateSubscriberResponse}
  * @see {@link CreateSubscriberCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriberCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

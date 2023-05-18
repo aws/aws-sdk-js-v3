@@ -79,8 +79,8 @@ export interface RejectInboundCrossClusterSearchConnectionCommandOutput
  *
  * ```
  *
- * @param RejectInboundCrossClusterSearchConnectionCommandInput - {@link RejectInboundCrossClusterSearchConnectionCommandInput}
- * @returns {@link RejectInboundCrossClusterSearchConnectionCommandOutput}
+ * @param RejectInboundCrossClusterSearchConnectionRequest - {@link RejectInboundCrossClusterSearchConnectionRequest}
+ * @returns {@link RejectInboundCrossClusterSearchConnectionResponse}
  * @see {@link RejectInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

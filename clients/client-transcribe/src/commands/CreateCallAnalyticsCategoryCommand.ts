@@ -225,8 +225,8 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  *
  * ```
  *
- * @param CreateCallAnalyticsCategoryCommandInput - {@link CreateCallAnalyticsCategoryCommandInput}
- * @returns {@link CreateCallAnalyticsCategoryCommandOutput}
+ * @param CreateCallAnalyticsCategoryRequest - {@link CreateCallAnalyticsCategoryRequest}
+ * @returns {@link CreateCallAnalyticsCategoryResponse}
  * @see {@link CreateCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link CreateCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

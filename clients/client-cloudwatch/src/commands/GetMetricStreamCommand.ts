@@ -87,8 +87,8 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  *
  * ```
  *
- * @param GetMetricStreamCommandInput - {@link GetMetricStreamCommandInput}
- * @returns {@link GetMetricStreamCommandOutput}
+ * @param GetMetricStreamInput - {@link GetMetricStreamInput}
+ * @returns {@link GetMetricStreamOutput}
  * @see {@link GetMetricStreamCommandInput} for command's `input` shape.
  * @see {@link GetMetricStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

@@ -114,8 +114,8 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  *
  * ```
  *
- * @param CreateResolverCommandInput - {@link CreateResolverCommandInput}
- * @returns {@link CreateResolverCommandOutput}
+ * @param CreateResolverRequest - {@link CreateResolverRequest}
+ * @returns {@link CreateResolverResponse}
  * @see {@link CreateResolverCommandInput} for command's `input` shape.
  * @see {@link CreateResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

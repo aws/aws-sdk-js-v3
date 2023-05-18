@@ -142,8 +142,8 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
  *
  * ```
  *
- * @param ListAuditFindingsCommandInput - {@link ListAuditFindingsCommandInput}
- * @returns {@link ListAuditFindingsCommandOutput}
+ * @param ListAuditFindingsRequest - {@link ListAuditFindingsRequest}
+ * @returns {@link ListAuditFindingsResponse}
  * @see {@link ListAuditFindingsCommandInput} for command's `input` shape.
  * @see {@link ListAuditFindingsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  *
  * ```
  *
- * @param ListApplicationDPUSizesCommandInput - {@link ListApplicationDPUSizesCommandInput}
- * @returns {@link ListApplicationDPUSizesCommandOutput}
+ * @param ListApplicationDPUSizesInput - {@link ListApplicationDPUSizesInput}
+ * @returns {@link ListApplicationDPUSizesOutput}
  * @see {@link ListApplicationDPUSizesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationDPUSizesCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

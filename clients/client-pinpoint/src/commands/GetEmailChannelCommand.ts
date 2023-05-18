@@ -66,8 +66,8 @@ export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, _
  *
  * ```
  *
- * @param GetEmailChannelCommandInput - {@link GetEmailChannelCommandInput}
- * @returns {@link GetEmailChannelCommandOutput}
+ * @param GetEmailChannelRequest - {@link GetEmailChannelRequest}
+ * @returns {@link GetEmailChannelResponse}
  * @see {@link GetEmailChannelCommandInput} for command's `input` shape.
  * @see {@link GetEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

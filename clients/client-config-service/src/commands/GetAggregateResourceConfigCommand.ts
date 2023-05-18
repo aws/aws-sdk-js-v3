@@ -89,8 +89,8 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
  *
  * ```
  *
- * @param GetAggregateResourceConfigCommandInput - {@link GetAggregateResourceConfigCommandInput}
- * @returns {@link GetAggregateResourceConfigCommandOutput}
+ * @param GetAggregateResourceConfigRequest - {@link GetAggregateResourceConfigRequest}
+ * @returns {@link GetAggregateResourceConfigResponse}
  * @see {@link GetAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link GetAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -88,8 +88,8 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  *
  * ```
  *
- * @param GetAppMonitorCommandInput - {@link GetAppMonitorCommandInput}
- * @returns {@link GetAppMonitorCommandOutput}
+ * @param GetAppMonitorRequest - {@link GetAppMonitorRequest}
+ * @returns {@link GetAppMonitorResponse}
  * @see {@link GetAppMonitorCommandInput} for command's `input` shape.
  * @see {@link GetAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

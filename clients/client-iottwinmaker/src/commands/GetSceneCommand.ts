@@ -70,8 +70,8 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetSceneCommandInput - {@link GetSceneCommandInput}
- * @returns {@link GetSceneCommandOutput}
+ * @param GetSceneRequest - {@link GetSceneRequest}
+ * @returns {@link GetSceneResponse}
  * @see {@link GetSceneCommandInput} for command's `input` shape.
  * @see {@link GetSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

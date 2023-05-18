@@ -65,8 +65,8 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  *
  * ```
  *
- * @param AddWorkingStorageCommandInput - {@link AddWorkingStorageCommandInput}
- * @returns {@link AddWorkingStorageCommandOutput}
+ * @param AddWorkingStorageInput - {@link AddWorkingStorageInput}
+ * @returns {@link AddWorkingStorageOutput}
  * @see {@link AddWorkingStorageCommandInput} for command's `input` shape.
  * @see {@link AddWorkingStorageCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

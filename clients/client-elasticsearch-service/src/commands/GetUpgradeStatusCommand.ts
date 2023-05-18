@@ -56,8 +56,8 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  *
  * ```
  *
- * @param GetUpgradeStatusCommandInput - {@link GetUpgradeStatusCommandInput}
- * @returns {@link GetUpgradeStatusCommandOutput}
+ * @param GetUpgradeStatusRequest - {@link GetUpgradeStatusRequest}
+ * @returns {@link GetUpgradeStatusResponse}
  * @see {@link GetUpgradeStatusCommandInput} for command's `input` shape.
  * @see {@link GetUpgradeStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

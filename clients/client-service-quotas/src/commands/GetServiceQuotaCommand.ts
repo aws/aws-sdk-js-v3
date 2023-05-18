@@ -79,8 +79,8 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  *
  * ```
  *
- * @param GetServiceQuotaCommandInput - {@link GetServiceQuotaCommandInput}
- * @returns {@link GetServiceQuotaCommandOutput}
+ * @param GetServiceQuotaRequest - {@link GetServiceQuotaRequest}
+ * @returns {@link GetServiceQuotaResponse}
  * @see {@link GetServiceQuotaCommandInput} for command's `input` shape.
  * @see {@link GetServiceQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

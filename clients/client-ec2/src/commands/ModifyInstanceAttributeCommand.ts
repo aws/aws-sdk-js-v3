@@ -108,8 +108,8 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param ModifyInstanceAttributeCommandInput - {@link ModifyInstanceAttributeCommandInput}
- * @returns {@link ModifyInstanceAttributeCommandOutput}
+ * @param ModifyInstanceAttributeRequest - {@link ModifyInstanceAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link ModifyInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

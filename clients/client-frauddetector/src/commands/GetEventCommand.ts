@@ -66,8 +66,8 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  *
  * ```
  *
- * @param GetEventCommandInput - {@link GetEventCommandInput}
- * @returns {@link GetEventCommandOutput}
+ * @param GetEventRequest - {@link GetEventRequest}
+ * @returns {@link GetEventResult}
  * @see {@link GetEventCommandInput} for command's `input` shape.
  * @see {@link GetEventCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

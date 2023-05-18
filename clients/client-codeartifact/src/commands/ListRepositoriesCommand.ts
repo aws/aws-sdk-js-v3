@@ -68,8 +68,8 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  *
  * ```
  *
- * @param ListRepositoriesCommandInput - {@link ListRepositoriesCommandInput}
- * @returns {@link ListRepositoriesCommandOutput}
+ * @param ListRepositoriesRequest - {@link ListRepositoriesRequest}
+ * @returns {@link ListRepositoriesResult}
  * @see {@link ListRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

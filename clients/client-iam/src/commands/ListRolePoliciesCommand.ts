@@ -64,8 +64,8 @@ export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse,
  *
  * ```
  *
- * @param ListRolePoliciesCommandInput - {@link ListRolePoliciesCommandInput}
- * @returns {@link ListRolePoliciesCommandOutput}
+ * @param ListRolePoliciesRequest - {@link ListRolePoliciesRequest}
+ * @returns {@link ListRolePoliciesResponse}
  * @see {@link ListRolePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListRolePoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

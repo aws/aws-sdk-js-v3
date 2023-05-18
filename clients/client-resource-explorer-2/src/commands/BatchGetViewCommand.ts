@@ -77,8 +77,8 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  *
  * ```
  *
- * @param BatchGetViewCommandInput - {@link BatchGetViewCommandInput}
- * @returns {@link BatchGetViewCommandOutput}
+ * @param BatchGetViewInput - {@link BatchGetViewInput}
+ * @returns {@link BatchGetViewOutput}
  * @see {@link BatchGetViewCommandInput} for command's `input` shape.
  * @see {@link BatchGetViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

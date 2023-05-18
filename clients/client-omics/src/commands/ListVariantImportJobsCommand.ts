@@ -73,8 +73,8 @@ export interface ListVariantImportJobsCommandOutput extends ListVariantImportJob
  *
  * ```
  *
- * @param ListVariantImportJobsCommandInput - {@link ListVariantImportJobsCommandInput}
- * @returns {@link ListVariantImportJobsCommandOutput}
+ * @param ListVariantImportJobsRequest - {@link ListVariantImportJobsRequest}
+ * @returns {@link ListVariantImportJobsResponse}
  * @see {@link ListVariantImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListVariantImportJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

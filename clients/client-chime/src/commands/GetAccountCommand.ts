@@ -67,8 +67,8 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  *
  * ```
  *
- * @param GetAccountCommandInput - {@link GetAccountCommandInput}
- * @returns {@link GetAccountCommandOutput}
+ * @param GetAccountRequest - {@link GetAccountRequest}
+ * @returns {@link GetAccountResponse}
  * @see {@link GetAccountCommandInput} for command's `input` shape.
  * @see {@link GetAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

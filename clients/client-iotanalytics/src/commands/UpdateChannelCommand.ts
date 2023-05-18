@@ -60,8 +60,8 @@ export interface UpdateChannelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
- * @returns {@link UpdateChannelCommandOutput}
+ * @param UpdateChannelRequest - {@link UpdateChannelRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

@@ -58,8 +58,8 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  *
  * ```
  *
- * @param UpdateNumberOfDomainControllersCommandInput - {@link UpdateNumberOfDomainControllersCommandInput}
- * @returns {@link UpdateNumberOfDomainControllersCommandOutput}
+ * @param UpdateNumberOfDomainControllersRequest - {@link UpdateNumberOfDomainControllersRequest}
+ * @returns {@link UpdateNumberOfDomainControllersResult}
  * @see {@link UpdateNumberOfDomainControllersCommandInput} for command's `input` shape.
  * @see {@link UpdateNumberOfDomainControllersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

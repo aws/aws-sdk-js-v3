@@ -104,8 +104,8 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *
  * ```
  *
- * @param CreateJobTemplateCommandInput - {@link CreateJobTemplateCommandInput}
- * @returns {@link CreateJobTemplateCommandOutput}
+ * @param CreateJobTemplateRequest - {@link CreateJobTemplateRequest}
+ * @returns {@link CreateJobTemplateResponse}
  * @see {@link CreateJobTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

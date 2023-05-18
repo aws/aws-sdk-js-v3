@@ -242,8 +242,8 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *
  * ```
  *
- * @param GetObjectAttributesCommandInput - {@link GetObjectAttributesCommandInput}
- * @returns {@link GetObjectAttributesCommandOutput}
+ * @param GetObjectAttributesRequest - {@link GetObjectAttributesRequest}
+ * @returns {@link GetObjectAttributesOutput}
  * @see {@link GetObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link GetObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

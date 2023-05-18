@@ -49,8 +49,8 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteNetworkInterfaceCommandInput - {@link DeleteNetworkInterfaceCommandInput}
- * @returns {@link DeleteNetworkInterfaceCommandOutput}
+ * @param DeleteNetworkInterfaceRequest - {@link DeleteNetworkInterfaceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

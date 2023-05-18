@@ -56,8 +56,8 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  *
  * ```
  *
- * @param ClaimDevicesByClaimCodeCommandInput - {@link ClaimDevicesByClaimCodeCommandInput}
- * @returns {@link ClaimDevicesByClaimCodeCommandOutput}
+ * @param ClaimDevicesByClaimCodeRequest - {@link ClaimDevicesByClaimCodeRequest}
+ * @returns {@link ClaimDevicesByClaimCodeResponse}
  * @see {@link ClaimDevicesByClaimCodeCommandInput} for command's `input` shape.
  * @see {@link ClaimDevicesByClaimCodeCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.

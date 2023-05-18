@@ -72,8 +72,8 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  *
  * ```
  *
- * @param DescribeRepositoriesCommandInput - {@link DescribeRepositoriesCommandInput}
- * @returns {@link DescribeRepositoriesCommandOutput}
+ * @param DescribeRepositoriesRequest - {@link DescribeRepositoriesRequest}
+ * @returns {@link DescribeRepositoriesResponse}
  * @see {@link DescribeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

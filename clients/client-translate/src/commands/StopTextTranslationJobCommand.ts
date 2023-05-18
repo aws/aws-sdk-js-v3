@@ -57,8 +57,8 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  *
  * ```
  *
- * @param StopTextTranslationJobCommandInput - {@link StopTextTranslationJobCommandInput}
- * @returns {@link StopTextTranslationJobCommandOutput}
+ * @param StopTextTranslationJobRequest - {@link StopTextTranslationJobRequest}
+ * @returns {@link StopTextTranslationJobResponse}
  * @see {@link StopTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link StopTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

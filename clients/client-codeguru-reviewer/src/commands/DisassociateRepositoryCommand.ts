@@ -75,8 +75,8 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  *
  * ```
  *
- * @param DisassociateRepositoryCommandInput - {@link DisassociateRepositoryCommandInput}
- * @returns {@link DisassociateRepositoryCommandOutput}
+ * @param DisassociateRepositoryRequest - {@link DisassociateRepositoryRequest}
+ * @returns {@link DisassociateRepositoryResponse}
  * @see {@link DisassociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link DisassociateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

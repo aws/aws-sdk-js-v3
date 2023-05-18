@@ -55,8 +55,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
+ * @param UpdateEnvironmentRequest - {@link UpdateEnvironmentRequest}
+ * @returns {@link UpdateEnvironmentResponse}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

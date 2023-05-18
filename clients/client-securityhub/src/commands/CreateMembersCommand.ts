@@ -94,8 +94,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *
  * ```
  *
- * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
- * @returns {@link CreateMembersCommandOutput}
+ * @param CreateMembersRequest - {@link CreateMembersRequest}
+ * @returns {@link CreateMembersResponse}
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

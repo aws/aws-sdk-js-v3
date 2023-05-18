@@ -85,8 +85,8 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *
  * ```
  *
- * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
- * @returns {@link ResetDBClusterParameterGroupCommandOutput}
+ * @param ResetDBClusterParameterGroupMessage - {@link ResetDBClusterParameterGroupMessage}
+ * @returns {@link DBClusterParameterGroupNameMessage}
  * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

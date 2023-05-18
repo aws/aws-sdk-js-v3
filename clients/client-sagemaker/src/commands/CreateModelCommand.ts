@@ -130,8 +130,8 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *
  * ```
  *
- * @param CreateModelCommandInput - {@link CreateModelCommandInput}
- * @returns {@link CreateModelCommandOutput}
+ * @param CreateModelInput - {@link CreateModelInput}
+ * @returns {@link CreateModelOutput}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

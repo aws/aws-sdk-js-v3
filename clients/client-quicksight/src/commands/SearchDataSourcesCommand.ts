@@ -71,8 +71,8 @@ export interface SearchDataSourcesCommandOutput extends SearchDataSourcesRespons
  *
  * ```
  *
- * @param SearchDataSourcesCommandInput - {@link SearchDataSourcesCommandInput}
- * @returns {@link SearchDataSourcesCommandOutput}
+ * @param SearchDataSourcesRequest - {@link SearchDataSourcesRequest}
+ * @returns {@link SearchDataSourcesResponse}
  * @see {@link SearchDataSourcesCommandInput} for command's `input` shape.
  * @see {@link SearchDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

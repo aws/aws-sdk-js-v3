@@ -61,8 +61,8 @@ export interface ListAvailableSolutionStacksCommandOutput
  *
  * ```
  *
- * @param ListAvailableSolutionStacksCommandInput - {@link ListAvailableSolutionStacksCommandInput}
- * @returns {@link ListAvailableSolutionStacksCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link ListAvailableSolutionStacksResultMessage}
  * @see {@link ListAvailableSolutionStacksCommandInput} for command's `input` shape.
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -85,8 +85,8 @@ export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentR
  *
  * ```
  *
- * @param GetConnectAttachmentCommandInput - {@link GetConnectAttachmentCommandInput}
- * @returns {@link GetConnectAttachmentCommandOutput}
+ * @param GetConnectAttachmentRequest - {@link GetConnectAttachmentRequest}
+ * @returns {@link GetConnectAttachmentResponse}
  * @see {@link GetConnectAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetConnectAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

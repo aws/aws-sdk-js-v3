@@ -67,8 +67,8 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  *
  * ```
  *
- * @param PollForThirdPartyJobsCommandInput - {@link PollForThirdPartyJobsCommandInput}
- * @returns {@link PollForThirdPartyJobsCommandOutput}
+ * @param PollForThirdPartyJobsInput - {@link PollForThirdPartyJobsInput}
+ * @returns {@link PollForThirdPartyJobsOutput}
  * @see {@link PollForThirdPartyJobsCommandInput} for command's `input` shape.
  * @see {@link PollForThirdPartyJobsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
