@@ -14,7 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeImportSnapshotTasksRequest, DescribeImportSnapshotTasksResult } from "../models/models_3";
+import {
+  DescribeImportSnapshotTasksRequest,
+  DescribeImportSnapshotTasksResult,
+  DescribeImportSnapshotTasksResultFilterSensitiveLog,
+} from "../models/models_3";
 import { de_DescribeImportSnapshotTasksCommand, se_DescribeImportSnapshotTasksCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -150,7 +154,7 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeImportSnapshotTasksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

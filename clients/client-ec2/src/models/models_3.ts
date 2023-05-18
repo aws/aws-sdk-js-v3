@@ -9211,3 +9211,54 @@ export const DescribeConversionTasksResultFilterSensitiveLog = (obj: DescribeCon
     ConversionTasks: obj.ConversionTasks.map((item) => ConversionTaskFilterSensitiveLog(item)),
   }),
 });
+
+/**
+ * @internal
+ */
+export const SnapshotDetailFilterSensitiveLog = (obj: SnapshotDetail): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportImageTaskFilterSensitiveLog = (obj: ImportImageTask): any => ({
+  ...obj,
+  ...(obj.SnapshotDetails && {
+    SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportImageTasksResultFilterSensitiveLog = (obj: DescribeImportImageTasksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotTaskDetailFilterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportSnapshotTaskFilterSensitiveLog = (obj: ImportSnapshotTask): any => ({
+  ...obj,
+  ...(obj.SnapshotTaskDetail && { SnapshotTaskDetail: SnapshotTaskDetailFilterSensitiveLog(obj.SnapshotTaskDetail) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportSnapshotTasksResultFilterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
+  ...obj,
+  ...(obj.ImportSnapshotTasks && {
+    ImportSnapshotTasks: obj.ImportSnapshotTasks.map((item) => ImportSnapshotTaskFilterSensitiveLog(item)),
+  }),
+});

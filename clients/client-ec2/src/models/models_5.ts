@@ -83,6 +83,7 @@ import {
   PeriodType,
   ProductCode,
   SnapshotDetail,
+  SnapshotDetailFilterSensitiveLog,
   StatisticType,
   VirtualizationType,
 } from "./models_3";
@@ -7868,6 +7869,34 @@ export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog =
 ): any => ({
   ...obj,
   ...(obj.VpnConnectionDeviceSampleConfiguration && { VpnConnectionDeviceSampleConfiguration: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImageDiskContainerFilterSensitiveLog = (obj: ImageDiskContainer): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportImageRequestFilterSensitiveLog = (obj: ImportImageRequest): any => ({
+  ...obj,
+  ...(obj.DiskContainers && {
+    DiskContainers: obj.DiskContainers.map((item) => ImageDiskContainerFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any => ({
+  ...obj,
+  ...(obj.SnapshotDetails && {
+    SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
+  }),
 });
 
 /**
