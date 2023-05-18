@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.335.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.334.0...v3.335.0) (2023-05-18)
+
+
+### Bug Fixes
+
+* **codegen:** do not trim query params in request output ([#4731](https://github.com/aws/aws-sdk-js-v3/issues/4731)) ([f787d8e](https://github.com/aws/aws-sdk-js-v3/commit/f787d8eb49768ad3d262cc2484e2136a5aed6bc2))
+
+
+### Features
+
+* **client-athena:** Removing SparkProperties from EngineConfiguration object for StartSession API call ([a083593](https://github.com/aws/aws-sdk-js-v3/commit/a083593205ec6bef31e18fdb5a892f00397d7dd7))
+* **client-cloudtrail:** Add ConflictException to PutEventSelectors, add (Channel/EDS)ARNInvalidException to Tag APIs. These exceptions provide customers with more specific error messages instead of internal errors. ([8e275e0](https://github.com/aws/aws-sdk-js-v3/commit/8e275e0a72f1f30a9f14019262d07d8a34c4502f))
+* **client-compute-optimizer:** In this launch, we add support for showing integration status with external metric providers such as Instana, Datadog ...etc in GetEC2InstanceRecommendations and ExportEC2InstanceRecommendations apis ([c6f5b24](https://github.com/aws/aws-sdk-js-v3/commit/c6f5b24b11faf527fab9fadfd397dd35c9027ba9))
+* **client-connect:** You can programmatically create and manage prompts using APIs, for example, to extract prompts stored within Amazon Connect and add them to your Amazon S3 bucket. AWS CloudTrail, AWS CloudFormation and tagging are supported. ([a691b2d](https://github.com/aws/aws-sdk-js-v3/commit/a691b2d6321d0f533460cf5bab060302636214d3))
+* **client-ec2:** Add support for i4g.large, i4g.xlarge, i4g.2xlarge, i4g.4xlarge, i4g.8xlarge and i4g.16xlarge instances powered by AWS Graviton2 processors that deliver up to 15% better compute performance than our other storage-optimized instances. ([6d1ea0b](https://github.com/aws/aws-sdk-js-v3/commit/6d1ea0bacba489db15f50954aeeb5dc358e94678))
+* **client-mediaconvert:** This release introduces a new MXF Profile for XDCAM which is strictly compliant with the SMPTE RDD 9 standard and improved handling of output name modifiers. ([9f7d0d1](https://github.com/aws/aws-sdk-js-v3/commit/9f7d0d1f48b12ba9e921d0fbf6ea22716bc749ca))
+* **client-sagemaker-geospatial:** This release makes ExecutionRoleArn a required field in the StartEarthObservationJob API. ([1cb2b40](https://github.com/aws/aws-sdk-js-v3/commit/1cb2b40b388b76174d0a64ce02288970f1ad5665))
+* **client-sts:** API updates for the AWS Security Token Service ([ed5b031](https://github.com/aws/aws-sdk-js-v3/commit/ed5b031c086e3caaebd012485e2989fbffd1e1f9))
+* **clients:** update client endpoints as of 2023-05-18 ([8467346](https://github.com/aws/aws-sdk-js-v3/commit/8467346cacdbe0d1b2e087da53475191496785bb))
+* **deps:** use [@smithy](https://github.com/smithy) types and protocol-http ([#4722](https://github.com/aws/aws-sdk-js-v3/issues/4722)) ([7ed7101](https://github.com/aws/aws-sdk-js-v3/commit/7ed7101dcc4e81038b6c7f581162b959e6b33a04))
+
+
+
+
+
 # [3.334.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.333.0...v3.334.0) (2023-05-16)
 
 
