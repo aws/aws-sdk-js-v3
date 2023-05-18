@@ -110,6 +110,7 @@ import {
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
 import { CreateParticipantCommandInput, CreateParticipantCommandOutput } from "./commands/CreateParticipantCommand";
+import { CreatePromptCommandInput, CreatePromptCommandOutput } from "./commands/CreatePromptCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "./commands/CreateQuickConnectCommand";
 import {
@@ -159,6 +160,7 @@ import {
   DeleteIntegrationAssociationCommandInput,
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
+import { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "./commands/DeleteQuickConnectCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
@@ -215,6 +217,7 @@ import {
   DescribePhoneNumberCommandInput,
   DescribePhoneNumberCommandOutput,
 } from "./commands/DescribePhoneNumberCommand";
+import { DescribePromptCommandInput, DescribePromptCommandOutput } from "./commands/DescribePromptCommand";
 import { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "./commands/DescribeQueueCommand";
 import {
   DescribeQuickConnectCommandInput,
@@ -286,6 +289,7 @@ import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from 
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
 import { GetMetricDataV2CommandInput, GetMetricDataV2CommandOutput } from "./commands/GetMetricDataV2Command";
+import { GetPromptFileCommandInput, GetPromptFileCommandOutput } from "./commands/GetPromptFileCommand";
 import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "./commands/GetTaskTemplateCommand";
 import {
   GetTrafficDistributionCommandInput,
@@ -502,6 +506,7 @@ import {
   UpdateParticipantRoleConfigCommandOutput,
 } from "./commands/UpdateParticipantRoleConfigCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand";
+import { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "./commands/UpdatePromptCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
   UpdateQueueHoursOfOperationCommandOutput,
@@ -610,6 +615,7 @@ export type ServiceInputTypes =
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
   | CreateParticipantCommandInput
+  | CreatePromptCommandInput
   | CreateQueueCommandInput
   | CreateQuickConnectCommandInput
   | CreateRoutingProfileCommandInput
@@ -629,6 +635,7 @@ export type ServiceInputTypes =
   | DeleteHoursOfOperationCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
+  | DeletePromptCommandInput
   | DeleteQuickConnectCommandInput
   | DeleteRuleCommandInput
   | DeleteSecurityProfileCommandInput
@@ -649,6 +656,7 @@ export type ServiceInputTypes =
   | DescribeInstanceCommandInput
   | DescribeInstanceStorageConfigCommandInput
   | DescribePhoneNumberCommandInput
+  | DescribePromptCommandInput
   | DescribeQueueCommandInput
   | DescribeQuickConnectCommandInput
   | DescribeRoutingProfileCommandInput
@@ -675,6 +683,7 @@ export type ServiceInputTypes =
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
   | GetMetricDataV2CommandInput
+  | GetPromptFileCommandInput
   | GetTaskTemplateCommandInput
   | GetTrafficDistributionCommandInput
   | ListAgentStatusesCommandInput
@@ -753,6 +762,7 @@ export type ServiceInputTypes =
   | UpdateInstanceStorageConfigCommandInput
   | UpdateParticipantRoleConfigCommandInput
   | UpdatePhoneNumberCommandInput
+  | UpdatePromptCommandInput
   | UpdateQueueHoursOfOperationCommandInput
   | UpdateQueueMaxContactsCommandInput
   | UpdateQueueNameCommandInput
@@ -800,6 +810,7 @@ export type ServiceOutputTypes =
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
   | CreateParticipantCommandOutput
+  | CreatePromptCommandOutput
   | CreateQueueCommandOutput
   | CreateQuickConnectCommandOutput
   | CreateRoutingProfileCommandOutput
@@ -819,6 +830,7 @@ export type ServiceOutputTypes =
   | DeleteHoursOfOperationCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
+  | DeletePromptCommandOutput
   | DeleteQuickConnectCommandOutput
   | DeleteRuleCommandOutput
   | DeleteSecurityProfileCommandOutput
@@ -839,6 +851,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceCommandOutput
   | DescribeInstanceStorageConfigCommandOutput
   | DescribePhoneNumberCommandOutput
+  | DescribePromptCommandOutput
   | DescribeQueueCommandOutput
   | DescribeQuickConnectCommandOutput
   | DescribeRoutingProfileCommandOutput
@@ -865,6 +878,7 @@ export type ServiceOutputTypes =
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
   | GetMetricDataV2CommandOutput
+  | GetPromptFileCommandOutput
   | GetTaskTemplateCommandOutput
   | GetTrafficDistributionCommandOutput
   | ListAgentStatusesCommandOutput
@@ -943,6 +957,7 @@ export type ServiceOutputTypes =
   | UpdateInstanceStorageConfigCommandOutput
   | UpdateParticipantRoleConfigCommandOutput
   | UpdatePhoneNumberCommandOutput
+  | UpdatePromptCommandOutput
   | UpdateQueueHoursOfOperationCommandOutput
   | UpdateQueueMaxContactsCommandOutput
   | UpdateQueueNameCommandOutput

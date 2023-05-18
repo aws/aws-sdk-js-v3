@@ -2200,6 +2200,51 @@ export interface CreateParticipantResponse {
 
 /**
  * @public
+ */
+export interface CreatePromptRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the prompt.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the prompt.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The URI for the S3 bucket where the prompt is stored.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreatePromptResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   */
+  PromptARN?: string;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId?: string;
+}
+
+/**
+ * @public
  * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
  */
 export interface OutboundCallerConfig {
@@ -3755,6 +3800,21 @@ export interface DeleteIntegrationAssociationRequest {
 /**
  * @public
  */
+export interface DeletePromptRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteQuickConnectRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5296,6 +5356,62 @@ export interface DescribePhoneNumberResponse {
 /**
  * @public
  */
+export interface DescribePromptRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about a prompt.</p>
+ */
+export interface Prompt {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   */
+  PromptARN?: string;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId?: string;
+
+  /**
+   * <p>The name of the prompt.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description for the prompt.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface DescribePromptResponse {
+  /**
+   * <p>Information about the prompt.</p>
+   */
+  Prompt?: Prompt;
+}
+
+/**
+ * @public
+ */
 export interface DescribeQueueRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6660,114 +6776,6 @@ export interface GetCurrentMetricDataRequest {
    *          </ul>
    */
   SortCriteria?: CurrentMetricSortCriteria[];
-}
-
-/**
- * @public
- * <p>Contains the data for a real-time metric.</p>
- */
-export interface CurrentMetricData {
-  /**
-   * <p>Information about the metric.</p>
-   */
-  Metric?: CurrentMetric;
-
-  /**
-   * <p>The value of the metric.</p>
-   */
-  Value?: number;
-}
-
-/**
- * @public
- * <p>Information about the routing profile assigned to the user.</p>
- */
-export interface RoutingProfileReference {
-  /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- * <p>Contains information about the dimensions for a set of metrics.</p>
- */
-export interface Dimensions {
-  /**
-   * <p>Information about the queue for which metrics are returned.</p>
-   */
-  Queue?: QueueReference;
-
-  /**
-   * <p>The channel used for grouping and filters.</p>
-   */
-  Channel?: Channel | string;
-
-  /**
-   * <p>Information about the routing profile assigned to the user.</p>
-   */
-  RoutingProfile?: RoutingProfileReference;
-}
-
-/**
- * @public
- * <p>Contains information about a set of real-time metrics.</p>
- */
-export interface CurrentMetricResult {
-  /**
-   * <p>The dimensions for the metrics.</p>
-   */
-  Dimensions?: Dimensions;
-
-  /**
-   * <p>The set of metrics.</p>
-   */
-  Collections?: CurrentMetricData[];
-}
-
-/**
- * @public
- */
-export interface GetCurrentMetricDataResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
-   *    the token must use the same request parameters as the request that generated the token.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the real-time metrics.</p>
-   */
-  MetricResults?: CurrentMetricResult[];
-
-  /**
-   * <p>The time at which the metrics were retrieved and cached for pagination.</p>
-   */
-  DataSnapshotTime?: Date;
-
-  /**
-   * <p>The total count of the result, regardless of the current page size. </p>
-   */
-  ApproximateTotalCount?: number;
-}
-
-/**
- * @public
- * <p>Filters user data based on the contact information that is associated to the users. It
- *    contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
- */
-export interface ContactFilter {
-  /**
-   * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
-   */
-  ContactStates?: (ContactState | string)[];
 }
 
 /**

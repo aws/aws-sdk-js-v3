@@ -11,11 +11,11 @@ import {
   AgentStatusType,
   Attribute,
   Channel,
-  ContactFilter,
   ContactFlowModuleState,
   ContactFlowState,
   ContactFlowType,
-  Dimensions,
+  ContactState,
+  CurrentMetric,
   DirectoryType,
   Evaluation,
   EvaluationAnswerData,
@@ -43,6 +43,7 @@ import {
   PhoneNumberCountryCode,
   PhoneNumberType,
   Queue,
+  QueueReference,
   QueueStatus,
   QuickConnectConfig,
   QuickConnectType,
@@ -50,7 +51,6 @@ import {
   ReferenceType,
   RoutingProfile,
   RoutingProfileQueueConfig,
-  RoutingProfileReference,
   RuleAction,
   RulePublishStatus,
   SourceType,
@@ -66,6 +66,114 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Contains the data for a real-time metric.</p>
+ */
+export interface CurrentMetricData {
+  /**
+   * <p>Information about the metric.</p>
+   */
+  Metric?: CurrentMetric;
+
+  /**
+   * <p>The value of the metric.</p>
+   */
+  Value?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the routing profile assigned to the user.</p>
+ */
+export interface RoutingProfileReference {
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the dimensions for a set of metrics.</p>
+ */
+export interface Dimensions {
+  /**
+   * <p>Information about the queue for which metrics are returned.</p>
+   */
+  Queue?: QueueReference;
+
+  /**
+   * <p>The channel used for grouping and filters.</p>
+   */
+  Channel?: Channel | string;
+
+  /**
+   * <p>Information about the routing profile assigned to the user.</p>
+   */
+  RoutingProfile?: RoutingProfileReference;
+}
+
+/**
+ * @public
+ * <p>Contains information about a set of real-time metrics.</p>
+ */
+export interface CurrentMetricResult {
+  /**
+   * <p>The dimensions for the metrics.</p>
+   */
+  Dimensions?: Dimensions;
+
+  /**
+   * <p>The set of metrics.</p>
+   */
+  Collections?: CurrentMetricData[];
+}
+
+/**
+ * @public
+ */
+export interface GetCurrentMetricDataResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
+   *    the token must use the same request parameters as the request that generated the token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the real-time metrics.</p>
+   */
+  MetricResults?: CurrentMetricResult[];
+
+  /**
+   * <p>The time at which the metrics were retrieved and cached for pagination.</p>
+   */
+  DataSnapshotTime?: Date;
+
+  /**
+   * <p>The total count of the result, regardless of the current page size. </p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * <p>Filters user data based on the contact information that is associated to the users. It
+ *    contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
+ */
+export interface ContactFilter {
+  /**
+   * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
+   */
+  ContactStates?: (ContactState | string)[];
+}
 
 /**
  * @public
@@ -1132,6 +1240,32 @@ export interface GetMetricDataV2Response {
    *    summary of metric data is returned. </p>
    */
   MetricResults?: MetricResultV2[];
+}
+
+/**
+ * @public
+ */
+export interface GetPromptFileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPromptFileResponse {
+  /**
+   * <p>A generated URL to the prompt that can be given to an unauthorized user so they can access
+   *    the prompt in S3.</p>
+   */
+  PromptPresignedUrl?: string;
 }
 
 /**
@@ -6060,6 +6194,51 @@ export interface UpdatePhoneNumberResponse {
    * <p>The Amazon Resource Name (ARN) of the phone number.</p>
    */
   PhoneNumberArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePromptRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId: string | undefined;
+
+  /**
+   * <p>The name of the prompt.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the prompt.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The URI for the S3 bucket where the prompt is stored.</p>
+   */
+  S3Uri?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePromptResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   */
+  PromptARN?: string;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId?: string;
 }
 
 /**
