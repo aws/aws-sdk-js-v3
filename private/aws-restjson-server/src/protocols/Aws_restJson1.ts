@@ -346,13 +346,13 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry.trim() as any);
+      contents.queryStringList = queryValue.map((_entry) => _entry as any);
     }
     if (query["StringSet"] !== undefined) {
       const queryValue = Array.isArray(query["StringSet"])
         ? (query["StringSet"] as string[])
         : [query["StringSet"] as string];
-      contents.queryStringSet = queryValue.map((_entry) => _entry.trim() as any);
+      contents.queryStringSet = queryValue.map((_entry) => _entry as any);
     }
     if (query["Byte"] !== undefined) {
       let queryValue: string;
@@ -397,13 +397,13 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["IntegerList"])
         ? (query["IntegerList"] as string[])
         : [query["IntegerList"] as string];
-      contents.queryIntegerList = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+      contents.queryIntegerList = queryValue.map((_entry) => __strictParseInt32(_entry) as any);
     }
     if (query["IntegerSet"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerSet"])
         ? (query["IntegerSet"] as string[])
         : [query["IntegerSet"] as string];
-      contents.queryIntegerSet = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+      contents.queryIntegerSet = queryValue.map((_entry) => __strictParseInt32(_entry) as any);
     }
     if (query["Long"] !== undefined) {
       let queryValue: string;
@@ -448,7 +448,7 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["DoubleList"])
         ? (query["DoubleList"] as string[])
         : [query["DoubleList"] as string];
-      contents.queryDoubleList = queryValue.map((_entry) => __strictParseDouble(_entry.trim()) as any);
+      contents.queryDoubleList = queryValue.map((_entry) => __strictParseDouble(_entry) as any);
     }
     if (query["Boolean"] !== undefined) {
       let queryValue: string;
@@ -467,7 +467,7 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["BooleanList"])
         ? (query["BooleanList"] as string[])
         : [query["BooleanList"] as string];
-      contents.queryBooleanList = queryValue.map((_entry) => __parseBoolean(_entry.trim()) as any);
+      contents.queryBooleanList = queryValue.map((_entry) => __parseBoolean(_entry) as any);
     }
     if (query["Timestamp"] !== undefined) {
       let queryValue: string;
@@ -486,9 +486,7 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["TimestampList"])
         ? (query["TimestampList"] as string[])
         : [query["TimestampList"] as string];
-      contents.queryTimestampList = queryValue.map(
-        (_entry) => __expectNonNull(__parseRfc3339DateTime(_entry.trim())) as any
-      );
+      contents.queryTimestampList = queryValue.map((_entry) => __expectNonNull(__parseRfc3339DateTime(_entry)) as any);
     }
     if (query["Enum"] !== undefined) {
       let queryValue: string;
@@ -507,7 +505,7 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry.trim() as any);
+      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
     }
     if (query["IntegerEnum"] !== undefined) {
       let queryValue: string;
@@ -526,13 +524,13 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["IntegerEnumList"])
         ? (query["IntegerEnumList"] as string[])
         : [query["IntegerEnumList"] as string];
-      contents.queryIntegerEnumList = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+      contents.queryIntegerEnumList = queryValue.map((_entry) => __strictParseInt32(_entry) as any);
     }
     const parsedQuery: Record<string, string[]> = {};
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry.trim() as any);
+      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
     }
     contents.queryParamsMapOfStringList = parsedQuery;
   }
@@ -2984,45 +2982,43 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry.trim() as any);
+      contents.queryStringList = queryValue.map((_entry) => _entry as any);
     }
     if (query["IntegerList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerList"])
         ? (query["IntegerList"] as string[])
         : [query["IntegerList"] as string];
-      contents.queryIntegerList = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+      contents.queryIntegerList = queryValue.map((_entry) => __strictParseInt32(_entry) as any);
     }
     if (query["DoubleList"] !== undefined) {
       const queryValue = Array.isArray(query["DoubleList"])
         ? (query["DoubleList"] as string[])
         : [query["DoubleList"] as string];
-      contents.queryDoubleList = queryValue.map((_entry) => __strictParseDouble(_entry.trim()) as any);
+      contents.queryDoubleList = queryValue.map((_entry) => __strictParseDouble(_entry) as any);
     }
     if (query["BooleanList"] !== undefined) {
       const queryValue = Array.isArray(query["BooleanList"])
         ? (query["BooleanList"] as string[])
         : [query["BooleanList"] as string];
-      contents.queryBooleanList = queryValue.map((_entry) => __parseBoolean(_entry.trim()) as any);
+      contents.queryBooleanList = queryValue.map((_entry) => __parseBoolean(_entry) as any);
     }
     if (query["TimestampList"] !== undefined) {
       const queryValue = Array.isArray(query["TimestampList"])
         ? (query["TimestampList"] as string[])
         : [query["TimestampList"] as string];
-      contents.queryTimestampList = queryValue.map(
-        (_entry) => __expectNonNull(__parseRfc3339DateTime(_entry.trim())) as any
-      );
+      contents.queryTimestampList = queryValue.map((_entry) => __expectNonNull(__parseRfc3339DateTime(_entry)) as any);
     }
     if (query["EnumList"] !== undefined) {
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry.trim() as any);
+      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
     }
     if (query["IntegerEnumList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerEnumList"])
         ? (query["IntegerEnumList"] as string[])
         : [query["IntegerEnumList"] as string];
-      contents.queryIntegerEnumList = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+      contents.queryIntegerEnumList = queryValue.map((_entry) => __strictParseInt32(_entry) as any);
     }
   }
   await collectBody(output.body, context);
@@ -3168,7 +3164,7 @@ export const deserializeQueryParamsAsStringListMapRequest = async (
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry.trim() as any);
+      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
     }
     contents.foo = parsedQuery;
   }
