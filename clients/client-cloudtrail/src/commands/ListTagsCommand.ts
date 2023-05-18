@@ -70,6 +70,10 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ChannelARNInvalidException} (client fault)
+ *  <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not
+ *          valid.</p>
+ *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
  *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
  *          The following is the format of a trail ARN.</p>
@@ -83,6 +87,10 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
  *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
  *  <p>The specified event data store was not found.</p>

@@ -34,7 +34,9 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * @public
  * <p>Configures an event selector or advanced event selectors for your trail. Use event
  *          selectors or advanced event selectors to specify management and data event settings for
- *          your trail. By default, trails created without specific event selectors are configured to
+ *          your trail. If you want your trail to log Insights events, be sure the event selector
+ *          enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging Insights events for trails</a> in the <i>CloudTrail User Guide</i>.
+ *          By default, trails created without specific event selectors are configured to
  *          log all read and write management events, and no data events.</p>
  *          <p>When an event occurs in your account, CloudTrail evaluates the event selectors or
  *          advanced event selectors in all trails. For each trail, if the event matches any event
@@ -66,15 +68,15 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          trail was created; otherwise, an <code>InvalidHomeRegionException</code> exception is
  *          thrown.</p>
  *          <p>You can configure up to five event selectors for each trail. For more information, see
- *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
- *             data events for trails </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a> in the <i>CloudTrail User
+ *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+ *             data events</a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas in CloudTrail</a> in the <i>CloudTrail User
  *          Guide</i>.</p>
  *          <p>You can add advanced event selectors, and conditions for your advanced event selectors,
  *          up to a maximum of 500 values for all conditions and selectors on a trail. You can use
  *          either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If
  *          you apply <code>AdvancedEventSelectors</code> to a trail, any existing
  *             <code>EventSelectors</code> are overwritten. For more information about advanced event
- *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails</a> in the <i>CloudTrail User Guide</i>.</p>
+ *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -198,8 +200,14 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when the specified resource is not ready for an operation. This
+ *          can occur when you try to run an operation on a resource before CloudTrail has time
+ *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
+ *          operation again.</p>
+ *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
- *  <p>This exception is thrown when the IAM user or role that is used to create
+ *  <p>This exception is thrown when the IAM identity that is used to create
  *          the organization resource lacks one or more required permissions for creating an
  *          organization resource in a required service.</p>
  *

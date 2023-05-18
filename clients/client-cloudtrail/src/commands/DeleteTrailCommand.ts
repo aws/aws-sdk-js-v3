@@ -77,7 +77,7 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  *          operation again.</p>
  *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
- *  <p>This exception is thrown when the IAM user or role that is used to create
+ *  <p>This exception is thrown when the IAM identity that is used to create
  *          the organization resource lacks one or more required permissions for creating an
  *          organization resource in a required service.</p>
  *

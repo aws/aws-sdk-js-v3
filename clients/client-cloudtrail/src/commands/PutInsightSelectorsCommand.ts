@@ -37,6 +37,11 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *          off Insights event logging, by passing an empty list of insight types. The valid Insights
  *          event types in this release are <code>ApiErrorRateInsight</code> and
  *             <code>ApiCallRateInsight</code>.</p>
+ *          <p>To log CloudTrail Insights events on API call volume, the trail
+ *          must log <code>write</code> management events. To log CloudTrail
+ *          Insights events on API error rate, the trail must log <code>read</code> or
+ *             <code>write</code> management events. You can call <code>GetEventSelectors</code> on a trail
+ *          to check whether the trail logs management events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

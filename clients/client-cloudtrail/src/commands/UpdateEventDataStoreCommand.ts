@@ -41,8 +41,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *          includes or excludes management and data events in your event data store. For more
  *          information about <code>AdvancedEventSelectors</code>, see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>. </p>
  *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
- *             <code>AdvancedEventSelectors</code> includes events of that type in your event data
- *          store.</p>
+ *             <code>AdvancedEventSelectors</code> includes events of that type in your event data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,7 +150,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *  <p>The event data store is inactive.</p>
  *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
- *  <p>This exception is thrown when the IAM user or role that is used to create
+ *  <p>This exception is thrown when the IAM identity that is used to create
  *          the organization resource lacks one or more required permissions for creating an
  *          organization resource in a required service.</p>
  *
