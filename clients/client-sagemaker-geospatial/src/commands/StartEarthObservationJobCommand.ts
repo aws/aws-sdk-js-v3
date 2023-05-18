@@ -54,13 +54,6 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  *   KmsKeyId: "STRING_VALUE",
  *   InputConfig: { // InputConfigInput
  *     PreviousEarthObservationJobArn: "STRING_VALUE",
- *     DataSourceConfig: { // EojDataSourceConfigInput Union: only one key present
- *       S3Data: { // S3DataInput
- *         S3Uri: "STRING_VALUE", // required
- *         MetadataProvider: "STRING_VALUE", // required
- *         KmsKeyId: "STRING_VALUE",
- *       },
- *     },
  *     RasterDataCollectionQuery: { // RasterDataCollectionQueryInput
  *       RasterDataCollectionArn: "STRING_VALUE", // required
  *       TimeRangeFilter: { // TimeRangeFilterInput
@@ -196,7 +189,7 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  *     CloudMaskingConfig: {},
  *     LandCoverSegmentationConfig: {},
  *   },
- *   ExecutionRoleArn: "STRING_VALUE",
+ *   ExecutionRoleArn: "STRING_VALUE", // required
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -212,13 +205,6 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  * //   KmsKeyId: "STRING_VALUE",
  * //   InputConfig: { // InputConfigOutput
  * //     PreviousEarthObservationJobArn: "STRING_VALUE",
- * //     DataSourceConfig: { // EojDataSourceConfigInput Union: only one key present
- * //       S3Data: { // S3DataInput
- * //         S3Uri: "STRING_VALUE", // required
- * //         MetadataProvider: "STRING_VALUE", // required
- * //         KmsKeyId: "STRING_VALUE",
- * //       },
- * //     },
  * //     RasterDataCollectionQuery: { // RasterDataCollectionQueryOutput
  * //       RasterDataCollectionArn: "STRING_VALUE", // required
  * //       RasterDataCollectionName: "STRING_VALUE", // required
@@ -355,7 +341,7 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  * //     CloudMaskingConfig: {},
  * //     LandCoverSegmentationConfig: {},
  * //   },
- * //   ExecutionRoleArn: "STRING_VALUE",
+ * //   ExecutionRoleArn: "STRING_VALUE", // required
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
