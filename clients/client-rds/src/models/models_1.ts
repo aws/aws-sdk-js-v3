@@ -5527,6 +5527,16 @@ export interface ModifyDBSnapshotMessage {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>19.0.0.0.ru-2022-01.rur-2022-01.r1</code> (supported for 12.2.0.1 DB
+   *                     snapshots)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>19.0.0.0.ru-2022-07.rur-2022-07.r1</code> (supported for 12.1.0.2 DB
+   *                     snapshots)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>12.1.0.2.v8</code>  (supported for 12.1.0.1 DB snapshots)</p>
    *             </li>
    *             <li>
