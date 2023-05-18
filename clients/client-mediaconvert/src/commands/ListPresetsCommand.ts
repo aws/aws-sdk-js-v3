@@ -420,7 +420,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //           },
  * //           MxfSettings: { // MxfSettings
  * //             AfdSignaling: "NO_COPY" || "COPY_FROM_VIDEO",
- * //             Profile: "D_10" || "XDCAM" || "OP1A" || "XAVC",
+ * //             Profile: "D_10" || "XDCAM" || "OP1A" || "XAVC" || "XDCAM_RDD9",
  * //             XavcProfileSettings: { // MxfXavcProfileSettings
  * //               DurationMode: "ALLOW_ANY_DURATION" || "DROP_FRAMES_FOR_COMPLIANCE",
  * //               MaxAncDataSize: Number("int"),
