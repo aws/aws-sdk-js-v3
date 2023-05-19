@@ -256,6 +256,10 @@ import {
   PutDedicatedIpInPoolCommandOutput,
 } from "./commands/PutDedicatedIpInPoolCommand";
 import {
+  PutDedicatedIpPoolScalingAttributesCommandInput,
+  PutDedicatedIpPoolScalingAttributesCommandOutput,
+} from "./commands/PutDedicatedIpPoolScalingAttributesCommand";
+import {
   PutDedicatedIpWarmupAttributesCommandInput,
   PutDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutDedicatedIpWarmupAttributesCommand";
@@ -395,6 +399,7 @@ export type ServiceInputTypes =
   | PutConfigurationSetTrackingOptionsCommandInput
   | PutConfigurationSetVdmOptionsCommandInput
   | PutDedicatedIpInPoolCommandInput
+  | PutDedicatedIpPoolScalingAttributesCommandInput
   | PutDedicatedIpWarmupAttributesCommandInput
   | PutDeliverabilityDashboardOptionCommandInput
   | PutEmailIdentityConfigurationSetAttributesCommandInput
@@ -486,6 +491,7 @@ export type ServiceOutputTypes =
   | PutConfigurationSetTrackingOptionsCommandOutput
   | PutConfigurationSetVdmOptionsCommandOutput
   | PutDedicatedIpInPoolCommandOutput
+  | PutDedicatedIpPoolScalingAttributesCommandOutput
   | PutDedicatedIpWarmupAttributesCommandOutput
   | PutDeliverabilityDashboardOptionCommandOutput
   | PutEmailIdentityConfigurationSetAttributesCommandOutput

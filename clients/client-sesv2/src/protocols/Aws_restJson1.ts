@@ -226,6 +226,10 @@ import {
   PutDedicatedIpInPoolCommandOutput,
 } from "../commands/PutDedicatedIpInPoolCommand";
 import {
+  PutDedicatedIpPoolScalingAttributesCommandInput,
+  PutDedicatedIpPoolScalingAttributesCommandOutput,
+} from "../commands/PutDedicatedIpPoolScalingAttributesCommand";
+import {
   PutDedicatedIpWarmupAttributesCommandInput,
   PutDedicatedIpWarmupAttributesCommandOutput,
 } from "../commands/PutDedicatedIpWarmupAttributesCommand";
@@ -2489,6 +2493,38 @@ export const se_PutDedicatedIpInPoolCommand = async (
   body = JSON.stringify(
     take(input, {
       DestinationPoolName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutDedicatedIpPoolScalingAttributesCommand
+ */
+export const se_PutDedicatedIpPoolScalingAttributesCommand = async (
+  input: PutDedicatedIpPoolScalingAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v2/email/dedicated-ip-pools/{PoolName}/scaling";
+  resolvedPath = __resolvedPath(resolvedPath, input, "PoolName", () => input.PoolName!, "{PoolName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ScalingMode: [],
     })
   );
   return new __HttpRequest({
@@ -6739,6 +6775,58 @@ const de_PutDedicatedIpInPoolCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.sesv2#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutDedicatedIpPoolScalingAttributesCommand
+ */
+export const de_PutDedicatedIpPoolScalingAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDedicatedIpPoolScalingAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutDedicatedIpPoolScalingAttributesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutDedicatedIpPoolScalingAttributesCommandError
+ */
+const de_PutDedicatedIpPoolScalingAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDedicatedIpPoolScalingAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.sesv2#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.sesv2#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);

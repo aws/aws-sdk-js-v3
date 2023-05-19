@@ -65,6 +65,7 @@ export * from "./PutConfigurationSetSuppressionOptionsCommand";
 export * from "./PutConfigurationSetTrackingOptionsCommand";
 export * from "./PutConfigurationSetVdmOptionsCommand";
 export * from "./PutDedicatedIpInPoolCommand";
+export * from "./PutDedicatedIpPoolScalingAttributesCommand";
 export * from "./PutDedicatedIpWarmupAttributesCommand";
 export * from "./PutDeliverabilityDashboardOptionCommand";
 export * from "./PutEmailIdentityConfigurationSetAttributesCommand";

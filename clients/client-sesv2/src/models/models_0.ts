@@ -2669,11 +2669,13 @@ export interface DedicatedIpPool {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STANDARD</code> – A dedicated IP pool where the customer can control which IPs are part of the pool.</p>
+   *                   <code>STANDARD</code> – A dedicated IP pool where you can
+   *                     control which IPs are part of the pool.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MANAGED</code> – A dedicated IP pool where the reputation and number of IPs is automatically managed by Amazon SES.</p>
+   *                   <code>MANAGED</code> – A dedicated IP pool where the reputation and
+   *                     number of IPs are automatically managed by Amazon SES.</p>
    *             </li>
    *          </ul>
    */
@@ -3545,7 +3547,7 @@ export interface GetContactRequest {
   ContactListName: string | undefined;
 
   /**
-   * <p>The contact's email addres.</p>
+   * <p>The contact's email address.</p>
    */
   EmailAddress: string | undefined;
 }
@@ -3560,7 +3562,7 @@ export interface GetContactResponse {
   ContactListName?: string;
 
   /**
-   * <p>The contact's email addres.</p>
+   * <p>The contact's email address.</p>
    */
   EmailAddress?: string;
 
@@ -5649,6 +5651,32 @@ export interface PutDedicatedIpInPoolResponse {}
 
 /**
  * @public
+ * <p>A request to convert a dedicated IP pool to a different scaling mode.</p>
+ */
+export interface PutDedicatedIpPoolScalingAttributesRequest {
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The scaling mode to apply to the dedicated IP pool.</p>
+   *          <note>
+   *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
+   *          </note>
+   */
+  ScalingMode: ScalingMode | string | undefined;
+}
+
+/**
+ * @public
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ */
+export interface PutDedicatedIpPoolScalingAttributesResponse {}
+
+/**
+ * @public
  * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
  *             is useful when you want to resume the warm-up process for an existing IP address.</p>
  */
@@ -6311,7 +6339,7 @@ export interface UpdateContactRequest {
   ContactListName: string | undefined;
 
   /**
-   * <p>The contact's email addres.</p>
+   * <p>The contact's email address.</p>
    */
   EmailAddress: string | undefined;
 

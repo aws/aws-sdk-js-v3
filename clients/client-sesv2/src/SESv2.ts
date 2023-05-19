@@ -325,6 +325,11 @@ import {
   PutDedicatedIpInPoolCommandOutput,
 } from "./commands/PutDedicatedIpInPoolCommand";
 import {
+  PutDedicatedIpPoolScalingAttributesCommand,
+  PutDedicatedIpPoolScalingAttributesCommandInput,
+  PutDedicatedIpPoolScalingAttributesCommandOutput,
+} from "./commands/PutDedicatedIpPoolScalingAttributesCommand";
+import {
   PutDedicatedIpWarmupAttributesCommand,
   PutDedicatedIpWarmupAttributesCommandInput,
   PutDedicatedIpWarmupAttributesCommandOutput,
@@ -485,6 +490,7 @@ const commands = {
   PutConfigurationSetTrackingOptionsCommand,
   PutConfigurationSetVdmOptionsCommand,
   PutDedicatedIpInPoolCommand,
+  PutDedicatedIpPoolScalingAttributesCommand,
   PutDedicatedIpWarmupAttributesCommand,
   PutDeliverabilityDashboardOptionCommand,
   PutEmailIdentityConfigurationSetAttributesCommand,
@@ -1577,6 +1583,23 @@ export interface SESv2 {
     args: PutDedicatedIpInPoolCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDedicatedIpInPoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDedicatedIpPoolScalingAttributesCommand}
+   */
+  putDedicatedIpPoolScalingAttributes(
+    args: PutDedicatedIpPoolScalingAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDedicatedIpPoolScalingAttributesCommandOutput>;
+  putDedicatedIpPoolScalingAttributes(
+    args: PutDedicatedIpPoolScalingAttributesCommandInput,
+    cb: (err: any, data?: PutDedicatedIpPoolScalingAttributesCommandOutput) => void
+  ): void;
+  putDedicatedIpPoolScalingAttributes(
+    args: PutDedicatedIpPoolScalingAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDedicatedIpPoolScalingAttributesCommandOutput) => void
   ): void;
 
   /**
