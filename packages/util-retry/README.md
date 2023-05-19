@@ -52,6 +52,24 @@ const client = new S3Client({
 
 This example sets the backoff at 100ms plus 1s per attempt.
 
+### MaxAttempts and RetryStrategy
+
+If you provide both `maxAttempts` and `retryStrategy`, the `retryStrategy` will
+get precedence as it's more specific.
+
+```js
+import { S3Client } from "@aws-sdk/client-s3";
+import { ConfiguredRetryStrategy } from "@aws-sdk/util-retry";
+
+const client = new S3Client({
+  maxAttempts: 2, // ignored.
+  retryStrategy: new ConfiguredRetryStrategy(
+    4, // used.
+    (attempt: number) => 100 + attempt * 1000 // backoff function.
+  ),
+});
+```
+
 ### Further customization
 
 You can implement the `RetryStrategyV2` interface.
