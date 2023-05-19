@@ -58,7 +58,7 @@ This example sets the backoff at 100ms plus 1s per attempt.
 
 ### MaxAttempts and RetryStrategy
 
-If you provide both `maxAttempts` as well `retryStrategy`, the `retryStrategy` will
+If you provide both `maxAttempts` and `retryStrategy`, the `retryStrategy` will
 get precedence as it's more specific.
 
 ```js
