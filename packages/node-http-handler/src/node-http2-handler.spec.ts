@@ -15,7 +15,7 @@ describe(NodeHttp2Handler.name, () => {
   const protocol = "http:";
   const hostname = "localhost";
   const port = 45321;
-  let mockH2Server = undefined;
+  let mockH2Server: any = undefined;
   let mockH2Servers: Record<number, Http2Server> = {};
 
   const authority = `${protocol}//${hostname}:${port}/`;
@@ -233,7 +233,7 @@ describe(NodeHttp2Handler.name, () => {
 
         // ...and validate that the mocked response is received
         const responseBody = await new Promise((resolve) => {
-          const buffers = [];
+          const buffers: any[] = [];
           resultReader.on("data", (chunk) => buffers.push(chunk));
           resultReader.on("close", () => {
             resolve(Buffer.concat(buffers).toString("utf8"));

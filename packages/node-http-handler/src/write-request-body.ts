@@ -3,15 +3,37 @@ import { ClientRequest } from "http";
 import { ClientHttp2Stream } from "http2";
 import { Readable } from "stream";
 
-export function writeRequestBody(httpRequest: ClientRequest | ClientHttp2Stream, request: HttpRequest) {
-  const expect = request.headers["Expect"] || request.headers["expect"];
+const MIN_WAIT_TIME = 1000;
+
+/**
+ * This resolves when writeBody has been called.
+ *
+ * @param httpRequest - opened Node.js request.
+ * @param request - container with the request body.
+ * @param maxContinueTimeoutMs - maximum time to wait for the continue event. Minimum of 1000ms.
+ */
+export async function writeRequestBody(
+  httpRequest: ClientRequest | ClientHttp2Stream,
+  request: HttpRequest,
+  maxContinueTimeoutMs = MIN_WAIT_TIME
+): Promise<void> {
+  const headers = request.headers ?? {};
+  const expect = headers["Expect"] || headers["expect"];
+
   if (expect === "100-continue") {
-    httpRequest.on("continue", () => {
-      writeBody(httpRequest, request.body);
-    });
-  } else {
-    writeBody(httpRequest, request.body);
+    await Promise.race<void>([
+      new Promise((resolve) => {
+        setTimeout(resolve, Math.max(MIN_WAIT_TIME, maxContinueTimeoutMs));
+      }),
+      new Promise((resolve) => {
+        httpRequest.on("continue", () => {
+          resolve();
+        });
+      }),
+    ]);
   }
+
+  writeBody(httpRequest, request.body);
 }
 
 function writeBody(
