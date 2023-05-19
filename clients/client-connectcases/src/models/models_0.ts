@@ -1320,6 +1320,7 @@ export const FieldType = {
   NUMBER: "Number",
   SINGLE_SELECT: "SingleSelect",
   TEXT: "Text",
+  URL: "Url",
 } as const;
 
 /**
