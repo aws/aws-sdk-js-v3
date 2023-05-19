@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.336.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.335.0...v3.336.0) (2023-05-19)
+
+
+### Features
+
+* **client-backup:** Add  ResourceArn, ResourceType, and BackupVaultName to ListRecoveryPointsByLegalHold API response. ([08dff77](https://github.com/aws/aws-sdk-js-v3/commit/08dff771579b3c3cf3810c0596198171a6a380a1))
+* **client-connectcases:** This release adds the ability to create fields with type Url through the CreateField API. For more information see https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html ([78ca401](https://github.com/aws/aws-sdk-js-v3/commit/78ca40160b58722c2daf2b5b3dd3cdbbe37636bc))
+* **client-mediapackagev2:** Adds support for the MediaPackage Live v2 API ([5840566](https://github.com/aws/aws-sdk-js-v3/commit/5840566c4e4eec0696775c20c66fb55162f8af00))
+* **client-sesv2:** This release allows customers to update scaling mode property of dedicated IP pools with PutDedicatedIpPoolScalingAttributes call. ([502ebd2](https://github.com/aws/aws-sdk-js-v3/commit/502ebd2b591df7edfe14c7be0b5aa64c581d9df3))
+* **clients:** update client endpoints as of 2023-05-19 ([b289741](https://github.com/aws/aws-sdk-js-v3/commit/b2897412458d2566604f7055809c27ae99c52ac5))
+
+
+
+
+
 # [3.335.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.334.0...v3.335.0) (2023-05-18)
 
 

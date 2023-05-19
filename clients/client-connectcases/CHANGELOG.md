@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.336.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.335.0...v3.336.0) (2023-05-19)
+
+
+### Features
+
+* **client-connectcases:** This release adds the ability to create fields with type Url through the CreateField API. For more information see https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html ([78ca401](https://github.com/aws/aws-sdk-js-v3/commit/78ca40160b58722c2daf2b5b3dd3cdbbe37636bc))
+
+
+
+
+
 # [3.335.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.334.0...v3.335.0) (2023-05-18)
 
 
