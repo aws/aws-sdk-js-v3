@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { UpdateTopicPermissionsRequest, UpdateTopicPermissionsResponse } from "../models/models_3";
+import { UpdateTopicPermissionsRequest, UpdateTopicPermissionsResponse } from "../models/models_4";
 import { de_UpdateTopicPermissionsCommand, se_UpdateTopicPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

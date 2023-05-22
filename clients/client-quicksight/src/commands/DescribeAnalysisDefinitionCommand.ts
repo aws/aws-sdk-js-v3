@@ -17,7 +17,7 @@ import {
   DescribeAnalysisDefinitionRequest,
   DescribeAnalysisDefinitionResponse,
   DescribeAnalysisDefinitionResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_DescribeAnalysisDefinitionCommand, se_DescribeAnalysisDefinitionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -3290,12 +3290,21 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
  * //                 },
  * //                 PointStyleOptions: { // GeospatialPointStyleOptions
- * //                   SelectedPointStyle: "POINT" || "CLUSTER",
+ * //                   SelectedPointStyle: "POINT" || "CLUSTER" || "HEATMAP",
  * //                   ClusterMarkerConfiguration: { // ClusterMarkerConfiguration
  * //                     ClusterMarker: { // ClusterMarker
  * //                       SimpleClusterMarker: { // SimpleClusterMarker
  * //                         Color: "STRING_VALUE",
  * //                       },
+ * //                     },
+ * //                   },
+ * //                   HeatmapConfiguration: { // GeospatialHeatmapConfiguration
+ * //                     HeatmapColor: { // GeospatialHeatmapColorScale
+ * //                       Colors: [ // GeospatialHeatmapDataColorList
+ * //                         { // GeospatialHeatmapDataColor
+ * //                           Color: "STRING_VALUE", // required
+ * //                         },
+ * //                       ],
  * //                     },
  * //                   },
  * //                 },

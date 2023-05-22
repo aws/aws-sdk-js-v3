@@ -3,14 +3,10 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import {
   AccountCustomization,
-  AccountInfo,
-  AccountSettings,
   AdHocFilteringOption,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
-  Analysis,
   AnalysisDefaults,
-  AnalysisError,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ColumnConfiguration,
@@ -30,36 +26,2019 @@ import {
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
-  AssignmentStatus,
+  AssetBundleImportFailureAction,
+  AssetBundleImportJobAnalysisOverrideParameters,
+  AssetBundleImportJobDashboardOverrideParameters,
+  AssetBundleImportJobDataSetOverrideParameters,
+  AssetBundleImportJobDataSourceCredentials,
+  AssetBundleImportJobDataSourceCredentialsFilterSensitiveLog,
   AthenaParameters,
   AuroraParameters,
   AuroraPostgreSqlParameters,
-  AuthenticationMethodOption,
-  AuthorSpecifiedAggregation,
   AwsIotAnalyticsParameters,
-  BorderStyle,
-  CalculatedColumn,
-  CalculatedColumnFilterSensitiveLog,
-  CastColumnTypeOperation,
-  CategoryFilterFunction,
-  CategoryFilterType,
-  CellValueSynonym,
-  CollectiveConstant,
-  ColumnDataRole,
-  ColumnDataType,
-  ColumnGroup,
-  ColumnGroupSchema,
-  ColumnLevelPermissionRule,
-  ColumnOrderingType,
-  ColumnSchema,
-  ColumnTag,
-  ColumnTagName,
+  DatabricksParameters,
   DataSetReference,
-  ExceptionResourceType,
+  ExasolParameters,
   FilterOperator,
+  JiraParameters,
+  MariaDbParameters,
   SheetDefinition,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>The parameters for MySQL.</p>
+ */
+export interface MySqlParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Oracle.</p>
+ */
+export interface OracleParameters {
+  /**
+   * <p>An Oracle host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for PostgreSQL.</p>
+ */
+export interface PostgreSqlParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Presto.</p>
+ */
+export interface PrestoParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Catalog.</p>
+   */
+  Catalog: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Amazon RDS.</p>
+ */
+export interface RdsParameters {
+  /**
+   * <p>Instance ID.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
+ *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+ *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+ */
+export interface RedshiftParameters {
+  /**
+   * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
+   */
+  Host?: string;
+
+  /**
+   * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
+   *             provided.</p>
+   */
+  ClusterId?: string;
+}
+
+/**
+ * @public
+ * <p>Amazon S3 manifest file location.</p>
+ */
+export interface ManifestFileLocation {
+  /**
+   * <p>Amazon S3 bucket.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Amazon S3 key that identifies an object.</p>
+   */
+  Key: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for S3.</p>
+ */
+export interface S3Parameters {
+  /**
+   * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
+   *             uploaded into Amazon QuickSight.</p>
+   */
+  ManifestFileLocation: ManifestFileLocation | undefined;
+
+  /**
+   * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
+   */
+  RoleArn?: string;
+}
+
+/**
+ * @public
+ * <p>The parameters for ServiceNow.</p>
+ */
+export interface ServiceNowParameters {
+  /**
+   * <p>URL of the base site.</p>
+   */
+  SiteBaseUrl: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Snowflake.</p>
+ */
+export interface SnowflakeParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * <p>Warehouse.</p>
+   */
+  Warehouse: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Spark.</p>
+ */
+export interface SparkParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for SQL Server.</p>
+ */
+export interface SqlServerParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Teradata.</p>
+ */
+export interface TeradataParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Twitter.</p>
+ */
+export interface TwitterParameters {
+  /**
+   * <p>Twitter query string.</p>
+   */
+  Query: string | undefined;
+
+  /**
+   * <p>Maximum number of rows to query Twitter.</p>
+   */
+  MaxRows: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+ *             This is a variant type structure. For this structure to be valid, only one of the
+ *             attributes can be non-null.</p>
+ */
+export type DataSourceParameters =
+  | DataSourceParameters.AmazonElasticsearchParametersMember
+  | DataSourceParameters.AmazonOpenSearchParametersMember
+  | DataSourceParameters.AthenaParametersMember
+  | DataSourceParameters.AuroraParametersMember
+  | DataSourceParameters.AuroraPostgreSqlParametersMember
+  | DataSourceParameters.AwsIotAnalyticsParametersMember
+  | DataSourceParameters.DatabricksParametersMember
+  | DataSourceParameters.ExasolParametersMember
+  | DataSourceParameters.JiraParametersMember
+  | DataSourceParameters.MariaDbParametersMember
+  | DataSourceParameters.MySqlParametersMember
+  | DataSourceParameters.OracleParametersMember
+  | DataSourceParameters.PostgreSqlParametersMember
+  | DataSourceParameters.PrestoParametersMember
+  | DataSourceParameters.RdsParametersMember
+  | DataSourceParameters.RedshiftParametersMember
+  | DataSourceParameters.S3ParametersMember
+  | DataSourceParameters.ServiceNowParametersMember
+  | DataSourceParameters.SnowflakeParametersMember
+  | DataSourceParameters.SparkParametersMember
+  | DataSourceParameters.SqlServerParametersMember
+  | DataSourceParameters.TeradataParametersMember
+  | DataSourceParameters.TwitterParametersMember
+  | DataSourceParameters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataSourceParameters {
+  /**
+   * <p>The parameters for OpenSearch.</p>
+   */
+  export interface AmazonElasticsearchParametersMember {
+    AmazonElasticsearchParameters: AmazonElasticsearchParameters;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Amazon Athena.</p>
+   */
+  export interface AthenaParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters: AthenaParameters;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Amazon Aurora MySQL.</p>
+   */
+  export interface AuroraParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters: AuroraParameters;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Amazon Aurora.</p>
+   */
+  export interface AuroraPostgreSqlParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters: AuroraPostgreSqlParameters;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for IoT Analytics.</p>
+   */
+  export interface AwsIotAnalyticsParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters: AwsIotAnalyticsParameters;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Jira.</p>
+   */
+  export interface JiraParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters: JiraParameters;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for MariaDB.</p>
+   */
+  export interface MariaDbParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters: MariaDbParameters;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for MySQL.</p>
+   */
+  export interface MySqlParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters: MySqlParameters;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Oracle.</p>
+   */
+  export interface OracleParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters: OracleParameters;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for PostgreSQL.</p>
+   */
+  export interface PostgreSqlParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters: PostgreSqlParameters;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Presto.</p>
+   */
+  export interface PrestoParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters: PrestoParameters;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Amazon RDS.</p>
+   */
+  export interface RdsParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters: RdsParameters;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Amazon Redshift.</p>
+   */
+  export interface RedshiftParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters: RedshiftParameters;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for S3.</p>
+   */
+  export interface S3ParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters: S3Parameters;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for ServiceNow.</p>
+   */
+  export interface ServiceNowParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters: ServiceNowParameters;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Snowflake.</p>
+   */
+  export interface SnowflakeParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters: SnowflakeParameters;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Spark.</p>
+   */
+  export interface SparkParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters: SparkParameters;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for SQL Server.</p>
+   */
+  export interface SqlServerParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters: SqlServerParameters;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Teradata.</p>
+   */
+  export interface TeradataParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters: TeradataParameters;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Twitter.</p>
+   */
+  export interface TwitterParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters: TwitterParameters;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for OpenSearch.</p>
+   */
+  export interface AmazonOpenSearchParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters: AmazonOpenSearchParameters;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Exasol.</p>
+   */
+  export interface ExasolParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters: ExasolParameters;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The required parameters that are needed to connect to a Databricks data source.</p>
+   */
+  export interface DatabricksParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters: DatabricksParameters;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AmazonElasticsearchParameters: (value: AmazonElasticsearchParameters) => T;
+    AthenaParameters: (value: AthenaParameters) => T;
+    AuroraParameters: (value: AuroraParameters) => T;
+    AuroraPostgreSqlParameters: (value: AuroraPostgreSqlParameters) => T;
+    AwsIotAnalyticsParameters: (value: AwsIotAnalyticsParameters) => T;
+    JiraParameters: (value: JiraParameters) => T;
+    MariaDbParameters: (value: MariaDbParameters) => T;
+    MySqlParameters: (value: MySqlParameters) => T;
+    OracleParameters: (value: OracleParameters) => T;
+    PostgreSqlParameters: (value: PostgreSqlParameters) => T;
+    PrestoParameters: (value: PrestoParameters) => T;
+    RdsParameters: (value: RdsParameters) => T;
+    RedshiftParameters: (value: RedshiftParameters) => T;
+    S3Parameters: (value: S3Parameters) => T;
+    ServiceNowParameters: (value: ServiceNowParameters) => T;
+    SnowflakeParameters: (value: SnowflakeParameters) => T;
+    SparkParameters: (value: SparkParameters) => T;
+    SqlServerParameters: (value: SqlServerParameters) => T;
+    TeradataParameters: (value: TeradataParameters) => T;
+    TwitterParameters: (value: TwitterParameters) => T;
+    AmazonOpenSearchParameters: (value: AmazonOpenSearchParameters) => T;
+    ExasolParameters: (value: ExasolParameters) => T;
+    DatabricksParameters: (value: DatabricksParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DataSourceParameters, visitor: Visitor<T>): T => {
+    if (value.AmazonElasticsearchParameters !== undefined)
+      return visitor.AmazonElasticsearchParameters(value.AmazonElasticsearchParameters);
+    if (value.AthenaParameters !== undefined) return visitor.AthenaParameters(value.AthenaParameters);
+    if (value.AuroraParameters !== undefined) return visitor.AuroraParameters(value.AuroraParameters);
+    if (value.AuroraPostgreSqlParameters !== undefined)
+      return visitor.AuroraPostgreSqlParameters(value.AuroraPostgreSqlParameters);
+    if (value.AwsIotAnalyticsParameters !== undefined)
+      return visitor.AwsIotAnalyticsParameters(value.AwsIotAnalyticsParameters);
+    if (value.JiraParameters !== undefined) return visitor.JiraParameters(value.JiraParameters);
+    if (value.MariaDbParameters !== undefined) return visitor.MariaDbParameters(value.MariaDbParameters);
+    if (value.MySqlParameters !== undefined) return visitor.MySqlParameters(value.MySqlParameters);
+    if (value.OracleParameters !== undefined) return visitor.OracleParameters(value.OracleParameters);
+    if (value.PostgreSqlParameters !== undefined) return visitor.PostgreSqlParameters(value.PostgreSqlParameters);
+    if (value.PrestoParameters !== undefined) return visitor.PrestoParameters(value.PrestoParameters);
+    if (value.RdsParameters !== undefined) return visitor.RdsParameters(value.RdsParameters);
+    if (value.RedshiftParameters !== undefined) return visitor.RedshiftParameters(value.RedshiftParameters);
+    if (value.S3Parameters !== undefined) return visitor.S3Parameters(value.S3Parameters);
+    if (value.ServiceNowParameters !== undefined) return visitor.ServiceNowParameters(value.ServiceNowParameters);
+    if (value.SnowflakeParameters !== undefined) return visitor.SnowflakeParameters(value.SnowflakeParameters);
+    if (value.SparkParameters !== undefined) return visitor.SparkParameters(value.SparkParameters);
+    if (value.SqlServerParameters !== undefined) return visitor.SqlServerParameters(value.SqlServerParameters);
+    if (value.TeradataParameters !== undefined) return visitor.TeradataParameters(value.TeradataParameters);
+    if (value.TwitterParameters !== undefined) return visitor.TwitterParameters(value.TwitterParameters);
+    if (value.AmazonOpenSearchParameters !== undefined)
+      return visitor.AmazonOpenSearchParameters(value.AmazonOpenSearchParameters);
+    if (value.ExasolParameters !== undefined) return visitor.ExasolParameters(value.ExasolParameters);
+    if (value.DatabricksParameters !== undefined) return visitor.DatabricksParameters(value.DatabricksParameters);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
+ *             underlying data source.</p>
+ */
+export interface SslProperties {
+  /**
+   * <p>A Boolean option to control whether SSL should be disabled.</p>
+   */
+  DisableSsl?: boolean;
+}
+
+/**
+ * @public
+ * <p>VPC connection properties.</p>
+ */
+export interface VpcConnectionProperties {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
+   */
+  VpcConnectionArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The override parameters for a single data source that is being imported.</p>
+ */
+export interface AssetBundleImportJobDataSourceOverrideParameters {
+  /**
+   * <p>The ID of the data source to apply overrides to.</p>
+   */
+  DataSourceId: string | undefined;
+
+  /**
+   * <p>A new name for the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+   *             This is a variant type structure. For this structure to be valid, only one of the
+   *             attributes can be non-null.</p>
+   */
+  DataSourceParameters?: DataSourceParameters;
+
+  /**
+   * <p>VPC connection properties.</p>
+   */
+  VpcConnectionProperties?: VpcConnectionProperties;
+
+  /**
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
+   *             underlying data source.</p>
+   */
+  SslProperties?: SslProperties;
+
+  /**
+   * <p>An optional structure that provides the credentials to be used to create the imported data source.</p>
+   */
+  Credentials?: AssetBundleImportJobDataSourceCredentials;
+}
+
+/**
+ * @public
+ * <p>Describes an error that occurred within an Asset Bundle import execution.</p>
+ */
+export interface AssetBundleImportJobError {
+  /**
+   * <p>The ARN of the resource whose processing caused an error.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The specific error type or the error that occurred.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>A description of the error.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>A list of overrides for a specific <code>RefreshsSchedule</code> resource that is present in the asset bundle that is imported.</p>
+ */
+export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
+  /**
+   * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource that is being overridden. This structure is used together with the <code>ScheduleID</code> structure.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource being overridden. This structure is used together with the <code>DataSetId</code> structure.</p>
+   */
+  ScheduleId: string | undefined;
+
+  /**
+   * <p>An override for the <code>StartAfterDateTime</code> of a <code>RefreshSchedule</code> to ensure that the <code>StartAfterDateTime</code> is set to a time that takes place in the future.</p>
+   */
+  StartAfterDateTime?: Date;
+}
+
+/**
+ * @public
+ * <p>An optional structure that configures resource ID overrides for the import job</p>
+ */
+export interface AssetBundleImportJobResourceIdOverrideConfiguration {
+  /**
+   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>
+   */
+  PrefixForAllResources?: string;
+}
+
+/**
+ * @public
+ * <p>The override parameters for a single theme that is imported.</p>
+ */
+export interface AssetBundleImportJobThemeOverrideParameters {
+  /**
+   * <p>The ID of the theme to apply overrides to.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>A new name for the theme.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The override parameters for a single VPC connection that is imported.</p>
+ */
+export interface AssetBundleImportJobVPCConnectionOverrideParameters {
+  /**
+   * <p>The ID of the VPC Connection to apply overrides to.</p>
+   */
+  VPCConnectionId: string | undefined;
+
+  /**
+   * <p>A new name for the VPC connection.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A list of  new subnet IDs for the VPC connection you are importing. This field is required if you are importing the VPC connection from another Amazon Web Services account or region.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>A new security group ID for the VPC connection you are importing. This field is required if you are importing the VPC connection from another Amazon Web Services account or region.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>An optional override of dns resolvers to be used by the VPC connection.</p>
+   */
+  DnsResolvers?: string[];
+
+  /**
+   * <p>An optional override of the role ARN to be used by the VPC connection.</p>
+   */
+  RoleArn?: string;
+}
+
+/**
+ * @public
+ * <p>A list of overrides that modify the asset bundle resource configuration before the resource is imported.</p>
+ */
+export interface AssetBundleImportJobOverrideParameters {
+  /**
+   * <p>An optional structure that configures resource ID overrides to be applied within the import job.</p>
+   */
+  ResourceIdOverrideConfiguration?: AssetBundleImportJobResourceIdOverrideConfiguration;
+
+  /**
+   * <p>A list of overrides for any <code>VPCConnection</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  VPCConnections?: AssetBundleImportJobVPCConnectionOverrideParameters[];
+
+  /**
+   * <p>A list of overrides for any <code>RefreshSchedule</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  RefreshSchedules?: AssetBundleImportJobRefreshScheduleOverrideParameters[];
+
+  /**
+   * <p> A list of overrides for any <code>DataSource</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  DataSources?: AssetBundleImportJobDataSourceOverrideParameters[];
+
+  /**
+   * <p>A list of overrides for any <code>DataSet</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  DataSets?: AssetBundleImportJobDataSetOverrideParameters[];
+
+  /**
+   * <p>A list of overrides for any <code>Theme</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Themes?: AssetBundleImportJobThemeOverrideParameters[];
+
+  /**
+   * <p>A list of overrides for any <code>Analysis</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Analyses?: AssetBundleImportJobAnalysisOverrideParameters[];
+
+  /**
+   * <p>A list of overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
+   */
+  Dashboards?: AssetBundleImportJobDashboardOverrideParameters[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleImportJobStatus = {
+  FAILED: "FAILED",
+  FAILED_ROLLBACK_COMPLETED: "FAILED_ROLLBACK_COMPLETED",
+  FAILED_ROLLBACK_ERROR: "FAILED_ROLLBACK_ERROR",
+  FAILED_ROLLBACK_IN_PROGRESS: "FAILED_ROLLBACK_IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED_FOR_IMMEDIATE_EXECUTION: "QUEUED_FOR_IMMEDIATE_EXECUTION",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleImportJobStatus = (typeof AssetBundleImportJobStatus)[keyof typeof AssetBundleImportJobStatus];
+
+/**
+ * @public
+ * <p>A summary of the import job that includes details of the requested job's configuration and its current status.</p>
+ */
+export interface AssetBundleImportJobSummary {
+  /**
+   * <p>The current status of the import job.</p>
+   */
+  JobStatus?: AssetBundleImportJobStatus | string;
+
+  /**
+   * <p>The ARN of the import job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The time that the import job was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleImportJobId?: string;
+
+  /**
+   * <p>The failure action for the import job.</p>
+   */
+  FailureAction?: AssetBundleImportFailureAction | string;
+}
+
+/**
+ * @public
+ * <p>The source of the asset bundle zip file that contains the data that you want to import.</p>
+ */
+export interface AssetBundleImportSource {
+  /**
+   * <p>The bytes of the Base64 encoded asset bundle import zip file. This file can't exceed 20MB.</p>
+   *          <p>If you are calling the APIs from the Amazon Web Services Java, JavaScript, Python, or PHP SDKs, the SDK encodes Base64 automatically to allow the direct setting of the zip file's bytes. If you are using a SDK of a different language or are receiving related errors, try to Base64 encode your data.</p>
+   */
+  Body?: Uint8Array;
+
+  /**
+   * <p>The Amazon S3 uri for an asset bundle import file that exists in an Amazon S3 bucket that the caller has read access to. The file must be a zip format file and can't exceed 20MB.</p>
+   */
+  S3Uri?: string;
+}
+
+/**
+ * @public
+ * <p>A description of the import source that you provide at the start of an import job. This value is set to either <code>Body</code> or <code>S3Uri</code> depending on how the <code>StartAssetBundleImportJobRequest</code> is configured.</p>
+ */
+export interface AssetBundleImportSourceDescription {
+  /**
+   * <p>A HTTPS download URL for the provided asset bundle that you optionally provided at the start of the import job. This URL is valid for 5 minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed. The downloaded asset bundle is a <code>.qs</code> zip file.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The Amazon S3 uri that you provided at the start of the import job.</p>
+   */
+  S3Uri?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssignmentStatus = {
+  DISABLED: "DISABLED",
+  DRAFT: "DRAFT",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationMethodOption = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  IAM_AND_QUICKSIGHT: "IAM_AND_QUICKSIGHT",
+  IAM_ONLY: "IAM_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[keyof typeof AuthenticationMethodOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthorSpecifiedAggregation = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  PERCENTILE: "PERCENTILE",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorSpecifiedAggregation = (typeof AuthorSpecifiedAggregation)[keyof typeof AuthorSpecifiedAggregation];
+
+/**
+ * @public
+ * <p>The bookmarks configuration of an embedded dashboard.</p>
+ */
+export interface BookmarksConfigurations {
+  /**
+   * <p>A Boolean value that determines whether a user
+   *             can bookmark an embedded dashboard.</p>
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>The display options for tile borders for visuals.</p>
+ */
+export interface BorderStyle {
+  /**
+   * <p>The option to enable display of borders for visuals.</p>
+   */
+  Show?: boolean;
+}
+
+/**
+ * @public
+ * <p>A calculated column for a dataset.</p>
+ */
+export interface CalculatedColumn {
+  /**
+   * <p>Column name.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
+   *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
+   *             preserves the existing calculated column.</p>
+   */
+  ColumnId: string | undefined;
+
+  /**
+   * <p>An expression that defines the calculated column.</p>
+   */
+  Expression: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelIngestionRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset used in the ingestion.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>An ID for the ingestion.</p>
+   */
+  IngestionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelIngestionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>An ID for the ingestion.</p>
+   */
+  IngestionId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ * <p>An internal failure occurred.</p>
+ */
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * <p>One or more parameters has a value that isn't valid.</p>
+ */
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExceptionResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  DATA_SET: "DATA_SET",
+  DATA_SOURCE: "DATA_SOURCE",
+  GROUP: "GROUP",
+  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
+  INGESTION: "INGESTION",
+  NAMESPACE: "NAMESPACE",
+  USER: "USER",
+  VPC_CONNECTION: "VPC_CONNECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
+
+/**
+ * @public
+ * <p>The resource specified already exists. </p>
+ */
+export class ResourceExistsException extends __BaseException {
+  readonly name: "ResourceExistsException" = "ResourceExistsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The resource type for this request.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
+    super({
+      name: "ResourceExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceExistsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * <p>One or more resources can't be found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The resource type for this request.</p>
+   */
+  ResourceType?: ExceptionResourceType | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * <p>Access is throttled.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataType = {
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
+
+/**
+ * @public
+ * <p>A transform operation that casts a column to a different type.</p>
+ */
+export interface CastColumnTypeOperation {
+  /**
+   * <p>Column name.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>New column data type.</p>
+   */
+  NewColumnType: ColumnDataType | string | undefined;
+
+  /**
+   * <p>When casting a column from string to datetime type, you can supply a string in a
+   *             format supported by Amazon QuickSight to denote the source data format.</p>
+   */
+  Format?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterFunction = {
+  CONTAINS: "CONTAINS",
+  EXACT: "EXACT",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterFunction = (typeof CategoryFilterFunction)[keyof typeof CategoryFilterFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterType = {
+  CUSTOM_FILTER: "CUSTOM_FILTER",
+  CUSTOM_FILTER_LIST: "CUSTOM_FILTER_LIST",
+  FILTER_LIST: "FILTER_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterType = (typeof CategoryFilterType)[keyof typeof CategoryFilterType];
+
+/**
+ * @public
+ * <p>A structure that represents the cell value synonym.</p>
+ */
+export interface CellValueSynonym {
+  /**
+   * <p>The cell value.</p>
+   */
+  CellValue?: string;
+
+  /**
+   * <p>Other names or aliases for the cell value.</p>
+   */
+  Synonyms?: string[];
+}
+
+/**
+ * @public
+ * <p>A structure that represents a collective constant.</p>
+ */
+export interface CollectiveConstant {
+  /**
+   * <p>A list of values for the collective constant.</p>
+   */
+  ValueList?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataRole = {
+  DIMENSION: "DIMENSION",
+  MEASURE: "MEASURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataRole = (typeof ColumnDataRole)[keyof typeof ColumnDataRole];
+
+/**
+ * @public
+ * <p>Metadata that contains a description for a column.</p>
+ */
+export interface ColumnDescription {
+  /**
+   * <p>The text of a description for a column.</p>
+   */
+  Text?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeoSpatialCountryCode = {
+  US: "US",
+} as const;
+
+/**
+ * @public
+ */
+export type GeoSpatialCountryCode = (typeof GeoSpatialCountryCode)[keyof typeof GeoSpatialCountryCode];
+
+/**
+ * @public
+ * <p>Geospatial column group that denotes a hierarchy.</p>
+ */
+export interface GeoSpatialColumnGroup {
+  /**
+   * <p>A display name for the hierarchy.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Country code.</p>
+   */
+  CountryCode?: GeoSpatialCountryCode | string;
+
+  /**
+   * <p>Columns in this hierarchy.</p>
+   */
+  Columns: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+ *             a variant type structure. For this structure to be valid, only one of the attributes can
+ *             be non-null.</p>
+ */
+export interface ColumnGroup {
+  /**
+   * <p>Geospatial column group that denotes a hierarchy.</p>
+   */
+  GeoSpatialColumnGroup?: GeoSpatialColumnGroup;
+}
+
+/**
+ * @public
+ * <p>A structure describing the name, data type, and geographic role of the columns.</p>
+ */
+export interface ColumnGroupColumnSchema {
+  /**
+   * <p>The name of the column group's column schema.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The column group schema.</p>
+ */
+export interface ColumnGroupSchema {
+  /**
+   * <p>The name of the column group schema.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A structure containing the list of schemas for column group columns.</p>
+   */
+  ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[];
+}
+
+/**
+ * @public
+ * <p>A rule defined to grant access on one or more restricted columns.
+ *             Each dataset can have multiple rules.
+ *             To create a restricted column, you add it to one or more rules.
+ *             Each rule must contain at least one column and at least one user or group.
+ *             To be able to see a restricted column, a user or group needs to be added
+ *             to a rule for that column.</p>
+ */
+export interface ColumnLevelPermissionRule {
+  /**
+   * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+   */
+  Principals?: string[];
+
+  /**
+   * <p>An array of column names.</p>
+   */
+  ColumnNames?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnOrderingType = {
+  GREATER_IS_BETTER: "GREATER_IS_BETTER",
+  LESSER_IS_BETTER: "LESSER_IS_BETTER",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnOrderingType = (typeof ColumnOrderingType)[keyof typeof ColumnOrderingType];
+
+/**
+ * @public
+ * <p>The column schema.</p>
+ */
+export interface ColumnSchema {
+  /**
+   * <p>The name of the column schema.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The data type of the column schema.</p>
+   */
+  DataType?: string;
+
+  /**
+   * <p>The geographic role of the column schema.</p>
+   */
+  GeographicRole?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeoSpatialDataRole = {
+  CITY: "CITY",
+  COUNTRY: "COUNTRY",
+  COUNTY: "COUNTY",
+  LATITUDE: "LATITUDE",
+  LONGITUDE: "LONGITUDE",
+  POSTCODE: "POSTCODE",
+  STATE: "STATE",
+} as const;
+
+/**
+ * @public
+ */
+export type GeoSpatialDataRole = (typeof GeoSpatialDataRole)[keyof typeof GeoSpatialDataRole];
+
+/**
+ * @public
+ * <p>A tag for a column in a
+ *             <code>
+ *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+ *             </code>
+ *             structure. This is a
+ *             variant type structure. For this structure to be valid, only one of the attributes can
+ *             be non-null.</p>
+ */
+export interface ColumnTag {
+  /**
+   * <p>A geospatial role for a column.</p>
+   */
+  ColumnGeographicRole?: GeoSpatialDataRole | string;
+
+  /**
+   * <p>A description for a column.</p>
+   */
+  ColumnDescription?: ColumnDescription;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnTagName = {
+  COLUMN_DESCRIPTION: "COLUMN_DESCRIPTION",
+  COLUMN_GEOGRAPHIC_ROLE: "COLUMN_GEOGRAPHIC_ROLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnTagName = (typeof ColumnTagName)[keyof typeof ColumnTagName];
 
 /**
  * @public
@@ -2339,1155 +4318,6 @@ export interface CreateDataSetResponse {
 
 /**
  * @public
- * <p>The required parameters that are needed to connect to a Databricks data source.</p>
- */
-export interface DatabricksParameters {
-  /**
-   * <p>The host name of the Databricks data source.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port for the Databricks data source.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>The HTTP path of the Databricks data source.</p>
-   */
-  SqlEndpointPath: string | undefined;
-}
-
-/**
- * @public
- * <p>The required parameters for connecting to an Exasol data source.</p>
- */
-export interface ExasolParameters {
-  /**
-   * <p>The hostname or IP address of the Exasol data source.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port for the Exasol data source.</p>
-   */
-  Port: number | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Jira.</p>
- */
-export interface JiraParameters {
-  /**
-   * <p>The base URL of the Jira site.</p>
-   */
-  SiteBaseUrl: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for MariaDB.</p>
- */
-export interface MariaDbParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for MySQL.</p>
- */
-export interface MySqlParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Oracle.</p>
- */
-export interface OracleParameters {
-  /**
-   * <p>An Oracle host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>The database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for PostgreSQL.</p>
- */
-export interface PostgreSqlParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Presto.</p>
- */
-export interface PrestoParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Catalog.</p>
-   */
-  Catalog: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Amazon RDS.</p>
- */
-export interface RdsParameters {
-  /**
-   * <p>Instance ID.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
- *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
- *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
- */
-export interface RedshiftParameters {
-  /**
-   * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
-   */
-  Host?: string;
-
-  /**
-   * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-
-  /**
-   * <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
-   *             provided.</p>
-   */
-  ClusterId?: string;
-}
-
-/**
- * @public
- * <p>Amazon S3 manifest file location.</p>
- */
-export interface ManifestFileLocation {
-  /**
-   * <p>Amazon S3 bucket.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Amazon S3 key that identifies an object.</p>
-   */
-  Key: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for S3.</p>
- */
-export interface S3Parameters {
-  /**
-   * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
-   *             uploaded into Amazon QuickSight.</p>
-   */
-  ManifestFileLocation: ManifestFileLocation | undefined;
-
-  /**
-   * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
-   */
-  RoleArn?: string;
-}
-
-/**
- * @public
- * <p>The parameters for ServiceNow.</p>
- */
-export interface ServiceNowParameters {
-  /**
-   * <p>URL of the base site.</p>
-   */
-  SiteBaseUrl: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Snowflake.</p>
- */
-export interface SnowflakeParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-
-  /**
-   * <p>Warehouse.</p>
-   */
-  Warehouse: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Spark.</p>
- */
-export interface SparkParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for SQL Server.</p>
- */
-export interface SqlServerParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Teradata.</p>
- */
-export interface TeradataParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Twitter.</p>
- */
-export interface TwitterParameters {
-  /**
-   * <p>Twitter query string.</p>
-   */
-  Query: string | undefined;
-
-  /**
-   * <p>Maximum number of rows to query Twitter.</p>
-   */
-  MaxRows: number | undefined;
-}
-
-/**
- * @public
- * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
- *             This is a variant type structure. For this structure to be valid, only one of the
- *             attributes can be non-null.</p>
- */
-export type DataSourceParameters =
-  | DataSourceParameters.AmazonElasticsearchParametersMember
-  | DataSourceParameters.AmazonOpenSearchParametersMember
-  | DataSourceParameters.AthenaParametersMember
-  | DataSourceParameters.AuroraParametersMember
-  | DataSourceParameters.AuroraPostgreSqlParametersMember
-  | DataSourceParameters.AwsIotAnalyticsParametersMember
-  | DataSourceParameters.DatabricksParametersMember
-  | DataSourceParameters.ExasolParametersMember
-  | DataSourceParameters.JiraParametersMember
-  | DataSourceParameters.MariaDbParametersMember
-  | DataSourceParameters.MySqlParametersMember
-  | DataSourceParameters.OracleParametersMember
-  | DataSourceParameters.PostgreSqlParametersMember
-  | DataSourceParameters.PrestoParametersMember
-  | DataSourceParameters.RdsParametersMember
-  | DataSourceParameters.RedshiftParametersMember
-  | DataSourceParameters.S3ParametersMember
-  | DataSourceParameters.ServiceNowParametersMember
-  | DataSourceParameters.SnowflakeParametersMember
-  | DataSourceParameters.SparkParametersMember
-  | DataSourceParameters.SqlServerParametersMember
-  | DataSourceParameters.TeradataParametersMember
-  | DataSourceParameters.TwitterParametersMember
-  | DataSourceParameters.$UnknownMember;
-
-/**
- * @public
- */
-export namespace DataSourceParameters {
-  /**
-   * <p>The parameters for OpenSearch.</p>
-   */
-  export interface AmazonElasticsearchParametersMember {
-    AmazonElasticsearchParameters: AmazonElasticsearchParameters;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Amazon Athena.</p>
-   */
-  export interface AthenaParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters: AthenaParameters;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Amazon Aurora MySQL.</p>
-   */
-  export interface AuroraParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters: AuroraParameters;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Amazon Aurora.</p>
-   */
-  export interface AuroraPostgreSqlParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters: AuroraPostgreSqlParameters;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for IoT Analytics.</p>
-   */
-  export interface AwsIotAnalyticsParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters: AwsIotAnalyticsParameters;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Jira.</p>
-   */
-  export interface JiraParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters: JiraParameters;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for MariaDB.</p>
-   */
-  export interface MariaDbParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters: MariaDbParameters;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for MySQL.</p>
-   */
-  export interface MySqlParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters: MySqlParameters;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Oracle.</p>
-   */
-  export interface OracleParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters: OracleParameters;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for PostgreSQL.</p>
-   */
-  export interface PostgreSqlParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters: PostgreSqlParameters;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Presto.</p>
-   */
-  export interface PrestoParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters: PrestoParameters;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Amazon RDS.</p>
-   */
-  export interface RdsParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters: RdsParameters;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Amazon Redshift.</p>
-   */
-  export interface RedshiftParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters: RedshiftParameters;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for S3.</p>
-   */
-  export interface S3ParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters: S3Parameters;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for ServiceNow.</p>
-   */
-  export interface ServiceNowParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters: ServiceNowParameters;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Snowflake.</p>
-   */
-  export interface SnowflakeParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters: SnowflakeParameters;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Spark.</p>
-   */
-  export interface SparkParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters: SparkParameters;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for SQL Server.</p>
-   */
-  export interface SqlServerParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters: SqlServerParameters;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Teradata.</p>
-   */
-  export interface TeradataParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters: TeradataParameters;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Twitter.</p>
-   */
-  export interface TwitterParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters: TwitterParameters;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for OpenSearch.</p>
-   */
-  export interface AmazonOpenSearchParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters: AmazonOpenSearchParameters;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The parameters for Exasol.</p>
-   */
-  export interface ExasolParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters: ExasolParameters;
-    DatabricksParameters?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The required parameters that are needed to connect to a Databricks data source.</p>
-   */
-  export interface DatabricksParametersMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters: DatabricksParameters;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    AmazonElasticsearchParameters?: never;
-    AthenaParameters?: never;
-    AuroraParameters?: never;
-    AuroraPostgreSqlParameters?: never;
-    AwsIotAnalyticsParameters?: never;
-    JiraParameters?: never;
-    MariaDbParameters?: never;
-    MySqlParameters?: never;
-    OracleParameters?: never;
-    PostgreSqlParameters?: never;
-    PrestoParameters?: never;
-    RdsParameters?: never;
-    RedshiftParameters?: never;
-    S3Parameters?: never;
-    ServiceNowParameters?: never;
-    SnowflakeParameters?: never;
-    SparkParameters?: never;
-    SqlServerParameters?: never;
-    TeradataParameters?: never;
-    TwitterParameters?: never;
-    AmazonOpenSearchParameters?: never;
-    ExasolParameters?: never;
-    DatabricksParameters?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    AmazonElasticsearchParameters: (value: AmazonElasticsearchParameters) => T;
-    AthenaParameters: (value: AthenaParameters) => T;
-    AuroraParameters: (value: AuroraParameters) => T;
-    AuroraPostgreSqlParameters: (value: AuroraPostgreSqlParameters) => T;
-    AwsIotAnalyticsParameters: (value: AwsIotAnalyticsParameters) => T;
-    JiraParameters: (value: JiraParameters) => T;
-    MariaDbParameters: (value: MariaDbParameters) => T;
-    MySqlParameters: (value: MySqlParameters) => T;
-    OracleParameters: (value: OracleParameters) => T;
-    PostgreSqlParameters: (value: PostgreSqlParameters) => T;
-    PrestoParameters: (value: PrestoParameters) => T;
-    RdsParameters: (value: RdsParameters) => T;
-    RedshiftParameters: (value: RedshiftParameters) => T;
-    S3Parameters: (value: S3Parameters) => T;
-    ServiceNowParameters: (value: ServiceNowParameters) => T;
-    SnowflakeParameters: (value: SnowflakeParameters) => T;
-    SparkParameters: (value: SparkParameters) => T;
-    SqlServerParameters: (value: SqlServerParameters) => T;
-    TeradataParameters: (value: TeradataParameters) => T;
-    TwitterParameters: (value: TwitterParameters) => T;
-    AmazonOpenSearchParameters: (value: AmazonOpenSearchParameters) => T;
-    ExasolParameters: (value: ExasolParameters) => T;
-    DatabricksParameters: (value: DatabricksParameters) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: DataSourceParameters, visitor: Visitor<T>): T => {
-    if (value.AmazonElasticsearchParameters !== undefined)
-      return visitor.AmazonElasticsearchParameters(value.AmazonElasticsearchParameters);
-    if (value.AthenaParameters !== undefined) return visitor.AthenaParameters(value.AthenaParameters);
-    if (value.AuroraParameters !== undefined) return visitor.AuroraParameters(value.AuroraParameters);
-    if (value.AuroraPostgreSqlParameters !== undefined)
-      return visitor.AuroraPostgreSqlParameters(value.AuroraPostgreSqlParameters);
-    if (value.AwsIotAnalyticsParameters !== undefined)
-      return visitor.AwsIotAnalyticsParameters(value.AwsIotAnalyticsParameters);
-    if (value.JiraParameters !== undefined) return visitor.JiraParameters(value.JiraParameters);
-    if (value.MariaDbParameters !== undefined) return visitor.MariaDbParameters(value.MariaDbParameters);
-    if (value.MySqlParameters !== undefined) return visitor.MySqlParameters(value.MySqlParameters);
-    if (value.OracleParameters !== undefined) return visitor.OracleParameters(value.OracleParameters);
-    if (value.PostgreSqlParameters !== undefined) return visitor.PostgreSqlParameters(value.PostgreSqlParameters);
-    if (value.PrestoParameters !== undefined) return visitor.PrestoParameters(value.PrestoParameters);
-    if (value.RdsParameters !== undefined) return visitor.RdsParameters(value.RdsParameters);
-    if (value.RedshiftParameters !== undefined) return visitor.RedshiftParameters(value.RedshiftParameters);
-    if (value.S3Parameters !== undefined) return visitor.S3Parameters(value.S3Parameters);
-    if (value.ServiceNowParameters !== undefined) return visitor.ServiceNowParameters(value.ServiceNowParameters);
-    if (value.SnowflakeParameters !== undefined) return visitor.SnowflakeParameters(value.SnowflakeParameters);
-    if (value.SparkParameters !== undefined) return visitor.SparkParameters(value.SparkParameters);
-    if (value.SqlServerParameters !== undefined) return visitor.SqlServerParameters(value.SqlServerParameters);
-    if (value.TeradataParameters !== undefined) return visitor.TeradataParameters(value.TeradataParameters);
-    if (value.TwitterParameters !== undefined) return visitor.TwitterParameters(value.TwitterParameters);
-    if (value.AmazonOpenSearchParameters !== undefined)
-      return visitor.AmazonOpenSearchParameters(value.AmazonOpenSearchParameters);
-    if (value.ExasolParameters !== undefined) return visitor.ExasolParameters(value.ExasolParameters);
-    if (value.DatabricksParameters !== undefined) return visitor.DatabricksParameters(value.DatabricksParameters);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
  * <p>The combination of user name and password that are used as credentials.</p>
  */
 export interface CredentialPair {
@@ -3545,18 +4375,6 @@ export interface DataSourceCredentials {
 
 /**
  * @public
- * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
- *             underlying data source.</p>
- */
-export interface SslProperties {
-  /**
-   * <p>A Boolean option to control whether SSL should be disabled.</p>
-   */
-  DisableSsl?: boolean;
-}
-
-/**
- * @public
  * @enum
  */
 export const DataSourceType = {
@@ -3592,17 +4410,6 @@ export const DataSourceType = {
  * @public
  */
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
-
-/**
- * @public
- * <p>VPC connection properties.</p>
- */
-export interface VpcConnectionProperties {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
-   */
-  VpcConnectionArn: string | undefined;
-}
 
 /**
  * @public
@@ -7768,1063 +8575,45 @@ export interface DeleteNamespaceRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteNamespaceResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
+export const AssetBundleImportJobDataSourceOverrideParametersFilterSensitiveLog = (
+  obj: AssetBundleImportJobDataSourceOverrideParameters
+): any => ({
+  ...obj,
+  ...(obj.DataSourceParameters && { DataSourceParameters: obj.DataSourceParameters }),
+  ...(obj.Credentials && { Credentials: AssetBundleImportJobDataSourceCredentialsFilterSensitiveLog(obj.Credentials) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteRefreshScheduleRequest {
-  /**
-   * <p>The ID of the dataset.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   */
-  ScheduleId: string | undefined;
-}
+export const AssetBundleImportJobOverrideParametersFilterSensitiveLog = (
+  obj: AssetBundleImportJobOverrideParameters
+): any => ({
+  ...obj,
+  ...(obj.DataSources && {
+    DataSources: obj.DataSources.map((item) =>
+      AssetBundleImportJobDataSourceOverrideParametersFilterSensitiveLog(item)
+    ),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteRefreshScheduleResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   */
-  ScheduleId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   */
-  Arn?: string;
-}
+export const AssetBundleImportSourceFilterSensitiveLog = (obj: AssetBundleImportSource): any => ({
+  ...obj,
+  ...(obj.Body && { Body: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteTemplateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the template you want to delete.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>Specifies the version of the template that you want to delete.
-   * 			If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
-   * 	 </p>
-   */
-  VersionNumber?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteTemplateResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>An ID for the template.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template that the specified alias is for.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The name for the template alias. To delete a specific alias, you delete the version that the
-   * 			alias points to. You can specify the alias name, or specify the latest version of the
-   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. </p>
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTemplateAliasResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>An ID for the template associated with the deletion.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The name for the template alias.</p>
-   */
-  AliasName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template you want to delete.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the theme that you want to delete.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The version of the theme that you want to delete. </p>
-   *          <p>
-   *             <b>Note:</b> If you don't provide a version number, you're
-   * 			using this call to <code>DeleteTheme</code> to delete all versions of the theme.</p>
-   */
-  VersionNumber?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>An ID for the theme.</p>
-   */
-  ThemeId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme that the specified alias is for.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The unique name for the theme alias to delete.</p>
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeAliasResponse {
-  /**
-   * <p>The name for the theme alias.</p>
-   */
-  AliasName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>An ID for the theme associated with the deletion.</p>
-   */
-  ThemeId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
-   *          delete.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRefreshScheduleRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   */
-  DatasetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRefreshScheduleResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   */
-  TopicArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DatasetArn?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteUserRequest {
-  /**
-   * <p>The name of the user that you want to delete.</p>
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DeleteUserByPrincipalIdRequest {
-  /**
-   * <p>The principal ID of the user.</p>
-   */
-  PrincipalId: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserByPrincipalIdResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account where you want to delete a VPC
-   * 			connection.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   */
-  VPCConnectionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVPCConnectionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted VPC connection.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   */
-  VPCConnectionId?: string;
-
-  /**
-   * <p>The deletion status of the VPC connection.</p>
-   */
-  DeletionStatus?: VPCConnectionResourceStatus | string;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomizationRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations
-   *             for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight namespace that you want to describe Amazon QuickSight customizations
-   *             for.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The <code>Resolved</code> flag works with the other parameters to determine which view
-   *             of Amazon QuickSight customizations is returned. You can add this flag to your command to use
-   *             the same view that Amazon QuickSight uses to identify which customizations to apply to the
-   *             console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
-   *             that are configured at different levels. </p>
-   */
-  Resolved?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomizationResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you're describing.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * <p>The Amazon QuickSight namespace that you're describing. </p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The Amazon QuickSight customizations that exist in the current Amazon Web Services Region. </p>
-   */
-  AccountCustomization?: AccountCustomization;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSettingsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSettingsResponse {
-  /**
-   * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information
-   *             includes the edition of Amazon Amazon QuickSight that you subscribed to (Standard or
-   *             Enterprise) and the notification email for the Amazon QuickSight subscription. </p>
-   *          <p>In the QuickSight console, the Amazon QuickSight subscription is sometimes referred to
-   *             as a QuickSight "account" even though it's technically not an account by
-   *             itself. Instead, it's a subscription to the Amazon QuickSight service for your
-   *                 Amazon Web Services account. The edition that you subscribe to applies to Amazon QuickSight in every Amazon Web Services Region where you use it.</p>
-   */
-  AccountSettings?: AccountSettings;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSubscriptionRequest {
-  /**
-   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSubscriptionResponse {
-  /**
-   * <p>A structure that contains the following elements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Your Amazon QuickSight account name.</p>
-   *             </li>
-   *             <li>
-   *                <p>The edition of Amazon QuickSight that your account is using.</p>
-   *             </li>
-   *             <li>
-   *                <p>The notification email address that is associated with the Amazon QuickSight
-   *                     account.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>The authentication type of the Amazon QuickSight account.</p>
-   *             </li>
-   *             <li>
-   *                <p>The status of the Amazon QuickSight account's subscription.</p>
-   *             </li>
-   *          </ul>
-   */
-  AccountInfo?: AccountInfo;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
-   *             Amazon Web Services account that the analysis is in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
-   *             analysis.</p>
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisResponse {
-  /**
-   * <p>A metadata structure that contains summary information for the analysis that you're
-   *             describing.</p>
-   */
-  Analysis?: Analysis;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisDefinitionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
-   *             Amazon Web Services account that the analysis is in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
-   *             analysis.</p>
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisDefinitionResponse {
-  /**
-   * <p>The ID of the analysis described.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * <p>The descriptive name of the analysis.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Errors associated with the analysis.</p>
-   */
-  Errors?: AnalysisError[];
-
-  /**
-   * <p>Status associated with the analysis.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceStatus?: ResourceStatus | string;
-
-  /**
-   * <p>The ARN of the theme of the analysis.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   */
-  Definition?: AnalysisDefinition;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
-   *             describing. You must be using the Amazon Web Services account that the analysis is in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis whose permissions you're describing. The ID is part of the
-   *             analysis URL.</p>
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisPermissionsResponse {
-  /**
-   * <p>The ID of the analysis whose permissions you're describing.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the analysis whose permissions you're
-   *             describing.</p>
-   */
-  AnalysisArn?: string;
-
-  /**
-   * <p>A structure that describes the principals and the resource-level permissions on an
-   *             analysis.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             describing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number for the dashboard. If a version number isn't passed, the
-   *             latest published dashboard version is described. </p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The alias name.</p>
-   */
-  AliasName?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardResponse {
-  /**
-   * <p>Information about the dashboard.</p>
-   */
-  Dashboard?: Dashboard;
-
-  /**
-   * <p>The HTTP status of this request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardDefinitionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             describing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number for the dashboard. If a version number isn't passed, the
-   *             latest published dashboard version is described. </p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The alias name.</p>
-   */
-  AliasName?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardDefinitionResponse {
-  /**
-   * <p>The ID of the dashboard described.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * <p>Errors associated with this dashboard version.</p>
-   */
-  Errors?: DashboardError[];
-
-  /**
-   * <p>The display name of the dashboard.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Status associated with the dashboard version.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ResourceStatus?: ResourceStatus | string;
-
-  /**
-   * <p>The ARN of the theme of the dashboard.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>The definition of a dashboard.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   */
-  Definition?: DashboardVersionDefinition;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>Options for publishing the dashboard:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
-   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
-   *                     option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
-   *                     option to export data to .CSV format isn't enabled when this is set to
-   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
-   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
-   *                     This option is <code>COLLAPSED</code> by default. </p>
-   *             </li>
-   *          </ul>
-   */
-  DashboardPublishOptions?: DashboardPublishOptions;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing
-   *             permissions for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard, also added to the IAM policy.</p>
-   */
-  DashboardId: string | undefined;
-}
-
-/**
- * @public
- * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
- */
-export interface LinkSharingConfiguration {
-  /**
-   * <p>A structure that contains the permissions of a shareable link.</p>
-   */
-  Permissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardPermissionsResponse {
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   */
-  DashboardArn?: string;
-
-  /**
-   * <p>A structure that contains the permissions for the dashboard.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>A structure that contains the configuration of a shareable link that grants access to
-   *             the dashboard. Your users can use the link to view and interact with the dashboard, if
-   *             the dashboard has been shared with them. For more information about sharing dashboards,
-   *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html">Sharing Dashboards</a>.</p>
-   */
-  LinkSharingConfiguration?: LinkSharingConfiguration;
-}
+export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
+  ...obj,
+  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -9188,20 +8977,4 @@ export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
       obj.RowLevelPermissionTagConfiguration
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeDashboardDefinitionResponse
-): any => ({
-  ...obj,
 });

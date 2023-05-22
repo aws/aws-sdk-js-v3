@@ -230,6 +230,16 @@ import {
   DescribeAnalysisPermissionsCommandOutput,
 } from "./commands/DescribeAnalysisPermissionsCommand";
 import {
+  DescribeAssetBundleExportJobCommand,
+  DescribeAssetBundleExportJobCommandInput,
+  DescribeAssetBundleExportJobCommandOutput,
+} from "./commands/DescribeAssetBundleExportJobCommand";
+import {
+  DescribeAssetBundleImportJobCommand,
+  DescribeAssetBundleImportJobCommandInput,
+  DescribeAssetBundleImportJobCommandOutput,
+} from "./commands/DescribeAssetBundleImportJobCommand";
+import {
   DescribeDashboardCommand,
   DescribeDashboardCommandInput,
   DescribeDashboardCommandOutput,
@@ -410,6 +420,16 @@ import {
   ListAnalysesCommandOutput,
 } from "./commands/ListAnalysesCommand";
 import {
+  ListAssetBundleExportJobsCommand,
+  ListAssetBundleExportJobsCommandInput,
+  ListAssetBundleExportJobsCommandOutput,
+} from "./commands/ListAssetBundleExportJobsCommand";
+import {
+  ListAssetBundleImportJobsCommand,
+  ListAssetBundleImportJobsCommandInput,
+  ListAssetBundleImportJobsCommandOutput,
+} from "./commands/ListAssetBundleImportJobsCommand";
+import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
@@ -559,6 +579,16 @@ import {
   SearchGroupsCommandInput,
   SearchGroupsCommandOutput,
 } from "./commands/SearchGroupsCommand";
+import {
+  StartAssetBundleExportJobCommand,
+  StartAssetBundleExportJobCommandInput,
+  StartAssetBundleExportJobCommandOutput,
+} from "./commands/StartAssetBundleExportJobCommand";
+import {
+  StartAssetBundleImportJobCommand,
+  StartAssetBundleImportJobCommandInput,
+  StartAssetBundleImportJobCommandOutput,
+} from "./commands/StartAssetBundleImportJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -748,6 +778,8 @@ const commands = {
   DescribeAnalysisCommand,
   DescribeAnalysisDefinitionCommand,
   DescribeAnalysisPermissionsCommand,
+  DescribeAssetBundleExportJobCommand,
+  DescribeAssetBundleImportJobCommand,
   DescribeDashboardCommand,
   DescribeDashboardDefinitionCommand,
   DescribeDashboardPermissionsCommand,
@@ -784,6 +816,8 @@ const commands = {
   GetDashboardEmbedUrlCommand,
   GetSessionEmbedUrlCommand,
   ListAnalysesCommand,
+  ListAssetBundleExportJobsCommand,
+  ListAssetBundleImportJobsCommand,
   ListDashboardsCommand,
   ListDashboardVersionsCommand,
   ListDataSetsCommand,
@@ -818,6 +852,8 @@ const commands = {
   SearchDataSourcesCommand,
   SearchFoldersCommand,
   SearchGroupsCommand,
+  StartAssetBundleExportJobCommand,
+  StartAssetBundleImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountCustomizationCommand,
@@ -1624,6 +1660,40 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeAssetBundleExportJobCommand}
+   */
+  describeAssetBundleExportJob(
+    args: DescribeAssetBundleExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetBundleExportJobCommandOutput>;
+  describeAssetBundleExportJob(
+    args: DescribeAssetBundleExportJobCommandInput,
+    cb: (err: any, data?: DescribeAssetBundleExportJobCommandOutput) => void
+  ): void;
+  describeAssetBundleExportJob(
+    args: DescribeAssetBundleExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetBundleExportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssetBundleImportJobCommand}
+   */
+  describeAssetBundleImportJob(
+    args: DescribeAssetBundleImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetBundleImportJobCommandOutput>;
+  describeAssetBundleImportJob(
+    args: DescribeAssetBundleImportJobCommandInput,
+    cb: (err: any, data?: DescribeAssetBundleImportJobCommandOutput) => void
+  ): void;
+  describeAssetBundleImportJob(
+    args: DescribeAssetBundleImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetBundleImportJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDashboardCommand}
    */
   describeDashboard(
@@ -2200,6 +2270,40 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListAssetBundleExportJobsCommand}
+   */
+  listAssetBundleExportJobs(
+    args: ListAssetBundleExportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetBundleExportJobsCommandOutput>;
+  listAssetBundleExportJobs(
+    args: ListAssetBundleExportJobsCommandInput,
+    cb: (err: any, data?: ListAssetBundleExportJobsCommandOutput) => void
+  ): void;
+  listAssetBundleExportJobs(
+    args: ListAssetBundleExportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetBundleExportJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetBundleImportJobsCommand}
+   */
+  listAssetBundleImportJobs(
+    args: ListAssetBundleImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetBundleImportJobsCommandOutput>;
+  listAssetBundleImportJobs(
+    args: ListAssetBundleImportJobsCommandInput,
+    cb: (err: any, data?: ListAssetBundleImportJobsCommandOutput) => void
+  ): void;
+  listAssetBundleImportJobs(
+    args: ListAssetBundleImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetBundleImportJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDashboardsCommand}
    */
   listDashboards(
@@ -2691,6 +2795,40 @@ export interface QuickSight {
     args: SearchGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAssetBundleExportJobCommand}
+   */
+  startAssetBundleExportJob(
+    args: StartAssetBundleExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAssetBundleExportJobCommandOutput>;
+  startAssetBundleExportJob(
+    args: StartAssetBundleExportJobCommandInput,
+    cb: (err: any, data?: StartAssetBundleExportJobCommandOutput) => void
+  ): void;
+  startAssetBundleExportJob(
+    args: StartAssetBundleExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAssetBundleExportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAssetBundleImportJobCommand}
+   */
+  startAssetBundleImportJob(
+    args: StartAssetBundleImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAssetBundleImportJobCommandOutput>;
+  startAssetBundleImportJob(
+    args: StartAssetBundleImportJobCommandInput,
+    cb: (err: any, data?: StartAssetBundleImportJobCommandOutput) => void
+  ): void;
+  startAssetBundleImportJob(
+    args: StartAssetBundleImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAssetBundleImportJobCommandOutput) => void
   ): void;
 
   /**

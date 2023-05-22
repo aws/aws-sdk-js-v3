@@ -177,6 +177,14 @@ import {
   DescribeAnalysisPermissionsCommandInput,
   DescribeAnalysisPermissionsCommandOutput,
 } from "./commands/DescribeAnalysisPermissionsCommand";
+import {
+  DescribeAssetBundleExportJobCommandInput,
+  DescribeAssetBundleExportJobCommandOutput,
+} from "./commands/DescribeAssetBundleExportJobCommand";
+import {
+  DescribeAssetBundleImportJobCommandInput,
+  DescribeAssetBundleImportJobCommandOutput,
+} from "./commands/DescribeAssetBundleImportJobCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import {
   DescribeDashboardDefinitionCommandInput,
@@ -279,6 +287,14 @@ import {
 } from "./commands/GetDashboardEmbedUrlCommand";
 import { GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput } from "./commands/GetSessionEmbedUrlCommand";
 import { ListAnalysesCommandInput, ListAnalysesCommandOutput } from "./commands/ListAnalysesCommand";
+import {
+  ListAssetBundleExportJobsCommandInput,
+  ListAssetBundleExportJobsCommandOutput,
+} from "./commands/ListAssetBundleExportJobsCommand";
+import {
+  ListAssetBundleImportJobsCommandInput,
+  ListAssetBundleImportJobsCommandOutput,
+} from "./commands/ListAssetBundleImportJobsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import {
   ListDashboardVersionsCommandInput,
@@ -343,6 +359,14 @@ import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "./comma
 import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "./commands/SearchDataSourcesCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
+import {
+  StartAssetBundleExportJobCommandInput,
+  StartAssetBundleExportJobCommandOutput,
+} from "./commands/StartAssetBundleExportJobCommand";
+import {
+  StartAssetBundleImportJobCommandInput,
+  StartAssetBundleImportJobCommandOutput,
+} from "./commands/StartAssetBundleImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -491,6 +515,8 @@ export type ServiceInputTypes =
   | DescribeAnalysisCommandInput
   | DescribeAnalysisDefinitionCommandInput
   | DescribeAnalysisPermissionsCommandInput
+  | DescribeAssetBundleExportJobCommandInput
+  | DescribeAssetBundleImportJobCommandInput
   | DescribeDashboardCommandInput
   | DescribeDashboardDefinitionCommandInput
   | DescribeDashboardPermissionsCommandInput
@@ -527,6 +553,8 @@ export type ServiceInputTypes =
   | GetDashboardEmbedUrlCommandInput
   | GetSessionEmbedUrlCommandInput
   | ListAnalysesCommandInput
+  | ListAssetBundleExportJobsCommandInput
+  | ListAssetBundleImportJobsCommandInput
   | ListDashboardVersionsCommandInput
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
@@ -561,6 +589,8 @@ export type ServiceInputTypes =
   | SearchDataSourcesCommandInput
   | SearchFoldersCommandInput
   | SearchGroupsCommandInput
+  | StartAssetBundleExportJobCommandInput
+  | StartAssetBundleImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountCustomizationCommandInput
@@ -648,6 +678,8 @@ export type ServiceOutputTypes =
   | DescribeAnalysisCommandOutput
   | DescribeAnalysisDefinitionCommandOutput
   | DescribeAnalysisPermissionsCommandOutput
+  | DescribeAssetBundleExportJobCommandOutput
+  | DescribeAssetBundleImportJobCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDashboardDefinitionCommandOutput
   | DescribeDashboardPermissionsCommandOutput
@@ -684,6 +716,8 @@ export type ServiceOutputTypes =
   | GetDashboardEmbedUrlCommandOutput
   | GetSessionEmbedUrlCommandOutput
   | ListAnalysesCommandOutput
+  | ListAssetBundleExportJobsCommandOutput
+  | ListAssetBundleImportJobsCommandOutput
   | ListDashboardVersionsCommandOutput
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
@@ -718,6 +752,8 @@ export type ServiceOutputTypes =
   | SearchDataSourcesCommandOutput
   | SearchFoldersCommandOutput
   | SearchGroupsCommandOutput
+  | StartAssetBundleExportJobCommandOutput
+  | StartAssetBundleImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountCustomizationCommandOutput

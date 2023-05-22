@@ -3318,12 +3318,21 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
  *                 },
  *                 PointStyleOptions: { // GeospatialPointStyleOptions
- *                   SelectedPointStyle: "POINT" || "CLUSTER",
+ *                   SelectedPointStyle: "POINT" || "CLUSTER" || "HEATMAP",
  *                   ClusterMarkerConfiguration: { // ClusterMarkerConfiguration
  *                     ClusterMarker: { // ClusterMarker
  *                       SimpleClusterMarker: { // SimpleClusterMarker
  *                         Color: "STRING_VALUE",
  *                       },
+ *                     },
+ *                   },
+ *                   HeatmapConfiguration: { // GeospatialHeatmapConfiguration
+ *                     HeatmapColor: { // GeospatialHeatmapColorScale
+ *                       Colors: [ // GeospatialHeatmapDataColorList
+ *                         { // GeospatialHeatmapDataColor
+ *                           Color: "STRING_VALUE", // required
+ *                         },
+ *                       ],
  *                     },
  *                   },
  *                 },

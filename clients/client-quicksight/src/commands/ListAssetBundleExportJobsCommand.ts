@@ -13,81 +13,71 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/models_3";
-import {
-  de_DescribeDashboardPermissionsCommand,
-  se_DescribeDashboardPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssetBundleExportJobsRequest, ListAssetBundleExportJobsResponse } from "../models/models_3";
+import { de_ListAssetBundleExportJobsCommand, se_ListAssetBundleExportJobsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  *
- * The input for {@link DescribeDashboardPermissionsCommand}.
+ * The input for {@link ListAssetBundleExportJobsCommand}.
  */
-export interface DescribeDashboardPermissionsCommandInput extends DescribeDashboardPermissionsRequest {}
+export interface ListAssetBundleExportJobsCommandInput extends ListAssetBundleExportJobsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeDashboardPermissionsCommand}.
+ * The output of {@link ListAssetBundleExportJobsCommand}.
  */
-export interface DescribeDashboardPermissionsCommandOutput
-  extends DescribeDashboardPermissionsResponse,
-    __MetadataBearer {}
+export interface ListAssetBundleExportJobsCommandOutput extends ListAssetBundleExportJobsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Describes read and write permissions for a dashboard.</p>
+ * <p>Lists all asset bundle export jobs that have been taken place in the last 14 days. Jobs created more than 14 days ago are deleted forever and are not returned. If you are using the same job ID for multiple jobs, <code>ListAssetBundleExportJobs</code> only returns the most recent job that uses the repeated job ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeDashboardPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeDashboardPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, ListAssetBundleExportJobsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, ListAssetBundleExportJobsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // DescribeDashboardPermissionsRequest
+ * const input = { // ListAssetBundleExportJobsRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   DashboardId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new DescribeDashboardPermissionsCommand(input);
+ * const command = new ListAssetBundleExportJobsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeDashboardPermissionsResponse
- * //   DashboardId: "STRING_VALUE",
- * //   DashboardArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
- * //     { // ResourcePermission
- * //       Principal: "STRING_VALUE", // required
- * //       Actions: [ // ActionList // required
- * //         "STRING_VALUE",
- * //       ],
+ * // { // ListAssetBundleExportJobsResponse
+ * //   AssetBundleExportJobSummaryList: [ // AssetBundleExportJobSummaryList
+ * //     { // AssetBundleExportJobSummary
+ * //       JobStatus: "QUEUED_FOR_IMMEDIATE_EXECUTION" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED",
+ * //       Arn: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       AssetBundleExportJobId: "STRING_VALUE",
+ * //       IncludeAllDependencies: true || false,
+ * //       ExportFormat: "CLOUDFORMATION_JSON" || "QUICKSIGHT_JSON",
  * //     },
  * //   ],
- * //   Status: Number("int"),
+ * //   NextToken: "STRING_VALUE",
  * //   RequestId: "STRING_VALUE",
- * //   LinkSharingConfiguration: { // LinkSharingConfiguration
- * //     Permissions: [
- * //       {
- * //         Principal: "STRING_VALUE", // required
- * //         Actions: [ // required
- * //           "STRING_VALUE",
- * //         ],
- * //       },
- * //     ],
- * //   },
+ * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param DescribeDashboardPermissionsCommandInput - {@link DescribeDashboardPermissionsCommandInput}
- * @returns {@link DescribeDashboardPermissionsCommandOutput}
- * @see {@link DescribeDashboardPermissionsCommandInput} for command's `input` shape.
- * @see {@link DescribeDashboardPermissionsCommandOutput} for command's `response` shape.
+ * @param ListAssetBundleExportJobsCommandInput - {@link ListAssetBundleExportJobsCommandInput}
+ * @returns {@link ListAssetBundleExportJobsCommandOutput}
+ * @see {@link ListAssetBundleExportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListAssetBundleExportJobsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
- * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
  *
- * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value isn't valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -105,9 +95,9 @@ export interface DescribeDashboardPermissionsCommandOutput
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class DescribeDashboardPermissionsCommand extends $Command<
-  DescribeDashboardPermissionsCommandInput,
-  DescribeDashboardPermissionsCommandOutput,
+export class ListAssetBundleExportJobsCommand extends $Command<
+  ListAssetBundleExportJobsCommandInput,
+  ListAssetBundleExportJobsCommandOutput,
   QuickSightClientResolvedConfig
 > {
   // Start section: command_properties
@@ -125,7 +115,7 @@ export class DescribeDashboardPermissionsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeDashboardPermissionsCommandInput) {
+  constructor(readonly input: ListAssetBundleExportJobsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -138,17 +128,17 @@ export class DescribeDashboardPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDashboardPermissionsCommandInput, DescribeDashboardPermissionsCommandOutput> {
+  ): Handler<ListAssetBundleExportJobsCommandInput, ListAssetBundleExportJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDashboardPermissionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAssetBundleExportJobsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "DescribeDashboardPermissionsCommand";
+    const commandName = "ListAssetBundleExportJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -167,8 +157,8 @@ export class DescribeDashboardPermissionsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeDashboardPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeDashboardPermissionsCommand(input, context);
+  private serialize(input: ListAssetBundleExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListAssetBundleExportJobsCommand(input, context);
   }
 
   /**
@@ -177,8 +167,8 @@ export class DescribeDashboardPermissionsCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeDashboardPermissionsCommandOutput> {
-    return de_DescribeDashboardPermissionsCommand(output, context);
+  ): Promise<ListAssetBundleExportJobsCommandOutput> {
+    return de_ListAssetBundleExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra
