@@ -2831,11 +2831,14 @@ export interface DescribeRecoveryPointOutput {
    *          that versioning is enabled on the S3 bucket. Once these conditions are met, the next instance
    *          of a backup rule running will result in a new continuous recovery point being created.
    *          The recovery points with STOPPED status do not need to be deleted.</p>
+   *          <p>For SAP HANA on Amazon EC2 <code>STOPPED</code> status occurs due to user action, application
+   *          misconfiguration, or backup failure. To ensure that future continuous backups succeed,
+   *          refer to the recovery point status and check SAP HANA for details.</p>
    */
   Status?: RecoveryPointStatus | string;
 
   /**
-   * <p>A status message explaining the reason for the recovery point deletion failure.</p>
+   * <p>A status message explaining the status of the recovery point.</p>
    */
   StatusMessage?: string;
 
@@ -5714,6 +5717,13 @@ export interface StartRestoreJobInput {
    *          </ul>
    */
   ResourceType?: string;
+
+  /**
+   * <p>This is an optional parameter. If this equals <code>True</code>, tags included in the backup
+   *       will be copied to the restored resource.</p>
+   *          <p>This can only be applied to backups created through Backup.</p>
+   */
+  CopySourceTagsToRestoredResource?: boolean;
 }
 
 /**
