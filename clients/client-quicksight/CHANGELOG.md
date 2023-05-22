@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
+
+
+### Features
+
+* **client-quicksight:** Add support for Asset Bundle, Geospatial Heatmaps. ([faef6ff](https://github.com/aws/aws-sdk-js-v3/commit/faef6ff0ab45059f6a50fcedb1e03865fe4a53e8))
+
+
+
+
+
 # [3.335.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.334.0...v3.335.0) (2023-05-18)
 
 

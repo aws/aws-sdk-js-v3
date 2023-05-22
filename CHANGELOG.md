@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
+
+
+### Bug Fixes
+
+* **node-http-handler:** open promise handle while waiting for http continue ([#4719](https://github.com/aws/aws-sdk-js-v3/issues/4719)) ([14810d3](https://github.com/aws/aws-sdk-js-v3/commit/14810d342af9b611b67894256869c4246ab59f87))
+
+
+### Features
+
+* **client-backup:** Added support for tags on restore. ([ceac978](https://github.com/aws/aws-sdk-js-v3/commit/ceac9780e6f155c55d1a2e2260f61243be1f839a))
+* **client-quicksight:** Add support for Asset Bundle, Geospatial Heatmaps. ([faef6ff](https://github.com/aws/aws-sdk-js-v3/commit/faef6ff0ab45059f6a50fcedb1e03865fe4a53e8))
+* **clients:** update command documentation examples as of 2023-05-22 ([4c1a871](https://github.com/aws/aws-sdk-js-v3/commit/4c1a871956b56a12de40fd83b9c2f8776fe22be0))
+
+
+
+
+
 # [3.336.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.335.0...v3.336.0) (2023-05-19)
 
 

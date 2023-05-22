@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
+
+
+### Bug Fixes
+
+* **node-http-handler:** open promise handle while waiting for http continue ([#4719](https://github.com/aws/aws-sdk-js-v3/issues/4719)) ([14810d3](https://github.com/aws/aws-sdk-js-v3/commit/14810d342af9b611b67894256869c4246ab59f87))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 **Note:** Version bump only for package @aws-sdk/node-http-handler

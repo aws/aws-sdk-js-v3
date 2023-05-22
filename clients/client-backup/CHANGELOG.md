@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
+
+
+### Features
+
+* **client-backup:** Added support for tags on restore. ([ceac978](https://github.com/aws/aws-sdk-js-v3/commit/ceac9780e6f155c55d1a2e2260f61243be1f839a))
+
+
+
+
+
 # [3.336.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.335.0...v3.336.0) (2023-05-19)
 
 
