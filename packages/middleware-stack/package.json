@@ -10,6 +10,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "extract:docs": "api-extractor run --local",
     "test": "jest",
     "test:integration": "jest -c jest.config.integ.js --passWithNoTests"
   },

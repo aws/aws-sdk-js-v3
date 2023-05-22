@@ -1,0 +1,10 @@
+{
+  "extends": "./api-extractor.json",
+  "docModel": {
+    "apiJsonFilePath": "./temp-packages/<unscopedPackageName>.api.json"
+  },
+  "apiReport": {
+    "reportFolder": "./temp-packages/",
+    "reportTempFolder": "./temp-packages/"
+  }
+}

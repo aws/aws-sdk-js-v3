@@ -65,6 +65,8 @@ benchmark/size/raw
 
 etc/
 temp/
+temp-packages/
+temp-lib/
 
 # Gradle composite build properties
 codegen/local.properties

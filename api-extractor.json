@@ -60,9 +60,7 @@
    * This would direct API Extractor to embed those types directly in the .d.ts rollup, as if they had been
    * local files for library1.
    */
-  "bundledPackages": [
-    // "@aws-sdk/types", "@aws-sdk/util-waiter", "@aws-sdk/smithy-client"
-  ],
+  // "bundledPackages": ["@aws-sdk/types", "@aws-sdk/util-waiter", "@aws-sdk/smithy-client", "@aws-smithy/types"],
 
   /**
    * Specifies what type of newlines API Extractor should use when writing output files.  By default, the output files
@@ -178,7 +176,7 @@
      * SUPPORTED TOKENS: <projectFolder>, <packageName>, <unscopedPackageName>
      * DEFAULT VALUE: "<projectFolder>/temp/"
      */
-    "reportTempFolder": "./temp/"
+    "reportTempFolder": "./temp/",
 
     /**
      * Whether "forgotten exports" should be included in the API report file. Forgotten exports are declarations
@@ -187,7 +185,7 @@
      *
      * DEFAULT VALUE: "false"
      */
-    // "includeForgottenExports": false
+    "includeForgottenExports": true
   },
 
   /**
@@ -217,7 +215,7 @@
      *
      * DEFAULT VALUE: "false"
      */
-    // "includeForgottenExports": false,
+    // "includeForgottenExports": true
 
     /**
      * The base URL where the project's source code can be viewed on a website such as GitHub or
@@ -243,7 +241,7 @@
     /**
      * (REQUIRED) Whether to generate the .d.ts rollup file.
      */
-    "enabled": true
+    "enabled": false,
 
     /**
      * Specifies the output path for a .d.ts rollup file to be generated without any trimming.
@@ -257,7 +255,7 @@
      * SUPPORTED TOKENS: <projectFolder>, <packageName>, <unscopedPackageName>
      * DEFAULT VALUE: "<projectFolder>/dist/<unscopedPackageName>.d.ts"
      */
-    // "untrimmedFilePath": "<projectFolder>/dist/<unscopedPackageName>.d.ts",
+    "untrimmedFilePath": "./dist/<unscopedPackageName>.d.ts"
 
     /**
      * Specifies the output path for a .d.ts rollup file to be generated with trimming for an "alpha" release.
