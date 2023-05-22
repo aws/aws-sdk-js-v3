@@ -20,7 +20,7 @@ export interface SmithyConfiguration<HandlerOptions> {
 export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<HandlerOptions>;
 
 /**
- * @internal
+ * @public
  */
 export class Client<
   HandlerOptions,

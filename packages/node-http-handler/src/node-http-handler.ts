@@ -7,9 +7,9 @@ import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 import { NODEJS_TIMEOUT_ERROR_CODES } from "./constants";
 import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
+import { setSocketKeepAlive } from "./set-socket-keep-alive";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
-import { setSocketKeepAlive } from "./set-socket-keep-alive";
 
 /**
  * Represents the http options that can be passed to a node http client.
@@ -93,7 +93,17 @@ export class NodeHttpHandler implements HttpHandler {
     if (!this.config) {
       this.config = await this.configProvider;
     }
-    return new Promise((resolve, reject) => {
+    return new Promise((_resolve, _reject) => {
+      let writeRequestBodyPromise: Promise<void> | undefined = undefined;
+      const resolve = async (arg: { response: HttpResponse }) => {
+        await writeRequestBodyPromise;
+        _resolve(arg);
+      };
+      const reject = async (arg: unknown) => {
+        await writeRequestBodyPromise;
+        _reject(arg);
+      };
+
       if (!this.config) {
         throw new Error("Node HTTP request handler config is not resolved");
       }
@@ -120,6 +130,7 @@ export class NodeHttpHandler implements HttpHandler {
 
       // create the http request
       const requestFunc = isSSL ? hsRequest : hRequest;
+
       const req = requestFunc(nodeHttpsOptions, (res) => {
         const httpResponse = new HttpResponse({
           statusCode: res.statusCode || -1,
@@ -163,7 +174,7 @@ export class NodeHttpHandler implements HttpHandler {
         });
       }
 
-      writeRequestBody(req, request);
+      writeRequestBodyPromise = writeRequestBody(req, request, this.config.requestTimeout);
     });
   }
 }

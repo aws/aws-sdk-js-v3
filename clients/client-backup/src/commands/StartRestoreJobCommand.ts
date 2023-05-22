@@ -51,6 +51,7 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  *   IamRoleArn: "STRING_VALUE",
  *   IdempotencyToken: "STRING_VALUE",
  *   ResourceType: "STRING_VALUE",
+ *   CopySourceTagsToRestoredResource: true || false,
  * };
  * const command = new StartRestoreJobCommand(input);
  * const response = await client.send(command);
@@ -69,6 +70,10 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
  *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Indicates that a required parameter is missing.</p>

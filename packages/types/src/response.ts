@@ -36,7 +36,7 @@ export interface ResponseMetadata {
 }
 
 /**
- * @internal
+ * @public
  */
 export interface MetadataBearer {
   /**

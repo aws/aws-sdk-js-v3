@@ -856,6 +856,9 @@ const de_AddTagsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
     case "ChannelNotFoundException":
     case "com.amazonaws.cloudtrail#ChannelNotFoundException":
       throw await de_ChannelNotFoundExceptionRes(parsedOutput, context);
@@ -865,6 +868,9 @@ const de_AddTagsCommandError = async (
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
       throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
@@ -2692,9 +2698,15 @@ const de_ListTagsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
       throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
@@ -2881,6 +2893,9 @@ const de_PutEventSelectorsCommandError = async (
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
@@ -3176,12 +3191,18 @@ const de_RemoveTagsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ChannelARNInvalidException":
+    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
+      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
     case "ChannelNotFoundException":
     case "com.amazonaws.cloudtrail#ChannelNotFoundException":
       throw await de_ChannelNotFoundExceptionRes(parsedOutput, context);
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
+    case "EventDataStoreARNInvalidException":
+    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
+      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
       throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);

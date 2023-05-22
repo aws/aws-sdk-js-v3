@@ -618,6 +618,22 @@ DescribeAnalysisPermissions
 </details>
 <details>
 <summary>
+DescribeAssetBundleExportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/describeassetbundleexportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describeassetbundleexportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describeassetbundleexportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAssetBundleImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/describeassetbundleimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describeassetbundleimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describeassetbundleimportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeDashboard
 </summary>
 
@@ -906,6 +922,22 @@ ListAnalyses
 </details>
 <details>
 <summary>
+ListAssetBundleExportJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/listassetbundleexportjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listassetbundleexportjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listassetbundleexportjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAssetBundleImportJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/listassetbundleimportjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listassetbundleimportjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/listassetbundleimportjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListDashboards
 </summary>
 
@@ -1174,6 +1206,22 @@ SearchGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/searchgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/searchgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/searchgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartAssetBundleExportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/startassetbundleexportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startassetbundleexportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startassetbundleexportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartAssetBundleImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/startassetbundleimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startassetbundleimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startassetbundleimportjobcommandoutput.html)
 
 </details>
 <details>

@@ -105,7 +105,6 @@ import {
   ConflictException,
   CustomIndicesInput,
   EoCloudCoverInput,
-  EojDataSourceConfigInput,
   ExportS3DataInput,
   ExportVectorEnrichmentJobOutputConfig,
   Filter,
@@ -139,7 +138,6 @@ import {
   ResamplingConfigInput,
   ResourceNotFoundException,
   ReverseGeocodingConfig,
-  S3DataInput,
   ServiceQuotaExceededException,
   StackConfigInput,
   TemporalStatistics,
@@ -2105,8 +2103,6 @@ const se_EoCloudCoverInput = (input: EoCloudCoverInput, context: __SerdeContext)
   });
 };
 
-// se_EojDataSourceConfigInput omitted.
-
 // se_ExportS3DataInput omitted.
 
 // se_ExportVectorEnrichmentJobOutputConfig omitted.
@@ -2118,7 +2114,6 @@ const se_EoCloudCoverInput = (input: EoCloudCoverInput, context: __SerdeContext)
  */
 const se_InputConfigInput = (input: InputConfigInput, context: __SerdeContext): any => {
   return take(input, {
-    DataSourceConfig: _json,
     PreviousEarthObservationJobArn: [],
     RasterDataCollectionQuery: (_) => se_RasterDataCollectionQueryInput(_, context),
   });
@@ -2330,8 +2325,6 @@ const se_ResamplingConfigInput = (input: ResamplingConfigInput, context: __Serde
 
 // se_ReverseGeocodingConfig omitted.
 
-// se_S3DataInput omitted.
-
 /**
  * serializeAws_restJson1StackConfigInput
  */
@@ -2491,8 +2484,6 @@ const de_EoCloudCoverInput = (output: any, context: __SerdeContext): EoCloudCove
   }) as any;
 };
 
-// de_EojDataSourceConfigInput omitted.
-
 // de_ExportErrorDetails omitted.
 
 // de_ExportErrorDetailsOutput omitted.
@@ -2544,7 +2535,6 @@ const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
  */
 const de_InputConfigOutput = (output: any, context: __SerdeContext): InputConfigOutput => {
   return take(output, {
-    DataSourceConfig: (_: any) => _json(__expectUnion(_)),
     PreviousEarthObservationJobArn: __expectString,
     RasterDataCollectionQuery: (_: any) => de_RasterDataCollectionQueryOutput(_, context),
   }) as any;
@@ -2894,8 +2884,6 @@ const de_ResamplingConfigInput = (output: any, context: __SerdeContext): Resampl
 };
 
 // de_ReverseGeocodingConfig omitted.
-
-// de_S3DataInput omitted.
 
 /**
  * deserializeAws_restJson1StackConfigInput

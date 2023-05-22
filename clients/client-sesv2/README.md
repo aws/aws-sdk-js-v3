@@ -740,6 +740,14 @@ PutDedicatedIpInPool
 </details>
 <details>
 <summary>
+PutDedicatedIpPoolScalingAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sesv2/classes/putdedicatedippoolscalingattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sesv2/interfaces/putdedicatedippoolscalingattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sesv2/interfaces/putdedicatedippoolscalingattributescommandoutput.html)
+
+</details>
+<details>
+<summary>
 PutDedicatedIpWarmupAttributes
 </summary>
 

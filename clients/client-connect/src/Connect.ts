@@ -102,6 +102,11 @@ import {
   CreateParticipantCommandInput,
   CreateParticipantCommandOutput,
 } from "./commands/CreateParticipantCommand";
+import {
+  CreatePromptCommand,
+  CreatePromptCommandInput,
+  CreatePromptCommandOutput,
+} from "./commands/CreatePromptCommand";
 import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
   CreateQuickConnectCommand,
@@ -185,6 +190,11 @@ import {
   DeleteIntegrationAssociationCommandInput,
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
+import {
+  DeletePromptCommand,
+  DeletePromptCommandInput,
+  DeletePromptCommandOutput,
+} from "./commands/DeletePromptCommand";
 import {
   DeleteQuickConnectCommand,
   DeleteQuickConnectCommandInput,
@@ -277,6 +287,11 @@ import {
   DescribePhoneNumberCommandInput,
   DescribePhoneNumberCommandOutput,
 } from "./commands/DescribePhoneNumberCommand";
+import {
+  DescribePromptCommand,
+  DescribePromptCommandInput,
+  DescribePromptCommandOutput,
+} from "./commands/DescribePromptCommand";
 import {
   DescribeQueueCommand,
   DescribeQueueCommandInput,
@@ -407,6 +422,11 @@ import {
   GetMetricDataV2CommandInput,
   GetMetricDataV2CommandOutput,
 } from "./commands/GetMetricDataV2Command";
+import {
+  GetPromptFileCommand,
+  GetPromptFileCommandInput,
+  GetPromptFileCommandOutput,
+} from "./commands/GetPromptFileCommand";
 import {
   GetTaskTemplateCommand,
   GetTaskTemplateCommandInput,
@@ -762,6 +782,11 @@ import {
   UpdatePhoneNumberCommandOutput,
 } from "./commands/UpdatePhoneNumberCommand";
 import {
+  UpdatePromptCommand,
+  UpdatePromptCommandInput,
+  UpdatePromptCommandOutput,
+} from "./commands/UpdatePromptCommand";
+import {
   UpdateQueueHoursOfOperationCommand,
   UpdateQueueHoursOfOperationCommandInput,
   UpdateQueueHoursOfOperationCommandOutput,
@@ -890,6 +915,7 @@ const commands = {
   CreateInstanceCommand,
   CreateIntegrationAssociationCommand,
   CreateParticipantCommand,
+  CreatePromptCommand,
   CreateQueueCommand,
   CreateQuickConnectCommand,
   CreateRoutingProfileCommand,
@@ -909,6 +935,7 @@ const commands = {
   DeleteHoursOfOperationCommand,
   DeleteInstanceCommand,
   DeleteIntegrationAssociationCommand,
+  DeletePromptCommand,
   DeleteQuickConnectCommand,
   DeleteRuleCommand,
   DeleteSecurityProfileCommand,
@@ -929,6 +956,7 @@ const commands = {
   DescribeInstanceAttributeCommand,
   DescribeInstanceStorageConfigCommand,
   DescribePhoneNumberCommand,
+  DescribePromptCommand,
   DescribeQueueCommand,
   DescribeQuickConnectCommand,
   DescribeRoutingProfileCommand,
@@ -955,6 +983,7 @@ const commands = {
   GetFederationTokenCommand,
   GetMetricDataCommand,
   GetMetricDataV2Command,
+  GetPromptFileCommand,
   GetTaskTemplateCommand,
   GetTrafficDistributionCommand,
   ListAgentStatusesCommand,
@@ -1033,6 +1062,7 @@ const commands = {
   UpdateInstanceStorageConfigCommand,
   UpdateParticipantRoleConfigCommand,
   UpdatePhoneNumberCommand,
+  UpdatePromptCommand,
   UpdateQueueHoursOfOperationCommand,
   UpdateQueueMaxContactsCommand,
   UpdateQueueNameCommand,
@@ -1387,6 +1417,17 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreatePromptCommand}
+   */
+  createPrompt(args: CreatePromptCommandInput, options?: __HttpHandlerOptions): Promise<CreatePromptCommandOutput>;
+  createPrompt(args: CreatePromptCommandInput, cb: (err: any, data?: CreatePromptCommandOutput) => void): void;
+  createPrompt(
+    args: CreatePromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePromptCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateQueueCommand}
    */
   createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
@@ -1680,6 +1721,17 @@ export interface Connect {
     args: DeleteIntegrationAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIntegrationAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePromptCommand}
+   */
+  deletePrompt(args: DeletePromptCommandInput, options?: __HttpHandlerOptions): Promise<DeletePromptCommandOutput>;
+  deletePrompt(args: DeletePromptCommandInput, cb: (err: any, data?: DeletePromptCommandOutput) => void): void;
+  deletePrompt(
+    args: DeletePromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePromptCommandOutput) => void
   ): void;
 
   /**
@@ -1999,6 +2051,20 @@ export interface Connect {
     args: DescribePhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePromptCommand}
+   */
+  describePrompt(
+    args: DescribePromptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePromptCommandOutput>;
+  describePrompt(args: DescribePromptCommandInput, cb: (err: any, data?: DescribePromptCommandOutput) => void): void;
+  describePrompt(
+    args: DescribePromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePromptCommandOutput) => void
   ): void;
 
   /**
@@ -2411,6 +2477,17 @@ export interface Connect {
     args: GetMetricDataV2CommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMetricDataV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPromptFileCommand}
+   */
+  getPromptFile(args: GetPromptFileCommandInput, options?: __HttpHandlerOptions): Promise<GetPromptFileCommandOutput>;
+  getPromptFile(args: GetPromptFileCommandInput, cb: (err: any, data?: GetPromptFileCommandOutput) => void): void;
+  getPromptFile(
+    args: GetPromptFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPromptFileCommandOutput) => void
   ): void;
 
   /**
@@ -3638,6 +3715,17 @@ export interface Connect {
     args: UpdatePhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePromptCommand}
+   */
+  updatePrompt(args: UpdatePromptCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePromptCommandOutput>;
+  updatePrompt(args: UpdatePromptCommandInput, cb: (err: any, data?: UpdatePromptCommandOutput) => void): void;
+  updatePrompt(
+    args: UpdatePromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePromptCommandOutput) => void
   ): void;
 
   /**

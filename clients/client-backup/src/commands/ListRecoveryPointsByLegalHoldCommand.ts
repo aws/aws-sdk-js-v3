@@ -56,6 +56,9 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * //   RecoveryPoints: [ // RecoveryPointsList
  * //     { // RecoveryPointMember
  * //       RecoveryPointArn: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       BackupVaultName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

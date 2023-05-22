@@ -1,23 +1,48 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
-import { AccountCustomization, ActiveIAMPolicyAssignment, Entity, ResourceStatus, Sheet } from "./models_0";
+import {
+  AccountCustomization,
+  AccountInfo,
+  AccountSettings,
+  ActiveIAMPolicyAssignment,
+  Analysis,
+  AnalysisError,
+  Entity,
+  ResourceStatus,
+  Sheet,
+} from "./models_0";
 import {
   AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
-  AssignmentStatus,
-  BookmarksConfigurations,
-  ColumnGroup,
-  ColumnLevelPermissionRule,
+  AssetBundleCloudFormationOverridePropertyConfiguration,
+  AssetBundleExportFormat,
+  AssetBundleExportJobError,
+  AssetBundleExportJobStatus,
+  AssetBundleExportJobSummary,
+  AssetBundleImportFailureAction,
   DashboardVisualId,
   FilterOperator,
 } from "./models_1";
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  AssetBundleImportJobError,
+  AssetBundleImportJobOverrideParameters,
+  AssetBundleImportJobStatus,
+  AssetBundleImportJobSummary,
+  AssetBundleImportSource,
+  AssetBundleImportSourceDescription,
+  AssetBundleImportSourceFilterSensitiveLog,
+  AssignmentStatus,
+  BookmarksConfigurations,
+  ColumnGroup,
+  ColumnLevelPermissionRule,
+  Dashboard,
+  DashboardError,
   DashboardPublishOptions,
   DashboardSearchFilter,
   DashboardSourceEntity,
@@ -44,7 +69,6 @@ import {
   GroupMember,
   IdentityStore,
   IngestionStatus,
-  LinkSharingConfiguration,
   LogicalTable,
   LogicalTableFilterSensitiveLog,
   NamespaceStatus,
@@ -68,6 +92,1260 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DeleteNamespaceResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleRequest {
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   */
+  ScheduleId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the template you want to delete.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>Specifies the version of the template that you want to delete.
+   * 			If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
+   * 	 </p>
+   */
+  VersionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>An ID for the template.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template that the specified alias is for.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The name for the template alias. To delete a specific alias, you delete the version that the
+   * 			alias points to. You can specify the alias name, or specify the latest version of the
+   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. </p>
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateAliasResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>An ID for the template associated with the deletion.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>The name for the template alias.</p>
+   */
+  AliasName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template you want to delete.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the theme that you want to delete.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The version of the theme that you want to delete. </p>
+   *          <p>
+   *             <b>Note:</b> If you don't provide a version number, you're
+   * 			using this call to <code>DeleteTheme</code> to delete all versions of the theme.</p>
+   */
+  VersionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>An ID for the theme.</p>
+   */
+  ThemeId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme that the specified alias is for.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The unique name for the theme alias to delete.</p>
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeAliasResponse {
+  /**
+   * <p>The name for the theme alias.</p>
+   */
+  AliasName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>An ID for the theme associated with the deletion.</p>
+   */
+  ThemeId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
+   *          delete.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  TopicId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRefreshScheduleRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DatasetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRefreshScheduleResponse {
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  TopicId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   */
+  TopicArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  DatasetArn?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserRequest {
+  /**
+   * <p>The name of the user that you want to delete.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DeleteUserByPrincipalIdRequest {
+  /**
+   * <p>The principal ID of the user.</p>
+   */
+  PrincipalId: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserByPrincipalIdResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVPCConnectionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account where you want to delete a VPC
+   * 			connection.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   * 				Amazon Web Services account.</p>
+   */
+  VPCConnectionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVPCConnectionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted VPC connection.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the VPC connection that
+   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   * 				Amazon Web Services account.</p>
+   */
+  VPCConnectionId?: string;
+
+  /**
+   * <p>The deletion status of the VPC connection.</p>
+   */
+  DeletionStatus?: VPCConnectionResourceStatus | string;
+
+  /**
+   * <p>The availability status of the VPC connection.</p>
+   */
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountCustomizationRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations
+   *             for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon QuickSight namespace that you want to describe Amazon QuickSight customizations
+   *             for.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The <code>Resolved</code> flag works with the other parameters to determine which view
+   *             of Amazon QuickSight customizations is returned. You can add this flag to your command to use
+   *             the same view that Amazon QuickSight uses to identify which customizations to apply to the
+   *             console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
+   *             that are configured at different levels. </p>
+   */
+  Resolved?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountCustomizationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that you're describing.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>The Amazon QuickSight namespace that you're describing. </p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The Amazon QuickSight customizations that exist in the current Amazon Web Services Region. </p>
+   */
+  AccountCustomization?: AccountCustomization;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSettingsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSettingsResponse {
+  /**
+   * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information
+   *             includes the edition of Amazon Amazon QuickSight that you subscribed to (Standard or
+   *             Enterprise) and the notification email for the Amazon QuickSight subscription. </p>
+   *          <p>In the QuickSight console, the Amazon QuickSight subscription is sometimes referred to
+   *             as a QuickSight "account" even though it's technically not an account by
+   *             itself. Instead, it's a subscription to the Amazon QuickSight service for your
+   *                 Amazon Web Services account. The edition that you subscribe to applies to Amazon QuickSight in every Amazon Web Services Region where you use it.</p>
+   */
+  AccountSettings?: AccountSettings;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSubscriptionRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSubscriptionResponse {
+  /**
+   * <p>A structure that contains the following elements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Your Amazon QuickSight account name.</p>
+   *             </li>
+   *             <li>
+   *                <p>The edition of Amazon QuickSight that your account is using.</p>
+   *             </li>
+   *             <li>
+   *                <p>The notification email address that is associated with the Amazon QuickSight
+   *                     account.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>The authentication type of the Amazon QuickSight account.</p>
+   *             </li>
+   *             <li>
+   *                <p>The status of the Amazon QuickSight account's subscription.</p>
+   *             </li>
+   *          </ul>
+   */
+  AccountInfo?: AccountInfo;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
+   *             Amazon Web Services account that the analysis is in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
+   *             analysis.</p>
+   */
+  AnalysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisResponse {
+  /**
+   * <p>A metadata structure that contains summary information for the analysis that you're
+   *             describing.</p>
+   */
+  Analysis?: Analysis;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisDefinitionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
+   *             Amazon Web Services account that the analysis is in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
+   *             analysis.</p>
+   */
+  AnalysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisDefinitionResponse {
+  /**
+   * <p>The ID of the analysis described.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The descriptive name of the analysis.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Errors associated with the analysis.</p>
+   */
+  Errors?: AnalysisError[];
+
+  /**
+   * <p>Status associated with the analysis.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The ARN of the theme of the analysis.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>The definition of an analysis.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   */
+  Definition?: AnalysisDefinition;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
+   *             describing. You must be using the Amazon Web Services account that the analysis is in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis whose permissions you're describing. The ID is part of the
+   *             analysis URL.</p>
+   */
+  AnalysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisPermissionsResponse {
+  /**
+   * <p>The ID of the analysis whose permissions you're describing.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis whose permissions you're
+   *             describing.</p>
+   */
+  AnalysisArn?: string;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssetBundleExportJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account the export job is executed in. </p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the job that you want described. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>
+   */
+  AssetBundleExportJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssetBundleExportJobResponse {
+  /**
+   * <p>Indicates tha status of a job through its queueing and execution.</p>
+   *          <p>Poll this <code>DescribeAssetBundleExportApi</code> until <code>JobStatus</code> is either <code>SUCCESSFUL</code> or <code>FAILED</code>.</p>
+   */
+  JobStatus?: AssetBundleExportJobStatus | string;
+
+  /**
+   * <p>The URL to download the exported asset bundle data from.</p>
+   *          <p>This URL is available only after the job has succeeded. This URL is valid for 5 minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed.</p>
+   *          <p>The downloaded asset bundle is a zip file named <code>assetbundle-\{jobId\}.qs</code>. The file has a <code>.qs</code> extension.</p>
+   *          <p>This URL can't be used in a <code>StartAssetBundleImportJob</code> API call and should only be used for download purposes.</p>
+   */
+  DownloadUrl?: string;
+
+  /**
+   * <p>An array of error records that describes any failures that occurred during the export job processing.</p>
+   *          <p>Error records accumulate while the job runs. The complete set of error records is available after the job has completed and failed.</p>
+   */
+  Errors?: AssetBundleExportJobError[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the export job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The time that the export job was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>
+   */
+  AssetBundleExportJobId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that the export job was executed in. </p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>A list of resource ARNs that exported with the job.</p>
+   */
+  ResourceArns?: string[];
+
+  /**
+   * <p>The include dependencies flag.</p>
+   */
+  IncludeAllDependencies?: boolean;
+
+  /**
+   * <p>The format of the export.</p>
+   */
+  ExportFormat?: AssetBundleExportFormat | string;
+
+  /**
+   * <p>The CloudFormation override property configuration for the export job.</p>
+   */
+  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the response.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssetBundleImportJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account the import job was executed in. </p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
+   */
+  AssetBundleImportJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssetBundleImportJobResponse {
+  /**
+   * <p>Indicates tha status of a job through its queueing and execution.</p>
+   *          <p>Poll this <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_ROLLBACK_COMPLETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_ROLLBACK_ERROR</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  JobStatus?: AssetBundleImportJobStatus | string;
+
+  /**
+   * <p>An array of error records that describes any failures that occurred during the export job processing.</p>
+   *          <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
+   */
+  Errors?: AssetBundleImportJobError[];
+
+  /**
+   * <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p>
+   *          <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
+   */
+  RollbackErrors?: AssetBundleImportJobError[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the import job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The time that the import job was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
+   */
+  AssetBundleImportJobId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account the import job was executed in. </p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>The source of the asset bundle zip file that contains the data that is imported by the job.</p>
+   */
+  AssetBundleImportSource?: AssetBundleImportSourceDescription;
+
+  /**
+   * <p>Optional overrides to be applied to the resource configuration before import.</p>
+   */
+  OverrideParameters?: AssetBundleImportJobOverrideParameters;
+
+  /**
+   * <p>The failure action for the import job.</p>
+   */
+  FailureAction?: AssetBundleImportFailureAction | string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the response.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The version number for the dashboard. If a version number isn't passed, the
+   *             latest published dashboard version is described. </p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  AliasName?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardResponse {
+  /**
+   * <p>Information about the dashboard.</p>
+   */
+  Dashboard?: Dashboard;
+
+  /**
+   * <p>The HTTP status of this request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardDefinitionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The version number for the dashboard. If a version number isn't passed, the
+   *             latest published dashboard version is described. </p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  AliasName?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardDefinitionResponse {
+  /**
+   * <p>The ID of the dashboard described.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * <p>Errors associated with this dashboard version.</p>
+   */
+  Errors?: DashboardError[];
+
+  /**
+   * <p>The display name of the dashboard.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Status associated with the dashboard version.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The ARN of the theme of the dashboard.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>The definition of a dashboard.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   */
+  Definition?: DashboardVersionDefinition;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>Options for publishing the dashboard:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
+   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *          </ul>
+   */
+  DashboardPublishOptions?: DashboardPublishOptions;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing
+   *             permissions for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard, also added to the IAM policy.</p>
+   */
+  DashboardId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
+ */
+export interface LinkSharingConfiguration {
+  /**
+   * <p>A structure that contains the permissions of a shareable link.</p>
+   */
+  Permissions?: ResourcePermission[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardPermissionsResponse {
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
+   */
+  DashboardArn?: string;
+
+  /**
+   * <p>A structure that contains the permissions for the dashboard.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>A structure that contains the configuration of a shareable link that grants access to
+   *             the dashboard. Your users can use the link to view and interact with the dashboard, if
+   *             the dashboard has been shared with them. For more information about sharing dashboards,
+   *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html">Sharing Dashboards</a>.</p>
+   */
+  LinkSharingConfiguration?: LinkSharingConfiguration;
+}
 
 /**
  * @public
@@ -3278,6 +4556,96 @@ export interface ListAnalysesResponse {
 /**
  * @public
  */
+export interface ListAssetBundleExportJobsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the export jobs were executed in. </p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetBundleExportJobsResponse {
+  /**
+   * <p>A list of export job summaries.</p>
+   */
+  AssetBundleExportJobSummaryList?: AssetBundleExportJobSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetBundleImportJobsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the import jobs were executed in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetBundleImportJobsResponse {
+  /**
+   * <p>A list of import job summaries.</p>
+   */
+  AssetBundleImportJobSummaryList?: AssetBundleImportJobSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the response.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
 export interface ListDashboardsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
@@ -5317,6 +6685,162 @@ export interface SearchGroupsResponse {
 /**
  * @public
  */
+export interface StartAssetBundleExportJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account to export assets from.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleExportJobId: string | undefined;
+
+  /**
+   * <p>An array of resource ARNs to export. The following resources are supported.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Analysis</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dashboard</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DataSet</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DataSource</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RefreshSchedule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Theme</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VPCConnection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The API caller must have the necessary permissions in their IAM role to access each resource before the resources can be exported.</p>
+   */
+  ResourceArns: string[] | undefined;
+
+  /**
+   * <p>A Boolean that determines whether all dependencies of each resource ARN are recursively exported with the job. For example, say you provided a Dashboard ARN to the <code>ResourceArns</code> parameter. If you set <code>IncludeAllDependencies</code> to <code>TRUE</code>, any theme, dataset, and dataource resource that is a dependency of the dashboard is also exported.</p>
+   */
+  IncludeAllDependencies?: boolean;
+
+  /**
+   * <p>The export data format.</p>
+   */
+  ExportFormat: AssetBundleExportFormat | string | undefined;
+
+  /**
+   * <p>An optional collection of structures that generate CloudFormation parameters to override the existing resource property values when the resource is exported to a new CloudFormation template.</p>
+   *          <p>Use this field if the <code>ExportFormat</code> field of a <code>StartAssetBundleExportJobRequest</code> API call is set to <code>CLOUDFORMATION_JSON</code>.</p>
+   */
+  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface StartAssetBundleExportJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the export job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleExportJobId?: string;
+
+  /**
+   * <p>The Amazon Web Services response ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the response.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface StartAssetBundleImportJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account to import assets into. </p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleImportJobId: string | undefined;
+
+  /**
+   * <p>The source of the asset bundle zip file that contains the data that you want to import.</p>
+   */
+  AssetBundleImportSource: AssetBundleImportSource | undefined;
+
+  /**
+   * <p>Optional overrides to be applied to the resource configuration before import.</p>
+   */
+  OverrideParameters?: AssetBundleImportJobOverrideParameters;
+
+  /**
+   * <p>The failure action for the import job.</p>
+   *          <p>If you choose <code>ROLLBACK</code>, failed  import jobs will attempt to  undo any asset changes caused by the failed job.</p>
+   *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly leaving the Amazon QuickSight account in an inconsistent state.</p>
+   */
+  FailureAction?: AssetBundleImportFailureAction | string;
+}
+
+/**
+ * @public
+ */
+export interface StartAssetBundleImportJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the import job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   */
+  AssetBundleImportJobId?: string;
+
+  /**
+   * <p>The Amazon Web Services response ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the response.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
@@ -6902,366 +8426,29 @@ export interface UpdateTopicRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateTopicResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
-   */
-  RefreshArn?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
+export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateTopicPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to update
-   *          the permissions for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The resource permissions that you want to grant to the topic.</p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * <p>The resource permissions that you want to revoke from the topic.</p>
-   */
-  RevokePermissions?: ResourcePermission[];
-}
+export const DescribeAssetBundleImportJobResponseFilterSensitiveLog = (
+  obj: DescribeAssetBundleImportJobResponse
+): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateTopicPermissionsResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   */
-  TopicArn?: string;
-
-  /**
-   * <p>A list of resource permissions on the topic.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateTopicRefreshScheduleRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh schedule
-   *          you want to update.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   */
-  DatasetId: string | undefined;
-
-  /**
-   * <p>The definition of a refresh schedule.</p>
-   */
-  RefreshSchedule: TopicRefreshSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTopicRefreshScheduleResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   */
-  TopicArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DatasetArn?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateUserRequest {
-  /**
-   * <p>The Amazon QuickSight user name that you want to update.</p>
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The email address of the user that you want to update.</p>
-   */
-  Email: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight role of the user. The role can be one of the
-   * 			following default security cohorts:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
-   * 					dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
-   * 					settings.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The name of the Amazon QuickSight role is invisible to the user except for the console
-   * 	        screens dealing with permissions.</p>
-   */
-  Role: UserRole | string | undefined;
-
-  /**
-   * <p>(Enterprise edition only) The name of the custom permissions profile that you want to
-   *             assign to this user. Customized permissions allows you to control a user's access by
-   *             restricting access the following operations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Create and update data sources</p>
-   *             </li>
-   *             <li>
-   *                <p>Create and update datasets</p>
-   *             </li>
-   *             <li>
-   *                <p>Create and update email reports</p>
-   *             </li>
-   *             <li>
-   *                <p>Subscribe to email reports</p>
-   *             </li>
-   *          </ul>
-   *          <p>A set of custom permissions includes any combination of these restrictions. Currently,
-   *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
-   *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a Amazon QuickSight user. </p>
-   *          <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
-   *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
-   *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
-   *          <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
-   */
-  CustomPermissionsName?: string;
-
-  /**
-   * <p>A flag that you use to indicate that you want to remove all custom permissions
-   *             from this user. Using this parameter resets the user to the state
-   *             it was in before a custom permissions profile was applied. This parameter defaults to
-   *             NULL and it doesn't accept any other value.</p>
-   */
-  UnapplyCustomPermissions?: boolean;
-
-  /**
-   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: This clears all the previously saved external login information for a user. Use the
-   *           <code>
-   *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
-   *                   </code>
-   *           API operation to check the external login information.</p>
-   *             </li>
-   *          </ul>
-   */
-  ExternalLoginFederationProviderType?: string;
-
-  /**
-   * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
-   *          into Amazon QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
-   *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
-   */
-  CustomFederationProviderUrl?: string;
-
-  /**
-   * <p>The identity ID for a user in the external login provider.</p>
-   */
-  ExternalLoginId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateUserResponse {
-  /**
-   * <p>The Amazon QuickSight user.</p>
-   */
-  User?: User;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account that contains the VPC connection that
-   * 			you want to update.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're updating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   */
-  VPCConnectionId: string | undefined;
-
-  /**
-   * <p>The display name for the VPC connection.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A list of subnet IDs for the VPC connection.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of security group IDs for the VPC connection.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
-   */
-  DnsResolvers?: string[];
-
-  /**
-   * <p>An IAM role associated with the VPC connection.</p>
-   */
-  RoleArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateVPCConnectionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the VPC connection that you are updating. This ID is a unique identifier for each Amazon Web Services Region in anAmazon Web Services account.</p>
-   */
-  VPCConnectionId?: string;
-
-  /**
-   * <p>The update status of the VPC connection's last update.</p>
-   */
-  UpdateStatus?: VPCConnectionResourceStatus | string;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
+export const DescribeDashboardDefinitionResponseFilterSensitiveLog = (
+  obj: DescribeDashboardDefinitionResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7337,6 +8524,16 @@ export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboard
 export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
   ...obj,
   ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartAssetBundleImportJobRequestFilterSensitiveLog = (obj: StartAssetBundleImportJobRequest): any => ({
+  ...obj,
+  ...(obj.AssetBundleImportSource && {
+    AssetBundleImportSource: AssetBundleImportSourceFilterSensitiveLog(obj.AssetBundleImportSource),
+  }),
 });
 
 /**

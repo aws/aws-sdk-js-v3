@@ -14,7 +14,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
+import { AssumeRoleRequest, AssumeRoleResponse, AssumeRoleResponseFilterSensitiveLog } from "../models/models_0";
 import { de_AssumeRoleCommand, se_AssumeRoleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
@@ -302,7 +302,7 @@ export class AssumeRoleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: AssumeRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

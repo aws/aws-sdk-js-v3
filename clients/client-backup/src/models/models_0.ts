@@ -376,6 +376,13 @@ export interface BackupRule {
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
    *          doesn't start successfully. This value is optional.
    *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
+   *          <p>During the start window, the backup job status remains in <code>CREATED</code> status until it
+   *          has successfully begun or until the start window time has run out. If within the start
+   *          window time Backup receives an error that allows the job to be retried,
+   *          Backup will automatically retry to begin the job at least every 10 minutes
+   *          until the backup
+   *          successfully begins (the job status changes to <code>RUNNING</code>) or until the job status
+   *          changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>
    */
   StartWindowMinutes?: number;
 
@@ -480,6 +487,13 @@ export interface BackupRuleInput {
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
    *          doesn't start successfully. This value is optional.
    *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
+   *          <p>During the start window, the backup job status remains in <code>CREATED</code> status until it
+   *          has successfully begun or until the start window time has run out. If within the start
+   *          window time Backup receives an error that allows the job to be retried,
+   *          Backup will automatically retry to begin the job at least every 10 minutes
+   *          until the backup
+   *          successfully begins (the job status changes to <code>RUNNING</code>) or until the job status
+   *          changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>
    */
   StartWindowMinutes?: number;
 
@@ -2817,11 +2831,14 @@ export interface DescribeRecoveryPointOutput {
    *          that versioning is enabled on the S3 bucket. Once these conditions are met, the next instance
    *          of a backup rule running will result in a new continuous recovery point being created.
    *          The recovery points with STOPPED status do not need to be deleted.</p>
+   *          <p>For SAP HANA on Amazon EC2 <code>STOPPED</code> status occurs due to user action, application
+   *          misconfiguration, or backup failure. To ensure that future continuous backups succeed,
+   *          refer to the recovery point status and check SAP HANA for details.</p>
    */
   Status?: RecoveryPointStatus | string;
 
   /**
-   * <p>A status message explaining the reason for the recovery point deletion failure.</p>
+   * <p>A status message explaining the status of the recovery point.</p>
    */
   StatusMessage?: string;
 
@@ -4745,6 +4762,24 @@ export interface RecoveryPointMember {
    *          recovery point.</p>
    */
   RecoveryPointArn?: string;
+
+  /**
+   * <p>This is the Amazon Resource Name (ARN) that uniquely identifies
+   *          a saved resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>This is the Amazon Web Services resource type that is saved as
+   *       a recovery point.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>This is the name of the backup vault
+   *          (the logical container in which backups are stored).</p>
+   */
+  BackupVaultName?: string;
 }
 
 /**
@@ -5350,6 +5385,13 @@ export interface StartBackupJobInput {
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
    *          doesn't start successfully. This value is optional, and the default is 8 hours.
    *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
+   *          <p>During the start window, the backup job status remains in <code>CREATED</code> status until it
+   *          has successfully begun or until the start window time has run out. If within the start
+   *          window time Backup receives an error that allows the job to be retried,
+   *          Backup will automatically retry to begin the job at least every 10 minutes
+   *          until the backup
+   *          successfully begins (the job status changes to <code>RUNNING</code>) or until the job status
+   *          changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>
    */
   StartWindowMinutes?: number;
 
@@ -5622,6 +5664,10 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
    *             </li>
    *             <li>
@@ -5650,6 +5696,10 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Storage Gateway</code> for Storage Gateway</p>
    *             </li>
    *             <li>
@@ -5658,11 +5708,22 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>VirtualMachine</code> for virtual machines</p>
    *             </li>
    *          </ul>
    */
   ResourceType?: string;
+
+  /**
+   * <p>This is an optional parameter. If this equals <code>True</code>, tags included in the backup
+   *       will be copied to the restored resource.</p>
+   *          <p>This can only be applied to backups created through Backup.</p>
+   */
+  CopySourceTagsToRestoredResource?: boolean;
 }
 
 /**

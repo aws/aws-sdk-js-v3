@@ -12,14 +12,14 @@ export type ExceptionOptionType<ExceptionType extends Error, BaseExceptionType e
 >;
 
 /**
- * @internal
+ * @public
  */
 export interface ServiceExceptionOptions extends SmithyException, MetadataBearer {
   message?: string;
 }
 
 /**
- * @internal
+ * @public
  *
  * Base exception class for the exceptions from the server-side.
  */

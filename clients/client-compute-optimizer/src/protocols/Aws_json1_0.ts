@@ -2457,6 +2457,8 @@ const de_EstimatedMonthlySavings = (output: any, context: __SerdeContext): Estim
 
 // de_ExternalMetricsPreference omitted.
 
+// de_ExternalMetricStatus omitted.
+
 /**
  * deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse
  */
@@ -2630,6 +2632,7 @@ const de_InstanceRecommendation = (output: any, context: __SerdeContext): Instan
     currentInstanceType: __expectString,
     currentPerformanceRisk: __expectString,
     effectiveRecommendationPreferences: _json,
+    externalMetricStatus: _json,
     finding: __expectString,
     findingReasonCodes: _json,
     inferredWorkloadTypes: _json,

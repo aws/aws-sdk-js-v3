@@ -76,17 +76,27 @@ export class NodeHttp2Handler implements HttpHandler {
       }
     }
     const { requestTimeout, disableConcurrentStreams } = this.config;
-    return new Promise((resolve, rejectOriginal) => {
+    return new Promise((_resolve, _reject) => {
       // It's redundant to track fulfilled because promises use the first resolution/rejection
       // but avoids generating unnecessary stack traces in the "close" event handler.
       let fulfilled = false;
+
+      let writeRequestBodyPromise: Promise<void> | undefined = undefined;
+      const resolve = async (arg: { response: HttpResponse }) => {
+        await writeRequestBodyPromise;
+        _resolve(arg);
+      };
+      const reject = async (arg: unknown) => {
+        await writeRequestBodyPromise;
+        _reject(arg);
+      };
 
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
         fulfilled = true;
         const abortError = new Error("Request aborted");
         abortError.name = "AbortError";
-        rejectOriginal(abortError);
+        reject(abortError);
         return;
       }
 
@@ -98,12 +108,12 @@ export class NodeHttp2Handler implements HttpHandler {
         disableConcurrentStreams: disableConcurrentStreams || false,
       } as ConnectConfiguration);
 
-      const reject = (err: Error) => {
+      const rejectWithDestroy = (err: Error) => {
         if (disableConcurrentStreams) {
           this.destroySession(session);
         }
         fulfilled = true;
-        rejectOriginal(err);
+        reject(err);
       };
 
       const queryString = buildQueryString(query || {});
@@ -138,7 +148,7 @@ export class NodeHttp2Handler implements HttpHandler {
           req.close();
           const timeoutError = new Error(`Stream timed out because of no activity for ${requestTimeout} ms`);
           timeoutError.name = "TimeoutError";
-          reject(timeoutError);
+          rejectWithDestroy(timeoutError);
         });
       }
 
@@ -147,17 +157,19 @@ export class NodeHttp2Handler implements HttpHandler {
           req.close();
           const abortError = new Error("Request aborted");
           abortError.name = "AbortError";
-          reject(abortError);
+          rejectWithDestroy(abortError);
         };
       }
 
       // Set up handlers for errors
       req.on("frameError", (type: number, code: number, id: number) => {
-        reject(new Error(`Frame type id ${type} in stream id ${id} has failed with code ${code}.`));
+        rejectWithDestroy(new Error(`Frame type id ${type} in stream id ${id} has failed with code ${code}.`));
       });
-      req.on("error", reject);
+      req.on("error", rejectWithDestroy);
       req.on("aborted", () => {
-        reject(new Error(`HTTP/2 stream is abnormally aborted in mid-communication with result code ${req.rstCode}.`));
+        rejectWithDestroy(
+          new Error(`HTTP/2 stream is abnormally aborted in mid-communication with result code ${req.rstCode}.`)
+        );
       });
 
       // The HTTP/2 error code used when closing the stream can be retrieved using the
@@ -169,11 +181,11 @@ export class NodeHttp2Handler implements HttpHandler {
           session.destroy();
         }
         if (!fulfilled) {
-          reject(new Error("Unexpected error: http2 request did not get a response"));
+          rejectWithDestroy(new Error("Unexpected error: http2 request did not get a response"));
         }
       });
 
-      writeRequestBody(req, request);
+      writeRequestBodyPromise = writeRequestBody(req, request, requestTimeout);
     });
   }
 

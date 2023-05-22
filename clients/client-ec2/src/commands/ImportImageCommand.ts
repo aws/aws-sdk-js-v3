@@ -14,7 +14,12 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ImportImageRequest, ImportImageResult } from "../models/models_5";
+import {
+  ImportImageRequest,
+  ImportImageRequestFilterSensitiveLog,
+  ImportImageResult,
+  ImportImageResultFilterSensitiveLog,
+} from "../models/models_5";
 import { de_ImportImageCommand, se_ImportImageCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -207,8 +212,8 @@ export class ImportImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: ImportImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportImageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

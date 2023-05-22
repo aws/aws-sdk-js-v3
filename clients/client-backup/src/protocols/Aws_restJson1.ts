@@ -2294,6 +2294,7 @@ export const se_StartRestoreJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CopySourceTagsToRestoredResource: [],
       IamRoleArn: [],
       IdempotencyToken: [],
       Metadata: (_) => _json(_),
@@ -6226,6 +6227,9 @@ const de_StartRestoreJobCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);

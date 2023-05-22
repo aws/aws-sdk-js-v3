@@ -13,7 +13,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
+import {
+  AssumeRoleWithSAMLRequest,
+  AssumeRoleWithSAMLRequestFilterSensitiveLog,
+  AssumeRoleWithSAMLResponse,
+  AssumeRoleWithSAMLResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_AssumeRoleWithSAMLCommand, se_AssumeRoleWithSAMLCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
@@ -332,8 +337,8 @@ export class AssumeRoleWithSAMLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: AssumeRoleWithSAMLRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssumeRoleWithSAMLResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

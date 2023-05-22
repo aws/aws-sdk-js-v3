@@ -2081,8 +2081,7 @@ export interface CreateServiceRequest {
   serviceRegistries?: ServiceRegistry[];
 
   /**
-   * <p>The number of instantiations of the specified task definition to place and keep
-   * 			running on your cluster.</p>
+   * <p>The number of instantiations of the specified task definition to place and keep running in your service.</p>
    *          <p>This is required if <code>schedulingStrategy</code> is <code>REPLICA</code> or isn't
    * 			specified. If <code>schedulingStrategy</code> is <code>DAEMON</code> then this isn't
    * 			required.</p>
@@ -7228,10 +7227,6 @@ export interface Container {
 
   /**
    * <p>The container image manifest digest.</p>
-   *          <note>
-   *             <p>The <code>imageDigest</code> is only returned if the container is using an image
-   * 				hosted in Amazon ECR, otherwise it is omitted.</p>
-   *          </note>
    */
   imageDigest?: string;
 

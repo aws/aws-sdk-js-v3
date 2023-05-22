@@ -9775,6 +9775,7 @@ export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
  */
 export const RequestLaunchTemplateDataFilterSensitiveLog = (obj: RequestLaunchTemplateData): any => ({
   ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9782,7 +9783,9 @@ export const RequestLaunchTemplateDataFilterSensitiveLog = (obj: RequestLaunchTe
  */
 export const CreateLaunchTemplateRequestFilterSensitiveLog = (obj: CreateLaunchTemplateRequest): any => ({
   ...obj,
-  ...(obj.LaunchTemplateData && { LaunchTemplateData: SENSITIVE_STRING }),
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: RequestLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
 });
 
 /**
@@ -9790,7 +9793,9 @@ export const CreateLaunchTemplateRequestFilterSensitiveLog = (obj: CreateLaunchT
  */
 export const CreateLaunchTemplateVersionRequestFilterSensitiveLog = (obj: CreateLaunchTemplateVersionRequest): any => ({
   ...obj,
-  ...(obj.LaunchTemplateData && { LaunchTemplateData: SENSITIVE_STRING }),
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: RequestLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
 });
 
 /**

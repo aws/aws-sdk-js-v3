@@ -1927,6 +1927,8 @@ export const ExportableInstanceField = {
     "EffectiveRecommendationPreferencesExternalMetricsSource",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES:
     "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+  EXTERNAL_METRIC_STATUS_CODE: "ExternalMetricStatusCode",
+  EXTERNAL_METRIC_STATUS_REASON: "ExternalMetricStatusReason",
   FINDING: "Finding",
   Finding_Reason_Codes: "FindingReasonCodes",
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
@@ -2946,6 +2948,50 @@ export interface GetEC2InstanceRecommendationsRequest {
  * @public
  * @enum
  */
+export const ExternalMetricStatusCode = {
+  DATADOG_INTEGRATION_ERROR: "DATADOG_INTEGRATION_ERROR",
+  DYNATRACE_INTEGRATION_ERROR: "DYNATRACE_INTEGRATION_ERROR",
+  INSTANA_INTEGRATION_ERROR: "INSTANA_INTEGRATION_ERROR",
+  INSUFFICIENT_DATADOG_METRICS: "INSUFFICIENT_DATADOG_METRICS",
+  INSUFFICIENT_DYNATRACE_METRICS: "INSUFFICIENT_DYNATRACE_METRICS",
+  INSUFFICIENT_INSTANA_METRICS: "INSUFFICIENT_INSTANA_METRICS",
+  INSUFFICIENT_NEWRELIC_METRICS: "INSUFFICIENT_NEWRELIC_METRICS",
+  INTEGRATION_SUCCESS: "INTEGRATION_SUCCESS",
+  NEWRELIC_INTEGRATION_ERROR: "NEWRELIC_INTEGRATION_ERROR",
+  NO_EXTERNAL_METRIC_SET: "NO_EXTERNAL_METRIC_SET",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalMetricStatusCode = (typeof ExternalMetricStatusCode)[keyof typeof ExternalMetricStatusCode];
+
+/**
+ * @public
+ * <p>
+ *             Describes Compute Optimizer's integration status with your chosen external metric provider. For example, Datadog.
+ *         </p>
+ */
+export interface ExternalMetricStatus {
+  /**
+   * <p>
+   *             The status code for Compute Optimizer's integration with an external metrics provider.
+   *         </p>
+   */
+  statusCode?: ExternalMetricStatusCode | string;
+
+  /**
+   * <p>
+   *             The reason for Compute Optimizer's integration status with your external metric provider.
+   *         </p>
+   */
+  statusReason?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InstanceRecommendationFindingReasonCode = {
   CPU_OVER_PROVISIONED: "CPUOverprovisioned",
   CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
@@ -3577,6 +3623,13 @@ export interface InstanceRecommendation {
    *         </p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>
+   *             An object that describes Compute Optimizer's integration status with your external metrics provider.
+   *         </p>
+   */
+  externalMetricStatus?: ExternalMetricStatus;
 }
 
 /**

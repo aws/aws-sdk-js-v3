@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   AnalysisDefaults,
@@ -66,7 +66,6 @@ import {
   VisualTitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
-import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
  * @public
@@ -1366,9 +1365,42 @@ export interface ClusterMarker {
  */
 export interface ClusterMarkerConfiguration {
   /**
-   * <p>The cluster marker that is a part of the cluster marker configuration</p>
+   * <p>The cluster marker that is a part of the cluster marker configuration.</p>
    */
   ClusterMarker?: ClusterMarker;
+}
+
+/**
+ * @public
+ * <p>The color to be used in the heatmap point style.</p>
+ */
+export interface GeospatialHeatmapDataColor {
+  /**
+   * <p>The hex color to be used in the heatmap point style.</p>
+   */
+  Color: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The color scale specification for the heatmap point style.</p>
+ */
+export interface GeospatialHeatmapColorScale {
+  /**
+   * <p>The list of colors to be used in heatmap point style.</p>
+   */
+  Colors?: GeospatialHeatmapDataColor[];
+}
+
+/**
+ * @public
+ * <p>The heatmap configuration of the geospatial point style.</p>
+ */
+export interface GeospatialHeatmapConfiguration {
+  /**
+   * <p>The color scale specification for the heatmap point style.</p>
+   */
+  HeatmapColor?: GeospatialHeatmapColorScale;
 }
 
 /**
@@ -1377,6 +1409,7 @@ export interface ClusterMarkerConfiguration {
  */
 export const GeospatialSelectedPointStyle = {
   CLUSTER: "CLUSTER",
+  HEATMAP: "HEATMAP",
   POINT: "POINT",
 } as const;
 
@@ -1400,6 +1433,11 @@ export interface GeospatialPointStyleOptions {
    * <p>The cluster marker configuration of the geospatial point style.</p>
    */
   ClusterMarkerConfiguration?: ClusterMarkerConfiguration;
+
+  /**
+   * <p>The heatmap configuration of the geospatial point style.</p>
+   */
+  HeatmapConfiguration?: GeospatialHeatmapConfiguration;
 }
 
 /**
@@ -6271,16 +6309,468 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
  * @public
  * @enum
  */
-export const AssignmentStatus = {
-  DISABLED: "DISABLED",
-  DRAFT: "DRAFT",
-  ENABLED: "ENABLED",
+export const AssetBundleExportJobAnalysisPropertyToOverride = {
+  NAME: "Name",
 } as const;
 
 /**
  * @public
  */
-export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
+export type AssetBundleExportJobAnalysisPropertyToOverride =
+  (typeof AssetBundleExportJobAnalysisPropertyToOverride)[keyof typeof AssetBundleExportJobAnalysisPropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>Analysis</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobAnalysisOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>Analysis</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>Analysis</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobAnalysisPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobDashboardPropertyToOverride = {
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobDashboardPropertyToOverride =
+  (typeof AssetBundleExportJobDashboardPropertyToOverride)[keyof typeof AssetBundleExportJobDashboardPropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>Dashboard</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobDashboardOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>Dashboard</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>Dashboard</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobDashboardPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobDataSetPropertyToOverride = {
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobDataSetPropertyToOverride =
+  (typeof AssetBundleExportJobDataSetPropertyToOverride)[keyof typeof AssetBundleExportJobDataSetPropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>DataSet</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobDataSetOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>DataSet</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>DataSet</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobDataSetPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobDataSourcePropertyToOverride = {
+  CATALOG: "Catalog",
+  CLUSTER_ID: "ClusterId",
+  DATABASE: "Database",
+  DATA_SET_NAME: "DataSetName",
+  DISABLE_SSL: "DisableSsl",
+  DOMAIN: "Domain",
+  HOST: "Host",
+  INSTANCE_ID: "InstanceId",
+  MANIFEST_FILE_LOCATION: "ManifestFileLocation",
+  NAME: "Name",
+  PASSWORD: "Password",
+  PORT: "Port",
+  ROLE_ARN: "RoleArn",
+  SECRET_ARN: "SecretArn",
+  USERNAME: "Username",
+  WAREHOUSE: "Warehouse",
+  WORK_GROUP: "WorkGroup",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobDataSourcePropertyToOverride =
+  (typeof AssetBundleExportJobDataSourcePropertyToOverride)[keyof typeof AssetBundleExportJobDataSourcePropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>DataSource</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobDataSourceOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>DataSource</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>DataSource</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobDataSourcePropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobRefreshSchedulePropertyToOverride = {
+  START_AFTER_DATE_TIME: "StartAfterDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobRefreshSchedulePropertyToOverride =
+  (typeof AssetBundleExportJobRefreshSchedulePropertyToOverride)[keyof typeof AssetBundleExportJobRefreshSchedulePropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>RefreshSchedule</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobRefreshSchedulePropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An optional structure that configures resource ID overrides for the export job.</p>
+ */
+export interface AssetBundleExportJobResourceIdOverrideConfiguration {
+  /**
+   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>
+   */
+  PrefixForAllResources?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobThemePropertyToOverride = {
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobThemePropertyToOverride =
+  (typeof AssetBundleExportJobThemePropertyToOverride)[keyof typeof AssetBundleExportJobThemePropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>Theme</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobThemeOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobThemePropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobVPCConnectionPropertyToOverride = {
+  DNS_RESOLVERS: "DnsResolvers",
+  NAME: "Name",
+  ROLE_ARN: "RoleArn",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobVPCConnectionPropertyToOverride =
+  (typeof AssetBundleExportJobVPCConnectionPropertyToOverride)[keyof typeof AssetBundleExportJobVPCConnectionPropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>VPCConnection</code> resource is parameterized in the outputted CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobVPCConnectionOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobVPCConnectionPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An optional collection of CloudFormation property configurations that control how the export job is generated.</p>
+ */
+export interface AssetBundleCloudFormationOverridePropertyConfiguration {
+  /**
+   * <p>An optional list of structures that control how resource IDs are parameterized in the returned CloudFormation template.</p>
+   */
+  ResourceIdOverrideConfiguration?: AssetBundleExportJobResourceIdOverrideConfiguration;
+
+  /**
+   * <p>An optional list of structures that control how <code>VPCConnection</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  VPCConnections?: AssetBundleExportJobVPCConnectionOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>RefreshSchedule</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  RefreshSchedules?: AssetBundleExportJobRefreshScheduleOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>DataSource</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  DataSources?: AssetBundleExportJobDataSourceOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>DataSet</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  DataSets?: AssetBundleExportJobDataSetOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>Theme</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  Themes?: AssetBundleExportJobThemeOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>Analysis</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  Analyses?: AssetBundleExportJobAnalysisOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>Dashboard</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  Dashboards?: AssetBundleExportJobDashboardOverrideProperties[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportFormat = {
+  CLOUDFORMATION_JSON: "CLOUDFORMATION_JSON",
+  QUICKSIGHT_JSON: "QUICKSIGHT_JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportFormat = (typeof AssetBundleExportFormat)[keyof typeof AssetBundleExportFormat];
+
+/**
+ * @public
+ * <p>Describes an error that occurred during an Asset Bundle export job.</p>
+ */
+export interface AssetBundleExportJobError {
+  /**
+   * <p>The ARN of the resource whose processing caused an error.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The specific error type of the error that occurred.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>A description of the error.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED_FOR_IMMEDIATE_EXECUTION: "QUEUED_FOR_IMMEDIATE_EXECUTION",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobStatus = (typeof AssetBundleExportJobStatus)[keyof typeof AssetBundleExportJobStatus];
+
+/**
+ * @public
+ * <p>A summary of the export job that includes details of the job's configuration and its current status.</p>
+ */
+export interface AssetBundleExportJobSummary {
+  /**
+   * <p>The current status of the export job.</p>
+   */
+  JobStatus?: AssetBundleExportJobStatus | string;
+
+  /**
+   * <p>The ARN of the export job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The time that the export job was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The ID of the export job.</p>
+   */
+  AssetBundleExportJobId?: string;
+
+  /**
+   * <p>The flag that determines the inclusion of resource dependencies in the returned asset bundle.</p>
+   */
+  IncludeAllDependencies?: boolean;
+
+  /**
+   * <p>The format for the export job.</p>
+   */
+  ExportFormat?: AssetBundleExportFormat | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleImportFailureAction = {
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleImportFailureAction =
+  (typeof AssetBundleImportFailureAction)[keyof typeof AssetBundleImportFailureAction];
+
+/**
+ * @public
+ * <p>The override parameters for a single analysis that is being imported.</p>
+ */
+export interface AssetBundleImportJobAnalysisOverrideParameters {
+  /**
+   * <p>The ID of the analysis that you ant to apply overrides to.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A new name for the analysis.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The override parameters for a single dashboard that is being imported.</p>
+ */
+export interface AssetBundleImportJobDashboardOverrideParameters {
+  /**
+   * <p>The ID of the dashboard that you want to apply overrides to.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>A new name for the dashboard.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The override parameters for a single dataset that is being imported.</p>
+ */
+export interface AssetBundleImportJobDataSetOverrideParameters {
+  /**
+   * <p>The ID of the dataset to apply overrides to.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>A new name for the dataset.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>A username and password credential pair to use to import a data source resource.</p>
+ */
+export interface AssetBundleImportJobDataSourceCredentialPair {
+  /**
+   * <p>The username for the data source connection.</p>
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The password for the data source connection.</p>
+   */
+  Password: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The login credentials to use to import a data source resource.</p>
+ */
+export interface AssetBundleImportJobDataSourceCredentials {
+  /**
+   * <p>A username and password credential pair to be used to create the imported data source. Leave this field blank if you are using an Secrets Manager Secret to provide credentials.</p>
+   */
+  CredentialPair?: AssetBundleImportJobDataSourceCredentialPair;
+
+  /**
+   * <p>The ARN of the Secrets Manager Secret to be used to create the imported data source leave this field blank if you aren't using a Secret in place of a credential pair.</p>
+   */
+  SecretArn?: string;
+}
 
 /**
  * @public
@@ -6342,45 +6832,6 @@ export interface AuroraPostgreSqlParameters {
 
 /**
  * @public
- * @enum
- */
-export const AuthenticationMethodOption = {
-  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
-  IAM_AND_QUICKSIGHT: "IAM_AND_QUICKSIGHT",
-  IAM_ONLY: "IAM_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[keyof typeof AuthenticationMethodOption];
-
-/**
- * @public
- * @enum
- */
-export const AuthorSpecifiedAggregation = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  PERCENTILE: "PERCENTILE",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type AuthorSpecifiedAggregation = (typeof AuthorSpecifiedAggregation)[keyof typeof AuthorSpecifiedAggregation];
-
-/**
- * @public
  * <p>The parameters for IoT Analytics.</p>
  */
 export interface AwsIotAnalyticsParameters {
@@ -6392,567 +6843,72 @@ export interface AwsIotAnalyticsParameters {
 
 /**
  * @public
- * <p>The bookmarks configuration of an embedded dashboard.</p>
+ * <p>The required parameters that are needed to connect to a Databricks data source.</p>
  */
-export interface BookmarksConfigurations {
+export interface DatabricksParameters {
   /**
-   * <p>A Boolean value that determines whether a user
-   *             can bookmark an embedded dashboard.</p>
+   * <p>The host name of the Databricks data source.</p>
    */
-  Enabled: boolean | undefined;
+  Host: string | undefined;
+
+  /**
+   * <p>The port for the Databricks data source.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The HTTP path of the Databricks data source.</p>
+   */
+  SqlEndpointPath: string | undefined;
 }
 
 /**
  * @public
- * <p>The display options for tile borders for visuals.</p>
+ * <p>The required parameters for connecting to an Exasol data source.</p>
  */
-export interface BorderStyle {
+export interface ExasolParameters {
   /**
-   * <p>The option to enable display of borders for visuals.</p>
+   * <p>The hostname or IP address of the Exasol data source.</p>
    */
-  Show?: boolean;
+  Host: string | undefined;
+
+  /**
+   * <p>The port for the Exasol data source.</p>
+   */
+  Port: number | undefined;
 }
 
 /**
  * @public
- * <p>A calculated column for a dataset.</p>
+ * <p>The parameters for Jira.</p>
  */
-export interface CalculatedColumn {
+export interface JiraParameters {
   /**
-   * <p>Column name.</p>
+   * <p>The base URL of the Jira site.</p>
    */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
-   *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
-   *             preserves the existing calculated column.</p>
-   */
-  ColumnId: string | undefined;
-
-  /**
-   * <p>An expression that defines the calculated column.</p>
-   */
-  Expression: string | undefined;
+  SiteBaseUrl: string | undefined;
 }
 
 /**
  * @public
+ * <p>The parameters for MariaDB.</p>
  */
-export interface CancelIngestionRequest {
+export interface MariaDbParameters {
   /**
-   * <p>The Amazon Web Services account ID.</p>
+   * <p>Host.</p>
    */
-  AwsAccountId: string | undefined;
+  Host: string | undefined;
 
   /**
-   * <p>The ID of the dataset used in the ingestion.</p>
+   * <p>Port.</p>
    */
-  DataSetId: string | undefined;
+  Port: number | undefined;
 
   /**
-   * <p>An ID for the ingestion.</p>
+   * <p>Database.</p>
    */
-  IngestionId: string | undefined;
+  Database: string | undefined;
 }
-
-/**
- * @public
- */
-export interface CancelIngestionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>An ID for the ingestion.</p>
-   */
-  IngestionId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * <p>An internal failure occurred.</p>
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * <p>One or more parameters has a value that isn't valid.</p>
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ExceptionResourceType = {
-  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
-  DATA_SET: "DATA_SET",
-  DATA_SOURCE: "DATA_SOURCE",
-  GROUP: "GROUP",
-  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
-  INGESTION: "INGESTION",
-  NAMESPACE: "NAMESPACE",
-  USER: "USER",
-  VPC_CONNECTION: "VPC_CONNECTION",
-} as const;
-
-/**
- * @public
- */
-export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
-
-/**
- * @public
- * <p>The resource specified already exists. </p>
- */
-export class ResourceExistsException extends __BaseException {
-  readonly name: "ResourceExistsException" = "ResourceExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The resource type for this request.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
-    super({
-      name: "ResourceExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceExistsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * <p>One or more resources can't be found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The resource type for this request.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * <p>Access is throttled.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ColumnDataType = {
-  DATETIME: "DATETIME",
-  DECIMAL: "DECIMAL",
-  INTEGER: "INTEGER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
-
-/**
- * @public
- * <p>A transform operation that casts a column to a different type.</p>
- */
-export interface CastColumnTypeOperation {
-  /**
-   * <p>Column name.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>New column data type.</p>
-   */
-  NewColumnType: ColumnDataType | string | undefined;
-
-  /**
-   * <p>When casting a column from string to datetime type, you can supply a string in a
-   *             format supported by Amazon QuickSight to denote the source data format.</p>
-   */
-  Format?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const CategoryFilterFunction = {
-  CONTAINS: "CONTAINS",
-  EXACT: "EXACT",
-} as const;
-
-/**
- * @public
- */
-export type CategoryFilterFunction = (typeof CategoryFilterFunction)[keyof typeof CategoryFilterFunction];
-
-/**
- * @public
- * @enum
- */
-export const CategoryFilterType = {
-  CUSTOM_FILTER: "CUSTOM_FILTER",
-  CUSTOM_FILTER_LIST: "CUSTOM_FILTER_LIST",
-  FILTER_LIST: "FILTER_LIST",
-} as const;
-
-/**
- * @public
- */
-export type CategoryFilterType = (typeof CategoryFilterType)[keyof typeof CategoryFilterType];
-
-/**
- * @public
- * <p>A structure that represents the cell value synonym.</p>
- */
-export interface CellValueSynonym {
-  /**
-   * <p>The cell value.</p>
-   */
-  CellValue?: string;
-
-  /**
-   * <p>Other names or aliases for the cell value.</p>
-   */
-  Synonyms?: string[];
-}
-
-/**
- * @public
- * <p>A structure that represents a collective constant.</p>
- */
-export interface CollectiveConstant {
-  /**
-   * <p>A list of values for the collective constant.</p>
-   */
-  ValueList?: string[];
-}
-
-/**
- * @public
- * @enum
- */
-export const ColumnDataRole = {
-  DIMENSION: "DIMENSION",
-  MEASURE: "MEASURE",
-} as const;
-
-/**
- * @public
- */
-export type ColumnDataRole = (typeof ColumnDataRole)[keyof typeof ColumnDataRole];
-
-/**
- * @public
- * <p>Metadata that contains a description for a column.</p>
- */
-export interface ColumnDescription {
-  /**
-   * <p>The text of a description for a column.</p>
-   */
-  Text?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const GeoSpatialCountryCode = {
-  US: "US",
-} as const;
-
-/**
- * @public
- */
-export type GeoSpatialCountryCode = (typeof GeoSpatialCountryCode)[keyof typeof GeoSpatialCountryCode];
-
-/**
- * @public
- * <p>Geospatial column group that denotes a hierarchy.</p>
- */
-export interface GeoSpatialColumnGroup {
-  /**
-   * <p>A display name for the hierarchy.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Country code.</p>
-   */
-  CountryCode?: GeoSpatialCountryCode | string;
-
-  /**
-   * <p>Columns in this hierarchy.</p>
-   */
-  Columns: string[] | undefined;
-}
-
-/**
- * @public
- * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
- *             a variant type structure. For this structure to be valid, only one of the attributes can
- *             be non-null.</p>
- */
-export interface ColumnGroup {
-  /**
-   * <p>Geospatial column group that denotes a hierarchy.</p>
-   */
-  GeoSpatialColumnGroup?: GeoSpatialColumnGroup;
-}
-
-/**
- * @public
- * <p>A structure describing the name, data type, and geographic role of the columns.</p>
- */
-export interface ColumnGroupColumnSchema {
-  /**
-   * <p>The name of the column group's column schema.</p>
-   */
-  Name?: string;
-}
-
-/**
- * @public
- * <p>The column group schema.</p>
- */
-export interface ColumnGroupSchema {
-  /**
-   * <p>The name of the column group schema.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A structure containing the list of schemas for column group columns.</p>
-   */
-  ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[];
-}
-
-/**
- * @public
- * <p>A rule defined to grant access on one or more restricted columns.
- *             Each dataset can have multiple rules.
- *             To create a restricted column, you add it to one or more rules.
- *             Each rule must contain at least one column and at least one user or group.
- *             To be able to see a restricted column, a user or group needs to be added
- *             to a rule for that column.</p>
- */
-export interface ColumnLevelPermissionRule {
-  /**
-   * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
-   */
-  Principals?: string[];
-
-  /**
-   * <p>An array of column names.</p>
-   */
-  ColumnNames?: string[];
-}
-
-/**
- * @public
- * @enum
- */
-export const ColumnOrderingType = {
-  GREATER_IS_BETTER: "GREATER_IS_BETTER",
-  LESSER_IS_BETTER: "LESSER_IS_BETTER",
-  SPECIFIED: "SPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type ColumnOrderingType = (typeof ColumnOrderingType)[keyof typeof ColumnOrderingType];
-
-/**
- * @public
- * <p>The column schema.</p>
- */
-export interface ColumnSchema {
-  /**
-   * <p>The name of the column schema.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The data type of the column schema.</p>
-   */
-  DataType?: string;
-
-  /**
-   * <p>The geographic role of the column schema.</p>
-   */
-  GeographicRole?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const GeoSpatialDataRole = {
-  CITY: "CITY",
-  COUNTRY: "COUNTRY",
-  COUNTY: "COUNTY",
-  LATITUDE: "LATITUDE",
-  LONGITUDE: "LONGITUDE",
-  POSTCODE: "POSTCODE",
-  STATE: "STATE",
-} as const;
-
-/**
- * @public
- */
-export type GeoSpatialDataRole = (typeof GeoSpatialDataRole)[keyof typeof GeoSpatialDataRole];
-
-/**
- * @public
- * <p>A tag for a column in a
- *             <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
- *             </code>
- *             structure. This is a
- *             variant type structure. For this structure to be valid, only one of the attributes can
- *             be non-null.</p>
- */
-export interface ColumnTag {
-  /**
-   * <p>A geospatial role for a column.</p>
-   */
-  ColumnGeographicRole?: GeoSpatialDataRole | string;
-
-  /**
-   * <p>A description for a column.</p>
-   */
-  ColumnDescription?: ColumnDescription;
-}
-
-/**
- * @public
- * @enum
- */
-export const ColumnTagName = {
-  COLUMN_DESCRIPTION: "COLUMN_DESCRIPTION",
-  COLUMN_GEOGRAPHIC_ROLE: "COLUMN_GEOGRAPHIC_ROLE",
-} as const;
-
-/**
- * @public
- */
-export type ColumnTagName = (typeof ColumnTagName)[keyof typeof ColumnTagName];
 
 /**
  * @internal
@@ -8089,7 +8045,18 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
 /**
  * @internal
  */
-export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
+export const AssetBundleImportJobDataSourceCredentialPairFilterSensitiveLog = (
+  obj: AssetBundleImportJobDataSourceCredentialPair
+): any => ({
   ...obj,
-  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssetBundleImportJobDataSourceCredentialsFilterSensitiveLog = (
+  obj: AssetBundleImportJobDataSourceCredentials
+): any => ({
+  ...obj,
+  ...(obj.CredentialPair && { CredentialPair: SENSITIVE_STRING }),
 });

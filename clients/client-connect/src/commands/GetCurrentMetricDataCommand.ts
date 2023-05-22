@@ -14,7 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetCurrentMetricDataRequest, GetCurrentMetricDataResponse } from "../models/models_0";
+import { GetCurrentMetricDataRequest } from "../models/models_0";
+import { GetCurrentMetricDataResponse } from "../models/models_1";
 import { de_GetCurrentMetricDataCommand, se_GetCurrentMetricDataCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -61,13 +61,6 @@ export interface GetEarthObservationJobCommandOutput extends GetEarthObservation
  * //   KmsKeyId: "STRING_VALUE",
  * //   InputConfig: { // InputConfigOutput
  * //     PreviousEarthObservationJobArn: "STRING_VALUE",
- * //     DataSourceConfig: { // EojDataSourceConfigInput Union: only one key present
- * //       S3Data: { // S3DataInput
- * //         S3Uri: "STRING_VALUE", // required
- * //         MetadataProvider: "STRING_VALUE", // required
- * //         KmsKeyId: "STRING_VALUE",
- * //       },
- * //     },
  * //     RasterDataCollectionQuery: { // RasterDataCollectionQueryOutput
  * //       RasterDataCollectionArn: "STRING_VALUE", // required
  * //       RasterDataCollectionName: "STRING_VALUE", // required

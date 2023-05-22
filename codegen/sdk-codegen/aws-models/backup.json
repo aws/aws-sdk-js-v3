@@ -530,7 +530,7 @@
         "StartWindowMinutes": {
           "target": "com.amazonaws.backup#WindowMinutes",
           "traits": {
-            "smithy.api#documentation": "<p>A value in minutes after a backup is scheduled before a job will be canceled if it\n         doesn't start successfully. This value is optional. \n         If this value is included, it must be at least 60 minutes to avoid errors.</p>"
+            "smithy.api#documentation": "<p>A value in minutes after a backup is scheduled before a job will be canceled if it\n         doesn't start successfully. This value is optional. \n         If this value is included, it must be at least 60 minutes to avoid errors.</p>\n         <p>During the start window, the backup job status remains in <code>CREATED</code> status until it \n         has successfully begun or until the start window time has run out. If within the start \n         window time Backup receives an error that allows the job to be retried, \n         Backup will automatically retry to begin the job at least every 10 minutes \n         until the backup \n         successfully begins (the job status changes to <code>RUNNING</code>) or until the job status \n         changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>"
           }
         },
         "CompletionWindowMinutes": {
@@ -600,7 +600,7 @@
         "StartWindowMinutes": {
           "target": "com.amazonaws.backup#WindowMinutes",
           "traits": {
-            "smithy.api#documentation": "<p>A value in minutes after a backup is scheduled before a job will be canceled if it\n         doesn't start successfully. This value is optional. \n         If this value is included, it must be at least 60 minutes to avoid errors.</p>"
+            "smithy.api#documentation": "<p>A value in minutes after a backup is scheduled before a job will be canceled if it\n         doesn't start successfully. This value is optional. \n         If this value is included, it must be at least 60 minutes to avoid errors.</p>\n         <p>During the start window, the backup job status remains in <code>CREATED</code> status until it \n         has successfully begun or until the start window time has run out. If within the start \n         window time Backup receives an error that allows the job to be retried, \n         Backup will automatically retry to begin the job at least every 10 minutes \n         until the backup \n         successfully begins (the job status changes to <code>RUNNING</code>) or until the job status \n         changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>"
           }
         },
         "CompletionWindowMinutes": {
@@ -2318,7 +2318,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -2347,15 +2347,67 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
               "type": "tree",
               "rules": [
                 {
@@ -2364,7 +2416,7 @@
                       "fn": "isSet",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "Region"
                         }
                       ]
                     }
@@ -2374,22 +2426,157 @@
                     {
                       "conditions": [
                         {
-                          "fn": "booleanEquals",
+                          "fn": "aws.partition",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://backup-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://backup-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -2402,82 +2589,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://backup.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -2485,7 +2642,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://backup-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "url": "https://backup.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -2494,144 +2651,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://backup-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://backup.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": "https://backup.{Region}.{PartitionResult#dnsSuffix}",
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -2648,8 +2674,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2661,8 +2687,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2674,8 +2700,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2687,8 +2713,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2700,8 +2726,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2713,8 +2739,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2726,8 +2752,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2739,8 +2765,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2752,8 +2778,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2765,8 +2791,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2778,8 +2804,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2791,8 +2817,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2804,8 +2830,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2817,8 +2843,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2830,8 +2856,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2843,8 +2869,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2856,8 +2882,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2869,8 +2895,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2882,8 +2908,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2895,8 +2921,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2908,8 +2934,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2921,8 +2947,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2934,8 +2960,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -2947,8 +2973,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -2960,8 +2986,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2973,8 +2999,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2986,8 +3012,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2999,8 +3025,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -3012,8 +3038,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -3025,8 +3051,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -3038,8 +3064,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -3051,8 +3077,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -3064,8 +3090,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -3077,8 +3103,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -3090,8 +3116,19 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -3103,8 +3140,19 @@
               },
               "params": {
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -3116,8 +3164,19 @@
               },
               "params": {
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -3129,8 +3188,19 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -3142,12 +3212,12 @@
               },
               "params": {
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -3155,8 +3225,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3167,8 +3250,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3179,9 +3262,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -4469,13 +4558,13 @@
         "Status": {
           "target": "com.amazonaws.backup#RecoveryPointStatus",
           "traits": {
-            "smithy.api#documentation": "<p>A status code specifying the state of the recovery point.</p>\n         <p>\n            <code>PARTIAL</code> status indicates Backup could not create the recovery\n         point before the backup window closed. To increase your backup plan window using the API,\n         see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateBackupPlan.html\">UpdateBackupPlan</a>. You can also increase your backup plan window using the\n         Console by choosing and editing your backup plan.</p>\n         <p>\n            <code>EXPIRED</code> status indicates that the recovery point has exceeded its retention\n         period, but Backup lacks permission or is otherwise unable to delete it. To\n         manually delete these recovery points, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/gs-cleanup-resources.html#cleanup-backups\"> Step 3:\n            Delete the recovery points</a> in the <i>Clean up resources</i>\n         section of <i>Getting started</i>.</p>\n         <p>\n            <code>STOPPED</code> status occurs on a continuous backup where a user has taken some \n         action that causes the continuous backup to be disabled. This can be caused by the removal\n         of permissions, turning off versioning, turning off events being sent to EventBridge, \n         or disabling the EventBridge rules that are put in place by Backup.</p>\n         <p>To resolve <code>STOPPED</code> status, ensure that all requested permissions are in place and\n         that versioning is enabled on the S3 bucket. Once these conditions are met, the next instance\n         of a backup rule running will result in a new continuous recovery point being created. \n         The recovery points with STOPPED status do not need to be deleted.</p>"
+            "smithy.api#documentation": "<p>A status code specifying the state of the recovery point.</p>\n         <p>\n            <code>PARTIAL</code> status indicates Backup could not create the recovery\n         point before the backup window closed. To increase your backup plan window using the API,\n         see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateBackupPlan.html\">UpdateBackupPlan</a>. You can also increase your backup plan window using the\n         Console by choosing and editing your backup plan.</p>\n         <p>\n            <code>EXPIRED</code> status indicates that the recovery point has exceeded its retention\n         period, but Backup lacks permission or is otherwise unable to delete it. To\n         manually delete these recovery points, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/gs-cleanup-resources.html#cleanup-backups\"> Step 3:\n            Delete the recovery points</a> in the <i>Clean up resources</i>\n         section of <i>Getting started</i>.</p>\n         <p>\n            <code>STOPPED</code> status occurs on a continuous backup where a user has taken some \n         action that causes the continuous backup to be disabled. This can be caused by the removal\n         of permissions, turning off versioning, turning off events being sent to EventBridge, \n         or disabling the EventBridge rules that are put in place by Backup.</p>\n         <p>To resolve <code>STOPPED</code> status, ensure that all requested permissions are in place and\n         that versioning is enabled on the S3 bucket. Once these conditions are met, the next instance\n         of a backup rule running will result in a new continuous recovery point being created. \n         The recovery points with STOPPED status do not need to be deleted.</p>\n         <p>For SAP HANA on Amazon EC2 <code>STOPPED</code> status occurs due to user action, application\n         misconfiguration, or backup failure. To ensure that future continuous backups succeed,\n         refer to the recovery point status and check SAP HANA for details.</p>"
           }
         },
         "StatusMessage": {
           "target": "com.amazonaws.backup#string",
           "traits": {
-            "smithy.api#documentation": "<p>A status message explaining the reason for the recovery point deletion failure.</p>"
+            "smithy.api#documentation": "<p>A status message explaining the status of the recovery point.</p>"
           }
         },
         "CreationDate": {
@@ -8307,6 +8396,24 @@
           "traits": {
             "smithy.api#documentation": "<p>This is the Amazon Resource Name (ARN) of the parent (composite) \n         recovery point.</p>"
           }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.backup#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>This is the Amazon Resource Name (ARN) that uniquely identifies \n         a saved resource.</p>"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.backup#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>This is the Amazon Web Services resource type that is saved as \n      a recovery point.</p>"
+          }
+        },
+        "BackupVaultName": {
+          "target": "com.amazonaws.backup#BackupVaultName",
+          "traits": {
+            "smithy.api#documentation": "<p>This is the name of the backup vault \n         (the logical container in which backups are stored).</p>"
+          }
         }
       },
       "traits": {
@@ -8920,7 +9027,7 @@
         "StartWindowMinutes": {
           "target": "com.amazonaws.backup#WindowMinutes",
           "traits": {
-            "smithy.api#documentation": "<p>A value in minutes after a backup is scheduled before a job will be canceled if it\n         doesn't start successfully. This value is optional, and the default is 8 hours. \n         If this value is included, it must be at least 60 minutes to avoid errors.</p>"
+            "smithy.api#documentation": "<p>A value in minutes after a backup is scheduled before a job will be canceled if it\n         doesn't start successfully. This value is optional, and the default is 8 hours. \n         If this value is included, it must be at least 60 minutes to avoid errors.</p>\n         <p>During the start window, the backup job status remains in <code>CREATED</code> status until it \n         has successfully begun or until the start window time has run out. If within the start \n         window time Backup receives an error that allows the job to be retried, \n         Backup will automatically retry to begin the job at least every 10 minutes \n         until the backup \n         successfully begins (the job status changes to <code>RUNNING</code>) or until the job status \n         changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>"
           }
         },
         "CompleteWindowMinutes": {
@@ -9177,6 +9284,9 @@
           "target": "com.amazonaws.backup#InvalidParameterValueException"
         },
         {
+          "target": "com.amazonaws.backup#InvalidRequestException"
+        },
+        {
           "target": "com.amazonaws.backup#MissingParameterValueException"
         },
         {
@@ -9228,7 +9338,14 @@
         "ResourceType": {
           "target": "com.amazonaws.backup#ResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>Starts a job to restore a recovery point for one of the following resources:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Aurora</code> for Amazon Aurora</p>\n            </li>\n            <li>\n               <p>\n                  <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>\n            </li>\n            <li>\n               <p>\n                  <code>DynamoDB</code> for Amazon DynamoDB</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS</code> for Amazon Elastic Block Store</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2</code> for Amazon Elastic Compute Cloud</p>\n            </li>\n            <li>\n               <p>\n                  <code>EFS</code> for Amazon Elastic File System</p>\n            </li>\n            <li>\n               <p>\n                  <code>FSx</code> for Amazon FSx</p>\n            </li>\n            <li>\n               <p>\n                  <code>Neptune</code> for Amazon Neptune</p>\n            </li>\n            <li>\n               <p>\n                  <code>RDS</code> for Amazon Relational Database Service</p>\n            </li>\n            <li>\n               <p>\n                  <code>Storage Gateway</code> for Storage Gateway</p>\n            </li>\n            <li>\n               <p>\n                  <code>S3</code> for Amazon S3</p>\n            </li>\n            <li>\n               <p>\n                  <code>VirtualMachine</code> for virtual machines</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Starts a job to restore a recovery point for one of the following resources:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Aurora</code> for Amazon Aurora</p>\n            </li>\n            <li>\n               <p>\n                  <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>\n            </li>\n            <li>\n               <p>\n                  <code>CloudFormation</code> for CloudFormation</p>\n            </li>\n            <li>\n               <p>\n                  <code>DynamoDB</code> for Amazon DynamoDB</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS</code> for Amazon Elastic Block Store</p>\n            </li>\n            <li>\n               <p>\n                  <code>EC2</code> for Amazon Elastic Compute Cloud</p>\n            </li>\n            <li>\n               <p>\n                  <code>EFS</code> for Amazon Elastic File System</p>\n            </li>\n            <li>\n               <p>\n                  <code>FSx</code> for Amazon FSx</p>\n            </li>\n            <li>\n               <p>\n                  <code>Neptune</code> for Amazon Neptune</p>\n            </li>\n            <li>\n               <p>\n                  <code>RDS</code> for Amazon Relational Database Service</p>\n            </li>\n            <li>\n               <p>\n                  <code>Redshift</code> for Amazon Redshift</p>\n            </li>\n            <li>\n               <p>\n                  <code>Storage Gateway</code> for Storage Gateway</p>\n            </li>\n            <li>\n               <p>\n                  <code>S3</code> for Amazon S3</p>\n            </li>\n            <li>\n               <p>\n                  <code>Timestream</code> for Amazon Timestream</p>\n            </li>\n            <li>\n               <p>\n                  <code>VirtualMachine</code> for virtual machines</p>\n            </li>\n         </ul>"
+          }
+        },
+        "CopySourceTagsToRestoredResource": {
+          "target": "com.amazonaws.backup#Boolean2",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>This is an optional parameter. If this equals <code>True</code>, tags included in the backup\n      will be copied to the restored resource.</p>\n         <p>This can only be applied to backups created through Backup.</p>"
           }
         }
       },

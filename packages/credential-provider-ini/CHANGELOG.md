@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-ini
+
+
+
+
+
+# [3.335.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.334.0...v3.335.0) (2023-05-18)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-ini
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-ini

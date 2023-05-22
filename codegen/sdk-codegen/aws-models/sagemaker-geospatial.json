@@ -706,20 +706,6 @@
         "smithy.api#documentation": "<p>The structure representing the EoCloudCover filter.</p>"
       }
     },
-    "com.amazonaws.sagemakergeospatial#EojDataSourceConfigInput": {
-      "type": "union",
-      "members": {
-        "S3Data": {
-          "target": "com.amazonaws.sagemakergeospatial#S3DataInput",
-          "traits": {
-            "smithy.api#documentation": "<p>The input structure for S3Data; representing the \n      Amazon S3 location of the input data objects.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Union representing different data sources to be \n      used as input for an Earth Observation job.</p>"
-      }
-    },
     "com.amazonaws.sagemakergeospatial#ExecutionRoleArn": {
       "type": "string",
       "traits": {
@@ -1753,12 +1739,6 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the previous Earth Observation job.</p>"
           }
         },
-        "DataSourceConfig": {
-          "target": "com.amazonaws.sagemakergeospatial#EojDataSourceConfigInput",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the input data.&gt;</p>"
-          }
-        },
         "RasterDataCollectionQuery": {
           "target": "com.amazonaws.sagemakergeospatial#RasterDataCollectionQueryInput",
           "traits": {
@@ -1777,12 +1757,6 @@
           "target": "com.amazonaws.sagemakergeospatial#EarthObservationJobArn",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the previous Earth Observation job.</p>"
-          }
-        },
-        "DataSourceConfig": {
-          "target": "com.amazonaws.sagemakergeospatial#EojDataSourceConfigInput",
-          "traits": {
-            "smithy.api#documentation": "<p>The location of the input data.</p>"
           }
         },
         "RasterDataCollectionQuery": {
@@ -2491,18 +2465,6 @@
         "smithy.api#documentation": "<p>The input structure for Map Matching operation type.</p>"
       }
     },
-    "com.amazonaws.sagemakergeospatial#MetadataProvider": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PLANET_ORDER",
-            "name": "PLANET_ORDER",
-            "documentation": "PLANET_ORDER"
-          }
-        ]
-      }
-    },
     "com.amazonaws.sagemakergeospatial#MultiPolygonGeometryInput": {
       "type": "structure",
       "members": {
@@ -3132,34 +3094,6 @@
         "smithy.api#documentation": "<p>The input structure for Reverse Geocoding operation type.</p>"
       }
     },
-    "com.amazonaws.sagemakergeospatial#S3DataInput": {
-      "type": "structure",
-      "members": {
-        "S3Uri": {
-          "target": "com.amazonaws.sagemakergeospatial#S3Uri",
-          "traits": {
-            "smithy.api#documentation": "<p>The URL to the Amazon S3 input.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "MetadataProvider": {
-          "target": "com.amazonaws.sagemakergeospatial#MetadataProvider",
-          "traits": {
-            "smithy.api#documentation": "<p>Metadata provider from whom the Amazon S3 data has been acquired.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "KmsKeyId": {
-          "target": "com.amazonaws.sagemakergeospatial#KmsKey",
-          "traits": {
-            "smithy.api#documentation": "<p>The Key Management Service key ID for server-side encryption.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Path to Amazon S3 storage location for input data.</p>"
-      }
-    },
     "com.amazonaws.sagemakergeospatial#S3Uri": {
       "type": "string",
       "traits": {
@@ -3575,9 +3509,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": true
               }
             },
             {
@@ -3588,9 +3522,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
@@ -3601,9 +3535,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": false
               }
             },
             {
@@ -3614,9 +3548,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -3627,9 +3561,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": true
               }
             },
             {
@@ -3640,9 +3574,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
@@ -3653,9 +3587,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": false
               }
             },
             {
@@ -3666,9 +3600,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -3677,9 +3611,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": true
               }
             },
             {
@@ -3690,9 +3624,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
@@ -3701,9 +3635,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": false
               }
             },
             {
@@ -3714,9 +3648,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -3727,9 +3661,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": true
               }
             },
             {
@@ -3740,9 +3674,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
@@ -3753,9 +3687,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": false
               }
             },
             {
@@ -3766,9 +3700,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -3777,9 +3711,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": true
               }
             },
             {
@@ -3790,9 +3724,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": true
               }
             },
             {
@@ -3801,9 +3735,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "UseFIPS": false
               }
             },
             {
@@ -3814,9 +3748,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "UseFIPS": false
               }
             },
             {
@@ -3827,9 +3761,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
+                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3839,9 +3773,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
+                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3851,9 +3785,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
+                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -4102,7 +4036,8 @@
         "ExecutionRoleArn": {
           "target": "com.amazonaws.sagemakergeospatial#ExecutionRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>",
+            "smithy.api#required": {}
           }
         },
         "Tags": {
@@ -4177,7 +4112,8 @@
         "ExecutionRoleArn": {
           "target": "com.amazonaws.sagemakergeospatial#ExecutionRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>",
+            "smithy.api#required": {}
           }
         },
         "Tags": {

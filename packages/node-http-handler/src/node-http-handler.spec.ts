@@ -18,18 +18,19 @@ describe("NodeHttpHandler", () => {
     let hRequestSpy: jest.SpyInstance;
     let hsRequestSpy: jest.SpyInstance;
     const randomMaxSocket = Math.round(Math.random() * 50) + 1;
-    const mockRequestImpl = (_options, cb) => {
+    const mockRequestImpl = (protocol: string) => (_options, cb) => {
       cb({
         statusCode: 200,
         body: "body",
         headers: {},
+        protocol,
       });
-      return new http.ClientRequest(_options);
+      return new http.ClientRequest({ ..._options, protocol });
     };
 
     beforeEach(() => {
-      hRequestSpy = jest.spyOn(http, "request").mockImplementation(mockRequestImpl);
-      hsRequestSpy = jest.spyOn(https, "request").mockImplementation(mockRequestImpl);
+      hRequestSpy = jest.spyOn(http, "request").mockImplementation(mockRequestImpl("http:"));
+      hsRequestSpy = jest.spyOn(https, "request").mockImplementation(mockRequestImpl("https:"));
     });
 
     afterEach(() => {
@@ -97,8 +98,8 @@ describe("NodeHttpHandler", () => {
           return {
             connectionTimeout: 12345,
             socketTimeout: 12345,
-            httpAgent: null,
-            httpsAgent: null,
+            httpAgent: void 0,
+            httpsAgent: void 0,
           };
         };
 
@@ -118,7 +119,10 @@ describe("NodeHttpHandler", () => {
   });
 
   describe("http", () => {
-    const mockHttpServer: HttpServer = createMockHttpServer().listen(54321);
+    let mockHttpServer: HttpServer;
+    beforeAll(() => {
+      mockHttpServer = createMockHttpServer().listen(54321);
+    });
 
     afterEach(() => {
       mockHttpServer.removeAllListeners("request");

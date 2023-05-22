@@ -66,6 +66,10 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ChannelARNInvalidException} (client fault)
+ *  <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not
+ *          valid.</p>
+ *
  * @throws {@link ChannelNotFoundException} (client fault)
  *  <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
  *
@@ -88,6 +92,10 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  *          can occur when you try to run an operation on a resource before CloudTrail has time
  *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
  *          operation again.</p>
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
  *
  * @throws {@link EventDataStoreNotFoundException} (client fault)
  *  <p>The specified event data store was not found.</p>

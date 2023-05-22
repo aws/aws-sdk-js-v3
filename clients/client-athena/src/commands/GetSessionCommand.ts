@@ -57,9 +57,6 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //     AdditionalConfigs: { // ParametersMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     SparkProperties: {
- * //       "<keys>": "STRING_VALUE",
- * //     },
  * //   },
  * //   NotebookVersion: "STRING_VALUE",
  * //   SessionConfiguration: { // SessionConfiguration

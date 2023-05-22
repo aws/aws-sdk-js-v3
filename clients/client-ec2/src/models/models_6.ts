@@ -126,6 +126,7 @@ import {
   LaunchPermission,
   PermissionGroup,
   SnapshotTaskDetail,
+  SnapshotTaskDetailFilterSensitiveLog,
   TpmSupportValues,
 } from "./models_3";
 import {
@@ -8577,6 +8578,30 @@ export interface SearchTransitGatewayRoutesResult {
    */
   AdditionalRoutesAvailable?: boolean;
 }
+
+/**
+ * @internal
+ */
+export const SnapshotDiskContainerFilterSensitiveLog = (obj: SnapshotDiskContainer): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportSnapshotRequestFilterSensitiveLog = (obj: ImportSnapshotRequest): any => ({
+  ...obj,
+  ...(obj.DiskContainer && { DiskContainer: SnapshotDiskContainerFilterSensitiveLog(obj.DiskContainer) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportSnapshotResultFilterSensitiveLog = (obj: ImportSnapshotResult): any => ({
+  ...obj,
+  ...(obj.SnapshotTaskDetail && { SnapshotTaskDetail: SnapshotTaskDetailFilterSensitiveLog(obj.SnapshotTaskDetail) }),
+});
 
 /**
  * @internal

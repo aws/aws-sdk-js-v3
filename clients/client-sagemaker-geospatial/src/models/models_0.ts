@@ -933,79 +933,6 @@ export interface ExportErrorDetails {
  * @public
  * @enum
  */
-export const MetadataProvider = {
-  /**
-   * PLANET_ORDER
-   */
-  PLANET_ORDER: "PLANET_ORDER",
-} as const;
-
-/**
- * @public
- */
-export type MetadataProvider = (typeof MetadataProvider)[keyof typeof MetadataProvider];
-
-/**
- * @public
- * <p>Path to Amazon S3 storage location for input data.</p>
- */
-export interface S3DataInput {
-  /**
-   * <p>The URL to the Amazon S3 input.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>Metadata provider from whom the Amazon S3 data has been acquired.</p>
-   */
-  MetadataProvider: MetadataProvider | string | undefined;
-
-  /**
-   * <p>The Key Management Service key ID for server-side encryption.</p>
-   */
-  KmsKeyId?: string;
-}
-
-/**
- * @public
- * <p>Union representing different data sources to be
- *       used as input for an Earth Observation job.</p>
- */
-export type EojDataSourceConfigInput = EojDataSourceConfigInput.S3DataMember | EojDataSourceConfigInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EojDataSourceConfigInput {
-  /**
-   * <p>The input structure for S3Data; representing the
-   *       Amazon S3 location of the input data objects.</p>
-   */
-  export interface S3DataMember {
-    S3Data: S3DataInput;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    S3Data?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    S3Data: (value: S3DataInput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: EojDataSourceConfigInput, visitor: Visitor<T>): T => {
-    if (value.S3Data !== undefined) return visitor.S3Data(value.S3Data);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * @enum
- */
 export const LogicalOperator = {
   /**
    * AND
@@ -1339,11 +1266,6 @@ export interface InputConfigOutput {
    * <p>The Amazon Resource Name (ARN) of the previous Earth Observation job.</p>
    */
   PreviousEarthObservationJobArn?: string;
-
-  /**
-   * <p>The location of the input data.</p>
-   */
-  DataSourceConfig?: EojDataSourceConfigInput;
 
   /**
    * <p>The structure representing the RasterDataCollection Query consisting of the Area of Interest,
@@ -2244,11 +2166,6 @@ export interface InputConfigInput {
   PreviousEarthObservationJobArn?: string;
 
   /**
-   * <p>The location of the input data.&gt;</p>
-   */
-  DataSourceConfig?: EojDataSourceConfigInput;
-
-  /**
    * <p>The structure representing the RasterDataCollection Query consisting of
    *       the Area of Interest, RasterDataCollectionArn,TimeRange and Property Filters.</p>
    */
@@ -2287,7 +2204,7 @@ export interface StartEarthObservationJobInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn: string | undefined;
 
   /**
    * <p>Each tag consists of a key and a value.</p>
@@ -2342,7 +2259,7 @@ export interface StartEarthObservationJobOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn: string | undefined;
 
   /**
    * <p>Each tag consists of a key and a value.</p>
@@ -3378,7 +3295,6 @@ export const RasterDataCollectionQueryOutputFilterSensitiveLog = (obj: RasterDat
  */
 export const InputConfigOutputFilterSensitiveLog = (obj: InputConfigOutput): any => ({
   ...obj,
-  ...(obj.DataSourceConfig && { DataSourceConfig: obj.DataSourceConfig }),
   ...(obj.RasterDataCollectionQuery && {
     RasterDataCollectionQuery: RasterDataCollectionQueryOutputFilterSensitiveLog(obj.RasterDataCollectionQuery),
   }),
@@ -3438,7 +3354,6 @@ export const RasterDataCollectionQueryInputFilterSensitiveLog = (obj: RasterData
  */
 export const InputConfigInputFilterSensitiveLog = (obj: InputConfigInput): any => ({
   ...obj,
-  ...(obj.DataSourceConfig && { DataSourceConfig: obj.DataSourceConfig }),
   ...(obj.RasterDataCollectionQuery && {
     RasterDataCollectionQuery: RasterDataCollectionQueryInputFilterSensitiveLog(obj.RasterDataCollectionQuery),
   }),
