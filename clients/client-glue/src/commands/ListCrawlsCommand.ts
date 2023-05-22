@@ -19,6 +19,10 @@ import { de_ListCrawlsCommand, se_ListCrawlsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCrawlsCommand}.
  */

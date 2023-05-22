@@ -19,6 +19,10 @@ import { de_UpdateSourceControlFromJobCommand, se_UpdateSourceControlFromJobComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSourceControlFromJobCommand}.
  */

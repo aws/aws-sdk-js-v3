@@ -19,6 +19,10 @@ import { de_DescribeRulesPackagesCommand, se_DescribeRulesPackagesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRulesPackagesCommand}.
  */

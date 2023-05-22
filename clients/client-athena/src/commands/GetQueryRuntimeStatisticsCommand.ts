@@ -19,6 +19,10 @@ import { de_GetQueryRuntimeStatisticsCommand, se_GetQueryRuntimeStatisticsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetQueryRuntimeStatisticsCommand}.
  */

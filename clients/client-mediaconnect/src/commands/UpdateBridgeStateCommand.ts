@@ -19,6 +19,10 @@ import { de_UpdateBridgeStateCommand, se_UpdateBridgeStateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBridgeStateCommand}.
  */

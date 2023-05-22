@@ -19,6 +19,10 @@ import { de_StartGameSessionPlacementCommand, se_StartGameSessionPlacementComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartGameSessionPlacementCommand}.
  */

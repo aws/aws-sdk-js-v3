@@ -19,6 +19,10 @@ import { de_UpdateMethodResponseCommand, se_UpdateMethodResponseCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMethodResponseCommand}.
  */

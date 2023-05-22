@@ -19,6 +19,10 @@ import { de_UpgradeAppliedSchemaCommand, se_UpgradeAppliedSchemaCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpgradeAppliedSchemaCommand}.
  */

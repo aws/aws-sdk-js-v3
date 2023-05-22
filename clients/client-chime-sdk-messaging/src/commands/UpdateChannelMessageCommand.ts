@@ -27,6 +27,10 @@ import { de_UpdateChannelMessageCommand, se_UpdateChannelMessageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateChannelMessageCommand}.
  */

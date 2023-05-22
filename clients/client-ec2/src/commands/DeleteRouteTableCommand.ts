@@ -19,6 +19,10 @@ import { de_DeleteRouteTableCommand, se_DeleteRouteTableCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRouteTableCommand}.
  */

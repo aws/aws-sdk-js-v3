@@ -23,6 +23,10 @@ import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutResourcePolicyCommand}.
  */

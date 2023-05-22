@@ -23,6 +23,10 @@ import { de_DescribeDocumentClassifierCommand, se_DescribeDocumentClassifierComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDocumentClassifierCommand}.
  */

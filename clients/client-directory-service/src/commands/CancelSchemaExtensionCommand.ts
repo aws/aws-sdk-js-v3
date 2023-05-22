@@ -19,6 +19,10 @@ import { de_CancelSchemaExtensionCommand, se_CancelSchemaExtensionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelSchemaExtensionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateHITTypeOfHITCommand, se_UpdateHITTypeOfHITCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateHITTypeOfHITCommand}.
  */

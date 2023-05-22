@@ -23,6 +23,10 @@ import { de_DescribeScalableTargetsCommand, se_DescribeScalableTargetsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScalableTargetsCommand}.
  */

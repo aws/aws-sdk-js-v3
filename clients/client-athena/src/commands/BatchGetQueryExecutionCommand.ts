@@ -19,6 +19,10 @@ import { de_BatchGetQueryExecutionCommand, se_BatchGetQueryExecutionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetQueryExecutionCommand}.
  */

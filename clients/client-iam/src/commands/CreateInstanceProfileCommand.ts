@@ -19,6 +19,10 @@ import { de_CreateInstanceProfileCommand, se_CreateInstanceProfileCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateInstanceProfileCommand}.
  */

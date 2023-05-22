@@ -19,6 +19,10 @@ import { de_ListLFTagsCommand, se_ListLFTagsCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLFTagsCommand}.
  */

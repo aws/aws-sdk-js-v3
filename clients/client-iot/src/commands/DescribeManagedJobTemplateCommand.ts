@@ -19,6 +19,10 @@ import { de_DescribeManagedJobTemplateCommand, se_DescribeManagedJobTemplateComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeManagedJobTemplateCommand}.
  */

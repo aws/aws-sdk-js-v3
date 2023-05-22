@@ -19,6 +19,10 @@ import { de_GetPendingJobExecutionsCommand, se_GetPendingJobExecutionsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPendingJobExecutionsCommand}.
  */

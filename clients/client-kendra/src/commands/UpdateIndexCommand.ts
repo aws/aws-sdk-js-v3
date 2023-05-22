@@ -19,6 +19,10 @@ import { de_UpdateIndexCommand, se_UpdateIndexCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateIndexCommand}.
  */

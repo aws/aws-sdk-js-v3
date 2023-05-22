@@ -19,6 +19,10 @@ import { de_CreateRouteCalculatorCommand, se_CreateRouteCalculatorCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRouteCalculatorCommand}.
  */

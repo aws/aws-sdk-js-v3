@@ -19,6 +19,10 @@ import { de_CancelLegalHoldCommand, se_CancelLegalHoldCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelLegalHoldCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutInsightRuleCommand, se_PutInsightRuleCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutInsightRuleCommand}.
  */

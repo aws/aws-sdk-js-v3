@@ -19,6 +19,10 @@ import { de_GetComplianceDetailCommand, se_GetComplianceDetailCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetComplianceDetailCommand}.
  */

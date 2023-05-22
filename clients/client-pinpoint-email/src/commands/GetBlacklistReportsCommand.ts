@@ -19,6 +19,10 @@ import { de_GetBlacklistReportsCommand, se_GetBlacklistReportsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBlacklistReportsCommand}.
  */

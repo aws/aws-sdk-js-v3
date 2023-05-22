@@ -19,6 +19,10 @@ import { de_DescribeDimensionKeysCommand, se_DescribeDimensionKeysCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDimensionKeysCommand}.
  */

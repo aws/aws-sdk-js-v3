@@ -19,6 +19,10 @@ import { de_ListFunctionUrlConfigsCommand, se_ListFunctionUrlConfigsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFunctionUrlConfigsCommand}.
  */

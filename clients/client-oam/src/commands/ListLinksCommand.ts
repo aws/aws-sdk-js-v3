@@ -19,6 +19,10 @@ import { de_ListLinksCommand, se_ListLinksCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLinksCommand}.
  */

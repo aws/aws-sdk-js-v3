@@ -19,6 +19,10 @@ import { de_PublishRecipeCommand, se_PublishRecipeCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PublishRecipeCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateDirectoryCommand, se_CreateDirectoryCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDirectoryCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutDataProtectionPolicyCommand}.
  */

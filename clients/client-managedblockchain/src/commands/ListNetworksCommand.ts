@@ -23,6 +23,10 @@ import { de_ListNetworksCommand, se_ListNetworksCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListNetworksCommand}.
  */

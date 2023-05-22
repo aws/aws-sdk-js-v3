@@ -19,6 +19,10 @@ import { de_ListEntitledApplicationsCommand, se_ListEntitledApplicationsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEntitledApplicationsCommand}.
  */

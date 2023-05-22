@@ -28,6 +28,10 @@ import { de_ListChannelFlowsCommand, se_ListChannelFlowsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChannelFlowsCommand}.
  */

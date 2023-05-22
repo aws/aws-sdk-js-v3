@@ -19,6 +19,10 @@ import { de_DeleteLaunchCommand, se_DeleteLaunchCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLaunchCommand}.
  */

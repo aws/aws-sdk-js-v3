@@ -19,6 +19,10 @@ import { de_GetDomainsCommand, se_GetDomainsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDomainsCommand}.
  */

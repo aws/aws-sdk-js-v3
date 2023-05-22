@@ -19,6 +19,10 @@ import { de_DeleteMetricAttributionCommand, se_DeleteMetricAttributionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMetricAttributionCommand}.
  */

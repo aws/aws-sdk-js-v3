@@ -19,6 +19,10 @@ import { de_StopVoiceToneAnalysisTaskCommand, se_StopVoiceToneAnalysisTaskComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopVoiceToneAnalysisTaskCommand}.
  */

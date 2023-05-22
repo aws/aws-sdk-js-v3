@@ -19,6 +19,10 @@ import { de_BatchGetApplicationsCommand, se_BatchGetApplicationsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetApplicationsCommand}.
  */

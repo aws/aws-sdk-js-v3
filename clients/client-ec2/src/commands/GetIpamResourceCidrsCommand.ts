@@ -19,6 +19,10 @@ import { de_GetIpamResourceCidrsCommand, se_GetIpamResourceCidrsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIpamResourceCidrsCommand}.
  */

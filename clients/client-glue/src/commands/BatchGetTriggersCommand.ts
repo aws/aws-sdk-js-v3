@@ -19,6 +19,10 @@ import { de_BatchGetTriggersCommand, se_BatchGetTriggersCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetTriggersCommand}.
  */

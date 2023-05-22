@@ -19,6 +19,10 @@ import { de_DetachPolicyCommand, se_DetachPolicyCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachPolicyCommand}.
  */

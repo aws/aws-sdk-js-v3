@@ -19,6 +19,10 @@ import { de_GetAnalyzerCommand, se_GetAnalyzerCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAnalyzerCommand}.
  */

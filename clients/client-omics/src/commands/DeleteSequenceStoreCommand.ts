@@ -19,6 +19,10 @@ import { de_DeleteSequenceStoreCommand, se_DeleteSequenceStoreCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSequenceStoreCommand}.
  */

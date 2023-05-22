@@ -19,6 +19,10 @@ import { de_CreateMemberCommand, se_CreateMemberCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMemberCommand}.
  */

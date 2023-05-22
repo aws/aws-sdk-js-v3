@@ -19,6 +19,10 @@ import { de_UpdateConfigCommand, se_UpdateConfigCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConfigCommand}.
  */

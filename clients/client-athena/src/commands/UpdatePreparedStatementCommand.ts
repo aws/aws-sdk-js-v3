@@ -19,6 +19,10 @@ import { de_UpdatePreparedStatementCommand, se_UpdatePreparedStatementCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePreparedStatementCommand}.
  */

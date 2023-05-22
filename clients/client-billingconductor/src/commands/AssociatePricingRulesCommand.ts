@@ -19,6 +19,10 @@ import { de_AssociatePricingRulesCommand, se_AssociatePricingRulesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociatePricingRulesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListHealthEventsCommand, se_ListHealthEventsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListHealthEventsCommand}.
  */

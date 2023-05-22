@@ -19,6 +19,10 @@ import { de_GetPipelineBlueprintCommand, se_GetPipelineBlueprintCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPipelineBlueprintCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListBranchesCommand, se_ListBranchesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBranchesCommand}.
  */

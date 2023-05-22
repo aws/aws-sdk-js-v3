@@ -23,6 +23,10 @@ import { de_CreatePackageCommand, se_CreatePackageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePackageCommand}.
  */

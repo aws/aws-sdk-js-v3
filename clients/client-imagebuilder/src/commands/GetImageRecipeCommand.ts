@@ -19,6 +19,10 @@ import { de_GetImageRecipeCommand, se_GetImageRecipeCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetImageRecipeCommand}.
  */

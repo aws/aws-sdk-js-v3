@@ -23,6 +23,10 @@ import { de_GetSecurityPolicyCommand, se_GetSecurityPolicyCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSecurityPolicyCommand}.
  */

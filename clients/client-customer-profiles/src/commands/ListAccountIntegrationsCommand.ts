@@ -19,6 +19,10 @@ import { de_ListAccountIntegrationsCommand, se_ListAccountIntegrationsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccountIntegrationsCommand}.
  */

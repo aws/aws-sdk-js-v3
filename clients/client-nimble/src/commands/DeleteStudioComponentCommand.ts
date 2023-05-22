@@ -23,6 +23,10 @@ import { de_DeleteStudioComponentCommand, se_DeleteStudioComponentCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStudioComponentCommand}.
  */

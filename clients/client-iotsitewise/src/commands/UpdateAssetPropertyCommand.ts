@@ -19,6 +19,10 @@ import { de_UpdateAssetPropertyCommand, se_UpdateAssetPropertyCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAssetPropertyCommand}.
  */

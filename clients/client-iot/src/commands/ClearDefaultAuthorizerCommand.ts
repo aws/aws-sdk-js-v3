@@ -19,6 +19,10 @@ import { de_ClearDefaultAuthorizerCommand, se_ClearDefaultAuthorizerCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ClearDefaultAuthorizerCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisableAWSServiceAccessCommand, se_DisableAWSServiceAccessCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableAWSServiceAccessCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteSipRuleCommand, se_DeleteSipRuleCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSipRuleCommand}.
  */

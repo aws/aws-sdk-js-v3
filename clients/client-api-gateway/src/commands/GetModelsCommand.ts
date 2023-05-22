@@ -19,6 +19,10 @@ import { de_GetModelsCommand, se_GetModelsCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetModelsCommand}.
  */

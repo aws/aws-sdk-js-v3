@@ -19,6 +19,10 @@ import { de_DeleteRescoreExecutionPlanCommand, se_DeleteRescoreExecutionPlanComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRescoreExecutionPlanCommand}.
  */

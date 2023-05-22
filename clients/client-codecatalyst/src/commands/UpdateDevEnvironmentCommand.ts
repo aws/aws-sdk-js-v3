@@ -19,6 +19,10 @@ import { de_UpdateDevEnvironmentCommand, se_UpdateDevEnvironmentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDevEnvironmentCommand}.
  */

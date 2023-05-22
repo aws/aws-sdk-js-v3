@@ -19,6 +19,10 @@ import { de_DescribeHapgCommand, se_DescribeHapgCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeHapgCommand}.
  */

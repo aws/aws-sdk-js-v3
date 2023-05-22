@@ -19,6 +19,10 @@ import { de_UpdateFieldCommand, se_UpdateFieldCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFieldCommand}.
  */

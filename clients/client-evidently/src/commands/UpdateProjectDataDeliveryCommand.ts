@@ -19,6 +19,10 @@ import { de_UpdateProjectDataDeliveryCommand, se_UpdateProjectDataDeliveryComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProjectDataDeliveryCommand}.
  */

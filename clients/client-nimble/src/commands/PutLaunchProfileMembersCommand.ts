@@ -19,6 +19,10 @@ import { de_PutLaunchProfileMembersCommand, se_PutLaunchProfileMembersCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutLaunchProfileMembersCommand}.
  */

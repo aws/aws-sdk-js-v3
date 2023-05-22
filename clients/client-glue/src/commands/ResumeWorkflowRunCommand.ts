@@ -19,6 +19,10 @@ import { de_ResumeWorkflowRunCommand, se_ResumeWorkflowRunCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResumeWorkflowRunCommand}.
  */

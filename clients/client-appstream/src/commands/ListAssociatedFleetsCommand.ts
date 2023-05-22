@@ -19,6 +19,10 @@ import { de_ListAssociatedFleetsCommand, se_ListAssociatedFleetsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssociatedFleetsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetPricingPlanCommand, se_GetPricingPlanCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPricingPlanCommand}.
  */

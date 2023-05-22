@@ -19,6 +19,10 @@ import { de_DescribePhoneNumberCommand, se_DescribePhoneNumberCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePhoneNumberCommand}.
  */

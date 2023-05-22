@@ -19,6 +19,10 @@ import { de_DescribeAccessPolicyCommand, se_DescribeAccessPolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAccessPolicyCommand}.
  */

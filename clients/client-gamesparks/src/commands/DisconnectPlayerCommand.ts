@@ -19,6 +19,10 @@ import { de_DisconnectPlayerCommand, se_DisconnectPlayerCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisconnectPlayerCommand}.
  */

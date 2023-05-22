@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedCon
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLensVersionCommand}.
  */

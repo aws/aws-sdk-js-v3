@@ -19,6 +19,10 @@ import { de_ListResolversByFunctionCommand, se_ListResolversByFunctionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListResolversByFunctionCommand}.
  */

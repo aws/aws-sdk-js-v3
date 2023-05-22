@@ -19,6 +19,10 @@ import { de_ReplaceRouteTableAssociationCommand, se_ReplaceRouteTableAssociation
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReplaceRouteTableAssociationCommand}.
  */

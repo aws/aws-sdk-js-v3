@@ -23,6 +23,10 @@ import { de_ListAccessPoliciesCommand, se_ListAccessPoliciesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccessPoliciesCommand}.
  */

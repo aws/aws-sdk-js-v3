@@ -19,6 +19,10 @@ import { de_CreateExclusionsPreviewCommand, se_CreateExclusionsPreviewCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateExclusionsPreviewCommand}.
  */

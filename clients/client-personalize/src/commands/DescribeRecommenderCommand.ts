@@ -19,6 +19,10 @@ import { de_DescribeRecommenderCommand, se_DescribeRecommenderCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRecommenderCommand}.
  */

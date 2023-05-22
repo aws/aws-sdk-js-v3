@@ -19,6 +19,10 @@ import { de_DescribeContainerInstancesCommand, se_DescribeContainerInstancesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeContainerInstancesCommand}.
  */

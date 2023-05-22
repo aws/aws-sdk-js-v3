@@ -19,6 +19,10 @@ import { de_GetPublicKeyCommand, se_GetPublicKeyCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPublicKeyCommand}.
  */

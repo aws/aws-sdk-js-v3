@@ -19,6 +19,10 @@ import { de_UpdateWorkerFleetCommand, se_UpdateWorkerFleetCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateWorkerFleetCommand}.
  */

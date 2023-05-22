@@ -19,6 +19,10 @@ import { de_ModifyInstanceMetadataOptionsCommand, se_ModifyInstanceMetadataOptio
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyInstanceMetadataOptionsCommand}.
  */

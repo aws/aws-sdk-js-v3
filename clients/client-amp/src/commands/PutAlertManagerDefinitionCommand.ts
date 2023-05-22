@@ -19,6 +19,10 @@ import { de_PutAlertManagerDefinitionCommand, se_PutAlertManagerDefinitionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAlertManagerDefinitionCommand}.
  */

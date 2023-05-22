@@ -19,6 +19,10 @@ import { de_UpdateParameterGroupCommand, se_UpdateParameterGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateParameterGroupCommand}.
  */

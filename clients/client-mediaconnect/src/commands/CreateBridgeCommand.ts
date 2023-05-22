@@ -19,6 +19,10 @@ import { de_CreateBridgeCommand, se_CreateBridgeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBridgeCommand}.
  */

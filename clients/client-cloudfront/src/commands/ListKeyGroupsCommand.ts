@@ -19,6 +19,10 @@ import { de_ListKeyGroupsCommand, se_ListKeyGroupsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListKeyGroupsCommand}.
  */

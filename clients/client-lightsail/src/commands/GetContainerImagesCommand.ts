@@ -19,6 +19,10 @@ import { de_GetContainerImagesCommand, se_GetContainerImagesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContainerImagesCommand}.
  */

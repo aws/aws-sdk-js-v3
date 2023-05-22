@@ -19,6 +19,10 @@ import { de_GetFeatureCommand, se_GetFeatureCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFeatureCommand}.
  */

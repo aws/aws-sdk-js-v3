@@ -19,6 +19,10 @@ import { de_CreateSyncJobCommand, se_CreateSyncJobCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSyncJobCommand}.
  */

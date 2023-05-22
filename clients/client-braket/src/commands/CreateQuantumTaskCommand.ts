@@ -19,6 +19,10 @@ import { de_CreateQuantumTaskCommand, se_CreateQuantumTaskCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateQuantumTaskCommand}.
  */

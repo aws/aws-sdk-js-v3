@@ -19,6 +19,10 @@ import { de_DescribeSuggestersCommand, se_DescribeSuggestersCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSuggestersCommand}.
  */

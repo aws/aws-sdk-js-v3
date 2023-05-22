@@ -24,6 +24,10 @@ import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateServiceCommand}.
  */

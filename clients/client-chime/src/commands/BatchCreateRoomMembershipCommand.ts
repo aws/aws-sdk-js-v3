@@ -19,6 +19,10 @@ import { de_BatchCreateRoomMembershipCommand, se_BatchCreateRoomMembershipComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchCreateRoomMembershipCommand}.
  */

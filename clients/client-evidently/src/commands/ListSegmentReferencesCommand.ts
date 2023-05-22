@@ -19,6 +19,10 @@ import { de_ListSegmentReferencesCommand, se_ListSegmentReferencesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSegmentReferencesCommand}.
  */

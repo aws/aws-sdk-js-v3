@@ -19,6 +19,10 @@ import { de_DeleteResourceCommand, se_DeleteResourceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteResourceCommand}.
  */

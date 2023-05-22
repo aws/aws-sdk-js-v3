@@ -19,6 +19,10 @@ import { de_GetAdmChannelCommand, se_GetAdmChannelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAdmChannelCommand}.
  */

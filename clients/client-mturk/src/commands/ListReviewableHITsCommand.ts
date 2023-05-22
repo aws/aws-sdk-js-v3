@@ -19,6 +19,10 @@ import { de_ListReviewableHITsCommand, se_ListReviewableHITsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReviewableHITsCommand}.
  */

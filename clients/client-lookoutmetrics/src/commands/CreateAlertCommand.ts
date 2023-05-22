@@ -19,6 +19,10 @@ import { de_CreateAlertCommand, se_CreateAlertCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAlertCommand}.
  */

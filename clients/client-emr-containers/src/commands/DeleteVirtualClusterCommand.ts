@@ -19,6 +19,10 @@ import { de_DeleteVirtualClusterCommand, se_DeleteVirtualClusterCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVirtualClusterCommand}.
  */

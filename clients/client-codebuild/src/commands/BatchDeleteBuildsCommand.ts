@@ -19,6 +19,10 @@ import { de_BatchDeleteBuildsCommand, se_BatchDeleteBuildsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteBuildsCommand}.
  */

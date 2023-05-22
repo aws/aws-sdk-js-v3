@@ -19,6 +19,10 @@ import { de_CreateRecipeJobCommand, se_CreateRecipeJobCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRecipeJobCommand}.
  */

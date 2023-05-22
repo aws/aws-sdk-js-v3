@@ -19,6 +19,10 @@ import { de_GetVaultLockCommand, se_GetVaultLockCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVaultLockCommand}.
  */

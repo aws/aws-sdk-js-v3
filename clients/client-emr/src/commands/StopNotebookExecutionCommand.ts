@@ -19,6 +19,10 @@ import { de_StopNotebookExecutionCommand, se_StopNotebookExecutionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopNotebookExecutionCommand}.
  */

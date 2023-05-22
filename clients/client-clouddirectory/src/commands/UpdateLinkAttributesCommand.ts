@@ -19,6 +19,10 @@ import { de_UpdateLinkAttributesCommand, se_UpdateLinkAttributesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLinkAttributesCommand}.
  */

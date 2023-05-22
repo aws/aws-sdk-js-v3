@@ -19,6 +19,10 @@ import { de_CreateFunctionUrlConfigCommand, se_CreateFunctionUrlConfigCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFunctionUrlConfigCommand}.
  */

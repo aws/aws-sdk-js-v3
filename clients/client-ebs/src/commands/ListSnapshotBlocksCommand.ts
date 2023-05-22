@@ -23,6 +23,10 @@ import { de_ListSnapshotBlocksCommand, se_ListSnapshotBlocksCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSnapshotBlocksCommand}.
  */

@@ -23,6 +23,10 @@ import { de_StartAssessmentCommand, se_StartAssessmentCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartAssessmentCommand}.
  */

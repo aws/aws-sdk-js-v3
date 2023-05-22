@@ -19,6 +19,10 @@ import { de_GrantPermissionsCommand, se_GrantPermissionsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GrantPermissionsCommand}.
  */

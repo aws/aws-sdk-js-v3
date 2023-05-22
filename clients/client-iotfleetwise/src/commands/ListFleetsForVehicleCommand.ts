@@ -19,6 +19,10 @@ import { de_ListFleetsForVehicleCommand, se_ListFleetsForVehicleCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFleetsForVehicleCommand}.
  */

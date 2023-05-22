@@ -19,6 +19,10 @@ import { de_StartExportLabelsTaskRunCommand, se_StartExportLabelsTaskRunCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartExportLabelsTaskRunCommand}.
  */

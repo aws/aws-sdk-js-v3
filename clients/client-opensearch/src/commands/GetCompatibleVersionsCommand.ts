@@ -19,6 +19,10 @@ import { de_GetCompatibleVersionsCommand, se_GetCompatibleVersionsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCompatibleVersionsCommand}.
  */

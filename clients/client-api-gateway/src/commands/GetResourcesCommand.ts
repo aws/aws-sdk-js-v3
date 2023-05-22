@@ -19,6 +19,10 @@ import { de_GetResourcesCommand, se_GetResourcesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResourcesCommand}.
  */

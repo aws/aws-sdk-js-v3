@@ -19,6 +19,10 @@ import { de_GetVehicleCommand, se_GetVehicleCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVehicleCommand}.
  */

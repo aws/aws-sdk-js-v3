@@ -19,6 +19,10 @@ import { de_ListSnapshotsInRecycleBinCommand, se_ListSnapshotsInRecycleBinComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSnapshotsInRecycleBinCommand}.
  */

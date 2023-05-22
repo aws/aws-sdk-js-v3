@@ -19,6 +19,10 @@ import { de_DeleteExplainabilityExportCommand, se_DeleteExplainabilityExportComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteExplainabilityExportCommand}.
  */

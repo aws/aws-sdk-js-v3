@@ -19,6 +19,10 @@ import { de_ListRescoreExecutionPlansCommand, se_ListRescoreExecutionPlansComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRescoreExecutionPlansCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListFacetNamesCommand, se_ListFacetNamesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFacetNamesCommand}.
  */

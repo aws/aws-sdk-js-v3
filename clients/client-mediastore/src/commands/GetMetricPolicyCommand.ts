@@ -19,6 +19,10 @@ import { de_GetMetricPolicyCommand, se_GetMetricPolicyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMetricPolicyCommand}.
  */

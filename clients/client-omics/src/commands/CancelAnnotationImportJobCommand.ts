@@ -19,6 +19,10 @@ import { de_CancelAnnotationImportJobCommand, se_CancelAnnotationImportJobComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelAnnotationImportJobCommand}.
  */

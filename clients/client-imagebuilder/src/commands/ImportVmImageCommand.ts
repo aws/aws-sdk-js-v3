@@ -19,6 +19,10 @@ import { de_ImportVmImageCommand, se_ImportVmImageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportVmImageCommand}.
  */

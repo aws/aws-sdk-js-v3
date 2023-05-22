@@ -19,6 +19,10 @@ import { de_DescribeBackupCommand, se_DescribeBackupCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBackupCommand}.
  */

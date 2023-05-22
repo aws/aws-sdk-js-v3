@@ -19,6 +19,10 @@ import { de_ListEvaluationFormVersionsCommand, se_ListEvaluationFormVersionsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEvaluationFormVersionsCommand}.
  */

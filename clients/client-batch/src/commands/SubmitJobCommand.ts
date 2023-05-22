@@ -19,6 +19,10 @@ import { de_SubmitJobCommand, se_SubmitJobCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SubmitJobCommand}.
  */

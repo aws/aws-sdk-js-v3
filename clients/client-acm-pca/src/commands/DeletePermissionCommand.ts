@@ -19,6 +19,10 @@ import { de_DeletePermissionCommand, se_DeletePermissionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePermissionCommand}.
  */

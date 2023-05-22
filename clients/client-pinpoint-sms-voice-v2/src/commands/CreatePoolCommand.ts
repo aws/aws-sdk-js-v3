@@ -23,6 +23,10 @@ import { de_CreatePoolCommand, se_CreatePoolCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePoolCommand}.
  */

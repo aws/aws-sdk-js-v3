@@ -19,6 +19,10 @@ import { de_UpdateRdsDbInstanceCommand, se_UpdateRdsDbInstanceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRdsDbInstanceCommand}.
  */

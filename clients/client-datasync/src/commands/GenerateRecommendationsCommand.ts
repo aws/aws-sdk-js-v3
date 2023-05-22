@@ -19,6 +19,10 @@ import { de_GenerateRecommendationsCommand, se_GenerateRecommendationsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GenerateRecommendationsCommand}.
  */

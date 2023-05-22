@@ -19,6 +19,10 @@ import { de_ListClassificationJobsCommand, se_ListClassificationJobsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListClassificationJobsCommand}.
  */

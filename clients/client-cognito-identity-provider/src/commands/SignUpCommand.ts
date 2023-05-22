@@ -23,6 +23,10 @@ import { de_SignUpCommand, se_SignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SignUpCommand}.
  */

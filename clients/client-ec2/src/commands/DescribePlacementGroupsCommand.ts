@@ -19,6 +19,10 @@ import { de_DescribePlacementGroupsCommand, se_DescribePlacementGroupsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePlacementGroupsCommand}.
  */

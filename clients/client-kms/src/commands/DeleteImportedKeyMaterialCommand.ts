@@ -19,6 +19,10 @@ import { de_DeleteImportedKeyMaterialCommand, se_DeleteImportedKeyMaterialComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteImportedKeyMaterialCommand}.
  */

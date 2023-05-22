@@ -19,6 +19,10 @@ import { de_DisconnectFromServiceCommand, se_DisconnectFromServiceCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisconnectFromServiceCommand}.
  */

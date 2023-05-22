@@ -19,6 +19,10 @@ import { de_ListVpcEndpointsCommand, se_ListVpcEndpointsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVpcEndpointsCommand}.
  */

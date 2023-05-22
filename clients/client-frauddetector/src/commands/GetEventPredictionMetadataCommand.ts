@@ -23,6 +23,10 @@ import { de_GetEventPredictionMetadataCommand, se_GetEventPredictionMetadataComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEventPredictionMetadataCommand}.
  */

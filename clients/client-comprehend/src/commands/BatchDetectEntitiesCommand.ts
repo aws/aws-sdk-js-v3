@@ -24,6 +24,10 @@ import { de_BatchDetectEntitiesCommand, se_BatchDetectEntitiesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDetectEntitiesCommand}.
  */

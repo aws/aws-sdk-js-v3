@@ -24,6 +24,10 @@ import { de_ListIdentityProvidersCommand, se_ListIdentityProvidersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIdentityProvidersCommand}.
  */

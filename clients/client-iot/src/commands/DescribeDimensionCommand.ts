@@ -19,6 +19,10 @@ import { de_DescribeDimensionCommand, se_DescribeDimensionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDimensionCommand}.
  */

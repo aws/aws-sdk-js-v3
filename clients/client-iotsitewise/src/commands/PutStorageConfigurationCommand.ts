@@ -19,6 +19,10 @@ import { de_PutStorageConfigurationCommand, se_PutStorageConfigurationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutStorageConfigurationCommand}.
  */

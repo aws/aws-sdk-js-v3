@@ -23,6 +23,10 @@ import { de_ListLinuxSubscriptionsCommand, se_ListLinuxSubscriptionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLinuxSubscriptionsCommand}.
  */

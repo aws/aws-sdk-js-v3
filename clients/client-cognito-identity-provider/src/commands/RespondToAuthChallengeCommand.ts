@@ -28,6 +28,10 @@ import { de_RespondToAuthChallengeCommand, se_RespondToAuthChallengeCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RespondToAuthChallengeCommand}.
  */

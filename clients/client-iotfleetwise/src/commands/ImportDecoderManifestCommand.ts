@@ -19,6 +19,10 @@ import { de_ImportDecoderManifestCommand, se_ImportDecoderManifestCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportDecoderManifestCommand}.
  */

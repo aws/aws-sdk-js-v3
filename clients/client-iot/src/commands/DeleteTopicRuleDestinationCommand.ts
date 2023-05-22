@@ -19,6 +19,10 @@ import { de_DeleteTopicRuleDestinationCommand, se_DeleteTopicRuleDestinationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTopicRuleDestinationCommand}.
  */

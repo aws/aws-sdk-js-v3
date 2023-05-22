@@ -23,6 +23,10 @@ import { de_DisconnectParticipantCommand, se_DisconnectParticipantCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisconnectParticipantCommand}.
  */

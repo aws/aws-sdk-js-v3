@@ -23,6 +23,10 @@ import { de_GetDevicePositionHistoryCommand, se_GetDevicePositionHistoryCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDevicePositionHistoryCommand}.
  */

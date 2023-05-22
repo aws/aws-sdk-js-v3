@@ -19,6 +19,10 @@ import { de_ListPromptsCommand, se_ListPromptsCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPromptsCommand}.
  */

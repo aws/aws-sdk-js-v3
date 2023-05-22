@@ -23,6 +23,10 @@ import { de_GetDeviceProfileCommand, se_GetDeviceProfileCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeviceProfileCommand}.
  */

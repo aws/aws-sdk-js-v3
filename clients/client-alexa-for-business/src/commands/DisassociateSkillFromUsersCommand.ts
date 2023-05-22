@@ -19,6 +19,10 @@ import { de_DisassociateSkillFromUsersCommand, se_DisassociateSkillFromUsersComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateSkillFromUsersCommand}.
  */

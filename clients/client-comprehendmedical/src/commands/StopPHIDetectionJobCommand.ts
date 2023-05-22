@@ -23,6 +23,10 @@ import { de_StopPHIDetectionJobCommand, se_StopPHIDetectionJobCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopPHIDetectionJobCommand}.
  */

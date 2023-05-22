@@ -23,6 +23,10 @@ import { de_CreateKeysAndCertificateCommand, se_CreateKeysAndCertificateCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateKeysAndCertificateCommand}.
  */

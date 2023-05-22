@@ -19,6 +19,10 @@ import { de_ListDataflowEndpointGroupsCommand, se_ListDataflowEndpointGroupsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDataflowEndpointGroupsCommand}.
  */

@@ -23,6 +23,10 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestIdentityProviderCommand}.
  */

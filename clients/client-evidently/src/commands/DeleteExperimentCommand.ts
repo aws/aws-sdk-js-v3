@@ -19,6 +19,10 @@ import { de_DeleteExperimentCommand, se_DeleteExperimentCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteExperimentCommand}.
  */

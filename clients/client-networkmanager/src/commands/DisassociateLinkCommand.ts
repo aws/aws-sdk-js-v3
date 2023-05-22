@@ -19,6 +19,10 @@ import { de_DisassociateLinkCommand, se_DisassociateLinkCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateLinkCommand}.
  */

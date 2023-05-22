@@ -19,6 +19,10 @@ import { de_DescribeVolumesModificationsCommand, se_DescribeVolumesModifications
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVolumesModificationsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RestoreTableCommand, se_RestoreTableCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreTableCommand}.
  */

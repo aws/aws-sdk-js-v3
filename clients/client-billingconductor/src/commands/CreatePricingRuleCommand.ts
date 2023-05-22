@@ -23,6 +23,10 @@ import { de_CreatePricingRuleCommand, se_CreatePricingRuleCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePricingRuleCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateTerminationProtectionCommand, se_UpdateTerminationProtectionCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTerminationProtectionCommand}.
  */

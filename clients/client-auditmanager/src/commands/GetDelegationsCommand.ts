@@ -19,6 +19,10 @@ import { de_GetDelegationsCommand, se_GetDelegationsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDelegationsCommand}.
  */

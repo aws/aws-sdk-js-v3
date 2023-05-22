@@ -19,6 +19,10 @@ import { de_CreateLunaClientCommand, se_CreateLunaClientCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLunaClientCommand}.
  */

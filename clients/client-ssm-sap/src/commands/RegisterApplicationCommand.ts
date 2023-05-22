@@ -23,6 +23,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } fro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterApplicationCommand}.
  */

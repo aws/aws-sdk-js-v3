@@ -19,6 +19,10 @@ import { de_DeleteDynamicThingGroupCommand, se_DeleteDynamicThingGroupCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDynamicThingGroupCommand}.
  */

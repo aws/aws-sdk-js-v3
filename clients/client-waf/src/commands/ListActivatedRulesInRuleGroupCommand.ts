@@ -22,6 +22,10 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListActivatedRulesInRuleGroupCommand}.
  */

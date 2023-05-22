@@ -23,6 +23,10 @@ import { de_AttachLoadBalancerToSubnetsCommand, se_AttachLoadBalancerToSubnetsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachLoadBalancerToSubnetsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateReferenceStoreCommand, se_CreateReferenceStoreCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateReferenceStoreCommand}.
  */

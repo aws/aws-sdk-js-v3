@@ -19,6 +19,10 @@ import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDomainCommand}.
  */

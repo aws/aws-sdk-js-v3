@@ -23,6 +23,10 @@ import { de_ListManagedEndpointsCommand, se_ListManagedEndpointsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListManagedEndpointsCommand}.
  */

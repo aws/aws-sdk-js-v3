@@ -19,6 +19,10 @@ import { de_DeleteMountTargetCommand, se_DeleteMountTargetCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMountTargetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StopBackupJobCommand, se_StopBackupJobCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopBackupJobCommand}.
  */

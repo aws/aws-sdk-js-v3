@@ -19,6 +19,10 @@ import { de_DescribeProfilingGroupCommand, se_DescribeProfilingGroupCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeProfilingGroupCommand}.
  */

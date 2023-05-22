@@ -19,6 +19,10 @@ import { de_RegisterImageCommand, se_RegisterImageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterImageCommand}.
  */

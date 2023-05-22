@@ -19,6 +19,10 @@ import { de_DescribeStackInstanceCommand, se_DescribeStackInstanceCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeStackInstanceCommand}.
  */

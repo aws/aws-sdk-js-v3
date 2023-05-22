@@ -19,6 +19,10 @@ import { de_ListSensorStatisticsCommand, se_ListSensorStatisticsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSensorStatisticsCommand}.
  */

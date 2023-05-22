@@ -23,6 +23,10 @@ import { de_ListAccessorsCommand, se_ListAccessorsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccessorsCommand}.
  */

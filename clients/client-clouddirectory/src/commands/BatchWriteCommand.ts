@@ -19,6 +19,10 @@ import { de_BatchWriteCommand, se_BatchWriteCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchWriteCommand}.
  */

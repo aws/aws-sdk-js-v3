@@ -23,6 +23,10 @@ import { de_CreateEndpointGroupCommand, se_CreateEndpointGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEndpointGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteCacheClusterCommand, se_DeleteCacheClusterCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCacheClusterCommand}.
  */

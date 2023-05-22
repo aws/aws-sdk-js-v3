@@ -19,6 +19,10 @@ import { de_StopImageBuilderCommand, se_StopImageBuilderCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopImageBuilderCommand}.
  */

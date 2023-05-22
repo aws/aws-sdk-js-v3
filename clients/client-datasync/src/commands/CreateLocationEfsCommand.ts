@@ -19,6 +19,10 @@ import { de_CreateLocationEfsCommand, se_CreateLocationEfsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocationEfsCommand}.
  */

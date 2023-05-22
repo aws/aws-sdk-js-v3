@@ -19,6 +19,10 @@ import { de_UpdateExperimentTemplateCommand, se_UpdateExperimentTemplateCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateExperimentTemplateCommand}.
  */

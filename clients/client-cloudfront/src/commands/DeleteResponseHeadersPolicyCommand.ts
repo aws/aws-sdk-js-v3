@@ -19,6 +19,10 @@ import { de_DeleteResponseHeadersPolicyCommand, se_DeleteResponseHeadersPolicyCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteResponseHeadersPolicyCommand}.
  */

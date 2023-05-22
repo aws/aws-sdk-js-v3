@@ -19,6 +19,10 @@ import { de_FlushStageCacheCommand, se_FlushStageCacheCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link FlushStageCacheCommand}.
  */

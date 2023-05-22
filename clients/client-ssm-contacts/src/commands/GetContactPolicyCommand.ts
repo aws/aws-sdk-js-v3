@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContactPolicyCommand}.
  */

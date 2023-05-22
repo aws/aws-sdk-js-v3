@@ -19,6 +19,10 @@ import { de_ListBackendJobsCommand, se_ListBackendJobsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBackendJobsCommand}.
  */

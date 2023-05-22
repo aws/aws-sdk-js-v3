@@ -19,6 +19,10 @@ import { de_CreateStageCommand, se_CreateStageCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStageCommand}.
  */

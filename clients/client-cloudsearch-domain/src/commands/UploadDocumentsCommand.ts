@@ -27,6 +27,10 @@ import { de_UploadDocumentsCommand, se_UploadDocumentsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UploadDocumentsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StartDataIngestionJobCommand, se_StartDataIngestionJobCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDataIngestionJobCommand}.
  */

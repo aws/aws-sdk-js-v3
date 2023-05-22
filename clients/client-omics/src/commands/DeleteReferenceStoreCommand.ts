@@ -19,6 +19,10 @@ import { de_DeleteReferenceStoreCommand, se_DeleteReferenceStoreCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteReferenceStoreCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetClassifierCommand, se_GetClassifierCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetClassifierCommand}.
  */

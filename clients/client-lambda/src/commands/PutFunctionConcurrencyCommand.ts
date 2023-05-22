@@ -19,6 +19,10 @@ import { de_PutFunctionConcurrencyCommand, se_PutFunctionConcurrencyCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutFunctionConcurrencyCommand}.
  */

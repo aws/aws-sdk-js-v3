@@ -19,6 +19,10 @@ import { de_AuthorizeSecurityGroupIngressCommand, se_AuthorizeSecurityGroupIngre
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AuthorizeSecurityGroupIngressCommand}.
  */

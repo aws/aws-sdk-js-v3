@@ -23,6 +23,10 @@ import { de_CreatePredictorCommand, se_CreatePredictorCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePredictorCommand}.
  */

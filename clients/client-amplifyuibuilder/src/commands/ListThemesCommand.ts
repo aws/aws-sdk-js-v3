@@ -19,6 +19,10 @@ import { de_ListThemesCommand, se_ListThemesCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListThemesCommand}.
  */

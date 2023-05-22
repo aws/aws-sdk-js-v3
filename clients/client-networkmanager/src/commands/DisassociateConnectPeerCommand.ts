@@ -19,6 +19,10 @@ import { de_DisassociateConnectPeerCommand, se_DisassociateConnectPeerCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateConnectPeerCommand}.
  */

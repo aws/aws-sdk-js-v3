@@ -19,6 +19,10 @@ import { de_ListBuildBatchesForProjectCommand, se_ListBuildBatchesForProjectComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBuildBatchesForProjectCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetCoreDefinitionCommand, se_GetCoreDefinitionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCoreDefinitionCommand}.
  */

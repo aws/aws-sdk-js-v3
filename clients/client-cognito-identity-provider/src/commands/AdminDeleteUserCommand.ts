@@ -24,6 +24,10 @@ import { de_AdminDeleteUserCommand, se_AdminDeleteUserCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminDeleteUserCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListSinksCommand, se_ListSinksCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSinksCommand}.
  */

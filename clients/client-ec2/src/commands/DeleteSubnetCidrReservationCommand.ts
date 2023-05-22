@@ -19,6 +19,10 @@ import { de_DeleteSubnetCidrReservationCommand, se_DeleteSubnetCidrReservationCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSubnetCidrReservationCommand}.
  */

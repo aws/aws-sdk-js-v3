@@ -19,6 +19,10 @@ import { de_UpdateQuickConnectNameCommand, se_UpdateQuickConnectNameCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateQuickConnectNameCommand}.
  */

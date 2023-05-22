@@ -19,6 +19,10 @@ import { de_UpdateFuotaTaskCommand, se_UpdateFuotaTaskCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFuotaTaskCommand}.
  */

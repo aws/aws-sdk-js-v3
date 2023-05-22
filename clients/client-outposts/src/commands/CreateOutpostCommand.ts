@@ -19,6 +19,10 @@ import { de_CreateOutpostCommand, se_CreateOutpostCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateOutpostCommand}.
  */

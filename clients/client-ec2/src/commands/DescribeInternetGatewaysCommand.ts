@@ -19,6 +19,10 @@ import { de_DescribeInternetGatewaysCommand, se_DescribeInternetGatewaysCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInternetGatewaysCommand}.
  */

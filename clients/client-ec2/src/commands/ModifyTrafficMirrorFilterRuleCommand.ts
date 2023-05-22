@@ -19,6 +19,10 @@ import { de_ModifyTrafficMirrorFilterRuleCommand, se_ModifyTrafficMirrorFilterRu
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyTrafficMirrorFilterRuleCommand}.
  */

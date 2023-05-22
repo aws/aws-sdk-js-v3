@@ -19,6 +19,10 @@ import { de_CreateWirelessGatewayCommand, se_CreateWirelessGatewayCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWirelessGatewayCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListProfileObjectTypesCommand, se_ListProfileObjectTypesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProfileObjectTypesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateConditionalForwarderCommand, se_UpdateConditionalForwarderComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConditionalForwarderCommand}.
  */

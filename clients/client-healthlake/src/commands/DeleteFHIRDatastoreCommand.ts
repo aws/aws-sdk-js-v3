@@ -19,6 +19,10 @@ import { de_DeleteFHIRDatastoreCommand, se_DeleteFHIRDatastoreCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFHIRDatastoreCommand}.
  */

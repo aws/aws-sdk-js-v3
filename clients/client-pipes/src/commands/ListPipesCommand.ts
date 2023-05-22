@@ -24,6 +24,10 @@ import { de_ListPipesCommand, se_ListPipesCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPipesCommand}.
  */

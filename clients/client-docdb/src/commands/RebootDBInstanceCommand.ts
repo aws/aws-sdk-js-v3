@@ -19,6 +19,10 @@ import { de_RebootDBInstanceCommand, se_RebootDBInstanceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RebootDBInstanceCommand}.
  */

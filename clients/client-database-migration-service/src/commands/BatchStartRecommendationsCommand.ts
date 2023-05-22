@@ -23,6 +23,10 @@ import { de_BatchStartRecommendationsCommand, se_BatchStartRecommendationsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchStartRecommendationsCommand}.
  */

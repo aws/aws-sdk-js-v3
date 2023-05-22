@@ -23,6 +23,10 @@ import { de_DeleteCustomRoutingListenerCommand, se_DeleteCustomRoutingListenerCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCustomRoutingListenerCommand}.
  */

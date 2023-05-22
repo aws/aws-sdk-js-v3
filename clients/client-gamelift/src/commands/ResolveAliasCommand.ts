@@ -19,6 +19,10 @@ import { de_ResolveAliasCommand, se_ResolveAliasCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResolveAliasCommand}.
  */

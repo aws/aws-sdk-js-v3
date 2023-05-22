@@ -23,6 +23,10 @@ import { de_UpdateNodeCommand, se_UpdateNodeCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNodeCommand}.
  */

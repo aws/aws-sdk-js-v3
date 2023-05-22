@@ -19,6 +19,10 @@ import { de_TestMetricFilterCommand, se_TestMetricFilterCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestMetricFilterCommand}.
  */

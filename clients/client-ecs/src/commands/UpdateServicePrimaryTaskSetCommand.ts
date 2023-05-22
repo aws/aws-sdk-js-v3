@@ -19,6 +19,10 @@ import { de_UpdateServicePrimaryTaskSetCommand, se_UpdateServicePrimaryTaskSetCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateServicePrimaryTaskSetCommand}.
  */

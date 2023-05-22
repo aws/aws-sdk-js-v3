@@ -19,6 +19,10 @@ import { de_DeleteApnsVoipChannelCommand, se_DeleteApnsVoipChannelCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteApnsVoipChannelCommand}.
  */

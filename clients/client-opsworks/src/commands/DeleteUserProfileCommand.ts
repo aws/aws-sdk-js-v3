@@ -19,6 +19,10 @@ import { de_DeleteUserProfileCommand, se_DeleteUserProfileCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteUserProfileCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteNetworkCommand, se_DeleteNetworkCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNetworkCommand}.
  */

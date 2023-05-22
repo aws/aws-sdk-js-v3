@@ -23,6 +23,10 @@ import { de_CreateNetworkCommand, se_CreateNetworkCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNetworkCommand}.
  */

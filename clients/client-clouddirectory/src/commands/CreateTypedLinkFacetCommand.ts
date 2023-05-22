@@ -19,6 +19,10 @@ import { de_CreateTypedLinkFacetCommand, se_CreateTypedLinkFacetCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateTypedLinkFacetCommand}.
  */

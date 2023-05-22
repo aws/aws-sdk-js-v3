@@ -23,6 +23,10 @@ import { de_ListTunnelsCommand, se_ListTunnelsCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTunnelsCommand}.
  */

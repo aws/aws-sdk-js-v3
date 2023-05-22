@@ -19,6 +19,10 @@ import { de_BatchCheckLayerAvailabilityCommand, se_BatchCheckLayerAvailabilityCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchCheckLayerAvailabilityCommand}.
  */

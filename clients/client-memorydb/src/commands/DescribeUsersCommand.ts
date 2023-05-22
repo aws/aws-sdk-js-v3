@@ -19,6 +19,10 @@ import { de_DescribeUsersCommand, se_DescribeUsersCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeUsersCommand}.
  */

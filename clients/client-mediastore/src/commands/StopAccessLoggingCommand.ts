@@ -19,6 +19,10 @@ import { de_StopAccessLoggingCommand, se_StopAccessLoggingCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopAccessLoggingCommand}.
  */

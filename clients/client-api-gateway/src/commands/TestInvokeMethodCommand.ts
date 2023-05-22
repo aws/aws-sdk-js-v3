@@ -19,6 +19,10 @@ import { de_TestInvokeMethodCommand, se_TestInvokeMethodCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestInvokeMethodCommand}.
  */

@@ -24,6 +24,10 @@ import { de_StartNetworkResourceUpdateCommand, se_StartNetworkResourceUpdateComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartNetworkResourceUpdateCommand}.
  */

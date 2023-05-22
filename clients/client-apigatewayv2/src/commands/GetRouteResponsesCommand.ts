@@ -19,6 +19,10 @@ import { de_GetRouteResponsesCommand, se_GetRouteResponsesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRouteResponsesCommand}.
  */

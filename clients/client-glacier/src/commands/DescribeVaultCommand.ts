@@ -19,6 +19,10 @@ import { de_DescribeVaultCommand, se_DescribeVaultCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVaultCommand}.
  */

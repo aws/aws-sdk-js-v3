@@ -19,6 +19,10 @@ import { de_AttachDiskCommand, se_AttachDiskCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachDiskCommand}.
  */

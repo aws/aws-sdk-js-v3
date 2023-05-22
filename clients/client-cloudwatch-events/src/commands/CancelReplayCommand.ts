@@ -19,6 +19,10 @@ import { de_CancelReplayCommand, se_CancelReplayCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelReplayCommand}.
  */

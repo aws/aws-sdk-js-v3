@@ -19,6 +19,10 @@ import { de_CreateHoursOfOperationCommand, se_CreateHoursOfOperationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateHoursOfOperationCommand}.
  */

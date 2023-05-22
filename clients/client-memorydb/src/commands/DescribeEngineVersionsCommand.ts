@@ -19,6 +19,10 @@ import { de_DescribeEngineVersionsCommand, se_DescribeEngineVersionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEngineVersionsCommand}.
  */

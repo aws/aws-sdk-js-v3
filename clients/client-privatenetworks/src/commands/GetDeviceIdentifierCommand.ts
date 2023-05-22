@@ -23,6 +23,10 @@ import { de_GetDeviceIdentifierCommand, se_GetDeviceIdentifierCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeviceIdentifierCommand}.
  */

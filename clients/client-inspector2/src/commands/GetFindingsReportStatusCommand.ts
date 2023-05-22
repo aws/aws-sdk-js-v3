@@ -19,6 +19,10 @@ import { de_GetFindingsReportStatusCommand, se_GetFindingsReportStatusCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFindingsReportStatusCommand}.
  */

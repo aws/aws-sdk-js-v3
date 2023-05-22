@@ -19,6 +19,10 @@ import { de_CreateParticipantCommand, se_CreateParticipantCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateParticipantCommand}.
  */

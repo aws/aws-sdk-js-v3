@@ -19,6 +19,10 @@ import { de_GetAccountSummaryCommand, se_GetAccountSummaryCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccountSummaryCommand}.
  */

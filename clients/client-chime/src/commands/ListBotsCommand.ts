@@ -19,6 +19,10 @@ import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBotsCommand}.
  */

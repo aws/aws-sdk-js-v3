@@ -23,6 +23,10 @@ import { de_BatchUpdateUserCommand, se_BatchUpdateUserCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUpdateUserCommand}.
  */

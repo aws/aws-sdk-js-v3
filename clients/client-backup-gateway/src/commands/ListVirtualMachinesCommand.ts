@@ -19,6 +19,10 @@ import { de_ListVirtualMachinesCommand, se_ListVirtualMachinesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVirtualMachinesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RestoreEventDataStoreCommand, se_RestoreEventDataStoreCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreEventDataStoreCommand}.
  */

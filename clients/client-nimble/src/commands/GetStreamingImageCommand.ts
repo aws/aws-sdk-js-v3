@@ -23,6 +23,10 @@ import { de_GetStreamingImageCommand, se_GetStreamingImageCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStreamingImageCommand}.
  */

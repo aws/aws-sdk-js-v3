@@ -19,6 +19,10 @@ import { de_DeletePreparedStatementCommand, se_DeletePreparedStatementCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePreparedStatementCommand}.
  */

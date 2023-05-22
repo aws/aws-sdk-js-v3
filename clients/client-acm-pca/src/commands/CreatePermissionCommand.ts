@@ -19,6 +19,10 @@ import { de_CreatePermissionCommand, se_CreatePermissionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePermissionCommand}.
  */

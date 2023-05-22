@@ -19,6 +19,10 @@ import { de_NotifyWorkersCommand, se_NotifyWorkersCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link NotifyWorkersCommand}.
  */

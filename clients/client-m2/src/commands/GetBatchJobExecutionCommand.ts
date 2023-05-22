@@ -19,6 +19,10 @@ import { de_GetBatchJobExecutionCommand, se_GetBatchJobExecutionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBatchJobExecutionCommand}.
  */

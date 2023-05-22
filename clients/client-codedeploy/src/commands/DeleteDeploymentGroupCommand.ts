@@ -19,6 +19,10 @@ import { de_DeleteDeploymentGroupCommand, se_DeleteDeploymentGroupCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDeploymentGroupCommand}.
  */

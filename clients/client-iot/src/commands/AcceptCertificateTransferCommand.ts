@@ -19,6 +19,10 @@ import { de_AcceptCertificateTransferCommand, se_AcceptCertificateTransferComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AcceptCertificateTransferCommand}.
  */

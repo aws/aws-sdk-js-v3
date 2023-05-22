@@ -23,6 +23,10 @@ import { de_GetServerDetailsCommand, se_GetServerDetailsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetServerDetailsCommand}.
  */

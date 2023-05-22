@@ -19,6 +19,10 @@ import { de_DescribeVirtualServiceCommand, se_DescribeVirtualServiceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVirtualServiceCommand}.
  */

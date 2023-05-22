@@ -23,6 +23,10 @@ import { de_ListNetworkResourcesCommand, se_ListNetworkResourcesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListNetworkResourcesCommand}.
  */

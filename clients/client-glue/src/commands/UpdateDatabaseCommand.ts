@@ -19,6 +19,10 @@ import { de_UpdateDatabaseCommand, se_UpdateDatabaseCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDatabaseCommand}.
  */

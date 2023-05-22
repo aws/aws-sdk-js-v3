@@ -19,6 +19,10 @@ import { de_LookupEventsCommand, se_LookupEventsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link LookupEventsCommand}.
  */

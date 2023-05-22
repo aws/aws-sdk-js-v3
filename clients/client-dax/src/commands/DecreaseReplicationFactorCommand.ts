@@ -19,6 +19,10 @@ import { de_DecreaseReplicationFactorCommand, se_DecreaseReplicationFactorComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DecreaseReplicationFactorCommand}.
  */

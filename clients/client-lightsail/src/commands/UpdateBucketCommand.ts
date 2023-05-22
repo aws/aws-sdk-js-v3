@@ -19,6 +19,10 @@ import { de_UpdateBucketCommand, se_UpdateBucketCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBucketCommand}.
  */

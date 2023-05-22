@@ -72,6 +72,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -229,7 +231,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type InternetMonitorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type InternetMonitorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -248,7 +250,7 @@ export interface InternetMonitorClientConfig extends InternetMonitorClientConfig
 /**
  * @public
  */
-type InternetMonitorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type InternetMonitorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

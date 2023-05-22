@@ -19,6 +19,10 @@ import { de_CreateInterconnectCommand, se_CreateInterconnectCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateInterconnectCommand}.
  */

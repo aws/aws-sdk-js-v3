@@ -19,6 +19,10 @@ import { de_CreateMeshCommand, se_CreateMeshCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMeshCommand}.
  */

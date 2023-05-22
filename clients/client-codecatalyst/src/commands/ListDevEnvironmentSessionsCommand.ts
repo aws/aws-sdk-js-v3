@@ -19,6 +19,10 @@ import { de_ListDevEnvironmentSessionsCommand, se_ListDevEnvironmentSessionsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDevEnvironmentSessionsCommand}.
  */

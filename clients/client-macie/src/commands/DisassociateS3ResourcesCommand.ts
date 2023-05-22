@@ -19,6 +19,10 @@ import { de_DisassociateS3ResourcesCommand, se_DisassociateS3ResourcesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateS3ResourcesCommand}.
  */

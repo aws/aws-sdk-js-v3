@@ -19,6 +19,10 @@ import { de_UpdateWorkerCommand, se_UpdateWorkerCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateWorkerCommand}.
  */

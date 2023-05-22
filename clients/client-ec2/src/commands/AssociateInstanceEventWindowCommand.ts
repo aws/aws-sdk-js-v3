@@ -19,6 +19,10 @@ import { de_AssociateInstanceEventWindowCommand, se_AssociateInstanceEventWindow
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateInstanceEventWindowCommand}.
  */

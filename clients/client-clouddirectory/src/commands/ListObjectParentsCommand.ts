@@ -19,6 +19,10 @@ import { de_ListObjectParentsCommand, se_ListObjectParentsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListObjectParentsCommand}.
  */

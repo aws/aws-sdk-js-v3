@@ -19,6 +19,10 @@ import { de_GetSystemInstanceCommand, se_GetSystemInstanceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSystemInstanceCommand}.
  */

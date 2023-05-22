@@ -19,6 +19,10 @@ import { de_DeletePolicyVersionCommand, se_DeletePolicyVersionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePolicyVersionCommand}.
  */

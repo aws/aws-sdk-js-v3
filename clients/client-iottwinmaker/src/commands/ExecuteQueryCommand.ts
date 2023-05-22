@@ -19,6 +19,10 @@ import { de_ExecuteQueryCommand, se_ExecuteQueryCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExecuteQueryCommand}.
  */

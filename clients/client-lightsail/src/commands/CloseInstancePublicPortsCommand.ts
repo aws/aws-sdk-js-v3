@@ -19,6 +19,10 @@ import { de_CloseInstancePublicPortsCommand, se_CloseInstancePublicPortsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CloseInstancePublicPortsCommand}.
  */

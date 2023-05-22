@@ -19,6 +19,10 @@ import { de_ListMFADeviceTagsCommand, se_ListMFADeviceTagsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMFADeviceTagsCommand}.
  */

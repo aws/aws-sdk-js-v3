@@ -19,6 +19,10 @@ import { de_CancelExportTaskCommand, se_CancelExportTaskCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelExportTaskCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteEmailIdentityCommand, se_DeleteEmailIdentityCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEmailIdentityCommand}.
  */

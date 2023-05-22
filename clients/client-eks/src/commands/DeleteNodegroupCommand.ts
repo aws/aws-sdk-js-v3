@@ -19,6 +19,10 @@ import { de_DeleteNodegroupCommand, se_DeleteNodegroupCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNodegroupCommand}.
  */

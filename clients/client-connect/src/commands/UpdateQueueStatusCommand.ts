@@ -19,6 +19,10 @@ import { de_UpdateQueueStatusCommand, se_UpdateQueueStatusCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateQueueStatusCommand}.
  */

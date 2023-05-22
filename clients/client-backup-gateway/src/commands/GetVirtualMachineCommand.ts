@@ -19,6 +19,10 @@ import { de_GetVirtualMachineCommand, se_GetVirtualMachineCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVirtualMachineCommand}.
  */

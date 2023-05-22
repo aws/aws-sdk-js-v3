@@ -19,6 +19,10 @@ import { de_GetDeploymentStatusCommand, se_GetDeploymentStatusCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeploymentStatusCommand}.
  */

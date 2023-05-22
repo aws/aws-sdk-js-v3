@@ -19,6 +19,10 @@ import { de_RestoreSnapshotFromRecycleBinCommand, se_RestoreSnapshotFromRecycleB
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreSnapshotFromRecycleBinCommand}.
  */

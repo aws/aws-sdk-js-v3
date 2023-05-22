@@ -19,6 +19,10 @@ import { de_DeleteCacheParameterGroupCommand, se_DeleteCacheParameterGroupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCacheParameterGroupCommand}.
  */

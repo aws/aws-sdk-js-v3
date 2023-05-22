@@ -19,6 +19,10 @@ import { de_CancelUpdateStackCommand, se_CancelUpdateStackCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelUpdateStackCommand}.
  */

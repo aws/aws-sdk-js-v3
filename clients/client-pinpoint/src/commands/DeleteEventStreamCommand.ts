@@ -19,6 +19,10 @@ import { de_DeleteEventStreamCommand, se_DeleteEventStreamCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEventStreamCommand}.
  */

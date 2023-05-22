@@ -19,6 +19,10 @@ import { de_SetV2LoggingLevelCommand, se_SetV2LoggingLevelCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetV2LoggingLevelCommand}.
  */

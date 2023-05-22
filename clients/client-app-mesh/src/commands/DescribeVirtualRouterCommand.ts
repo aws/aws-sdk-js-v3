@@ -19,6 +19,10 @@ import { de_DescribeVirtualRouterCommand, se_DescribeVirtualRouterCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVirtualRouterCommand}.
  */

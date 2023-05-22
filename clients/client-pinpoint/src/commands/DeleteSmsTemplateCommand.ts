@@ -19,6 +19,10 @@ import { de_DeleteSmsTemplateCommand, se_DeleteSmsTemplateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSmsTemplateCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeTransactionCommand, se_DescribeTransactionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTransactionCommand}.
  */

@@ -23,6 +23,10 @@ import { de_GetAccessPolicyCommand, se_GetAccessPolicyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccessPolicyCommand}.
  */

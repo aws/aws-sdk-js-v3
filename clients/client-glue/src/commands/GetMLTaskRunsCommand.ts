@@ -19,6 +19,10 @@ import { de_GetMLTaskRunsCommand, se_GetMLTaskRunsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMLTaskRunsCommand}.
  */

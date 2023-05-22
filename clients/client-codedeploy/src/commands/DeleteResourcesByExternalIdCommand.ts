@@ -19,6 +19,10 @@ import { de_DeleteResourcesByExternalIdCommand, se_DeleteResourcesByExternalIdCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteResourcesByExternalIdCommand}.
  */

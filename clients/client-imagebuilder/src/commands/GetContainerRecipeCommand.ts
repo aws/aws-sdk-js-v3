@@ -19,6 +19,10 @@ import { de_GetContainerRecipeCommand, se_GetContainerRecipeCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContainerRecipeCommand}.
  */

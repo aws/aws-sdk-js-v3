@@ -23,6 +23,10 @@ import { de_CreateRelationalDatabaseCommand, se_CreateRelationalDatabaseCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRelationalDatabaseCommand}.
  */

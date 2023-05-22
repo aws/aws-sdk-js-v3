@@ -19,6 +19,10 @@ import { de_DisconnectSourceServerCommand, se_DisconnectSourceServerCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisconnectSourceServerCommand}.
  */

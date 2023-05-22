@@ -19,6 +19,10 @@ import { de_DeleteDevicePoolCommand, se_DeleteDevicePoolCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDevicePoolCommand}.
  */

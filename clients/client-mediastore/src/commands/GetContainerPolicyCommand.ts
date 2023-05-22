@@ -19,6 +19,10 @@ import { de_GetContainerPolicyCommand, se_GetContainerPolicyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContainerPolicyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateEndpointsBatchCommand, se_UpdateEndpointsBatchCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEndpointsBatchCommand}.
  */

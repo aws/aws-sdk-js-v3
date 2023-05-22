@@ -19,6 +19,10 @@ import { de_DescribeEventBusCommand, se_DescribeEventBusCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEventBusCommand}.
  */

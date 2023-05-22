@@ -19,6 +19,10 @@ import { de_DeleteConformancePackCommand, se_DeleteConformancePackCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConformancePackCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisableSsoCommand, se_DisableSsoCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableSsoCommand}.
  */

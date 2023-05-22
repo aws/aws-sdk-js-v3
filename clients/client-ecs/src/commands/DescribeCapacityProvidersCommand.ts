@@ -19,6 +19,10 @@ import { de_DescribeCapacityProvidersCommand, se_DescribeCapacityProvidersComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCapacityProvidersCommand}.
  */

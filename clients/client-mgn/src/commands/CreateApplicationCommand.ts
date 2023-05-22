@@ -24,6 +24,10 @@ import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateApplicationCommand}.
  */

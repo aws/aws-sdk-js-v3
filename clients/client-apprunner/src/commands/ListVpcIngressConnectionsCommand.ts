@@ -19,6 +19,10 @@ import { de_ListVpcIngressConnectionsCommand, se_ListVpcIngressConnectionsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVpcIngressConnectionsCommand}.
  */

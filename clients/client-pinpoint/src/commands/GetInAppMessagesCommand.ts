@@ -19,6 +19,10 @@ import { de_GetInAppMessagesCommand, se_GetInAppMessagesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInAppMessagesCommand}.
  */

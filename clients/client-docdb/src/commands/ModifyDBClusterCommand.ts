@@ -19,6 +19,10 @@ import { de_ModifyDBClusterCommand, se_ModifyDBClusterCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyDBClusterCommand}.
  */

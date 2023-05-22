@@ -19,6 +19,10 @@ import { de_ListManagedInsightRulesCommand, se_ListManagedInsightRulesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListManagedInsightRulesCommand}.
  */

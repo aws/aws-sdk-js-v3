@@ -19,6 +19,10 @@ import { de_PutRepositoryTriggersCommand, se_PutRepositoryTriggersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRepositoryTriggersCommand}.
  */

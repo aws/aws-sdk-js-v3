@@ -19,6 +19,10 @@ import { de_CreateKeyPairCommand, se_CreateKeyPairCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateKeyPairCommand}.
  */

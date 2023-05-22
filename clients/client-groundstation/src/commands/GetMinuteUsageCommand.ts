@@ -19,6 +19,10 @@ import { de_GetMinuteUsageCommand, se_GetMinuteUsageCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMinuteUsageCommand}.
  */

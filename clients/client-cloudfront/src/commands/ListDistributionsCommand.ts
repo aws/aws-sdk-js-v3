@@ -23,6 +23,10 @@ import { de_ListDistributionsCommand, se_ListDistributionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDistributionsCommand}.
  */

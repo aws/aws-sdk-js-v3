@@ -19,6 +19,10 @@ import { de_ListIPSetsCommand, se_ListIPSetsCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIPSetsCommand}.
  */

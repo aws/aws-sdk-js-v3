@@ -19,6 +19,10 @@ import { de_GetManagedScalingPolicyCommand, se_GetManagedScalingPolicyCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetManagedScalingPolicyCommand}.
  */

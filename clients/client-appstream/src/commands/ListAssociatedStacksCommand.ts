@@ -19,6 +19,10 @@ import { de_ListAssociatedStacksCommand, se_ListAssociatedStacksCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssociatedStacksCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeBackupVaultCommand, se_DescribeBackupVaultCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBackupVaultCommand}.
  */

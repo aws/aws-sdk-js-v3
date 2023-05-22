@@ -19,6 +19,10 @@ import { de_RejectGrantCommand, se_RejectGrantCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectGrantCommand}.
  */

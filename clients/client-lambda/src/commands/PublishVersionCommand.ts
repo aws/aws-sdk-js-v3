@@ -23,6 +23,10 @@ import { de_PublishVersionCommand, se_PublishVersionCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PublishVersionCommand}.
  */

@@ -23,6 +23,10 @@ import { de_UpdateWorkflowStepGroupCommand, se_UpdateWorkflowStepGroupCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateWorkflowStepGroupCommand}.
  */

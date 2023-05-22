@@ -19,6 +19,10 @@ import { de_CreateQuickConnectCommand, se_CreateQuickConnectCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateQuickConnectCommand}.
  */

@@ -24,6 +24,10 @@ import { de_InviteAccountToOrganizationCommand, se_InviteAccountToOrganizationCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InviteAccountToOrganizationCommand}.
  */

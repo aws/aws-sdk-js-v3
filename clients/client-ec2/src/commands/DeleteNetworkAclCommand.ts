@@ -19,6 +19,10 @@ import { de_DeleteNetworkAclCommand, se_DeleteNetworkAclCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNetworkAclCommand}.
  */

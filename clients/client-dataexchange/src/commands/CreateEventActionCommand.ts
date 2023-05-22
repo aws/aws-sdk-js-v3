@@ -19,6 +19,10 @@ import { de_CreateEventActionCommand, se_CreateEventActionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEventActionCommand}.
  */

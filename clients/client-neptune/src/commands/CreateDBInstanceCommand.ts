@@ -19,6 +19,10 @@ import { de_CreateDBInstanceCommand, se_CreateDBInstanceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDBInstanceCommand}.
  */

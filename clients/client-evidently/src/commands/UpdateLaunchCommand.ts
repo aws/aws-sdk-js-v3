@@ -19,6 +19,10 @@ import { de_UpdateLaunchCommand, se_UpdateLaunchCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLaunchCommand}.
  */

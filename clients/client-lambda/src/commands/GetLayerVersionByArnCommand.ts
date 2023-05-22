@@ -19,6 +19,10 @@ import { de_GetLayerVersionByArnCommand, se_GetLayerVersionByArnCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLayerVersionByArnCommand}.
  */

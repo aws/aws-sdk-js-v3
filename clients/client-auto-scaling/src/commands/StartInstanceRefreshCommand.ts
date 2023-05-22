@@ -19,6 +19,10 @@ import { de_StartInstanceRefreshCommand, se_StartInstanceRefreshCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartInstanceRefreshCommand}.
  */

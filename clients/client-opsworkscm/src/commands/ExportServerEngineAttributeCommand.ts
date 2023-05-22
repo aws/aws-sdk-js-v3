@@ -24,6 +24,10 @@ import { de_ExportServerEngineAttributeCommand, se_ExportServerEngineAttributeCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportServerEngineAttributeCommand}.
  */

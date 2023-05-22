@@ -19,6 +19,10 @@ import { de_ModifyDBClusterEndpointCommand, se_ModifyDBClusterEndpointCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyDBClusterEndpointCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteTrafficMirrorFilterCommand, se_DeleteTrafficMirrorFilterComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTrafficMirrorFilterCommand}.
  */

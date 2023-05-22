@@ -19,6 +19,10 @@ import { de_AssociateElasticIpCommand, se_AssociateElasticIpCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateElasticIpCommand}.
  */

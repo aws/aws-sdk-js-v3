@@ -24,6 +24,10 @@ import { de_CreateBotCommand, se_CreateBotCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBotCommand}.
  */

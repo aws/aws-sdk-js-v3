@@ -19,6 +19,10 @@ import { de_UpdatePolicyCommand, se_UpdatePolicyCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePolicyCommand}.
  */

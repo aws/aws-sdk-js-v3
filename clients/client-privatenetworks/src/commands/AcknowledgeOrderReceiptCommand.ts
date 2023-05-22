@@ -23,6 +23,10 @@ import { de_AcknowledgeOrderReceiptCommand, se_AcknowledgeOrderReceiptCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AcknowledgeOrderReceiptCommand}.
  */

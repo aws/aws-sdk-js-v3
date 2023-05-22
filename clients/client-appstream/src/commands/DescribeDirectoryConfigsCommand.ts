@@ -23,6 +23,10 @@ import { de_DescribeDirectoryConfigsCommand, se_DescribeDirectoryConfigsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDirectoryConfigsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteSAMLProviderCommand, se_DeleteSAMLProviderCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSAMLProviderCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteHsmCommand, se_DeleteHsmCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteHsmCommand}.
  */

@@ -19,6 +19,10 @@ import { de_TagRoleCommand, se_TagRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagRoleCommand}.
  */

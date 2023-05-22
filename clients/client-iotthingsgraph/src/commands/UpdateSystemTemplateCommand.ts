@@ -19,6 +19,10 @@ import { de_UpdateSystemTemplateCommand, se_UpdateSystemTemplateCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSystemTemplateCommand}.
  */

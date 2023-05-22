@@ -19,6 +19,10 @@ import { de_TagProjectCommand, se_TagProjectCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagProjectCommand}.
  */

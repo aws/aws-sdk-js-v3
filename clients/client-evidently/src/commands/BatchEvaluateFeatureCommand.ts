@@ -19,6 +19,10 @@ import { de_BatchEvaluateFeatureCommand, se_BatchEvaluateFeatureCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchEvaluateFeatureCommand}.
  */

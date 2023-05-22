@@ -19,6 +19,10 @@ import { de_CreateControlCommand, se_CreateControlCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateControlCommand}.
  */

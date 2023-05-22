@@ -19,6 +19,10 @@ import { de_DescribeCacheSubnetGroupsCommand, se_DescribeCacheSubnetGroupsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCacheSubnetGroupsCommand}.
  */

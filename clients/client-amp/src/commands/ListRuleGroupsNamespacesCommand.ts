@@ -19,6 +19,10 @@ import { de_ListRuleGroupsNamespacesCommand, se_ListRuleGroupsNamespacesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRuleGroupsNamespacesCommand}.
  */

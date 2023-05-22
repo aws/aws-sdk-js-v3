@@ -19,6 +19,10 @@ import { de_DescribeImagePermissionsCommand, se_DescribeImagePermissionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeImagePermissionsCommand}.
  */

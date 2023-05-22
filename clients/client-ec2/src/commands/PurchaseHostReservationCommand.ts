@@ -19,6 +19,10 @@ import { de_PurchaseHostReservationCommand, se_PurchaseHostReservationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PurchaseHostReservationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListTaskExecutionsCommand, se_ListTaskExecutionsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTaskExecutionsCommand}.
  */

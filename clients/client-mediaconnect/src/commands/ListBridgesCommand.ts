@@ -19,6 +19,10 @@ import { de_ListBridgesCommand, se_ListBridgesCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBridgesCommand}.
  */

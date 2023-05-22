@@ -19,6 +19,10 @@ import { de_ModifySnapshotAttributeCommand, se_ModifySnapshotAttributeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifySnapshotAttributeCommand}.
  */

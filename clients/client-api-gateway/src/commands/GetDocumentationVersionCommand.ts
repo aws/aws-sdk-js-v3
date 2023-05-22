@@ -19,6 +19,10 @@ import { de_GetDocumentationVersionCommand, se_GetDocumentationVersionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDocumentationVersionCommand}.
  */

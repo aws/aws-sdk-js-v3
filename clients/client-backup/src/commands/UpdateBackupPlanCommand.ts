@@ -23,6 +23,10 @@ import { de_UpdateBackupPlanCommand, se_UpdateBackupPlanCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBackupPlanCommand}.
  */

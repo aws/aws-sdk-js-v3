@@ -19,6 +19,10 @@ import { de_DeleteDedicatedIpPoolCommand, se_DeleteDedicatedIpPoolCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDedicatedIpPoolCommand}.
  */

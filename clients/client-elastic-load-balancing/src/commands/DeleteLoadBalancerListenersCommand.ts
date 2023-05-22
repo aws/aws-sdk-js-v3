@@ -23,6 +23,10 @@ import { de_DeleteLoadBalancerListenersCommand, se_DeleteLoadBalancerListenersCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLoadBalancerListenersCommand}.
  */

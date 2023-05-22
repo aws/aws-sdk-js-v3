@@ -19,6 +19,10 @@ import { de_ModifyInstanceGroupsCommand, se_ModifyInstanceGroupsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyInstanceGroupsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AssociateFirewallPolicyCommand, se_AssociateFirewallPolicyCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateFirewallPolicyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RemoveNotificationChannelCommand, se_RemoveNotificationChannelComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveNotificationChannelCommand}.
  */

@@ -76,6 +76,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -235,7 +237,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type MWAAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MWAAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -254,7 +256,7 @@ export interface MWAAClientConfig extends MWAAClientConfigType {}
 /**
  * @public
  */
-type MWAAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MWAAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

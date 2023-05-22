@@ -19,6 +19,10 @@ import { de_StartConfigRulesEvaluationCommand, se_StartConfigRulesEvaluationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartConfigRulesEvaluationCommand}.
  */

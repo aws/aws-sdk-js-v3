@@ -19,6 +19,10 @@ import { de_CreateRouteTableCommand, se_CreateRouteTableCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRouteTableCommand}.
  */

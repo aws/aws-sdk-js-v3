@@ -23,6 +23,10 @@ import { de_DescribeProblemCommand, se_DescribeProblemCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeProblemCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetEmailChannelCommand, se_GetEmailChannelCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEmailChannelCommand}.
  */

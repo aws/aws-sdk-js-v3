@@ -19,6 +19,10 @@ import { de_ListAttachedUserPoliciesCommand, se_ListAttachedUserPoliciesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAttachedUserPoliciesCommand}.
  */

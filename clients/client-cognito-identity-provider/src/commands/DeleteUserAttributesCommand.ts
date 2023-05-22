@@ -27,6 +27,10 @@ import { de_DeleteUserAttributesCommand, se_DeleteUserAttributesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteUserAttributesCommand}.
  */

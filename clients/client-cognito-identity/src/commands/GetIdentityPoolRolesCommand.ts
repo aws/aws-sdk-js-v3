@@ -20,6 +20,10 @@ import { de_GetIdentityPoolRolesCommand, se_GetIdentityPoolRolesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIdentityPoolRolesCommand}.
  */

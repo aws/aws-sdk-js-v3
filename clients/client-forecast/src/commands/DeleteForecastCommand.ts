@@ -19,6 +19,10 @@ import { de_DeleteForecastCommand, se_DeleteForecastCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteForecastCommand}.
  */

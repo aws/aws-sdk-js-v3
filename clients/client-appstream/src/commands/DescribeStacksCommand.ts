@@ -19,6 +19,10 @@ import { de_DescribeStacksCommand, se_DescribeStacksCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeStacksCommand}.
  */

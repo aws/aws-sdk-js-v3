@@ -19,6 +19,10 @@ import { de_GetAnomalyGroupCommand, se_GetAnomalyGroupCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAnomalyGroupCommand}.
  */

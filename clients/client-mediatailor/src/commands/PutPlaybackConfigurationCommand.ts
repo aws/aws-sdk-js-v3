@@ -19,6 +19,10 @@ import { de_PutPlaybackConfigurationCommand, se_PutPlaybackConfigurationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutPlaybackConfigurationCommand}.
  */

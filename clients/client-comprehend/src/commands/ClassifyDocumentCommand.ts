@@ -24,6 +24,10 @@ import { de_ClassifyDocumentCommand, se_ClassifyDocumentCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ClassifyDocumentCommand}.
  */

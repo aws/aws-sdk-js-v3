@@ -19,6 +19,10 @@ import { de_GetVpnConnectionDeviceTypesCommand, se_GetVpnConnectionDeviceTypesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVpnConnectionDeviceTypesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetDeploymentCommand, se_GetDeploymentCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeploymentCommand}.
  */

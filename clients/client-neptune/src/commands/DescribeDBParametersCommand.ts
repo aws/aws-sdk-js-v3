@@ -19,6 +19,10 @@ import { de_DescribeDBParametersCommand, se_DescribeDBParametersCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDBParametersCommand}.
  */

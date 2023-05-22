@@ -19,6 +19,10 @@ import { de_GetServicesInScopeCommand, se_GetServicesInScopeCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetServicesInScopeCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeLocationNfsCommand, se_DescribeLocationNfsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLocationNfsCommand}.
  */

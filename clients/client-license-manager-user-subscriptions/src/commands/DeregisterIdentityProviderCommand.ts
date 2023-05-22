@@ -23,6 +23,10 @@ import { de_DeregisterIdentityProviderCommand, se_DeregisterIdentityProviderComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterIdentityProviderCommand}.
  */

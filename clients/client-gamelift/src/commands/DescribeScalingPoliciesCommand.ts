@@ -19,6 +19,10 @@ import { de_DescribeScalingPoliciesCommand, se_DescribeScalingPoliciesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScalingPoliciesCommand}.
  */

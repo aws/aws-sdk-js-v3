@@ -19,6 +19,10 @@ import { de_EnableAlarmActionsCommand, se_EnableAlarmActionsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableAlarmActionsCommand}.
  */

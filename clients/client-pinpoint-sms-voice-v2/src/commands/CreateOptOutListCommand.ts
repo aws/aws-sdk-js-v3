@@ -23,6 +23,10 @@ import { de_CreateOptOutListCommand, se_CreateOptOutListCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateOptOutListCommand}.
  */

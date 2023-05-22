@@ -19,6 +19,10 @@ import { de_UpdateNetworkProfileCommand, se_UpdateNetworkProfileCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNetworkProfileCommand}.
  */

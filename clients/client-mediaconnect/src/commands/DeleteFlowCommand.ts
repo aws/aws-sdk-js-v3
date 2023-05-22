@@ -19,6 +19,10 @@ import { de_DeleteFlowCommand, se_DeleteFlowCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFlowCommand}.
  */

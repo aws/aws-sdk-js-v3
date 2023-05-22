@@ -23,6 +23,10 @@ import { de_DeleteServiceCommand, se_DeleteServiceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteServiceCommand}.
  */

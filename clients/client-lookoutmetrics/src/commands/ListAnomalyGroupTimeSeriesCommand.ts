@@ -19,6 +19,10 @@ import { de_ListAnomalyGroupTimeSeriesCommand, se_ListAnomalyGroupTimeSeriesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAnomalyGroupTimeSeriesCommand}.
  */

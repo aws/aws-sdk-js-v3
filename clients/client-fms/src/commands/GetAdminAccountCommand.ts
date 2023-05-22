@@ -19,6 +19,10 @@ import { de_GetAdminAccountCommand, se_GetAdminAccountCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAdminAccountCommand}.
  */

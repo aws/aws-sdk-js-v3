@@ -19,6 +19,10 @@ import { de_DescribeFHIRImportJobCommand, se_DescribeFHIRImportJobCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFHIRImportJobCommand}.
  */

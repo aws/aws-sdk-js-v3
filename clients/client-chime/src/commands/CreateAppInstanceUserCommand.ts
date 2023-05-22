@@ -23,6 +23,10 @@ import { de_CreateAppInstanceUserCommand, se_CreateAppInstanceUserCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAppInstanceUserCommand}.
  */

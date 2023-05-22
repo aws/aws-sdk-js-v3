@@ -19,6 +19,10 @@ import { de_ListIndexCommand, se_ListIndexCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIndexCommand}.
  */

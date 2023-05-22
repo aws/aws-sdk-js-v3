@@ -19,6 +19,10 @@ import { de_CreatePullRequestCommand, se_CreatePullRequestCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePullRequestCommand}.
  */

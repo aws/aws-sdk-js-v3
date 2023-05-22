@@ -19,6 +19,10 @@ import { de_DescribeTransitGatewaysCommand, se_DescribeTransitGatewaysCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTransitGatewaysCommand}.
  */

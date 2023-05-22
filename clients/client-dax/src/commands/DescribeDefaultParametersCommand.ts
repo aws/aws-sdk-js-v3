@@ -19,6 +19,10 @@ import { de_DescribeDefaultParametersCommand, se_DescribeDefaultParametersComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDefaultParametersCommand}.
  */

@@ -24,6 +24,10 @@ import { de_StartTestCommand, se_StartTestCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartTestCommand}.
  */

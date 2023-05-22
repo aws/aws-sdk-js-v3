@@ -19,6 +19,10 @@ import { de_RemoveBridgeOutputCommand, se_RemoveBridgeOutputCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveBridgeOutputCommand}.
  */

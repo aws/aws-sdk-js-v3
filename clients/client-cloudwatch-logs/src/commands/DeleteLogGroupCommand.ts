@@ -19,6 +19,10 @@ import { de_DeleteLogGroupCommand, se_DeleteLogGroupCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLogGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListConfiguredTablesCommand, se_ListConfiguredTablesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListConfiguredTablesCommand}.
  */

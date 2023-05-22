@@ -19,6 +19,10 @@ import { de_DescribeApplicationsCommand, se_DescribeApplicationsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeApplicationsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateCaseCommand, se_UpdateCaseCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCaseCommand}.
  */

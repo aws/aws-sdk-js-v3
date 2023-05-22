@@ -19,6 +19,10 @@ import { de_RegisterThingCommand, se_RegisterThingCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterThingCommand}.
  */

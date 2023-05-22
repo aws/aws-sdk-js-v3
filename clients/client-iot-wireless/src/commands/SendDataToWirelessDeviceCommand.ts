@@ -19,6 +19,10 @@ import { de_SendDataToWirelessDeviceCommand, se_SendDataToWirelessDeviceCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendDataToWirelessDeviceCommand}.
  */

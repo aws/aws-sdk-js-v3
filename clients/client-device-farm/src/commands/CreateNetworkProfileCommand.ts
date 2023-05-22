@@ -19,6 +19,10 @@ import { de_CreateNetworkProfileCommand, se_CreateNetworkProfileCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNetworkProfileCommand}.
  */

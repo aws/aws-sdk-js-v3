@@ -19,6 +19,10 @@ import { de_ListDataQualityRulesetsCommand, se_ListDataQualityRulesetsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDataQualityRulesetsCommand}.
  */

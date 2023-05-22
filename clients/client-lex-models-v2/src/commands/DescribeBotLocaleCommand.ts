@@ -19,6 +19,10 @@ import { de_DescribeBotLocaleCommand, se_DescribeBotLocaleCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBotLocaleCommand}.
  */

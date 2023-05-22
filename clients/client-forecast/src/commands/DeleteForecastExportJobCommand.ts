@@ -19,6 +19,10 @@ import { de_DeleteForecastExportJobCommand, se_DeleteForecastExportJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteForecastExportJobCommand}.
  */

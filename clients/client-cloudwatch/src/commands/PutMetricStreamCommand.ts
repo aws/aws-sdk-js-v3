@@ -19,6 +19,10 @@ import { de_PutMetricStreamCommand, se_PutMetricStreamCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutMetricStreamCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteEntityRecognizerCommand, se_DeleteEntityRecognizerCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEntityRecognizerCommand}.
  */

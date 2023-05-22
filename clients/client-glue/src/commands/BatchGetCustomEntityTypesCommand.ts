@@ -19,6 +19,10 @@ import { de_BatchGetCustomEntityTypesCommand, se_BatchGetCustomEntityTypesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetCustomEntityTypesCommand}.
  */

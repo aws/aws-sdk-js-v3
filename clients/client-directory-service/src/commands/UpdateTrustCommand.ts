@@ -19,6 +19,10 @@ import { de_UpdateTrustCommand, se_UpdateTrustCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTrustCommand}.
  */

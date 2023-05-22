@@ -19,6 +19,10 @@ import { de_DeleteBranchCommand, se_DeleteBranchCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBranchCommand}.
  */

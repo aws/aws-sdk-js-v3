@@ -19,6 +19,10 @@ import { de_AssociateApplicationsCommand, se_AssociateApplicationsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateApplicationsCommand}.
  */

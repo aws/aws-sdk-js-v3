@@ -19,6 +19,10 @@ import { de_UpdateBotLocaleCommand, se_UpdateBotLocaleCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBotLocaleCommand}.
  */

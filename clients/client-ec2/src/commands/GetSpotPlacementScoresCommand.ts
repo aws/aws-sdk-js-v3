@@ -19,6 +19,10 @@ import { de_GetSpotPlacementScoresCommand, se_GetSpotPlacementScoresCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSpotPlacementScoresCommand}.
  */

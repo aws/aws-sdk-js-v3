@@ -19,6 +19,10 @@ import { de_DescribeDomainConfigCommand, se_DescribeDomainConfigCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDomainConfigCommand}.
  */

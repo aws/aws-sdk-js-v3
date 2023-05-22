@@ -19,6 +19,10 @@ import { de_DescribeCustomMetricCommand, se_DescribeCustomMetricCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCustomMetricCommand}.
  */

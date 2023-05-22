@@ -19,6 +19,10 @@ import { de_DeleteVirtualInterfaceCommand, se_DeleteVirtualInterfaceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVirtualInterfaceCommand}.
  */

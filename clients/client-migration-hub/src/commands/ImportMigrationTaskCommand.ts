@@ -19,6 +19,10 @@ import { de_ImportMigrationTaskCommand, se_ImportMigrationTaskCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportMigrationTaskCommand}.
  */

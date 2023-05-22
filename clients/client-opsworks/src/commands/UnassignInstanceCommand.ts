@@ -19,6 +19,10 @@ import { de_UnassignInstanceCommand, se_UnassignInstanceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnassignInstanceCommand}.
  */

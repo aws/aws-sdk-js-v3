@@ -23,6 +23,10 @@ import { de_UpdateConnectorProfileCommand, se_UpdateConnectorProfileCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConnectorProfileCommand}.
  */

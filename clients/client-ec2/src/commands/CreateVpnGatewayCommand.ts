@@ -19,6 +19,10 @@ import { de_CreateVpnGatewayCommand, se_CreateVpnGatewayCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVpnGatewayCommand}.
  */

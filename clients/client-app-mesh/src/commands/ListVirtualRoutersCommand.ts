@@ -19,6 +19,10 @@ import { de_ListVirtualRoutersCommand, se_ListVirtualRoutersCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVirtualRoutersCommand}.
  */

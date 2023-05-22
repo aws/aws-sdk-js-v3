@@ -19,6 +19,10 @@ import { de_RestoreBackupCommand, se_RestoreBackupCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreBackupCommand}.
  */

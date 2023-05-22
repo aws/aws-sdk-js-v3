@@ -23,6 +23,10 @@ import { de_DescribeListenersCommand, se_DescribeListenersCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeListenersCommand}.
  */

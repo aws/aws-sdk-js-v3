@@ -19,6 +19,10 @@ import { de_UpdateDecoderManifestCommand, se_UpdateDecoderManifestCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDecoderManifestCommand}.
  */

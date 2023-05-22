@@ -19,6 +19,10 @@ import { de_GetApplicationCommand, se_GetApplicationCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApplicationCommand}.
  */

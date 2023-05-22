@@ -19,6 +19,10 @@ import { de_UpdateOriginAccessControlCommand, se_UpdateOriginAccessControlComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateOriginAccessControlCommand}.
  */

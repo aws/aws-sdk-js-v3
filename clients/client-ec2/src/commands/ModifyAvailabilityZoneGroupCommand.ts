@@ -19,6 +19,10 @@ import { de_ModifyAvailabilityZoneGroupCommand, se_ModifyAvailabilityZoneGroupCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyAvailabilityZoneGroupCommand}.
  */

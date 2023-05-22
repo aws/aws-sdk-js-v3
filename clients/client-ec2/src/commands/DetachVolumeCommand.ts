@@ -20,6 +20,10 @@ import { de_DetachVolumeCommand, se_DetachVolumeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachVolumeCommand}.
  */

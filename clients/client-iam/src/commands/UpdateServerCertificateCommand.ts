@@ -19,6 +19,10 @@ import { de_UpdateServerCertificateCommand, se_UpdateServerCertificateCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateServerCertificateCommand}.
  */

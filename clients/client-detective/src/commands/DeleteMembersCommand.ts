@@ -19,6 +19,10 @@ import { de_DeleteMembersCommand, se_DeleteMembersCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMembersCommand}.
  */

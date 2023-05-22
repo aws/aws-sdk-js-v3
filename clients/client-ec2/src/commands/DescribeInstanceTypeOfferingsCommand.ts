@@ -19,6 +19,10 @@ import { de_DescribeInstanceTypeOfferingsCommand, se_DescribeInstanceTypeOfferin
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInstanceTypeOfferingsCommand}.
  */

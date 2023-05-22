@@ -19,6 +19,10 @@ import { de_SearchAddressBooksCommand, se_SearchAddressBooksCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchAddressBooksCommand}.
  */

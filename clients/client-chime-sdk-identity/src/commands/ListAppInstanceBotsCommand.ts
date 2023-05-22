@@ -24,6 +24,10 @@ import { de_ListAppInstanceBotsCommand, se_ListAppInstanceBotsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAppInstanceBotsCommand}.
  */

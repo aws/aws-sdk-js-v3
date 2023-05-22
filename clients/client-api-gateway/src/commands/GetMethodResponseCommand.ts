@@ -19,6 +19,10 @@ import { de_GetMethodResponseCommand, se_GetMethodResponseCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMethodResponseCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DissociatePackageCommand, se_DissociatePackageCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DissociatePackageCommand}.
  */

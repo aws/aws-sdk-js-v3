@@ -19,6 +19,10 @@ import { de_DeleteFormCommand, se_DeleteFormCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFormCommand}.
  */

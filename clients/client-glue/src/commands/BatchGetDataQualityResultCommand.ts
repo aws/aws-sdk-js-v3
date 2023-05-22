@@ -19,6 +19,10 @@ import { de_BatchGetDataQualityResultCommand, se_BatchGetDataQualityResultComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetDataQualityResultCommand}.
  */

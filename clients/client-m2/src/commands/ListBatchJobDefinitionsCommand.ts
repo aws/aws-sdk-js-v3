@@ -19,6 +19,10 @@ import { de_ListBatchJobDefinitionsCommand, se_ListBatchJobDefinitionsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBatchJobDefinitionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteUtterancesCommand, se_DeleteUtterancesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteUtterancesCommand}.
  */

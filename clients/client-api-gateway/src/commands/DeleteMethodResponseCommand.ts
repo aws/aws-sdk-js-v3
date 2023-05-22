@@ -19,6 +19,10 @@ import { de_DeleteMethodResponseCommand, se_DeleteMethodResponseCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMethodResponseCommand}.
  */

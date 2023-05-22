@@ -206,6 +206,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -427,7 +429,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type PinpointEmailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type PinpointEmailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -446,7 +448,7 @@ export interface PinpointEmailClientConfig extends PinpointEmailClientConfigType
 /**
  * @public
  */
-type PinpointEmailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type PinpointEmailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

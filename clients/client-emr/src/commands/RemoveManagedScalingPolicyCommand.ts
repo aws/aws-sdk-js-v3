@@ -19,6 +19,10 @@ import { de_RemoveManagedScalingPolicyCommand, se_RemoveManagedScalingPolicyComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveManagedScalingPolicyCommand}.
  */

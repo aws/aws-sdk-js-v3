@@ -23,6 +23,10 @@ import { de_StopSNOMEDCTInferenceJobCommand, se_StopSNOMEDCTInferenceJobCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopSNOMEDCTInferenceJobCommand}.
  */

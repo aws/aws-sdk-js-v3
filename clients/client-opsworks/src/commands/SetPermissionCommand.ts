@@ -19,6 +19,10 @@ import { de_SetPermissionCommand, se_SetPermissionCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetPermissionCommand}.
  */

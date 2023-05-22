@@ -19,6 +19,10 @@ import { de_UpdateGlobalNetworkCommand, se_UpdateGlobalNetworkCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGlobalNetworkCommand}.
  */

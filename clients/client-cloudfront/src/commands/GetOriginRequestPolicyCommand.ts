@@ -19,6 +19,10 @@ import { de_GetOriginRequestPolicyCommand, se_GetOriginRequestPolicyCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOriginRequestPolicyCommand}.
  */

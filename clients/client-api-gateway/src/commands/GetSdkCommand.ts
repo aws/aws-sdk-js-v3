@@ -19,6 +19,10 @@ import { de_GetSdkCommand, se_GetSdkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSdkCommand}.
  */

@@ -23,6 +23,10 @@ import { de_VoteOnProposalCommand, se_VoteOnProposalCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link VoteOnProposalCommand}.
  */

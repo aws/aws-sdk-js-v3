@@ -23,6 +23,10 @@ import { de_ModifyRuleCommand, se_ModifyRuleCommand } from "../protocols/Aws_que
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyRuleCommand}.
  */

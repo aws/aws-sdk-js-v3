@@ -20,6 +20,10 @@ import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDBClusterCommand}.
  */

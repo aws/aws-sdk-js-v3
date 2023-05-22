@@ -19,6 +19,10 @@ import { de_GetCatalogImportStatusCommand, se_GetCatalogImportStatusCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCatalogImportStatusCommand}.
  */

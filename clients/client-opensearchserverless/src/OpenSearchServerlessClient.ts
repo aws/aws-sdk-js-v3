@@ -123,6 +123,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -322,7 +324,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type OpenSearchServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type OpenSearchServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -341,7 +343,7 @@ export interface OpenSearchServerlessClientConfig extends OpenSearchServerlessCl
 /**
  * @public
  */
-type OpenSearchServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type OpenSearchServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

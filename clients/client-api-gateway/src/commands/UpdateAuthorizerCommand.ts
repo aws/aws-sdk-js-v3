@@ -19,6 +19,10 @@ import { de_UpdateAuthorizerCommand, se_UpdateAuthorizerCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAuthorizerCommand}.
  */

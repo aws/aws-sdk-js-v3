@@ -19,6 +19,10 @@ import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CopySnapshotCommand}.
  */

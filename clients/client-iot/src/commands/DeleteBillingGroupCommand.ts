@@ -19,6 +19,10 @@ import { de_DeleteBillingGroupCommand, se_DeleteBillingGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBillingGroupCommand}.
  */

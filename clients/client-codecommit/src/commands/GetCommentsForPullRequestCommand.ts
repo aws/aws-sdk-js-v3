@@ -19,6 +19,10 @@ import { de_GetCommentsForPullRequestCommand, se_GetCommentsForPullRequestComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCommentsForPullRequestCommand}.
  */

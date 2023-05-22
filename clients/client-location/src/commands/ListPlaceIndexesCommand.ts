@@ -19,6 +19,10 @@ import { de_ListPlaceIndexesCommand, se_ListPlaceIndexesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPlaceIndexesCommand}.
  */

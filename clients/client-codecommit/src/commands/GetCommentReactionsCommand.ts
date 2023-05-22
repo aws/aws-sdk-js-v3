@@ -19,6 +19,10 @@ import { de_GetCommentReactionsCommand, se_GetCommentReactionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCommentReactionsCommand}.
  */

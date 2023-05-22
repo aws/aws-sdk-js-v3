@@ -19,6 +19,10 @@ import { de_CreateRepositoryCommand, se_CreateRepositoryCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRepositoryCommand}.
  */

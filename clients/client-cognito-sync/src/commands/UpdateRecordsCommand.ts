@@ -19,6 +19,10 @@ import { de_UpdateRecordsCommand, se_UpdateRecordsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRecordsCommand}.
  */

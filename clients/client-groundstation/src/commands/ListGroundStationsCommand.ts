@@ -19,6 +19,10 @@ import { de_ListGroundStationsCommand, se_ListGroundStationsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGroundStationsCommand}.
  */

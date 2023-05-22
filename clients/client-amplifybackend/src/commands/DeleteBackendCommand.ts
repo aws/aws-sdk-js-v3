@@ -19,6 +19,10 @@ import { de_DeleteBackendCommand, se_DeleteBackendCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBackendCommand}.
  */

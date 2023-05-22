@@ -19,6 +19,10 @@ import { de_UpdateApiKeyCommand, se_UpdateApiKeyCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateApiKeyCommand}.
  */

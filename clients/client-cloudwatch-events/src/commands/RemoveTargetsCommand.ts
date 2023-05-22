@@ -19,6 +19,10 @@ import { de_RemoveTargetsCommand, se_RemoveTargetsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveTargetsCommand}.
  */

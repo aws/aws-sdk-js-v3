@@ -19,6 +19,10 @@ import { de_UpdateIntegrationResponseCommand, se_UpdateIntegrationResponseComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateIntegrationResponseCommand}.
  */

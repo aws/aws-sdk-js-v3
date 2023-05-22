@@ -24,6 +24,10 @@ import { de_CreateGovCloudAccountCommand, se_CreateGovCloudAccountCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGovCloudAccountCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetUsageStatisticsCommand, se_GetUsageStatisticsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUsageStatisticsCommand}.
  */

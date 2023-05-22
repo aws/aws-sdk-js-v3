@@ -19,6 +19,10 @@ import { de_StartDevEnvironmentCommand, se_StartDevEnvironmentCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDevEnvironmentCommand}.
  */

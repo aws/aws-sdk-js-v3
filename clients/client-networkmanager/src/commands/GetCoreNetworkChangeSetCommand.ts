@@ -19,6 +19,10 @@ import { de_GetCoreNetworkChangeSetCommand, se_GetCoreNetworkChangeSetCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCoreNetworkChangeSetCommand}.
  */

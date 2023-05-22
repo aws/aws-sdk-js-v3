@@ -19,6 +19,10 @@ import { de_DeregisterRdsDbInstanceCommand, se_DeregisterRdsDbInstanceCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterRdsDbInstanceCommand}.
  */

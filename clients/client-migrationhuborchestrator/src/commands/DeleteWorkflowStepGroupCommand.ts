@@ -23,6 +23,10 @@ import { de_DeleteWorkflowStepGroupCommand, se_DeleteWorkflowStepGroupCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWorkflowStepGroupCommand}.
  */

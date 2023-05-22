@@ -19,6 +19,10 @@ import { de_GetSavingsPlansUtilizationCommand, se_GetSavingsPlansUtilizationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSavingsPlansUtilizationCommand}.
  */

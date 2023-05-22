@@ -19,6 +19,10 @@ import { de_ListPermissionsCommand, se_ListPermissionsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPermissionsCommand}.
  */

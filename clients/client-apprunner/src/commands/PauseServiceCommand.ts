@@ -19,6 +19,10 @@ import { de_PauseServiceCommand, se_PauseServiceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PauseServiceCommand}.
  */

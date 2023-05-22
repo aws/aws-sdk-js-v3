@@ -19,6 +19,10 @@ import { de_DeleteTaskSetCommand, se_DeleteTaskSetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTaskSetCommand}.
  */

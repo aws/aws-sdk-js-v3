@@ -19,6 +19,10 @@ import { de_ListRunGroupsCommand, se_ListRunGroupsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRunGroupsCommand}.
  */

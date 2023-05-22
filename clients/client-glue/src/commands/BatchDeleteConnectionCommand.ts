@@ -19,6 +19,10 @@ import { de_BatchDeleteConnectionCommand, se_BatchDeleteConnectionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteConnectionCommand}.
  */

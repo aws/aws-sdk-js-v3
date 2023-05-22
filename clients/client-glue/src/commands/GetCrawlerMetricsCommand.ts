@@ -19,6 +19,10 @@ import { de_GetCrawlerMetricsCommand, se_GetCrawlerMetricsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCrawlerMetricsCommand}.
  */

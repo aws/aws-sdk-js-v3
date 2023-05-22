@@ -19,6 +19,10 @@ import { de_GetPhoneNumberSettingsCommand, se_GetPhoneNumberSettingsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPhoneNumberSettingsCommand}.
  */

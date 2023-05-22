@@ -19,6 +19,10 @@ import { de_ModifyVpcAttributeCommand, se_ModifyVpcAttributeCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyVpcAttributeCommand}.
  */

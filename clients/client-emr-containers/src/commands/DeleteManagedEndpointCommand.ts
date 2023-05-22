@@ -19,6 +19,10 @@ import { de_DeleteManagedEndpointCommand, se_DeleteManagedEndpointCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteManagedEndpointCommand}.
  */

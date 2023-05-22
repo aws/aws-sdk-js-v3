@@ -23,6 +23,10 @@ import { de_GetStudioComponentCommand, se_GetStudioComponentCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStudioComponentCommand}.
  */

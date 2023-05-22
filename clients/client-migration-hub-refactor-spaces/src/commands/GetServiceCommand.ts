@@ -23,6 +23,10 @@ import { de_GetServiceCommand, se_GetServiceCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetServiceCommand}.
  */

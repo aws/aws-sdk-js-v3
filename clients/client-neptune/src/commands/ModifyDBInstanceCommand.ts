@@ -19,6 +19,10 @@ import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyDBInstanceCommand}.
  */

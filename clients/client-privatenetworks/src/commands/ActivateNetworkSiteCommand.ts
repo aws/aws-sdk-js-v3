@@ -23,6 +23,10 @@ import { de_ActivateNetworkSiteCommand, se_ActivateNetworkSiteCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ActivateNetworkSiteCommand}.
  */

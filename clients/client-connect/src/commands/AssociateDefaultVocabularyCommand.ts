@@ -19,6 +19,10 @@ import { de_AssociateDefaultVocabularyCommand, se_AssociateDefaultVocabularyComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateDefaultVocabularyCommand}.
  */

@@ -24,6 +24,10 @@ import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGroupCommand}.
  */

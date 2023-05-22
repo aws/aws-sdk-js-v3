@@ -19,6 +19,10 @@ import { de_ListDataSourcesCommand, se_ListDataSourcesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDataSourcesCommand}.
  */

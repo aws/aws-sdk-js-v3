@@ -19,6 +19,10 @@ import { de_GetApiKeyCommand, se_GetApiKeyCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApiKeyCommand}.
  */

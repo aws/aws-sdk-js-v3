@@ -19,6 +19,10 @@ import { de_GetDatasetCommand, se_GetDatasetCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDatasetCommand}.
  */

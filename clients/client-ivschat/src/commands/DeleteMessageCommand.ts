@@ -19,6 +19,10 @@ import { de_DeleteMessageCommand, se_DeleteMessageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMessageCommand}.
  */

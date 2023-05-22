@@ -23,6 +23,10 @@ import { de_DescribeProblemObservationsCommand, se_DescribeProblemObservationsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeProblemObservationsCommand}.
  */

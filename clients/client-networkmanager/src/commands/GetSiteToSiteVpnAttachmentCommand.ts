@@ -19,6 +19,10 @@ import { de_GetSiteToSiteVpnAttachmentCommand, se_GetSiteToSiteVpnAttachmentComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSiteToSiteVpnAttachmentCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StartStackCommand, se_StartStackCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartStackCommand}.
  */

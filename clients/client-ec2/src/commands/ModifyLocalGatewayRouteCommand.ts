@@ -19,6 +19,10 @@ import { de_ModifyLocalGatewayRouteCommand, se_ModifyLocalGatewayRouteCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyLocalGatewayRouteCommand}.
  */

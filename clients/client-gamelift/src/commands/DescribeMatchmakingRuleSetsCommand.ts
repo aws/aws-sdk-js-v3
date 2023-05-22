@@ -19,6 +19,10 @@ import { de_DescribeMatchmakingRuleSetsCommand, se_DescribeMatchmakingRuleSetsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeMatchmakingRuleSetsCommand}.
  */

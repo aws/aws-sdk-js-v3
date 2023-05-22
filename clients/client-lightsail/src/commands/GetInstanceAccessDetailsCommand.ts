@@ -19,6 +19,10 @@ import { de_GetInstanceAccessDetailsCommand, se_GetInstanceAccessDetailsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInstanceAccessDetailsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProfileCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DescribeEndpointSettingsCommand, se_DescribeEndpointSettingsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEndpointSettingsCommand}.
  */

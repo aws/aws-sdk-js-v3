@@ -19,6 +19,10 @@ import { de_DescribeFeedbackCommand, se_DescribeFeedbackCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFeedbackCommand}.
  */

@@ -23,6 +23,10 @@ import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAccountSettingsCommand}.
  */

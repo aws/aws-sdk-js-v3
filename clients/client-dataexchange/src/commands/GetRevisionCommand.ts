@@ -19,6 +19,10 @@ import { de_GetRevisionCommand, se_GetRevisionCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRevisionCommand}.
  */

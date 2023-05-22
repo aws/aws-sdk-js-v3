@@ -19,6 +19,10 @@ import { de_ListFeaturesCommand, se_ListFeaturesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFeaturesCommand}.
  */

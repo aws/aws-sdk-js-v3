@@ -19,6 +19,10 @@ import { de_BatchDeleteTableRowsCommand, se_BatchDeleteTableRowsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteTableRowsCommand}.
  */

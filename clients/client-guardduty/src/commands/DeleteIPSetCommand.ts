@@ -19,6 +19,10 @@ import { de_DeleteIPSetCommand, se_DeleteIPSetCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteIPSetCommand}.
  */

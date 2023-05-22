@@ -24,6 +24,10 @@ import { de_CreateAttendeeCommand, se_CreateAttendeeCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAttendeeCommand}.
  */

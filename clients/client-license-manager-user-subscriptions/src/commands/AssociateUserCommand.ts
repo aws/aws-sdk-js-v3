@@ -23,6 +23,10 @@ import { de_AssociateUserCommand, se_AssociateUserCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateUserCommand}.
  */

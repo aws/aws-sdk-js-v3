@@ -24,6 +24,10 @@ import { de_CreateConfigurationProfileCommand, se_CreateConfigurationProfileComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateConfigurationProfileCommand}.
  */

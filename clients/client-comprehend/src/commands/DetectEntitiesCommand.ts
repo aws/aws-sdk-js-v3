@@ -24,6 +24,10 @@ import { de_DetectEntitiesCommand, se_DetectEntitiesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetectEntitiesCommand}.
  */

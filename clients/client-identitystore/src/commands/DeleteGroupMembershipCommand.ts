@@ -19,6 +19,10 @@ import { de_DeleteGroupMembershipCommand, se_DeleteGroupMembershipCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGroupMembershipCommand}.
  */

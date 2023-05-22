@@ -28,6 +28,10 @@ import { de_AdminDisableUserCommand, se_AdminDisableUserCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminDisableUserCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteFleetLocationsCommand, se_DeleteFleetLocationsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFleetLocationsCommand}.
  */

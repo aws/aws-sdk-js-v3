@@ -19,6 +19,10 @@ import { de_GetDataCatalogCommand, se_GetDataCatalogCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataCatalogCommand}.
  */

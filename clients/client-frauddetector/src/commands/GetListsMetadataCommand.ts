@@ -19,6 +19,10 @@ import { de_GetListsMetadataCommand, se_GetListsMetadataCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetListsMetadataCommand}.
  */

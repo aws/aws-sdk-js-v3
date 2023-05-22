@@ -19,6 +19,10 @@ import { de_ListEventTrackersCommand, se_ListEventTrackersCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventTrackersCommand}.
  */

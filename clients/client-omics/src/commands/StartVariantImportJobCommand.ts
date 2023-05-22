@@ -19,6 +19,10 @@ import { de_StartVariantImportJobCommand, se_StartVariantImportJobCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartVariantImportJobCommand}.
  */

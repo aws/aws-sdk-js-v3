@@ -19,6 +19,10 @@ import { de_GetCachePolicyConfigCommand, se_GetCachePolicyConfigCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCachePolicyConfigCommand}.
  */

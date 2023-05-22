@@ -19,6 +19,10 @@ import { de_ListBotRecommendationsCommand, se_ListBotRecommendationsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBotRecommendationsCommand}.
  */

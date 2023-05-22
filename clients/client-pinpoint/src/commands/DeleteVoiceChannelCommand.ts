@@ -19,6 +19,10 @@ import { de_DeleteVoiceChannelCommand, se_DeleteVoiceChannelCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVoiceChannelCommand}.
  */

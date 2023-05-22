@@ -19,6 +19,10 @@ import { de_ModifyCacheParameterGroupCommand, se_ModifyCacheParameterGroupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyCacheParameterGroupCommand}.
  */

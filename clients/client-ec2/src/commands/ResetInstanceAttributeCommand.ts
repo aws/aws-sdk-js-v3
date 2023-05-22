@@ -19,6 +19,10 @@ import { de_ResetInstanceAttributeCommand, se_ResetInstanceAttributeCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetInstanceAttributeCommand}.
  */

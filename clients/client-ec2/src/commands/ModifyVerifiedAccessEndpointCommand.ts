@@ -19,6 +19,10 @@ import { de_ModifyVerifiedAccessEndpointCommand, se_ModifyVerifiedAccessEndpoint
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyVerifiedAccessEndpointCommand}.
  */

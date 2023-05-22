@@ -23,6 +23,10 @@ import { de_PutKeywordCommand, se_PutKeywordCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutKeywordCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_e
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFleetCommand}.
  */

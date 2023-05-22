@@ -19,6 +19,10 @@ import { de_CreateDatasetGroupCommand, se_CreateDatasetGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDatasetGroupCommand}.
  */

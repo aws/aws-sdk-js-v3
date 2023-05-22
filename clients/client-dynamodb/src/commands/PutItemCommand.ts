@@ -19,6 +19,10 @@ import { de_PutItemCommand, se_PutItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutItemCommand}.
  */

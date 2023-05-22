@@ -19,6 +19,10 @@ import { de_UpdateDocumentationPartCommand, se_UpdateDocumentationPartCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDocumentationPartCommand}.
  */

@@ -24,6 +24,10 @@ import { de_StopUserImportJobCommand, se_StopUserImportJobCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopUserImportJobCommand}.
  */

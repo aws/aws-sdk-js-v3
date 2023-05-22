@@ -19,6 +19,10 @@ import { de_AssociateTrackerConsumerCommand, se_AssociateTrackerConsumerCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateTrackerConsumerCommand}.
  */

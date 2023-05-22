@@ -19,6 +19,10 @@ import { de_UploadLayerPartCommand, se_UploadLayerPartCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UploadLayerPartCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CancelSpotFleetRequestsCommand, se_CancelSpotFleetRequestsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelSpotFleetRequestsCommand}.
  */

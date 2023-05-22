@@ -19,6 +19,10 @@ import { de_CreateMapCommand, se_CreateMapCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMapCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetGameConfigurationCommand, se_GetGameConfigurationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGameConfigurationCommand}.
  */

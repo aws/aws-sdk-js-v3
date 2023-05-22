@@ -19,6 +19,10 @@ import { de_DeactivateAnomalyDetectorCommand, se_DeactivateAnomalyDetectorComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeactivateAnomalyDetectorCommand}.
  */

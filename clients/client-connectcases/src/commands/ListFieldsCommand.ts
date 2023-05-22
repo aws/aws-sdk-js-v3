@@ -19,6 +19,10 @@ import { de_ListFieldsCommand, se_ListFieldsCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFieldsCommand}.
  */

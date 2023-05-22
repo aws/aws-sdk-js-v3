@@ -19,6 +19,10 @@ import { de_CreateAppBlockCommand, se_CreateAppBlockCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAppBlockCommand}.
  */

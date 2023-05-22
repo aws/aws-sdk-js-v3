@@ -19,6 +19,10 @@ import { de_StartFHIRExportJobCommand, se_StartFHIRExportJobCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartFHIRExportJobCommand}.
  */

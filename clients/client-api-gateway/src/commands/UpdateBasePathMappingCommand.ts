@@ -19,6 +19,10 @@ import { de_UpdateBasePathMappingCommand, se_UpdateBasePathMappingCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBasePathMappingCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreatePartitionIndexCommand, se_CreatePartitionIndexCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePartitionIndexCommand}.
  */

@@ -22,6 +22,10 @@ import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig }
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartMedicalTranscriptionJobCommand}.
  */

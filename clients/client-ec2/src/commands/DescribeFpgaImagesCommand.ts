@@ -19,6 +19,10 @@ import { de_DescribeFpgaImagesCommand, se_DescribeFpgaImagesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFpgaImagesCommand}.
  */

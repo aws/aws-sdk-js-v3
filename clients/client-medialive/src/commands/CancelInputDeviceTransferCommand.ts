@@ -19,6 +19,10 @@ import { de_CancelInputDeviceTransferCommand, se_CancelInputDeviceTransferComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelInputDeviceTransferCommand}.
  */

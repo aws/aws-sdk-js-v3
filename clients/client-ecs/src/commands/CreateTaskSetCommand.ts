@@ -19,6 +19,10 @@ import { de_CreateTaskSetCommand, se_CreateTaskSetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateTaskSetCommand}.
  */

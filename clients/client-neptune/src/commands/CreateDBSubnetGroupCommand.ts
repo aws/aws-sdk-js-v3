@@ -19,6 +19,10 @@ import { de_CreateDBSubnetGroupCommand, se_CreateDBSubnetGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDBSubnetGroupCommand}.
  */

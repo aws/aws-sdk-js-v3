@@ -24,6 +24,10 @@ import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateUserCommand}.
  */

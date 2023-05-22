@@ -19,6 +19,10 @@ import { de_DeleteCachePolicyCommand, se_DeleteCachePolicyCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCachePolicyCommand}.
  */

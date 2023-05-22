@@ -19,6 +19,10 @@ import { de_GetMetricStreamCommand, se_GetMetricStreamCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMetricStreamCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeEventAggregatesCommand, se_DescribeEventAggregatesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEventAggregatesCommand}.
  */

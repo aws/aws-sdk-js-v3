@@ -19,6 +19,10 @@ import { de_DeleteRulesetCommand, se_DeleteRulesetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRulesetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteVoiceProfileCommand, se_DeleteVoiceProfileCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVoiceProfileCommand}.
  */

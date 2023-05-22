@@ -19,6 +19,10 @@ import { de_DeleteRoomSkillParameterCommand, se_DeleteRoomSkillParameterCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRoomSkillParameterCommand}.
  */

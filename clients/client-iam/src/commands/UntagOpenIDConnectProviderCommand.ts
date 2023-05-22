@@ -19,6 +19,10 @@ import { de_UntagOpenIDConnectProviderCommand, se_UntagOpenIDConnectProviderComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagOpenIDConnectProviderCommand}.
  */

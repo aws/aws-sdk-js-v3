@@ -19,6 +19,10 @@ import { de_CancelZonalShiftCommand, se_CancelZonalShiftCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelZonalShiftCommand}.
  */

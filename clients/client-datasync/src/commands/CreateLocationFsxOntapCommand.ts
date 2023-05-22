@@ -23,6 +23,10 @@ import { de_CreateLocationFsxOntapCommand, se_CreateLocationFsxOntapCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocationFsxOntapCommand}.
  */

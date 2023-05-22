@@ -19,6 +19,10 @@ import { de_ModifyVpnTunnelOptionsCommand, se_ModifyVpnTunnelOptionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyVpnTunnelOptionsCommand}.
  */

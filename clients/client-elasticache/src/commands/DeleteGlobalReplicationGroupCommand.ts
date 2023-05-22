@@ -19,6 +19,10 @@ import { de_DeleteGlobalReplicationGroupCommand, se_DeleteGlobalReplicationGroup
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGlobalReplicationGroupCommand}.
  */

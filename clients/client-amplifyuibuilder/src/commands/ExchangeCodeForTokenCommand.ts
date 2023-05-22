@@ -24,6 +24,10 @@ import { de_ExchangeCodeForTokenCommand, se_ExchangeCodeForTokenCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExchangeCodeForTokenCommand}.
  */

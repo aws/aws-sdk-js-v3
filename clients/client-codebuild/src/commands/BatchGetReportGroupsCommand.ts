@@ -19,6 +19,10 @@ import { de_BatchGetReportGroupsCommand, se_BatchGetReportGroupsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetReportGroupsCommand}.
  */

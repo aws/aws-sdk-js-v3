@@ -19,6 +19,10 @@ import { de_ListLocationsCommand, se_ListLocationsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLocationsCommand}.
  */

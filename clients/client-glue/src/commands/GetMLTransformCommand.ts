@@ -19,6 +19,10 @@ import { de_GetMLTransformCommand, se_GetMLTransformCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMLTransformCommand}.
  */

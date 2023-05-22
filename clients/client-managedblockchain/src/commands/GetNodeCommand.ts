@@ -23,6 +23,10 @@ import { de_GetNodeCommand, se_GetNodeCommand } from "../protocols/Aws_restJson1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetNodeCommand}.
  */

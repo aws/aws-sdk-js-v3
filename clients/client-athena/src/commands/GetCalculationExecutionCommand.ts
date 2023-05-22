@@ -19,6 +19,10 @@ import { de_GetCalculationExecutionCommand, se_GetCalculationExecutionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCalculationExecutionCommand}.
  */

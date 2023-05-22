@@ -19,6 +19,10 @@ import { de_AssociateLambdaFunctionCommand, se_AssociateLambdaFunctionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateLambdaFunctionCommand}.
  */

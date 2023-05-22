@@ -23,6 +23,10 @@ import { de_InvokeScreenAutomationCommand, se_InvokeScreenAutomationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InvokeScreenAutomationCommand}.
  */

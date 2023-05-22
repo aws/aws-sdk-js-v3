@@ -19,6 +19,10 @@ import { de_GetDeviceDefinitionCommand, se_GetDeviceDefinitionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeviceDefinitionCommand}.
  */

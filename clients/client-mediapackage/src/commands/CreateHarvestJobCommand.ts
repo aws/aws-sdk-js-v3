@@ -19,6 +19,10 @@ import { de_CreateHarvestJobCommand, se_CreateHarvestJobCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateHarvestJobCommand}.
  */

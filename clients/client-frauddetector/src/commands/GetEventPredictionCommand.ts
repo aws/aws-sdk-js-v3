@@ -23,6 +23,10 @@ import { de_GetEventPredictionCommand, se_GetEventPredictionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEventPredictionCommand}.
  */

@@ -23,6 +23,10 @@ import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveTagsFromResourceCommand}.
  */

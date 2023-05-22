@@ -19,6 +19,10 @@ import { de_CreateSiteCommand, se_CreateSiteCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSiteCommand}.
  */

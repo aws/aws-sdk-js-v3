@@ -19,6 +19,10 @@ import { de_PutAlarmCommand, se_PutAlarmCommand } from "../protocols/Aws_json1_1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAlarmCommand}.
  */

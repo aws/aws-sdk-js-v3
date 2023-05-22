@@ -19,6 +19,10 @@ import { de_RetrieveEnvironmentInfoCommand, se_RetrieveEnvironmentInfoCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RetrieveEnvironmentInfoCommand}.
  */

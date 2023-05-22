@@ -19,6 +19,10 @@ import { de_StartTransactionCommand, se_StartTransactionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartTransactionCommand}.
  */

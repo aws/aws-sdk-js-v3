@@ -19,6 +19,10 @@ import { de_PutConfigurationAggregatorCommand, se_PutConfigurationAggregatorComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutConfigurationAggregatorCommand}.
  */

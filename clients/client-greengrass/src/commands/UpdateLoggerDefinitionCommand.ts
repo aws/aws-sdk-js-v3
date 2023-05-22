@@ -19,6 +19,10 @@ import { de_UpdateLoggerDefinitionCommand, se_UpdateLoggerDefinitionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLoggerDefinitionCommand}.
  */

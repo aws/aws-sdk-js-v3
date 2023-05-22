@@ -19,6 +19,10 @@ import { de_DescribePublicIpv4PoolsCommand, se_DescribePublicIpv4PoolsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePublicIpv4PoolsCommand}.
  */

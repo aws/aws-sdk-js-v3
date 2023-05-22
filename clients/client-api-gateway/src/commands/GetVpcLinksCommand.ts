@@ -19,6 +19,10 @@ import { de_GetVpcLinksCommand, se_GetVpcLinksCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVpcLinksCommand}.
  */

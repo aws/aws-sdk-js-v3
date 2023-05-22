@@ -23,6 +23,10 @@ import { de_UpdateCustomKeyStoreCommand, se_UpdateCustomKeyStoreCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCustomKeyStoreCommand}.
  */

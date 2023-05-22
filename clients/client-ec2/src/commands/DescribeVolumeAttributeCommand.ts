@@ -20,6 +20,10 @@ import { de_DescribeVolumeAttributeCommand, se_DescribeVolumeAttributeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVolumeAttributeCommand}.
  */

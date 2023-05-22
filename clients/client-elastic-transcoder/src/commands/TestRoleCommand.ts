@@ -23,6 +23,10 @@ import { de_TestRoleCommand, se_TestRoleCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestRoleCommand}.
  */

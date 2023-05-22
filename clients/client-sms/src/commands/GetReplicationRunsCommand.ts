@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetReplicationRunsCommand}.
  */

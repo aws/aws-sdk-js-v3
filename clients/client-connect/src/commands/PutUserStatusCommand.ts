@@ -19,6 +19,10 @@ import { de_PutUserStatusCommand, se_PutUserStatusCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutUserStatusCommand}.
  */

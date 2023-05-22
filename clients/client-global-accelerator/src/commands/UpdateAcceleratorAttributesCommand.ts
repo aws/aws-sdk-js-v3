@@ -23,6 +23,10 @@ import { de_UpdateAcceleratorAttributesCommand, se_UpdateAcceleratorAttributesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAcceleratorAttributesCommand}.
  */

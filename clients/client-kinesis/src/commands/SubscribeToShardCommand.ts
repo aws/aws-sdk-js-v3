@@ -24,6 +24,10 @@ import { de_SubscribeToShardCommand, se_SubscribeToShardCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SubscribeToShardCommand}.
  */

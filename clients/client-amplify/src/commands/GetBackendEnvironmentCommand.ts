@@ -19,6 +19,10 @@ import { de_GetBackendEnvironmentCommand, se_GetBackendEnvironmentCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBackendEnvironmentCommand}.
  */

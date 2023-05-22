@@ -19,6 +19,10 @@ import { de_GetAdministratorAccountCommand, se_GetAdministratorAccountCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAdministratorAccountCommand}.
  */

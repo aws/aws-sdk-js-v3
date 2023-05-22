@@ -23,6 +23,10 @@ import { de_ListProblemsCommand, se_ListProblemsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProblemsCommand}.
  */

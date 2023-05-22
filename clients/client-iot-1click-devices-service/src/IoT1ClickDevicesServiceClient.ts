@@ -84,6 +84,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -247,7 +249,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type IoT1ClickDevicesServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type IoT1ClickDevicesServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -266,7 +268,7 @@ export interface IoT1ClickDevicesServiceClientConfig extends IoT1ClickDevicesSer
 /**
  * @public
  */
-type IoT1ClickDevicesServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type IoT1ClickDevicesServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

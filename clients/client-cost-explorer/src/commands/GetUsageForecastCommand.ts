@@ -19,6 +19,10 @@ import { de_GetUsageForecastCommand, se_GetUsageForecastCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUsageForecastCommand}.
  */

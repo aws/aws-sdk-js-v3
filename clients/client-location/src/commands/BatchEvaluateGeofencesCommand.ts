@@ -23,6 +23,10 @@ import { de_BatchEvaluateGeofencesCommand, se_BatchEvaluateGeofencesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchEvaluateGeofencesCommand}.
  */

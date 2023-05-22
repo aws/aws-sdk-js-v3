@@ -19,6 +19,10 @@ import { de_PutReplicationConfigurationCommand, se_PutReplicationConfigurationCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutReplicationConfigurationCommand}.
  */

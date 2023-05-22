@@ -23,6 +23,10 @@ import { de_ReadPipelineCommand, se_ReadPipelineCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReadPipelineCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteAssetCommand, se_DeleteAssetCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAssetCommand}.
  */

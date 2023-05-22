@@ -19,6 +19,10 @@ import { de_BatchAcknowledgeAlarmCommand, se_BatchAcknowledgeAlarmCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchAcknowledgeAlarmCommand}.
  */

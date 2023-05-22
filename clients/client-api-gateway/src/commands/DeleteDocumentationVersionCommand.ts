@@ -19,6 +19,10 @@ import { de_DeleteDocumentationVersionCommand, se_DeleteDocumentationVersionComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDocumentationVersionCommand}.
  */

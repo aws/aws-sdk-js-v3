@@ -23,6 +23,10 @@ import { de_DetectAnomaliesCommand, se_DetectAnomaliesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetectAnomaliesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateAnalyzerCommand, se_CreateAnalyzerCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAnalyzerCommand}.
  */

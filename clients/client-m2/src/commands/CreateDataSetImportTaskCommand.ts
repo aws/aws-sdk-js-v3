@@ -19,6 +19,10 @@ import { de_CreateDataSetImportTaskCommand, se_CreateDataSetImportTaskCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDataSetImportTaskCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetImageRecipePolicyCommand, se_GetImageRecipePolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetImageRecipePolicyCommand}.
  */

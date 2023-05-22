@@ -19,6 +19,10 @@ import { de_DeleteFunctionConcurrencyCommand, se_DeleteFunctionConcurrencyComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFunctionConcurrencyCommand}.
  */

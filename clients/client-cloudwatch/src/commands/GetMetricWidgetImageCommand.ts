@@ -19,6 +19,10 @@ import { de_GetMetricWidgetImageCommand, se_GetMetricWidgetImageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMetricWidgetImageCommand}.
  */

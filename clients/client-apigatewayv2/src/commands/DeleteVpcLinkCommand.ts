@@ -19,6 +19,10 @@ import { de_DeleteVpcLinkCommand, se_DeleteVpcLinkCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVpcLinkCommand}.
  */

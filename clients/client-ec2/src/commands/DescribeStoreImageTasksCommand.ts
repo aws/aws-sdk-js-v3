@@ -19,6 +19,10 @@ import { de_DescribeStoreImageTasksCommand, se_DescribeStoreImageTasksCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeStoreImageTasksCommand}.
  */

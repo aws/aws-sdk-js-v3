@@ -19,6 +19,10 @@ import { de_GetCredentialReportCommand, se_GetCredentialReportCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCredentialReportCommand}.
  */

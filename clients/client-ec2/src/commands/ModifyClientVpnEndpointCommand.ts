@@ -19,6 +19,10 @@ import { de_ModifyClientVpnEndpointCommand, se_ModifyClientVpnEndpointCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyClientVpnEndpointCommand}.
  */

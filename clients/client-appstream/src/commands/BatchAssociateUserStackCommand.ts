@@ -24,6 +24,10 @@ import { de_BatchAssociateUserStackCommand, se_BatchAssociateUserStackCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchAssociateUserStackCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListJourneysCommand, se_ListJourneysCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListJourneysCommand}.
  */

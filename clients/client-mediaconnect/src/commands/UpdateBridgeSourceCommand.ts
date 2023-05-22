@@ -19,6 +19,10 @@ import { de_UpdateBridgeSourceCommand, se_UpdateBridgeSourceCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBridgeSourceCommand}.
  */

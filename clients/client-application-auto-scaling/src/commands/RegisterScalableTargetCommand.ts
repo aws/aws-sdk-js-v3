@@ -23,6 +23,10 @@ import { de_RegisterScalableTargetCommand, se_RegisterScalableTargetCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterScalableTargetCommand}.
  */

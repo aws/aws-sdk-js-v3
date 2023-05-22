@@ -28,6 +28,10 @@ import { de_AdminConfirmSignUpCommand, se_AdminConfirmSignUpCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminConfirmSignUpCommand}.
  */

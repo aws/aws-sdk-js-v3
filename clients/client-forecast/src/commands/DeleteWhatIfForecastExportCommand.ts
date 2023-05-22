@@ -19,6 +19,10 @@ import { de_DeleteWhatIfForecastExportCommand, se_DeleteWhatIfForecastExportComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWhatIfForecastExportCommand}.
  */

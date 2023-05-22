@@ -19,6 +19,10 @@ import { de_ListFirewallsCommand, se_ListFirewallsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFirewallsCommand}.
  */

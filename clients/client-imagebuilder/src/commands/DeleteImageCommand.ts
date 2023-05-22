@@ -19,6 +19,10 @@ import { de_DeleteImageCommand, se_DeleteImageCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteImageCommand}.
  */

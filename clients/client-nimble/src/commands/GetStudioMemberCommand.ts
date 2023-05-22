@@ -19,6 +19,10 @@ import { de_GetStudioMemberCommand, se_GetStudioMemberCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStudioMemberCommand}.
  */

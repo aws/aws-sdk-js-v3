@@ -23,6 +23,10 @@ import { de_CreateBackupVaultCommand, se_CreateBackupVaultCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBackupVaultCommand}.
  */

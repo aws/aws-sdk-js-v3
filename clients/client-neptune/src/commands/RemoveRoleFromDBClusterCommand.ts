@@ -19,6 +19,10 @@ import { de_RemoveRoleFromDBClusterCommand, se_RemoveRoleFromDBClusterCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveRoleFromDBClusterCommand}.
  */

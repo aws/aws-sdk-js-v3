@@ -19,6 +19,10 @@ import { de_CreateModelManifestCommand, se_CreateModelManifestCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateModelManifestCommand}.
  */

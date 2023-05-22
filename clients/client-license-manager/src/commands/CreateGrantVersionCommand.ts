@@ -19,6 +19,10 @@ import { de_CreateGrantVersionCommand, se_CreateGrantVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGrantVersionCommand}.
  */

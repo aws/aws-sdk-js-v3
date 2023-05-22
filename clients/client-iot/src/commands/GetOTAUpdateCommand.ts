@@ -19,6 +19,10 @@ import { de_GetOTAUpdateCommand, se_GetOTAUpdateCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOTAUpdateCommand}.
  */

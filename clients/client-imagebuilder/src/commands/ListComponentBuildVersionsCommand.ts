@@ -19,6 +19,10 @@ import { de_ListComponentBuildVersionsCommand, se_ListComponentBuildVersionsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListComponentBuildVersionsCommand}.
  */

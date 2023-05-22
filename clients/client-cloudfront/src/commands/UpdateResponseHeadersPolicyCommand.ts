@@ -19,6 +19,10 @@ import { de_UpdateResponseHeadersPolicyCommand, se_UpdateResponseHeadersPolicyCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateResponseHeadersPolicyCommand}.
  */

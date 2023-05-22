@@ -23,6 +23,10 @@ import { de_CreateFileSystemCommand, se_CreateFileSystemCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFileSystemCommand}.
  */

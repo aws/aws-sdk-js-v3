@@ -19,6 +19,10 @@ import { de_DescribeDBEngineVersionsCommand, se_DescribeDBEngineVersionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDBEngineVersionsCommand}.
  */

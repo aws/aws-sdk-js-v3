@@ -23,6 +23,10 @@ import { de_UpdateVpcEndpointCommand, se_UpdateVpcEndpointCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVpcEndpointCommand}.
  */

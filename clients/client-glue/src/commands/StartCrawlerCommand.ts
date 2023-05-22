@@ -19,6 +19,10 @@ import { de_StartCrawlerCommand, se_StartCrawlerCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartCrawlerCommand}.
  */

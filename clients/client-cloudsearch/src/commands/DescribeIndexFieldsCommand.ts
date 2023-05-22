@@ -19,6 +19,10 @@ import { de_DescribeIndexFieldsCommand, se_DescribeIndexFieldsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIndexFieldsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateLabelCommand, se_CreateLabelCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLabelCommand}.
  */

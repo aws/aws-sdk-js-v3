@@ -19,6 +19,10 @@ import { de_StopThingRegistrationTaskCommand, se_StopThingRegistrationTaskComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopThingRegistrationTaskCommand}.
  */

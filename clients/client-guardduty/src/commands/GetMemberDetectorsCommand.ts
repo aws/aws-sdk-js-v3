@@ -19,6 +19,10 @@ import { de_GetMemberDetectorsCommand, se_GetMemberDetectorsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMemberDetectorsCommand}.
  */

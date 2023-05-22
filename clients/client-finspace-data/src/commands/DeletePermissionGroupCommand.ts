@@ -19,6 +19,10 @@ import { de_DeletePermissionGroupCommand, se_DeletePermissionGroupCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePermissionGroupCommand}.
  */

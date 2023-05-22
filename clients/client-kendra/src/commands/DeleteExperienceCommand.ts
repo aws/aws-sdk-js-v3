@@ -19,6 +19,10 @@ import { de_DeleteExperienceCommand, se_DeleteExperienceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteExperienceCommand}.
  */

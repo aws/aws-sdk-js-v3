@@ -19,6 +19,10 @@ import { de_GetContainerLogCommand, se_GetContainerLogCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContainerLogCommand}.
  */

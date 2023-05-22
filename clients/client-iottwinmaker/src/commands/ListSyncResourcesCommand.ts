@@ -19,6 +19,10 @@ import { de_ListSyncResourcesCommand, se_ListSyncResourcesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSyncResourcesCommand}.
  */

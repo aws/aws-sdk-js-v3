@@ -19,6 +19,10 @@ import { de_CreateFlowLogsCommand, se_CreateFlowLogsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFlowLogsCommand}.
  */

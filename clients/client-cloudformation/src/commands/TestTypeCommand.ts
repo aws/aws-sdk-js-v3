@@ -19,6 +19,10 @@ import { de_TestTypeCommand, se_TestTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestTypeCommand}.
  */

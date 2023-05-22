@@ -19,6 +19,10 @@ import { de_DescribeCacheEngineVersionsCommand, se_DescribeCacheEngineVersionsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCacheEngineVersionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CancelKeyDeletionCommand, se_CancelKeyDeletionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelKeyDeletionCommand}.
  */

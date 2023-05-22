@@ -19,6 +19,10 @@ import { de_DescribeFargateProfileCommand, se_DescribeFargateProfileCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFargateProfileCommand}.
  */

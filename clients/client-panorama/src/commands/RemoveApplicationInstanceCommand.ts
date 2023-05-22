@@ -19,6 +19,10 @@ import { de_RemoveApplicationInstanceCommand, se_RemoveApplicationInstanceComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveApplicationInstanceCommand}.
  */

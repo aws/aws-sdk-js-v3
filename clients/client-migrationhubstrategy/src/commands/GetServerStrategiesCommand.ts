@@ -23,6 +23,10 @@ import { de_GetServerStrategiesCommand, se_GetServerStrategiesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetServerStrategiesCommand}.
  */

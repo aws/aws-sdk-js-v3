@@ -19,6 +19,10 @@ import { de_DeleteFirewallPolicyCommand, se_DeleteFirewallPolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFirewallPolicyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteDBClusterEndpointCommand, se_DeleteDBClusterEndpointCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDBClusterEndpointCommand}.
  */

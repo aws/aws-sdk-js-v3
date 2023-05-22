@@ -19,6 +19,10 @@ import { de_CreateDistributionCommand, se_CreateDistributionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDistributionCommand}.
  */

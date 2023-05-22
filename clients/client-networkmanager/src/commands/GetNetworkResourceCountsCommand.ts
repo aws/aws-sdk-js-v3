@@ -19,6 +19,10 @@ import { de_GetNetworkResourceCountsCommand, se_GetNetworkResourceCountsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetNetworkResourceCountsCommand}.
  */

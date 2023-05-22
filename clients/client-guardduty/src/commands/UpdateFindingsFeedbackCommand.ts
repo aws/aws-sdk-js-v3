@@ -19,6 +19,10 @@ import { de_UpdateFindingsFeedbackCommand, se_UpdateFindingsFeedbackCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFindingsFeedbackCommand}.
  */

@@ -23,6 +23,10 @@ import { de_CreateLocationFsxWindowsCommand, se_CreateLocationFsxWindowsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocationFsxWindowsCommand}.
  */

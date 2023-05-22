@@ -18,6 +18,10 @@ import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link XmlEmptyListsCommand}.
  */

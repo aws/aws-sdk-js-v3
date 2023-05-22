@@ -19,6 +19,10 @@ import { de_DescribeDryRunProgressCommand, se_DescribeDryRunProgressCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDryRunProgressCommand}.
  */

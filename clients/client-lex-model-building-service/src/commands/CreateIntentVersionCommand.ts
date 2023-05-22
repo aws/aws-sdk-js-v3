@@ -23,6 +23,10 @@ import { de_CreateIntentVersionCommand, se_CreateIntentVersionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateIntentVersionCommand}.
  */

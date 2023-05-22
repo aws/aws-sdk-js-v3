@@ -19,6 +19,10 @@ import { de_ListPipelineExecutionsCommand, se_ListPipelineExecutionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPipelineExecutionsCommand}.
  */

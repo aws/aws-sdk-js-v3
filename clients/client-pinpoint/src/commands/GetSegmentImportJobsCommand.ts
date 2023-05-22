@@ -19,6 +19,10 @@ import { de_GetSegmentImportJobsCommand, se_GetSegmentImportJobsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSegmentImportJobsCommand}.
  */

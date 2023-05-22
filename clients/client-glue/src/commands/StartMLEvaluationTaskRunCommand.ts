@@ -19,6 +19,10 @@ import { de_StartMLEvaluationTaskRunCommand, se_StartMLEvaluationTaskRunCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartMLEvaluationTaskRunCommand}.
  */

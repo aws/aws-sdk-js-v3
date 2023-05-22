@@ -19,6 +19,10 @@ import { de_GetConnectInstanceConfigCommand, se_GetConnectInstanceConfigCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConnectInstanceConfigCommand}.
  */

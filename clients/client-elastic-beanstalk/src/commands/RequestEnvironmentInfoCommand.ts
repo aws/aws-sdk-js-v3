@@ -19,6 +19,10 @@ import { de_RequestEnvironmentInfoCommand, se_RequestEnvironmentInfoCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RequestEnvironmentInfoCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ResetDBClusterParameterGroupCommand, se_ResetDBClusterParameterGroup
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetDBClusterParameterGroupCommand}.
  */

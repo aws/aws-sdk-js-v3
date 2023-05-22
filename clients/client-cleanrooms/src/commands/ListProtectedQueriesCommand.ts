@@ -19,6 +19,10 @@ import { de_ListProtectedQueriesCommand, se_ListProtectedQueriesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProtectedQueriesCommand}.
  */

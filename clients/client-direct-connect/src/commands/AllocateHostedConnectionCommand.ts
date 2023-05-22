@@ -19,6 +19,10 @@ import { de_AllocateHostedConnectionCommand, se_AllocateHostedConnectionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AllocateHostedConnectionCommand}.
  */

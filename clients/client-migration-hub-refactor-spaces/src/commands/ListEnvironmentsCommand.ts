@@ -27,6 +27,10 @@ import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEnvironmentsCommand}.
  */

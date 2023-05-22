@@ -19,6 +19,10 @@ import { de_ModifyUserCommand, se_ModifyUserCommand } from "../protocols/Aws_que
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyUserCommand}.
  */

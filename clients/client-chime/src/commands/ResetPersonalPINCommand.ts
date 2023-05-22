@@ -23,6 +23,10 @@ import { de_ResetPersonalPINCommand, se_ResetPersonalPINCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetPersonalPINCommand}.
  */

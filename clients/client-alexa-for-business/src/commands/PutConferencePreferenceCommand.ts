@@ -19,6 +19,10 @@ import { de_PutConferencePreferenceCommand, se_PutConferencePreferenceCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutConferencePreferenceCommand}.
  */

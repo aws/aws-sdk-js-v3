@@ -19,6 +19,10 @@ import { de_ListDetectorModelsCommand, se_ListDetectorModelsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDetectorModelsCommand}.
  */

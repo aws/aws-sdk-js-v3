@@ -19,6 +19,10 @@ import { de_StartImageBuilderCommand, se_StartImageBuilderCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartImageBuilderCommand}.
  */

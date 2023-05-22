@@ -19,6 +19,10 @@ import { de_ListModelPackagingJobsCommand, se_ListModelPackagingJobsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListModelPackagingJobsCommand}.
  */

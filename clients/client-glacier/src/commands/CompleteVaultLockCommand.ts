@@ -19,6 +19,10 @@ import { de_CompleteVaultLockCommand, se_CompleteVaultLockCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CompleteVaultLockCommand}.
  */

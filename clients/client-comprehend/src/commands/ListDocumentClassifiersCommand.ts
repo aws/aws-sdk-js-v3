@@ -23,6 +23,10 @@ import { de_ListDocumentClassifiersCommand, se_ListDocumentClassifiersCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDocumentClassifiersCommand}.
  */

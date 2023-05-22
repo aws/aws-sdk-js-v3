@@ -19,6 +19,10 @@ import { de_GetStageDeploymentCommand, se_GetStageDeploymentCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStageDeploymentCommand}.
  */

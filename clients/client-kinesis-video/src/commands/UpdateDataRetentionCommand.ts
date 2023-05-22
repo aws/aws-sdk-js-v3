@@ -19,6 +19,10 @@ import { de_UpdateDataRetentionCommand, se_UpdateDataRetentionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDataRetentionCommand}.
  */

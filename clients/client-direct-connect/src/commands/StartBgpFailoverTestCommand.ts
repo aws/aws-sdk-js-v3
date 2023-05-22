@@ -19,6 +19,10 @@ import { de_StartBgpFailoverTestCommand, se_StartBgpFailoverTestCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartBgpFailoverTestCommand}.
  */

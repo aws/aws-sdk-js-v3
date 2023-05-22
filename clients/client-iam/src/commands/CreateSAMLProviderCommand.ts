@@ -19,6 +19,10 @@ import { de_CreateSAMLProviderCommand, se_CreateSAMLProviderCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSAMLProviderCommand}.
  */

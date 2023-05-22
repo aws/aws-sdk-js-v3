@@ -19,6 +19,10 @@ import { de_DeleteAccessKeyCommand, se_DeleteAccessKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAccessKeyCommand}.
  */

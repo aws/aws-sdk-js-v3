@@ -19,6 +19,10 @@ import { de_DisassociateRecoveryPointCommand, se_DisassociateRecoveryPointComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateRecoveryPointCommand}.
  */

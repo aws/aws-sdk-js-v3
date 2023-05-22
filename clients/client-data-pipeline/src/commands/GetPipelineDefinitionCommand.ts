@@ -19,6 +19,10 @@ import { de_GetPipelineDefinitionCommand, se_GetPipelineDefinitionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPipelineDefinitionCommand}.
  */

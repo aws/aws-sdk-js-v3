@@ -19,6 +19,10 @@ import { de_CreateCapacityReservationCommand, se_CreateCapacityReservationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCapacityReservationCommand}.
  */

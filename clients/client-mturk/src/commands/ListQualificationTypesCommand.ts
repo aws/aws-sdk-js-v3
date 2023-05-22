@@ -19,6 +19,10 @@ import { de_ListQualificationTypesCommand, se_ListQualificationTypesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListQualificationTypesCommand}.
  */

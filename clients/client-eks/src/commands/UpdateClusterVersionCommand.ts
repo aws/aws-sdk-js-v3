@@ -19,6 +19,10 @@ import { de_UpdateClusterVersionCommand, se_UpdateClusterVersionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateClusterVersionCommand}.
  */

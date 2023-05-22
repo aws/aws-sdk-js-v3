@@ -19,6 +19,10 @@ import { de_RegisterEventTopicCommand, se_RegisterEventTopicCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterEventTopicCommand}.
  */

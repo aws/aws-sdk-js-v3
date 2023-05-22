@@ -23,6 +23,10 @@ import { de_DescribeSourceServersCommand, se_DescribeSourceServersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSourceServersCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeAlgorithmCommand, se_DescribeAlgorithmCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAlgorithmCommand}.
  */

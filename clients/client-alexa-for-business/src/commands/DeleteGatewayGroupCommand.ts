@@ -19,6 +19,10 @@ import { de_DeleteGatewayGroupCommand, se_DeleteGatewayGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGatewayGroupCommand}.
  */

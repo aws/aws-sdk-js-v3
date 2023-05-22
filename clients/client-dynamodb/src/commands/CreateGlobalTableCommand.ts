@@ -19,6 +19,10 @@ import { de_CreateGlobalTableCommand, se_CreateGlobalTableCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGlobalTableCommand}.
  */

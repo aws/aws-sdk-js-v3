@@ -23,6 +23,10 @@ import { de_DescribeApplicationVersionCommand, se_DescribeApplicationVersionComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeApplicationVersionCommand}.
  */

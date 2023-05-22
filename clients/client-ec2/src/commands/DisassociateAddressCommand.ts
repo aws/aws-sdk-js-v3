@@ -19,6 +19,10 @@ import { de_DisassociateAddressCommand, se_DisassociateAddressCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateAddressCommand}.
  */

@@ -78,6 +78,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -229,7 +231,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type MacieClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MacieClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -248,7 +250,7 @@ export interface MacieClientConfig extends MacieClientConfigType {}
 /**
  * @public
  */
-type MacieClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MacieClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

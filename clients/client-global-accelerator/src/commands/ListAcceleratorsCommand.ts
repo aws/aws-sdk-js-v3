@@ -23,6 +23,10 @@ import { de_ListAcceleratorsCommand, se_ListAcceleratorsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAcceleratorsCommand}.
  */

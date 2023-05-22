@@ -19,6 +19,10 @@ import { de_DeleteEventCommand, se_DeleteEventCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEventCommand}.
  */

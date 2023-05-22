@@ -20,6 +20,10 @@ import { de_DescribeContactEvaluationCommand, se_DescribeContactEvaluationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeContactEvaluationCommand}.
  */

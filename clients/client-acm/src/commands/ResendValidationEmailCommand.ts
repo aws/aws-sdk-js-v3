@@ -19,6 +19,10 @@ import { de_ResendValidationEmailCommand, se_ResendValidationEmailCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResendValidationEmailCommand}.
  */

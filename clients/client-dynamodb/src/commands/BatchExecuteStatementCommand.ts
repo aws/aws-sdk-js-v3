@@ -19,6 +19,10 @@ import { de_BatchExecuteStatementCommand, se_BatchExecuteStatementCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchExecuteStatementCommand}.
  */

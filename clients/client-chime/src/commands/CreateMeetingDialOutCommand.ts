@@ -23,6 +23,10 @@ import { de_CreateMeetingDialOutCommand, se_CreateMeetingDialOutCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMeetingDialOutCommand}.
  */

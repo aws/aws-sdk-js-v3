@@ -19,6 +19,10 @@ import { de_GetRouteAnalysisCommand, se_GetRouteAnalysisCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRouteAnalysisCommand}.
  */

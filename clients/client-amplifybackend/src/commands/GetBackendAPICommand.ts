@@ -19,6 +19,10 @@ import { de_GetBackendAPICommand, se_GetBackendAPICommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBackendAPICommand}.
  */

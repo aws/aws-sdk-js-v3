@@ -18,6 +18,10 @@ import { de_NoInputAndOutputCommand, se_NoInputAndOutputCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link NoInputAndOutputCommand}.
  */

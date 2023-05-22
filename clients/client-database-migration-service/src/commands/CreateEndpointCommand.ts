@@ -28,6 +28,10 @@ import { de_CreateEndpointCommand, se_CreateEndpointCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEndpointCommand}.
  */

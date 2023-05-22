@@ -72,6 +72,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -233,7 +235,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type BackupStorageClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type BackupStorageClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -252,7 +254,7 @@ export interface BackupStorageClientConfig extends BackupStorageClientConfigType
 /**
  * @public
  */
-type BackupStorageClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type BackupStorageClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -19,6 +19,10 @@ import { de_DescribeVirtualNodeCommand, se_DescribeVirtualNodeCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVirtualNodeCommand}.
  */

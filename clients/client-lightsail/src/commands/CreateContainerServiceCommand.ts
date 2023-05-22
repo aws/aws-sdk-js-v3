@@ -19,6 +19,10 @@ import { de_CreateContainerServiceCommand, se_CreateContainerServiceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateContainerServiceCommand}.
  */

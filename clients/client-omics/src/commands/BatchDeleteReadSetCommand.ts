@@ -19,6 +19,10 @@ import { de_BatchDeleteReadSetCommand, se_BatchDeleteReadSetCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteReadSetCommand}.
  */

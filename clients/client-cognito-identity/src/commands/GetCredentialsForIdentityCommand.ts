@@ -19,6 +19,10 @@ import { de_GetCredentialsForIdentityCommand, se_GetCredentialsForIdentityComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCredentialsForIdentityCommand}.
  */

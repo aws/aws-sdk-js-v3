@@ -19,6 +19,10 @@ import { de_ListForecastExportJobsCommand, se_ListForecastExportJobsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListForecastExportJobsCommand}.
  */

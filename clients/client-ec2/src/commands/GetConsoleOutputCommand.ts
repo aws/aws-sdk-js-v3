@@ -19,6 +19,10 @@ import { de_GetConsoleOutputCommand, se_GetConsoleOutputCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConsoleOutputCommand}.
  */

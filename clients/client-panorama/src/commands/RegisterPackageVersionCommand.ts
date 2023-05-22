@@ -19,6 +19,10 @@ import { de_RegisterPackageVersionCommand, se_RegisterPackageVersionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterPackageVersionCommand}.
  */

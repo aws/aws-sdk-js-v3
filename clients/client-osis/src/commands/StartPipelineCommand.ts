@@ -19,6 +19,10 @@ import { de_StartPipelineCommand, se_StartPipelineCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartPipelineCommand}.
  */

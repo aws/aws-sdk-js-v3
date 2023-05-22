@@ -19,6 +19,10 @@ import { de_ListIndicesCommand, se_ListIndicesCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIndicesCommand}.
  */

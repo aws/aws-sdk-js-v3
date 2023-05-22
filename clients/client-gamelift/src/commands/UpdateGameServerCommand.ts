@@ -19,6 +19,10 @@ import { de_UpdateGameServerCommand, se_UpdateGameServerCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGameServerCommand}.
  */

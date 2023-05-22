@@ -19,6 +19,10 @@ import { de_RegisterGameServerCommand, se_RegisterGameServerCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterGameServerCommand}.
  */

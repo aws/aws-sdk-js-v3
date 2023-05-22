@@ -19,6 +19,10 @@ import { de_GetMLModelCommand, se_GetMLModelCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMLModelCommand}.
  */

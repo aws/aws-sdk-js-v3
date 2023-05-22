@@ -19,6 +19,10 @@ import { de_DescribeIpamPoolsCommand, se_DescribeIpamPoolsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIpamPoolsCommand}.
  */

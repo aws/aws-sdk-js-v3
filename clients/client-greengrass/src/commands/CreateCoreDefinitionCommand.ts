@@ -19,6 +19,10 @@ import { de_CreateCoreDefinitionCommand, se_CreateCoreDefinitionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCoreDefinitionCommand}.
  */

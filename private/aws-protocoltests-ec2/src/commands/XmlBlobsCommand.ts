@@ -18,6 +18,10 @@ import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link XmlBlobsCommand}.
  */

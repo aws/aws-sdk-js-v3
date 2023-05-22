@@ -19,6 +19,10 @@ import { de_CreateLogGroupCommand, se_CreateLogGroupCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLogGroupCommand}.
  */

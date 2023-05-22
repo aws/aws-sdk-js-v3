@@ -19,6 +19,10 @@ import { de_GetStreamCommand, se_GetStreamCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStreamCommand}.
  */

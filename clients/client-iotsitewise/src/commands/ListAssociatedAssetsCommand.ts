@@ -19,6 +19,10 @@ import { de_ListAssociatedAssetsCommand, se_ListAssociatedAssetsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssociatedAssetsCommand}.
  */

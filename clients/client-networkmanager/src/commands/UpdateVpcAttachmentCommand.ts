@@ -19,6 +19,10 @@ import { de_UpdateVpcAttachmentCommand, se_UpdateVpcAttachmentCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVpcAttachmentCommand}.
  */

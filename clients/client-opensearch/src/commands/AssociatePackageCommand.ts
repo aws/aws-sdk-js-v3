@@ -19,6 +19,10 @@ import { de_AssociatePackageCommand, se_AssociatePackageCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociatePackageCommand}.
  */

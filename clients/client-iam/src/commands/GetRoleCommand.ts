@@ -19,6 +19,10 @@ import { de_GetRoleCommand, se_GetRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRoleCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetTaskTemplateCommand, se_GetTaskTemplateCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTaskTemplateCommand}.
  */

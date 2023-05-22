@@ -19,6 +19,10 @@ import { de_UpdateSignalCatalogCommand, se_UpdateSignalCatalogCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSignalCatalogCommand}.
  */

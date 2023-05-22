@@ -19,6 +19,10 @@ import { de_DescribeTrafficMirrorSessionsCommand, se_DescribeTrafficMirrorSessio
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTrafficMirrorSessionsCommand}.
  */

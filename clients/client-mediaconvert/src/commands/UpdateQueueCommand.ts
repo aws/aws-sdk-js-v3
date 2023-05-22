@@ -19,6 +19,10 @@ import { de_UpdateQueueCommand, se_UpdateQueueCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateQueueCommand}.
  */

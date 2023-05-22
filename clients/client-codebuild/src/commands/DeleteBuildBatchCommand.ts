@@ -19,6 +19,10 @@ import { de_DeleteBuildBatchCommand, se_DeleteBuildBatchCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBuildBatchCommand}.
  */

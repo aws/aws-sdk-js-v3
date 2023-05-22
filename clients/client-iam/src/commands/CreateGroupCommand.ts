@@ -19,6 +19,10 @@ import { de_CreateGroupCommand, se_CreateGroupCommand } from "../protocols/Aws_q
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGroupCommand}.
  */

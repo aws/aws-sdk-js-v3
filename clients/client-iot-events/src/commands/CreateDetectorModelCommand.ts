@@ -19,6 +19,10 @@ import { de_CreateDetectorModelCommand, se_CreateDetectorModelCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDetectorModelCommand}.
  */

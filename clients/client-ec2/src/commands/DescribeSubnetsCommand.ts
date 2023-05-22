@@ -19,6 +19,10 @@ import { de_DescribeSubnetsCommand, se_DescribeSubnetsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSubnetsCommand}.
  */

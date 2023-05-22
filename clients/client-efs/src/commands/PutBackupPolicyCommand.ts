@@ -19,6 +19,10 @@ import { de_PutBackupPolicyCommand, se_PutBackupPolicyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutBackupPolicyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetPullRequestCommand, se_GetPullRequestCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPullRequestCommand}.
  */

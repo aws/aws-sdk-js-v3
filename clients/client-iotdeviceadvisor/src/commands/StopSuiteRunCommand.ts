@@ -19,6 +19,10 @@ import { de_StopSuiteRunCommand, se_StopSuiteRunCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopSuiteRunCommand}.
  */

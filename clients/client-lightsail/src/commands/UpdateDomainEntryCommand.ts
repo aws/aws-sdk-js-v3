@@ -19,6 +19,10 @@ import { de_UpdateDomainEntryCommand, se_UpdateDomainEntryCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDomainEntryCommand}.
  */

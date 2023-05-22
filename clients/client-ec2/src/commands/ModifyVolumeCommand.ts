@@ -19,6 +19,10 @@ import { de_ModifyVolumeCommand, se_ModifyVolumeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyVolumeCommand}.
  */

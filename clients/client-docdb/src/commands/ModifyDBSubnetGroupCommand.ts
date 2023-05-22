@@ -19,6 +19,10 @@ import { de_ModifyDBSubnetGroupCommand, se_ModifyDBSubnetGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyDBSubnetGroupCommand}.
  */

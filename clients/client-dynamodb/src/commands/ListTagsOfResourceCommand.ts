@@ -19,6 +19,10 @@ import { de_ListTagsOfResourceCommand, se_ListTagsOfResourceCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTagsOfResourceCommand}.
  */

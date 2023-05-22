@@ -19,6 +19,10 @@ import { de_GetCommentCommand, se_GetCommentCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCommentCommand}.
  */

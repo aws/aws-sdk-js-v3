@@ -19,6 +19,10 @@ import { de_DeleteGroupPolicyCommand, se_DeleteGroupPolicyCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGroupPolicyCommand}.
  */

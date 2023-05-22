@@ -19,6 +19,10 @@ import { de_PutRecommendationFeedbackCommand, se_PutRecommendationFeedbackComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRecommendationFeedbackCommand}.
  */

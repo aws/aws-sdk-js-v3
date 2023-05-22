@@ -19,6 +19,10 @@ import { de_GetImportJobCommand, se_GetImportJobCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetImportJobCommand}.
  */

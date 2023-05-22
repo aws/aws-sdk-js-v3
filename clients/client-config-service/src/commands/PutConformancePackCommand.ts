@@ -19,6 +19,10 @@ import { de_PutConformancePackCommand, se_PutConformancePackCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutConformancePackCommand}.
  */

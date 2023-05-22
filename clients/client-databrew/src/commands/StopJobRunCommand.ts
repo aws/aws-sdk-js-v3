@@ -19,6 +19,10 @@ import { de_StopJobRunCommand, se_StopJobRunCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopJobRunCommand}.
  */

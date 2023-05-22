@@ -19,6 +19,10 @@ import { de_UpdateAllowListCommand, se_UpdateAllowListCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAllowListCommand}.
  */

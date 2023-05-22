@@ -23,6 +23,10 @@ import { de_ListApplicationComponentsCommand, se_ListApplicationComponentsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListApplicationComponentsCommand}.
  */

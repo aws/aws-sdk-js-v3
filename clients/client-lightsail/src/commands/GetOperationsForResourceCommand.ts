@@ -19,6 +19,10 @@ import { de_GetOperationsForResourceCommand, se_GetOperationsForResourceCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOperationsForResourceCommand}.
  */

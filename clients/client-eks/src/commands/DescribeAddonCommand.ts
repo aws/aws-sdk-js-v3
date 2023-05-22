@@ -19,6 +19,10 @@ import { de_DescribeAddonCommand, se_DescribeAddonCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAddonCommand}.
  */

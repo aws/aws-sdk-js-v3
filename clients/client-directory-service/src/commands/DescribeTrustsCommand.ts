@@ -19,6 +19,10 @@ import { de_DescribeTrustsCommand, se_DescribeTrustsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTrustsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_TestAuthorizationCommand, se_TestAuthorizationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestAuthorizationCommand}.
  */

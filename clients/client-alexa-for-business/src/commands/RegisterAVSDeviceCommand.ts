@@ -19,6 +19,10 @@ import { de_RegisterAVSDeviceCommand, se_RegisterAVSDeviceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterAVSDeviceCommand}.
  */

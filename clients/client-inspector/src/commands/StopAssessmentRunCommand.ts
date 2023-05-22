@@ -19,6 +19,10 @@ import { de_StopAssessmentRunCommand, se_StopAssessmentRunCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopAssessmentRunCommand}.
  */

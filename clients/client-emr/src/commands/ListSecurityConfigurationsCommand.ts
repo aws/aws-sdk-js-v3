@@ -19,6 +19,10 @@ import { de_ListSecurityConfigurationsCommand, se_ListSecurityConfigurationsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSecurityConfigurationsCommand}.
  */

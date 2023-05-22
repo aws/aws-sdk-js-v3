@@ -19,6 +19,10 @@ import { de_DetachTrafficSourcesCommand, se_DetachTrafficSourcesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachTrafficSourcesCommand}.
  */

@@ -23,6 +23,10 @@ import { de_InitiateDeviceClaimCommand, se_InitiateDeviceClaimCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InitiateDeviceClaimCommand}.
  */

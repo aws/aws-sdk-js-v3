@@ -24,6 +24,10 @@ import { de_UpdateDirectoryConfigCommand, se_UpdateDirectoryConfigCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDirectoryConfigCommand}.
  */

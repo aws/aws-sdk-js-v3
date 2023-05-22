@@ -19,6 +19,10 @@ import { de_TagInstanceProfileCommand, se_TagInstanceProfileCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagInstanceProfileCommand}.
  */

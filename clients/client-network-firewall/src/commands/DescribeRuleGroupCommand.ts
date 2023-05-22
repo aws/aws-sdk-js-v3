@@ -19,6 +19,10 @@ import { de_DescribeRuleGroupCommand, se_DescribeRuleGroupCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRuleGroupCommand}.
  */

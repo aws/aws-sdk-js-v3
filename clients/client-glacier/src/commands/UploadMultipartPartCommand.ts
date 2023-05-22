@@ -23,6 +23,10 @@ import { de_UploadMultipartPartCommand, se_UploadMultipartPartCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UploadMultipartPartCommand}.
  */

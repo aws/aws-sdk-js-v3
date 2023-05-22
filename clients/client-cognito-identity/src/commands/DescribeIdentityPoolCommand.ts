@@ -20,6 +20,10 @@ import { de_DescribeIdentityPoolCommand, se_DescribeIdentityPoolCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIdentityPoolCommand}.
  */

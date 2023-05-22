@@ -19,6 +19,10 @@ import { de_ListPullRequestsCommand, se_ListPullRequestsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPullRequestsCommand}.
  */

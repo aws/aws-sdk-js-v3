@@ -20,6 +20,10 @@ import { de_DescribeSlotCommand, se_DescribeSlotCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSlotCommand}.
  */

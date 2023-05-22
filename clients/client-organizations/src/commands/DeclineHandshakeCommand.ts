@@ -23,6 +23,10 @@ import { de_DeclineHandshakeCommand, se_DeclineHandshakeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeclineHandshakeCommand}.
  */

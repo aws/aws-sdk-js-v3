@@ -19,6 +19,10 @@ import { de_SendDiagnosticInterruptCommand, se_SendDiagnosticInterruptCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendDiagnosticInterruptCommand}.
  */

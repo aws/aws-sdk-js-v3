@@ -19,6 +19,10 @@ import { de_DeleteVpnConnectionRouteCommand, se_DeleteVpnConnectionRouteCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVpnConnectionRouteCommand}.
  */

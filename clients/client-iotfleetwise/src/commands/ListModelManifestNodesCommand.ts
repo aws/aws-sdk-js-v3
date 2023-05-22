@@ -19,6 +19,10 @@ import { de_ListModelManifestNodesCommand, se_ListModelManifestNodesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListModelManifestNodesCommand}.
  */

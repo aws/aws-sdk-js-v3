@@ -19,6 +19,10 @@ import { de_RegisterTaskDefinitionCommand, se_RegisterTaskDefinitionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterTaskDefinitionCommand}.
  */

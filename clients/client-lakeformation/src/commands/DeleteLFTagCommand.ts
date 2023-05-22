@@ -19,6 +19,10 @@ import { de_DeleteLFTagCommand, se_DeleteLFTagCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLFTagCommand}.
  */

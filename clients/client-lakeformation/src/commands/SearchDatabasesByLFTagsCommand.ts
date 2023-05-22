@@ -19,6 +19,10 @@ import { de_SearchDatabasesByLFTagsCommand, se_SearchDatabasesByLFTagsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchDatabasesByLFTagsCommand}.
  */

@@ -24,6 +24,10 @@ import { de_SearchPlaceIndexForTextCommand, se_SearchPlaceIndexForTextCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchPlaceIndexForTextCommand}.
  */

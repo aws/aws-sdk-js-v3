@@ -19,6 +19,10 @@ import { de_DescribeDatastoreCommand, se_DescribeDatastoreCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDatastoreCommand}.
  */

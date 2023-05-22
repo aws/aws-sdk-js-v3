@@ -19,6 +19,10 @@ import { de_ListSAMLProviderTagsCommand, se_ListSAMLProviderTagsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSAMLProviderTagsCommand}.
  */

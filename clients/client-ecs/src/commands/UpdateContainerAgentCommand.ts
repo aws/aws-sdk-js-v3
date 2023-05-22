@@ -19,6 +19,10 @@ import { de_UpdateContainerAgentCommand, se_UpdateContainerAgentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateContainerAgentCommand}.
  */

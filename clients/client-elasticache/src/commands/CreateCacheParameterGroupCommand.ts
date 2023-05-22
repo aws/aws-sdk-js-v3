@@ -19,6 +19,10 @@ import { de_CreateCacheParameterGroupCommand, se_CreateCacheParameterGroupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCacheParameterGroupCommand}.
  */

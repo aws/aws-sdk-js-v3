@@ -19,6 +19,10 @@ import { de_DescribeDataSourcesCommand, se_DescribeDataSourcesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDataSourcesCommand}.
  */

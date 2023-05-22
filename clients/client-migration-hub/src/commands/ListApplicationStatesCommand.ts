@@ -19,6 +19,10 @@ import { de_ListApplicationStatesCommand, se_ListApplicationStatesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListApplicationStatesCommand}.
  */

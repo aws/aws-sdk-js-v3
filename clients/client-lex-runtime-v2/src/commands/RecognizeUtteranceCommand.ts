@@ -27,6 +27,10 @@ import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RecognizeUtteranceCommand}.
  */

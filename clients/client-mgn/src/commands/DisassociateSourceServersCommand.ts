@@ -19,6 +19,10 @@ import { de_DisassociateSourceServersCommand, se_DisassociateSourceServersComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateSourceServersCommand}.
  */

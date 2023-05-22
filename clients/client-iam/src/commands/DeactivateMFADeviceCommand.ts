@@ -19,6 +19,10 @@ import { de_DeactivateMFADeviceCommand, se_DeactivateMFADeviceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeactivateMFADeviceCommand}.
  */

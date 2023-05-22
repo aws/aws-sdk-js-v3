@@ -23,6 +23,10 @@ import { de_GetUpgradeHistoryCommand, se_GetUpgradeHistoryCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUpgradeHistoryCommand}.
  */

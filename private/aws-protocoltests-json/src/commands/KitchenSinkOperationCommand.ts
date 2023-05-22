@@ -18,6 +18,10 @@ import { de_KitchenSinkOperationCommand, se_KitchenSinkOperationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link KitchenSinkOperationCommand}.
  */

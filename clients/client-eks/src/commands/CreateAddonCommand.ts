@@ -19,6 +19,10 @@ import { de_CreateAddonCommand, se_CreateAddonCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAddonCommand}.
  */

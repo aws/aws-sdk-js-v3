@@ -19,6 +19,10 @@ import { de_GetDefaultCreditSpecificationCommand, se_GetDefaultCreditSpecificati
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDefaultCreditSpecificationCommand}.
  */

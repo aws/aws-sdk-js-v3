@@ -23,6 +23,10 @@ import { de_ExecuteCommandCommand, se_ExecuteCommandCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExecuteCommandCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeMeshCommand, se_DescribeMeshCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeMeshCommand}.
  */

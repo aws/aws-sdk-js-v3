@@ -19,6 +19,10 @@ import { de_GetBucketMetricDataCommand, se_GetBucketMetricDataCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBucketMetricDataCommand}.
  */

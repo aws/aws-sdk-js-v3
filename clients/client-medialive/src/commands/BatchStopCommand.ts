@@ -19,6 +19,10 @@ import { de_BatchStopCommand, se_BatchStopCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchStopCommand}.
  */

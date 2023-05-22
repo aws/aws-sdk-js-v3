@@ -19,6 +19,10 @@ import { de_SearchVulnerabilitiesCommand, se_SearchVulnerabilitiesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchVulnerabilitiesCommand}.
  */

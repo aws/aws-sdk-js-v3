@@ -19,6 +19,10 @@ import { de_GetCostForecastCommand, se_GetCostForecastCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCostForecastCommand}.
  */

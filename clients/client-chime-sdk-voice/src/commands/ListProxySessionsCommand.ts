@@ -23,6 +23,10 @@ import { de_ListProxySessionsCommand, se_ListProxySessionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProxySessionsCommand}.
  */

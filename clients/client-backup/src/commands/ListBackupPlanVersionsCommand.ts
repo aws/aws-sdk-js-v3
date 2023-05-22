@@ -19,6 +19,10 @@ import { de_ListBackupPlanVersionsCommand, se_ListBackupPlanVersionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBackupPlanVersionsCommand}.
  */

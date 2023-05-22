@@ -19,6 +19,10 @@ import { de_CreateRunGroupCommand, se_CreateRunGroupCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRunGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetFindingsFilterCommand, se_GetFindingsFilterCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFindingsFilterCommand}.
  */

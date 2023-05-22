@@ -19,6 +19,10 @@ import { de_DetectMetricSetConfigCommand, se_DetectMetricSetConfigCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetectMetricSetConfigCommand}.
  */

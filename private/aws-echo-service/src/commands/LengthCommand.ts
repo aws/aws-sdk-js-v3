@@ -17,6 +17,10 @@ import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link LengthCommand}.
  */

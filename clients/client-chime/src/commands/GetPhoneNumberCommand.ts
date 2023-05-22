@@ -23,6 +23,10 @@ import { de_GetPhoneNumberCommand, se_GetPhoneNumberCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPhoneNumberCommand}.
  */

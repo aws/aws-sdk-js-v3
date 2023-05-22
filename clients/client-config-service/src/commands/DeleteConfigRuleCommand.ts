@@ -19,6 +19,10 @@ import { de_DeleteConfigRuleCommand, se_DeleteConfigRuleCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConfigRuleCommand}.
  */

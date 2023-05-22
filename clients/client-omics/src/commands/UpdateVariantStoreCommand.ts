@@ -19,6 +19,10 @@ import { de_UpdateVariantStoreCommand, se_UpdateVariantStoreCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVariantStoreCommand}.
  */

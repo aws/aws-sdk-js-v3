@@ -23,6 +23,10 @@ import { de_TestConnectionCommand, se_TestConnectionCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestConnectionCommand}.
  */

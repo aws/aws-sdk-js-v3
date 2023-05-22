@@ -19,6 +19,10 @@ import { de_GetBucketsAggregationCommand, se_GetBucketsAggregationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBucketsAggregationCommand}.
  */

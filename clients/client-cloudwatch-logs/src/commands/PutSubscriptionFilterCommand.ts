@@ -19,6 +19,10 @@ import { de_PutSubscriptionFilterCommand, se_PutSubscriptionFilterCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSubscriptionFilterCommand}.
  */

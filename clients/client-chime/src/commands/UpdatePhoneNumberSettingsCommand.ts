@@ -22,6 +22,10 @@ import { de_UpdatePhoneNumberSettingsCommand, se_UpdatePhoneNumberSettingsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePhoneNumberSettingsCommand}.
  */

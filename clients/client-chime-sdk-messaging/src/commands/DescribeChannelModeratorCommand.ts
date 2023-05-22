@@ -27,6 +27,10 @@ import { de_DescribeChannelModeratorCommand, se_DescribeChannelModeratorCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeChannelModeratorCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DetectPHICommand, se_DetectPHICommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetectPHICommand}.
  */

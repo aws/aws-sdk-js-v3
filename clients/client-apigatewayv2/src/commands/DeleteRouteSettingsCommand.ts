@@ -19,6 +19,10 @@ import { de_DeleteRouteSettingsCommand, se_DeleteRouteSettingsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRouteSettingsCommand}.
  */

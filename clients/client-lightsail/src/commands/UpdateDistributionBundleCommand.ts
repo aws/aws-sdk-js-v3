@@ -19,6 +19,10 @@ import { de_UpdateDistributionBundleCommand, se_UpdateDistributionBundleCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDistributionBundleCommand}.
  */

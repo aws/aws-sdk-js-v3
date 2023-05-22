@@ -19,6 +19,10 @@ import { de_DescribeJobFlowsCommand, se_DescribeJobFlowsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeJobFlowsCommand}.
  */

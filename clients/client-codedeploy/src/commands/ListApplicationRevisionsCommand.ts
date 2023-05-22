@@ -19,6 +19,10 @@ import { de_ListApplicationRevisionsCommand, se_ListApplicationRevisionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListApplicationRevisionsCommand}.
  */

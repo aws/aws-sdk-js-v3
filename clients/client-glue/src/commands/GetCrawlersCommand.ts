@@ -19,6 +19,10 @@ import { de_GetCrawlersCommand, se_GetCrawlersCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCrawlersCommand}.
  */

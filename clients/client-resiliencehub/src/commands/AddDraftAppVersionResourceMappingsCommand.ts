@@ -25,6 +25,10 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddDraftAppVersionResourceMappingsCommand}.
  */

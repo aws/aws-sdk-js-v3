@@ -19,6 +19,10 @@ import { de_StartChannelCommand, se_StartChannelCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartChannelCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateRegistryCommand, se_CreateRegistryCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRegistryCommand}.
  */

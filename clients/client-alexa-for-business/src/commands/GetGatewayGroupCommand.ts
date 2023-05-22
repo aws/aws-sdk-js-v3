@@ -19,6 +19,10 @@ import { de_GetGatewayGroupCommand, se_GetGatewayGroupCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGatewayGroupCommand}.
  */

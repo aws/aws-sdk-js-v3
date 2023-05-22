@@ -19,6 +19,10 @@ import { de_ListLicenseVersionsCommand, se_ListLicenseVersionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLicenseVersionsCommand}.
  */

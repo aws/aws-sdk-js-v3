@@ -19,6 +19,10 @@ import { de_DescribeLunaClientCommand, se_DescribeLunaClientCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLunaClientCommand}.
  */

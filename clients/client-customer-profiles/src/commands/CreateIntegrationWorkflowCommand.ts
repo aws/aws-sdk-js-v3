@@ -19,6 +19,10 @@ import { de_CreateIntegrationWorkflowCommand, se_CreateIntegrationWorkflowComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateIntegrationWorkflowCommand}.
  */

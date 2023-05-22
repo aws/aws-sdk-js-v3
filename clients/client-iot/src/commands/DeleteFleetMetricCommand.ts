@@ -19,6 +19,10 @@ import { de_DeleteFleetMetricCommand, se_DeleteFleetMetricCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFleetMetricCommand}.
  */

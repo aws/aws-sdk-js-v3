@@ -19,6 +19,10 @@ import { de_CreateGroupVersionCommand, se_CreateGroupVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGroupVersionCommand}.
  */

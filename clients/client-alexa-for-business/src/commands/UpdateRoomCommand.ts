@@ -19,6 +19,10 @@ import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRoomCommand}.
  */

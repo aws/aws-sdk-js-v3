@@ -19,6 +19,10 @@ import { de_GetResourceLFTagsCommand, se_GetResourceLFTagsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResourceLFTagsCommand}.
  */

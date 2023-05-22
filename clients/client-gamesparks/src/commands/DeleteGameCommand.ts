@@ -19,6 +19,10 @@ import { de_DeleteGameCommand, se_DeleteGameCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGameCommand}.
  */

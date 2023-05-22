@@ -19,6 +19,10 @@ import { de_DeleteRecipeVersionCommand, se_DeleteRecipeVersionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRecipeVersionCommand}.
  */

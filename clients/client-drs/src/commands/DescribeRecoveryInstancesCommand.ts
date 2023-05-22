@@ -23,6 +23,10 @@ import { de_DescribeRecoveryInstancesCommand, se_DescribeRecoveryInstancesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRecoveryInstancesCommand}.
  */

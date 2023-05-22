@@ -19,6 +19,10 @@ import { de_DeleteFindingsFilterCommand, se_DeleteFindingsFilterCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFindingsFilterCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteVerifiedAccessGroupCommand, se_DeleteVerifiedAccessGroupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVerifiedAccessGroupCommand}.
  */

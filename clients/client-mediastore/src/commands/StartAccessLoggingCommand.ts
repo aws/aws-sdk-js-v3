@@ -19,6 +19,10 @@ import { de_StartAccessLoggingCommand, se_StartAccessLoggingCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartAccessLoggingCommand}.
  */

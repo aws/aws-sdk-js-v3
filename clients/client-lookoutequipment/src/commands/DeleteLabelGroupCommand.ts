@@ -19,6 +19,10 @@ import { de_DeleteLabelGroupCommand, se_DeleteLabelGroupCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLabelGroupCommand}.
  */

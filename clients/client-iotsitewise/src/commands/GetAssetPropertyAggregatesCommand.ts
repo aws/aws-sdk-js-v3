@@ -19,6 +19,10 @@ import { de_GetAssetPropertyAggregatesCommand, se_GetAssetPropertyAggregatesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAssetPropertyAggregatesCommand}.
  */

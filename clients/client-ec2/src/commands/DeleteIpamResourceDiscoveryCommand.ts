@@ -19,6 +19,10 @@ import { de_DeleteIpamResourceDiscoveryCommand, se_DeleteIpamResourceDiscoveryCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteIpamResourceDiscoveryCommand}.
  */

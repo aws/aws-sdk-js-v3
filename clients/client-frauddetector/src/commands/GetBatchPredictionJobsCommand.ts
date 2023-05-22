@@ -19,6 +19,10 @@ import { de_GetBatchPredictionJobsCommand, se_GetBatchPredictionJobsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBatchPredictionJobsCommand}.
  */

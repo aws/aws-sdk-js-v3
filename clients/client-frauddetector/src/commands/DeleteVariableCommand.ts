@@ -19,6 +19,10 @@ import { de_DeleteVariableCommand, se_DeleteVariableCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVariableCommand}.
  */

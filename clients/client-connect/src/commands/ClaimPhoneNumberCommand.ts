@@ -19,6 +19,10 @@ import { de_ClaimPhoneNumberCommand, se_ClaimPhoneNumberCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ClaimPhoneNumberCommand}.
  */

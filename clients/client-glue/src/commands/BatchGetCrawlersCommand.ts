@@ -19,6 +19,10 @@ import { de_BatchGetCrawlersCommand, se_BatchGetCrawlersCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetCrawlersCommand}.
  */

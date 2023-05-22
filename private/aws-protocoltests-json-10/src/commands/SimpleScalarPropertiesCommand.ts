@@ -18,6 +18,10 @@ import { de_SimpleScalarPropertiesCommand, se_SimpleScalarPropertiesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SimpleScalarPropertiesCommand}.
  */

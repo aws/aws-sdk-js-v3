@@ -19,6 +19,10 @@ import { de_UpdateEmailChannelCommand, se_UpdateEmailChannelCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEmailChannelCommand}.
  */

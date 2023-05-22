@@ -19,6 +19,10 @@ import { de_StartContactStreamingCommand, se_StartContactStreamingCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartContactStreamingCommand}.
  */

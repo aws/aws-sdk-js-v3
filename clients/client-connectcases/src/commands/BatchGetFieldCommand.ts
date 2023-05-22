@@ -19,6 +19,10 @@ import { de_BatchGetFieldCommand, se_BatchGetFieldCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetFieldCommand}.
  */

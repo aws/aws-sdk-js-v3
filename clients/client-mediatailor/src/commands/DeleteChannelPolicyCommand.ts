@@ -19,6 +19,10 @@ import { de_DeleteChannelPolicyCommand, se_DeleteChannelPolicyCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteChannelPolicyCommand}.
  */

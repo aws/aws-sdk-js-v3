@@ -19,6 +19,10 @@ import { de_ListDatasourcePackagesCommand, se_ListDatasourcePackagesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDatasourcePackagesCommand}.
  */

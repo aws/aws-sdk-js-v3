@@ -19,6 +19,10 @@ import { de_DescribeClusterOperationCommand, se_DescribeClusterOperationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeClusterOperationCommand}.
  */

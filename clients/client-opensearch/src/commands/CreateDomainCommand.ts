@@ -19,6 +19,10 @@ import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDomainCommand}.
  */

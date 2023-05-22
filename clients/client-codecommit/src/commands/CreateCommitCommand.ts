@@ -19,6 +19,10 @@ import { de_CreateCommitCommand, se_CreateCommitCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCommitCommand}.
  */

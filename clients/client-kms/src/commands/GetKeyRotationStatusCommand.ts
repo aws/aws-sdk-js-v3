@@ -19,6 +19,10 @@ import { de_GetKeyRotationStatusCommand, se_GetKeyRotationStatusCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetKeyRotationStatusCommand}.
  */

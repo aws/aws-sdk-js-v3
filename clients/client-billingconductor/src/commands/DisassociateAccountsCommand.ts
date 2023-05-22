@@ -19,6 +19,10 @@ import { de_DisassociateAccountsCommand, se_DisassociateAccountsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateAccountsCommand}.
  */

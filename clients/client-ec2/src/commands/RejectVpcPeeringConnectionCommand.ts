@@ -19,6 +19,10 @@ import { de_RejectVpcPeeringConnectionCommand, se_RejectVpcPeeringConnectionComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectVpcPeeringConnectionCommand}.
  */

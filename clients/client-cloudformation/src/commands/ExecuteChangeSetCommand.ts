@@ -19,6 +19,10 @@ import { de_ExecuteChangeSetCommand, se_ExecuteChangeSetCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExecuteChangeSetCommand}.
  */

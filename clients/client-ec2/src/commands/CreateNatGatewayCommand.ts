@@ -19,6 +19,10 @@ import { de_CreateNatGatewayCommand, se_CreateNatGatewayCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNatGatewayCommand}.
  */

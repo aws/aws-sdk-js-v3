@@ -19,6 +19,10 @@ import { de_ListIdentityPoolUsageCommand, se_ListIdentityPoolUsageCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIdentityPoolUsageCommand}.
  */

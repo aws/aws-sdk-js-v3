@@ -19,6 +19,10 @@ import { de_DeactivatePipelineCommand, se_DeactivatePipelineCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeactivatePipelineCommand}.
  */

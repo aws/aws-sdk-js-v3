@@ -19,6 +19,10 @@ import { de_SendEmailCommand, se_SendEmailCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendEmailCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StopMeetingTranscriptionCommand, se_StopMeetingTranscriptionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopMeetingTranscriptionCommand}.
  */

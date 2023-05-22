@@ -19,6 +19,10 @@ import { de_UpdateBaiduChannelCommand, se_UpdateBaiduChannelCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBaiduChannelCommand}.
  */

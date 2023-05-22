@@ -19,6 +19,10 @@ import { de_PutCompositeAlarmCommand, se_PutCompositeAlarmCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutCompositeAlarmCommand}.
  */

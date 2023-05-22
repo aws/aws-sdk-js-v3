@@ -23,6 +23,10 @@ import { de_UnclaimDeviceCommand, se_UnclaimDeviceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnclaimDeviceCommand}.
  */

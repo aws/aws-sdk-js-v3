@@ -19,6 +19,10 @@ import { de_DeregisterVolumeCommand, se_DeregisterVolumeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterVolumeCommand}.
  */

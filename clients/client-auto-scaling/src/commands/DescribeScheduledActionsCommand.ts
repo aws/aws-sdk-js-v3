@@ -19,6 +19,10 @@ import { de_DescribeScheduledActionsCommand, se_DescribeScheduledActionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScheduledActionsCommand}.
  */

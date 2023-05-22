@@ -19,6 +19,10 @@ import { de_DeleteQueryDefinitionCommand, se_DeleteQueryDefinitionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteQueryDefinitionCommand}.
  */

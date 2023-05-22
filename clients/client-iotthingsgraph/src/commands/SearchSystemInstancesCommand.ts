@@ -19,6 +19,10 @@ import { de_SearchSystemInstancesCommand, se_SearchSystemInstancesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchSystemInstancesCommand}.
  */

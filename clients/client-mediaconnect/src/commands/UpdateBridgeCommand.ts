@@ -19,6 +19,10 @@ import { de_UpdateBridgeCommand, se_UpdateBridgeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBridgeCommand}.
  */

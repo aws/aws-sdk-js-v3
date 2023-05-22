@@ -19,6 +19,10 @@ import { de_ListChunksCommand, se_ListChunksCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChunksCommand}.
  */

@@ -23,6 +23,10 @@ import { de_SetSecurityGroupsCommand, se_SetSecurityGroupsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetSecurityGroupsCommand}.
  */

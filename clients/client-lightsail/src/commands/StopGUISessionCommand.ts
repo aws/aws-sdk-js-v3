@@ -19,6 +19,10 @@ import { de_StopGUISessionCommand, se_StopGUISessionCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopGUISessionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListAssignmentsForHITCommand, se_ListAssignmentsForHITCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssignmentsForHITCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeLocationFsxLustreCommand, se_DescribeLocationFsxLustreComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLocationFsxLustreCommand}.
  */

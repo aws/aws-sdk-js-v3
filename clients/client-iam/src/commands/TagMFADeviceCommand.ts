@@ -19,6 +19,10 @@ import { de_TagMFADeviceCommand, se_TagMFADeviceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagMFADeviceCommand}.
  */

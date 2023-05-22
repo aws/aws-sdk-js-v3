@@ -19,6 +19,10 @@ import { de_UpdateTestGridProjectCommand, se_UpdateTestGridProjectCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTestGridProjectCommand}.
  */

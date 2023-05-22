@@ -19,6 +19,10 @@ import { de_GetInsightsByAssessmentCommand, se_GetInsightsByAssessmentCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInsightsByAssessmentCommand}.
  */

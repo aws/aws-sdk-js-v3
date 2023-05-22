@@ -19,6 +19,10 @@ import { de_UpdateRunGroupCommand, se_UpdateRunGroupCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRunGroupCommand}.
  */

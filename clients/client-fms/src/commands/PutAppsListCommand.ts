@@ -19,6 +19,10 @@ import { de_PutAppsListCommand, se_PutAppsListCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAppsListCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateDataCatalogCommand, se_UpdateDataCatalogCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDataCatalogCommand}.
  */

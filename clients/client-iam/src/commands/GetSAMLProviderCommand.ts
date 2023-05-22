@@ -19,6 +19,10 @@ import { de_GetSAMLProviderCommand, se_GetSAMLProviderCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSAMLProviderCommand}.
  */

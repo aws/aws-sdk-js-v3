@@ -23,6 +23,10 @@ import { de_StopReplicationCommand, se_StopReplicationCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopReplicationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteLaunchTemplateVersionsCommand, se_DeleteLaunchTemplateVersions
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLaunchTemplateVersionsCommand}.
  */

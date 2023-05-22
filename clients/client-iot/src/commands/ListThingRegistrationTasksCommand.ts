@@ -19,6 +19,10 @@ import { de_ListThingRegistrationTasksCommand, se_ListThingRegistrationTasksComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListThingRegistrationTasksCommand}.
  */

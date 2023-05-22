@@ -24,6 +24,10 @@ import { de_CreateLaunchProfileCommand, se_CreateLaunchProfileCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLaunchProfileCommand}.
  */

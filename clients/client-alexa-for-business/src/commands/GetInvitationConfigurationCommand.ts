@@ -19,6 +19,10 @@ import { de_GetInvitationConfigurationCommand, se_GetInvitationConfigurationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInvitationConfigurationCommand}.
  */

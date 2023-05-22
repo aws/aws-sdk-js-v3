@@ -19,6 +19,10 @@ import { de_AddTagsToStreamCommand, se_AddTagsToStreamCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddTagsToStreamCommand}.
  */

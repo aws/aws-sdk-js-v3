@@ -19,6 +19,10 @@ import { de_UpdateProfileJobCommand, se_UpdateProfileJobCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProfileJobCommand}.
  */

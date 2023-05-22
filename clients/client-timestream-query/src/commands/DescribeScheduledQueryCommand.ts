@@ -24,6 +24,10 @@ import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedCon
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScheduledQueryCommand}.
  */

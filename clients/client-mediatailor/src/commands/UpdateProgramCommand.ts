@@ -19,6 +19,10 @@ import { de_UpdateProgramCommand, se_UpdateProgramCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProgramCommand}.
  */

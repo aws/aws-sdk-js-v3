@@ -19,6 +19,10 @@ import { de_DescribeAliasCommand, se_DescribeAliasCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAliasCommand}.
  */

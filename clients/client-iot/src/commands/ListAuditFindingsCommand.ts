@@ -19,6 +19,10 @@ import { de_ListAuditFindingsCommand, se_ListAuditFindingsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAuditFindingsCommand}.
  */

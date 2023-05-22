@@ -19,6 +19,10 @@ import { de_UpdateBackendConfigCommand, se_UpdateBackendConfigCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBackendConfigCommand}.
  */

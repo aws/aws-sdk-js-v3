@@ -19,6 +19,10 @@ import { de_GetEventIntegrationCommand, se_GetEventIntegrationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEventIntegrationCommand}.
  */

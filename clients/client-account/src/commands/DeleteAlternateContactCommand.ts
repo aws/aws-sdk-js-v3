@@ -19,6 +19,10 @@ import { de_DeleteAlternateContactCommand, se_DeleteAlternateContactCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAlternateContactCommand}.
  */

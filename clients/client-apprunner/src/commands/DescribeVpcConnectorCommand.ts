@@ -19,6 +19,10 @@ import { de_DescribeVpcConnectorCommand, se_DescribeVpcConnectorCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVpcConnectorCommand}.
  */

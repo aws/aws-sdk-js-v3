@@ -19,6 +19,10 @@ import { de_GetConnectPeerAssociationsCommand, se_GetConnectPeerAssociationsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConnectPeerAssociationsCommand}.
  */

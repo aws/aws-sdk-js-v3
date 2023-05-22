@@ -19,6 +19,10 @@ import { de_DescribeInstanceStatusCommand, se_DescribeInstanceStatusCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInstanceStatusCommand}.
  */

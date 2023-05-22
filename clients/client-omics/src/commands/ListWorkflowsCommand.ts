@@ -19,6 +19,10 @@ import { de_ListWorkflowsCommand, se_ListWorkflowsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWorkflowsCommand}.
  */

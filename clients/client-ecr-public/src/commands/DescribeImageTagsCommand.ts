@@ -19,6 +19,10 @@ import { de_DescribeImageTagsCommand, se_DescribeImageTagsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeImageTagsCommand}.
  */

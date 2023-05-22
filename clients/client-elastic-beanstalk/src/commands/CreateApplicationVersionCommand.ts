@@ -19,6 +19,10 @@ import { de_CreateApplicationVersionCommand, se_CreateApplicationVersionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateApplicationVersionCommand}.
  */

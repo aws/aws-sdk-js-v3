@@ -19,6 +19,10 @@ import { de_CreateVpcEndpointCommand, se_CreateVpcEndpointCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVpcEndpointCommand}.
  */

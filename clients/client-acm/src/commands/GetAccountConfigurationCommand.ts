@@ -19,6 +19,10 @@ import { de_GetAccountConfigurationCommand, se_GetAccountConfigurationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccountConfigurationCommand}.
  */

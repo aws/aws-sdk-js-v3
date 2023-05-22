@@ -19,6 +19,10 @@ import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEnvironmentCommand}.
  */

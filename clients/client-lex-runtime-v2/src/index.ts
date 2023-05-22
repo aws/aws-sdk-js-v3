@@ -1,6 +1,12 @@
-export * from "./LexRuntimeV2";
 // smithy-typescript generated code
+/* eslint-disable */
+/**
+ * <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
+ *
+ * @packageDocumentation
+ */
 export * from "./LexRuntimeV2Client";
+export * from "./LexRuntimeV2";
 export * from "./commands";
 export * from "./models";
 

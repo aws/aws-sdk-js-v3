@@ -19,6 +19,10 @@ import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRuleCommand}.
  */

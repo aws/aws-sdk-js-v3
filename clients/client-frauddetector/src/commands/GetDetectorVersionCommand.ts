@@ -19,6 +19,10 @@ import { de_GetDetectorVersionCommand, se_GetDetectorVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDetectorVersionCommand}.
  */

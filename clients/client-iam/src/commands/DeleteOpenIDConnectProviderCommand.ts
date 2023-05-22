@@ -19,6 +19,10 @@ import { de_DeleteOpenIDConnectProviderCommand, se_DeleteOpenIDConnectProviderCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteOpenIDConnectProviderCommand}.
  */

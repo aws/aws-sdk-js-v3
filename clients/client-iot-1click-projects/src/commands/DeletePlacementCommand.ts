@@ -23,6 +23,10 @@ import { de_DeletePlacementCommand, se_DeletePlacementCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePlacementCommand}.
  */

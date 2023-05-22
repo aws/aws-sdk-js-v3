@@ -19,6 +19,10 @@ import { de_AssociateSkillGroupWithRoomCommand, se_AssociateSkillGroupWithRoomCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateSkillGroupWithRoomCommand}.
  */

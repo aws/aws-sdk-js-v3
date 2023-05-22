@@ -19,6 +19,10 @@ import { de_CreateEvaluationCommand, se_CreateEvaluationCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEvaluationCommand}.
  */

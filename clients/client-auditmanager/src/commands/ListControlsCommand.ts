@@ -19,6 +19,10 @@ import { de_ListControlsCommand, se_ListControlsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListControlsCommand}.
  */

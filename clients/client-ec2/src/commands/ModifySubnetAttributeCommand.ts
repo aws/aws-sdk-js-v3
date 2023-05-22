@@ -19,6 +19,10 @@ import { de_ModifySubnetAttributeCommand, se_ModifySubnetAttributeCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifySubnetAttributeCommand}.
  */

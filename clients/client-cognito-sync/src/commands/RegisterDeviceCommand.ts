@@ -19,6 +19,10 @@ import { de_RegisterDeviceCommand, se_RegisterDeviceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterDeviceCommand}.
  */

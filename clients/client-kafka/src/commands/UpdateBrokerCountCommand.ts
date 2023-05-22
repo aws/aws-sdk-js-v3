@@ -19,6 +19,10 @@ import { de_UpdateBrokerCountCommand, se_UpdateBrokerCountCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBrokerCountCommand}.
  */

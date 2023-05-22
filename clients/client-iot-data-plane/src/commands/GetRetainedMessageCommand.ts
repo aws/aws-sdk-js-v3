@@ -19,6 +19,10 @@ import { de_GetRetainedMessageCommand, se_GetRetainedMessageCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRetainedMessageCommand}.
  */

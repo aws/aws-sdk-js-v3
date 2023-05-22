@@ -19,6 +19,10 @@ import { de_GetFuotaTaskCommand, se_GetFuotaTaskCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFuotaTaskCommand}.
  */

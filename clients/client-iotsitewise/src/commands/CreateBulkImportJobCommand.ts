@@ -19,6 +19,10 @@ import { de_CreateBulkImportJobCommand, se_CreateBulkImportJobCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBulkImportJobCommand}.
  */

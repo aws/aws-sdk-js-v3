@@ -23,6 +23,10 @@ import { de_GetDevicesInPlacementCommand, se_GetDevicesInPlacementCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDevicesInPlacementCommand}.
  */

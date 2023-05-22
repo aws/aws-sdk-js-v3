@@ -19,6 +19,10 @@ import { de_CreateVocabularyCommand, se_CreateVocabularyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVocabularyCommand}.
  */

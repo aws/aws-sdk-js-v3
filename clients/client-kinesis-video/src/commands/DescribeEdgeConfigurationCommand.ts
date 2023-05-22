@@ -23,6 +23,10 @@ import { de_DescribeEdgeConfigurationCommand, se_DescribeEdgeConfigurationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEdgeConfigurationCommand}.
  */

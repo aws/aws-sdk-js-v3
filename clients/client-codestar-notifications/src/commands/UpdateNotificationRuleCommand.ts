@@ -27,6 +27,10 @@ import { de_UpdateNotificationRuleCommand, se_UpdateNotificationRuleCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNotificationRuleCommand}.
  */

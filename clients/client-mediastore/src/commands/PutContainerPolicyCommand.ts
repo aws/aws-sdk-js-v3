@@ -19,6 +19,10 @@ import { de_PutContainerPolicyCommand, se_PutContainerPolicyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutContainerPolicyCommand}.
  */

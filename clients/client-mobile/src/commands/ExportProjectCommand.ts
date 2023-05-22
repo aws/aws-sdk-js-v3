@@ -19,6 +19,10 @@ import { de_ExportProjectCommand, se_ExportProjectCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportProjectCommand}.
  */

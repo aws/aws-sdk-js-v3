@@ -19,6 +19,10 @@ import { de_RegisterAccountCommand, se_RegisterAccountCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterAccountCommand}.
  */

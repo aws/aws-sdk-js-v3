@@ -23,6 +23,10 @@ import { de_ReplicateInstanceCommand, se_ReplicateInstanceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReplicateInstanceCommand}.
  */

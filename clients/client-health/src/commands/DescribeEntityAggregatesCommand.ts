@@ -19,6 +19,10 @@ import { de_DescribeEntityAggregatesCommand, se_DescribeEntityAggregatesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEntityAggregatesCommand}.
  */

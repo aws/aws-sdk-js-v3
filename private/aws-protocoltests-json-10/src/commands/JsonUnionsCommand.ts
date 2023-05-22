@@ -18,6 +18,10 @@ import { de_JsonUnionsCommand, se_JsonUnionsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link JsonUnionsCommand}.
  */

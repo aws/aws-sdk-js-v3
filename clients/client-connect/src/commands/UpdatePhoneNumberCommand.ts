@@ -19,6 +19,10 @@ import { de_UpdatePhoneNumberCommand, se_UpdatePhoneNumberCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePhoneNumberCommand}.
  */

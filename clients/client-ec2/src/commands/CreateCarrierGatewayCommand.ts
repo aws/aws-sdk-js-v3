@@ -19,6 +19,10 @@ import { de_CreateCarrierGatewayCommand, se_CreateCarrierGatewayCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCarrierGatewayCommand}.
  */

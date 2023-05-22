@@ -19,6 +19,10 @@ import { de_DescribeAnomalyDetectorCommand, se_DescribeAnomalyDetectorCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAnomalyDetectorCommand}.
  */

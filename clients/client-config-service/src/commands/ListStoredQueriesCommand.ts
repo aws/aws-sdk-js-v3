@@ -19,6 +19,10 @@ import { de_ListStoredQueriesCommand, se_ListStoredQueriesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStoredQueriesCommand}.
  */

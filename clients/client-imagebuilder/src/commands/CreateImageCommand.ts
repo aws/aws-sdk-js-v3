@@ -19,6 +19,10 @@ import { de_CreateImageCommand, se_CreateImageCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateImageCommand}.
  */

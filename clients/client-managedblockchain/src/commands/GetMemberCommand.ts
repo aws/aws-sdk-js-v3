@@ -23,6 +23,10 @@ import { de_GetMemberCommand, se_GetMemberCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMemberCommand}.
  */

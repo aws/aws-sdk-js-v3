@@ -19,6 +19,10 @@ import { de_SuspendProcessesCommand, se_SuspendProcessesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SuspendProcessesCommand}.
  */

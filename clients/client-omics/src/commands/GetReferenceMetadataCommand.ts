@@ -19,6 +19,10 @@ import { de_GetReferenceMetadataCommand, se_GetReferenceMetadataCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetReferenceMetadataCommand}.
  */

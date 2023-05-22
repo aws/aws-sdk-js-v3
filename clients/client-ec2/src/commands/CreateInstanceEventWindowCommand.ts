@@ -19,6 +19,10 @@ import { de_CreateInstanceEventWindowCommand, se_CreateInstanceEventWindowComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateInstanceEventWindowCommand}.
  */

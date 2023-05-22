@@ -19,6 +19,10 @@ import { de_CreateOpenIDConnectProviderCommand, se_CreateOpenIDConnectProviderCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateOpenIDConnectProviderCommand}.
  */

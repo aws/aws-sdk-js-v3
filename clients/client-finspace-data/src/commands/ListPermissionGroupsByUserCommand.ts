@@ -23,6 +23,10 @@ import { de_ListPermissionGroupsByUserCommand, se_ListPermissionGroupsByUserComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPermissionGroupsByUserCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateConnectivityCommand, se_UpdateConnectivityCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConnectivityCommand}.
  */

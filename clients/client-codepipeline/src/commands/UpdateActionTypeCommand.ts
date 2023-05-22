@@ -19,6 +19,10 @@ import { de_UpdateActionTypeCommand, se_UpdateActionTypeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateActionTypeCommand}.
  */

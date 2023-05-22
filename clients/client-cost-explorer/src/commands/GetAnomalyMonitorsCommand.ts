@@ -19,6 +19,10 @@ import { de_GetAnomalyMonitorsCommand, se_GetAnomalyMonitorsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAnomalyMonitorsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListEndpointGroupsCommand, se_ListEndpointGroupsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEndpointGroupsCommand}.
  */

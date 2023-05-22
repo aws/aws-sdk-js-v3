@@ -19,6 +19,10 @@ import { de_ListAccountsCommand, se_ListAccountsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccountsCommand}.
  */

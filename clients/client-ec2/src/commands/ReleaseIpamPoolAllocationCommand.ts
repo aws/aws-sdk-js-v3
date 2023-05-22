@@ -19,6 +19,10 @@ import { de_ReleaseIpamPoolAllocationCommand, se_ReleaseIpamPoolAllocationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReleaseIpamPoolAllocationCommand}.
  */

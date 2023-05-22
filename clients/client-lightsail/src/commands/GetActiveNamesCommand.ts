@@ -19,6 +19,10 @@ import { de_GetActiveNamesCommand, se_GetActiveNamesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetActiveNamesCommand}.
  */

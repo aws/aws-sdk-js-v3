@@ -19,6 +19,10 @@ import { de_CreateRoutingProfileCommand, se_CreateRoutingProfileCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRoutingProfileCommand}.
  */

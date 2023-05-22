@@ -19,6 +19,10 @@ import { de_GetPipelineStateCommand, se_GetPipelineStateCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPipelineStateCommand}.
  */

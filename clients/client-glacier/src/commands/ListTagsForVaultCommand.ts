@@ -19,6 +19,10 @@ import { de_ListTagsForVaultCommand, se_ListTagsForVaultCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTagsForVaultCommand}.
  */

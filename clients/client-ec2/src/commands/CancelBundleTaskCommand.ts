@@ -19,6 +19,10 @@ import { de_CancelBundleTaskCommand, se_CancelBundleTaskCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelBundleTaskCommand}.
  */

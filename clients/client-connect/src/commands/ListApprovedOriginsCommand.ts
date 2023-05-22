@@ -19,6 +19,10 @@ import { de_ListApprovedOriginsCommand, se_ListApprovedOriginsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListApprovedOriginsCommand}.
  */

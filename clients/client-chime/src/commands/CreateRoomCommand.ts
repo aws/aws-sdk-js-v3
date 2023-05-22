@@ -24,6 +24,10 @@ import { de_CreateRoomCommand, se_CreateRoomCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRoomCommand}.
  */

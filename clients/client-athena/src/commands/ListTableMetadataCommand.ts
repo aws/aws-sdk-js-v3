@@ -19,6 +19,10 @@ import { de_ListTableMetadataCommand, se_ListTableMetadataCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTableMetadataCommand}.
  */

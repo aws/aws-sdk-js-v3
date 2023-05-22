@@ -23,6 +23,10 @@ import { de_ListLogPatternSetsCommand, se_ListLogPatternSetsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLogPatternSetsCommand}.
  */

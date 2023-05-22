@@ -23,6 +23,10 @@ import { de_StopReplicationTaskCommand, se_StopReplicationTaskCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopReplicationTaskCommand}.
  */

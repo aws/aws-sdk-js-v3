@@ -19,6 +19,10 @@ import { de_GetOfferingStatusCommand, se_GetOfferingStatusCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOfferingStatusCommand}.
  */

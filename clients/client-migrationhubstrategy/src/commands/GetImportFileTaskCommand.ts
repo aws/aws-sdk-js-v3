@@ -23,6 +23,10 @@ import { de_GetImportFileTaskCommand, se_GetImportFileTaskCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetImportFileTaskCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetMonitorCommand, se_GetMonitorCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMonitorCommand}.
  */

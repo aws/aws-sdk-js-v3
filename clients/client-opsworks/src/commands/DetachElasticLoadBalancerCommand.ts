@@ -19,6 +19,10 @@ import { de_DetachElasticLoadBalancerCommand, se_DetachElasticLoadBalancerComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachElasticLoadBalancerCommand}.
  */

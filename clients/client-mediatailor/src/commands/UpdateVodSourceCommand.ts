@@ -19,6 +19,10 @@ import { de_UpdateVodSourceCommand, se_UpdateVodSourceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVodSourceCommand}.
  */

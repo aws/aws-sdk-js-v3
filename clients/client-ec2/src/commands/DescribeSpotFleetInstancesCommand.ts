@@ -19,6 +19,10 @@ import { de_DescribeSpotFleetInstancesCommand, se_DescribeSpotFleetInstancesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSpotFleetInstancesCommand}.
  */

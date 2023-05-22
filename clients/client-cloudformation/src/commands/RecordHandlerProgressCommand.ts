@@ -19,6 +19,10 @@ import { de_RecordHandlerProgressCommand, se_RecordHandlerProgressCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RecordHandlerProgressCommand}.
  */

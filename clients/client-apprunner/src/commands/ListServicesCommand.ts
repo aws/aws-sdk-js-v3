@@ -19,6 +19,10 @@ import { de_ListServicesCommand, se_ListServicesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListServicesCommand}.
  */

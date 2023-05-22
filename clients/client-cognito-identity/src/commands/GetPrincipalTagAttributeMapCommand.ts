@@ -20,6 +20,10 @@ import { de_GetPrincipalTagAttributeMapCommand, se_GetPrincipalTagAttributeMapCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPrincipalTagAttributeMapCommand}.
  */

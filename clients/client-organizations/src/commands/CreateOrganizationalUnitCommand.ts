@@ -19,6 +19,10 @@ import { de_CreateOrganizationalUnitCommand, se_CreateOrganizationalUnitCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateOrganizationalUnitCommand}.
  */

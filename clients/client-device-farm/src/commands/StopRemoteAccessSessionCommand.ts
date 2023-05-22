@@ -19,6 +19,10 @@ import { de_StopRemoteAccessSessionCommand, se_StopRemoteAccessSessionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopRemoteAccessSessionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AllocateIpamPoolCidrCommand, se_AllocateIpamPoolCidrCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AllocateIpamPoolCidrCommand}.
  */

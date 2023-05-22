@@ -19,6 +19,10 @@ import { de_ListResourceInventoryCommand, se_ListResourceInventoryCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListResourceInventoryCommand}.
  */

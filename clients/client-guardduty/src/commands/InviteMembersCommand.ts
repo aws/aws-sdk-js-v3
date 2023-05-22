@@ -19,6 +19,10 @@ import { de_InviteMembersCommand, se_InviteMembersCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InviteMembersCommand}.
  */

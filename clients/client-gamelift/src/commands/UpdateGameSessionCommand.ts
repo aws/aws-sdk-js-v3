@@ -19,6 +19,10 @@ import { de_UpdateGameSessionCommand, se_UpdateGameSessionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGameSessionCommand}.
  */

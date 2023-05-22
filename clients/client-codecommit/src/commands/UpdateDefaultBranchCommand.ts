@@ -19,6 +19,10 @@ import { de_UpdateDefaultBranchCommand, se_UpdateDefaultBranchCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDefaultBranchCommand}.
  */

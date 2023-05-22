@@ -19,6 +19,10 @@ import { de_DeleteConfiguredTableCommand, se_DeleteConfiguredTableCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConfiguredTableCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutEntityTypeCommand, se_PutEntityTypeCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutEntityTypeCommand}.
  */

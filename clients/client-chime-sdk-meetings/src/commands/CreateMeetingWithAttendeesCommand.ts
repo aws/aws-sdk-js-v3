@@ -24,6 +24,10 @@ import { de_CreateMeetingWithAttendeesCommand, se_CreateMeetingWithAttendeesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMeetingWithAttendeesCommand}.
  */

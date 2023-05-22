@@ -19,6 +19,10 @@ import { de_AddNotificationChannelCommand, se_AddNotificationChannelCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddNotificationChannelCommand}.
  */

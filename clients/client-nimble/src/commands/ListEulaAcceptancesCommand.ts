@@ -19,6 +19,10 @@ import { de_ListEulaAcceptancesCommand, se_ListEulaAcceptancesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEulaAcceptancesCommand}.
  */

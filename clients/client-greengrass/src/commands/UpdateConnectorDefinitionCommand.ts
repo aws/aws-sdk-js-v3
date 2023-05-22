@@ -19,6 +19,10 @@ import { de_UpdateConnectorDefinitionCommand, se_UpdateConnectorDefinitionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConnectorDefinitionCommand}.
  */

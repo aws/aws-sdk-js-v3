@@ -19,6 +19,10 @@ import { de_GetDistributionBundlesCommand, se_GetDistributionBundlesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDistributionBundlesCommand}.
  */

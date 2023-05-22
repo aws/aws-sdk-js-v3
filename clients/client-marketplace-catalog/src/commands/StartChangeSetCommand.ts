@@ -23,6 +23,10 @@ import { de_StartChangeSetCommand, se_StartChangeSetCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartChangeSetCommand}.
  */

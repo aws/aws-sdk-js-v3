@@ -23,6 +23,10 @@ import { de_StartRestoreJobCommand, se_StartRestoreJobCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartRestoreJobCommand}.
  */

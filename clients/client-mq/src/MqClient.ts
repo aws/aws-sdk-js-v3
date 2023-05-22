@@ -102,6 +102,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -283,7 +285,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type MqClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MqClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -302,7 +304,7 @@ export interface MqClientConfig extends MqClientConfigType {}
 /**
  * @public
  */
-type MqClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MqClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

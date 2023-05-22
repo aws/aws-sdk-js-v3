@@ -19,6 +19,10 @@ import { de_RegisterResourceCommand, se_RegisterResourceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterResourceCommand}.
  */

@@ -23,6 +23,10 @@ import { de_StartSNOMEDCTInferenceJobCommand, se_StartSNOMEDCTInferenceJobComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartSNOMEDCTInferenceJobCommand}.
  */

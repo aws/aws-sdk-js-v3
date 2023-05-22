@@ -18,6 +18,10 @@ import { de_NullOperationCommand, se_NullOperationCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link NullOperationCommand}.
  */

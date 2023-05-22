@@ -19,6 +19,10 @@ import { de_AddLayerVersionPermissionCommand, se_AddLayerVersionPermissionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddLayerVersionPermissionCommand}.
  */

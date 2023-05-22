@@ -19,6 +19,10 @@ import { de_ReplaceVpnTunnelCommand, se_ReplaceVpnTunnelCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReplaceVpnTunnelCommand}.
  */

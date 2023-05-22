@@ -19,6 +19,10 @@ import { de_StopKeyPhrasesDetectionJobCommand, se_StopKeyPhrasesDetectionJobComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopKeyPhrasesDetectionJobCommand}.
  */

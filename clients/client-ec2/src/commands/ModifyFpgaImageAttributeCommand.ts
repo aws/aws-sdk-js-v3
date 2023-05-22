@@ -19,6 +19,10 @@ import { de_ModifyFpgaImageAttributeCommand, se_ModifyFpgaImageAttributeCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyFpgaImageAttributeCommand}.
  */

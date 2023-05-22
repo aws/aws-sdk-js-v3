@@ -19,6 +19,10 @@ import { de_DescribeSnapshotAttributeCommand, se_DescribeSnapshotAttributeComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSnapshotAttributeCommand}.
  */

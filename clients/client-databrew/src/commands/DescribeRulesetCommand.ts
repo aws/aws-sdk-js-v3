@@ -19,6 +19,10 @@ import { de_DescribeRulesetCommand, se_DescribeRulesetCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRulesetCommand}.
  */

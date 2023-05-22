@@ -23,6 +23,10 @@ import { de_GetContactInformationCommand, se_GetContactInformationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContactInformationCommand}.
  */

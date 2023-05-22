@@ -19,6 +19,10 @@ import { de_DescribeSubnetGroupsCommand, se_DescribeSubnetGroupsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSubnetGroupsCommand}.
  */

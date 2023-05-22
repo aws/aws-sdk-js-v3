@@ -19,6 +19,10 @@ import { de_ListRevisionAssetsCommand, se_ListRevisionAssetsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRevisionAssetsCommand}.
  */

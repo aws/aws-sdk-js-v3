@@ -19,6 +19,10 @@ import { de_UpdateLayoutCommand, se_UpdateLayoutCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLayoutCommand}.
  */

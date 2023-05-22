@@ -19,6 +19,10 @@ import { de_DescribeMetricFiltersCommand, se_DescribeMetricFiltersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeMetricFiltersCommand}.
  */

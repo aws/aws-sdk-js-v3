@@ -19,6 +19,10 @@ import { de_DescribePipelinesCommand, se_DescribePipelinesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePipelinesCommand}.
  */

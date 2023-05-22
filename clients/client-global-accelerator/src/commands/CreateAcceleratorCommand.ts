@@ -23,6 +23,10 @@ import { de_CreateAcceleratorCommand, se_CreateAcceleratorCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAcceleratorCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteImageBuilderCommand, se_DeleteImageBuilderCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteImageBuilderCommand}.
  */

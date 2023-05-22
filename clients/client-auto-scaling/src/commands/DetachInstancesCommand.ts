@@ -19,6 +19,10 @@ import { de_DetachInstancesCommand, se_DetachInstancesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachInstancesCommand}.
  */

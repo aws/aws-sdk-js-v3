@@ -23,6 +23,10 @@ import { de_GetSipMediaApplicationCommand, se_GetSipMediaApplicationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSipMediaApplicationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListEnabledControlsCommand, se_ListEnabledControlsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEnabledControlsCommand}.
  */

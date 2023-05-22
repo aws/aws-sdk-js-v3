@@ -23,6 +23,10 @@ import { de_ListJobTemplatesCommand, se_ListJobTemplatesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListJobTemplatesCommand}.
  */

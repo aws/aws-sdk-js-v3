@@ -19,6 +19,10 @@ import { de_SearchIndexCommand, se_SearchIndexCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchIndexCommand}.
  */

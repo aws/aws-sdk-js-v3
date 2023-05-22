@@ -19,6 +19,10 @@ import { de_DeleteInferenceSchedulerCommand, se_DeleteInferenceSchedulerCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteInferenceSchedulerCommand}.
  */

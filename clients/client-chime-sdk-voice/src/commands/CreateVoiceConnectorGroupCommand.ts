@@ -19,6 +19,10 @@ import { de_CreateVoiceConnectorGroupCommand, se_CreateVoiceConnectorGroupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVoiceConnectorGroupCommand}.
  */

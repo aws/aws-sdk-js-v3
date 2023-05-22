@@ -19,6 +19,10 @@ import { de_DescribeWhatIfAnalysisCommand, se_DescribeWhatIfAnalysisCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeWhatIfAnalysisCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeTrackerCommand, se_DescribeTrackerCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTrackerCommand}.
  */

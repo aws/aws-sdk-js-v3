@@ -19,6 +19,10 @@ import { de_UpdateFunctionUrlConfigCommand, se_UpdateFunctionUrlConfigCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFunctionUrlConfigCommand}.
  */

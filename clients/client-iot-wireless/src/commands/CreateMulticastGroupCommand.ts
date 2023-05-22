@@ -19,6 +19,10 @@ import { de_CreateMulticastGroupCommand, se_CreateMulticastGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMulticastGroupCommand}.
  */

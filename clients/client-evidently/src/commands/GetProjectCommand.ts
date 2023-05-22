@@ -19,6 +19,10 @@ import { de_GetProjectCommand, se_GetProjectCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetProjectCommand}.
  */

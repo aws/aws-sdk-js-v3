@@ -19,6 +19,10 @@ import { de_ListTopicRuleDestinationsCommand, se_ListTopicRuleDestinationsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTopicRuleDestinationsCommand}.
  */

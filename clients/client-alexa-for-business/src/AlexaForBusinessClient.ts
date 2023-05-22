@@ -269,6 +269,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -592,7 +594,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type AlexaForBusinessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type AlexaForBusinessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -611,7 +613,7 @@ export interface AlexaForBusinessClientConfig extends AlexaForBusinessClientConf
 /**
  * @public
  */
-type AlexaForBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type AlexaForBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

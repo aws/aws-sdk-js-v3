@@ -19,6 +19,10 @@ import { de_GetJobDocumentCommand, se_GetJobDocumentCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetJobDocumentCommand}.
  */

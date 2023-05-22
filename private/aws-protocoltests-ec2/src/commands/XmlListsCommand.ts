@@ -18,6 +18,10 @@ import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link XmlListsCommand}.
  */

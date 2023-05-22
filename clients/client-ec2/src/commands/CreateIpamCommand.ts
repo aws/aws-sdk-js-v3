@@ -19,6 +19,10 @@ import { de_CreateIpamCommand, se_CreateIpamCommand } from "../protocols/Aws_ec2
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateIpamCommand}.
  */

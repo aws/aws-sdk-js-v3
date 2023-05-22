@@ -19,6 +19,10 @@ import { de_ReleaseAddressCommand, se_ReleaseAddressCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReleaseAddressCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetStaticIpCommand, se_GetStaticIpCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStaticIpCommand}.
  */

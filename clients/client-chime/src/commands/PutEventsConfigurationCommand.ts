@@ -24,6 +24,10 @@ import { de_PutEventsConfigurationCommand, se_PutEventsConfigurationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutEventsConfigurationCommand}.
  */

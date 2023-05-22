@@ -19,6 +19,10 @@ import { de_ResumeProcessesCommand, se_ResumeProcessesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResumeProcessesCommand}.
  */

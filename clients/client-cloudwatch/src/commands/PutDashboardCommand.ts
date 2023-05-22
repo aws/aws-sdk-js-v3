@@ -19,6 +19,10 @@ import { de_PutDashboardCommand, se_PutDashboardCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutDashboardCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteTypedLinkFacetCommand, se_DeleteTypedLinkFacetCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTypedLinkFacetCommand}.
  */

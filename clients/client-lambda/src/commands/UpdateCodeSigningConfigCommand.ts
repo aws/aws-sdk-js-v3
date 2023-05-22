@@ -19,6 +19,10 @@ import { de_UpdateCodeSigningConfigCommand, se_UpdateCodeSigningConfigCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCodeSigningConfigCommand}.
  */

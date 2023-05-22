@@ -293,6 +293,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -568,7 +570,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type NeptuneClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type NeptuneClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -587,7 +589,7 @@ export interface NeptuneClientConfig extends NeptuneClientConfigType {}
 /**
  * @public
  */
-type NeptuneClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type NeptuneClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

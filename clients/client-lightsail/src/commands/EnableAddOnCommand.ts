@@ -19,6 +19,10 @@ import { de_EnableAddOnCommand, se_EnableAddOnCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableAddOnCommand}.
  */

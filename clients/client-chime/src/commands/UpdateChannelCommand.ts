@@ -23,6 +23,10 @@ import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateChannelCommand}.
  */

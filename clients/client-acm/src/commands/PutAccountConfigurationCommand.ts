@@ -19,6 +19,10 @@ import { de_PutAccountConfigurationCommand, se_PutAccountConfigurationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAccountConfigurationCommand}.
  */

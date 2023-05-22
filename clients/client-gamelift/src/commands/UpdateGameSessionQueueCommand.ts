@@ -19,6 +19,10 @@ import { de_UpdateGameSessionQueueCommand, se_UpdateGameSessionQueueCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGameSessionQueueCommand}.
  */

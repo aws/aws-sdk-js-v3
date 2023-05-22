@@ -23,6 +23,10 @@ import { de_BatchGetVpcEndpointCommand, se_BatchGetVpcEndpointCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetVpcEndpointCommand}.
  */

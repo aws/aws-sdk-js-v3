@@ -23,6 +23,10 @@ import { de_UpdateDeviceStateCommand, se_UpdateDeviceStateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDeviceStateCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ImportSnapshotCommand, se_ImportSnapshotCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportSnapshotCommand}.
  */

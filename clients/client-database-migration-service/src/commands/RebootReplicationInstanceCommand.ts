@@ -23,6 +23,10 @@ import { de_RebootReplicationInstanceCommand, se_RebootReplicationInstanceComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RebootReplicationInstanceCommand}.
  */

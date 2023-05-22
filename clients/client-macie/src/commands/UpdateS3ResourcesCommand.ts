@@ -19,6 +19,10 @@ import { de_UpdateS3ResourcesCommand, se_UpdateS3ResourcesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateS3ResourcesCommand}.
  */

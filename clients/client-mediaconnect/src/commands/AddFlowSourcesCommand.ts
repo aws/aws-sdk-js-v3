@@ -19,6 +19,10 @@ import { de_AddFlowSourcesCommand, se_AddFlowSourcesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddFlowSourcesCommand}.
  */

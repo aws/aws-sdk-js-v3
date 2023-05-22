@@ -19,6 +19,10 @@ import { de_CreateDataSourceFromRDSCommand, se_CreateDataSourceFromRDSCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDataSourceFromRDSCommand}.
  */

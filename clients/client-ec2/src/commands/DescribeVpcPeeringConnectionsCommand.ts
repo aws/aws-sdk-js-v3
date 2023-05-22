@@ -19,6 +19,10 @@ import { de_DescribeVpcPeeringConnectionsCommand, se_DescribeVpcPeeringConnectio
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVpcPeeringConnectionsCommand}.
  */

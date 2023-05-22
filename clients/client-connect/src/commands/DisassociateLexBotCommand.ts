@@ -19,6 +19,10 @@ import { de_DisassociateLexBotCommand, se_DisassociateLexBotCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateLexBotCommand}.
  */

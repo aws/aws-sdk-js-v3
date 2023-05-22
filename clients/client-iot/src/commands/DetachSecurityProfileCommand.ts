@@ -19,6 +19,10 @@ import { de_DetachSecurityProfileCommand, se_DetachSecurityProfileCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachSecurityProfileCommand}.
  */

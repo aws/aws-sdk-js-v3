@@ -19,6 +19,10 @@ import { de_BatchDeleteImageCommand, se_BatchDeleteImageCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteImageCommand}.
  */

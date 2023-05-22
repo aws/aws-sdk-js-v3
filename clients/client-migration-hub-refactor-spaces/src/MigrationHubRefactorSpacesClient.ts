@@ -92,6 +92,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -277,7 +279,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type MigrationHubRefactorSpacesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MigrationHubRefactorSpacesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -296,7 +298,7 @@ export interface MigrationHubRefactorSpacesClientConfig extends MigrationHubRefa
 /**
  * @public
  */
-type MigrationHubRefactorSpacesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MigrationHubRefactorSpacesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

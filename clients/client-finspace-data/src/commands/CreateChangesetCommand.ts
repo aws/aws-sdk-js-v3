@@ -19,6 +19,10 @@ import { de_CreateChangesetCommand, se_CreateChangesetCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateChangesetCommand}.
  */

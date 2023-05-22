@@ -23,6 +23,10 @@ import { de_ImportApplicationUsageCommand, se_ImportApplicationUsageCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportApplicationUsageCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateWorkerBlockCommand, se_CreateWorkerBlockCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWorkerBlockCommand}.
  */

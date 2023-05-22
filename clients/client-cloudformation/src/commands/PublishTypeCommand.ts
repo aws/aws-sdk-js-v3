@@ -19,6 +19,10 @@ import { de_PublishTypeCommand, se_PublishTypeCommand } from "../protocols/Aws_q
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PublishTypeCommand}.
  */

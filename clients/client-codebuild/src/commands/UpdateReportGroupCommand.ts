@@ -19,6 +19,10 @@ import { de_UpdateReportGroupCommand, se_UpdateReportGroupCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateReportGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ModifyIpamPoolCommand, se_ModifyIpamPoolCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyIpamPoolCommand}.
  */

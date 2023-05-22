@@ -19,6 +19,10 @@ import { de_DeleteExpressionCommand, se_DeleteExpressionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteExpressionCommand}.
  */

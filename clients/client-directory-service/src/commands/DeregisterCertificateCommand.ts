@@ -19,6 +19,10 @@ import { de_DeregisterCertificateCommand, se_DeregisterCertificateCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterCertificateCommand}.
  */

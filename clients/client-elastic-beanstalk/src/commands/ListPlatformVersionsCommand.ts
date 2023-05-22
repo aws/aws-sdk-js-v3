@@ -19,6 +19,10 @@ import { de_ListPlatformVersionsCommand, se_ListPlatformVersionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPlatformVersionsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_GetDistributionConfigCommand, se_GetDistributionConfigCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDistributionConfigCommand}.
  */

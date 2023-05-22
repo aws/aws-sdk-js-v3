@@ -24,6 +24,10 @@ import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateServiceCommand}.
  */

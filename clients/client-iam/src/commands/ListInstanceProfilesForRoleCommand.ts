@@ -19,6 +19,10 @@ import { de_ListInstanceProfilesForRoleCommand, se_ListInstanceProfilesForRoleCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInstanceProfilesForRoleCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateFieldCommand, se_CreateFieldCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFieldCommand}.
  */

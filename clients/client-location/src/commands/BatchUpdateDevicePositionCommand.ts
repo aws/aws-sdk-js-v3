@@ -23,6 +23,10 @@ import { de_BatchUpdateDevicePositionCommand, se_BatchUpdateDevicePositionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUpdateDevicePositionCommand}.
  */

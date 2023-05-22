@@ -19,6 +19,10 @@ import { de_DeleteDirectoryCommand, se_DeleteDirectoryCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDirectoryCommand}.
  */

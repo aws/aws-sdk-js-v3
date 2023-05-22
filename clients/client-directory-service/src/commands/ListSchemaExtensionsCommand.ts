@@ -19,6 +19,10 @@ import { de_ListSchemaExtensionsCommand, se_ListSchemaExtensionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSchemaExtensionsCommand}.
  */

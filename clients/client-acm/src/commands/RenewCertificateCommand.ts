@@ -19,6 +19,10 @@ import { de_RenewCertificateCommand, se_RenewCertificateCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RenewCertificateCommand}.
  */

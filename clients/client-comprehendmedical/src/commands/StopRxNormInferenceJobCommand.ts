@@ -23,6 +23,10 @@ import { de_StopRxNormInferenceJobCommand, se_StopRxNormInferenceJobCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopRxNormInferenceJobCommand}.
  */

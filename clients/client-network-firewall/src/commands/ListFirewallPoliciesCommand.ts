@@ -19,6 +19,10 @@ import { de_ListFirewallPoliciesCommand, se_ListFirewallPoliciesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFirewallPoliciesCommand}.
  */

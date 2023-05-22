@@ -19,6 +19,10 @@ import { de_BatchGetDevEndpointsCommand, se_BatchGetDevEndpointsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetDevEndpointsCommand}.
  */

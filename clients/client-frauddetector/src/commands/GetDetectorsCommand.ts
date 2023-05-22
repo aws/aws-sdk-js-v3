@@ -19,6 +19,10 @@ import { de_GetDetectorsCommand, se_GetDetectorsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDetectorsCommand}.
  */

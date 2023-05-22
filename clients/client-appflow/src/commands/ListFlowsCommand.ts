@@ -19,6 +19,10 @@ import { de_ListFlowsCommand, se_ListFlowsCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFlowsCommand}.
  */

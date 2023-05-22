@@ -23,6 +23,10 @@ import { de_GetBucketAccessKeysCommand, se_GetBucketAccessKeysCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBucketAccessKeysCommand}.
  */

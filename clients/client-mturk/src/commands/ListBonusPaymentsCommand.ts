@@ -19,6 +19,10 @@ import { de_ListBonusPaymentsCommand, se_ListBonusPaymentsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBonusPaymentsCommand}.
  */

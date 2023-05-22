@@ -23,6 +23,10 @@ import { de_UpdatePipelineStatusCommand, se_UpdatePipelineStatusCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePipelineStatusCommand}.
  */

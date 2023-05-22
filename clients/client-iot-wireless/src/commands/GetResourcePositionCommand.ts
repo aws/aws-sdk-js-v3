@@ -19,6 +19,10 @@ import { de_GetResourcePositionCommand, se_GetResourcePositionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResourcePositionCommand}.
  */

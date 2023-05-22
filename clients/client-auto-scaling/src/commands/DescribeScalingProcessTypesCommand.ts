@@ -19,6 +19,10 @@ import { de_DescribeScalingProcessTypesCommand, se_DescribeScalingProcessTypesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScalingProcessTypesCommand}.
  */

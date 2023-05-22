@@ -19,6 +19,10 @@ import { de_DeleteRoleAliasCommand, se_DeleteRoleAliasCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRoleAliasCommand}.
  */

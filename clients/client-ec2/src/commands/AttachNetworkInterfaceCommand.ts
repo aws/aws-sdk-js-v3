@@ -19,6 +19,10 @@ import { de_AttachNetworkInterfaceCommand, se_AttachNetworkInterfaceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachNetworkInterfaceCommand}.
  */

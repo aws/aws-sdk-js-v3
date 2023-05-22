@@ -19,6 +19,10 @@ import { de_GetDataIntegrationCommand, se_GetDataIntegrationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataIntegrationCommand}.
  */

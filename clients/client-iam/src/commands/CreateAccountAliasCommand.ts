@@ -19,6 +19,10 @@ import { de_CreateAccountAliasCommand, se_CreateAccountAliasCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAccountAliasCommand}.
  */

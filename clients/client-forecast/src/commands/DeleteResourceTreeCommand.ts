@@ -19,6 +19,10 @@ import { de_DeleteResourceTreeCommand, se_DeleteResourceTreeCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteResourceTreeCommand}.
  */

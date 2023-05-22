@@ -19,6 +19,10 @@ import { de_ListRegistriesCommand, se_ListRegistriesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRegistriesCommand}.
  */

@@ -23,6 +23,10 @@ import { de_CreateAccessorCommand, se_CreateAccessorCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAccessorCommand}.
  */

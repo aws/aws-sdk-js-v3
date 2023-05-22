@@ -23,6 +23,10 @@ import { de_SendMessageCommand, se_SendMessageCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendMessageCommand}.
  */

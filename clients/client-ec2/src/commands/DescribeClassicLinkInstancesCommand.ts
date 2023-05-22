@@ -19,6 +19,10 @@ import { de_DescribeClassicLinkInstancesCommand, se_DescribeClassicLinkInstances
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeClassicLinkInstancesCommand}.
  */

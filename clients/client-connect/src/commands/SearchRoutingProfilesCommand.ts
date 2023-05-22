@@ -19,6 +19,10 @@ import { de_SearchRoutingProfilesCommand, se_SearchRoutingProfilesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchRoutingProfilesCommand}.
  */

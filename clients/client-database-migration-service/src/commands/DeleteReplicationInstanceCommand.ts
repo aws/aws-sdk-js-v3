@@ -23,6 +23,10 @@ import { de_DeleteReplicationInstanceCommand, se_DeleteReplicationInstanceComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteReplicationInstanceCommand}.
  */

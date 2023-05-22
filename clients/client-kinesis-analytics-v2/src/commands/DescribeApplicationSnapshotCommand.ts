@@ -23,6 +23,10 @@ import { de_DescribeApplicationSnapshotCommand, se_DescribeApplicationSnapshotCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeApplicationSnapshotCommand}.
  */

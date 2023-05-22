@@ -19,6 +19,10 @@ import { de_CreateClientVpnRouteCommand, se_CreateClientVpnRouteCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateClientVpnRouteCommand}.
  */

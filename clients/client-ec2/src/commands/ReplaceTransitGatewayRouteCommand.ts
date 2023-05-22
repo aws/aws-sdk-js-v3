@@ -19,6 +19,10 @@ import { de_ReplaceTransitGatewayRouteCommand, se_ReplaceTransitGatewayRouteComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReplaceTransitGatewayRouteCommand}.
  */

@@ -29,6 +29,10 @@ import { de_AdminListDevicesCommand, se_AdminListDevicesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminListDevicesCommand}.
  */

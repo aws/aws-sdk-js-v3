@@ -23,6 +23,10 @@ import { de_DeleteWorkflowCommand, se_DeleteWorkflowCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWorkflowCommand}.
  */

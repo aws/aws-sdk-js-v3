@@ -19,6 +19,10 @@ import { de_ListFuotaTasksCommand, se_ListFuotaTasksCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFuotaTasksCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeclineInvitationsCommand, se_DeclineInvitationsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeclineInvitationsCommand}.
  */

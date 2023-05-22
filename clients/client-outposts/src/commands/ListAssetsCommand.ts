@@ -19,6 +19,10 @@ import { de_ListAssetsCommand, se_ListAssetsCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssetsCommand}.
  */

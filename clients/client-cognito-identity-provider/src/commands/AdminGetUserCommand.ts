@@ -29,6 +29,10 @@ import { de_AdminGetUserCommand, se_AdminGetUserCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminGetUserCommand}.
  */

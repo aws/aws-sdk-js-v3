@@ -23,6 +23,10 @@ import { de_CreateProvisioningClaimCommand, se_CreateProvisioningClaimCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateProvisioningClaimCommand}.
  */

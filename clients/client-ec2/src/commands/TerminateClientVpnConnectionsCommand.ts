@@ -19,6 +19,10 @@ import { de_TerminateClientVpnConnectionsCommand, se_TerminateClientVpnConnectio
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TerminateClientVpnConnectionsCommand}.
  */

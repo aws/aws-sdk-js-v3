@@ -19,6 +19,10 @@ import { de_PutPositionConfigurationCommand, se_PutPositionConfigurationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutPositionConfigurationCommand}.
  */

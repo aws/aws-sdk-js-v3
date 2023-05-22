@@ -19,6 +19,10 @@ import { de_CreateRealtimeEndpointCommand, se_CreateRealtimeEndpointCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRealtimeEndpointCommand}.
  */

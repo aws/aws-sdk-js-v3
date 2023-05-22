@@ -19,6 +19,10 @@ import { de_SearchRoomsCommand, se_SearchRoomsCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchRoomsCommand}.
  */

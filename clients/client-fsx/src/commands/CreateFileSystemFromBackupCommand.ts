@@ -23,6 +23,10 @@ import { de_CreateFileSystemFromBackupCommand, se_CreateFileSystemFromBackupComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFileSystemFromBackupCommand}.
  */

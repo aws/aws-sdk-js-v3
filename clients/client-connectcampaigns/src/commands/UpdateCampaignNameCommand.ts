@@ -19,6 +19,10 @@ import { de_UpdateCampaignNameCommand, se_UpdateCampaignNameCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCampaignNameCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetQualificationTypeCommand, se_GetQualificationTypeCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetQualificationTypeCommand}.
  */

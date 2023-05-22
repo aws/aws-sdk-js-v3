@@ -19,6 +19,10 @@ import { de_CreateDetectorCommand, se_CreateDetectorCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDetectorCommand}.
  */

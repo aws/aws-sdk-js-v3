@@ -19,6 +19,10 @@ import { de_DeleteBasePathMappingCommand, se_DeleteBasePathMappingCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBasePathMappingCommand}.
  */

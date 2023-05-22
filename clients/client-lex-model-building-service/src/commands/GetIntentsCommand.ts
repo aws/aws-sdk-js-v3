@@ -23,6 +23,10 @@ import { de_GetIntentsCommand, se_GetIntentsCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIntentsCommand}.
  */

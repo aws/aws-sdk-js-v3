@@ -23,6 +23,10 @@ import { de_DescribeEntityRecognizerCommand, se_DescribeEntityRecognizerCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEntityRecognizerCommand}.
  */

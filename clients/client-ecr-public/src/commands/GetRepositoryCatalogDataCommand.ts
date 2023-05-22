@@ -19,6 +19,10 @@ import { de_GetRepositoryCatalogDataCommand, se_GetRepositoryCatalogDataCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRepositoryCatalogDataCommand}.
  */

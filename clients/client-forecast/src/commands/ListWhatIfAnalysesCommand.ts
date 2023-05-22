@@ -19,6 +19,10 @@ import { de_ListWhatIfAnalysesCommand, se_ListWhatIfAnalysesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWhatIfAnalysesCommand}.
  */

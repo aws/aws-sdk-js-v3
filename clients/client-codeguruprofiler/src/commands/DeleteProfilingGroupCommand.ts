@@ -19,6 +19,10 @@ import { de_DeleteProfilingGroupCommand, se_DeleteProfilingGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteProfilingGroupCommand}.
  */

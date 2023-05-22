@@ -19,6 +19,10 @@ import { de_PollForJobsCommand, se_PollForJobsCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PollForJobsCommand}.
  */

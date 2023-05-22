@@ -19,6 +19,10 @@ import { de_DetachTypedLinkCommand, se_DetachTypedLinkCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachTypedLinkCommand}.
  */

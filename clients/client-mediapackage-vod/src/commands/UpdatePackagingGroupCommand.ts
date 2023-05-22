@@ -19,6 +19,10 @@ import { de_UpdatePackagingGroupCommand, se_UpdatePackagingGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePackagingGroupCommand}.
  */

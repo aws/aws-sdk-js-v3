@@ -19,6 +19,10 @@ import { de_CreateStackInstancesCommand, se_CreateStackInstancesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStackInstancesCommand}.
  */

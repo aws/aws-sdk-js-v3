@@ -19,6 +19,10 @@ import { de_UpdateUserHierarchyCommand, se_UpdateUserHierarchyCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateUserHierarchyCommand}.
  */

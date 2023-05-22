@@ -19,6 +19,10 @@ import { de_DescribeUserGroupsCommand, se_DescribeUserGroupsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeUserGroupsCommand}.
  */

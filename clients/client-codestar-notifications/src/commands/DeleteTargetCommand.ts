@@ -23,6 +23,10 @@ import { de_DeleteTargetCommand, se_DeleteTargetCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTargetCommand}.
  */

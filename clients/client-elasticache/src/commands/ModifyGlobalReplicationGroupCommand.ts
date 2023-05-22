@@ -19,6 +19,10 @@ import { de_ModifyGlobalReplicationGroupCommand, se_ModifyGlobalReplicationGroup
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyGlobalReplicationGroupCommand}.
  */

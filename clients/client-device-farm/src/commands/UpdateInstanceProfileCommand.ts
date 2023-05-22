@@ -19,6 +19,10 @@ import { de_UpdateInstanceProfileCommand, se_UpdateInstanceProfileCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateInstanceProfileCommand}.
  */

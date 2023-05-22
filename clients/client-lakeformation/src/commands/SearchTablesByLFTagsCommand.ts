@@ -19,6 +19,10 @@ import { de_SearchTablesByLFTagsCommand, se_SearchTablesByLFTagsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchTablesByLFTagsCommand}.
  */

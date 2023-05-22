@@ -19,6 +19,10 @@ import { de_ListSharedProjectsCommand, se_ListSharedProjectsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSharedProjectsCommand}.
  */

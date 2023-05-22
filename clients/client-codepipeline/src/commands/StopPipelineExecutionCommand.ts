@@ -19,6 +19,10 @@ import { de_StopPipelineExecutionCommand, se_StopPipelineExecutionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopPipelineExecutionCommand}.
  */

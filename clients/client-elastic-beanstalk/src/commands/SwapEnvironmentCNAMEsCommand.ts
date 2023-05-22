@@ -19,6 +19,10 @@ import { de_SwapEnvironmentCNAMEsCommand, se_SwapEnvironmentCNAMEsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SwapEnvironmentCNAMEsCommand}.
  */

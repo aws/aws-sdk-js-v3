@@ -19,6 +19,10 @@ import { de_DeleteExtensionAssociationCommand, se_DeleteExtensionAssociationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteExtensionAssociationCommand}.
  */

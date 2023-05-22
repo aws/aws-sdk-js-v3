@@ -19,6 +19,10 @@ import { de_ModifyPrivateDnsNameOptionsCommand, se_ModifyPrivateDnsNameOptionsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyPrivateDnsNameOptionsCommand}.
  */

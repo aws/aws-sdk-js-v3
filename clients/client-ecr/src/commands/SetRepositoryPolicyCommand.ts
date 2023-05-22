@@ -19,6 +19,10 @@ import { de_SetRepositoryPolicyCommand, se_SetRepositoryPolicyCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetRepositoryPolicyCommand}.
  */

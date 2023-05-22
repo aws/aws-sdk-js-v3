@@ -19,6 +19,10 @@ import { de_CreateAutoScalingGroupCommand, se_CreateAutoScalingGroupCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAutoScalingGroupCommand}.
  */

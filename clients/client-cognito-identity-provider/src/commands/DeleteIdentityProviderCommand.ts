@@ -24,6 +24,10 @@ import { de_DeleteIdentityProviderCommand, se_DeleteIdentityProviderCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteIdentityProviderCommand}.
  */

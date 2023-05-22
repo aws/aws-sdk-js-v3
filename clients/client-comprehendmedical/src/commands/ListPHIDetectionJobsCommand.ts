@@ -23,6 +23,10 @@ import { de_ListPHIDetectionJobsCommand, se_ListPHIDetectionJobsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPHIDetectionJobsCommand}.
  */

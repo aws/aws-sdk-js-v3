@@ -23,6 +23,10 @@ import { de_CreateVirtualMFADeviceCommand, se_CreateVirtualMFADeviceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVirtualMFADeviceCommand}.
  */

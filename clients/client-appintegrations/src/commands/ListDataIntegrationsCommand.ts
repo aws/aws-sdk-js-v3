@@ -19,6 +19,10 @@ import { de_ListDataIntegrationsCommand, se_ListDataIntegrationsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDataIntegrationsCommand}.
  */

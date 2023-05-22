@@ -19,6 +19,10 @@ import { de_CreateLocationCommand, se_CreateLocationCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocationCommand}.
  */

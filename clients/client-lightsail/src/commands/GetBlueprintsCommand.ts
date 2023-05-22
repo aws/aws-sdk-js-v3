@@ -19,6 +19,10 @@ import { de_GetBlueprintsCommand, se_GetBlueprintsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBlueprintsCommand}.
  */

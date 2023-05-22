@@ -19,6 +19,10 @@ import { de_DescribeNatGatewaysCommand, se_DescribeNatGatewaysCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeNatGatewaysCommand}.
  */

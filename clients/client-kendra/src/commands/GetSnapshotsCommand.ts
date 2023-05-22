@@ -19,6 +19,10 @@ import { de_GetSnapshotsCommand, se_GetSnapshotsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSnapshotsCommand}.
  */

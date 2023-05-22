@@ -23,6 +23,10 @@ import { de_GetLatestAssessmentIdCommand, se_GetLatestAssessmentIdCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLatestAssessmentIdCommand}.
  */

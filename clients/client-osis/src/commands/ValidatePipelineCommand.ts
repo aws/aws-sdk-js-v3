@@ -19,6 +19,10 @@ import { de_ValidatePipelineCommand, se_ValidatePipelineCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ValidatePipelineCommand}.
  */

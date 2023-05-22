@@ -19,6 +19,10 @@ import { de_UpdateJobTemplateCommand, se_UpdateJobTemplateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateJobTemplateCommand}.
  */

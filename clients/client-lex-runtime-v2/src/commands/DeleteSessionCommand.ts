@@ -19,6 +19,10 @@ import { de_DeleteSessionCommand, se_DeleteSessionCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSessionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetStatisticsCommand, se_GetStatisticsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStatisticsCommand}.
  */

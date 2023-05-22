@@ -19,6 +19,10 @@ import { de_CreateInstancesFromSnapshotCommand, se_CreateInstancesFromSnapshotCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateInstancesFromSnapshotCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DefineAnalysisSchemeCommand, se_DefineAnalysisSchemeCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DefineAnalysisSchemeCommand}.
  */

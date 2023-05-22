@@ -19,6 +19,10 @@ import { de_DeleteFpgaImageCommand, se_DeleteFpgaImageCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFpgaImageCommand}.
  */

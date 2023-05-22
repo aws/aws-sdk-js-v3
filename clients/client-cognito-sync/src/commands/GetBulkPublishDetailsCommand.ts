@@ -19,6 +19,10 @@ import { de_GetBulkPublishDetailsCommand, se_GetBulkPublishDetailsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBulkPublishDetailsCommand}.
  */

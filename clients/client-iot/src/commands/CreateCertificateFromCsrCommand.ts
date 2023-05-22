@@ -19,6 +19,10 @@ import { de_CreateCertificateFromCsrCommand, se_CreateCertificateFromCsrCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCertificateFromCsrCommand}.
  */

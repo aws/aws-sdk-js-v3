@@ -19,6 +19,10 @@ import { de_DescribeInsightRulesCommand, se_DescribeInsightRulesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInsightRulesCommand}.
  */

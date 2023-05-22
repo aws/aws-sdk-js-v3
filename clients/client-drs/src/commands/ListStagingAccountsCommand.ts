@@ -19,6 +19,10 @@ import { de_ListStagingAccountsCommand, se_ListStagingAccountsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStagingAccountsCommand}.
  */

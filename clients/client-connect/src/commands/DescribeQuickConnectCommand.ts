@@ -19,6 +19,10 @@ import { de_DescribeQuickConnectCommand, se_DescribeQuickConnectCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeQuickConnectCommand}.
  */

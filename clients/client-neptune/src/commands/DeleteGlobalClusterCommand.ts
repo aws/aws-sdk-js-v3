@@ -19,6 +19,10 @@ import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGlobalClusterCommand}.
  */

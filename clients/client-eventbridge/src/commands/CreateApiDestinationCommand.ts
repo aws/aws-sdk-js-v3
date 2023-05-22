@@ -19,6 +19,10 @@ import { de_CreateApiDestinationCommand, se_CreateApiDestinationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateApiDestinationCommand}.
  */

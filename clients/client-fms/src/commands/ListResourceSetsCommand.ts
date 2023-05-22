@@ -19,6 +19,10 @@ import { de_ListResourceSetsCommand, se_ListResourceSetsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListResourceSetsCommand}.
  */

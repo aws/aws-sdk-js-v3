@@ -24,6 +24,10 @@ import { de_CreateDistributionWithTagsCommand, se_CreateDistributionWithTagsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDistributionWithTagsCommand}.
  */

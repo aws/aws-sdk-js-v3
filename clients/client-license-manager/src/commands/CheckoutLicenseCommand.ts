@@ -19,6 +19,10 @@ import { de_CheckoutLicenseCommand, se_CheckoutLicenseCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CheckoutLicenseCommand}.
  */

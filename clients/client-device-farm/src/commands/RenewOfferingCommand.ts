@@ -19,6 +19,10 @@ import { de_RenewOfferingCommand, se_RenewOfferingCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RenewOfferingCommand}.
  */

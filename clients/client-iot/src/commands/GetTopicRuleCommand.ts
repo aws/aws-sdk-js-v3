@@ -19,6 +19,10 @@ import { de_GetTopicRuleCommand, se_GetTopicRuleCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTopicRuleCommand}.
  */

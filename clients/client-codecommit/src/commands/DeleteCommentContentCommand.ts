@@ -19,6 +19,10 @@ import { de_DeleteCommentContentCommand, se_DeleteCommentContentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCommentContentCommand}.
  */

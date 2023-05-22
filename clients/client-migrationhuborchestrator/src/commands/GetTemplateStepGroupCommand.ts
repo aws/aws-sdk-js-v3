@@ -23,6 +23,10 @@ import { de_GetTemplateStepGroupCommand, se_GetTemplateStepGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTemplateStepGroupCommand}.
  */

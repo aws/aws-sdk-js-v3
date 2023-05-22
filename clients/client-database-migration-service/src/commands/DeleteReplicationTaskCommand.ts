@@ -23,6 +23,10 @@ import { de_DeleteReplicationTaskCommand, se_DeleteReplicationTaskCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteReplicationTaskCommand}.
  */

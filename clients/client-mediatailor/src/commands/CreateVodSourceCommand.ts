@@ -19,6 +19,10 @@ import { de_CreateVodSourceCommand, se_CreateVodSourceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVodSourceCommand}.
  */

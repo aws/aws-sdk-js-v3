@@ -19,6 +19,10 @@ import { de_GetConnectPeerCommand, se_GetConnectPeerCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConnectPeerCommand}.
  */

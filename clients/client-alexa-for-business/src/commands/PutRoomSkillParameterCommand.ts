@@ -19,6 +19,10 @@ import { de_PutRoomSkillParameterCommand, se_PutRoomSkillParameterCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRoomSkillParameterCommand}.
  */

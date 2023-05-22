@@ -19,6 +19,10 @@ import { de_ListInstanceAttributesCommand, se_ListInstanceAttributesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInstanceAttributesCommand}.
  */

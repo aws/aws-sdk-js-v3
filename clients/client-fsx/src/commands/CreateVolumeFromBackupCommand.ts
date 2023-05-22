@@ -19,6 +19,10 @@ import { de_CreateVolumeFromBackupCommand, se_CreateVolumeFromBackupCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVolumeFromBackupCommand}.
  */

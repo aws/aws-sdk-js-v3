@@ -19,6 +19,10 @@ import { de_CompleteLifecycleActionCommand, se_CompleteLifecycleActionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CompleteLifecycleActionCommand}.
  */

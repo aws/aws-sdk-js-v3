@@ -19,6 +19,10 @@ import { de_ListScriptsCommand, se_ListScriptsCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListScriptsCommand}.
  */

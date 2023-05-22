@@ -19,6 +19,10 @@ import { de_StartInstanceCommand, se_StartInstanceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartInstanceCommand}.
  */

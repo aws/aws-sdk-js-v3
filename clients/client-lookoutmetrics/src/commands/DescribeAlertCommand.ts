@@ -19,6 +19,10 @@ import { de_DescribeAlertCommand, se_DescribeAlertCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAlertCommand}.
  */

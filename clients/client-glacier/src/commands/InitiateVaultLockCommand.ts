@@ -19,6 +19,10 @@ import { de_InitiateVaultLockCommand, se_InitiateVaultLockCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InitiateVaultLockCommand}.
  */

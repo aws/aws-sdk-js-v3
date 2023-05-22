@@ -19,6 +19,10 @@ import { de_DisableEbsEncryptionByDefaultCommand, se_DisableEbsEncryptionByDefau
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableEbsEncryptionByDefaultCommand}.
  */

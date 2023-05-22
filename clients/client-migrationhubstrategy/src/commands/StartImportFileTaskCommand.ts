@@ -23,6 +23,10 @@ import { de_StartImportFileTaskCommand, se_StartImportFileTaskCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartImportFileTaskCommand}.
  */

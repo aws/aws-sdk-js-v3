@@ -19,6 +19,10 @@ import { de_CreateGeofenceCollectionCommand, se_CreateGeofenceCollectionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGeofenceCollectionCommand}.
  */

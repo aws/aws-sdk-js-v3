@@ -19,6 +19,10 @@ import { de_AssignInstanceCommand, se_AssignInstanceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssignInstanceCommand}.
  */

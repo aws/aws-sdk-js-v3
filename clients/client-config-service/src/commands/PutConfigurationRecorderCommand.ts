@@ -19,6 +19,10 @@ import { de_PutConfigurationRecorderCommand, se_PutConfigurationRecorderCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutConfigurationRecorderCommand}.
  */

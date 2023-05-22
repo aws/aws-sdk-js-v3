@@ -20,6 +20,10 @@ import { de_UpdateFleetPortSettingsCommand, se_UpdateFleetPortSettingsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFleetPortSettingsCommand}.
  */

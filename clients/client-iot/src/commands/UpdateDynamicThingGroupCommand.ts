@@ -19,6 +19,10 @@ import { de_UpdateDynamicThingGroupCommand, se_UpdateDynamicThingGroupCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDynamicThingGroupCommand}.
  */

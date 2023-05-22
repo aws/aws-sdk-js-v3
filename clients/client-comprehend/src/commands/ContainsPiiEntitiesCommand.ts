@@ -19,6 +19,10 @@ import { de_ContainsPiiEntitiesCommand, se_ContainsPiiEntitiesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ContainsPiiEntitiesCommand}.
  */

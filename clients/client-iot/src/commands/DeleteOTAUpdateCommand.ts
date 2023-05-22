@@ -19,6 +19,10 @@ import { de_DeleteOTAUpdateCommand, se_DeleteOTAUpdateCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteOTAUpdateCommand}.
  */

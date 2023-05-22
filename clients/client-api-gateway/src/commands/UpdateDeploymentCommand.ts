@@ -19,6 +19,10 @@ import { de_UpdateDeploymentCommand, se_UpdateDeploymentCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDeploymentCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListThingTypesCommand, se_ListThingTypesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListThingTypesCommand}.
  */

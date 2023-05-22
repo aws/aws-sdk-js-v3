@@ -23,6 +23,10 @@ import { de_RollbackApplicationCommand, se_RollbackApplicationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RollbackApplicationCommand}.
  */

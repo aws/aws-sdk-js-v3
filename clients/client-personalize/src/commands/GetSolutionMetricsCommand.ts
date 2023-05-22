@@ -19,6 +19,10 @@ import { de_GetSolutionMetricsCommand, se_GetSolutionMetricsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSolutionMetricsCommand}.
  */

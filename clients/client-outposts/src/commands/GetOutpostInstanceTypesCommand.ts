@@ -19,6 +19,10 @@ import { de_GetOutpostInstanceTypesCommand, se_GetOutpostInstanceTypesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOutpostInstanceTypesCommand}.
  */

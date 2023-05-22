@@ -19,6 +19,10 @@ import { de_PutRuntimeManagementConfigCommand, se_PutRuntimeManagementConfigComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRuntimeManagementConfigCommand}.
  */

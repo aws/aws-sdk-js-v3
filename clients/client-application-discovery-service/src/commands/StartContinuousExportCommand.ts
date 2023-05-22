@@ -23,6 +23,10 @@ import { de_StartContinuousExportCommand, se_StartContinuousExportCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartContinuousExportCommand}.
  */

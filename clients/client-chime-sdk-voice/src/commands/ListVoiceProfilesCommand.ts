@@ -23,6 +23,10 @@ import { de_ListVoiceProfilesCommand, se_ListVoiceProfilesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVoiceProfilesCommand}.
  */

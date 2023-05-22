@@ -23,6 +23,10 @@ import { de_PutSkillAuthorizationCommand, se_PutSkillAuthorizationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSkillAuthorizationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteMeetingCommand, se_DeleteMeetingCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMeetingCommand}.
  */

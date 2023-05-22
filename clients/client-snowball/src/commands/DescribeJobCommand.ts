@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeJobCommand}.
  */

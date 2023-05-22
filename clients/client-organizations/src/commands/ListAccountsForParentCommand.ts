@@ -23,6 +23,10 @@ import { de_ListAccountsForParentCommand, se_ListAccountsForParentCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccountsForParentCommand}.
  */

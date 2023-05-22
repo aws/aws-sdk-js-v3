@@ -19,6 +19,10 @@ import { de_StopStreamCommand, se_StopStreamCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopStreamCommand}.
  */

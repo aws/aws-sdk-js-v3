@@ -19,6 +19,10 @@ import { de_ForgetSmartHomeAppliancesCommand, se_ForgetSmartHomeAppliancesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ForgetSmartHomeAppliancesCommand}.
  */

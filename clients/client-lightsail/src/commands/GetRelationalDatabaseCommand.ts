@@ -19,6 +19,10 @@ import { de_GetRelationalDatabaseCommand, se_GetRelationalDatabaseCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRelationalDatabaseCommand}.
  */

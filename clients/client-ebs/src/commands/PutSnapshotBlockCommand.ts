@@ -23,6 +23,10 @@ import { de_PutSnapshotBlockCommand, se_PutSnapshotBlockCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSnapshotBlockCommand}.
  */

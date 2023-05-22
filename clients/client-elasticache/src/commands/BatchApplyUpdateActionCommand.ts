@@ -19,6 +19,10 @@ import { de_BatchApplyUpdateActionCommand, se_BatchApplyUpdateActionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchApplyUpdateActionCommand}.
  */

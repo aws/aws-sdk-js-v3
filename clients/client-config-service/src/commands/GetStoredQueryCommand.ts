@@ -19,6 +19,10 @@ import { de_GetStoredQueryCommand, se_GetStoredQueryCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStoredQueryCommand}.
  */

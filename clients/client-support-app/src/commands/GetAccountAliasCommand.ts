@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig }
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccountAliasCommand}.
  */

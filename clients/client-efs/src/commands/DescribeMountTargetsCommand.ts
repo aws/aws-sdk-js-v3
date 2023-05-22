@@ -19,6 +19,10 @@ import { de_DescribeMountTargetsCommand, se_DescribeMountTargetsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeMountTargetsCommand}.
  */

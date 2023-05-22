@@ -19,6 +19,10 @@ import { de_DeleteDocumentClassifierCommand, se_DeleteDocumentClassifierCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDocumentClassifierCommand}.
  */

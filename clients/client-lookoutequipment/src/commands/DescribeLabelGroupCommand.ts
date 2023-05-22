@@ -19,6 +19,10 @@ import { de_DescribeLabelGroupCommand, se_DescribeLabelGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLabelGroupCommand}.
  */

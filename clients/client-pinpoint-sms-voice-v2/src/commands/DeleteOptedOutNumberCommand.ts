@@ -23,6 +23,10 @@ import { de_DeleteOptedOutNumberCommand, se_DeleteOptedOutNumberCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteOptedOutNumberCommand}.
  */

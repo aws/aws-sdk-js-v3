@@ -29,6 +29,10 @@ import { de_DescribeRiskConfigurationCommand, se_DescribeRiskConfigurationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRiskConfigurationCommand}.
  */

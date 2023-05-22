@@ -19,6 +19,10 @@ import { de_ListBackupVaultsCommand, se_ListBackupVaultsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBackupVaultsCommand}.
  */

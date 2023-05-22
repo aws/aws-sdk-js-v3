@@ -19,6 +19,10 @@ import { de_DescribeChangeSetHooksCommand, se_DescribeChangeSetHooksCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeChangeSetHooksCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CopyFpgaImageCommand, se_CopyFpgaImageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CopyFpgaImageCommand}.
  */

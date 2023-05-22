@@ -19,6 +19,10 @@ import { de_DescribeConformancePacksCommand, se_DescribeConformancePacksCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeConformancePacksCommand}.
  */

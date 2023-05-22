@@ -19,6 +19,10 @@ import { de_SampleChannelDataCommand, se_SampleChannelDataCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SampleChannelDataCommand}.
  */

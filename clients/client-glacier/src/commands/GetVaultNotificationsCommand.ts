@@ -19,6 +19,10 @@ import { de_GetVaultNotificationsCommand, se_GetVaultNotificationsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVaultNotificationsCommand}.
  */

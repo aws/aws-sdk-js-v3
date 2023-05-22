@@ -19,6 +19,10 @@ import { de_DisposePackageVersionsCommand, se_DisposePackageVersionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisposePackageVersionsCommand}.
  */

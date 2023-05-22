@@ -19,6 +19,10 @@ import { de_UpdateGcmChannelCommand, se_UpdateGcmChannelCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGcmChannelCommand}.
  */

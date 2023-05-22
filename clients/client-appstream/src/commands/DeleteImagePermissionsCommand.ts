@@ -19,6 +19,10 @@ import { de_DeleteImagePermissionsCommand, se_DeleteImagePermissionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteImagePermissionsCommand}.
  */

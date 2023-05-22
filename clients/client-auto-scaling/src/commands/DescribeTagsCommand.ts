@@ -19,6 +19,10 @@ import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTagsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeEcsClustersCommand, se_DescribeEcsClustersCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEcsClustersCommand}.
  */

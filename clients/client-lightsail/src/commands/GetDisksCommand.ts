@@ -19,6 +19,10 @@ import { de_GetDisksCommand, se_GetDisksCommand } from "../protocols/Aws_json1_1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDisksCommand}.
  */

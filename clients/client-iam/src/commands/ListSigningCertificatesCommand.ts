@@ -19,6 +19,10 @@ import { de_ListSigningCertificatesCommand, se_ListSigningCertificatesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSigningCertificatesCommand}.
  */

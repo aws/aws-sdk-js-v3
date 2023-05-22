@@ -19,6 +19,10 @@ import { de_ListConfigurationRevisionsCommand, se_ListConfigurationRevisionsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListConfigurationRevisionsCommand}.
  */

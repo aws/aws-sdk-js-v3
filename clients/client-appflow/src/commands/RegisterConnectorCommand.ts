@@ -19,6 +19,10 @@ import { de_RegisterConnectorCommand, se_RegisterConnectorCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterConnectorCommand}.
  */

@@ -19,6 +19,10 @@ import { de_BatchDeleteCommand, se_BatchDeleteCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteCommand}.
  */

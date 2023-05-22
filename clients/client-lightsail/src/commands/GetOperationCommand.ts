@@ -19,6 +19,10 @@ import { de_GetOperationCommand, se_GetOperationCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOperationCommand}.
  */

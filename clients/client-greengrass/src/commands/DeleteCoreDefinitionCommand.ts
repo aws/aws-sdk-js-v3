@@ -19,6 +19,10 @@ import { de_DeleteCoreDefinitionCommand, se_DeleteCoreDefinitionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCoreDefinitionCommand}.
  */

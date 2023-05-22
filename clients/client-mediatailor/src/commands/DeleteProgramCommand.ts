@@ -19,6 +19,10 @@ import { de_DeleteProgramCommand, se_DeleteProgramCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteProgramCommand}.
  */

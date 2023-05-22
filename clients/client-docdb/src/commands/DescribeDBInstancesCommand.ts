@@ -19,6 +19,10 @@ import { de_DescribeDBInstancesCommand, se_DescribeDBInstancesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDBInstancesCommand}.
  */

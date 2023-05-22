@@ -19,6 +19,10 @@ import { de_UpdateModelVersionStatusCommand, se_UpdateModelVersionStatusCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateModelVersionStatusCommand}.
  */

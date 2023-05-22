@@ -19,6 +19,10 @@ import { de_ReportTaskRunnerHeartbeatCommand, se_ReportTaskRunnerHeartbeatComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReportTaskRunnerHeartbeatCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetCompatibleKafkaVersionsCommand, se_GetCompatibleKafkaVersionsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCompatibleKafkaVersionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateTableObjectsCommand, se_UpdateTableObjectsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTableObjectsCommand}.
  */

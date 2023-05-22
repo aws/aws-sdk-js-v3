@@ -19,6 +19,10 @@ import { de_CompleteLayerUploadCommand, se_CompleteLayerUploadCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CompleteLayerUploadCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListBusinessReportSchedulesCommand, se_ListBusinessReportSchedulesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBusinessReportSchedulesCommand}.
  */

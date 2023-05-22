@@ -19,6 +19,10 @@ import { de_GetPriceListFileUrlCommand, se_GetPriceListFileUrlCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPriceListFileUrlCommand}.
  */

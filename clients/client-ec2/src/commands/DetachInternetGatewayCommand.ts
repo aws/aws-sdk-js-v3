@@ -19,6 +19,10 @@ import { de_DetachInternetGatewayCommand, se_DetachInternetGatewayCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachInternetGatewayCommand}.
  */

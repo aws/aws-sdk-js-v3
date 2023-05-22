@@ -23,6 +23,10 @@ import { de_DeleteSlotTypeVersionCommand, se_DeleteSlotTypeVersionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSlotTypeVersionCommand}.
  */

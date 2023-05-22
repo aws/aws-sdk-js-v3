@@ -23,6 +23,10 @@ import { de_DescribeAppInstanceUserCommand, se_DescribeAppInstanceUserCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAppInstanceUserCommand}.
  */

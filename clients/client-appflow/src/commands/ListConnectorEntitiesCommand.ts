@@ -19,6 +19,10 @@ import { de_ListConnectorEntitiesCommand, se_ListConnectorEntitiesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListConnectorEntitiesCommand}.
  */

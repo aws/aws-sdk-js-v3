@@ -19,6 +19,10 @@ import { de_ListFlywheelsCommand, se_ListFlywheelsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFlywheelsCommand}.
  */

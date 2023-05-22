@@ -19,6 +19,10 @@ import { de_ListHoursOfOperationsCommand, se_ListHoursOfOperationsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListHoursOfOperationsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetOriginAccessControlCommand, se_GetOriginAccessControlCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOriginAccessControlCommand}.
  */

@@ -19,6 +19,10 @@ import { de_TestSegmentPatternCommand, se_TestSegmentPatternCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestSegmentPatternCommand}.
  */

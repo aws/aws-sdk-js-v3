@@ -80,6 +80,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -241,7 +243,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type SchedulerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type SchedulerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -260,7 +262,7 @@ export interface SchedulerClientConfig extends SchedulerClientConfigType {}
 /**
  * @public
  */
-type SchedulerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type SchedulerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

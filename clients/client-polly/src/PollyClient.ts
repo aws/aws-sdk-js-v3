@@ -78,6 +78,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -239,7 +241,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type PollyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type PollyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -258,7 +260,7 @@ export interface PollyClientConfig extends PollyClientConfigType {}
 /**
  * @public
  */
-type PollyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type PollyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

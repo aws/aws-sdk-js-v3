@@ -19,6 +19,10 @@ import { de_GetJobRunsCommand, se_GetJobRunsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetJobRunsCommand}.
  */

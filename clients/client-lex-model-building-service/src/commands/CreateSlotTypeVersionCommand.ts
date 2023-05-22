@@ -23,6 +23,10 @@ import { de_CreateSlotTypeVersionCommand, se_CreateSlotTypeVersionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSlotTypeVersionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RevokeCertificateCommand, se_RevokeCertificateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeCertificateCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteGraphqlApiCommand, se_DeleteGraphqlApiCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGraphqlApiCommand}.
  */

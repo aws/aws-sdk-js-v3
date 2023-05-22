@@ -19,6 +19,10 @@ import { de_AbortMultipartUploadCommand, se_AbortMultipartUploadCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AbortMultipartUploadCommand}.
  */

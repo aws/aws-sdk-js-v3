@@ -19,6 +19,10 @@ import { de_DeleteSignalingChannelCommand, se_DeleteSignalingChannelCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSignalingChannelCommand}.
  */

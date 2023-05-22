@@ -19,6 +19,10 @@ import { de_ListClusterSnapshotsCommand, se_ListClusterSnapshotsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListClusterSnapshotsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteBackupSelectionCommand, se_DeleteBackupSelectionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBackupSelectionCommand}.
  */

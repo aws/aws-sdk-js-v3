@@ -19,6 +19,10 @@ import { de_GetAuthorizationTokenCommand, se_GetAuthorizationTokenCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAuthorizationTokenCommand}.
  */

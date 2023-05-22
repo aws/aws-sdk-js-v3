@@ -19,6 +19,10 @@ import { de_SendDataToMulticastGroupCommand, se_SendDataToMulticastGroupCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendDataToMulticastGroupCommand}.
  */

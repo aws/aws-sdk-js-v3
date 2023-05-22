@@ -23,6 +23,10 @@ import { de_GetAccessorCommand, se_GetAccessorCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccessorCommand}.
  */

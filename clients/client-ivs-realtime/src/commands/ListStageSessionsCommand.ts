@@ -19,6 +19,10 @@ import { de_ListStageSessionsCommand, se_ListStageSessionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStageSessionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeStackResourceCommand, se_DescribeStackResourceCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeStackResourceCommand}.
  */

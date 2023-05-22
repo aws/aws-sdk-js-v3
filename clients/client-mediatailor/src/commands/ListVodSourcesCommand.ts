@@ -19,6 +19,10 @@ import { de_ListVodSourcesCommand, se_ListVodSourcesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVodSourcesCommand}.
  */

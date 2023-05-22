@@ -19,6 +19,10 @@ import { de_DescribeVirtualInterfacesCommand, se_DescribeVirtualInterfacesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVirtualInterfacesCommand}.
  */

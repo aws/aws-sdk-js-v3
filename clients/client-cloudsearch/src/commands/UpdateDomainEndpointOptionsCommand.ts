@@ -19,6 +19,10 @@ import { de_UpdateDomainEndpointOptionsCommand, se_UpdateDomainEndpointOptionsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDomainEndpointOptionsCommand}.
  */

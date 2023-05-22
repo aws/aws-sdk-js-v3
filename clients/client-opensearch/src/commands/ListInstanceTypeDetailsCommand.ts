@@ -19,6 +19,10 @@ import { de_ListInstanceTypeDetailsCommand, se_ListInstanceTypeDetailsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInstanceTypeDetailsCommand}.
  */

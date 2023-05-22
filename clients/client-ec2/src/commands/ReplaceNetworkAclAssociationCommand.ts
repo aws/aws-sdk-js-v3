@@ -19,6 +19,10 @@ import { de_ReplaceNetworkAclAssociationCommand, se_ReplaceNetworkAclAssociation
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReplaceNetworkAclAssociationCommand}.
  */

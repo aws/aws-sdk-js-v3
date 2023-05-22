@@ -19,6 +19,10 @@ import { de_ListTaskTemplatesCommand, se_ListTaskTemplatesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTaskTemplatesCommand}.
  */

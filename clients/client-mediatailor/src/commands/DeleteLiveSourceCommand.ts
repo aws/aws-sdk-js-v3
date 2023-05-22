@@ -19,6 +19,10 @@ import { de_DeleteLiveSourceCommand, se_DeleteLiveSourceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLiveSourceCommand}.
  */

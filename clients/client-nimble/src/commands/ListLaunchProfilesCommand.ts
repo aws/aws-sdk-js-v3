@@ -23,6 +23,10 @@ import { de_ListLaunchProfilesCommand, se_ListLaunchProfilesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLaunchProfilesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetIpamDiscoveredAccountsCommand, se_GetIpamDiscoveredAccountsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIpamDiscoveredAccountsCommand}.
  */

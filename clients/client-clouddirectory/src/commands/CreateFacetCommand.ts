@@ -19,6 +19,10 @@ import { de_CreateFacetCommand, se_CreateFacetCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFacetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListTagsForProjectCommand, se_ListTagsForProjectCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTagsForProjectCommand}.
  */

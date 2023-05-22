@@ -19,6 +19,10 @@ import { de_ListMetricStreamsCommand, se_ListMetricStreamsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMetricStreamsCommand}.
  */

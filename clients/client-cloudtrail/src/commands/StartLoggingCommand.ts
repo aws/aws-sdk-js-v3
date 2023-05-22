@@ -19,6 +19,10 @@ import { de_StartLoggingCommand, se_StartLoggingCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartLoggingCommand}.
  */

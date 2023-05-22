@@ -19,6 +19,10 @@ import { de_UpdateDatasourcePackagesCommand, se_UpdateDatasourcePackagesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDatasourcePackagesCommand}.
  */

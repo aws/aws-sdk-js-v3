@@ -24,6 +24,10 @@ import { de_BatchDetectSentimentCommand, se_BatchDetectSentimentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDetectSentimentCommand}.
  */

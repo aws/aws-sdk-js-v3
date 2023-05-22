@@ -19,6 +19,10 @@ import { de_AssociateLinkCommand, se_AssociateLinkCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateLinkCommand}.
  */

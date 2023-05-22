@@ -19,6 +19,10 @@ import { de_GetDomainNameCommand, se_GetDomainNameCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDomainNameCommand}.
  */

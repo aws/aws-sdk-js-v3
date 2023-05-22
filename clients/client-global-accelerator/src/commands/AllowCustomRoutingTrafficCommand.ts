@@ -23,6 +23,10 @@ import { de_AllowCustomRoutingTrafficCommand, se_AllowCustomRoutingTrafficComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AllowCustomRoutingTrafficCommand}.
  */

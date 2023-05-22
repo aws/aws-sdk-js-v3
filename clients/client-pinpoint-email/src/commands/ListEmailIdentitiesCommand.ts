@@ -19,6 +19,10 @@ import { de_ListEmailIdentitiesCommand, se_ListEmailIdentitiesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEmailIdentitiesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeAssetPropertyCommand, se_DescribeAssetPropertyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAssetPropertyCommand}.
  */

@@ -110,6 +110,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -301,7 +303,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ApplicationInsightsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ApplicationInsightsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -320,7 +322,7 @@ export interface ApplicationInsightsClientConfig extends ApplicationInsightsClie
 /**
  * @public
  */
-type ApplicationInsightsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ApplicationInsightsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

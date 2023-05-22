@@ -19,6 +19,10 @@ import { de_DeleteFileSystemCommand, se_DeleteFileSystemCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFileSystemCommand}.
  */

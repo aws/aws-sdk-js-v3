@@ -19,6 +19,10 @@ import { de_GetControlOperationCommand, se_GetControlOperationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetControlOperationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateVPCEConfigurationCommand, se_UpdateVPCEConfigurationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVPCEConfigurationCommand}.
  */

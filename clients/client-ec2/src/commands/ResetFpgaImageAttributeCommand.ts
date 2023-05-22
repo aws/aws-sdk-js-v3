@@ -19,6 +19,10 @@ import { de_ResetFpgaImageAttributeCommand, se_ResetFpgaImageAttributeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetFpgaImageAttributeCommand}.
  */

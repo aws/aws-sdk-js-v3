@@ -19,6 +19,10 @@ import { de_UpdateVolumeCommand, se_UpdateVolumeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVolumeCommand}.
  */

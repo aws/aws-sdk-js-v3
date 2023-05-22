@@ -23,6 +23,10 @@ import { de_DescribeIndexCommand, se_DescribeIndexCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIndexCommand}.
  */

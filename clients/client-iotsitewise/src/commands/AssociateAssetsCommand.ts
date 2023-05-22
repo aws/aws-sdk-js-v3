@@ -19,6 +19,10 @@ import { de_AssociateAssetsCommand, se_AssociateAssetsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateAssetsCommand}.
  */

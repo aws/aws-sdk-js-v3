@@ -19,6 +19,10 @@ import { de_EnableUserCommand, se_EnableUserCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableUserCommand}.
  */

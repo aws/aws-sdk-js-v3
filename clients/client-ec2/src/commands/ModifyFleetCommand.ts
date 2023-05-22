@@ -19,6 +19,10 @@ import { de_ModifyFleetCommand, se_ModifyFleetCommand } from "../protocols/Aws_e
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyFleetCommand}.
  */

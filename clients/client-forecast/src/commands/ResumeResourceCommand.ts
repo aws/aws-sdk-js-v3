@@ -19,6 +19,10 @@ import { de_ResumeResourceCommand, se_ResumeResourceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResumeResourceCommand}.
  */

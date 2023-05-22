@@ -19,6 +19,10 @@ import { de_GetDatabaseCommand, se_GetDatabaseCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDatabaseCommand}.
  */

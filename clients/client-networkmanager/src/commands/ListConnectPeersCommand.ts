@@ -19,6 +19,10 @@ import { de_ListConnectPeersCommand, se_ListConnectPeersCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListConnectPeersCommand}.
  */

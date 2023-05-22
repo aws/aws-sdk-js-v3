@@ -23,6 +23,10 @@ import { de_StartRxNormInferenceJobCommand, se_StartRxNormInferenceJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartRxNormInferenceJobCommand}.
  */

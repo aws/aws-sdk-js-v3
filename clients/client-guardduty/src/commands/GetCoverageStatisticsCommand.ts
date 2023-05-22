@@ -19,6 +19,10 @@ import { de_GetCoverageStatisticsCommand, se_GetCoverageStatisticsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCoverageStatisticsCommand}.
  */

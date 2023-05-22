@@ -19,6 +19,10 @@ import { de_DescribeGameServerInstancesCommand, se_DescribeGameServerInstancesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeGameServerInstancesCommand}.
  */

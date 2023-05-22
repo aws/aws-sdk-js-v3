@@ -23,6 +23,10 @@ import { de_CreateVoiceProfileCommand, se_CreateVoiceProfileCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVoiceProfileCommand}.
  */

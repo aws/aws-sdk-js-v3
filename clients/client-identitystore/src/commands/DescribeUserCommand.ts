@@ -19,6 +19,10 @@ import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeUserCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AddApplicationInputCommand, se_AddApplicationInputCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddApplicationInputCommand}.
  */

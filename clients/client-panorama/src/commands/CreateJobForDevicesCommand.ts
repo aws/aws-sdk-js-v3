@@ -19,6 +19,10 @@ import { de_CreateJobForDevicesCommand, se_CreateJobForDevicesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateJobForDevicesCommand}.
  */

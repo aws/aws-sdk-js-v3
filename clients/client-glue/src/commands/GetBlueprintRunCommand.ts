@@ -19,6 +19,10 @@ import { de_GetBlueprintRunCommand, se_GetBlueprintRunCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBlueprintRunCommand}.
  */

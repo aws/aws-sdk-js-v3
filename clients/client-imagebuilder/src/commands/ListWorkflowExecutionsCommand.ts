@@ -19,6 +19,10 @@ import { de_ListWorkflowExecutionsCommand, se_ListWorkflowExecutionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWorkflowExecutionsCommand}.
  */

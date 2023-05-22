@@ -19,6 +19,10 @@ import { de_CreateDefaultVpcCommand, se_CreateDefaultVpcCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDefaultVpcCommand}.
  */

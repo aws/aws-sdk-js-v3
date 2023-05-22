@@ -19,6 +19,10 @@ import { de_GetSuiteRunCommand, se_GetSuiteRunCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSuiteRunCommand}.
  */

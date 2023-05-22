@@ -19,6 +19,10 @@ import { de_ListRemoteAccessSessionsCommand, se_ListRemoteAccessSessionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRemoteAccessSessionsCommand}.
  */

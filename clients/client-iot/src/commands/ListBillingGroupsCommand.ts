@@ -19,6 +19,10 @@ import { de_ListBillingGroupsCommand, se_ListBillingGroupsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBillingGroupsCommand}.
  */

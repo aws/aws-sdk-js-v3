@@ -19,6 +19,10 @@ import { de_AttachTrafficSourcesCommand, se_AttachTrafficSourcesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachTrafficSourcesCommand}.
  */

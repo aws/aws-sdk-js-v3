@@ -19,6 +19,10 @@ import { de_ListTagsForCertificateCommand, se_ListTagsForCertificateCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTagsForCertificateCommand}.
  */

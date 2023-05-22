@@ -19,6 +19,10 @@ import { de_ListFiltersCommand, se_ListFiltersCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFiltersCommand}.
  */

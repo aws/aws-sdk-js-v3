@@ -19,6 +19,10 @@ import { de_GetDomainStatisticsReportCommand, se_GetDomainStatisticsReportComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDomainStatisticsReportCommand}.
  */

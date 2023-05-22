@@ -19,6 +19,10 @@ import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateResourceShareCommand}.
  */

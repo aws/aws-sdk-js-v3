@@ -19,6 +19,10 @@ import { de_DeleteSyncJobCommand, se_DeleteSyncJobCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSyncJobCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetQueueCommand, se_GetQueueCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetQueueCommand}.
  */

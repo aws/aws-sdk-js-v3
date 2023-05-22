@@ -19,6 +19,10 @@ import { de_SetVisibleToAllUsersCommand, se_SetVisibleToAllUsersCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetVisibleToAllUsersCommand}.
  */

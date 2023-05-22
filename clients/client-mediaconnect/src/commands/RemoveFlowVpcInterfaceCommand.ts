@@ -19,6 +19,10 @@ import { de_RemoveFlowVpcInterfaceCommand, se_RemoveFlowVpcInterfaceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveFlowVpcInterfaceCommand}.
  */

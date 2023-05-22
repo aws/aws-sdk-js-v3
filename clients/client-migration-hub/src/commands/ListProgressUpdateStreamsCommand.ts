@@ -19,6 +19,10 @@ import { de_ListProgressUpdateStreamsCommand, se_ListProgressUpdateStreamsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProgressUpdateStreamsCommand}.
  */

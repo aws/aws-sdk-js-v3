@@ -23,6 +23,10 @@ import { de_UpdateCollectionCommand, se_UpdateCollectionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCollectionCommand}.
  */

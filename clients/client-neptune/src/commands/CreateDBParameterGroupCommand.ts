@@ -19,6 +19,10 @@ import { de_CreateDBParameterGroupCommand, se_CreateDBParameterGroupCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDBParameterGroupCommand}.
  */

@@ -23,6 +23,10 @@ import { de_SetRulePrioritiesCommand, se_SetRulePrioritiesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetRulePrioritiesCommand}.
  */

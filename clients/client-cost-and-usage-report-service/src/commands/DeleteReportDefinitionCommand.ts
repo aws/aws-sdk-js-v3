@@ -23,6 +23,10 @@ import { de_DeleteReportDefinitionCommand, se_DeleteReportDefinitionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteReportDefinitionCommand}.
  */

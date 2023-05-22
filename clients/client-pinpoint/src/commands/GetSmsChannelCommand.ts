@@ -19,6 +19,10 @@ import { de_GetSmsChannelCommand, se_GetSmsChannelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSmsChannelCommand}.
  */

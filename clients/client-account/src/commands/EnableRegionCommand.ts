@@ -19,6 +19,10 @@ import { de_EnableRegionCommand, se_EnableRegionCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableRegionCommand}.
  */

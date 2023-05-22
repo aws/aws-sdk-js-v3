@@ -19,6 +19,10 @@ import { de_UpdateSignalingChannelCommand, se_UpdateSignalingChannelCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSignalingChannelCommand}.
  */

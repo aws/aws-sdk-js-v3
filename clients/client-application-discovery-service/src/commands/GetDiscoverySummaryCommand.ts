@@ -23,6 +23,10 @@ import { de_GetDiscoverySummaryCommand, se_GetDiscoverySummaryCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDiscoverySummaryCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisableAddressTransferCommand, se_DisableAddressTransferCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableAddressTransferCommand}.
  */

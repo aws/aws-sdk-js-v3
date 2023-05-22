@@ -19,6 +19,10 @@ import { de_GetAnalyzedResourceCommand, se_GetAnalyzedResourceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAnalyzedResourceCommand}.
  */

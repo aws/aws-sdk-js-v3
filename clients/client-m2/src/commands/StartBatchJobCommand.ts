@@ -19,6 +19,10 @@ import { de_StartBatchJobCommand, se_StartBatchJobCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartBatchJobCommand}.
  */

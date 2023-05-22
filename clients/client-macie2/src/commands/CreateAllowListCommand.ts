@@ -19,6 +19,10 @@ import { de_CreateAllowListCommand, se_CreateAllowListCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAllowListCommand}.
  */

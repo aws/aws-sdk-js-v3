@@ -20,6 +20,10 @@ import { de_UnlinkDeveloperIdentityCommand, se_UnlinkDeveloperIdentityCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnlinkDeveloperIdentityCommand}.
  */

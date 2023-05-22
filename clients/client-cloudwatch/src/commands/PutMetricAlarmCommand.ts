@@ -19,6 +19,10 @@ import { de_PutMetricAlarmCommand, se_PutMetricAlarmCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutMetricAlarmCommand}.
  */

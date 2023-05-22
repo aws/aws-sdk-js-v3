@@ -28,6 +28,10 @@ import { de_AdminSetUserPasswordCommand, se_AdminSetUserPasswordCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminSetUserPasswordCommand}.
  */

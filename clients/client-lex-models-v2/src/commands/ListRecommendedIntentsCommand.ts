@@ -19,6 +19,10 @@ import { de_ListRecommendedIntentsCommand, se_ListRecommendedIntentsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRecommendedIntentsCommand}.
  */

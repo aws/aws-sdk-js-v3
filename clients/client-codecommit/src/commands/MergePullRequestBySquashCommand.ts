@@ -19,6 +19,10 @@ import { de_MergePullRequestBySquashCommand, se_MergePullRequestBySquashCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MergePullRequestBySquashCommand}.
  */

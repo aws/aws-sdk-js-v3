@@ -19,6 +19,10 @@ import { de_GetAccessTokenCommand, se_GetAccessTokenCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccessTokenCommand}.
  */

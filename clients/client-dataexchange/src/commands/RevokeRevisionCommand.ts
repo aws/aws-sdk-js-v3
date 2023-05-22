@@ -19,6 +19,10 @@ import { de_RevokeRevisionCommand, se_RevokeRevisionCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeRevisionCommand}.
  */

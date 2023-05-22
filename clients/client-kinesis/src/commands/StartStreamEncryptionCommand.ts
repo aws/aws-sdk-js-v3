@@ -19,6 +19,10 @@ import { de_StartStreamEncryptionCommand, se_StartStreamEncryptionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartStreamEncryptionCommand}.
  */

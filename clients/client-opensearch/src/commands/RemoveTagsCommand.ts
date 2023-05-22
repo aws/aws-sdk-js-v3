@@ -19,6 +19,10 @@ import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveTagsCommand}.
  */

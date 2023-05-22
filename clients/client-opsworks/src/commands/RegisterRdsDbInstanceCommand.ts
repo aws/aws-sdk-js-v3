@@ -19,6 +19,10 @@ import { de_RegisterRdsDbInstanceCommand, se_RegisterRdsDbInstanceCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterRdsDbInstanceCommand}.
  */

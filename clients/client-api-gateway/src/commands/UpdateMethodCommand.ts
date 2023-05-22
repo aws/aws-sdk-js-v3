@@ -19,6 +19,10 @@ import { de_UpdateMethodCommand, se_UpdateMethodCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMethodCommand}.
  */

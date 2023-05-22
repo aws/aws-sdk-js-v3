@@ -23,6 +23,10 @@ import { de_StopContinuousExportCommand, se_StopContinuousExportCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopContinuousExportCommand}.
  */

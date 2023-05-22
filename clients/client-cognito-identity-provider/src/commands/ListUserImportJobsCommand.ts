@@ -24,6 +24,10 @@ import { de_ListUserImportJobsCommand, se_ListUserImportJobsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUserImportJobsCommand}.
  */

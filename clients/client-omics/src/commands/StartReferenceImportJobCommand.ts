@@ -19,6 +19,10 @@ import { de_StartReferenceImportJobCommand, se_StartReferenceImportJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartReferenceImportJobCommand}.
  */

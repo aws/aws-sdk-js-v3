@@ -19,6 +19,10 @@ import { de_DeleteTableVersionCommand, se_DeleteTableVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTableVersionCommand}.
  */

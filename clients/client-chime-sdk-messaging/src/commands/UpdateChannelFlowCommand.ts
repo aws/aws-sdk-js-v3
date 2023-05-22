@@ -27,6 +27,10 @@ import { de_UpdateChannelFlowCommand, se_UpdateChannelFlowCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateChannelFlowCommand}.
  */

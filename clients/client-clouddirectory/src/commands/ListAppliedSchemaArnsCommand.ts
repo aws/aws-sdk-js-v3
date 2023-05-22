@@ -19,6 +19,10 @@ import { de_ListAppliedSchemaArnsCommand, se_ListAppliedSchemaArnsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAppliedSchemaArnsCommand}.
  */

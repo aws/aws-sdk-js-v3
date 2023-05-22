@@ -19,6 +19,10 @@ import { de_DescribeReservedCacheNodesCommand, se_DescribeReservedCacheNodesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeReservedCacheNodesCommand}.
  */

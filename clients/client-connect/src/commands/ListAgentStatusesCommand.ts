@@ -19,6 +19,10 @@ import { de_ListAgentStatusesCommand, se_ListAgentStatusesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAgentStatusesCommand}.
  */

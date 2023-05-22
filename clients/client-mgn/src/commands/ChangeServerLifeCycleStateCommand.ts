@@ -19,6 +19,10 @@ import { de_ChangeServerLifeCycleStateCommand, se_ChangeServerLifeCycleStateComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ChangeServerLifeCycleStateCommand}.
  */

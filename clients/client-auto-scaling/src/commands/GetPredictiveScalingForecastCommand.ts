@@ -19,6 +19,10 @@ import { de_GetPredictiveScalingForecastCommand, se_GetPredictiveScalingForecast
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPredictiveScalingForecastCommand}.
  */

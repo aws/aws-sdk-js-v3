@@ -19,6 +19,10 @@ import { de_DescribeDeliveryChannelsCommand, se_DescribeDeliveryChannelsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDeliveryChannelsCommand}.
  */

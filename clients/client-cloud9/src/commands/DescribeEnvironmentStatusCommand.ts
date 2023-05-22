@@ -19,6 +19,10 @@ import { de_DescribeEnvironmentStatusCommand, se_DescribeEnvironmentStatusComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEnvironmentStatusCommand}.
  */

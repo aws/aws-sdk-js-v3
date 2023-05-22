@@ -22,6 +22,10 @@ import { de_GetReferenceCommand, se_GetReferenceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetReferenceCommand}.
  */

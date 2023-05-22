@@ -23,6 +23,10 @@ import { de_ListCollectionsCommand, se_ListCollectionsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCollectionsCommand}.
  */

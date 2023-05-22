@@ -23,6 +23,10 @@ import { de_DeleteCollectionCommand, se_DeleteCollectionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCollectionCommand}.
  */

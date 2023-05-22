@@ -19,6 +19,10 @@ import { de_DeleteAliasCommand, se_DeleteAliasCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAliasCommand}.
  */

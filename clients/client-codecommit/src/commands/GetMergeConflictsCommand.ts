@@ -19,6 +19,10 @@ import { de_GetMergeConflictsCommand, se_GetMergeConflictsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMergeConflictsCommand}.
  */

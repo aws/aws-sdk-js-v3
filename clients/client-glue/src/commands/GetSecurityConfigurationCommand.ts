@@ -19,6 +19,10 @@ import { de_GetSecurityConfigurationCommand, se_GetSecurityConfigurationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSecurityConfigurationCommand}.
  */

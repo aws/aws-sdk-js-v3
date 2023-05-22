@@ -19,6 +19,10 @@ import { de_GetObjectInformationCommand, se_GetObjectInformationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetObjectInformationCommand}.
  */

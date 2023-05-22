@@ -19,6 +19,10 @@ import { de_ListEventIntegrationsCommand, se_ListEventIntegrationsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventIntegrationsCommand}.
  */

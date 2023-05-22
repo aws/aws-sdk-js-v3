@@ -19,6 +19,10 @@ import { de_DeleteRolePolicyCommand, se_DeleteRolePolicyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRolePolicyCommand}.
  */

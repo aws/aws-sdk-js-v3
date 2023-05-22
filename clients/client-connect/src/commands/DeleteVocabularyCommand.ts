@@ -19,6 +19,10 @@ import { de_DeleteVocabularyCommand, se_DeleteVocabularyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVocabularyCommand}.
  */

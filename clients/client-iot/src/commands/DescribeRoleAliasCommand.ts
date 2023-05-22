@@ -19,6 +19,10 @@ import { de_DescribeRoleAliasCommand, se_DescribeRoleAliasCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRoleAliasCommand}.
  */

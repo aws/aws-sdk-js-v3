@@ -19,6 +19,10 @@ import { de_UpdateSAMLProviderCommand, se_UpdateSAMLProviderCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSAMLProviderCommand}.
  */

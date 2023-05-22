@@ -19,6 +19,10 @@ import { de_UpdateDataIntegrationCommand, se_UpdateDataIntegrationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDataIntegrationCommand}.
  */

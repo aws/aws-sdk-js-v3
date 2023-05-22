@@ -19,6 +19,10 @@ import { de_CreateConfigCommand, se_CreateConfigCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateConfigCommand}.
  */

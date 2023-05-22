@@ -19,6 +19,10 @@ import { de_AssociateFileSystemAliasesCommand, se_AssociateFileSystemAliasesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateFileSystemAliasesCommand}.
  */

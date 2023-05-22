@@ -19,6 +19,10 @@ import { de_ListAssessmentsCommand, se_ListAssessmentsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssessmentsCommand}.
  */

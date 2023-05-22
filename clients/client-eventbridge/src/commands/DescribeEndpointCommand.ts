@@ -19,6 +19,10 @@ import { de_DescribeEndpointCommand, se_DescribeEndpointCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEndpointCommand}.
  */

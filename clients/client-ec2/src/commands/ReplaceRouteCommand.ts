@@ -19,6 +19,10 @@ import { de_ReplaceRouteCommand, se_ReplaceRouteCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReplaceRouteCommand}.
  */

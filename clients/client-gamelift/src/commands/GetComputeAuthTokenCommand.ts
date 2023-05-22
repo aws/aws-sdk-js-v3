@@ -19,6 +19,10 @@ import { de_GetComputeAuthTokenCommand, se_GetComputeAuthTokenCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetComputeAuthTokenCommand}.
  */

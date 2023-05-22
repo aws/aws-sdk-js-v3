@@ -19,6 +19,10 @@ import { de_PutUserPolicyCommand, se_PutUserPolicyCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutUserPolicyCommand}.
  */

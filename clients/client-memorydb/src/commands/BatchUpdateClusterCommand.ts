@@ -19,6 +19,10 @@ import { de_BatchUpdateClusterCommand, se_BatchUpdateClusterCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUpdateClusterCommand}.
  */

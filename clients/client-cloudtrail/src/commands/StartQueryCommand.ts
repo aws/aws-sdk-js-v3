@@ -19,6 +19,10 @@ import { de_StartQueryCommand, se_StartQueryCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartQueryCommand}.
  */

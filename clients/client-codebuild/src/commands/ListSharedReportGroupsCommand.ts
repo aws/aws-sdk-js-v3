@@ -19,6 +19,10 @@ import { de_ListSharedReportGroupsCommand, se_ListSharedReportGroupsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSharedReportGroupsCommand}.
  */

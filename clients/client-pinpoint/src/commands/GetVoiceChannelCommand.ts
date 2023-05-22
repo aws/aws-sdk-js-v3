@@ -19,6 +19,10 @@ import { de_GetVoiceChannelCommand, se_GetVoiceChannelCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVoiceChannelCommand}.
  */

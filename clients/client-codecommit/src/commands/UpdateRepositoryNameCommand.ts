@@ -19,6 +19,10 @@ import { de_UpdateRepositoryNameCommand, se_UpdateRepositoryNameCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRepositoryNameCommand}.
  */

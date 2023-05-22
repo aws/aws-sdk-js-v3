@@ -19,6 +19,10 @@ import { de_DeleteAccessPointCommand, se_DeleteAccessPointCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAccessPointCommand}.
  */

@@ -20,6 +20,10 @@ import { de_ListIdentitiesCommand, se_ListIdentitiesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIdentitiesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateDhcpOptionsCommand, se_CreateDhcpOptionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDhcpOptionsCommand}.
  */

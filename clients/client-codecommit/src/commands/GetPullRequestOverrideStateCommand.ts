@@ -19,6 +19,10 @@ import { de_GetPullRequestOverrideStateCommand, se_GetPullRequestOverrideStateCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPullRequestOverrideStateCommand}.
  */

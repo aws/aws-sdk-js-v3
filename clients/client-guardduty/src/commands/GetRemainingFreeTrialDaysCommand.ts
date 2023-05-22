@@ -19,6 +19,10 @@ import { de_GetRemainingFreeTrialDaysCommand, se_GetRemainingFreeTrialDaysComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRemainingFreeTrialDaysCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ContinueUpdateRollbackCommand, se_ContinueUpdateRollbackCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ContinueUpdateRollbackCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateEventTrackerCommand, se_CreateEventTrackerCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEventTrackerCommand}.
  */

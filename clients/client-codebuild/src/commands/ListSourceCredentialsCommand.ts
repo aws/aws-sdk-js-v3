@@ -19,6 +19,10 @@ import { de_ListSourceCredentialsCommand, se_ListSourceCredentialsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSourceCredentialsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StartFleetActionsCommand, se_StartFleetActionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartFleetActionsCommand}.
  */

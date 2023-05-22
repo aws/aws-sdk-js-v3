@@ -19,6 +19,10 @@ import { de_PutMethodCommand, se_PutMethodCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutMethodCommand}.
  */

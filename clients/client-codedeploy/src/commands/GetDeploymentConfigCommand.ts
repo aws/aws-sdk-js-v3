@@ -19,6 +19,10 @@ import { de_GetDeploymentConfigCommand, se_GetDeploymentConfigCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeploymentConfigCommand}.
  */

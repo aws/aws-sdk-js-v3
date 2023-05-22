@@ -19,6 +19,10 @@ import { de_ListImagesInRecycleBinCommand, se_ListImagesInRecycleBinCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListImagesInRecycleBinCommand}.
  */

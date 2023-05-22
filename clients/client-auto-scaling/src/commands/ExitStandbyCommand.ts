@@ -19,6 +19,10 @@ import { de_ExitStandbyCommand, se_ExitStandbyCommand } from "../protocols/Aws_q
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExitStandbyCommand}.
  */

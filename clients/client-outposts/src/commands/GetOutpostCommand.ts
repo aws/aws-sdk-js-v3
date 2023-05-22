@@ -19,6 +19,10 @@ import { de_GetOutpostCommand, se_GetOutpostCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOutpostCommand}.
  */

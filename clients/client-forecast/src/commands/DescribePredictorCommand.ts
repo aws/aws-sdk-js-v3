@@ -19,6 +19,10 @@ import { de_DescribePredictorCommand, se_DescribePredictorCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePredictorCommand}.
  */

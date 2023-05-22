@@ -19,6 +19,10 @@ import { de_DeleteContainerRecipeCommand, se_DeleteContainerRecipeCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteContainerRecipeCommand}.
  */

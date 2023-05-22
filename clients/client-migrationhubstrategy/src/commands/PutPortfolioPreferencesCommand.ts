@@ -23,6 +23,10 @@ import { de_PutPortfolioPreferencesCommand, se_PutPortfolioPreferencesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutPortfolioPreferencesCommand}.
  */

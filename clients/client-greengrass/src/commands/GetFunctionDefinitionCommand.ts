@@ -19,6 +19,10 @@ import { de_GetFunctionDefinitionCommand, se_GetFunctionDefinitionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFunctionDefinitionCommand}.
  */

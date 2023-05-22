@@ -19,6 +19,10 @@ import { de_ListDatabasesCommand, se_ListDatabasesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDatabasesCommand}.
  */

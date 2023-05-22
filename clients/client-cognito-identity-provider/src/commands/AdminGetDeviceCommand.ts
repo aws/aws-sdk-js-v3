@@ -29,6 +29,10 @@ import { de_AdminGetDeviceCommand, se_AdminGetDeviceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminGetDeviceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateGatewayGroupCommand, se_CreateGatewayGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGatewayGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_BatchSuspendUserCommand, se_BatchSuspendUserCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchSuspendUserCommand}.
  */

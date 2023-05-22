@@ -19,6 +19,10 @@ import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEventSubscriptionCommand}.
  */

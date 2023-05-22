@@ -19,6 +19,10 @@ import { de_DeleteSipMediaApplicationCommand, se_DeleteSipMediaApplicationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSipMediaApplicationCommand}.
  */

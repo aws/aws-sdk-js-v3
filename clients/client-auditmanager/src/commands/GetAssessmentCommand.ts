@@ -19,6 +19,10 @@ import { de_GetAssessmentCommand, se_GetAssessmentCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAssessmentCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ActivateTypeCommand, se_ActivateTypeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ActivateTypeCommand}.
  */

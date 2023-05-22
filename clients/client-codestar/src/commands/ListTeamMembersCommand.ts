@@ -19,6 +19,10 @@ import { de_ListTeamMembersCommand, se_ListTeamMembersCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTeamMembersCommand}.
  */

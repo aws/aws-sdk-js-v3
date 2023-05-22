@@ -19,6 +19,10 @@ import { de_DescribeLoadBalancersCommand, se_DescribeLoadBalancersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLoadBalancersCommand}.
  */

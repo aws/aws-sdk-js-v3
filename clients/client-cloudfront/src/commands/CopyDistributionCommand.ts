@@ -23,6 +23,10 @@ import { de_CopyDistributionCommand, se_CopyDistributionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CopyDistributionCommand}.
  */

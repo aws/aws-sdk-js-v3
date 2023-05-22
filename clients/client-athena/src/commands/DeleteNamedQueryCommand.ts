@@ -19,6 +19,10 @@ import { de_DeleteNamedQueryCommand, se_DeleteNamedQueryCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNamedQueryCommand}.
  */

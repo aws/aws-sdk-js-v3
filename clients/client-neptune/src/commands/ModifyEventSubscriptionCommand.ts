@@ -19,6 +19,10 @@ import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyEventSubscriptionCommand}.
  */

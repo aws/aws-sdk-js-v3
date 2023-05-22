@@ -19,6 +19,10 @@ import { de_GetProtectionStatusCommand, se_GetProtectionStatusCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetProtectionStatusCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisableFastLaunchCommand, se_DisableFastLaunchCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableFastLaunchCommand}.
  */

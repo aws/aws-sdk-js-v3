@@ -19,6 +19,10 @@ import { de_RemoveTagsFromCertificateCommand, se_RemoveTagsFromCertificateComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveTagsFromCertificateCommand}.
  */

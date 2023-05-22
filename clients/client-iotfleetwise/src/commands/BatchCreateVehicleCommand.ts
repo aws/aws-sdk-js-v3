@@ -19,6 +19,10 @@ import { de_BatchCreateVehicleCommand, se_BatchCreateVehicleCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchCreateVehicleCommand}.
  */

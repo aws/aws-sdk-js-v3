@@ -19,6 +19,10 @@ import { de_GetPolicyVersionCommand, se_GetPolicyVersionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPolicyVersionCommand}.
  */

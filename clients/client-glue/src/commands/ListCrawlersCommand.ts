@@ -19,6 +19,10 @@ import { de_ListCrawlersCommand, se_ListCrawlersCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCrawlersCommand}.
  */

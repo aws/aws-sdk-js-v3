@@ -19,6 +19,10 @@ import { de_GetFileCommand, se_GetFileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFileCommand}.
  */

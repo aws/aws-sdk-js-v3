@@ -19,6 +19,10 @@ import { de_DescribeHarvestJobCommand, se_DescribeHarvestJobCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeHarvestJobCommand}.
  */

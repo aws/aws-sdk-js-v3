@@ -19,6 +19,10 @@ import { de_DeletePlatformVersionCommand, se_DeletePlatformVersionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePlatformVersionCommand}.
  */

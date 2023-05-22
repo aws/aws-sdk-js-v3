@@ -19,6 +19,10 @@ import { de_AddJobFlowStepsCommand, se_AddJobFlowStepsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddJobFlowStepsCommand}.
  */

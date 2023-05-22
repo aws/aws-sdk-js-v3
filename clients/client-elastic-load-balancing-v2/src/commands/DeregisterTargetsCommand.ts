@@ -23,6 +23,10 @@ import { de_DeregisterTargetsCommand, se_DeregisterTargetsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterTargetsCommand}.
  */

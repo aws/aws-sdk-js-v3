@@ -19,6 +19,10 @@ import { de_ListCoreDefinitionsCommand, se_ListCoreDefinitionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCoreDefinitionsCommand}.
  */

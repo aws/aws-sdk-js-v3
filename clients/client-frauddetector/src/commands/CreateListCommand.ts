@@ -19,6 +19,10 @@ import { de_CreateListCommand, se_CreateListCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateListCommand}.
  */

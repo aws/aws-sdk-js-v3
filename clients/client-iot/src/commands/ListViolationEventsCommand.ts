@@ -19,6 +19,10 @@ import { de_ListViolationEventsCommand, se_ListViolationEventsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListViolationEventsCommand}.
  */

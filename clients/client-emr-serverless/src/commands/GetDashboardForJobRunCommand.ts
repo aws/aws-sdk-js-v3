@@ -19,6 +19,10 @@ import { de_GetDashboardForJobRunCommand, se_GetDashboardForJobRunCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDashboardForJobRunCommand}.
  */

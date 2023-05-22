@@ -19,6 +19,10 @@ import { de_CancelBatchPredictionJobCommand, se_CancelBatchPredictionJobCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelBatchPredictionJobCommand}.
  */

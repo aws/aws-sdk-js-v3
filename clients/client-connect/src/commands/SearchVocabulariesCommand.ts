@@ -19,6 +19,10 @@ import { de_SearchVocabulariesCommand, se_SearchVocabulariesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchVocabulariesCommand}.
  */

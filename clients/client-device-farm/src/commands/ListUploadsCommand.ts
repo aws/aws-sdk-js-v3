@@ -19,6 +19,10 @@ import { de_ListUploadsCommand, se_ListUploadsCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUploadsCommand}.
  */

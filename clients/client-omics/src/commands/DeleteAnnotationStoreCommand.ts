@@ -19,6 +19,10 @@ import { de_DeleteAnnotationStoreCommand, se_DeleteAnnotationStoreCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAnnotationStoreCommand}.
  */

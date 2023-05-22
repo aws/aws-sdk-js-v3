@@ -19,6 +19,10 @@ import { de_ListLicenseConversionTasksCommand, se_ListLicenseConversionTasksComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLicenseConversionTasksCommand}.
  */

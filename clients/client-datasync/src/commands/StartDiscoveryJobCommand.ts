@@ -19,6 +19,10 @@ import { de_StartDiscoveryJobCommand, se_StartDiscoveryJobCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDiscoveryJobCommand}.
  */

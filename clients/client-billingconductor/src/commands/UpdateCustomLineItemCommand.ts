@@ -24,6 +24,10 @@ import { de_UpdateCustomLineItemCommand, se_UpdateCustomLineItemCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCustomLineItemCommand}.
  */

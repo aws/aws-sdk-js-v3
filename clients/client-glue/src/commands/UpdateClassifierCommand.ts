@@ -19,6 +19,10 @@ import { de_UpdateClassifierCommand, se_UpdateClassifierCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateClassifierCommand}.
  */

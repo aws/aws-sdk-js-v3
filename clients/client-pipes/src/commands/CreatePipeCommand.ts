@@ -19,6 +19,10 @@ import { de_CreatePipeCommand, se_CreatePipeCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePipeCommand}.
  */

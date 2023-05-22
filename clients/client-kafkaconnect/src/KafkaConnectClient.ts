@@ -83,6 +83,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -244,7 +246,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type KafkaConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type KafkaConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -263,7 +265,7 @@ export interface KafkaConnectClientConfig extends KafkaConnectClientConfigType {
 /**
  * @public
  */
-type KafkaConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type KafkaConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

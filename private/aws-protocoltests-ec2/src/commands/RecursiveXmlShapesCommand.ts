@@ -18,6 +18,10 @@ import { de_RecursiveXmlShapesCommand, se_RecursiveXmlShapesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RecursiveXmlShapesCommand}.
  */

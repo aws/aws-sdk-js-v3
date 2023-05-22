@@ -19,6 +19,10 @@ import { de_CreateSlotCommand, se_CreateSlotCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSlotCommand}.
  */

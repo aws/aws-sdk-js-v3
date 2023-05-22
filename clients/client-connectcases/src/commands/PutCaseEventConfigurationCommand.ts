@@ -19,6 +19,10 @@ import { de_PutCaseEventConfigurationCommand, se_PutCaseEventConfigurationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutCaseEventConfigurationCommand}.
  */

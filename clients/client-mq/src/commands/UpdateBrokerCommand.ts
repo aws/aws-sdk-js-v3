@@ -19,6 +19,10 @@ import { de_UpdateBrokerCommand, se_UpdateBrokerCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBrokerCommand}.
  */

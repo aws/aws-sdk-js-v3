@@ -19,6 +19,10 @@ import { de_DeprovisionPublicIpv4PoolCidrCommand, se_DeprovisionPublicIpv4PoolCi
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeprovisionPublicIpv4PoolCidrCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetOutcomesCommand, se_GetOutcomesCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOutcomesCommand}.
  */

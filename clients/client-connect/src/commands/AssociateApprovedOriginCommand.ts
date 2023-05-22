@@ -19,6 +19,10 @@ import { de_AssociateApprovedOriginCommand, se_AssociateApprovedOriginCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateApprovedOriginCommand}.
  */

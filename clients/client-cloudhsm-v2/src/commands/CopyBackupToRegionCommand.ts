@@ -19,6 +19,10 @@ import { de_CopyBackupToRegionCommand, se_CopyBackupToRegionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CopyBackupToRegionCommand}.
  */

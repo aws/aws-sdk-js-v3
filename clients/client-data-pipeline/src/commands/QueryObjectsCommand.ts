@@ -19,6 +19,10 @@ import { de_QueryObjectsCommand, se_QueryObjectsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link QueryObjectsCommand}.
  */

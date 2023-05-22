@@ -19,6 +19,10 @@ import { de_ListInputDevicesCommand, se_ListInputDevicesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInputDevicesCommand}.
  */

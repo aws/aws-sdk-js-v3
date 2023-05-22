@@ -19,6 +19,10 @@ import { de_ListPeeringsCommand, se_ListPeeringsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPeeringsCommand}.
  */

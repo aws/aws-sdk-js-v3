@@ -19,6 +19,10 @@ import { de_UpdateDomainNameCommand, se_UpdateDomainNameCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDomainNameCommand}.
  */

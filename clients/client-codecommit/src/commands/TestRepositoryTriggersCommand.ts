@@ -19,6 +19,10 @@ import { de_TestRepositoryTriggersCommand, se_TestRepositoryTriggersCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestRepositoryTriggersCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisableRegionCommand, se_DisableRegionCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableRegionCommand}.
  */

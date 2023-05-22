@@ -19,6 +19,10 @@ import { de_PutAttributesCommand, se_PutAttributesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAttributesCommand}.
  */

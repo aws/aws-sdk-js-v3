@@ -23,6 +23,10 @@ import { de_CreateDatasetImportJobCommand, se_CreateDatasetImportJobCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDatasetImportJobCommand}.
  */

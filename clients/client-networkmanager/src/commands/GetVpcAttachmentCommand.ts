@@ -19,6 +19,10 @@ import { de_GetVpcAttachmentCommand, se_GetVpcAttachmentCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVpcAttachmentCommand}.
  */

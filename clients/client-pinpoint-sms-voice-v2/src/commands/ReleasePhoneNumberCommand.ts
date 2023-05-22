@@ -23,6 +23,10 @@ import { de_ReleasePhoneNumberCommand, se_ReleasePhoneNumberCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReleasePhoneNumberCommand}.
  */

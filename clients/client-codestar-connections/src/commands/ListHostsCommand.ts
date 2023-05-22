@@ -23,6 +23,10 @@ import { de_ListHostsCommand, se_ListHostsCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListHostsCommand}.
  */

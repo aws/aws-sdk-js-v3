@@ -23,6 +23,10 @@ import { de_JoinStorageSessionCommand, se_JoinStorageSessionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link JoinStorageSessionCommand}.
  */

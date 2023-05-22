@@ -23,6 +23,10 @@ import { de_DeleteConfigurationSetCommand, se_DeleteConfigurationSetCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConfigurationSetCommand}.
  */

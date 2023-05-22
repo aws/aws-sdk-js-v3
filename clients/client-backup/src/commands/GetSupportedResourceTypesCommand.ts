@@ -19,6 +19,10 @@ import { de_GetSupportedResourceTypesCommand, se_GetSupportedResourceTypesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSupportedResourceTypesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutContainerRecipePolicyCommand, se_PutContainerRecipePolicyCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutContainerRecipePolicyCommand}.
  */

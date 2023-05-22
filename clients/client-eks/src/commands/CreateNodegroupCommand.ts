@@ -19,6 +19,10 @@ import { de_CreateNodegroupCommand, se_CreateNodegroupCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNodegroupCommand}.
  */

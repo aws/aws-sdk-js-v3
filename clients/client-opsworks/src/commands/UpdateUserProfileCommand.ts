@@ -19,6 +19,10 @@ import { de_UpdateUserProfileCommand, se_UpdateUserProfileCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateUserProfileCommand}.
  */

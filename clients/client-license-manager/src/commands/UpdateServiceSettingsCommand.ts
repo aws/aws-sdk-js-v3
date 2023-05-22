@@ -19,6 +19,10 @@ import { de_UpdateServiceSettingsCommand, se_UpdateServiceSettingsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateServiceSettingsCommand}.
  */

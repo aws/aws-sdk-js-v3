@@ -19,6 +19,10 @@ import { de_StopModelCommand, se_StopModelCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopModelCommand}.
  */

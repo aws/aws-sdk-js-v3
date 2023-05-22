@@ -19,6 +19,10 @@ import { de_DescribeFleetUtilizationCommand, se_DescribeFleetUtilizationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFleetUtilizationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteBaiduChannelCommand, se_DeleteBaiduChannelCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBaiduChannelCommand}.
  */

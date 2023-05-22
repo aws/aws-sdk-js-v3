@@ -19,6 +19,10 @@ import { de_DescribeBudgetCommand, se_DescribeBudgetCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBudgetCommand}.
  */

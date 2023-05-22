@@ -19,6 +19,10 @@ import { de_StartMatchBackfillCommand, se_StartMatchBackfillCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartMatchBackfillCommand}.
  */

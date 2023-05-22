@@ -19,6 +19,10 @@ import { de_SetInstanceProtectionCommand, se_SetInstanceProtectionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetInstanceProtectionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RemoveAutoTerminationPolicyCommand, se_RemoveAutoTerminationPolicyCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveAutoTerminationPolicyCommand}.
  */

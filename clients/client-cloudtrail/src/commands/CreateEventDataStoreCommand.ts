@@ -19,6 +19,10 @@ import { de_CreateEventDataStoreCommand, se_CreateEventDataStoreCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEventDataStoreCommand}.
  */

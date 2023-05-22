@@ -19,6 +19,10 @@ import { de_BatchDeleteRecipeVersionCommand, se_BatchDeleteRecipeVersionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteRecipeVersionCommand}.
  */

@@ -23,6 +23,10 @@ import { de_CreateNotificationCommand, se_CreateNotificationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNotificationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeCACertificateCommand, se_DescribeCACertificateCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCACertificateCommand}.
  */

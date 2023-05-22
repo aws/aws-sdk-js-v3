@@ -19,6 +19,10 @@ import { de_ReleaseStaticIpCommand, se_ReleaseStaticIpCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReleaseStaticIpCommand}.
  */

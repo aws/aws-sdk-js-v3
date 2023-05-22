@@ -23,6 +23,10 @@ import { de_GetBackupPlanFromJSONCommand, se_GetBackupPlanFromJSONCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBackupPlanFromJSONCommand}.
  */

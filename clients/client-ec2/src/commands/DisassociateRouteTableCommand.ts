@@ -19,6 +19,10 @@ import { de_DisassociateRouteTableCommand, se_DisassociateRouteTableCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateRouteTableCommand}.
  */

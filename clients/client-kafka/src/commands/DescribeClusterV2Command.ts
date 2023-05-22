@@ -19,6 +19,10 @@ import { de_DescribeClusterV2Command, se_DescribeClusterV2Command } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeClusterV2Command}.
  */

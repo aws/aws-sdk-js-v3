@@ -19,6 +19,10 @@ import { de_AssociateGatewayToServerCommand, se_AssociateGatewayToServerCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateGatewayToServerCommand}.
  */

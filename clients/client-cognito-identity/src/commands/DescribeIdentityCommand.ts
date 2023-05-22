@@ -20,6 +20,10 @@ import { de_DescribeIdentityCommand, se_DescribeIdentityCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIdentityCommand}.
  */

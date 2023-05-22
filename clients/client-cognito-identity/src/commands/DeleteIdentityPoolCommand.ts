@@ -20,6 +20,10 @@ import { de_DeleteIdentityPoolCommand, se_DeleteIdentityPoolCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteIdentityPoolCommand}.
  */

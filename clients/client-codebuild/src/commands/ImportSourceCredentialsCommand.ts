@@ -23,6 +23,10 @@ import { de_ImportSourceCredentialsCommand, se_ImportSourceCredentialsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportSourceCredentialsCommand}.
  */

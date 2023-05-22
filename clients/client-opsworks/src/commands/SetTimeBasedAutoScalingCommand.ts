@@ -19,6 +19,10 @@ import { de_SetTimeBasedAutoScalingCommand, se_SetTimeBasedAutoScalingCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetTimeBasedAutoScalingCommand}.
  */

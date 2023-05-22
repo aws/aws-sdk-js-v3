@@ -19,6 +19,10 @@ import { de_GetSchemaAsJsonCommand, se_GetSchemaAsJsonCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSchemaAsJsonCommand}.
  */

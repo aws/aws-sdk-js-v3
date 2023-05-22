@@ -19,6 +19,10 @@ import { de_GetMLTaskRunCommand, se_GetMLTaskRunCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMLTaskRunCommand}.
  */

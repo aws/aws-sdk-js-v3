@@ -19,6 +19,10 @@ import { de_CompleteMigrationCommand, se_CompleteMigrationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CompleteMigrationCommand}.
  */

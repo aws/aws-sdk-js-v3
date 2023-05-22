@@ -19,6 +19,10 @@ import { de_SetTypeDefaultVersionCommand, se_SetTypeDefaultVersionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetTypeDefaultVersionCommand}.
  */

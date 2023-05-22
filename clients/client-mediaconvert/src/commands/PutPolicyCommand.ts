@@ -19,6 +19,10 @@ import { de_PutPolicyCommand, se_PutPolicyCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutPolicyCommand}.
  */

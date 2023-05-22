@@ -23,6 +23,10 @@ import { de_BatchGetStreamKeyCommand, se_BatchGetStreamKeyCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetStreamKeyCommand}.
  */

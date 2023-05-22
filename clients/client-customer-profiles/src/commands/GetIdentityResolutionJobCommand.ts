@@ -19,6 +19,10 @@ import { de_GetIdentityResolutionJobCommand, se_GetIdentityResolutionJobCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIdentityResolutionJobCommand}.
  */

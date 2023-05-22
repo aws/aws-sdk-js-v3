@@ -19,6 +19,10 @@ import { de_GetModelTemplateCommand, se_GetModelTemplateCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetModelTemplateCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListStreamConsumersCommand, se_ListStreamConsumersCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStreamConsumersCommand}.
  */

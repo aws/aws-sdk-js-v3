@@ -19,6 +19,10 @@ import { de_GetIntegrationsCommand, se_GetIntegrationsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIntegrationsCommand}.
  */

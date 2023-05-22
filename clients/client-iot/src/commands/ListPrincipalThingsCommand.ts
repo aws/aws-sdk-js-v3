@@ -19,6 +19,10 @@ import { de_ListPrincipalThingsCommand, se_ListPrincipalThingsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPrincipalThingsCommand}.
  */

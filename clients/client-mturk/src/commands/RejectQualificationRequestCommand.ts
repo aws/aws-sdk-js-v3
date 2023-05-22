@@ -19,6 +19,10 @@ import { de_RejectQualificationRequestCommand, se_RejectQualificationRequestComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectQualificationRequestCommand}.
  */

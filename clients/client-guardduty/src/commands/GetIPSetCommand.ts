@@ -19,6 +19,10 @@ import { de_GetIPSetCommand, se_GetIPSetCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIPSetCommand}.
  */

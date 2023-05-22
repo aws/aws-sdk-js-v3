@@ -19,6 +19,10 @@ import { de_UpdateModelCommand, se_UpdateModelCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateModelCommand}.
  */

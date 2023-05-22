@@ -19,6 +19,10 @@ import { de_UpdatePushTemplateCommand, se_UpdatePushTemplateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePushTemplateCommand}.
  */

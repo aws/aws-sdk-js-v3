@@ -19,6 +19,10 @@ import { de_DescribeConfigurationOptionsCommand, se_DescribeConfigurationOptions
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeConfigurationOptionsCommand}.
  */

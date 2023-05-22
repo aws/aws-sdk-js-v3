@@ -23,6 +23,10 @@ import { de_NotifyObjectCompleteCommand, se_NotifyObjectCompleteCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link NotifyObjectCompleteCommand}.
  */

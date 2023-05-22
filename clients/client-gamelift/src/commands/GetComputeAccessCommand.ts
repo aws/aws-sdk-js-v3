@@ -23,6 +23,10 @@ import { de_GetComputeAccessCommand, se_GetComputeAccessCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetComputeAccessCommand}.
  */

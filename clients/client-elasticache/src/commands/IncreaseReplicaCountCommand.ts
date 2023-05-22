@@ -19,6 +19,10 @@ import { de_IncreaseReplicaCountCommand, se_IncreaseReplicaCountCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link IncreaseReplicaCountCommand}.
  */

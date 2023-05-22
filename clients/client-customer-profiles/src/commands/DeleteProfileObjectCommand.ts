@@ -19,6 +19,10 @@ import { de_DeleteProfileObjectCommand, se_DeleteProfileObjectCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteProfileObjectCommand}.
  */

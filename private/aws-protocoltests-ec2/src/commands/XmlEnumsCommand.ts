@@ -18,6 +18,10 @@ import { de_XmlEnumsCommand, se_XmlEnumsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link XmlEnumsCommand}.
  */

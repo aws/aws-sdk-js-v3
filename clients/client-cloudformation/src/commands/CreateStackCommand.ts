@@ -19,6 +19,10 @@ import { de_CreateStackCommand, se_CreateStackCommand } from "../protocols/Aws_q
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStackCommand}.
  */

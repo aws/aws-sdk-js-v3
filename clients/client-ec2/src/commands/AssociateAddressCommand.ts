@@ -19,6 +19,10 @@ import { de_AssociateAddressCommand, se_AssociateAddressCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateAddressCommand}.
  */

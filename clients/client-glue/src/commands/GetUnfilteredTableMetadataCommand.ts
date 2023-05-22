@@ -19,6 +19,10 @@ import { de_GetUnfilteredTableMetadataCommand, se_GetUnfilteredTableMetadataComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUnfilteredTableMetadataCommand}.
  */

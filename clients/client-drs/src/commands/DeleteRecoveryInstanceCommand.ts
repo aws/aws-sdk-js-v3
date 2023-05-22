@@ -19,6 +19,10 @@ import { de_DeleteRecoveryInstanceCommand, se_DeleteRecoveryInstanceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRecoveryInstanceCommand}.
  */

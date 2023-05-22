@@ -19,6 +19,10 @@ import { de_DeregisterInstanceCommand, se_DeregisterInstanceCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterInstanceCommand}.
  */

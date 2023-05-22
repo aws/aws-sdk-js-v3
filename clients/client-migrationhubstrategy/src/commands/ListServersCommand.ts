@@ -23,6 +23,10 @@ import { de_ListServersCommand, se_ListServersCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListServersCommand}.
  */

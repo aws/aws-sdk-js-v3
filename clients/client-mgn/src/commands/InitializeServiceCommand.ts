@@ -19,6 +19,10 @@ import { de_InitializeServiceCommand, se_InitializeServiceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InitializeServiceCommand}.
  */

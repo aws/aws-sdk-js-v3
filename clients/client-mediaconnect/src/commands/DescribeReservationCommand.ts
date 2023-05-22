@@ -19,6 +19,10 @@ import { de_DescribeReservationCommand, se_DescribeReservationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeReservationCommand}.
  */

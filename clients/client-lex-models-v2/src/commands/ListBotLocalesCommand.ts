@@ -19,6 +19,10 @@ import { de_ListBotLocalesCommand, se_ListBotLocalesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBotLocalesCommand}.
  */

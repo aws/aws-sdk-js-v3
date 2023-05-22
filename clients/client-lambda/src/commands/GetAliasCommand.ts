@@ -19,6 +19,10 @@ import { de_GetAliasCommand, se_GetAliasCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAliasCommand}.
  */

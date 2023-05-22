@@ -19,6 +19,10 @@ import { de_DetachNetworkInterfaceCommand, se_DetachNetworkInterfaceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachNetworkInterfaceCommand}.
  */

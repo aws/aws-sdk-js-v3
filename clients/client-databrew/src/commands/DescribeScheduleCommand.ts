@@ -19,6 +19,10 @@ import { de_DescribeScheduleCommand, se_DescribeScheduleCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScheduleCommand}.
  */

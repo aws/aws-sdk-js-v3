@@ -19,6 +19,10 @@ import { de_DisassociateLambdaFunctionCommand, se_DisassociateLambdaFunctionComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateLambdaFunctionCommand}.
  */

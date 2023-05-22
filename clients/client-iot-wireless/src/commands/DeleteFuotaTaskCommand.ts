@@ -19,6 +19,10 @@ import { de_DeleteFuotaTaskCommand, se_DeleteFuotaTaskCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFuotaTaskCommand}.
  */

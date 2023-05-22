@@ -19,6 +19,10 @@ import { de_DeregisterPackageVersionCommand, se_DeregisterPackageVersionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterPackageVersionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListLambdaFunctionsCommand, se_ListLambdaFunctionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLambdaFunctionsCommand}.
  */

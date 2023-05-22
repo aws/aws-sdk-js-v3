@@ -23,6 +23,10 @@ import { de_DescribeSharedDirectoriesCommand, se_DescribeSharedDirectoriesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSharedDirectoriesCommand}.
  */

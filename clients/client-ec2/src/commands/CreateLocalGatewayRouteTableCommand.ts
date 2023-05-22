@@ -19,6 +19,10 @@ import { de_CreateLocalGatewayRouteTableCommand, se_CreateLocalGatewayRouteTable
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocalGatewayRouteTableCommand}.
  */

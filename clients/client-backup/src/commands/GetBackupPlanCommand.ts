@@ -19,6 +19,10 @@ import { de_GetBackupPlanCommand, se_GetBackupPlanCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBackupPlanCommand}.
  */

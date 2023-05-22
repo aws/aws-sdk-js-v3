@@ -19,6 +19,10 @@ import { de_DeleteWorkerBlockCommand, se_DeleteWorkerBlockCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWorkerBlockCommand}.
  */

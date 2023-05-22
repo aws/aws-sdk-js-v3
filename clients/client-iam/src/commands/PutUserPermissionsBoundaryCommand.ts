@@ -19,6 +19,10 @@ import { de_PutUserPermissionsBoundaryCommand, se_PutUserPermissionsBoundaryComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutUserPermissionsBoundaryCommand}.
  */

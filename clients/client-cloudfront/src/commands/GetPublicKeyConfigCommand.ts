@@ -19,6 +19,10 @@ import { de_GetPublicKeyConfigCommand, se_GetPublicKeyConfigCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPublicKeyConfigCommand}.
  */

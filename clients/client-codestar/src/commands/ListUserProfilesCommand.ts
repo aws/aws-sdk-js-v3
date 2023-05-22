@@ -23,6 +23,10 @@ import { de_ListUserProfilesCommand, se_ListUserProfilesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUserProfilesCommand}.
  */

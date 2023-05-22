@@ -19,6 +19,10 @@ import { de_ListCostAllocationTagsCommand, se_ListCostAllocationTagsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCostAllocationTagsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateLogStreamCommand, se_CreateLogStreamCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLogStreamCommand}.
  */

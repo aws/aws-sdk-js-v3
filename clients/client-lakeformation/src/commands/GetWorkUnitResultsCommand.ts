@@ -27,6 +27,10 @@ import { de_GetWorkUnitResultsCommand, se_GetWorkUnitResultsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWorkUnitResultsCommand}.
  */

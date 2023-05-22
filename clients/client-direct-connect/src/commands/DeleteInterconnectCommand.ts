@@ -19,6 +19,10 @@ import { de_DeleteInterconnectCommand, se_DeleteInterconnectCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteInterconnectCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateFleetLocationsCommand, se_CreateFleetLocationsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFleetLocationsCommand}.
  */

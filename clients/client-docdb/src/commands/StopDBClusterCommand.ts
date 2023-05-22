@@ -19,6 +19,10 @@ import { de_StopDBClusterCommand, se_StopDBClusterCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopDBClusterCommand}.
  */

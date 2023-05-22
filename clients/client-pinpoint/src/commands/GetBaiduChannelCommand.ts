@@ -19,6 +19,10 @@ import { de_GetBaiduChannelCommand, se_GetBaiduChannelCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBaiduChannelCommand}.
  */

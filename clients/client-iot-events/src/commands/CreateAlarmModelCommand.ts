@@ -19,6 +19,10 @@ import { de_CreateAlarmModelCommand, se_CreateAlarmModelCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAlarmModelCommand}.
  */

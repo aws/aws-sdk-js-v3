@@ -18,6 +18,10 @@ import { de_XmlIntEnumsCommand, se_XmlIntEnumsCommand } from "../protocols/Aws_e
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link XmlIntEnumsCommand}.
  */

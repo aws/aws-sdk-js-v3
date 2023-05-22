@@ -20,6 +20,10 @@ import { de_ListWirelessDevicesCommand, se_ListWirelessDevicesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWirelessDevicesCommand}.
  */

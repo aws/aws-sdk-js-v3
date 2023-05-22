@@ -19,6 +19,10 @@ import { de_DescribeServiceErrorsCommand, se_DescribeServiceErrorsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeServiceErrorsCommand}.
  */

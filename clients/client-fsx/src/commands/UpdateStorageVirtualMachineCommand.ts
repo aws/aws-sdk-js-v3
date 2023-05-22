@@ -23,6 +23,10 @@ import { de_UpdateStorageVirtualMachineCommand, se_UpdateStorageVirtualMachineCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateStorageVirtualMachineCommand}.
  */

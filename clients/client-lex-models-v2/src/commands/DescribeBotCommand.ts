@@ -19,6 +19,10 @@ import { de_DescribeBotCommand, se_DescribeBotCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBotCommand}.
  */

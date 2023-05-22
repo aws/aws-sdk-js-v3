@@ -19,6 +19,10 @@ import { de_StopEntitiesDetectionJobCommand, se_StopEntitiesDetectionJobCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopEntitiesDetectionJobCommand}.
  */

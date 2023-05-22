@@ -23,6 +23,10 @@ import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEnvironmentCommand}.
  */

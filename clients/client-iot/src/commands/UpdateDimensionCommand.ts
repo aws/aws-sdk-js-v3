@@ -19,6 +19,10 @@ import { de_UpdateDimensionCommand, se_UpdateDimensionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDimensionCommand}.
  */

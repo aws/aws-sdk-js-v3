@@ -19,6 +19,10 @@ import { de_CreateExtensionCommand, se_CreateExtensionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateExtensionCommand}.
  */

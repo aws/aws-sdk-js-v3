@@ -19,6 +19,10 @@ import { de_DeleteRequestValidatorCommand, se_DeleteRequestValidatorCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRequestValidatorCommand}.
  */

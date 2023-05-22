@@ -23,6 +23,10 @@ import { de_GetTranscriptCommand, se_GetTranscriptCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTranscriptCommand}.
  */

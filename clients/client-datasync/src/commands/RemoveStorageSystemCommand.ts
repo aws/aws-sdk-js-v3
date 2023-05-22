@@ -19,6 +19,10 @@ import { de_RemoveStorageSystemCommand, se_RemoveStorageSystemCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveStorageSystemCommand}.
  */

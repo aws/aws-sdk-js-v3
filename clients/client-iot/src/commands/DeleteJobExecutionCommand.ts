@@ -19,6 +19,10 @@ import { de_DeleteJobExecutionCommand, se_DeleteJobExecutionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteJobExecutionCommand}.
  */

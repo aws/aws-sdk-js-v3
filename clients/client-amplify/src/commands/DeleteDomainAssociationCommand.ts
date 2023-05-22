@@ -19,6 +19,10 @@ import { de_DeleteDomainAssociationCommand, se_DeleteDomainAssociationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDomainAssociationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RevokeGrantCommand, se_RevokeGrantCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeGrantCommand}.
  */

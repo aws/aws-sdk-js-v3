@@ -19,6 +19,10 @@ import { de_TagUserCommand, se_TagUserCommand } from "../protocols/Aws_query";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagUserCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetDiscoveredResourceCountsCommand, se_GetDiscoveredResourceCountsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDiscoveredResourceCountsCommand}.
  */

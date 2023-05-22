@@ -19,6 +19,10 @@ import { de_ListAssetModelPropertiesCommand, se_ListAssetModelPropertiesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssetModelPropertiesCommand}.
  */

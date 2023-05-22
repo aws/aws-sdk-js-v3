@@ -19,6 +19,10 @@ import { de_GetSchemaAnalysisRuleCommand, se_GetSchemaAnalysisRuleCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSchemaAnalysisRuleCommand}.
  */

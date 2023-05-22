@@ -23,6 +23,10 @@ import { de_ListLogPatternsCommand, se_ListLogPatternsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLogPatternsCommand}.
  */

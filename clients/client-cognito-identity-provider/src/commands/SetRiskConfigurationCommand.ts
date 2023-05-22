@@ -29,6 +29,10 @@ import { de_SetRiskConfigurationCommand, se_SetRiskConfigurationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetRiskConfigurationCommand}.
  */

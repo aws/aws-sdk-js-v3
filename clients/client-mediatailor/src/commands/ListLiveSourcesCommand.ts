@@ -19,6 +19,10 @@ import { de_ListLiveSourcesCommand, se_ListLiveSourcesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLiveSourcesCommand}.
  */

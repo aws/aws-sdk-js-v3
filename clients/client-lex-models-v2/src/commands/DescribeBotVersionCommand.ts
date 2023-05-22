@@ -19,6 +19,10 @@ import { de_DescribeBotVersionCommand, se_DescribeBotVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBotVersionCommand}.
  */

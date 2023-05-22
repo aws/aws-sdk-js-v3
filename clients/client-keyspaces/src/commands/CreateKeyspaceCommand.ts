@@ -19,6 +19,10 @@ import { de_CreateKeyspaceCommand, se_CreateKeyspaceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateKeyspaceCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DescribeJobRunCommand, se_DescribeJobRunCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeJobRunCommand}.
  */

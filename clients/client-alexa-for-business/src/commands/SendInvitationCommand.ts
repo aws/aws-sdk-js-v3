@@ -19,6 +19,10 @@ import { de_SendInvitationCommand, se_SendInvitationCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendInvitationCommand}.
  */

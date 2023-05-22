@@ -23,6 +23,10 @@ import { de_IsMemberInGroupsCommand, se_IsMemberInGroupsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link IsMemberInGroupsCommand}.
  */

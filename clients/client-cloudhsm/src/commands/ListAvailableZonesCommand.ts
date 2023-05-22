@@ -19,6 +19,10 @@ import { de_ListAvailableZonesCommand, se_ListAvailableZonesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAvailableZonesCommand}.
  */

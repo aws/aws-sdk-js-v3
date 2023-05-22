@@ -19,6 +19,10 @@ import { de_ListUniqueProblemsCommand, se_ListUniqueProblemsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUniqueProblemsCommand}.
  */

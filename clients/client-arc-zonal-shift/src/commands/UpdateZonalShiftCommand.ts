@@ -19,6 +19,10 @@ import { de_UpdateZonalShiftCommand, se_UpdateZonalShiftCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateZonalShiftCommand}.
  */

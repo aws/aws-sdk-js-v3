@@ -19,6 +19,10 @@ import { de_GetUserDefinedFunctionCommand, se_GetUserDefinedFunctionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUserDefinedFunctionCommand}.
  */

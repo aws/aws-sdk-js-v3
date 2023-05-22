@@ -19,6 +19,10 @@ import { de_AssociateRouteTableCommand, se_AssociateRouteTableCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateRouteTableCommand}.
  */

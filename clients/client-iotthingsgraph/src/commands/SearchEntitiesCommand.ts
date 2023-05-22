@@ -19,6 +19,10 @@ import { de_SearchEntitiesCommand, se_SearchEntitiesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchEntitiesCommand}.
  */

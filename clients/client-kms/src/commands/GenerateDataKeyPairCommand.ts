@@ -23,6 +23,10 @@ import { de_GenerateDataKeyPairCommand, se_GenerateDataKeyPairCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GenerateDataKeyPairCommand}.
  */

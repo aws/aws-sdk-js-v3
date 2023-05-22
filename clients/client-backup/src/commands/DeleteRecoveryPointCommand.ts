@@ -19,6 +19,10 @@ import { de_DeleteRecoveryPointCommand, se_DeleteRecoveryPointCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRecoveryPointCommand}.
  */

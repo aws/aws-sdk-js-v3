@@ -19,6 +19,10 @@ import { de_GetCognitoEventsCommand, se_GetCognitoEventsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCognitoEventsCommand}.
  */

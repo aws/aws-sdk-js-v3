@@ -19,6 +19,10 @@ import { de_SearchOrganizationInsightsCommand, se_SearchOrganizationInsightsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchOrganizationInsightsCommand}.
  */

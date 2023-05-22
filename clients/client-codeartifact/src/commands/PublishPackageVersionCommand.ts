@@ -23,6 +23,10 @@ import { de_PublishPackageVersionCommand, se_PublishPackageVersionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PublishPackageVersionCommand}.
  */

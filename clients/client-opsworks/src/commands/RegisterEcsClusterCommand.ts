@@ -19,6 +19,10 @@ import { de_RegisterEcsClusterCommand, se_RegisterEcsClusterCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterEcsClusterCommand}.
  */

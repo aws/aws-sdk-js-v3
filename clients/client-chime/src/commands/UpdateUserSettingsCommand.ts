@@ -19,6 +19,10 @@ import { de_UpdateUserSettingsCommand, se_UpdateUserSettingsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateUserSettingsCommand}.
  */

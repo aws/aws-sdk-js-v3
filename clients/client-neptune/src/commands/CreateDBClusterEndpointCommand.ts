@@ -19,6 +19,10 @@ import { de_CreateDBClusterEndpointCommand, se_CreateDBClusterEndpointCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDBClusterEndpointCommand}.
  */

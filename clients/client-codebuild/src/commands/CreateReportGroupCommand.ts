@@ -19,6 +19,10 @@ import { de_CreateReportGroupCommand, se_CreateReportGroupCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateReportGroupCommand}.
  */

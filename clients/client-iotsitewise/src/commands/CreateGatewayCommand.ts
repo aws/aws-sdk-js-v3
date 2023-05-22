@@ -19,6 +19,10 @@ import { de_CreateGatewayCommand, se_CreateGatewayCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGatewayCommand}.
  */

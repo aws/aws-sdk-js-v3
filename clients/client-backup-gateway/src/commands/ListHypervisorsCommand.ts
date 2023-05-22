@@ -19,6 +19,10 @@ import { de_ListHypervisorsCommand, se_ListHypervisorsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListHypervisorsCommand}.
  */

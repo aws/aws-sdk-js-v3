@@ -19,6 +19,10 @@ import { de_CancelStatementCommand, se_CancelStatementCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelStatementCommand}.
  */

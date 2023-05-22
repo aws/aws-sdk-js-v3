@@ -19,6 +19,10 @@ import { de_GetTokenCommand, se_GetTokenCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTokenCommand}.
  */

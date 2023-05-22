@@ -19,6 +19,10 @@ import { de_ListObjectsCommand, se_ListObjectsCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListObjectsCommand}.
  */

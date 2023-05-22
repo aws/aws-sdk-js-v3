@@ -19,6 +19,10 @@ import { de_AttachToIndexCommand, se_AttachToIndexCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachToIndexCommand}.
  */

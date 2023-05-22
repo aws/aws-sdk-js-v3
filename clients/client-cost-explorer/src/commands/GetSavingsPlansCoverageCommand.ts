@@ -19,6 +19,10 @@ import { de_GetSavingsPlansCoverageCommand, se_GetSavingsPlansCoverageCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSavingsPlansCoverageCommand}.
  */

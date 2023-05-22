@@ -19,6 +19,10 @@ import { de_DisassociateMacSecKeyCommand, se_DisassociateMacSecKeyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateMacSecKeyCommand}.
  */

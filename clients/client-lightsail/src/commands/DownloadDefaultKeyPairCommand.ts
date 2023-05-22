@@ -19,6 +19,10 @@ import { de_DownloadDefaultKeyPairCommand, se_DownloadDefaultKeyPairCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DownloadDefaultKeyPairCommand}.
  */

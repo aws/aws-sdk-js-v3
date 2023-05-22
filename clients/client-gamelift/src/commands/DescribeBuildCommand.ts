@@ -19,6 +19,10 @@ import { de_DescribeBuildCommand, se_DescribeBuildCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBuildCommand}.
  */

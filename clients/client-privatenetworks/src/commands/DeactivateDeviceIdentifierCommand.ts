@@ -23,6 +23,10 @@ import { de_DeactivateDeviceIdentifierCommand, se_DeactivateDeviceIdentifierComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeactivateDeviceIdentifierCommand}.
  */

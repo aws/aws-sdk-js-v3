@@ -19,6 +19,10 @@ import { de_RegisterApplicationRevisionCommand, se_RegisterApplicationRevisionCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterApplicationRevisionCommand}.
  */

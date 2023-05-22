@@ -19,6 +19,10 @@ import { de_AssociateDhcpOptionsCommand, se_AssociateDhcpOptionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateDhcpOptionsCommand}.
  */

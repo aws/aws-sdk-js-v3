@@ -19,6 +19,10 @@ import { de_CreateImageRecipeCommand, se_CreateImageRecipeCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateImageRecipeCommand}.
  */

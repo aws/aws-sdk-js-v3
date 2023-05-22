@@ -19,6 +19,10 @@ import { de_ListBotVersionsCommand, se_ListBotVersionsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBotVersionsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_AddEndpointsCommand, se_AddEndpointsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddEndpointsCommand}.
  */

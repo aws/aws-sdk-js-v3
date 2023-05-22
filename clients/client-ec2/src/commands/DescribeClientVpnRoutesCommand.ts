@@ -19,6 +19,10 @@ import { de_DescribeClientVpnRoutesCommand, se_DescribeClientVpnRoutesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeClientVpnRoutesCommand}.
  */

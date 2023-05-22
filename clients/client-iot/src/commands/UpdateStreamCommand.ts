@@ -19,6 +19,10 @@ import { de_UpdateStreamCommand, se_UpdateStreamCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateStreamCommand}.
  */

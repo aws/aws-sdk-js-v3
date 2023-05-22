@@ -19,6 +19,10 @@ import { de_UntagMFADeviceCommand, se_UntagMFADeviceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagMFADeviceCommand}.
  */

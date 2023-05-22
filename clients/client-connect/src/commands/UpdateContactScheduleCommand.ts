@@ -19,6 +19,10 @@ import { de_UpdateContactScheduleCommand, se_UpdateContactScheduleCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateContactScheduleCommand}.
  */

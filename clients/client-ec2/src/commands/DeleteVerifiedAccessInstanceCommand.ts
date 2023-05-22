@@ -19,6 +19,10 @@ import { de_DeleteVerifiedAccessInstanceCommand, se_DeleteVerifiedAccessInstance
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVerifiedAccessInstanceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StopContactCommand, se_StopContactCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopContactCommand}.
  */

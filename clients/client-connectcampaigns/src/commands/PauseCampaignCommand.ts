@@ -19,6 +19,10 @@ import { de_PauseCampaignCommand, se_PauseCampaignCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PauseCampaignCommand}.
  */

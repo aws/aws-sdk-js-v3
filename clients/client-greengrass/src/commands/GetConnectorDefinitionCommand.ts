@@ -19,6 +19,10 @@ import { de_GetConnectorDefinitionCommand, se_GetConnectorDefinitionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConnectorDefinitionCommand}.
  */

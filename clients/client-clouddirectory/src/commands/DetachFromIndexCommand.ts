@@ -19,6 +19,10 @@ import { de_DetachFromIndexCommand, se_DetachFromIndexCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachFromIndexCommand}.
  */

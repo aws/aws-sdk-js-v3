@@ -19,6 +19,10 @@ import { de_BatchEnableAlarmCommand, se_BatchEnableAlarmCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchEnableAlarmCommand}.
  */

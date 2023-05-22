@@ -23,6 +23,10 @@ import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProjectsCommand}.
  */

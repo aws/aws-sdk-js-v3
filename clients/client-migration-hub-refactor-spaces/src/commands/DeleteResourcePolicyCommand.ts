@@ -23,6 +23,10 @@ import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteResourcePolicyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StopMatchmakingCommand, se_StopMatchmakingCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopMatchmakingCommand}.
  */

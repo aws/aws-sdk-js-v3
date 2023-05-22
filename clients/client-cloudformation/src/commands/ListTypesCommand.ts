@@ -19,6 +19,10 @@ import { de_ListTypesCommand, se_ListTypesCommand } from "../protocols/Aws_query
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTypesCommand}.
  */

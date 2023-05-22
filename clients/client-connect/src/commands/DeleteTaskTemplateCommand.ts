@@ -19,6 +19,10 @@ import { de_DeleteTaskTemplateCommand, se_DeleteTaskTemplateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTaskTemplateCommand}.
  */

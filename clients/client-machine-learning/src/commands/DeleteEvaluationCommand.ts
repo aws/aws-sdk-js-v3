@@ -19,6 +19,10 @@ import { de_DeleteEvaluationCommand, se_DeleteEvaluationCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEvaluationCommand}.
  */

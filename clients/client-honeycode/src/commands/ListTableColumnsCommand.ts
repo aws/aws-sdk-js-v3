@@ -19,6 +19,10 @@ import { de_ListTableColumnsCommand, se_ListTableColumnsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTableColumnsCommand}.
  */

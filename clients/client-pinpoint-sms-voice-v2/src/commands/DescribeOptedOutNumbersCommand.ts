@@ -23,6 +23,10 @@ import { de_DescribeOptedOutNumbersCommand, se_DescribeOptedOutNumbersCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeOptedOutNumbersCommand}.
  */

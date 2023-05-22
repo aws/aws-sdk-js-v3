@@ -19,6 +19,10 @@ import { de_ListInferenceSchedulersCommand, se_ListInferenceSchedulersCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInferenceSchedulersCommand}.
  */

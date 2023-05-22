@@ -19,6 +19,10 @@ import { de_GetEvidenceCommand, se_GetEvidenceCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEvidenceCommand}.
  */

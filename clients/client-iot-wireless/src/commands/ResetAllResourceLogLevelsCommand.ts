@@ -19,6 +19,10 @@ import { de_ResetAllResourceLogLevelsCommand, se_ResetAllResourceLogLevelsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetAllResourceLogLevelsCommand}.
  */

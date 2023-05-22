@@ -19,6 +19,10 @@ import { de_BatchDisassociateResourceCommand, se_BatchDisassociateResourceComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDisassociateResourceCommand}.
  */

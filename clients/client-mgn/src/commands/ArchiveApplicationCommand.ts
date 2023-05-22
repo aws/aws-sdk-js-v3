@@ -19,6 +19,10 @@ import { de_ArchiveApplicationCommand, se_ArchiveApplicationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ArchiveApplicationCommand}.
  */

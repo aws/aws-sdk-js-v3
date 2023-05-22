@@ -24,6 +24,10 @@ import { de_CreateWaveCommand, se_CreateWaveCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWaveCommand}.
  */

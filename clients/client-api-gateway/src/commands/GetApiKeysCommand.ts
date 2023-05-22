@@ -19,6 +19,10 @@ import { de_GetApiKeysCommand, se_GetApiKeysCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApiKeysCommand}.
  */

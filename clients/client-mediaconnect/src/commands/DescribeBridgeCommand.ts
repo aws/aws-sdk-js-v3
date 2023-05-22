@@ -19,6 +19,10 @@ import { de_DescribeBridgeCommand, se_DescribeBridgeCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBridgeCommand}.
  */

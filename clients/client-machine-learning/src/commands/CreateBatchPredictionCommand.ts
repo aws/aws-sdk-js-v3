@@ -19,6 +19,10 @@ import { de_CreateBatchPredictionCommand, se_CreateBatchPredictionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBatchPredictionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetResourceMetricsCommand, se_GetResourceMetricsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResourceMetricsCommand}.
  */

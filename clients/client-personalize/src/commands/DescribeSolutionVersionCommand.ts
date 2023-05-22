@@ -19,6 +19,10 @@ import { de_DescribeSolutionVersionCommand, se_DescribeSolutionVersionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSolutionVersionCommand}.
  */

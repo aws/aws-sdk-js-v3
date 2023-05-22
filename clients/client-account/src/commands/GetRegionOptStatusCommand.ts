@@ -19,6 +19,10 @@ import { de_GetRegionOptStatusCommand, se_GetRegionOptStatusCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRegionOptStatusCommand}.
  */

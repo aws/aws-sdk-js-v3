@@ -19,6 +19,10 @@ import { de_PutJobFailureResultCommand, se_PutJobFailureResultCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutJobFailureResultCommand}.
  */

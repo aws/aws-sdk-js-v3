@@ -19,6 +19,10 @@ import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGroupCommand}.
  */

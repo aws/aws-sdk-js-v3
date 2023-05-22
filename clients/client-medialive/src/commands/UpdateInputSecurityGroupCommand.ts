@@ -19,6 +19,10 @@ import { de_UpdateInputSecurityGroupCommand, se_UpdateInputSecurityGroupCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateInputSecurityGroupCommand}.
  */

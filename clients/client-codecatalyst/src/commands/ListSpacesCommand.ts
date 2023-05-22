@@ -19,6 +19,10 @@ import { de_ListSpacesCommand, se_ListSpacesCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSpacesCommand}.
  */

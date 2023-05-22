@@ -19,6 +19,10 @@ import { de_CreatePresignedNotebookUrlCommand, se_CreatePresignedNotebookUrlComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePresignedNotebookUrlCommand}.
  */

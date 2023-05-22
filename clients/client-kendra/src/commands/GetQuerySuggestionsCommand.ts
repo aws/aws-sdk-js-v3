@@ -20,6 +20,10 @@ import { de_GetQuerySuggestionsCommand, se_GetQuerySuggestionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetQuerySuggestionsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_PutIntentCommand, se_PutIntentCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutIntentCommand}.
  */

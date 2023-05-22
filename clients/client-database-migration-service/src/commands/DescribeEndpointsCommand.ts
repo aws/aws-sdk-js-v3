@@ -27,6 +27,10 @@ import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEndpointsCommand}.
  */

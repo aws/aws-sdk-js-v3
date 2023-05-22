@@ -19,6 +19,10 @@ import { de_PutResourceSetCommand, se_PutResourceSetCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutResourceSetCommand}.
  */

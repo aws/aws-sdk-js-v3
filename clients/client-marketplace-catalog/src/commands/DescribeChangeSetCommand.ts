@@ -23,6 +23,10 @@ import { de_DescribeChangeSetCommand, se_DescribeChangeSetCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeChangeSetCommand}.
  */

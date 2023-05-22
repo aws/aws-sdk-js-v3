@@ -19,6 +19,10 @@ import { de_MergeBranchesBySquashCommand, se_MergeBranchesBySquashCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MergeBranchesBySquashCommand}.
  */

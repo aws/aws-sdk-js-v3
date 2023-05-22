@@ -19,6 +19,10 @@ import { de_AssociateDeviceWithRoomCommand, se_AssociateDeviceWithRoomCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateDeviceWithRoomCommand}.
  */

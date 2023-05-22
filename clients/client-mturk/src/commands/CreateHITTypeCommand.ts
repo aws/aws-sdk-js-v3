@@ -19,6 +19,10 @@ import { de_CreateHITTypeCommand, se_CreateHITTypeCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateHITTypeCommand}.
  */

@@ -23,6 +23,10 @@ import { de_GetMigrationsCommand, se_GetMigrationsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMigrationsCommand}.
  */

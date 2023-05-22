@@ -19,6 +19,10 @@ import { de_DeleteRealtimeLogConfigCommand, se_DeleteRealtimeLogConfigCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRealtimeLogConfigCommand}.
  */

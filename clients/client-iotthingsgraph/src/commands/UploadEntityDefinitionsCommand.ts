@@ -19,6 +19,10 @@ import { de_UploadEntityDefinitionsCommand, se_UploadEntityDefinitionsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UploadEntityDefinitionsCommand}.
  */

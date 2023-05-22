@@ -19,6 +19,10 @@ import { de_DeleteDeviceProfileCommand, se_DeleteDeviceProfileCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDeviceProfileCommand}.
  */

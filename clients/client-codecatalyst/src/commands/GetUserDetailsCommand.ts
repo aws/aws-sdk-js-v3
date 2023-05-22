@@ -19,6 +19,10 @@ import { de_GetUserDetailsCommand, se_GetUserDetailsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUserDetailsCommand}.
  */

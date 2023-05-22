@@ -19,6 +19,10 @@ import { de_ListKeyPhrasesDetectionJobsCommand, se_ListKeyPhrasesDetectionJobsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListKeyPhrasesDetectionJobsCommand}.
  */

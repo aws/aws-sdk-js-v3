@@ -23,6 +23,10 @@ import { de_DeletePoolCommand, se_DeletePoolCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePoolCommand}.
  */

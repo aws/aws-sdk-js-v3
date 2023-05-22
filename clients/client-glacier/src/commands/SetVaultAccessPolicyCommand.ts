@@ -19,6 +19,10 @@ import { de_SetVaultAccessPolicyCommand, se_SetVaultAccessPolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetVaultAccessPolicyCommand}.
  */

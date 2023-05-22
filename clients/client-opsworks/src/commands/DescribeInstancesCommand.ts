@@ -19,6 +19,10 @@ import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInstancesCommand}.
  */

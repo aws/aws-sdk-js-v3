@@ -19,6 +19,10 @@ import { de_StopRecommenderCommand, se_StopRecommenderCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopRecommenderCommand}.
  */

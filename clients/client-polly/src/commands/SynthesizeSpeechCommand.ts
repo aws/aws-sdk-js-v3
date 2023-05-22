@@ -26,6 +26,10 @@ import { de_SynthesizeSpeechCommand, se_SynthesizeSpeechCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SynthesizeSpeechCommand}.
  */

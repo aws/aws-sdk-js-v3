@@ -19,6 +19,10 @@ import { de_UpdateWirelessGatewayCommand, se_UpdateWirelessGatewayCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateWirelessGatewayCommand}.
  */

@@ -24,6 +24,10 @@ import { de_ValidateE911AddressCommand, se_ValidateE911AddressCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ValidateE911AddressCommand}.
  */

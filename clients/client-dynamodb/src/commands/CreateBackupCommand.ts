@@ -19,6 +19,10 @@ import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBackupCommand}.
  */

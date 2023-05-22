@@ -19,6 +19,10 @@ import { de_PutAlternateContactCommand, se_PutAlternateContactCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAlternateContactCommand}.
  */

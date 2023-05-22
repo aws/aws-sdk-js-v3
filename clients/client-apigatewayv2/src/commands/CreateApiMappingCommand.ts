@@ -19,6 +19,10 @@ import { de_CreateApiMappingCommand, se_CreateApiMappingCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateApiMappingCommand}.
  */

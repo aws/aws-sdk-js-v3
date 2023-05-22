@@ -19,6 +19,10 @@ import { de_CloneBackendCommand, se_CloneBackendCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CloneBackendCommand}.
  */

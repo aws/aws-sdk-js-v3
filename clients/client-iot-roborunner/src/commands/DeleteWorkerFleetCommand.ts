@@ -19,6 +19,10 @@ import { de_DeleteWorkerFleetCommand, se_DeleteWorkerFleetCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWorkerFleetCommand}.
  */

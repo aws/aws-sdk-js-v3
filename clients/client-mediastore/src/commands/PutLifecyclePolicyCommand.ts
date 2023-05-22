@@ -19,6 +19,10 @@ import { de_PutLifecyclePolicyCommand, se_PutLifecyclePolicyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutLifecyclePolicyCommand}.
  */

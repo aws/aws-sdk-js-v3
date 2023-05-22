@@ -20,6 +20,10 @@ import { de_GetJobsCommand, se_GetJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetJobsCommand}.
  */

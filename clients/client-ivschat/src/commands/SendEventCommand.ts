@@ -19,6 +19,10 @@ import { de_SendEventCommand, se_SendEventCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendEventCommand}.
  */

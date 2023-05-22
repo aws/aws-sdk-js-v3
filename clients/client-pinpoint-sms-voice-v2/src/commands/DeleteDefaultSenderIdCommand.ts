@@ -23,6 +23,10 @@ import { de_DeleteDefaultSenderIdCommand, se_DeleteDefaultSenderIdCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDefaultSenderIdCommand}.
  */

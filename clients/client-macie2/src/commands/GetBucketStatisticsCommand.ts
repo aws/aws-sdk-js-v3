@@ -19,6 +19,10 @@ import { de_GetBucketStatisticsCommand, se_GetBucketStatisticsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBucketStatisticsCommand}.
  */

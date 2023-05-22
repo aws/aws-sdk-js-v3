@@ -19,6 +19,10 @@ import { de_DescribeInstanceEventWindowsCommand, se_DescribeInstanceEventWindows
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInstanceEventWindowsCommand}.
  */

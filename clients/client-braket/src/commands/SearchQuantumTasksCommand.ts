@@ -19,6 +19,10 @@ import { de_SearchQuantumTasksCommand, se_SearchQuantumTasksCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchQuantumTasksCommand}.
  */

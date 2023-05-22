@@ -19,6 +19,10 @@ import { de_DeleteDiskSnapshotCommand, se_DeleteDiskSnapshotCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDiskSnapshotCommand}.
  */

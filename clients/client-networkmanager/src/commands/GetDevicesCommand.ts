@@ -19,6 +19,10 @@ import { de_GetDevicesCommand, se_GetDevicesCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDevicesCommand}.
  */

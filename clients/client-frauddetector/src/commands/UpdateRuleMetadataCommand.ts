@@ -19,6 +19,10 @@ import { de_UpdateRuleMetadataCommand, se_UpdateRuleMetadataCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRuleMetadataCommand}.
  */

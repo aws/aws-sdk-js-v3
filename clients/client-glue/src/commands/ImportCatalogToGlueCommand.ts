@@ -19,6 +19,10 @@ import { de_ImportCatalogToGlueCommand, se_ImportCatalogToGlueCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportCatalogToGlueCommand}.
  */

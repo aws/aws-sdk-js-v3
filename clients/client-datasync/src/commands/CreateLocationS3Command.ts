@@ -19,6 +19,10 @@ import { de_CreateLocationS3Command, se_CreateLocationS3Command } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocationS3Command}.
  */

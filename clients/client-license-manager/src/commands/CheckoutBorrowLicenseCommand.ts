@@ -19,6 +19,10 @@ import { de_CheckoutBorrowLicenseCommand, se_CheckoutBorrowLicenseCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CheckoutBorrowLicenseCommand}.
  */

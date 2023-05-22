@@ -19,6 +19,10 @@ import { de_ReportTaskProgressCommand, se_ReportTaskProgressCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReportTaskProgressCommand}.
  */

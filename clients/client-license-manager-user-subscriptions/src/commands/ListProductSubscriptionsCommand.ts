@@ -23,6 +23,10 @@ import { de_ListProductSubscriptionsCommand, se_ListProductSubscriptionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProductSubscriptionsCommand}.
  */

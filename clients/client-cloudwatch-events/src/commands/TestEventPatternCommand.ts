@@ -19,6 +19,10 @@ import { de_TestEventPatternCommand, se_TestEventPatternCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestEventPatternCommand}.
  */

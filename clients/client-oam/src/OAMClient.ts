@@ -77,6 +77,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -244,7 +246,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type OAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type OAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -263,7 +265,7 @@ export interface OAMClientConfig extends OAMClientConfigType {}
 /**
  * @public
  */
-type OAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type OAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

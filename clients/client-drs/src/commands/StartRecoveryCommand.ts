@@ -24,6 +24,10 @@ import { de_StartRecoveryCommand, se_StartRecoveryCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartRecoveryCommand}.
  */

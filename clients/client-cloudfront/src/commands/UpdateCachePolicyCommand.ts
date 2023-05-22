@@ -19,6 +19,10 @@ import { de_UpdateCachePolicyCommand, se_UpdateCachePolicyCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCachePolicyCommand}.
  */

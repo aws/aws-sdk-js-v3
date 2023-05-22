@@ -23,6 +23,10 @@ import { de_ExportConfigurationsCommand, se_ExportConfigurationsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportConfigurationsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetFieldLevelEncryptionCommand, se_GetFieldLevelEncryptionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFieldLevelEncryptionCommand}.
  */

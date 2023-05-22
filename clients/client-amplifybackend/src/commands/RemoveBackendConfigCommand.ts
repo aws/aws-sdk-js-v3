@@ -19,6 +19,10 @@ import { de_RemoveBackendConfigCommand, se_RemoveBackendConfigCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveBackendConfigCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateComponentTypeCommand, se_UpdateComponentTypeCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateComponentTypeCommand}.
  */

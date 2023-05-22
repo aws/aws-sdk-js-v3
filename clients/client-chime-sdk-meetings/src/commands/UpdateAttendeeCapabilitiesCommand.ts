@@ -23,6 +23,10 @@ import { de_UpdateAttendeeCapabilitiesCommand, se_UpdateAttendeeCapabilitiesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAttendeeCapabilitiesCommand}.
  */

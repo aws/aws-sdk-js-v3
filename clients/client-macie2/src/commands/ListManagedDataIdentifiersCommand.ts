@@ -19,6 +19,10 @@ import { de_ListManagedDataIdentifiersCommand, se_ListManagedDataIdentifiersComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListManagedDataIdentifiersCommand}.
  */

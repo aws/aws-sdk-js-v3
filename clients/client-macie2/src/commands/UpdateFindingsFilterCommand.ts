@@ -19,6 +19,10 @@ import { de_UpdateFindingsFilterCommand, se_UpdateFindingsFilterCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFindingsFilterCommand}.
  */

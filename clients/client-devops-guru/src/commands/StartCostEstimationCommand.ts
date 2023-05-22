@@ -19,6 +19,10 @@ import { de_StartCostEstimationCommand, se_StartCostEstimationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartCostEstimationCommand}.
  */

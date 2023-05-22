@@ -19,6 +19,10 @@ import { de_CreateExtensionAssociationCommand, se_CreateExtensionAssociationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateExtensionAssociationCommand}.
  */

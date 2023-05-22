@@ -19,6 +19,10 @@ import { de_DescribeBackupJobCommand, se_DescribeBackupJobCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBackupJobCommand}.
  */

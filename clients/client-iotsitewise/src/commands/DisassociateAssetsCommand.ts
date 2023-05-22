@@ -19,6 +19,10 @@ import { de_DisassociateAssetsCommand, se_DisassociateAssetsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateAssetsCommand}.
  */

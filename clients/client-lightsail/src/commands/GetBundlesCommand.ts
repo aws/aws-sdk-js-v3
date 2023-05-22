@@ -19,6 +19,10 @@ import { de_GetBundlesCommand, se_GetBundlesCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBundlesCommand}.
  */

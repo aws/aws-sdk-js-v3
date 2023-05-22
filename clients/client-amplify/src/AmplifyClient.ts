@@ -126,6 +126,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -337,7 +339,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type AmplifyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type AmplifyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -356,7 +358,7 @@ export interface AmplifyClientConfig extends AmplifyClientConfigType {}
 /**
  * @public
  */
-type AmplifyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type AmplifyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -19,6 +19,10 @@ import { de_AddFlowOutputsCommand, se_AddFlowOutputsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddFlowOutputsCommand}.
  */

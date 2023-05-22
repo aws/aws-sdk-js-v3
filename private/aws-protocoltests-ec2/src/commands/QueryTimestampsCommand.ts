@@ -18,6 +18,10 @@ import { de_QueryTimestampsCommand, se_QueryTimestampsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link QueryTimestampsCommand}.
  */

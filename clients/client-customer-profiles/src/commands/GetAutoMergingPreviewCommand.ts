@@ -19,6 +19,10 @@ import { de_GetAutoMergingPreviewCommand, se_GetAutoMergingPreviewCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAutoMergingPreviewCommand}.
  */

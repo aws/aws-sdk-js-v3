@@ -19,6 +19,10 @@ import { de_GetSegmentVersionsCommand, se_GetSegmentVersionsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSegmentVersionsCommand}.
  */

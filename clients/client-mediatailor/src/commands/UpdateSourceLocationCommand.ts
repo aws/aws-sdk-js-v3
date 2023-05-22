@@ -19,6 +19,10 @@ import { de_UpdateSourceLocationCommand, se_UpdateSourceLocationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSourceLocationCommand}.
  */

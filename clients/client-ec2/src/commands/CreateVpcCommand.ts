@@ -19,6 +19,10 @@ import { de_CreateVpcCommand, se_CreateVpcCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVpcCommand}.
  */

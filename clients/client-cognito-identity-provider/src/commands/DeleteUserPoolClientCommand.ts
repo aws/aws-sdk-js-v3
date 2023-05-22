@@ -24,6 +24,10 @@ import { de_DeleteUserPoolClientCommand, se_DeleteUserPoolClientCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteUserPoolClientCommand}.
  */

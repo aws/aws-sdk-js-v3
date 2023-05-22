@@ -19,6 +19,10 @@ import { de_DescribeReservedNodesCommand, se_DescribeReservedNodesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeReservedNodesCommand}.
  */

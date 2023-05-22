@@ -19,6 +19,10 @@ import { de_GetIntrospectionSchemaCommand, se_GetIntrospectionSchemaCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIntrospectionSchemaCommand}.
  */

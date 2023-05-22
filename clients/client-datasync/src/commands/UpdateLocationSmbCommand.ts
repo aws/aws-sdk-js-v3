@@ -23,6 +23,10 @@ import { de_UpdateLocationSmbCommand, se_UpdateLocationSmbCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLocationSmbCommand}.
  */

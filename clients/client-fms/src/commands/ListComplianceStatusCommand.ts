@@ -19,6 +19,10 @@ import { de_ListComplianceStatusCommand, se_ListComplianceStatusCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListComplianceStatusCommand}.
  */

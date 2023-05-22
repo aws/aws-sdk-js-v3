@@ -19,6 +19,10 @@ import { de_DeleteSourceCredentialsCommand, se_DeleteSourceCredentialsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSourceCredentialsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_SubmitContainerStateChangeCommand, se_SubmitContainerStateChangeComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SubmitContainerStateChangeCommand}.
  */

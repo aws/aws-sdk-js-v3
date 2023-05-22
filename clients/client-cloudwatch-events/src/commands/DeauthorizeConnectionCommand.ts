@@ -19,6 +19,10 @@ import { de_DeauthorizeConnectionCommand, se_DeauthorizeConnectionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeauthorizeConnectionCommand}.
  */

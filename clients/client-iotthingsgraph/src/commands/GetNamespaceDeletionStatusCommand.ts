@@ -19,6 +19,10 @@ import { de_GetNamespaceDeletionStatusCommand, se_GetNamespaceDeletionStatusComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetNamespaceDeletionStatusCommand}.
  */

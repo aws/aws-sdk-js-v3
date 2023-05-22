@@ -24,6 +24,10 @@ import { de_SetUserPoolMfaConfigCommand, se_SetUserPoolMfaConfigCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetUserPoolMfaConfigCommand}.
  */

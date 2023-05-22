@@ -19,6 +19,10 @@ import { de_StopMonitoringMembersCommand, se_StopMonitoringMembersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopMonitoringMembersCommand}.
  */

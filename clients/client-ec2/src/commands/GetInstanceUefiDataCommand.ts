@@ -19,6 +19,10 @@ import { de_GetInstanceUefiDataCommand, se_GetInstanceUefiDataCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInstanceUefiDataCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AssociateKmsKeyCommand, se_AssociateKmsKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateKmsKeyCommand}.
  */

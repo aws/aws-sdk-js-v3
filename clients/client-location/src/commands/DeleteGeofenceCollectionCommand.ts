@@ -19,6 +19,10 @@ import { de_DeleteGeofenceCollectionCommand, se_DeleteGeofenceCollectionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGeofenceCollectionCommand}.
  */

@@ -23,6 +23,10 @@ import { de_SetDefaultSenderIdCommand, se_SetDefaultSenderIdCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetDefaultSenderIdCommand}.
  */

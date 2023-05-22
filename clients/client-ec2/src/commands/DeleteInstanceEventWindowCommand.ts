@@ -19,6 +19,10 @@ import { de_DeleteInstanceEventWindowCommand, se_DeleteInstanceEventWindowComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteInstanceEventWindowCommand}.
  */

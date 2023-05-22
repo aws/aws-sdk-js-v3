@@ -19,6 +19,10 @@ import { de_GetImagePipelineCommand, se_GetImagePipelineCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetImagePipelineCommand}.
  */

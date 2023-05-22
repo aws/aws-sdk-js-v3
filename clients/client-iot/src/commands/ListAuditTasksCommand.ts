@@ -19,6 +19,10 @@ import { de_ListAuditTasksCommand, se_ListAuditTasksCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAuditTasksCommand}.
  */

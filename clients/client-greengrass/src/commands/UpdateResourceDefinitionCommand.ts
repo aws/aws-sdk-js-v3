@@ -19,6 +19,10 @@ import { de_UpdateResourceDefinitionCommand, se_UpdateResourceDefinitionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateResourceDefinitionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListDevicePoolsCommand, se_ListDevicePoolsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDevicePoolsCommand}.
  */

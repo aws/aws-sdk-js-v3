@@ -19,6 +19,10 @@ import { de_ListOriginAccessControlsCommand, se_ListOriginAccessControlsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListOriginAccessControlsCommand}.
  */

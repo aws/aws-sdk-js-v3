@@ -19,6 +19,10 @@ import { de_StartCampaignCommand, se_StartCampaignCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartCampaignCommand}.
  */

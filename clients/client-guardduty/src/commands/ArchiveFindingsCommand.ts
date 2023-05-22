@@ -19,6 +19,10 @@ import { de_ArchiveFindingsCommand, se_ArchiveFindingsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ArchiveFindingsCommand}.
  */

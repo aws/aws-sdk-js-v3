@@ -19,6 +19,10 @@ import { de_DescribeAutoPredictorCommand, se_DescribeAutoPredictorCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAutoPredictorCommand}.
  */

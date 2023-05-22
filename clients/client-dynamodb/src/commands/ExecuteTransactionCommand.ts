@@ -19,6 +19,10 @@ import { de_ExecuteTransactionCommand, se_ExecuteTransactionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExecuteTransactionCommand}.
  */

@@ -24,6 +24,10 @@ import { de_UpdateUserPoolCommand, se_UpdateUserPoolCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateUserPoolCommand}.
  */

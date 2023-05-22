@@ -23,6 +23,10 @@ import { de_GetLaunchProfileCommand, se_GetLaunchProfileCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLaunchProfileCommand}.
  */

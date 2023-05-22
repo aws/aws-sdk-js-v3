@@ -19,6 +19,10 @@ import { de_DeleteImagePipelineCommand, se_DeleteImagePipelineCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteImagePipelineCommand}.
  */

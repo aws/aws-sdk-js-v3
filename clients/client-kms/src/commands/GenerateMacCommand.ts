@@ -19,6 +19,10 @@ import { de_GenerateMacCommand, se_GenerateMacCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GenerateMacCommand}.
  */

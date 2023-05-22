@@ -19,6 +19,10 @@ import { de_GetDelegatedAdminAccountCommand, se_GetDelegatedAdminAccountCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDelegatedAdminAccountCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RevokePermissionsCommand, se_RevokePermissionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokePermissionsCommand}.
  */

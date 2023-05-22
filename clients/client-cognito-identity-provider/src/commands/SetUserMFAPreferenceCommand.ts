@@ -28,6 +28,10 @@ import { de_SetUserMFAPreferenceCommand, se_SetUserMFAPreferenceCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetUserMFAPreferenceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AssociateRepositoryCommand, se_AssociateRepositoryCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateRepositoryCommand}.
  */

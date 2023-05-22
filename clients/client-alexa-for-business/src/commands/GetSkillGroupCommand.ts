@@ -19,6 +19,10 @@ import { de_GetSkillGroupCommand, se_GetSkillGroupCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSkillGroupCommand}.
  */

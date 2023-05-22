@@ -19,6 +19,10 @@ import { de_DetachThingPrincipalCommand, se_DetachThingPrincipalCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachThingPrincipalCommand}.
  */

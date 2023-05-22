@@ -19,6 +19,10 @@ import { de_SetDesiredCapacityCommand, se_SetDesiredCapacityCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetDesiredCapacityCommand}.
  */

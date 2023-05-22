@@ -19,6 +19,10 @@ import { de_DisableVpcClassicLinkCommand, se_DisableVpcClassicLinkCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableVpcClassicLinkCommand}.
  */

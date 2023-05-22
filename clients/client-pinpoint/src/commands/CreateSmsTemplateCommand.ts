@@ -19,6 +19,10 @@ import { de_CreateSmsTemplateCommand, se_CreateSmsTemplateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSmsTemplateCommand}.
  */

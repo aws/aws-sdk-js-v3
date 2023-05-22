@@ -18,6 +18,10 @@ import { de_EmptyInputAndEmptyOutputCommand, se_EmptyInputAndEmptyOutputCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EmptyInputAndEmptyOutputCommand}.
  */

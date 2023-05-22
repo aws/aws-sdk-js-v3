@@ -19,6 +19,10 @@ import { de_GetDevEnvironmentCommand, se_GetDevEnvironmentCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDevEnvironmentCommand}.
  */

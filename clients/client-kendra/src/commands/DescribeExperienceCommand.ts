@@ -19,6 +19,10 @@ import { de_DescribeExperienceCommand, se_DescribeExperienceCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeExperienceCommand}.
  */

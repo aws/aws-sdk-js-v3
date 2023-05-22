@@ -19,6 +19,10 @@ import { de_DeleteQueuedReservedInstancesCommand, se_DeleteQueuedReservedInstanc
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteQueuedReservedInstancesCommand}.
  */

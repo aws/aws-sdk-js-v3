@@ -19,6 +19,10 @@ import { de_ListGroupsForUserCommand, se_ListGroupsForUserCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGroupsForUserCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateDatasetEntriesCommand, se_UpdateDatasetEntriesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDatasetEntriesCommand}.
  */

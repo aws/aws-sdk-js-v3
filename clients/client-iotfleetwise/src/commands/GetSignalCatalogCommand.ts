@@ -19,6 +19,10 @@ import { de_GetSignalCatalogCommand, se_GetSignalCatalogCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSignalCatalogCommand}.
  */

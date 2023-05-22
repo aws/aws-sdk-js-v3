@@ -19,6 +19,10 @@ import { de_SendUsersMessagesCommand, se_SendUsersMessagesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendUsersMessagesCommand}.
  */

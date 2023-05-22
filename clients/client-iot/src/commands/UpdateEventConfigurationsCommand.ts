@@ -19,6 +19,10 @@ import { de_UpdateEventConfigurationsCommand, se_UpdateEventConfigurationsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEventConfigurationsCommand}.
  */

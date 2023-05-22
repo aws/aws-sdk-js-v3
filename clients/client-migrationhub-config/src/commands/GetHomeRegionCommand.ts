@@ -23,6 +23,10 @@ import { de_GetHomeRegionCommand, se_GetHomeRegionCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetHomeRegionCommand}.
  */

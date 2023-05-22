@@ -19,6 +19,10 @@ import { de_PutTemplateActionCommand, se_PutTemplateActionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutTemplateActionCommand}.
  */

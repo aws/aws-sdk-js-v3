@@ -23,6 +23,10 @@ import { de_UpdateNetworkSitePlanCommand, se_UpdateNetworkSitePlanCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNetworkSitePlanCommand}.
  */

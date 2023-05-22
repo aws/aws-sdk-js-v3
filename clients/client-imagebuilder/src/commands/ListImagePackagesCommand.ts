@@ -19,6 +19,10 @@ import { de_ListImagePackagesCommand, se_ListImagePackagesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListImagePackagesCommand}.
  */

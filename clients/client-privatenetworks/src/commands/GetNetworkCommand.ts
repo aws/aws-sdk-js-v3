@@ -19,6 +19,10 @@ import { de_GetNetworkCommand, se_GetNetworkCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetNetworkCommand}.
  */

@@ -19,6 +19,10 @@ import { de_BatchGetPartitionCommand, se_BatchGetPartitionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetPartitionCommand}.
  */

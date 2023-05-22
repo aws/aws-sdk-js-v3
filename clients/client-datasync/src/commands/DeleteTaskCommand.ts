@@ -19,6 +19,10 @@ import { de_DeleteTaskCommand, se_DeleteTaskCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTaskCommand}.
  */

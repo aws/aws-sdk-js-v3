@@ -23,6 +23,10 @@ import { de_GetListElementsCommand, se_GetListElementsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetListElementsCommand}.
  */

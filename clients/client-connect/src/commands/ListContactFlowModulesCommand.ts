@@ -19,6 +19,10 @@ import { de_ListContactFlowModulesCommand, se_ListContactFlowModulesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListContactFlowModulesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteRouteCalculatorCommand, se_DeleteRouteCalculatorCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRouteCalculatorCommand}.
  */

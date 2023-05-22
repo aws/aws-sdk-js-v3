@@ -19,6 +19,10 @@ import { de_DescribeDatasetImportJobCommand, se_DescribeDatasetImportJobCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDatasetImportJobCommand}.
  */

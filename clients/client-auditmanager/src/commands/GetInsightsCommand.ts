@@ -19,6 +19,10 @@ import { de_GetInsightsCommand, se_GetInsightsCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInsightsCommand}.
  */

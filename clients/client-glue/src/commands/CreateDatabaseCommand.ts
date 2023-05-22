@@ -19,6 +19,10 @@ import { de_CreateDatabaseCommand, se_CreateDatabaseCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDatabaseCommand}.
  */

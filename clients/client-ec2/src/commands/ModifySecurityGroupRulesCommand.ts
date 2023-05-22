@@ -19,6 +19,10 @@ import { de_ModifySecurityGroupRulesCommand, se_ModifySecurityGroupRulesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifySecurityGroupRulesCommand}.
  */

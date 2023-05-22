@@ -19,6 +19,10 @@ import { de_TestFailoverCommand, se_TestFailoverCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestFailoverCommand}.
  */

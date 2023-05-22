@@ -19,6 +19,10 @@ import { de_ListFHIRExportJobsCommand, se_ListFHIRExportJobsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFHIRExportJobsCommand}.
  */

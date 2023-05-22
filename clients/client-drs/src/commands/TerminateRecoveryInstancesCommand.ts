@@ -23,6 +23,10 @@ import { de_TerminateRecoveryInstancesCommand, se_TerminateRecoveryInstancesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TerminateRecoveryInstancesCommand}.
  */

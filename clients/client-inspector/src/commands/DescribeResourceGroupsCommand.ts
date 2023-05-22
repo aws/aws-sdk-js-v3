@@ -19,6 +19,10 @@ import { de_DescribeResourceGroupsCommand, se_DescribeResourceGroupsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeResourceGroupsCommand}.
  */

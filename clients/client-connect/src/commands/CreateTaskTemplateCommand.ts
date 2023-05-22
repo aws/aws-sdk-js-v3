@@ -19,6 +19,10 @@ import { de_CreateTaskTemplateCommand, se_CreateTaskTemplateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateTaskTemplateCommand}.
  */

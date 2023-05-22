@@ -28,6 +28,10 @@ import { de_AdminListGroupsForUserCommand, se_AdminListGroupsForUserCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminListGroupsForUserCommand}.
  */

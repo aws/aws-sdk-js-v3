@@ -19,6 +19,10 @@ import { de_DescribeIpamsCommand, se_DescribeIpamsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIpamsCommand}.
  */

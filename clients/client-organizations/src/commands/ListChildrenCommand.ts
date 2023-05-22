@@ -19,6 +19,10 @@ import { de_ListChildrenCommand, se_ListChildrenCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChildrenCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetKeyGroupConfigCommand, se_GetKeyGroupConfigCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetKeyGroupConfigCommand}.
  */

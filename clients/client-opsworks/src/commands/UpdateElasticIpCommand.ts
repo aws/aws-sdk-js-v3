@@ -19,6 +19,10 @@ import { de_UpdateElasticIpCommand, se_UpdateElasticIpCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateElasticIpCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateComponentVersionCommand, se_CreateComponentVersionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateComponentVersionCommand}.
  */

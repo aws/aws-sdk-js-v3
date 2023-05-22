@@ -23,6 +23,10 @@ import { de_CreateSecurityConfigCommand, se_CreateSecurityConfigCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSecurityConfigCommand}.
  */

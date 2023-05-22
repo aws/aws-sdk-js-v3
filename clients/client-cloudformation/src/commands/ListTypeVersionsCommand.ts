@@ -19,6 +19,10 @@ import { de_ListTypeVersionsCommand, se_ListTypeVersionsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTypeVersionsCommand}.
  */

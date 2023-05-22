@@ -19,6 +19,10 @@ import { de_ModifyImageAttributeCommand, se_ModifyImageAttributeCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyImageAttributeCommand}.
  */

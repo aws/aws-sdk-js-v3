@@ -23,6 +23,10 @@ import { de_CreateAccessKeyCommand, se_CreateAccessKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAccessKeyCommand}.
  */

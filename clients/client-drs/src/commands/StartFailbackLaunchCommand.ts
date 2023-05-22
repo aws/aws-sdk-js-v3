@@ -24,6 +24,10 @@ import { de_StartFailbackLaunchCommand, se_StartFailbackLaunchCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartFailbackLaunchCommand}.
  */

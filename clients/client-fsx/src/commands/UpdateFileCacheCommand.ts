@@ -19,6 +19,10 @@ import { de_UpdateFileCacheCommand, se_UpdateFileCacheCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFileCacheCommand}.
  */

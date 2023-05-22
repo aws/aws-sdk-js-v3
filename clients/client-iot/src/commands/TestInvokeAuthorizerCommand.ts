@@ -19,6 +19,10 @@ import { de_TestInvokeAuthorizerCommand, se_TestInvokeAuthorizerCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestInvokeAuthorizerCommand}.
  */

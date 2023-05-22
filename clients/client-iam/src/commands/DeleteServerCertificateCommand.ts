@@ -19,6 +19,10 @@ import { de_DeleteServerCertificateCommand, se_DeleteServerCertificateCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteServerCertificateCommand}.
  */

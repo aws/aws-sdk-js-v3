@@ -19,6 +19,10 @@ import { de_DeleteMLTransformCommand, se_DeleteMLTransformCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMLTransformCommand}.
  */

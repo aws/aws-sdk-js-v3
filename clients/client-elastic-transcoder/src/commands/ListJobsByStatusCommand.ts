@@ -23,6 +23,10 @@ import { de_ListJobsByStatusCommand, se_ListJobsByStatusCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListJobsByStatusCommand}.
  */

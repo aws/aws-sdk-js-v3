@@ -19,6 +19,10 @@ import { de_StartContactEvaluationCommand, se_StartContactEvaluationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartContactEvaluationCommand}.
  */

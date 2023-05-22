@@ -24,6 +24,10 @@ import { de_UpdateDeviceCommand, se_UpdateDeviceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDeviceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UnshareDirectoryCommand, se_UnshareDirectoryCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnshareDirectoryCommand}.
  */

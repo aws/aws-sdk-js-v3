@@ -19,6 +19,10 @@ import { de_DescribeAccountOverviewCommand, se_DescribeAccountOverviewCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAccountOverviewCommand}.
  */

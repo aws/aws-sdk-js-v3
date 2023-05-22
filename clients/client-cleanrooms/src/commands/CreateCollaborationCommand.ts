@@ -19,6 +19,10 @@ import { de_CreateCollaborationCommand, se_CreateCollaborationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCollaborationCommand}.
  */

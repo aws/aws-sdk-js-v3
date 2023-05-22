@@ -23,6 +23,10 @@ import { de_UpdateReportDefinitionCommand, se_UpdateReportDefinitionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateReportDefinitionCommand}.
  */

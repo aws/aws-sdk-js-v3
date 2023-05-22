@@ -19,6 +19,10 @@ import { de_UntagServerCertificateCommand, se_UntagServerCertificateCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagServerCertificateCommand}.
  */

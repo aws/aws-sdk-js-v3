@@ -19,6 +19,10 @@ import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDatasetCommand}.
  */

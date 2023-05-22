@@ -19,6 +19,10 @@ import { de_DeletePrefetchScheduleCommand, se_DeletePrefetchScheduleCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePrefetchScheduleCommand}.
  */

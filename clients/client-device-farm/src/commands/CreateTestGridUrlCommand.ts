@@ -23,6 +23,10 @@ import { de_CreateTestGridUrlCommand, se_CreateTestGridUrlCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateTestGridUrlCommand}.
  */

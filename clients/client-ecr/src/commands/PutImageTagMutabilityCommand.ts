@@ -19,6 +19,10 @@ import { de_PutImageTagMutabilityCommand, se_PutImageTagMutabilityCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutImageTagMutabilityCommand}.
  */

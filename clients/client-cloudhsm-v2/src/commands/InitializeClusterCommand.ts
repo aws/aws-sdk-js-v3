@@ -19,6 +19,10 @@ import { de_InitializeClusterCommand, se_InitializeClusterCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InitializeClusterCommand}.
  */

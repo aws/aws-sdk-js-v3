@@ -19,6 +19,10 @@ import { de_ListScenesCommand, se_ListScenesCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListScenesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListAssessmentRunAgentsCommand, se_ListAssessmentRunAgentsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssessmentRunAgentsCommand}.
  */

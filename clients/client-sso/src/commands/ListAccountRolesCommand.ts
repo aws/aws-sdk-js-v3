@@ -23,6 +23,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccountRolesCommand}.
  */

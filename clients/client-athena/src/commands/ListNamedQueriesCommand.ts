@@ -19,6 +19,10 @@ import { de_ListNamedQueriesCommand, se_ListNamedQueriesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListNamedQueriesCommand}.
  */

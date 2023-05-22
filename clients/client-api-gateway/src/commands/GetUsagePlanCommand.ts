@@ -19,6 +19,10 @@ import { de_GetUsagePlanCommand, se_GetUsagePlanCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUsagePlanCommand}.
  */

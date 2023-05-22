@@ -19,6 +19,10 @@ import { de_GetInsightSelectorsCommand, se_GetInsightSelectorsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInsightSelectorsCommand}.
  */

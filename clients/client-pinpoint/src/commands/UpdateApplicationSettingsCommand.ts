@@ -19,6 +19,10 @@ import { de_UpdateApplicationSettingsCommand, se_UpdateApplicationSettingsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateApplicationSettingsCommand}.
  */

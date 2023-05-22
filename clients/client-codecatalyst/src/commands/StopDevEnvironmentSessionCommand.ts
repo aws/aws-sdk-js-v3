@@ -19,6 +19,10 @@ import { de_StopDevEnvironmentSessionCommand, se_StopDevEnvironmentSessionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopDevEnvironmentSessionCommand}.
  */
