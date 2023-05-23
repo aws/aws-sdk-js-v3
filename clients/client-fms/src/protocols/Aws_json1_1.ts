@@ -1423,6 +1423,9 @@ const de_GetAdminScopeCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
       throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1955,6 +1958,9 @@ const de_ListAdminAccountsForOrganizationCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
       throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
