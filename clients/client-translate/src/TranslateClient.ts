@@ -81,6 +81,7 @@ import {
   StopTextTranslationJobCommandOutput,
 } from "./commands/StopTextTranslationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TranslateDocumentCommandInput, TranslateDocumentCommandOutput } from "./commands/TranslateDocumentCommand";
 import { TranslateTextCommandInput, TranslateTextCommandOutput } from "./commands/TranslateTextCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "./commands/UpdateParallelDataCommand";
@@ -113,6 +114,7 @@ export type ServiceInputTypes =
   | StartTextTranslationJobCommandInput
   | StopTextTranslationJobCommandInput
   | TagResourceCommandInput
+  | TranslateDocumentCommandInput
   | TranslateTextCommandInput
   | UntagResourceCommandInput
   | UpdateParallelDataCommandInput;
@@ -136,6 +138,7 @@ export type ServiceOutputTypes =
   | StartTextTranslationJobCommandOutput
   | StopTextTranslationJobCommandOutput
   | TagResourceCommandOutput
+  | TranslateDocumentCommandOutput
   | TranslateTextCommandOutput
   | UntagResourceCommandOutput
   | UpdateParallelDataCommandOutput;

@@ -589,8 +589,8 @@ export type Profanity = (typeof Profanity)[keyof typeof Profanity];
 
 /**
  * @public
- * <p>Optional settings that configure the translation output. Use these settings for
- *       real time translations and asynchronous translation jobs.</p>
+ * <p>Settings to configure your translation output, including the option to set the formality
+ *       level of the output text and the option to mask profane words and phrases.</p>
  */
 export interface TranslationSettings {
   /**
@@ -707,7 +707,7 @@ export interface TextTranslationJobProperties {
   DataAccessRoleArn?: string;
 
   /**
-   * <p>Settings that configure the translation output.</p>
+   * <p>Settings that modify the translation output.</p>
    */
   Settings?: TranslationSettings;
 }
@@ -1644,7 +1644,7 @@ export interface StartTextTranslationJobResponse {
 /**
  * @public
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
- *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
+ *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>. </p>
  */
 export class UnsupportedLanguagePairException extends __BaseException {
   readonly name: "UnsupportedLanguagePairException" = "UnsupportedLanguagePairException";
@@ -1725,6 +1725,144 @@ export interface TagResourceResponse {}
 
 /**
  * @public
+ * <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your
+ *       request.</p>
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The content and content type of a document.</p>
+ */
+export interface Document {
+  /**
+   * <p>The <code>Content</code>field type is Binary large object (blob).
+   *       This object contains the document content converted into base64-encoded binary data.
+   *       If you use one of the AWS SDKs, the SDK performs the
+   *       Base64-encoding on this field before sending the request.
+   *     </p>
+   */
+  Content: Uint8Array | undefined;
+
+  /**
+   * <p>Describes the format of the document. You can specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>text/html - The input data consists of HTML content.
+   *         Amazon Translate translates only the text in the HTML element.</p>
+   *             </li>
+   *             <li>
+   *                <p>text/plain - The input data consists of unformatted text.
+   *         Amazon Translate translates every character in the content. </p>
+   *             </li>
+   *          </ul>
+   */
+  ContentType: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TranslateDocumentRequest {
+  /**
+   * <p>The content and content type for the document to be translated. The document size must not exceed 100 KB.</p>
+   */
+  Document: Document | undefined;
+
+  /**
+   * <p>The name of a terminology list file to add to the translation job. This file
+   *       provides source terms and the desired translation for each term.
+   *       A terminology list can contain a maximum of 256 terms.
+   *       You can use one custom terminology resource in your translation request.</p>
+   *          <p>Use the <a>ListTerminologies</a> operation
+   *        to get the available terminology lists.</p>
+   *          <p>For more information about custom terminology lists, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html">Custom terminology</a>.</p>
+   */
+  TerminologyNames?: string[];
+
+  /**
+   * <p>The language code for the language of the source text. Do not use <code>auto</code>, because
+   *       <code>TranslateDocument</code> does not support language auto-detection.
+   *       For a list of supported language codes, see
+   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   */
+  SourceLanguageCode: string | undefined;
+
+  /**
+   * <p>The language code requested for the translated document.
+   *       For a list of supported language codes, see
+   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   */
+  TargetLanguageCode: string | undefined;
+
+  /**
+   * <p>Settings to configure your translation output, including the option to set the formality
+   *       level of the output text and the option to mask profane words and phrases.</p>
+   */
+  Settings?: TranslationSettings;
+}
+
+/**
+ * @public
+ * <p>The translated content.</p>
+ */
+export interface TranslatedDocument {
+  /**
+   * <p>The document containing the translated content.</p>
+   */
+  Content: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TranslateDocumentResponse {
+  /**
+   * <p>The document containing the translated content. The document format matches the source document format.</p>
+   */
+  TranslatedDocument: TranslatedDocument | undefined;
+
+  /**
+   * <p>The language code of the source document.</p>
+   */
+  SourceLanguageCode: string | undefined;
+
+  /**
+   * <p>The language code of the translated document. </p>
+   */
+  TargetLanguageCode: string | undefined;
+
+  /**
+   * <p>The names of the custom terminologies applied to the input text by Amazon Translate to produce the
+   *       translated text document.</p>
+   */
+  AppliedTerminologies?: AppliedTerminology[];
+
+  /**
+   * <p>Settings to configure your translation output, including the option to set the formality
+   *       level of the output text and the option to mask profane words and phrases.</p>
+   */
+  AppliedSettings?: TranslationSettings;
+}
+
+/**
+ * @public
  * <p>The confidence that Amazon Comprehend accurately detected the source language is low. If a
  *       low confidence level is acceptable for your application, you can use the language in the
  *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
@@ -1750,29 +1888,6 @@ export class DetectedLanguageLowConfidenceException extends __BaseException {
     Object.setPrototypeOf(this, DetectedLanguageLowConfidenceException.prototype);
     this.Message = opts.Message;
     this.DetectedLanguageCode = opts.DetectedLanguageCode;
-  }
-}
-
-/**
- * @public
- * <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your
- *       request.</p>
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
   }
 }
 
@@ -1810,15 +1925,18 @@ export interface TranslateTextRequest {
   Text: string | undefined;
 
   /**
-   * <p>The name of the terminology list file to be used in the TranslateText request. You can use
-   *       1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can
-   *       contain a maximum of 256 terms.</p>
+   * <p>The name of a terminology list file to add to the translation job. This file
+   *       provides source terms and the desired translation for each term.
+   *       A terminology list can contain a maximum of 256 terms.
+   *       You can use one custom terminology resource in your translation request.</p>
+   *          <p>Use the <a>ListTerminologies</a> operation
+   *       to get the available terminology lists.</p>
+   *          <p>For more information about custom terminology lists, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html">Custom terminology</a>.</p>
    */
   TerminologyNames?: string[];
 
   /**
-   * <p>The language code for the language of the source text. The language must be a language
-   *       supported by Amazon Translate. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   * <p>The language code for the language of the source text. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    *          <p>To have Amazon Translate determine the source language of your text, you can specify
    *         <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
    *         <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
@@ -1831,8 +1949,8 @@ export interface TranslateTextRequest {
   SourceLanguageCode: string | undefined;
 
   /**
-   * <p>The language code requested for the language of the target text. The language must be a
-   *       language supported by Amazon Translate.</p>
+   * <p>The language code requested for the language of the target text.
+   *       For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    */
   TargetLanguageCode: string | undefined;
 
@@ -1869,7 +1987,7 @@ export interface TranslateTextResponse {
   AppliedTerminologies?: AppliedTerminology[];
 
   /**
-   * <p>Settings that configure the translation output.</p>
+   * <p>Optional settings that modify the translation output.</p>
    */
   AppliedSettings?: TranslationSettings;
 }
@@ -1965,4 +2083,36 @@ export const TerminologyDataFilterSensitiveLog = (obj: TerminologyData): any => 
 export const ImportTerminologyRequestFilterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
   ...obj,
   ...(obj.TerminologyData && { TerminologyData: TerminologyDataFilterSensitiveLog(obj.TerminologyData) }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentFilterSensitiveLog = (obj: Document): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TranslateDocumentRequestFilterSensitiveLog = (obj: TranslateDocumentRequest): any => ({
+  ...obj,
+  ...(obj.Document && { Document: DocumentFilterSensitiveLog(obj.Document) }),
+});
+
+/**
+ * @internal
+ */
+export const TranslatedDocumentFilterSensitiveLog = (obj: TranslatedDocument): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TranslateDocumentResponseFilterSensitiveLog = (obj: TranslateDocumentResponse): any => ({
+  ...obj,
+  ...(obj.TranslatedDocument && { TranslatedDocument: TranslatedDocumentFilterSensitiveLog(obj.TranslatedDocument) }),
 });

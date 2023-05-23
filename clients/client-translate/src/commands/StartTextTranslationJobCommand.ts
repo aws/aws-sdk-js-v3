@@ -118,7 +118,7 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  *
  * @throws {@link UnsupportedLanguagePairException} (client fault)
  *  <p>Amazon Translate does not support translation from the language of the source text into the requested
- *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
+ *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>. </p>
  *
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>

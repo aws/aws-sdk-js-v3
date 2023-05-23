@@ -325,6 +325,14 @@ TagResource
 </details>
 <details>
 <summary>
+TranslateDocument
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-translate/classes/translatedocumentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-translate/interfaces/translatedocumentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-translate/interfaces/translatedocumentcommandoutput.html)
+
+</details>
+<details>
+<summary>
 TranslateText
 </summary>
 

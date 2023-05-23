@@ -14,6 +14,7 @@ export * from "./ListTextTranslationJobsCommand";
 export * from "./StartTextTranslationJobCommand";
 export * from "./StopTextTranslationJobCommand";
 export * from "./TagResourceCommand";
+export * from "./TranslateDocumentCommand";
 export * from "./TranslateTextCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateParallelDataCommand";

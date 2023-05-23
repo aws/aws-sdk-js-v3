@@ -46,6 +46,7 @@ import {
   StopTextTranslationJobCommandOutput,
 } from "../commands/StopTextTranslationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TranslateDocumentCommandInput, TranslateDocumentCommandOutput } from "../commands/TranslateDocumentCommand";
 import { TranslateTextCommandInput, TranslateTextCommandOutput } from "../commands/TranslateTextCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput } from "../commands/UpdateParallelDataCommand";
@@ -58,6 +59,7 @@ import {
   DescribeTextTranslationJobRequest,
   DescribeTextTranslationJobResponse,
   DetectedLanguageLowConfidenceException,
+  Document,
   EncryptionKey,
   GetParallelDataRequest,
   GetParallelDataResponse,
@@ -95,6 +97,9 @@ import {
   TextTranslationJobProperties,
   TooManyRequestsException,
   TooManyTagsException,
+  TranslatedDocument,
+  TranslateDocumentRequest,
+  TranslateDocumentResponse,
   TranslateTextRequest,
   TranslationSettings,
   UnsupportedDisplayLanguageCodeException,
@@ -297,6 +302,19 @@ export const se_TagResourceCommand = async (
   const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TranslateDocumentCommand
+ */
+export const se_TranslateDocumentCommand = async (
+  input: TranslateDocumentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TranslateDocument");
+  let body: any;
+  body = JSON.stringify(se_TranslateDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1174,6 +1192,70 @@ const de_TagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1TranslateDocumentCommand
+ */
+export const de_TranslateDocumentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TranslateDocumentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TranslateDocumentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TranslateDocumentResponse(data, context);
+  const response: TranslateDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TranslateDocumentCommandError
+ */
+const de_TranslateDocumentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TranslateDocumentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.translate#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.translate#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.translate#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.translate#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.translate#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnsupportedLanguagePairException":
+    case "com.amazonaws.translate#UnsupportedLanguagePairException":
+      throw await de_UnsupportedLanguagePairExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1TranslateTextCommand
  */
 export const de_TranslateTextCommand = async (
@@ -1619,6 +1701,16 @@ const se_CreateParallelDataRequest = (input: CreateParallelDataRequest, context:
 
 // se_DescribeTextTranslationJobRequest omitted.
 
+/**
+ * serializeAws_json1_1Document
+ */
+const se_Document = (input: Document, context: __SerdeContext): any => {
+  return take(input, {
+    Content: context.base64Encoder,
+    ContentType: [],
+  });
+};
+
 // se_EncryptionKey omitted.
 
 // se_GetParallelDataRequest omitted.
@@ -1716,6 +1808,19 @@ const se_TextTranslationJobFilter = (input: TextTranslationJobFilter, context: _
     JobStatus: [],
     SubmittedAfterTime: (_) => Math.round(_.getTime() / 1000),
     SubmittedBeforeTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+/**
+ * serializeAws_json1_1TranslateDocumentRequest
+ */
+const se_TranslateDocumentRequest = (input: TranslateDocumentRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Document: (_) => se_Document(_, context),
+    Settings: _json,
+    SourceLanguageCode: [],
+    TargetLanguageCode: [],
+    TerminologyNames: _json,
   });
 };
 
@@ -1993,6 +2098,28 @@ const de_TextTranslationJobPropertiesList = (output: any, context: __SerdeContex
 // de_TooManyRequestsException omitted.
 
 // de_TooManyTagsException omitted.
+
+/**
+ * deserializeAws_json1_1TranslatedDocument
+ */
+const de_TranslatedDocument = (output: any, context: __SerdeContext): TranslatedDocument => {
+  return take(output, {
+    Content: context.base64Decoder,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TranslateDocumentResponse
+ */
+const de_TranslateDocumentResponse = (output: any, context: __SerdeContext): TranslateDocumentResponse => {
+  return take(output, {
+    AppliedSettings: _json,
+    AppliedTerminologies: _json,
+    SourceLanguageCode: __expectString,
+    TargetLanguageCode: __expectString,
+    TranslatedDocument: (_: any) => de_TranslatedDocument(_, context),
+  }) as any;
+};
 
 // de_TranslateTextResponse omitted.
 
