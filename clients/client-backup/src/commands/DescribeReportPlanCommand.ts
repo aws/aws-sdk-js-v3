@@ -19,6 +19,10 @@ import { de_DescribeReportPlanCommand, se_DescribeReportPlanCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeReportPlanCommand}.
  */

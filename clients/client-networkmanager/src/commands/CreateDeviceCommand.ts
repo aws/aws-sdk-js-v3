@@ -24,6 +24,10 @@ import { de_CreateDeviceCommand, se_CreateDeviceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDeviceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateAssessmentControlCommand, se_UpdateAssessmentControlCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAssessmentControlCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListRolePoliciesCommand, se_ListRolePoliciesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRolePoliciesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateBrokerStorageCommand, se_UpdateBrokerStorageCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBrokerStorageCommand}.
  */

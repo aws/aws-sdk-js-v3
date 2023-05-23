@@ -19,6 +19,10 @@ import { de_GetLicenseCommand, se_GetLicenseCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLicenseCommand}.
  */

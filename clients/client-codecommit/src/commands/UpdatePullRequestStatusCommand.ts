@@ -19,6 +19,10 @@ import { de_UpdatePullRequestStatusCommand, se_UpdatePullRequestStatusCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePullRequestStatusCommand}.
  */

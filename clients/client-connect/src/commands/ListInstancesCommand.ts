@@ -23,6 +23,10 @@ import { de_ListInstancesCommand, se_ListInstancesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInstancesCommand}.
  */

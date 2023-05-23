@@ -23,6 +23,10 @@ import { de_UpdateProxySessionCommand, se_UpdateProxySessionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProxySessionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetSequenceStoreCommand, se_GetSequenceStoreCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSequenceStoreCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AssociateNatGatewayAddressCommand, se_AssociateNatGatewayAddressComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateNatGatewayAddressCommand}.
  */

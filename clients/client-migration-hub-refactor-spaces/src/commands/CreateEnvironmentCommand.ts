@@ -28,6 +28,10 @@ import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEnvironmentCommand}.
  */

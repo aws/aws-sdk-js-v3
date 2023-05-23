@@ -19,6 +19,10 @@ import { de_ListSuiteRunsCommand, se_ListSuiteRunsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSuiteRunsCommand}.
  */

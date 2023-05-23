@@ -19,6 +19,10 @@ import { de_ListInferenceExecutionsCommand, se_ListInferenceExecutionsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInferenceExecutionsCommand}.
  */

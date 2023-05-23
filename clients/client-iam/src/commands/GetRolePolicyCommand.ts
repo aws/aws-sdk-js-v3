@@ -19,6 +19,10 @@ import { de_GetRolePolicyCommand, se_GetRolePolicyCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRolePolicyCommand}.
  */

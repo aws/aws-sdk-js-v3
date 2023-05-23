@@ -19,6 +19,10 @@ import { de_ListDataSourceSyncJobsCommand, se_ListDataSourceSyncJobsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDataSourceSyncJobsCommand}.
  */

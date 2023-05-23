@@ -23,6 +23,10 @@ import { de_ListAttendeesCommand, se_ListAttendeesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAttendeesCommand}.
  */

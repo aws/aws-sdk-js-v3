@@ -19,6 +19,10 @@ import { de_DeleteNatGatewayCommand, se_DeleteNatGatewayCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNatGatewayCommand}.
  */

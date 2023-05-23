@@ -19,6 +19,10 @@ import { de_ListProjectAssetsCommand, se_ListProjectAssetsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProjectAssetsCommand}.
  */

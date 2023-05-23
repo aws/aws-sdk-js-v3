@@ -23,6 +23,10 @@ import { de_StartReplicationTaskCommand, se_StartReplicationTaskCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartReplicationTaskCommand}.
  */

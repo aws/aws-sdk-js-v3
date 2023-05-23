@@ -19,6 +19,10 @@ import { de_GrantFlowEntitlementsCommand, se_GrantFlowEntitlementsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GrantFlowEntitlementsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateJobQueueCommand, se_CreateJobQueueCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateJobQueueCommand}.
  */

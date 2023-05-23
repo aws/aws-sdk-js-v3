@@ -19,6 +19,10 @@ import { de_GetUsagePlanKeyCommand, se_GetUsagePlanKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUsagePlanKeyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RejectInputDeviceTransferCommand, se_RejectInputDeviceTransferComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectInputDeviceTransferCommand}.
  */

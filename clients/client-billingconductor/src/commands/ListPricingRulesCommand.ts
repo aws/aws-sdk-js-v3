@@ -23,6 +23,10 @@ import { de_ListPricingRulesCommand, se_ListPricingRulesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPricingRulesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_SendApiAssetCommand, se_SendApiAssetCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendApiAssetCommand}.
  */

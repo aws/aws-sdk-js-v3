@@ -19,6 +19,10 @@ import { de_ListAttachedIndicesCommand, se_ListAttachedIndicesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAttachedIndicesCommand}.
  */

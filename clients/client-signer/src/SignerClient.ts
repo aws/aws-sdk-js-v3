@@ -100,6 +100,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -271,7 +273,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type SignerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type SignerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -290,7 +292,7 @@ export interface SignerClientConfig extends SignerClientConfigType {}
 /**
  * @public
  */
-type SignerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type SignerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

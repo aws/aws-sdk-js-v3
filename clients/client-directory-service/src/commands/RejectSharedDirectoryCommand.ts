@@ -19,6 +19,10 @@ import { de_RejectSharedDirectoryCommand, se_RejectSharedDirectoryCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectSharedDirectoryCommand}.
  */

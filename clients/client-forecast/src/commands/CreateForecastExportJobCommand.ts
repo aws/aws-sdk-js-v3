@@ -23,6 +23,10 @@ import { de_CreateForecastExportJobCommand, se_CreateForecastExportJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateForecastExportJobCommand}.
  */

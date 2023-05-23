@@ -67,6 +67,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -214,7 +216,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type S3OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type S3OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -233,7 +235,7 @@ export interface S3OutpostsClientConfig extends S3OutpostsClientConfigType {}
 /**
  * @public
  */
-type S3OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type S3OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -19,6 +19,10 @@ import { de_UpdateInputDeviceCommand, se_UpdateInputDeviceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateInputDeviceCommand}.
  */

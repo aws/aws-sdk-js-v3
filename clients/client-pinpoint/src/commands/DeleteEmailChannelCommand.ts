@@ -19,6 +19,10 @@ import { de_DeleteEmailChannelCommand, se_DeleteEmailChannelCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEmailChannelCommand}.
  */

@@ -24,6 +24,10 @@ import { de_CreateProxySessionCommand, se_CreateProxySessionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateProxySessionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetFileUploadURLCommand, se_GetFileUploadURLCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFileUploadURLCommand}.
  */

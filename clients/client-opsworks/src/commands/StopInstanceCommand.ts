@@ -19,6 +19,10 @@ import { de_StopInstanceCommand, se_StopInstanceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopInstanceCommand}.
  */

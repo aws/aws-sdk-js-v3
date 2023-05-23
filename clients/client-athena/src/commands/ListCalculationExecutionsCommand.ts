@@ -19,6 +19,10 @@ import { de_ListCalculationExecutionsCommand, se_ListCalculationExecutionsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCalculationExecutionsCommand}.
  */

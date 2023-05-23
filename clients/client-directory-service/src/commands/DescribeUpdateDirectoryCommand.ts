@@ -19,6 +19,10 @@ import { de_DescribeUpdateDirectoryCommand, se_DescribeUpdateDirectoryCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeUpdateDirectoryCommand}.
  */

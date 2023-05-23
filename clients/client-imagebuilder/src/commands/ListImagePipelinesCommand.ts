@@ -19,6 +19,10 @@ import { de_ListImagePipelinesCommand, se_ListImagePipelinesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListImagePipelinesCommand}.
  */

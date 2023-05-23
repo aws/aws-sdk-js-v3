@@ -23,6 +23,10 @@ import { de_CreateMonitorCommand, se_CreateMonitorCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMonitorCommand}.
  */

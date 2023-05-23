@@ -19,6 +19,10 @@ import { de_UpdateRadiusCommand, se_UpdateRadiusCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRadiusCommand}.
  */

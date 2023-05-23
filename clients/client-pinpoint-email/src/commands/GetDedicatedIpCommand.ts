@@ -19,6 +19,10 @@ import { de_GetDedicatedIpCommand, se_GetDedicatedIpCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDedicatedIpCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListDatasetEntriesCommand, se_ListDatasetEntriesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDatasetEntriesCommand}.
  */

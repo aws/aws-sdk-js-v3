@@ -19,6 +19,10 @@ import { de_DescribePipeCommand, se_DescribePipeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePipeCommand}.
  */

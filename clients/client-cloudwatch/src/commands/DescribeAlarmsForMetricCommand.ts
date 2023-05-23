@@ -19,6 +19,10 @@ import { de_DescribeAlarmsForMetricCommand, se_DescribeAlarmsForMetricCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAlarmsForMetricCommand}.
  */

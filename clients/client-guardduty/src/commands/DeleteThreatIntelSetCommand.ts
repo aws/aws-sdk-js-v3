@@ -19,6 +19,10 @@ import { de_DeleteThreatIntelSetCommand, se_DeleteThreatIntelSetCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteThreatIntelSetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetAddressBookCommand, se_GetAddressBookCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAddressBookCommand}.
  */

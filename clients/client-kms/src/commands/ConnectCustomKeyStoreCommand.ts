@@ -19,6 +19,10 @@ import { de_ConnectCustomKeyStoreCommand, se_ConnectCustomKeyStoreCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ConnectCustomKeyStoreCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateGlobalClusterCommand, se_CreateGlobalClusterCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGlobalClusterCommand}.
  */

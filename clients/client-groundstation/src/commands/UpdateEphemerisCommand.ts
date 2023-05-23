@@ -19,6 +19,10 @@ import { de_UpdateEphemerisCommand, se_UpdateEphemerisCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEphemerisCommand}.
  */

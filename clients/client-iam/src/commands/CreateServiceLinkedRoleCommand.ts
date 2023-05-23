@@ -19,6 +19,10 @@ import { de_CreateServiceLinkedRoleCommand, se_CreateServiceLinkedRoleCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateServiceLinkedRoleCommand}.
  */

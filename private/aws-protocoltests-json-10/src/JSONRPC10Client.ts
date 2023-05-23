@@ -73,6 +73,8 @@ import {
 } from "./commands/SimpleScalarPropertiesCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -223,7 +225,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type JSONRPC10ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type JSONRPC10ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -240,7 +242,7 @@ export interface JSONRPC10ClientConfig extends JSONRPC10ClientConfigType {}
 /**
  * @public
  */
-type JSONRPC10ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type JSONRPC10ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

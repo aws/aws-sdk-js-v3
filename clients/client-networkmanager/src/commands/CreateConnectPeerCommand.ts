@@ -19,6 +19,10 @@ import { de_CreateConnectPeerCommand, se_CreateConnectPeerCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateConnectPeerCommand}.
  */

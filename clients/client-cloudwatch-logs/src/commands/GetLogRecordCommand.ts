@@ -19,6 +19,10 @@ import { de_GetLogRecordCommand, se_GetLogRecordCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLogRecordCommand}.
  */

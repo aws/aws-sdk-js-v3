@@ -19,6 +19,10 @@ import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDeploymentCommand}.
  */

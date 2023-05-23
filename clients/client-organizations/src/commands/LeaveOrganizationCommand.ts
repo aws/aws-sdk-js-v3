@@ -18,6 +18,10 @@ import { de_LeaveOrganizationCommand, se_LeaveOrganizationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link LeaveOrganizationCommand}.
  */

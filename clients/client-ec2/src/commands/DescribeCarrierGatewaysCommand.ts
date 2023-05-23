@@ -19,6 +19,10 @@ import { de_DescribeCarrierGatewaysCommand, se_DescribeCarrierGatewaysCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCarrierGatewaysCommand}.
  */

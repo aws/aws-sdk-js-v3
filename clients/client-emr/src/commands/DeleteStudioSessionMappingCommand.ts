@@ -19,6 +19,10 @@ import { de_DeleteStudioSessionMappingCommand, se_DeleteStudioSessionMappingComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStudioSessionMappingCommand}.
  */

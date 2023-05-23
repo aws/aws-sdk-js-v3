@@ -70,6 +70,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -223,7 +225,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type FinspaceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type FinspaceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -242,7 +244,7 @@ export interface FinspaceClientConfig extends FinspaceClientConfigType {}
 /**
  * @public
  */
-type FinspaceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type FinspaceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

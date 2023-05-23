@@ -19,6 +19,10 @@ import { de_DeleteOriginAccessControlCommand, se_DeleteOriginAccessControlComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteOriginAccessControlCommand}.
  */

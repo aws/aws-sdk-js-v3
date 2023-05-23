@@ -19,6 +19,10 @@ import { de_DeleteConfigurationRecorderCommand, se_DeleteConfigurationRecorderCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConfigurationRecorderCommand}.
  */

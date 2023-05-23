@@ -23,6 +23,10 @@ import { de_UpdateAppInstanceBotCommand, se_UpdateAppInstanceBotCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAppInstanceBotCommand}.
  */

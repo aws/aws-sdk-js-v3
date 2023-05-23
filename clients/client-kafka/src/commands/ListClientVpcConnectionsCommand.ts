@@ -19,6 +19,10 @@ import { de_ListClientVpcConnectionsCommand, se_ListClientVpcConnectionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListClientVpcConnectionsCommand}.
  */

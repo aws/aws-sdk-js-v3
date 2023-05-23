@@ -19,6 +19,10 @@ import { de_ListBuildBatchesCommand, se_ListBuildBatchesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBuildBatchesCommand}.
  */

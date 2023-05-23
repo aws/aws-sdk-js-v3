@@ -23,6 +23,10 @@ import { de_GetBackupPlanFromTemplateCommand, se_GetBackupPlanFromTemplateComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBackupPlanFromTemplateCommand}.
  */

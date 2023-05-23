@@ -19,6 +19,10 @@ import { de_ImportModelCommand, se_ImportModelCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportModelCommand}.
  */

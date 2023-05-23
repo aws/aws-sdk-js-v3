@@ -19,6 +19,10 @@ import { de_ListInstanceStorageConfigsCommand, se_ListInstanceStorageConfigsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInstanceStorageConfigsCommand}.
  */

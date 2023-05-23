@@ -19,6 +19,10 @@ import { de_ListQueueQuickConnectsCommand, se_ListQueueQuickConnectsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListQueueQuickConnectsCommand}.
  */

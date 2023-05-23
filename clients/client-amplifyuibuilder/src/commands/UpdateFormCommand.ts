@@ -19,6 +19,10 @@ import { de_UpdateFormCommand, se_UpdateFormCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFormCommand}.
  */

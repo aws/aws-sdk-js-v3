@@ -23,6 +23,10 @@ import { de_ListDelegatedAdministratorsCommand, se_ListDelegatedAdministratorsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDelegatedAdministratorsCommand}.
  */

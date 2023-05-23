@@ -19,6 +19,10 @@ import { de_DeleteContactEvaluationCommand, se_DeleteContactEvaluationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteContactEvaluationCommand}.
  */

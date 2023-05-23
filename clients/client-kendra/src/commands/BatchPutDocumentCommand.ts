@@ -19,6 +19,10 @@ import { de_BatchPutDocumentCommand, se_BatchPutDocumentCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchPutDocumentCommand}.
  */

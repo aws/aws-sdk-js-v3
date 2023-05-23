@@ -19,6 +19,10 @@ import { de_GetResolverCommand, se_GetResolverCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResolverCommand}.
  */

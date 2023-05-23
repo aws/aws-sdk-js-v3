@@ -19,6 +19,10 @@ import { de_DescribeImageScanFindingsCommand, se_DescribeImageScanFindingsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeImageScanFindingsCommand}.
  */

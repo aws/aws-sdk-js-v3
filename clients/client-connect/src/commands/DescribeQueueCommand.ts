@@ -19,6 +19,10 @@ import { de_DescribeQueueCommand, se_DescribeQueueCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeQueueCommand}.
  */

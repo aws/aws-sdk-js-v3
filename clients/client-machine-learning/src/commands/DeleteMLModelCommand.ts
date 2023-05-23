@@ -19,6 +19,10 @@ import { de_DeleteMLModelCommand, se_DeleteMLModelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMLModelCommand}.
  */

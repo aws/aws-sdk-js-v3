@@ -19,6 +19,10 @@ import { de_CreateDashboardCommand, se_CreateDashboardCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDashboardCommand}.
  */

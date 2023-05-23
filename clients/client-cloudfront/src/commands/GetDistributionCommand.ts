@@ -23,6 +23,10 @@ import { de_GetDistributionCommand, se_GetDistributionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDistributionCommand}.
  */

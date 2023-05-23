@@ -19,6 +19,10 @@ import { de_GetMatchesCommand, se_GetMatchesCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMatchesCommand}.
  */

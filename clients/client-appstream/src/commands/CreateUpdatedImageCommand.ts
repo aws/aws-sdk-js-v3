@@ -19,6 +19,10 @@ import { de_CreateUpdatedImageCommand, se_CreateUpdatedImageCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateUpdatedImageCommand}.
  */

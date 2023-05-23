@@ -19,6 +19,10 @@ import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeClusterCommand}.
  */

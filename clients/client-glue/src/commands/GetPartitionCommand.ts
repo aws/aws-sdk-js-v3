@@ -19,6 +19,10 @@ import { de_GetPartitionCommand, se_GetPartitionCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPartitionCommand}.
  */

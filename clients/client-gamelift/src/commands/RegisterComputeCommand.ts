@@ -19,6 +19,10 @@ import { de_RegisterComputeCommand, se_RegisterComputeCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterComputeCommand}.
  */

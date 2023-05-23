@@ -20,6 +20,10 @@ import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateJobCommand}.
  */

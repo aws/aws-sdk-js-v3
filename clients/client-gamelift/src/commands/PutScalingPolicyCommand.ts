@@ -19,6 +19,10 @@ import { de_PutScalingPolicyCommand, se_PutScalingPolicyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutScalingPolicyCommand}.
  */

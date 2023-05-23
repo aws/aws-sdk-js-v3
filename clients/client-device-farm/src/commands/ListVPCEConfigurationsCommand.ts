@@ -19,6 +19,10 @@ import { de_ListVPCEConfigurationsCommand, se_ListVPCEConfigurationsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVPCEConfigurationsCommand}.
  */

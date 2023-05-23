@@ -20,6 +20,10 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTagsForResourceCommand}.
  */

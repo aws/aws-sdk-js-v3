@@ -19,6 +19,10 @@ import { de_CreateRelatedItemCommand, se_CreateRelatedItemCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRelatedItemCommand}.
  */

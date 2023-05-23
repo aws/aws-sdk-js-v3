@@ -19,6 +19,10 @@ import { de_GetBootstrapBrokersCommand, se_GetBootstrapBrokersCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBootstrapBrokersCommand}.
  */

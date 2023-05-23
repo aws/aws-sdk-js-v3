@@ -19,6 +19,10 @@ import { de_ListReservationsCommand, se_ListReservationsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReservationsCommand}.
  */

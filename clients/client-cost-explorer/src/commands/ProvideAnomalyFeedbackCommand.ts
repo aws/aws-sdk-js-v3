@@ -19,6 +19,10 @@ import { de_ProvideAnomalyFeedbackCommand, se_ProvideAnomalyFeedbackCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ProvideAnomalyFeedbackCommand}.
  */

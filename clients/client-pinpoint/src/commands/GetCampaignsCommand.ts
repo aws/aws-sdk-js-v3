@@ -19,6 +19,10 @@ import { de_GetCampaignsCommand, se_GetCampaignsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCampaignsCommand}.
  */

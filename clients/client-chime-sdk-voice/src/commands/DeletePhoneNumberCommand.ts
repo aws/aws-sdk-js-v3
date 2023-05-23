@@ -19,6 +19,10 @@ import { de_DeletePhoneNumberCommand, se_DeletePhoneNumberCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePhoneNumberCommand}.
  */

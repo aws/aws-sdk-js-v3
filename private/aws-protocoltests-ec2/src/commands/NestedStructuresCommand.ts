@@ -18,6 +18,10 @@ import { de_NestedStructuresCommand, se_NestedStructuresCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link NestedStructuresCommand}.
  */

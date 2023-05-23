@@ -19,6 +19,10 @@ import { de_UpdateProfilingGroupCommand, se_UpdateProfilingGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProfilingGroupCommand}.
  */

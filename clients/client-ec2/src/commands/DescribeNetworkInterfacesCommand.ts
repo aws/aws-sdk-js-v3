@@ -19,6 +19,10 @@ import { de_DescribeNetworkInterfacesCommand, se_DescribeNetworkInterfacesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeNetworkInterfacesCommand}.
  */

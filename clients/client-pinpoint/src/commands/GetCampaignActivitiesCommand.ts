@@ -19,6 +19,10 @@ import { de_GetCampaignActivitiesCommand, se_GetCampaignActivitiesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCampaignActivitiesCommand}.
  */

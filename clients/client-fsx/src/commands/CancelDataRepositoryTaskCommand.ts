@@ -19,6 +19,10 @@ import { de_CancelDataRepositoryTaskCommand, se_CancelDataRepositoryTaskCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelDataRepositoryTaskCommand}.
  */

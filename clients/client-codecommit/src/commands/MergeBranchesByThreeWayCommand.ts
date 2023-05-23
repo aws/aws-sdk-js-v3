@@ -19,6 +19,10 @@ import { de_MergeBranchesByThreeWayCommand, se_MergeBranchesByThreeWayCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MergeBranchesByThreeWayCommand}.
  */

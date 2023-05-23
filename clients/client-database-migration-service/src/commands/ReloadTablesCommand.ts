@@ -23,6 +23,10 @@ import { de_ReloadTablesCommand, se_ReloadTablesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReloadTablesCommand}.
  */

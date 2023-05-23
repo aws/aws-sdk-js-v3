@@ -24,6 +24,10 @@ import { de_UpdateBudgetActionCommand, se_UpdateBudgetActionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBudgetActionCommand}.
  */

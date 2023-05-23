@@ -19,6 +19,10 @@ import { de_GetAgentConfigurationCommand, se_GetAgentConfigurationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAgentConfigurationCommand}.
  */

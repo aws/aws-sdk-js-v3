@@ -19,6 +19,10 @@ import { de_TransferInputDeviceCommand, se_TransferInputDeviceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TransferInputDeviceCommand}.
  */

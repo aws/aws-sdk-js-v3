@@ -19,6 +19,10 @@ import { de_ListInvalidationsCommand, se_ListInvalidationsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInvalidationsCommand}.
  */

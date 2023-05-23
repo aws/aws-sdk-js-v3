@@ -24,6 +24,10 @@ import { de_ImportVolumeCommand, se_ImportVolumeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportVolumeCommand}.
  */

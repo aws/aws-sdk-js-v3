@@ -19,6 +19,10 @@ import { de_PutConfigRuleCommand, se_PutConfigRuleCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutConfigRuleCommand}.
  */

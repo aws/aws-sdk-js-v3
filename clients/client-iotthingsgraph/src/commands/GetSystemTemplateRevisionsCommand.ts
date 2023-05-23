@@ -19,6 +19,10 @@ import { de_GetSystemTemplateRevisionsCommand, se_GetSystemTemplateRevisionsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSystemTemplateRevisionsCommand}.
  */

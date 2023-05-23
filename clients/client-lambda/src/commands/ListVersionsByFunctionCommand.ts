@@ -23,6 +23,10 @@ import { de_ListVersionsByFunctionCommand, se_ListVersionsByFunctionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVersionsByFunctionCommand}.
  */

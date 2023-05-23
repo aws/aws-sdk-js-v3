@@ -19,6 +19,10 @@ import { de_GetChangesetCommand, se_GetChangesetCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetChangesetCommand}.
  */

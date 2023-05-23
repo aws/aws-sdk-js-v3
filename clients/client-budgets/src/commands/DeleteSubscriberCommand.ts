@@ -23,6 +23,10 @@ import { de_DeleteSubscriberCommand, se_DeleteSubscriberCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSubscriberCommand}.
  */

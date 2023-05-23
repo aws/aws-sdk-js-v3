@@ -19,6 +19,10 @@ import { de_PutCorsPolicyCommand, se_PutCorsPolicyCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutCorsPolicyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeTrailsCommand, se_DescribeTrailsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTrailsCommand}.
  */

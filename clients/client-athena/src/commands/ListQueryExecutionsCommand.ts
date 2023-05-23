@@ -19,6 +19,10 @@ import { de_ListQueryExecutionsCommand, se_ListQueryExecutionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListQueryExecutionsCommand}.
  */

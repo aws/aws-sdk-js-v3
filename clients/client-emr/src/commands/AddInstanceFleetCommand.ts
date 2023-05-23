@@ -19,6 +19,10 @@ import { de_AddInstanceFleetCommand, se_AddInstanceFleetCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddInstanceFleetCommand}.
  */

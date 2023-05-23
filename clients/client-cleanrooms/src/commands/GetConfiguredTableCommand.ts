@@ -19,6 +19,10 @@ import { de_GetConfiguredTableCommand, se_GetConfiguredTableCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConfiguredTableCommand}.
  */

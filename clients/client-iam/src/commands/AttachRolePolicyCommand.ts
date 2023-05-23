@@ -19,6 +19,10 @@ import { de_AttachRolePolicyCommand, se_AttachRolePolicyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachRolePolicyCommand}.
  */

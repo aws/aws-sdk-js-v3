@@ -19,6 +19,10 @@ import { de_DescribeAddonConfigurationCommand, se_DescribeAddonConfigurationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAddonConfigurationCommand}.
  */

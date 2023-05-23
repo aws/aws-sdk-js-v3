@@ -19,6 +19,10 @@ import { de_DeleteBackendStorageCommand, se_DeleteBackendStorageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBackendStorageCommand}.
  */

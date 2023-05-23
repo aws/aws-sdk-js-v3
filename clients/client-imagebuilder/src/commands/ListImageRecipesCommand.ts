@@ -19,6 +19,10 @@ import { de_ListImageRecipesCommand, se_ListImageRecipesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListImageRecipesCommand}.
  */

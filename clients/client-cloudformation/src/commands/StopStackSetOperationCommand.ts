@@ -19,6 +19,10 @@ import { de_StopStackSetOperationCommand, se_StopStackSetOperationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopStackSetOperationCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ShareDirectoryCommand, se_ShareDirectoryCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ShareDirectoryCommand}.
  */

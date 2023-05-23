@@ -19,6 +19,10 @@ import { de_RevokeClientVpnIngressCommand, se_RevokeClientVpnIngressCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeClientVpnIngressCommand}.
  */

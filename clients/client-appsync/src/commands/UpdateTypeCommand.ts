@@ -19,6 +19,10 @@ import { de_UpdateTypeCommand, se_UpdateTypeCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTypeCommand}.
  */

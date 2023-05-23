@@ -19,6 +19,10 @@ import { de_GetApnsVoipChannelCommand, se_GetApnsVoipChannelCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApnsVoipChannelCommand}.
  */

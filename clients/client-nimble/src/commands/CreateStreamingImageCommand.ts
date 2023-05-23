@@ -24,6 +24,10 @@ import { de_CreateStreamingImageCommand, se_CreateStreamingImageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStreamingImageCommand}.
  */

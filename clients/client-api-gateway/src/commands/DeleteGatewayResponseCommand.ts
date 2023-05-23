@@ -19,6 +19,10 @@ import { de_DeleteGatewayResponseCommand, se_DeleteGatewayResponseCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGatewayResponseCommand}.
  */

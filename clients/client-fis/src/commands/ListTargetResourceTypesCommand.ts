@@ -19,6 +19,10 @@ import { de_ListTargetResourceTypesCommand, se_ListTargetResourceTypesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTargetResourceTypesCommand}.
  */

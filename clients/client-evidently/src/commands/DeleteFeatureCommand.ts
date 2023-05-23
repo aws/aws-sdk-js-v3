@@ -19,6 +19,10 @@ import { de_DeleteFeatureCommand, se_DeleteFeatureCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFeatureCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RotateChannelCredentialsCommand, se_RotateChannelCredentialsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RotateChannelCredentialsCommand}.
  */

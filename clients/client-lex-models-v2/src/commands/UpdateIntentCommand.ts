@@ -19,6 +19,10 @@ import { de_UpdateIntentCommand, se_UpdateIntentCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateIntentCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DeleteNotificationRuleCommand, se_DeleteNotificationRuleCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNotificationRuleCommand}.
  */

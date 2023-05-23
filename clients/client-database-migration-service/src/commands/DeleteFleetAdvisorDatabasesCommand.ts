@@ -23,6 +23,10 @@ import { de_DeleteFleetAdvisorDatabasesCommand, se_DeleteFleetAdvisorDatabasesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFleetAdvisorDatabasesCommand}.
  */

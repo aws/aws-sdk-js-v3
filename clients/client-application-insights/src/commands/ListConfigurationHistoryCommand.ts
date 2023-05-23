@@ -23,6 +23,10 @@ import { de_ListConfigurationHistoryCommand, se_ListConfigurationHistoryCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListConfigurationHistoryCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeregisterComputeCommand, se_DeregisterComputeCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterComputeCommand}.
  */

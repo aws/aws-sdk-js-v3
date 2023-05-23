@@ -19,6 +19,10 @@ import { de_CreateBackendConfigCommand, se_CreateBackendConfigCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBackendConfigCommand}.
  */

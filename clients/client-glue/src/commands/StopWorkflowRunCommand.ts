@@ -19,6 +19,10 @@ import { de_StopWorkflowRunCommand, se_StopWorkflowRunCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopWorkflowRunCommand}.
  */

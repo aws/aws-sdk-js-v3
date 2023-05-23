@@ -19,6 +19,10 @@ import { de_CreateSessionCommand, se_CreateSessionCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSessionCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListDomainsForPackageCommand, se_ListDomainsForPackageCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDomainsForPackageCommand}.
  */

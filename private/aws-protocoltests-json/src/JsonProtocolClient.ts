@@ -91,6 +91,8 @@ import {
 } from "./commands/SimpleScalarPropertiesCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -262,7 +264,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type JsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type JsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -280,7 +282,7 @@ export interface JsonProtocolClientConfig extends JsonProtocolClientConfigType {
 /**
  * @public
  */
-type JsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type JsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

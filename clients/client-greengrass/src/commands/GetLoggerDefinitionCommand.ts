@@ -19,6 +19,10 @@ import { de_GetLoggerDefinitionCommand, se_GetLoggerDefinitionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLoggerDefinitionCommand}.
  */

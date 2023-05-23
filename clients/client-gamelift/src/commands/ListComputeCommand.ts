@@ -19,6 +19,10 @@ import { de_ListComputeCommand, se_ListComputeCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListComputeCommand}.
  */

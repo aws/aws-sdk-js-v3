@@ -19,6 +19,10 @@ import { de_TagAttendeeCommand, se_TagAttendeeCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagAttendeeCommand}.
  */

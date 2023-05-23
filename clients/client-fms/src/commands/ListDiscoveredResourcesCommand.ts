@@ -19,6 +19,10 @@ import { de_ListDiscoveredResourcesCommand, se_ListDiscoveredResourcesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDiscoveredResourcesCommand}.
  */

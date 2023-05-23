@@ -19,6 +19,10 @@ import { de_AddLFTagsToResourceCommand, se_AddLFTagsToResourceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddLFTagsToResourceCommand}.
  */

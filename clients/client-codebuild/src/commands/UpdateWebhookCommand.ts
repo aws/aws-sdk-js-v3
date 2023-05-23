@@ -19,6 +19,10 @@ import { de_UpdateWebhookCommand, se_UpdateWebhookCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateWebhookCommand}.
  */

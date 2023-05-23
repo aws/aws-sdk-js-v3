@@ -19,6 +19,10 @@ import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartImportCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateBatchInferenceJobCommand, se_CreateBatchInferenceJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBatchInferenceJobCommand}.
  */

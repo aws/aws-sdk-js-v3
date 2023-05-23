@@ -23,6 +23,10 @@ import { de_RequestSpotFleetCommand, se_RequestSpotFleetCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RequestSpotFleetCommand}.
  */

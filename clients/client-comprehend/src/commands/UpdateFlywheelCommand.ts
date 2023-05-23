@@ -19,6 +19,10 @@ import { de_UpdateFlywheelCommand, se_UpdateFlywheelCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFlywheelCommand}.
  */

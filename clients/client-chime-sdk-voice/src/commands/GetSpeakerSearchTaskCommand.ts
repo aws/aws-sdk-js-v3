@@ -19,6 +19,10 @@ import { de_GetSpeakerSearchTaskCommand, se_GetSpeakerSearchTaskCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSpeakerSearchTaskCommand}.
  */

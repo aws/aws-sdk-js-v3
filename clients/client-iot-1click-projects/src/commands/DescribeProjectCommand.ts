@@ -23,6 +23,10 @@ import { de_DescribeProjectCommand, se_DescribeProjectCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeProjectCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateUserIdentityInfoCommand, se_UpdateUserIdentityInfoCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateUserIdentityInfoCommand}.
  */

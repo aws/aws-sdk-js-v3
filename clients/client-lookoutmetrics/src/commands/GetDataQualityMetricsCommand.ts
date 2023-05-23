@@ -19,6 +19,10 @@ import { de_GetDataQualityMetricsCommand, se_GetDataQualityMetricsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataQualityMetricsCommand}.
  */

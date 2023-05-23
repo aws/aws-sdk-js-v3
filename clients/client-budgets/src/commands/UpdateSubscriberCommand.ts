@@ -23,6 +23,10 @@ import { de_UpdateSubscriberCommand, se_UpdateSubscriberCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSubscriberCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RollbackInstanceRefreshCommand, se_RollbackInstanceRefreshCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RollbackInstanceRefreshCommand}.
  */

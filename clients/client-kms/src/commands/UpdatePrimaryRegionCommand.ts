@@ -19,6 +19,10 @@ import { de_UpdatePrimaryRegionCommand, se_UpdatePrimaryRegionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePrimaryRegionCommand}.
  */

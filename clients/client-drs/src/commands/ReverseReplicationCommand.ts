@@ -19,6 +19,10 @@ import { de_ReverseReplicationCommand, se_ReverseReplicationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReverseReplicationCommand}.
  */

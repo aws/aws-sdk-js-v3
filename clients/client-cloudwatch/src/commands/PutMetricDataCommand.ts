@@ -19,6 +19,10 @@ import { de_PutMetricDataCommand, se_PutMetricDataCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutMetricDataCommand}.
  */

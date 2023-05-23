@@ -19,6 +19,10 @@ import { de_ListStackSetOperationsCommand, se_ListStackSetOperationsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStackSetOperationsCommand}.
  */

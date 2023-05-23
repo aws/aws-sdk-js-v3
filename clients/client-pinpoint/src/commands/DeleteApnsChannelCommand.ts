@@ -19,6 +19,10 @@ import { de_DeleteApnsChannelCommand, se_DeleteApnsChannelCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteApnsChannelCommand}.
  */

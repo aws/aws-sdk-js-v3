@@ -19,6 +19,10 @@ import { de_AssociateAdminAccountCommand, se_AssociateAdminAccountCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateAdminAccountCommand}.
  */

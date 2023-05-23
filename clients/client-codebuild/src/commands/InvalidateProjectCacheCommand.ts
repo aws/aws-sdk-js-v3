@@ -19,6 +19,10 @@ import { de_InvalidateProjectCacheCommand, se_InvalidateProjectCacheCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InvalidateProjectCacheCommand}.
  */

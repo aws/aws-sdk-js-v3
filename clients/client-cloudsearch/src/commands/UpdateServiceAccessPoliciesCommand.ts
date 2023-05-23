@@ -19,6 +19,10 @@ import { de_UpdateServiceAccessPoliciesCommand, se_UpdateServiceAccessPoliciesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateServiceAccessPoliciesCommand}.
  */

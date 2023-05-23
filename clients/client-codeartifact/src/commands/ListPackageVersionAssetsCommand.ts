@@ -19,6 +19,10 @@ import { de_ListPackageVersionAssetsCommand, se_ListPackageVersionAssetsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPackageVersionAssetsCommand}.
  */

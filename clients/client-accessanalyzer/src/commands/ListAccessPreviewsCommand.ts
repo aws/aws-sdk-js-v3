@@ -19,6 +19,10 @@ import { de_ListAccessPreviewsCommand, se_ListAccessPreviewsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccessPreviewsCommand}.
  */

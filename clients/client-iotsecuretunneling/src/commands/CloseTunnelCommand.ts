@@ -23,6 +23,10 @@ import { de_CloseTunnelCommand, se_CloseTunnelCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CloseTunnelCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteContactCommand, se_DeleteContactCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteContactCommand}.
  */

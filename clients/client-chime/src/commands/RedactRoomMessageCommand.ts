@@ -19,6 +19,10 @@ import { de_RedactRoomMessageCommand, se_RedactRoomMessageCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RedactRoomMessageCommand}.
  */

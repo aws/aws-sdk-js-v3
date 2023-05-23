@@ -23,6 +23,10 @@ import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_que
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRuleCommand}.
  */

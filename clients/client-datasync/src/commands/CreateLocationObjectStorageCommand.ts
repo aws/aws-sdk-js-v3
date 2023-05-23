@@ -23,6 +23,10 @@ import { de_CreateLocationObjectStorageCommand, se_CreateLocationObjectStorageCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocationObjectStorageCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteRouteResponseCommand, se_DeleteRouteResponseCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRouteResponseCommand}.
  */

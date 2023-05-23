@@ -19,6 +19,10 @@ import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDomainsCommand}.
  */

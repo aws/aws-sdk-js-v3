@@ -19,6 +19,10 @@ import { de_DeleteDeliveryStreamCommand, se_DeleteDeliveryStreamCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDeliveryStreamCommand}.
  */

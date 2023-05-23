@@ -19,6 +19,10 @@ import { de_EnablePolicyTypeCommand, se_EnablePolicyTypeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnablePolicyTypeCommand}.
  */

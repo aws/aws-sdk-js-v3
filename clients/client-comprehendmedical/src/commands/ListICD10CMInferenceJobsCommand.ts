@@ -23,6 +23,10 @@ import { de_ListICD10CMInferenceJobsCommand, se_ListICD10CMInferenceJobsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListICD10CMInferenceJobsCommand}.
  */

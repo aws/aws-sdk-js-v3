@@ -19,6 +19,10 @@ import { de_ListSolutionsCommand, se_ListSolutionsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSolutionsCommand}.
  */

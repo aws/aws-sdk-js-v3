@@ -19,6 +19,10 @@ import { de_SearchSystemTemplatesCommand, se_SearchSystemTemplatesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchSystemTemplatesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateAssessmentTemplateCommand, se_CreateAssessmentTemplateCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAssessmentTemplateCommand}.
  */

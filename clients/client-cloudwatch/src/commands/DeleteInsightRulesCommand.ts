@@ -19,6 +19,10 @@ import { de_DeleteInsightRulesCommand, se_DeleteInsightRulesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteInsightRulesCommand}.
  */

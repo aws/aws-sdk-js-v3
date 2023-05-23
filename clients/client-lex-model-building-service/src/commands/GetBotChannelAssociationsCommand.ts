@@ -27,6 +27,10 @@ import { de_GetBotChannelAssociationsCommand, se_GetBotChannelAssociationsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBotChannelAssociationsCommand}.
  */

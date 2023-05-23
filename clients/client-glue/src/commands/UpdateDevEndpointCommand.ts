@@ -19,6 +19,10 @@ import { de_UpdateDevEndpointCommand, se_UpdateDevEndpointCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDevEndpointCommand}.
  */

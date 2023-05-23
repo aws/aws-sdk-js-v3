@@ -18,6 +18,10 @@ import { de_FractionalSecondsCommand, se_FractionalSecondsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link FractionalSecondsCommand}.
  */

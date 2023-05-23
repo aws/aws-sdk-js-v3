@@ -19,6 +19,10 @@ import { de_UpdateEntityCommand, se_UpdateEntityCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEntityCommand}.
  */

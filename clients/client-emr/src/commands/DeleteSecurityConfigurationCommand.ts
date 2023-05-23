@@ -19,6 +19,10 @@ import { de_DeleteSecurityConfigurationCommand, se_DeleteSecurityConfigurationCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSecurityConfigurationCommand}.
  */

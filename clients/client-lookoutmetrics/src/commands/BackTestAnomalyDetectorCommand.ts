@@ -19,6 +19,10 @@ import { de_BackTestAnomalyDetectorCommand, se_BackTestAnomalyDetectorCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BackTestAnomalyDetectorCommand}.
  */

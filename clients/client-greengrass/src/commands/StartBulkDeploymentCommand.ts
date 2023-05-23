@@ -19,6 +19,10 @@ import { de_StartBulkDeploymentCommand, se_StartBulkDeploymentCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartBulkDeploymentCommand}.
  */

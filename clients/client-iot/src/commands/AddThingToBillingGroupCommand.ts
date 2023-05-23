@@ -19,6 +19,10 @@ import { de_AddThingToBillingGroupCommand, se_AddThingToBillingGroupCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddThingToBillingGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListTagsForDeliveryStreamCommand, se_ListTagsForDeliveryStreamComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTagsForDeliveryStreamCommand}.
  */

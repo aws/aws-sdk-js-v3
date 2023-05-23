@@ -19,6 +19,10 @@ import { de_UpdateStudioSessionMappingCommand, se_UpdateStudioSessionMappingComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateStudioSessionMappingCommand}.
  */

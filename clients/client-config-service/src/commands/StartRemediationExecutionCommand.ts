@@ -19,6 +19,10 @@ import { de_StartRemediationExecutionCommand, se_StartRemediationExecutionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartRemediationExecutionCommand}.
  */

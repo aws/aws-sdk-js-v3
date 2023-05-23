@@ -19,6 +19,10 @@ import { de_GetLayerVersionPolicyCommand, se_GetLayerVersionPolicyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLayerVersionPolicyCommand}.
  */

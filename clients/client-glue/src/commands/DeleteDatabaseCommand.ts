@@ -19,6 +19,10 @@ import { de_DeleteDatabaseCommand, se_DeleteDatabaseCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDatabaseCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetCaseEventConfigurationCommand, se_GetCaseEventConfigurationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCaseEventConfigurationCommand}.
  */

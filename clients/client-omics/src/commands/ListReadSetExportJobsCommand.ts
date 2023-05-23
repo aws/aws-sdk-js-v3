@@ -19,6 +19,10 @@ import { de_ListReadSetExportJobsCommand, se_ListReadSetExportJobsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReadSetExportJobsCommand}.
  */

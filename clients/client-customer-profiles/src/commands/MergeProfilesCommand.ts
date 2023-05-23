@@ -19,6 +19,10 @@ import { de_MergeProfilesCommand, se_MergeProfilesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MergeProfilesCommand}.
  */

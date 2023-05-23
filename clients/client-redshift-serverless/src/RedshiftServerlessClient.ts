@@ -132,6 +132,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -349,7 +351,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type RedshiftServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type RedshiftServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -368,7 +370,7 @@ export interface RedshiftServerlessClientConfig extends RedshiftServerlessClient
 /**
  * @public
  */
-type RedshiftServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type RedshiftServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

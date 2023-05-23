@@ -19,6 +19,10 @@ import { de_DeleteSubnetGroupCommand, se_DeleteSubnetGroupCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSubnetGroupCommand}.
  */

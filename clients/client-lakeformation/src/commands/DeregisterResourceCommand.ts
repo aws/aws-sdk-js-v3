@@ -19,6 +19,10 @@ import { de_DeregisterResourceCommand, se_DeregisterResourceCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterResourceCommand}.
  */

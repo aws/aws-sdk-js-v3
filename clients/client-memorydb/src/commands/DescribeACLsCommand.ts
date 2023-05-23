@@ -19,6 +19,10 @@ import { de_DescribeACLsCommand, se_DescribeACLsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeACLsCommand}.
  */

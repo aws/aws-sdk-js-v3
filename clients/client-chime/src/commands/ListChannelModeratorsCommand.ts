@@ -24,6 +24,10 @@ import { de_ListChannelModeratorsCommand, se_ListChannelModeratorsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChannelModeratorsCommand}.
  */

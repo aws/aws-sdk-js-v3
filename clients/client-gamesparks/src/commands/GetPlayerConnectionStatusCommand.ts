@@ -19,6 +19,10 @@ import { de_GetPlayerConnectionStatusCommand, se_GetPlayerConnectionStatusComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPlayerConnectionStatusCommand}.
  */

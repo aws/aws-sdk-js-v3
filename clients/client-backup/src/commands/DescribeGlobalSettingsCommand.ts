@@ -19,6 +19,10 @@ import { de_DescribeGlobalSettingsCommand, se_DescribeGlobalSettingsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeGlobalSettingsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListCasesForContactCommand, se_ListCasesForContactCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCasesForContactCommand}.
  */

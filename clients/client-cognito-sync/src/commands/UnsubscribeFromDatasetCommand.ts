@@ -19,6 +19,10 @@ import { de_UnsubscribeFromDatasetCommand, se_UnsubscribeFromDatasetCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnsubscribeFromDatasetCommand}.
  */

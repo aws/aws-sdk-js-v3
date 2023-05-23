@@ -23,6 +23,10 @@ import { de_CreateChannelMembershipCommand, se_CreateChannelMembershipCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateChannelMembershipCommand}.
  */

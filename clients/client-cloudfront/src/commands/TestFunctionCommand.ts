@@ -24,6 +24,10 @@ import { de_TestFunctionCommand, se_TestFunctionCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestFunctionCommand}.
  */

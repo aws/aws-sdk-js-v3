@@ -19,6 +19,10 @@ import { de_DeleteUserDefinedFunctionCommand, se_DeleteUserDefinedFunctionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteUserDefinedFunctionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteIpamCommand, se_DeleteIpamCommand } from "../protocols/Aws_ec2
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteIpamCommand}.
  */

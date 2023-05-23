@@ -23,6 +23,10 @@ import { de_CreateOrganizationCommand, se_CreateOrganizationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateOrganizationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UntagProjectCommand, se_UntagProjectCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagProjectCommand}.
  */

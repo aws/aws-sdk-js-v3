@@ -19,6 +19,10 @@ import { de_DeleteIntegrationResponseCommand, se_DeleteIntegrationResponseComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteIntegrationResponseCommand}.
  */

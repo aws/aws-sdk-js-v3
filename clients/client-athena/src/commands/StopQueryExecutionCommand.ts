@@ -19,6 +19,10 @@ import { de_StopQueryExecutionCommand, se_StopQueryExecutionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopQueryExecutionCommand}.
  */

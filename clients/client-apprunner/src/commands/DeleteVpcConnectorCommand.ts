@@ -19,6 +19,10 @@ import { de_DeleteVpcConnectorCommand, se_DeleteVpcConnectorCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVpcConnectorCommand}.
  */

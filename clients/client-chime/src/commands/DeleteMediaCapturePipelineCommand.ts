@@ -19,6 +19,10 @@ import { de_DeleteMediaCapturePipelineCommand, se_DeleteMediaCapturePipelineComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMediaCapturePipelineCommand}.
  */

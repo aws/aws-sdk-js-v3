@@ -23,6 +23,10 @@ import { de_DescribeLocationFsxOntapCommand, se_DescribeLocationFsxOntapCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLocationFsxOntapCommand}.
  */

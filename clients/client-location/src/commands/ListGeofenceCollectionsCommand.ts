@@ -19,6 +19,10 @@ import { de_ListGeofenceCollectionsCommand, se_ListGeofenceCollectionsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGeofenceCollectionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateCustomEntityTypeCommand, se_CreateCustomEntityTypeCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCustomEntityTypeCommand}.
  */

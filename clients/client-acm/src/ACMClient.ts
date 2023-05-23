@@ -98,6 +98,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -265,7 +267,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ACMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ACMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -284,7 +286,7 @@ export interface ACMClientConfig extends ACMClientConfigType {}
 /**
  * @public
  */
-type ACMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ACMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

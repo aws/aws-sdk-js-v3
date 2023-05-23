@@ -23,6 +23,10 @@ import { de_ListAccountAssociationsCommand, se_ListAccountAssociationsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccountAssociationsCommand}.
  */

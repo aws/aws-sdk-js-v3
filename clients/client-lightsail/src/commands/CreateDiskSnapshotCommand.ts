@@ -19,6 +19,10 @@ import { de_CreateDiskSnapshotCommand, se_CreateDiskSnapshotCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDiskSnapshotCommand}.
  */

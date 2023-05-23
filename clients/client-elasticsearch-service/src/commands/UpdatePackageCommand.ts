@@ -23,6 +23,10 @@ import { de_UpdatePackageCommand, se_UpdatePackageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePackageCommand}.
  */

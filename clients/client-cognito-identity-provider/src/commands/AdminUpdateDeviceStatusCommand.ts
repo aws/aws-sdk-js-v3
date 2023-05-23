@@ -28,6 +28,10 @@ import { de_AdminUpdateDeviceStatusCommand, se_AdminUpdateDeviceStatusCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminUpdateDeviceStatusCommand}.
  */

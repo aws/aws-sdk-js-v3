@@ -23,6 +23,10 @@ import { de_GetTemplateStepCommand, se_GetTemplateStepCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTemplateStepCommand}.
  */

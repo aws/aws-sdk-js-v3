@@ -19,6 +19,10 @@ import { de_UpdateDataCellsFilterCommand, se_UpdateDataCellsFilterCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDataCellsFilterCommand}.
  */

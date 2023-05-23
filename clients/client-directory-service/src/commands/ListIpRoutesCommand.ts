@@ -19,6 +19,10 @@ import { de_ListIpRoutesCommand, se_ListIpRoutesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIpRoutesCommand}.
  */

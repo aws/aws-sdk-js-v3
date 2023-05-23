@@ -19,6 +19,10 @@ import { de_AttachUserPolicyCommand, se_AttachUserPolicyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachUserPolicyCommand}.
  */

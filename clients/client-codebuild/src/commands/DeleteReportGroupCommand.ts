@@ -19,6 +19,10 @@ import { de_DeleteReportGroupCommand, se_DeleteReportGroupCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteReportGroupCommand}.
  */

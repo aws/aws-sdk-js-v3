@@ -23,6 +23,10 @@ import { de_PublishLayerVersionCommand, se_PublishLayerVersionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PublishLayerVersionCommand}.
  */

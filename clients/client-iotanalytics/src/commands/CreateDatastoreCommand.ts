@@ -19,6 +19,10 @@ import { de_CreateDatastoreCommand, se_CreateDatastoreCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDatastoreCommand}.
  */

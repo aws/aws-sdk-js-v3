@@ -19,6 +19,10 @@ import { de_DescribeLocationS3Command, se_DescribeLocationS3Command } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLocationS3Command}.
  */

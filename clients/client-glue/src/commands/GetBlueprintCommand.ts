@@ -19,6 +19,10 @@ import { de_GetBlueprintCommand, se_GetBlueprintCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBlueprintCommand}.
  */

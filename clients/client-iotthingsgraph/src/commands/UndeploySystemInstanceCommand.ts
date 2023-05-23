@@ -19,6 +19,10 @@ import { de_UndeploySystemInstanceCommand, se_UndeploySystemInstanceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UndeploySystemInstanceCommand}.
  */

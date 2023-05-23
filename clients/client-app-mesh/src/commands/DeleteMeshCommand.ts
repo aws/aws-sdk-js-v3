@@ -19,6 +19,10 @@ import { de_DeleteMeshCommand, se_DeleteMeshCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMeshCommand}.
  */

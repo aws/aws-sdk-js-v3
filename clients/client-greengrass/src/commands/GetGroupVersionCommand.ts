@@ -19,6 +19,10 @@ import { de_GetGroupVersionCommand, se_GetGroupVersionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGroupVersionCommand}.
  */

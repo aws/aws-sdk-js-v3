@@ -23,6 +23,10 @@ import { de_ListVirtualMFADevicesCommand, se_ListVirtualMFADevicesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVirtualMFADevicesCommand}.
  */

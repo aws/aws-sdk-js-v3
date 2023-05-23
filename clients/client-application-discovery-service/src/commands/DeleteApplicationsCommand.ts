@@ -23,6 +23,10 @@ import { de_DeleteApplicationsCommand, se_DeleteApplicationsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteApplicationsCommand}.
  */

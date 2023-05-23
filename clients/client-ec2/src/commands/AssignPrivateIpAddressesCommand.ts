@@ -19,6 +19,10 @@ import { de_AssignPrivateIpAddressesCommand, se_AssignPrivateIpAddressesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssignPrivateIpAddressesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AssociateLexBotCommand, se_AssociateLexBotCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateLexBotCommand}.
  */

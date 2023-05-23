@@ -19,6 +19,10 @@ import { de_GetSchemaByDefinitionCommand, se_GetSchemaByDefinitionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSchemaByDefinitionCommand}.
  */

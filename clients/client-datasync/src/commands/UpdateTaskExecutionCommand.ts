@@ -19,6 +19,10 @@ import { de_UpdateTaskExecutionCommand, se_UpdateTaskExecutionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTaskExecutionCommand}.
  */

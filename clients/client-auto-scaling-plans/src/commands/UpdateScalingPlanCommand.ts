@@ -19,6 +19,10 @@ import { de_UpdateScalingPlanCommand, se_UpdateScalingPlanCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateScalingPlanCommand}.
  */

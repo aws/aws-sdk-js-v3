@@ -19,6 +19,10 @@ import { de_RevokeInvitationCommand, se_RevokeInvitationCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeInvitationCommand}.
  */

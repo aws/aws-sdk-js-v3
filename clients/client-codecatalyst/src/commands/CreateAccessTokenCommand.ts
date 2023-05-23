@@ -23,6 +23,10 @@ import { de_CreateAccessTokenCommand, se_CreateAccessTokenCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAccessTokenCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeletePricingRuleCommand, se_DeletePricingRuleCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePricingRuleCommand}.
  */

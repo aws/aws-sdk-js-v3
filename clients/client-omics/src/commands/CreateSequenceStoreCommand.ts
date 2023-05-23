@@ -19,6 +19,10 @@ import { de_CreateSequenceStoreCommand, se_CreateSequenceStoreCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSequenceStoreCommand}.
  */

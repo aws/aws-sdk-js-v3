@@ -19,6 +19,10 @@ import { de_EnableFastSnapshotRestoresCommand, se_EnableFastSnapshotRestoresComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableFastSnapshotRestoresCommand}.
  */

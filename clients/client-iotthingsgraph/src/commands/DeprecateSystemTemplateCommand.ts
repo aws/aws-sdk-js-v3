@@ -19,6 +19,10 @@ import { de_DeprecateSystemTemplateCommand, se_DeprecateSystemTemplateCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeprecateSystemTemplateCommand}.
  */

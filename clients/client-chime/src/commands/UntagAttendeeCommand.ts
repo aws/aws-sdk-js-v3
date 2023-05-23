@@ -19,6 +19,10 @@ import { de_UntagAttendeeCommand, se_UntagAttendeeCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagAttendeeCommand}.
  */

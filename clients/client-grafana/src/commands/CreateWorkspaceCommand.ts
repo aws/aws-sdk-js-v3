@@ -24,6 +24,10 @@ import { de_CreateWorkspaceCommand, se_CreateWorkspaceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWorkspaceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisassociateNatGatewayAddressCommand, se_DisassociateNatGatewayAddre
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateNatGatewayAddressCommand}.
  */

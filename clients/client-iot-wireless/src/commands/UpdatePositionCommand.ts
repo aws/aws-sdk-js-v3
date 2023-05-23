@@ -19,6 +19,10 @@ import { de_UpdatePositionCommand, se_UpdatePositionCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePositionCommand}.
  */

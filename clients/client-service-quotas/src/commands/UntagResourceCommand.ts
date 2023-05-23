@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagResourceCommand}.
  */

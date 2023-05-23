@@ -23,6 +23,10 @@ import { de_RedactChannelMessageCommand, se_RedactChannelMessageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RedactChannelMessageCommand}.
  */

@@ -24,6 +24,10 @@ import { de_UpdateConfigurationProfileCommand, se_UpdateConfigurationProfileComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConfigurationProfileCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListRepositoriesCommand, se_ListRepositoriesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRepositoriesCommand}.
  */

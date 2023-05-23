@@ -19,6 +19,10 @@ import { de_ListClustersV2Command, se_ListClustersV2Command } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListClustersV2Command}.
  */

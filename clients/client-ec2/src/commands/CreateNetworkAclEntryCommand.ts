@@ -19,6 +19,10 @@ import { de_CreateNetworkAclEntryCommand, se_CreateNetworkAclEntryCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNetworkAclEntryCommand}.
  */

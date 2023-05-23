@@ -19,6 +19,10 @@ import { de_RetryBuildBatchCommand, se_RetryBuildBatchCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RetryBuildBatchCommand}.
  */

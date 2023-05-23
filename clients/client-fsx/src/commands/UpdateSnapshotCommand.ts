@@ -19,6 +19,10 @@ import { de_UpdateSnapshotCommand, se_UpdateSnapshotCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSnapshotCommand}.
  */

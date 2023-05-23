@@ -19,6 +19,10 @@ import { de_UpdateSiteCommand, se_UpdateSiteCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSiteCommand}.
  */

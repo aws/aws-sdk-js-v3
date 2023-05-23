@@ -19,6 +19,10 @@ import { de_UpdateRoleDescriptionCommand, se_UpdateRoleDescriptionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRoleDescriptionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetSSHPublicKeyCommand, se_GetSSHPublicKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSSHPublicKeyCommand}.
  */

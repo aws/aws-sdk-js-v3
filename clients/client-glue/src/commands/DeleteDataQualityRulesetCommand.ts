@@ -19,6 +19,10 @@ import { de_DeleteDataQualityRulesetCommand, se_DeleteDataQualityRulesetCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDataQualityRulesetCommand}.
  */

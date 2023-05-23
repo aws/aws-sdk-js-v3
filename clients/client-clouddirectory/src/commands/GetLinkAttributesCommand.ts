@@ -19,6 +19,10 @@ import { de_GetLinkAttributesCommand, se_GetLinkAttributesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLinkAttributesCommand}.
  */

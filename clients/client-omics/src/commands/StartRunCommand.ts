@@ -19,6 +19,10 @@ import { de_StartRunCommand, se_StartRunCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartRunCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeletePeeringCommand, se_DeletePeeringCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePeeringCommand}.
  */

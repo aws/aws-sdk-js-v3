@@ -19,6 +19,10 @@ import { de_ListVpcEndpointsForDomainCommand, se_ListVpcEndpointsForDomainComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVpcEndpointsForDomainCommand}.
  */

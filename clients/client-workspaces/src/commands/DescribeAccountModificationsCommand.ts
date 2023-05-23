@@ -22,6 +22,10 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAccountModificationsCommand}.
  */

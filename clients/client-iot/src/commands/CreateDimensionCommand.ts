@@ -19,6 +19,10 @@ import { de_CreateDimensionCommand, se_CreateDimensionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDimensionCommand}.
  */

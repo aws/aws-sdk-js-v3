@@ -19,6 +19,10 @@ import { de_DisableClientAuthenticationCommand, se_DisableClientAuthenticationCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableClientAuthenticationCommand}.
  */

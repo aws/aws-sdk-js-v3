@@ -19,6 +19,10 @@ import { de_GetAttributeValuesCommand, se_GetAttributeValuesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAttributeValuesCommand}.
  */

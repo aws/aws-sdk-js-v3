@@ -19,6 +19,10 @@ import { de_ListStackSetsCommand, se_ListStackSetsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStackSetsCommand}.
  */

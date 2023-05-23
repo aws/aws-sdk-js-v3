@@ -19,6 +19,10 @@ import { de_StartNetworkInsightsAnalysisCommand, se_StartNetworkInsightsAnalysis
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartNetworkInsightsAnalysisCommand}.
  */

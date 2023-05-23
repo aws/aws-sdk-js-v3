@@ -19,6 +19,10 @@ import { de_CancelInstanceRefreshCommand, se_CancelInstanceRefreshCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelInstanceRefreshCommand}.
  */

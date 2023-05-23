@@ -19,6 +19,10 @@ import { de_DescribeCacheSecurityGroupsCommand, se_DescribeCacheSecurityGroupsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCacheSecurityGroupsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutAutoScalingPolicyCommand, se_PutAutoScalingPolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAutoScalingPolicyCommand}.
  */

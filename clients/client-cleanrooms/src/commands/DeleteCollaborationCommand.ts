@@ -19,6 +19,10 @@ import { de_DeleteCollaborationCommand, se_DeleteCollaborationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCollaborationCommand}.
  */

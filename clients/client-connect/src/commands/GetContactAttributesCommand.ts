@@ -19,6 +19,10 @@ import { de_GetContactAttributesCommand, se_GetContactAttributesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContactAttributesCommand}.
  */

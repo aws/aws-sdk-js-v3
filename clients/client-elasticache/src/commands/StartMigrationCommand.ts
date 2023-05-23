@@ -19,6 +19,10 @@ import { de_StartMigrationCommand, se_StartMigrationCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartMigrationCommand}.
  */

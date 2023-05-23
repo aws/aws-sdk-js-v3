@@ -19,6 +19,10 @@ import { de_DescribeLagsCommand, se_DescribeLagsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLagsCommand}.
  */

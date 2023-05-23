@@ -19,6 +19,10 @@ import { de_GetDataCellsFilterCommand, se_GetDataCellsFilterCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataCellsFilterCommand}.
  */

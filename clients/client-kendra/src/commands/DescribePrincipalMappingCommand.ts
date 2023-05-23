@@ -19,6 +19,10 @@ import { de_DescribePrincipalMappingCommand, se_DescribePrincipalMappingCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePrincipalMappingCommand}.
  */

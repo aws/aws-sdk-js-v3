@@ -19,6 +19,10 @@ import { de_UpdateMonitorCommand, se_UpdateMonitorCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMonitorCommand}.
  */

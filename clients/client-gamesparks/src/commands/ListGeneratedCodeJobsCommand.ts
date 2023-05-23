@@ -19,6 +19,10 @@ import { de_ListGeneratedCodeJobsCommand, se_ListGeneratedCodeJobsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGeneratedCodeJobsCommand}.
  */

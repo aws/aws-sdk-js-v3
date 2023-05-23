@@ -19,6 +19,10 @@ import { de_GetClientCertificateCommand, se_GetClientCertificateCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetClientCertificateCommand}.
  */

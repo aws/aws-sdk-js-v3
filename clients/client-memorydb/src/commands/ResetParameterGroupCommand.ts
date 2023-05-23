@@ -19,6 +19,10 @@ import { de_ResetParameterGroupCommand, se_ResetParameterGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetParameterGroupCommand}.
  */

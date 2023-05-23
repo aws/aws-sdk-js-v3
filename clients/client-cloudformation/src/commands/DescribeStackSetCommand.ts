@@ -19,6 +19,10 @@ import { de_DescribeStackSetCommand, se_DescribeStackSetCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeStackSetCommand}.
  */

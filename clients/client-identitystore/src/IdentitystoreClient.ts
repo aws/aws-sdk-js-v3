@@ -96,6 +96,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -271,7 +273,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type IdentitystoreClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type IdentitystoreClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -290,7 +292,7 @@ export interface IdentitystoreClientConfig extends IdentitystoreClientConfigType
 /**
  * @public
  */
-type IdentitystoreClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type IdentitystoreClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

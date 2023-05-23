@@ -19,6 +19,10 @@ import { de_ListSpeechSynthesisTasksCommand, se_ListSpeechSynthesisTasksCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSpeechSynthesisTasksCommand}.
  */

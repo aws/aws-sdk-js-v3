@@ -19,6 +19,10 @@ import { de_CreateAssessmentFrameworkCommand, se_CreateAssessmentFrameworkComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAssessmentFrameworkCommand}.
  */

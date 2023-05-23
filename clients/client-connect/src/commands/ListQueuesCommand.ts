@@ -19,6 +19,10 @@ import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListQueuesCommand}.
  */

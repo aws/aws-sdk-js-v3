@@ -19,6 +19,10 @@ import { de_CreateFormCommand, se_CreateFormCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFormCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetIdCommand, se_GetIdCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIdCommand}.
  */

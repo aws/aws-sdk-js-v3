@@ -24,6 +24,10 @@ import { de_PutVoiceConnectorProxyCommand, se_PutVoiceConnectorProxyCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutVoiceConnectorProxyCommand}.
  */

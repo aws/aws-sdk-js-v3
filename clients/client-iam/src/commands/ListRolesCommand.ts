@@ -19,6 +19,10 @@ import { de_ListRolesCommand, se_ListRolesCommand } from "../protocols/Aws_query
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRolesCommand}.
  */

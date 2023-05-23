@@ -19,6 +19,10 @@ import { de_PutSinkPolicyCommand, se_PutSinkPolicyCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSinkPolicyCommand}.
  */

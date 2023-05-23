@@ -19,6 +19,10 @@ import { de_DeleteTrailCommand, se_DeleteTrailCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTrailCommand}.
  */

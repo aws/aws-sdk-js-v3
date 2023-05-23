@@ -19,6 +19,10 @@ import { de_DeletePresetCommand, se_DeletePresetCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePresetCommand}.
  */

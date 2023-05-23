@@ -19,6 +19,10 @@ import { de_UpdateControlCommand, se_UpdateControlCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateControlCommand}.
  */

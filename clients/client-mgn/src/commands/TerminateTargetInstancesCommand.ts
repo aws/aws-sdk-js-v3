@@ -24,6 +24,10 @@ import { de_TerminateTargetInstancesCommand, se_TerminateTargetInstancesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TerminateTargetInstancesCommand}.
  */

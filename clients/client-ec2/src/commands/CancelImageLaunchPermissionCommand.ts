@@ -19,6 +19,10 @@ import { de_CancelImageLaunchPermissionCommand, se_CancelImageLaunchPermissionCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelImageLaunchPermissionCommand}.
  */

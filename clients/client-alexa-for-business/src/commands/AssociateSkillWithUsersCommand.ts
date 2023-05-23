@@ -19,6 +19,10 @@ import { de_AssociateSkillWithUsersCommand, se_AssociateSkillWithUsersCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateSkillWithUsersCommand}.
  */

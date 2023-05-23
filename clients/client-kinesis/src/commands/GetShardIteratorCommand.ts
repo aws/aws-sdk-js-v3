@@ -19,6 +19,10 @@ import { de_GetShardIteratorCommand, se_GetShardIteratorCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetShardIteratorCommand}.
  */

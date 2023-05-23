@@ -19,6 +19,10 @@ import { de_RemoveThingFromThingGroupCommand, se_RemoveThingFromThingGroupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveThingFromThingGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateProvisioningTemplateCommand, se_CreateProvisioningTemplateComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateProvisioningTemplateCommand}.
  */

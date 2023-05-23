@@ -19,6 +19,10 @@ import { de_GetCoreNetworkCommand, se_GetCoreNetworkCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCoreNetworkCommand}.
  */

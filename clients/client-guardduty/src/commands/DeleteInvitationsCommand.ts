@@ -19,6 +19,10 @@ import { de_DeleteInvitationsCommand, se_DeleteInvitationsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteInvitationsCommand}.
  */

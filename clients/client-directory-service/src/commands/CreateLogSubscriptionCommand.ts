@@ -19,6 +19,10 @@ import { de_CreateLogSubscriptionCommand, se_CreateLogSubscriptionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLogSubscriptionCommand}.
  */

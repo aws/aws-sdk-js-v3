@@ -19,6 +19,10 @@ import { de_BatchGetDocumentStatusCommand, se_BatchGetDocumentStatusCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetDocumentStatusCommand}.
  */

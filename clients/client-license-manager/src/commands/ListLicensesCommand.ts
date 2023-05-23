@@ -19,6 +19,10 @@ import { de_ListLicensesCommand, se_ListLicensesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLicensesCommand}.
  */

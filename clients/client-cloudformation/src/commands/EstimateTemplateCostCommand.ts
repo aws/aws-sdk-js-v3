@@ -19,6 +19,10 @@ import { de_EstimateTemplateCostCommand, se_EstimateTemplateCostCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EstimateTemplateCostCommand}.
  */

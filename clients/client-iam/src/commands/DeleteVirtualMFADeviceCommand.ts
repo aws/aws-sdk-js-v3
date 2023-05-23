@@ -19,6 +19,10 @@ import { de_DeleteVirtualMFADeviceCommand, se_DeleteVirtualMFADeviceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVirtualMFADeviceCommand}.
  */

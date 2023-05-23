@@ -19,6 +19,10 @@ import { de_DescribeTimeSeriesCommand, se_DescribeTimeSeriesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTimeSeriesCommand}.
  */

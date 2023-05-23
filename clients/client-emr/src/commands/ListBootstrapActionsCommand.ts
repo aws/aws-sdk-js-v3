@@ -19,6 +19,10 @@ import { de_ListBootstrapActionsCommand, se_ListBootstrapActionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBootstrapActionsCommand}.
  */

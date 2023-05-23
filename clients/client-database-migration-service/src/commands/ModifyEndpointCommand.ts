@@ -28,6 +28,10 @@ import { de_ModifyEndpointCommand, se_ModifyEndpointCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyEndpointCommand}.
  */

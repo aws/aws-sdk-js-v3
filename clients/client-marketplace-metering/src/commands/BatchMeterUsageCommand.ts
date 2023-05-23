@@ -23,6 +23,10 @@ import { de_BatchMeterUsageCommand, se_BatchMeterUsageCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchMeterUsageCommand}.
  */

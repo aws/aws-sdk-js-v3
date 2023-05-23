@@ -19,6 +19,10 @@ import { de_ListAdminsManagingAccountCommand, se_ListAdminsManagingAccountComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAdminsManagingAccountCommand}.
  */

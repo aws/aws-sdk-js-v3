@@ -19,6 +19,10 @@ import { de_GetVariablesCommand, se_GetVariablesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVariablesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteEventIntegrationCommand, se_DeleteEventIntegrationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEventIntegrationCommand}.
  */

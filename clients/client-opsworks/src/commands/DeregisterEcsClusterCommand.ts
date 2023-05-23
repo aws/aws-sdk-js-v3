@@ -19,6 +19,10 @@ import { de_DeregisterEcsClusterCommand, se_DeregisterEcsClusterCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterEcsClusterCommand}.
  */

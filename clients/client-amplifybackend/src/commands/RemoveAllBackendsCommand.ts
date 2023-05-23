@@ -19,6 +19,10 @@ import { de_RemoveAllBackendsCommand, se_RemoveAllBackendsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveAllBackendsCommand}.
  */

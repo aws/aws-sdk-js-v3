@@ -23,6 +23,10 @@ import { de_ResetUserPasswordCommand, se_ResetUserPasswordCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetUserPasswordCommand}.
  */

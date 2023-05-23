@@ -23,6 +23,10 @@ import { de_DescribeImportSnapshotTasksCommand, se_DescribeImportSnapshotTasksCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeImportSnapshotTasksCommand}.
  */

@@ -25,6 +25,10 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTrafficPolicyInstancesByPolicyCommand}.
  */

@@ -23,6 +23,10 @@ import { de_InvokeDeviceMethodCommand, se_InvokeDeviceMethodCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InvokeDeviceMethodCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutProtocolsListCommand, se_PutProtocolsListCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutProtocolsListCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ReleaseFileSystemNfsV3LocksCommand, se_ReleaseFileSystemNfsV3LocksCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReleaseFileSystemNfsV3LocksCommand}.
  */

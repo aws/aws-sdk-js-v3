@@ -19,6 +19,10 @@ import { de_UpdateConferenceProviderCommand, se_UpdateConferenceProviderCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConferenceProviderCommand}.
  */

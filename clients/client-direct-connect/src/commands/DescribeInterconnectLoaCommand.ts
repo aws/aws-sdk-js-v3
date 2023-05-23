@@ -19,6 +19,10 @@ import { de_DescribeInterconnectLoaCommand, se_DescribeInterconnectLoaCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInterconnectLoaCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateDestinationCommand, se_CreateDestinationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDestinationCommand}.
  */

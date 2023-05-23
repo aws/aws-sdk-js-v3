@@ -19,6 +19,10 @@ import { de_ValidateTemplateCommand, se_ValidateTemplateCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ValidateTemplateCommand}.
  */

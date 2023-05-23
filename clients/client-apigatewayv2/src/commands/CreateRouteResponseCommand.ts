@@ -19,6 +19,10 @@ import { de_CreateRouteResponseCommand, se_CreateRouteResponseCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRouteResponseCommand}.
  */

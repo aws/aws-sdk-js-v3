@@ -19,6 +19,10 @@ import { de_ListExplainabilityExportsCommand, se_ListExplainabilityExportsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListExplainabilityExportsCommand}.
  */

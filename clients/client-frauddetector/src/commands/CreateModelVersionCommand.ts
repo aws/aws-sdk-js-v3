@@ -19,6 +19,10 @@ import { de_CreateModelVersionCommand, se_CreateModelVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateModelVersionCommand}.
  */

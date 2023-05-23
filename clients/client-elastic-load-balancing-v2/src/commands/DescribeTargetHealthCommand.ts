@@ -23,6 +23,10 @@ import { de_DescribeTargetHealthCommand, se_DescribeTargetHealthCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTargetHealthCommand}.
  */

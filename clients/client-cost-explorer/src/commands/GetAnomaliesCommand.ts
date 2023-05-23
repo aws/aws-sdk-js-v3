@@ -19,6 +19,10 @@ import { de_GetAnomaliesCommand, se_GetAnomaliesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAnomaliesCommand}.
  */

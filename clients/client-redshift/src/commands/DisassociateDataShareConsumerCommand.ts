@@ -23,6 +23,10 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateDataShareConsumerCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeHostsCommand, se_DescribeHostsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeHostsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UnarchiveWaveCommand, se_UnarchiveWaveCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnarchiveWaveCommand}.
  */

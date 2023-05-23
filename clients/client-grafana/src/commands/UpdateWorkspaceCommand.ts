@@ -24,6 +24,10 @@ import { de_UpdateWorkspaceCommand, se_UpdateWorkspaceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateWorkspaceCommand}.
  */

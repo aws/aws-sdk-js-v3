@@ -19,6 +19,10 @@ import { de_StartDBClusterCommand, se_StartDBClusterCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDBClusterCommand}.
  */

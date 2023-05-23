@@ -19,6 +19,10 @@ import { de_DeleteDataProtectionPolicyCommand, se_DeleteDataProtectionPolicyComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDataProtectionPolicyCommand}.
  */

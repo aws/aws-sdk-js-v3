@@ -20,6 +20,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReceiveMessageCommand}.
  */

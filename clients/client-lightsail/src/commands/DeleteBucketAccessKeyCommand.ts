@@ -19,6 +19,10 @@ import { de_DeleteBucketAccessKeyCommand, se_DeleteBucketAccessKeyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBucketAccessKeyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListEntitlementsCommand, se_ListEntitlementsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEntitlementsCommand}.
  */

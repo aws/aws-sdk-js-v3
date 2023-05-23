@@ -19,6 +19,10 @@ import { de_ListClassificationScopesCommand, se_ListClassificationScopesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListClassificationScopesCommand}.
  */

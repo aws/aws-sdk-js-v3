@@ -19,6 +19,10 @@ import { de_ListInstanceProfileTagsCommand, se_ListInstanceProfileTagsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInstanceProfileTagsCommand}.
  */

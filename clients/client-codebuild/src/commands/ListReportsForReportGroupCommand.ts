@@ -19,6 +19,10 @@ import { de_ListReportsForReportGroupCommand, se_ListReportsForReportGroupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReportsForReportGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListV2LoggingLevelsCommand, se_ListV2LoggingLevelsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListV2LoggingLevelsCommand}.
  */

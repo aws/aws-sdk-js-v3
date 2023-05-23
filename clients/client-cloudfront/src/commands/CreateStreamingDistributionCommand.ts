@@ -19,6 +19,10 @@ import { de_CreateStreamingDistributionCommand, se_CreateStreamingDistributionCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStreamingDistributionCommand}.
  */

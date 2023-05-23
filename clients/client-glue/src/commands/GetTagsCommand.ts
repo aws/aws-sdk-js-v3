@@ -19,6 +19,10 @@ import { de_GetTagsCommand, se_GetTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTagsCommand}.
  */

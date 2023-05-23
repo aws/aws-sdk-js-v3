@@ -20,6 +20,10 @@ import { de_DescribeIntentCommand, se_DescribeIntentCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIntentCommand}.
  */

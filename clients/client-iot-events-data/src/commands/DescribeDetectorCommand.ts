@@ -19,6 +19,10 @@ import { de_DescribeDetectorCommand, se_DescribeDetectorCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDetectorCommand}.
  */

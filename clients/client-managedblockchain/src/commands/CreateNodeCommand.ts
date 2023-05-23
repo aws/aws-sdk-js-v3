@@ -23,6 +23,10 @@ import { de_CreateNodeCommand, se_CreateNodeCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNodeCommand}.
  */

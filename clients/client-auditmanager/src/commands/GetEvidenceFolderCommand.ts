@@ -19,6 +19,10 @@ import { de_GetEvidenceFolderCommand, se_GetEvidenceFolderCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEvidenceFolderCommand}.
  */

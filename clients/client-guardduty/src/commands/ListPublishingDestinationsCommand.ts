@@ -19,6 +19,10 @@ import { de_ListPublishingDestinationsCommand, se_ListPublishingDestinationsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPublishingDestinationsCommand}.
  */

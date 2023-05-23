@@ -19,6 +19,10 @@ import { de_GetMonitoringSubscriptionCommand, se_GetMonitoringSubscriptionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMonitoringSubscriptionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateVirtualServiceCommand, se_UpdateVirtualServiceCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVirtualServiceCommand}.
  */

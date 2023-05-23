@@ -19,6 +19,10 @@ import { de_ListDomainConfigurationsCommand, se_ListDomainConfigurationsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDomainConfigurationsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ModifyReservedInstancesCommand, se_ModifyReservedInstancesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyReservedInstancesCommand}.
  */

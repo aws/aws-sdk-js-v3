@@ -19,6 +19,10 @@ import { de_GetGroupMembershipIdCommand, se_GetGroupMembershipIdCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGroupMembershipIdCommand}.
  */

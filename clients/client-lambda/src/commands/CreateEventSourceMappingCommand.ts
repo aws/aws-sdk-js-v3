@@ -19,6 +19,10 @@ import { de_CreateEventSourceMappingCommand, se_CreateEventSourceMappingCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEventSourceMappingCommand}.
  */

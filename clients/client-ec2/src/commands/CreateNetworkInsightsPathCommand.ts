@@ -19,6 +19,10 @@ import { de_CreateNetworkInsightsPathCommand, se_CreateNetworkInsightsPathComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNetworkInsightsPathCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateMatchmakingRuleSetCommand, se_CreateMatchmakingRuleSetCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMatchmakingRuleSetCommand}.
  */

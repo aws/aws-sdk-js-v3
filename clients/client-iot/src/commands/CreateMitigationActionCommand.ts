@@ -19,6 +19,10 @@ import { de_CreateMitigationActionCommand, se_CreateMitigationActionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMitigationActionCommand}.
  */

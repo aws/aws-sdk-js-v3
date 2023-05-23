@@ -19,6 +19,10 @@ import { de_CreateFHIRDatastoreCommand, se_CreateFHIRDatastoreCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFHIRDatastoreCommand}.
  */

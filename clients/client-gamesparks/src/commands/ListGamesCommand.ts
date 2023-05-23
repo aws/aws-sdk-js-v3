@@ -19,6 +19,10 @@ import { de_ListGamesCommand, se_ListGamesCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGamesCommand}.
  */

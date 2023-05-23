@@ -19,6 +19,10 @@ import { de_CreateLaunchConfigurationCommand, se_CreateLaunchConfigurationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLaunchConfigurationCommand}.
  */

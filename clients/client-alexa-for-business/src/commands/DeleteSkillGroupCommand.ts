@@ -19,6 +19,10 @@ import { de_DeleteSkillGroupCommand, se_DeleteSkillGroupCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSkillGroupCommand}.
  */

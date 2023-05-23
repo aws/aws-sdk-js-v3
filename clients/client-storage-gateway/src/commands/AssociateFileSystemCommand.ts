@@ -23,6 +23,10 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateFileSystemCommand}.
  */

@@ -23,6 +23,10 @@ import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFunctionCommand}.
  */

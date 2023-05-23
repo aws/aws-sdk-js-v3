@@ -19,6 +19,10 @@ import { de_GetTestGridSessionCommand, se_GetTestGridSessionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTestGridSessionCommand}.
  */

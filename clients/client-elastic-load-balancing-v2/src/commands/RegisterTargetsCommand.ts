@@ -23,6 +23,10 @@ import { de_RegisterTargetsCommand, se_RegisterTargetsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterTargetsCommand}.
  */

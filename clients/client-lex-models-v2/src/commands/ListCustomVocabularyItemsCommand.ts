@@ -19,6 +19,10 @@ import { de_ListCustomVocabularyItemsCommand, se_ListCustomVocabularyItemsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCustomVocabularyItemsCommand}.
  */

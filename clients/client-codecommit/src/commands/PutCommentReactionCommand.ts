@@ -19,6 +19,10 @@ import { de_PutCommentReactionCommand, se_PutCommentReactionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutCommentReactionCommand}.
  */

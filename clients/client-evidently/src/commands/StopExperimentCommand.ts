@@ -19,6 +19,10 @@ import { de_StopExperimentCommand, se_StopExperimentCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopExperimentCommand}.
  */

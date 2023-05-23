@@ -19,6 +19,10 @@ import { de_ImportKeyMaterialCommand, se_ImportKeyMaterialCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportKeyMaterialCommand}.
  */

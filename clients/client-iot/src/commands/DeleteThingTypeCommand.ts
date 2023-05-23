@@ -19,6 +19,10 @@ import { de_DeleteThingTypeCommand, se_DeleteThingTypeCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteThingTypeCommand}.
  */

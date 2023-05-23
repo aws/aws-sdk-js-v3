@@ -19,6 +19,10 @@ import { de_CreateStreamingURLCommand, se_CreateStreamingURLCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStreamingURLCommand}.
  */

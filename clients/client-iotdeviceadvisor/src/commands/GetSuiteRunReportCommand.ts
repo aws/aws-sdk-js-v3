@@ -19,6 +19,10 @@ import { de_GetSuiteRunReportCommand, se_GetSuiteRunReportCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSuiteRunReportCommand}.
  */

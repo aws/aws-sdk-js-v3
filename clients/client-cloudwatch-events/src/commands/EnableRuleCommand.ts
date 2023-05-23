@@ -19,6 +19,10 @@ import { de_EnableRuleCommand, se_EnableRuleCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableRuleCommand}.
  */

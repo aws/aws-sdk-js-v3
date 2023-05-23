@@ -19,6 +19,10 @@ import { de_StartNotebookExecutionCommand, se_StartNotebookExecutionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartNotebookExecutionCommand}.
  */

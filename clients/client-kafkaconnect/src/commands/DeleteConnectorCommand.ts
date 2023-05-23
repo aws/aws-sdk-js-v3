@@ -19,6 +19,10 @@ import { de_DeleteConnectorCommand, se_DeleteConnectorCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConnectorCommand}.
  */

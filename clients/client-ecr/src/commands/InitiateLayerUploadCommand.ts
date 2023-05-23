@@ -19,6 +19,10 @@ import { de_InitiateLayerUploadCommand, se_InitiateLayerUploadCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InitiateLayerUploadCommand}.
  */

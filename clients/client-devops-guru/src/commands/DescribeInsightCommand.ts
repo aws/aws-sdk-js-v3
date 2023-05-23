@@ -19,6 +19,10 @@ import { de_DescribeInsightCommand, se_DescribeInsightCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInsightCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeletePushTemplateCommand, se_DeletePushTemplateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePushTemplateCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListTimeSeriesCommand, se_ListTimeSeriesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTimeSeriesCommand}.
  */

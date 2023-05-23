@@ -152,6 +152,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -355,7 +357,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type WorkLinkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type WorkLinkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -374,7 +376,7 @@ export interface WorkLinkClientConfig extends WorkLinkClientConfigType {}
 /**
  * @public
  */
-type WorkLinkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type WorkLinkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

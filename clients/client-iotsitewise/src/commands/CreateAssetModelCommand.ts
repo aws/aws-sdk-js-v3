@@ -19,6 +19,10 @@ import { de_CreateAssetModelCommand, se_CreateAssetModelCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAssetModelCommand}.
  */

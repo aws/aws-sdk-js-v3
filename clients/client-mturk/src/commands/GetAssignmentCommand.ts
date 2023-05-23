@@ -19,6 +19,10 @@ import { de_GetAssignmentCommand, se_GetAssignmentCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAssignmentCommand}.
  */

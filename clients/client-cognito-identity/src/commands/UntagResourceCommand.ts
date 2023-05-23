@@ -20,6 +20,10 @@ import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagResourceCommand}.
  */

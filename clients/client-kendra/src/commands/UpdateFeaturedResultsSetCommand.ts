@@ -19,6 +19,10 @@ import { de_UpdateFeaturedResultsSetCommand, se_UpdateFeaturedResultsSetCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFeaturedResultsSetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateFacetCommand, se_UpdateFacetCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFacetCommand}.
  */

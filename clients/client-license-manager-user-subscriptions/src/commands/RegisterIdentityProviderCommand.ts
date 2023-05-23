@@ -23,6 +23,10 @@ import { de_RegisterIdentityProviderCommand, se_RegisterIdentityProviderCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterIdentityProviderCommand}.
  */

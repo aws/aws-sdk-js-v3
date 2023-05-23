@@ -19,6 +19,10 @@ import { de_UpdateFirewallDescriptionCommand, se_UpdateFirewallDescriptionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFirewallDescriptionCommand}.
  */

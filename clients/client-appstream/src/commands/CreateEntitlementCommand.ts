@@ -19,6 +19,10 @@ import { de_CreateEntitlementCommand, se_CreateEntitlementCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEntitlementCommand}.
  */

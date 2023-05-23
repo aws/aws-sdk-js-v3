@@ -19,6 +19,10 @@ import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTableCommand}.
  */

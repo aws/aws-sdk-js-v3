@@ -19,6 +19,10 @@ import { de_GetGameSessionLogUrlCommand, se_GetGameSessionLogUrlCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGameSessionLogUrlCommand}.
  */

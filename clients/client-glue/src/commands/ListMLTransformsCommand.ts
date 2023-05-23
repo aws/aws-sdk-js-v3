@@ -19,6 +19,10 @@ import { de_ListMLTransformsCommand, se_ListMLTransformsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMLTransformsCommand}.
  */

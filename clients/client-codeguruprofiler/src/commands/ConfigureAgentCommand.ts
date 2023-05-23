@@ -19,6 +19,10 @@ import { de_ConfigureAgentCommand, se_ConfigureAgentCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ConfigureAgentCommand}.
  */

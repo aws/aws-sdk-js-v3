@@ -23,6 +23,10 @@ import { de_ListEnvironmentVpcsCommand, se_ListEnvironmentVpcsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEnvironmentVpcsCommand}.
  */

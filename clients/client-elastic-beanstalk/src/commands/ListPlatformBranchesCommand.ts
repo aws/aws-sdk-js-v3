@@ -19,6 +19,10 @@ import { de_ListPlatformBranchesCommand, se_ListPlatformBranchesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPlatformBranchesCommand}.
  */

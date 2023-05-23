@@ -19,6 +19,10 @@ import { de_ExtendLicenseConsumptionCommand, se_ExtendLicenseConsumptionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExtendLicenseConsumptionCommand}.
  */

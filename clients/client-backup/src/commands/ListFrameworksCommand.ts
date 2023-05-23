@@ -19,6 +19,10 @@ import { de_ListFrameworksCommand, se_ListFrameworksCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFrameworksCommand}.
  */

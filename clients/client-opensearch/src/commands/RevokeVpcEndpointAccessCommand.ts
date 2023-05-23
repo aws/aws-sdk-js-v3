@@ -19,6 +19,10 @@ import { de_RevokeVpcEndpointAccessCommand, se_RevokeVpcEndpointAccessCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeVpcEndpointAccessCommand}.
  */

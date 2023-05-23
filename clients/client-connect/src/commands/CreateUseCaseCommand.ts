@@ -19,6 +19,10 @@ import { de_CreateUseCaseCommand, se_CreateUseCaseCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateUseCaseCommand}.
  */

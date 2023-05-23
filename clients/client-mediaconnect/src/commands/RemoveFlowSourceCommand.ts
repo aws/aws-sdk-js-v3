@@ -19,6 +19,10 @@ import { de_RemoveFlowSourceCommand, se_RemoveFlowSourceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveFlowSourceCommand}.
  */

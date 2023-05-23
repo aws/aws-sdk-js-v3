@@ -19,6 +19,10 @@ import { de_ListSlotTypesCommand, se_ListSlotTypesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSlotTypesCommand}.
  */

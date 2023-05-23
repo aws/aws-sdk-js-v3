@@ -19,6 +19,10 @@ import { de_GetStreamSessionCommand, se_GetStreamSessionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStreamSessionCommand}.
  */

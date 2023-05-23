@@ -19,6 +19,10 @@ import { de_DeleteAlarmsCommand, se_DeleteAlarmsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAlarmsCommand}.
  */

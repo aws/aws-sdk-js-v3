@@ -19,6 +19,10 @@ import { de_DeregisterGatewayInstanceCommand, se_DeregisterGatewayInstanceComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterGatewayInstanceCommand}.
  */

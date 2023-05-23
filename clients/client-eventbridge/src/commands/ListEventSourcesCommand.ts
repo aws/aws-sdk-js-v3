@@ -19,6 +19,10 @@ import { de_ListEventSourcesCommand, se_ListEventSourcesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventSourcesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeVpcClassicLinkCommand, se_DescribeVpcClassicLinkCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVpcClassicLinkCommand}.
  */

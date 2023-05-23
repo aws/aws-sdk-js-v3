@@ -23,6 +23,10 @@ import { de_CreateCustomKeyStoreCommand, se_CreateCustomKeyStoreCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCustomKeyStoreCommand}.
  */

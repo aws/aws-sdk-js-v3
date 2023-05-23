@@ -19,6 +19,10 @@ import { de_GetWorkingLocationCommand, se_GetWorkingLocationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWorkingLocationCommand}.
  */

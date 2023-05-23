@@ -19,6 +19,10 @@ import { de_DescribeAggregateIdFormatCommand, se_DescribeAggregateIdFormatComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAggregateIdFormatCommand}.
  */

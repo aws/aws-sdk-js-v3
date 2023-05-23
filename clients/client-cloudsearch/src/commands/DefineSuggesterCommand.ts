@@ -19,6 +19,10 @@ import { de_DefineSuggesterCommand, se_DefineSuggesterCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DefineSuggesterCommand}.
  */

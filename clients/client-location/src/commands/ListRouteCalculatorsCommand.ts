@@ -19,6 +19,10 @@ import { de_ListRouteCalculatorsCommand, se_ListRouteCalculatorsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRouteCalculatorsCommand}.
  */

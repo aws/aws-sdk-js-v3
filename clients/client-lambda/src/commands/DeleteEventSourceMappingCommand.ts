@@ -19,6 +19,10 @@ import { de_DeleteEventSourceMappingCommand, se_DeleteEventSourceMappingCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEventSourceMappingCommand}.
  */

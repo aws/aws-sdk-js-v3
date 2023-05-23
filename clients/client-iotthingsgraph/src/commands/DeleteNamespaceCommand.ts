@@ -19,6 +19,10 @@ import { de_DeleteNamespaceCommand, se_DeleteNamespaceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNamespaceCommand}.
  */

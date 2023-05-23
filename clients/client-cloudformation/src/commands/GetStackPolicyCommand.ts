@@ -19,6 +19,10 @@ import { de_GetStackPolicyCommand, se_GetStackPolicyCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStackPolicyCommand}.
  */

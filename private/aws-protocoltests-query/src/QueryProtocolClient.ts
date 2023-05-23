@@ -108,6 +108,8 @@ import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./command
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -304,7 +306,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -321,7 +323,7 @@ export interface QueryProtocolClientConfig extends QueryProtocolClientConfigType
 /**
  * @public
  */
-type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

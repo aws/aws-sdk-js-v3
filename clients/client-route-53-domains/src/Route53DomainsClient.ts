@@ -159,6 +159,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -364,7 +366,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type Route53DomainsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type Route53DomainsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -383,7 +385,7 @@ export interface Route53DomainsClientConfig extends Route53DomainsClientConfigTy
 /**
  * @public
  */
-type Route53DomainsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type Route53DomainsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

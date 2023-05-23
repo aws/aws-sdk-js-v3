@@ -19,6 +19,10 @@ import { de_UpdateContactFlowNameCommand, se_UpdateContactFlowNameCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateContactFlowNameCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeletePrincipalMappingCommand, se_DeletePrincipalMappingCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePrincipalMappingCommand}.
  */

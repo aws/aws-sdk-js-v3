@@ -19,6 +19,10 @@ import { de_GetQueryExecutionCommand, se_GetQueryExecutionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetQueryExecutionCommand}.
  */

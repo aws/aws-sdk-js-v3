@@ -23,6 +23,10 @@ import { de_DeleteChannelMembershipCommand, se_DeleteChannelMembershipCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteChannelMembershipCommand}.
  */

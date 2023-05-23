@@ -19,6 +19,10 @@ import { de_ListDefaultVocabulariesCommand, se_ListDefaultVocabulariesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDefaultVocabulariesCommand}.
  */

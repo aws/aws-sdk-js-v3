@@ -19,6 +19,10 @@ import { de_GenerateAccessLogsCommand, se_GenerateAccessLogsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GenerateAccessLogsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeDeviceJobCommand, se_DescribeDeviceJobCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDeviceJobCommand}.
  */

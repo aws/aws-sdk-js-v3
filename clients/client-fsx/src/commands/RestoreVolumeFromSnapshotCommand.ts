@@ -19,6 +19,10 @@ import { de_RestoreVolumeFromSnapshotCommand, se_RestoreVolumeFromSnapshotComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreVolumeFromSnapshotCommand}.
  */

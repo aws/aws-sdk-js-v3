@@ -19,6 +19,10 @@ import { de_DescribeSchemaCommand, se_DescribeSchemaCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSchemaCommand}.
  */

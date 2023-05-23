@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDeviceAuthorizationCommand}.
  */

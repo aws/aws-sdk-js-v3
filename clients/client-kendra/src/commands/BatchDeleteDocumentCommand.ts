@@ -19,6 +19,10 @@ import { de_BatchDeleteDocumentCommand, se_BatchDeleteDocumentCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteDocumentCommand}.
  */

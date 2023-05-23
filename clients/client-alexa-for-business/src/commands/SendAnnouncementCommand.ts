@@ -19,6 +19,10 @@ import { de_SendAnnouncementCommand, se_SendAnnouncementCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendAnnouncementCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateClusterKafkaVersionCommand, se_UpdateClusterKafkaVersionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateClusterKafkaVersionCommand}.
  */

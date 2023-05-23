@@ -19,6 +19,10 @@ import { de_UpdateFlowEntitlementCommand, se_UpdateFlowEntitlementCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFlowEntitlementCommand}.
  */

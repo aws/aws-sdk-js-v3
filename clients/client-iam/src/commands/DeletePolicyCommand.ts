@@ -19,6 +19,10 @@ import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePolicyCommand}.
  */

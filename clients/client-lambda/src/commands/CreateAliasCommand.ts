@@ -19,6 +19,10 @@ import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAliasCommand}.
  */

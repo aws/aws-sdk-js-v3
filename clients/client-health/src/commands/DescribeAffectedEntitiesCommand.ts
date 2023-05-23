@@ -19,6 +19,10 @@ import { de_DescribeAffectedEntitiesCommand, se_DescribeAffectedEntitiesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAffectedEntitiesCommand}.
  */

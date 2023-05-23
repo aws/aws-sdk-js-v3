@@ -24,6 +24,10 @@ import { de_UpdateAppCommand, se_UpdateAppCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAppCommand}.
  */

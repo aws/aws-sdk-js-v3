@@ -19,6 +19,10 @@ import { de_DeleteContainerImageCommand, se_DeleteContainerImageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteContainerImageCommand}.
  */

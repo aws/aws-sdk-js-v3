@@ -19,6 +19,10 @@ import { de_StopFailbackCommand, se_StopFailbackCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopFailbackCommand}.
  */

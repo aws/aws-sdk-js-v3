@@ -19,6 +19,10 @@ import { de_DisassociateKmsKeyCommand, se_DisassociateKmsKeyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateKmsKeyCommand}.
  */

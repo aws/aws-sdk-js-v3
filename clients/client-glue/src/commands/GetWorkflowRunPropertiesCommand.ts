@@ -19,6 +19,10 @@ import { de_GetWorkflowRunPropertiesCommand, se_GetWorkflowRunPropertiesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWorkflowRunPropertiesCommand}.
  */

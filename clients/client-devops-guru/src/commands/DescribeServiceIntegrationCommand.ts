@@ -19,6 +19,10 @@ import { de_DescribeServiceIntegrationCommand, se_DescribeServiceIntegrationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeServiceIntegrationCommand}.
  */

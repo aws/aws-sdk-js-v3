@@ -19,6 +19,10 @@ import { de_SetDataRetrievalPolicyCommand, se_SetDataRetrievalPolicyCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetDataRetrievalPolicyCommand}.
  */

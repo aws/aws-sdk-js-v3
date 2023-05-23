@@ -19,6 +19,10 @@ import { de_CreateDatasetContentCommand, se_CreateDatasetContentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDatasetContentCommand}.
  */

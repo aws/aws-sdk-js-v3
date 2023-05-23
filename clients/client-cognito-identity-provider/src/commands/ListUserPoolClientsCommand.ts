@@ -28,6 +28,10 @@ import { de_ListUserPoolClientsCommand, se_ListUserPoolClientsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUserPoolClientsCommand}.
  */

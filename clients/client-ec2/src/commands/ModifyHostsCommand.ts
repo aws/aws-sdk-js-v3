@@ -19,6 +19,10 @@ import { de_ModifyHostsCommand, se_ModifyHostsCommand } from "../protocols/Aws_e
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyHostsCommand}.
  */

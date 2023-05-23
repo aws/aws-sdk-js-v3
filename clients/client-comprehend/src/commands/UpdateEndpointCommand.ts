@@ -19,6 +19,10 @@ import { de_UpdateEndpointCommand, se_UpdateEndpointCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEndpointCommand}.
  */

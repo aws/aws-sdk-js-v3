@@ -19,6 +19,10 @@ import { de_PutContactInformationCommand, se_PutContactInformationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutContactInformationCommand}.
  */

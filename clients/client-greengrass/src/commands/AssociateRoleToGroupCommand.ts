@@ -19,6 +19,10 @@ import { de_AssociateRoleToGroupCommand, se_AssociateRoleToGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateRoleToGroupCommand}.
  */

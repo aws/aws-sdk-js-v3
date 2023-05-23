@@ -19,6 +19,10 @@ import { de_DisassociateRepositoryCommand, se_DisassociateRepositoryCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateRepositoryCommand}.
  */

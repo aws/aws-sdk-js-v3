@@ -19,6 +19,10 @@ import { de_ListBundlesCommand, se_ListBundlesCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBundlesCommand}.
  */

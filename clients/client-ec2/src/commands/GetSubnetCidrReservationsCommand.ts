@@ -19,6 +19,10 @@ import { de_GetSubnetCidrReservationsCommand, se_GetSubnetCidrReservationsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSubnetCidrReservationsCommand}.
  */

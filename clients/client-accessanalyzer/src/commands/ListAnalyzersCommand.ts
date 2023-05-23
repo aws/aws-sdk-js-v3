@@ -19,6 +19,10 @@ import { de_ListAnalyzersCommand, se_ListAnalyzersCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAnalyzersCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetFlowTemplateRevisionsCommand, se_GetFlowTemplateRevisionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFlowTemplateRevisionsCommand}.
  */

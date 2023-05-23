@@ -26,6 +26,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeStateMachineForExecutionCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListResourceRequestsCommand, se_ListResourceRequestsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListResourceRequestsCommand}.
  */

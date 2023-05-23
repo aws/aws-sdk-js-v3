@@ -23,6 +23,10 @@ import { de_DescribeConnectionsCommand, se_DescribeConnectionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeConnectionsCommand}.
  */

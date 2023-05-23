@@ -19,6 +19,10 @@ import { de_UpdateDirectConnectGatewayCommand, se_UpdateDirectConnectGatewayComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDirectConnectGatewayCommand}.
  */

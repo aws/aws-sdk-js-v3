@@ -19,6 +19,10 @@ import { de_DescribeLabelCommand, se_DescribeLabelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLabelCommand}.
  */

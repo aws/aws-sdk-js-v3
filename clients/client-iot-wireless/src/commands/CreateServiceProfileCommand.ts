@@ -19,6 +19,10 @@ import { de_CreateServiceProfileCommand, se_CreateServiceProfileCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateServiceProfileCommand}.
  */

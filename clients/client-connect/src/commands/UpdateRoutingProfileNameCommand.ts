@@ -19,6 +19,10 @@ import { de_UpdateRoutingProfileNameCommand, se_UpdateRoutingProfileNameCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRoutingProfileNameCommand}.
  */

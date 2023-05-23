@@ -24,6 +24,10 @@ import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUsersCommand}.
  */

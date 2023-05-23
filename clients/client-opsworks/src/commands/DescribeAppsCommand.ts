@@ -19,6 +19,10 @@ import { de_DescribeAppsCommand, se_DescribeAppsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAppsCommand}.
  */

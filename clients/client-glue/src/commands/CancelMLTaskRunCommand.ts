@@ -19,6 +19,10 @@ import { de_CancelMLTaskRunCommand, se_CancelMLTaskRunCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelMLTaskRunCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetVpnTunnelReplacementStatusCommand, se_GetVpnTunnelReplacementStat
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVpnTunnelReplacementStatusCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreatePolicyVersionCommand, se_CreatePolicyVersionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePolicyVersionCommand}.
  */

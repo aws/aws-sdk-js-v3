@@ -19,6 +19,10 @@ import { de_UpdateLoginProfileCommand, se_UpdateLoginProfileCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLoginProfileCommand}.
  */

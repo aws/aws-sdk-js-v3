@@ -23,6 +23,10 @@ import { de_AddApplicationOutputCommand, se_AddApplicationOutputCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddApplicationOutputCommand}.
  */

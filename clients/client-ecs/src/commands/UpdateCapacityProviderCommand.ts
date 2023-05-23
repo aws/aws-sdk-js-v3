@@ -19,6 +19,10 @@ import { de_UpdateCapacityProviderCommand, se_UpdateCapacityProviderCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCapacityProviderCommand}.
  */

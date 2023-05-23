@@ -19,6 +19,10 @@ import { de_GetPartitionsCommand, se_GetPartitionsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPartitionsCommand}.
  */

@@ -74,6 +74,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -235,7 +237,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type CodeStarConnectionsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type CodeStarConnectionsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -254,7 +256,7 @@ export interface CodeStarConnectionsClientConfig extends CodeStarConnectionsClie
 /**
  * @public
  */
-type CodeStarConnectionsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type CodeStarConnectionsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

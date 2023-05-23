@@ -288,6 +288,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -665,7 +667,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type APIGatewayClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type APIGatewayClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -684,7 +686,7 @@ export interface APIGatewayClientConfig extends APIGatewayClientConfigType {}
 /**
  * @public
  */
-type APIGatewayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type APIGatewayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

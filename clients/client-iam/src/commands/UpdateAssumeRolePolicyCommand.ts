@@ -19,6 +19,10 @@ import { de_UpdateAssumeRolePolicyCommand, se_UpdateAssumeRolePolicyCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAssumeRolePolicyCommand}.
  */

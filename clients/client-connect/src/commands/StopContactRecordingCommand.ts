@@ -19,6 +19,10 @@ import { de_StopContactRecordingCommand, se_StopContactRecordingCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopContactRecordingCommand}.
  */

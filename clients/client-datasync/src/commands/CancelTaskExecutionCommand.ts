@@ -19,6 +19,10 @@ import { de_CancelTaskExecutionCommand, se_CancelTaskExecutionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelTaskExecutionCommand}.
  */

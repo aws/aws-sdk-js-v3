@@ -19,6 +19,10 @@ import { de_DisableTopicRuleCommand, se_DisableTopicRuleCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableTopicRuleCommand}.
  */

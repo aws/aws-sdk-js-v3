@@ -19,6 +19,10 @@ import { de_DescribeHoursOfOperationCommand, se_DescribeHoursOfOperationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeHoursOfOperationCommand}.
  */

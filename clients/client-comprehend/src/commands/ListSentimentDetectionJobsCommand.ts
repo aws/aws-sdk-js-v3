@@ -19,6 +19,10 @@ import { de_ListSentimentDetectionJobsCommand, se_ListSentimentDetectionJobsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSentimentDetectionJobsCommand}.
  */

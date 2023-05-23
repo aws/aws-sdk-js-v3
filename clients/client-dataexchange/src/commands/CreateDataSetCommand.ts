@@ -19,6 +19,10 @@ import { de_CreateDataSetCommand, se_CreateDataSetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDataSetCommand}.
  */

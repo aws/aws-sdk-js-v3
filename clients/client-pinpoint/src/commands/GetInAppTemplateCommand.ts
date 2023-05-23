@@ -19,6 +19,10 @@ import { de_GetInAppTemplateCommand, se_GetInAppTemplateCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInAppTemplateCommand}.
  */

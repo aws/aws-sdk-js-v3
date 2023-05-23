@@ -60,6 +60,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -197,7 +199,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type QLDBSessionClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type QLDBSessionClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -216,7 +218,7 @@ export interface QLDBSessionClientConfig extends QLDBSessionClientConfigType {}
 /**
  * @public
  */
-type QLDBSessionClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type QLDBSessionClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

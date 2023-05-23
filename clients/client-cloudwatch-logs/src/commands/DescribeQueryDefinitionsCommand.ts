@@ -19,6 +19,10 @@ import { de_DescribeQueryDefinitionsCommand, se_DescribeQueryDefinitionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeQueryDefinitionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteManagedPrefixListCommand, se_DeleteManagedPrefixListCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteManagedPrefixListCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListDomainNamesCommand, se_ListDomainNamesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDomainNamesCommand}.
  */

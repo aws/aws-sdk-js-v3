@@ -19,6 +19,10 @@ import { de_UpdateTypedLinkFacetCommand, se_UpdateTypedLinkFacetCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTypedLinkFacetCommand}.
  */

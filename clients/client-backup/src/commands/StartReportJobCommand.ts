@@ -19,6 +19,10 @@ import { de_StartReportJobCommand, se_StartReportJobCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartReportJobCommand}.
  */

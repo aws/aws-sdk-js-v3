@@ -19,6 +19,10 @@ import { de_DescribeLoaCommand, se_DescribeLoaCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLoaCommand}.
  */

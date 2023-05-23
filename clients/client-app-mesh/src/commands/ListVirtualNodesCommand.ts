@@ -19,6 +19,10 @@ import { de_ListVirtualNodesCommand, se_ListVirtualNodesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVirtualNodesCommand}.
  */

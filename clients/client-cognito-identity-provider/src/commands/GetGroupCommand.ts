@@ -24,6 +24,10 @@ import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_json1_1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGroupCommand}.
  */

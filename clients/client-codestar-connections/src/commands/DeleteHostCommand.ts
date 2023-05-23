@@ -23,6 +23,10 @@ import { de_DeleteHostCommand, se_DeleteHostCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteHostCommand}.
  */

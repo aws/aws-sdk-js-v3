@@ -19,6 +19,10 @@ import { de_GetMulticastGroupSessionCommand, se_GetMulticastGroupSessionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMulticastGroupSessionCommand}.
  */

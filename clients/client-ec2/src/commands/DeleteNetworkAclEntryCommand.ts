@@ -19,6 +19,10 @@ import { de_DeleteNetworkAclEntryCommand, se_DeleteNetworkAclEntryCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNetworkAclEntryCommand}.
  */

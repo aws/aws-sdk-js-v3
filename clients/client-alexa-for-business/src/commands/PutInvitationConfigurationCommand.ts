@@ -19,6 +19,10 @@ import { de_PutInvitationConfigurationCommand, se_PutInvitationConfigurationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutInvitationConfigurationCommand}.
  */

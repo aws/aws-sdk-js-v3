@@ -19,6 +19,10 @@ import { de_UpdateTimeToLiveCommand, se_UpdateTimeToLiveCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTimeToLiveCommand}.
  */

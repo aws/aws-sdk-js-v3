@@ -19,6 +19,10 @@ import { de_CreateLoggerDefinitionCommand, se_CreateLoggerDefinitionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLoggerDefinitionCommand}.
  */

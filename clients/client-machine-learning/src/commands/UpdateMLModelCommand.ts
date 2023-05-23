@@ -19,6 +19,10 @@ import { de_UpdateMLModelCommand, se_UpdateMLModelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMLModelCommand}.
  */

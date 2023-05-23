@@ -23,6 +23,10 @@ import { de_GetSlotTypeCommand, se_GetSlotTypeCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSlotTypeCommand}.
  */

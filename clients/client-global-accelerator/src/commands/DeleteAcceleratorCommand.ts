@@ -23,6 +23,10 @@ import { de_DeleteAcceleratorCommand, se_DeleteAcceleratorCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAcceleratorCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateTopicRuleDestinationCommand, se_UpdateTopicRuleDestinationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTopicRuleDestinationCommand}.
  */

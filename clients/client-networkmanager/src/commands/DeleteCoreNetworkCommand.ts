@@ -19,6 +19,10 @@ import { de_DeleteCoreNetworkCommand, se_DeleteCoreNetworkCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCoreNetworkCommand}.
  */

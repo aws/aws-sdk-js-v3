@@ -19,6 +19,10 @@ import { de_ExportFormsCommand, se_ExportFormsCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportFormsCommand}.
  */

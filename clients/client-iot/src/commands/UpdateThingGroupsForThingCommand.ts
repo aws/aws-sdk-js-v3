@@ -19,6 +19,10 @@ import { de_UpdateThingGroupsForThingCommand, se_UpdateThingGroupsForThingComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateThingGroupsForThingCommand}.
  */

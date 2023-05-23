@@ -19,6 +19,10 @@ import { de_ModifyVpnConnectionOptionsCommand, se_ModifyVpnConnectionOptionsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyVpnConnectionOptionsCommand}.
  */

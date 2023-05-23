@@ -19,6 +19,10 @@ import { de_DescribeArchiveCommand, se_DescribeArchiveCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeArchiveCommand}.
  */

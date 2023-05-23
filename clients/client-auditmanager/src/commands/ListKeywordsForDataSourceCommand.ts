@@ -19,6 +19,10 @@ import { de_ListKeywordsForDataSourceCommand, se_ListKeywordsForDataSourceComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListKeywordsForDataSourceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ResetImageAttributeCommand, se_ResetImageAttributeCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetImageAttributeCommand}.
  */

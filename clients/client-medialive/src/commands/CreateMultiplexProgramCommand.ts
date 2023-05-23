@@ -19,6 +19,10 @@ import { de_CreateMultiplexProgramCommand, se_CreateMultiplexProgramCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMultiplexProgramCommand}.
  */

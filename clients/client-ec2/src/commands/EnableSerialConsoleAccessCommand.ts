@@ -19,6 +19,10 @@ import { de_EnableSerialConsoleAccessCommand, se_EnableSerialConsoleAccessComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableSerialConsoleAccessCommand}.
  */

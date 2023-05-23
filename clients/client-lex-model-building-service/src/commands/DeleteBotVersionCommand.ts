@@ -23,6 +23,10 @@ import { de_DeleteBotVersionCommand, se_DeleteBotVersionCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBotVersionCommand}.
  */

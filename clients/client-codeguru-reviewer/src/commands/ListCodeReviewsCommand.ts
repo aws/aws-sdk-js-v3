@@ -19,6 +19,10 @@ import { de_ListCodeReviewsCommand, se_ListCodeReviewsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCodeReviewsCommand}.
  */

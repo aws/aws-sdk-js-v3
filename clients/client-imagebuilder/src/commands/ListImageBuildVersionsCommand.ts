@@ -19,6 +19,10 @@ import { de_ListImageBuildVersionsCommand, se_ListImageBuildVersionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListImageBuildVersionsCommand}.
  */

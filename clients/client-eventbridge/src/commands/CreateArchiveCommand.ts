@@ -19,6 +19,10 @@ import { de_CreateArchiveCommand, se_CreateArchiveCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateArchiveCommand}.
  */

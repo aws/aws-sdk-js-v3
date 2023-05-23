@@ -19,6 +19,10 @@ import { de_UntagSAMLProviderCommand, se_UntagSAMLProviderCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagSAMLProviderCommand}.
  */

@@ -29,6 +29,10 @@ import {
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssociatedRoute53HealthChecksCommand}.
  */

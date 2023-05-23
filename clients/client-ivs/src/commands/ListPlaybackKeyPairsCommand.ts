@@ -19,6 +19,10 @@ import { de_ListPlaybackKeyPairsCommand, se_ListPlaybackKeyPairsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPlaybackKeyPairsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DescribeSpendLimitsCommand, se_DescribeSpendLimitsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSpendLimitsCommand}.
  */

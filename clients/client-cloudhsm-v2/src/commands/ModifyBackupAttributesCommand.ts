@@ -19,6 +19,10 @@ import { de_ModifyBackupAttributesCommand, se_ModifyBackupAttributesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyBackupAttributesCommand}.
  */

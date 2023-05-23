@@ -19,6 +19,10 @@ import { de_CreateConfiguredTableCommand, se_CreateConfiguredTableCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateConfiguredTableCommand}.
  */

@@ -19,6 +19,10 @@ import { de_SimulatePrincipalPolicyCommand, se_SimulatePrincipalPolicyCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SimulatePrincipalPolicyCommand}.
  */

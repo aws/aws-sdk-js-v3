@@ -19,6 +19,10 @@ import { de_DeleteGameSessionQueueCommand, se_DeleteGameSessionQueueCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGameSessionQueueCommand}.
  */

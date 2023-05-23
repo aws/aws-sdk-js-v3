@@ -19,6 +19,10 @@ import { de_GetCertificatesCommand, se_GetCertificatesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCertificatesCommand}.
  */

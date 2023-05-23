@@ -19,6 +19,10 @@ import { de_GetCollaborationCommand, se_GetCollaborationCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCollaborationCommand}.
  */

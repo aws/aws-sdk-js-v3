@@ -19,6 +19,10 @@ import { de_GetCostEstimateCommand, se_GetCostEstimateCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCostEstimateCommand}.
  */

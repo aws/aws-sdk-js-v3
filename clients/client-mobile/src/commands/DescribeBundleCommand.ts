@@ -19,6 +19,10 @@ import { de_DescribeBundleCommand, se_DescribeBundleCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBundleCommand}.
  */

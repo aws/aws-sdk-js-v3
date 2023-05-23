@@ -19,6 +19,10 @@ import { de_CreateLagCommand, se_CreateLagCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLagCommand}.
  */

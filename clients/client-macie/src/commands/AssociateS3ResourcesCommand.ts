@@ -19,6 +19,10 @@ import { de_AssociateS3ResourcesCommand, se_AssociateS3ResourcesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateS3ResourcesCommand}.
  */

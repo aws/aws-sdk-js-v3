@@ -29,6 +29,10 @@ import { de_DescribeUserPoolClientCommand, se_DescribeUserPoolClientCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeUserPoolClientCommand}.
  */

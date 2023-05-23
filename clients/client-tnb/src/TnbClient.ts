@@ -185,6 +185,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -388,7 +390,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type TnbClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type TnbClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -407,7 +409,7 @@ export interface TnbClientConfig extends TnbClientConfigType {}
 /**
  * @public
  */
-type TnbClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type TnbClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

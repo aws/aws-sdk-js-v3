@@ -19,6 +19,10 @@ import { de_BatchGetFreeTrialInfoCommand, se_BatchGetFreeTrialInfoCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetFreeTrialInfoCommand}.
  */

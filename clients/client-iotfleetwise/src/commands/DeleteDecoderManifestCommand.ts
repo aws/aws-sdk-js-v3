@@ -19,6 +19,10 @@ import { de_DeleteDecoderManifestCommand, se_DeleteDecoderManifestCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDecoderManifestCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListAttendeeTagsCommand, se_ListAttendeeTagsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAttendeeTagsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetUserSettingsCommand, se_GetUserSettingsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUserSettingsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_SearchRelatedItemsCommand, se_SearchRelatedItemsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchRelatedItemsCommand}.
  */

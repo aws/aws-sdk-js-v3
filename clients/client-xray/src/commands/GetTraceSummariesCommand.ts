@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTraceSummariesCommand}.
  */

@@ -23,6 +23,10 @@ import { de_GetBuiltinSlotTypesCommand, se_GetBuiltinSlotTypesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBuiltinSlotTypesCommand}.
  */

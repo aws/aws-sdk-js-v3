@@ -19,6 +19,10 @@ import { de_DescribeMitigationActionCommand, se_DescribeMitigationActionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeMitigationActionCommand}.
  */

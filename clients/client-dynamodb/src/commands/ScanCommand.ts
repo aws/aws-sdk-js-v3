@@ -19,6 +19,10 @@ import { de_ScanCommand, se_ScanCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ScanCommand}.
  */

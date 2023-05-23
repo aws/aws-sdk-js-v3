@@ -19,6 +19,10 @@ import { de_ListEphemeridesCommand, se_ListEphemeridesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEphemeridesCommand}.
  */

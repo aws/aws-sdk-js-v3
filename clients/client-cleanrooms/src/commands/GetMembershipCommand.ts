@@ -19,6 +19,10 @@ import { de_GetMembershipCommand, se_GetMembershipCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMembershipCommand}.
  */

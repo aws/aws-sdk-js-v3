@@ -19,6 +19,10 @@ import { de_StartOnDemandAuditTaskCommand, se_StartOnDemandAuditTaskCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartOnDemandAuditTaskCommand}.
  */

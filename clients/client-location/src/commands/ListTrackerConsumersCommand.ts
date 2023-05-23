@@ -19,6 +19,10 @@ import { de_ListTrackerConsumersCommand, se_ListTrackerConsumersCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTrackerConsumersCommand}.
  */

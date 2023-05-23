@@ -19,6 +19,10 @@ import { de_UpdateLocationNfsCommand, se_UpdateLocationNfsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLocationNfsCommand}.
  */

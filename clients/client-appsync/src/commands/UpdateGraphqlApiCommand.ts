@@ -19,6 +19,10 @@ import { de_UpdateGraphqlApiCommand, se_UpdateGraphqlApiCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGraphqlApiCommand}.
  */

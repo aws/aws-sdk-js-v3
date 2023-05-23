@@ -19,6 +19,10 @@ import { de_ListEventLogsCommand, se_ListEventLogsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventLogsCommand}.
  */

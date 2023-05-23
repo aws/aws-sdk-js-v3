@@ -19,6 +19,10 @@ import { de_ListPoliciesCommand, se_ListPoliciesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPoliciesCommand}.
  */

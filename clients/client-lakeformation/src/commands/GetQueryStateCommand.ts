@@ -19,6 +19,10 @@ import { de_GetQueryStateCommand, se_GetQueryStateCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetQueryStateCommand}.
  */

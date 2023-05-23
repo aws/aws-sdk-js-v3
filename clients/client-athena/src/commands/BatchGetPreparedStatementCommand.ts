@@ -19,6 +19,10 @@ import { de_BatchGetPreparedStatementCommand, se_BatchGetPreparedStatementComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetPreparedStatementCommand}.
  */

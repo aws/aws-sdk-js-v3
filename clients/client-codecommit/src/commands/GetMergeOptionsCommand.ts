@@ -19,6 +19,10 @@ import { de_GetMergeOptionsCommand, se_GetMergeOptionsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMergeOptionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeThesaurusCommand, se_DescribeThesaurusCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeThesaurusCommand}.
  */

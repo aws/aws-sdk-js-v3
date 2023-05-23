@@ -27,6 +27,10 @@ import { de_UpdateUserAttributesCommand, se_UpdateUserAttributesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateUserAttributesCommand}.
  */

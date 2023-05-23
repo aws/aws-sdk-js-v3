@@ -19,6 +19,10 @@ import { de_BatchGetBuildsCommand, se_BatchGetBuildsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetBuildsCommand}.
  */

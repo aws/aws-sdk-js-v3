@@ -24,6 +24,10 @@ import { de_GetSigningCertificateCommand, se_GetSigningCertificateCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSigningCertificateCommand}.
  */

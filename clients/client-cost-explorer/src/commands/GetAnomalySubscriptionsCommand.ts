@@ -19,6 +19,10 @@ import { de_GetAnomalySubscriptionsCommand, se_GetAnomalySubscriptionsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAnomalySubscriptionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetProfileCommand}.
  */

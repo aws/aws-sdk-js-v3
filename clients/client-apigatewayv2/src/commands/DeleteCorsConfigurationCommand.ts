@@ -19,6 +19,10 @@ import { de_DeleteCorsConfigurationCommand, se_DeleteCorsConfigurationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCorsConfigurationCommand}.
  */

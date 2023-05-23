@@ -19,6 +19,10 @@ import { de_CreateRulesetCommand, se_CreateRulesetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRulesetCommand}.
  */

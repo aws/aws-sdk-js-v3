@@ -19,6 +19,10 @@ import { de_DeleteEntityTypeCommand, se_DeleteEntityTypeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEntityTypeCommand}.
  */

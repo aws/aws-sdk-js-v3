@@ -19,6 +19,10 @@ import { de_ListRunTasksCommand, se_ListRunTasksCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRunTasksCommand}.
  */

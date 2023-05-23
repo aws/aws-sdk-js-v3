@@ -19,6 +19,10 @@ import { de_UpdateAssessmentTargetCommand, se_UpdateAssessmentTargetCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAssessmentTargetCommand}.
  */

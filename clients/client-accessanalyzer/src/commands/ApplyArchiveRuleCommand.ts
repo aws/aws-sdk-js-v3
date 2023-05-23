@@ -19,6 +19,10 @@ import { de_ApplyArchiveRuleCommand, se_ApplyArchiveRuleCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ApplyArchiveRuleCommand}.
  */

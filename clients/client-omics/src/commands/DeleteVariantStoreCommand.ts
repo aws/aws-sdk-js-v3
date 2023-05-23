@@ -19,6 +19,10 @@ import { de_DeleteVariantStoreCommand, se_DeleteVariantStoreCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVariantStoreCommand}.
  */

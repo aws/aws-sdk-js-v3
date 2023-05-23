@@ -19,6 +19,10 @@ import { de_CreateUsagePlanKeyCommand, se_CreateUsagePlanKeyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateUsagePlanKeyCommand}.
  */

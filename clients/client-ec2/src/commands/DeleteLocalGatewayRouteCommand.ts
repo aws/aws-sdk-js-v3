@@ -19,6 +19,10 @@ import { de_DeleteLocalGatewayRouteCommand, se_DeleteLocalGatewayRouteCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLocalGatewayRouteCommand}.
  */

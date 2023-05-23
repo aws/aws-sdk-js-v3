@@ -19,6 +19,10 @@ import { de_CreateGameCommand, se_CreateGameCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGameCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateKeyCommand, se_UpdateKeyCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateKeyCommand}.
  */

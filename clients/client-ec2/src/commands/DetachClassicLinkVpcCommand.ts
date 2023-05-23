@@ -19,6 +19,10 @@ import { de_DetachClassicLinkVpcCommand, se_DetachClassicLinkVpcCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachClassicLinkVpcCommand}.
  */

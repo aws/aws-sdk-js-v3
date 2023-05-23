@@ -19,6 +19,10 @@ import { de_StopFleetActionsCommand, se_StopFleetActionsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopFleetActionsCommand}.
  */

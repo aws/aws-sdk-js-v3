@@ -19,6 +19,10 @@ import { de_DeleteAccessPolicyCommand, se_DeleteAccessPolicyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAccessPolicyCommand}.
  */

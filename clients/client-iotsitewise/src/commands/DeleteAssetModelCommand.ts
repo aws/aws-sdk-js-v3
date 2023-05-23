@@ -19,6 +19,10 @@ import { de_DeleteAssetModelCommand, se_DeleteAssetModelCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAssetModelCommand}.
  */

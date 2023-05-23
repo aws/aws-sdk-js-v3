@@ -19,6 +19,10 @@ import { de_GetViolationDetailsCommand, se_GetViolationDetailsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetViolationDetailsCommand}.
  */

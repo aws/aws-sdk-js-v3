@@ -23,6 +23,10 @@ import { de_DeleteNodeCommand, se_DeleteNodeCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNodeCommand}.
  */

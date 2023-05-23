@@ -19,6 +19,10 @@ import { de_AssociateTrunkInterfaceCommand, se_AssociateTrunkInterfaceCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateTrunkInterfaceCommand}.
  */

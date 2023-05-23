@@ -19,6 +19,10 @@ import { de_DescribeFlywheelIterationCommand, se_DescribeFlywheelIterationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFlywheelIterationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateChannelReadMarkerCommand, se_UpdateChannelReadMarkerCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateChannelReadMarkerCommand}.
  */

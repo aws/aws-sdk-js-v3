@@ -19,6 +19,10 @@ import { de_GetWirelessDeviceCommand, se_GetWirelessDeviceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWirelessDeviceCommand}.
  */

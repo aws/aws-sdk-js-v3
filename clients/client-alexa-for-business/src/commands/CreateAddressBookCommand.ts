@@ -19,6 +19,10 @@ import { de_CreateAddressBookCommand, se_CreateAddressBookCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAddressBookCommand}.
  */

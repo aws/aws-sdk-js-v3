@@ -19,6 +19,10 @@ import { de_ResetDeploymentsCommand, se_ResetDeploymentsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetDeploymentsCommand}.
  */

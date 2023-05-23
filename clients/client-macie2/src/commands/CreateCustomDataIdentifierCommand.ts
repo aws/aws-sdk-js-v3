@@ -19,6 +19,10 @@ import { de_CreateCustomDataIdentifierCommand, se_CreateCustomDataIdentifierComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCustomDataIdentifierCommand}.
  */

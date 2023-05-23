@@ -19,6 +19,10 @@ import { de_DeleteRoleCommand, se_DeleteRoleCommand } from "../protocols/Aws_que
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRoleCommand}.
  */

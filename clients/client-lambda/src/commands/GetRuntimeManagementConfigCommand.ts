@@ -19,6 +19,10 @@ import { de_GetRuntimeManagementConfigCommand, se_GetRuntimeManagementConfigComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRuntimeManagementConfigCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeUserProfilesCommand, se_DescribeUserProfilesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeUserProfilesCommand}.
  */

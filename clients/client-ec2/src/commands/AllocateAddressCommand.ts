@@ -19,6 +19,10 @@ import { de_AllocateAddressCommand, se_AllocateAddressCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AllocateAddressCommand}.
  */

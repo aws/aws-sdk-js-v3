@@ -19,6 +19,10 @@ import { de_DescribeEvaluationsCommand, se_DescribeEvaluationsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEvaluationsCommand}.
  */

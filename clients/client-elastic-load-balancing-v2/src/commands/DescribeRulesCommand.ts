@@ -23,6 +23,10 @@ import { de_DescribeRulesCommand, se_DescribeRulesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRulesCommand}.
  */

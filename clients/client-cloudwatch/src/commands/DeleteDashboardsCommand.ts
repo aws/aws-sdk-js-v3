@@ -19,6 +19,10 @@ import { de_DeleteDashboardsCommand, se_DeleteDashboardsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDashboardsCommand}.
  */

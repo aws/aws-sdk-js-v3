@@ -23,6 +23,10 @@ import { de_GetLatestConfigurationCommand, se_GetLatestConfigurationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLatestConfigurationCommand}.
  */

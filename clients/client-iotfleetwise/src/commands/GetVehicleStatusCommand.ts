@@ -19,6 +19,10 @@ import { de_GetVehicleStatusCommand, se_GetVehicleStatusCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVehicleStatusCommand}.
  */

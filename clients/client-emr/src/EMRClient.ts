@@ -202,6 +202,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -445,7 +447,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type EMRClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type EMRClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -464,7 +466,7 @@ export interface EMRClientConfig extends EMRClientConfigType {}
 /**
  * @public
  */
-type EMRClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type EMRClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -28,6 +28,10 @@ import { de_CreateWorkflowCommand, se_CreateWorkflowCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWorkflowCommand}.
  */

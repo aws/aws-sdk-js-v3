@@ -19,6 +19,10 @@ import { de_DescribeIdentityUsageCommand, se_DescribeIdentityUsageCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeIdentityUsageCommand}.
  */

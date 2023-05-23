@@ -19,6 +19,10 @@ import { de_CreateDataViewCommand, se_CreateDataViewCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDataViewCommand}.
  */

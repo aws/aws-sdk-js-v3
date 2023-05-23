@@ -19,6 +19,10 @@ import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAppCommand}.
  */

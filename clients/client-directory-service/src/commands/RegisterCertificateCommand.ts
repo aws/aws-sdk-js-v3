@@ -19,6 +19,10 @@ import { de_RegisterCertificateCommand, se_RegisterCertificateCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterCertificateCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListExportErrorsCommand, se_ListExportErrorsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListExportErrorsCommand}.
  */

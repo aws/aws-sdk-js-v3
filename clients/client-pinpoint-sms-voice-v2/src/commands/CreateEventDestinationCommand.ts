@@ -23,6 +23,10 @@ import { de_CreateEventDestinationCommand, se_CreateEventDestinationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEventDestinationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ConfigureLogsForChannelCommand, se_ConfigureLogsForChannelCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ConfigureLogsForChannelCommand}.
  */

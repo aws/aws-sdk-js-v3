@@ -23,6 +23,10 @@ import { de_DescribeWorkspaceCommand, se_DescribeWorkspaceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeWorkspaceCommand}.
  */

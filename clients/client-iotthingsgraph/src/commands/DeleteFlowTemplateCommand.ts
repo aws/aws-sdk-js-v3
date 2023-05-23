@@ -19,6 +19,10 @@ import { de_DeleteFlowTemplateCommand, se_DeleteFlowTemplateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFlowTemplateCommand}.
  */

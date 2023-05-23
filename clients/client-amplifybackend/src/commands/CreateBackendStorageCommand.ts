@@ -19,6 +19,10 @@ import { de_CreateBackendStorageCommand, se_CreateBackendStorageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBackendStorageCommand}.
  */

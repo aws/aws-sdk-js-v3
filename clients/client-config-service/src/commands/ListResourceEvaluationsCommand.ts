@@ -19,6 +19,10 @@ import { de_ListResourceEvaluationsCommand, se_ListResourceEvaluationsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListResourceEvaluationsCommand}.
  */

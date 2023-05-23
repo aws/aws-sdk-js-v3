@@ -19,6 +19,10 @@ import { de_ListStorageSystemsCommand, se_ListStorageSystemsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStorageSystemsCommand}.
  */

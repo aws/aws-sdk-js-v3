@@ -19,6 +19,10 @@ import { de_GetComponentCommand, se_GetComponentCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetComponentCommand}.
  */

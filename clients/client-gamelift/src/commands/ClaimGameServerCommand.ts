@@ -19,6 +19,10 @@ import { de_ClaimGameServerCommand, se_ClaimGameServerCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ClaimGameServerCommand}.
  */

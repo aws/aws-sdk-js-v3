@@ -23,6 +23,10 @@ import { de_SearchContactsCommand, se_SearchContactsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchContactsCommand}.
  */

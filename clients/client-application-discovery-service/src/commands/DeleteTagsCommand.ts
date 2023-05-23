@@ -23,6 +23,10 @@ import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTagsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListInsightsCommand, se_ListInsightsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInsightsCommand}.
  */

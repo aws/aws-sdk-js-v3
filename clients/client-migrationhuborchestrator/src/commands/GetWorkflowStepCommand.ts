@@ -23,6 +23,10 @@ import { de_GetWorkflowStepCommand, se_GetWorkflowStepCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWorkflowStepCommand}.
  */

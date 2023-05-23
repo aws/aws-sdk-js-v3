@@ -19,6 +19,10 @@ import { de_PutSourceServerActionCommand, se_PutSourceServerActionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSourceServerActionCommand}.
  */

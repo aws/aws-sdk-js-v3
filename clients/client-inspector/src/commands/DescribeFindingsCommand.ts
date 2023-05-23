@@ -19,6 +19,10 @@ import { de_DescribeFindingsCommand, se_DescribeFindingsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFindingsCommand}.
  */

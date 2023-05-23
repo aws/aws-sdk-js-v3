@@ -19,6 +19,10 @@ import { de_DeleteApplicationOutputCommand, se_DeleteApplicationOutputCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteApplicationOutputCommand}.
  */

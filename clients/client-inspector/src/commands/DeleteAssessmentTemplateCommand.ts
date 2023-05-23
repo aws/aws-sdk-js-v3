@@ -19,6 +19,10 @@ import { de_DeleteAssessmentTemplateCommand, se_DeleteAssessmentTemplateCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAssessmentTemplateCommand}.
  */

@@ -68,6 +68,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -217,7 +219,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ARCZonalShiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ARCZonalShiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -236,7 +238,7 @@ export interface ARCZonalShiftClientConfig extends ARCZonalShiftClientConfigType
 /**
  * @public
  */
-type ARCZonalShiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ARCZonalShiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

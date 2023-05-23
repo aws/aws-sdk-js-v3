@@ -19,6 +19,10 @@ import { de_GetRegistryCommand, se_GetRegistryCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRegistryCommand}.
  */

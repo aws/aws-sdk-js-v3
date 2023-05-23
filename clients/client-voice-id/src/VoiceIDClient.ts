@@ -112,6 +112,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -307,7 +309,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type VoiceIDClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type VoiceIDClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -326,7 +328,7 @@ export interface VoiceIDClientConfig extends VoiceIDClientConfigType {}
 /**
  * @public
  */
-type VoiceIDClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type VoiceIDClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

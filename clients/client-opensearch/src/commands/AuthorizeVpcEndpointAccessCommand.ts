@@ -19,6 +19,10 @@ import { de_AuthorizeVpcEndpointAccessCommand, se_AuthorizeVpcEndpointAccessComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AuthorizeVpcEndpointAccessCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListRepositoryAssociationsCommand, se_ListRepositoryAssociationsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRepositoryAssociationsCommand}.
  */

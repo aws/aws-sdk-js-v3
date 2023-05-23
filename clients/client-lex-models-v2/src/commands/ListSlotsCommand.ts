@@ -19,6 +19,10 @@ import { de_ListSlotsCommand, se_ListSlotsCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSlotsCommand}.
  */

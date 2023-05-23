@@ -19,6 +19,10 @@ import { de_ListImportFailuresCommand, se_ListImportFailuresCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListImportFailuresCommand}.
  */

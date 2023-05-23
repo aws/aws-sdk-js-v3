@@ -23,6 +23,10 @@ import { de_CreateComputerCommand, se_CreateComputerCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateComputerCommand}.
  */

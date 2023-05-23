@@ -19,6 +19,10 @@ import { de_DeleteEventsByEventTypeCommand, se_DeleteEventsByEventTypeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEventsByEventTypeCommand}.
  */

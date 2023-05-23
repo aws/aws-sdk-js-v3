@@ -19,6 +19,10 @@ import { de_GetBatchPredictionCommand, se_GetBatchPredictionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBatchPredictionCommand}.
  */

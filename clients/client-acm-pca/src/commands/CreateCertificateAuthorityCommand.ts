@@ -19,6 +19,10 @@ import { de_CreateCertificateAuthorityCommand, se_CreateCertificateAuthorityComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCertificateAuthorityCommand}.
  */

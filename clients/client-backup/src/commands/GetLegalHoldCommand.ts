@@ -19,6 +19,10 @@ import { de_GetLegalHoldCommand, se_GetLegalHoldCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLegalHoldCommand}.
  */

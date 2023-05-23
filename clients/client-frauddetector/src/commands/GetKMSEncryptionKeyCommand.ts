@@ -19,6 +19,10 @@ import { de_GetKMSEncryptionKeyCommand, se_GetKMSEncryptionKeyCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetKMSEncryptionKeyCommand}.
  */

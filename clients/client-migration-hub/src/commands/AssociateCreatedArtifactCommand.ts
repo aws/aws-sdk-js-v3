@@ -19,6 +19,10 @@ import { de_AssociateCreatedArtifactCommand, se_AssociateCreatedArtifactCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateCreatedArtifactCommand}.
  */

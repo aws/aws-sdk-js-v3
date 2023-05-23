@@ -19,6 +19,10 @@ import { de_ListThingGroupsCommand, se_ListThingGroupsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListThingGroupsCommand}.
  */

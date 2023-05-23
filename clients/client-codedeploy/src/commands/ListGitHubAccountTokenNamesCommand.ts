@@ -19,6 +19,10 @@ import { de_ListGitHubAccountTokenNamesCommand, se_ListGitHubAccountTokenNamesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGitHubAccountTokenNamesCommand}.
  */

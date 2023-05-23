@@ -19,6 +19,10 @@ import { de_DescribeNetworkAclsCommand, se_DescribeNetworkAclsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeNetworkAclsCommand}.
  */

@@ -24,6 +24,10 @@ import { de_CreateStudioCommand, se_CreateStudioCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStudioCommand}.
  */

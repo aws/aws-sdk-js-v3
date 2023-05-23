@@ -19,6 +19,10 @@ import { de_AcknowledgeThirdPartyJobCommand, se_AcknowledgeThirdPartyJobCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AcknowledgeThirdPartyJobCommand}.
  */

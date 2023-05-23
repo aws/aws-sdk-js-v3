@@ -19,6 +19,10 @@ import { de_CreateInputCommand, se_CreateInputCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateInputCommand}.
  */

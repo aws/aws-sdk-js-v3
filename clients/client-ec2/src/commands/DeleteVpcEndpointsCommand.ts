@@ -19,6 +19,10 @@ import { de_DeleteVpcEndpointsCommand, se_DeleteVpcEndpointsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVpcEndpointsCommand}.
  */

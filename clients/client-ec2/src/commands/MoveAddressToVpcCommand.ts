@@ -19,6 +19,10 @@ import { de_MoveAddressToVpcCommand, se_MoveAddressToVpcCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MoveAddressToVpcCommand}.
  */

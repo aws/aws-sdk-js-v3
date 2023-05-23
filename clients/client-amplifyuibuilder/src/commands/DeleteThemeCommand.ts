@@ -19,6 +19,10 @@ import { de_DeleteThemeCommand, se_DeleteThemeCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteThemeCommand}.
  */

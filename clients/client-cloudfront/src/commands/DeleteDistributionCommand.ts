@@ -19,6 +19,10 @@ import { de_DeleteDistributionCommand, se_DeleteDistributionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDistributionCommand}.
  */

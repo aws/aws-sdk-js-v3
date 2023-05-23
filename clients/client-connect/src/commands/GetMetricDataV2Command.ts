@@ -19,6 +19,10 @@ import { de_GetMetricDataV2Command, se_GetMetricDataV2Command } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMetricDataV2Command}.
  */

@@ -19,6 +19,10 @@ import { de_DisableKeyRotationCommand, se_DisableKeyRotationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableKeyRotationCommand}.
  */

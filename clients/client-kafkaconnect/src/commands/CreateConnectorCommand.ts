@@ -23,6 +23,10 @@ import { de_CreateConnectorCommand, se_CreateConnectorCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateConnectorCommand}.
  */

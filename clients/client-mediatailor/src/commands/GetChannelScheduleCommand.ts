@@ -19,6 +19,10 @@ import { de_GetChannelScheduleCommand, se_GetChannelScheduleCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetChannelScheduleCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeDBClustersCommand, se_DescribeDBClustersCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDBClustersCommand}.
  */

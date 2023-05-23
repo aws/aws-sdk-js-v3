@@ -19,6 +19,10 @@ import { de_RevokeFlowEntitlementCommand, se_RevokeFlowEntitlementCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeFlowEntitlementCommand}.
  */

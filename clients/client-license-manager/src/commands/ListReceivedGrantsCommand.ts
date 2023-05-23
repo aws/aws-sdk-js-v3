@@ -19,6 +19,10 @@ import { de_ListReceivedGrantsCommand, se_ListReceivedGrantsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReceivedGrantsCommand}.
  */

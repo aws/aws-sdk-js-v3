@@ -19,6 +19,10 @@ import { de_DeleteRouteCommand, se_DeleteRouteCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRouteCommand}.
  */

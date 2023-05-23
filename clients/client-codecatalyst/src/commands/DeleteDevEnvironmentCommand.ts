@@ -19,6 +19,10 @@ import { de_DeleteDevEnvironmentCommand, se_DeleteDevEnvironmentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDevEnvironmentCommand}.
  */

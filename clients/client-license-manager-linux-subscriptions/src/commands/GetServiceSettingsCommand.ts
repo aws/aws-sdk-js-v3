@@ -23,6 +23,10 @@ import { de_GetServiceSettingsCommand, se_GetServiceSettingsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetServiceSettingsCommand}.
  */

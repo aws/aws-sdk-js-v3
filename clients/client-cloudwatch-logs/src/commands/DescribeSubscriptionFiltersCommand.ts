@@ -19,6 +19,10 @@ import { de_DescribeSubscriptionFiltersCommand, se_DescribeSubscriptionFiltersCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSubscriptionFiltersCommand}.
  */

@@ -19,6 +19,10 @@ import { de_BatchStartCommand, se_BatchStartCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchStartCommand}.
  */

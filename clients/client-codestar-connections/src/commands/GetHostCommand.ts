@@ -23,6 +23,10 @@ import { de_GetHostCommand, se_GetHostCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetHostCommand}.
  */

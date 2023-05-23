@@ -23,6 +23,10 @@ import { de_GetIceServerConfigCommand, se_GetIceServerConfigCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIceServerConfigCommand}.
  */

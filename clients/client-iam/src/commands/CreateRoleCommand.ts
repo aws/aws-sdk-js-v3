@@ -19,6 +19,10 @@ import { de_CreateRoleCommand, se_CreateRoleCommand } from "../protocols/Aws_que
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRoleCommand}.
  */

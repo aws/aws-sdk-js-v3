@@ -19,6 +19,10 @@ import { de_ListSmartHomeAppliancesCommand, se_ListSmartHomeAppliancesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSmartHomeAppliancesCommand}.
  */

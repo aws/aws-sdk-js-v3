@@ -19,6 +19,10 @@ import { de_ListBuiltInIntentsCommand, se_ListBuiltInIntentsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBuiltInIntentsCommand}.
  */

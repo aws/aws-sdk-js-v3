@@ -19,6 +19,10 @@ import { de_UpdateAgentCommand, se_UpdateAgentCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAgentCommand}.
  */

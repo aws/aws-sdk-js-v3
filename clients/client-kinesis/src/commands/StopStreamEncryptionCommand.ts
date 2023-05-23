@@ -19,6 +19,10 @@ import { de_StopStreamEncryptionCommand, se_StopStreamEncryptionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopStreamEncryptionCommand}.
  */

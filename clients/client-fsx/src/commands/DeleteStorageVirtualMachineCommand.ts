@@ -19,6 +19,10 @@ import { de_DeleteStorageVirtualMachineCommand, se_DeleteStorageVirtualMachineCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStorageVirtualMachineCommand}.
  */

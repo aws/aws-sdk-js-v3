@@ -19,6 +19,10 @@ import { de_BatchUnsuspendUserCommand, se_BatchUnsuspendUserCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUnsuspendUserCommand}.
  */

@@ -22,6 +22,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPlatformApplicationAttributesCommand}.
  */

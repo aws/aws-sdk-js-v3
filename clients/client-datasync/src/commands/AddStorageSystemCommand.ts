@@ -23,6 +23,10 @@ import { de_AddStorageSystemCommand, se_AddStorageSystemCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddStorageSystemCommand}.
  */

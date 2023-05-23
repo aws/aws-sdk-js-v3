@@ -19,6 +19,10 @@ import { de_UpdateKeyGroupCommand, se_UpdateKeyGroupCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateKeyGroupCommand}.
  */

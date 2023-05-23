@@ -19,6 +19,10 @@ import { de_DeleteListCommand, se_DeleteListCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteListCommand}.
  */

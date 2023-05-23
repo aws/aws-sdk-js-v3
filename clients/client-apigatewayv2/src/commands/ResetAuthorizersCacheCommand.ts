@@ -19,6 +19,10 @@ import { de_ResetAuthorizersCacheCommand, se_ResetAuthorizersCacheCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetAuthorizersCacheCommand}.
  */

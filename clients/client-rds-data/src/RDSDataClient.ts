@@ -71,6 +71,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -220,7 +222,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type RDSDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type RDSDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -239,7 +241,7 @@ export interface RDSDataClientConfig extends RDSDataClientConfigType {}
 /**
  * @public
  */
-type RDSDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type RDSDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

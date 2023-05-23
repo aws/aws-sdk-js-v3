@@ -19,6 +19,10 @@ import { de_CompleteSnapshotCommand, se_CompleteSnapshotCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CompleteSnapshotCommand}.
  */

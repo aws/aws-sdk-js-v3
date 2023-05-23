@@ -19,6 +19,10 @@ import { de_UpdateRevealConfigurationCommand, se_UpdateRevealConfigurationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRevealConfigurationCommand}.
  */

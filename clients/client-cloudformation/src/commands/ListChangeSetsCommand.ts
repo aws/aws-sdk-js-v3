@@ -19,6 +19,10 @@ import { de_ListChangeSetsCommand, se_ListChangeSetsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChangeSetsCommand}.
  */

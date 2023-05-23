@@ -19,6 +19,10 @@ import { de_GetAssociatedRoleCommand, se_GetAssociatedRoleCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAssociatedRoleCommand}.
  */

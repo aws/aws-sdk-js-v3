@@ -19,6 +19,10 @@ import { de_ActivateEvaluationFormCommand, se_ActivateEvaluationFormCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ActivateEvaluationFormCommand}.
  */

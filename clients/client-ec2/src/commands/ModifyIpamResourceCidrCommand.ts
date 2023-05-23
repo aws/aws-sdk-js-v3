@@ -19,6 +19,10 @@ import { de_ModifyIpamResourceCidrCommand, se_ModifyIpamResourceCidrCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyIpamResourceCidrCommand}.
  */

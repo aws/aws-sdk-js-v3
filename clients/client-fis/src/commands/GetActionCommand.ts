@@ -19,6 +19,10 @@ import { de_GetActionCommand, se_GetActionCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetActionCommand}.
  */

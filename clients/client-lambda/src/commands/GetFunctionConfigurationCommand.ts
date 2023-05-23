@@ -23,6 +23,10 @@ import { de_GetFunctionConfigurationCommand, se_GetFunctionConfigurationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFunctionConfigurationCommand}.
  */

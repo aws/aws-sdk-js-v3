@@ -19,6 +19,10 @@ import { de_UpdateAccountCommand, se_UpdateAccountCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAccountCommand}.
  */

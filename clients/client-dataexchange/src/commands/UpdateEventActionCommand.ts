@@ -19,6 +19,10 @@ import { de_UpdateEventActionCommand, se_UpdateEventActionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEventActionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListProtectedResourcesCommand, se_ListProtectedResourcesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProtectedResourcesCommand}.
  */

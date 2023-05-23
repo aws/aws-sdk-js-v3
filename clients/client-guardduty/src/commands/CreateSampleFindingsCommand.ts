@@ -19,6 +19,10 @@ import { de_CreateSampleFindingsCommand, se_CreateSampleFindingsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSampleFindingsCommand}.
  */

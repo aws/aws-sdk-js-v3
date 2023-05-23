@@ -19,6 +19,10 @@ import { de_RejectAttachmentCommand, se_RejectAttachmentCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectAttachmentCommand}.
  */

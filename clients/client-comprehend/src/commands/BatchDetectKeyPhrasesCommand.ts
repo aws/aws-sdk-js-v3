@@ -24,6 +24,10 @@ import { de_BatchDetectKeyPhrasesCommand, se_BatchDetectKeyPhrasesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDetectKeyPhrasesCommand}.
  */

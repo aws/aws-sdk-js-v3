@@ -19,6 +19,10 @@ import { de_DeleteModelVersionCommand, se_DeleteModelVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteModelVersionCommand}.
  */

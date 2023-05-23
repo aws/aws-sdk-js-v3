@@ -19,6 +19,10 @@ import { de_ListOutgoingTypedLinksCommand, se_ListOutgoingTypedLinksCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListOutgoingTypedLinksCommand}.
  */

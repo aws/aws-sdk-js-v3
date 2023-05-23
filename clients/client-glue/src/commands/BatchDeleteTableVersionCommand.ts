@@ -19,6 +19,10 @@ import { de_BatchDeleteTableVersionCommand, se_BatchDeleteTableVersionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteTableVersionCommand}.
  */

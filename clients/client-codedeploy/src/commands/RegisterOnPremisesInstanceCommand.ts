@@ -19,6 +19,10 @@ import { de_RegisterOnPremisesInstanceCommand, se_RegisterOnPremisesInstanceComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterOnPremisesInstanceCommand}.
  */

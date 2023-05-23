@@ -19,6 +19,10 @@ import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEventCategoriesCommand}.
  */

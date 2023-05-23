@@ -19,6 +19,10 @@ import { de_GetDistributionMetricDataCommand, se_GetDistributionMetricDataComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDistributionMetricDataCommand}.
  */

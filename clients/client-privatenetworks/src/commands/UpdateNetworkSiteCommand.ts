@@ -23,6 +23,10 @@ import { de_UpdateNetworkSiteCommand, se_UpdateNetworkSiteCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNetworkSiteCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeInstanceRefreshesCommand, se_DescribeInstanceRefreshesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInstanceRefreshesCommand}.
  */

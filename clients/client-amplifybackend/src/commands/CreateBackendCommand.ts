@@ -19,6 +19,10 @@ import { de_CreateBackendCommand, se_CreateBackendCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBackendCommand}.
  */

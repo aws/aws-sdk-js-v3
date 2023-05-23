@@ -19,6 +19,10 @@ import { de_StartRouteAnalysisCommand, se_StartRouteAnalysisCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartRouteAnalysisCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateRuleGroupCommand, se_CreateRuleGroupCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateRuleGroupCommand}.
  */

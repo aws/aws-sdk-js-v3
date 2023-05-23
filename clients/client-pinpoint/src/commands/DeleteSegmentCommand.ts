@@ -19,6 +19,10 @@ import { de_DeleteSegmentCommand, se_DeleteSegmentCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSegmentCommand}.
  */

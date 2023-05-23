@@ -19,6 +19,10 @@ import { de_GetAuthorizerCommand, se_GetAuthorizerCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAuthorizerCommand}.
  */

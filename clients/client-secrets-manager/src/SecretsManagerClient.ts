@@ -102,6 +102,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -283,7 +285,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type SecretsManagerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type SecretsManagerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -302,7 +304,7 @@ export interface SecretsManagerClientConfig extends SecretsManagerClientConfigTy
 /**
  * @public
  */
-type SecretsManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type SecretsManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

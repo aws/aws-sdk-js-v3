@@ -19,6 +19,10 @@ import { de_UpdateMemberSessionCommand, se_UpdateMemberSessionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMemberSessionCommand}.
  */

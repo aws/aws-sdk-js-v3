@@ -24,6 +24,10 @@ import { de_BatchDetectDominantLanguageCommand, se_BatchDetectDominantLanguageCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDetectDominantLanguageCommand}.
  */

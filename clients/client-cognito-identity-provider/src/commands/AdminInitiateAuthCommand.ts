@@ -29,6 +29,10 @@ import { de_AdminInitiateAuthCommand, se_AdminInitiateAuthCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminInitiateAuthCommand}.
  */

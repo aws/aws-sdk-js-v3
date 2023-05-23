@@ -19,6 +19,10 @@ import { de_ListAssessmentReportsCommand, se_ListAssessmentReportsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAssessmentReportsCommand}.
  */

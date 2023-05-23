@@ -19,6 +19,10 @@ import { de_ListWorkerFleetsCommand, se_ListWorkerFleetsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWorkerFleetsCommand}.
  */

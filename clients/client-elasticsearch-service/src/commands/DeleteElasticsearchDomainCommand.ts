@@ -23,6 +23,10 @@ import { de_DeleteElasticsearchDomainCommand, se_DeleteElasticsearchDomainComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteElasticsearchDomainCommand}.
  */

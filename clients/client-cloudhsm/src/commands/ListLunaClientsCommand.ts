@@ -19,6 +19,10 @@ import { de_ListLunaClientsCommand, se_ListLunaClientsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLunaClientsCommand}.
  */

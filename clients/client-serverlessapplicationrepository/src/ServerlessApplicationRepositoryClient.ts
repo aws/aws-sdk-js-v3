@@ -97,6 +97,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -262,7 +264,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ServerlessApplicationRepositoryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ServerlessApplicationRepositoryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -281,15 +283,16 @@ export interface ServerlessApplicationRepositoryClientConfig extends ServerlessA
 /**
  * @public
  */
-type ServerlessApplicationRepositoryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
-  Required<ClientDefaults> &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
-  UserAgentResolvedConfig &
-  ClientResolvedEndpointParameters;
+export type ServerlessApplicationRepositoryClientResolvedConfigType =
+  __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+    Required<ClientDefaults> &
+    RegionResolvedConfig &
+    EndpointResolvedConfig<EndpointParameters> &
+    RetryResolvedConfig &
+    HostHeaderResolvedConfig &
+    AwsAuthResolvedConfig &
+    UserAgentResolvedConfig &
+    ClientResolvedEndpointParameters;
 /**
  * @public
  *

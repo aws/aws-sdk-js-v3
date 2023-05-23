@@ -19,6 +19,10 @@ import { de_AuthorizeClientVpnIngressCommand, se_AuthorizeClientVpnIngressComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AuthorizeClientVpnIngressCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisassociateDeviceFromRoomCommand, se_DisassociateDeviceFromRoomComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateDeviceFromRoomCommand}.
  */

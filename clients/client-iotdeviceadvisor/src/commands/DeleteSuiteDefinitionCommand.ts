@@ -19,6 +19,10 @@ import { de_DeleteSuiteDefinitionCommand, se_DeleteSuiteDefinitionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSuiteDefinitionCommand}.
  */

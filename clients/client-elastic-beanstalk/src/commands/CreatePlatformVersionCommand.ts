@@ -19,6 +19,10 @@ import { de_CreatePlatformVersionCommand, se_CreatePlatformVersionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePlatformVersionCommand}.
  */

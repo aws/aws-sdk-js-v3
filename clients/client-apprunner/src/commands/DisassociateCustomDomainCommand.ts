@@ -19,6 +19,10 @@ import { de_DisassociateCustomDomainCommand, se_DisassociateCustomDomainCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateCustomDomainCommand}.
  */

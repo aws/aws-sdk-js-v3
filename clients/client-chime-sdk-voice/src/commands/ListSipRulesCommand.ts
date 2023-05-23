@@ -19,6 +19,10 @@ import { de_ListSipRulesCommand, se_ListSipRulesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSipRulesCommand}.
  */

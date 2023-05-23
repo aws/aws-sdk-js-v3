@@ -19,6 +19,10 @@ import { de_TransactWriteItemsCommand, se_TransactWriteItemsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TransactWriteItemsCommand}.
  */

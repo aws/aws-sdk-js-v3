@@ -19,6 +19,10 @@ import { de_UpdateThingCommand, se_UpdateThingCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateThingCommand}.
  */

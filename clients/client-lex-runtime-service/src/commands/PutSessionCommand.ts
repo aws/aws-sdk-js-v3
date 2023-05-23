@@ -31,6 +31,10 @@ import { de_PutSessionCommand, se_PutSessionCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSessionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeRegistriesCommand, se_DescribeRegistriesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRegistriesCommand}.
  */

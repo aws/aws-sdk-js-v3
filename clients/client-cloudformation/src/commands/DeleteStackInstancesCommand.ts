@@ -19,6 +19,10 @@ import { de_DeleteStackInstancesCommand, se_DeleteStackInstancesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStackInstancesCommand}.
  */

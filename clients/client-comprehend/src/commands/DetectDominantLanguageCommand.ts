@@ -24,6 +24,10 @@ import { de_DetectDominantLanguageCommand, se_DetectDominantLanguageCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetectDominantLanguageCommand}.
  */

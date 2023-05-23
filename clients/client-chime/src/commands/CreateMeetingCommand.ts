@@ -24,6 +24,10 @@ import { de_CreateMeetingCommand, se_CreateMeetingCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMeetingCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetRecordingConfigurationCommand, se_GetRecordingConfigurationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRecordingConfigurationCommand}.
  */

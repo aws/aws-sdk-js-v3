@@ -23,6 +23,10 @@ import { de_CreateStreamKeyCommand, se_CreateStreamKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateStreamKeyCommand}.
  */

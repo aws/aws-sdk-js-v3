@@ -19,6 +19,10 @@ import { de_SendVoiceMessageCommand, se_SendVoiceMessageCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendVoiceMessageCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateBGPPeerCommand, se_CreateBGPPeerCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBGPPeerCommand}.
  */

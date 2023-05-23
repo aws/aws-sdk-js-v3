@@ -19,6 +19,10 @@ import { de_CreateConfigurationCommand, se_CreateConfigurationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateConfigurationCommand}.
  */

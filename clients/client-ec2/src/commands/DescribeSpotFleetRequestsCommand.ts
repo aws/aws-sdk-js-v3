@@ -23,6 +23,10 @@ import { de_DescribeSpotFleetRequestsCommand, se_DescribeSpotFleetRequestsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSpotFleetRequestsCommand}.
  */

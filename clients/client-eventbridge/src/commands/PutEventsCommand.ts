@@ -19,6 +19,10 @@ import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutEventsCommand}.
  */

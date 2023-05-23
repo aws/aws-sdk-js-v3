@@ -27,6 +27,10 @@ import { de_GetMediaPipelineCommand, se_GetMediaPipelineCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMediaPipelineCommand}.
  */

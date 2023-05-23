@@ -19,6 +19,10 @@ import { de_PutDataLakeSettingsCommand, se_PutDataLakeSettingsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutDataLakeSettingsCommand}.
  */

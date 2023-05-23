@@ -19,6 +19,10 @@ import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMembersCommand}.
  */

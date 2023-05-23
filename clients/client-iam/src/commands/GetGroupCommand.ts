@@ -19,6 +19,10 @@ import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGroupCommand}.
  */

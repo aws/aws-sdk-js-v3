@@ -19,6 +19,10 @@ import { de_DeleteExternalModelCommand, se_DeleteExternalModelCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteExternalModelCommand}.
  */

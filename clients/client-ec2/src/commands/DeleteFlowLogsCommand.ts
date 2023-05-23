@@ -19,6 +19,10 @@ import { de_DeleteFlowLogsCommand, se_DeleteFlowLogsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFlowLogsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListProposalVotesCommand, se_ListProposalVotesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProposalVotesCommand}.
  */

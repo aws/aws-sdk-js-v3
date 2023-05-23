@@ -19,6 +19,10 @@ import { de_GetContactCommand, se_GetContactCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContactCommand}.
  */

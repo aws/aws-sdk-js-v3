@@ -19,6 +19,10 @@ import { de_UpdateRecipeCommand, se_UpdateRecipeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRecipeCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RestoreAddressToClassicCommand, se_RestoreAddressToClassicCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreAddressToClassicCommand}.
  */

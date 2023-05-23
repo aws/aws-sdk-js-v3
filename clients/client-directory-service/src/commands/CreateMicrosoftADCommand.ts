@@ -23,6 +23,10 @@ import { de_CreateMicrosoftADCommand, se_CreateMicrosoftADCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMicrosoftADCommand}.
  */

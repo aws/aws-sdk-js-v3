@@ -90,6 +90,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -265,7 +267,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ResourceExplorer2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ResourceExplorer2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -284,7 +286,7 @@ export interface ResourceExplorer2ClientConfig extends ResourceExplorer2ClientCo
 /**
  * @public
  */
-type ResourceExplorer2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ResourceExplorer2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

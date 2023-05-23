@@ -19,6 +19,10 @@ import { de_GetFindingStatisticsCommand, se_GetFindingStatisticsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFindingStatisticsCommand}.
  */

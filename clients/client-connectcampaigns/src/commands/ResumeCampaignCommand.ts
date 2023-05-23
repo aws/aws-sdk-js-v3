@@ -19,6 +19,10 @@ import { de_ResumeCampaignCommand, se_ResumeCampaignCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResumeCampaignCommand}.
  */

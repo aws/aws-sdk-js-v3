@@ -19,6 +19,10 @@ import { de_ModifyVolumeAttributeCommand, se_ModifyVolumeAttributeCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyVolumeAttributeCommand}.
  */

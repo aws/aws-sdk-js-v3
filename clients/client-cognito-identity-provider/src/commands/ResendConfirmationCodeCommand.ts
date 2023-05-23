@@ -27,6 +27,10 @@ import { de_ResendConfirmationCodeCommand, se_ResendConfirmationCodeCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResendConfirmationCodeCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListInvitationsCommand, se_ListInvitationsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInvitationsCommand}.
  */

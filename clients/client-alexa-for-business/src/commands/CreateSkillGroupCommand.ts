@@ -19,6 +19,10 @@ import { de_CreateSkillGroupCommand, se_CreateSkillGroupCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSkillGroupCommand}.
  */

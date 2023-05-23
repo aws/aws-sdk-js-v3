@@ -817,6 +817,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -1558,7 +1560,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type SageMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type SageMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -1577,7 +1579,7 @@ export interface SageMakerClientConfig extends SageMakerClientConfigType {}
 /**
  * @public
  */
-type SageMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type SageMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

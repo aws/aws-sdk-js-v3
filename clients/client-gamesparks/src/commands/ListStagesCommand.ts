@@ -19,6 +19,10 @@ import { de_ListStagesCommand, se_ListStagesCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStagesCommand}.
  */

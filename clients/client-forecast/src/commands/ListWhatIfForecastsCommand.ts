@@ -19,6 +19,10 @@ import { de_ListWhatIfForecastsCommand, se_ListWhatIfForecastsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWhatIfForecastsCommand}.
  */

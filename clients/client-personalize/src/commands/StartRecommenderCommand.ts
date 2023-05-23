@@ -19,6 +19,10 @@ import { de_StartRecommenderCommand, se_StartRecommenderCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartRecommenderCommand}.
  */

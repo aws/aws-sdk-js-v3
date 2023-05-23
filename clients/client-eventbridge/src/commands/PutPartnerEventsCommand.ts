@@ -19,6 +19,10 @@ import { de_PutPartnerEventsCommand, se_PutPartnerEventsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutPartnerEventsCommand}.
  */

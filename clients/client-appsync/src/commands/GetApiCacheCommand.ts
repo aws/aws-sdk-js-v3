@@ -19,6 +19,10 @@ import { de_GetApiCacheCommand, se_GetApiCacheCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApiCacheCommand}.
  */

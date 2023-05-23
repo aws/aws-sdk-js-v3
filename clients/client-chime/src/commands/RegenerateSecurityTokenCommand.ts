@@ -23,6 +23,10 @@ import { de_RegenerateSecurityTokenCommand, se_RegenerateSecurityTokenCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegenerateSecurityTokenCommand}.
  */

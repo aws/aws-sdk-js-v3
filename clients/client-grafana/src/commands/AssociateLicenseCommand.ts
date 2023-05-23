@@ -23,6 +23,10 @@ import { de_AssociateLicenseCommand, se_AssociateLicenseCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateLicenseCommand}.
  */

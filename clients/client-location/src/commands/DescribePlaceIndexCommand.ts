@@ -19,6 +19,10 @@ import { de_DescribePlaceIndexCommand, se_DescribePlaceIndexCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePlaceIndexCommand}.
  */

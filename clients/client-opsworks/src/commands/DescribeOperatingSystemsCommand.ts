@@ -19,6 +19,10 @@ import { de_DescribeOperatingSystemsCommand, se_DescribeOperatingSystemsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeOperatingSystemsCommand}.
  */

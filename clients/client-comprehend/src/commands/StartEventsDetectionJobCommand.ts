@@ -19,6 +19,10 @@ import { de_StartEventsDetectionJobCommand, se_StartEventsDetectionJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartEventsDetectionJobCommand}.
  */

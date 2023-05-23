@@ -23,6 +23,10 @@ import { de_StartDevEnvironmentSessionCommand, se_StartDevEnvironmentSessionComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDevEnvironmentSessionCommand}.
  */

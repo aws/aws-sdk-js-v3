@@ -19,6 +19,10 @@ import { de_ListDataQualityResultsCommand, se_ListDataQualityResultsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDataQualityResultsCommand}.
  */

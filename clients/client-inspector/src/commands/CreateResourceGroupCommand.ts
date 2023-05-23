@@ -19,6 +19,10 @@ import { de_CreateResourceGroupCommand, se_CreateResourceGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateResourceGroupCommand}.
  */

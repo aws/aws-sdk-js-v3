@@ -19,6 +19,10 @@ import { de_RegisterContainerInstanceCommand, se_RegisterContainerInstanceComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterContainerInstanceCommand}.
  */

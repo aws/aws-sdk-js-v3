@@ -19,6 +19,10 @@ import { de_CreateOutboundConnectionCommand, se_CreateOutboundConnectionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateOutboundConnectionCommand}.
  */

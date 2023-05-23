@@ -19,6 +19,10 @@ import { de_RejectSkillCommand, se_RejectSkillCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectSkillCommand}.
  */

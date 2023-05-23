@@ -19,6 +19,10 @@ import { de_PutRetentionSettingsCommand, se_PutRetentionSettingsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRetentionSettingsCommand}.
  */

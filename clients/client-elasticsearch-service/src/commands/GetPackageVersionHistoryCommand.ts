@@ -23,6 +23,10 @@ import { de_GetPackageVersionHistoryCommand, se_GetPackageVersionHistoryCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPackageVersionHistoryCommand}.
  */

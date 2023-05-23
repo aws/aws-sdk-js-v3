@@ -19,6 +19,10 @@ import { de_ListCoverageStatisticsCommand, se_ListCoverageStatisticsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCoverageStatisticsCommand}.
  */

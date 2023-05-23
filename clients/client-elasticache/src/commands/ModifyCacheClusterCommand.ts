@@ -19,6 +19,10 @@ import { de_ModifyCacheClusterCommand, se_ModifyCacheClusterCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyCacheClusterCommand}.
  */

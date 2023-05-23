@@ -19,6 +19,10 @@ import { de_ListBackupsCommand, se_ListBackupsCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBackupsCommand}.
  */

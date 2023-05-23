@@ -19,6 +19,10 @@ import { de_DeleteServiceLinkedRoleCommand, se_DeleteServiceLinkedRoleCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteServiceLinkedRoleCommand}.
  */

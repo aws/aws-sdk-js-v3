@@ -19,6 +19,10 @@ import { de_ListMetricValuesCommand, se_ListMetricValuesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMetricValuesCommand}.
  */

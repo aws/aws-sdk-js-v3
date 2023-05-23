@@ -19,6 +19,10 @@ import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDataSourceCommand}.
  */

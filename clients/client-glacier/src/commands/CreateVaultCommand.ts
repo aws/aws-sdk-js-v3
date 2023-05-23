@@ -19,6 +19,10 @@ import { de_CreateVaultCommand, se_CreateVaultCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVaultCommand}.
  */

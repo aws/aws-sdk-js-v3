@@ -19,6 +19,10 @@ import { de_DescribeStreamSummaryCommand, se_DescribeStreamSummaryCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeStreamSummaryCommand}.
  */

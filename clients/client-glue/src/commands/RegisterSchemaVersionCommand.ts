@@ -19,6 +19,10 @@ import { de_RegisterSchemaVersionCommand, se_RegisterSchemaVersionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterSchemaVersionCommand}.
  */

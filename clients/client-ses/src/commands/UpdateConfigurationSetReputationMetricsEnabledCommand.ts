@@ -22,6 +22,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateConfigurationSetReputationMetricsEnabledCommand}.
  */

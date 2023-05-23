@@ -23,6 +23,10 @@ import { de_ListConfigurationsCommand, se_ListConfigurationsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListConfigurationsCommand}.
  */

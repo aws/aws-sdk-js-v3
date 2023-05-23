@@ -19,6 +19,10 @@ import { de_UpdateCollaborationCommand, se_UpdateCollaborationCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCollaborationCommand}.
  */

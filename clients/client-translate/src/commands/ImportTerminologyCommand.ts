@@ -23,6 +23,10 @@ import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportTerminologyCommand}.
  */

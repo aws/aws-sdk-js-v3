@@ -19,6 +19,10 @@ import { de_DeregisterStreamConsumerCommand, se_DeregisterStreamConsumerCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterStreamConsumerCommand}.
  */

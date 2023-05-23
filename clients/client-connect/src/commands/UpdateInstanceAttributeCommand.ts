@@ -19,6 +19,10 @@ import { de_UpdateInstanceAttributeCommand, se_UpdateInstanceAttributeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateInstanceAttributeCommand}.
  */

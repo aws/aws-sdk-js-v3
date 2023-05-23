@@ -19,6 +19,10 @@ import { de_ListAttachedLinksCommand, se_ListAttachedLinksCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAttachedLinksCommand}.
  */

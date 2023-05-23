@@ -19,6 +19,10 @@ import { de_UpdateSSHPublicKeyCommand, se_UpdateSSHPublicKeyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSSHPublicKeyCommand}.
  */

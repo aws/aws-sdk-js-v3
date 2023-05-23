@@ -19,6 +19,10 @@ import { de_DescribeKeyCommand, se_DescribeKeyCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeKeyCommand}.
  */

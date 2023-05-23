@@ -19,6 +19,10 @@ import { de_CreateNotebookCommand, se_CreateNotebookCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNotebookCommand}.
  */

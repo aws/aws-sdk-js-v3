@@ -19,6 +19,10 @@ import { de_GetApiAssociationCommand, se_GetApiAssociationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApiAssociationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListSkillsStoreCategoriesCommand, se_ListSkillsStoreCategoriesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSkillsStoreCategoriesCommand}.
  */

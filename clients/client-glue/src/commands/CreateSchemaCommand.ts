@@ -19,6 +19,10 @@ import { de_CreateSchemaCommand, se_CreateSchemaCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSchemaCommand}.
  */

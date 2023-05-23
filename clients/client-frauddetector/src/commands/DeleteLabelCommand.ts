@@ -19,6 +19,10 @@ import { de_DeleteLabelCommand, se_DeleteLabelCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLabelCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteBridgeCommand, se_DeleteBridgeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBridgeCommand}.
  */

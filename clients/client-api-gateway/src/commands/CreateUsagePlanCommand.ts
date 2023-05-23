@@ -19,6 +19,10 @@ import { de_CreateUsagePlanCommand, se_CreateUsagePlanCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateUsagePlanCommand}.
  */

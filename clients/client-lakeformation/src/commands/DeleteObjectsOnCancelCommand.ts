@@ -19,6 +19,10 @@ import { de_DeleteObjectsOnCancelCommand, se_DeleteObjectsOnCancelCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteObjectsOnCancelCommand}.
  */

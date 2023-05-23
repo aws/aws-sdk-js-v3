@@ -19,6 +19,10 @@ import { de_StopCalculationExecutionCommand, se_StopCalculationExecutionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopCalculationExecutionCommand}.
  */

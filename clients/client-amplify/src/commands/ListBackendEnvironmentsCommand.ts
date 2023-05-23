@@ -19,6 +19,10 @@ import { de_ListBackendEnvironmentsCommand, se_ListBackendEnvironmentsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBackendEnvironmentsCommand}.
  */

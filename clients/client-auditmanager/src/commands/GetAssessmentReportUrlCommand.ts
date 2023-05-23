@@ -19,6 +19,10 @@ import { de_GetAssessmentReportUrlCommand, se_GetAssessmentReportUrlCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAssessmentReportUrlCommand}.
  */

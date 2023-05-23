@@ -19,6 +19,10 @@ import { de_CreateDBClusterSnapshotCommand, se_CreateDBClusterSnapshotCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDBClusterSnapshotCommand}.
  */

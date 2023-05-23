@@ -19,6 +19,10 @@ import { de_AcceptInvitationCommand, se_AcceptInvitationCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AcceptInvitationCommand}.
  */

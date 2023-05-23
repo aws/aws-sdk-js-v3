@@ -19,6 +19,10 @@ import { de_DeleteOutboundConnectionCommand, se_DeleteOutboundConnectionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteOutboundConnectionCommand}.
  */

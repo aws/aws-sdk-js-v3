@@ -27,6 +27,10 @@ import { de_ForgotPasswordCommand, se_ForgotPasswordCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ForgotPasswordCommand}.
  */

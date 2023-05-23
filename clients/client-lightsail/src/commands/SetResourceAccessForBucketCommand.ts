@@ -19,6 +19,10 @@ import { de_SetResourceAccessForBucketCommand, se_SetResourceAccessForBucketComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetResourceAccessForBucketCommand}.
  */

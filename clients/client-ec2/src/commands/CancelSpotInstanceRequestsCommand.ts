@@ -19,6 +19,10 @@ import { de_CancelSpotInstanceRequestsCommand, se_CancelSpotInstanceRequestsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelSpotInstanceRequestsCommand}.
  */

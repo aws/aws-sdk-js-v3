@@ -19,6 +19,10 @@ import { de_ListGroupPoliciesCommand, se_ListGroupPoliciesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGroupPoliciesCommand}.
  */

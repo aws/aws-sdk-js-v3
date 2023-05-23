@@ -23,6 +23,10 @@ import { de_DescribeOptOutListsCommand, se_DescribeOptOutListsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeOptOutListsCommand}.
  */

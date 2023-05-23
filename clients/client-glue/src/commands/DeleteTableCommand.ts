@@ -19,6 +19,10 @@ import { de_DeleteTableCommand, se_DeleteTableCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTableCommand}.
  */

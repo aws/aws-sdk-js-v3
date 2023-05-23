@@ -19,6 +19,10 @@ import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSnapshotsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisassociateApprovedOriginCommand, se_DisassociateApprovedOriginComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateApprovedOriginCommand}.
  */

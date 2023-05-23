@@ -19,6 +19,10 @@ import { de_DeleteRelationalDatabaseCommand, se_DeleteRelationalDatabaseCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRelationalDatabaseCommand}.
  */

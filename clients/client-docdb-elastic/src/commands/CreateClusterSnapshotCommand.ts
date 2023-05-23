@@ -19,6 +19,10 @@ import { de_CreateClusterSnapshotCommand, se_CreateClusterSnapshotCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateClusterSnapshotCommand}.
  */

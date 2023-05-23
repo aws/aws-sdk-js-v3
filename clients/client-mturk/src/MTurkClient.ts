@@ -161,6 +161,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -376,7 +378,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type MTurkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MTurkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -395,7 +397,7 @@ export interface MTurkClientConfig extends MTurkClientConfigType {}
 /**
  * @public
  */
-type MTurkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MTurkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

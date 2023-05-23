@@ -19,6 +19,10 @@ import { de_DeleteGlobalNetworkCommand, se_DeleteGlobalNetworkCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGlobalNetworkCommand}.
  */

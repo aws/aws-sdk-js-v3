@@ -23,6 +23,10 @@ import { de_ListMediaPipelinesCommand, se_ListMediaPipelinesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMediaPipelinesCommand}.
  */

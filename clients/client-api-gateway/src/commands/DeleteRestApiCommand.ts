@@ -19,6 +19,10 @@ import { de_DeleteRestApiCommand, se_DeleteRestApiCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRestApiCommand}.
  */

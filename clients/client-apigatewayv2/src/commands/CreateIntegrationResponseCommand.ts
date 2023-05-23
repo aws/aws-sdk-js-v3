@@ -19,6 +19,10 @@ import { de_CreateIntegrationResponseCommand, se_CreateIntegrationResponseComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateIntegrationResponseCommand}.
  */

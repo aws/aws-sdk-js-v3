@@ -23,6 +23,10 @@ import { de_InferSNOMEDCTCommand, se_InferSNOMEDCTCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InferSNOMEDCTCommand}.
  */

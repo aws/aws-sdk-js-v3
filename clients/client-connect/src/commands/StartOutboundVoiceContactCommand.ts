@@ -19,6 +19,10 @@ import { de_StartOutboundVoiceContactCommand, se_StartOutboundVoiceContactComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartOutboundVoiceContactCommand}.
  */

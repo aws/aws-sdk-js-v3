@@ -19,6 +19,10 @@ import { de_DeleteDBClusterCommand, se_DeleteDBClusterCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDBClusterCommand}.
  */

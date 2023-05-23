@@ -19,6 +19,10 @@ import { de_DeleteReferenceCommand, se_DeleteReferenceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteReferenceCommand}.
  */

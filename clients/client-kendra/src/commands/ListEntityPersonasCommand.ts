@@ -19,6 +19,10 @@ import { de_ListEntityPersonasCommand, se_ListEntityPersonasCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEntityPersonasCommand}.
  */

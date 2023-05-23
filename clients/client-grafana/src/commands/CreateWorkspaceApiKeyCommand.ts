@@ -23,6 +23,10 @@ import { de_CreateWorkspaceApiKeyCommand, se_CreateWorkspaceApiKeyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWorkspaceApiKeyCommand}.
  */

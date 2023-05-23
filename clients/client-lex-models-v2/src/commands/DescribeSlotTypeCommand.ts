@@ -19,6 +19,10 @@ import { de_DescribeSlotTypeCommand, se_DescribeSlotTypeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSlotTypeCommand}.
  */

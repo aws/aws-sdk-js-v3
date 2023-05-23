@@ -19,6 +19,10 @@ import { de_ListEventSubscriptionsCommand, se_ListEventSubscriptionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventSubscriptionsCommand}.
  */

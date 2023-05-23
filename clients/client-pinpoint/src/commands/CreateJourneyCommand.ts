@@ -19,6 +19,10 @@ import { de_CreateJourneyCommand, se_CreateJourneyCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateJourneyCommand}.
  */

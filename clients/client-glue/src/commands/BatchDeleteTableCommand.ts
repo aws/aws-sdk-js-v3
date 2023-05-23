@@ -19,6 +19,10 @@ import { de_BatchDeleteTableCommand, se_BatchDeleteTableCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteTableCommand}.
  */

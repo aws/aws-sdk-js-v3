@@ -62,6 +62,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -199,7 +201,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type PersonalizeEventsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type PersonalizeEventsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -218,7 +220,7 @@ export interface PersonalizeEventsClientConfig extends PersonalizeEventsClientCo
 /**
  * @public
  */
-type PersonalizeEventsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type PersonalizeEventsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -19,6 +19,10 @@ import { de_EvaluateMappingTemplateCommand, se_EvaluateMappingTemplateCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EvaluateMappingTemplateCommand}.
  */

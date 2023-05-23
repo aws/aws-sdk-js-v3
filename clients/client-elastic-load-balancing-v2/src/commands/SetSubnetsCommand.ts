@@ -23,6 +23,10 @@ import { de_SetSubnetsCommand, se_SetSubnetsCommand } from "../protocols/Aws_que
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetSubnetsCommand}.
  */

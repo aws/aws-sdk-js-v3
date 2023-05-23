@@ -23,6 +23,10 @@ import { de_BatchDeleteImportDataCommand, se_BatchDeleteImportDataCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteImportDataCommand}.
  */

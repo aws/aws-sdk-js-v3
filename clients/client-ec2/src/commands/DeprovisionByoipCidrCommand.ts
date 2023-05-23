@@ -19,6 +19,10 @@ import { de_DeprovisionByoipCidrCommand, se_DeprovisionByoipCidrCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeprovisionByoipCidrCommand}.
  */

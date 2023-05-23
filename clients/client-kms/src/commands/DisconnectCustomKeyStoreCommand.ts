@@ -19,6 +19,10 @@ import { de_DisconnectCustomKeyStoreCommand, se_DisconnectCustomKeyStoreCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisconnectCustomKeyStoreCommand}.
  */

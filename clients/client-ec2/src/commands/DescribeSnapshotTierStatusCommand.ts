@@ -19,6 +19,10 @@ import { de_DescribeSnapshotTierStatusCommand, se_DescribeSnapshotTierStatusComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSnapshotTierStatusCommand}.
  */

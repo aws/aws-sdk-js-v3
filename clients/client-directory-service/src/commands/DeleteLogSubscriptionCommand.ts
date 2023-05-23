@@ -19,6 +19,10 @@ import { de_DeleteLogSubscriptionCommand, se_DeleteLogSubscriptionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLogSubscriptionCommand}.
  */

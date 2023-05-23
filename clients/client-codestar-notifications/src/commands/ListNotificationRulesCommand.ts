@@ -23,6 +23,10 @@ import { de_ListNotificationRulesCommand, se_ListNotificationRulesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListNotificationRulesCommand}.
  */

@@ -27,6 +27,10 @@ import { de_DescribeChannelFlowCommand, se_DescribeChannelFlowCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeChannelFlowCommand}.
  */

@@ -230,6 +230,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -493,7 +495,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ForecastClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ForecastClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -512,7 +514,7 @@ export interface ForecastClientConfig extends ForecastClientConfigType {}
 /**
  * @public
  */
-type ForecastClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ForecastClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

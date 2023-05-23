@@ -19,6 +19,10 @@ import { de_GetInstancePortStatesCommand, se_GetInstancePortStatesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInstancePortStatesCommand}.
  */

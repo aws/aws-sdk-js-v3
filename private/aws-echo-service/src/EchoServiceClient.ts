@@ -49,6 +49,8 @@ import {
   StreamCollector as __StreamCollector,
 } from "@smithy/types";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -159,7 +161,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   CustomEndpointsInputConfig &
   RetryInputConfig &
@@ -175,7 +177,7 @@ export interface EchoServiceClientConfig extends EchoServiceClientConfigType {}
 /**
  * @public
  */
-type EchoServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type EchoServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   CustomEndpointsResolvedConfig &
   RetryResolvedConfig &

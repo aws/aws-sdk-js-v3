@@ -23,6 +23,10 @@ import { de_DescribeTableStatisticsCommand, se_DescribeTableStatisticsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTableStatisticsCommand}.
  */

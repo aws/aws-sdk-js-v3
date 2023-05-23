@@ -19,6 +19,10 @@ import { de_StopFlowCommand, se_StopFlowCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopFlowCommand}.
  */

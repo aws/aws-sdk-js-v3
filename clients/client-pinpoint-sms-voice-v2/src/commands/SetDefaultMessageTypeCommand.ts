@@ -23,6 +23,10 @@ import { de_SetDefaultMessageTypeCommand, se_SetDefaultMessageTypeCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetDefaultMessageTypeCommand}.
  */

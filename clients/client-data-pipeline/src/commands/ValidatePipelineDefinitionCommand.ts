@@ -19,6 +19,10 @@ import { de_ValidatePipelineDefinitionCommand, se_ValidatePipelineDefinitionComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ValidatePipelineDefinitionCommand}.
  */

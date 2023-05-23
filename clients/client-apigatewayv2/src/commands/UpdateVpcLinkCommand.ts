@@ -19,6 +19,10 @@ import { de_UpdateVpcLinkCommand, se_UpdateVpcLinkCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVpcLinkCommand}.
  */

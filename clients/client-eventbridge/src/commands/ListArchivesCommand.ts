@@ -19,6 +19,10 @@ import { de_ListArchivesCommand, se_ListArchivesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListArchivesCommand}.
  */

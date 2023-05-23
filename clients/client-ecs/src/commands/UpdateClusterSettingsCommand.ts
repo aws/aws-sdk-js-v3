@@ -19,6 +19,10 @@ import { de_UpdateClusterSettingsCommand, se_UpdateClusterSettingsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateClusterSettingsCommand}.
  */

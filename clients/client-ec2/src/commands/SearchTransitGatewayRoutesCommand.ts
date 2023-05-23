@@ -19,6 +19,10 @@ import { de_SearchTransitGatewayRoutesCommand, se_SearchTransitGatewayRoutesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchTransitGatewayRoutesCommand}.
  */

@@ -23,6 +23,10 @@ import { de_CreateLoadBalancerPolicyCommand, se_CreateLoadBalancerPolicyCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLoadBalancerPolicyCommand}.
  */

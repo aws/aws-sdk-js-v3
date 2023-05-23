@@ -19,6 +19,10 @@ import { de_SearchTablesCommand, se_SearchTablesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchTablesCommand}.
  */

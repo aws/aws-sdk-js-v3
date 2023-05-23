@@ -23,6 +23,10 @@ import { de_CreateFleetAdvisorCollectorCommand, se_CreateFleetAdvisorCollectorCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFleetAdvisorCollectorCommand}.
  */

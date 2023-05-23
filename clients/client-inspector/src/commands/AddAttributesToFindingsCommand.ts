@@ -19,6 +19,10 @@ import { de_AddAttributesToFindingsCommand, se_AddAttributesToFindingsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddAttributesToFindingsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateScalingParametersCommand, se_UpdateScalingParametersCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateScalingParametersCommand}.
  */

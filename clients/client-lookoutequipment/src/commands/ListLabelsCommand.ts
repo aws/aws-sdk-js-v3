@@ -19,6 +19,10 @@ import { de_ListLabelsCommand, se_ListLabelsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLabelsCommand}.
  */

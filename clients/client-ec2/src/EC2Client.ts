@@ -2057,6 +2057,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -3376,7 +3378,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type EC2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type EC2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -3395,7 +3397,7 @@ export interface EC2ClientConfig extends EC2ClientConfigType {}
 /**
  * @public
  */
-type EC2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type EC2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

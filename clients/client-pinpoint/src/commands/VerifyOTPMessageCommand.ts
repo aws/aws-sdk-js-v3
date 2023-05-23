@@ -19,6 +19,10 @@ import { de_VerifyOTPMessageCommand, se_VerifyOTPMessageCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link VerifyOTPMessageCommand}.
  */

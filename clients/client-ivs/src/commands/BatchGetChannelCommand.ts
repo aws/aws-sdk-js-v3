@@ -19,6 +19,10 @@ import { de_BatchGetChannelCommand, se_BatchGetChannelCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetChannelCommand}.
  */

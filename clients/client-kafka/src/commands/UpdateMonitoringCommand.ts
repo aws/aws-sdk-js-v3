@@ -19,6 +19,10 @@ import { de_UpdateMonitoringCommand, se_UpdateMonitoringCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMonitoringCommand}.
  */

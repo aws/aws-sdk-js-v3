@@ -19,6 +19,10 @@ import { de_AddFacetToObjectCommand, se_AddFacetToObjectCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddFacetToObjectCommand}.
  */

@@ -23,6 +23,10 @@ import { de_GetIntentVersionsCommand, se_GetIntentVersionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIntentVersionsCommand}.
  */

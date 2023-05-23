@@ -19,6 +19,10 @@ import { de_ModifyIdentityIdFormatCommand, se_ModifyIdentityIdFormatCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyIdentityIdFormatCommand}.
  */

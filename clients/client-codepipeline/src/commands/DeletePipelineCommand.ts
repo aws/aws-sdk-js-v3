@@ -19,6 +19,10 @@ import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePipelineCommand}.
  */

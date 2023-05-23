@@ -25,6 +25,10 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } f
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEmailMonitoringConfigurationCommand}.
  */

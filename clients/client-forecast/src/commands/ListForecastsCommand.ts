@@ -19,6 +19,10 @@ import { de_ListForecastsCommand, se_ListForecastsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListForecastsCommand}.
  */

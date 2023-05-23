@@ -24,6 +24,10 @@ import { de_CreateIdentityProviderCommand, se_CreateIdentityProviderCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateIdentityProviderCommand}.
  */

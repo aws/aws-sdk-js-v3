@@ -19,6 +19,10 @@ import { de_DescribeContinuousBackupsCommand, se_DescribeContinuousBackupsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeContinuousBackupsCommand}.
  */

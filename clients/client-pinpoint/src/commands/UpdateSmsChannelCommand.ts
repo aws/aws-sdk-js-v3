@@ -19,6 +19,10 @@ import { de_UpdateSmsChannelCommand, se_UpdateSmsChannelCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSmsChannelCommand}.
  */

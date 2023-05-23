@@ -26,6 +26,10 @@ import { de_GetMediaCommand, se_GetMediaCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetMediaCommand}.
  */

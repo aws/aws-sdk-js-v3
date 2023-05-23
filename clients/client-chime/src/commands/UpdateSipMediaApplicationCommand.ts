@@ -24,6 +24,10 @@ import { de_UpdateSipMediaApplicationCommand, se_UpdateSipMediaApplicationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSipMediaApplicationCommand}.
  */

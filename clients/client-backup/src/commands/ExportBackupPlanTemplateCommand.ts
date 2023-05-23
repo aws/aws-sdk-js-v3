@@ -19,6 +19,10 @@ import { de_ExportBackupPlanTemplateCommand, se_ExportBackupPlanTemplateCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportBackupPlanTemplateCommand}.
  */

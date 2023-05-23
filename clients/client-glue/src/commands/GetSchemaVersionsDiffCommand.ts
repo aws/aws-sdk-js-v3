@@ -19,6 +19,10 @@ import { de_GetSchemaVersionsDiffCommand, se_GetSchemaVersionsDiffCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSchemaVersionsDiffCommand}.
  */

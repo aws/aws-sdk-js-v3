@@ -19,6 +19,10 @@ import { de_DeleteFileSystemPolicyCommand, se_DeleteFileSystemPolicyCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFileSystemPolicyCommand}.
  */

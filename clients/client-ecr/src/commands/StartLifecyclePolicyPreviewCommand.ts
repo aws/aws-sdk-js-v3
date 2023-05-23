@@ -19,6 +19,10 @@ import { de_StartLifecyclePolicyPreviewCommand, se_StartLifecyclePolicyPreviewCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartLifecyclePolicyPreviewCommand}.
  */

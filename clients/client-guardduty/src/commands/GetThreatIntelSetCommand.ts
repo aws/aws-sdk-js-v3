@@ -19,6 +19,10 @@ import { de_GetThreatIntelSetCommand, se_GetThreatIntelSetCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetThreatIntelSetCommand}.
  */

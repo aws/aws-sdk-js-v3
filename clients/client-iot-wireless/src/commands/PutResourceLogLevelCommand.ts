@@ -19,6 +19,10 @@ import { de_PutResourceLogLevelCommand, se_PutResourceLogLevelCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutResourceLogLevelCommand}.
  */

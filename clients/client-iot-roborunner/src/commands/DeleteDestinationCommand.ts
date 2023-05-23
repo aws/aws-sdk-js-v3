@@ -19,6 +19,10 @@ import { de_DeleteDestinationCommand, se_DeleteDestinationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDestinationCommand}.
  */

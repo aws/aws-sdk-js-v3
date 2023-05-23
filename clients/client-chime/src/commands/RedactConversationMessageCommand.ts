@@ -19,6 +19,10 @@ import { de_RedactConversationMessageCommand, se_RedactConversationMessageComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RedactConversationMessageCommand}.
  */

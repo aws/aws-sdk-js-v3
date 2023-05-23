@@ -19,6 +19,10 @@ import { de_ListApplicationDPUSizesCommand, se_ListApplicationDPUSizesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListApplicationDPUSizesCommand}.
  */

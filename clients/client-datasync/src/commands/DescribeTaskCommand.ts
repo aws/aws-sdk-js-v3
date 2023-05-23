@@ -19,6 +19,10 @@ import { de_DescribeTaskCommand, se_DescribeTaskCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTaskCommand}.
  */

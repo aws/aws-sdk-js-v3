@@ -19,6 +19,10 @@ import { de_GetGatewayResponseCommand, se_GetGatewayResponseCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGatewayResponseCommand}.
  */

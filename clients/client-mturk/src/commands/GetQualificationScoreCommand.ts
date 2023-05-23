@@ -19,6 +19,10 @@ import { de_GetQualificationScoreCommand, se_GetQualificationScoreCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetQualificationScoreCommand}.
  */

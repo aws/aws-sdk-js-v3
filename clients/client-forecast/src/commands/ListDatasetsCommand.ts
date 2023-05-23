@@ -19,6 +19,10 @@ import { de_ListDatasetsCommand, se_ListDatasetsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDatasetsCommand}.
  */

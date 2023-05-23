@@ -19,6 +19,10 @@ import { de_GetConferencePreferenceCommand, se_GetConferencePreferenceCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConferencePreferenceCommand}.
  */

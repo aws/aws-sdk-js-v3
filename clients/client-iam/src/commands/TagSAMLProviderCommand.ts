@@ -19,6 +19,10 @@ import { de_TagSAMLProviderCommand, se_TagSAMLProviderCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagSAMLProviderCommand}.
  */

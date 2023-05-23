@@ -19,6 +19,10 @@ import { de_ListGrantsCommand, se_ListGrantsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGrantsCommand}.
  */

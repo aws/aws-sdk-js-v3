@@ -19,6 +19,10 @@ import { de_ListRetirableGrantsCommand, se_ListRetirableGrantsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRetirableGrantsCommand}.
  */

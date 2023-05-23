@@ -19,6 +19,10 @@ import { de_CreateApiCommand, se_CreateApiCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateApiCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateSystemTemplateCommand, se_CreateSystemTemplateCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSystemTemplateCommand}.
  */

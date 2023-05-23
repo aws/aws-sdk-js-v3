@@ -19,6 +19,10 @@ import { de_ListInstalledComponentsCommand, se_ListInstalledComponentsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInstalledComponentsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_RunScheduledInstancesCommand, se_RunScheduledInstancesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RunScheduledInstancesCommand}.
  */

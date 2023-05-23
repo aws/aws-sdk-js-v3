@@ -19,6 +19,10 @@ import { de_DescribeRecoverySnapshotsCommand, se_DescribeRecoverySnapshotsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRecoverySnapshotsCommand}.
  */

@@ -29,6 +29,10 @@ import { de_AdminRespondToAuthChallengeCommand, se_AdminRespondToAuthChallengeCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminRespondToAuthChallengeCommand}.
  */

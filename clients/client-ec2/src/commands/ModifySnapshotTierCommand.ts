@@ -19,6 +19,10 @@ import { de_ModifySnapshotTierCommand, se_ModifySnapshotTierCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifySnapshotTierCommand}.
  */

@@ -19,6 +19,10 @@ import { de_BatchGetVariableCommand, se_BatchGetVariableCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetVariableCommand}.
  */

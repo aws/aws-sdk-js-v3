@@ -19,6 +19,10 @@ import { de_ValidateConfigurationCommand, se_ValidateConfigurationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ValidateConfigurationCommand}.
  */

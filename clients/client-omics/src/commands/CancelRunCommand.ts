@@ -19,6 +19,10 @@ import { de_CancelRunCommand, se_CancelRunCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelRunCommand}.
  */

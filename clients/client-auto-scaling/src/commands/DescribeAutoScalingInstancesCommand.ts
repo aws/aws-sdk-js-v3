@@ -19,6 +19,10 @@ import { de_DescribeAutoScalingInstancesCommand, se_DescribeAutoScalingInstances
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAutoScalingInstancesCommand}.
  */

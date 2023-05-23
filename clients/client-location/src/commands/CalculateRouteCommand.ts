@@ -24,6 +24,10 @@ import { de_CalculateRouteCommand, se_CalculateRouteCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CalculateRouteCommand}.
  */

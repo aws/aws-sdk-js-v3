@@ -19,6 +19,10 @@ import { de_ListGroupMembershipsCommand, se_ListGroupMembershipsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGroupMembershipsCommand}.
  */

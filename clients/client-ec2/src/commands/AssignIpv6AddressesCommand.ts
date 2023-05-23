@@ -19,6 +19,10 @@ import { de_AssignIpv6AddressesCommand, se_AssignIpv6AddressesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssignIpv6AddressesCommand}.
  */

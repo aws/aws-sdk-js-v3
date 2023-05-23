@@ -19,6 +19,10 @@ import { de_DeleteEvaluationFormCommand, se_DeleteEvaluationFormCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEvaluationFormCommand}.
  */

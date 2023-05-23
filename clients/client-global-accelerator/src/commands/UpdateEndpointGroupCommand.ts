@@ -23,6 +23,10 @@ import { de_UpdateEndpointGroupCommand, se_UpdateEndpointGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateEndpointGroupCommand}.
  */

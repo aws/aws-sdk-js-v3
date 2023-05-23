@@ -19,6 +19,10 @@ import { de_ListTagsLogGroupCommand, se_ListTagsLogGroupCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTagsLogGroupCommand}.
  */

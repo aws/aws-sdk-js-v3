@@ -19,6 +19,10 @@ import { de_GetWorkflowRunCommand, se_GetWorkflowRunCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWorkflowRunCommand}.
  */

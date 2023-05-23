@@ -19,6 +19,10 @@ import { de_ApplySchemaCommand, se_ApplySchemaCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ApplySchemaCommand}.
  */

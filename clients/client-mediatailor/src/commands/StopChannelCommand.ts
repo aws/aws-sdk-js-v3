@@ -19,6 +19,10 @@ import { de_StopChannelCommand, se_StopChannelCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopChannelCommand}.
  */

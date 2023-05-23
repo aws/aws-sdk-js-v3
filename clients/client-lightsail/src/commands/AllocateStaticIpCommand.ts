@@ -19,6 +19,10 @@ import { de_AllocateStaticIpCommand, se_AllocateStaticIpCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AllocateStaticIpCommand}.
  */

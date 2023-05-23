@@ -23,6 +23,10 @@ import { de_RemoveListenerCertificatesCommand, se_RemoveListenerCertificatesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveListenerCertificatesCommand}.
  */

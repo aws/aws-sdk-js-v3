@@ -19,6 +19,10 @@ import { de_ImportApiKeysCommand, se_ImportApiKeysCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportApiKeysCommand}.
  */

@@ -23,6 +23,10 @@ import { de_GetUtterancesViewCommand, se_GetUtterancesViewCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUtterancesViewCommand}.
  */

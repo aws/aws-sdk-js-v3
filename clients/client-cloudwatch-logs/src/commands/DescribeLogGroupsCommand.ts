@@ -19,6 +19,10 @@ import { de_DescribeLogGroupsCommand, se_DescribeLogGroupsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLogGroupsCommand}.
  */

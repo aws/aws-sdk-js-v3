@@ -19,6 +19,10 @@ import { de_UpdateAlertCommand, se_UpdateAlertCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAlertCommand}.
  */

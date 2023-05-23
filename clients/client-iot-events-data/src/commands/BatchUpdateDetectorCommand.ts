@@ -19,6 +19,10 @@ import { de_BatchUpdateDetectorCommand, se_BatchUpdateDetectorCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUpdateDetectorCommand}.
  */

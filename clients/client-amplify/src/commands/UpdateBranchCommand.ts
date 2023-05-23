@@ -24,6 +24,10 @@ import { de_UpdateBranchCommand, se_UpdateBranchCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBranchCommand}.
  */

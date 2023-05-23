@@ -23,6 +23,10 @@ import { de_DeleteLoadBalancerCommand, se_DeleteLoadBalancerCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLoadBalancerCommand}.
  */

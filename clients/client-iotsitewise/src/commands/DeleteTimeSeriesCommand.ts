@@ -19,6 +19,10 @@ import { de_DeleteTimeSeriesCommand, se_DeleteTimeSeriesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTimeSeriesCommand}.
  */

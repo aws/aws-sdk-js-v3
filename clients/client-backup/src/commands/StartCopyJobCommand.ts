@@ -19,6 +19,10 @@ import { de_StartCopyJobCommand, se_StartCopyJobCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartCopyJobCommand}.
  */

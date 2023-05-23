@@ -19,6 +19,10 @@ import { de_GetGcmChannelCommand, se_GetGcmChannelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGcmChannelCommand}.
  */

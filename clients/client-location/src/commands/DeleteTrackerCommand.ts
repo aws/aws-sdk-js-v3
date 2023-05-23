@@ -19,6 +19,10 @@ import { de_DeleteTrackerCommand, se_DeleteTrackerCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTrackerCommand}.
  */

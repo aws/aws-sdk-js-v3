@@ -19,6 +19,10 @@ import { de_ListUpdatesCommand, se_ListUpdatesCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUpdatesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StartReplicationCommand, se_StartReplicationCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartReplicationCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListPhoneNumbersV2Command, se_ListPhoneNumbersV2Command } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPhoneNumbersV2Command}.
  */

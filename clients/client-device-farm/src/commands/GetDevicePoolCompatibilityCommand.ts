@@ -19,6 +19,10 @@ import { de_GetDevicePoolCompatibilityCommand, se_GetDevicePoolCompatibilityComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDevicePoolCompatibilityCommand}.
  */

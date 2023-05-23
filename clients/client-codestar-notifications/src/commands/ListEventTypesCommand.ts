@@ -23,6 +23,10 @@ import { de_ListEventTypesCommand, se_ListEventTypesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventTypesCommand}.
  */

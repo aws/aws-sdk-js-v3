@@ -19,6 +19,10 @@ import { de_DeleteDataCellsFilterCommand, se_DeleteDataCellsFilterCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDataCellsFilterCommand}.
  */

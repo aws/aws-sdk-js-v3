@@ -24,6 +24,10 @@ import { de_StartProtectedQueryCommand, se_StartProtectedQueryCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartProtectedQueryCommand}.
  */

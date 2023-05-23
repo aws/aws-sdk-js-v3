@@ -19,6 +19,10 @@ import { de_GetRelationalDatabaseEventsCommand, se_GetRelationalDatabaseEventsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRelationalDatabaseEventsCommand}.
  */

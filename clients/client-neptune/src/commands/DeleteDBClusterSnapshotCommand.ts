@@ -19,6 +19,10 @@ import { de_DeleteDBClusterSnapshotCommand, se_DeleteDBClusterSnapshotCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDBClusterSnapshotCommand}.
  */

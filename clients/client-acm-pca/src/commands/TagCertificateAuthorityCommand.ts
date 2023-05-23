@@ -19,6 +19,10 @@ import { de_TagCertificateAuthorityCommand, se_TagCertificateAuthorityCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagCertificateAuthorityCommand}.
  */

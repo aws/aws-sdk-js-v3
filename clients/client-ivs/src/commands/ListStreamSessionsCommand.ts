@@ -19,6 +19,10 @@ import { de_ListStreamSessionsCommand, se_ListStreamSessionsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListStreamSessionsCommand}.
  */

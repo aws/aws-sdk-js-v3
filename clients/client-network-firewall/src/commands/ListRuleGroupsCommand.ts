@@ -19,6 +19,10 @@ import { de_ListRuleGroupsCommand, se_ListRuleGroupsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRuleGroupsCommand}.
  */

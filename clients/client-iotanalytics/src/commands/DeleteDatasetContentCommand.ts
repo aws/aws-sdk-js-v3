@@ -19,6 +19,10 @@ import { de_DeleteDatasetContentCommand, se_DeleteDatasetContentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDatasetContentCommand}.
  */

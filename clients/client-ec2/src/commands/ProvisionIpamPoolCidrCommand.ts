@@ -19,6 +19,10 @@ import { de_ProvisionIpamPoolCidrCommand, se_ProvisionIpamPoolCidrCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ProvisionIpamPoolCidrCommand}.
  */

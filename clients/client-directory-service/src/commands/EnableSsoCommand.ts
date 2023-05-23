@@ -19,6 +19,10 @@ import { de_EnableSsoCommand, se_EnableSsoCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableSsoCommand}.
  */

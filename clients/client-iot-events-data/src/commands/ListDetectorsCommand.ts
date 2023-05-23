@@ -19,6 +19,10 @@ import { de_ListDetectorsCommand, se_ListDetectorsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDetectorsCommand}.
  */

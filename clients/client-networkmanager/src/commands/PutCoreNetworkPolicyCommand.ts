@@ -19,6 +19,10 @@ import { de_PutCoreNetworkPolicyCommand, se_PutCoreNetworkPolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutCoreNetworkPolicyCommand}.
  */

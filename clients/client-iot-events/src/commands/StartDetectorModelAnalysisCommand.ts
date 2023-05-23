@@ -19,6 +19,10 @@ import { de_StartDetectorModelAnalysisCommand, se_StartDetectorModelAnalysisComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDetectorModelAnalysisCommand}.
  */

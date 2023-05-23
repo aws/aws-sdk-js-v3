@@ -19,6 +19,10 @@ import { de_DeletePlaybackKeyPairCommand, se_DeletePlaybackKeyPairCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePlaybackKeyPairCommand}.
  */

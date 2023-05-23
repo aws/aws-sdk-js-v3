@@ -19,6 +19,10 @@ import { de_UpdateClassificationScopeCommand, se_UpdateClassificationScopeComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateClassificationScopeCommand}.
  */

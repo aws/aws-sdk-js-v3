@@ -19,6 +19,10 @@ import { de_ListServicesByNamespaceCommand, se_ListServicesByNamespaceCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListServicesByNamespaceCommand}.
  */

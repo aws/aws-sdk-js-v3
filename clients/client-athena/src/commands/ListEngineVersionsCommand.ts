@@ -19,6 +19,10 @@ import { de_ListEngineVersionsCommand, se_ListEngineVersionsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEngineVersionsCommand}.
  */

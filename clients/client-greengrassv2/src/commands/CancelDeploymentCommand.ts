@@ -19,6 +19,10 @@ import { de_CancelDeploymentCommand, se_CancelDeploymentCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelDeploymentCommand}.
  */

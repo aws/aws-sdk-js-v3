@@ -19,6 +19,10 @@ import { de_PollForThirdPartyJobsCommand, se_PollForThirdPartyJobsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PollForThirdPartyJobsCommand}.
  */

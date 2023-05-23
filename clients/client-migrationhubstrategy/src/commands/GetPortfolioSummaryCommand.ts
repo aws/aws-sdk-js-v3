@@ -23,6 +23,10 @@ import { de_GetPortfolioSummaryCommand, se_GetPortfolioSummaryCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPortfolioSummaryCommand}.
  */

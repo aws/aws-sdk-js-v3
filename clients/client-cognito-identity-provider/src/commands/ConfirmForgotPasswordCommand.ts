@@ -27,6 +27,10 @@ import { de_ConfirmForgotPasswordCommand, se_ConfirmForgotPasswordCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ConfirmForgotPasswordCommand}.
  */

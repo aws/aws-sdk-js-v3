@@ -19,6 +19,10 @@ import { de_UpdateUsageCommand, se_UpdateUsageCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateUsageCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeReleaseLabelCommand, se_DescribeReleaseLabelCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeReleaseLabelCommand}.
  */

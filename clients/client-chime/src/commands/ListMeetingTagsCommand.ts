@@ -23,6 +23,10 @@ import { de_ListMeetingTagsCommand, se_ListMeetingTagsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMeetingTagsCommand}.
  */

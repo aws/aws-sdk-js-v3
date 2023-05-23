@@ -24,6 +24,10 @@ import { de_DetectSentimentCommand, se_DetectSentimentCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetectSentimentCommand}.
  */

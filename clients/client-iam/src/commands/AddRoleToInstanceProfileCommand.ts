@@ -19,6 +19,10 @@ import { de_AddRoleToInstanceProfileCommand, se_AddRoleToInstanceProfileCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddRoleToInstanceProfileCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisableSerialConsoleAccessCommand, se_DisableSerialConsoleAccessComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableSerialConsoleAccessCommand}.
  */

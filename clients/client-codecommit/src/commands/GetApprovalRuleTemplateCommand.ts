@@ -19,6 +19,10 @@ import { de_GetApprovalRuleTemplateCommand, se_GetApprovalRuleTemplateCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApprovalRuleTemplateCommand}.
  */

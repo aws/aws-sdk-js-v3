@@ -19,6 +19,10 @@ import { de_DeleteWorkspaceCommand, se_DeleteWorkspaceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWorkspaceCommand}.
  */

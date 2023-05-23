@@ -89,6 +89,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -268,7 +270,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type MediaStoreClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MediaStoreClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -287,7 +289,7 @@ export interface MediaStoreClientConfig extends MediaStoreClientConfigType {}
 /**
  * @public
  */
-type MediaStoreClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MediaStoreClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

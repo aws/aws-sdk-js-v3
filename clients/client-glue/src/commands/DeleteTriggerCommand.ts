@@ -19,6 +19,10 @@ import { de_DeleteTriggerCommand, se_DeleteTriggerCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTriggerCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StopDevEnvironmentCommand, se_StopDevEnvironmentCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopDevEnvironmentCommand}.
  */

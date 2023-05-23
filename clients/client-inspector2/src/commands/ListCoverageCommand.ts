@@ -19,6 +19,10 @@ import { de_ListCoverageCommand, se_ListCoverageCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCoverageCommand}.
  */

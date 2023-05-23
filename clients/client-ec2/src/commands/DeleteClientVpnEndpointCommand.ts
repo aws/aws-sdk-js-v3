@@ -19,6 +19,10 @@ import { de_DeleteClientVpnEndpointCommand, se_DeleteClientVpnEndpointCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteClientVpnEndpointCommand}.
  */

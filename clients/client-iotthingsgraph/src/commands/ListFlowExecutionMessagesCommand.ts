@@ -19,6 +19,10 @@ import { de_ListFlowExecutionMessagesCommand, se_ListFlowExecutionMessagesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFlowExecutionMessagesCommand}.
  */

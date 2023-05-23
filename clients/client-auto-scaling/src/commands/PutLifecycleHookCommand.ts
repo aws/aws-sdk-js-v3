@@ -19,6 +19,10 @@ import { de_PutLifecycleHookCommand, se_PutLifecycleHookCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutLifecycleHookCommand}.
  */

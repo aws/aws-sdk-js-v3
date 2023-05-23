@@ -23,6 +23,10 @@ import { de_ListServerNeighborsCommand, se_ListServerNeighborsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListServerNeighborsCommand}.
  */

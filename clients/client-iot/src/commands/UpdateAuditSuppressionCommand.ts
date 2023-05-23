@@ -19,6 +19,10 @@ import { de_UpdateAuditSuppressionCommand, se_UpdateAuditSuppressionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAuditSuppressionCommand}.
  */

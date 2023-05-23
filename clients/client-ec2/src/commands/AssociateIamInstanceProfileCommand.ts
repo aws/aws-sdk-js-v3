@@ -19,6 +19,10 @@ import { de_AssociateIamInstanceProfileCommand, se_AssociateIamInstanceProfileCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateIamInstanceProfileCommand}.
  */

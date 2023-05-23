@@ -19,6 +19,10 @@ import { de_DeleteKeyCommand, se_DeleteKeyCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteKeyCommand}.
  */

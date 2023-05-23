@@ -85,6 +85,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -262,7 +264,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type CloudHSMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type CloudHSMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -281,7 +283,7 @@ export interface CloudHSMClientConfig extends CloudHSMClientConfigType {}
 /**
  * @public
  */
-type CloudHSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type CloudHSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

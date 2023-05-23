@@ -19,6 +19,10 @@ import { de_DeleteNetworkInterfaceCommand, se_DeleteNetworkInterfaceCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNetworkInterfaceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateDetectorModelCommand, se_UpdateDetectorModelCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDetectorModelCommand}.
  */

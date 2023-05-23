@@ -19,6 +19,10 @@ import { de_DeleteRegistryPolicyCommand, se_DeleteRegistryPolicyCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRegistryPolicyCommand}.
  */

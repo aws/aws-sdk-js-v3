@@ -19,6 +19,10 @@ import { de_GetKeyPairCommand, se_GetKeyPairCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetKeyPairCommand}.
  */

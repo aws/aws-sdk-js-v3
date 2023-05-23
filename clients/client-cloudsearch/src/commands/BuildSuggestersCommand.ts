@@ -19,6 +19,10 @@ import { de_BuildSuggestersCommand, se_BuildSuggestersCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BuildSuggestersCommand}.
  */

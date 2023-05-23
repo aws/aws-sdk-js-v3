@@ -19,6 +19,10 @@ import { de_GetAppCommand, se_GetAppCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAppCommand}.
  */

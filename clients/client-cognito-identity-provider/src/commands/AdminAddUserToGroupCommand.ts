@@ -24,6 +24,10 @@ import { de_AdminAddUserToGroupCommand, se_AdminAddUserToGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminAddUserToGroupCommand}.
  */

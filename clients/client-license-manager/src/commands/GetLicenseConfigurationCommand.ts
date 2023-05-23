@@ -19,6 +19,10 @@ import { de_GetLicenseConfigurationCommand, se_GetLicenseConfigurationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLicenseConfigurationCommand}.
  */

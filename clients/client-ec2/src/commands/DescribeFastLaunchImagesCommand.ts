@@ -19,6 +19,10 @@ import { de_DescribeFastLaunchImagesCommand, se_DescribeFastLaunchImagesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFastLaunchImagesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeAuditFindingCommand, se_DescribeAuditFindingCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAuditFindingCommand}.
  */

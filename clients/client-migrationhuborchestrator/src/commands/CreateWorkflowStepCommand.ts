@@ -23,6 +23,10 @@ import { de_CreateWorkflowStepCommand, se_CreateWorkflowStepCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWorkflowStepCommand}.
  */

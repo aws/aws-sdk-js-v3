@@ -19,6 +19,10 @@ import { de_DeleteCustomMetricCommand, se_DeleteCustomMetricCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCustomMetricCommand}.
  */

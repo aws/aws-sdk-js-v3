@@ -19,6 +19,10 @@ import { de_GetSessionStatusCommand, se_GetSessionStatusCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSessionStatusCommand}.
  */

@@ -23,6 +23,10 @@ import { de_StopWorkflowCommand, se_StopWorkflowCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopWorkflowCommand}.
  */

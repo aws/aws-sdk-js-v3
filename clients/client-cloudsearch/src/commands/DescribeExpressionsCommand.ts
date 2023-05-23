@@ -19,6 +19,10 @@ import { de_DescribeExpressionsCommand, se_DescribeExpressionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeExpressionsCommand}.
  */

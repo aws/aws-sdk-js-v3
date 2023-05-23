@@ -19,6 +19,10 @@ import { de_CreateAccountCommand, se_CreateAccountCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAccountCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateAssetCommand, se_UpdateAssetCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAssetCommand}.
  */

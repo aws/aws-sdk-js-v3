@@ -19,6 +19,10 @@ import { de_DescribePrincipalIdFormatCommand, se_DescribePrincipalIdFormatComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePrincipalIdFormatCommand}.
  */

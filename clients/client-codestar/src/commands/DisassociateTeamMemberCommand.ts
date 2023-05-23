@@ -19,6 +19,10 @@ import { de_DisassociateTeamMemberCommand, se_DisassociateTeamMemberCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateTeamMemberCommand}.
  */

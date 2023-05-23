@@ -19,6 +19,10 @@ import { de_UpdateRecommenderCommand, se_UpdateRecommenderCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRecommenderCommand}.
  */

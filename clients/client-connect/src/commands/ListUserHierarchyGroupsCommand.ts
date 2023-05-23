@@ -19,6 +19,10 @@ import { de_ListUserHierarchyGroupsCommand, se_ListUserHierarchyGroupsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUserHierarchyGroupsCommand}.
  */

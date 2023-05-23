@@ -19,6 +19,10 @@ import { de_DescribeAutoScalingGroupsCommand, se_DescribeAutoScalingGroupsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAutoScalingGroupsCommand}.
  */

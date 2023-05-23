@@ -19,6 +19,10 @@ import { de_DeletePartnerEventSourceCommand, se_DeletePartnerEventSourceCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePartnerEventSourceCommand}.
  */

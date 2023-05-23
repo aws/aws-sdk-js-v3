@@ -19,6 +19,10 @@ import { de_EvaluateCodeCommand, se_EvaluateCodeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EvaluateCodeCommand}.
  */

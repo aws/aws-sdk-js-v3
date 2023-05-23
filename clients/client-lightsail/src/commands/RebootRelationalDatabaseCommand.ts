@@ -19,6 +19,10 @@ import { de_RebootRelationalDatabaseCommand, se_RebootRelationalDatabaseCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RebootRelationalDatabaseCommand}.
  */

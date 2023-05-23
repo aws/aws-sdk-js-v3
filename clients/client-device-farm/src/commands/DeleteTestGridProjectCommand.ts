@@ -19,6 +19,10 @@ import { de_DeleteTestGridProjectCommand, se_DeleteTestGridProjectCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTestGridProjectCommand}.
  */

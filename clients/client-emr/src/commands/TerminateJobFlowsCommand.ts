@@ -19,6 +19,10 @@ import { de_TerminateJobFlowsCommand, se_TerminateJobFlowsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TerminateJobFlowsCommand}.
  */

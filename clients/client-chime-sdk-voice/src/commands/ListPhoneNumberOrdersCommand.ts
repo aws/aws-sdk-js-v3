@@ -23,6 +23,10 @@ import { de_ListPhoneNumberOrdersCommand, se_ListPhoneNumberOrdersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPhoneNumberOrdersCommand}.
  */

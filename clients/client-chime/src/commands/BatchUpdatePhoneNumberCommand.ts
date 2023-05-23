@@ -23,6 +23,10 @@ import { de_BatchUpdatePhoneNumberCommand, se_BatchUpdatePhoneNumberCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUpdatePhoneNumberCommand}.
  */

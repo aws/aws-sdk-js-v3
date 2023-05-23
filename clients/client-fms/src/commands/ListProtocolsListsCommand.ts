@@ -19,6 +19,10 @@ import { de_ListProtocolsListsCommand, se_ListProtocolsListsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListProtocolsListsCommand}.
  */

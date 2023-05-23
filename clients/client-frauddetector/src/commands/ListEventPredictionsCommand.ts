@@ -19,6 +19,10 @@ import { de_ListEventPredictionsCommand, se_ListEventPredictionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventPredictionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeDatasetGroupCommand, se_DescribeDatasetGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDatasetGroupCommand}.
  */

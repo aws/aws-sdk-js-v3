@@ -19,6 +19,10 @@ import { de_DeleteDocumentationPartCommand, se_DeleteDocumentationPartCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDocumentationPartCommand}.
  */

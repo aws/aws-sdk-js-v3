@@ -19,6 +19,10 @@ import { de_CreateCloudFormationStackCommand, se_CreateCloudFormationStackComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCloudFormationStackCommand}.
  */

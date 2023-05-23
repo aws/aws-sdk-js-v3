@@ -19,6 +19,10 @@ import { de_GetChangeLogsCommand, se_GetChangeLogsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetChangeLogsCommand}.
  */

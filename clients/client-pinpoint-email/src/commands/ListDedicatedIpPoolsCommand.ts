@@ -19,6 +19,10 @@ import { de_ListDedicatedIpPoolsCommand, se_ListDedicatedIpPoolsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDedicatedIpPoolsCommand}.
  */

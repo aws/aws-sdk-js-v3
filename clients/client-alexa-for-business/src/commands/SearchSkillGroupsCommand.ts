@@ -19,6 +19,10 @@ import { de_SearchSkillGroupsCommand, se_SearchSkillGroupsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchSkillGroupsCommand}.
  */

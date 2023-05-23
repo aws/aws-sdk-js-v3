@@ -28,6 +28,10 @@ import { de_AdminEnableUserCommand, se_AdminEnableUserCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminEnableUserCommand}.
  */

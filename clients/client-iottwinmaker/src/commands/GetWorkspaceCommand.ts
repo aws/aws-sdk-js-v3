@@ -19,6 +19,10 @@ import { de_GetWorkspaceCommand, se_GetWorkspaceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWorkspaceCommand}.
  */

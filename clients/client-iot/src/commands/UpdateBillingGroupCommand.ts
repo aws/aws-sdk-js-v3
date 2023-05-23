@@ -19,6 +19,10 @@ import { de_UpdateBillingGroupCommand, se_UpdateBillingGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBillingGroupCommand}.
  */

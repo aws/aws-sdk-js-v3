@@ -19,6 +19,10 @@ import { de_VerifyTrustCommand, se_VerifyTrustCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link VerifyTrustCommand}.
  */

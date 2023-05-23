@@ -19,6 +19,10 @@ import { de_UpdateWorkspaceAliasCommand, se_UpdateWorkspaceAliasCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateWorkspaceAliasCommand}.
  */

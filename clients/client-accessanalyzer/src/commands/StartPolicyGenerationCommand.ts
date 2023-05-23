@@ -19,6 +19,10 @@ import { de_StartPolicyGenerationCommand, se_StartPolicyGenerationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartPolicyGenerationCommand}.
  */

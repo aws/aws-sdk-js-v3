@@ -19,6 +19,10 @@ import { de_CreatePushTemplateCommand, se_CreatePushTemplateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePushTemplateCommand}.
  */

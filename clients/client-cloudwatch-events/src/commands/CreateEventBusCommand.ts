@@ -19,6 +19,10 @@ import { de_CreateEventBusCommand, se_CreateEventBusCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEventBusCommand}.
  */

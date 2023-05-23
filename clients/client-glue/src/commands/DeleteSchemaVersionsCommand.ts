@@ -19,6 +19,10 @@ import { de_DeleteSchemaVersionsCommand, se_DeleteSchemaVersionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSchemaVersionsCommand}.
  */

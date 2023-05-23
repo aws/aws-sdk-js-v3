@@ -19,6 +19,10 @@ import { de_GetApplicationRevisionCommand, se_GetApplicationRevisionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApplicationRevisionCommand}.
  */

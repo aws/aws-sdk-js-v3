@@ -19,6 +19,10 @@ import { de_CreateObjectCommand, se_CreateObjectCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateObjectCommand}.
  */

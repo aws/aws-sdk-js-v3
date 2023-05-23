@@ -19,6 +19,10 @@ import { de_PurchaseScheduledInstancesCommand, se_PurchaseScheduledInstancesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PurchaseScheduledInstancesCommand}.
  */

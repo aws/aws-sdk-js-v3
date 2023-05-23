@@ -19,6 +19,10 @@ import { de_DeletePackageVersionsCommand, se_DeletePackageVersionsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePackageVersionsCommand}.
  */

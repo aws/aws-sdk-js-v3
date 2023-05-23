@@ -19,6 +19,10 @@ import { de_AttachThingPrincipalCommand, se_AttachThingPrincipalCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachThingPrincipalCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetSuiteDefinitionCommand, se_GetSuiteDefinitionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSuiteDefinitionCommand}.
  */

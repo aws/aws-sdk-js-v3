@@ -19,6 +19,10 @@ import { de_ExportImageCommand, se_ExportImageCommand } from "../protocols/Aws_e
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportImageCommand}.
  */

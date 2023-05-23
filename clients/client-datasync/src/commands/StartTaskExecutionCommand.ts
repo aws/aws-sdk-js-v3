@@ -19,6 +19,10 @@ import { de_StartTaskExecutionCommand, se_StartTaskExecutionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartTaskExecutionCommand}.
  */

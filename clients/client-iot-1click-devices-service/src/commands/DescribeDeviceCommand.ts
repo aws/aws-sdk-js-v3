@@ -23,6 +23,10 @@ import { de_DescribeDeviceCommand, se_DescribeDeviceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDeviceCommand}.
  */

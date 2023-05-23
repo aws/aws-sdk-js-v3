@@ -19,6 +19,10 @@ import { de_UpdateGlobalTableSettingsCommand, se_UpdateGlobalTableSettingsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateGlobalTableSettingsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListGeofencesCommand, se_ListGeofencesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGeofencesCommand}.
  */

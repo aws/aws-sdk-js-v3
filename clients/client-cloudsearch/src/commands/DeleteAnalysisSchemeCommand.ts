@@ -19,6 +19,10 @@ import { de_DeleteAnalysisSchemeCommand, se_DeleteAnalysisSchemeCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAnalysisSchemeCommand}.
  */

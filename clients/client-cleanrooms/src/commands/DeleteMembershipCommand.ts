@@ -19,6 +19,10 @@ import { de_DeleteMembershipCommand, se_DeleteMembershipCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMembershipCommand}.
  */

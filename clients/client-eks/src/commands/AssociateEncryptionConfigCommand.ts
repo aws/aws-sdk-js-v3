@@ -19,6 +19,10 @@ import { de_AssociateEncryptionConfigCommand, se_AssociateEncryptionConfigComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateEncryptionConfigCommand}.
  */

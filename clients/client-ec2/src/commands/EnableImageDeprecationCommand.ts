@@ -19,6 +19,10 @@ import { de_EnableImageDeprecationCommand, se_EnableImageDeprecationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableImageDeprecationCommand}.
  */

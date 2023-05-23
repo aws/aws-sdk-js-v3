@@ -19,6 +19,10 @@ import { de_PutKeyPolicyCommand, se_PutKeyPolicyCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutKeyPolicyCommand}.
  */

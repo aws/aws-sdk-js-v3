@@ -19,6 +19,10 @@ import { de_DescribeEffectivePolicyCommand, se_DescribeEffectivePolicyCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEffectivePolicyCommand}.
  */

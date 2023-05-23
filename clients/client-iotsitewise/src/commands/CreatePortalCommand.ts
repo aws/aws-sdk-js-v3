@@ -19,6 +19,10 @@ import { de_CreatePortalCommand, se_CreatePortalCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePortalCommand}.
  */

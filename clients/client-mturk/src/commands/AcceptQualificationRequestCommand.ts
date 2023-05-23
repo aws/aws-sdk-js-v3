@@ -19,6 +19,10 @@ import { de_AcceptQualificationRequestCommand, se_AcceptQualificationRequestComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AcceptQualificationRequestCommand}.
  */

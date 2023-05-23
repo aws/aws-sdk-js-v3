@@ -19,6 +19,10 @@ import { de_UpdateFleetMetricCommand, se_UpdateFleetMetricCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFleetMetricCommand}.
  */

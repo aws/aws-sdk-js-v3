@@ -19,6 +19,10 @@ import { de_ListCostCategoryDefinitionsCommand, se_ListCostCategoryDefinitionsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCostCategoryDefinitionsCommand}.
  */

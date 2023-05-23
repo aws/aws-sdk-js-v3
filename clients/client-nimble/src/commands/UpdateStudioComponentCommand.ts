@@ -24,6 +24,10 @@ import { de_UpdateStudioComponentCommand, se_UpdateStudioComponentCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateStudioComponentCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListAvailableSolutionStacksCommand, se_ListAvailableSolutionStacksCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAvailableSolutionStacksCommand}.
  */

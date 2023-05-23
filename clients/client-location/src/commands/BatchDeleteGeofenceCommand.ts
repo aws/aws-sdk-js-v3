@@ -19,6 +19,10 @@ import { de_BatchDeleteGeofenceCommand, se_BatchDeleteGeofenceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteGeofenceCommand}.
  */

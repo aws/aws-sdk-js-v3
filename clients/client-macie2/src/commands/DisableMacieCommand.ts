@@ -19,6 +19,10 @@ import { de_DisableMacieCommand, se_DisableMacieCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableMacieCommand}.
  */

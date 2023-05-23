@@ -24,6 +24,10 @@ import { de_CreateLaunchTemplateVersionCommand, se_CreateLaunchTemplateVersionCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLaunchTemplateVersionCommand}.
  */

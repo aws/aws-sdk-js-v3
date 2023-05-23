@@ -19,6 +19,10 @@ import { de_ListMultiplexProgramsCommand, se_ListMultiplexProgramsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMultiplexProgramsCommand}.
  */

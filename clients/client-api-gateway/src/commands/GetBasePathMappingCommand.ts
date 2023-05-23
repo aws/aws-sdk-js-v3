@@ -19,6 +19,10 @@ import { de_GetBasePathMappingCommand, se_GetBasePathMappingCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBasePathMappingCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListPublicKeysCommand, se_ListPublicKeysCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPublicKeysCommand}.
  */

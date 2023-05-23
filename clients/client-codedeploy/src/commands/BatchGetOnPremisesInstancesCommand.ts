@@ -19,6 +19,10 @@ import { de_BatchGetOnPremisesInstancesCommand, se_BatchGetOnPremisesInstancesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetOnPremisesInstancesCommand}.
  */

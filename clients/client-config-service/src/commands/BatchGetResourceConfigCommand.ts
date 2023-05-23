@@ -19,6 +19,10 @@ import { de_BatchGetResourceConfigCommand, se_BatchGetResourceConfigCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetResourceConfigCommand}.
  */

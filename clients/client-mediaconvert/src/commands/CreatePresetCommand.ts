@@ -19,6 +19,10 @@ import { de_CreatePresetCommand, se_CreatePresetCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePresetCommand}.
  */

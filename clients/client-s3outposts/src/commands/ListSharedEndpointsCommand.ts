@@ -19,6 +19,10 @@ import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSharedEndpointsCommand}.
  */

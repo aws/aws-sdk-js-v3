@@ -19,6 +19,10 @@ import { de_GetDataSetDetailsCommand, se_GetDataSetDetailsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataSetDetailsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AttachInstancesCommand, se_AttachInstancesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachInstancesCommand}.
  */

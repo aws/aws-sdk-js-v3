@@ -23,6 +23,10 @@ import { de_ListHandshakesForAccountCommand, se_ListHandshakesForAccountCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListHandshakesForAccountCommand}.
  */

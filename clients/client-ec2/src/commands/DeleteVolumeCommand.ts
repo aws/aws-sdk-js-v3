@@ -19,6 +19,10 @@ import { de_DeleteVolumeCommand, se_DeleteVolumeCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVolumeCommand}.
  */

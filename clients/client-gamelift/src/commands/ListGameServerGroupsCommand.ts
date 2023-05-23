@@ -19,6 +19,10 @@ import { de_ListGameServerGroupsCommand, se_ListGameServerGroupsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGameServerGroupsCommand}.
  */

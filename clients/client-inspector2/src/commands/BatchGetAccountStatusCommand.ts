@@ -19,6 +19,10 @@ import { de_BatchGetAccountStatusCommand, se_BatchGetAccountStatusCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetAccountStatusCommand}.
  */

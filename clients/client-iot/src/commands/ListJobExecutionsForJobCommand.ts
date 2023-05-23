@@ -19,6 +19,10 @@ import { de_ListJobExecutionsForJobCommand, se_ListJobExecutionsForJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListJobExecutionsForJobCommand}.
  */

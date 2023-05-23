@@ -19,6 +19,10 @@ import { de_DeleteMatchmakingRuleSetCommand, se_DeleteMatchmakingRuleSetCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMatchmakingRuleSetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListExportsCommand, se_ListExportsCommand } from "../protocols/Aws_q
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListExportsCommand}.
  */

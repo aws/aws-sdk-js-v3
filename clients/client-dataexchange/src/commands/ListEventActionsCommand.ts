@@ -19,6 +19,10 @@ import { de_ListEventActionsCommand, se_ListEventActionsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEventActionsCommand}.
  */

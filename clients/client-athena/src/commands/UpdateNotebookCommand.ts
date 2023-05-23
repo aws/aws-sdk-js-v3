@@ -19,6 +19,10 @@ import { de_UpdateNotebookCommand, se_UpdateNotebookCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNotebookCommand}.
  */

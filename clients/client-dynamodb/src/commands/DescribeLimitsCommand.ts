@@ -19,6 +19,10 @@ import { de_DescribeLimitsCommand, se_DescribeLimitsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLimitsCommand}.
  */

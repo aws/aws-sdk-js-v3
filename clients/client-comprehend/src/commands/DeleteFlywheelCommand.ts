@@ -19,6 +19,10 @@ import { de_DeleteFlywheelCommand, se_DeleteFlywheelCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFlywheelCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RegisterElasticIpCommand, se_RegisterElasticIpCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterElasticIpCommand}.
  */

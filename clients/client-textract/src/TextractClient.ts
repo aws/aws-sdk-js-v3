@@ -93,6 +93,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -256,7 +258,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type TextractClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type TextractClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -275,7 +277,7 @@ export interface TextractClientConfig extends TextractClientConfigType {}
 /**
  * @public
  */
-type TextractClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type TextractClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

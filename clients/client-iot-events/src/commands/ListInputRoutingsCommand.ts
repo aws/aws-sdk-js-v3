@@ -19,6 +19,10 @@ import { de_ListInputRoutingsCommand, se_ListInputRoutingsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListInputRoutingsCommand}.
  */

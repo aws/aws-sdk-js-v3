@@ -19,6 +19,10 @@ import { de_BatchUpdateScheduleCommand, se_BatchUpdateScheduleCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUpdateScheduleCommand}.
  */

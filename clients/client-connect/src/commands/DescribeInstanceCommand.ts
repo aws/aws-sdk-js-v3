@@ -23,6 +23,10 @@ import { de_DescribeInstanceCommand, se_DescribeInstanceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInstanceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RestoreClusterFromSnapshotCommand, se_RestoreClusterFromSnapshotComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreClusterFromSnapshotCommand}.
  */

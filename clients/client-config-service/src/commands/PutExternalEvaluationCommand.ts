@@ -19,6 +19,10 @@ import { de_PutExternalEvaluationCommand, se_PutExternalEvaluationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutExternalEvaluationCommand}.
  */

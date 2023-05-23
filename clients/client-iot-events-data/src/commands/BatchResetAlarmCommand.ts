@@ -19,6 +19,10 @@ import { de_BatchResetAlarmCommand, se_BatchResetAlarmCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchResetAlarmCommand}.
  */

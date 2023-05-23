@@ -19,6 +19,10 @@ import { de_UpdateJobCommand, se_UpdateJobCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateJobCommand}.
  */

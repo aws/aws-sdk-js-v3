@@ -23,6 +23,10 @@ import { de_ListExperienceEntitiesCommand, se_ListExperienceEntitiesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListExperienceEntitiesCommand}.
  */

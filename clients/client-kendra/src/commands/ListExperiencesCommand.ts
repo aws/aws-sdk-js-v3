@@ -19,6 +19,10 @@ import { de_ListExperiencesCommand, se_ListExperiencesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListExperiencesCommand}.
  */

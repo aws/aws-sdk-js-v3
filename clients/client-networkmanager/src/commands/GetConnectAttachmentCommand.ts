@@ -19,6 +19,10 @@ import { de_GetConnectAttachmentCommand, se_GetConnectAttachmentCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConnectAttachmentCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListSyncJobsCommand, se_ListSyncJobsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSyncJobsCommand}.
  */

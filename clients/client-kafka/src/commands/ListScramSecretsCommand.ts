@@ -19,6 +19,10 @@ import { de_ListScramSecretsCommand, se_ListScramSecretsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListScramSecretsCommand}.
  */

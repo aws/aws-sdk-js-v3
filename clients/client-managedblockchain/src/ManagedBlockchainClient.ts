@@ -89,6 +89,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -280,7 +282,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ManagedBlockchainClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ManagedBlockchainClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -299,7 +301,7 @@ export interface ManagedBlockchainClientConfig extends ManagedBlockchainClientCo
 /**
  * @public
  */
-type ManagedBlockchainClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ManagedBlockchainClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

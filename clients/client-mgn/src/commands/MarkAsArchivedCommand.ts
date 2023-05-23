@@ -19,6 +19,10 @@ import { de_MarkAsArchivedCommand, se_MarkAsArchivedCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MarkAsArchivedCommand}.
  */

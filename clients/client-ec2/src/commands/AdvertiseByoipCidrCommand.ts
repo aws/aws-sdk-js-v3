@@ -19,6 +19,10 @@ import { de_AdvertiseByoipCidrCommand, se_AdvertiseByoipCidrCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdvertiseByoipCidrCommand}.
  */

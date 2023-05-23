@@ -19,6 +19,10 @@ import { de_GetGroupIdCommand, se_GetGroupIdCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGroupIdCommand}.
  */

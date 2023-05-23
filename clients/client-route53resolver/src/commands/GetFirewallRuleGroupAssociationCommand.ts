@@ -22,6 +22,10 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFirewallRuleGroupAssociationCommand}.
  */

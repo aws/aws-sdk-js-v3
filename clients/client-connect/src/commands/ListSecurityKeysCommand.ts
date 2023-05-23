@@ -19,6 +19,10 @@ import { de_ListSecurityKeysCommand, se_ListSecurityKeysCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSecurityKeysCommand}.
  */

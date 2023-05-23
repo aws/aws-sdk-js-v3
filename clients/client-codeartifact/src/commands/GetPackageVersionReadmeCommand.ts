@@ -19,6 +19,10 @@ import { de_GetPackageVersionReadmeCommand, se_GetPackageVersionReadmeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPackageVersionReadmeCommand}.
  */

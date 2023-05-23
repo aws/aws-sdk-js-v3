@@ -19,6 +19,10 @@ import { de_ListDistributionsByKeyGroupCommand, se_ListDistributionsByKeyGroupCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDistributionsByKeyGroupCommand}.
  */

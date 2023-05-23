@@ -19,6 +19,10 @@ import { de_DescribeFileCachesCommand, se_DescribeFileCachesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFileCachesCommand}.
  */

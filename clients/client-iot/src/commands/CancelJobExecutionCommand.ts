@@ -19,6 +19,10 @@ import { de_CancelJobExecutionCommand, se_CancelJobExecutionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelJobExecutionCommand}.
  */

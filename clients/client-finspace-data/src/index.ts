@@ -1,8 +1,14 @@
-export * from "./FinspaceData";
 // smithy-typescript generated code
+/* eslint-disable */
+/**
+ * <p> The FinSpace APIs let you take actions inside the FinSpace.</p>
+ *
+ * @packageDocumentation
+ */
 export * from "./FinspaceDataClient";
+export * from "./FinspaceData";
 export * from "./commands";
-export * from "./models";
 export * from "./pagination";
+export * from "./models";
 
 export { FinspaceDataServiceException } from "./models/FinspaceDataServiceException";

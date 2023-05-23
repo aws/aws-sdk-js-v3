@@ -19,6 +19,10 @@ import { de_DescribeOrganizationCommand, se_DescribeOrganizationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeOrganizationCommand}.
  */

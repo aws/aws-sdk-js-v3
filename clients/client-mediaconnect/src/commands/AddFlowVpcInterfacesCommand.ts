@@ -19,6 +19,10 @@ import { de_AddFlowVpcInterfacesCommand, se_AddFlowVpcInterfacesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddFlowVpcInterfacesCommand}.
  */

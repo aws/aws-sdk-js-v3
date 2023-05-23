@@ -19,6 +19,10 @@ import { de_CreateTrackerCommand, se_CreateTrackerCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateTrackerCommand}.
  */

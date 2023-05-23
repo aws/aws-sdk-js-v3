@@ -19,6 +19,10 @@ import { de_ActivatePipelineCommand, se_ActivatePipelineCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ActivatePipelineCommand}.
  */

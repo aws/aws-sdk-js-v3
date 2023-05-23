@@ -23,6 +23,10 @@ import { de_DeleteDefaultMessageTypeCommand, se_DeleteDefaultMessageTypeCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDefaultMessageTypeCommand}.
  */

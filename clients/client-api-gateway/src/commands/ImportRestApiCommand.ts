@@ -19,6 +19,10 @@ import { de_ImportRestApiCommand, se_ImportRestApiCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportRestApiCommand}.
  */

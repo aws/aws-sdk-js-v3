@@ -19,6 +19,10 @@ import { de_StopSolutionVersionCreationCommand, se_StopSolutionVersionCreationCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopSolutionVersionCreationCommand}.
  */

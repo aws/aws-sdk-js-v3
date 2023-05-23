@@ -19,6 +19,10 @@ import { de_CreateHITWithHITTypeCommand, se_CreateHITWithHITTypeCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateHITWithHITTypeCommand}.
  */

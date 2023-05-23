@@ -19,6 +19,10 @@ import { de_DescribeScalingPlansCommand, se_DescribeScalingPlansCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScalingPlansCommand}.
  */

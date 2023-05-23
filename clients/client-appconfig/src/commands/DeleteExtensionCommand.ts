@@ -19,6 +19,10 @@ import { de_DeleteExtensionCommand, se_DeleteExtensionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteExtensionCommand}.
  */

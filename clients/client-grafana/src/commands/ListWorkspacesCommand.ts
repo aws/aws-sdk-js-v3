@@ -23,6 +23,10 @@ import { de_ListWorkspacesCommand, se_ListWorkspacesCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWorkspacesCommand}.
  */

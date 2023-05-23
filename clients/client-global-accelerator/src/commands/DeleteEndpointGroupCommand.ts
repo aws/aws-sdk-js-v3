@@ -23,6 +23,10 @@ import { de_DeleteEndpointGroupCommand, se_DeleteEndpointGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEndpointGroupCommand}.
  */

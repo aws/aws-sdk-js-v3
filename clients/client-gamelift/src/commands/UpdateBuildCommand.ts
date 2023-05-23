@@ -19,6 +19,10 @@ import { de_UpdateBuildCommand, se_UpdateBuildCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBuildCommand}.
  */

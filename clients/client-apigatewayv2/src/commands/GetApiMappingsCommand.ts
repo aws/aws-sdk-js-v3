@@ -19,6 +19,10 @@ import { de_GetApiMappingsCommand, se_GetApiMappingsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApiMappingsCommand}.
  */

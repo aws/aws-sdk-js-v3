@@ -19,6 +19,10 @@ import { de_UpdateMultiplexCommand, se_UpdateMultiplexCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMultiplexCommand}.
  */

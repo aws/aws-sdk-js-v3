@@ -19,6 +19,10 @@ import { de_CreateCacheClusterCommand, se_CreateCacheClusterCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCacheClusterCommand}.
  */

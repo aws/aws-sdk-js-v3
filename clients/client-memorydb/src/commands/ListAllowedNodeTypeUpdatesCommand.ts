@@ -19,6 +19,10 @@ import { de_ListAllowedNodeTypeUpdatesCommand, se_ListAllowedNodeTypeUpdatesComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAllowedNodeTypeUpdatesCommand}.
  */

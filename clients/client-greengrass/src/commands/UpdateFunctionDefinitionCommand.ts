@@ -19,6 +19,10 @@ import { de_UpdateFunctionDefinitionCommand, se_UpdateFunctionDefinitionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFunctionDefinitionCommand}.
  */

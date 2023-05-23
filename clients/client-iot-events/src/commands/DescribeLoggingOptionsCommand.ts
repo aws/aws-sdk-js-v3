@@ -19,6 +19,10 @@ import { de_DescribeLoggingOptionsCommand, se_DescribeLoggingOptionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLoggingOptionsCommand}.
  */

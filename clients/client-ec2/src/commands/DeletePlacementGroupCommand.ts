@@ -19,6 +19,10 @@ import { de_DeletePlacementGroupCommand, se_DeletePlacementGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePlacementGroupCommand}.
  */

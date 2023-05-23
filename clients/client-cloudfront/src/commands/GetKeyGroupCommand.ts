@@ -19,6 +19,10 @@ import { de_GetKeyGroupCommand, se_GetKeyGroupCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetKeyGroupCommand}.
  */

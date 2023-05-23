@@ -19,6 +19,10 @@ import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_q
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTemplateCommand}.
  */

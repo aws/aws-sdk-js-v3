@@ -23,6 +23,10 @@ import { de_GetDevicePositionCommand, se_GetDevicePositionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDevicePositionCommand}.
  */

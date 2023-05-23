@@ -19,6 +19,10 @@ import { de_SearchNetworkProfilesCommand, se_SearchNetworkProfilesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchNetworkProfilesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RevokeSecurityGroupIngressCommand, se_RevokeSecurityGroupIngressComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RevokeSecurityGroupIngressCommand}.
  */

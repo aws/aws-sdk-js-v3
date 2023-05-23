@@ -19,6 +19,10 @@ import { de_StartModelCommand, se_StartModelCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartModelCommand}.
  */

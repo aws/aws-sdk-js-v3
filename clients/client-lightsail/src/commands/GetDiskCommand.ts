@@ -19,6 +19,10 @@ import { de_GetDiskCommand, se_GetDiskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDiskCommand}.
  */

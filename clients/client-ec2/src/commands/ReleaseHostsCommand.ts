@@ -19,6 +19,10 @@ import { de_ReleaseHostsCommand, se_ReleaseHostsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReleaseHostsCommand}.
  */

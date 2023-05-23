@@ -19,6 +19,10 @@ import { de_DeleteClusterPolicyCommand, se_DeleteClusterPolicyCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteClusterPolicyCommand}.
  */

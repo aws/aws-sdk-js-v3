@@ -23,6 +23,10 @@ import { de_ListJobsByPipelineCommand, se_ListJobsByPipelineCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListJobsByPipelineCommand}.
  */

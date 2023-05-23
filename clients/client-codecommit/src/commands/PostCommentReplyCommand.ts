@@ -19,6 +19,10 @@ import { de_PostCommentReplyCommand, se_PostCommentReplyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PostCommentReplyCommand}.
  */

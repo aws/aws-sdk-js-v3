@@ -19,6 +19,10 @@ import { de_GetGeofenceCommand, se_GetGeofenceCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetGeofenceCommand}.
  */

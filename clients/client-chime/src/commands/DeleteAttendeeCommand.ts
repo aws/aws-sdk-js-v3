@@ -19,6 +19,10 @@ import { de_DeleteAttendeeCommand, se_DeleteAttendeeCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAttendeeCommand}.
  */

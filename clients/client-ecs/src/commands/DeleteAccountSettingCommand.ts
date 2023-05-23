@@ -19,6 +19,10 @@ import { de_DeleteAccountSettingCommand, se_DeleteAccountSettingCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAccountSettingCommand}.
  */

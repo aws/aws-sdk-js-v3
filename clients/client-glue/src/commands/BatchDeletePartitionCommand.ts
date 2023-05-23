@@ -19,6 +19,10 @@ import { de_BatchDeletePartitionCommand, se_BatchDeletePartitionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeletePartitionCommand}.
  */

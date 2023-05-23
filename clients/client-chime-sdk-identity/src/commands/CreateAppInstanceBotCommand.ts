@@ -23,6 +23,10 @@ import { de_CreateAppInstanceBotCommand, se_CreateAppInstanceBotCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAppInstanceBotCommand}.
  */

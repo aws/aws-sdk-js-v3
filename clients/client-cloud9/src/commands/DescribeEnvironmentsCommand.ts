@@ -23,6 +23,10 @@ import { de_DescribeEnvironmentsCommand, se_DescribeEnvironmentsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEnvironmentsCommand}.
  */

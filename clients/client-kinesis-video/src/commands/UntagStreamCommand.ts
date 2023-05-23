@@ -19,6 +19,10 @@ import { de_UntagStreamCommand, se_UntagStreamCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagStreamCommand}.
  */

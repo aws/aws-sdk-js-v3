@@ -19,6 +19,10 @@ import { de_ListExecutorsCommand, se_ListExecutorsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListExecutorsCommand}.
  */

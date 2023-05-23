@@ -19,6 +19,10 @@ import { de_DeleteDimensionCommand, se_DeleteDimensionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDimensionCommand}.
  */

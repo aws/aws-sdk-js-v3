@@ -19,6 +19,10 @@ import { de_ListWebhooksCommand, se_ListWebhooksCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListWebhooksCommand}.
  */

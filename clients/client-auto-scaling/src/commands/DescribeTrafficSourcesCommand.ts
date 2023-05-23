@@ -19,6 +19,10 @@ import { de_DescribeTrafficSourcesCommand, se_DescribeTrafficSourcesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTrafficSourcesCommand}.
  */

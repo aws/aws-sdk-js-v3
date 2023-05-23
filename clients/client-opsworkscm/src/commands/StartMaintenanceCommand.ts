@@ -24,6 +24,10 @@ import { de_StartMaintenanceCommand, se_StartMaintenanceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartMaintenanceCommand}.
  */

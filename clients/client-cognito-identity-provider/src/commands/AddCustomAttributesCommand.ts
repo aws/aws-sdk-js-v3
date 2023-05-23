@@ -24,6 +24,10 @@ import { de_AddCustomAttributesCommand, se_AddCustomAttributesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddCustomAttributesCommand}.
  */

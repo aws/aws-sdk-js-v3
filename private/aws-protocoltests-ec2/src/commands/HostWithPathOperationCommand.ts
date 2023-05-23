@@ -17,6 +17,10 @@ import { de_HostWithPathOperationCommand, se_HostWithPathOperationCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link HostWithPathOperationCommand}.
  */

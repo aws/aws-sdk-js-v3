@@ -19,6 +19,10 @@ import { de_UpdateTaskSetCommand, se_UpdateTaskSetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTaskSetCommand}.
  */

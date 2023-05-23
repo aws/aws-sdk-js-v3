@@ -19,6 +19,10 @@ import { de_ListAggregatedUtterancesCommand, se_ListAggregatedUtterancesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAggregatedUtterancesCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DescribeHomeRegionControlsCommand, se_DescribeHomeRegionControlsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeHomeRegionControlsCommand}.
  */

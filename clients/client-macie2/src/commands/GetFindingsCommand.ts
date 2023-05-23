@@ -19,6 +19,10 @@ import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFindingsCommand}.
  */

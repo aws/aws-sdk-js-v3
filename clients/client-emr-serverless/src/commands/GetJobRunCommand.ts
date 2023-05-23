@@ -19,6 +19,10 @@ import { de_GetJobRunCommand, se_GetJobRunCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetJobRunCommand}.
  */

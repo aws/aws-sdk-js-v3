@@ -19,6 +19,10 @@ import { de_AssociateTargetsWithJobCommand, se_AssociateTargetsWithJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateTargetsWithJobCommand}.
  */

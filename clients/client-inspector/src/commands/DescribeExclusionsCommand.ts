@@ -19,6 +19,10 @@ import { de_DescribeExclusionsCommand, se_DescribeExclusionsCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeExclusionsCommand}.
  */

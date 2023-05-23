@@ -19,6 +19,10 @@ import { de_GetReportGroupTrendCommand, se_GetReportGroupTrendCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetReportGroupTrendCommand}.
  */

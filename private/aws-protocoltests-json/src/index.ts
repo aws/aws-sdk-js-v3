@@ -1,6 +1,7 @@
-export * from "./JsonProtocol";
 // smithy-typescript generated code
+/* eslint-disable */
 export * from "./JsonProtocolClient";
+export * from "./JsonProtocol";
 export * from "./commands";
 export * from "./models";
 

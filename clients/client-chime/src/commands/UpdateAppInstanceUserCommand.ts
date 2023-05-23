@@ -23,6 +23,10 @@ import { de_UpdateAppInstanceUserCommand, se_UpdateAppInstanceUserCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAppInstanceUserCommand}.
  */

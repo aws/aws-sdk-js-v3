@@ -19,6 +19,10 @@ import { de_PutResourceAttributesCommand, se_PutResourceAttributesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutResourceAttributesCommand}.
  */

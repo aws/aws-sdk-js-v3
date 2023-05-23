@@ -19,6 +19,10 @@ import { de_ModifyInstanceFleetCommand, se_ModifyInstanceFleetCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyInstanceFleetCommand}.
  */

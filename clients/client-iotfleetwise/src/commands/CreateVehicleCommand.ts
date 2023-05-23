@@ -19,6 +19,10 @@ import { de_CreateVehicleCommand, se_CreateVehicleCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateVehicleCommand}.
  */

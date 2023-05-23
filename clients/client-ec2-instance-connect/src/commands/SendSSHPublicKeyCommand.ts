@@ -23,6 +23,10 @@ import { de_SendSSHPublicKeyCommand, se_SendSSHPublicKeyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendSSHPublicKeyCommand}.
  */

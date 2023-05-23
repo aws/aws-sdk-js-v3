@@ -19,6 +19,10 @@ import { de_GetLoadBalancerCommand, se_GetLoadBalancerCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLoadBalancerCommand}.
  */

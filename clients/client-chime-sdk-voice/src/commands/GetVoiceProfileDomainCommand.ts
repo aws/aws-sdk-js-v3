@@ -23,6 +23,10 @@ import { de_GetVoiceProfileDomainCommand, se_GetVoiceProfileDomainCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetVoiceProfileDomainCommand}.
  */

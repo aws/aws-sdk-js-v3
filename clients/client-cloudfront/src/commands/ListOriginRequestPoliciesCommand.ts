@@ -19,6 +19,10 @@ import { de_ListOriginRequestPoliciesCommand, se_ListOriginRequestPoliciesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListOriginRequestPoliciesCommand}.
  */

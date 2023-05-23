@@ -19,6 +19,10 @@ import { de_UpdateInAppTemplateCommand, se_UpdateInAppTemplateCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateInAppTemplateCommand}.
  */

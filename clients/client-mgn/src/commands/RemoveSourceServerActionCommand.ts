@@ -19,6 +19,10 @@ import { de_RemoveSourceServerActionCommand, se_RemoveSourceServerActionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveSourceServerActionCommand}.
  */

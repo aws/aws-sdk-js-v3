@@ -19,6 +19,10 @@ import { de_ResumeContactRecordingCommand, se_ResumeContactRecordingCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResumeContactRecordingCommand}.
  */

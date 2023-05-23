@@ -19,6 +19,10 @@ import { de_PutProfileObjectCommand, se_PutProfileObjectCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutProfileObjectCommand}.
  */

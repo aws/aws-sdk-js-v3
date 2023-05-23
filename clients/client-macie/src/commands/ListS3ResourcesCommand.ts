@@ -19,6 +19,10 @@ import { de_ListS3ResourcesCommand, se_ListS3ResourcesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListS3ResourcesCommand}.
  */

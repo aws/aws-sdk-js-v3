@@ -19,6 +19,10 @@ import { de_ValidatePolicyCommand, se_ValidatePolicyCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ValidatePolicyCommand}.
  */

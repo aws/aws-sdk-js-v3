@@ -23,6 +23,10 @@ import { de_DescribeAgentsCommand, se_DescribeAgentsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAgentsCommand}.
  */

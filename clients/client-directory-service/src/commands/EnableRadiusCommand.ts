@@ -19,6 +19,10 @@ import { de_EnableRadiusCommand, se_EnableRadiusCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableRadiusCommand}.
  */

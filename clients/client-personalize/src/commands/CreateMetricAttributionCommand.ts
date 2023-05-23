@@ -19,6 +19,10 @@ import { de_CreateMetricAttributionCommand, se_CreateMetricAttributionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMetricAttributionCommand}.
  */

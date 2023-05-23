@@ -19,6 +19,10 @@ import { de_DeleteLexiconCommand, se_DeleteLexiconCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLexiconCommand}.
  */

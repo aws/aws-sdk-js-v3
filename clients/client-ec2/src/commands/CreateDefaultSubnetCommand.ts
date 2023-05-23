@@ -19,6 +19,10 @@ import { de_CreateDefaultSubnetCommand, se_CreateDefaultSubnetCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDefaultSubnetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateKeyCommand, se_CreateKeyCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateKeyCommand}.
  */

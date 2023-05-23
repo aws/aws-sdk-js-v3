@@ -19,6 +19,10 @@ import { de_ConfirmConnectionCommand, se_ConfirmConnectionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ConfirmConnectionCommand}.
  */

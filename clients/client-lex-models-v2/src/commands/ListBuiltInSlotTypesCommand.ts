@@ -19,6 +19,10 @@ import { de_ListBuiltInSlotTypesCommand, se_ListBuiltInSlotTypesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBuiltInSlotTypesCommand}.
  */

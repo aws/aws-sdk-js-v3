@@ -19,6 +19,10 @@ import { de_DescribeVerifiedAccessGroupsCommand, se_DescribeVerifiedAccessGroups
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVerifiedAccessGroupsCommand}.
  */

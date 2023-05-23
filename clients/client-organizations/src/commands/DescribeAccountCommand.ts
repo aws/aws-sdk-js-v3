@@ -23,6 +23,10 @@ import { de_DescribeAccountCommand, se_DescribeAccountCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAccountCommand}.
  */

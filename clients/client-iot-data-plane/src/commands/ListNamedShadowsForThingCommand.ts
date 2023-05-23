@@ -19,6 +19,10 @@ import { de_ListNamedShadowsForThingCommand, se_ListNamedShadowsForThingCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListNamedShadowsForThingCommand}.
  */

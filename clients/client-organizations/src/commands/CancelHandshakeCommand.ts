@@ -23,6 +23,10 @@ import { de_CancelHandshakeCommand, se_CancelHandshakeCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelHandshakeCommand}.
  */

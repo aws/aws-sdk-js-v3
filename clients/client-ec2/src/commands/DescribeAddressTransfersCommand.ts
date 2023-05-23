@@ -19,6 +19,10 @@ import { de_DescribeAddressTransfersCommand, se_DescribeAddressTransfersCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAddressTransfersCommand}.
  */

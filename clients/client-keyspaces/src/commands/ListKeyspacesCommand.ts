@@ -19,6 +19,10 @@ import { de_ListKeyspacesCommand, se_ListKeyspacesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListKeyspacesCommand}.
  */

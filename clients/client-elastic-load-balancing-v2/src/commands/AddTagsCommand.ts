@@ -23,6 +23,10 @@ import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddTagsCommand}.
  */

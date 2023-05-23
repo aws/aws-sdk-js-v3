@@ -19,6 +19,10 @@ import { de_ExtendTransactionCommand, se_ExtendTransactionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExtendTransactionCommand}.
  */

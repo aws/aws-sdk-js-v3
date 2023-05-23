@@ -19,6 +19,10 @@ import { de_TagPolicyCommand, se_TagPolicyCommand } from "../protocols/Aws_query
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TagPolicyCommand}.
  */

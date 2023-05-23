@@ -19,6 +19,10 @@ import { de_DescribeCustomDomainsCommand, se_DescribeCustomDomainsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCustomDomainsCommand}.
  */

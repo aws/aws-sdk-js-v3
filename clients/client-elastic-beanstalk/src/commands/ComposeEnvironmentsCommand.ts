@@ -19,6 +19,10 @@ import { de_ComposeEnvironmentsCommand, se_ComposeEnvironmentsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ComposeEnvironmentsCommand}.
  */

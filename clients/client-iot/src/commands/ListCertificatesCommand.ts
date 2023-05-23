@@ -19,6 +19,10 @@ import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCertificatesCommand}.
  */

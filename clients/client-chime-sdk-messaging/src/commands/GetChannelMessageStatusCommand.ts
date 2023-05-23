@@ -23,6 +23,10 @@ import { de_GetChannelMessageStatusCommand, se_GetChannelMessageStatusCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetChannelMessageStatusCommand}.
  */

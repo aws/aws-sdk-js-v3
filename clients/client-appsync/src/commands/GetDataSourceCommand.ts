@@ -19,6 +19,10 @@ import { de_GetDataSourceCommand, se_GetDataSourceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataSourceCommand}.
  */

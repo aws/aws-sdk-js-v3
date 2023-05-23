@@ -19,6 +19,10 @@ import { de_CreatePackageImportJobCommand, se_CreatePackageImportJobCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePackageImportJobCommand}.
  */

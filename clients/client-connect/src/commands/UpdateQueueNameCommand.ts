@@ -19,6 +19,10 @@ import { de_UpdateQueueNameCommand, se_UpdateQueueNameCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateQueueNameCommand}.
  */

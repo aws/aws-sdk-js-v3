@@ -19,6 +19,10 @@ import { de_EnableInsightRulesCommand, se_EnableInsightRulesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableInsightRulesCommand}.
  */

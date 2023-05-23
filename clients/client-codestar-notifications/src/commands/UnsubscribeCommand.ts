@@ -23,6 +23,10 @@ import { de_UnsubscribeCommand, se_UnsubscribeCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnsubscribeCommand}.
  */

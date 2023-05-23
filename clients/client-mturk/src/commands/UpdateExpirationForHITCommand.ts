@@ -19,6 +19,10 @@ import { de_UpdateExpirationForHITCommand, se_UpdateExpirationForHITCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateExpirationForHITCommand}.
  */

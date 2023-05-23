@@ -19,6 +19,10 @@ import { de_ListFormsCommand, se_ListFormsCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFormsCommand}.
  */

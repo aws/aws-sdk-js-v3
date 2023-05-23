@@ -19,6 +19,10 @@ import { de_UpdateAvailabilityOptionsCommand, se_UpdateAvailabilityOptionsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAvailabilityOptionsCommand}.
  */

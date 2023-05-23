@@ -96,6 +96,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -289,7 +291,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type RolesAnywhereClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type RolesAnywhereClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -308,7 +310,7 @@ export interface RolesAnywhereClientConfig extends RolesAnywhereClientConfigType
 /**
  * @public
  */
-type RolesAnywhereClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type RolesAnywhereClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

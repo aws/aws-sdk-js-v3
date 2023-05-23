@@ -24,6 +24,10 @@ import { de_CalculateRouteMatrixCommand, se_CalculateRouteMatrixCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CalculateRouteMatrixCommand}.
  */

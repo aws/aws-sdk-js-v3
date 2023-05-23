@@ -19,6 +19,10 @@ import { de_UpdateDataSetCommand, se_UpdateDataSetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDataSetCommand}.
  */

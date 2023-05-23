@@ -19,6 +19,10 @@ import { de_CreateInstanceExportTaskCommand, se_CreateInstanceExportTaskCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateInstanceExportTaskCommand}.
  */

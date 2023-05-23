@@ -24,6 +24,10 @@ import { de_ListAppInstanceUsersCommand, se_ListAppInstanceUsersCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAppInstanceUsersCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateLaunchCommand, se_CreateLaunchCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLaunchCommand}.
  */

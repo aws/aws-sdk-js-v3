@@ -19,6 +19,10 @@ import { de_RollbackStackCommand, se_RollbackStackCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RollbackStackCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeNamespaceCommand, se_DescribeNamespaceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeNamespaceCommand}.
  */

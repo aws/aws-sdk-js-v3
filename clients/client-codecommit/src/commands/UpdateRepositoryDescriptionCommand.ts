@@ -19,6 +19,10 @@ import { de_UpdateRepositoryDescriptionCommand, se_UpdateRepositoryDescriptionCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateRepositoryDescriptionCommand}.
  */

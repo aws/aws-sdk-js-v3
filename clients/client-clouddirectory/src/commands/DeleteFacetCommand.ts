@@ -19,6 +19,10 @@ import { de_DeleteFacetCommand, se_DeleteFacetCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFacetCommand}.
  */

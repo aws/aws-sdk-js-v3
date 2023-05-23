@@ -19,6 +19,10 @@ import { de_ListOutgoingCertificatesCommand, se_ListOutgoingCertificatesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListOutgoingCertificatesCommand}.
  */

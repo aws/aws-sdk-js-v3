@@ -19,6 +19,10 @@ import { de_DescribeBundleTasksCommand, se_DescribeBundleTasksCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeBundleTasksCommand}.
  */

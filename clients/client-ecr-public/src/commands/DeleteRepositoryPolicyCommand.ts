@@ -19,6 +19,10 @@ import { de_DeleteRepositoryPolicyCommand, se_DeleteRepositoryPolicyCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRepositoryPolicyCommand}.
  */

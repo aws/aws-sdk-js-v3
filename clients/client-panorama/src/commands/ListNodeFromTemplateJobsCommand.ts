@@ -19,6 +19,10 @@ import { de_ListNodeFromTemplateJobsCommand, se_ListNodeFromTemplateJobsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListNodeFromTemplateJobsCommand}.
  */

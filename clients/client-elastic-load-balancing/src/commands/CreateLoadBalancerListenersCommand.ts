@@ -23,6 +23,10 @@ import { de_CreateLoadBalancerListenersCommand, se_CreateLoadBalancerListenersCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLoadBalancerListenersCommand}.
  */

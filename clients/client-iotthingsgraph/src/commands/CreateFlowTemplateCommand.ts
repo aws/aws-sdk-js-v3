@@ -19,6 +19,10 @@ import { de_CreateFlowTemplateCommand, se_CreateFlowTemplateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFlowTemplateCommand}.
  */

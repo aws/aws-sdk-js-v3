@@ -19,6 +19,10 @@ import { de_UpdateVoiceChannelCommand, se_UpdateVoiceChannelCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVoiceChannelCommand}.
  */

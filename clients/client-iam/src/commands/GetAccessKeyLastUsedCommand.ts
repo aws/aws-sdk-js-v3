@@ -19,6 +19,10 @@ import { de_GetAccessKeyLastUsedCommand, se_GetAccessKeyLastUsedCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccessKeyLastUsedCommand}.
  */

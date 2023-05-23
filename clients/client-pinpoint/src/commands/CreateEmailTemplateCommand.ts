@@ -19,6 +19,10 @@ import { de_CreateEmailTemplateCommand, se_CreateEmailTemplateCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEmailTemplateCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutClusterCapacityProvidersCommand, se_PutClusterCapacityProvidersCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutClusterCapacityProvidersCommand}.
  */

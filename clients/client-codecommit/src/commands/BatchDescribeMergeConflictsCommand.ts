@@ -19,6 +19,10 @@ import { de_BatchDescribeMergeConflictsCommand, se_BatchDescribeMergeConflictsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDescribeMergeConflictsCommand}.
  */

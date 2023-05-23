@@ -19,6 +19,10 @@ import { de_GetBackupSelectionCommand, se_GetBackupSelectionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBackupSelectionCommand}.
  */

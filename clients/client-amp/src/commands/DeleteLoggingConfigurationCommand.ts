@@ -19,6 +19,10 @@ import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLoggingConfigurationCommand}.
  */

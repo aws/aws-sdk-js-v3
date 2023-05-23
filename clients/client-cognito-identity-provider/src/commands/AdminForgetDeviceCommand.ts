@@ -24,6 +24,10 @@ import { de_AdminForgetDeviceCommand, se_AdminForgetDeviceCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminForgetDeviceCommand}.
  */

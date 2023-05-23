@@ -23,6 +23,10 @@ import { de_DeleteStreamingImageCommand, se_DeleteStreamingImageCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStreamingImageCommand}.
  */

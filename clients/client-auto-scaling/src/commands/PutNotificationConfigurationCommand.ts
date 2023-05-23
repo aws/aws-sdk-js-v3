@@ -19,6 +19,10 @@ import { de_PutNotificationConfigurationCommand, se_PutNotificationConfiguration
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutNotificationConfigurationCommand}.
  */

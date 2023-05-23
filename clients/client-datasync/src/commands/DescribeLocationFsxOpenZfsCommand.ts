@@ -23,6 +23,10 @@ import { de_DescribeLocationFsxOpenZfsCommand, se_DescribeLocationFsxOpenZfsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeLocationFsxOpenZfsCommand}.
  */

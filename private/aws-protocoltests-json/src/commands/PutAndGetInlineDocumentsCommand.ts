@@ -18,6 +18,10 @@ import { de_PutAndGetInlineDocumentsCommand, se_PutAndGetInlineDocumentsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAndGetInlineDocumentsCommand}.
  */

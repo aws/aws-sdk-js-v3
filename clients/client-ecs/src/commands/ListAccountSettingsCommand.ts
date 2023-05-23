@@ -19,6 +19,10 @@ import { de_ListAccountSettingsCommand, se_ListAccountSettingsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAccountSettingsCommand}.
  */

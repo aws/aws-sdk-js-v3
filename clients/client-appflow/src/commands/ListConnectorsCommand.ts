@@ -19,6 +19,10 @@ import { de_ListConnectorsCommand, se_ListConnectorsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListConnectorsCommand}.
  */

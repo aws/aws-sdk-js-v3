@@ -19,6 +19,10 @@ import { de_GetPreparedStatementCommand, se_GetPreparedStatementCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPreparedStatementCommand}.
  */

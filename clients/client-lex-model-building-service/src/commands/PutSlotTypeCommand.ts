@@ -23,6 +23,10 @@ import { de_PutSlotTypeCommand, se_PutSlotTypeCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSlotTypeCommand}.
  */

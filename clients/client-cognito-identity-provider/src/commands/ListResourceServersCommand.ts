@@ -24,6 +24,10 @@ import { de_ListResourceServersCommand, se_ListResourceServersCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListResourceServersCommand}.
  */

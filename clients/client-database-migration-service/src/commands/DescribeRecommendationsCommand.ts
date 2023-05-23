@@ -23,6 +23,10 @@ import { de_DescribeRecommendationsCommand, se_DescribeRecommendationsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRecommendationsCommand}.
  */

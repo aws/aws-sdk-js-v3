@@ -19,6 +19,10 @@ import { de_ExportThemesCommand, se_ExportThemesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportThemesCommand}.
  */

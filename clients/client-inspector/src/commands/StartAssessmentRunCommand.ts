@@ -19,6 +19,10 @@ import { de_StartAssessmentRunCommand, se_StartAssessmentRunCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartAssessmentRunCommand}.
  */

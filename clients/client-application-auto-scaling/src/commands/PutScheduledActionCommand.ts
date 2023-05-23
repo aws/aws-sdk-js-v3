@@ -23,6 +23,10 @@ import { de_PutScheduledActionCommand, se_PutScheduledActionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutScheduledActionCommand}.
  */

@@ -19,6 +19,10 @@ import { de_BatchDeleteScheduledActionCommand, se_BatchDeleteScheduledActionComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeleteScheduledActionCommand}.
  */

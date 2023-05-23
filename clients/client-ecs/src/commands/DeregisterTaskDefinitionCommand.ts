@@ -19,6 +19,10 @@ import { de_DeregisterTaskDefinitionCommand, se_DeregisterTaskDefinitionCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterTaskDefinitionCommand}.
  */

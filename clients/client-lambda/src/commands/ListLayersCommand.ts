@@ -19,6 +19,10 @@ import { de_ListLayersCommand, se_ListLayersCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLayersCommand}.
  */

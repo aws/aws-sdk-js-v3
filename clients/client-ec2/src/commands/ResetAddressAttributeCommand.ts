@@ -19,6 +19,10 @@ import { de_ResetAddressAttributeCommand, se_ResetAddressAttributeCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetAddressAttributeCommand}.
  */

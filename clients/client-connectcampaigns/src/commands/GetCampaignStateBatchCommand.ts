@@ -19,6 +19,10 @@ import { de_GetCampaignStateBatchCommand, se_GetCampaignStateBatchCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCampaignStateBatchCommand}.
  */

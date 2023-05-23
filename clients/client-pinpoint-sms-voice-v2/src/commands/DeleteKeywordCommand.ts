@@ -23,6 +23,10 @@ import { de_DeleteKeywordCommand, se_DeleteKeywordCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteKeywordCommand}.
  */

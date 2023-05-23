@@ -19,6 +19,10 @@ import { de_GetConferenceProviderCommand, se_GetConferenceProviderCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConferenceProviderCommand}.
  */

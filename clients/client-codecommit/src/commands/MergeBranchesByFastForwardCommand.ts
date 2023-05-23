@@ -19,6 +19,10 @@ import { de_MergeBranchesByFastForwardCommand, se_MergeBranchesByFastForwardComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MergeBranchesByFastForwardCommand}.
  */

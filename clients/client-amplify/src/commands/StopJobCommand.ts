@@ -19,6 +19,10 @@ import { de_StopJobCommand, se_StopJobCommand } from "../protocols/Aws_restJson1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopJobCommand}.
  */

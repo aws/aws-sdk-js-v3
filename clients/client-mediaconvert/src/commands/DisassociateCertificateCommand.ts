@@ -19,6 +19,10 @@ import { de_DisassociateCertificateCommand, se_DisassociateCertificateCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateCertificateCommand}.
  */

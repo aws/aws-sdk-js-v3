@@ -23,6 +23,10 @@ import { de_DescribeConversionTasksCommand, se_DescribeConversionTasksCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeConversionTasksCommand}.
  */

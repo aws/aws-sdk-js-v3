@@ -19,6 +19,10 @@ import { de_UpdateFilterCommand, se_UpdateFilterCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFilterCommand}.
  */

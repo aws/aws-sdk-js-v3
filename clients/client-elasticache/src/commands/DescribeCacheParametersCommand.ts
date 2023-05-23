@@ -19,6 +19,10 @@ import { de_DescribeCacheParametersCommand, se_DescribeCacheParametersCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCacheParametersCommand}.
  */

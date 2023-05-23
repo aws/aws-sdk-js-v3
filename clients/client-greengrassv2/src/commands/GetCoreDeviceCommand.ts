@@ -19,6 +19,10 @@ import { de_GetCoreDeviceCommand, se_GetCoreDeviceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCoreDeviceCommand}.
  */

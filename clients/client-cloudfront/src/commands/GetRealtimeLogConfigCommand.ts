@@ -19,6 +19,10 @@ import { de_GetRealtimeLogConfigCommand, se_GetRealtimeLogConfigCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRealtimeLogConfigCommand}.
  */

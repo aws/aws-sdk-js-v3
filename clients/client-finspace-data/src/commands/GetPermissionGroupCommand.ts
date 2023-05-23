@@ -23,6 +23,10 @@ import { de_GetPermissionGroupCommand, se_GetPermissionGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPermissionGroupCommand}.
  */

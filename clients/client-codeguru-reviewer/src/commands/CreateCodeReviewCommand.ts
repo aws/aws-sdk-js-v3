@@ -19,6 +19,10 @@ import { de_CreateCodeReviewCommand, se_CreateCodeReviewCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCodeReviewCommand}.
  */

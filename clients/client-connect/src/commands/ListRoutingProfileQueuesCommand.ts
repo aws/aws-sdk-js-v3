@@ -19,6 +19,10 @@ import { de_ListRoutingProfileQueuesCommand, se_ListRoutingProfileQueuesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRoutingProfileQueuesCommand}.
  */

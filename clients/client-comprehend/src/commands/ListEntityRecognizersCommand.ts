@@ -23,6 +23,10 @@ import { de_ListEntityRecognizersCommand, se_ListEntityRecognizersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEntityRecognizersCommand}.
  */

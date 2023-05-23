@@ -23,6 +23,10 @@ import { de_ListRoomMembershipsCommand, se_ListRoomMembershipsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRoomMembershipsCommand}.
  */

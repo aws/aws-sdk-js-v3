@@ -19,6 +19,10 @@ import { de_ListBatchSegmentJobsCommand, se_ListBatchSegmentJobsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListBatchSegmentJobsCommand}.
  */

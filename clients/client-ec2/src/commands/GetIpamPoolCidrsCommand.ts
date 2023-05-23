@@ -19,6 +19,10 @@ import { de_GetIpamPoolCidrsCommand, se_GetIpamPoolCidrsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIpamPoolCidrsCommand}.
  */

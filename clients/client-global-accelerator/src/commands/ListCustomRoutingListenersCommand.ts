@@ -23,6 +23,10 @@ import { de_ListCustomRoutingListenersCommand, se_ListCustomRoutingListenersComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCustomRoutingListenersCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteEntitlementCommand, se_DeleteEntitlementCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEntitlementCommand}.
  */

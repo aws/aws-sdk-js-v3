@@ -19,6 +19,10 @@ import { de_GetEbsEncryptionByDefaultCommand, se_GetEbsEncryptionByDefaultComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEbsEncryptionByDefaultCommand}.
  */

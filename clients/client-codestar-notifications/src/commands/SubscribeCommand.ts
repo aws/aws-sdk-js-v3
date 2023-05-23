@@ -23,6 +23,10 @@ import { de_SubscribeCommand, se_SubscribeCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SubscribeCommand}.
  */

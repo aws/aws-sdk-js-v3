@@ -19,6 +19,10 @@ import { de_StartTriggerCommand, se_StartTriggerCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartTriggerCommand}.
  */

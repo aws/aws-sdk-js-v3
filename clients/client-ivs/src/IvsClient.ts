@@ -111,6 +111,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -304,7 +306,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type IvsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type IvsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -323,7 +325,7 @@ export interface IvsClientConfig extends IvsClientConfigType {}
 /**
  * @public
  */
-type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -19,6 +19,10 @@ import { de_DeleteFleetsCommand, se_DeleteFleetsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFleetsCommand}.
  */

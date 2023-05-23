@@ -23,6 +23,10 @@ import { de_DescribeScalingActivitiesCommand, se_DescribeScalingActivitiesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeScalingActivitiesCommand}.
  */

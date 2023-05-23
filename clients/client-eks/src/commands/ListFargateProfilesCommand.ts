@@ -19,6 +19,10 @@ import { de_ListFargateProfilesCommand, se_ListFargateProfilesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFargateProfilesCommand}.
  */

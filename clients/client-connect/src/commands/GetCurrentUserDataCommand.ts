@@ -19,6 +19,10 @@ import { de_GetCurrentUserDataCommand, se_GetCurrentUserDataCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCurrentUserDataCommand}.
  */

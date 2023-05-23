@@ -23,6 +23,10 @@ import { de_GetThirdPartyJobDetailsCommand, se_GetThirdPartyJobDetailsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetThirdPartyJobDetailsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreatePlayerSessionsCommand, se_CreatePlayerSessionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePlayerSessionsCommand}.
  */

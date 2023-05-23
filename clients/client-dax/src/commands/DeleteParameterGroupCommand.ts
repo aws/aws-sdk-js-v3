@@ -19,6 +19,10 @@ import { de_DeleteParameterGroupCommand, se_DeleteParameterGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteParameterGroupCommand}.
  */

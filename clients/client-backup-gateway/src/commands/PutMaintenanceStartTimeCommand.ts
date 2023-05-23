@@ -19,6 +19,10 @@ import { de_PutMaintenanceStartTimeCommand, se_PutMaintenanceStartTimeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutMaintenanceStartTimeCommand}.
  */

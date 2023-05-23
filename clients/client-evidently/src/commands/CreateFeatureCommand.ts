@@ -19,6 +19,10 @@ import { de_CreateFeatureCommand, se_CreateFeatureCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFeatureCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeFlowLogsCommand, se_DescribeFlowLogsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFlowLogsCommand}.
  */

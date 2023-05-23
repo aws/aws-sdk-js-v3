@@ -19,6 +19,10 @@ import { de_ImportStacksToStackSetCommand, se_ImportStacksToStackSetCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ImportStacksToStackSetCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetEnrollmentStatusCommand, se_GetEnrollmentStatusCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEnrollmentStatusCommand}.
  */

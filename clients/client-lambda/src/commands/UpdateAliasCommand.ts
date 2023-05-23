@@ -19,6 +19,10 @@ import { de_UpdateAliasCommand, se_UpdateAliasCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAliasCommand}.
  */

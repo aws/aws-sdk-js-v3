@@ -19,6 +19,10 @@ import { de_DescribeAlarmHistoryCommand, se_DescribeAlarmHistoryCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAlarmHistoryCommand}.
  */

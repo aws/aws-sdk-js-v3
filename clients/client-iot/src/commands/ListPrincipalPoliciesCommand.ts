@@ -19,6 +19,10 @@ import { de_ListPrincipalPoliciesCommand, se_ListPrincipalPoliciesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPrincipalPoliciesCommand}.
  */

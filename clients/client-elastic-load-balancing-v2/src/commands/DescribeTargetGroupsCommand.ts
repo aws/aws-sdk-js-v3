@@ -23,6 +23,10 @@ import { de_DescribeTargetGroupsCommand, se_DescribeTargetGroupsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTargetGroupsCommand}.
  */

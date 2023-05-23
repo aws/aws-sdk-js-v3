@@ -19,6 +19,10 @@ import { de_DeleteProtocolsListCommand, se_DeleteProtocolsListCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteProtocolsListCommand}.
  */

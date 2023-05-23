@@ -19,6 +19,10 @@ import { de_DeleteAttributesCommand, se_DeleteAttributesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAttributesCommand}.
  */

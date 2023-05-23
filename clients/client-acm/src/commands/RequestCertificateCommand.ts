@@ -19,6 +19,10 @@ import { de_RequestCertificateCommand, se_RequestCertificateCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RequestCertificateCommand}.
  */

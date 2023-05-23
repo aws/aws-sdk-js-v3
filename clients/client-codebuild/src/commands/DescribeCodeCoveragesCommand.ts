@@ -19,6 +19,10 @@ import { de_DescribeCodeCoveragesCommand, se_DescribeCodeCoveragesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeCodeCoveragesCommand}.
  */

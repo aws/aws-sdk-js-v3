@@ -27,6 +27,10 @@ import { de_GetWorkflowCommand, se_GetWorkflowCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetWorkflowCommand}.
  */

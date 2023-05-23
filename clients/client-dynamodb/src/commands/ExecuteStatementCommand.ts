@@ -19,6 +19,10 @@ import { de_ExecuteStatementCommand, se_ExecuteStatementCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExecuteStatementCommand}.
  */

@@ -19,6 +19,10 @@ import { de_PutGroupPolicyCommand, se_PutGroupPolicyCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutGroupPolicyCommand}.
  */

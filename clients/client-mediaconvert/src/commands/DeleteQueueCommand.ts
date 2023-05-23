@@ -19,6 +19,10 @@ import { de_DeleteQueueCommand, se_DeleteQueueCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteQueueCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateVariableCommand, se_UpdateVariableCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateVariableCommand}.
  */

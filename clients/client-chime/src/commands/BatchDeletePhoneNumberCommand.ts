@@ -19,6 +19,10 @@ import { de_BatchDeletePhoneNumberCommand, se_BatchDeletePhoneNumberCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDeletePhoneNumberCommand}.
  */

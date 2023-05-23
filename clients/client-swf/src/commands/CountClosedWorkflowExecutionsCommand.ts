@@ -22,6 +22,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CountClosedWorkflowExecutionsCommand}.
  */

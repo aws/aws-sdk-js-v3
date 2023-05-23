@@ -19,6 +19,10 @@ import { de_GetApnsChannelCommand, se_GetApnsChannelCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApnsChannelCommand}.
  */

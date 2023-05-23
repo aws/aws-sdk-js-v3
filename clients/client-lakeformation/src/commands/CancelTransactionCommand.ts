@@ -19,6 +19,10 @@ import { de_CancelTransactionCommand, se_CancelTransactionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelTransactionCommand}.
  */

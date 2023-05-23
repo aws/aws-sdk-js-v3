@@ -19,6 +19,10 @@ import { de_UntagInstanceProfileCommand, se_UntagInstanceProfileCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagInstanceProfileCommand}.
  */

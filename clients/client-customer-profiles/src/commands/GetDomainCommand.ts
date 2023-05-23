@@ -19,6 +19,10 @@ import { de_GetDomainCommand, se_GetDomainCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDomainCommand}.
  */

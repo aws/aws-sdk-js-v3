@@ -19,6 +19,10 @@ import { de_DeleteUsagePlanCommand, se_DeleteUsagePlanCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteUsagePlanCommand}.
  */

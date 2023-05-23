@@ -19,6 +19,10 @@ import { de_UpdatePartitionCommand, se_UpdatePartitionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePartitionCommand}.
  */

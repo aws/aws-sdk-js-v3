@@ -19,6 +19,10 @@ import { de_UpdateSiteAddressCommand, se_UpdateSiteAddressCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSiteAddressCommand}.
  */

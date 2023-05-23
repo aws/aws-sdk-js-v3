@@ -19,6 +19,10 @@ import { de_ResetEbsDefaultKmsKeyIdCommand, se_ResetEbsDefaultKmsKeyIdCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ResetEbsDefaultKmsKeyIdCommand}.
  */

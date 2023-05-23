@@ -19,6 +19,10 @@ import { de_UpdateLFTagCommand, se_UpdateLFTagCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLFTagCommand}.
  */

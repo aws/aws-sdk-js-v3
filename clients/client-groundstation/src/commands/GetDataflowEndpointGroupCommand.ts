@@ -19,6 +19,10 @@ import { de_GetDataflowEndpointGroupCommand, se_GetDataflowEndpointGroupCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataflowEndpointGroupCommand}.
  */

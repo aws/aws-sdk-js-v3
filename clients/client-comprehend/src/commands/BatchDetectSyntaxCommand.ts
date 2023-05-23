@@ -24,6 +24,10 @@ import { de_BatchDetectSyntaxCommand, se_BatchDetectSyntaxCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchDetectSyntaxCommand}.
  */

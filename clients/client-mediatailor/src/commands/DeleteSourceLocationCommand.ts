@@ -19,6 +19,10 @@ import { de_DeleteSourceLocationCommand, se_DeleteSourceLocationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSourceLocationCommand}.
  */

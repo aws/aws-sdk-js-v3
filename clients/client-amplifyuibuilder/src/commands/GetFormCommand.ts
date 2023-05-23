@@ -19,6 +19,10 @@ import { de_GetFormCommand, se_GetFormCommand } from "../protocols/Aws_restJson1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFormCommand}.
  */

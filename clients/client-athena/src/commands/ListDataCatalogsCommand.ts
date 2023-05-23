@@ -19,6 +19,10 @@ import { de_ListDataCatalogsCommand, se_ListDataCatalogsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDataCatalogsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_RestoreTableFromBackupCommand, se_RestoreTableFromBackupCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreTableFromBackupCommand}.
  */

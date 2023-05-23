@@ -80,6 +80,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -229,7 +231,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type PIClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type PIClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -248,7 +250,7 @@ export interface PIClientConfig extends PIClientConfigType {}
 /**
  * @public
  */
-type PIClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type PIClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

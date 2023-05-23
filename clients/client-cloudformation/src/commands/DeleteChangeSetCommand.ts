@@ -19,6 +19,10 @@ import { de_DeleteChangeSetCommand, se_DeleteChangeSetCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteChangeSetCommand}.
  */

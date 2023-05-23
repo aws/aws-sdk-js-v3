@@ -19,6 +19,10 @@ import { de_DeleteAuthorizerCommand, se_DeleteAuthorizerCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAuthorizerCommand}.
  */

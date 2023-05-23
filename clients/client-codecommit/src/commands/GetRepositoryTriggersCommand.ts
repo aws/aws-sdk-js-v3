@@ -19,6 +19,10 @@ import { de_GetRepositoryTriggersCommand, se_GetRepositoryTriggersCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRepositoryTriggersCommand}.
  */

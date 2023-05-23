@@ -19,6 +19,10 @@ import { de_GetExtensionCommand, se_GetExtensionCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetExtensionCommand}.
  */

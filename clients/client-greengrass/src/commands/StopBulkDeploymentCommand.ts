@@ -19,6 +19,10 @@ import { de_StopBulkDeploymentCommand, se_StopBulkDeploymentCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopBulkDeploymentCommand}.
  */

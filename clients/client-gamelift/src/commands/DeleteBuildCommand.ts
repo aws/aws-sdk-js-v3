@@ -19,6 +19,10 @@ import { de_DeleteBuildCommand, se_DeleteBuildCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBuildCommand}.
  */

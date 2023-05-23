@@ -23,6 +23,10 @@ import { de_RequestUploadCredentialsCommand, se_RequestUploadCredentialsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RequestUploadCredentialsCommand}.
  */

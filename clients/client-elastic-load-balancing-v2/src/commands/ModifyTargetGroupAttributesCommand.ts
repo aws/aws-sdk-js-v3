@@ -23,6 +23,10 @@ import { de_ModifyTargetGroupAttributesCommand, se_ModifyTargetGroupAttributesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyTargetGroupAttributesCommand}.
  */

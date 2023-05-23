@@ -23,6 +23,10 @@ import { de_UpdateHypervisorCommand, se_UpdateHypervisorCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateHypervisorCommand}.
  */

@@ -24,6 +24,10 @@ import { de_ConfigureAccessPointCommand, se_ConfigureAccessPointCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ConfigureAccessPointCommand}.
  */

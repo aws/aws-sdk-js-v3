@@ -23,6 +23,10 @@ import { de_DescribeDeliveryStreamCommand, se_DescribeDeliveryStreamCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDeliveryStreamCommand}.
  */

@@ -19,6 +19,10 @@ import { de_BatchPutFieldOptionsCommand, se_BatchPutFieldOptionsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchPutFieldOptionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteMulticastGroupCommand, se_DeleteMulticastGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteMulticastGroupCommand}.
  */

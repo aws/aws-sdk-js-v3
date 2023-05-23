@@ -19,6 +19,10 @@ import { de_DescribeAnomalyCommand, se_DescribeAnomalyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAnomalyCommand}.
  */

@@ -23,6 +23,10 @@ import { de_CreateTagsCommand, se_CreateTagsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateTagsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetIpamAddressHistoryCommand, se_GetIpamAddressHistoryCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIpamAddressHistoryCommand}.
  */

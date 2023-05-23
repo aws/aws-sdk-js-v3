@@ -23,6 +23,10 @@ import { de_SendTextMessageCommand, se_SendTextMessageCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendTextMessageCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteDomainNameCommand, se_DeleteDomainNameCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDomainNameCommand}.
  */

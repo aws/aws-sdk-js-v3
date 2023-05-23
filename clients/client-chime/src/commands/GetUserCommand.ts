@@ -19,6 +19,10 @@ import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_restJson1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUserCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DisableLDAPSCommand, se_DisableLDAPSCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableLDAPSCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeEventSourceCommand, se_DescribeEventSourceCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEventSourceCommand}.
  */

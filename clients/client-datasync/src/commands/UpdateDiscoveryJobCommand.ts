@@ -19,6 +19,10 @@ import { de_UpdateDiscoveryJobCommand, se_UpdateDiscoveryJobCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDiscoveryJobCommand}.
  */

@@ -19,6 +19,10 @@ import { de_UpdateBlueprintCommand, se_UpdateBlueprintCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBlueprintCommand}.
  */

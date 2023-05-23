@@ -19,6 +19,10 @@ import { de_ListReadSetsCommand, se_ListReadSetsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReadSetsCommand}.
  */

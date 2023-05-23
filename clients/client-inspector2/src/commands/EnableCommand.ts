@@ -19,6 +19,10 @@ import { de_EnableCommand, se_EnableCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableCommand}.
  */

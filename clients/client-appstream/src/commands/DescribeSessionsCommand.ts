@@ -19,6 +19,10 @@ import { de_DescribeSessionsCommand, se_DescribeSessionsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSessionsCommand}.
  */

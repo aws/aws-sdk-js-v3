@@ -19,6 +19,10 @@ import { de_ListSamplesCommand, se_ListSamplesCommand } from "../protocols/Aws_j
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSamplesCommand}.
  */

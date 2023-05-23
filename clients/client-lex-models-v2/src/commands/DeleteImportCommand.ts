@@ -19,6 +19,10 @@ import { de_DeleteImportCommand, se_DeleteImportCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteImportCommand}.
  */

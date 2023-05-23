@@ -19,6 +19,10 @@ import { de_BatchStopUpdateActionCommand, se_BatchStopUpdateActionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchStopUpdateActionCommand}.
  */

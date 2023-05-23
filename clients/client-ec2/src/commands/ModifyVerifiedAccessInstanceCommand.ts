@@ -19,6 +19,10 @@ import { de_ModifyVerifiedAccessInstanceCommand, se_ModifyVerifiedAccessInstance
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyVerifiedAccessInstanceCommand}.
  */

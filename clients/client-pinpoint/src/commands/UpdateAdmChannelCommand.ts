@@ -19,6 +19,10 @@ import { de_UpdateAdmChannelCommand, se_UpdateAdmChannelCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAdmChannelCommand}.
  */

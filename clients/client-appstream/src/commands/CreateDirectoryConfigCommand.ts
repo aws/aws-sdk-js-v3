@@ -24,6 +24,10 @@ import { de_CreateDirectoryConfigCommand, se_CreateDirectoryConfigCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateDirectoryConfigCommand}.
  */

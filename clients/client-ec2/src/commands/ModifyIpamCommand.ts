@@ -19,6 +19,10 @@ import { de_ModifyIpamCommand, se_ModifyIpamCommand } from "../protocols/Aws_ec2
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyIpamCommand}.
  */

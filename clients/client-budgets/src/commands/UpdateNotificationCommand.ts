@@ -19,6 +19,10 @@ import { de_UpdateNotificationCommand, se_UpdateNotificationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNotificationCommand}.
  */

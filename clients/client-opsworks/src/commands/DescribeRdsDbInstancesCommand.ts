@@ -19,6 +19,10 @@ import { de_DescribeRdsDbInstancesCommand, se_DescribeRdsDbInstancesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeRdsDbInstancesCommand}.
  */

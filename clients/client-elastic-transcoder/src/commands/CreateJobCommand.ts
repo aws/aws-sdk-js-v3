@@ -23,6 +23,10 @@ import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateJobCommand}.
  */

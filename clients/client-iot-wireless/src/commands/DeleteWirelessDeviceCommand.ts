@@ -19,6 +19,10 @@ import { de_DeleteWirelessDeviceCommand, se_DeleteWirelessDeviceCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWirelessDeviceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetCampaignStateCommand, se_GetCampaignStateCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCampaignStateCommand}.
  */

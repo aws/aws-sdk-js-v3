@@ -24,6 +24,10 @@ import { de_BatchCreateAttendeeCommand, se_BatchCreateAttendeeCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchCreateAttendeeCommand}.
  */

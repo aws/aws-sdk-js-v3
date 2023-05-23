@@ -19,6 +19,10 @@ import { de_DeleteProgressUpdateStreamCommand, se_DeleteProgressUpdateStreamComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteProgressUpdateStreamCommand}.
  */

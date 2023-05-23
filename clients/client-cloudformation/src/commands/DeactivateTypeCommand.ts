@@ -19,6 +19,10 @@ import { de_DeactivateTypeCommand, se_DeactivateTypeCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeactivateTypeCommand}.
  */

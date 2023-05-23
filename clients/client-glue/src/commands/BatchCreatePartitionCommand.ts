@@ -19,6 +19,10 @@ import { de_BatchCreatePartitionCommand, se_BatchCreatePartitionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchCreatePartitionCommand}.
  */

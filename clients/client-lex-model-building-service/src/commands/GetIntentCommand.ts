@@ -23,6 +23,10 @@ import { de_GetIntentCommand, se_GetIntentCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetIntentCommand}.
  */

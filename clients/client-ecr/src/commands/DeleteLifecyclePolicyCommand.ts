@@ -19,6 +19,10 @@ import { de_DeleteLifecyclePolicyCommand, se_DeleteLifecyclePolicyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLifecyclePolicyCommand}.
  */

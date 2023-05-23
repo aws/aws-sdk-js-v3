@@ -19,6 +19,10 @@ import { de_DeleteBatchPredictionCommand, se_DeleteBatchPredictionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBatchPredictionCommand}.
  */

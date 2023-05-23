@@ -262,6 +262,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -529,7 +531,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type AutoScalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type AutoScalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -548,7 +550,7 @@ export interface AutoScalingClientConfig extends AutoScalingClientConfigType {}
 /**
  * @public
  */
-type AutoScalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type AutoScalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

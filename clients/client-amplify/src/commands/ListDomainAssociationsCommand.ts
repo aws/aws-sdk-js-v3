@@ -19,6 +19,10 @@ import { de_ListDomainAssociationsCommand, se_ListDomainAssociationsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDomainAssociationsCommand}.
  */

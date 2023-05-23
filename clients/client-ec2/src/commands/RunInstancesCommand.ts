@@ -20,6 +20,10 @@ import { de_RunInstancesCommand, se_RunInstancesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RunInstancesCommand}.
  */

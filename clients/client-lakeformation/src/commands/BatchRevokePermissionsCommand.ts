@@ -19,6 +19,10 @@ import { de_BatchRevokePermissionsCommand, se_BatchRevokePermissionsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchRevokePermissionsCommand}.
  */

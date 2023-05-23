@@ -23,6 +23,10 @@ import { de_UpdatePipelineCommand, se_UpdatePipelineCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePipelineCommand}.
  */

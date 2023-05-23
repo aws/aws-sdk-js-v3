@@ -19,6 +19,10 @@ import { de_GetEventTypesCommand, se_GetEventTypesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEventTypesCommand}.
  */

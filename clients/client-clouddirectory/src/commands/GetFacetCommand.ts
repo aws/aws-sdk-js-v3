@@ -19,6 +19,10 @@ import { de_GetFacetCommand, se_GetFacetCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetFacetCommand}.
  */

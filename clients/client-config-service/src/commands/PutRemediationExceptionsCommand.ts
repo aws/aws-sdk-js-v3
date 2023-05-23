@@ -19,6 +19,10 @@ import { de_PutRemediationExceptionsCommand, se_PutRemediationExceptionsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRemediationExceptionsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteAutoSnapshotCommand, se_DeleteAutoSnapshotCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAutoSnapshotCommand}.
  */

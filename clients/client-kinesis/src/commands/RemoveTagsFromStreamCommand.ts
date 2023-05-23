@@ -19,6 +19,10 @@ import { de_RemoveTagsFromStreamCommand, se_RemoveTagsFromStreamCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveTagsFromStreamCommand}.
  */

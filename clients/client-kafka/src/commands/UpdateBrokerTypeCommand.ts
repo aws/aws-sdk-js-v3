@@ -19,6 +19,10 @@ import { de_UpdateBrokerTypeCommand, se_UpdateBrokerTypeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBrokerTypeCommand}.
  */

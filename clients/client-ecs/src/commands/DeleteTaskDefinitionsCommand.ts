@@ -19,6 +19,10 @@ import { de_DeleteTaskDefinitionsCommand, se_DeleteTaskDefinitionsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteTaskDefinitionsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_ListDistributionsByWebACLIdCommand, se_ListDistributionsByWebACLIdCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDistributionsByWebACLIdCommand}.
  */

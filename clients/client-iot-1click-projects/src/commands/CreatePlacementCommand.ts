@@ -23,6 +23,10 @@ import { de_CreatePlacementCommand, se_CreatePlacementCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePlacementCommand}.
  */

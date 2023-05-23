@@ -17,6 +17,10 @@ import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link HostWithPathOperationCommand}.
  */

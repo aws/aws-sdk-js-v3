@@ -19,6 +19,10 @@ import { de_RebuildEnvironmentCommand, se_RebuildEnvironmentCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RebuildEnvironmentCommand}.
  */

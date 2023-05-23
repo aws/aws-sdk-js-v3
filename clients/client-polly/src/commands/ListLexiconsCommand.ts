@@ -19,6 +19,10 @@ import { de_ListLexiconsCommand, se_ListLexiconsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListLexiconsCommand}.
  */

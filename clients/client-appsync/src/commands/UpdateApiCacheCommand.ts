@@ -19,6 +19,10 @@ import { de_UpdateApiCacheCommand, se_UpdateApiCacheCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateApiCacheCommand}.
  */

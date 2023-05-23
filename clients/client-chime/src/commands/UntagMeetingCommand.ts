@@ -19,6 +19,10 @@ import { de_UntagMeetingCommand, se_UntagMeetingCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UntagMeetingCommand}.
  */

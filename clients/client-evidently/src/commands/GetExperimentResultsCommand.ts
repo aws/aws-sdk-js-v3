@@ -19,6 +19,10 @@ import { de_GetExperimentResultsCommand, se_GetExperimentResultsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetExperimentResultsCommand}.
  */

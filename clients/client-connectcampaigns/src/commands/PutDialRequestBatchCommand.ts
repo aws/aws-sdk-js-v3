@@ -23,6 +23,10 @@ import { de_PutDialRequestBatchCommand, se_PutDialRequestBatchCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutDialRequestBatchCommand}.
  */

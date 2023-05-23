@@ -19,6 +19,10 @@ import { de_PutLoggingOptionsCommand, se_PutLoggingOptionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutLoggingOptionsCommand}.
  */

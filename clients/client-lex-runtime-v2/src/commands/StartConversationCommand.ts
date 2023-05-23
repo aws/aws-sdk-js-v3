@@ -26,6 +26,10 @@ import { de_StartConversationCommand, se_StartConversationCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartConversationCommand}.
  */

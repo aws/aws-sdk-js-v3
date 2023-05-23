@@ -19,6 +19,10 @@ import { de_DeleteBackendAuthCommand, se_DeleteBackendAuthCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBackendAuthCommand}.
  */

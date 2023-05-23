@@ -19,6 +19,10 @@ import { de_UpdateQueueMaxContactsCommand, se_UpdateQueueMaxContactsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateQueueMaxContactsCommand}.
  */

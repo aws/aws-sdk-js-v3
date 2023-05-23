@@ -19,6 +19,10 @@ import { de_DescribeFirewallCommand, se_DescribeFirewallCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFirewallCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListVariantStoresCommand, se_ListVariantStoresCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListVariantStoresCommand}.
  */

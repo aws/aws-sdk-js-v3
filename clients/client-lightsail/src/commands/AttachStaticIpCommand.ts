@@ -19,6 +19,10 @@ import { de_AttachStaticIpCommand, se_AttachStaticIpCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachStaticIpCommand}.
  */

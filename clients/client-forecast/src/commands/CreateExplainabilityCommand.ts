@@ -23,6 +23,10 @@ import { de_CreateExplainabilityCommand, se_CreateExplainabilityCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateExplainabilityCommand}.
  */

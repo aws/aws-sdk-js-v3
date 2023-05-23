@@ -19,6 +19,10 @@ import { de_StopInstancesCommand, se_StopInstancesCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopInstancesCommand}.
  */

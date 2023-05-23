@@ -23,6 +23,10 @@ import { de_StartApplicationCommand, se_StartApplicationCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartApplicationCommand}.
  */

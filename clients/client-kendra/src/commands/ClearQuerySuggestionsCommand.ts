@@ -19,6 +19,10 @@ import { de_ClearQuerySuggestionsCommand, se_ClearQuerySuggestionsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ClearQuerySuggestionsCommand}.
  */

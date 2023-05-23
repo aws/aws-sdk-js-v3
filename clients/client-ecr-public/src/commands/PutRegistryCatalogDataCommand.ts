@@ -19,6 +19,10 @@ import { de_PutRegistryCatalogDataCommand, se_PutRegistryCatalogDataCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRegistryCatalogDataCommand}.
  */

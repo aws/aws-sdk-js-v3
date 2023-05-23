@@ -19,6 +19,10 @@ import { de_EnableDirectoryCommand, se_EnableDirectoryCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableDirectoryCommand}.
  */

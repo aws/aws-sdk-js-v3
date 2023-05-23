@@ -19,6 +19,10 @@ import { de_DeleteJobCommand, se_DeleteJobCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteJobCommand}.
  */

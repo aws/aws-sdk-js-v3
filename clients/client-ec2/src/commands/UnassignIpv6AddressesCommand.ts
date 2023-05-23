@@ -19,6 +19,10 @@ import { de_UnassignIpv6AddressesCommand, se_UnassignIpv6AddressesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnassignIpv6AddressesCommand}.
  */

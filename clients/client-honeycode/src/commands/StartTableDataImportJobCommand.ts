@@ -23,6 +23,10 @@ import { de_StartTableDataImportJobCommand, se_StartTableDataImportJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartTableDataImportJobCommand}.
  */

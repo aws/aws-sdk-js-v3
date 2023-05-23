@@ -19,6 +19,10 @@ import { de_ModifyUserGroupCommand, se_ModifyUserGroupCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyUserGroupCommand}.
  */

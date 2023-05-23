@@ -19,6 +19,10 @@ import { de_StartDeviceSyncCommand, se_StartDeviceSyncCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartDeviceSyncCommand}.
  */

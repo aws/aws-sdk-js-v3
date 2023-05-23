@@ -19,6 +19,10 @@ import { de_DeleteRegistrationCodeCommand, se_DeleteRegistrationCodeCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRegistrationCodeCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteDirectConnectGatewayCommand, se_DeleteDirectConnectGatewayComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDirectConnectGatewayCommand}.
  */

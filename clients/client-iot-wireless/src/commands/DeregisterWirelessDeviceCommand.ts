@@ -19,6 +19,10 @@ import { de_DeregisterWirelessDeviceCommand, se_DeregisterWirelessDeviceCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeregisterWirelessDeviceCommand}.
  */

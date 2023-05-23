@@ -19,6 +19,10 @@ import { de_SuspendGameServerGroupCommand, se_SuspendGameServerGroupCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SuspendGameServerGroupCommand}.
  */

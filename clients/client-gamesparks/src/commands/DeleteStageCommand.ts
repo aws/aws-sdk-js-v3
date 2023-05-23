@@ -19,6 +19,10 @@ import { de_DeleteStageCommand, se_DeleteStageCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStageCommand}.
  */

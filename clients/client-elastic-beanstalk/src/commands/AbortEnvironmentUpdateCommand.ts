@@ -19,6 +19,10 @@ import { de_AbortEnvironmentUpdateCommand, se_AbortEnvironmentUpdateCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AbortEnvironmentUpdateCommand}.
  */

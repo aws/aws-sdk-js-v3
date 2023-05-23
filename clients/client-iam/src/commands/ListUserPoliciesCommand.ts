@@ -19,6 +19,10 @@ import { de_ListUserPoliciesCommand, se_ListUserPoliciesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUserPoliciesCommand}.
  */

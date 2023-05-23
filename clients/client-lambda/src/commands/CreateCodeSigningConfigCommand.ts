@@ -19,6 +19,10 @@ import { de_CreateCodeSigningConfigCommand, se_CreateCodeSigningConfigCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCodeSigningConfigCommand}.
  */

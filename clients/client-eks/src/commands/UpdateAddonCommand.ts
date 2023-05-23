@@ -19,6 +19,10 @@ import { de_UpdateAddonCommand, se_UpdateAddonCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateAddonCommand}.
  */

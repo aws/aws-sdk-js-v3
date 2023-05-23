@@ -19,6 +19,10 @@ import { de_ExportBundleCommand, se_ExportBundleCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportBundleCommand}.
  */

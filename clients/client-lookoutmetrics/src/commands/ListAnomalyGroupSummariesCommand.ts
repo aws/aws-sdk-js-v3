@@ -19,6 +19,10 @@ import { de_ListAnomalyGroupSummariesCommand, se_ListAnomalyGroupSummariesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAnomalyGroupSummariesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeParameterGroupsCommand, se_DescribeParameterGroupsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeParameterGroupsCommand}.
  */

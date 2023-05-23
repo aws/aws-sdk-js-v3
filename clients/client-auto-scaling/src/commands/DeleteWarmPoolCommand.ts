@@ -19,6 +19,10 @@ import { de_DeleteWarmPoolCommand, se_DeleteWarmPoolCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteWarmPoolCommand}.
  */

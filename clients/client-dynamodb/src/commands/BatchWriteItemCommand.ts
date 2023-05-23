@@ -19,6 +19,10 @@ import { de_BatchWriteItemCommand, se_BatchWriteItemCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchWriteItemCommand}.
  */

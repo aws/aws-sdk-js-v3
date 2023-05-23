@@ -19,6 +19,10 @@ import { de_GetOrganizationsAccessReportCommand, se_GetOrganizationsAccessReport
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOrganizationsAccessReportCommand}.
  */

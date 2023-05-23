@@ -23,6 +23,10 @@ import { de_ListReportDefinitionsCommand, se_ListReportDefinitionsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReportDefinitionsCommand}.
  */

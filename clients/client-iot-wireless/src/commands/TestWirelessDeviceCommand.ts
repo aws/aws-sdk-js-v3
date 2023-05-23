@@ -19,6 +19,10 @@ import { de_TestWirelessDeviceCommand, se_TestWirelessDeviceCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link TestWirelessDeviceCommand}.
  */

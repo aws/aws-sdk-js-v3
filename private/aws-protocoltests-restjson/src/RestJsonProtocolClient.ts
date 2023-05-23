@@ -295,6 +295,8 @@ import {
 import { UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput } from "./commands/UnitInputAndOutputCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -627,7 +629,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -644,7 +646,7 @@ export interface RestJsonProtocolClientConfig extends RestJsonProtocolClientConf
 /**
  * @public
  */
-type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

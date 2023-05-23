@@ -19,6 +19,10 @@ import { de_DeleteStreamingSessionCommand, se_DeleteStreamingSessionCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStreamingSessionCommand}.
  */

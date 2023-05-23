@@ -19,6 +19,10 @@ import { de_RejectClientVpcConnectionCommand, se_RejectClientVpcConnectionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RejectClientVpcConnectionCommand}.
  */

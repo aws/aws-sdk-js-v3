@@ -19,6 +19,10 @@ import { de_DescribeEphemerisCommand, se_DescribeEphemerisCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEphemerisCommand}.
  */

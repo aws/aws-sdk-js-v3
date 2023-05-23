@@ -25,6 +25,10 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetStandardsControlAssociationsCommand}.
  */

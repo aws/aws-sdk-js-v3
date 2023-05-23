@@ -19,6 +19,10 @@ import { de_UpdateBackendAPICommand, se_UpdateBackendAPICommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBackendAPICommand}.
  */

@@ -23,6 +23,10 @@ import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProjectCommand}.
  */

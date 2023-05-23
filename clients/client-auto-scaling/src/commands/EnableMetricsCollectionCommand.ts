@@ -19,6 +19,10 @@ import { de_EnableMetricsCollectionCommand, se_EnableMetricsCollectionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableMetricsCollectionCommand}.
  */

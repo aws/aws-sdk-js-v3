@@ -19,6 +19,10 @@ import { de_DeleteGameServerGroupCommand, se_DeleteGameServerGroupCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteGameServerGroupCommand}.
  */

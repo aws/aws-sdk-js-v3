@@ -452,6 +452,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -907,7 +909,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type LightsailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type LightsailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -926,7 +928,7 @@ export interface LightsailClientConfig extends LightsailClientConfigType {}
 /**
  * @public
  */
-type LightsailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type LightsailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -19,6 +19,10 @@ import { de_DescribeFileSystemPolicyCommand, se_DescribeFileSystemPolicyCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFileSystemPolicyCommand}.
  */

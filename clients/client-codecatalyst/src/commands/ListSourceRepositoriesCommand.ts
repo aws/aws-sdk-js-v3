@@ -19,6 +19,10 @@ import { de_ListSourceRepositoriesCommand, se_ListSourceRepositoriesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSourceRepositoriesCommand}.
  */

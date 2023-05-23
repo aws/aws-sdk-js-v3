@@ -19,6 +19,10 @@ import { de_CreateImagePipelineCommand, se_CreateImagePipelineCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateImagePipelineCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeAuthorizerCommand, se_DescribeAuthorizerCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAuthorizerCommand}.
  */

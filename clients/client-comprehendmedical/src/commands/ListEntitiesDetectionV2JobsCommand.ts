@@ -23,6 +23,10 @@ import { de_ListEntitiesDetectionV2JobsCommand, se_ListEntitiesDetectionV2JobsCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListEntitiesDetectionV2JobsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_StartAttachmentUploadCommand, se_StartAttachmentUploadCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartAttachmentUploadCommand}.
  */

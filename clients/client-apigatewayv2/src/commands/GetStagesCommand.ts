@@ -19,6 +19,10 @@ import { de_GetStagesCommand, se_GetStagesCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStagesCommand}.
  */

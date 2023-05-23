@@ -23,6 +23,10 @@ import { de_GetEntitlementsCommand, se_GetEntitlementsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetEntitlementsCommand}.
  */

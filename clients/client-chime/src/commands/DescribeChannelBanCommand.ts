@@ -23,6 +23,10 @@ import { de_DescribeChannelBanCommand, se_DescribeChannelBanCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeChannelBanCommand}.
  */

@@ -28,6 +28,10 @@ import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChannelsCommand}.
  */

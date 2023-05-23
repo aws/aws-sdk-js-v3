@@ -19,6 +19,10 @@ import { de_GetStageSessionCommand, se_GetStageSessionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStageSessionCommand}.
  */

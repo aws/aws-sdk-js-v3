@@ -19,6 +19,10 @@ import { de_DescribeVirtualClusterCommand, se_DescribeVirtualClusterCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeVirtualClusterCommand}.
  */

@@ -19,6 +19,10 @@ import { de_StartExperimentCommand, se_StartExperimentCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartExperimentCommand}.
  */

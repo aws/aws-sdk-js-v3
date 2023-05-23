@@ -19,6 +19,10 @@ import { de_RebootCacheClusterCommand, se_RebootCacheClusterCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RebootCacheClusterCommand}.
  */

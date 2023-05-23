@@ -19,6 +19,10 @@ import { de_ListGroupVersionsCommand, se_ListGroupVersionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListGroupVersionsCommand}.
  */

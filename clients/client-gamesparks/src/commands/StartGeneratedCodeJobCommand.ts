@@ -19,6 +19,10 @@ import { de_StartGeneratedCodeJobCommand, se_StartGeneratedCodeJobCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartGeneratedCodeJobCommand}.
  */

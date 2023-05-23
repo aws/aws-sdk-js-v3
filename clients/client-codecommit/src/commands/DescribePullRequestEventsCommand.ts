@@ -19,6 +19,10 @@ import { de_DescribePullRequestEventsCommand, se_DescribePullRequestEventsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribePullRequestEventsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeSecurityGroupsCommand, se_DescribeSecurityGroupsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeSecurityGroupsCommand}.
  */

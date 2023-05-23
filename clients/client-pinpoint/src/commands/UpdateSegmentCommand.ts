@@ -19,6 +19,10 @@ import { de_UpdateSegmentCommand, se_UpdateSegmentCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSegmentCommand}.
  */

@@ -591,6 +591,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -1108,7 +1110,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -1127,7 +1129,7 @@ export interface ConnectClientConfig extends ConnectClientConfigType {}
 /**
  * @public
  */
-type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

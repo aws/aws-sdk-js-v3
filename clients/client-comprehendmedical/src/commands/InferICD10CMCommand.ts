@@ -23,6 +23,10 @@ import { de_InferICD10CMCommand, se_InferICD10CMCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link InferICD10CMCommand}.
  */

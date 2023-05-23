@@ -19,6 +19,10 @@ import { de_WithdrawByoipCidrCommand, se_WithdrawByoipCidrCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link WithdrawByoipCidrCommand}.
  */

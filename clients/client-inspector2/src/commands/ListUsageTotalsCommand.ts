@@ -19,6 +19,10 @@ import { de_ListUsageTotalsCommand, se_ListUsageTotalsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUsageTotalsCommand}.
  */

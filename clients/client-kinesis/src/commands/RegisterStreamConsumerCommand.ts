@@ -19,6 +19,10 @@ import { de_RegisterStreamConsumerCommand, se_RegisterStreamConsumerCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterStreamConsumerCommand}.
  */

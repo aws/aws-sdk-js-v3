@@ -19,6 +19,10 @@ import { de_UpdateMetricSetCommand, se_UpdateMetricSetCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMetricSetCommand}.
  */

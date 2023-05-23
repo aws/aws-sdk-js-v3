@@ -19,6 +19,10 @@ import { de_GetConsoleScreenshotCommand, se_GetConsoleScreenshotCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConsoleScreenshotCommand}.
  */

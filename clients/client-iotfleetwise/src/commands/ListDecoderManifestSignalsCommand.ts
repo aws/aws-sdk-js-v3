@@ -19,6 +19,10 @@ import { de_ListDecoderManifestSignalsCommand, se_ListDecoderManifestSignalsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDecoderManifestSignalsCommand}.
  */

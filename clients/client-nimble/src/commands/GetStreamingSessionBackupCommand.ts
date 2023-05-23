@@ -19,6 +19,10 @@ import { de_GetStreamingSessionBackupCommand, se_GetStreamingSessionBackupComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetStreamingSessionBackupCommand}.
  */

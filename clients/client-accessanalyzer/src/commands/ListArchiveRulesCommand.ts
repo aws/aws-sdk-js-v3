@@ -19,6 +19,10 @@ import { de_ListArchiveRulesCommand, se_ListArchiveRulesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListArchiveRulesCommand}.
  */

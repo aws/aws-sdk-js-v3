@@ -19,6 +19,10 @@ import { de_PutMethodResponseCommand, se_PutMethodResponseCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutMethodResponseCommand}.
  */

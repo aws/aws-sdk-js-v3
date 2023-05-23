@@ -24,6 +24,10 @@ import { de_ListUserPoolsCommand, se_ListUserPoolsCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUserPoolsCommand}.
  */

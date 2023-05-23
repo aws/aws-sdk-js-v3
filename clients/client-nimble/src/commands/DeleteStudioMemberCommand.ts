@@ -19,6 +19,10 @@ import { de_DeleteStudioMemberCommand, se_DeleteStudioMemberCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteStudioMemberCommand}.
  */

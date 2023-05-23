@@ -19,6 +19,10 @@ import { de_SetTypeConfigurationCommand, se_SetTypeConfigurationCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetTypeConfigurationCommand}.
  */

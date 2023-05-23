@@ -19,6 +19,10 @@ import { de_ListRealtimeLogConfigsCommand, se_ListRealtimeLogConfigsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRealtimeLogConfigsCommand}.
  */

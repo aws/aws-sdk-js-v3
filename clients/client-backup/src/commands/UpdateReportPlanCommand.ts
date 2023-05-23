@@ -19,6 +19,10 @@ import { de_UpdateReportPlanCommand, se_UpdateReportPlanCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateReportPlanCommand}.
  */

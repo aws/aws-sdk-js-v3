@@ -19,6 +19,10 @@ import { de_DeleteSkillAuthorizationCommand, se_DeleteSkillAuthorizationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSkillAuthorizationCommand}.
  */

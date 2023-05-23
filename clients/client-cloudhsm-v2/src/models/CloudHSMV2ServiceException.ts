@@ -4,6 +4,8 @@ import {
   ServiceExceptionOptions as __ServiceExceptionOptions,
 } from "@aws-sdk/smithy-client";
 
+export { __ServiceException, __ServiceExceptionOptions };
+
 /**
  * @public
  *

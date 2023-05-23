@@ -19,6 +19,10 @@ import { de_UpdateListCommand, se_UpdateListCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateListCommand}.
  */

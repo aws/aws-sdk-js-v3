@@ -19,6 +19,10 @@ import { de_DeleteProvisioningTemplateCommand, se_DeleteProvisioningTemplateComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteProvisioningTemplateCommand}.
  */

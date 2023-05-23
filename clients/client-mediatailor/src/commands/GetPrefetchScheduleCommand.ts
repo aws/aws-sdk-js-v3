@@ -19,6 +19,10 @@ import { de_GetPrefetchScheduleCommand, se_GetPrefetchScheduleCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPrefetchScheduleCommand}.
  */

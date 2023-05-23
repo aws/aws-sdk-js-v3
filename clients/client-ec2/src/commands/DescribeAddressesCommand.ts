@@ -19,6 +19,10 @@ import { de_DescribeAddressesCommand, se_DescribeAddressesCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAddressesCommand}.
  */

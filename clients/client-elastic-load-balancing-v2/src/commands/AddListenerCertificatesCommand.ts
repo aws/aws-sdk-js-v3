@@ -23,6 +23,10 @@ import { de_AddListenerCertificatesCommand, se_AddListenerCertificatesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddListenerCertificatesCommand}.
  */

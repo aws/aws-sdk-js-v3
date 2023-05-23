@@ -19,6 +19,10 @@ import { de_GetUserEndpointsCommand, se_GetUserEndpointsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUserEndpointsCommand}.
  */

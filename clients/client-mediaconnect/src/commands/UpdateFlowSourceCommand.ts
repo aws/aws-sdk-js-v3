@@ -19,6 +19,10 @@ import { de_UpdateFlowSourceCommand, se_UpdateFlowSourceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFlowSourceCommand}.
  */

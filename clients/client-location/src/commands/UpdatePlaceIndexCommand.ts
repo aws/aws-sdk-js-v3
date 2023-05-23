@@ -19,6 +19,10 @@ import { de_UpdatePlaceIndexCommand, se_UpdatePlaceIndexCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePlaceIndexCommand}.
  */

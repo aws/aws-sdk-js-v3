@@ -19,6 +19,10 @@ import { de_PutImageCommand, se_PutImageCommand } from "../protocols/Aws_json1_1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutImageCommand}.
  */

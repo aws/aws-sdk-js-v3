@@ -19,6 +19,10 @@ import { de_UpdateTriggerCommand, se_UpdateTriggerCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTriggerCommand}.
  */

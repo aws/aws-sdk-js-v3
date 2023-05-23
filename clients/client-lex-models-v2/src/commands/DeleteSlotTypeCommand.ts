@@ -19,6 +19,10 @@ import { de_DeleteSlotTypeCommand, se_DeleteSlotTypeCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSlotTypeCommand}.
  */

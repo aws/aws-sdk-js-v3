@@ -19,6 +19,10 @@ import { de_ListIdentityResolutionJobsCommand, se_ListIdentityResolutionJobsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListIdentityResolutionJobsCommand}.
  */

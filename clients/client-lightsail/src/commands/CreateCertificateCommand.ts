@@ -19,6 +19,10 @@ import { de_CreateCertificateCommand, se_CreateCertificateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateCertificateCommand}.
  */

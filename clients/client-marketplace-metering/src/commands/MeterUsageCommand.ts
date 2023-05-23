@@ -23,6 +23,10 @@ import { de_MeterUsageCommand, se_MeterUsageCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link MeterUsageCommand}.
  */

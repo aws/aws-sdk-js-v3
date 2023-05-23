@@ -19,6 +19,10 @@ import { de_UnarchiveFindingsCommand, se_UnarchiveFindingsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UnarchiveFindingsCommand}.
  */

@@ -23,6 +23,10 @@ import { de_UpdateProtectedQueryCommand, se_UpdateProtectedQueryCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateProtectedQueryCommand}.
  */

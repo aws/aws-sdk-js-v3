@@ -337,6 +337,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -682,7 +684,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type GameLiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type GameLiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -701,7 +703,7 @@ export interface GameLiftClientConfig extends GameLiftClientConfigType {}
 /**
  * @public
  */
-type GameLiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type GameLiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

@@ -23,6 +23,10 @@ import { de_GetLaunchTemplateDataCommand, se_GetLaunchTemplateDataCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLaunchTemplateDataCommand}.
  */

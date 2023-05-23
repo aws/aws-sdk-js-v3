@@ -19,6 +19,10 @@ import { de_RemoveTemplateActionCommand, se_RemoveTemplateActionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveTemplateActionCommand}.
  */

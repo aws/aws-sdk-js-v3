@@ -19,6 +19,10 @@ import { de_DescribeGatewayCommand, se_DescribeGatewayCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeGatewayCommand}.
  */

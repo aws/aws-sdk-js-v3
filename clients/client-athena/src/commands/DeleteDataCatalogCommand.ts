@@ -19,6 +19,10 @@ import { de_DeleteDataCatalogCommand, se_DeleteDataCatalogCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDataCatalogCommand}.
  */

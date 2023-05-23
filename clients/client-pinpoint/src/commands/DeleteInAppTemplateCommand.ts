@@ -19,6 +19,10 @@ import { de_DeleteInAppTemplateCommand, se_DeleteInAppTemplateCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteInAppTemplateCommand}.
  */

@@ -26,6 +26,10 @@ import { de_GetClipCommand, se_GetClipCommand } from "../protocols/Aws_restJson1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetClipCommand}.
  */

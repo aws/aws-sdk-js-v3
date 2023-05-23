@@ -19,6 +19,10 @@ import { de_DescribeInstanceTypeLimitsCommand, se_DescribeInstanceTypeLimitsComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeInstanceTypeLimitsCommand}.
  */

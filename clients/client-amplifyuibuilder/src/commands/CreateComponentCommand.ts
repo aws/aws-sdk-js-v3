@@ -19,6 +19,10 @@ import { de_CreateComponentCommand, se_CreateComponentCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateComponentCommand}.
  */

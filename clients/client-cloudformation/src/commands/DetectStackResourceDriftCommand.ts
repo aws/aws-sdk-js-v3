@@ -19,6 +19,10 @@ import { de_DetectStackResourceDriftCommand, se_DetectStackResourceDriftCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetectStackResourceDriftCommand}.
  */

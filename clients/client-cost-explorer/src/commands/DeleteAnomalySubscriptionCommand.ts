@@ -19,6 +19,10 @@ import { de_DeleteAnomalySubscriptionCommand, se_DeleteAnomalySubscriptionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAnomalySubscriptionCommand}.
  */

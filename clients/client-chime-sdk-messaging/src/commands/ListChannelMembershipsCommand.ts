@@ -28,6 +28,10 @@ import { de_ListChannelMembershipsCommand, se_ListChannelMembershipsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChannelMembershipsCommand}.
  */

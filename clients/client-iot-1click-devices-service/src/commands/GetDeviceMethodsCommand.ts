@@ -23,6 +23,10 @@ import { de_GetDeviceMethodsCommand, se_GetDeviceMethodsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeviceMethodsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_AttachPrincipalPolicyCommand, se_AttachPrincipalPolicyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AttachPrincipalPolicyCommand}.
  */

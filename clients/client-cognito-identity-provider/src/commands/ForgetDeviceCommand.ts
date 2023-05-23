@@ -24,6 +24,10 @@ import { de_ForgetDeviceCommand, se_ForgetDeviceCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ForgetDeviceCommand}.
  */

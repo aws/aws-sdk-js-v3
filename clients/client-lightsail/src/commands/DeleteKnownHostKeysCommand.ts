@@ -19,6 +19,10 @@ import { de_DeleteKnownHostKeysCommand, se_DeleteKnownHostKeysCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteKnownHostKeysCommand}.
  */

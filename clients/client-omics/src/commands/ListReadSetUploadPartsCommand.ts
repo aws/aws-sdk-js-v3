@@ -19,6 +19,10 @@ import { de_ListReadSetUploadPartsCommand, se_ListReadSetUploadPartsCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListReadSetUploadPartsCommand}.
  */

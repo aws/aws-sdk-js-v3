@@ -19,6 +19,10 @@ import { de_UpdateHITReviewStatusCommand, se_UpdateHITReviewStatusCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateHITReviewStatusCommand}.
  */

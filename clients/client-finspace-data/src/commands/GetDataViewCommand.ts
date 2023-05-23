@@ -19,6 +19,10 @@ import { de_GetDataViewCommand, se_GetDataViewCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDataViewCommand}.
  */

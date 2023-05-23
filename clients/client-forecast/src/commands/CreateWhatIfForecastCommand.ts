@@ -23,6 +23,10 @@ import { de_CreateWhatIfForecastCommand, se_CreateWhatIfForecastCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateWhatIfForecastCommand}.
  */

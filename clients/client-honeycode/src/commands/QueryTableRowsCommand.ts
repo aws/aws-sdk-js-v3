@@ -24,6 +24,10 @@ import { de_QueryTableRowsCommand, se_QueryTableRowsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link QueryTableRowsCommand}.
  */

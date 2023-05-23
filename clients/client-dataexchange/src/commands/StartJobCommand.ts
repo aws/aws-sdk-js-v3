@@ -19,6 +19,10 @@ import { de_StartJobCommand, se_StartJobCommand } from "../protocols/Aws_restJso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartJobCommand}.
  */

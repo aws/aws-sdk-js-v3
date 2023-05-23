@@ -19,6 +19,10 @@ import { de_DisableRadiusCommand, se_DisableRadiusCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableRadiusCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteAppInstanceUserCommand, se_DeleteAppInstanceUserCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteAppInstanceUserCommand}.
  */

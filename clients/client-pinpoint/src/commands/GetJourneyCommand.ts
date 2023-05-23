@@ -19,6 +19,10 @@ import { de_GetJourneyCommand, se_GetJourneyCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetJourneyCommand}.
  */

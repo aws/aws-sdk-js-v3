@@ -19,6 +19,10 @@ import { de_DeleteRetentionPolicyCommand, se_DeleteRetentionPolicyCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRetentionPolicyCommand}.
  */

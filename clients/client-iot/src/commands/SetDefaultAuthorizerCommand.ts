@@ -19,6 +19,10 @@ import { de_SetDefaultAuthorizerCommand, se_SetDefaultAuthorizerCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SetDefaultAuthorizerCommand}.
  */

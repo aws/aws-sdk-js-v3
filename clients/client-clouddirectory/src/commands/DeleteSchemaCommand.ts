@@ -19,6 +19,10 @@ import { de_DeleteSchemaCommand, se_DeleteSchemaCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteSchemaCommand}.
  */

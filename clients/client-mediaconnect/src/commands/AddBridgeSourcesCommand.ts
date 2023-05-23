@@ -19,6 +19,10 @@ import { de_AddBridgeSourcesCommand, se_AddBridgeSourcesCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddBridgeSourcesCommand}.
  */

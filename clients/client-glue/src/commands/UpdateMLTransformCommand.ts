@@ -19,6 +19,10 @@ import { de_UpdateMLTransformCommand, se_UpdateMLTransformCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMLTransformCommand}.
  */

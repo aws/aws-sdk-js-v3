@@ -19,6 +19,10 @@ import { de_DescribeAppBlocksCommand, se_DescribeAppBlocksCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAppBlocksCommand}.
  */

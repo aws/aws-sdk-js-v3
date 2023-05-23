@@ -19,6 +19,10 @@ import { de_DescribeDashboardCommand, se_DescribeDashboardCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeDashboardCommand}.
  */

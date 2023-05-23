@@ -19,6 +19,10 @@ import { de_PutActionRevisionCommand, se_PutActionRevisionCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutActionRevisionCommand}.
  */

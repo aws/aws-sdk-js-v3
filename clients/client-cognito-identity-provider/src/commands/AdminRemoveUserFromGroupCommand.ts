@@ -24,6 +24,10 @@ import { de_AdminRemoveUserFromGroupCommand, se_AdminRemoveUserFromGroupCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminRemoveUserFromGroupCommand}.
  */

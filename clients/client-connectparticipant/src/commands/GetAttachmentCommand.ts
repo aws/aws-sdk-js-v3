@@ -23,6 +23,10 @@ import { de_GetAttachmentCommand, se_GetAttachmentCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAttachmentCommand}.
  */

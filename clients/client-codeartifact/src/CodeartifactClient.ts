@@ -170,6 +170,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -389,7 +391,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type CodeartifactClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type CodeartifactClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -408,7 +410,7 @@ export interface CodeartifactClientConfig extends CodeartifactClientConfigType {
 /**
  * @public
  */
-type CodeartifactClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type CodeartifactClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

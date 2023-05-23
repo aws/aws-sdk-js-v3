@@ -19,6 +19,10 @@ import { de_DisassociateApplicationsCommand, se_DisassociateApplicationsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateApplicationsCommand}.
  */

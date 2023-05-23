@@ -23,6 +23,10 @@ import { de_GetInstanceAccessCommand, se_GetInstanceAccessCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInstanceAccessCommand}.
  */

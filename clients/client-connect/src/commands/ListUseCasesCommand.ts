@@ -19,6 +19,10 @@ import { de_ListUseCasesCommand, se_ListUseCasesCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListUseCasesCommand}.
  */

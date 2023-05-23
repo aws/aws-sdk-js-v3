@@ -19,6 +19,10 @@ import { de_GetRequestValidatorCommand, se_GetRequestValidatorCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRequestValidatorCommand}.
  */

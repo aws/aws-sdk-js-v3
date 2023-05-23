@@ -19,6 +19,10 @@ import { de_DeleteBackendAPICommand, se_DeleteBackendAPICommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBackendAPICommand}.
  */

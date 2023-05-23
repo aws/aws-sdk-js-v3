@@ -19,6 +19,10 @@ import { de_DeleteNetworkInsightsPathCommand, se_DeleteNetworkInsightsPathComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteNetworkInsightsPathCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeQueryCommand, se_DescribeQueryCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeQueryCommand}.
  */

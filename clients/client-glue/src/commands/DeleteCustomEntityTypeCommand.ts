@@ -19,6 +19,10 @@ import { de_DeleteCustomEntityTypeCommand, se_DeleteCustomEntityTypeCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCustomEntityTypeCommand}.
  */

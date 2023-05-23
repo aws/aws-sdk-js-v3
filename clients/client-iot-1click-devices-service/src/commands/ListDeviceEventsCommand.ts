@@ -23,6 +23,10 @@ import { de_ListDeviceEventsCommand, se_ListDeviceEventsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDeviceEventsCommand}.
  */

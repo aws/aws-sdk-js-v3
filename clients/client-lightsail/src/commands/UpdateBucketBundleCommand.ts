@@ -19,6 +19,10 @@ import { de_UpdateBucketBundleCommand, se_UpdateBucketBundleCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBucketBundleCommand}.
  */

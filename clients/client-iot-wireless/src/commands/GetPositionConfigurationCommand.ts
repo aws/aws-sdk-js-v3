@@ -19,6 +19,10 @@ import { de_GetPositionConfigurationCommand, se_GetPositionConfigurationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPositionConfigurationCommand}.
  */

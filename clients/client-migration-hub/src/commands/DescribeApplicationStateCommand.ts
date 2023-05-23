@@ -19,6 +19,10 @@ import { de_DescribeApplicationStateCommand, se_DescribeApplicationStateCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeApplicationStateCommand}.
  */

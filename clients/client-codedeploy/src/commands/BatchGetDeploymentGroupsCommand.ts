@@ -19,6 +19,10 @@ import { de_BatchGetDeploymentGroupsCommand, se_BatchGetDeploymentGroupsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetDeploymentGroupsCommand}.
  */

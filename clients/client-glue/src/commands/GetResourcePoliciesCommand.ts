@@ -19,6 +19,10 @@ import { de_GetResourcePoliciesCommand, se_GetResourcePoliciesCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResourcePoliciesCommand}.
  */

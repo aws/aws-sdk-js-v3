@@ -23,6 +23,10 @@ import { de_GetReportDefinitionCommand, se_GetReportDefinitionCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetReportDefinitionCommand}.
  */

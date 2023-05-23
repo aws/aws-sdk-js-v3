@@ -23,6 +23,10 @@ import { de_ModifyReplicationTaskCommand, se_ModifyReplicationTaskCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ModifyReplicationTaskCommand}.
  */

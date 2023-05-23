@@ -19,6 +19,10 @@ import { de_DeleteArchiveRuleCommand, se_DeleteArchiveRuleCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteArchiveRuleCommand}.
  */

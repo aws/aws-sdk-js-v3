@@ -19,6 +19,10 @@ import { de_PutWebhookCommand, se_PutWebhookCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutWebhookCommand}.
  */

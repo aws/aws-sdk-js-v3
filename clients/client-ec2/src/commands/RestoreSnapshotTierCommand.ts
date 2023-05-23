@@ -19,6 +19,10 @@ import { de_RestoreSnapshotTierCommand, se_RestoreSnapshotTierCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RestoreSnapshotTierCommand}.
  */

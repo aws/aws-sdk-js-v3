@@ -19,6 +19,10 @@ import { de_CreateFlowCommand, se_CreateFlowCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFlowCommand}.
  */

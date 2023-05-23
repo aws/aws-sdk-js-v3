@@ -19,6 +19,10 @@ import { de_GetApnsVoipSandboxChannelCommand, se_GetApnsVoipSandboxChannelComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetApnsVoipSandboxChannelCommand}.
  */

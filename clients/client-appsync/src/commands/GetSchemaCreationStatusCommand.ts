@@ -19,6 +19,10 @@ import { de_GetSchemaCreationStatusCommand, se_GetSchemaCreationStatusCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSchemaCreationStatusCommand}.
  */

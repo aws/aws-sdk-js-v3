@@ -24,6 +24,10 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StreamingTraitsRequireLengthCommand}.
  */

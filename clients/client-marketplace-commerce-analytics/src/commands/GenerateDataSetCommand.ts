@@ -23,6 +23,10 @@ import { de_GenerateDataSetCommand, se_GenerateDataSetCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GenerateDataSetCommand}.
  */

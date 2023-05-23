@@ -19,6 +19,10 @@ import { de_DeleteCoreDeviceCommand, se_DeleteCoreDeviceCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCoreDeviceCommand}.
  */

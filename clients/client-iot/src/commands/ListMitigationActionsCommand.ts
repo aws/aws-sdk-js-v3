@@ -19,6 +19,10 @@ import { de_ListMitigationActionsCommand, se_ListMitigationActionsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListMitigationActionsCommand}.
  */

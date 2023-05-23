@@ -20,6 +20,10 @@ import { de_CreateReplaceRootVolumeTaskCommand, se_CreateReplaceRootVolumeTaskCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateReplaceRootVolumeTaskCommand}.
  */

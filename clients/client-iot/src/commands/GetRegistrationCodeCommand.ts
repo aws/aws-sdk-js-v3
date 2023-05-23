@@ -19,6 +19,10 @@ import { de_GetRegistrationCodeCommand, se_GetRegistrationCodeCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRegistrationCodeCommand}.
  */

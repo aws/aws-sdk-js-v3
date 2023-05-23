@@ -19,6 +19,10 @@ import { de_GetCampaignVersionCommand, se_GetCampaignVersionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCampaignVersionCommand}.
  */

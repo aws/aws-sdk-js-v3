@@ -19,6 +19,10 @@ import { de_GetClusterPolicyCommand, se_GetClusterPolicyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetClusterPolicyCommand}.
  */

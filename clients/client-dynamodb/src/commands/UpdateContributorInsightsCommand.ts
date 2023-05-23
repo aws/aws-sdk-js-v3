@@ -19,6 +19,10 @@ import { de_UpdateContributorInsightsCommand, se_UpdateContributorInsightsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateContributorInsightsCommand}.
  */

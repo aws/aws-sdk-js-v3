@@ -19,6 +19,10 @@ import { de_GetItemCommand, se_GetItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetItemCommand}.
  */

@@ -29,6 +29,10 @@ import { de_AssociateSoftwareTokenCommand, se_AssociateSoftwareTokenCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateSoftwareTokenCommand}.
  */

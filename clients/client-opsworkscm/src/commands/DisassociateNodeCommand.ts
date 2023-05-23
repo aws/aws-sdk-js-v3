@@ -23,6 +23,10 @@ import { de_DisassociateNodeCommand, se_DisassociateNodeCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateNodeCommand}.
  */

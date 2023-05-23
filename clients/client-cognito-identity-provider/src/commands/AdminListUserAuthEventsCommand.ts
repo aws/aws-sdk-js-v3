@@ -28,6 +28,10 @@ import { de_AdminListUserAuthEventsCommand, se_AdminListUserAuthEventsCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AdminListUserAuthEventsCommand}.
  */

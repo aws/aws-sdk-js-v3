@@ -19,6 +19,10 @@ import { de_ListAlertsCommand, se_ListAlertsCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAlertsCommand}.
  */

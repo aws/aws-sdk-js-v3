@@ -19,6 +19,10 @@ import { de_UpdateCampaignDialerConfigCommand, se_UpdateCampaignDialerConfigComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateCampaignDialerConfigCommand}.
  */

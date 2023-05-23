@@ -19,6 +19,10 @@ import { de_DeleteConferenceProviderCommand, se_DeleteConferenceProviderCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConferenceProviderCommand}.
  */

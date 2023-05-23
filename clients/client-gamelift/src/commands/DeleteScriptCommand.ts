@@ -19,6 +19,10 @@ import { de_DeleteScriptCommand, se_DeleteScriptCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteScriptCommand}.
  */

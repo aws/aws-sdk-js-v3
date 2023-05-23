@@ -19,6 +19,10 @@ import { de_DescribeAssetCommand, se_DescribeAssetCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAssetCommand}.
  */

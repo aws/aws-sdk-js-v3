@@ -19,6 +19,10 @@ import { de_DeleteRuleGroupCommand, se_DeleteRuleGroupCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteRuleGroupCommand}.
  */

@@ -19,6 +19,10 @@ import { de_ListFHIRDatastoresCommand, se_ListFHIRDatastoresCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFHIRDatastoresCommand}.
  */

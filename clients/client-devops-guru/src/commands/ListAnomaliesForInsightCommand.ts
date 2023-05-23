@@ -19,6 +19,10 @@ import { de_ListAnomaliesForInsightCommand, se_ListAnomaliesForInsightCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListAnomaliesForInsightCommand}.
  */

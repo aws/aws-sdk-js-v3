@@ -19,6 +19,10 @@ import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFleetsCommand}.
  */

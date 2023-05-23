@@ -19,6 +19,10 @@ import { de_SendTestEventNotificationCommand, se_SendTestEventNotificationComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SendTestEventNotificationCommand}.
  */

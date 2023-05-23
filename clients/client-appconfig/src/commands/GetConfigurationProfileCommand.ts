@@ -23,6 +23,10 @@ import { de_GetConfigurationProfileCommand, se_GetConfigurationProfileCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetConfigurationProfileCommand}.
  */

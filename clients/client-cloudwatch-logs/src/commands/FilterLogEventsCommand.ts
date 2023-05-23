@@ -19,6 +19,10 @@ import { de_FilterLogEventsCommand, se_FilterLogEventsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link FilterLogEventsCommand}.
  */

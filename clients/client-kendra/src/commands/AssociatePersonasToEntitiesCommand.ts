@@ -19,6 +19,10 @@ import { de_AssociatePersonasToEntitiesCommand, se_AssociatePersonasToEntitiesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociatePersonasToEntitiesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DescribeAgentStatusCommand, se_DescribeAgentStatusCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAgentStatusCommand}.
  */

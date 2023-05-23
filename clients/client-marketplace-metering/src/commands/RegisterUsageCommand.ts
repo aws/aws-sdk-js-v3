@@ -23,6 +23,10 @@ import { de_RegisterUsageCommand, se_RegisterUsageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RegisterUsageCommand}.
  */

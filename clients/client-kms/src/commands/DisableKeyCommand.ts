@@ -19,6 +19,10 @@ import { de_DisableKeyCommand, se_DisableKeyCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisableKeyCommand}.
  */

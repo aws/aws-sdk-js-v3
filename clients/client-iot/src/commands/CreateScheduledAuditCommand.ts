@@ -19,6 +19,10 @@ import { de_CreateScheduledAuditCommand, se_CreateScheduledAuditCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateScheduledAuditCommand}.
  */

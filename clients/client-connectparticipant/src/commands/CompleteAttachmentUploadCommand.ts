@@ -23,6 +23,10 @@ import { de_CompleteAttachmentUploadCommand, se_CompleteAttachmentUploadCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CompleteAttachmentUploadCommand}.
  */

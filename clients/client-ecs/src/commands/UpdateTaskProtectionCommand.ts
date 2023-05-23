@@ -19,6 +19,10 @@ import { de_UpdateTaskProtectionCommand, se_UpdateTaskProtectionCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTaskProtectionCommand}.
  */

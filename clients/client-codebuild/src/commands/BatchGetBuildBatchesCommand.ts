@@ -19,6 +19,10 @@ import { de_BatchGetBuildBatchesCommand, se_BatchGetBuildBatchesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetBuildBatchesCommand}.
  */

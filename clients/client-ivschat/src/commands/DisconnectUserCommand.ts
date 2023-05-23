@@ -19,6 +19,10 @@ import { de_DisconnectUserCommand, se_DisconnectUserCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisconnectUserCommand}.
  */

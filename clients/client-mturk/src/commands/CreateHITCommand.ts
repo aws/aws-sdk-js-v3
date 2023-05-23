@@ -19,6 +19,10 @@ import { de_CreateHITCommand, se_CreateHITCommand } from "../protocols/Aws_json1
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateHITCommand}.
  */

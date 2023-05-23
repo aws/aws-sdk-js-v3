@@ -19,6 +19,10 @@ import { de_UpdateChannelClassCommand, se_UpdateChannelClassCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateChannelClassCommand}.
  */

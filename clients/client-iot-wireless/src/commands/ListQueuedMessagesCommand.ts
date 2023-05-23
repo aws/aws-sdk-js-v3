@@ -19,6 +19,10 @@ import { de_ListQueuedMessagesCommand, se_ListQueuedMessagesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListQueuedMessagesCommand}.
  */

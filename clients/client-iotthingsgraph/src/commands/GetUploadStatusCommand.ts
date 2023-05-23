@@ -19,6 +19,10 @@ import { de_GetUploadStatusCommand, se_GetUploadStatusCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUploadStatusCommand}.
  */

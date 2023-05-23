@@ -24,6 +24,10 @@ import { de_ExportCertificateCommand, se_ExportCertificateCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ExportCertificateCommand}.
  */

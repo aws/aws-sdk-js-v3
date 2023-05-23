@@ -19,6 +19,10 @@ import { de_DescribeForecastCommand, se_DescribeForecastCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeForecastCommand}.
  */

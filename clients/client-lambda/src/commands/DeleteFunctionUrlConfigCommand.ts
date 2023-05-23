@@ -19,6 +19,10 @@ import { de_DeleteFunctionUrlConfigCommand, se_DeleteFunctionUrlConfigCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteFunctionUrlConfigCommand}.
  */

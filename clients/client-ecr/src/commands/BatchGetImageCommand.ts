@@ -19,6 +19,10 @@ import { de_BatchGetImageCommand, se_BatchGetImageCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchGetImageCommand}.
  */

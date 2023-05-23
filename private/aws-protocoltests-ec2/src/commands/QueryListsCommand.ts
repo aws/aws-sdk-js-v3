@@ -18,6 +18,10 @@ import { de_QueryListsCommand, se_QueryListsCommand } from "../protocols/Aws_ec2
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link QueryListsCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeprecateThingTypeCommand, se_DeprecateThingTypeCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeprecateThingTypeCommand}.
  */

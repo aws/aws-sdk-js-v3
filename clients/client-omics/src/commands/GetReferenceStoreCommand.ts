@@ -19,6 +19,10 @@ import { de_GetReferenceStoreCommand, se_GetReferenceStoreCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetReferenceStoreCommand}.
  */

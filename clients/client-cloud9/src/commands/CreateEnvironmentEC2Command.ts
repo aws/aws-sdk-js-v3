@@ -23,6 +23,10 @@ import { de_CreateEnvironmentEC2Command, se_CreateEnvironmentEC2Command } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEnvironmentEC2Command}.
  */

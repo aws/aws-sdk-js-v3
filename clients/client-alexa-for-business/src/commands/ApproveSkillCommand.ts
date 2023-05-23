@@ -19,6 +19,10 @@ import { de_ApproveSkillCommand, se_ApproveSkillCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ApproveSkillCommand}.
  */

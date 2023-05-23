@@ -19,6 +19,10 @@ import { de_CreateComputeEnvironmentCommand, se_CreateComputeEnvironmentCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateComputeEnvironmentCommand}.
  */

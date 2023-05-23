@@ -24,6 +24,10 @@ import { de_RequestSpotInstancesCommand, se_RequestSpotInstancesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RequestSpotInstancesCommand}.
  */

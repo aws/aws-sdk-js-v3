@@ -19,6 +19,10 @@ import { de_ListDistributedGrantsCommand, se_ListDistributedGrantsCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDistributedGrantsCommand}.
  */

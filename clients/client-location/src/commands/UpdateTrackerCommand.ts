@@ -19,6 +19,10 @@ import { de_UpdateTrackerCommand, se_UpdateTrackerCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTrackerCommand}.
  */

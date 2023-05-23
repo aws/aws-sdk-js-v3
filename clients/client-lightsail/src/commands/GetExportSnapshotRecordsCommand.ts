@@ -19,6 +19,10 @@ import { de_GetExportSnapshotRecordsCommand, se_GetExportSnapshotRecordsCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetExportSnapshotRecordsCommand}.
  */

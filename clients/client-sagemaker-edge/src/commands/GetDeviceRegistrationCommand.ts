@@ -19,6 +19,10 @@ import { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetDeviceRegistrationCommand}.
  */

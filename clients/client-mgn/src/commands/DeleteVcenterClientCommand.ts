@@ -19,6 +19,10 @@ import { de_DeleteVcenterClientCommand, se_DeleteVcenterClientCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVcenterClientCommand}.
  */

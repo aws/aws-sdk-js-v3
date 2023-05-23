@@ -19,6 +19,10 @@ import { de_RemoveFlowMediaStreamCommand, se_RemoveFlowMediaStreamCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveFlowMediaStreamCommand}.
  */

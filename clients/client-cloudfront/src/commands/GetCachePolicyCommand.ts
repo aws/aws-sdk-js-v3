@@ -19,6 +19,10 @@ import { de_GetCachePolicyCommand, se_GetCachePolicyCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCachePolicyCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteScheduledActionCommand}.
  */

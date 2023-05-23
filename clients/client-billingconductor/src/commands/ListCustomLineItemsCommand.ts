@@ -24,6 +24,10 @@ import { de_ListCustomLineItemsCommand, se_ListCustomLineItemsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListCustomLineItemsCommand}.
  */

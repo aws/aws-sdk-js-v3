@@ -19,6 +19,10 @@ import { de_ListComponentTypesCommand, se_ListComponentTypesCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListComponentTypesCommand}.
  */

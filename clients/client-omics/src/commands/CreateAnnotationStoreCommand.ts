@@ -19,6 +19,10 @@ import { de_CreateAnnotationStoreCommand, se_CreateAnnotationStoreCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateAnnotationStoreCommand}.
  */

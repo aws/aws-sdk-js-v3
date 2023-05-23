@@ -19,6 +19,10 @@ import { de_DeletePublicKeyCommand, se_DeletePublicKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeletePublicKeyCommand}.
  */

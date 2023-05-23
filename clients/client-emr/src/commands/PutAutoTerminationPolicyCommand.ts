@@ -19,6 +19,10 @@ import { de_PutAutoTerminationPolicyCommand, se_PutAutoTerminationPolicyCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutAutoTerminationPolicyCommand}.
  */

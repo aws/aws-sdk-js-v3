@@ -24,6 +24,10 @@ import { de_CreateUserProfileCommand, se_CreateUserProfileCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateUserProfileCommand}.
  */

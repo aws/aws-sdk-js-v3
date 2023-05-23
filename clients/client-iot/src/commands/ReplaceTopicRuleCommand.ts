@@ -19,6 +19,10 @@ import { de_ReplaceTopicRuleCommand, se_ReplaceTopicRuleCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ReplaceTopicRuleCommand}.
  */

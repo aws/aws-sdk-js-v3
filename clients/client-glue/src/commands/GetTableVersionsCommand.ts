@@ -19,6 +19,10 @@ import { de_GetTableVersionsCommand, se_GetTableVersionsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTableVersionsCommand}.
  */

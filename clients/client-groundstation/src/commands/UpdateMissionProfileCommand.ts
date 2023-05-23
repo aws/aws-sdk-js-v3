@@ -19,6 +19,10 @@ import { de_UpdateMissionProfileCommand, se_UpdateMissionProfileCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateMissionProfileCommand}.
  */

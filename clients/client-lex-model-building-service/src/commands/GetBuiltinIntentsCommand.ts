@@ -23,6 +23,10 @@ import { de_GetBuiltinIntentsCommand, se_GetBuiltinIntentsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetBuiltinIntentsCommand}.
  */

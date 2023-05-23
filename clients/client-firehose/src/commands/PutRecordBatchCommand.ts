@@ -19,6 +19,10 @@ import { de_PutRecordBatchCommand, se_PutRecordBatchCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutRecordBatchCommand}.
  */

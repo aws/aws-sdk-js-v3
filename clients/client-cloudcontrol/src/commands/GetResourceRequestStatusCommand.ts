@@ -23,6 +23,10 @@ import { de_GetResourceRequestStatusCommand, se_GetResourceRequestStatusCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResourceRequestStatusCommand}.
  */

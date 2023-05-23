@@ -19,6 +19,10 @@ import { de_GetAccountPasswordPolicyCommand, se_GetAccountPasswordPolicyCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAccountPasswordPolicyCommand}.
  */

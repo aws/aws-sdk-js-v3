@@ -23,6 +23,10 @@ import { de_CreateLoginProfileCommand, se_CreateLoginProfileCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLoginProfileCommand}.
  */

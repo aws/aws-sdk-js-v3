@@ -19,6 +19,10 @@ import { de_DeleteProxySessionCommand, se_DeleteProxySessionCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteProxySessionCommand}.
  */

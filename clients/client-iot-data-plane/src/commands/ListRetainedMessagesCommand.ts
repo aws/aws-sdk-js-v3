@@ -19,6 +19,10 @@ import { de_ListRetainedMessagesCommand, se_ListRetainedMessagesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListRetainedMessagesCommand}.
  */

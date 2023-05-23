@@ -19,6 +19,10 @@ import { de_CreateGraphCommand, se_CreateGraphCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGraphCommand}.
  */

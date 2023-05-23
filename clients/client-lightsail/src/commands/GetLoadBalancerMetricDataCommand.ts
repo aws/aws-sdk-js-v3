@@ -19,6 +19,10 @@ import { de_GetLoadBalancerMetricDataCommand, se_GetLoadBalancerMetricDataComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLoadBalancerMetricDataCommand}.
  */

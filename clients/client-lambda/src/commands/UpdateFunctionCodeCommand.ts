@@ -24,6 +24,10 @@ import { de_UpdateFunctionCodeCommand, se_UpdateFunctionCodeCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateFunctionCodeCommand}.
  */

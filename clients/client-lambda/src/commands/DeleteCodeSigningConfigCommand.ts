@@ -19,6 +19,10 @@ import { de_DeleteCodeSigningConfigCommand, se_DeleteCodeSigningConfigCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteCodeSigningConfigCommand}.
  */

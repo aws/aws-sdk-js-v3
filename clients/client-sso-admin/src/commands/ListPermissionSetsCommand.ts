@@ -19,6 +19,10 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPermissionSetsCommand}.
  */

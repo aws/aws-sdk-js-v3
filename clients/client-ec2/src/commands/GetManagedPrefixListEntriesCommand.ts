@@ -19,6 +19,10 @@ import { de_GetManagedPrefixListEntriesCommand, se_GetManagedPrefixListEntriesCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetManagedPrefixListEntriesCommand}.
  */

@@ -23,6 +23,10 @@ import { de_CreateEventSubscriptionCommand, se_CreateEventSubscriptionCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateEventSubscriptionCommand}.
  */

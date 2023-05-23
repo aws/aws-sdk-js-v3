@@ -19,6 +19,10 @@ import { de_UpdateNodegroupConfigCommand, se_UpdateNodegroupConfigCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateNodegroupConfigCommand}.
  */

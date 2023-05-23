@@ -20,6 +20,10 @@ import { de_CreateResponseHeadersPolicyCommand, se_CreateResponseHeadersPolicyCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateResponseHeadersPolicyCommand}.
  */

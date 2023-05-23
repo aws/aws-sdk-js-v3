@@ -106,6 +106,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -277,7 +279,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type MediaPackageVodClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type MediaPackageVodClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -296,7 +298,7 @@ export interface MediaPackageVodClientConfig extends MediaPackageVodClientConfig
 /**
  * @public
  */
-type MediaPackageVodClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type MediaPackageVodClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

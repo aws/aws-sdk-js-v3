@@ -28,6 +28,10 @@ import { de_VerifySoftwareTokenCommand, se_VerifySoftwareTokenCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link VerifySoftwareTokenCommand}.
  */

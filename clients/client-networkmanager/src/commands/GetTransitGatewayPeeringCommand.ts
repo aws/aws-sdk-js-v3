@@ -19,6 +19,10 @@ import { de_GetTransitGatewayPeeringCommand, se_GetTransitGatewayPeeringCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTransitGatewayPeeringCommand}.
  */

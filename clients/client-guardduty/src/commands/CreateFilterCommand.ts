@@ -19,6 +19,10 @@ import { de_CreateFilterCommand, se_CreateFilterCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateFilterCommand}.
  */

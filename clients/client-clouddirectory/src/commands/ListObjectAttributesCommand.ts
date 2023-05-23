@@ -19,6 +19,10 @@ import { de_ListObjectAttributesCommand, se_ListObjectAttributesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListObjectAttributesCommand}.
  */

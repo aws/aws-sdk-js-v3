@@ -19,6 +19,10 @@ import { de_PutResourceConfigCommand, se_PutResourceConfigCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutResourceConfigCommand}.
  */

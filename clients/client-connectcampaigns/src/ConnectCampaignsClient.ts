@@ -111,6 +111,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -292,7 +294,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type ConnectCampaignsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type ConnectCampaignsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -311,7 +313,7 @@ export interface ConnectCampaignsClientConfig extends ConnectCampaignsClientConf
 /**
  * @public
  */
-type ConnectCampaignsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type ConnectCampaignsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

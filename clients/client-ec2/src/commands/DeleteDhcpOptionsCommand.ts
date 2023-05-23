@@ -19,6 +19,10 @@ import { de_DeleteDhcpOptionsCommand, se_DeleteDhcpOptionsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteDhcpOptionsCommand}.
  */

@@ -22,6 +22,10 @@ import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } fro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link NotifyRecommendationsReceivedCommand}.
  */

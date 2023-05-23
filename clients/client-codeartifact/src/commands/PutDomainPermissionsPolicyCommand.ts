@@ -19,6 +19,10 @@ import { de_PutDomainPermissionsPolicyCommand, se_PutDomainPermissionsPolicyComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutDomainPermissionsPolicyCommand}.
  */

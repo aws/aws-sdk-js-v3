@@ -24,6 +24,10 @@ import { de_UpdateBotRecommendationCommand, se_UpdateBotRecommendationCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateBotRecommendationCommand}.
  */

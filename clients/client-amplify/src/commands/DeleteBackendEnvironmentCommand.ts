@@ -19,6 +19,10 @@ import { de_DeleteBackendEnvironmentCommand, se_DeleteBackendEnvironmentCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteBackendEnvironmentCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateIpamResourceDiscoveryCommand, se_CreateIpamResourceDiscoveryCo
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateIpamResourceDiscoveryCommand}.
  */

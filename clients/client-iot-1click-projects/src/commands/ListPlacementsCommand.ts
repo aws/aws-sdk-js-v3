@@ -23,6 +23,10 @@ import { de_ListPlacementsCommand, se_ListPlacementsCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListPlacementsCommand}.
  */

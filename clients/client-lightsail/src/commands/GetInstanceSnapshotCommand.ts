@@ -19,6 +19,10 @@ import { de_GetInstanceSnapshotCommand, se_GetInstanceSnapshotCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetInstanceSnapshotCommand}.
  */

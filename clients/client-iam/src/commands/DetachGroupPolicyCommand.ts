@@ -19,6 +19,10 @@ import { de_DetachGroupPolicyCommand, se_DetachGroupPolicyCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DetachGroupPolicyCommand}.
  */

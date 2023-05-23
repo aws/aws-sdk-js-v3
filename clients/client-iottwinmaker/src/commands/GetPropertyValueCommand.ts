@@ -19,6 +19,10 @@ import { de_GetPropertyValueCommand, se_GetPropertyValueCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPropertyValueCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateBrokerCommand, se_CreateBrokerCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateBrokerCommand}.
  */

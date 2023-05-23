@@ -23,6 +23,10 @@ import { de_DisassociateChannelFlowCommand, se_DisassociateChannelFlowCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DisassociateChannelFlowCommand}.
  */

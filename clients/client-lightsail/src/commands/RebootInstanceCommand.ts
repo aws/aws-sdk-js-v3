@@ -19,6 +19,10 @@ import { de_RebootInstanceCommand, se_RebootInstanceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RebootInstanceCommand}.
  */

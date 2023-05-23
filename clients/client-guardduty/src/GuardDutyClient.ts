@@ -223,6 +223,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -496,7 +498,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type GuardDutyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type GuardDutyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -515,7 +517,7 @@ export interface GuardDutyClientConfig extends GuardDutyClientConfigType {}
 /**
  * @public
  */
-type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

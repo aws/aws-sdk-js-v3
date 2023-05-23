@@ -19,6 +19,10 @@ import { de_PutFeedbackCommand, se_PutFeedbackCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutFeedbackCommand}.
  */

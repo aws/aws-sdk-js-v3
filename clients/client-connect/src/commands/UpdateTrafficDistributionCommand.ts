@@ -19,6 +19,10 @@ import { de_UpdateTrafficDistributionCommand, se_UpdateTrafficDistributionComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateTrafficDistributionCommand}.
  */

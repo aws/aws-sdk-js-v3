@@ -19,6 +19,10 @@ import { de_PutSchemaVersionMetadataCommand, se_PutSchemaVersionMetadataCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutSchemaVersionMetadataCommand}.
  */

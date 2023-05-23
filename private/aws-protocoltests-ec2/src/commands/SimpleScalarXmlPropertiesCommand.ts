@@ -18,6 +18,10 @@ import { de_SimpleScalarXmlPropertiesCommand, se_SimpleScalarXmlPropertiesComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SimpleScalarXmlPropertiesCommand}.
  */

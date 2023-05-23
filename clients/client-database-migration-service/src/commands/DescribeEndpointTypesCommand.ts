@@ -23,6 +23,10 @@ import { de_DescribeEndpointTypesCommand, se_DescribeEndpointTypesCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEndpointTypesCommand}.
  */

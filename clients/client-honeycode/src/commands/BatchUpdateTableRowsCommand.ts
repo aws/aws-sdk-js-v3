@@ -23,6 +23,10 @@ import { de_BatchUpdateTableRowsCommand, se_BatchUpdateTableRowsCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link BatchUpdateTableRowsCommand}.
  */

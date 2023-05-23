@@ -23,6 +23,10 @@ import { de_ListChangedBlocksCommand, se_ListChangedBlocksCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListChangedBlocksCommand}.
  */

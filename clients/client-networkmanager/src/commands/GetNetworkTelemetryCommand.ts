@@ -19,6 +19,10 @@ import { de_GetNetworkTelemetryCommand, se_GetNetworkTelemetryCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetNetworkTelemetryCommand}.
  */

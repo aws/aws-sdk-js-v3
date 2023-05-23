@@ -19,6 +19,10 @@ import { de_UpdatePublicKeyCommand, se_UpdatePublicKeyCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdatePublicKeyCommand}.
  */

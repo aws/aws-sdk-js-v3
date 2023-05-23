@@ -23,6 +23,10 @@ import { de_ListApplicationsCommand, se_ListApplicationsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListApplicationsCommand}.
  */

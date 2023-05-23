@@ -19,6 +19,10 @@ import { de_StartCrawlerScheduleCommand, se_StartCrawlerScheduleCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartCrawlerScheduleCommand}.
  */

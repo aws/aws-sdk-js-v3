@@ -19,6 +19,10 @@ import { de_DeleteChannelBanCommand, se_DeleteChannelBanCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteChannelBanCommand}.
  */

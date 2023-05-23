@@ -23,6 +23,10 @@ import { de_ClaimDevicesByClaimCodeCommand, se_ClaimDevicesByClaimCodeCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ClaimDevicesByClaimCodeCommand}.
  */

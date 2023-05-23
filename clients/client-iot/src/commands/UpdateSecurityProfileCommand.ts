@@ -19,6 +19,10 @@ import { de_UpdateSecurityProfileCommand, se_UpdateSecurityProfileCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateSecurityProfileCommand}.
  */

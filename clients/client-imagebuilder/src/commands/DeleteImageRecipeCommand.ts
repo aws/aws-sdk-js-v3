@@ -19,6 +19,10 @@ import { de_DeleteImageRecipeCommand, se_DeleteImageRecipeCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteImageRecipeCommand}.
  */

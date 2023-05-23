@@ -24,6 +24,10 @@ import { de_CreateNetworkSiteCommand, se_CreateNetworkSiteCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateNetworkSiteCommand}.
  */

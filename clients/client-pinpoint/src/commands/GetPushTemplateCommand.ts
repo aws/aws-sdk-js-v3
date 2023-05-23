@@ -19,6 +19,10 @@ import { de_GetPushTemplateCommand, se_GetPushTemplateCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPushTemplateCommand}.
  */

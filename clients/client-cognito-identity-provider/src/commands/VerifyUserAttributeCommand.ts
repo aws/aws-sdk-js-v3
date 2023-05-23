@@ -27,6 +27,10 @@ import { de_VerifyUserAttributeCommand, se_VerifyUserAttributeCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link VerifyUserAttributeCommand}.
  */

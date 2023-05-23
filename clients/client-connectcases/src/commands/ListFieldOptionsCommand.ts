@@ -19,6 +19,10 @@ import { de_ListFieldOptionsCommand, se_ListFieldOptionsCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListFieldOptionsCommand}.
  */

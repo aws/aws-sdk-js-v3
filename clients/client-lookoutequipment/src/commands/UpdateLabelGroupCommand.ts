@@ -19,6 +19,10 @@ import { de_UpdateLabelGroupCommand, se_UpdateLabelGroupCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateLabelGroupCommand}.
  */

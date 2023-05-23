@@ -19,6 +19,10 @@ import { de_CreateGatewayRouteCommand, se_CreateGatewayRouteCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateGatewayRouteCommand}.
  */

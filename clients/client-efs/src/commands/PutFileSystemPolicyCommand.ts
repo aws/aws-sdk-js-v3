@@ -19,6 +19,10 @@ import { de_PutFileSystemPolicyCommand, se_PutFileSystemPolicyCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutFileSystemPolicyCommand}.
  */

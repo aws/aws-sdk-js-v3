@@ -19,6 +19,10 @@ import { de_AddInstanceGroupsCommand, se_AddInstanceGroupsCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AddInstanceGroupsCommand}.
  */

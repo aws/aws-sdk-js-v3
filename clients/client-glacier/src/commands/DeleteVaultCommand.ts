@@ -19,6 +19,10 @@ import { de_DeleteVaultCommand, se_DeleteVaultCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteVaultCommand}.
  */

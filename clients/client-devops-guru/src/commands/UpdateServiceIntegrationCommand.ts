@@ -19,6 +19,10 @@ import { de_UpdateServiceIntegrationCommand, se_UpdateServiceIntegrationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateServiceIntegrationCommand}.
  */

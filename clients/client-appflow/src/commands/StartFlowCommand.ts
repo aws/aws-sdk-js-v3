@@ -19,6 +19,10 @@ import { de_StartFlowCommand, se_StartFlowCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StartFlowCommand}.
  */

@@ -23,6 +23,10 @@ import { de_DeleteEventDestinationCommand, se_DeleteEventDestinationCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteEventDestinationCommand}.
  */

@@ -20,6 +20,10 @@ import { de_GetCurrentMetricDataCommand, se_GetCurrentMetricDataCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetCurrentMetricDataCommand}.
  */

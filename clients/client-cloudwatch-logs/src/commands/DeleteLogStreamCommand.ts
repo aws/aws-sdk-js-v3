@@ -19,6 +19,10 @@ import { de_DeleteLogStreamCommand, se_DeleteLogStreamCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLogStreamCommand}.
  */

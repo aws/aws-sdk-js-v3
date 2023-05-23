@@ -75,6 +75,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -220,7 +222,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type Route53RecoveryClusterClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type Route53RecoveryClusterClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -239,7 +241,7 @@ export interface Route53RecoveryClusterClientConfig extends Route53RecoveryClust
 /**
  * @public
  */
-type Route53RecoveryClusterClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type Route53RecoveryClusterClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

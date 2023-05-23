@@ -23,6 +23,10 @@ import { de_GetImagesCommand, se_GetImagesCommand } from "../protocols/Aws_restJ
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetImagesCommand}.
  */

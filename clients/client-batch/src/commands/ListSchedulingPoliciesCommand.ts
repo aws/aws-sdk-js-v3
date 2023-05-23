@@ -19,6 +19,10 @@ import { de_ListSchedulingPoliciesCommand, se_ListSchedulingPoliciesCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListSchedulingPoliciesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_CreateSecurityGroupCommand, se_CreateSecurityGroupCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSecurityGroupCommand}.
  */

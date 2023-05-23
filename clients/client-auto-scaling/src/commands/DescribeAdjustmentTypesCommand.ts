@@ -19,6 +19,10 @@ import { de_DescribeAdjustmentTypesCommand, se_DescribeAdjustmentTypesCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeAdjustmentTypesCommand}.
  */

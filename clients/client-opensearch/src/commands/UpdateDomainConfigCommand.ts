@@ -23,6 +23,10 @@ import { de_UpdateDomainConfigCommand, se_UpdateDomainConfigCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateDomainConfigCommand}.
  */

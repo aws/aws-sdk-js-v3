@@ -19,6 +19,10 @@ import { de_UploadSSHPublicKeyCommand, se_UploadSSHPublicKeyCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UploadSSHPublicKeyCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetPlaybackConfigurationCommand, se_GetPlaybackConfigurationCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPlaybackConfigurationCommand}.
  */

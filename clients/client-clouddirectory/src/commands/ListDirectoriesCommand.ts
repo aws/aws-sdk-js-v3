@@ -19,6 +19,10 @@ import { de_ListDirectoriesCommand, se_ListDirectoriesCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListDirectoriesCommand}.
  */

@@ -19,6 +19,10 @@ import { de_DeleteConnectorProfileCommand, se_DeleteConnectorProfileCommand } fr
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteConnectorProfileCommand}.
  */

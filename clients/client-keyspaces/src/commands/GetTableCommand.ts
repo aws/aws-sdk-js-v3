@@ -19,6 +19,10 @@ import { de_GetTableCommand, se_GetTableCommand } from "../protocols/Aws_json1_0
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetTableCommand}.
  */

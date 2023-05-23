@@ -19,6 +19,10 @@ import { de_AssociateVpcCidrBlockCommand, se_AssociateVpcCidrBlockCommand } from
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link AssociateVpcCidrBlockCommand}.
  */

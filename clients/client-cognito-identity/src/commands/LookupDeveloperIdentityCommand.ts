@@ -20,6 +20,10 @@ import { de_LookupDeveloperIdentityCommand, se_LookupDeveloperIdentityCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link LookupDeveloperIdentityCommand}.
  */

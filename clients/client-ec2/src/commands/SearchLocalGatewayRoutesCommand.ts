@@ -19,6 +19,10 @@ import { de_SearchLocalGatewayRoutesCommand, se_SearchLocalGatewayRoutesCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link SearchLocalGatewayRoutesCommand}.
  */

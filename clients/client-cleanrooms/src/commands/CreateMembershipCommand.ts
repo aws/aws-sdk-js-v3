@@ -19,6 +19,10 @@ import { de_CreateMembershipCommand, se_CreateMembershipCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateMembershipCommand}.
  */

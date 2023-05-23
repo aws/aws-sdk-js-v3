@@ -19,6 +19,10 @@ import { de_StopConfigurationRecorderCommand, se_StopConfigurationRecorderComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link StopConfigurationRecorderCommand}.
  */

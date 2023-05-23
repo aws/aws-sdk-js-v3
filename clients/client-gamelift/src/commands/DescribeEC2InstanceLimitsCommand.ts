@@ -19,6 +19,10 @@ import { de_DescribeEC2InstanceLimitsCommand, se_DescribeEC2InstanceLimitsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEC2InstanceLimitsCommand}.
  */

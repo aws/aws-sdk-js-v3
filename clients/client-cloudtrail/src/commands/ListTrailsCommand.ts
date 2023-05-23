@@ -19,6 +19,10 @@ import { de_ListTrailsCommand, se_ListTrailsCommand } from "../protocols/Aws_jso
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTrailsCommand}.
  */

@@ -88,6 +88,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -241,7 +243,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type PinpointSMSVoiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type PinpointSMSVoiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -260,7 +262,7 @@ export interface PinpointSMSVoiceClientConfig extends PinpointSMSVoiceClientConf
 /**
  * @public
  */
-type PinpointSMSVoiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+export type PinpointSMSVoiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &

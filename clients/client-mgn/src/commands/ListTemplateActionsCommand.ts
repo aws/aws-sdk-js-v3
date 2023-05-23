@@ -19,6 +19,10 @@ import { de_ListTemplateActionsCommand, se_ListTemplateActionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListTemplateActionsCommand}.
  */

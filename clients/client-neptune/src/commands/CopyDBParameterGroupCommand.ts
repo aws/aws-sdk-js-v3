@@ -19,6 +19,10 @@ import { de_CopyDBParameterGroupCommand, se_CopyDBParameterGroupCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CopyDBParameterGroupCommand}.
  */

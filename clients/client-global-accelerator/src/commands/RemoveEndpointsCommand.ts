@@ -23,6 +23,10 @@ import { de_RemoveEndpointsCommand, se_RemoveEndpointsCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link RemoveEndpointsCommand}.
  */

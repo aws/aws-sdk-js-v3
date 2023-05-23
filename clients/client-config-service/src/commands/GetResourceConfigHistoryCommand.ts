@@ -19,6 +19,10 @@ import { de_GetResourceConfigHistoryCommand, se_GetResourceConfigHistoryCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetResourceConfigHistoryCommand}.
  */

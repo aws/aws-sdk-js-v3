@@ -19,6 +19,10 @@ import { de_GetRegisterAccountStatusCommand, se_GetRegisterAccountStatusCommand 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetRegisterAccountStatusCommand}.
  */

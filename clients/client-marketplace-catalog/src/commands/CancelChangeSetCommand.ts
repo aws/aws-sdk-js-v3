@@ -23,6 +23,10 @@ import { de_CancelChangeSetCommand, se_CancelChangeSetCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CancelChangeSetCommand}.
  */

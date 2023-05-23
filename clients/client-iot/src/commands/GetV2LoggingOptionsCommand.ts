@@ -19,6 +19,10 @@ import { de_GetV2LoggingOptionsCommand, se_GetV2LoggingOptionsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetV2LoggingOptionsCommand}.
  */

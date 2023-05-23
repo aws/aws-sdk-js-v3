@@ -19,6 +19,10 @@ import { de_ListControlDomainInsightsCommand, se_ListControlDomainInsightsComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ListControlDomainInsightsCommand}.
  */

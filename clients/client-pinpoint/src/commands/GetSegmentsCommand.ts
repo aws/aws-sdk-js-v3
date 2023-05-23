@@ -19,6 +19,10 @@ import { de_GetSegmentsCommand, se_GetSegmentsCommand } from "../protocols/Aws_r
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetSegmentsCommand}.
  */

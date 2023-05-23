@@ -23,6 +23,10 @@ import { de_CreateLocationSmbCommand, se_CreateLocationSmbCommand } from "../pro
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateLocationSmbCommand}.
  */

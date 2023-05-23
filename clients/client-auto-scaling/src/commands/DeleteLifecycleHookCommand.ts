@@ -19,6 +19,10 @@ import { de_DeleteLifecycleHookCommand, se_DeleteLifecycleHookCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteLifecycleHookCommand}.
  */

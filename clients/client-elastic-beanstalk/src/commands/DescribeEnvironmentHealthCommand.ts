@@ -19,6 +19,10 @@ import { de_DescribeEnvironmentHealthCommand, se_DescribeEnvironmentHealthComman
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeEnvironmentHealthCommand}.
  */

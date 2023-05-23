@@ -28,6 +28,10 @@ import { de_ConfirmDeviceCommand, se_ConfirmDeviceCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link ConfirmDeviceCommand}.
  */

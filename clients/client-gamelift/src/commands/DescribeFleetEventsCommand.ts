@@ -19,6 +19,10 @@ import { de_DescribeFleetEventsCommand, se_DescribeFleetEventsCommand } from "..
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeFleetEventsCommand}.
  */

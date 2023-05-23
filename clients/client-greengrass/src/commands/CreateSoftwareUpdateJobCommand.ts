@@ -19,6 +19,10 @@ import { de_CreateSoftwareUpdateJobCommand, se_CreateSoftwareUpdateJobCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateSoftwareUpdateJobCommand}.
  */

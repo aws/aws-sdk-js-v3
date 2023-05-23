@@ -19,6 +19,10 @@ import { de_DeleteApprovalRuleTemplateCommand, se_DeleteApprovalRuleTemplateComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteApprovalRuleTemplateCommand}.
  */

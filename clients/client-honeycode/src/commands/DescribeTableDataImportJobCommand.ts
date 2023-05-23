@@ -23,6 +23,10 @@ import { de_DescribeTableDataImportJobCommand, se_DescribeTableDataImportJobComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DescribeTableDataImportJobCommand}.
  */

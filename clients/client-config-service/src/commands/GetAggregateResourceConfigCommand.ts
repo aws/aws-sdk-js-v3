@@ -19,6 +19,10 @@ import { de_GetAggregateResourceConfigCommand, se_GetAggregateResourceConfigComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetAggregateResourceConfigCommand}.
  */

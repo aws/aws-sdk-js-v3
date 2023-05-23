@@ -23,6 +23,10 @@ import { de_CreateInstanceCommand, se_CreateInstanceCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateInstanceCommand}.
  */

@@ -19,6 +19,10 @@ import { de_GetContainerServicesCommand, se_GetContainerServicesCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetContainerServicesCommand}.
  */

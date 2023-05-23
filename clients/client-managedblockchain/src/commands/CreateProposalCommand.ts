@@ -23,6 +23,10 @@ import { de_CreateProposalCommand, se_CreateProposalCommand } from "../protocols
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateProposalCommand}.
  */

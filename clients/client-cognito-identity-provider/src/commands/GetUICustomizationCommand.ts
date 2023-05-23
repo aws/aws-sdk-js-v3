@@ -29,6 +29,10 @@ import { de_GetUICustomizationCommand, se_GetUICustomizationCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetUICustomizationCommand}.
  */

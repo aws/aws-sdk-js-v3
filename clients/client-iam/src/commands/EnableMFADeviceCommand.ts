@@ -19,6 +19,10 @@ import { de_EnableMFADeviceCommand, se_EnableMFADeviceCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link EnableMFADeviceCommand}.
  */

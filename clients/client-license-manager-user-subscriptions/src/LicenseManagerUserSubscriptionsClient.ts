@@ -94,6 +94,8 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
 /**
  * @public
  */
@@ -253,7 +255,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type LicenseManagerUserSubscriptionsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+export type LicenseManagerUserSubscriptionsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -272,15 +274,16 @@ export interface LicenseManagerUserSubscriptionsClientConfig extends LicenseMana
 /**
  * @public
  */
-type LicenseManagerUserSubscriptionsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
-  Required<ClientDefaults> &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
-  UserAgentResolvedConfig &
-  ClientResolvedEndpointParameters;
+export type LicenseManagerUserSubscriptionsClientResolvedConfigType =
+  __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+    Required<ClientDefaults> &
+    RegionResolvedConfig &
+    EndpointResolvedConfig<EndpointParameters> &
+    RetryResolvedConfig &
+    HostHeaderResolvedConfig &
+    AwsAuthResolvedConfig &
+    UserAgentResolvedConfig &
+    ClientResolvedEndpointParameters;
 /**
  * @public
  *

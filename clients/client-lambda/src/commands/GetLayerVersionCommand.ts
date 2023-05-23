@@ -19,6 +19,10 @@ import { de_GetLayerVersionCommand, se_GetLayerVersionCommand } from "../protoco
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetLayerVersionCommand}.
  */
