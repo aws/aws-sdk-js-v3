@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
+
+
+### Features
+
+* **client-sagemaker:** Added ModelNameEquals, ModelPackageVersionArnEquals in request and ModelName, SamplePayloadUrl, ModelPackageVersionArn in response of ListInferenceRecommendationsJobs API. Added Invocation timestamps in response of DescribeInferenceRecommendationsJob API & ListInferenceRecommendationsJobSteps API. ([9330d73](https://github.com/aws/aws-sdk-js-v3/commit/9330d732705463267f709e13a021b9e4e90ae832))
+
+
+
+
+
 # [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

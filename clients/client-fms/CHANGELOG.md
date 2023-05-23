@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
+
+
+### Features
+
+* **client-fms:** Fixes issue that could cause calls to GetAdminScope and ListAdminAccountsForOrganization to return a 500 Internal Server error. ([8306abb](https://github.com/aws/aws-sdk-js-v3/commit/8306abb9e6a60b9be472332e644bd34e66f38c11))
+
+
+
+
+
 # [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
 
 **Note:** Version bump only for package @aws-sdk/client-fms

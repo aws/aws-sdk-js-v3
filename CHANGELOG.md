@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
+
+
+### Features
+
+* **client-fms:** Fixes issue that could cause calls to GetAdminScope and ListAdminAccountsForOrganization to return a 500 Internal Server error. ([8306abb](https://github.com/aws/aws-sdk-js-v3/commit/8306abb9e6a60b9be472332e644bd34e66f38c11))
+* **client-sagemaker:** Added ModelNameEquals, ModelPackageVersionArnEquals in request and ModelName, SamplePayloadUrl, ModelPackageVersionArn in response of ListInferenceRecommendationsJobs API. Added Invocation timestamps in response of DescribeInferenceRecommendationsJob API & ListInferenceRecommendationsJobSteps API. ([9330d73](https://github.com/aws/aws-sdk-js-v3/commit/9330d732705463267f709e13a021b9e4e90ae832))
+* **client-translate:** Added support for calling TranslateDocument API. ([bbe6acd](https://github.com/aws/aws-sdk-js-v3/commit/bbe6acd446caa1308ca6f0b6bf44104e9525b585))
+* **clients:** update client endpoints as of 2023-05-23 ([ac71bd4](https://github.com/aws/aws-sdk-js-v3/commit/ac71bd40039f769e87196b38e112b82b837e373b))
+
+
+
+
+
 # [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
 
 
