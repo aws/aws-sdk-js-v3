@@ -171,6 +171,8 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * //         CompilationJobName: "STRING_VALUE",
  * //       },
  * //       RecommendationId: "STRING_VALUE",
+ * //       InvocationEndTime: new Date("TIMESTAMP"),
+ * //       InvocationStartTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   EndpointPerformances: [ // EndpointPerformances

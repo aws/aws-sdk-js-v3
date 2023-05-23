@@ -2670,6 +2670,16 @@ export interface ListInferenceRecommendationsJobsRequest {
    * <p>The maximum number of recommendations to return in the response.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A filter that returns only jobs that were created for this model.</p>
+   */
+  ModelNameEquals?: string;
+
+  /**
+   * <p>A filter that returns only jobs that were created for this versioned model package.</p>
+   */
+  ModelPackageVersionArnEquals?: string;
 }
 
 /**
@@ -8782,6 +8792,7 @@ export interface TrainingJob {
   /**
    * <p>An array of <code>Channel</code> objects that describes each data input
    *             channel.</p>
+   *          <p>Your input must be in the same Amazon Web Services region as your training job.</p>
    */
   InputDataConfig?: Channel[];
 

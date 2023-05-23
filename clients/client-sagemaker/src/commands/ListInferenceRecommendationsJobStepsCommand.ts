@@ -98,6 +98,8 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
  * //           MaxInvocations: Number("int"), // required
  * //           ModelLatency: Number("int"), // required
  * //         },
+ * //         InvocationEndTime: new Date("TIMESTAMP"),
+ * //         InvocationStartTime: new Date("TIMESTAMP"),
  * //       },
  * //     },
  * //   ],

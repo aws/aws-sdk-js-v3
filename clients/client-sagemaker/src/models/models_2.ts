@@ -4236,6 +4236,16 @@ export interface InferenceRecommendation {
    * <p>The recommendation ID which uniquely identifies each recommendation.</p>
    */
   RecommendationId?: string;
+
+  /**
+   * <p>A timestamp that shows when the benchmark completed.</p>
+   */
+  InvocationEndTime?: Date;
+
+  /**
+   * <p>A timestamp that shows when the benchmark started.</p>
+   */
+  InvocationStartTime?: Date;
 }
 
 /**
@@ -10524,6 +10534,22 @@ export interface InferenceRecommendationsJob {
    * <p>If the job fails, provides information why the job failed.</p>
    */
   FailureReason?: string;
+
+  /**
+   * <p>The name of the created model.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored.
+   *          This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>
+   */
+  SamplePayloadUrl?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a versioned model package.</p>
+   */
+  ModelPackageVersionArn?: string;
 }
 
 /**
@@ -10555,6 +10581,16 @@ export interface RecommendationJobInferenceBenchmark {
    * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
    */
   EndpointMetrics?: InferenceMetrics;
+
+  /**
+   * <p>A timestamp that shows when the benchmark completed.</p>
+   */
+  InvocationEndTime?: Date;
+
+  /**
+   * <p>A timestamp that shows when the benchmark started.</p>
+   */
+  InvocationStartTime?: Date;
 }
 
 /**

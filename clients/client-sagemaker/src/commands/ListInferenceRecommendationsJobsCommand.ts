@@ -59,6 +59,8 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  *   SortOrder: "Ascending" || "Descending",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   ModelNameEquals: "STRING_VALUE",
+ *   ModelPackageVersionArnEquals: "STRING_VALUE",
  * };
  * const command = new ListInferenceRecommendationsJobsCommand(input);
  * const response = await client.send(command);
@@ -75,6 +77,9 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * //       RoleArn: "STRING_VALUE", // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required
  * //       FailureReason: "STRING_VALUE",
+ * //       ModelName: "STRING_VALUE",
+ * //       SamplePayloadUrl: "STRING_VALUE",
+ * //       ModelPackageVersionArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

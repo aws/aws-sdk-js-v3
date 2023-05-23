@@ -20631,6 +20631,8 @@ const se_ListInferenceRecommendationsJobsRequest = (
     LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
     LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
     MaxResults: [],
+    ModelNameEquals: [],
+    ModelPackageVersionArnEquals: [],
     NameContains: [],
     NextToken: [],
     SortBy: [],
@@ -25028,6 +25030,8 @@ const de_InferenceExperimentSummary = (output: any, context: __SerdeContext): In
 const de_InferenceRecommendation = (output: any, context: __SerdeContext): InferenceRecommendation => {
   return take(output, {
     EndpointConfiguration: _json,
+    InvocationEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InvocationStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Metrics: (_: any) => de_RecommendationMetrics(_, context),
     ModelConfiguration: _json,
     RecommendationId: __expectString,
@@ -25059,7 +25063,10 @@ const de_InferenceRecommendationsJob = (output: any, context: __SerdeContext): I
     JobName: __expectString,
     JobType: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ModelName: __expectString,
+    ModelPackageVersionArn: __expectString,
     RoleArn: __expectString,
+    SamplePayloadUrl: __expectString,
     Status: __expectString,
   }) as any;
 };
@@ -27326,6 +27333,8 @@ const de_RecommendationJobInferenceBenchmark = (
     EndpointConfiguration: _json,
     EndpointMetrics: _json,
     FailureReason: __expectString,
+    InvocationEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InvocationStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Metrics: (_: any) => de_RecommendationMetrics(_, context),
     ModelConfiguration: _json,
   }) as any;

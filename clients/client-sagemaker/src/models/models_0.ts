@@ -1058,6 +1058,7 @@ export type S3DataType = (typeof S3DataType)[keyof typeof S3DataType];
 /**
  * @public
  * <p>Describes the S3 data source.</p>
+ *          <p>Your input bucket must be in the same Amazon Web Services region as your training job.</p>
  */
 export interface S3DataSource {
   /**
@@ -1131,6 +1132,7 @@ export interface S3DataSource {
    *                     your behalf. </p>
    *             </li>
    *          </ul>
+   *          <p>Your input bucket must be located in same Amazon Web Services region as your training job.</p>
    */
   S3Uri: string | undefined;
 

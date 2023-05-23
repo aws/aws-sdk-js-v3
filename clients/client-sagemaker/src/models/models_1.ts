@@ -6662,7 +6662,7 @@ export interface SourceAlgorithm {
    *             This path must point to a single <code>gzip</code> compressed tar archive
    *                 (<code>.tar.gz</code> suffix).</p>
    *          <note>
-   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
+   *             <p>The model artifacts must be in an S3 bucket that is in the same Amazon Web Services region as the
    *                 algorithm.</p>
    *          </note>
    */
@@ -8776,6 +8776,7 @@ export interface CreateTrainingJobRequest {
    *             data files from an S3 bucket to a local directory in the Docker container, or makes it
    *             available as input streams. For example, if you specify an EFS location, input data
    *             files are available as input streams. They do not need to be downloaded.</p>
+   *          <p>Your input must be in the same Amazon Web Services region as your training job.</p>
    */
   InputDataConfig?: Channel[];
 
