@@ -9,6 +9,16 @@ import {
   AssociateApiCommandOutput,
 } from "./commands/AssociateApiCommand";
 import {
+  AssociateMergedGraphqlApiCommand,
+  AssociateMergedGraphqlApiCommandInput,
+  AssociateMergedGraphqlApiCommandOutput,
+} from "./commands/AssociateMergedGraphqlApiCommand";
+import {
+  AssociateSourceGraphqlApiCommand,
+  AssociateSourceGraphqlApiCommandInput,
+  AssociateSourceGraphqlApiCommandOutput,
+} from "./commands/AssociateSourceGraphqlApiCommand";
+import {
   CreateApiCacheCommand,
   CreateApiCacheCommandInput,
   CreateApiCacheCommandOutput,
@@ -86,6 +96,16 @@ import {
   DisassociateApiCommandOutput,
 } from "./commands/DisassociateApiCommand";
 import {
+  DisassociateMergedGraphqlApiCommand,
+  DisassociateMergedGraphqlApiCommandInput,
+  DisassociateMergedGraphqlApiCommandOutput,
+} from "./commands/DisassociateMergedGraphqlApiCommand";
+import {
+  DisassociateSourceGraphqlApiCommand,
+  DisassociateSourceGraphqlApiCommandInput,
+  DisassociateSourceGraphqlApiCommandOutput,
+} from "./commands/DisassociateSourceGraphqlApiCommand";
+import {
   EvaluateCodeCommand,
   EvaluateCodeCommandInput,
   EvaluateCodeCommandOutput,
@@ -133,6 +153,11 @@ import {
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput,
 } from "./commands/GetSchemaCreationStatusCommand";
+import {
+  GetSourceApiAssociationCommand,
+  GetSourceApiAssociationCommandInput,
+  GetSourceApiAssociationCommandOutput,
+} from "./commands/GetSourceApiAssociationCommand";
 import { GetTypeCommand, GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import { ListApiKeysCommand, ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
 import {
@@ -166,16 +191,31 @@ import {
   ListResolversCommandOutput,
 } from "./commands/ListResolversCommand";
 import {
+  ListSourceApiAssociationsCommand,
+  ListSourceApiAssociationsCommandInput,
+  ListSourceApiAssociationsCommandOutput,
+} from "./commands/ListSourceApiAssociationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTypesByAssociationCommand,
+  ListTypesByAssociationCommandInput,
+  ListTypesByAssociationCommandOutput,
+} from "./commands/ListTypesByAssociationCommand";
 import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   StartSchemaCreationCommand,
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
 } from "./commands/StartSchemaCreationCommand";
+import {
+  StartSchemaMergeCommand,
+  StartSchemaMergeCommandInput,
+  StartSchemaMergeCommandOutput,
+} from "./commands/StartSchemaMergeCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -217,10 +257,17 @@ import {
   UpdateResolverCommandInput,
   UpdateResolverCommandOutput,
 } from "./commands/UpdateResolverCommand";
+import {
+  UpdateSourceApiAssociationCommand,
+  UpdateSourceApiAssociationCommandInput,
+  UpdateSourceApiAssociationCommandOutput,
+} from "./commands/UpdateSourceApiAssociationCommand";
 import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
 
 const commands = {
   AssociateApiCommand,
+  AssociateMergedGraphqlApiCommand,
+  AssociateSourceGraphqlApiCommand,
   CreateApiCacheCommand,
   CreateApiKeyCommand,
   CreateDataSourceCommand,
@@ -238,6 +285,8 @@ const commands = {
   DeleteResolverCommand,
   DeleteTypeCommand,
   DisassociateApiCommand,
+  DisassociateMergedGraphqlApiCommand,
+  DisassociateSourceGraphqlApiCommand,
   EvaluateCodeCommand,
   EvaluateMappingTemplateCommand,
   FlushApiCacheCommand,
@@ -250,6 +299,7 @@ const commands = {
   GetIntrospectionSchemaCommand,
   GetResolverCommand,
   GetSchemaCreationStatusCommand,
+  GetSourceApiAssociationCommand,
   GetTypeCommand,
   ListApiKeysCommand,
   ListDataSourcesCommand,
@@ -258,9 +308,12 @@ const commands = {
   ListGraphqlApisCommand,
   ListResolversCommand,
   ListResolversByFunctionCommand,
+  ListSourceApiAssociationsCommand,
   ListTagsForResourceCommand,
   ListTypesCommand,
+  ListTypesByAssociationCommand,
   StartSchemaCreationCommand,
+  StartSchemaMergeCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApiCacheCommand,
@@ -270,6 +323,7 @@ const commands = {
   UpdateFunctionCommand,
   UpdateGraphqlApiCommand,
   UpdateResolverCommand,
+  UpdateSourceApiAssociationCommand,
   UpdateTypeCommand,
 };
 
@@ -283,6 +337,40 @@ export interface AppSync {
     args: AssociateApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateApiCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateMergedGraphqlApiCommand}
+   */
+  associateMergedGraphqlApi(
+    args: AssociateMergedGraphqlApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateMergedGraphqlApiCommandOutput>;
+  associateMergedGraphqlApi(
+    args: AssociateMergedGraphqlApiCommandInput,
+    cb: (err: any, data?: AssociateMergedGraphqlApiCommandOutput) => void
+  ): void;
+  associateMergedGraphqlApi(
+    args: AssociateMergedGraphqlApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateMergedGraphqlApiCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSourceGraphqlApiCommand}
+   */
+  associateSourceGraphqlApi(
+    args: AssociateSourceGraphqlApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSourceGraphqlApiCommandOutput>;
+  associateSourceGraphqlApi(
+    args: AssociateSourceGraphqlApiCommandInput,
+    cb: (err: any, data?: AssociateSourceGraphqlApiCommandOutput) => void
+  ): void;
+  associateSourceGraphqlApi(
+    args: AssociateSourceGraphqlApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSourceGraphqlApiCommandOutput) => void
   ): void;
 
   /**
@@ -530,6 +618,40 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link DisassociateMergedGraphqlApiCommand}
+   */
+  disassociateMergedGraphqlApi(
+    args: DisassociateMergedGraphqlApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateMergedGraphqlApiCommandOutput>;
+  disassociateMergedGraphqlApi(
+    args: DisassociateMergedGraphqlApiCommandInput,
+    cb: (err: any, data?: DisassociateMergedGraphqlApiCommandOutput) => void
+  ): void;
+  disassociateMergedGraphqlApi(
+    args: DisassociateMergedGraphqlApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateMergedGraphqlApiCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateSourceGraphqlApiCommand}
+   */
+  disassociateSourceGraphqlApi(
+    args: DisassociateSourceGraphqlApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSourceGraphqlApiCommandOutput>;
+  disassociateSourceGraphqlApi(
+    args: DisassociateSourceGraphqlApiCommandInput,
+    cb: (err: any, data?: DisassociateSourceGraphqlApiCommandOutput) => void
+  ): void;
+  disassociateSourceGraphqlApi(
+    args: DisassociateSourceGraphqlApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSourceGraphqlApiCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EvaluateCodeCommand}
    */
   evaluateCode(args: EvaluateCodeCommandInput, options?: __HttpHandlerOptions): Promise<EvaluateCodeCommandOutput>;
@@ -686,6 +808,23 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link GetSourceApiAssociationCommand}
+   */
+  getSourceApiAssociation(
+    args: GetSourceApiAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSourceApiAssociationCommandOutput>;
+  getSourceApiAssociation(
+    args: GetSourceApiAssociationCommandInput,
+    cb: (err: any, data?: GetSourceApiAssociationCommandOutput) => void
+  ): void;
+  getSourceApiAssociation(
+    args: GetSourceApiAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSourceApiAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTypeCommand}
    */
   getType(args: GetTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetTypeCommandOutput>;
@@ -789,6 +928,23 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link ListSourceApiAssociationsCommand}
+   */
+  listSourceApiAssociations(
+    args: ListSourceApiAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSourceApiAssociationsCommandOutput>;
+  listSourceApiAssociations(
+    args: ListSourceApiAssociationsCommandInput,
+    cb: (err: any, data?: ListSourceApiAssociationsCommandOutput) => void
+  ): void;
+  listSourceApiAssociations(
+    args: ListSourceApiAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSourceApiAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -817,6 +973,23 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link ListTypesByAssociationCommand}
+   */
+  listTypesByAssociation(
+    args: ListTypesByAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTypesByAssociationCommandOutput>;
+  listTypesByAssociation(
+    args: ListTypesByAssociationCommandInput,
+    cb: (err: any, data?: ListTypesByAssociationCommandOutput) => void
+  ): void;
+  listTypesByAssociation(
+    args: ListTypesByAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTypesByAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartSchemaCreationCommand}
    */
   startSchemaCreation(
@@ -831,6 +1004,23 @@ export interface AppSync {
     args: StartSchemaCreationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartSchemaCreationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSchemaMergeCommand}
+   */
+  startSchemaMerge(
+    args: StartSchemaMergeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSchemaMergeCommandOutput>;
+  startSchemaMerge(
+    args: StartSchemaMergeCommandInput,
+    cb: (err: any, data?: StartSchemaMergeCommandOutput) => void
+  ): void;
+  startSchemaMerge(
+    args: StartSchemaMergeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSchemaMergeCommandOutput) => void
   ): void;
 
   /**
@@ -957,6 +1147,23 @@ export interface AppSync {
     args: UpdateResolverCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResolverCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSourceApiAssociationCommand}
+   */
+  updateSourceApiAssociation(
+    args: UpdateSourceApiAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSourceApiAssociationCommandOutput>;
+  updateSourceApiAssociation(
+    args: UpdateSourceApiAssociationCommandInput,
+    cb: (err: any, data?: UpdateSourceApiAssociationCommandOutput) => void
+  ): void;
+  updateSourceApiAssociation(
+    args: UpdateSourceApiAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSourceApiAssociationCommandOutput) => void
   ): void;
 
   /**

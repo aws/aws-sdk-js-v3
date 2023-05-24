@@ -109,6 +109,10 @@ export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __Met
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     visibility: "GLOBAL" || "PRIVATE",
+ * //     apiType: "GRAPHQL" || "MERGED",
+ * //     mergedApiExecutionRoleArn: "STRING_VALUE",
+ * //     owner: "STRING_VALUE",
+ * //     ownerContact: "STRING_VALUE",
  * //   },
  * // };
  *

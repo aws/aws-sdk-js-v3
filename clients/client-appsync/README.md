@@ -214,6 +214,22 @@ AssociateApi
 </details>
 <details>
 <summary>
+AssociateMergedGraphqlApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/associatemergedgraphqlapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/associatemergedgraphqlapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/associatemergedgraphqlapicommandoutput.html)
+
+</details>
+<details>
+<summary>
+AssociateSourceGraphqlApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/associatesourcegraphqlapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/associatesourcegraphqlapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/associatesourcegraphqlapicommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateApiCache
 </summary>
 
@@ -350,6 +366,22 @@ DisassociateApi
 </details>
 <details>
 <summary>
+DisassociateMergedGraphqlApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/disassociatemergedgraphqlapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/disassociatemergedgraphqlapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/disassociatemergedgraphqlapicommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisassociateSourceGraphqlApi
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/disassociatesourcegraphqlapicommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/disassociatesourcegraphqlapicommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/disassociatesourcegraphqlapicommandoutput.html)
+
+</details>
+<details>
+<summary>
 EvaluateCode
 </summary>
 
@@ -446,6 +478,14 @@ GetSchemaCreationStatus
 </details>
 <details>
 <summary>
+GetSourceApiAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/getsourceapiassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/getsourceapiassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/getsourceapiassociationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetType
 </summary>
 
@@ -510,6 +550,14 @@ ListResolversByFunction
 </details>
 <details>
 <summary>
+ListSourceApiAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/listsourceapiassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/listsourceapiassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/listsourceapiassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -526,10 +574,26 @@ ListTypes
 </details>
 <details>
 <summary>
+ListTypesByAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/listtypesbyassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/listtypesbyassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/listtypesbyassociationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartSchemaCreation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/startschemacreationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/startschemacreationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/startschemacreationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartSchemaMerge
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/startschemamergecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/startschemamergecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/startschemamergecommandoutput.html)
 
 </details>
 <details>
@@ -602,6 +666,14 @@ UpdateResolver
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/updateresolvercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/updateresolvercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/updateresolvercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSourceApiAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/classes/updatesourceapiassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/updatesourceapiassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appsync/interfaces/updatesourceapiassociationcommandoutput.html)
 
 </details>
 <details>

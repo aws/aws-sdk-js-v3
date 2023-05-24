@@ -91,6 +91,8 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  *     authorizerUri: "STRING_VALUE", // required
  *     identityValidationExpression: "STRING_VALUE",
  *   },
+ *   mergedApiExecutionRoleArn: "STRING_VALUE",
+ *   ownerContact: "STRING_VALUE",
  * };
  * const command = new UpdateGraphqlApiCommand(input);
  * const response = await client.send(command);
@@ -155,6 +157,10 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     visibility: "GLOBAL" || "PRIVATE",
+ * //     apiType: "GRAPHQL" || "MERGED",
+ * //     mergedApiExecutionRoleArn: "STRING_VALUE",
+ * //     owner: "STRING_VALUE",
+ * //     ownerContact: "STRING_VALUE",
  * //   },
  * // };
  *

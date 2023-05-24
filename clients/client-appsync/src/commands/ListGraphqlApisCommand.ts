@@ -46,6 +46,8 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  * const input = { // ListGraphqlApisRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   apiType: "GRAPHQL" || "MERGED",
+ *   owner: "CURRENT_ACCOUNT" || "OTHER_ACCOUNTS",
  * };
  * const command = new ListGraphqlApisCommand(input);
  * const response = await client.send(command);
@@ -111,6 +113,10 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       visibility: "GLOBAL" || "PRIVATE",
+ * //       apiType: "GRAPHQL" || "MERGED",
+ * //       mergedApiExecutionRoleArn: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       ownerContact: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

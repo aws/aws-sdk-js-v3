@@ -3,10 +3,12 @@ import {
   _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
+  parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   take,
   withBaseException,
@@ -16,6 +18,14 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { AssociateApiCommandInput, AssociateApiCommandOutput } from "../commands/AssociateApiCommand";
+import {
+  AssociateMergedGraphqlApiCommandInput,
+  AssociateMergedGraphqlApiCommandOutput,
+} from "../commands/AssociateMergedGraphqlApiCommand";
+import {
+  AssociateSourceGraphqlApiCommandInput,
+  AssociateSourceGraphqlApiCommandOutput,
+} from "../commands/AssociateSourceGraphqlApiCommand";
 import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "../commands/CreateApiCacheCommand";
 import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "../commands/CreateApiKeyCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
@@ -33,6 +43,14 @@ import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "../
 import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "../commands/DeleteResolverCommand";
 import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "../commands/DeleteTypeCommand";
 import { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "../commands/DisassociateApiCommand";
+import {
+  DisassociateMergedGraphqlApiCommandInput,
+  DisassociateMergedGraphqlApiCommandOutput,
+} from "../commands/DisassociateMergedGraphqlApiCommand";
+import {
+  DisassociateSourceGraphqlApiCommandInput,
+  DisassociateSourceGraphqlApiCommandOutput,
+} from "../commands/DisassociateSourceGraphqlApiCommand";
 import { EvaluateCodeCommandInput, EvaluateCodeCommandOutput } from "../commands/EvaluateCodeCommand";
 import {
   EvaluateMappingTemplateCommandInput,
@@ -54,6 +72,10 @@ import {
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput,
 } from "../commands/GetSchemaCreationStatusCommand";
+import {
+  GetSourceApiAssociationCommandInput,
+  GetSourceApiAssociationCommandOutput,
+} from "../commands/GetSourceApiAssociationCommand";
 import { GetTypeCommandInput, GetTypeCommandOutput } from "../commands/GetTypeCommand";
 import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "../commands/ListApiKeysCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
@@ -66,14 +88,23 @@ import {
 } from "../commands/ListResolversByFunctionCommand";
 import { ListResolversCommandInput, ListResolversCommandOutput } from "../commands/ListResolversCommand";
 import {
+  ListSourceApiAssociationsCommandInput,
+  ListSourceApiAssociationsCommandOutput,
+} from "../commands/ListSourceApiAssociationsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTypesByAssociationCommandInput,
+  ListTypesByAssociationCommandOutput,
+} from "../commands/ListTypesByAssociationCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
 import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
 } from "../commands/StartSchemaCreationCommand";
+import { StartSchemaMergeCommandInput, StartSchemaMergeCommandOutput } from "../commands/StartSchemaMergeCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "../commands/UpdateApiCacheCommand";
@@ -83,6 +114,10 @@ import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "../
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "../commands/UpdateFunctionCommand";
 import { UpdateGraphqlApiCommandInput, UpdateGraphqlApiCommandOutput } from "../commands/UpdateGraphqlApiCommand";
 import { UpdateResolverCommandInput, UpdateResolverCommandOutput } from "../commands/UpdateResolverCommand";
+import {
+  UpdateSourceApiAssociationCommandInput,
+  UpdateSourceApiAssociationCommandOutput,
+} from "../commands/UpdateSourceApiAssociationCommand";
 import { UpdateTypeCommandInput, UpdateTypeCommandOutput } from "../commands/UpdateTypeCommand";
 import { AppSyncServiceException as __BaseException } from "../models/AppSyncServiceException";
 import {
@@ -116,6 +151,8 @@ import {
   PipelineConfig,
   RdsHttpEndpointConfig,
   RelationalDatabaseDataSourceConfig,
+  SourceApiAssociation,
+  SourceApiAssociationConfig,
   SyncConfig,
   UnauthorizedException,
   UserPoolConfig,
@@ -140,6 +177,88 @@ export const se_AssociateApiCommand = async (
   body = JSON.stringify(
     take(input, {
       apiId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1AssociateMergedGraphqlApiCommand
+ */
+export const se_AssociateMergedGraphqlApiCommand = async (
+  input: AssociateMergedGraphqlApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sourceApiIdentifier",
+    () => input.sourceApiIdentifier!,
+    "{sourceApiIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      mergedApiIdentifier: [],
+      sourceApiAssociationConfig: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1AssociateSourceGraphqlApiCommand
+ */
+export const se_AssociateSourceGraphqlApiCommand = async (
+  input: AssociateSourceGraphqlApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "mergedApiIdentifier",
+    () => input.mergedApiIdentifier!,
+    "{mergedApiIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      sourceApiAssociationConfig: (_) => _json(_),
+      sourceApiIdentifier: [],
     })
   );
   return new __HttpRequest({
@@ -347,11 +466,14 @@ export const se_CreateGraphqlApiCommand = async (
   body = JSON.stringify(
     take(input, {
       additionalAuthenticationProviders: (_) => _json(_),
+      apiType: [],
       authenticationType: [],
       lambdaAuthorizerConfig: (_) => _json(_),
       logConfig: (_) => _json(_),
+      mergedApiExecutionRoleArn: [],
       name: [],
       openIDConnectConfig: (_) => _json(_),
+      ownerContact: [],
       tags: (_) => _json(_),
       userPoolConfig: (_) => _json(_),
       visibility: [],
@@ -654,6 +776,86 @@ export const se_DisassociateApiCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/domainnames/{domainName}/apiassociation";
   resolvedPath = __resolvedPath(resolvedPath, input, "domainName", () => input.domainName!, "{domainName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DisassociateMergedGraphqlApiCommand
+ */
+export const se_DisassociateMergedGraphqlApiCommand = async (
+  input: DisassociateMergedGraphqlApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sourceApiIdentifier",
+    () => input.sourceApiIdentifier!,
+    "{sourceApiIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DisassociateSourceGraphqlApiCommand
+ */
+export const se_DisassociateSourceGraphqlApiCommand = async (
+  input: DisassociateSourceGraphqlApiCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "mergedApiIdentifier",
+    () => input.mergedApiIdentifier!,
+    "{mergedApiIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -980,6 +1182,46 @@ export const se_GetSchemaCreationStatusCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetSourceApiAssociationCommand
+ */
+export const se_GetSourceApiAssociationCommand = async (
+  input: GetSourceApiAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "mergedApiIdentifier",
+    () => input.mergedApiIdentifier!,
+    "{mergedApiIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetTypeCommand
  */
 export const se_GetTypeCommand = async (
@@ -1134,6 +1376,8 @@ export const se_ListGraphqlApisCommand = async (
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    apiType: [, input.apiType!],
+    owner: [, input.owner!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1211,6 +1455,35 @@ export const se_ListResolversByFunctionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListSourceApiAssociationsCommand
+ */
+export const se_ListSourceApiAssociationsCommand = async (
+  input: ListSourceApiAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/sourceApiAssociations";
+  resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -1263,6 +1536,52 @@ export const se_ListTypesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTypesByAssociationCommand
+ */
+export const se_ListTypesByAssociationCommand = async (
+  input: ListTypesByAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "mergedApiIdentifier",
+    () => input.mergedApiIdentifier!,
+    "{mergedApiIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
+  const query: any = map({
+    format: [, __expectNonNull(input.format!, `format`)],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StartSchemaCreationCommand
  */
 export const se_StartSchemaCreationCommand = async (
@@ -1282,6 +1601,46 @@ export const se_StartSchemaCreationCommand = async (
       definition: (_) => context.base64Encoder(_),
     })
   );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartSchemaMergeCommand
+ */
+export const se_StartSchemaMergeCommand = async (
+  input: StartSchemaMergeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "mergedApiIdentifier",
+    () => input.mergedApiIdentifier!,
+    "{mergedApiIdentifier}",
+    false
+  );
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1552,8 +1911,10 @@ export const se_UpdateGraphqlApiCommand = async (
       authenticationType: [],
       lambdaAuthorizerConfig: (_) => _json(_),
       logConfig: (_) => _json(_),
+      mergedApiExecutionRoleArn: [],
       name: [],
       openIDConnectConfig: (_) => _json(_),
+      ownerContact: [],
       userPoolConfig: (_) => _json(_),
       xrayEnabled: [],
     })
@@ -1599,6 +1960,54 @@ export const se_UpdateResolverCommand = async (
       responseMappingTemplate: [],
       runtime: (_) => _json(_),
       syncConfig: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateSourceApiAssociationCommand
+ */
+export const se_UpdateSourceApiAssociationCommand = async (
+  input: UpdateSourceApiAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "associationId",
+    () => input.associationId!,
+    "{associationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "mergedApiIdentifier",
+    () => input.mergedApiIdentifier!,
+    "{mergedApiIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      sourceApiAssociationConfig: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -1691,6 +2100,130 @@ const de_AssociateApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.appsync#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AssociateMergedGraphqlApiCommand
+ */
+export const de_AssociateMergedGraphqlApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateMergedGraphqlApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateMergedGraphqlApiCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceApiAssociation: (_) => de_SourceApiAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateMergedGraphqlApiCommandError
+ */
+const de_AssociateMergedGraphqlApiCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateMergedGraphqlApiCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.appsync#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AssociateSourceGraphqlApiCommand
+ */
+export const de_AssociateSourceGraphqlApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceGraphqlApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateSourceGraphqlApiCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceApiAssociation: (_) => de_SourceApiAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateSourceGraphqlApiCommandError
+ */
+const de_AssociateSourceGraphqlApiCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceGraphqlApiCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.appsync#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2666,6 +3199,124 @@ const de_DisassociateApiCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateMergedGraphqlApiCommand
+ */
+export const de_DisassociateMergedGraphqlApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateMergedGraphqlApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateMergedGraphqlApiCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceApiAssociationStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateMergedGraphqlApiCommandError
+ */
+const de_DisassociateMergedGraphqlApiCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateMergedGraphqlApiCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DisassociateSourceGraphqlApiCommand
+ */
+export const de_DisassociateSourceGraphqlApiCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSourceGraphqlApiCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateSourceGraphqlApiCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceApiAssociationStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateSourceGraphqlApiCommandError
+ */
+const de_DisassociateSourceGraphqlApiCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSourceGraphqlApiCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1EvaluateCodeCommand
  */
 export const de_EvaluateCodeCommand = async (
@@ -3336,6 +3987,62 @@ const de_GetSchemaCreationStatusCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetSourceApiAssociationCommand
+ */
+export const de_GetSourceApiAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSourceApiAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetSourceApiAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceApiAssociation: (_) => de_SourceApiAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSourceApiAssociationCommandError
+ */
+const de_GetSourceApiAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSourceApiAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetTypeCommand
  */
 export const de_GetTypeCommand = async (
@@ -3788,6 +4495,63 @@ const de_ListResolversByFunctionCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListSourceApiAssociationsCommand
+ */
+export const de_ListSourceApiAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSourceApiAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListSourceApiAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    sourceApiAssociationSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSourceApiAssociationsCommandError
+ */
+const de_ListSourceApiAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSourceApiAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3910,6 +4674,66 @@ const de_ListTypesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTypesByAssociationCommand
+ */
+export const de_ListTypesByAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTypesByAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTypesByAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    types: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTypesByAssociationCommandError
+ */
+const de_ListTypesByAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTypesByAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartSchemaCreationCommand
  */
 export const de_StartSchemaCreationCommand = async (
@@ -3937,6 +4761,65 @@ const de_StartSchemaCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSchemaCreationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartSchemaMergeCommand
+ */
+export const de_StartSchemaMergeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSchemaMergeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartSchemaMergeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceApiAssociationStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartSchemaMergeCommandError
+ */
+const de_StartSchemaMergeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSchemaMergeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4501,6 +5384,65 @@ const de_UpdateResolverCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSourceApiAssociationCommand
+ */
+export const de_UpdateSourceApiAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceApiAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateSourceApiAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceApiAssociation: (_) => de_SourceApiAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSourceApiAssociationCommandError
+ */
+const de_UpdateSourceApiAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceApiAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.appsync#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.appsync#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateTypeCommand
  */
 export const de_UpdateTypeCommand = async (
@@ -4822,6 +5764,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_RelationalDatabaseDataSourceConfig omitted.
 
+// se_SourceApiAssociationConfig omitted.
+
 // se_SyncConfig omitted.
 
 // se_TagMap omitted.
@@ -4917,6 +5861,31 @@ const de_UnauthorizedExceptionRes = async (
 // de_Resolver omitted.
 
 // de_Resolvers omitted.
+
+/**
+ * deserializeAws_restJson1SourceApiAssociation
+ */
+const de_SourceApiAssociation = (output: any, context: __SerdeContext): SourceApiAssociation => {
+  return take(output, {
+    associationArn: __expectString,
+    associationId: __expectString,
+    description: __expectString,
+    lastSuccessfulMergeDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    mergedApiArn: __expectString,
+    mergedApiId: __expectString,
+    sourceApiArn: __expectString,
+    sourceApiAssociationConfig: _json,
+    sourceApiAssociationStatus: __expectString,
+    sourceApiAssociationStatusDetail: __expectString,
+    sourceApiId: __expectString,
+  }) as any;
+};
+
+// de_SourceApiAssociationConfig omitted.
+
+// de_SourceApiAssociationSummary omitted.
+
+// de_SourceApiAssociationSummaryList omitted.
 
 // de_SyncConfig omitted.
 

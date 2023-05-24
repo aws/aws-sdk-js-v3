@@ -52,6 +52,14 @@ import {
 } from "@smithy/types";
 
 import { AssociateApiCommandInput, AssociateApiCommandOutput } from "./commands/AssociateApiCommand";
+import {
+  AssociateMergedGraphqlApiCommandInput,
+  AssociateMergedGraphqlApiCommandOutput,
+} from "./commands/AssociateMergedGraphqlApiCommand";
+import {
+  AssociateSourceGraphqlApiCommandInput,
+  AssociateSourceGraphqlApiCommandOutput,
+} from "./commands/AssociateSourceGraphqlApiCommand";
 import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "./commands/CreateApiCacheCommand";
 import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "./commands/CreateApiKeyCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
@@ -69,6 +77,14 @@ import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "./c
 import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "./commands/DeleteResolverCommand";
 import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "./commands/DisassociateApiCommand";
+import {
+  DisassociateMergedGraphqlApiCommandInput,
+  DisassociateMergedGraphqlApiCommandOutput,
+} from "./commands/DisassociateMergedGraphqlApiCommand";
+import {
+  DisassociateSourceGraphqlApiCommandInput,
+  DisassociateSourceGraphqlApiCommandOutput,
+} from "./commands/DisassociateSourceGraphqlApiCommand";
 import { EvaluateCodeCommandInput, EvaluateCodeCommandOutput } from "./commands/EvaluateCodeCommand";
 import {
   EvaluateMappingTemplateCommandInput,
@@ -90,6 +106,10 @@ import {
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput,
 } from "./commands/GetSchemaCreationStatusCommand";
+import {
+  GetSourceApiAssociationCommandInput,
+  GetSourceApiAssociationCommandOutput,
+} from "./commands/GetSourceApiAssociationCommand";
 import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
@@ -102,14 +122,23 @@ import {
 } from "./commands/ListResolversByFunctionCommand";
 import { ListResolversCommandInput, ListResolversCommandOutput } from "./commands/ListResolversCommand";
 import {
+  ListSourceApiAssociationsCommandInput,
+  ListSourceApiAssociationsCommandOutput,
+} from "./commands/ListSourceApiAssociationsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTypesByAssociationCommandInput,
+  ListTypesByAssociationCommandOutput,
+} from "./commands/ListTypesByAssociationCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
 } from "./commands/StartSchemaCreationCommand";
+import { StartSchemaMergeCommandInput, StartSchemaMergeCommandOutput } from "./commands/StartSchemaMergeCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "./commands/UpdateApiCacheCommand";
@@ -119,6 +148,10 @@ import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./c
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
 import { UpdateGraphqlApiCommandInput, UpdateGraphqlApiCommandOutput } from "./commands/UpdateGraphqlApiCommand";
 import { UpdateResolverCommandInput, UpdateResolverCommandOutput } from "./commands/UpdateResolverCommand";
+import {
+  UpdateSourceApiAssociationCommandInput,
+  UpdateSourceApiAssociationCommandOutput,
+} from "./commands/UpdateSourceApiAssociationCommand";
 import { UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
 import {
   ClientInputEndpointParameters,
@@ -135,6 +168,8 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateApiCommandInput
+  | AssociateMergedGraphqlApiCommandInput
+  | AssociateSourceGraphqlApiCommandInput
   | CreateApiCacheCommandInput
   | CreateApiKeyCommandInput
   | CreateDataSourceCommandInput
@@ -152,6 +187,8 @@ export type ServiceInputTypes =
   | DeleteResolverCommandInput
   | DeleteTypeCommandInput
   | DisassociateApiCommandInput
+  | DisassociateMergedGraphqlApiCommandInput
+  | DisassociateSourceGraphqlApiCommandInput
   | EvaluateCodeCommandInput
   | EvaluateMappingTemplateCommandInput
   | FlushApiCacheCommandInput
@@ -164,6 +201,7 @@ export type ServiceInputTypes =
   | GetIntrospectionSchemaCommandInput
   | GetResolverCommandInput
   | GetSchemaCreationStatusCommandInput
+  | GetSourceApiAssociationCommandInput
   | GetTypeCommandInput
   | ListApiKeysCommandInput
   | ListDataSourcesCommandInput
@@ -172,9 +210,12 @@ export type ServiceInputTypes =
   | ListGraphqlApisCommandInput
   | ListResolversByFunctionCommandInput
   | ListResolversCommandInput
+  | ListSourceApiAssociationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTypesByAssociationCommandInput
   | ListTypesCommandInput
   | StartSchemaCreationCommandInput
+  | StartSchemaMergeCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApiCacheCommandInput
@@ -184,6 +225,7 @@ export type ServiceInputTypes =
   | UpdateFunctionCommandInput
   | UpdateGraphqlApiCommandInput
   | UpdateResolverCommandInput
+  | UpdateSourceApiAssociationCommandInput
   | UpdateTypeCommandInput;
 
 /**
@@ -191,6 +233,8 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateApiCommandOutput
+  | AssociateMergedGraphqlApiCommandOutput
+  | AssociateSourceGraphqlApiCommandOutput
   | CreateApiCacheCommandOutput
   | CreateApiKeyCommandOutput
   | CreateDataSourceCommandOutput
@@ -208,6 +252,8 @@ export type ServiceOutputTypes =
   | DeleteResolverCommandOutput
   | DeleteTypeCommandOutput
   | DisassociateApiCommandOutput
+  | DisassociateMergedGraphqlApiCommandOutput
+  | DisassociateSourceGraphqlApiCommandOutput
   | EvaluateCodeCommandOutput
   | EvaluateMappingTemplateCommandOutput
   | FlushApiCacheCommandOutput
@@ -220,6 +266,7 @@ export type ServiceOutputTypes =
   | GetIntrospectionSchemaCommandOutput
   | GetResolverCommandOutput
   | GetSchemaCreationStatusCommandOutput
+  | GetSourceApiAssociationCommandOutput
   | GetTypeCommandOutput
   | ListApiKeysCommandOutput
   | ListDataSourcesCommandOutput
@@ -228,9 +275,12 @@ export type ServiceOutputTypes =
   | ListGraphqlApisCommandOutput
   | ListResolversByFunctionCommandOutput
   | ListResolversCommandOutput
+  | ListSourceApiAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTypesByAssociationCommandOutput
   | ListTypesCommandOutput
   | StartSchemaCreationCommandOutput
+  | StartSchemaMergeCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApiCacheCommandOutput
@@ -240,6 +290,7 @@ export type ServiceOutputTypes =
   | UpdateFunctionCommandOutput
   | UpdateGraphqlApiCommandOutput
   | UpdateResolverCommandOutput
+  | UpdateSourceApiAssociationCommandOutput
   | UpdateTypeCommandOutput;
 
 /**
