@@ -61,6 +61,36 @@ import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, Search
 /**
  * @public
  */
+export interface StopProcessingJobRequest {
+  /**
+   * <p>The name of the processing job to stop.</p>
+   */
+  ProcessingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingJobRequest {
+  /**
+   * <p>The name of the training job to stop.</p>
+   */
+  TrainingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTransformJobRequest {
+  /**
+   * <p>The name of the batch transform job to stop.</p>
+   */
+  TransformJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateActionRequest {
   /**
    * <p>The name of the action to update.</p>

@@ -319,6 +319,60 @@ export interface DeployedImage {
 
 /**
  * @public
+ * <p>The recommended configuration to use for Real-Time Inference.</p>
+ */
+export interface RealTimeInferenceRecommendation {
+  /**
+   * <p>The recommendation ID which uniquely identifies each recommendation.</p>
+   */
+  RecommendationId: string | undefined;
+
+  /**
+   * <p>The recommended instance type for Real-Time Inference.</p>
+   */
+  InstanceType: ProductionVariantInstanceType | string | undefined;
+
+  /**
+   * <p>The recommended environment variables to set in the model container for Real-Time Inference.</p>
+   */
+  Environment?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
+
+/**
+ * @public
+ * <p>A set of recommended deployment configurations for the model.</p>
+ */
+export interface DeploymentRecommendation {
+  /**
+   * <p>Status of the deployment recommendation. <code>NOT_APPLICABLE</code> means that SageMaker
+   *          is unable to provide a default recommendation for the model using the information provided.</p>
+   */
+  RecommendationStatus: RecommendationStatus | string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RealTimeInferenceRecommendation.html">RealTimeInferenceRecommendation</a> items.</p>
+   */
+  RealTimeInferenceRecommendations?: RealTimeInferenceRecommendation[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const StageStatus = {
@@ -4702,6 +4756,11 @@ export interface DescribeModelOutput {
    *             model container.</p>
    */
   EnableNetworkIsolation?: boolean;
+
+  /**
+   * <p>A set of recommended deployment configurations for the model.</p>
+   */
+  DeploymentRecommendation?: DeploymentRecommendation;
 }
 
 /**
@@ -10550,89 +10609,6 @@ export interface InferenceRecommendationsJob {
    * <p>The Amazon Resource Name (ARN) of a versioned model package.</p>
    */
   ModelPackageVersionArn?: string;
-}
-
-/**
- * @public
- * <p>The details for a specific benchmark from an Inference Recommender job.</p>
- */
-export interface RecommendationJobInferenceBenchmark {
-  /**
-   * <p>The metrics of recommendations.</p>
-   */
-  Metrics?: RecommendationMetrics;
-
-  /**
-   * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
-   */
-  EndpointConfiguration?: EndpointOutputConfiguration;
-
-  /**
-   * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
-   */
-  ModelConfiguration: ModelConfiguration | undefined;
-
-  /**
-   * <p>The reason why a benchmark failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
-   */
-  EndpointMetrics?: InferenceMetrics;
-
-  /**
-   * <p>A timestamp that shows when the benchmark completed.</p>
-   */
-  InvocationEndTime?: Date;
-
-  /**
-   * <p>A timestamp that shows when the benchmark started.</p>
-   */
-  InvocationStartTime?: Date;
-}
-
-/**
- * @public
- * @enum
- */
-export const RecommendationStepType = {
-  BENCHMARK: "BENCHMARK",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationStepType = (typeof RecommendationStepType)[keyof typeof RecommendationStepType];
-
-/**
- * @public
- * <p>A returned array object for the <code>Steps</code> response field in the
- *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
- */
-export interface InferenceRecommendationsJobStep {
-  /**
-   * <p>The type of the subtask.</p>
-   *          <p>
-   *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
-   */
-  StepType: RecommendationStepType | string | undefined;
-
-  /**
-   * <p>The name of the Inference Recommender job.</p>
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The current status of the benchmark.</p>
-   */
-  Status: RecommendationJobStatus | string | undefined;
-
-  /**
-   * <p>The details for a specific benchmark.</p>
-   */
-  InferenceBenchmark?: RecommendationJobInferenceBenchmark;
 }
 
 /**

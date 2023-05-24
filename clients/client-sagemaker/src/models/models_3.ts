@@ -89,6 +89,7 @@ import {
   UiTemplate,
 } from "./models_1";
 import {
+  DeploymentRecommendation,
   Device,
   DeviceDeploymentSummary,
   DeviceFleetSummary,
@@ -103,6 +104,7 @@ import {
   Endpoint,
   EndpointConfigSortKey,
   EndpointConfigSummary,
+  EndpointOutputConfiguration,
   EndpointSortKey,
   EndpointStatus,
   EndpointSummary,
@@ -137,14 +139,15 @@ import {
   InferenceExperimentStatus,
   InferenceExperimentStopDesiredState,
   InferenceExperimentSummary,
+  InferenceMetrics,
   InferenceRecommendationsJob,
-  InferenceRecommendationsJobStep,
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
   MetricData,
   ModelArtifacts,
   ModelCardExportJobStatus,
+  ModelConfiguration,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
@@ -156,7 +159,7 @@ import {
   ProcessingJobStatus,
   ProjectStatus,
   RecommendationJobStatus,
-  RecommendationStepType,
+  RecommendationMetrics,
   ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
@@ -174,6 +177,89 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>The details for a specific benchmark from an Inference Recommender job.</p>
+ */
+export interface RecommendationJobInferenceBenchmark {
+  /**
+   * <p>The metrics of recommendations.</p>
+   */
+  Metrics?: RecommendationMetrics;
+
+  /**
+   * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
+   */
+  EndpointConfiguration?: EndpointOutputConfiguration;
+
+  /**
+   * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
+   */
+  ModelConfiguration: ModelConfiguration | undefined;
+
+  /**
+   * <p>The reason why a benchmark failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
+   */
+  EndpointMetrics?: InferenceMetrics;
+
+  /**
+   * <p>A timestamp that shows when the benchmark completed.</p>
+   */
+  InvocationEndTime?: Date;
+
+  /**
+   * <p>A timestamp that shows when the benchmark started.</p>
+   */
+  InvocationStartTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationStepType = {
+  BENCHMARK: "BENCHMARK",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationStepType = (typeof RecommendationStepType)[keyof typeof RecommendationStepType];
+
+/**
+ * @public
+ * <p>A returned array object for the <code>Steps</code> response field in the
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
+ */
+export interface InferenceRecommendationsJobStep {
+  /**
+   * <p>The type of the subtask.</p>
+   *          <p>
+   *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
+   */
+  StepType: RecommendationStepType | string | undefined;
+
+  /**
+   * <p>The name of the Inference Recommender job.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The current status of the benchmark.</p>
+   */
+  Status: RecommendationJobStatus | string | undefined;
+
+  /**
+   * <p>The details for a specific benchmark.</p>
+   */
+  InferenceBenchmark?: RecommendationJobInferenceBenchmark;
+}
 
 /**
  * @public
@@ -7085,6 +7171,11 @@ export interface Model {
    *                 resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A set of recommended deployment configurations for the model.</p>
+   */
+  DeploymentRecommendation?: DeploymentRecommendation;
 }
 
 /**
@@ -9667,36 +9758,6 @@ export interface StopPipelineExecutionResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    */
   PipelineExecutionArn?: string;
-}
-
-/**
- * @public
- */
-export interface StopProcessingJobRequest {
-  /**
-   * <p>The name of the processing job to stop.</p>
-   */
-  ProcessingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopTrainingJobRequest {
-  /**
-   * <p>The name of the training job to stop.</p>
-   */
-  TrainingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopTransformJobRequest {
-  /**
-   * <p>The name of the batch transform job to stop.</p>
-   */
-  TransformJobName: string | undefined;
 }
 
 /**

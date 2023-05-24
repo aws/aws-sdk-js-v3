@@ -1360,7 +1360,6 @@ import {
   InferenceExperimentSummary,
   InferenceRecommendation,
   InferenceRecommendationsJob,
-  InferenceRecommendationsJobStep,
   MetricData,
   MonitoringExecutionSummary,
   MonitoringSchedule,
@@ -1371,7 +1370,6 @@ import {
   ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
-  RecommendationJobInferenceBenchmark,
   RecommendationMetrics,
   RStudioServerProDomainSettingsForUpdate,
   SecondaryStatusTransition,
@@ -1381,6 +1379,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  InferenceRecommendationsJobStep,
   LabelingJobForWorkteamSummary,
   LabelingJobSummary,
   LineageGroupSummary,
@@ -1560,6 +1559,7 @@ import {
   PutModelPackageGroupPolicyInput,
   QueryFilters,
   QueryLineageRequest,
+  RecommendationJobInferenceBenchmark,
   RegisterDevicesRequest,
   RenderableTask,
   RenderUiTemplateRequest,
@@ -1586,9 +1586,6 @@ import {
   StopMonitoringScheduleRequest,
   StopNotebookInstanceInput,
   StopPipelineExecutionRequest,
-  StopProcessingJobRequest,
-  StopTrainingJobRequest,
-  StopTransformJobRequest,
   StudioLifecycleConfigDetails,
   TrainingJob,
   TrainingJobSummary,
@@ -1606,6 +1603,9 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopProcessingJobRequest,
+  StopTrainingJobRequest,
+  StopTransformJobRequest,
   UpdateActionRequest,
   UpdateAppImageConfigRequest,
   UpdateArtifactRequest,
@@ -22807,6 +22807,8 @@ const de_DeployedImages = (output: any, context: __SerdeContext): DeployedImage[
 
 // de_DeploymentConfig omitted.
 
+// de_DeploymentRecommendation omitted.
+
 /**
  * deserializeAws_json1_1DeploymentStageStatusSummaries
  */
@@ -23594,6 +23596,7 @@ const de_DescribeModelOutput = (output: any, context: __SerdeContext): DescribeM
   return take(output, {
     Containers: _json,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentRecommendation: _json,
     EnableNetworkIsolation: __expectBoolean,
     ExecutionRoleArn: __expectString,
     InferenceExecutionConfig: _json,
@@ -26034,6 +26037,7 @@ const de_Model = (output: any, context: __SerdeContext): Model => {
   return take(output, {
     Containers: _json,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentRecommendation: _json,
     EnableNetworkIsolation: __expectBoolean,
     ExecutionRoleArn: __expectString,
     InferenceExecutionConfig: _json,
@@ -27319,6 +27323,10 @@ const de_ProjectSummaryList = (output: any, context: __SerdeContext): ProjectSum
 // de_RealTimeInferenceConfig omitted.
 
 // de_RealtimeInferenceInstanceTypes omitted.
+
+// de_RealTimeInferenceRecommendation omitted.
+
+// de_RealTimeInferenceRecommendations omitted.
 
 // de_RecommendationJobContainerConfig omitted.
 
