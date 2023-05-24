@@ -19,6 +19,10 @@ import { de_GetPromptFileCommand, se_GetPromptFileCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetPromptFileCommand}.
  */

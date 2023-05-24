@@ -19,6 +19,10 @@ import { de_CreatePromptCommand, se_CreatePromptCommand } from "../protocols/Aws
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreatePromptCommand}.
  */

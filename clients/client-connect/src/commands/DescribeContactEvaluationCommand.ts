@@ -109,13 +109,13 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //           Title: "STRING_VALUE", // required
  * //           RefId: "STRING_VALUE", // required
  * //           Instructions: "STRING_VALUE",
- * //           Items: [
+ * //           Items: [ // required
  * //             {//  Union: only one key present
  * //               Section: {
  * //                 Title: "STRING_VALUE", // required
  * //                 RefId: "STRING_VALUE", // required
  * //                 Instructions: "STRING_VALUE",
- * //                 Items: "<EvaluationFormItemsList>",
+ * //                 Items: "<EvaluationFormItemsList>", // required
  * //                 Weight: Number("double"),
  * //               },
  * //               Question: { // EvaluationFormQuestion

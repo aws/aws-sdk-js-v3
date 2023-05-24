@@ -867,8 +867,7 @@ export interface MetricFilterV2 {
    * <p>The key to use for filtering data. </p>
    *          <p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>.
    *    These are the same values as the <code>InitiationMethod</code> and <code>DisconnectReason</code>
-   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's
-   *    Guide</i>. </p>
+   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
    */
   MetricFilterKey?: string;
 
@@ -6948,7 +6947,7 @@ export interface EvaluationFormSection {
   /**
    * <p>The items of the section.</p>
    */
-  Items?: EvaluationFormItem[];
+  Items: EvaluationFormItem[] | undefined;
 
   /**
    * <p>The scoring weight of the section.</p>
