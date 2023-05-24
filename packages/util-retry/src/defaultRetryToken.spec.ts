@@ -22,7 +22,7 @@ describe("defaultRetryToken", () => {
     error: RetryErrorInfo,
     initialRetryTokens: number = INITIAL_RETRY_TOKENS
   ) => {
-    const retryToken = getDefaultRetryToken(initialRetryTokens, DEFAULT_RETRY_DELAY_BASE);
+    const retryToken = getDefaultRetryToken({ availableCapacity: initialRetryTokens }, DEFAULT_RETRY_DELAY_BASE);
     let availableCapacity = initialRetryTokens;
     while (availableCapacity >= targetCapacity) {
       retryToken.getRetryTokenCount(error);
@@ -49,13 +49,13 @@ describe("defaultRetryToken", () => {
   describe("custom initial retry tokens", () => {
     it("hasRetryTokens returns false if capacity is not available", () => {
       const customRetryTokens = 5;
-      const retryToken = getDefaultRetryToken(customRetryTokens, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: customRetryTokens }, DEFAULT_RETRY_DELAY_BASE);
       expect(retryToken.hasRetryTokens(transientErrorType)).toBe(false);
     });
 
     it("retrieveRetryToken throws error if retry tokens not available", () => {
       const customRetryTokens = 5;
-      const retryToken = getDefaultRetryToken(customRetryTokens, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: customRetryTokens }, DEFAULT_RETRY_DELAY_BASE);
       expect(() => {
         retryToken.getRetryTokenCount({ errorType: transientErrorType });
       }).toThrowError(new Error("No retry token available"));
@@ -65,12 +65,12 @@ describe("defaultRetryToken", () => {
   describe("hasRetryTokens", () => {
     describe("returns true if capacity is available", () => {
       it("when it's transient error", () => {
-        const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+        const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
         expect(retryToken.hasRetryTokens(transientErrorType)).toBe(true);
       });
 
       it("when it's not transient error", () => {
-        const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+        const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
         expect(retryToken.hasRetryTokens(nonTransientErrorType)).toBe(true);
       });
     });
@@ -91,13 +91,13 @@ describe("defaultRetryToken", () => {
   describe("retrieveRetryToken", () => {
     describe("returns retry tokens amount if available", () => {
       it("when it's transient error", () => {
-        const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+        const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
         expect(retryToken.getRetryTokenCount({ errorType: transientErrorType })).toBe(TIMEOUT_RETRY_COST);
         expect(retryToken.getLastRetryCost()).toBe(TIMEOUT_RETRY_COST);
       });
 
       it("when it's not transient error", () => {
-        const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+        const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
         expect(retryToken.getRetryTokenCount({ errorType: nonTransientErrorType })).toBe(RETRY_COST);
         expect(retryToken.getLastRetryCost()).toBe(RETRY_COST);
       });
@@ -122,12 +122,12 @@ describe("defaultRetryToken", () => {
 
   describe("getLastRetryCost", () => {
     it("is undefined before an error is encountered", () => {
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       expect(retryToken.getLastRetryCost()).toBeUndefined();
     });
 
     it("is updated with successive errors", () => {
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       retryToken.getRetryTokenCount({ errorType: transientErrorType });
       expect(retryToken.getLastRetryCost()).toBe(TIMEOUT_RETRY_COST);
       retryToken.getRetryTokenCount({ errorType: nonTransientErrorType });
@@ -137,18 +137,22 @@ describe("defaultRetryToken", () => {
 
   describe("getRetryCount", () => {
     it("returns 0 when count is not set", () => {
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       expect(retryToken.getRetryCount()).toBe(0);
     });
 
     it("returns amount set when token is created", () => {
       const retryCount = 3;
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE, retryCount);
+      const retryToken = getDefaultRetryToken(
+        { availableCapacity: INITIAL_RETRY_TOKENS },
+        DEFAULT_RETRY_DELAY_BASE,
+        retryCount
+      );
       expect(retryToken.getRetryCount()).toBe(retryCount);
     });
 
     it("increments when retries occur", () => {
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE, 1);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE, 1);
       expect(retryToken.getRetryCount()).toBe(1);
       retryToken.getRetryTokenCount({ errorType: transientErrorType });
       expect(retryToken.getRetryCount()).toBe(2);
@@ -159,7 +163,7 @@ describe("defaultRetryToken", () => {
 
   describe("getRetryDelay", () => {
     it("returns initial delay", () => {
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       expect(retryToken.getRetryDelay()).toBe(DEFAULT_RETRY_DELAY_BASE);
     });
 
@@ -175,7 +179,7 @@ describe("defaultRetryToken", () => {
         setDelayBase,
       };
       (getDefaultRetryBackoffStrategy as jest.Mock).mockReturnValue(mockRetryBackoffStrategy);
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       [0, 1, 2, 3].forEach((attempts) => {
         const mockDelayBase = 100;
         const expectedDelay = Math.floor(2 ** attempts * mockDelayBase);
@@ -199,7 +203,7 @@ describe("defaultRetryToken", () => {
         setDelayBase,
       };
       (getDefaultRetryBackoffStrategy as jest.Mock).mockReturnValue(mockRetryBackoffStrategy);
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       [0, 1, 2, 3].forEach((attempts) => {
         const mockDelayBase = 500;
         const expectedDelay = Math.floor(2 ** attempts * mockDelayBase);
@@ -213,7 +217,10 @@ describe("defaultRetryToken", () => {
 
     describe(`caps retry delay at ${MAXIMUM_RETRY_DELAY / 1000} seconds`, () => {
       it("when value exceeded because of high delayBase", () => {
-        const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE * 1000);
+        const retryToken = getDefaultRetryToken(
+          { availableCapacity: INITIAL_RETRY_TOKENS },
+          DEFAULT_RETRY_DELAY_BASE * 1000
+        );
         expect(retryToken.getRetryDelay()).toBe(MAXIMUM_RETRY_DELAY);
       });
 
@@ -226,7 +233,7 @@ describe("defaultRetryToken", () => {
         (getDefaultRetryBackoffStrategy as jest.Mock).mockReturnValue(mockRetryBackoffStrategy);
         const largeAttemptsNumber = Math.ceil(Math.log2(MAXIMUM_RETRY_DELAY));
         const retryToken = getDefaultRetryToken(
-          INITIAL_RETRY_TOKENS * largeAttemptsNumber,
+          { availableCapacity: INITIAL_RETRY_TOKENS * largeAttemptsNumber },
           DEFAULT_RETRY_DELAY_BASE,
           largeAttemptsNumber
         );
@@ -236,7 +243,7 @@ describe("defaultRetryToken", () => {
     });
 
     it("uses retry-after hint", () => {
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       // 5 minutes, greater than maximum allowed for normal retry.
       const expectedDelay = 5 * 60 * 1000;
       const retryAfterHint = new Date(Date.now() + expectedDelay);
@@ -283,7 +290,7 @@ describe("defaultRetryToken", () => {
     });
 
     it("ensures availableCapacity is maxed at INITIAL_RETRY_TOKENS", () => {
-      const retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
+      const retryToken = getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE);
       const { errorType } = { errorType: nonTransientErrorType };
 
       // release 100 tokens.

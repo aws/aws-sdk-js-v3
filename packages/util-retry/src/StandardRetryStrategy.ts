@@ -9,18 +9,17 @@ import { getDefaultRetryToken } from "./defaultRetryToken";
  */
 export class StandardRetryStrategy implements RetryStrategyV2 {
   public readonly mode: string = RETRY_MODES.STANDARD;
-  private retryToken: StandardRetryToken;
+  private availableCapacityRef = { availableCapacity: INITIAL_RETRY_TOKENS };
   private readonly maxAttemptsProvider: Provider<number>;
 
   constructor(maxAttempts: number);
   constructor(maxAttemptsProvider: Provider<number>);
   constructor(private readonly maxAttempts: number | Provider<number>) {
-    this.retryToken = getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE);
     this.maxAttemptsProvider = typeof maxAttempts === "function" ? maxAttempts : async () => maxAttempts;
   }
 
   public async acquireInitialRetryToken(retryTokenScope: string): Promise<StandardRetryToken> {
-    return this.retryToken;
+    return getDefaultRetryToken(this.availableCapacityRef, DEFAULT_RETRY_DELAY_BASE);
   }
 
   public async refreshRetryTokenForRetry(
@@ -37,11 +36,10 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
   }
 
   public recordSuccess(token: StandardRetryToken): void {
-    this.retryToken.releaseRetryTokens(token.getLastRetryCost());
+    token.releaseRetryTokens(token.getLastRetryCost());
   }
 
   private async getMaxAttempts() {
-    let maxAttempts: number;
     try {
       return await this.maxAttemptsProvider();
     } catch (error) {

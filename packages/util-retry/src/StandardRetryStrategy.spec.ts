@@ -37,18 +37,13 @@ describe(StandardRetryStrategy.name, () => {
     expect(retryStrategy.mode).toStrictEqual(RETRY_MODES.STANDARD);
   });
 
-  describe("retryToken init", () => {
-    it("sets retryToken", () => {
-      const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
-      expect(retryStrategy["retryToken"]).toBe(getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE));
-    });
-  });
-
   describe("acquireInitialRetryToken", () => {
     it("returns default retryToken", async () => {
       const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
       const retryToken = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
-      expect(retryToken).toEqual(getDefaultRetryToken(INITIAL_RETRY_TOKENS, DEFAULT_RETRY_DELAY_BASE));
+      expect(retryToken).toEqual(
+        getDefaultRetryToken({ availableCapacity: INITIAL_RETRY_TOKENS }, DEFAULT_RETRY_DELAY_BASE)
+      );
     });
   });
 

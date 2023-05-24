@@ -35,17 +35,18 @@ export interface DefaultRetryTokenOptions {
  * @internal
  */
 export const getDefaultRetryToken = (
-  initialRetryTokens: number,
+  availableCapacityRef: {
+    availableCapacity: number;
+  },
   initialRetryDelay: number,
   initialRetryCount?: number,
   options?: DefaultRetryTokenOptions
 ): StandardRetryToken => {
-  const MAX_CAPACITY = initialRetryTokens;
+  const MAX_CAPACITY = availableCapacityRef.availableCapacity;
   const retryCost = options?.retryCost ?? RETRY_COST;
   const timeoutRetryCost = options?.timeoutRetryCost ?? TIMEOUT_RETRY_COST;
   const retryBackoffStrategy = options?.retryBackoffStrategy ?? getDefaultRetryBackoffStrategy();
 
-  let availableCapacity = initialRetryTokens;
   let retryDelay = Math.min(MAXIMUM_RETRY_DELAY, initialRetryDelay);
   let lastRetryCost: number | undefined = undefined;
   let retryCount = initialRetryCount ?? 0;
@@ -58,7 +59,8 @@ export const getDefaultRetryToken = (
 
   const getLastRetryCost = (): number | undefined => lastRetryCost;
 
-  const hasRetryTokens = (errorType: RetryErrorType): boolean => getCapacityAmount(errorType) <= availableCapacity;
+  const hasRetryTokens = (errorType: RetryErrorType): boolean =>
+    getCapacityAmount(errorType) <= availableCapacityRef.availableCapacity;
 
   const getRetryTokenCount = (errorInfo: RetryErrorInfo) => {
     const errorType = errorInfo.errorType;
@@ -77,13 +79,13 @@ export const getDefaultRetryToken = (
     }
     retryCount++;
     lastRetryCost = capacityAmount;
-    availableCapacity -= capacityAmount;
+    availableCapacityRef.availableCapacity -= capacityAmount;
     return capacityAmount;
   };
 
   const releaseRetryTokens = (releaseAmount?: number) => {
-    availableCapacity += releaseAmount ?? NO_RETRY_INCREMENT;
-    availableCapacity = Math.min(availableCapacity, MAX_CAPACITY);
+    availableCapacityRef.availableCapacity += releaseAmount ?? NO_RETRY_INCREMENT;
+    availableCapacityRef.availableCapacity = Math.min(availableCapacityRef.availableCapacity, MAX_CAPACITY);
   };
 
   return {
