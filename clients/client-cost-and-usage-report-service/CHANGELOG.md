@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.339.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.338.0...v3.339.0) (2023-05-24)
+
+
+### Features
+
+* **client-cost-and-usage-report-service:** Add support for split cost allocation data on a report. ([1d7418f](https://github.com/aws/aws-sdk-js-v3/commit/1d7418f91c464e94d406afd5910339a060b4c7b2))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-and-usage-report-service

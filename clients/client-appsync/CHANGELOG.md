@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.339.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.338.0...v3.339.0) (2023-05-24)
+
+
+### Features
+
+* **client-appsync:** This release introduces AppSync Merged APIs, which provide the ability to compose multiple source APIs into a single federated/merged API. ([7c62119](https://github.com/aws/aws-sdk-js-v3/commit/7c6211922215b48db87c0068c34df4e8a029f669))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-appsync

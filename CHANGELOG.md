@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.339.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.338.0...v3.339.0) (2023-05-24)
+
+
+### Features
+
+* **client-appsync:** This release introduces AppSync Merged APIs, which provide the ability to compose multiple source APIs into a single federated/merged API. ([7c62119](https://github.com/aws/aws-sdk-js-v3/commit/7c6211922215b48db87c0068c34df4e8a029f669))
+* **client-connect:** Amazon Connect Evaluation Capabilities: validation improvements ([60a8a56](https://github.com/aws/aws-sdk-js-v3/commit/60a8a568d5b2d12e031784fd835f67a87321c0cc))
+* **client-cost-and-usage-report-service:** Add support for split cost allocation data on a report. ([1d7418f](https://github.com/aws/aws-sdk-js-v3/commit/1d7418f91c464e94d406afd5910339a060b4c7b2))
+* **client-sagemaker:** SageMaker now provides an instantaneous deployment recommendation through the DescribeModel API ([4c29c21](https://github.com/aws/aws-sdk-js-v3/commit/4c29c21253917027d0020889c23caa3626b7a22c))
+* **clients:** update client endpoints as of 2023-05-24 ([739ac5e](https://github.com/aws/aws-sdk-js-v3/commit/739ac5e75e5d39cc6c1620c56b1c0812ee1ee4b3))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 

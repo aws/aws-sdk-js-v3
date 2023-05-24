@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.339.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.338.0...v3.339.0) (2023-05-24)
+
+
+### Features
+
+* **client-connect:** Amazon Connect Evaluation Capabilities: validation improvements ([60a8a56](https://github.com/aws/aws-sdk-js-v3/commit/60a8a568d5b2d12e031784fd835f67a87321c0cc))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
