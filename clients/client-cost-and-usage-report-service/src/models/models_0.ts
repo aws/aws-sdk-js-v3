@@ -112,6 +112,7 @@ export interface DescribeReportDefinitionsRequest {
  */
 export const SchemaElement = {
   RESOURCES: "RESOURCES",
+  SPLIT_COST_ALLOCATION_DATA: "SPLIT_COST_ALLOCATION_DATA",
 } as const;
 
 /**
@@ -173,6 +174,7 @@ export const AWSRegion = {
   CAPE_TOWN: "af-south-1",
   FRANKFURT: "eu-central-1",
   HONG_KONG: "ap-east-1",
+  HYDERABAD: "ap-south-2",
   IRELAND: "eu-west-1",
   JAKARTA: "ap-southeast-3",
   LONDON: "eu-west-2",
@@ -193,6 +195,7 @@ export const AWSRegion = {
   TOKYO: "ap-northeast-1",
   UAE: "me-central-1",
   US_STANDARD: "us-east-1",
+  ZURICH: "eu-central-2",
 } as const;
 
 /**
