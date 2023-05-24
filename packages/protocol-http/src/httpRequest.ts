@@ -1,10 +1,10 @@
-import { Endpoint, HeaderBag, HttpMessage, HttpRequest as IHttpRequest, QueryParameterBag } from "@aws-sdk/types";
+import { HeaderBag, HttpMessage, HttpRequest as IHttpRequest, QueryParameterBag, URI } from "@aws-sdk/types";
 
-type HttpRequestOptions = Partial<HttpMessage> & Partial<Endpoint> & { method?: string };
+type HttpRequestOptions = Partial<HttpMessage> & Partial<URI> & { method?: string };
 
 export interface HttpRequest extends IHttpRequest {}
 
-export class HttpRequest implements HttpMessage, Endpoint {
+export class HttpRequest implements HttpMessage, URI {
   public method: string;
   public protocol: string;
   public hostname: string;
@@ -12,6 +12,9 @@ export class HttpRequest implements HttpMessage, Endpoint {
   public path: string;
   public query: QueryParameterBag;
   public headers: HeaderBag;
+  public username?: string;
+  public password?: string;
+  public fragment?: string;
   public body?: any;
 
   constructor(options: HttpRequestOptions) {
@@ -27,6 +30,9 @@ export class HttpRequest implements HttpMessage, Endpoint {
         : options.protocol
       : "https:";
     this.path = options.path ? (options.path.charAt(0) !== "/" ? `/${options.path}` : options.path) : "/";
+    this.username = options.username;
+    this.password = options.password;
+    this.fragment = options.fragment;
   }
 
   static isInstance(request: unknown): request is HttpRequest {

@@ -625,4 +625,22 @@ describe(NodeHttp2Handler.name, () => {
       });
     });
   });
+
+  it("sends the request to the correct url", async () => {
+    const server = createMockHttp2Server();
+    server.on("request", (request, response) => {
+      expect(request.url).toBe("http://foo:bar@localhost/foo/bar?foo=bar#foo");
+      response.statusCode = 200;
+    });
+    const handler = new NodeHttp2Handler({});
+    await handler.handle({
+      ...getMockReqOptions(),
+      username: "foo",
+      password: "bar",
+      path: "/foo/bar",
+      query: { foo: "bar" },
+      fragment: "foo",
+    } as any);
+    handler.destroy();
+  });
 });

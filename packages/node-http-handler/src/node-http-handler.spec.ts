@@ -115,6 +115,27 @@ describe("NodeHttpHandler", () => {
         expect(providerInvokedCount).toBe(1);
         expect(providerResolvedCount).toBe(1);
       });
+
+      it("sends requests to the right url", async () => {
+        const nodeHttpHandler = new NodeHttpHandler({});
+        const httpRequest = {
+          protocol: "http:",
+          username: "username",
+          password: "password",
+          hostname: "host",
+          port: 1234,
+          path: "/some/path",
+          query: {
+            some: "query",
+          },
+          fragment: "fragment",
+        };
+        await nodeHttpHandler.handle(httpRequest as any);
+        expect(hRequestSpy.mock.calls[0][0]?.auth).toEqual("username:password");
+        expect(hRequestSpy.mock.calls[0][0]?.host).toEqual("host");
+        expect(hRequestSpy.mock.calls[0][0]?.port).toEqual(1234);
+        expect(hRequestSpy.mock.calls[0][0]?.path).toEqual("/some/path?some=query#fragment");
+      });
     });
   });
 

@@ -17,5 +17,15 @@ export function formatUrl(request: Omit<HttpRequest, "headers" | "method">): str
   if (queryString && queryString[0] !== "?") {
     queryString = `?${queryString}`;
   }
-  return `${protocol}//${hostname}${path}${queryString}`;
+  let auth = "";
+  if (request.username != null || request.password != null) {
+    const username = request.username ?? "";
+    const password = request.password ?? "";
+    auth = `${username}:${password}@`;
+  }
+  let fragment = "";
+  if (request.fragment) {
+    fragment = `#${request.fragment}`;
+  }
+  return `${protocol}//${auth}${hostname}${path}${queryString}${fragment}`;
 }

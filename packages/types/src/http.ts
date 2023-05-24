@@ -1,4 +1,6 @@
 import { AbortSignal } from "./abort";
+import { URI } from "./uri";
+
 /**
  * @public
  *
@@ -86,7 +88,7 @@ export interface Endpoint {
  * Interface an HTTP request class. Contains
  * addressing information in addition to standard message properties.
  */
-export interface HttpRequest extends HttpMessage, Endpoint {
+export interface HttpRequest extends HttpMessage, URI {
   method: string;
 }
 

@@ -95,7 +95,11 @@ describe(FetchHttpHandler.name, () => {
       headers: {},
       hostname: "foo.amazonaws.com",
       method: "GET",
-      path: "/test/?bar=baz",
+      path: "/test",
+      query: { bar: "baz" },
+      username: "username",
+      password: "password",
+      fragment: "fragment",
       protocol: "https:",
       port: 443,
     });
@@ -105,7 +109,7 @@ describe(FetchHttpHandler.name, () => {
 
     expect(mockFetch.mock.calls.length).toBe(1);
     const requestCall = mockRequest.mock.calls[0];
-    expect(requestCall[0]).toBe("https://foo.amazonaws.com:443/test/?bar=baz");
+    expect(requestCall[0]).toBe("https://username:password@foo.amazonaws.com:443/test?bar=baz#fragment");
   });
 
   it("will omit body if method is GET", async () => {
