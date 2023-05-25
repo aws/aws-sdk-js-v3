@@ -41,9 +41,8 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
   ): Promise<StandardRetryToken> {
     const maxAttempts = await this.getMaxAttempts();
 
-    const retryCost = RETRY_COST;
-    const timeoutRetryCost = TIMEOUT_RETRY_COST;
-    const getCapacityCost = (errorType: RetryErrorType) => (errorType === "TRANSIENT" ? timeoutRetryCost : retryCost);
+    const getCapacityCost = (errorType: RetryErrorType) =>
+      errorType === "TRANSIENT" ? TIMEOUT_RETRY_COST : RETRY_COST;
 
     if (this.shouldRetry(token, errorInfo, maxAttempts)) {
       const errorType = errorInfo.errorType;
