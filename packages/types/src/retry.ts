@@ -95,26 +95,9 @@ export interface RetryToken {
  */
 export interface StandardRetryToken extends RetryToken {
   /**
-   * @returns wheather token has remaining tokens.
+   * @returns the cost of the last retry attempt.
    */
-  hasRetryTokens(errorType: RetryErrorType): boolean;
-
-  /**
-   * @returns the number of available tokens.
-   */
-  getRetryTokenCount(errorInfo: RetryErrorInfo): number;
-
-  /**
-   * @returns the cost of the last retry attemp.
-   */
-  getLastRetryCost(): number | undefined;
-
-  /**
-   * Releases a number of tokens.
-   *
-   * @param amount - of tokens to release.
-   */
-  releaseRetryTokens(amount?: number): void;
+  getRetryCost(): number | undefined;
 }
 
 /**

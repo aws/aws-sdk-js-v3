@@ -4,7 +4,7 @@ import { SdkError } from "@aws-sdk/types";
  * Determines whether an error is retryable based on the number of retries
  * already attempted, the HTTP status code, and the error received (if any).
  *
- * @param error         The error encountered.
+ * @param error - The error encountered.
  */
 export interface RetryDecider {
   (error: SdkError): boolean;
@@ -13,8 +13,8 @@ export interface RetryDecider {
 /**
  * Determines the number of milliseconds to wait before retrying an action.
  *
- * @param delayBase The base delay (in milliseconds).
- * @param attempts  The number of times the action has already been tried.
+ * @param delayBase - The base delay (in milliseconds).
+ * @param attempts - The number of times the action has already been tried.
  */
 export interface DelayDecider {
   (delayBase: number, attempts: number): number;

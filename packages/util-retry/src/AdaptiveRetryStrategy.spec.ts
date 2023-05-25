@@ -1,4 +1,4 @@
-import { RetryErrorInfo, RetryErrorType, StandardRetryToken } from "@aws-sdk/types";
+import { RetryErrorInfo, StandardRetryToken } from "@aws-sdk/types";
 
 import { AdaptiveRetryStrategy } from "./AdaptiveRetryStrategy";
 import { RETRY_MODES } from "./config";
@@ -17,10 +17,7 @@ describe(AdaptiveRetryStrategy.name, () => {
     updateClientSendingRate: jest.fn(),
   };
   const mockRetryToken: StandardRetryToken = {
-    hasRetryTokens: (errorType: RetryErrorType) => true,
-    getLastRetryCost: () => 1,
-    getRetryTokenCount: (errorInfo: RetryErrorInfo) => 1,
-    releaseRetryTokens: (amount: number) => {},
+    getRetryCost: () => 1,
     getRetryCount: () => 1,
     getRetryDelay: () => 1,
   };

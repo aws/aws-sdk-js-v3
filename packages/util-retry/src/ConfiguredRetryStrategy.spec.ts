@@ -11,7 +11,7 @@ describe(ConfiguredRetryStrategy.name, () => {
       errorType: "TRANSIENT",
     });
 
-    expect(retryToken.getRetryCount()).toBe(4);
-    expect(retryToken.getRetryDelay()).toBe(4000);
+    expect(retryToken.getRetryCount()).toBe(5);
+    expect(retryToken.getRetryDelay()).toBe(5000);
   });
 });
