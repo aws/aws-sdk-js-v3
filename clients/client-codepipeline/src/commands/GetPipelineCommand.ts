@@ -56,20 +56,20 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //     name: "STRING_VALUE", // required
  * //     roleArn: "STRING_VALUE", // required
  * //     artifactStore: { // ArtifactStore
- * //       type: "STRING_VALUE", // required
+ * //       type: "S3", // required
  * //       location: "STRING_VALUE", // required
  * //       encryptionKey: { // EncryptionKey
  * //         id: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
+ * //         type: "KMS", // required
  * //       },
  * //     },
  * //     artifactStores: { // ArtifactStoreMap
  * //       "<keys>": {
- * //         type: "STRING_VALUE", // required
+ * //         type: "S3", // required
  * //         location: "STRING_VALUE", // required
  * //         encryptionKey: {
  * //           id: "STRING_VALUE", // required
- * //           type: "STRING_VALUE", // required
+ * //           type: "KMS", // required
  * //         },
  * //       },
  * //     },
@@ -79,15 +79,15 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //         blockers: [ // StageBlockerDeclarationList
  * //           { // BlockerDeclaration
  * //             name: "STRING_VALUE", // required
- * //             type: "STRING_VALUE", // required
+ * //             type: "Schedule", // required
  * //           },
  * //         ],
  * //         actions: [ // StageActionDeclarationList // required
  * //           { // ActionDeclaration
  * //             name: "STRING_VALUE", // required
  * //             actionTypeId: { // ActionTypeId
- * //               category: "STRING_VALUE", // required
- * //               owner: "STRING_VALUE", // required
+ * //               category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //               owner: "AWS" || "ThirdParty" || "Custom", // required
  * //               provider: "STRING_VALUE", // required
  * //               version: "STRING_VALUE", // required
  * //             },
@@ -118,6 +118,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //     pipelineArn: "STRING_VALUE",
  * //     created: new Date("TIMESTAMP"),
  * //     updated: new Date("TIMESTAMP"),
+ * //     pollingDisabledAt: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

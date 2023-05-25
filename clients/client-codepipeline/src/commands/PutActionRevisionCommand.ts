@@ -36,7 +36,8 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
 
 /**
  * @public
- * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
+ * <p>Provides information to CodePipeline about new revisions to a
+ *             source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

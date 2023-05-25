@@ -50,7 +50,7 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  *   pipelineName: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
  *   pipelineExecutionId: "STRING_VALUE", // required
- *   retryMode: "STRING_VALUE", // required
+ *   retryMode: "FAILED_ACTIONS", // required
  * };
  * const command = new RetryStageExecutionCommand(input);
  * const response = await client.send(command);
@@ -71,8 +71,9 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  *             activities. Try again later.</p>
  *
  * @throws {@link NotLatestPipelineExecutionException} (client fault)
- *  <p>The stage has failed in a later run of the pipeline and the pipelineExecutionId
- *             associated with the request is out of date.</p>
+ *  <p>The stage has failed in a later run of the pipeline and the
+ *                 <code>pipelineExecutionId</code> associated with the request is out of
+ *             date.</p>
  *
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The pipeline was specified in an invalid format or cannot be found.</p>

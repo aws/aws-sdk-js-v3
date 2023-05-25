@@ -46,7 +46,7 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * // const { CodePipelineClient, GetActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // GetActionTypeInput
- *   category: "STRING_VALUE", // required
+ *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
  *   owner: "STRING_VALUE", // required
  *   provider: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
@@ -70,12 +70,12 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * //           ],
  * //         },
  * //       },
- * //       type: "STRING_VALUE", // required
+ * //       type: "JobWorker" || "Lambda", // required
  * //       policyStatementsTemplate: "STRING_VALUE",
  * //       jobTimeout: Number("int"),
  * //     },
  * //     id: { // ActionTypeIdentifier
- * //       category: "STRING_VALUE", // required
+ * //       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
  * //       owner: "STRING_VALUE", // required
  * //       provider: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required

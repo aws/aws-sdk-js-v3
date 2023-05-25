@@ -56,7 +56,7 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * //     pipelineName: "STRING_VALUE",
  * //     pipelineVersion: Number("int"),
  * //     pipelineExecutionId: "STRING_VALUE",
- * //     status: "STRING_VALUE",
+ * //     status: "Cancelled" || "InProgress" || "Stopped" || "Stopping" || "Succeeded" || "Superseded" || "Failed",
  * //     statusSummary: "STRING_VALUE",
  * //     artifactRevisions: [ // ArtifactRevisionList
  * //       { // ArtifactRevision

@@ -54,7 +54,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //   pipelineExecutionSummaries: [ // PipelineExecutionSummaryList
  * //     { // PipelineExecutionSummary
  * //       pipelineExecutionId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "Cancelled" || "InProgress" || "Stopped" || "Stopping" || "Succeeded" || "Superseded" || "Failed",
  * //       startTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
  * //       sourceRevisions: [ // SourceRevisionList
@@ -66,7 +66,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //         },
  * //       ],
  * //       trigger: { // ExecutionTrigger
- * //         triggerType: "STRING_VALUE",
+ * //         triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision",
  * //         triggerDetail: "STRING_VALUE",
  * //       },
  * //       stopTrigger: { // StopExecutionTrigger

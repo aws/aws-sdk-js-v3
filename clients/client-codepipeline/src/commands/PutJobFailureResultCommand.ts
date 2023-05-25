@@ -47,7 +47,7 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * const input = { // PutJobFailureResultInput
  *   jobId: "STRING_VALUE", // required
  *   failureDetails: { // FailureDetails
- *     type: "STRING_VALUE", // required
+ *     type: "JobFailed" || "ConfigurationError" || "PermissionError" || "RevisionOutOfSync" || "RevisionUnavailable" || "SystemUnavailable", // required
  *     message: "STRING_VALUE", // required
  *     externalExecutionId: "STRING_VALUE",
  *   },

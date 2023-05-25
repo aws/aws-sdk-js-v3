@@ -38,11 +38,11 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * @public
  * <p>Returns information about the state of a pipeline, including the stages and
  *             actions.</p>
- *         <note>
+ *          <note>
  *             <p>Values returned in the <code>revisionId</code> and <code>revisionUrl</code>
  *                 fields indicate the source revision information, such as the commit ID, for the
  *                 current state.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +62,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //       stageName: "STRING_VALUE",
  * //       inboundExecution: { // StageExecution
  * //         pipelineExecutionId: "STRING_VALUE", // required
- * //         status: "STRING_VALUE", // required
+ * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
  * //       },
  * //       inboundTransitionState: { // TransitionState
  * //         enabled: true || false,
@@ -80,7 +80,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //           },
  * //           latestExecution: { // ActionExecution
  * //             actionExecutionId: "STRING_VALUE",
- * //             status: "STRING_VALUE",
+ * //             status: "InProgress" || "Abandoned" || "Succeeded" || "Failed",
  * //             summary: "STRING_VALUE",
  * //             lastStatusChange: new Date("TIMESTAMP"),
  * //             token: "STRING_VALUE",
@@ -99,7 +99,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //       ],
  * //       latestExecution: {
  * //         pipelineExecutionId: "STRING_VALUE", // required
- * //         status: "STRING_VALUE", // required
+ * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
  * //       },
  * //     },
  * //   ],

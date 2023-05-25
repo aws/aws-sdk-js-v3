@@ -4060,6 +4060,7 @@ const de_PipelineMetadata = (output: any, context: __SerdeContext): PipelineMeta
   return take(output, {
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     pipelineArn: __expectString,
+    pollingDisabledAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     updated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };

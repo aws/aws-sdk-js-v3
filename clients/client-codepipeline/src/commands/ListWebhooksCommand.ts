@@ -36,9 +36,9 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
 
 /**
  * @public
- * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
- *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
- *             webhook.</p>
+ * <p>Gets a listing of all the webhooks in this Amazon Web Services Region for this
+ *             account. The output lists all webhooks and includes the webhook URL and ARN and the
+ *             configuration for each webhook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,7 +64,7 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * //             matchEquals: "STRING_VALUE",
  * //           },
  * //         ],
- * //         authentication: "STRING_VALUE", // required
+ * //         authentication: "GITHUB_HMAC" || "IP" || "UNAUTHENTICATED", // required
  * //         authenticationConfiguration: { // WebhookAuthConfiguration
  * //           AllowedIPRange: "STRING_VALUE",
  * //           SecretToken: "STRING_VALUE",

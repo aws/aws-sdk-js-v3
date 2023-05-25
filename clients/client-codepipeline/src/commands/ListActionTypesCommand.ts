@@ -36,7 +36,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
 
 /**
  * @public
- * <p>Gets a summary of all AWS CodePipeline action types associated with your
+ * <p>Gets a summary of all CodePipeline action types associated with your
  *             account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,7 +45,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * // const { CodePipelineClient, ListActionTypesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // ListActionTypesInput
- *   actionOwnerFilter: "STRING_VALUE",
+ *   actionOwnerFilter: "AWS" || "ThirdParty" || "Custom",
  *   nextToken: "STRING_VALUE",
  *   regionFilter: "STRING_VALUE",
  * };
@@ -55,8 +55,8 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * //   actionTypes: [ // ActionTypeList // required
  * //     { // ActionType
  * //       id: { // ActionTypeId
- * //         category: "STRING_VALUE", // required
- * //         owner: "STRING_VALUE", // required
+ * //         category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //         owner: "AWS" || "ThirdParty" || "Custom", // required
  * //         provider: "STRING_VALUE", // required
  * //         version: "STRING_VALUE", // required
  * //       },
@@ -74,7 +74,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * //           secret: true || false, // required
  * //           queryable: true || false,
  * //           description: "STRING_VALUE",
- * //           type: "STRING_VALUE",
+ * //           type: "String" || "Number" || "Boolean",
  * //         },
  * //       ],
  * //       inputArtifactDetails: { // ArtifactDetails

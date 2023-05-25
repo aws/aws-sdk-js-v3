@@ -36,7 +36,7 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
 
 /**
  * @public
- * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
+ * <p>Provides the response to a manual approval request to CodePipeline. Valid
  *             responses include Approved and Rejected.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,7 +50,7 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  *   actionName: "STRING_VALUE", // required
  *   result: { // ApprovalResult
  *     summary: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
+ *     status: "Approved" || "Rejected", // required
  *   },
  *   token: "STRING_VALUE", // required
  * };

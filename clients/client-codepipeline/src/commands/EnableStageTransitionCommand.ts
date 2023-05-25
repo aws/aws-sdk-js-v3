@@ -46,7 +46,7 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * const input = { // EnableStageTransitionInput
  *   pipelineName: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
- *   transitionType: "STRING_VALUE", // required
+ *   transitionType: "Inbound" || "Outbound", // required
  * };
  * const command = new EnableStageTransitionCommand(input);
  * const response = await client.send(command);

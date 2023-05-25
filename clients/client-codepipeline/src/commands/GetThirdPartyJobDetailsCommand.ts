@@ -42,12 +42,12 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * @public
  * <p>Requests the details of a job for a third party action. Used for partner actions
  *             only.</p>
- *         <important>
- *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
- *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
- *                 that S3 bucket for input or output artifacts. This API also returns any secret
- *                 values defined for the action.</p>
- *         </important>
+ *          <important>
+ *             <p>When this API is called, CodePipeline returns temporary credentials for
+ *                 the S3 bucket used to store artifacts for the pipeline, if the action requires
+ *                 access to that S3 bucket for input or output artifacts. This API also returns any
+ *                 secret values defined for the action.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +65,8 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * //     id: "STRING_VALUE",
  * //     data: { // ThirdPartyJobData
  * //       actionTypeId: { // ActionTypeId
- * //         category: "STRING_VALUE", // required
- * //         owner: "STRING_VALUE", // required
+ * //         category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //         owner: "AWS" || "ThirdParty" || "Custom", // required
  * //         provider: "STRING_VALUE", // required
  * //         version: "STRING_VALUE", // required
  * //       },
@@ -92,7 +92,7 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * //           name: "STRING_VALUE",
  * //           revision: "STRING_VALUE",
  * //           location: { // ArtifactLocation
- * //             type: "STRING_VALUE",
+ * //             type: "S3",
  * //             s3Location: { // S3ArtifactLocation
  * //               bucketName: "STRING_VALUE", // required
  * //               objectKey: "STRING_VALUE", // required
@@ -105,7 +105,7 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * //           name: "STRING_VALUE",
  * //           revision: "STRING_VALUE",
  * //           location: {
- * //             type: "STRING_VALUE",
+ * //             type: "S3",
  * //             s3Location: {
  * //               bucketName: "STRING_VALUE", // required
  * //               objectKey: "STRING_VALUE", // required
@@ -121,7 +121,7 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * //       continuationToken: "STRING_VALUE",
  * //       encryptionKey: { // EncryptionKey
  * //         id: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
+ * //         type: "KMS", // required
  * //       },
  * //     },
  * //     nonce: "STRING_VALUE",

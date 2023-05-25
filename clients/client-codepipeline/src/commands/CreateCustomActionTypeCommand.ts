@@ -37,7 +37,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
 /**
  * @public
  * <p>Creates a new custom action that can be used in all pipelines associated with the
- *             AWS account. Only used for custom actions.</p>
+ *                 Amazon Web Services account. Only used for custom actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,7 +45,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * // const { CodePipelineClient, CreateCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // CreateCustomActionTypeInput
- *   category: "STRING_VALUE", // required
+ *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
  *   provider: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
  *   settings: { // ActionTypeSettings
@@ -62,7 +62,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  *       secret: true || false, // required
  *       queryable: true || false,
  *       description: "STRING_VALUE",
- *       type: "STRING_VALUE",
+ *       type: "String" || "Number" || "Boolean",
  *     },
  *   ],
  *   inputArtifactDetails: { // ArtifactDetails
@@ -85,8 +85,8 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * // { // CreateCustomActionTypeOutput
  * //   actionType: { // ActionType
  * //     id: { // ActionTypeId
- * //       category: "STRING_VALUE", // required
- * //       owner: "STRING_VALUE", // required
+ * //       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //       owner: "AWS" || "ThirdParty" || "Custom", // required
  * //       provider: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required
  * //     },
@@ -104,7 +104,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * //         secret: true || false, // required
  * //         queryable: true || false,
  * //         description: "STRING_VALUE",
- * //         type: "STRING_VALUE",
+ * //         type: "String" || "Number" || "Boolean",
  * //       },
  * //     ],
  * //     inputArtifactDetails: { // ArtifactDetails
@@ -139,8 +139,8 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  *  <p>The specified resource tags are invalid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The number of pipelines associated with the AWS account has exceeded the limit
- *             allowed for the account.</p>
+ *  <p>The number of pipelines associated with the Amazon Web Services account has exceeded
+ *             the limit allowed for the account.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The tags limit for a resource has been exceeded.</p>

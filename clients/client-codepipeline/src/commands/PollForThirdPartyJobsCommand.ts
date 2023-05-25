@@ -38,11 +38,11 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * @public
  * <p>Determines whether there are any third party jobs for a job worker to act on. Used
  *             for partner actions only.</p>
- *         <important>
- *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
- *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
- *                 that S3 bucket for input or output artifacts.</p>
- *         </important>
+ *          <important>
+ *             <p>When this API is called, CodePipeline returns temporary credentials for
+ *                 the S3 bucket used to store artifacts for the pipeline, if the action requires
+ *                 access to that S3 bucket for input or output artifacts.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +51,8 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * const client = new CodePipelineClient(config);
  * const input = { // PollForThirdPartyJobsInput
  *   actionTypeId: { // ActionTypeId
- *     category: "STRING_VALUE", // required
- *     owner: "STRING_VALUE", // required
+ *     category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *     owner: "AWS" || "ThirdParty" || "Custom", // required
  *     provider: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required
  *   },

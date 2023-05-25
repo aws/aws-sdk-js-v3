@@ -15,8 +15,8 @@ export interface AcknowledgeJobInput {
   jobId: string | undefined;
 
   /**
-   * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
-   *             is being worked on by only one job worker. Get this number from the response of the
+   * <p>A system-generated random number that CodePipeline uses to ensure that the
+   *             job is being worked on by only one job worker. Get this number from the response of the
    *                 <a>PollForJobs</a> request that returned this job.</p>
    */
   nonce: string | undefined;
@@ -123,8 +123,9 @@ export interface AcknowledgeThirdPartyJobInput {
   jobId: string | undefined;
 
   /**
-   * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
-   *             is being worked on by only one job worker. Get this number from the response to a <a>GetThirdPartyJobDetails</a> request.</p>
+   * <p>A system-generated random number that CodePipeline uses to ensure that the
+   *             job is being worked on by only one job worker. Get this number from the response to a
+   *                 <a>GetThirdPartyJobDetails</a> request.</p>
    */
   nonce: string | undefined;
 
@@ -235,7 +236,7 @@ export interface ActionConfigurationProperty {
    * <p>Whether the configuration property is secret. Secrets are hidden from all calls
    *             except for <code>GetJobDetails</code>, <code>GetThirdPartyJobDetails</code>,
    *                 <code>PollForJobs</code>, and <code>PollForThirdPartyJobs</code>.</p>
-   *         <p>When updating a pipeline, passing * * * * * without changing any other values of
+   *          <p>When updating a pipeline, passing * * * * * without changing any other values of
    *             the action preserves the previous value of the secret.</p>
    */
   secret: boolean | undefined;
@@ -244,7 +245,7 @@ export interface ActionConfigurationProperty {
    * <p>Indicates that the property is used with <code>PollForJobs</code>. When creating a
    *             custom action, an action can have up to one queryable property. If it has one, that
    *             property must be both required and not secret.</p>
-   *         <p>If you create a pipeline with a custom action type, and that custom action contains
+   *          <p>If you create a pipeline with a custom action type, and that custom action contains
    *             a queryable property, the value for that configuration property is subject to other
    *             restrictions. The value must be less than or equal to twenty (20) characters. The value
    *             can contain only alphanumeric characters, underscores, and hyphens.</p>
@@ -304,24 +305,24 @@ export interface ActionTypeId {
    * <p>A category defines what kind of action can be taken in the stage, and constrains
    *             the provider type for the action. Valid categories are limited to one of the following
    *             values. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Source</p>
+   *                <p>Source</p>
    *             </li>
    *             <li>
-   *                 <p>Build</p>
+   *                <p>Build</p>
    *             </li>
    *             <li>
-   *                 <p>Test</p>
+   *                <p>Test</p>
    *             </li>
    *             <li>
-   *                 <p>Deploy</p>
+   *                <p>Deploy</p>
    *             </li>
    *             <li>
-   *                 <p>Invoke</p>
+   *                <p>Invoke</p>
    *             </li>
    *             <li>
-   *                 <p>Approval</p>
+   *                <p>Approval</p>
    *             </li>
    *          </ul>
    */
@@ -338,8 +339,8 @@ export interface ActionTypeId {
   /**
    * <p>The provider of the service being called by the action. Valid providers are
    *             determined by the action category. For example, an action in the Deploy category type
-   *             might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For
-   *             more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
+   *             might have a provider of CodeDeploy, which would be specified as
+   *             <code>CodeDeploy</code>. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
    */
   provider: string | undefined;
 
@@ -357,7 +358,11 @@ export interface ActionTypeId {
 export interface InputArtifact {
   /**
    * <p>The name of the artifact to be worked on (for example, "My App").</p>
-   *         <p>The input artifact of an action must exactly match the output artifact declared in
+   *          <p>Artifacts are the files that are worked on by actions in the pipeline. See the
+   *             action configuration for each action for details about artifact parameters. For example,
+   *             the S3 source action input artifact is a file name (or file path), and the files are
+   *             generally provided as a ZIP file. Example artifact name: SampleApp_Windows.zip</p>
+   *          <p>The input artifact of an action must exactly match the output artifact declared in
    *             a preceding action, but the input artifact does not have to be the next action in strict
    *             sequence from the action that provided the output artifact. Actions in parallel can
    *             declare different output artifacts, which are in turn consumed by different following
@@ -373,12 +378,12 @@ export interface InputArtifact {
 export interface OutputArtifact {
   /**
    * <p>The name of the output of an artifact, such as "My App".</p>
-   *         <p>The input artifact of an action must exactly match the output artifact declared in
+   *          <p>The input artifact of an action must exactly match the output artifact declared in
    *             a preceding action, but the input artifact does not have to be the next action in strict
    *             sequence from the action that provided the output artifact. Actions in parallel can
    *             declare different output artifacts, which are in turn consumed by different following
    *             actions.</p>
-   *         <p>Output artifact names must be unique within a pipeline.</p>
+   *          <p>Output artifact names must be unique within a pipeline.</p>
    */
   name: string | undefined;
 }
@@ -406,18 +411,17 @@ export interface ActionDeclaration {
   /**
    * <p>The action's configuration. These are key-value pairs that specify input values for
    *             an action. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action Structure Requirements in CodePipeline</a>. For the list of
-   *             configuration properties for the AWS CloudFormation action type in CodePipeline, see
-   *                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration Properties Reference</a> in the <i>AWS CloudFormation User
-   *                 Guide</i>. For template snippets with examples, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using Parameter Override Functions with CodePipeline Pipelines</a> in the
-   *                 <i>AWS CloudFormation User Guide</i>.</p>
-   *         <p>The values can be represented in either JSON or YAML format. For example, the JSON
+   *             configuration properties for the CloudFormation action type in CodePipeline, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration Properties Reference</a> in the <i>CloudFormation
+   *                 User Guide</i>. For template snippets with examples, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using Parameter Override Functions with CodePipeline Pipelines</a> in the
+   *                     <i>CloudFormation User Guide</i>.</p>
+   *          <p>The values can be represented in either JSON or YAML format. For example, the JSON
    *             configuration item format is as follows: </p>
-   *         <p>
+   *          <p>
    *             <i>JSON:</i>
    *          </p>
-   *         <p>
+   *          <p>
    *             <code>"Configuration" : \{ Key : Value \},</code>
-   *         </p>
+   *          </p>
    */
   configuration?: Record<string, string>;
 
@@ -440,7 +444,7 @@ export interface ActionDeclaration {
   roleArn?: string;
 
   /**
-   * <p>The action declaration's AWS Region, such as us-east-1.</p>
+   * <p>The action declaration's Amazon Web Services Region, such as us-east-1.</p>
    */
   region?: string;
 
@@ -453,7 +457,7 @@ export interface ActionDeclaration {
 
 /**
  * @public
- * <p>Represents information about an error in AWS CodePipeline.</p>
+ * <p>Represents information about an error in CodePipeline.</p>
  */
 export interface ErrorDetails {
   /**
@@ -491,10 +495,10 @@ export interface ActionExecution {
   /**
    * <p>ID of the workflow action execution in the current stage. Use the <a>GetPipelineState</a> action to retrieve the current action execution details
    *             of the current stage.</p>
-   *         <note>
+   *          <note>
    *             <p>For older executions, this field might be empty. The action execution ID is
    *                 available for executions run on or after March 2020.</p>
-   *         </note>
+   *          </note>
    */
   actionExecutionId?: string;
 
@@ -533,8 +537,8 @@ export interface ActionExecution {
   externalExecutionId?: string;
 
   /**
-   * <p>The URL of a resource external to AWS that is used when running the action (for
-   *             example, an external repository URL).</p>
+   * <p>The URL of a resource external to Amazon Web Services that is used when running the
+   *             action (for example, an external repository URL).</p>
    */
   externalExecutionUrl?: string;
 
@@ -544,7 +548,7 @@ export interface ActionExecution {
   percentComplete?: number;
 
   /**
-   * <p>The details of an error returned by a URL external to AWS.</p>
+   * <p>The details of an error returned by a URL external to Amazon Web Services.</p>
    */
   errorDetails?: ErrorDetails;
 }
@@ -609,7 +613,7 @@ export interface ActionExecutionInput {
   roleArn?: string;
 
   /**
-   * <p>The AWS Region for the action, such as us-east-1.</p>
+   * <p>The Amazon Web Services Region for the action, such as us-east-1.</p>
    */
   region?: string;
 
@@ -848,23 +852,23 @@ export interface ActionTypeSettings {
   thirdPartyConfigurationUrl?: string;
 
   /**
-   * <p>The URL returned to the AWS CodePipeline console that provides a deep link to the
-   *             resources of the external system, such as the configuration page for an AWS CodeDeploy
+   * <p>The URL returned to the CodePipeline console that provides a deep link to the
+   *             resources of the external system, such as the configuration page for a CodeDeploy
    *             deployment group. This link is provided as part of the action display in the
    *             pipeline.</p>
    */
   entityUrlTemplate?: string;
 
   /**
-   * <p>The URL returned to the AWS CodePipeline console that contains a link to the
-   *             top-level landing page for the external system, such as the console page for AWS
-   *             CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console
-   *             and provides a link to the execution entity of the external action.</p>
+   * <p>The URL returned to the CodePipeline console that contains a link to the
+   *             top-level landing page for the external system, such as the console page for CodeDeploy.
+   *             This link is shown on the pipeline view page in the CodePipeline console and
+   *             provides a link to the execution entity of the external action.</p>
    */
   executionUrlTemplate?: string;
 
   /**
-   * <p>The URL returned to the AWS CodePipeline console that contains a link to the page
+   * <p>The URL returned to the CodePipeline console that contains a link to the page
    *             where customers can update or change the configuration of the external action.</p>
    */
   revisionUrlTemplate?: string;
@@ -1006,14 +1010,14 @@ export interface ActionTypeExecutor {
   type: ExecutorType | string | undefined;
 
   /**
-   * <p>The policy statement that specifies the permissions in the CodePipeline customer’s
+   * <p>The policy statement that specifies the permissions in the CodePipeline customer
    *             account that are needed to successfully run an action.</p>
-   *         <p>To grant permission to another account, specify the account ID as the Principal, a
+   *          <p>To grant permission to another account, specify the account ID as the Principal, a
    *             domain-style identifier defined by the service, for example
    *                 <code>codepipeline.amazonaws.com</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>The size of the passed JSON policy document cannot exceed 2048 characters.</p>
-   *         </note>
+   *          </note>
    */
   policyStatementsTemplate?: string;
 
@@ -1031,34 +1035,34 @@ export interface ActionTypeExecutor {
 export interface ActionTypeIdentifier {
   /**
    * <p>Defines what kind of action can be taken in the stage, one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Source</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Build</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Test</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Deploy</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Approval</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Invoke</code>
    *                </p>
    *             </li>
@@ -1090,7 +1094,7 @@ export interface ActionTypeIdentifier {
  */
 export interface ActionTypePermissions {
   /**
-   * <p>A list of AWS account IDs with access to use the action type in their
+   * <p>A list of Amazon Web Services account IDs with access to use the action type in their
    *             pipelines.</p>
    */
   allowedAccounts: string[] | undefined;
@@ -1145,8 +1149,8 @@ export interface ActionTypeProperty {
  */
 export interface ActionTypeUrls {
   /**
-   * <p>The URL returned to the CodePipeline console that contains a link to the page where
-   *             customers can configure the external action.</p>
+   * <p>The URL returned to the CodePipeline console that contains a link to the page
+   *             where customers can configure the external action.</p>
    */
   configurationUrl?: string;
 
@@ -1159,14 +1163,13 @@ export interface ActionTypeUrls {
 
   /**
    * <p>The link to an execution page for the action type in progress. For example, for a
-   *             CodeDeploy action, this link is shown on the pipeline view page in the CodePipeline
-   *             console, and it links to a CodeDeploy status page.</p>
+   *             CodeDeploy action, this link is shown on the pipeline view page in the CodePipeline console, and it links to a CodeDeploy status page.</p>
    */
   executionUrlTemplate?: string;
 
   /**
-   * <p>The URL returned to the CodePipeline console that contains a link to the page where
-   *             customers can update or change the configuration of the external action.</p>
+   * <p>The URL returned to the CodePipeline console that contains a link to the page
+   *             where customers can update or change the configuration of the external action.</p>
    */
   revisionUrlTemplate?: string;
 }
@@ -1342,8 +1345,10 @@ export interface ArtifactLocation {
 
 /**
  * @public
- * <p>Represents information about an artifact that is worked on by actions in the
- *             pipeline.</p>
+ * <p>Artifacts are the files that are worked on by actions in the pipeline. See the
+ *             action configuration for each action for details about artifact parameters. For example,
+ *             the S3 source action artifact is a file name (or file path), and the files are generally
+ *             provided as a ZIP file. Example artifact name: SampleApp_Windows.zip</p>
  */
 export interface Artifact {
   /**
@@ -1387,7 +1392,7 @@ export interface ArtifactRevision {
 
   /**
    * <p>Summary information about the most recent revision of the artifact. For GitHub and
-   *             AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
+   *             CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
    *             user-provided content of a <code>codepipeline-artifact-revision-summary</code> key
    *             specified in the object metadata.</p>
    */
@@ -1400,7 +1405,7 @@ export interface ArtifactRevision {
   created?: Date;
 
   /**
-   * <p>The commit ID for the artifact revision. For artifacts stored in GitHub or AWS
+   * <p>The commit ID for the artifact revision. For artifacts stored in GitHub or
    *             CodeCommit repositories, the commit ID is linked to a commit details page.</p>
    */
   revisionUrl?: string;
@@ -1422,23 +1427,26 @@ export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof Encrypti
 /**
  * @public
  * <p>Represents information about the key used to encrypt data in the artifact store,
- *             such as an AWS Key Management Service (AWS KMS) key.</p>
+ *             such as an Amazon Web Services Key Management Service (Key Management Service)
+ *             key.</p>
  */
 export interface EncryptionKey {
   /**
-   * <p>The ID used to identify the key. For an AWS KMS key, you can use the key ID, the
-   *             key ARN, or the alias ARN.</p>
-   *         <note>
-   *             <p>Aliases are recognized only in the account that created the customer master key
-   *                 (CMK). For cross-account actions, you can only use the key ID or key ARN to identify
-   *                 the key.</p>
-   *         </note>
+   * <p>The ID used to identify the key. For an Amazon Web Services KMS key, you can use the
+   *             key ID, the key ARN, or the alias ARN.</p>
+   *          <note>
+   *             <p>Aliases are recognized only in the account that created the KMS
+   *                 key. For cross-account actions, you can only use the key ID or key ARN to identify
+   *                 the key. Cross-account actions involve using the role from the other account
+   *                 (AccountB), so specifying the key ID will use the key from the other account
+   *                 (AccountB).</p>
+   *          </note>
    */
   id: string | undefined;
 
   /**
-   * <p>The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
-   *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
+   * <p>The type of encryption key, such as an Amazon Web Services KMS key. When creating or
+   *             updating a pipeline, the value must be set to 'KMS'.</p>
    */
   type: EncryptionKeyType | string | undefined;
 }
@@ -1459,12 +1467,12 @@ export type ArtifactStoreType = (typeof ArtifactStoreType)[keyof typeof Artifact
 /**
  * @public
  * <p>The S3 bucket where artifacts for the pipeline are stored.</p>
- *         <note>
+ *          <note>
  *             <p>You must include either <code>artifactStore</code> or
  *                     <code>artifactStores</code> in your pipeline, but you cannot use both. If you
  *                 create a cross-region action in your pipeline, you must use
  *                     <code>artifactStores</code>.</p>
- *         </note>
+ *          </note>
  */
 export interface ArtifactStore {
   /**
@@ -1476,25 +1484,25 @@ export interface ArtifactStore {
    * <p>The S3 bucket used for storing the artifacts for a pipeline. You can specify the
    *             name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline
    *             artifacts is created for you based on the name of the pipeline. You can use any S3
-   *             bucket in the same AWS Region as the pipeline to store your pipeline
+   *             bucket in the same Amazon Web Services Region as the pipeline to store your pipeline
    *             artifacts.</p>
    */
   location: string | undefined;
 
   /**
-   * <p>The encryption key used to encrypt the data in the artifact store, such as an AWS
-   *             Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon
-   *             S3 is used.</p>
+   * <p>The encryption key used to encrypt the data in the artifact store, such as an
+   *                 Amazon Web Services Key Management Service key. If this is undefined, the default key
+   *             for Amazon S3 is used.</p>
    */
   encryptionKey?: EncryptionKey;
 }
 
 /**
  * @public
- * <p>Represents an AWS session credentials object. These credentials are temporary
- *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
- *             access input and output artifacts in the S3 bucket used to store artifact for the
- *             pipeline in AWS CodePipeline.</p>
+ * <p>Represents an Amazon Web Services session credentials object. These credentials are
+ *             temporary credentials that are issued by Amazon Web Services Secure Token Service (STS).
+ *             They can be used to access input and output artifacts in the S3 bucket used to store
+ *             artifact for the pipeline in CodePipeline.</p>
  */
 export interface AWSSessionCredentials {
   /**
@@ -1590,7 +1598,7 @@ export interface CreateCustomActionTypeInput {
   category: ActionCategory | string | undefined;
 
   /**
-   * <p>The provider of the service used in the custom action, such as AWS
+   * <p>The provider of the service used in the custom action, such as
    *             CodeDeploy.</p>
    */
   provider: string | undefined;
@@ -1607,13 +1615,13 @@ export interface CreateCustomActionTypeInput {
 
   /**
    * <p>The configuration properties for the custom action.</p>
-   *         <note>
+   *          <note>
    *             <p>You can refer to a name in the configuration properties of the custom action
    *                 within the URL templates by following the format of \{Config:name\}, as long as the
    *                 configuration property is both required and not secret. For more information, see
    *                     <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html">Create a
    *                     Custom Action for a Pipeline</a>.</p>
-   *         </note>
+   *          </note>
    */
   configurationProperties?: ActionConfigurationProperty[];
 
@@ -1671,8 +1679,8 @@ export class InvalidTagsException extends __BaseException {
 
 /**
  * @public
- * <p>The number of pipelines associated with the AWS account has exceeded the limit
- *             allowed for the account.</p>
+ * <p>The number of pipelines associated with the Amazon Web Services account has exceeded
+ *             the limit allowed for the account.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -1743,7 +1751,7 @@ export interface PipelineDeclaration {
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform
+   * <p>The Amazon Resource Name (ARN) for CodePipeline to use to either perform
    *             actions with no <code>actionRoleArn</code>, or to use to assume roles for actions with
    *             an <code>actionRoleArn</code>.</p>
    */
@@ -1752,25 +1760,24 @@ export interface PipelineDeclaration {
   /**
    * <p>Represents information about the S3 bucket where artifacts are stored for the
    *             pipeline.</p>
-   *         <note>
+   *          <note>
    *             <p>You must include either <code>artifactStore</code> or
    *                     <code>artifactStores</code> in your pipeline, but you cannot use both. If you
    *                 create a cross-region action in your pipeline, you must use
    *                     <code>artifactStores</code>.</p>
-   *         </note>
+   *          </note>
    */
   artifactStore?: ArtifactStore;
 
   /**
-   * <p>A mapping of <code>artifactStore</code> objects and their corresponding AWS
-   *             Regions. There must be an artifact store for the pipeline Region and for each
-   *             cross-region action in the pipeline.</p>
-   *         <note>
+   * <p>A mapping of <code>artifactStore</code> objects and their corresponding Amazon Web Services Regions. There must be an artifact store for the pipeline Region and for
+   *             each cross-region action in the pipeline.</p>
+   *          <note>
    *             <p>You must include either <code>artifactStore</code> or
    *                     <code>artifactStores</code> in your pipeline, but you cannot use both. If you
    *                 create a cross-region action in your pipeline, you must use
    *                     <code>artifactStores</code>.</p>
-   *         </note>
+   *          </note>
    */
   artifactStores?: Record<string, ArtifactStore>;
 
@@ -1933,7 +1940,7 @@ export interface DeleteCustomActionTypeInput {
   category: ActionCategory | string | undefined;
 
   /**
-   * <p>The provider of the service used in the custom action, such as AWS
+   * <p>The provider of the service used in the custom action, such as
    *             CodeDeploy.</p>
    */
   provider: string | undefined;
@@ -2125,34 +2132,34 @@ export interface GetActionTypeInput {
   /**
    * <p>Defines what kind of action can be taken in the stage. The following are the valid
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Source</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Build</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Test</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Deploy</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Approval</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Invoke</code>
    *                </p>
    *             </li>
@@ -2214,12 +2221,12 @@ export interface StageContext {
 /**
  * @public
  * <p>Represents information about a pipeline to a job worker.</p>
- *         <note>
+ *          <note>
  *             <p>PipelineContext contains <code>pipelineArn</code> and
  *                     <code>pipelineExecutionId</code> for custom action jobs. The
  *                     <code>pipelineArn</code> and <code>pipelineExecutionId</code> fields are not
  *                 populated for ThirdParty action jobs.</p>
- *         </note>
+ *          </note>
  */
 export interface PipelineContext {
   /**
@@ -2267,10 +2274,10 @@ export interface JobData {
 
   /**
    * <p>Represents information about a pipeline to a job worker.</p>
-   *         <note>
+   *          <note>
    *             <p>Includes <code>pipelineArn</code> and <code>pipelineExecutionId</code> for
    *                 custom jobs.</p>
-   *         </note>
+   *          </note>
    */
   pipelineContext?: PipelineContext;
 
@@ -2285,22 +2292,22 @@ export interface JobData {
   outputArtifacts?: Artifact[];
 
   /**
-   * <p>Represents an AWS session credentials object. These credentials are temporary
-   *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
-   *             access input and output artifacts in the S3 bucket used to store artifacts for the
-   *             pipeline in AWS CodePipeline.</p>
+   * <p>Represents an Amazon Web Services session credentials object. These credentials are
+   *             temporary credentials that are issued by Amazon Web Services Secure Token Service (STS).
+   *             They can be used to access input and output artifacts in the S3 bucket used to store
+   *             artifacts for the pipeline in CodePipeline.</p>
    */
   artifactCredentials?: AWSSessionCredentials;
 
   /**
-   * <p>A system-generated token, such as a AWS CodeDeploy deployment ID, required by a job
-   *             to continue the job asynchronously.</p>
+   * <p>A system-generated token, such as a deployment ID, required by a job to continue
+   *             the job asynchronously.</p>
    */
   continuationToken?: string;
 
   /**
    * <p>Represents information about the key used to encrypt data in the artifact store,
-   *             such as an AWS Key Management Service (AWS KMS) key. </p>
+   *             such as an KMS key. </p>
    */
   encryptionKey?: EncryptionKey;
 }
@@ -2322,7 +2329,7 @@ export interface JobDetails {
   data?: JobData;
 
   /**
-   * <p>The AWS account ID associated with the job.</p>
+   * <p>The Amazon Web Services account ID associated with the job.</p>
    */
   accountId?: string;
 }
@@ -2334,10 +2341,10 @@ export interface JobDetails {
 export interface GetJobDetailsOutput {
   /**
    * <p>The details of the job.</p>
-   *         <note>
+   *          <note>
    *             <p>If AWSSessionCredentials is used, a long-running job can call
    *                     <code>GetJobDetails</code> again to obtain new credentials.</p>
-   *         </note>
+   *          </note>
    */
   jobDetails?: JobDetails;
 }
@@ -2349,7 +2356,7 @@ export interface GetJobDetailsOutput {
 export interface GetPipelineInput {
   /**
    * <p>The name of the pipeline for which you want to get information. Pipeline names must
-   *             be unique under an AWS user account.</p>
+   *             be unique in an Amazon Web Services account.</p>
    */
   name: string | undefined;
 
@@ -2379,6 +2386,17 @@ export interface PipelineMetadata {
    * <p>The date and time the pipeline was last updated, in timestamp format.</p>
    */
   updated?: Date;
+
+  /**
+   * <p>The date and time that polling for source changes (periodic checks) was stopped for
+   *             the pipeline, in timestamp format. You can migrate (update) a polling pipeline to use
+   *             event-based change detection. For example, for a pipeline with a CodeCommit
+   *             source, we recommend you migrate (update) your pipeline to use CloudWatch Events. To
+   *             learn more, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/update-change-detection.html">Migrate polling
+   *                 pipelines to use event-based change detection</a> in the CodePipeline
+   *             User Guide.</p>
+   */
+  pollingDisabledAt?: Date;
 }
 
 /**
@@ -2478,33 +2496,33 @@ export interface PipelineExecution {
 
   /**
    * <p>The status of the pipeline execution.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Cancelled: The pipeline’s definition was updated before the pipeline
+   *                <p>Cancelled: The pipeline’s definition was updated before the pipeline
    *                     execution could be completed.</p>
    *             </li>
    *             <li>
-   *                 <p>InProgress: The pipeline execution is currently running.</p>
+   *                <p>InProgress: The pipeline execution is currently running.</p>
    *             </li>
    *             <li>
-   *                 <p>Stopped: The pipeline execution was manually stopped. For more information,
+   *                <p>Stopped: The pipeline execution was manually stopped. For more information,
    *                     see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped">Stopped Executions</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>Stopping: The pipeline execution received a request to be manually stopped.
+   *                <p>Stopping: The pipeline execution received a request to be manually stopped.
    *                     Depending on the selected stop mode, the execution is either completing or
    *                     abandoning in-progress actions. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped">Stopped Executions</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>Succeeded: The pipeline execution was completed successfully. </p>
+   *                <p>Succeeded: The pipeline execution was completed successfully. </p>
    *             </li>
    *             <li>
-   *                 <p>Superseded: While this pipeline execution was waiting for the next stage to
+   *                <p>Superseded: While this pipeline execution was waiting for the next stage to
    *                     be completed, a newer pipeline execution advanced and continued through the
    *                     pipeline instead. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded">Superseded Executions</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>Failed: The pipeline execution was not completed successfully.</p>
+   *                <p>Failed: The pipeline execution was not completed successfully.</p>
    *             </li>
    *          </ul>
    */
@@ -2596,10 +2614,10 @@ export interface StageExecution {
   /**
    * <p>The status of the stage, or for a completed stage, the last status of the
    *             stage.</p>
-   *         <note>
+   *          <note>
    *             <p>A status of cancelled means that the pipeline’s definition was updated before the
    *                 stage execution could be completed.</p>
-   *         </note>
+   *          </note>
    */
   status: StageExecutionStatus | string | undefined;
 }
@@ -2677,10 +2695,10 @@ export interface GetPipelineStateOutput {
 
   /**
    * <p>The version number of the pipeline.</p>
-   *         <note>
+   *          <note>
    *             <p>A newly created pipeline is always assigned a version number of
    *                 <code>1</code>.</p>
-   *         </note>
+   *          </note>
    */
   pipelineVersion?: number;
 
@@ -2735,10 +2753,10 @@ export interface ThirdPartyJobData {
 
   /**
    * <p>Represents information about a pipeline to a job worker.</p>
-   *         <note>
+   *          <note>
    *             <p>Does not include <code>pipelineArn</code> and <code>pipelineExecutionId</code>
    *                 for ThirdParty jobs.</p>
-   *         </note>
+   *          </note>
    */
   pipelineContext?: PipelineContext;
 
@@ -2758,23 +2776,23 @@ export interface ThirdPartyJobData {
   outputArtifacts?: Artifact[];
 
   /**
-   * <p>Represents an AWS session credentials object. These credentials are temporary
-   *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
-   *             access input and output artifacts in the S3 bucket used to store artifact for the
-   *             pipeline in AWS CodePipeline. </p>
+   * <p>Represents an Amazon Web Services session credentials object. These credentials are
+   *             temporary credentials that are issued by Amazon Web Services Secure Token Service (STS).
+   *             They can be used to access input and output artifacts in the S3 bucket used to store
+   *             artifact for the pipeline in CodePipeline. </p>
    */
   artifactCredentials?: AWSSessionCredentials;
 
   /**
-   * <p>A system-generated token, such as a AWS CodeDeploy deployment ID, that a job
-   *             requires to continue the job asynchronously.</p>
+   * <p>A system-generated token, such as a CodeDeploy deployment ID, that a job requires
+   *             to continue the job asynchronously.</p>
    */
   continuationToken?: string;
 
   /**
    * <p>The encryption key used to encrypt and decrypt data in the artifact store for the
-   *             pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and
-   *             might not be present.</p>
+   *             pipeline, such as an Amazon Web Services Key Management Service (Amazon Web Services KMS)
+   *             key. This is optional and might not be present.</p>
    */
   encryptionKey?: EncryptionKey;
 }
@@ -2786,7 +2804,7 @@ export interface ThirdPartyJobData {
  */
 export interface ThirdPartyJobDetails {
   /**
-   * <p>The identifier used to identify the job details in AWS CodePipeline.</p>
+   * <p>The identifier used to identify the job details in CodePipeline.</p>
    */
   id?: string;
 
@@ -2796,8 +2814,8 @@ export interface ThirdPartyJobDetails {
   data?: ThirdPartyJobData;
 
   /**
-   * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
-   *             is being worked on by only one job worker. Use this number in an <a>AcknowledgeThirdPartyJob</a> request.</p>
+   * <p>A system-generated random number that CodePipeline uses to ensure that the
+   *             job is being worked on by only one job worker. Use this number in an <a>AcknowledgeThirdPartyJob</a> request.</p>
    */
   nonce?: string;
 }
@@ -2874,10 +2892,10 @@ export interface ListActionExecutionsInput {
    *             results, make another call with the returned nextToken value. Action execution history
    *             is retained for up to 12 months, based on action execution start times. Default value is
    *             100. </p>
-   *         <note>
+   *          <note>
    *             <p>Detailed execution history is available for executions run on or after February
    *                 21, 2019.</p>
-   *         </note>
+   *          </note>
    */
   maxResults?: number;
 
@@ -2992,14 +3010,14 @@ export interface SourceRevision {
 
   /**
    * <p>Summary information about the most recent revision of the artifact. For GitHub and
-   *             AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
-   *             user-provided content of a <code>codepipeline-artifact-revision-summary</code> key
+   *             CodeCommit repositories, the commit message. For Amazon S3 buckets or actions,
+   *             the user-provided content of a <code>codepipeline-artifact-revision-summary</code> key
    *             specified in the object metadata.</p>
    */
   revisionSummary?: string;
 
   /**
-   * <p>The commit ID for the artifact revision. For artifacts stored in GitHub or AWS
+   * <p>The commit ID for the artifact revision. For artifacts stored in GitHub or
    *             CodeCommit repositories, the commit ID is linked to a commit details page.</p>
    */
   revisionUrl?: string;
@@ -3065,29 +3083,29 @@ export interface PipelineExecutionSummary {
 
   /**
    * <p>The status of the pipeline execution.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>InProgress: The pipeline execution is currently running.</p>
+   *                <p>InProgress: The pipeline execution is currently running.</p>
    *             </li>
    *             <li>
-   *                 <p>Stopped: The pipeline execution was manually stopped. For more information,
+   *                <p>Stopped: The pipeline execution was manually stopped. For more information,
    *                     see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped">Stopped Executions</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>Stopping: The pipeline execution received a request to be manually stopped.
+   *                <p>Stopping: The pipeline execution received a request to be manually stopped.
    *                     Depending on the selected stop mode, the execution is either completing or
    *                     abandoning in-progress actions. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped">Stopped Executions</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>Succeeded: The pipeline execution was completed successfully. </p>
+   *                <p>Succeeded: The pipeline execution was completed successfully. </p>
    *             </li>
    *             <li>
-   *                 <p>Superseded: While this pipeline execution was waiting for the next stage to
+   *                <p>Superseded: While this pipeline execution was waiting for the next stage to
    *                     be completed, a newer pipeline execution advanced and continued through the
    *                     pipeline instead. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded">Superseded Executions</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>Failed: The pipeline execution was not completed successfully.</p>
+   *                <p>Failed: The pipeline execution was not completed successfully.</p>
    *             </li>
    *          </ul>
    */
@@ -3356,8 +3374,8 @@ export interface WebhookFilterRule {
    *             Properties from the target action configuration can be included as placeholders in this
    *             value by surrounding the action configuration key with curly brackets. For example, if
    *             the value supplied here is "refs/heads/\{Branch\}" and the target action has an action
-   *             configuration property called "Branch" with a value of "master", the
-   *                 <code>MatchEquals</code> value is evaluated as "refs/heads/master". For a list of
+   *             configuration property called "Branch" with a value of "main", the
+   *                 <code>MatchEquals</code> value is evaluated as "refs/heads/main". For a list of
    *             action configuration properties for built-in action types, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Pipeline Structure Reference Action Requirements</a>.</p>
    */
   matchEquals?: string;
@@ -3393,19 +3411,19 @@ export interface WebhookDefinition {
 
   /**
    * <p>Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For information about the authentication scheme implemented by GITHUB_HMAC,
+   *                <p>For information about the authentication scheme implemented by GITHUB_HMAC,
    *                     see <a href="https://developer.github.com/webhooks/securing/">Securing your
    *                         webhooks</a> on the GitHub Developer website.</p>
    *             </li>
    *             <li>
-   *                 <p> IP rejects webhooks trigger requests unless they originate from an IP
+   *                <p> IP rejects webhooks trigger requests unless they originate from an IP
    *                     address in the IP range whitelisted in the authentication
    *                     configuration.</p>
    *             </li>
    *             <li>
-   *                 <p> UNAUTHENTICATED accepts all webhook trigger requests regardless of
+   *                <p> UNAUTHENTICATED accepts all webhook trigger requests regardless of
    *                     origin.</p>
    *             </li>
    *          </ul>
@@ -3435,9 +3453,9 @@ export interface ListWebhookItem {
   definition: WebhookDefinition | undefined;
 
   /**
-   * <p>A unique URL generated by CodePipeline. When a POST request is made to this URL,
-   *             the defined pipeline is started as long as the body of the post request satisfies the
-   *             defined authentication and filtering conditions. Deleting and re-creating a webhook
+   * <p>A unique URL generated by CodePipeline. When a POST request is made to this
+   *             URL, the defined pipeline is started as long as the body of the post request satisfies
+   *             the defined authentication and filtering conditions. Deleting and re-creating a webhook
    *             makes the old URL invalid and generates a new one.</p>
    */
   url: string | undefined;
@@ -3527,13 +3545,13 @@ export interface Job {
   data?: JobData;
 
   /**
-   * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
-   *             is being worked on by only one job worker. Use this number in an <a>AcknowledgeJob</a> request.</p>
+   * <p>A system-generated random number that CodePipeline uses to ensure that the
+   *             job is being worked on by only one job worker. Use this number in an <a>AcknowledgeJob</a> request.</p>
    */
   nonce?: string;
 
   /**
-   * <p>The ID of the AWS account to use when performing the job.</p>
+   * <p>The ID of the Amazon Web Services account to use when performing the job.</p>
    */
   accountId?: string;
 }
@@ -3567,8 +3585,7 @@ export interface PollForThirdPartyJobsInput {
 
 /**
  * @public
- * <p>A response to a <code>PollForThirdPartyJobs</code> request returned by AWS
- *             CodePipeline when there is a job to be worked on by a partner action.</p>
+ * <p>A response to a <code>PollForThirdPartyJobs</code> request returned by CodePipeline when there is a job to be worked on by a partner action.</p>
  */
 export interface ThirdPartyJob {
   /**
@@ -3579,7 +3596,7 @@ export interface ThirdPartyJob {
   clientId?: string;
 
   /**
-   * <p>The identifier used to identify the job in AWS CodePipeline.</p>
+   * <p>The identifier used to identify the job in CodePipeline.</p>
    */
   jobId?: string;
 }
@@ -3839,7 +3856,7 @@ export interface ExecutionDetails {
 
   /**
    * <p>The system-generated unique ID of this action used to identify this job worker in
-   *             any external systems, such as AWS CodeDeploy.</p>
+   *             any external systems, such as CodeDeploy.</p>
    */
   externalExecutionId?: string;
 
@@ -3868,7 +3885,7 @@ export interface PutJobSuccessResultInput {
   currentRevision?: CurrentRevision;
 
   /**
-   * <p>A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a
+   * <p>A token generated by a job worker, such as a CodeDeploy deployment ID, that a
    *             successful job provides to identify a custom action in progress. Future jobs use this
    *             token to identify the running instance of the action. It can be reused to return more
    *             information about the progress of the custom action. When the action is complete, no
@@ -3938,7 +3955,7 @@ export interface PutThirdPartyJobSuccessResultInput {
   currentRevision?: CurrentRevision;
 
   /**
-   * <p>A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a
+   * <p>A token generated by a job worker, such as a CodeDeploy deployment ID, that a
    *             successful job provides to identify a partner action in progress. Future jobs use this
    *             token to identify the running instance of the action. It can be reused to return more
    *             information about the progress of the partner action. When the action is complete, no
@@ -4061,8 +4078,9 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
- * <p>The stage has failed in a later run of the pipeline and the pipelineExecutionId
- *             associated with the request is out of date.</p>
+ * <p>The stage has failed in a later run of the pipeline and the
+ *                 <code>pipelineExecutionId</code> associated with the request is out of
+ *             date.</p>
  */
 export class NotLatestPipelineExecutionException extends __BaseException {
   readonly name: "NotLatestPipelineExecutionException" = "NotLatestPipelineExecutionException";
@@ -4247,9 +4265,9 @@ export interface StopPipelineExecutionInput {
   /**
    * <p>Use this option to stop the pipeline execution by abandoning, rather than finishing,
    *             in-progress actions.</p>
-   *         <note>
+   *          <note>
    *             <p>This option can lead to failed or out-of-sequence tasks.</p>
-   *         </note>
+   *          </note>
    */
   abandon?: boolean;
 

@@ -63,11 +63,11 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * //       actionName: "STRING_VALUE",
  * //       startTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
- * //       status: "STRING_VALUE",
+ * //       status: "InProgress" || "Abandoned" || "Succeeded" || "Failed",
  * //       input: { // ActionExecutionInput
  * //         actionTypeId: { // ActionTypeId
- * //           category: "STRING_VALUE", // required
- * //           owner: "STRING_VALUE", // required
+ * //           category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //           owner: "AWS" || "ThirdParty" || "Custom", // required
  * //           provider: "STRING_VALUE", // required
  * //           version: "STRING_VALUE", // required
  * //         },

@@ -51,7 +51,7 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * const command = new AcknowledgeJobCommand(input);
  * const response = await client.send(command);
  * // { // AcknowledgeJobOutput
- * //   status: "STRING_VALUE",
+ * //   status: "Created" || "Queued" || "Dispatched" || "InProgress" || "TimedOut" || "Succeeded" || "Failed",
  * // };
  *
  * ```

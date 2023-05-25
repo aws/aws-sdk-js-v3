@@ -47,7 +47,7 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * const input = { // DisableStageTransitionInput
  *   pipelineName: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
- *   transitionType: "STRING_VALUE", // required
+ *   transitionType: "Inbound" || "Outbound", // required
  *   reason: "STRING_VALUE", // required
  * };
  * const command = new DisableStageTransitionCommand(input);

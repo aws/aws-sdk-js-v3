@@ -36,8 +36,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
 
 /**
  * @public
- * <p>Deletes a previously created webhook by name. Deleting the webhook stops AWS
- *             CodePipeline from starting a pipeline every time an external event occurs. The API
+ * <p>Deletes a previously created webhook by name. Deleting the webhook stops CodePipeline from starting a pipeline every time an external event occurs. The API
  *             returns successfully when trying to delete a webhook that is already deleted. If a
  *             deleted webhook is re-created by calling PutWebhook with the same name, it will have a
  *             different URL.</p>

@@ -63,12 +63,12 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *           ],
  *         },
  *       },
- *       type: "STRING_VALUE", // required
+ *       type: "JobWorker" || "Lambda", // required
  *       policyStatementsTemplate: "STRING_VALUE",
  *       jobTimeout: Number("int"),
  *     },
  *     id: { // ActionTypeIdentifier
- *       category: "STRING_VALUE", // required
+ *       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
  *       owner: "STRING_VALUE", // required
  *       provider: "STRING_VALUE", // required
  *       version: "STRING_VALUE", // required
