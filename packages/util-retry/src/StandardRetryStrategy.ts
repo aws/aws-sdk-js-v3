@@ -29,7 +29,6 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
 
   public async acquireInitialRetryToken(retryTokenScope: string): Promise<StandardRetryToken> {
     return createDefaultRetryToken({
-      availableCapacity: this.capacity,
       retryDelay: DEFAULT_RETRY_DELAY_BASE,
       retryCount: 0,
     });
@@ -55,10 +54,9 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
       const capacityCost = this.getCapacityCost(errorType);
       this.capacity -= capacityCost;
       return createDefaultRetryToken({
-        availableCapacity: this.capacity,
         retryDelay,
         retryCount: token.getRetryCount() + 1,
-        lastRetryCost: capacityCost,
+        retryCost: capacityCost,
       });
     }
 

@@ -8,16 +8,15 @@ import { MAXIMUM_RETRY_DELAY } from "./constants";
 export const createDefaultRetryToken = ({
   retryDelay,
   retryCount,
-  lastRetryCost,
+  retryCost,
 }: {
-  availableCapacity: number;
   retryDelay: number;
   retryCount: number;
-  lastRetryCost?: number;
+  retryCost?: number;
 }): StandardRetryToken => {
   const getRetryCount = (): number => retryCount;
   const getRetryDelay = (): number => Math.min(MAXIMUM_RETRY_DELAY, retryDelay);
-  const getRetryCost = (): number | undefined => lastRetryCost;
+  const getRetryCost = (): number | undefined => retryCost;
 
   return {
     getRetryCount,

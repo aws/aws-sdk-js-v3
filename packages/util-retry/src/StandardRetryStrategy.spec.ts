@@ -43,7 +43,6 @@ describe(StandardRetryStrategy.name, () => {
       const retryToken = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
       expect(retryToken).toEqual(
         createDefaultRetryToken({
-          availableCapacity: INITIAL_RETRY_TOKENS,
           retryDelay: DEFAULT_RETRY_DELAY_BASE,
           retryCount: 0,
         })
