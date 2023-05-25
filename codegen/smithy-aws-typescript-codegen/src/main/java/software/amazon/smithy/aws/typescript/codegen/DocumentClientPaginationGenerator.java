@@ -95,6 +95,9 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.addImport(paginationType, paginationType,
             Paths.get(".", getInterfaceFilelocation().replace(".ts", "")).toString());
 
+        writer.writeDocs("@public");
+        writer.write("export { Paginator }");
+
         writeCommandRequest();
         writeMethodRequest();
         writePager();
@@ -123,6 +126,11 @@ final class DocumentClientPaginationGenerator implements Runnable {
             DocumentClientUtils.CLIENT_FULL_NAME,
             Paths.get(".", DocumentClientUtils.CLIENT_FULL_NAME).toString());
 
+        writer.writeDocs("@public");
+        writer.write("export { PaginationConfiguration };");
+        writer.write("");
+
+        writer.writeDocs("@public");
         writer.openBlock("export interface $LPaginationConfiguration extends PaginationConfiguration {",
                 "}", DocumentClientUtils.CLIENT_FULL_NAME, () -> {
             writer.write("client: $L | $L;", DocumentClientUtils.CLIENT_FULL_NAME, DocumentClientUtils.CLIENT_NAME);
@@ -137,6 +145,10 @@ final class DocumentClientPaginationGenerator implements Runnable {
         String inputTokenName = paginatedInfo.getPaginatedTrait().getInputToken().get();
         String outputTokenName = paginatedInfo.getPaginatedTrait().getOutputToken().get();
 
+        writer.writeDocs("@public\n\n"
+            + String.format("@param %s - {@link %s}%n", inputTypeName, inputTypeName)
+            + String.format("@returns {@link %s}%n", outputTypeName)
+            );
         writer.openBlock(
                 "export async function* paginate$L(config: $L, input: $L, ...additionalArguments: any): Paginator<$L>{",
                 "}",  operationName, paginationType, inputTypeName, outputTypeName, () -> {
@@ -188,7 +200,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
      * exposes the entire service.
      */
     private void writeMethodRequest() {
-        writer.writeDocs("@private");
+        writer.writeDocs("@internal");
         writer.openBlock(
                 "const makePagedRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
                 "}", DocumentClientUtils.CLIENT_FULL_NAME, inputTypeName,
@@ -203,7 +215,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
      * environments and does not generally expose the entire service.
      */
     private void writeCommandRequest() {
-        writer.writeDocs("@private");
+        writer.writeDocs("@internal");
         writer.openBlock(
                 "const makePagedClientRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
                 "}", DocumentClientUtils.CLIENT_NAME, inputTypeName,

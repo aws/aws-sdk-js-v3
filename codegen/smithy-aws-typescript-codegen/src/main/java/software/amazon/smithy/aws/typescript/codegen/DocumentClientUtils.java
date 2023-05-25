@@ -133,7 +133,9 @@ final class DocumentClientUtils {
     static String getCommandDocs(String operationName) {
         return "Accepts native JavaScript types instead of `AttributeValue`s, and calls\n"
             + operationName + " operation from "
-            + "{@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.\n\n"
+            + "{@link @aws-sdk/client-dynamodb#"
+            + operationName
+            + "}.\n\n"
             + "JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes \n"
             + "required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.";
     }
@@ -173,6 +175,6 @@ final class DocumentClientUtils {
         + "```json\n"
         + "[null, false, 1, \"two\"]\n"
         + "```\n\n"
-        + "@see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}";
+        + "@see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb | @aws-sdk/client-dynamodb}";
     }
 }

@@ -77,7 +77,7 @@ import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClien
  * [null, false, 1, "two"]
  * ```
  *
- * @see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}
+ * @see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb | @aws-sdk/client-dynamodb}
  */
 export class DynamoDBDocument extends DynamoDBDocumentClient {
   static from(client: DynamoDBClient, translateConfig?: TranslateConfig) {
@@ -86,7 +86,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * BatchExecuteStatementCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * BatchExecuteStatementCommand operation from {@link @aws-sdk/client-dynamodb#BatchExecuteStatementCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -122,7 +122,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * BatchGetItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * BatchGetItemCommand operation from {@link @aws-sdk/client-dynamodb#BatchGetItemCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -152,7 +152,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * BatchWriteItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * BatchWriteItemCommand operation from {@link @aws-sdk/client-dynamodb#BatchWriteItemCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -182,7 +182,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * DeleteItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * DeleteItemCommand operation from {@link @aws-sdk/client-dynamodb#DeleteItemCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -212,7 +212,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * ExecuteStatementCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * ExecuteStatementCommand operation from {@link @aws-sdk/client-dynamodb#ExecuteStatementCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -248,7 +248,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * ExecuteTransactionCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * ExecuteTransactionCommand operation from {@link @aws-sdk/client-dynamodb#ExecuteTransactionCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -284,7 +284,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * GetItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * GetItemCommand operation from {@link @aws-sdk/client-dynamodb#GetItemCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -314,7 +314,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * PutItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * PutItemCommand operation from {@link @aws-sdk/client-dynamodb#PutItemCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -344,7 +344,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * QueryCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * QueryCommand operation from {@link @aws-sdk/client-dynamodb#QueryCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -374,7 +374,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * ScanCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * ScanCommand operation from {@link @aws-sdk/client-dynamodb#ScanCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -404,7 +404,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * TransactGetItemsCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * TransactGetItemsCommand operation from {@link @aws-sdk/client-dynamodb#TransactGetItemsCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -434,7 +434,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * TransactWriteItemsCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * TransactWriteItemsCommand operation from {@link @aws-sdk/client-dynamodb#TransactWriteItemsCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
@@ -470,7 +470,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
 
   /**
    * Accepts native JavaScript types instead of `AttributeValue`s, and calls
-   * UpdateItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   * UpdateItemCommand operation from {@link @aws-sdk/client-dynamodb#UpdateItemCommand}.
    *
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.

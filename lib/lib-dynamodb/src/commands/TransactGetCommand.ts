@@ -7,12 +7,21 @@ import {
   TransactGetItemsCommandInput as __TransactGetItemsCommandInput,
   TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "TransactItems"> & {
   TransactItems:
     | (Omit<TransactGetItem, "Get"> & {
@@ -25,6 +34,9 @@ export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "Tran
     | undefined;
 };
 
+/**
+ * @public
+ */
 export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Responses"> & {
   Responses?: (Omit<ItemResponse, "Item"> & {
     Item?: Record<string, NativeAttributeValue>;
@@ -33,10 +45,12 @@ export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Re
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * TransactGetItemsCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * TransactGetItemsCommand operation from {@link @aws-sdk/client-dynamodb#TransactGetItemsCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
 export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   TransactGetCommandInput,

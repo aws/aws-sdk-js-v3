@@ -5,12 +5,21 @@ import {
   BatchGetItemCommandOutput as __BatchGetItemCommandOutput,
   KeysAndAttributes,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItems"> & {
   RequestItems:
     | Record<
@@ -22,6 +31,9 @@ export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItem
     | undefined;
 };
 
+/**
+ * @public
+ */
 export type BatchGetCommandOutput = Omit<__BatchGetItemCommandOutput, "Responses" | "UnprocessedKeys"> & {
   Responses?: Record<string, Record<string, NativeAttributeValue>[]>;
   UnprocessedKeys?: Record<
@@ -34,10 +46,12 @@ export type BatchGetCommandOutput = Omit<__BatchGetItemCommandOutput, "Responses
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * BatchGetItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * BatchGetItemCommand operation from {@link @aws-sdk/client-dynamodb#BatchGetItemCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
 export class BatchGetCommand extends DynamoDBDocumentClientCommand<
   BatchGetCommandInput,

@@ -6,12 +6,21 @@ import {
   ItemResponse,
   ParameterizedStatement,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInput, "TransactStatements"> & {
   TransactStatements:
     | (Omit<ParameterizedStatement, "Parameters"> & {
@@ -20,6 +29,9 @@ export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInp
     | undefined;
 };
 
+/**
+ * @public
+ */
 export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOutput, "Responses"> & {
   Responses?: (Omit<ItemResponse, "Item"> & {
     Item?: Record<string, NativeAttributeValue>;
@@ -28,10 +40,12 @@ export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOu
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * ExecuteTransactionCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * ExecuteTransactionCommand operation from {@link @aws-sdk/client-dynamodb#ExecuteTransactionCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
 export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
   ExecuteTransactionCommandInput,
