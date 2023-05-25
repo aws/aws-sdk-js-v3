@@ -56,6 +56,7 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  *     TargetTable: { // DataQualityTargetTable
  *       TableName: "STRING_VALUE", // required
  *       DatabaseName: "STRING_VALUE", // required
+ *       CatalogId: "STRING_VALUE",
  *     },
  *   },
  *   Tags: { // TagsMap
@@ -74,6 +75,7 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * //       TargetTable: { // DataQualityTargetTable
  * //         TableName: "STRING_VALUE", // required
  * //         DatabaseName: "STRING_VALUE", // required
+ * //         CatalogId: "STRING_VALUE",
  * //       },
  * //       RecommendationRunId: "STRING_VALUE",
  * //       RuleCount: Number("int"),

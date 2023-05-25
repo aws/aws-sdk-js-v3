@@ -14,7 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUserDefinedFunctionRequest, GetUserDefinedFunctionResponse } from "../models/models_1";
+import { GetUserDefinedFunctionRequest } from "../models/models_1";
+import { GetUserDefinedFunctionResponse } from "../models/models_2";
 import { de_GetUserDefinedFunctionCommand, se_GetUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
 /**

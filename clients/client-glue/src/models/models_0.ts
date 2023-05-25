@@ -87,6 +87,19 @@ export interface Action {
  * @public
  * @enum
  */
+export const AdditionalOptionKeys = {
+  CacheOption: "performanceTuning.caching",
+} as const;
+
+/**
+ * @public
+ */
+export type AdditionalOptionKeys = (typeof AdditionalOptionKeys)[keyof typeof AdditionalOptionKeys];
+
+/**
+ * @public
+ * @enum
+ */
 export const AggFunction = {
   avg: "avg",
   count: "count",
@@ -181,16 +194,16 @@ export class AlreadyExistsException extends __BaseException {
 
 /**
  * @public
- * <p>Specifies an Amazon Redshift data store.</p>
+ * <p>Specifies an optional value when connecting to the Redshift cluster.</p>
  */
 export interface AmazonRedshiftAdvancedOption {
   /**
-   * <p>The key when specifying a key-value pair.</p>
+   * <p>The key for the additional connection option.</p>
    */
   Key?: string;
 
   /**
-   * <p>The value when specifying a key-value pair.</p>
+   * <p>The value for the additional connection option.</p>
    */
   Value?: string;
 }
@@ -2060,6 +2073,11 @@ export interface DataQualityRuleResult {
    * <p>A pass or fail status for the rule.</p>
    */
   Result?: DataQualityRuleResultStatus | string;
+
+  /**
+   * <p>A map of metrics associated with the evaluation of the rule.</p>
+   */
+  EvaluatedMetrics?: Record<string, number>;
 }
 
 /**
@@ -3294,6 +3312,47 @@ export interface EvaluateDataQuality {
    * <p>Options to configure how your results are published.</p>
    */
   PublishingOptions?: DQResultsPublishingOptions;
+
+  /**
+   * <p>Options to configure how your job will stop if your data quality evaluation fails.</p>
+   */
+  StopJobOnFailureOptions?: DQStopJobOnFailureOptions;
+}
+
+/**
+ * @public
+ * <p>Specifies your data quality evaluation criteria.</p>
+ */
+export interface EvaluateDataQualityMultiFrame {
+  /**
+   * <p>The name of the data quality evaluation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The inputs of your data quality evaluation. The first input in this list is the primary data source.</p>
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>The aliases of all data sources except primary.</p>
+   */
+  AdditionalDataSources?: Record<string, string>;
+
+  /**
+   * <p>The ruleset for your data quality evaluation.</p>
+   */
+  Ruleset: string | undefined;
+
+  /**
+   * <p>Options to configure how your results are published.</p>
+   */
+  PublishingOptions?: DQResultsPublishingOptions;
+
+  /**
+   * <p>Options to configure runtime behavior of the transform.</p>
+   */
+  AdditionalOptions?: Record<string, string>;
 
   /**
    * <p>Options to configure how your job will stop if your data quality evaluation fails.</p>
@@ -7657,6 +7716,11 @@ export interface DataQualityTargetTable {
    * <p>The name of the database where the Glue table exists.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The catalog id where the Glue table exists.</p>
+   */
+  CatalogId?: string;
 }
 
 /**
@@ -8096,145 +8160,4 @@ export interface TransformEncryption {
    * <p>The name of the security configuration.</p>
    */
   TaskRunSecurityConfigurationName?: string;
-}
-
-/**
- * @public
- */
-export interface CreateMLTransformRequest {
-  /**
-   * <p>The unique name that you give the transform when you create it.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the machine learning transform that is being defined. The default is an
-   *       empty string.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of Glue table definitions used by the transform.</p>
-   */
-  InputRecordTables: GlueTable[] | undefined;
-
-  /**
-   * <p>The algorithmic parameters that are specific to the transform type used. Conditionally
-   *       dependent on the transform type.</p>
-   */
-  Parameters: TransformParameters | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both Glue service role permissions to Glue resources, and Amazon S3 permissions required by the transform. </p>
-   *          <ul>
-   *             <li>
-   *                <p>This role needs Glue service role permissions to allow access to resources in Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access Glue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
-   *             </li>
-   *          </ul>
-   */
-  Role: string | undefined;
-
-  /**
-   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *         page</a>. </p>
-   *          <p>
-   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
-   *             </li>
-   *          </ul>
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
-   *             </li>
-   *          </ul>
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   *          <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   */
-  MaxRetries?: number;
-
-  /**
-   * <p>The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
-   */
-  TransformEncryption?: TransformEncryption;
-}
-
-/**
- * @public
- */
-export interface CreateMLTransformResponse {
-  /**
-   * <p>A unique identifier that is generated for the transform.</p>
-   */
-  TransformId?: string;
 }

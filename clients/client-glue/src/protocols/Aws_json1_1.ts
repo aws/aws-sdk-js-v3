@@ -510,13 +510,13 @@ import {
   CreateDevEndpointResponse,
   CreateGrokClassifierRequest,
   CreateJsonClassifierRequest,
-  CreateMLTransformRequest,
   CreateXMLClassifierRequest,
   CustomCode,
   DatabaseIdentifier,
   DatabaseInput,
   DataLakePrincipal,
   DataQualityResult,
+  DataQualityRuleResult,
   DataQualityTargetTable,
   DataSource,
   Datatype,
@@ -536,6 +536,7 @@ import {
   DynamoDBTarget,
   EntityNotFoundException,
   EvaluateDataQuality,
+  EvaluateDataQualityMultiFrame,
   EventBatchingCondition,
   ExecutionProperty,
   FederatedDatabase,
@@ -672,6 +673,7 @@ import {
   ConnectionPasswordEncryption,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateMLTransformRequest,
   CreatePartitionIndexRequest,
   CreatePartitionRequest,
   CreateRegistryInput,
@@ -825,8 +827,6 @@ import {
   GetUnfilteredTableMetadataRequest,
   GetUnfilteredTableMetadataResponse,
   GetUserDefinedFunctionRequest,
-  GetUserDefinedFunctionResponse,
-  GetUserDefinedFunctionsRequest,
   GluePolicy,
   GrokClassifier,
   JobBookmarksEncryption,
@@ -886,6 +886,8 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetUserDefinedFunctionResponse,
+  GetUserDefinedFunctionsRequest,
   GetUserDefinedFunctionsResponse,
   GetWorkflowRequest,
   GetWorkflowResponse,
@@ -15795,6 +15797,7 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     DynamicTransform: _json,
     DynamoDBCatalogSource: _json,
     EvaluateDataQuality: _json,
+    EvaluateDataQualityMultiFrame: _json,
     FillMissingValues: _json,
     Filter: _json,
     GovernedCatalogSource: _json,
@@ -16178,6 +16181,8 @@ const se_DataQualityRulesetFilterCriteria = (input: DataQualityRulesetFilterCrit
 
 // se_DataSource omitted.
 
+// se_DataSourceMap omitted.
+
 // se_Datatype omitted.
 
 /**
@@ -16294,6 +16299,10 @@ const se_DoubleColumnStatisticsData = (input: DoubleColumnStatisticsData, contex
   });
 };
 
+// se_DQAdditionalOptions omitted.
+
+// se_DQDLAliases omitted.
+
 // se_DQResultsPublishingOptions omitted.
 
 // se_DQStopJobOnFailureOptions omitted.
@@ -16341,6 +16350,8 @@ const se_DynamoDBTargetList = (input: DynamoDBTarget[], context: __SerdeContext)
 // se_EncryptionConfiguration omitted.
 
 // se_EvaluateDataQuality omitted.
+
+// se_EvaluateDataQualityMultiFrame omitted.
 
 // se_EventBatchingCondition omitted.
 
@@ -17698,6 +17709,7 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     DynamicTransform: _json,
     DynamoDBCatalogSource: _json,
     EvaluateDataQuality: _json,
+    EvaluateDataQualityMultiFrame: _json,
     FillMissingValues: _json,
     Filter: _json,
     GovernedCatalogSource: _json,
@@ -18242,7 +18254,7 @@ const de_DataQualityResult = (output: any, context: __SerdeContext): DataQuality
     JobName: __expectString,
     JobRunId: __expectString,
     ResultId: __expectString,
-    RuleResults: _json,
+    RuleResults: (_: any) => de_DataQualityRuleResults(_, context),
     RulesetEvaluationRunId: __expectString,
     RulesetName: __expectString,
     Score: __limitedParseDouble,
@@ -18321,9 +18333,30 @@ const de_DataQualityRuleRecommendationRunList = (
   return retVal;
 };
 
-// de_DataQualityRuleResult omitted.
+/**
+ * deserializeAws_json1_1DataQualityRuleResult
+ */
+const de_DataQualityRuleResult = (output: any, context: __SerdeContext): DataQualityRuleResult => {
+  return take(output, {
+    Description: __expectString,
+    EvaluatedMetrics: (_: any) => de_EvaluatedMetricsMap(_, context),
+    EvaluationMessage: __expectString,
+    Name: __expectString,
+    Result: __expectString,
+  }) as any;
+};
 
-// de_DataQualityRuleResults omitted.
+/**
+ * deserializeAws_json1_1DataQualityRuleResults
+ */
+const de_DataQualityRuleResults = (output: any, context: __SerdeContext): DataQualityRuleResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataQualityRuleResult(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1DataQualityRulesetEvaluationRunDescription
@@ -18385,6 +18418,8 @@ const de_DataQualityRulesetListDetails = (output: any, context: __SerdeContext):
 // de_DataQualityTargetTable omitted.
 
 // de_DataSource omitted.
+
+// de_DataSourceMap omitted.
 
 // de_Datatype omitted.
 
@@ -18545,6 +18580,10 @@ const de_DoubleColumnStatisticsData = (output: any, context: __SerdeContext): Do
   }) as any;
 };
 
+// de_DQAdditionalOptions omitted.
+
+// de_DQDLAliases omitted.
+
 // de_DQResultsPublishingOptions omitted.
 
 // de_DQStopJobOnFailureOptions omitted.
@@ -18605,6 +18644,21 @@ const de_DynamoDBTargetList = (output: any, context: __SerdeContext): DynamoDBTa
 // de_ErrorDetails omitted.
 
 // de_EvaluateDataQuality omitted.
+
+// de_EvaluateDataQualityMultiFrame omitted.
+
+/**
+ * deserializeAws_json1_1EvaluatedMetricsMap
+ */
+const de_EvaluatedMetricsMap = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
+  }, {});
+};
 
 /**
  * deserializeAws_json1_1EvaluationMetrics
@@ -18840,7 +18894,7 @@ const de_GetDataQualityResultResponse = (output: any, context: __SerdeContext): 
     JobName: __expectString,
     JobRunId: __expectString,
     ResultId: __expectString,
-    RuleResults: _json,
+    RuleResults: (_: any) => de_DataQualityRuleResults(_, context),
     RulesetEvaluationRunId: __expectString,
     RulesetName: __expectString,
     Score: __limitedParseDouble,
@@ -18880,6 +18934,7 @@ const de_GetDataQualityRulesetEvaluationRunResponse = (
   context: __SerdeContext
 ): GetDataQualityRulesetEvaluationRunResponse => {
   return take(output, {
+    AdditionalDataSources: _json,
     AdditionalRunOptions: _json,
     CompletedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataSource: _json,

@@ -995,6 +995,28 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           },
  *           Inputs: "<OneInput>",
  *         },
+ *         EvaluateDataQualityMultiFrame: { // EvaluateDataQualityMultiFrame
+ *           Name: "STRING_VALUE", // required
+ *           Inputs: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           AdditionalDataSources: { // DQDLAliases
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           Ruleset: "STRING_VALUE", // required
+ *           PublishingOptions: {
+ *             EvaluationContext: "STRING_VALUE",
+ *             ResultsS3Prefix: "STRING_VALUE",
+ *             CloudWatchMetricsEnabled: true || false,
+ *             ResultsPublishingEnabled: true || false,
+ *           },
+ *           AdditionalOptions: { // DQAdditionalOptions
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           StopJobOnFailureOptions: {
+ *             StopJobOnFailureTiming: "Immediate" || "AfterDataLoad",
+ *           },
+ *         },
  *       },
  *     },
  *     ExecutionClass: "FLEX" || "STANDARD",

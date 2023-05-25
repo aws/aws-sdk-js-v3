@@ -33,6 +33,7 @@ import {
   DynamoDBCatalogSource,
   ErrorDetail,
   EvaluateDataQuality,
+  EvaluateDataQualityMultiFrame,
   EventBatchingCondition,
   ExecutionClass,
   ExecutionProperty,
@@ -120,6 +121,49 @@ import {
   UserDefinedFunction,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetUserDefinedFunctionResponse {
+  /**
+   * <p>The requested function definition.</p>
+   */
+  UserDefinedFunction?: UserDefinedFunction;
+}
+
+/**
+ * @public
+ */
+export interface GetUserDefinedFunctionsRequest {
+  /**
+   * <p>The ID of the Data Catalog where the functions to be retrieved are located. If none is
+   *       provided, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the functions are located. If none is provided, functions from all the
+   *       databases across the catalog will be returned.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>An optional function-name pattern string that filters the function
+   *       definitions returned.</p>
+   */
+  Pattern: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of functions to return in one response.</p>
+   */
+  MaxResults?: number;
+}
 
 /**
  * @public
@@ -2378,6 +2422,11 @@ export interface StartDataQualityRulesetEvaluationRunRequest {
    * <p>A list of ruleset names.</p>
    */
   RulesetNames: string[] | undefined;
+
+  /**
+   * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
+   */
+  AdditionalDataSources?: Record<string, DataSource>;
 }
 
 /**
@@ -4424,6 +4473,11 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies a target that writes to a data target in Amazon Redshift.</p>
    */
   AmazonRedshiftTarget?: AmazonRedshiftTarget;
+
+  /**
+   * <p>Specifies your data quality evaluation criteria. Allows multiple input data and returns a collection of Dynamic Frames.</p>
+   */
+  EvaluateDataQualityMultiFrame?: EvaluateDataQualityMultiFrame;
 }
 
 /**

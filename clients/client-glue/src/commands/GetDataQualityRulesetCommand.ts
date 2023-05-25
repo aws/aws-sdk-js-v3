@@ -55,6 +55,7 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * //   TargetTable: { // DataQualityTargetTable
  * //     TableName: "STRING_VALUE", // required
  * //     DatabaseName: "STRING_VALUE", // required
+ * //     CatalogId: "STRING_VALUE",
  * //   },
  * //   CreatedOn: new Date("TIMESTAMP"),
  * //   LastModifiedOn: new Date("TIMESTAMP"),

@@ -79,6 +79,9 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //           Description: "STRING_VALUE",
  * //           EvaluationMessage: "STRING_VALUE",
  * //           Result: "PASS" || "FAIL" || "ERROR",
+ * //           EvaluatedMetrics: { // EvaluatedMetricsMap
+ * //             "<keys>": Number("double"),
+ * //           },
  * //         },
  * //       ],
  * //     },

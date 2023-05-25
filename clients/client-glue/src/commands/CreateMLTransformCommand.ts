@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateMLTransformRequest, CreateMLTransformResponse } from "../models/models_0";
+import { CreateMLTransformRequest, CreateMLTransformResponse } from "../models/models_1";
 import { de_CreateMLTransformCommand, se_CreateMLTransformCommand } from "../protocols/Aws_json1_1";
 
 /**

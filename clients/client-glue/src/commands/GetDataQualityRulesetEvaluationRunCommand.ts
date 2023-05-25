@@ -88,6 +88,19 @@ export interface GetDataQualityRulesetEvaluationRunCommandOutput
  * //   ResultIds: [ // DataQualityResultIdList
  * //     "STRING_VALUE",
  * //   ],
+ * //   AdditionalDataSources: { // DataSourceMap
+ * //     "<keys>": {
+ * //       GlueTable: {
+ * //         DatabaseName: "STRING_VALUE", // required
+ * //         TableName: "STRING_VALUE", // required
+ * //         CatalogId: "STRING_VALUE",
+ * //         ConnectionName: "STRING_VALUE",
+ * //         AdditionalOptions: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

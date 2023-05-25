@@ -74,6 +74,19 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  *   RulesetNames: [ // RulesetNames // required
  *     "STRING_VALUE",
  *   ],
+ *   AdditionalDataSources: { // DataSourceMap
+ *     "<keys>": {
+ *       GlueTable: {
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
  * };
  * const command = new StartDataQualityRulesetEvaluationRunCommand(input);
  * const response = await client.send(command);
