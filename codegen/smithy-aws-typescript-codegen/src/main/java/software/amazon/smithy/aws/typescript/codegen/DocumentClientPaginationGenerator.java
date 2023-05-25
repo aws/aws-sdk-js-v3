@@ -94,7 +94,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.addImport("Paginator", "Paginator", "@aws-sdk/types");
         writer.addImport(paginationType, paginationType,
             Paths.get(".", getInterfaceFilelocation().replace(".ts", "")).toString());
-        
+
         writer.writeDocs("@public");
         writer.write("export { Paginator }");
 
