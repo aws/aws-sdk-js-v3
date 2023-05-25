@@ -4,6 +4,7 @@ import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import {
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,
+  NO_RETRY_INCREMENT,
   RETRY_COST,
   THROTTLING_RETRY_DELAY_BASE,
   TIMEOUT_RETRY_COST,
@@ -16,7 +17,7 @@ import { createDefaultRetryToken } from "./defaultRetryToken";
  */
 export class StandardRetryStrategy implements RetryStrategyV2 {
   public readonly mode: string = RETRY_MODES.STANDARD;
-  private readonly capacityBucket = { availableCapacity: INITIAL_RETRY_TOKENS };
+  private capacity: number = INITIAL_RETRY_TOKENS;
   private readonly retryBackoffStrategy = getDefaultRetryBackoffStrategy();
   private readonly maxAttemptsProvider: Provider<number>;
 
@@ -28,7 +29,7 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
 
   public async acquireInitialRetryToken(retryTokenScope: string): Promise<StandardRetryToken> {
     return createDefaultRetryToken({
-      capacityBucket: this.capacityBucket,
+      availableCapacity: this.capacity,
       retryDelay: DEFAULT_RETRY_DELAY_BASE,
       retryCount: 0,
     });
@@ -57,9 +58,9 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
       } else {
         retryDelay = delayFromErrorType;
       }
-      this.capacityBucket.availableCapacity -= capacityCost;
+      this.capacity -= capacityCost;
       return createDefaultRetryToken({
-        capacityBucket: this.capacityBucket,
+        availableCapacity: this.capacity,
         retryDelay,
         retryCount: token.getRetryCount() + 1,
         lastRetryCost: capacityCost,
@@ -70,7 +71,16 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
   }
 
   public recordSuccess(token: StandardRetryToken): void {
-    token.releaseRetryTokens(token.getLastRetryCost());
+    this.capacity = Math.max(INITIAL_RETRY_TOKENS, this.capacity + (token.getLastRetryCost() ?? NO_RETRY_INCREMENT));
+  }
+
+  /**
+   * @returns the current available retry capacity.
+   *
+   * This number decreases when retries are executed and refills when requests or retries succeed.
+   */
+  public getCapacity(): number {
+    return this.capacity;
   }
 
   private async getMaxAttempts() {
@@ -84,9 +94,13 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
 
   private shouldRetry(tokenToRenew: StandardRetryToken, errorInfo: RetryErrorInfo, maxAttempts: number): boolean {
     const attempts = tokenToRenew.getRetryCount();
+
+    const getCapacityAmount = (errorType: RetryErrorType) =>
+      errorType === "TRANSIENT" ? TIMEOUT_RETRY_COST : RETRY_COST;
+
     return (
       attempts < maxAttempts &&
-      tokenToRenew.hasRetryTokens(errorInfo.errorType) &&
+      this.capacity >= getCapacityAmount(errorInfo.errorType) &&
       this.isRetryableError(errorInfo.errorType)
     );
   }

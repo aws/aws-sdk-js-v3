@@ -109,7 +109,7 @@ describe("util-retry integration tests", () => {
       retryStrategy,
     });
 
-    expect((await retryStrategy.acquireInitialRetryToken("")).getRetryTokenCount()).toEqual(expectedInitialCapacity);
+    expect(retryStrategy.getCapacity()).toEqual(expectedInitialCapacity);
 
     await Promise.all([
       s3.headBucket({ Bucket: "undefined" }),
@@ -121,6 +121,6 @@ describe("util-retry integration tests", () => {
       expect(e.$metadata.totalRetryDelay).toBe(expectedRetryAttemptsPerRequest * delayPerRetry);
     });
 
-    expect((await retryStrategy.acquireInitialRetryToken("")).getRetryTokenCount()).toEqual(expectedRemainingCapacity);
+    expect(retryStrategy.getCapacity()).toEqual(expectedRemainingCapacity);
   });
 });

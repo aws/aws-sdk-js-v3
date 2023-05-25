@@ -43,7 +43,7 @@ describe(StandardRetryStrategy.name, () => {
       const retryToken = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
       expect(retryToken).toEqual(
         createDefaultRetryToken({
-          capacityBucket: { availableCapacity: INITIAL_RETRY_TOKENS },
+          availableCapacity: INITIAL_RETRY_TOKENS,
           retryDelay: DEFAULT_RETRY_DELAY_BASE,
           retryCount: 0,
         })
@@ -64,8 +64,6 @@ describe(StandardRetryStrategy.name, () => {
       const token = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
       await retryStrategy.refreshRetryTokenForRetry(token, errorInfo);
       expect(getRetryCount).toHaveBeenCalledTimes(3);
-      expect(hasRetryTokens).toHaveBeenCalledTimes(1);
-      expect(hasRetryTokens).toHaveBeenCalledWith(errorInfo.errorType);
     });
 
     it("throws when attempts exceeds maxAttempts", async () => {
@@ -131,25 +129,6 @@ describe(StandardRetryStrategy.name, () => {
       } catch (error) {
         expect(error).toStrictEqual(noRetryTokenAvailableError);
       }
-    });
-
-    describe("recordSuccess", () => {
-      it("releases tokens", async () => {
-        const retryCost = 1;
-        const releaseRetryTokens = jest.fn();
-        const getLastRetryCost = jest.fn().mockReturnValue(retryCost);
-        const mockRetryToken = {
-          releaseRetryTokens,
-          getLastRetryCost,
-        };
-        (createDefaultRetryToken as jest.Mock).mockReturnValue(mockRetryToken);
-        const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
-        const token = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
-        retryStrategy.recordSuccess(token);
-        expect(releaseRetryTokens).toHaveBeenCalledTimes(1);
-        expect(releaseRetryTokens).toHaveBeenCalledWith(retryCost);
-        expect(getLastRetryCost).toHaveBeenCalledTimes(1);
-      });
     });
   });
 });
