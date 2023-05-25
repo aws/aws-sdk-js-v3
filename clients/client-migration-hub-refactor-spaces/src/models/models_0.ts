@@ -91,8 +91,10 @@ export interface ApiGatewayProxyInput {
    *       the request, the value is set to <code>REGIONAL</code> by default.</p>
    *          <p>If the value is set to <code>PRIVATE</code> in the request, this creates a private API
    *       endpoint that is isolated from the public internet. The private endpoint can only be accessed
-   *       by using Amazon Virtual Private Cloud (Amazon VPC) endpoints for Amazon API Gateway that
-   *       have been granted access. </p>
+   *       by using Amazon Virtual Private Cloud (Amazon VPC) interface endpoints for the Amazon API Gateway that has been granted access.
+   *     For more information about creating a private connection with Refactor Spaces and interface
+   *     endpoint (Amazon Web Services PrivateLink) availability, see <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/vpc-interface-endpoints.html">Access
+   *       Refactor Spaces using an interface endpoint (Amazon Web Services PrivateLink)</a>.</p>
    */
   EndpointType?: ApiGatewayEndpointType | string;
 
@@ -841,8 +843,9 @@ export type HttpMethod = (typeof HttpMethod)[keyof typeof HttpMethod];
  */
 export interface UriPathRouteInput {
   /**
-   * <p>The path to use to match traffic. Paths must start with <code>/</code> and are relative to
-   *       the base of the application.</p>
+   * <p>This is the path that Refactor Spaces uses to match traffic. Paths must start with <code>/</code> and are relative to
+   *       the base of the application. To use path parameters in the source path, add a variable in curly braces.
+   *       For example, the resource path \{user\} represents a path parameter called 'user'.</p>
    */
   SourcePath: string | undefined;
 
@@ -864,6 +867,11 @@ export interface UriPathRouteInput {
    *       this route's service. </p>
    */
   IncludeChildPaths?: boolean;
+
+  /**
+   * <p>If set to <code>true</code>, this option appends the source path to the service URL endpoint.</p>
+   */
+  AppendSourcePath?: boolean;
 }
 
 /**
@@ -1804,8 +1812,9 @@ export interface GetRouteResponse {
   EnvironmentId?: string;
 
   /**
-   * <p>The path to use to match traffic. Paths must start with <code>/</code> and are relative to
-   *       the base of the application. </p>
+   * <p>This is the path that Refactor Spaces uses to match traffic. Paths must start with <code>/</code> and are relative to
+   *       the base of the application. To use path parameters in the source path, add a variable in curly braces.
+   *       For example, the resource path \{user\} represents a path parameter called 'user'.</p>
    */
   SourcePath?: string;
 
@@ -1851,6 +1860,11 @@ export interface GetRouteResponse {
    * <p>The timestamp of when the route is created. </p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>If set to <code>true</code>, this option appends the source path to the service URL endpoint.</p>
+   */
+  AppendSourcePath?: boolean;
 }
 
 /**
@@ -2202,8 +2216,8 @@ export interface RouteSummary {
   EnvironmentId?: string;
 
   /**
-   * <p>The path to use to match traffic. Paths must start with <code>/</code> and are relative to
-   *       the base of the application.</p>
+   * <p>This is the path that Refactor Spaces uses to match traffic. Paths must start with <code>/</code> and are relative to
+   *       the base of the application. To use path parameters in the source path, add a variable in curly braces. For example, the resource path \{user\} represents a path parameter called 'user'.</p>
    */
   SourcePath?: string;
 
@@ -2249,6 +2263,11 @@ export interface RouteSummary {
    * <p>A timestamp that indicates when the route is created. </p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>If set to <code>true</code>, this option appends the source path to the service URL endpoint.</p>
+   */
+  AppendSourcePath?: boolean;
 }
 
 /**

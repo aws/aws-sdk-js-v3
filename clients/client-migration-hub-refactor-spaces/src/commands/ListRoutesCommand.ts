@@ -90,6 +90,7 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  * //       },
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       AppendSourcePath: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

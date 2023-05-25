@@ -87,6 +87,7 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  * //   },
  * //   LastUpdatedTime: new Date("TIMESTAMP"),
  * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   AppendSourcePath: true || false,
  * // };
  *
  * ```

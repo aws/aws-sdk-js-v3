@@ -1846,6 +1846,7 @@ export const de_GetRouteCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AppendSourcePath: __expectBoolean,
     ApplicationId: __expectString,
     Arn: __expectString,
     CreatedByAccountId: __expectString,
@@ -2885,6 +2886,7 @@ const de_RouteSummaries = (output: any, context: __SerdeContext): RouteSummary[]
  */
 const de_RouteSummary = (output: any, context: __SerdeContext): RouteSummary => {
   return take(output, {
+    AppendSourcePath: __expectBoolean,
     ApplicationId: __expectString,
     Arn: __expectString,
     CreatedByAccountId: __expectString,

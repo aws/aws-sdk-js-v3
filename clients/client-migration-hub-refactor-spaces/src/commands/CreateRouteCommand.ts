@@ -138,6 +138,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  *       "STRING_VALUE",
  *     ],
  *     IncludeChildPaths: true || false,
+ *     AppendSourcePath: true || false,
  *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -161,6 +162,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * //       "STRING_VALUE",
  * //     ],
  * //     IncludeChildPaths: true || false,
+ * //     AppendSourcePath: true || false,
  * //   },
  * //   State: "STRING_VALUE",
  * //   Tags: { // TagMap
