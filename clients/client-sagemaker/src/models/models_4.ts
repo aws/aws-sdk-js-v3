@@ -61,6 +61,42 @@ import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, Search
 /**
  * @public
  */
+export interface StopNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to terminate.</p>
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopPipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StopPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface StopProcessingJobRequest {
   /**
    * <p>The name of the processing job to stop.</p>

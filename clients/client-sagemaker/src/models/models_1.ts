@@ -10,7 +10,9 @@ import {
   ArtifactSource,
   AsyncInferenceConfig,
   AthenaDatasetDefinition,
+  AutoParameter,
   AutoRollbackConfig,
+  Autotune,
   AwsManagedHumanLoopRequestSource,
   BatchDataCaptureConfig,
   BatchStrategy,
@@ -33,6 +35,8 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
+  DeploymentStage,
+  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
   HyperParameterScalingType,
@@ -68,6 +72,61 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateEdgeDeploymentPlanRequest {
+  /**
+   * <p>The name of the edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>List of models associated with the edge deployment plan.</p>
+   */
+  ModelConfigs: EdgeDeploymentModelConfig[] | undefined;
+
+  /**
+   * <p>The device fleet used for this edge deployment plan.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of stages of the edge deployment plan. The number of stages is limited to 10 per deployment.</p>
+   */
+  Stages?: DeploymentStage[];
+
+  /**
+   * <p>List of tags with which to tag the edge deployment plan.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateEdgeDeploymentPlanResponse {
+  /**
+   * <p>The ARN of the edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>List of stages to be added to the edge deployment plan.</p>
+   */
+  Stages: DeploymentStage[] | undefined;
+}
 
 /**
  * @public
@@ -1962,6 +2021,11 @@ export interface ParameterRanges {
    *             of categorical hyperparameters that a hyperparameter tuning job searches.</p>
    */
   CategoricalParameterRanges?: CategoricalParameterRange[];
+
+  /**
+   * <p>A list containing hyperparameter names and example values to be used by Autotune to determine optimal ranges for your tuning job.</p>
+   */
+  AutoParameters?: AutoParameter[];
 }
 
 /**
@@ -2744,6 +2808,44 @@ export interface CreateHyperParameterTuningJobRequest {
    *             tuning job launches.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Configures SageMaker Automatic model tuning (AMT) to automatically find optimal parameters
+   *             for the following fields:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges">ParameterRanges</a>: The names and ranges of parameters that a hyperparameter
+   *                     tuning job can optimize.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>: The maximum resources that can be used for a training job.
+   *                     These resources include the maximum number of training jobs, the maximum runtime of a
+   *                     tuning job, and the maximum number of training jobs to run at the same time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType">TrainingJobEarlyStoppingType</a>: A flag that specifies whether or not to use
+   *                     early stopping for training jobs launched by a hyperparameter tuning job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-RetryStrategy">RetryStrategy</a>: The number of times to retry a training job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">Strategy</a>: Specifies how hyperparameter tuning chooses the combinations of
+   *                     hyperparameter values to use for the training jobs that it launches.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html">ConvergenceDetected</a>: A flag to indicate that Automatic model tuning (AMT) has detected model
+   *                     convergence.</p>
+   *             </li>
+   *          </ul>
+   */
+  Autotune?: Autotune;
 }
 
 /**
@@ -10371,41 +10473,6 @@ export interface DeletePipelineResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline to delete.</p>
    */
   PipelineArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteProjectInput {
-  /**
-   * <p>The name of the project to delete.</p>
-   */
-  ProjectName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSpaceRequest {
-  /**
-   * <p>The ID of the associated Domain.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   */
-  SpaceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteStudioLifecycleConfigRequest {
-  /**
-   * <p>The name of the Studio Lifecycle Configuration to delete.</p>
-   */
-  StudioLifecycleConfigName: string | undefined;
 }
 
 /**

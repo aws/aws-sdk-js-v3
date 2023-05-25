@@ -822,7 +822,9 @@ import {
   AutoMLProblemTypeConfig,
   AutoMLS3DataSource,
   AutoMLSecurityConfig,
+  AutoParameter,
   AutoRollbackConfig,
+  Autotune,
   BatchDataCaptureConfig,
   BatchDescribeModelPackageInput,
   BatchDescribeModelPackageOutput,
@@ -876,8 +878,6 @@ import {
   CreateDataQualityJobDefinitionRequest,
   CreateDeviceFleetRequest,
   CreateDomainRequest,
-  CreateEdgeDeploymentPlanRequest,
-  CreateEdgeDeploymentStageRequest,
   CustomImage,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
@@ -971,6 +971,8 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateEdgeDeploymentPlanRequest,
+  CreateEdgeDeploymentStageRequest,
   CreateEdgePackagingJobRequest,
   CreateEndpointConfigInput,
   CreateEndpointInput,
@@ -1053,9 +1055,6 @@ import {
   DeleteNotebookInstanceInput,
   DeleteNotebookInstanceLifecycleConfigInput,
   DeletePipelineRequest,
-  DeleteProjectInput,
-  DeleteSpaceRequest,
-  DeleteStudioLifecycleConfigRequest,
   DeploymentConfig,
   DriftCheckBaselines,
   DriftCheckBias,
@@ -1190,6 +1189,9 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteProjectInput,
+  DeleteSpaceRequest,
+  DeleteStudioLifecycleConfigRequest,
   DeleteTagsInput,
   DeleteTrialComponentRequest,
   DeleteTrialRequest,
@@ -1357,9 +1359,7 @@ import {
   Image,
   ImageVersion,
   ImportHubContentRequest,
-  InferenceExperimentSummary,
   InferenceRecommendation,
-  InferenceRecommendationsJob,
   MetricData,
   MonitoringExecutionSummary,
   MonitoringSchedule,
@@ -1379,6 +1379,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  InferenceExperimentSummary,
+  InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
   LabelingJobForWorkteamSummary,
   LabelingJobSummary,
@@ -1584,8 +1586,6 @@ import {
   StopInferenceRecommendationsJobRequest,
   StopLabelingJobRequest,
   StopMonitoringScheduleRequest,
-  StopNotebookInstanceInput,
-  StopPipelineExecutionRequest,
   StudioLifecycleConfigDetails,
   TrainingJob,
   TrainingJobSummary,
@@ -1603,6 +1603,8 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopNotebookInstanceInput,
+  StopPipelineExecutionRequest,
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
@@ -19119,7 +19121,13 @@ const se_AutoMLJobConfig = (input: AutoMLJobConfig, context: __SerdeContext): an
 
 // se_AutoMLSecurityConfig omitted.
 
+// se_AutoParameter omitted.
+
+// se_AutoParameters omitted.
+
 // se_AutoRollbackConfig omitted.
+
+// se_Autotune omitted.
 
 // se_BatchDataCaptureConfig omitted.
 
@@ -19368,6 +19376,7 @@ const se_CreateHyperParameterTuningJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    Autotune: _json,
     HyperParameterTuningJobConfig: (_) => se_HyperParameterTuningJobConfig(_, context),
     HyperParameterTuningJobName: [],
     Tags: _json,
@@ -22327,7 +22336,13 @@ const de_AutoMLJobSummary = (output: any, context: __SerdeContext): AutoMLJobSum
 
 // de_AutoMLSecurityConfig omitted.
 
+// de_AutoParameter omitted.
+
+// de_AutoParameters omitted.
+
 // de_AutoRollbackConfig omitted.
+
+// de_Autotune omitted.
 
 // de_BatchDataCaptureConfig omitted.
 
@@ -23350,6 +23365,7 @@ const de_DescribeHyperParameterTuningJobResponse = (
   context: __SerdeContext
 ): DescribeHyperParameterTuningJobResponse => {
   return take(output, {
+    Autotune: _json,
     BestTrainingJob: (_: any) => de_HyperParameterTrainingJobSummary(_, context),
     ConsumedResources: _json,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

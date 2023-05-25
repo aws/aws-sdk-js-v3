@@ -1439,6 +1439,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 ],
  * //               },
  * //             ],
+ * //             AutoParameters: [ // AutoParameters
+ * //               { // AutoParameter
+ * //                 Name: "STRING_VALUE", // required
+ * //                 ValueHint: "STRING_VALUE", // required
+ * //               },
+ * //             ],
  * //           },
  * //           TrainingJobEarlyStoppingType: "Off" || "Auto",
  * //           TuningJobCompletionCriteria: { // TuningJobCompletionCriteria
@@ -1481,6 +1487,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 Values: [ // required
  * //                   "STRING_VALUE",
  * //                 ],
+ * //               },
+ * //             ],
+ * //             AutoParameters: [
+ * //               {
+ * //                 Name: "STRING_VALUE", // required
+ * //                 ValueHint: "STRING_VALUE", // required
  * //               },
  * //             ],
  * //           },
@@ -1550,6 +1562,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   Values: [ // required
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                 },
+ * //               ],
+ * //               AutoParameters: [
+ * //                 {
+ * //                   Name: "STRING_VALUE", // required
+ * //                   ValueHint: "STRING_VALUE", // required
  * //                 },
  * //               ],
  * //             },

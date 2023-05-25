@@ -5487,6 +5487,24 @@ export type AutoMLSortOrder = (typeof AutoMLSortOrder)[keyof typeof AutoMLSortOr
 
 /**
  * @public
+ * <p>The name and an example value of the hyperparameter that
+ *             you want to use in Autotune. If Automatic model tuning (AMT) determines that your hyperparameter is eligible
+ *             for Autotune, an optimal hyperparameter range is selected for you.</p>
+ */
+export interface AutoParameter {
+  /**
+   * <p>The name of the hyperparameter to optimize using Autotune.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An example value of the hyperparameter to optimize using Autotune.</p>
+   */
+  ValueHint: string | undefined;
+}
+
+/**
+ * @public
  * <p>Automatic rollback configuration for handling endpoint deployment failures and
  *             recovery.</p>
  */
@@ -5497,6 +5515,63 @@ export interface AutoRollbackConfig {
    *             deployment.</p>
    */
   Alarms?: Alarm[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AutotuneMode = {
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AutotuneMode = (typeof AutotuneMode)[keyof typeof AutotuneMode];
+
+/**
+ * @public
+ * <p>A flag to indicate if you want to use Autotune to automatically find optimal values for
+ *             the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges">ParameterRanges</a>: The names and ranges of parameters that a hyperparameter
+ *                     tuning job can optimize.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>: The maximum resources that can be used for a training job.
+ *                     These resources include the maximum number of training jobs, the maximum runtime of a
+ *                     tuning job, and the maximum number of training jobs to run at the same time.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType">TrainingJobEarlyStoppingType</a>: A flag that specifies whether or not to use
+ *                     early stopping for training jobs launched by a hyperparameter tuning job.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-RetryStrategy">RetryStrategy</a>: The number of times to retry a training job.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">Strategy</a>: Specifies how hyperparameter tuning chooses the combinations of
+ *                     hyperparameter values to use for the training jobs that it launches.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html">ConvergenceDetected</a>: A flag to indicate that Automatic model tuning (AMT) has detected model
+ *                     convergence.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface Autotune {
+  /**
+   * <p>Set <code>Mode</code> to <code>Enabled</code> if you want to use Autotune.</p>
+   */
+  Mode: AutotuneMode | string | undefined;
 }
 
 /**
@@ -10412,59 +10487,4 @@ export interface DeploymentStage {
    * <p>Configuration of the deployment details.</p>
    */
   DeploymentConfig?: EdgeDeploymentConfig;
-}
-
-/**
- * @public
- */
-export interface CreateEdgeDeploymentPlanRequest {
-  /**
-   * <p>The name of the edge deployment plan.</p>
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>List of models associated with the edge deployment plan.</p>
-   */
-  ModelConfigs: EdgeDeploymentModelConfig[] | undefined;
-
-  /**
-   * <p>The device fleet used for this edge deployment plan.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>List of stages of the edge deployment plan. The number of stages is limited to 10 per deployment.</p>
-   */
-  Stages?: DeploymentStage[];
-
-  /**
-   * <p>List of tags with which to tag the edge deployment plan.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateEdgeDeploymentPlanResponse {
-  /**
-   * <p>The ARN of the edge deployment plan.</p>
-   */
-  EdgeDeploymentPlanArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateEdgeDeploymentStageRequest {
-  /**
-   * <p>The name of the edge deployment plan.</p>
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>List of stages to be added to the edge deployment plan.</p>
-   */
-  Stages: DeploymentStage[] | undefined;
 }

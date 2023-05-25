@@ -41,8 +41,9 @@ export interface DescribeHyperParameterTuningJobCommandOutput
 
 /**
  * @public
- * <p>Gets
- *             a description of a hyperparameter tuning job.</p>
+ * <p>Returns a description of a hyperparameter tuning job, depending on the fields
+ *             selected. These fields can include the name, Amazon Resource Name (ARN), job status of
+ *             your tuning job and more.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,6 +100,12 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //           ],
  * //         },
  * //       ],
+ * //       AutoParameters: [ // AutoParameters
+ * //         { // AutoParameter
+ * //           Name: "STRING_VALUE", // required
+ * //           ValueHint: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //     TrainingJobEarlyStoppingType: "Off" || "Auto",
  * //     TuningJobCompletionCriteria: { // TuningJobCompletionCriteria
@@ -141,6 +148,12 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //           Values: [ // required
  * //             "STRING_VALUE",
  * //           ],
+ * //         },
+ * //       ],
+ * //       AutoParameters: [
+ * //         {
+ * //           Name: "STRING_VALUE", // required
+ * //           ValueHint: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },
@@ -278,6 +291,12 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //             Values: [ // required
  * //               "STRING_VALUE",
  * //             ],
+ * //           },
+ * //         ],
+ * //         AutoParameters: [
+ * //           {
+ * //             Name: "STRING_VALUE", // required
+ * //             ValueHint: "STRING_VALUE", // required
  * //           },
  * //         ],
  * //       },
@@ -457,6 +476,9 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //   },
  * //   ConsumedResources: { // HyperParameterTuningJobConsumedResources
  * //     RuntimeInSeconds: Number("int"),
+ * //   },
+ * //   Autotune: { // Autotune
+ * //     Mode: "Enabled", // required
  * //   },
  * // };
  *

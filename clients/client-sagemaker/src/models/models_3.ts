@@ -62,6 +62,7 @@ import {
   ExperimentConfig,
   HubContentType,
   InferenceExecutionConfig,
+  InferenceExperimentSchedule,
   InferenceExperimentType,
   LabelingJobInputConfig,
   ModelCardSecurityConfig,
@@ -78,6 +79,7 @@ import {
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
+  RecommendationJobType,
   RetryStrategy,
   ServiceCatalogProvisioningDetails,
   SourceAlgorithmSpecification,
@@ -137,10 +139,7 @@ import {
   ImageVersionSortBy,
   ImageVersionSortOrder,
   InferenceExperimentStatus,
-  InferenceExperimentStopDesiredState,
-  InferenceExperimentSummary,
   InferenceMetrics,
-  InferenceRecommendationsJob,
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
@@ -177,6 +176,154 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Lists a summary of properties of an inference experiment.</p>
+ */
+export interface InferenceExperimentSummary {
+  /**
+   * <p>The name of the inference experiment.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the inference experiment.</p>
+   */
+  Type: InferenceExperimentType | string | undefined;
+
+  /**
+   * <p>The duration for which the inference experiment ran or will run.</p>
+   *          <p>The maximum duration that you can set for an inference experiment is 30 days.</p>
+   */
+  Schedule?: InferenceExperimentSchedule;
+
+  /**
+   * <p>The status of the inference experiment.</p>
+   */
+  Status: InferenceExperimentStatus | string | undefined;
+
+  /**
+   * <p>The error message for the inference experiment status result.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The description of the inference experiment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The timestamp at which the inference experiment was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the inference experiment was completed.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>The timestamp when you last modified the inference experiment.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>
+   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage
+   *            Amazon SageMaker Inference endpoints for model deployment.
+   *        </p>
+   */
+  RoleArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceExperimentStopDesiredState = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceExperimentStopDesiredState =
+  (typeof InferenceExperimentStopDesiredState)[keyof typeof InferenceExperimentStopDesiredState];
+
+/**
+ * @public
+ * <p>A structure that contains a list of recommendation jobs.</p>
+ */
+export interface InferenceRecommendationsJob {
+  /**
+   * <p>The name of the job.</p>
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The job description.</p>
+   */
+  JobDescription: string | undefined;
+
+  /**
+   * <p>The recommendation job type.</p>
+   */
+  JobType: RecommendationJobType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommendation job.</p>
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>The status of the job.</p>
+   */
+  Status: RecommendationJobStatus | string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job completed.</p>
+   */
+  CompletionTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+   *     to perform tasks on your behalf.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A timestamp that shows when the job was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If the job fails, provides information why the job failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The name of the created model.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored.
+   *          This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>
+   */
+  SamplePayloadUrl?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a versioned model package.</p>
+   */
+  ModelPackageVersionArn?: string;
+}
 
 /**
  * @public
@@ -9722,42 +9869,6 @@ export interface StopMonitoringScheduleRequest {
    * <p>The name of the schedule to stop.</p>
    */
   MonitoringScheduleName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance to terminate.</p>
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopPipelineExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than once.</p>
-   */
-  ClientRequestToken?: string;
-}
-
-/**
- * @public
- */
-export interface StopPipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
 }
 
 /**

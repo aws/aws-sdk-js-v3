@@ -106,6 +106,12 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *           ],
  *         },
  *       ],
+ *       AutoParameters: [ // AutoParameters
+ *         { // AutoParameter
+ *           Name: "STRING_VALUE", // required
+ *           ValueHint: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *     TrainingJobEarlyStoppingType: "Off" || "Auto",
  *     TuningJobCompletionCriteria: { // TuningJobCompletionCriteria
@@ -148,6 +154,12 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *           Values: [ // required
  *             "STRING_VALUE",
  *           ],
+ *         },
+ *       ],
+ *       AutoParameters: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           ValueHint: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
@@ -287,6 +299,12 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *             ],
  *           },
  *         ],
+ *         AutoParameters: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             ValueHint: "STRING_VALUE", // required
+ *           },
+ *         ],
  *       },
  *       StaticHyperParameters: {
  *         "<keys>": "STRING_VALUE",
@@ -407,6 +425,9 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Autotune: { // Autotune
+ *     Mode: "Enabled", // required
+ *   },
  * };
  * const command = new CreateHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);

@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { CreateEdgeDeploymentStageRequest } from "../models/models_0";
+import { CreateEdgeDeploymentStageRequest } from "../models/models_1";
 import { de_CreateEdgeDeploymentStageCommand, se_CreateEdgeDeploymentStageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
