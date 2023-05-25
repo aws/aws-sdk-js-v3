@@ -41,22 +41,18 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
   ): Promise<StandardRetryToken> {
     const maxAttempts = await this.getMaxAttempts();
 
-    const getCapacityCost = (errorType: RetryErrorType) =>
-      errorType === "TRANSIENT" ? TIMEOUT_RETRY_COST : RETRY_COST;
-
     if (this.shouldRetry(token, errorInfo, maxAttempts)) {
       const errorType = errorInfo.errorType;
-      const capacityCost = getCapacityCost(errorType);
-      const delayBase = errorType === "THROTTLING" ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE;
-      this.retryBackoffStrategy.setDelayBase(delayBase);
+      this.retryBackoffStrategy.setDelayBase(
+        errorType === "THROTTLING" ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE
+      );
+
       const delayFromErrorType = this.retryBackoffStrategy.computeNextBackoffDelay(token.getRetryCount());
-      let retryDelay: number;
-      if (errorInfo.retryAfterHint) {
-        const delayFromRetryAfterHint = errorInfo.retryAfterHint.getTime() - Date.now();
-        retryDelay = Math.max(delayFromRetryAfterHint || 0, delayFromErrorType);
-      } else {
-        retryDelay = delayFromErrorType;
-      }
+      const retryDelay = errorInfo.retryAfterHint
+        ? Math.max(errorInfo.retryAfterHint.getTime() - Date.now() || 0, delayFromErrorType)
+        : delayFromErrorType;
+
+      const capacityCost = this.getCapacityCost(errorType);
       this.capacity -= capacityCost;
       return createDefaultRetryToken({
         availableCapacity: this.capacity,
@@ -94,14 +90,15 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
   private shouldRetry(tokenToRenew: StandardRetryToken, errorInfo: RetryErrorInfo, maxAttempts: number): boolean {
     const attempts = tokenToRenew.getRetryCount();
 
-    const getCapacityAmount = (errorType: RetryErrorType) =>
-      errorType === "TRANSIENT" ? TIMEOUT_RETRY_COST : RETRY_COST;
-
     return (
       attempts < maxAttempts &&
-      this.capacity >= getCapacityAmount(errorInfo.errorType) &&
+      this.capacity >= this.getCapacityCost(errorInfo.errorType) &&
       this.isRetryableError(errorInfo.errorType)
     );
+  }
+
+  private getCapacityCost(errorType: RetryErrorType) {
+    return errorType === "TRANSIENT" ? TIMEOUT_RETRY_COST : RETRY_COST;
   }
 
   private isRetryableError(errorType: RetryErrorType): boolean {
