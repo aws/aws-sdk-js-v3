@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @public
  * <p>Returns all the tags on the specified Application Auto Scaling scalable target.</p>
  *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
- *          resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -338,10 +338,10 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *                <p>Amazon Neptune clusters</p>
  *             </li>
  *             <li>
- *                <p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
+ *                <p>Amazon SageMaker endpoint variants</p>
  *             </li>
  *             <li>
- *                <p>Amazon SageMaker endpoint variants</p>
+ *                <p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
  *             </li>
  *             <li>
  *                <p>Spot Fleets (Amazon EC2)</p>
@@ -351,7 +351,7 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *             </li>
  *          </ul>
  *          <p>To learn more about Application Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling User
- *       Guide</a>.</p>
+ *         Guide</a>.</p>
  *          <p>
  *             <b>API Summary</b>
  *          </p>
