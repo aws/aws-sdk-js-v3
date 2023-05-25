@@ -1,4 +1,4 @@
-import { RetryErrorInfo, RetryErrorType, SdkError } from "@aws-sdk/types";
+import { RetryErrorInfo, RetryErrorType } from "@aws-sdk/types";
 
 import {
   DEFAULT_RETRY_DELAY_BASE,
