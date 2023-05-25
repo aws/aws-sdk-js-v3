@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
+
+
+### Features
+
+* **client-codepipeline:** Add PollingDisabledAt time information in PipelineMetadata object of GetPipeline API. ([384c171](https://github.com/aws/aws-sdk-js-v3/commit/384c171fec44cd2f3a7a060f0ab8edc3ea0288db))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

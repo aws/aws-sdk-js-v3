@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now supports enabling Autotune for tuning jobs which can choose tuning job configurations. ([d7d3a70](https://github.com/aws/aws-sdk-js-v3/commit/d7d3a7012016533b25e6f6831bfae433cc613d83))
+
+
+
+
+
 # [3.339.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.338.0...v3.339.0) (2023-05-24)
 
 

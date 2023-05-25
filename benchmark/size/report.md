@@ -12,7 +12,7 @@
 |@aws-sdk/client-codebuild|3.337.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-codecommit|3.337.0|2.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-codedeploy|3.337.0|1.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-codepipeline|3.337.0|909.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-codepipeline|3.338.0|913.6 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-identity|3.337.0|504.7 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-identity-provider|3.337.0|2.4 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-sync|3.337.0|436.6 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -21,7 +21,7 @@
 |@aws-sdk/client-efs|3.337.0|766 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-eventbridge|3.337.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-firehose|3.337.0|508.7 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-glue|3.337.0|4.1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-glue|3.338.0|4.1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-iam|3.337.0|3.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kinesis|3.337.0|742.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kms|3.337.0|1.6 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

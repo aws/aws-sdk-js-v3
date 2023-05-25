@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
+
+
+### Features
+
+* **client-application-auto-scaling:** With this release, ElastiCache customers will be able to use predefined metricType "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage" for their ElastiCache instances. ([e21f936](https://github.com/aws/aws-sdk-js-v3/commit/e21f936d0e461d7f56430b0a3ba605920487ac89))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-application-auto-scaling

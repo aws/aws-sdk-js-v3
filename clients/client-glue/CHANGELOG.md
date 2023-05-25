@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
+
+
+### Features
+
+* **client-glue:** Added ability to create data quality rulesets for shared, cross-account Glue Data Catalog tables. Added support for dataset comparison rules through a new parameter called AdditionalDataSources. Enhanced the data quality results with a map containing profiled metric values. ([d55340d](https://github.com/aws/aws-sdk-js-v3/commit/d55340d17a969368498ea727c2eee13ee40fc6ba))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

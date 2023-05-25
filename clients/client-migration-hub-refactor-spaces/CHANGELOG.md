@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
+
+
+### Features
+
+* **client-migration-hub-refactor-spaces:** This SDK update allows for path parameter syntax to be passed to the CreateRoute API. Path parameter syntax require parameters to be enclosed in {} characters. This update also includes a new AppendSourcePath field which lets users forward the source path to the Service URL endpoint. ([75a8506](https://github.com/aws/aws-sdk-js-v3/commit/75a8506a97092907c3c1743619aa246b8170b644))
+
+
+
+
+
 # [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-migration-hub-refactor-spaces

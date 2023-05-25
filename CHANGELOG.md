@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
+
+
+### Features
+
+* **client-application-auto-scaling:** With this release, ElastiCache customers will be able to use predefined metricType "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage" for their ElastiCache instances. ([e21f936](https://github.com/aws/aws-sdk-js-v3/commit/e21f936d0e461d7f56430b0a3ba605920487ac89))
+* **client-codepipeline:** Add PollingDisabledAt time information in PipelineMetadata object of GetPipeline API. ([384c171](https://github.com/aws/aws-sdk-js-v3/commit/384c171fec44cd2f3a7a060f0ab8edc3ea0288db))
+* **client-gamelift:** GameLift FleetIQ users can now filter game server claim requests to exclude servers on instances that are draining. ([d1c6cc4](https://github.com/aws/aws-sdk-js-v3/commit/d1c6cc45934594cc8ed17586834ad75c9d037d00))
+* **client-glue:** Added ability to create data quality rulesets for shared, cross-account Glue Data Catalog tables. Added support for dataset comparison rules through a new parameter called AdditionalDataSources. Enhanced the data quality results with a map containing profiled metric values. ([d55340d](https://github.com/aws/aws-sdk-js-v3/commit/d55340d17a969368498ea727c2eee13ee40fc6ba))
+* **client-migration-hub-refactor-spaces:** This SDK update allows for path parameter syntax to be passed to the CreateRoute API. Path parameter syntax require parameters to be enclosed in {} characters. This update also includes a new AppendSourcePath field which lets users forward the source path to the Service URL endpoint. ([75a8506](https://github.com/aws/aws-sdk-js-v3/commit/75a8506a97092907c3c1743619aa246b8170b644))
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now supports enabling Autotune for tuning jobs which can choose tuning job configurations. ([d7d3a70](https://github.com/aws/aws-sdk-js-v3/commit/d7d3a7012016533b25e6f6831bfae433cc613d83))
+* **clients:** update client endpoints as of 2023-05-25 ([0fbe413](https://github.com/aws/aws-sdk-js-v3/commit/0fbe413d55dc18a536e1f778db8a26ce22c7f6eb))
+
+
+
+
+
 # [3.339.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.338.0...v3.339.0) (2023-05-24)
 
 
