@@ -7,7 +7,11 @@ import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
 import { DynamoDBDocumentPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @public
+ */
+export { Paginator };
+/**
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DynamoDBDocumentClient,
@@ -18,7 +22,7 @@ const makePagedClientRequest = async (
   return await client.send(new QueryCommand(input), ...args);
 };
 /**
- * @private
+ * @internal
  */
 const makePagedRequest = async (
   client: DynamoDBDocument,
@@ -28,6 +32,13 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.query(input, ...args);
 };
+/**
+ * @public
+ *
+ * @param QueryCommandInput - {@link QueryCommandInput}
+ * @returns {@link QueryCommandOutput}
+ *
+ */
 export async function* paginateQuery(
   config: DynamoDBDocumentPaginationConfiguration,
   input: QueryCommandInput,

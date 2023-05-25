@@ -10,12 +10,21 @@ import {
   TransactWriteItemsCommandOutput as __TransactWriteItemsCommandOutput,
   Update,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type TransactWriteCommandInput = Omit<__TransactWriteItemsCommandInput, "TransactItems"> & {
   TransactItems:
     | (Omit<TransactWriteItem, "ConditionCheck" | "Put" | "Delete" | "Update"> & {
@@ -39,6 +48,9 @@ export type TransactWriteCommandInput = Omit<__TransactWriteItemsCommandInput, "
     | undefined;
 };
 
+/**
+ * @public
+ */
 export type TransactWriteCommandOutput = Omit<__TransactWriteItemsCommandOutput, "ItemCollectionMetrics"> & {
   ItemCollectionMetrics?: Record<
     string,
@@ -50,10 +62,12 @@ export type TransactWriteCommandOutput = Omit<__TransactWriteItemsCommandOutput,
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * TransactWriteItemsCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * TransactWriteItemsCommand operation from {@link @aws-sdk/client-dynamodb#TransactWriteItemsCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
 export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
   TransactWriteCommandInput,

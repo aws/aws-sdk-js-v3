@@ -6,12 +6,21 @@ import {
   ExpectedAttributeValue,
   ItemCollectionMetrics,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expected" | "ExpressionAttributeValues"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
   Expected?: Record<
@@ -24,6 +33,9 @@ export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expecte
   ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
 };
 
+/**
+ * @public
+ */
 export type DeleteCommandOutput = Omit<__DeleteItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
   Attributes?: Record<string, NativeAttributeValue>;
   ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
@@ -33,10 +45,12 @@ export type DeleteCommandOutput = Omit<__DeleteItemCommandOutput, "Attributes" |
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * DeleteItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * DeleteItemCommand operation from {@link @aws-sdk/client-dynamodb#DeleteItemCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
 export class DeleteCommand extends DynamoDBDocumentClientCommand<
   DeleteCommandInput,

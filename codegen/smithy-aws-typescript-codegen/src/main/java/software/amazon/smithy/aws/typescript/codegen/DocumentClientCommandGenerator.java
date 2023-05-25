@@ -99,6 +99,7 @@ final class DocumentClientCommandGenerator implements Runnable {
         String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
         String configType = DocumentClientUtils.CLIENT_CONFIG_NAME;
 
+
         // Add required imports.
         writer.addImport(configType, configType, servicePath);
         writer.addImport(
@@ -106,6 +107,10 @@ final class DocumentClientCommandGenerator implements Runnable {
             "DynamoDBDocumentClientCommand",
             "./baseCommand/DynamoDBDocumentClientCommand"
         );
+        writer.addImport("Command", "$Command", "@aws-sdk/smithy-client");
+
+        writer.writeDocs("@public");
+        writer.write("export { DynamoDBDocumentClientCommand, $$Command };");
 
         generateInputAndOutputTypes();
 
@@ -117,7 +122,9 @@ final class DocumentClientCommandGenerator implements Runnable {
         });
 
         String name = DocumentClientUtils.getModifiedName(symbol.getName());
-        writer.writeDocs(DocumentClientUtils.getCommandDocs(symbol.getName()));
+        writer.writeDocs(DocumentClientUtils.getCommandDocs(symbol.getName())
+            + "\n\n@public"
+        );
         writer.openBlock(
             "export class $L extends DynamoDBDocumentClientCommand<" + ioTypes + ", $L> {",
             "}",
@@ -289,6 +296,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             Optional<StructureShape> optionalShape,
             List<MemberShape> membersWithAttr
     ) {
+        writer.writeDocs("@public");
         if (optionalShape.isPresent()) {
             writer.addImport(originalTypeName, "__" + originalTypeName, "@aws-sdk/client-dynamodb");
             if (membersWithAttr.isEmpty()) {

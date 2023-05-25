@@ -5,12 +5,21 @@ import {
   ScanCommandInput as __ScanCommandInput,
   ScanCommandOutput as __ScanCommandOutput,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
+/**
+ * @public
+ */
+export { DynamoDBDocumentClientCommand, $Command };
+
+/**
+ * @public
+ */
 export type ScanCommandInput = Omit<
   __ScanCommandInput,
   "ScanFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"
@@ -25,6 +34,9 @@ export type ScanCommandInput = Omit<
   ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
 };
 
+/**
+ * @public
+ */
 export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluatedKey"> & {
   Items?: Record<string, NativeAttributeValue>[];
   LastEvaluatedKey?: Record<string, NativeAttributeValue>;
@@ -32,10 +44,12 @@ export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluat
 
 /**
  * Accepts native JavaScript types instead of `AttributeValue`s, and calls
- * ScanCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ * ScanCommand operation from {@link @aws-sdk/client-dynamodb#ScanCommand}.
  *
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ *
+ * @public
  */
 export class ScanCommand extends DynamoDBDocumentClientCommand<
   ScanCommandInput,
