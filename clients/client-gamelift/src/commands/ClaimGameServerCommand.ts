@@ -48,7 +48,9 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *          <p>To claim a game server, identify a game server group. You can also specify a game
  *             server ID, although this approach bypasses Amazon GameLift FleetIQ placement optimization. Optionally,
  *             include game data to pass to the game server at the start of a game session, such as a
- *             game map or player information. </p>
+ *             game map or player information. Filter options may be included to further restrict how a
+ *             game server is chosen, such as only allowing game servers on <code>ACTIVE</code> instances
+ *             to be claimed.</p>
  *          <p>When a game server is successfully claimed, connection information is returned. A
  *             claimed game server's utilization status remains <code>AVAILABLE</code> while the claim
  *             status is set to <code>CLAIMED</code> for up to 60 seconds. This time period gives the
@@ -65,12 +67,11 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *             <li>
  *                <p>If the game server claim status is <code>CLAIMED</code>.</p>
  *             </li>
+ *             <li>
+ *                <p>If the game server is running on an instance in <code>DRAINING</code> status and
+ *                 provided filter option does not allow placing on <code>DRAINING</code> instances.</p>
+ *             </li>
  *          </ul>
- *          <note>
- *             <p>When claiming a specific game server, this request will succeed even if the game
- *                 server is running on an instance in <code>DRAINING</code> status. To avoid this,
- *                 first check the instance status by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameServerInstances.html">DescribeGameServerInstances</a> .</p>
- *          </note>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
@@ -88,6 +89,11 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *   GameServerGroupName: "STRING_VALUE", // required
  *   GameServerId: "STRING_VALUE",
  *   GameServerData: "STRING_VALUE",
+ *   FilterOption: { // ClaimFilterOption
+ *     InstanceStatuses: [ // FilterInstanceStatuses
+ *       "ACTIVE" || "DRAINING",
+ *     ],
+ *   },
  * };
  * const command = new ClaimGameServerCommand(input);
  * const response = await client.send(command);

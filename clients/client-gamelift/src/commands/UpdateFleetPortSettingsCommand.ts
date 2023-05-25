@@ -14,8 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetPortSettingsInput } from "../models/models_0";
-import { UpdateFleetPortSettingsOutput } from "../models/models_1";
+import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/models_1";
 import { de_UpdateFleetPortSettingsCommand, se_UpdateFleetPortSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**

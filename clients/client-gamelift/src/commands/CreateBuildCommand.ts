@@ -42,23 +42,23 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  *             <p>When setting up a new game build for Amazon GameLift, we recommend using the CLI command <b>
  *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a>
  *                </b>. This helper command combines two tasks: (1) it
- *                 uploads your build files from a file directory to a Amazon GameLift Amazon S3 location, and (2)
+ *                 uploads your build files from a file directory to an Amazon GameLift Amazon S3 location, and (2)
  *                 it creates a new build resource.</p>
  *          </important>
- *          <p>You can use the operation in the following scenarios:</p>
+ *          <p>You can use the <code>CreateBuild</code> operation in the following scenarios:</p>
  *          <ul>
  *             <li>
- *                <p>To create a new game build with build files that are in an Amazon S3 location under
- *                     an Amazon Web Services account that you control. To use this option, you give Amazon GameLift access to
+ *                <p>Create a new game build with build files that are in an Amazon S3 location under an
+ *                     Amazon Web Services account that you control. To use this option, you give Amazon GameLift access to
  *                     the Amazon S3 bucket. With permissions in place, specify a build name, operating
  *                     system, and the Amazon S3 storage location of your game build.</p>
  *             </li>
  *             <li>
- *                <p>To directly upload your build files to a Amazon GameLift Amazon S3 location. To use this
- *                     option,  specify a build name and operating system. This operation creates a new
- *                     build resource and also returns an Amazon S3 location with temporary access
- *                     credentials. Use the credentials to manually upload your build files to the
- *                     specified Amazon S3 location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading Objects</a> in
+ *                <p>Upload your build files to a Amazon GameLift Amazon S3 location. To use this option,
+ *                     specify a build name and operating system. This operation creates a new build
+ *                     resource and also returns an Amazon S3 location with temporary access credentials.
+ *                     Use the credentials to manually upload your build files to the specified Amazon S3
+ *                     location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading Objects</a> in
  *                     the <i>Amazon S3 Developer Guide</i>. After you upload build files to
  *                     the Amazon GameLift Amazon S3 location, you can't update them. </p>
  *             </li>

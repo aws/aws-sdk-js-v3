@@ -305,6 +305,7 @@ import {
   AttributeValue,
   Build,
   CertificateConfiguration,
+  ClaimFilterOption,
   ClaimGameServerInput,
   ClaimGameServerOutput,
   Compute,
@@ -401,6 +402,7 @@ import {
   DesiredPlayerSession,
   Event,
   FilterConfiguration,
+  FilterInstanceStatus,
   FleetAction,
   FleetAttributes,
   FleetCapacityExceededException,
@@ -503,10 +505,10 @@ import {
   UpdateBuildOutput,
   UpdateFleetAttributesInput,
   UpdateFleetCapacityInput,
-  UpdateFleetPortSettingsInput,
   VpcPeeringAuthorization,
 } from "../models/models_0";
 import {
+  UpdateFleetPortSettingsInput,
   UpdateGameServerGroupInput,
   UpdateGameServerGroupOutput,
   UpdateGameServerInput,
@@ -8014,6 +8016,8 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
 
 // se_CertificateConfiguration omitted.
 
+// se_ClaimFilterOption omitted.
+
 // se_ClaimGameServerInput omitted.
 
 // se_CreateAliasInput omitted.
@@ -8178,6 +8182,8 @@ const se_DescribeFleetEventsInput = (input: DescribeFleetEventsInput, context: _
 // se_DesiredPlayerSessionList omitted.
 
 // se_FilterConfiguration omitted.
+
+// se_FilterInstanceStatuses omitted.
 
 // se_FleetActionList omitted.
 
