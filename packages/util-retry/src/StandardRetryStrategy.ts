@@ -71,7 +71,7 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
   }
 
   public recordSuccess(token: StandardRetryToken): void {
-    this.capacity = Math.max(INITIAL_RETRY_TOKENS, this.capacity + (token.getLastRetryCost() ?? NO_RETRY_INCREMENT));
+    this.capacity = Math.max(INITIAL_RETRY_TOKENS, this.capacity + (token.getRetryCost() ?? NO_RETRY_INCREMENT));
   }
 
   /**

@@ -97,29 +97,7 @@ export interface StandardRetryToken extends RetryToken {
   /**
    * @returns the cost of the last retry attempt.
    */
-  getLastRetryCost(): number | undefined;
-
-  /**
-   * @deprecated StandardRetryStrategy will track retry capacity.
-   *
-   * @param errorType - derives the cost of the retry to check whether capacity remains.
-   * @returns wheather there is enough remaining capacity to retry the given error.
-   */
-  hasRetryTokens(errorType: RetryErrorType): boolean;
-
-  /**
-   * @deprecated StandardRetryStrategy will track retry capacity.
-   * @returns the number of available tokens.
-   */
-  getRetryTokenCount(errorInfo: RetryErrorInfo): number;
-
-  /**
-   * @deprecated use \@aws-sdk/util-retry's StandardRetryStrategy#recordSuccess.
-   *
-   * Warning: this method is no-op on StandardRetryTokens provided by
-   * StandardRetryStrategy in \@aws-sdk/util-retry.
-   */
-  releaseRetryTokens(amount?: number): void;
+  getRetryCost(): number | undefined;
 }
 
 /**

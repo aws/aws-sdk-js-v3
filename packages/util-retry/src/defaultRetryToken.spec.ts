@@ -1,88 +1,17 @@
-import { RetryErrorType } from "@aws-sdk/types";
-
-import {
-  DEFAULT_RETRY_DELAY_BASE,
-  INITIAL_RETRY_TOKENS,
-  MAXIMUM_RETRY_DELAY,
-  NO_RETRY_INCREMENT,
-  RETRY_COST,
-} from "./constants";
+import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, MAXIMUM_RETRY_DELAY } from "./constants";
 import { createDefaultRetryToken } from "./defaultRetryToken";
 
 jest.mock("./defaultRetryBackoffStrategy");
 
 describe("defaultRetryToken", () => {
-  const transientErrorType = "TRANSIENT" as RetryErrorType;
-  const nonTransientErrorType = "THROTTLING" as RetryErrorType;
-
-  const getDrainedRetryToken = (targetCapacity: number) => {
-    const retryToken = createDefaultRetryToken({
-      availableCapacity: targetCapacity,
-      retryDelay: DEFAULT_RETRY_DELAY_BASE,
-      retryCount: 0,
-    });
-    return retryToken;
-  };
-
-  describe("custom initial retry tokens", () => {
-    it("hasRetryTokens returns false if capacity is not available", () => {
-      const customRetryTokens = 5;
-      const retryToken = createDefaultRetryToken({
-        availableCapacity: customRetryTokens,
-        retryDelay: DEFAULT_RETRY_DELAY_BASE,
-        retryCount: 0,
-      });
-
-      expect(retryToken.hasRetryTokens(transientErrorType)).toBe(false);
-    });
-  });
-
-  describe("hasRetryTokens", () => {
-    describe("returns true if capacity is available", () => {
-      it("when it's transient error", () => {
-        const retryToken = createDefaultRetryToken({
-          availableCapacity: INITIAL_RETRY_TOKENS,
-          retryDelay: DEFAULT_RETRY_DELAY_BASE,
-          retryCount: 0,
-        });
-        expect(retryToken.hasRetryTokens(transientErrorType)).toBe(true);
-      });
-
-      it("when it's not transient error", () => {
-        const retryToken = createDefaultRetryToken({
-          availableCapacity: INITIAL_RETRY_TOKENS,
-          retryDelay: DEFAULT_RETRY_DELAY_BASE,
-          retryCount: 0,
-        });
-        expect(retryToken.hasRetryTokens(nonTransientErrorType)).toBe(true);
-      });
-    });
-
-    it("returns false if capacity is not available", () => {
-      const retryToken = getDrainedRetryToken(0);
-      expect(retryToken.hasRetryTokens(nonTransientErrorType)).toBe(false);
-    });
-  });
-
-  describe("getRetryTokenCount", () => {
-    it("returns retry tokens amount", () => {
-      const retryToken = createDefaultRetryToken({
-        availableCapacity: 123,
-        retryDelay: DEFAULT_RETRY_DELAY_BASE,
-        retryCount: 0,
-      });
-      expect(retryToken.getRetryTokenCount({ errorType: "TRANSIENT" })).toBe(123);
-    });
-  });
-
-  describe("getLastRetryCost", () => {
+  describe("getRetryCost", () => {
     it("is undefined before an error is encountered", () => {
       const retryToken = createDefaultRetryToken({
         availableCapacity: INITIAL_RETRY_TOKENS,
         retryDelay: DEFAULT_RETRY_DELAY_BASE,
         retryCount: 0,
       });
-      expect(retryToken.getLastRetryCost()).toBeUndefined();
+      expect(retryToken.getRetryCost()).toBeUndefined();
     });
 
     it("returns set value", () => {
@@ -92,7 +21,7 @@ describe("defaultRetryToken", () => {
         retryCount: 0,
         lastRetryCost: 25,
       });
-      expect(retryToken.getLastRetryCost()).toBe(25);
+      expect(retryToken.getRetryCost()).toBe(25);
     });
   });
 
@@ -127,20 +56,6 @@ describe("defaultRetryToken", () => {
         });
         expect(retryToken.getRetryDelay()).toBe(MAXIMUM_RETRY_DELAY);
       });
-    });
-  });
-
-  describe("releaseRetryToken", () => {
-    it("ensures availableCapacity is maxed at INITIAL_RETRY_TOKENS", () => {
-      const retryToken = createDefaultRetryToken({
-        availableCapacity: INITIAL_RETRY_TOKENS,
-        retryDelay: DEFAULT_RETRY_DELAY_BASE,
-        retryCount: 0,
-      });
-
-      retryToken.releaseRetryTokens();
-
-      expect(retryToken.getRetryTokenCount({ errorType: "TRANSIENT" })).toBe(INITIAL_RETRY_TOKENS);
     });
   });
 });
