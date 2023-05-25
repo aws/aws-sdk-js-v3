@@ -1,91 +1,53 @@
-import { RetryErrorInfo, RetryErrorType, StandardRetryBackoffStrategy, StandardRetryToken } from "@aws-sdk/types";
+import { RetryErrorInfo, RetryErrorType, StandardRetryToken } from "@aws-sdk/types";
 
 import {
-  DEFAULT_RETRY_DELAY_BASE,
+  INITIAL_RETRY_TOKENS,
   MAXIMUM_RETRY_DELAY,
   NO_RETRY_INCREMENT,
   RETRY_COST,
-  THROTTLING_RETRY_DELAY_BASE,
   TIMEOUT_RETRY_COST,
 } from "./constants";
-import { getDefaultRetryBackoffStrategy } from "./defaultRetryBackoffStrategy";
-
-/**
- * @public
- */
-export interface DefaultRetryTokenOptions {
-  /**
-   * The total amount of retry tokens to be decremented from retry token balance.
-   */
-  retryCost?: number;
-
-  /**
-   * The total amount of retry tokens to be decremented from retry token balance
-   * when a throttling error is encountered.
-   */
-  timeoutRetryCost?: number;
-
-  /**
-   *
-   */
-  retryBackoffStrategy?: StandardRetryBackoffStrategy;
-}
 
 /**
  * @internal
  */
-export const getDefaultRetryToken = (
-  availableCapacityRef: {
+export const createDefaultRetryToken = ({
+  capacityBucket,
+  retryDelay,
+  retryCount,
+  lastRetryCost,
+}: {
+  capacityBucket: {
     availableCapacity: number;
-  },
-  initialRetryDelay: number,
-  initialRetryCount?: number,
-  options?: DefaultRetryTokenOptions
-): StandardRetryToken => {
-  const MAX_CAPACITY = availableCapacityRef.availableCapacity;
-  const retryCost = options?.retryCost ?? RETRY_COST;
-  const timeoutRetryCost = options?.timeoutRetryCost ?? TIMEOUT_RETRY_COST;
-  const retryBackoffStrategy = options?.retryBackoffStrategy ?? getDefaultRetryBackoffStrategy();
+  };
+  retryDelay: number;
+  retryCount: number;
+  lastRetryCost?: number;
+}): StandardRetryToken => {
+  const MAX_CAPACITY = INITIAL_RETRY_TOKENS;
 
-  let retryDelay = Math.min(MAXIMUM_RETRY_DELAY, initialRetryDelay);
-  let lastRetryCost: number | undefined = undefined;
-  let retryCount = initialRetryCount ?? 0;
-
-  const getCapacityAmount = (errorType: RetryErrorType) => (errorType === "TRANSIENT" ? timeoutRetryCost : retryCost);
+  const getCapacityAmount = (errorType: RetryErrorType) =>
+    errorType === "TRANSIENT" ? TIMEOUT_RETRY_COST : RETRY_COST;
 
   const getRetryCount = (): number => retryCount;
 
-  const getRetryDelay = (): number => retryDelay;
+  const getRetryDelay = (): number => Math.min(MAXIMUM_RETRY_DELAY, retryDelay);
 
   const getLastRetryCost = (): number | undefined => lastRetryCost;
 
-  const hasRetryTokens = (errorType: RetryErrorType): boolean =>
-    getCapacityAmount(errorType) <= availableCapacityRef.availableCapacity;
+  const hasRetryTokens = (errorType: RetryErrorType): boolean => {
+    capacityBucket.availableCapacity = Math.min(capacityBucket.availableCapacity, MAX_CAPACITY);
+    return getCapacityAmount(errorType) <= capacityBucket.availableCapacity;
+  };
 
-  const getRetryTokenCount = (errorInfo: RetryErrorInfo) => {
-    const errorType = errorInfo.errorType;
-    if (!hasRetryTokens(errorType)) {
-      throw new Error("No retry token available");
-    }
-    const capacityAmount = getCapacityAmount(errorType);
-    const delayBase = errorType === "THROTTLING" ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE;
-    retryBackoffStrategy.setDelayBase(delayBase);
-    const delayFromErrorType = retryBackoffStrategy.computeNextBackoffDelay(retryCount);
-    if (errorInfo.retryAfterHint) {
-      const delayFromRetryAfterHint = errorInfo.retryAfterHint.getTime() - Date.now();
-      retryDelay = Math.max(delayFromRetryAfterHint || 0, delayFromErrorType);
-    } else {
-      retryDelay = delayFromErrorType;
-    }
-    retryCount++;
-    lastRetryCost = capacityAmount;
-    availableCapacityRef.availableCapacity -= capacityAmount;
-    return capacityAmount;
+  const getRetryTokenCount = (errorInfo?: RetryErrorInfo) => {
+    capacityBucket.availableCapacity = Math.min(capacityBucket.availableCapacity, MAX_CAPACITY);
+    return capacityBucket.availableCapacity;
   };
 
   const releaseRetryTokens = (releaseAmount?: number) => {
-    availableCapacityRef.availableCapacity += releaseAmount ?? NO_RETRY_INCREMENT;
-    availableCapacityRef.availableCapacity = Math.min(availableCapacityRef.availableCapacity, MAX_CAPACITY);
+    capacityBucket.availableCapacity += releaseAmount ?? NO_RETRY_INCREMENT;
+    capacityBucket.availableCapacity = Math.min(capacityBucket.availableCapacity, MAX_CAPACITY);
   };
 
   return {
