@@ -36,7 +36,8 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
 
 /**
  * @public
- * <p>Simulates a provisioned device by sending an uplink data payload of <code>Hello</code>.</p>
+ * <p>Simulates a provisioned device by sending an uplink data payload of
+ *             <code>Hello</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

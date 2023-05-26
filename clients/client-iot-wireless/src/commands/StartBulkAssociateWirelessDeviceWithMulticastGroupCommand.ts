@@ -45,7 +45,8 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
 
 /**
  * @public
- * <p>Starts a bulk association of all qualifying wireless devices with a multicast group.</p>
+ * <p>Starts a bulk association of all qualifying wireless devices with a multicast
+ *             group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

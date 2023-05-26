@@ -888,6 +888,7 @@ export const se_CreateNetworkAnalyzerConfigurationCommand = async (
     take(input, {
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
+      MulticastGroups: (_) => _json(_),
       Name: [],
       Tags: (_) => _json(_),
       TraceContent: (_) => _json(_),
@@ -3491,6 +3492,8 @@ export const se_UpdateNetworkAnalyzerConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
+      MulticastGroupsToAdd: (_) => _json(_),
+      MulticastGroupsToRemove: (_) => _json(_),
       TraceContent: (_) => _json(_),
       WirelessDevicesToAdd: (_) => _json(_),
       WirelessDevicesToRemove: (_) => _json(_),
@@ -6443,6 +6446,7 @@ export const de_GetNetworkAnalyzerConfigurationCommand = async (
   const doc = take(data, {
     Arn: __expectString,
     Description: __expectString,
+    MulticastGroups: _json,
     Name: __expectString,
     TraceContent: _json,
     WirelessDevices: _json,
@@ -10558,6 +10562,8 @@ const se_LteObj = (input: LteObj, context: __SerdeContext): any => {
 
 // se_NetIdFilters omitted.
 
+// se_NetworkAnalyzerMulticastGroupList omitted.
+
 // se_OtaaV1_0_x omitted.
 
 // se_OtaaV1_1 omitted.
@@ -10902,6 +10908,8 @@ const de_LoRaWANMulticastSession = (output: any, context: __SerdeContext): LoRaW
 // de_NetworkAnalyzerConfigurationList omitted.
 
 // de_NetworkAnalyzerConfigurations omitted.
+
+// de_NetworkAnalyzerMulticastGroupList omitted.
 
 // de_OtaaV1_0_x omitted.
 

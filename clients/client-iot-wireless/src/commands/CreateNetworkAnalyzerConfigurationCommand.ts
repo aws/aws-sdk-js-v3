@@ -56,6 +56,7 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  *   TraceContent: { // TraceContent
  *     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
  *     LogLevel: "INFO" || "ERROR" || "DISABLED",
+ *     MulticastFrameInfo: "ENABLED" || "DISABLED",
  *   },
  *   WirelessDevices: [ // WirelessDeviceList
  *     "STRING_VALUE",
@@ -71,6 +72,9 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  *     },
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
+ *   MulticastGroups: [ // NetworkAnalyzerMulticastGroupList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);

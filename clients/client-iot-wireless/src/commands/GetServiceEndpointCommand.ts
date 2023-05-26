@@ -36,7 +36,8 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
 
 /**
  * @public
- * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</p>
+ * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol
+ *             or LoRaWAN Network Server (LNS) connections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

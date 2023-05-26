@@ -45,7 +45,8 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
 
 /**
  * @public
- * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast group.</p>
+ * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast
+ *             group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

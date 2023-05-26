@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
 import {
   ApplicationConfig,
+  CertificateList,
   ConnectionStatusEventConfiguration,
   ConnectionStatusResourceTypeEventConfiguration,
   DeviceRegistrationStateEventConfiguration,
@@ -32,13 +33,49 @@ import {
   PositionResourceType,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
-  SidewalkListDevice,
   Tag,
   TraceContent,
   WirelessDeviceLogOption,
+  WirelessDeviceSidewalkStatus,
   WirelessDeviceType,
   WirelessGatewayLogOption,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Sidewalk object used by list functions.</p>
+ */
+export interface SidewalkListDevice {
+  /**
+   * <p>The Sidewalk Amazon ID.</p>
+   */
+  AmazonId?: string;
+
+  /**
+   * <p>The sidewalk device identification.</p>
+   */
+  SidewalkId?: string;
+
+  /**
+   * <p>The Sidewalk manufacturing series number.</p>
+   */
+  SidewalkManufacturingSn?: string;
+
+  /**
+   * <p>The sidewalk device certificates for Ed25519 and P256r1.</p>
+   */
+  DeviceCertificates?: CertificateList[];
+
+  /**
+   * <p>Sidewalk object used by list functions.</p>
+   */
+  DeviceProfileId?: string;
+
+  /**
+   * <p>The status of the Sidewalk devices, such as provisioned or registered.</p>
+   */
+  Status?: WirelessDeviceSidewalkStatus | string;
+}
 
 /**
  * @public
@@ -72,6 +109,9 @@ export interface WirelessDeviceStatistics {
 
   /**
    * <p>The date and time when the most recent uplink was received.</p>
+   *          <note>
+   *             <p>Theis value is only valid for 3 months.</p>
+   *          </note>
    */
   LastUplinkReceivedAt?: string;
 
@@ -121,7 +161,9 @@ export interface ListWirelessDevicesResponse {
  */
 export interface ListWirelessGatewaysRequest {
   /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
    */
   NextToken?: string;
 
@@ -163,6 +205,9 @@ export interface WirelessGatewayStatistics {
 
   /**
    * <p>The date and time when the most recent uplink was received.</p>
+   *          <note>
+   *             <p>This value is only valid for 3 months.</p>
+   *          </note>
    */
   LastUplinkReceivedAt?: string;
 }
@@ -206,12 +251,15 @@ export interface ListWirelessGatewayTaskDefinitionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>A filter to list only the wireless gateway task definitions that use this task definition type.</p>
+   * <p>A filter to list only the wireless gateway task definitions that use this task
+   *             definition type.</p>
    */
   TaskDefinitionType?: WirelessGatewayTaskDefinitionType | string;
 }
@@ -305,18 +353,20 @@ export interface PutPositionConfigurationRequest {
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>Resource type of the resource for which you want to update the position configuration.</p>
+   * <p>Resource type of the resource for which you want to update the position
+   *             configuration.</p>
    */
   ResourceType: PositionResourceType | string | undefined;
 
   /**
-   * <p>The positioning solvers used to update the position configuration of the resource.</p>
+   * <p>The positioning solvers used to update the position configuration of the
+   *             resource.</p>
    */
   Solvers?: PositionSolverConfigurations;
 
   /**
-   * <p>The position data destination that describes the AWS IoT rule that processes the device's position
-   *             data for use by AWS IoT Core for LoRaWAN.</p>
+   * <p>The position data destination that describes the AWS IoT rule that processes the
+   *             device's position data for use by AWS IoT Core for LoRaWAN.</p>
    */
   Destination?: string;
 }
@@ -331,19 +381,21 @@ export interface PutPositionConfigurationResponse {}
  */
 export interface PutResourceLogLevelRequest {
   /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
-   *             it is the wireless gateway ID.</p>
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID.
+   *             For a wireless gateway, it is the wireless gateway ID.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code> or
+   *                 <code>WirelessGateway</code>.</p>
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
-   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to
+   *                 <code>ERROR</code> to display less verbose logs containing only error information,
+   *             or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel: LogLevel | string | undefined;
 }
@@ -368,13 +420,14 @@ export interface ResetAllResourceLogLevelsResponse {}
  */
 export interface ResetResourceLogLevelRequest {
   /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
-   *             it is the wireless gateway ID.</p>
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID.
+   *             For a wireless gateway, it is the wireless gateway ID.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code> or
+   *                 <code>WirelessGateway</code>.</p>
    */
   ResourceType: string | undefined;
 }
@@ -463,7 +516,8 @@ export interface SidewalkSendDataToDevice {
   Seq?: number;
 
   /**
-   * <p>Sidewalk device message type. Default value is <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
+   * <p>Sidewalk device message type. Default value is
+   *             <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
    */
   MessageType?: MessageType | string;
 
@@ -499,7 +553,8 @@ export interface SendDataToWirelessDeviceRequest {
   Id: string | undefined;
 
   /**
-   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code> for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
+   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code>
+   *             for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
    */
   TransmitMode: number | undefined;
 
@@ -534,12 +589,14 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
   Id: string | undefined;
 
   /**
-   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
+   * <p>Query string used to search for wireless devices as part of the bulk associate and
+   *             disassociate process.</p>
    */
   QueryString?: string;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
+   *             manage a resource.</p>
    */
   Tags?: Tag[];
 }
@@ -559,12 +616,14 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
   Id: string | undefined;
 
   /**
-   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
+   * <p>Query string used to search for wireless devices as part of the bulk associate and
+   *             disassociate process.</p>
    */
   QueryString?: string;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
+   *             manage a resource.</p>
    */
   Tags?: Tag[];
 }
@@ -647,7 +706,10 @@ export interface StartSingleWirelessDeviceImportTaskRequest {
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
+   * <p>Each resource must have a unique client request token. If you try to create a new
+   *             resource with the same token as a resource that already exists, an exception occurs. If
+   *             you omit this value, AWS SDKs will automatically generate a unique client
+   *             request.</p>
    */
   ClientRequestToken?: string;
 
@@ -657,7 +719,8 @@ export interface StartSingleWirelessDeviceImportTaskRequest {
   DeviceName?: string;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
+   *             manage a resource.</p>
    */
   Tags?: Tag[];
 
@@ -709,12 +772,16 @@ export interface StartWirelessDeviceImportTaskRequest {
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
+   * <p>Each resource must have a unique client request token. If you try to create a new
+   *             resource with the same token as a resource that already exists, an exception occurs. If
+   *             you omit this value, AWS SDKs will automatically generate a unique client
+   *             request.</p>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
+   *             manage a resource.</p>
    */
   Tags?: Tag[];
 
@@ -749,7 +816,8 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that you can use to manage a resource.</p>
+   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that you can use
+   *             to manage a resource.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -866,28 +934,32 @@ export interface UpdateDestinationResponse {}
  */
 export interface UpdateEventConfigurationByResourceTypesRequest {
   /**
-   * <p>Device registration state resource type event configuration object for enabling and disabling wireless
-   *             gateway topic.</p>
+   * <p>Device registration state resource type event configuration object for enabling and
+   *             disabling wireless gateway topic.</p>
    */
   DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
 
   /**
-   * <p>Proximity resource type event configuration object for enabling and disabling wireless gateway topic.</p>
+   * <p>Proximity resource type event configuration object for enabling and disabling wireless
+   *             gateway topic.</p>
    */
   Proximity?: ProximityResourceTypeEventConfiguration;
 
   /**
-   * <p>Join resource type event configuration object for enabling and disabling wireless device topic.</p>
+   * <p>Join resource type event configuration object for enabling and disabling wireless
+   *             device topic.</p>
    */
   Join?: JoinResourceTypeEventConfiguration;
 
   /**
-   * <p>Connection status resource type event configuration object for enabling and disabling wireless gateway topic.</p>
+   * <p>Connection status resource type event configuration object for enabling and disabling
+   *             wireless gateway topic.</p>
    */
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
 
   /**
-   * <p>Message delivery status resource type event configuration object for enabling and disabling wireless device topic.</p>
+   * <p>Message delivery status resource type event configuration object for enabling and
+   *             disabling wireless device topic.</p>
    */
   MessageDeliveryStatus?: MessageDeliveryStatusResourceTypeEventConfiguration;
 }
@@ -922,7 +994,8 @@ export interface UpdateFuotaTaskRequest {
   LoRaWAN?: LoRaWANFuotaTask;
 
   /**
-   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA task.</p>
+   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA
+   *             task.</p>
    */
   FirmwareUpdateImage?: string;
 
@@ -932,21 +1005,28 @@ export interface UpdateFuotaTaskRequest {
   FirmwareUpdateRole?: string;
 
   /**
-   * <p>The percentage of added redundant fragments. For example, if firmware file is
-   *             100 bytes and fragment size is 10 bytes, with <code>RedundancyPercent</code> set to 50(%),
-   *             the final number of encoded fragments is (100 / 10) + (100 / 10 * 50%) = 15.</p>
+   * <p>The percentage of the added fragments that are redundant. For example, if the size of
+   *             the firmware image file is 100 bytes and the fragment size is 10 bytes, with
+   *                 <code>RedundancyPercent</code> set to 50(%), the final number of encoded fragments
+   *             is (100 / 10) + (100 / 10 * 50%) = 15.</p>
    */
   RedundancyPercent?: number;
 
   /**
-   * <p>The size of each fragment in bytes. Currently only supported in fuota tasks with multicast groups.</p>
+   * <p>The size of each fragment in bytes. This parameter is supported only for FUOTA tasks
+   *             with multicast groups.</p>
    */
   FragmentSizeBytes?: number;
 
   /**
-   * <p>The interval of sending fragments in milliseconds. Currently the interval will be rounded to the nearest second.
-   *             Note that this interval only controls the timing when the cloud sends the fragments down.
-   *             The actual delay of receiving fragments at device side depends on the device's class and the communication delay with the cloud.</p>
+   * <p>The interval for sending fragments in milliseconds, rounded to the nearest
+   *             second.</p>
+   *          <note>
+   *             <p>This interval only determines the timing for when the Cloud sends down the
+   *                 fragments to yor device. There can be a delay for when your device will receive
+   *                 these fragments. This delay depends on the device's class and the communication
+   *                 delay with the cloud.</p>
+   *          </note>
    */
   FragmentIntervalMS?: number;
 }
@@ -961,8 +1041,9 @@ export interface UpdateFuotaTaskResponse {}
  */
 export interface UpdateLogLevelsByResourceTypesRequest {
   /**
-   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
-   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
+   * <p>The log level for a log message. The log levels can be disabled, or set to
+   *                 <code>ERROR</code> to display less verbose logs containing only error information,
+   *             or to <code>INFO</code> for more detailed logs.</p>
    */
   DefaultLogLevel?: LogLevel | string;
 
@@ -1028,25 +1109,25 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
 
   /**
    * <p>Wireless device resources to add to the network analyzer configuration. Provide the
-   *             <code>WirelessDeviceId</code> of the resource to add in the input array.</p>
+   *                 <code>WirelessDeviceId</code> of the resource to add in the input array.</p>
    */
   WirelessDevicesToAdd?: string[];
 
   /**
-   * <p>Wireless device resources to remove from the network analyzer configuration. Provide the
-   *             <code>WirelessDeviceId</code> of the resources to remove in the input array.</p>
+   * <p>Wireless device resources to remove from the network analyzer configuration. Provide
+   *             the <code>WirelessDeviceId</code> of the resources to remove in the input array.</p>
    */
   WirelessDevicesToRemove?: string[];
 
   /**
    * <p>Wireless gateway resources to add to the network analyzer configuration. Provide the
-   *             <code>WirelessGatewayId</code> of the resource to add in the input array.</p>
+   *                 <code>WirelessGatewayId</code> of the resource to add in the input array.</p>
    */
   WirelessGatewaysToAdd?: string[];
 
   /**
-   * <p>Wireless gateway resources to remove from the network analyzer configuration. Provide the
-   *             <code>WirelessGatewayId</code> of the resources to remove in the input array.</p>
+   * <p>Wireless gateway resources to remove from the network analyzer configuration. Provide
+   *             the <code>WirelessGatewayId</code> of the resources to remove in the input array.</p>
    */
   WirelessGatewaysToRemove?: string[];
 
@@ -1054,6 +1135,18 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
    * <p>The description of the new resource.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Multicast group resources to add to the network analyzer configuration. Provide the
+   *             <code>MulticastGroupId</code> of the resource to add in the input array.</p>
+   */
+  MulticastGroupsToAdd?: string[];
+
+  /**
+   * <p>Multicast group resources to remove from the network analyzer configuration. Provide the
+   *             <code>MulticastGroupId</code> of the resource to remove in the input array.</p>
+   */
+  MulticastGroupsToRemove?: string[];
 }
 
 /**
@@ -1137,7 +1230,8 @@ export interface UpdateResourceEventConfigurationRequest {
   IdentifierType: IdentifierType | string | undefined;
 
   /**
-   * <p>Partner type of the resource if the identifier type is <code>PartnerAccountId</code>
+   * <p>Partner type of the resource if the identifier type is
+   *             <code>PartnerAccountId</code>
    *          </p>
    */
   PartnerType?: EventNotificationPartnerType | string;
@@ -1300,7 +1394,8 @@ export interface UpdateWirelessDeviceRequest {
   LoRaWAN?: LoRaWANUpdateDevice;
 
   /**
-   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
+   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
+   *             information.</p>
    */
   Positioning?: PositioningConfigStatus | string;
 }
@@ -1366,7 +1461,8 @@ export interface UpdateWirelessGatewayRequest {
   JoinEuiFilters?: string[][];
 
   /**
-   * <p>A list of NetId values that are used by LoRa gateways to filter the uplink frames.</p>
+   * <p>A list of NetId values that are used by LoRa gateways to filter the uplink
+   *             frames.</p>
    */
   NetIdFilters?: string[];
 

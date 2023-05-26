@@ -57,6 +57,7 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * //   TraceContent: { // TraceContent
  * //     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
  * //     LogLevel: "INFO" || "ERROR" || "DISABLED",
+ * //     MulticastFrameInfo: "ENABLED" || "DISABLED",
  * //   },
  * //   WirelessDevices: [ // WirelessDeviceList
  * //     "STRING_VALUE",
@@ -67,6 +68,9 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * //   Description: "STRING_VALUE",
  * //   Arn: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
+ * //   MulticastGroups: [ // NetworkAnalyzerMulticastGroupList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

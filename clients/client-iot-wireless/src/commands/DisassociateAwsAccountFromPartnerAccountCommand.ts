@@ -45,7 +45,9 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
 
 /**
  * @public
- * <p>Disassociates your AWS account from a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, disassociates your AWS account from all partner accounts.</p>
+ * <p>Disassociates your AWS account from a partner account. If
+ *                 <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>,
+ *             disassociates your AWS account from all partner accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

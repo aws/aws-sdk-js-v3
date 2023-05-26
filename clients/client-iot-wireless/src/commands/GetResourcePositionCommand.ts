@@ -36,8 +36,8 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionRes
 
 /**
  * @public
- * <p>Get the position information for a given wireless device or a wireless gateway resource.
- *             The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
+ * <p>Get the position information for a given wireless device or a wireless gateway
+ *             resource. The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
  *                 (WGS84)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

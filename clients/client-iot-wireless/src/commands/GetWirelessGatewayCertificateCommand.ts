@@ -41,7 +41,8 @@ export interface GetWirelessGatewayCertificateCommandOutput
 
 /**
  * @public
- * <p>Gets the ID of the certificate that is currently associated with a wireless gateway.</p>
+ * <p>Gets the ID of the certificate that is currently associated with a wireless
+ *             gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -44,7 +44,8 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
 
 /**
  * @public
- * <p>Deletes a wireless gateway task definition. Deleting this task definition does not affect tasks that are currently in progress.</p>
+ * <p>Deletes a wireless gateway task definition. Deleting this task definition does not
+ *             affect tasks that are currently in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

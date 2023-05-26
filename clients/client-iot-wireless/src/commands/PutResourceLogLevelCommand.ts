@@ -36,8 +36,9 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
 
 /**
  * @public
- * <p>Sets the log-level override for a resource-ID and resource-type. This option can be specified for a wireless gateway
- *             or a wireless device. A limit of 200 log level override can be set per account.</p>
+ * <p>Sets the log-level override for a resource-ID and resource-type. This option can be
+ *             specified for a wireless gateway or a wireless device. A limit of 200 log level override
+ *             can be set per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

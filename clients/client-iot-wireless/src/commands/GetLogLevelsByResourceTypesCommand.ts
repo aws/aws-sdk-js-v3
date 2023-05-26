@@ -41,8 +41,9 @@ export interface GetLogLevelsByResourceTypesCommandOutput
 
 /**
  * @public
- * <p>Returns current default log levels or log levels by resource types. Based on resource types, log levels can be
- *             for wireless device log options or wireless gateway log options.</p>
+ * <p>Returns current default log levels or log levels by resource types. Based on resource
+ *             types, log levels can be for wireless device log options or wireless gateway log
+ *             options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

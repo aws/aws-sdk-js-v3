@@ -36,8 +36,9 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
 
 /**
  * @public
- * <p>Get estimated position information as a payload in GeoJSON format. The payload measurement data is
- *           resolved using solvers that are provided by third-party vendors.</p>
+ * <p>Get estimated position information as a payload in GeoJSON format. The payload
+ *             measurement data is resolved using solvers that are provided by third-party
+ *             vendors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

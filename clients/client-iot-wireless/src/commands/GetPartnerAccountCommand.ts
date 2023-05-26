@@ -40,7 +40,8 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
 
 /**
  * @public
- * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
+ * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and
+ *                 <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
