@@ -121,7 +121,7 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * //         { // AgentContactReference
  * //           ContactId: "STRING_VALUE",
  * //           Channel: "VOICE" || "CHAT" || "TASK",
- * //           InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR",
+ * //           InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND",
  * //           AgentContactState: "INCOMING" || "PENDING" || "CONNECTING" || "CONNECTED" || "CONNECTED_ONHOLD" || "MISSED" || "ERROR" || "ENDED" || "REJECTED",
  * //           StateStartTimestamp: new Date("TIMESTAMP"),
  * //           ConnectedToAgentTimestamp: new Date("TIMESTAMP"),

@@ -62,7 +62,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     Id: "STRING_VALUE",
  * //     InitialContactId: "STRING_VALUE",
  * //     PreviousContactId: "STRING_VALUE",
- * //     InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR",
+ * //     InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND",
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     Channel: "VOICE" || "CHAT" || "TASK",
