@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
+
+
+### Bug Fixes
+
+* **util-retry:** make standard retry tokens immutable ([#4755](https://github.com/aws/aws-sdk-js-v3/issues/4755)) ([d666720](https://github.com/aws/aws-sdk-js-v3/commit/d666720f25ef59ed5b09e138975f85d4b3b68eb3))
+
+
+### Features
+
+* **client-connect:** Documentation update for a new Initiation Method value in DescribeContact API ([84ca849](https://github.com/aws/aws-sdk-js-v3/commit/84ca8491fd315ecbd30de2b76b4af6918e332632))
+* **client-iot-wireless:** Add Multicast Group support in Network Analyzer Configuration. ([0276e59](https://github.com/aws/aws-sdk-js-v3/commit/0276e59866beed14caa011e0054c77ee6cf921af))
+* **client-sagemaker:** Added ml.p4d and ml.inf1 as supported instance type families for SageMaker Notebook Instances. ([09963fb](https://github.com/aws/aws-sdk-js-v3/commit/09963fb9f6f95293f98c87ff84870b865b5a14d3))
+* **clients:** update client endpoints as of 2023-05-26 ([c3b81bc](https://github.com/aws/aws-sdk-js-v3/commit/c3b81bcfbb55618e01ab326defd2d57df1b00d2b))
+
+
+
+
+
 # [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
 
 

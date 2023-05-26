@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
+
+
+### Features
+
+* **client-sagemaker:** Added ml.p4d and ml.inf1 as supported instance type families for SageMaker Notebook Instances. ([09963fb](https://github.com/aws/aws-sdk-js-v3/commit/09963fb9f6f95293f98c87ff84870b865b5a14d3))
+
+
+
+
+
 # [3.340.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.339.0...v3.340.0) (2023-05-25)
 
 

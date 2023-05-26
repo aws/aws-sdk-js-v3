@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
+
+
+### Features
+
+* **client-connect:** Documentation update for a new Initiation Method value in DescribeContact API ([84ca849](https://github.com/aws/aws-sdk-js-v3/commit/84ca8491fd315ecbd30de2b76b4af6918e332632))
+
+
+
+
+
 # [3.339.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.338.0...v3.339.0) (2023-05-24)
 
 
