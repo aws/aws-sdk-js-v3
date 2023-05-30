@@ -39,7 +39,6 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * <p>Creates an empty dataset and adds it to the specified dataset group.
  *       Use <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> to import your training data to a
  *       dataset.</p>
- *
  *          <p>There are three types of datasets:</p>
  *          <ul>
  *             <li>

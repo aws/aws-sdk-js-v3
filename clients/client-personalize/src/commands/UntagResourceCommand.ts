@@ -36,7 +36,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * @public
- * <p>Remove <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> that are attached to a resource.</p>
+ * <p>Remove <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> that are attached to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

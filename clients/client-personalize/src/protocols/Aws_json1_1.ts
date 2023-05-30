@@ -327,6 +327,7 @@ import {
   TagResourceRequest,
   TooManyTagKeysException,
   TooManyTagsException,
+  TrainingDataConfig,
   UntagResourceRequest,
   UpdateCampaignRequest,
   UpdateMetricAttributionRequest,
@@ -4759,6 +4760,8 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_CategoricalValues omitted.
 
+// se_ColumnNamesList omitted.
+
 /**
  * serializeAws_json1_1ContinuousHyperParameterRange
  */
@@ -4879,6 +4882,8 @@ const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __Serde
 
 // se_DescribeSolutionVersionRequest omitted.
 
+// se_ExcludedDatasetColumns omitted.
+
 // se_FeatureTransformationParameters omitted.
 
 // se_GetSolutionMetricsRequest omitted.
@@ -4974,6 +4979,7 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
     featureTransformationParameters: _json,
     hpoConfig: (_) => se_HPOConfig(_, context),
     optimizationObjective: _json,
+    trainingDataConfig: _json,
   });
 };
 
@@ -4990,6 +4996,8 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
 // se_TagResourceRequest omitted.
 
 // se_Tags omitted.
+
+// se_TrainingDataConfig omitted.
 
 // se_UntagResourceRequest omitted.
 
@@ -5196,6 +5204,8 @@ const de_CampaignUpdateSummary = (output: any, context: __SerdeContext): Campaig
 // de_CategoricalHyperParameterRanges omitted.
 
 // de_CategoricalValues omitted.
+
+// de_ColumnNamesList omitted.
 
 /**
  * deserializeAws_json1_1ContinuousHyperParameterRange
@@ -5713,6 +5723,8 @@ const de_EventTrackerSummary = (output: any, context: __SerdeContext): EventTrac
   }) as any;
 };
 
+// de_ExcludedDatasetColumns omitted.
+
 /**
  * deserializeAws_json1_1FeatureTransformation
  */
@@ -6198,6 +6210,7 @@ const de_SolutionConfig = (output: any, context: __SerdeContext): SolutionConfig
     featureTransformationParameters: _json,
     hpoConfig: (_: any) => de_HPOConfig(_, context),
     optimizationObjective: _json,
+    trainingDataConfig: _json,
   }) as any;
 };
 
@@ -6289,6 +6302,8 @@ const de_SolutionVersionSummary = (output: any, context: __SerdeContext): Soluti
 // de_TooManyTagKeysException omitted.
 
 // de_TooManyTagsException omitted.
+
+// de_TrainingDataConfig omitted.
 
 // de_TunedHPOParams omitted.
 

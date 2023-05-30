@@ -68,7 +68,6 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *             <p>Importing takes time. You must wait until the status shows as ACTIVE
  *         before training a model using the dataset.</p>
  *          </note>
- *
  *          <p class="title">
  *             <b>Related APIs</b>
  *          </p>

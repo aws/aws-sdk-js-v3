@@ -41,11 +41,14 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
  *       request.
  *      </p>
- *
  *          <p>
  *             <b>Minimum recommendation requests per second</b>
  *          </p>
- *
+ *          <important>
+ *             <p>A high <code>minRecommendationRequestsPerSecond</code> will increase your bill. We recommend starting with 1 for <code>minRecommendationRequestsPerSecond</code> (the default). Track
+ *         your usage using Amazon CloudWatch metrics, and increase the <code>minRecommendationRequestsPerSecond</code>
+ *         as necessary.</p>
+ *          </important>
  *          <p>When you create a recommender, you can configure the recommender's minimum recommendation requests per second. The minimum recommendation requests per second
  *       (<code>minRecommendationRequestsPerSecond</code>) specifies the baseline recommendation request throughput provisioned by
  *       Amazon Personalize. The default minRecommendationRequestsPerSecond is <code>1</code>. A recommendation request is a single <code>GetRecommendations</code> operation.
@@ -66,7 +69,6 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *       your usage using Amazon CloudWatch metrics, and then increase the <code>minRecommendationRequestsPerSecond</code>
  *       as necessary.
  *     </p>
- *
  *          <p>
  *             <b>Status</b>
  *          </p>
@@ -127,6 +129,13 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *       "<keys>": "STRING_VALUE",
  *     },
  *     minRecommendationRequestsPerSecond: Number("int"),
+ *     trainingDataConfig: { // TrainingDataConfig
+ *       excludedDatasetColumns: { // ExcludedDatasetColumns
+ *         "<keys>": [ // ColumnNamesList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag

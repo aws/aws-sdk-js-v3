@@ -112,6 +112,13 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //         itemAttribute: "STRING_VALUE",
  * //         objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
  * //       },
+ * //       trainingDataConfig: { // TrainingDataConfig
+ * //         excludedDatasetColumns: { // ExcludedDatasetColumns
+ * //           "<keys>": [ // ColumnNamesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //     trainingHours: Number("double"),
  * //     trainingMode: "FULL" || "UPDATE",

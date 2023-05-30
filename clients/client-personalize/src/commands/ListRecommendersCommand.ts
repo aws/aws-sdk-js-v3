@@ -65,6 +65,13 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //         minRecommendationRequestsPerSecond: Number("int"),
+ * //         trainingDataConfig: { // TrainingDataConfig
+ * //           excludedDatasetColumns: { // ExcludedDatasetColumns
+ * //             "<keys>": [ // ColumnNamesList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
  * //       },
  * //       status: "STRING_VALUE",
  * //       creationDateTime: new Date("TIMESTAMP"),

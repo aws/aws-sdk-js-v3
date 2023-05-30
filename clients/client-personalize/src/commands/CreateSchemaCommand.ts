@@ -42,7 +42,6 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *       type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you
  *     provide the domain of the Domain dataset group.
  *     You specify a schema when you call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
- *
  *          <p class="title">
  *             <b>Related APIs</b>
  *          </p>

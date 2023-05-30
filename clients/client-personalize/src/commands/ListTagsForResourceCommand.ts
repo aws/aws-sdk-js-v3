@@ -36,7 +36,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * @public
- * <p>Get a list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> attached to a resource.</p>
+ * <p>Get a list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> attached to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -111,6 +111,13 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * //         itemAttribute: "STRING_VALUE",
  * //         objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
  * //       },
+ * //       trainingDataConfig: { // TrainingDataConfig
+ * //         excludedDatasetColumns: { // ExcludedDatasetColumns
+ * //           "<keys>": [ // ColumnNamesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //     autoMLResult: { // AutoMLResult
  * //       bestRecipeArn: "STRING_VALUE",

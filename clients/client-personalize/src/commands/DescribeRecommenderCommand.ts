@@ -76,6 +76,13 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       minRecommendationRequestsPerSecond: Number("int"),
+ * //       trainingDataConfig: { // TrainingDataConfig
+ * //         excludedDatasetColumns: { // ExcludedDatasetColumns
+ * //           "<keys>": [ // ColumnNamesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //     creationDateTime: new Date("TIMESTAMP"),
  * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
@@ -87,6 +94,13 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //         minRecommendationRequestsPerSecond: Number("int"),
+ * //         trainingDataConfig: {
+ * //           excludedDatasetColumns: {
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
  * //       },
  * //       creationDateTime: new Date("TIMESTAMP"),
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
