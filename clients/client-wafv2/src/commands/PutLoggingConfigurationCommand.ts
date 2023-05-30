@@ -143,6 +143,9 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *           MatchScope: "ALL" || "KEY" || "VALUE", // required
  *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *         },
+ *         HeaderOrder: { // HeaderOrder
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *         },
  *       },
  *     ],
  *     ManagedByFirewallManager: true || false,
@@ -225,6 +228,9 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * //             ],
  * //           },
  * //           MatchScope: "ALL" || "KEY" || "VALUE", // required
+ * //           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //         },
+ * //         HeaderOrder: { // HeaderOrder
  * //           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //         },
  * //       },

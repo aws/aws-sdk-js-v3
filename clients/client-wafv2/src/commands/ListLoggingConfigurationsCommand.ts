@@ -109,6 +109,9 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * //             MatchScope: "ALL" || "KEY" || "VALUE", // required
  * //             OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //           },
+ * //           HeaderOrder: { // HeaderOrder
+ * //             OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //           },
  * //         },
  * //       ],
  * //       ManagedByFirewallManager: true || false,

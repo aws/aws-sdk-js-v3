@@ -213,6 +213,7 @@ import {
   GetWebACLRequest,
   GetWebACLResponse,
   HeaderMatchPattern,
+  HeaderOrder,
   Headers,
   ImmunityTimeProperty,
   IPSetForwardedIPConfig,
@@ -4527,6 +4528,8 @@ const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context:
 
 // se_HeaderNames omitted.
 
+// se_HeaderOrder omitted.
+
 // se_Headers omitted.
 
 // se_ImmunityTimeProperty omitted.
@@ -5152,6 +5155,8 @@ const de_GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLRe
 // de_HeaderMatchPattern omitted.
 
 // de_HeaderNames omitted.
+
+// de_HeaderOrder omitted.
 
 // de_Headers omitted.
 

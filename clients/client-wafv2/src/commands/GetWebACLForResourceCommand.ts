@@ -136,6 +136,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 MatchScope: "ALL" || "KEY" || "VALUE", // required
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               HeaderOrder: { // HeaderOrder
+ * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -197,6 +200,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 MatchScope: "ALL" || "KEY" || "VALUE", // required
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               HeaderOrder: {
+ * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -254,6 +260,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 MatchScope: "ALL" || "KEY" || "VALUE", // required
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               HeaderOrder: {
+ * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -304,6 +313,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   ExcludedCookies: "<CookieNames>",
  * //                 },
  * //                 MatchScope: "ALL" || "KEY" || "VALUE", // required
+ * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
  * //             },
@@ -433,6 +445,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                   ExcludedCookies: "<CookieNames>",
  * //                 },
  * //                 MatchScope: "ALL" || "KEY" || "VALUE", // required
+ * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
  * //             },

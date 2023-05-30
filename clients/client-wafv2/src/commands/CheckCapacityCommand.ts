@@ -114,6 +114,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *               MatchScope: "ALL" || "KEY" || "VALUE", // required
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             HeaderOrder: { // HeaderOrder
+ *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // TextTransformations // required
  *             { // TextTransformation
@@ -175,6 +178,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *               MatchScope: "ALL" || "KEY" || "VALUE", // required
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             HeaderOrder: {
+ *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -232,6 +238,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *               MatchScope: "ALL" || "KEY" || "VALUE", // required
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             HeaderOrder: {
+ *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -282,6 +291,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                 ExcludedCookies: "<CookieNames>",
  *               },
  *               MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
+ *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
  *           },
@@ -421,6 +433,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                 ExcludedCookies: "<CookieNames>",
  *               },
  *               MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
+ *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
  *           },

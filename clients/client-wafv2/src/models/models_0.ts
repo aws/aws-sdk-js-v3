@@ -39,7 +39,7 @@ export interface ActionCondition {
  * @public
  * <p>Inspect all of the elements that WAF has parsed and extracted from the web request
  *          component that you've identified in your <a>FieldToMatch</a> specifications. </p>
- *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ *          <p>This is used in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"All": \{\}</code>
  *          </p>
  */
@@ -102,7 +102,7 @@ export interface AllowAction {
 /**
  * @public
  * <p>Inspect all query arguments of the web request. </p>
- *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ *          <p>This is used in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"AllQueryArguments": \{\}</code>
  *          </p>
  */
@@ -141,7 +141,7 @@ export interface Body {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CONTINUE</code> - Inspect the body normally, according to the rule inspection criteria. </p>
+   *                   <code>CONTINUE</code> - Inspect the available body contents normally, according to the rule inspection criteria. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -229,7 +229,7 @@ export interface Cookies {
   MatchScope: MapMatchScope | string | undefined;
 
   /**
-   * <p>What WAF should do if the cookies of the request are larger than WAF can inspect.
+   * <p>What WAF should do if the cookies of the request are more numerous or larger than WAF can inspect.
    *     WAF does not support inspecting the entire contents of request cookies
    *       when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies
    *       and at most 8 KB of cookie contents to WAF. </p>
@@ -237,7 +237,42 @@ export interface Cookies {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CONTINUE</code> - Inspect the cookies normally, according to the rule inspection criteria. </p>
+   *                   <code>CONTINUE</code> - Inspect the available cookies normally, according to the rule inspection criteria. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF
+   *                applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule
+   *                statement.</p>
+   *             </li>
+   *          </ul>
+   */
+  OversizeHandling: OversizeHandling | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Inspect a string containing the list of the request's header names, ordered as they appear in the web request
+ * that WAF receives for inspection.
+ *            WAF generates the string and then uses that as the field to match component in its inspection.
+ *     WAF separates the header names in the string using commas and no added spaces.</p>
+ *          <p>Matches against the header order string are case insensitive.</p>
+ */
+export interface HeaderOrder {
+  /**
+   * <p>What WAF should do if the headers of the request are more numerous or larger than WAF can inspect.
+   *     WAF does not support inspecting the entire contents of request headers
+   *       when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers
+   *       and at most 8 KB of header contents to WAF. </p>
+   *          <p>The options for oversize handling are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Inspect the available headers normally, according to the rule inspection criteria. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -309,7 +344,7 @@ export interface Headers {
   MatchScope: MapMatchScope | string | undefined;
 
   /**
-   * <p>What WAF should do if the headers of the request are larger than WAF can inspect.
+   * <p>What WAF should do if the headers of the request are more numerous or larger than WAF can inspect.
    *     WAF does not support inspecting the entire contents of request headers
    *       when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers
    *       and at most 8 KB of header contents to WAF. </p>
@@ -317,7 +352,7 @@ export interface Headers {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CONTINUE</code> - Inspect the headers normally, according to the rule inspection criteria. </p>
+   *                   <code>CONTINUE</code> - Inspect the available headers normally, according to the rule inspection criteria. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -479,7 +514,7 @@ export interface JsonBody {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CONTINUE</code> - Inspect the body normally, according to the rule inspection criteria. </p>
+   *                   <code>CONTINUE</code> - Inspect the available body contents normally, according to the rule inspection criteria. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -504,7 +539,7 @@ export interface JsonBody {
  * @public
  * <p>Inspect the HTTP method of the web request. The method indicates the type of operation
  *          that the request is asking the origin to perform. </p>
- *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ *          <p>This is used in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"Method": \{\}</code>
  *          </p>
  */
@@ -514,7 +549,7 @@ export interface Method {}
  * @public
  * <p>Inspect the query string of the web request. This is the part of a URL that appears
  *          after a <code>?</code> character, if any.</p>
- *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ *          <p>This is used in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"QueryString": \{\}</code>
  *          </p>
  */
@@ -557,7 +592,7 @@ export interface SingleQueryArgument {
  * @public
  * <p>Inspect the path component of the URI of the web request. This is the part of the web
  *          request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
- *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ *          <p>This is used in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"UriPath": \{\}</code>
  *          </p>
  */
@@ -671,6 +706,15 @@ export interface FieldToMatch {
    *          underlying host service. </p>
    */
   Cookies?: Cookies;
+
+  /**
+   * <p>Inspect a string containing the list of the request's header names, ordered as they appear in the web request
+   * that WAF receives for inspection.
+   *            WAF generates the string and then uses that as the field to match component in its inspection.
+   *     WAF separates the header names in the string using commas and no added spaces.</p>
+   *          <p>Matches against the header order string are case insensitive.</p>
+   */
+  HeaderOrder?: HeaderOrder;
 }
 
 /**
@@ -921,6 +965,11 @@ export interface ByteMatchStatement {
    *                <p>
    *                   <code>UriPath</code>: The value that you want WAF to search for in the URI path,
    *                for example, <code>/images/daily-ad.jpg</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HeaderOrder</code>: The comma-separated list of header names to match for. WAF creates a
+   *                  string that contains the ordered list of header names, from the headers in the web request, and then matches against that string. </p>
    *             </li>
    *          </ul>
    *          <p>If <code>SearchString</code> includes alphabetic characters A-Z and a-z, note that the
@@ -2937,6 +2986,10 @@ export interface VisibilityConfig {
    * <p>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the
    *          list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
    *             Metrics</a> in the <i>WAF Developer Guide</i>.</p>
+   *          <p>For web ACLs, the metrics are for web requests that have the web ACL default action applied.
+   *         WAF applies the default action to web requests that pass the inspection of all rules
+   *         in the web ACL without being either allowed or blocked. For more information,
+   * see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html">The web ACL default action</a> in the <i>WAF Developer Guide</i>.</p>
    */
   CloudWatchMetricsEnabled: boolean | undefined;
 
