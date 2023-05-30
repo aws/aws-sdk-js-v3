@@ -37,7 +37,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
 /**
  * @public
  * <p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update
- *          a subscriber by changing the sources that the subscriber consumes data from. </p>
+ *          a subscriber by changing the sources that the subscriber consumes data from.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,45 +45,79 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * // const { SecurityLakeClient, UpdateSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // UpdateSubscriberRequest
- *   id: "STRING_VALUE", // required
- *   sourceTypes: [ // SourceTypeList // required
- *     { // SourceType Union: only one key present
- *       awsSourceType: "STRING_VALUE",
- *       customSourceType: "STRING_VALUE",
- *     },
- *   ],
- *   externalId: "STRING_VALUE",
+ *   subscriberId: "STRING_VALUE", // required
+ *   subscriberIdentity: { // AwsIdentity
+ *     principal: "STRING_VALUE", // required
+ *     externalId: "STRING_VALUE", // required
+ *   },
  *   subscriberName: "STRING_VALUE",
  *   subscriberDescription: "STRING_VALUE",
+ *   sources: [ // LogSourceResourceList
+ *     { // LogSourceResource Union: only one key present
+ *       awsLogSource: { // AwsLogSourceResource
+ *         sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
+ *         sourceVersion: "STRING_VALUE",
+ *       },
+ *       customLogSource: { // CustomLogSourceResource
+ *         sourceName: "STRING_VALUE",
+ *         sourceVersion: "STRING_VALUE",
+ *         provider: { // CustomLogSourceProvider
+ *           roleArn: "STRING_VALUE",
+ *           location: "STRING_VALUE",
+ *         },
+ *         attributes: { // CustomLogSourceAttributes
+ *           crawlerArn: "STRING_VALUE",
+ *           databaseArn: "STRING_VALUE",
+ *           tableArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new UpdateSubscriberCommand(input);
  * const response = await client.send(command);
  * // { // UpdateSubscriberResponse
  * //   subscriber: { // SubscriberResource
- * //     subscriptionId: "STRING_VALUE", // required
- * //     sourceTypes: [ // SourceTypeList // required
- * //       { // SourceType Union: only one key present
- * //         awsSourceType: "STRING_VALUE",
- * //         customSourceType: "STRING_VALUE",
+ * //     subscriberId: "STRING_VALUE", // required
+ * //     subscriberArn: "STRING_VALUE", // required
+ * //     subscriberIdentity: { // AwsIdentity
+ * //       principal: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE", // required
+ * //     },
+ * //     subscriberName: "STRING_VALUE", // required
+ * //     subscriberDescription: "STRING_VALUE",
+ * //     sources: [ // LogSourceResourceList // required
+ * //       { // LogSourceResource Union: only one key present
+ * //         awsLogSource: { // AwsLogSourceResource
+ * //           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
+ * //           sourceVersion: "STRING_VALUE",
+ * //         },
+ * //         customLogSource: { // CustomLogSourceResource
+ * //           sourceName: "STRING_VALUE",
+ * //           sourceVersion: "STRING_VALUE",
+ * //           provider: { // CustomLogSourceProvider
+ * //             roleArn: "STRING_VALUE",
+ * //             location: "STRING_VALUE",
+ * //           },
+ * //           attributes: { // CustomLogSourceAttributes
+ * //             crawlerArn: "STRING_VALUE",
+ * //             databaseArn: "STRING_VALUE",
+ * //             tableArn: "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //     ],
- * //     accountId: "STRING_VALUE", // required
- * //     subscriberName: "STRING_VALUE",
- * //     subscriberDescription: "STRING_VALUE",
- * //     subscriptionStatus: "STRING_VALUE",
- * //     roleArn: "STRING_VALUE",
- * //     snsArn: "STRING_VALUE",
- * //     s3BucketArn: "STRING_VALUE",
  * //     accessTypes: [ // AccessTypeList
- * //       "STRING_VALUE",
+ * //       "LAKEFORMATION" || "S3",
  * //     ],
- * //     subscriptionEndpoint: "STRING_VALUE",
- * //     subscriptionProtocol: "STRING_VALUE",
- * //     externalId: "STRING_VALUE",
- * //     createdAt: new Date("TIMESTAMP"),
- * //     updatedAt: new Date("TIMESTAMP"),
+ * //     roleArn: "STRING_VALUE",
+ * //     s3BucketArn: "STRING_VALUE",
+ * //     subscriberEndpoint: "STRING_VALUE",
+ * //     subscriberStatus: "ACTIVE" || "DEACTIVATED" || "PENDING" || "READY",
  * //     resourceShareArn: "STRING_VALUE",
  * //     resourceShareName: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
@@ -101,27 +135,24 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  *
- * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>More than one process tried to modify a resource at the same time. </p>
- *
- * @throws {@link ConflictSubscriptionException} (client fault)
- *  <p>A conflicting subscription exception operation is in progress. </p>
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because a value that's not valid or is out of range was
- *          supplied for an input parameter. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>

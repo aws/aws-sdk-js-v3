@@ -36,21 +36,13 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
 
 /**
  * @public
- * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. When
- *          you remove the source, Security Lake stops collecting data from that source, and subscribers
- *          can no longer consume new data from the source. Subscribers can still consume data that
- *          Security Lake collected from the source before disablement.</p>
+ * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. You
+ *          can remove a source for one or more Regions. When you remove the source, Security Lake stops
+ *          collecting data from that source in the specified Regions and accounts, and subscribers can
+ *          no longer consume new data from the source. However, subscribers can still consume data
+ *          that Security Lake collected from the source before removal.</p>
  *          <p>You can choose any source type in any Amazon Web Services Region for either accounts that
- *          are part of a trusted organization or standalone accounts. At least one of the three
- *          dimensions is a mandatory input to this API. However, you can supply any combination of the
- *          three dimensions to this API. </p>
- *          <p>By default, a dimension refers to the entire set. This is overridden when you supply any
- *          one of the inputs. For instance, when you do not specify members, the API disables all
- *          Security Lake member accounts for sources. Similarly, when you do not specify Regions,
- *          Security Lake is disabled for all the Regions where Security Lake is available as a service.</p>
- *          <p>When you don't provide a dimension, Security Lake  assumes that the missing dimension refers
- *          to the entire set. For example, if you don't provide specific accounts, the API applies to
- *          the entire set of accounts in your organization.</p>
+ *          are part of a trusted organization or standalone accounts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,32 +50,23 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * // const { SecurityLakeClient, DeleteAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteAwsLogSourceRequest
- *   inputOrder: [ // DimensionSet // required
- *     "STRING_VALUE",
- *   ],
- *   disableAllDimensions: { // AllDimensionsMap
- *     "<keys>": { // TwoDimensionsMap
- *       "<keys>": [ // ValueSet
+ *   sources: [ // AwsLogSourceConfigurationList // required
+ *     { // AwsLogSourceConfiguration
+ *       accounts: [ // AccountList
  *         "STRING_VALUE",
  *       ],
+ *       regions: [ // RegionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA", // required
+ *       sourceVersion: "STRING_VALUE",
  *     },
- *   },
- *   disableTwoDimensions: {
- *     "<keys>": [
- *       "STRING_VALUE",
- *     ],
- *   },
- *   disableSingleDimension: [ // InputSet
- *     "STRING_VALUE",
  *   ],
  * };
  * const command = new DeleteAwsLogSourceCommand(input);
  * const response = await client.send(command);
  * // { // DeleteAwsLogSourceResponse
- * //   processing: [ // AccountList
- * //     "STRING_VALUE",
- * //   ],
- * //   failed: [
+ * //   failed: [ // AccountList
  * //     "STRING_VALUE",
  * //   ],
  * // };
@@ -102,17 +85,24 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>

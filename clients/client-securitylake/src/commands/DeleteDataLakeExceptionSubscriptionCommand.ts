@@ -13,10 +13,13 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { UpdateDatalakeExceptionsExpiryRequest, UpdateDatalakeExceptionsExpiryResponse } from "../models/models_0";
 import {
-  de_UpdateDatalakeExceptionsExpiryCommand,
-  se_UpdateDatalakeExceptionsExpiryCommand,
+  DeleteDataLakeExceptionSubscriptionRequest,
+  DeleteDataLakeExceptionSubscriptionResponse,
+} from "../models/models_0";
+import {
+  de_DeleteDataLakeExceptionSubscriptionCommand,
+  se_DeleteDataLakeExceptionSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -27,42 +30,39 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateDatalakeExceptionsExpiryCommand}.
+ * The input for {@link DeleteDataLakeExceptionSubscriptionCommand}.
  */
-export interface UpdateDatalakeExceptionsExpiryCommandInput extends UpdateDatalakeExceptionsExpiryRequest {}
+export interface DeleteDataLakeExceptionSubscriptionCommandInput extends DeleteDataLakeExceptionSubscriptionRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateDatalakeExceptionsExpiryCommand}.
+ * The output of {@link DeleteDataLakeExceptionSubscriptionCommand}.
  */
-export interface UpdateDatalakeExceptionsExpiryCommandOutput
-  extends UpdateDatalakeExceptionsExpiryResponse,
+export interface DeleteDataLakeExceptionSubscriptionCommandOutput
+  extends DeleteDataLakeExceptionSubscriptionResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Update the expiration period for the exception message to your preferred time, and
- *          control the time-to-live (TTL) for the exception message to remain. Exceptions are stored
- *          by default for 2 weeks from when a record was created in Amazon Security Lake. </p>
+ * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
+ *          you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, UpdateDatalakeExceptionsExpiryCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, UpdateDatalakeExceptionsExpiryCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteDataLakeExceptionSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, DeleteDataLakeExceptionSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // UpdateDatalakeExceptionsExpiryRequest
- *   exceptionMessageExpiry: Number("long"), // required
- * };
- * const command = new UpdateDatalakeExceptionsExpiryCommand(input);
+ * const input = {};
+ * const command = new DeleteDataLakeExceptionSubscriptionCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateDatalakeExceptionsExpiryCommandInput - {@link UpdateDatalakeExceptionsExpiryCommandInput}
- * @returns {@link UpdateDatalakeExceptionsExpiryCommandOutput}
- * @see {@link UpdateDatalakeExceptionsExpiryCommandInput} for command's `input` shape.
- * @see {@link UpdateDatalakeExceptionsExpiryCommandOutput} for command's `response` shape.
+ * @param DeleteDataLakeExceptionSubscriptionCommandInput - {@link DeleteDataLakeExceptionSubscriptionCommandInput}
+ * @returns {@link DeleteDataLakeExceptionSubscriptionCommandOutput}
+ * @see {@link DeleteDataLakeExceptionSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataLakeExceptionSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,25 +71,32 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
-  UpdateDatalakeExceptionsExpiryCommandInput,
-  UpdateDatalakeExceptionsExpiryCommandOutput,
+export class DeleteDataLakeExceptionSubscriptionCommand extends $Command<
+  DeleteDataLakeExceptionSubscriptionCommandInput,
+  DeleteDataLakeExceptionSubscriptionCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -107,7 +114,7 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateDatalakeExceptionsExpiryCommandInput) {
+  constructor(readonly input: DeleteDataLakeExceptionSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -120,17 +127,17 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDatalakeExceptionsExpiryCommandInput, UpdateDatalakeExceptionsExpiryCommandOutput> {
+  ): Handler<DeleteDataLakeExceptionSubscriptionCommandInput, DeleteDataLakeExceptionSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDatalakeExceptionsExpiryCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteDataLakeExceptionSubscriptionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "UpdateDatalakeExceptionsExpiryCommand";
+    const commandName = "DeleteDataLakeExceptionSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,10 +157,10 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: UpdateDatalakeExceptionsExpiryCommandInput,
+    input: DeleteDataLakeExceptionSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_UpdateDatalakeExceptionsExpiryCommand(input, context);
+    return se_DeleteDataLakeExceptionSubscriptionCommand(input, context);
   }
 
   /**
@@ -162,8 +169,8 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<UpdateDatalakeExceptionsExpiryCommandOutput> {
-    return de_UpdateDatalakeExceptionsExpiryCommand(output, context);
+  ): Promise<DeleteDataLakeExceptionSubscriptionCommandOutput> {
+    return de_DeleteDataLakeExceptionSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { CreateCustomLogSourceRequest, CreateCustomLogSourceResponse } from "../models/models_0";
-import { de_CreateCustomLogSourceCommand, se_CreateCustomLogSourceCommand } from "../protocols/Aws_restJson1";
+import { UpdateDataLakeRequest, UpdateDataLakeResponse } from "../models/models_0";
+import { de_UpdateDataLakeCommand, se_UpdateDataLakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,71 +24,100 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateCustomLogSourceCommand}.
+ * The input for {@link UpdateDataLakeCommand}.
  */
-export interface CreateCustomLogSourceCommandInput extends CreateCustomLogSourceRequest {}
+export interface UpdateDataLakeCommandInput extends UpdateDataLakeRequest {}
 /**
  * @public
  *
- * The output of {@link CreateCustomLogSourceCommand}.
+ * The output of {@link UpdateDataLakeCommand}.
  */
-export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourceResponse, __MetadataBearer {}
+export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds a third-party custom source in Amazon Security Lake, from the Amazon Web Services Region
- *          where you want to create a custom source. Security Lake can collect logs and events from
- *          third-party custom sources. After creating the appropriate IAM role to
- *          invoke Glue crawler, use this API to add a custom source name in Security Lake. This
- *          operation creates a partition in the Amazon S3 bucket for Security Lake as the target
- *          location for log files from the custom source. In addition, this operation also creates an
- *          associated Glue table and an Glue crawler.</p>
+ * <p>Specifies where to store your security data and for how long. You can add a rollup
+ *          Region to consolidate data from multiple Amazon Web Services Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateCustomLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateCustomLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, UpdateDataLakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, UpdateDataLakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // CreateCustomLogSourceRequest
- *   sourceName: "STRING_VALUE", // required
- *   sourceVersion: "STRING_VALUE",
- *   eventClasses: [ // OcsfEventClassList
- *     "STRING_VALUE",
+ * const input = { // UpdateDataLakeRequest
+ *   configurations: [ // DataLakeConfigurationList // required
+ *     { // DataLakeConfiguration
+ *       region: "STRING_VALUE", // required
+ *       encryptionConfiguration: { // DataLakeEncryptionConfiguration
+ *         kmsKeyId: "STRING_VALUE",
+ *       },
+ *       lifecycleConfiguration: { // DataLakeLifecycleConfiguration
+ *         expiration: { // DataLakeLifecycleExpiration
+ *           days: Number("int"),
+ *         },
+ *         transitions: [ // DataLakeLifecycleTransitionList
+ *           { // DataLakeLifecycleTransition
+ *             storageClass: "STRING_VALUE",
+ *             days: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       replicationConfiguration: { // DataLakeReplicationConfiguration
+ *         regions: [ // RegionList
+ *           "STRING_VALUE",
+ *         ],
+ *         roleArn: "STRING_VALUE",
+ *       },
+ *     },
  *   ],
- *   configuration: { // CustomLogSourceConfiguration
- *     crawlerConfiguration: { // CustomLogSourceCrawlerConfiguration
- *       roleArn: "STRING_VALUE", // required
- *     },
- *     providerIdentity: { // AwsIdentity
- *       principal: "STRING_VALUE", // required
- *       externalId: "STRING_VALUE", // required
- *     },
- *   },
  * };
- * const command = new CreateCustomLogSourceCommand(input);
+ * const command = new UpdateDataLakeCommand(input);
  * const response = await client.send(command);
- * // { // CreateCustomLogSourceResponse
- * //   source: { // CustomLogSourceResource
- * //     sourceName: "STRING_VALUE",
- * //     sourceVersion: "STRING_VALUE",
- * //     provider: { // CustomLogSourceProvider
- * //       roleArn: "STRING_VALUE",
- * //       location: "STRING_VALUE",
+ * // { // UpdateDataLakeResponse
+ * //   dataLakes: [ // DataLakeResourceList
+ * //     { // DataLakeResource
+ * //       dataLakeArn: "STRING_VALUE", // required
+ * //       region: "STRING_VALUE", // required
+ * //       s3BucketArn: "STRING_VALUE",
+ * //       encryptionConfiguration: { // DataLakeEncryptionConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //       },
+ * //       lifecycleConfiguration: { // DataLakeLifecycleConfiguration
+ * //         expiration: { // DataLakeLifecycleExpiration
+ * //           days: Number("int"),
+ * //         },
+ * //         transitions: [ // DataLakeLifecycleTransitionList
+ * //           { // DataLakeLifecycleTransition
+ * //             storageClass: "STRING_VALUE",
+ * //             days: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       replicationConfiguration: { // DataLakeReplicationConfiguration
+ * //         regions: [ // RegionList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         roleArn: "STRING_VALUE",
+ * //       },
+ * //       createStatus: "INITIALIZED" || "PENDING" || "COMPLETED" || "FAILED",
+ * //       updateStatus: { // DataLakeUpdateStatus
+ * //         requestId: "STRING_VALUE",
+ * //         status: "INITIALIZED" || "PENDING" || "COMPLETED" || "FAILED",
+ * //         exception: { // DataLakeUpdateException
+ * //           reason: "STRING_VALUE",
+ * //           code: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
- * //     attributes: { // CustomLogSourceAttributes
- * //       crawlerArn: "STRING_VALUE",
- * //       databaseArn: "STRING_VALUE",
- * //       tableArn: "STRING_VALUE",
- * //     },
- * //   },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param CreateCustomLogSourceCommandInput - {@link CreateCustomLogSourceCommandInput}
- * @returns {@link CreateCustomLogSourceCommandOutput}
- * @see {@link CreateCustomLogSourceCommandInput} for command's `input` shape.
- * @see {@link CreateCustomLogSourceCommandOutput} for command's `response` shape.
+ * @param UpdateDataLakeCommandInput - {@link UpdateDataLakeCommandInput}
+ * @returns {@link UpdateDataLakeCommandOutput}
+ * @see {@link UpdateDataLakeCommandInput} for command's `input` shape.
+ * @see {@link UpdateDataLakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -120,9 +149,9 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class CreateCustomLogSourceCommand extends $Command<
-  CreateCustomLogSourceCommandInput,
-  CreateCustomLogSourceCommandOutput,
+export class UpdateDataLakeCommand extends $Command<
+  UpdateDataLakeCommandInput,
+  UpdateDataLakeCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -140,7 +169,7 @@ export class CreateCustomLogSourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateCustomLogSourceCommandInput) {
+  constructor(readonly input: UpdateDataLakeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -153,17 +182,17 @@ export class CreateCustomLogSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateCustomLogSourceCommandInput, CreateCustomLogSourceCommandOutput> {
+  ): Handler<UpdateDataLakeCommandInput, UpdateDataLakeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateCustomLogSourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateDataLakeCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "CreateCustomLogSourceCommand";
+    const commandName = "UpdateDataLakeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -182,15 +211,15 @@ export class CreateCustomLogSourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateCustomLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateCustomLogSourceCommand(input, context);
+  private serialize(input: UpdateDataLakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateDataLakeCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomLogSourceCommandOutput> {
-    return de_CreateCustomLogSourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataLakeCommandOutput> {
+    return de_UpdateDataLakeCommand(output, context);
   }
 
   // Start section: command_body_extra

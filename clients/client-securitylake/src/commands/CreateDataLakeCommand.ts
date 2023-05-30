@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { CreateDatalakeRequest, CreateDatalakeResponse } from "../models/models_0";
-import { de_CreateDatalakeCommand, se_CreateDatalakeCommand } from "../protocols/Aws_restJson1";
+import { CreateDataLakeRequest, CreateDataLakeResponse } from "../models/models_0";
+import { de_CreateDataLakeCommand, se_CreateDataLakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,25 +24,24 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateDatalakeCommand}.
+ * The input for {@link CreateDataLakeCommand}.
  */
-export interface CreateDatalakeCommandInput extends CreateDatalakeRequest {}
+export interface CreateDataLakeCommandInput extends CreateDataLakeRequest {}
 /**
  * @public
  *
- * The output of {@link CreateDatalakeCommand}.
+ * The output of {@link CreateDataLakeCommand}.
  */
-export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __MetadataBearer {}
+export interface CreateDataLakeCommandOutput extends CreateDataLakeResponse, __MetadataBearer {}
 
 /**
  * @public
  * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You
  *          can enable Security Lake in Amazon Web Services Regions with customized settings before enabling
- *          log collection in Regions. You can either use the <code>enableAll</code> parameter to
- *          specify all Regions or specify the Regions where you want to enable Security Lake. To specify
- *          particular Regions, use the <code>Regions</code> parameter and then configure these Regions
- *          using the <code>configurations</code> parameter. If you have already enabled Security Lake in a
- *          Region when you call this command, the command will update the Region if you provide new
+ *          log collection in Regions. By default, the <code>CreateDataLake</code> Security Lake in all
+ *          Regions. To specify particular Regions, configure these Regions using the
+ *             <code>configurations</code> parameter. If you have already enabled Security Lake in a Region
+ *          when you call this command, the command will update the Region if you provide new
  *          configuration parameters. If you have not already enabled Security Lake in the Region when you
  *          call this API, it will set up the data lake in the Region with the specified
  *          configurations.</p>
@@ -55,44 +54,84 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateDataLakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, CreateDataLakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // CreateDatalakeRequest
- *   regions: [ // RegionSet
- *     "STRING_VALUE",
- *   ],
- *   configurations: { // LakeConfigurationRequestMap
- *     "<keys>": { // LakeConfigurationRequest
- *       encryptionKey: "STRING_VALUE",
- *       retentionSettings: [ // RetentionSettingList
- *         { // RetentionSetting
- *           storageClass: "STRING_VALUE",
- *           retentionPeriod: Number("int"),
- *         },
- *       ],
- *       tagsMap: { // TagsMap
- *         "<keys>": "STRING_VALUE",
+ * const input = { // CreateDataLakeRequest
+ *   configurations: [ // DataLakeConfigurationList // required
+ *     { // DataLakeConfiguration
+ *       region: "STRING_VALUE", // required
+ *       encryptionConfiguration: { // DataLakeEncryptionConfiguration
+ *         kmsKeyId: "STRING_VALUE",
  *       },
- *       replicationDestinationRegions: [
- *         "STRING_VALUE",
- *       ],
- *       replicationRoleArn: "STRING_VALUE",
+ *       lifecycleConfiguration: { // DataLakeLifecycleConfiguration
+ *         expiration: { // DataLakeLifecycleExpiration
+ *           days: Number("int"),
+ *         },
+ *         transitions: [ // DataLakeLifecycleTransitionList
+ *           { // DataLakeLifecycleTransition
+ *             storageClass: "STRING_VALUE",
+ *             days: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *       replicationConfiguration: { // DataLakeReplicationConfiguration
+ *         regions: [ // RegionList
+ *           "STRING_VALUE",
+ *         ],
+ *         roleArn: "STRING_VALUE",
+ *       },
  *     },
- *   },
- *   enableAll: true || false,
- *   metaStoreManagerRoleArn: "STRING_VALUE",
+ *   ],
+ *   metaStoreManagerRoleArn: "STRING_VALUE", // required
  * };
- * const command = new CreateDatalakeCommand(input);
+ * const command = new CreateDataLakeCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateDataLakeResponse
+ * //   dataLakes: [ // DataLakeResourceList
+ * //     { // DataLakeResource
+ * //       dataLakeArn: "STRING_VALUE", // required
+ * //       region: "STRING_VALUE", // required
+ * //       s3BucketArn: "STRING_VALUE",
+ * //       encryptionConfiguration: { // DataLakeEncryptionConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //       },
+ * //       lifecycleConfiguration: { // DataLakeLifecycleConfiguration
+ * //         expiration: { // DataLakeLifecycleExpiration
+ * //           days: Number("int"),
+ * //         },
+ * //         transitions: [ // DataLakeLifecycleTransitionList
+ * //           { // DataLakeLifecycleTransition
+ * //             storageClass: "STRING_VALUE",
+ * //             days: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       replicationConfiguration: { // DataLakeReplicationConfiguration
+ * //         regions: [ // RegionList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         roleArn: "STRING_VALUE",
+ * //       },
+ * //       createStatus: "INITIALIZED" || "PENDING" || "COMPLETED" || "FAILED",
+ * //       updateStatus: { // DataLakeUpdateStatus
+ * //         requestId: "STRING_VALUE",
+ * //         status: "INITIALIZED" || "PENDING" || "COMPLETED" || "FAILED",
+ * //         exception: { // DataLakeUpdateException
+ * //           reason: "STRING_VALUE",
+ * //           code: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param CreateDatalakeCommandInput - {@link CreateDatalakeCommandInput}
- * @returns {@link CreateDatalakeCommandOutput}
- * @see {@link CreateDatalakeCommandInput} for command's `input` shape.
- * @see {@link CreateDatalakeCommandOutput} for command's `response` shape.
+ * @param CreateDataLakeCommandInput - {@link CreateDataLakeCommandInput}
+ * @returns {@link CreateDataLakeCommandOutput}
+ * @see {@link CreateDataLakeCommandInput} for command's `input` shape.
+ * @see {@link CreateDataLakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,6 +139,9 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Occurs when a conflict with a previous successful write is detected. This generally
@@ -109,28 +151,21 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded your service quota. To perform the requested action, remove some of
- *          the relevant resources, or use Service Quotas to request a service quota increase. </p>
- *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded. </p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class CreateDatalakeCommand extends $Command<
-  CreateDatalakeCommandInput,
-  CreateDatalakeCommandOutput,
+export class CreateDataLakeCommand extends $Command<
+  CreateDataLakeCommandInput,
+  CreateDataLakeCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -148,7 +183,7 @@ export class CreateDatalakeCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateDatalakeCommandInput) {
+  constructor(readonly input: CreateDataLakeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -161,17 +196,17 @@ export class CreateDatalakeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDatalakeCommandInput, CreateDatalakeCommandOutput> {
+  ): Handler<CreateDataLakeCommandInput, CreateDataLakeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDatalakeCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateDataLakeCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "CreateDatalakeCommand";
+    const commandName = "CreateDataLakeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -190,15 +225,15 @@ export class CreateDatalakeCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDatalakeCommand(input, context);
+  private serialize(input: CreateDataLakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateDataLakeCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeCommandOutput> {
-    return de_CreateDatalakeCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataLakeCommandOutput> {
+    return de_CreateDataLakeCommand(output, context);
   }
 
   // Start section: command_body_extra

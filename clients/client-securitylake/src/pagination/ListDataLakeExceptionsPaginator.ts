@@ -2,10 +2,10 @@
 import { Paginator } from "@aws-sdk/types";
 
 import {
-  ListDatalakeExceptionsCommand,
-  ListDatalakeExceptionsCommandInput,
-  ListDatalakeExceptionsCommandOutput,
-} from "../commands/ListDatalakeExceptionsCommand";
+  ListDataLakeExceptionsCommand,
+  ListDataLakeExceptionsCommandInput,
+  ListDataLakeExceptionsCommandOutput,
+} from "../commands/ListDataLakeExceptionsCommand";
 import { SecurityLakeClient } from "../SecurityLakeClient";
 import { SecurityLakePaginationConfiguration } from "./Interfaces";
 
@@ -14,27 +14,27 @@ import { SecurityLakePaginationConfiguration } from "./Interfaces";
  */
 const makePagedClientRequest = async (
   client: SecurityLakeClient,
-  input: ListDatalakeExceptionsCommandInput,
+  input: ListDataLakeExceptionsCommandInput,
   ...args: any
-): Promise<ListDatalakeExceptionsCommandOutput> => {
+): Promise<ListDataLakeExceptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDatalakeExceptionsCommand(input), ...args);
+  return await client.send(new ListDataLakeExceptionsCommand(input), ...args);
 };
 /**
  * @public
  */
-export async function* paginateListDatalakeExceptions(
+export async function* paginateListDataLakeExceptions(
   config: SecurityLakePaginationConfiguration,
-  input: ListDatalakeExceptionsCommandInput,
+  input: ListDataLakeExceptionsCommandInput,
   ...additionalArguments: any
-): Paginator<ListDatalakeExceptionsCommandOutput> {
+): Paginator<ListDataLakeExceptionsCommandOutput> {
   // ToDo: replace with actual type instead of typeof input.nextToken
   let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
-  let page: ListDatalakeExceptionsCommandOutput;
+  let page: ListDataLakeExceptionsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    input["maxFailures"] = config.pageSize;
+    input["maxResults"] = config.pageSize;
     if (config.client instanceof SecurityLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {

@@ -13,8 +13,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetDatalakeAutoEnableRequest, GetDatalakeAutoEnableResponse } from "../models/models_0";
-import { de_GetDatalakeAutoEnableCommand, se_GetDatalakeAutoEnableCommand } from "../protocols/Aws_restJson1";
+import { DeleteSubscriberNotificationRequest, DeleteSubscriberNotificationResponse } from "../models/models_0";
+import {
+  de_DeleteSubscriberNotificationCommand,
+  se_DeleteSubscriberNotificationCommand,
+} from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,47 +27,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetDatalakeAutoEnableCommand}.
+ * The input for {@link DeleteSubscriberNotificationCommand}.
  */
-export interface GetDatalakeAutoEnableCommandInput extends GetDatalakeAutoEnableRequest {}
+export interface DeleteSubscriberNotificationCommandInput extends DeleteSubscriberNotificationRequest {}
 /**
  * @public
  *
- * The output of {@link GetDatalakeAutoEnableCommand}.
+ * The output of {@link DeleteSubscriberNotificationCommand}.
  */
-export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnableResponse, __MetadataBearer {}
+export interface DeleteSubscriberNotificationCommandOutput
+  extends DeleteSubscriberNotificationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves the configuration that will be automatically set up for accounts added to the
- *          organization after the organization has onboarded to Amazon Security Lake. This API does not take
- *          input parameters.</p>
+ * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
+ *          you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, GetDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, GetDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteSubscriberNotificationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, DeleteSubscriberNotificationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {};
- * const command = new GetDatalakeAutoEnableCommand(input);
+ * const input = { // DeleteSubscriberNotificationRequest
+ *   subscriberId: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteSubscriberNotificationCommand(input);
  * const response = await client.send(command);
- * // { // GetDatalakeAutoEnableResponse
- * //   autoEnableNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
- * //     { // AutoEnableNewRegionConfiguration
- * //       region: "STRING_VALUE", // required
- * //       sources: [ // AwsSourceTypeList // required
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetDatalakeAutoEnableCommandInput - {@link GetDatalakeAutoEnableCommandInput}
- * @returns {@link GetDatalakeAutoEnableCommandOutput}
- * @see {@link GetDatalakeAutoEnableCommandInput} for command's `input` shape.
- * @see {@link GetDatalakeAutoEnableCommandOutput} for command's `response` shape.
+ * @param DeleteSubscriberNotificationCommandInput - {@link DeleteSubscriberNotificationCommandInput}
+ * @returns {@link DeleteSubscriberNotificationCommandOutput}
+ * @see {@link DeleteSubscriberNotificationCommandInput} for command's `input` shape.
+ * @see {@link DeleteSubscriberNotificationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -73,25 +70,32 @@ export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnabl
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class GetDatalakeAutoEnableCommand extends $Command<
-  GetDatalakeAutoEnableCommandInput,
-  GetDatalakeAutoEnableCommandOutput,
+export class DeleteSubscriberNotificationCommand extends $Command<
+  DeleteSubscriberNotificationCommandInput,
+  DeleteSubscriberNotificationCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -109,7 +113,7 @@ export class GetDatalakeAutoEnableCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetDatalakeAutoEnableCommandInput) {
+  constructor(readonly input: DeleteSubscriberNotificationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -122,17 +126,17 @@ export class GetDatalakeAutoEnableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetDatalakeAutoEnableCommandInput, GetDatalakeAutoEnableCommandOutput> {
+  ): Handler<DeleteSubscriberNotificationCommandInput, DeleteSubscriberNotificationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDatalakeAutoEnableCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteSubscriberNotificationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "GetDatalakeAutoEnableCommand";
+    const commandName = "DeleteSubscriberNotificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -151,15 +155,18 @@ export class GetDatalakeAutoEnableCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetDatalakeAutoEnableCommand(input, context);
+  private serialize(input: DeleteSubscriberNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteSubscriberNotificationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatalakeAutoEnableCommandOutput> {
-    return de_GetDatalakeAutoEnableCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteSubscriberNotificationCommandOutput> {
+    return de_DeleteSubscriberNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

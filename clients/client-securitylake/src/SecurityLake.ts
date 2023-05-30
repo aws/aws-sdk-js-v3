@@ -13,35 +13,30 @@ import {
   CreateCustomLogSourceCommandOutput,
 } from "./commands/CreateCustomLogSourceCommand";
 import {
-  CreateDatalakeAutoEnableCommand,
-  CreateDatalakeAutoEnableCommandInput,
-  CreateDatalakeAutoEnableCommandOutput,
-} from "./commands/CreateDatalakeAutoEnableCommand";
+  CreateDataLakeCommand,
+  CreateDataLakeCommandInput,
+  CreateDataLakeCommandOutput,
+} from "./commands/CreateDataLakeCommand";
 import {
-  CreateDatalakeCommand,
-  CreateDatalakeCommandInput,
-  CreateDatalakeCommandOutput,
-} from "./commands/CreateDatalakeCommand";
+  CreateDataLakeExceptionSubscriptionCommand,
+  CreateDataLakeExceptionSubscriptionCommandInput,
+  CreateDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/CreateDataLakeExceptionSubscriptionCommand";
 import {
-  CreateDatalakeDelegatedAdminCommand,
-  CreateDatalakeDelegatedAdminCommandInput,
-  CreateDatalakeDelegatedAdminCommandOutput,
-} from "./commands/CreateDatalakeDelegatedAdminCommand";
-import {
-  CreateDatalakeExceptionsSubscriptionCommand,
-  CreateDatalakeExceptionsSubscriptionCommandInput,
-  CreateDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/CreateDatalakeExceptionsSubscriptionCommand";
+  CreateDataLakeOrganizationConfigurationCommand,
+  CreateDataLakeOrganizationConfigurationCommandInput,
+  CreateDataLakeOrganizationConfigurationCommandOutput,
+} from "./commands/CreateDataLakeOrganizationConfigurationCommand";
 import {
   CreateSubscriberCommand,
   CreateSubscriberCommandInput,
   CreateSubscriberCommandOutput,
 } from "./commands/CreateSubscriberCommand";
 import {
-  CreateSubscriptionNotificationConfigurationCommand,
-  CreateSubscriptionNotificationConfigurationCommandInput,
-  CreateSubscriptionNotificationConfigurationCommandOutput,
-} from "./commands/CreateSubscriptionNotificationConfigurationCommand";
+  CreateSubscriberNotificationCommand,
+  CreateSubscriberNotificationCommandInput,
+  CreateSubscriberNotificationCommandOutput,
+} from "./commands/CreateSubscriberNotificationCommand";
 import {
   DeleteAwsLogSourceCommand,
   DeleteAwsLogSourceCommandInput,
@@ -53,66 +48,65 @@ import {
   DeleteCustomLogSourceCommandOutput,
 } from "./commands/DeleteCustomLogSourceCommand";
 import {
-  DeleteDatalakeAutoEnableCommand,
-  DeleteDatalakeAutoEnableCommandInput,
-  DeleteDatalakeAutoEnableCommandOutput,
-} from "./commands/DeleteDatalakeAutoEnableCommand";
+  DeleteDataLakeCommand,
+  DeleteDataLakeCommandInput,
+  DeleteDataLakeCommandOutput,
+} from "./commands/DeleteDataLakeCommand";
 import {
-  DeleteDatalakeCommand,
-  DeleteDatalakeCommandInput,
-  DeleteDatalakeCommandOutput,
-} from "./commands/DeleteDatalakeCommand";
+  DeleteDataLakeExceptionSubscriptionCommand,
+  DeleteDataLakeExceptionSubscriptionCommandInput,
+  DeleteDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/DeleteDataLakeExceptionSubscriptionCommand";
 import {
-  DeleteDatalakeDelegatedAdminCommand,
-  DeleteDatalakeDelegatedAdminCommandInput,
-  DeleteDatalakeDelegatedAdminCommandOutput,
-} from "./commands/DeleteDatalakeDelegatedAdminCommand";
-import {
-  DeleteDatalakeExceptionsSubscriptionCommand,
-  DeleteDatalakeExceptionsSubscriptionCommandInput,
-  DeleteDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/DeleteDatalakeExceptionsSubscriptionCommand";
+  DeleteDataLakeOrganizationConfigurationCommand,
+  DeleteDataLakeOrganizationConfigurationCommandInput,
+  DeleteDataLakeOrganizationConfigurationCommandOutput,
+} from "./commands/DeleteDataLakeOrganizationConfigurationCommand";
 import {
   DeleteSubscriberCommand,
   DeleteSubscriberCommandInput,
   DeleteSubscriberCommandOutput,
 } from "./commands/DeleteSubscriberCommand";
 import {
-  DeleteSubscriptionNotificationConfigurationCommand,
-  DeleteSubscriptionNotificationConfigurationCommandInput,
-  DeleteSubscriptionNotificationConfigurationCommandOutput,
-} from "./commands/DeleteSubscriptionNotificationConfigurationCommand";
+  DeleteSubscriberNotificationCommand,
+  DeleteSubscriberNotificationCommandInput,
+  DeleteSubscriberNotificationCommandOutput,
+} from "./commands/DeleteSubscriberNotificationCommand";
 import {
-  GetDatalakeAutoEnableCommand,
-  GetDatalakeAutoEnableCommandInput,
-  GetDatalakeAutoEnableCommandOutput,
-} from "./commands/GetDatalakeAutoEnableCommand";
-import { GetDatalakeCommand, GetDatalakeCommandInput, GetDatalakeCommandOutput } from "./commands/GetDatalakeCommand";
+  DeregisterDataLakeDelegatedAdministratorCommand,
+  DeregisterDataLakeDelegatedAdministratorCommandInput,
+  DeregisterDataLakeDelegatedAdministratorCommandOutput,
+} from "./commands/DeregisterDataLakeDelegatedAdministratorCommand";
 import {
-  GetDatalakeExceptionsExpiryCommand,
-  GetDatalakeExceptionsExpiryCommandInput,
-  GetDatalakeExceptionsExpiryCommandOutput,
-} from "./commands/GetDatalakeExceptionsExpiryCommand";
+  GetDataLakeExceptionSubscriptionCommand,
+  GetDataLakeExceptionSubscriptionCommandInput,
+  GetDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/GetDataLakeExceptionSubscriptionCommand";
 import {
-  GetDatalakeExceptionsSubscriptionCommand,
-  GetDatalakeExceptionsSubscriptionCommandInput,
-  GetDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/GetDatalakeExceptionsSubscriptionCommand";
+  GetDataLakeOrganizationConfigurationCommand,
+  GetDataLakeOrganizationConfigurationCommandInput,
+  GetDataLakeOrganizationConfigurationCommandOutput,
+} from "./commands/GetDataLakeOrganizationConfigurationCommand";
 import {
-  GetDatalakeStatusCommand,
-  GetDatalakeStatusCommandInput,
-  GetDatalakeStatusCommandOutput,
-} from "./commands/GetDatalakeStatusCommand";
+  GetDataLakeSourcesCommand,
+  GetDataLakeSourcesCommandInput,
+  GetDataLakeSourcesCommandOutput,
+} from "./commands/GetDataLakeSourcesCommand";
 import {
   GetSubscriberCommand,
   GetSubscriberCommandInput,
   GetSubscriberCommandOutput,
 } from "./commands/GetSubscriberCommand";
 import {
-  ListDatalakeExceptionsCommand,
-  ListDatalakeExceptionsCommandInput,
-  ListDatalakeExceptionsCommandOutput,
-} from "./commands/ListDatalakeExceptionsCommand";
+  ListDataLakeExceptionsCommand,
+  ListDataLakeExceptionsCommandInput,
+  ListDataLakeExceptionsCommandOutput,
+} from "./commands/ListDataLakeExceptionsCommand";
+import {
+  ListDataLakesCommand,
+  ListDataLakesCommandInput,
+  ListDataLakesCommandOutput,
+} from "./commands/ListDataLakesCommand";
 import {
   ListLogSourcesCommand,
   ListLogSourcesCommandInput,
@@ -124,63 +118,61 @@ import {
   ListSubscribersCommandOutput,
 } from "./commands/ListSubscribersCommand";
 import {
-  UpdateDatalakeCommand,
-  UpdateDatalakeCommandInput,
-  UpdateDatalakeCommandOutput,
-} from "./commands/UpdateDatalakeCommand";
+  RegisterDataLakeDelegatedAdministratorCommand,
+  RegisterDataLakeDelegatedAdministratorCommandInput,
+  RegisterDataLakeDelegatedAdministratorCommandOutput,
+} from "./commands/RegisterDataLakeDelegatedAdministratorCommand";
 import {
-  UpdateDatalakeExceptionsExpiryCommand,
-  UpdateDatalakeExceptionsExpiryCommandInput,
-  UpdateDatalakeExceptionsExpiryCommandOutput,
-} from "./commands/UpdateDatalakeExceptionsExpiryCommand";
+  UpdateDataLakeCommand,
+  UpdateDataLakeCommandInput,
+  UpdateDataLakeCommandOutput,
+} from "./commands/UpdateDataLakeCommand";
 import {
-  UpdateDatalakeExceptionsSubscriptionCommand,
-  UpdateDatalakeExceptionsSubscriptionCommandInput,
-  UpdateDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/UpdateDatalakeExceptionsSubscriptionCommand";
+  UpdateDataLakeExceptionSubscriptionCommand,
+  UpdateDataLakeExceptionSubscriptionCommandInput,
+  UpdateDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/UpdateDataLakeExceptionSubscriptionCommand";
 import {
   UpdateSubscriberCommand,
   UpdateSubscriberCommandInput,
   UpdateSubscriberCommandOutput,
 } from "./commands/UpdateSubscriberCommand";
 import {
-  UpdateSubscriptionNotificationConfigurationCommand,
-  UpdateSubscriptionNotificationConfigurationCommandInput,
-  UpdateSubscriptionNotificationConfigurationCommandOutput,
-} from "./commands/UpdateSubscriptionNotificationConfigurationCommand";
+  UpdateSubscriberNotificationCommand,
+  UpdateSubscriberNotificationCommandInput,
+  UpdateSubscriberNotificationCommandOutput,
+} from "./commands/UpdateSubscriberNotificationCommand";
 import { SecurityLakeClient, SecurityLakeClientConfig } from "./SecurityLakeClient";
 
 const commands = {
   CreateAwsLogSourceCommand,
   CreateCustomLogSourceCommand,
-  CreateDatalakeCommand,
-  CreateDatalakeAutoEnableCommand,
-  CreateDatalakeDelegatedAdminCommand,
-  CreateDatalakeExceptionsSubscriptionCommand,
+  CreateDataLakeCommand,
+  CreateDataLakeExceptionSubscriptionCommand,
+  CreateDataLakeOrganizationConfigurationCommand,
   CreateSubscriberCommand,
-  CreateSubscriptionNotificationConfigurationCommand,
+  CreateSubscriberNotificationCommand,
   DeleteAwsLogSourceCommand,
   DeleteCustomLogSourceCommand,
-  DeleteDatalakeCommand,
-  DeleteDatalakeAutoEnableCommand,
-  DeleteDatalakeDelegatedAdminCommand,
-  DeleteDatalakeExceptionsSubscriptionCommand,
+  DeleteDataLakeCommand,
+  DeleteDataLakeExceptionSubscriptionCommand,
+  DeleteDataLakeOrganizationConfigurationCommand,
   DeleteSubscriberCommand,
-  DeleteSubscriptionNotificationConfigurationCommand,
-  GetDatalakeCommand,
-  GetDatalakeAutoEnableCommand,
-  GetDatalakeExceptionsExpiryCommand,
-  GetDatalakeExceptionsSubscriptionCommand,
-  GetDatalakeStatusCommand,
+  DeleteSubscriberNotificationCommand,
+  DeregisterDataLakeDelegatedAdministratorCommand,
+  GetDataLakeExceptionSubscriptionCommand,
+  GetDataLakeOrganizationConfigurationCommand,
+  GetDataLakeSourcesCommand,
   GetSubscriberCommand,
-  ListDatalakeExceptionsCommand,
+  ListDataLakeExceptionsCommand,
+  ListDataLakesCommand,
   ListLogSourcesCommand,
   ListSubscribersCommand,
-  UpdateDatalakeCommand,
-  UpdateDatalakeExceptionsExpiryCommand,
-  UpdateDatalakeExceptionsSubscriptionCommand,
+  RegisterDataLakeDelegatedAdministratorCommand,
+  UpdateDataLakeCommand,
+  UpdateDataLakeExceptionSubscriptionCommand,
   UpdateSubscriberCommand,
-  UpdateSubscriptionNotificationConfigurationCommand,
+  UpdateSubscriberNotificationCommand,
 };
 
 export interface SecurityLake {
@@ -219,68 +211,51 @@ export interface SecurityLake {
   ): void;
 
   /**
-   * @see {@link CreateDatalakeCommand}
+   * @see {@link CreateDataLakeCommand}
    */
-  createDatalake(
-    args: CreateDatalakeCommandInput,
+  createDataLake(
+    args: CreateDataLakeCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDatalakeCommandOutput>;
-  createDatalake(args: CreateDatalakeCommandInput, cb: (err: any, data?: CreateDatalakeCommandOutput) => void): void;
-  createDatalake(
-    args: CreateDatalakeCommandInput,
+  ): Promise<CreateDataLakeCommandOutput>;
+  createDataLake(args: CreateDataLakeCommandInput, cb: (err: any, data?: CreateDataLakeCommandOutput) => void): void;
+  createDataLake(
+    args: CreateDataLakeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDatalakeCommandOutput) => void
+    cb: (err: any, data?: CreateDataLakeCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link CreateDatalakeAutoEnableCommand}
+   * @see {@link CreateDataLakeExceptionSubscriptionCommand}
    */
-  createDatalakeAutoEnable(
-    args: CreateDatalakeAutoEnableCommandInput,
+  createDataLakeExceptionSubscription(
+    args: CreateDataLakeExceptionSubscriptionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDatalakeAutoEnableCommandOutput>;
-  createDatalakeAutoEnable(
-    args: CreateDatalakeAutoEnableCommandInput,
-    cb: (err: any, data?: CreateDatalakeAutoEnableCommandOutput) => void
+  ): Promise<CreateDataLakeExceptionSubscriptionCommandOutput>;
+  createDataLakeExceptionSubscription(
+    args: CreateDataLakeExceptionSubscriptionCommandInput,
+    cb: (err: any, data?: CreateDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
-  createDatalakeAutoEnable(
-    args: CreateDatalakeAutoEnableCommandInput,
+  createDataLakeExceptionSubscription(
+    args: CreateDataLakeExceptionSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDatalakeAutoEnableCommandOutput) => void
+    cb: (err: any, data?: CreateDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link CreateDatalakeDelegatedAdminCommand}
+   * @see {@link CreateDataLakeOrganizationConfigurationCommand}
    */
-  createDatalakeDelegatedAdmin(
-    args: CreateDatalakeDelegatedAdminCommandInput,
+  createDataLakeOrganizationConfiguration(
+    args: CreateDataLakeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDatalakeDelegatedAdminCommandOutput>;
-  createDatalakeDelegatedAdmin(
-    args: CreateDatalakeDelegatedAdminCommandInput,
-    cb: (err: any, data?: CreateDatalakeDelegatedAdminCommandOutput) => void
+  ): Promise<CreateDataLakeOrganizationConfigurationCommandOutput>;
+  createDataLakeOrganizationConfiguration(
+    args: CreateDataLakeOrganizationConfigurationCommandInput,
+    cb: (err: any, data?: CreateDataLakeOrganizationConfigurationCommandOutput) => void
   ): void;
-  createDatalakeDelegatedAdmin(
-    args: CreateDatalakeDelegatedAdminCommandInput,
+  createDataLakeOrganizationConfiguration(
+    args: CreateDataLakeOrganizationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDatalakeDelegatedAdminCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link CreateDatalakeExceptionsSubscriptionCommand}
-   */
-  createDatalakeExceptionsSubscription(
-    args: CreateDatalakeExceptionsSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDatalakeExceptionsSubscriptionCommandOutput>;
-  createDatalakeExceptionsSubscription(
-    args: CreateDatalakeExceptionsSubscriptionCommandInput,
-    cb: (err: any, data?: CreateDatalakeExceptionsSubscriptionCommandOutput) => void
-  ): void;
-  createDatalakeExceptionsSubscription(
-    args: CreateDatalakeExceptionsSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDatalakeExceptionsSubscriptionCommandOutput) => void
+    cb: (err: any, data?: CreateDataLakeOrganizationConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -301,20 +276,20 @@ export interface SecurityLake {
   ): void;
 
   /**
-   * @see {@link CreateSubscriptionNotificationConfigurationCommand}
+   * @see {@link CreateSubscriberNotificationCommand}
    */
-  createSubscriptionNotificationConfiguration(
-    args: CreateSubscriptionNotificationConfigurationCommandInput,
+  createSubscriberNotification(
+    args: CreateSubscriberNotificationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateSubscriptionNotificationConfigurationCommandOutput>;
-  createSubscriptionNotificationConfiguration(
-    args: CreateSubscriptionNotificationConfigurationCommandInput,
-    cb: (err: any, data?: CreateSubscriptionNotificationConfigurationCommandOutput) => void
+  ): Promise<CreateSubscriberNotificationCommandOutput>;
+  createSubscriberNotification(
+    args: CreateSubscriberNotificationCommandInput,
+    cb: (err: any, data?: CreateSubscriberNotificationCommandOutput) => void
   ): void;
-  createSubscriptionNotificationConfiguration(
-    args: CreateSubscriptionNotificationConfigurationCommandInput,
+  createSubscriberNotification(
+    args: CreateSubscriberNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSubscriptionNotificationConfigurationCommandOutput) => void
+    cb: (err: any, data?: CreateSubscriberNotificationCommandOutput) => void
   ): void;
 
   /**
@@ -352,68 +327,51 @@ export interface SecurityLake {
   ): void;
 
   /**
-   * @see {@link DeleteDatalakeCommand}
+   * @see {@link DeleteDataLakeCommand}
    */
-  deleteDatalake(
-    args: DeleteDatalakeCommandInput,
+  deleteDataLake(
+    args: DeleteDataLakeCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDatalakeCommandOutput>;
-  deleteDatalake(args: DeleteDatalakeCommandInput, cb: (err: any, data?: DeleteDatalakeCommandOutput) => void): void;
-  deleteDatalake(
-    args: DeleteDatalakeCommandInput,
+  ): Promise<DeleteDataLakeCommandOutput>;
+  deleteDataLake(args: DeleteDataLakeCommandInput, cb: (err: any, data?: DeleteDataLakeCommandOutput) => void): void;
+  deleteDataLake(
+    args: DeleteDataLakeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDatalakeCommandOutput) => void
+    cb: (err: any, data?: DeleteDataLakeCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link DeleteDatalakeAutoEnableCommand}
+   * @see {@link DeleteDataLakeExceptionSubscriptionCommand}
    */
-  deleteDatalakeAutoEnable(
-    args: DeleteDatalakeAutoEnableCommandInput,
+  deleteDataLakeExceptionSubscription(
+    args: DeleteDataLakeExceptionSubscriptionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDatalakeAutoEnableCommandOutput>;
-  deleteDatalakeAutoEnable(
-    args: DeleteDatalakeAutoEnableCommandInput,
-    cb: (err: any, data?: DeleteDatalakeAutoEnableCommandOutput) => void
+  ): Promise<DeleteDataLakeExceptionSubscriptionCommandOutput>;
+  deleteDataLakeExceptionSubscription(
+    args: DeleteDataLakeExceptionSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
-  deleteDatalakeAutoEnable(
-    args: DeleteDatalakeAutoEnableCommandInput,
+  deleteDataLakeExceptionSubscription(
+    args: DeleteDataLakeExceptionSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDatalakeAutoEnableCommandOutput) => void
+    cb: (err: any, data?: DeleteDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link DeleteDatalakeDelegatedAdminCommand}
+   * @see {@link DeleteDataLakeOrganizationConfigurationCommand}
    */
-  deleteDatalakeDelegatedAdmin(
-    args: DeleteDatalakeDelegatedAdminCommandInput,
+  deleteDataLakeOrganizationConfiguration(
+    args: DeleteDataLakeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDatalakeDelegatedAdminCommandOutput>;
-  deleteDatalakeDelegatedAdmin(
-    args: DeleteDatalakeDelegatedAdminCommandInput,
-    cb: (err: any, data?: DeleteDatalakeDelegatedAdminCommandOutput) => void
+  ): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput>;
+  deleteDataLakeOrganizationConfiguration(
+    args: DeleteDataLakeOrganizationConfigurationCommandInput,
+    cb: (err: any, data?: DeleteDataLakeOrganizationConfigurationCommandOutput) => void
   ): void;
-  deleteDatalakeDelegatedAdmin(
-    args: DeleteDatalakeDelegatedAdminCommandInput,
+  deleteDataLakeOrganizationConfiguration(
+    args: DeleteDataLakeOrganizationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDatalakeDelegatedAdminCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DeleteDatalakeExceptionsSubscriptionCommand}
-   */
-  deleteDatalakeExceptionsSubscription(
-    args: DeleteDatalakeExceptionsSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput>;
-  deleteDatalakeExceptionsSubscription(
-    args: DeleteDatalakeExceptionsSubscriptionCommandInput,
-    cb: (err: any, data?: DeleteDatalakeExceptionsSubscriptionCommandOutput) => void
-  ): void;
-  deleteDatalakeExceptionsSubscription(
-    args: DeleteDatalakeExceptionsSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDatalakeExceptionsSubscriptionCommandOutput) => void
+    cb: (err: any, data?: DeleteDataLakeOrganizationConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -434,99 +392,88 @@ export interface SecurityLake {
   ): void;
 
   /**
-   * @see {@link DeleteSubscriptionNotificationConfigurationCommand}
+   * @see {@link DeleteSubscriberNotificationCommand}
    */
-  deleteSubscriptionNotificationConfiguration(
-    args: DeleteSubscriptionNotificationConfigurationCommandInput,
+  deleteSubscriberNotification(
+    args: DeleteSubscriberNotificationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteSubscriptionNotificationConfigurationCommandOutput>;
-  deleteSubscriptionNotificationConfiguration(
-    args: DeleteSubscriptionNotificationConfigurationCommandInput,
-    cb: (err: any, data?: DeleteSubscriptionNotificationConfigurationCommandOutput) => void
+  ): Promise<DeleteSubscriberNotificationCommandOutput>;
+  deleteSubscriberNotification(
+    args: DeleteSubscriberNotificationCommandInput,
+    cb: (err: any, data?: DeleteSubscriberNotificationCommandOutput) => void
   ): void;
-  deleteSubscriptionNotificationConfiguration(
-    args: DeleteSubscriptionNotificationConfigurationCommandInput,
+  deleteSubscriberNotification(
+    args: DeleteSubscriberNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSubscriptionNotificationConfigurationCommandOutput) => void
+    cb: (err: any, data?: DeleteSubscriberNotificationCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link GetDatalakeCommand}
+   * @see {@link DeregisterDataLakeDelegatedAdministratorCommand}
    */
-  getDatalake(args: GetDatalakeCommandInput, options?: __HttpHandlerOptions): Promise<GetDatalakeCommandOutput>;
-  getDatalake(args: GetDatalakeCommandInput, cb: (err: any, data?: GetDatalakeCommandOutput) => void): void;
-  getDatalake(
-    args: GetDatalakeCommandInput,
+  deregisterDataLakeDelegatedAdministrator(
+    args: DeregisterDataLakeDelegatedAdministratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterDataLakeDelegatedAdministratorCommandOutput>;
+  deregisterDataLakeDelegatedAdministrator(
+    args: DeregisterDataLakeDelegatedAdministratorCommandInput,
+    cb: (err: any, data?: DeregisterDataLakeDelegatedAdministratorCommandOutput) => void
+  ): void;
+  deregisterDataLakeDelegatedAdministrator(
+    args: DeregisterDataLakeDelegatedAdministratorCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDatalakeCommandOutput) => void
+    cb: (err: any, data?: DeregisterDataLakeDelegatedAdministratorCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link GetDatalakeAutoEnableCommand}
+   * @see {@link GetDataLakeExceptionSubscriptionCommand}
    */
-  getDatalakeAutoEnable(
-    args: GetDatalakeAutoEnableCommandInput,
+  getDataLakeExceptionSubscription(
+    args: GetDataLakeExceptionSubscriptionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetDatalakeAutoEnableCommandOutput>;
-  getDatalakeAutoEnable(
-    args: GetDatalakeAutoEnableCommandInput,
-    cb: (err: any, data?: GetDatalakeAutoEnableCommandOutput) => void
+  ): Promise<GetDataLakeExceptionSubscriptionCommandOutput>;
+  getDataLakeExceptionSubscription(
+    args: GetDataLakeExceptionSubscriptionCommandInput,
+    cb: (err: any, data?: GetDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
-  getDatalakeAutoEnable(
-    args: GetDatalakeAutoEnableCommandInput,
+  getDataLakeExceptionSubscription(
+    args: GetDataLakeExceptionSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDatalakeAutoEnableCommandOutput) => void
+    cb: (err: any, data?: GetDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link GetDatalakeExceptionsExpiryCommand}
+   * @see {@link GetDataLakeOrganizationConfigurationCommand}
    */
-  getDatalakeExceptionsExpiry(
-    args: GetDatalakeExceptionsExpiryCommandInput,
+  getDataLakeOrganizationConfiguration(
+    args: GetDataLakeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetDatalakeExceptionsExpiryCommandOutput>;
-  getDatalakeExceptionsExpiry(
-    args: GetDatalakeExceptionsExpiryCommandInput,
-    cb: (err: any, data?: GetDatalakeExceptionsExpiryCommandOutput) => void
+  ): Promise<GetDataLakeOrganizationConfigurationCommandOutput>;
+  getDataLakeOrganizationConfiguration(
+    args: GetDataLakeOrganizationConfigurationCommandInput,
+    cb: (err: any, data?: GetDataLakeOrganizationConfigurationCommandOutput) => void
   ): void;
-  getDatalakeExceptionsExpiry(
-    args: GetDatalakeExceptionsExpiryCommandInput,
+  getDataLakeOrganizationConfiguration(
+    args: GetDataLakeOrganizationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDatalakeExceptionsExpiryCommandOutput) => void
+    cb: (err: any, data?: GetDataLakeOrganizationConfigurationCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link GetDatalakeExceptionsSubscriptionCommand}
+   * @see {@link GetDataLakeSourcesCommand}
    */
-  getDatalakeExceptionsSubscription(
-    args: GetDatalakeExceptionsSubscriptionCommandInput,
+  getDataLakeSources(
+    args: GetDataLakeSourcesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetDatalakeExceptionsSubscriptionCommandOutput>;
-  getDatalakeExceptionsSubscription(
-    args: GetDatalakeExceptionsSubscriptionCommandInput,
-    cb: (err: any, data?: GetDatalakeExceptionsSubscriptionCommandOutput) => void
+  ): Promise<GetDataLakeSourcesCommandOutput>;
+  getDataLakeSources(
+    args: GetDataLakeSourcesCommandInput,
+    cb: (err: any, data?: GetDataLakeSourcesCommandOutput) => void
   ): void;
-  getDatalakeExceptionsSubscription(
-    args: GetDatalakeExceptionsSubscriptionCommandInput,
+  getDataLakeSources(
+    args: GetDataLakeSourcesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDatalakeExceptionsSubscriptionCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link GetDatalakeStatusCommand}
-   */
-  getDatalakeStatus(
-    args: GetDatalakeStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDatalakeStatusCommandOutput>;
-  getDatalakeStatus(
-    args: GetDatalakeStatusCommandInput,
-    cb: (err: any, data?: GetDatalakeStatusCommandOutput) => void
-  ): void;
-  getDatalakeStatus(
-    args: GetDatalakeStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDatalakeStatusCommandOutput) => void
+    cb: (err: any, data?: GetDataLakeSourcesCommandOutput) => void
   ): void;
 
   /**
@@ -541,20 +488,31 @@ export interface SecurityLake {
   ): void;
 
   /**
-   * @see {@link ListDatalakeExceptionsCommand}
+   * @see {@link ListDataLakeExceptionsCommand}
    */
-  listDatalakeExceptions(
-    args: ListDatalakeExceptionsCommandInput,
+  listDataLakeExceptions(
+    args: ListDataLakeExceptionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListDatalakeExceptionsCommandOutput>;
-  listDatalakeExceptions(
-    args: ListDatalakeExceptionsCommandInput,
-    cb: (err: any, data?: ListDatalakeExceptionsCommandOutput) => void
+  ): Promise<ListDataLakeExceptionsCommandOutput>;
+  listDataLakeExceptions(
+    args: ListDataLakeExceptionsCommandInput,
+    cb: (err: any, data?: ListDataLakeExceptionsCommandOutput) => void
   ): void;
-  listDatalakeExceptions(
-    args: ListDatalakeExceptionsCommandInput,
+  listDataLakeExceptions(
+    args: ListDataLakeExceptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDatalakeExceptionsCommandOutput) => void
+    cb: (err: any, data?: ListDataLakeExceptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataLakesCommand}
+   */
+  listDataLakes(args: ListDataLakesCommandInput, options?: __HttpHandlerOptions): Promise<ListDataLakesCommandOutput>;
+  listDataLakes(args: ListDataLakesCommandInput, cb: (err: any, data?: ListDataLakesCommandOutput) => void): void;
+  listDataLakes(
+    args: ListDataLakesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataLakesCommandOutput) => void
   ): void;
 
   /**
@@ -586,51 +544,51 @@ export interface SecurityLake {
   ): void;
 
   /**
-   * @see {@link UpdateDatalakeCommand}
+   * @see {@link RegisterDataLakeDelegatedAdministratorCommand}
    */
-  updateDatalake(
-    args: UpdateDatalakeCommandInput,
+  registerDataLakeDelegatedAdministrator(
+    args: RegisterDataLakeDelegatedAdministratorCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateDatalakeCommandOutput>;
-  updateDatalake(args: UpdateDatalakeCommandInput, cb: (err: any, data?: UpdateDatalakeCommandOutput) => void): void;
-  updateDatalake(
-    args: UpdateDatalakeCommandInput,
+  ): Promise<RegisterDataLakeDelegatedAdministratorCommandOutput>;
+  registerDataLakeDelegatedAdministrator(
+    args: RegisterDataLakeDelegatedAdministratorCommandInput,
+    cb: (err: any, data?: RegisterDataLakeDelegatedAdministratorCommandOutput) => void
+  ): void;
+  registerDataLakeDelegatedAdministrator(
+    args: RegisterDataLakeDelegatedAdministratorCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDatalakeCommandOutput) => void
+    cb: (err: any, data?: RegisterDataLakeDelegatedAdministratorCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link UpdateDatalakeExceptionsExpiryCommand}
+   * @see {@link UpdateDataLakeCommand}
    */
-  updateDatalakeExceptionsExpiry(
-    args: UpdateDatalakeExceptionsExpiryCommandInput,
+  updateDataLake(
+    args: UpdateDataLakeCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateDatalakeExceptionsExpiryCommandOutput>;
-  updateDatalakeExceptionsExpiry(
-    args: UpdateDatalakeExceptionsExpiryCommandInput,
-    cb: (err: any, data?: UpdateDatalakeExceptionsExpiryCommandOutput) => void
-  ): void;
-  updateDatalakeExceptionsExpiry(
-    args: UpdateDatalakeExceptionsExpiryCommandInput,
+  ): Promise<UpdateDataLakeCommandOutput>;
+  updateDataLake(args: UpdateDataLakeCommandInput, cb: (err: any, data?: UpdateDataLakeCommandOutput) => void): void;
+  updateDataLake(
+    args: UpdateDataLakeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDatalakeExceptionsExpiryCommandOutput) => void
+    cb: (err: any, data?: UpdateDataLakeCommandOutput) => void
   ): void;
 
   /**
-   * @see {@link UpdateDatalakeExceptionsSubscriptionCommand}
+   * @see {@link UpdateDataLakeExceptionSubscriptionCommand}
    */
-  updateDatalakeExceptionsSubscription(
-    args: UpdateDatalakeExceptionsSubscriptionCommandInput,
+  updateDataLakeExceptionSubscription(
+    args: UpdateDataLakeExceptionSubscriptionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateDatalakeExceptionsSubscriptionCommandOutput>;
-  updateDatalakeExceptionsSubscription(
-    args: UpdateDatalakeExceptionsSubscriptionCommandInput,
-    cb: (err: any, data?: UpdateDatalakeExceptionsSubscriptionCommandOutput) => void
+  ): Promise<UpdateDataLakeExceptionSubscriptionCommandOutput>;
+  updateDataLakeExceptionSubscription(
+    args: UpdateDataLakeExceptionSubscriptionCommandInput,
+    cb: (err: any, data?: UpdateDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
-  updateDatalakeExceptionsSubscription(
-    args: UpdateDatalakeExceptionsSubscriptionCommandInput,
+  updateDataLakeExceptionSubscription(
+    args: UpdateDataLakeExceptionSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDatalakeExceptionsSubscriptionCommandOutput) => void
+    cb: (err: any, data?: UpdateDataLakeExceptionSubscriptionCommandOutput) => void
   ): void;
 
   /**
@@ -651,33 +609,28 @@ export interface SecurityLake {
   ): void;
 
   /**
-   * @see {@link UpdateSubscriptionNotificationConfigurationCommand}
+   * @see {@link UpdateSubscriberNotificationCommand}
    */
-  updateSubscriptionNotificationConfiguration(
-    args: UpdateSubscriptionNotificationConfigurationCommandInput,
+  updateSubscriberNotification(
+    args: UpdateSubscriberNotificationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput>;
-  updateSubscriptionNotificationConfiguration(
-    args: UpdateSubscriptionNotificationConfigurationCommandInput,
-    cb: (err: any, data?: UpdateSubscriptionNotificationConfigurationCommandOutput) => void
+  ): Promise<UpdateSubscriberNotificationCommandOutput>;
+  updateSubscriberNotification(
+    args: UpdateSubscriberNotificationCommandInput,
+    cb: (err: any, data?: UpdateSubscriberNotificationCommandOutput) => void
   ): void;
-  updateSubscriptionNotificationConfiguration(
-    args: UpdateSubscriptionNotificationConfigurationCommandInput,
+  updateSubscriberNotification(
+    args: UpdateSubscriberNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSubscriptionNotificationConfigurationCommandOutput) => void
+    cb: (err: any, data?: UpdateSubscriberNotificationCommandOutput) => void
   ): void;
 }
 
 /**
  * @public
- * <note>
- *             <p>Amazon Security Lake is in preview release. Your use of the Security Lake preview is subject to
- *             Section 2 of the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
- *                Terms</a>("Betas and Previews").</p>
- *          </note>
- *          <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
+ * <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
  *          automatically centralize security data from cloud, on-premises, and custom sources into a
- *          data lake that's stored in your Amazon Web Servicesaccount. Amazon Web Services Organizations
+ *          data lake that's stored in your Amazon Web Services account. Amazon Web Services Organizations
  *          is an account management service that lets you consolidate multiple Amazon Web Services
  *          accounts into an organization that you create and centrally manage. With Organizations, you
  *          can create member accounts and invite existing accounts to join your organization.
@@ -685,9 +638,9 @@ export interface SecurityLake {
  *          security posture across the entire organization. It can also help you improve the
  *          protection of your workloads, applications, and data.</p>
  *          <p>The data lake is backed by Amazon Simple Storage Service (Amazon S3) buckets, and you
- *          retain ownership over your data.   </p>
+ *          retain ownership over your data.</p>
  *          <p>Amazon Security Lake integrates with CloudTrail, a service that provides a record of
- *          actions taken by a user, role, or an Amazon Web Services service in Security Lake CloudTrail captures API calls for Security Lake as events. The calls captured include calls
+ *          actions taken by a user, role, or an Amazon Web Services service. In Security Lake, CloudTrail captures API calls for Security Lake as events. The calls captured include calls
  *          from the Security Lake console and code calls to the Security Lake API operations. If you create a
  *          trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Security Lake. If you don't configure a trail, you can still
  *          view the most recent events in the CloudTrail console in Event history. Using the

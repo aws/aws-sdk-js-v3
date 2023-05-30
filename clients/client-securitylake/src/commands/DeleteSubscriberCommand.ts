@@ -36,9 +36,10 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
 
 /**
  * @public
- * <p>Deletes the subscription permission for accounts that are already enabled in
- *          Amazon Security Lake. You can delete a subscriber and remove access to data in the current Amazon Web Services
- *          Region.</p>
+ * <p>Deletes the subscription permission and all notification settings for accounts that are
+ *          already enabled in Amazon Security Lake. When you run <code>DeleteSubscriber</code>, the
+ *          subscriber will no longer consume data from Security Lake and the subscriber is removed. This
+ *          operation deletes the subscriber and removes access to data in the current Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,7 +47,7 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * // const { SecurityLakeClient, DeleteSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteSubscriberRequest
- *   id: "STRING_VALUE", // required
+ *   subscriberId: "STRING_VALUE", // required
  * };
  * const command = new DeleteSubscriberCommand(input);
  * const response = await client.send(command);
@@ -66,31 +67,24 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  *
- * @throws {@link BucketNotFoundException} (client fault)
- *  <p>Amazon Security Lake  generally returns 404 errors if the requested object is missing from the
- *          bucket.</p>
- *
- * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>More than one process tried to modify a resource at the same time. </p>
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
- *
- * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because a value that's not valid or is out of range was
- *          supplied for an input parameter. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>

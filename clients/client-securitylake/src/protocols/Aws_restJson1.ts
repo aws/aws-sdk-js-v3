@@ -23,109 +23,103 @@ import {
   CreateCustomLogSourceCommandInput,
   CreateCustomLogSourceCommandOutput,
 } from "../commands/CreateCustomLogSourceCommand";
+import { CreateDataLakeCommandInput, CreateDataLakeCommandOutput } from "../commands/CreateDataLakeCommand";
 import {
-  CreateDatalakeAutoEnableCommandInput,
-  CreateDatalakeAutoEnableCommandOutput,
-} from "../commands/CreateDatalakeAutoEnableCommand";
-import { CreateDatalakeCommandInput, CreateDatalakeCommandOutput } from "../commands/CreateDatalakeCommand";
+  CreateDataLakeExceptionSubscriptionCommandInput,
+  CreateDataLakeExceptionSubscriptionCommandOutput,
+} from "../commands/CreateDataLakeExceptionSubscriptionCommand";
 import {
-  CreateDatalakeDelegatedAdminCommandInput,
-  CreateDatalakeDelegatedAdminCommandOutput,
-} from "../commands/CreateDatalakeDelegatedAdminCommand";
-import {
-  CreateDatalakeExceptionsSubscriptionCommandInput,
-  CreateDatalakeExceptionsSubscriptionCommandOutput,
-} from "../commands/CreateDatalakeExceptionsSubscriptionCommand";
+  CreateDataLakeOrganizationConfigurationCommandInput,
+  CreateDataLakeOrganizationConfigurationCommandOutput,
+} from "../commands/CreateDataLakeOrganizationConfigurationCommand";
 import { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "../commands/CreateSubscriberCommand";
 import {
-  CreateSubscriptionNotificationConfigurationCommandInput,
-  CreateSubscriptionNotificationConfigurationCommandOutput,
-} from "../commands/CreateSubscriptionNotificationConfigurationCommand";
+  CreateSubscriberNotificationCommandInput,
+  CreateSubscriberNotificationCommandOutput,
+} from "../commands/CreateSubscriberNotificationCommand";
 import { DeleteAwsLogSourceCommandInput, DeleteAwsLogSourceCommandOutput } from "../commands/DeleteAwsLogSourceCommand";
 import {
   DeleteCustomLogSourceCommandInput,
   DeleteCustomLogSourceCommandOutput,
 } from "../commands/DeleteCustomLogSourceCommand";
+import { DeleteDataLakeCommandInput, DeleteDataLakeCommandOutput } from "../commands/DeleteDataLakeCommand";
 import {
-  DeleteDatalakeAutoEnableCommandInput,
-  DeleteDatalakeAutoEnableCommandOutput,
-} from "../commands/DeleteDatalakeAutoEnableCommand";
-import { DeleteDatalakeCommandInput, DeleteDatalakeCommandOutput } from "../commands/DeleteDatalakeCommand";
+  DeleteDataLakeExceptionSubscriptionCommandInput,
+  DeleteDataLakeExceptionSubscriptionCommandOutput,
+} from "../commands/DeleteDataLakeExceptionSubscriptionCommand";
 import {
-  DeleteDatalakeDelegatedAdminCommandInput,
-  DeleteDatalakeDelegatedAdminCommandOutput,
-} from "../commands/DeleteDatalakeDelegatedAdminCommand";
-import {
-  DeleteDatalakeExceptionsSubscriptionCommandInput,
-  DeleteDatalakeExceptionsSubscriptionCommandOutput,
-} from "../commands/DeleteDatalakeExceptionsSubscriptionCommand";
+  DeleteDataLakeOrganizationConfigurationCommandInput,
+  DeleteDataLakeOrganizationConfigurationCommandOutput,
+} from "../commands/DeleteDataLakeOrganizationConfigurationCommand";
 import { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "../commands/DeleteSubscriberCommand";
 import {
-  DeleteSubscriptionNotificationConfigurationCommandInput,
-  DeleteSubscriptionNotificationConfigurationCommandOutput,
-} from "../commands/DeleteSubscriptionNotificationConfigurationCommand";
+  DeleteSubscriberNotificationCommandInput,
+  DeleteSubscriberNotificationCommandOutput,
+} from "../commands/DeleteSubscriberNotificationCommand";
 import {
-  GetDatalakeAutoEnableCommandInput,
-  GetDatalakeAutoEnableCommandOutput,
-} from "../commands/GetDatalakeAutoEnableCommand";
-import { GetDatalakeCommandInput, GetDatalakeCommandOutput } from "../commands/GetDatalakeCommand";
+  DeregisterDataLakeDelegatedAdministratorCommandInput,
+  DeregisterDataLakeDelegatedAdministratorCommandOutput,
+} from "../commands/DeregisterDataLakeDelegatedAdministratorCommand";
 import {
-  GetDatalakeExceptionsExpiryCommandInput,
-  GetDatalakeExceptionsExpiryCommandOutput,
-} from "../commands/GetDatalakeExceptionsExpiryCommand";
+  GetDataLakeExceptionSubscriptionCommandInput,
+  GetDataLakeExceptionSubscriptionCommandOutput,
+} from "../commands/GetDataLakeExceptionSubscriptionCommand";
 import {
-  GetDatalakeExceptionsSubscriptionCommandInput,
-  GetDatalakeExceptionsSubscriptionCommandOutput,
-} from "../commands/GetDatalakeExceptionsSubscriptionCommand";
-import { GetDatalakeStatusCommandInput, GetDatalakeStatusCommandOutput } from "../commands/GetDatalakeStatusCommand";
+  GetDataLakeOrganizationConfigurationCommandInput,
+  GetDataLakeOrganizationConfigurationCommandOutput,
+} from "../commands/GetDataLakeOrganizationConfigurationCommand";
+import { GetDataLakeSourcesCommandInput, GetDataLakeSourcesCommandOutput } from "../commands/GetDataLakeSourcesCommand";
 import { GetSubscriberCommandInput, GetSubscriberCommandOutput } from "../commands/GetSubscriberCommand";
 import {
-  ListDatalakeExceptionsCommandInput,
-  ListDatalakeExceptionsCommandOutput,
-} from "../commands/ListDatalakeExceptionsCommand";
+  ListDataLakeExceptionsCommandInput,
+  ListDataLakeExceptionsCommandOutput,
+} from "../commands/ListDataLakeExceptionsCommand";
+import { ListDataLakesCommandInput, ListDataLakesCommandOutput } from "../commands/ListDataLakesCommand";
 import { ListLogSourcesCommandInput, ListLogSourcesCommandOutput } from "../commands/ListLogSourcesCommand";
 import { ListSubscribersCommandInput, ListSubscribersCommandOutput } from "../commands/ListSubscribersCommand";
-import { UpdateDatalakeCommandInput, UpdateDatalakeCommandOutput } from "../commands/UpdateDatalakeCommand";
 import {
-  UpdateDatalakeExceptionsExpiryCommandInput,
-  UpdateDatalakeExceptionsExpiryCommandOutput,
-} from "../commands/UpdateDatalakeExceptionsExpiryCommand";
+  RegisterDataLakeDelegatedAdministratorCommandInput,
+  RegisterDataLakeDelegatedAdministratorCommandOutput,
+} from "../commands/RegisterDataLakeDelegatedAdministratorCommand";
+import { UpdateDataLakeCommandInput, UpdateDataLakeCommandOutput } from "../commands/UpdateDataLakeCommand";
 import {
-  UpdateDatalakeExceptionsSubscriptionCommandInput,
-  UpdateDatalakeExceptionsSubscriptionCommandOutput,
-} from "../commands/UpdateDatalakeExceptionsSubscriptionCommand";
+  UpdateDataLakeExceptionSubscriptionCommandInput,
+  UpdateDataLakeExceptionSubscriptionCommandOutput,
+} from "../commands/UpdateDataLakeExceptionSubscriptionCommand";
 import { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "../commands/UpdateSubscriberCommand";
 import {
-  UpdateSubscriptionNotificationConfigurationCommandInput,
-  UpdateSubscriptionNotificationConfigurationCommandOutput,
-} from "../commands/UpdateSubscriptionNotificationConfigurationCommand";
+  UpdateSubscriberNotificationCommandInput,
+  UpdateSubscriberNotificationCommandOutput,
+} from "../commands/UpdateSubscriberNotificationCommand";
 import {
   AccessDeniedException,
   AccessType,
-  AccountNotFoundException,
-  AutoEnableNewRegionConfiguration,
-  AwsLogSourceType,
-  BucketNotFoundException,
-  ConcurrentModificationException,
+  AwsIdentity,
+  AwsLogSourceConfiguration,
+  AwsLogSourceResource,
+  BadRequestException,
   ConflictException,
-  ConflictSourceNamesException,
-  ConflictSubscriptionException,
-  Dimension,
-  EventBridgeException,
-  Failures,
-  FailuresResponse,
+  CustomLogSourceAttributes,
+  CustomLogSourceConfiguration,
+  CustomLogSourceCrawlerConfiguration,
+  CustomLogSourceProvider,
+  CustomLogSourceResource,
+  DataLakeAutoEnableNewAccountConfiguration,
+  DataLakeConfiguration,
+  DataLakeEncryptionConfiguration,
+  DataLakeException,
+  DataLakeLifecycleConfiguration,
+  DataLakeLifecycleExpiration,
+  DataLakeLifecycleTransition,
+  DataLakeReplicationConfiguration,
+  HttpsNotificationConfiguration,
   InternalServerException,
-  InvalidInputException,
-  LakeConfigurationRequest,
-  Region,
+  LogSourceResource,
+  NotificationConfiguration,
   ResourceNotFoundException,
-  RetentionSetting,
-  S3Exception,
-  ServiceQuotaExceededException,
-  SourceType,
+  SqsNotificationConfiguration,
   SubscriberResource,
   ThrottlingException,
-  ValidationException,
 } from "../models/models_0";
 import { SecurityLakeServiceException as __BaseException } from "../models/SecurityLakeServiceException";
 
@@ -140,14 +134,12 @@ export const se_CreateAwsLogSourceCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/logsources/aws";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/logsources/aws";
   let body: any;
   body = JSON.stringify(
     take(input, {
-      enableAllDimensions: (_) => _json(_),
-      enableSingleDimension: (_) => _json(_),
-      enableTwoDimensions: (_) => _json(_),
-      inputOrder: (_) => _json(_),
+      sources: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -172,14 +164,15 @@ export const se_CreateCustomLogSourceCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/logsources/custom";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/logsources/custom";
   let body: any;
   body = JSON.stringify(
     take(input, {
-      customSourceName: [],
-      eventClass: [],
-      glueInvocationRoleArn: [],
-      logProviderAccountId: [],
+      configuration: (_) => _json(_),
+      eventClasses: (_) => _json(_),
+      sourceName: [],
+      sourceVersion: [],
     })
   );
   return new __HttpRequest({
@@ -194,10 +187,10 @@ export const se_CreateCustomLogSourceCommand = async (
 };
 
 /**
- * serializeAws_restJson1CreateDatalakeCommand
+ * serializeAws_restJson1CreateDataLakeCommand
  */
-export const se_CreateDatalakeCommand = async (
-  input: CreateDatalakeCommandInput,
+export const se_CreateDataLakeCommand = async (
+  input: CreateDataLakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -209,9 +202,7 @@ export const se_CreateDatalakeCommand = async (
   body = JSON.stringify(
     take(input, {
       configurations: (_) => _json(_),
-      enableAll: [],
       metaStoreManagerRoleArn: [],
-      regions: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -226,69 +217,10 @@ export const se_CreateDatalakeCommand = async (
 };
 
 /**
- * serializeAws_restJson1CreateDatalakeAutoEnableCommand
+ * serializeAws_restJson1CreateDataLakeExceptionSubscriptionCommand
  */
-export const se_CreateDatalakeAutoEnableCommand = async (
-  input: CreateDatalakeAutoEnableCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/autoenable";
-  let body: any;
-  body = JSON.stringify(
-    take(input, {
-      configurationForNewAccounts: (_) => _json(_),
-    })
-  );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-/**
- * serializeAws_restJson1CreateDatalakeDelegatedAdminCommand
- */
-export const se_CreateDatalakeDelegatedAdminCommand = async (
-  input: CreateDatalakeDelegatedAdminCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/delegate";
-  let body: any;
-  body = JSON.stringify(
-    take(input, {
-      account: [],
-    })
-  );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-/**
- * serializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand
- */
-export const se_CreateDatalakeExceptionsSubscriptionCommand = async (
-  input: CreateDatalakeExceptionsSubscriptionCommandInput,
+export const se_CreateDataLakeExceptionSubscriptionCommand = async (
+  input: CreateDataLakeExceptionSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -300,8 +232,39 @@ export const se_CreateDatalakeExceptionsSubscriptionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      exceptionTimeToLive: [],
       notificationEndpoint: [],
       subscriptionProtocol: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateDataLakeOrganizationConfigurationCommand
+ */
+export const se_CreateDataLakeOrganizationConfigurationCommand = async (
+  input: CreateDataLakeOrganizationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/organization/configuration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      autoEnableNewAccount: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -331,10 +294,9 @@ export const se_CreateSubscriberCommand = async (
   body = JSON.stringify(
     take(input, {
       accessTypes: (_) => _json(_),
-      accountId: [],
-      externalId: [],
-      sourceTypes: (_) => _json(_),
+      sources: (_) => _json(_),
       subscriberDescription: [],
+      subscriberIdentity: (_) => _json(_),
       subscriberName: [],
     })
   );
@@ -350,10 +312,10 @@ export const se_CreateSubscriberCommand = async (
 };
 
 /**
- * serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand
+ * serializeAws_restJson1CreateSubscriberNotificationCommand
  */
-export const se_CreateSubscriptionNotificationConfigurationCommand = async (
-  input: CreateSubscriptionNotificationConfigurationCommandInput,
+export const se_CreateSubscriberNotificationCommand = async (
+  input: CreateSubscriberNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -362,24 +324,19 @@ export const se_CreateSubscriptionNotificationConfigurationCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/subscription-notifications/{subscriptionId}";
+    "/v1/subscribers/{subscriberId}/notification";
   resolvedPath = __resolvedPath(
     resolvedPath,
     input,
-    "subscriptionId",
-    () => input.subscriptionId!,
-    "{subscriptionId}",
+    "subscriberId",
+    () => input.subscriberId!,
+    "{subscriberId}",
     false
   );
   let body: any;
   body = JSON.stringify(
     take(input, {
-      createSqs: [],
-      httpsApiKeyName: [],
-      httpsApiKeyValue: [],
-      httpsMethod: [],
-      roleArn: [],
-      subscriptionEndpoint: [],
+      configuration: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -405,14 +362,11 @@ export const se_DeleteAwsLogSourceCommand = async (
     "content-type": "application/json",
   };
   const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/logsources/aws/delete";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/logsources/aws/delete";
   let body: any;
   body = JSON.stringify(
     take(input, {
-      disableAllDimensions: (_) => _json(_),
-      disableSingleDimension: (_) => _json(_),
-      disableTwoDimensions: (_) => _json(_),
-      inputOrder: (_) => _json(_),
+      sources: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -435,9 +389,12 @@ export const se_DeleteCustomLogSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/logsources/custom";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/datalake/logsources/custom/{sourceName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "sourceName", () => input.sourceName!, "{sourceName}", false);
   const query: any = map({
-    customSourceName: [, __expectNonNull(input.customSourceName!, `customSourceName`)],
+    sourceVersion: [, input.sourceVersion!],
   });
   let body: any;
   return new __HttpRequest({
@@ -453,47 +410,21 @@ export const se_DeleteCustomLogSourceCommand = async (
 };
 
 /**
- * serializeAws_restJson1DeleteDatalakeCommand
+ * serializeAws_restJson1DeleteDataLakeCommand
  */
-export const se_DeleteDatalakeCommand = async (
-  input: DeleteDatalakeCommandInput,
+export const se_DeleteDataLakeCommand = async (
+  input: DeleteDataLakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake";
-  let body: any;
-  body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-/**
- * serializeAws_restJson1DeleteDatalakeAutoEnableCommand
- */
-export const se_DeleteDatalakeAutoEnableCommand = async (
-  input: DeleteDatalakeAutoEnableCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/autoenable/delete";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/delete";
   let body: any;
   body = JSON.stringify(
     take(input, {
-      removeFromConfigurationForNewAccounts: (_) => _json(_),
+      regions: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -508,34 +439,10 @@ export const se_DeleteDatalakeAutoEnableCommand = async (
 };
 
 /**
- * serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand
+ * serializeAws_restJson1DeleteDataLakeExceptionSubscriptionCommand
  */
-export const se_DeleteDatalakeDelegatedAdminCommand = async (
-  input: DeleteDatalakeDelegatedAdminCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/delegate/{account}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "account", () => input.account!, "{account}", false);
-  let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-/**
- * serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand
- */
-export const se_DeleteDatalakeExceptionsSubscriptionCommand = async (
-  input: DeleteDatalakeExceptionsSubscriptionCommandInput,
+export const se_DeleteDataLakeExceptionSubscriptionCommand = async (
+  input: DeleteDataLakeExceptionSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -551,6 +458,37 @@ export const se_DeleteDatalakeExceptionsSubscriptionCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteDataLakeOrganizationConfigurationCommand
+ */
+export const se_DeleteDataLakeOrganizationConfigurationCommand = async (
+  input: DeleteDataLakeOrganizationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/datalake/organization/configuration/delete";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      autoEnableNewAccount: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -566,41 +504,14 @@ export const se_DeleteSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/subscribers";
-  const query: any = map({
-    id: [, __expectNonNull(input.id!, `id`)],
-  });
-  let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
-};
-
-/**
- * serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand
- */
-export const se_DeleteSubscriptionNotificationConfigurationCommand = async (
-  input: DeleteSubscriptionNotificationConfigurationCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/subscription-notifications/{subscriptionId}";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/subscribers/{subscriberId}";
   resolvedPath = __resolvedPath(
     resolvedPath,
     input,
-    "subscriptionId",
-    () => input.subscriptionId!,
-    "{subscriptionId}",
+    "subscriberId",
+    () => input.subscriberId!,
+    "{subscriberId}",
     false
   );
   let body: any;
@@ -616,24 +527,31 @@ export const se_DeleteSubscriptionNotificationConfigurationCommand = async (
 };
 
 /**
- * serializeAws_restJson1GetDatalakeCommand
+ * serializeAws_restJson1DeleteSubscriberNotificationCommand
  */
-export const se_GetDatalakeCommand = async (
-  input: GetDatalakeCommandInput,
+export const se_DeleteSubscriberNotificationCommand = async (
+  input: DeleteSubscriberNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake";
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/subscribers/{subscriberId}/notification";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "subscriberId",
+    () => input.subscriberId!,
+    "{subscriberId}",
+    false
+  );
   let body: any;
-  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
     port,
-    method: "GET",
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -641,25 +559,24 @@ export const se_GetDatalakeCommand = async (
 };
 
 /**
- * serializeAws_restJson1GetDatalakeAutoEnableCommand
+ * serializeAws_restJson1DeregisterDataLakeDelegatedAdministratorCommand
  */
-export const se_GetDatalakeAutoEnableCommand = async (
-  input: GetDatalakeAutoEnableCommandInput,
+export const se_DeregisterDataLakeDelegatedAdministratorCommand = async (
+  input: DeregisterDataLakeDelegatedAdministratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/autoenable";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/delegate";
   let body: any;
   body = "";
   return new __HttpRequest({
     protocol,
     hostname,
     port,
-    method: "GET",
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -667,36 +584,10 @@ export const se_GetDatalakeAutoEnableCommand = async (
 };
 
 /**
- * serializeAws_restJson1GetDatalakeExceptionsExpiryCommand
+ * serializeAws_restJson1GetDataLakeExceptionSubscriptionCommand
  */
-export const se_GetDatalakeExceptionsExpiryCommand = async (
-  input: GetDatalakeExceptionsExpiryCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/exceptions/expiry";
-  let body: any;
-  body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-/**
- * serializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand
- */
-export const se_GetDatalakeExceptionsSubscriptionCommand = async (
-  input: GetDatalakeExceptionsSubscriptionCommandInput,
+export const se_GetDataLakeExceptionSubscriptionCommand = async (
+  input: GetDataLakeExceptionSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -719,22 +610,48 @@ export const se_GetDatalakeExceptionsSubscriptionCommand = async (
 };
 
 /**
- * serializeAws_restJson1GetDatalakeStatusCommand
+ * serializeAws_restJson1GetDataLakeOrganizationConfigurationCommand
  */
-export const se_GetDatalakeStatusCommand = async (
-  input: GetDatalakeStatusCommandInput,
+export const se_GetDataLakeOrganizationConfigurationCommand = async (
+  input: GetDataLakeOrganizationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/status";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/organization/configuration";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetDataLakeSourcesCommand
+ */
+export const se_GetDataLakeSourcesCommand = async (
+  input: GetDataLakeSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/sources";
   let body: any;
   body = JSON.stringify(
     take(input, {
-      accountSet: (_) => _json(_),
-      maxAccountResults: [],
+      accounts: (_) => _json(_),
+      maxResults: [],
       nextToken: [],
     })
   );
@@ -758,8 +675,16 @@ export const se_GetSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/subscribers/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/subscribers/{subscriberId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "subscriberId",
+    () => input.subscriberId!,
+    "{subscriberId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -773,10 +698,10 @@ export const se_GetSubscriberCommand = async (
 };
 
 /**
- * serializeAws_restJson1ListDatalakeExceptionsCommand
+ * serializeAws_restJson1ListDataLakeExceptionsCommand
  */
-export const se_ListDatalakeExceptionsCommand = async (
-  input: ListDatalakeExceptionsCommandInput,
+export const se_ListDataLakeExceptionsCommand = async (
+  input: ListDataLakeExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -788,9 +713,9 @@ export const se_ListDatalakeExceptionsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      maxFailures: [],
+      maxResults: [],
       nextToken: [],
-      regionSet: (_) => _json(_),
+      regions: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -800,6 +725,32 @@ export const se_ListDatalakeExceptionsCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListDataLakesCommand
+ */
+export const se_ListDataLakesCommand = async (
+  input: ListDataLakesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalakes";
+  const query: any = map({
+    regions: [() => input.regions !== void 0, () => (input.regions! || []).map((_entry) => _entry as any)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -815,16 +766,16 @@ export const se_ListLogSourcesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/logsources/list";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/logsources/list";
   let body: any;
   body = JSON.stringify(
     take(input, {
-      inputOrder: (_) => _json(_),
-      listAllDimensions: (_) => _json(_),
-      listSingleDimension: (_) => _json(_),
-      listTwoDimensions: (_) => _json(_),
+      accounts: (_) => _json(_),
       maxResults: [],
       nextToken: [],
+      regions: (_) => _json(_),
+      sources: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -866,10 +817,39 @@ export const se_ListSubscribersCommand = async (
 };
 
 /**
- * serializeAws_restJson1UpdateDatalakeCommand
+ * serializeAws_restJson1RegisterDataLakeDelegatedAdministratorCommand
  */
-export const se_UpdateDatalakeCommand = async (
-  input: UpdateDatalakeCommandInput,
+export const se_RegisterDataLakeDelegatedAdministratorCommand = async (
+  input: RegisterDataLakeDelegatedAdministratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/delegate";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateDataLakeCommand
+ */
+export const se_UpdateDataLakeCommand = async (
+  input: UpdateDataLakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -895,40 +875,10 @@ export const se_UpdateDatalakeCommand = async (
 };
 
 /**
- * serializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand
+ * serializeAws_restJson1UpdateDataLakeExceptionSubscriptionCommand
  */
-export const se_UpdateDatalakeExceptionsExpiryCommand = async (
-  input: UpdateDatalakeExceptionsExpiryCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/exceptions/expiry";
-  let body: any;
-  body = JSON.stringify(
-    take(input, {
-      exceptionMessageExpiry: [],
-    })
-  );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-/**
- * serializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand
- */
-export const se_UpdateDatalakeExceptionsSubscriptionCommand = async (
-  input: UpdateDatalakeExceptionsSubscriptionCommandInput,
+export const se_UpdateDataLakeExceptionSubscriptionCommand = async (
+  input: UpdateDataLakeExceptionSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -940,6 +890,7 @@ export const se_UpdateDatalakeExceptionsSubscriptionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      exceptionTimeToLive: [],
       notificationEndpoint: [],
       subscriptionProtocol: [],
     })
@@ -966,14 +917,22 @@ export const se_UpdateSubscriberCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/subscribers/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/subscribers/{subscriberId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "subscriberId",
+    () => input.subscriberId!,
+    "{subscriberId}",
+    false
+  );
   let body: any;
   body = JSON.stringify(
     take(input, {
-      externalId: [],
-      sourceTypes: (_) => _json(_),
+      sources: (_) => _json(_),
       subscriberDescription: [],
+      subscriberIdentity: (_) => _json(_),
       subscriberName: [],
     })
   );
@@ -989,10 +948,10 @@ export const se_UpdateSubscriberCommand = async (
 };
 
 /**
- * serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand
+ * serializeAws_restJson1UpdateSubscriberNotificationCommand
  */
-export const se_UpdateSubscriptionNotificationConfigurationCommand = async (
-  input: UpdateSubscriptionNotificationConfigurationCommandInput,
+export const se_UpdateSubscriberNotificationCommand = async (
+  input: UpdateSubscriberNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
@@ -1001,24 +960,19 @@ export const se_UpdateSubscriptionNotificationConfigurationCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/subscription-notifications/{subscriptionId}";
+    "/v1/subscribers/{subscriberId}/notification";
   resolvedPath = __resolvedPath(
     resolvedPath,
     input,
-    "subscriptionId",
-    () => input.subscriptionId!,
-    "{subscriptionId}",
+    "subscriberId",
+    () => input.subscriberId!,
+    "{subscriberId}",
     false
   );
   let body: any;
   body = JSON.stringify(
     take(input, {
-      createSqs: [],
-      httpsApiKeyName: [],
-      httpsApiKeyValue: [],
-      httpsMethod: [],
-      roleArn: [],
-      subscriptionEndpoint: [],
+      configuration: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -1048,7 +1002,6 @@ export const de_CreateAwsLogSourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     failed: _json,
-    processing: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1070,21 +1023,21 @@ const de_CreateAwsLogSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "S3Exception":
-    case "com.amazonaws.securitylake#S3Exception":
-      throw await de_S3ExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1110,11 +1063,7 @@ export const de_CreateCustomLogSourceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    customDataLocation: __expectString,
-    glueCrawlerName: __expectString,
-    glueDatabaseName: __expectString,
-    glueTableName: __expectString,
-    logProviderAccessRoleArn: __expectString,
+    source: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1136,67 +1085,9 @@ const de_CreateCustomLogSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "BucketNotFoundException":
-    case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
-    case "ConflictSourceNamesException":
-    case "com.amazonaws.securitylake#ConflictSourceNamesException":
-      throw await de_ConflictSourceNamesExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.securitylake#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1CreateDatalakeCommand
- */
-export const de_CreateDatalakeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatalakeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDatalakeCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateDatalakeCommandError
- */
-const de_CreateDatalakeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatalakeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.securitylake#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -1206,15 +1097,9 @@ const de_CreateDatalakeCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.securitylake#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1226,29 +1111,33 @@ const de_CreateDatalakeCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDatalakeAutoEnableCommand
+ * deserializeAws_restJson1CreateDataLakeCommand
  */
-export const de_CreateDatalakeAutoEnableCommand = async (
+export const de_CreateDataLakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatalakeAutoEnableCommandOutput> => {
+): Promise<CreateDataLakeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDatalakeAutoEnableCommandError(output, context);
+    return de_CreateDataLakeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataLakes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1CreateDatalakeAutoEnableCommandError
+ * deserializeAws_restJson1CreateDataLakeCommandError
  */
-const de_CreateDatalakeAutoEnableCommandError = async (
+const de_CreateDataLakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatalakeAutoEnableCommandOutput> => {
+): Promise<CreateDataLakeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1258,67 +1147,21 @@ const de_CreateDatalakeAutoEnableCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand
- */
-export const de_CreateDatalakeDelegatedAdminCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatalakeDelegatedAdminCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDatalakeDelegatedAdminCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateDatalakeDelegatedAdminCommandError
- */
-const de_CreateDatalakeDelegatedAdminCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatalakeDelegatedAdminCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.securitylake#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1330,14 +1173,14 @@ const de_CreateDatalakeDelegatedAdminCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand
+ * deserializeAws_restJson1CreateDataLakeExceptionSubscriptionCommand
  */
-export const de_CreateDatalakeExceptionsSubscriptionCommand = async (
+export const de_CreateDataLakeExceptionSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<CreateDataLakeExceptionSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_CreateDataLakeExceptionSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1347,12 +1190,12 @@ export const de_CreateDatalakeExceptionsSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommandError
+ * deserializeAws_restJson1CreateDataLakeExceptionSubscriptionCommandError
  */
-const de_CreateDatalakeExceptionsSubscriptionCommandError = async (
+const de_CreateDataLakeExceptionSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<CreateDataLakeExceptionSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1362,15 +1205,79 @@ const de_CreateDatalakeExceptionsSubscriptionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateDataLakeOrganizationConfigurationCommand
+ */
+export const de_CreateDataLakeOrganizationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataLakeOrganizationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateDataLakeOrganizationConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDataLakeOrganizationConfigurationCommandError
+ */
+const de_CreateDataLakeOrganizationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataLakeOrganizationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securitylake#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.securitylake#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1396,12 +1303,7 @@ export const de_CreateSubscriberCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    resourceShareArn: __expectString,
-    resourceShareName: __expectString,
-    roleArn: __expectString,
-    s3BucketArn: __expectString,
-    snsArn: __expectString,
-    subscriptionId: __expectString,
+    subscriber: (_) => de_SubscriberResource(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1423,27 +1325,21 @@ const de_CreateSubscriberCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "BucketNotFoundException":
-    case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
-    case "ConflictSubscriptionException":
-    case "com.amazonaws.securitylake#ConflictSubscriptionException":
-      throw await de_ConflictSubscriptionExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1455,33 +1351,33 @@ const de_CreateSubscriberCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand
+ * deserializeAws_restJson1CreateSubscriberNotificationCommand
  */
-export const de_CreateSubscriptionNotificationConfigurationCommand = async (
+export const de_CreateSubscriberNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSubscriptionNotificationConfigurationCommandOutput> => {
+): Promise<CreateSubscriberNotificationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSubscriptionNotificationConfigurationCommandError(output, context);
+    return de_CreateSubscriberNotificationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    queueArn: __expectString,
+    subscriberEndpoint: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommandError
+ * deserializeAws_restJson1CreateSubscriberNotificationCommandError
  */
-const de_CreateSubscriptionNotificationConfigurationCommandError = async (
+const de_CreateSubscriberNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSubscriptionNotificationConfigurationCommandOutput> => {
+): Promise<CreateSubscriberNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1491,24 +1387,21 @@ const de_CreateSubscriptionNotificationConfigurationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1535,7 +1428,6 @@ export const de_DeleteAwsLogSourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     failed: _json,
-    processing: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1557,15 +1449,21 @@ const de_DeleteAwsLogSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1589,11 +1487,7 @@ export const de_DeleteCustomLogSourceCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    customDataLocation: __expectString,
-  });
-  Object.assign(contents, doc);
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -1613,67 +1507,9 @@ const de_DeleteCustomLogSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "BucketNotFoundException":
-    case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
-    case "ConflictSourceNamesException":
-    case "com.amazonaws.securitylake#ConflictSourceNamesException":
-      throw await de_ConflictSourceNamesExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.securitylake#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DeleteDatalakeCommand
- */
-export const de_DeleteDatalakeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatalakeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDatalakeCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDatalakeCommandError
- */
-const de_DeleteDatalakeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatalakeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.securitylake#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -1683,15 +1519,9 @@ const de_DeleteDatalakeCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.securitylake#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1703,14 +1533,14 @@ const de_DeleteDatalakeCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDatalakeAutoEnableCommand
+ * deserializeAws_restJson1DeleteDataLakeCommand
  */
-export const de_DeleteDatalakeAutoEnableCommand = async (
+export const de_DeleteDataLakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatalakeAutoEnableCommandOutput> => {
+): Promise<DeleteDataLakeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDatalakeAutoEnableCommandError(output, context);
+    return de_DeleteDataLakeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1720,12 +1550,12 @@ export const de_DeleteDatalakeAutoEnableCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDatalakeAutoEnableCommandError
+ * deserializeAws_restJson1DeleteDataLakeCommandError
  */
-const de_DeleteDatalakeAutoEnableCommandError = async (
+const de_DeleteDataLakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatalakeAutoEnableCommandOutput> => {
+): Promise<DeleteDataLakeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1735,15 +1565,21 @@ const de_DeleteDatalakeAutoEnableCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1755,14 +1591,14 @@ const de_DeleteDatalakeAutoEnableCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand
+ * deserializeAws_restJson1DeleteDataLakeExceptionSubscriptionCommand
  */
-export const de_DeleteDatalakeDelegatedAdminCommand = async (
+export const de_DeleteDataLakeExceptionSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatalakeDelegatedAdminCommandOutput> => {
+): Promise<DeleteDataLakeExceptionSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDatalakeDelegatedAdminCommandError(output, context);
+    return de_DeleteDataLakeExceptionSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1772,12 +1608,12 @@ export const de_DeleteDatalakeDelegatedAdminCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommandError
+ * deserializeAws_restJson1DeleteDataLakeExceptionSubscriptionCommandError
  */
-const de_DeleteDatalakeDelegatedAdminCommandError = async (
+const de_DeleteDataLakeExceptionSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatalakeDelegatedAdminCommandOutput> => {
+): Promise<DeleteDataLakeExceptionSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1787,15 +1623,21 @@ const de_DeleteDatalakeDelegatedAdminCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1807,33 +1649,29 @@ const de_DeleteDatalakeDelegatedAdminCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand
+ * deserializeAws_restJson1DeleteDataLakeOrganizationConfigurationCommand
  */
-export const de_DeleteDatalakeExceptionsSubscriptionCommand = async (
+export const de_DeleteDataLakeOrganizationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_DeleteDataLakeOrganizationConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    status: __expectString,
-  });
-  Object.assign(contents, doc);
+  await collectBody(output.body, context);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommandError
+ * deserializeAws_restJson1DeleteDataLakeOrganizationConfigurationCommandError
  */
-const de_DeleteDatalakeExceptionsSubscriptionCommandError = async (
+const de_DeleteDataLakeOrganizationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1843,15 +1681,21 @@ const de_DeleteDatalakeExceptionsSubscriptionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1895,27 +1739,21 @@ const de_DeleteSubscriberCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "BucketNotFoundException":
-    case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1927,14 +1765,14 @@ const de_DeleteSubscriberCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand
+ * deserializeAws_restJson1DeleteSubscriberNotificationCommand
  */
-export const de_DeleteSubscriptionNotificationConfigurationCommand = async (
+export const de_DeleteSubscriberNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSubscriptionNotificationConfigurationCommandOutput> => {
+): Promise<DeleteSubscriberNotificationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSubscriptionNotificationConfigurationCommandError(output, context);
+    return de_DeleteSubscriberNotificationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1944,12 +1782,12 @@ export const de_DeleteSubscriptionNotificationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommandError
+ * deserializeAws_restJson1DeleteSubscriberNotificationCommandError
  */
-const de_DeleteSubscriptionNotificationConfigurationCommandError = async (
+const de_DeleteSubscriberNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteSubscriptionNotificationConfigurationCommandOutput> => {
+): Promise<DeleteSubscriberNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1959,83 +1797,21 @@ const de_DeleteSubscriptionNotificationConfigurationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.securitylake#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetDatalakeCommand
- */
-export const de_GetDatalakeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDatalakeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDatalakeCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    configurations: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetDatalakeCommandError
- */
-const de_GetDatalakeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDatalakeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2047,33 +1823,29 @@ const de_GetDatalakeCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeAutoEnableCommand
+ * deserializeAws_restJson1DeregisterDataLakeDelegatedAdministratorCommand
  */
-export const de_GetDatalakeAutoEnableCommand = async (
+export const de_DeregisterDataLakeDelegatedAdministratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeAutoEnableCommandOutput> => {
+): Promise<DeregisterDataLakeDelegatedAdministratorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDatalakeAutoEnableCommandError(output, context);
+    return de_DeregisterDataLakeDelegatedAdministratorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    autoEnableNewAccounts: _json,
-  });
-  Object.assign(contents, doc);
+  await collectBody(output.body, context);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeAutoEnableCommandError
+ * deserializeAws_restJson1DeregisterDataLakeDelegatedAdministratorCommandError
  */
-const de_GetDatalakeAutoEnableCommandError = async (
+const de_DeregisterDataLakeDelegatedAdministratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeAutoEnableCommandOutput> => {
+): Promise<DeregisterDataLakeDelegatedAdministratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2083,15 +1855,21 @@ const de_GetDatalakeAutoEnableCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2103,33 +1881,35 @@ const de_GetDatalakeAutoEnableCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand
+ * deserializeAws_restJson1GetDataLakeExceptionSubscriptionCommand
  */
-export const de_GetDatalakeExceptionsExpiryCommand = async (
+export const de_GetDataLakeExceptionSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeExceptionsExpiryCommandOutput> => {
+): Promise<GetDataLakeExceptionSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDatalakeExceptionsExpiryCommandError(output, context);
+    return de_GetDataLakeExceptionSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    exceptionMessageExpiry: __expectLong,
+    exceptionTimeToLive: __expectLong,
+    notificationEndpoint: __expectString,
+    subscriptionProtocol: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeExceptionsExpiryCommandError
+ * deserializeAws_restJson1GetDataLakeExceptionSubscriptionCommandError
  */
-const de_GetDatalakeExceptionsExpiryCommandError = async (
+const de_GetDataLakeExceptionSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeExceptionsExpiryCommandOutput> => {
+): Promise<GetDataLakeExceptionSubscriptionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2139,15 +1919,21 @@ const de_GetDatalakeExceptionsExpiryCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2159,33 +1945,33 @@ const de_GetDatalakeExceptionsExpiryCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand
+ * deserializeAws_restJson1GetDataLakeOrganizationConfigurationCommand
  */
-export const de_GetDatalakeExceptionsSubscriptionCommand = async (
+export const de_GetDataLakeOrganizationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<GetDataLakeOrganizationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_GetDataLakeOrganizationConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    protocolAndNotificationEndpoint: _json,
+    autoEnableNewAccount: _json,
   });
   Object.assign(contents, doc);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommandError
+ * deserializeAws_restJson1GetDataLakeOrganizationConfigurationCommandError
  */
-const de_GetDatalakeExceptionsSubscriptionCommandError = async (
+const de_GetDataLakeOrganizationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<GetDataLakeOrganizationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2195,15 +1981,21 @@ const de_GetDatalakeExceptionsSubscriptionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2215,21 +2007,22 @@ const de_GetDatalakeExceptionsSubscriptionCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeStatusCommand
+ * deserializeAws_restJson1GetDataLakeSourcesCommand
  */
-export const de_GetDatalakeStatusCommand = async (
+export const de_GetDataLakeSourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeStatusCommandOutput> => {
+): Promise<GetDataLakeSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDatalakeStatusCommandError(output, context);
+    return de_GetDataLakeSourcesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    accountSourcesList: _json,
+    dataLakeArn: __expectString,
+    dataLakeSources: _json,
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2237,12 +2030,12 @@ export const de_GetDatalakeStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDatalakeStatusCommandError
+ * deserializeAws_restJson1GetDataLakeSourcesCommandError
  */
-const de_GetDatalakeStatusCommandError = async (
+const de_GetDataLakeSourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetDatalakeStatusCommandOutput> => {
+): Promise<GetDataLakeSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2252,15 +2045,21 @@ const de_GetDatalakeStatusCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2308,18 +2107,21 @@ const de_GetSubscriberCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2331,34 +2133,34 @@ const de_GetSubscriberCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1ListDatalakeExceptionsCommand
+ * deserializeAws_restJson1ListDataLakeExceptionsCommand
  */
-export const de_ListDatalakeExceptionsCommand = async (
+export const de_ListDataLakeExceptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatalakeExceptionsCommandOutput> => {
+): Promise<ListDataLakeExceptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDatalakeExceptionsCommandError(output, context);
+    return de_ListDataLakeExceptionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    exceptions: (_) => de_DataLakeExceptionList(_, context),
     nextToken: __expectString,
-    nonRetryableFailures: (_) => de_FailuresResponseList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1ListDatalakeExceptionsCommandError
+ * deserializeAws_restJson1ListDataLakeExceptionsCommandError
  */
-const de_ListDatalakeExceptionsCommandError = async (
+const de_ListDataLakeExceptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListDatalakeExceptionsCommandOutput> => {
+): Promise<ListDataLakeExceptionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2368,15 +2170,83 @@ const de_ListDatalakeExceptionsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListDataLakesCommand
+ */
+export const de_ListDataLakesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataLakesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListDataLakesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataLakes: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataLakesCommandError
+ */
+const de_ListDataLakesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataLakesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securitylake#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.securitylake#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2403,7 +2273,7 @@ export const de_ListLogSourcesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     nextToken: __expectString,
-    regionSourceTypesAccountsList: _json,
+    sources: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2425,18 +2295,21 @@ const de_ListLogSourcesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2463,7 +2336,7 @@ export const de_ListSubscribersCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     nextToken: __expectString,
-    subscribers: (_) => de_SubscriberList(_, context),
+    subscribers: (_) => de_SubscriberResourceList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2485,76 +2358,21 @@ const de_ListSubscribersCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.securitylake#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateDatalakeCommand
- */
-export const de_UpdateDatalakeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatalakeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDatalakeCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDatalakeCommandError
- */
-const de_UpdateDatalakeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatalakeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EventBridgeException":
-    case "com.amazonaws.securitylake#EventBridgeException":
-      throw await de_EventBridgeExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2566,14 +2384,14 @@ const de_UpdateDatalakeCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand
+ * deserializeAws_restJson1RegisterDataLakeDelegatedAdministratorCommand
  */
-export const de_UpdateDatalakeExceptionsExpiryCommand = async (
+export const de_RegisterDataLakeDelegatedAdministratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDatalakeExceptionsExpiryCommandOutput> => {
+): Promise<RegisterDataLakeDelegatedAdministratorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDatalakeExceptionsExpiryCommandError(output, context);
+    return de_RegisterDataLakeDelegatedAdministratorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2583,12 +2401,12 @@ export const de_UpdateDatalakeExceptionsExpiryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommandError
+ * deserializeAws_restJson1RegisterDataLakeDelegatedAdministratorCommandError
  */
-const de_UpdateDatalakeExceptionsExpiryCommandError = async (
+const de_RegisterDataLakeDelegatedAdministratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDatalakeExceptionsExpiryCommandOutput> => {
+): Promise<RegisterDataLakeDelegatedAdministratorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2598,15 +2416,21 @@ const de_UpdateDatalakeExceptionsExpiryCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2618,29 +2442,33 @@ const de_UpdateDatalakeExceptionsExpiryCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand
+ * deserializeAws_restJson1UpdateDataLakeCommand
  */
-export const de_UpdateDatalakeExceptionsSubscriptionCommand = async (
+export const de_UpdateDataLakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<UpdateDataLakeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_UpdateDataLakeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataLakes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommandError
+ * deserializeAws_restJson1UpdateDataLakeCommandError
  */
-const de_UpdateDatalakeExceptionsSubscriptionCommandError = async (
+const de_UpdateDataLakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateDatalakeExceptionsSubscriptionCommandOutput> => {
+): Promise<UpdateDataLakeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2650,15 +2478,79 @@ const de_UpdateDatalakeExceptionsSubscriptionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateDataLakeExceptionSubscriptionCommand
+ */
+export const de_UpdateDataLakeExceptionSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataLakeExceptionSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateDataLakeExceptionSubscriptionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDataLakeExceptionSubscriptionCommandError
+ */
+const de_UpdateDataLakeExceptionSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataLakeExceptionSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securitylake#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.securitylake#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2706,24 +2598,21 @@ const de_UpdateSubscriberCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictSubscriptionException":
-    case "com.amazonaws.securitylake#ConflictSubscriptionException":
-      throw await de_ConflictSubscriptionExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securitylake#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2735,33 +2624,33 @@ const de_UpdateSubscriberCommandError = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand
+ * deserializeAws_restJson1UpdateSubscriberNotificationCommand
  */
-export const de_UpdateSubscriptionNotificationConfigurationCommand = async (
+export const de_UpdateSubscriberNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput> => {
+): Promise<UpdateSubscriberNotificationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSubscriptionNotificationConfigurationCommandError(output, context);
+    return de_UpdateSubscriberNotificationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    queueArn: __expectString,
+    subscriberEndpoint: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
 };
 
 /**
- * deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommandError
+ * deserializeAws_restJson1UpdateSubscriberNotificationCommandError
  */
-const de_UpdateSubscriptionNotificationConfigurationCommandError = async (
+const de_UpdateSubscriberNotificationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput> => {
+): Promise<UpdateSubscriberNotificationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2771,24 +2660,21 @@ const de_UpdateSubscriptionNotificationConfigurationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.securitylake#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securitylake#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securitylake#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.securitylake#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securitylake#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2822,59 +2708,16 @@ const de_AccessDeniedExceptionRes = async (
 };
 
 /**
- * deserializeAws_restJson1AccountNotFoundExceptionRes
+ * deserializeAws_restJson1BadRequestExceptionRes
  */
-const de_AccountNotFoundExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<AccountNotFoundException> => {
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
   });
   Object.assign(contents, doc);
-  const exception = new AccountNotFoundException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1BucketNotFoundExceptionRes
- */
-const de_BucketNotFoundExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BucketNotFoundException> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new BucketNotFoundException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1ConcurrentModificationExceptionRes
- */
-const de_ConcurrentModificationExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConcurrentModificationException> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new ConcurrentModificationException({
+  const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2889,71 +2732,11 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
-    resourceId: __expectString,
+    resourceName: __expectString,
     resourceType: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ConflictException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1ConflictSourceNamesExceptionRes
- */
-const de_ConflictSourceNamesExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictSourceNamesException> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new ConflictSourceNamesException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1ConflictSubscriptionExceptionRes
- */
-const de_ConflictSubscriptionExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictSubscriptionException> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new ConflictSubscriptionException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1EventBridgeExceptionRes
- */
-const de_EventBridgeExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<EventBridgeException> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new EventBridgeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2967,38 +2750,13 @@ const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
-  });
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new InternalServerException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1InvalidInputExceptionRes
- */
-const de_InvalidInputExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidInputException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
   });
   Object.assign(contents, doc);
-  const exception = new InvalidInputException({
+  const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3016,52 +2774,11 @@ const de_ResourceNotFoundExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
-    resourceId: __expectString,
+    resourceName: __expectString,
     resourceType: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1S3ExceptionRes
- */
-const de_S3ExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<S3Exception> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new S3Exception({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
- */
-const de_ServiceQuotaExceededExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServiceQuotaExceededException> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-    quotaCode: __expectString,
-    resourceId: __expectString,
-    resourceType: __expectString,
-    serviceCode: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3092,155 +2809,147 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-/**
- * deserializeAws_restJson1ValidationExceptionRes
- */
-const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
-  const contents: any = map({});
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    fieldList: _json,
-    message: __expectString,
-    reason: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new ValidationException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
 // se_AccessTypeList omitted.
 
-// se_AllDimensionsMap omitted.
+// se_AccountList omitted.
 
-// se_AutoEnableNewRegionConfiguration omitted.
+// se_AwsIdentity omitted.
 
-// se_AutoEnableNewRegionConfigurationList omitted.
+// se_AwsLogSourceConfiguration omitted.
 
-// se_AwsSourceTypeList omitted.
+// se_AwsLogSourceConfigurationList omitted.
 
-// se_DimensionSet omitted.
+// se_AwsLogSourceResource omitted.
 
-// se_InputSet omitted.
+// se_AwsLogSourceResourceList omitted.
 
-// se_LakeConfigurationRequest omitted.
+// se_CustomLogSourceAttributes omitted.
 
-// se_LakeConfigurationRequestMap omitted.
+// se_CustomLogSourceConfiguration omitted.
 
-// se_RegionSet omitted.
+// se_CustomLogSourceCrawlerConfiguration omitted.
 
-// se_RetentionSetting omitted.
+// se_CustomLogSourceProvider omitted.
 
-// se_RetentionSettingList omitted.
+// se_CustomLogSourceResource omitted.
 
-// se_SourceType omitted.
+// se_DataLakeAutoEnableNewAccountConfiguration omitted.
 
-// se_SourceTypeList omitted.
+// se_DataLakeAutoEnableNewAccountConfigurationList omitted.
 
-// se_TagsMap omitted.
+// se_DataLakeConfiguration omitted.
 
-// se_TwoDimensionsMap omitted.
+// se_DataLakeConfigurationList omitted.
 
-// se_ValueSet omitted.
+// se_DataLakeEncryptionConfiguration omitted.
+
+// se_DataLakeLifecycleConfiguration omitted.
+
+// se_DataLakeLifecycleExpiration omitted.
+
+// se_DataLakeLifecycleTransition omitted.
+
+// se_DataLakeLifecycleTransitionList omitted.
+
+// se_DataLakeReplicationConfiguration omitted.
+
+// se_HttpsNotificationConfiguration omitted.
+
+// se_LogSourceResource omitted.
+
+// se_LogSourceResourceList omitted.
+
+// se_NotificationConfiguration omitted.
+
+// se_OcsfEventClassList omitted.
+
+// se_RegionList omitted.
+
+// se_SqsNotificationConfiguration omitted.
 
 // de_AccessTypeList omitted.
 
 // de_AccountList omitted.
 
-// de_AccountSources omitted.
+// de_AwsIdentity omitted.
 
-// de_AccountSourcesList omitted.
+// de_AwsLogSourceResource omitted.
 
-// de_AllDimensionsMap omitted.
+// de_AwsLogSourceResourceList omitted.
 
-// de_AutoEnableNewRegionConfiguration omitted.
+// de_CustomLogSourceAttributes omitted.
 
-// de_AutoEnableNewRegionConfigurationList omitted.
+// de_CustomLogSourceProvider omitted.
 
-// de_AwsSourceTypeList omitted.
+// de_CustomLogSourceResource omitted.
+
+// de_DataLakeAutoEnableNewAccountConfiguration omitted.
+
+// de_DataLakeAutoEnableNewAccountConfigurationList omitted.
+
+// de_DataLakeEncryptionConfiguration omitted.
 
 /**
- * deserializeAws_restJson1Failures
+ * deserializeAws_restJson1DataLakeException
  */
-const de_Failures = (output: any, context: __SerdeContext): Failures => {
+const de_DataLakeException = (output: any, context: __SerdeContext): DataLakeException => {
   return take(output, {
-    exceptionMessage: __expectString,
+    exception: __expectString,
+    region: __expectString,
     remediation: __expectString,
     timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
 
 /**
- * deserializeAws_restJson1Failureslist
+ * deserializeAws_restJson1DataLakeExceptionList
  */
-const de_Failureslist = (output: any, context: __SerdeContext): Failures[] => {
+const de_DataLakeExceptionList = (output: any, context: __SerdeContext): DataLakeException[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return de_Failures(entry, context);
+      return de_DataLakeException(entry, context);
     });
   return retVal;
 };
 
-/**
- * deserializeAws_restJson1FailuresResponse
- */
-const de_FailuresResponse = (output: any, context: __SerdeContext): FailuresResponse => {
-  return take(output, {
-    failures: (_: any) => de_Failureslist(_, context),
-    region: __expectString,
-  }) as any;
-};
+// de_DataLakeLifecycleConfiguration omitted.
 
-/**
- * deserializeAws_restJson1FailuresResponseList
- */
-const de_FailuresResponseList = (output: any, context: __SerdeContext): FailuresResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_FailuresResponse(entry, context);
-    });
-  return retVal;
-};
+// de_DataLakeLifecycleExpiration omitted.
 
-// de_LakeConfigurationResponse omitted.
+// de_DataLakeLifecycleTransition omitted.
 
-// de_LakeConfigurationResponseMap omitted.
+// de_DataLakeLifecycleTransitionList omitted.
 
-// de_LastUpdateFailure omitted.
+// de_DataLakeReplicationConfiguration omitted.
 
-// de_LogsStatus omitted.
+// de_DataLakeResource omitted.
 
-// de_LogsStatusList omitted.
+// de_DataLakeResourceList omitted.
 
-// de_ProtocolAndNotificationEndpoint omitted.
+// de_DataLakeSource omitted.
 
-// de_RegionSet omitted.
+// de_DataLakeSourceList omitted.
 
-// de_RegionSourceTypesAccountsList omitted.
+// de_DataLakeSourceStatus omitted.
 
-// de_RetentionSetting omitted.
+// de_DataLakeSourceStatusList omitted.
 
-// de_RetentionSettingList omitted.
+// de_DataLakeUpdateException omitted.
 
-// de_SourceType omitted.
+// de_DataLakeUpdateStatus omitted.
 
-// de_SourceTypeList omitted.
+// de_LogSource omitted.
 
-/**
- * deserializeAws_restJson1SubscriberList
- */
-const de_SubscriberList = (output: any, context: __SerdeContext): SubscriberResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_SubscriberResource(entry, context);
-    });
-  return retVal;
-};
+// de_LogSourceList omitted.
+
+// de_LogSourceResource omitted.
+
+// de_LogSourceResourceList omitted.
+
+// de_OcsfEventClassList omitted.
+
+// de_RegionList omitted.
 
 /**
  * deserializeAws_restJson1SubscriberResource
@@ -3248,36 +2957,34 @@ const de_SubscriberList = (output: any, context: __SerdeContext): SubscriberReso
 const de_SubscriberResource = (output: any, context: __SerdeContext): SubscriberResource => {
   return take(output, {
     accessTypes: _json,
-    accountId: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
-    externalId: __expectString,
     resourceShareArn: __expectString,
     resourceShareName: __expectString,
     roleArn: __expectString,
     s3BucketArn: __expectString,
-    snsArn: __expectString,
-    sourceTypes: _json,
+    sources: _json,
+    subscriberArn: __expectString,
     subscriberDescription: __expectString,
+    subscriberEndpoint: __expectString,
+    subscriberId: __expectString,
+    subscriberIdentity: _json,
     subscriberName: __expectString,
-    subscriptionEndpoint: __expectString,
-    subscriptionId: __expectString,
-    subscriptionProtocol: __expectString,
-    subscriptionStatus: __expectString,
+    subscriberStatus: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
 
-// de_TagsMap omitted.
-
-// de_TwoDimensionsMap omitted.
-
-// de_UpdateStatus omitted.
-
-// de_ValidationExceptionField omitted.
-
-// de_ValidationExceptionFieldList omitted.
-
-// de_ValueSet omitted.
+/**
+ * deserializeAws_restJson1SubscriberResourceList
+ */
+const de_SubscriberResourceList = (output: any, context: __SerdeContext): SubscriberResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SubscriberResource(entry, context);
+    });
+  return retVal;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

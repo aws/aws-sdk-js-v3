@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DeleteDatalakeAutoEnableRequest, DeleteDatalakeAutoEnableResponse } from "../models/models_0";
-import { de_DeleteDatalakeAutoEnableCommand, se_DeleteDatalakeAutoEnableCommand } from "../protocols/Aws_restJson1";
+import { DeleteDataLakeRequest, DeleteDataLakeResponse } from "../models/models_0";
+import { de_DeleteDataLakeCommand, se_DeleteDataLakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,50 +24,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDatalakeAutoEnableCommand}.
+ * The input for {@link DeleteDataLakeCommand}.
  */
-export interface DeleteDatalakeAutoEnableCommandInput extends DeleteDatalakeAutoEnableRequest {}
+export interface DeleteDataLakeCommandInput extends DeleteDataLakeRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDatalakeAutoEnableCommand}.
+ * The output of {@link DeleteDataLakeCommand}.
  */
-export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAutoEnableResponse, __MetadataBearer {}
+export interface DeleteDataLakeCommandOutput extends DeleteDataLakeResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>
- *             <code>DeleteDatalakeAutoEnable</code> removes automatic enablement of configuration
- *          settings for new member accounts (but keeps settings for the delegated administrator) from
- *          Amazon Security Lake.  You must run this API using credentials of the delegated administrator.
- *          When you run this API, new member accounts that are added after the organization enables
- *          Security Lake won't contribute to the data lake.</p>
+ * <p>When you disable Amazon Security Lake from your account, Security Lake is disabled in all Amazon Web Services Regions and it stops collecting data from your sources. Also, this API
+ *          automatically takes steps to remove the account from Security Lake. However, Security Lake retains
+ *          all of your existing settings and the resources that it created in your Amazon Web Services
+ *          account in the current Amazon Web Services Region.</p>
+ *          <p>The <code>DeleteDataLake</code> operation does not delete the data that is stored in
+ *          your Amazon S3 bucket, which is owned by your Amazon Web Services account. For more
+ *          information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/disable-security-lake.html">Amazon Security Lake User
+ *             Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteDataLakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, DeleteDataLakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // DeleteDatalakeAutoEnableRequest
- *   removeFromConfigurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
- *     { // AutoEnableNewRegionConfiguration
- *       region: "STRING_VALUE", // required
- *       sources: [ // AwsSourceTypeList // required
- *         "STRING_VALUE",
- *       ],
- *     },
+ * const input = { // DeleteDataLakeRequest
+ *   regions: [ // RegionList // required
+ *     "STRING_VALUE",
  *   ],
  * };
- * const command = new DeleteDatalakeAutoEnableCommand(input);
+ * const command = new DeleteDataLakeCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteDatalakeAutoEnableCommandInput - {@link DeleteDatalakeAutoEnableCommandInput}
- * @returns {@link DeleteDatalakeAutoEnableCommandOutput}
- * @see {@link DeleteDatalakeAutoEnableCommandInput} for command's `input` shape.
- * @see {@link DeleteDatalakeAutoEnableCommandOutput} for command's `response` shape.
+ * @param DeleteDataLakeCommandInput - {@link DeleteDataLakeCommandInput}
+ * @returns {@link DeleteDataLakeCommandOutput}
+ * @see {@link DeleteDataLakeCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataLakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -76,25 +73,32 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class DeleteDatalakeAutoEnableCommand extends $Command<
-  DeleteDatalakeAutoEnableCommandInput,
-  DeleteDatalakeAutoEnableCommandOutput,
+export class DeleteDataLakeCommand extends $Command<
+  DeleteDataLakeCommandInput,
+  DeleteDataLakeCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -112,7 +116,7 @@ export class DeleteDatalakeAutoEnableCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteDatalakeAutoEnableCommandInput) {
+  constructor(readonly input: DeleteDataLakeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -125,17 +129,17 @@ export class DeleteDatalakeAutoEnableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteDatalakeAutoEnableCommandInput, DeleteDatalakeAutoEnableCommandOutput> {
+  ): Handler<DeleteDataLakeCommandInput, DeleteDataLakeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteDatalakeAutoEnableCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteDataLakeCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "DeleteDatalakeAutoEnableCommand";
+    const commandName = "DeleteDataLakeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -154,15 +158,15 @@ export class DeleteDatalakeAutoEnableCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteDatalakeAutoEnableCommand(input, context);
+  private serialize(input: DeleteDataLakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteDataLakeCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatalakeAutoEnableCommandOutput> {
-    return de_DeleteDatalakeAutoEnableCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataLakeCommandOutput> {
+    return de_DeleteDataLakeCommand(output, context);
   }
 
   // Start section: command_body_extra

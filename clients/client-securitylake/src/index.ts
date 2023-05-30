@@ -1,14 +1,9 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <note>
- *             <p>Amazon Security Lake is in preview release. Your use of the Security Lake preview is subject to
- *             Section 2 of the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
- *                Terms</a>("Betas and Previews").</p>
- *          </note>
- *          <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
+ * <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
  *          automatically centralize security data from cloud, on-premises, and custom sources into a
- *          data lake that's stored in your Amazon Web Servicesaccount. Amazon Web Services Organizations
+ *          data lake that's stored in your Amazon Web Services account. Amazon Web Services Organizations
  *          is an account management service that lets you consolidate multiple Amazon Web Services
  *          accounts into an organization that you create and centrally manage. With Organizations, you
  *          can create member accounts and invite existing accounts to join your organization.
@@ -16,9 +11,9 @@
  *          security posture across the entire organization. It can also help you improve the
  *          protection of your workloads, applications, and data.</p>
  *          <p>The data lake is backed by Amazon Simple Storage Service (Amazon S3) buckets, and you
- *          retain ownership over your data.   </p>
+ *          retain ownership over your data.</p>
  *          <p>Amazon Security Lake integrates with CloudTrail, a service that provides a record of
- *          actions taken by a user, role, or an Amazon Web Services service in Security Lake CloudTrail captures API calls for Security Lake as events. The calls captured include calls
+ *          actions taken by a user, role, or an Amazon Web Services service. In Security Lake, CloudTrail captures API calls for Security Lake as events. The calls captured include calls
  *          from the Security Lake console and code calls to the Security Lake API operations. If you create a
  *          trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Security Lake. If you don't configure a trail, you can still
  *          view the most recent events in the CloudTrail console in Event history. Using the

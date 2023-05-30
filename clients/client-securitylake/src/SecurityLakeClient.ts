@@ -56,82 +56,74 @@ import {
   CreateCustomLogSourceCommandInput,
   CreateCustomLogSourceCommandOutput,
 } from "./commands/CreateCustomLogSourceCommand";
+import { CreateDataLakeCommandInput, CreateDataLakeCommandOutput } from "./commands/CreateDataLakeCommand";
 import {
-  CreateDatalakeAutoEnableCommandInput,
-  CreateDatalakeAutoEnableCommandOutput,
-} from "./commands/CreateDatalakeAutoEnableCommand";
-import { CreateDatalakeCommandInput, CreateDatalakeCommandOutput } from "./commands/CreateDatalakeCommand";
+  CreateDataLakeExceptionSubscriptionCommandInput,
+  CreateDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/CreateDataLakeExceptionSubscriptionCommand";
 import {
-  CreateDatalakeDelegatedAdminCommandInput,
-  CreateDatalakeDelegatedAdminCommandOutput,
-} from "./commands/CreateDatalakeDelegatedAdminCommand";
-import {
-  CreateDatalakeExceptionsSubscriptionCommandInput,
-  CreateDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/CreateDatalakeExceptionsSubscriptionCommand";
+  CreateDataLakeOrganizationConfigurationCommandInput,
+  CreateDataLakeOrganizationConfigurationCommandOutput,
+} from "./commands/CreateDataLakeOrganizationConfigurationCommand";
 import { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "./commands/CreateSubscriberCommand";
 import {
-  CreateSubscriptionNotificationConfigurationCommandInput,
-  CreateSubscriptionNotificationConfigurationCommandOutput,
-} from "./commands/CreateSubscriptionNotificationConfigurationCommand";
+  CreateSubscriberNotificationCommandInput,
+  CreateSubscriberNotificationCommandOutput,
+} from "./commands/CreateSubscriberNotificationCommand";
 import { DeleteAwsLogSourceCommandInput, DeleteAwsLogSourceCommandOutput } from "./commands/DeleteAwsLogSourceCommand";
 import {
   DeleteCustomLogSourceCommandInput,
   DeleteCustomLogSourceCommandOutput,
 } from "./commands/DeleteCustomLogSourceCommand";
+import { DeleteDataLakeCommandInput, DeleteDataLakeCommandOutput } from "./commands/DeleteDataLakeCommand";
 import {
-  DeleteDatalakeAutoEnableCommandInput,
-  DeleteDatalakeAutoEnableCommandOutput,
-} from "./commands/DeleteDatalakeAutoEnableCommand";
-import { DeleteDatalakeCommandInput, DeleteDatalakeCommandOutput } from "./commands/DeleteDatalakeCommand";
+  DeleteDataLakeExceptionSubscriptionCommandInput,
+  DeleteDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/DeleteDataLakeExceptionSubscriptionCommand";
 import {
-  DeleteDatalakeDelegatedAdminCommandInput,
-  DeleteDatalakeDelegatedAdminCommandOutput,
-} from "./commands/DeleteDatalakeDelegatedAdminCommand";
-import {
-  DeleteDatalakeExceptionsSubscriptionCommandInput,
-  DeleteDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/DeleteDatalakeExceptionsSubscriptionCommand";
+  DeleteDataLakeOrganizationConfigurationCommandInput,
+  DeleteDataLakeOrganizationConfigurationCommandOutput,
+} from "./commands/DeleteDataLakeOrganizationConfigurationCommand";
 import { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "./commands/DeleteSubscriberCommand";
 import {
-  DeleteSubscriptionNotificationConfigurationCommandInput,
-  DeleteSubscriptionNotificationConfigurationCommandOutput,
-} from "./commands/DeleteSubscriptionNotificationConfigurationCommand";
+  DeleteSubscriberNotificationCommandInput,
+  DeleteSubscriberNotificationCommandOutput,
+} from "./commands/DeleteSubscriberNotificationCommand";
 import {
-  GetDatalakeAutoEnableCommandInput,
-  GetDatalakeAutoEnableCommandOutput,
-} from "./commands/GetDatalakeAutoEnableCommand";
-import { GetDatalakeCommandInput, GetDatalakeCommandOutput } from "./commands/GetDatalakeCommand";
+  DeregisterDataLakeDelegatedAdministratorCommandInput,
+  DeregisterDataLakeDelegatedAdministratorCommandOutput,
+} from "./commands/DeregisterDataLakeDelegatedAdministratorCommand";
 import {
-  GetDatalakeExceptionsExpiryCommandInput,
-  GetDatalakeExceptionsExpiryCommandOutput,
-} from "./commands/GetDatalakeExceptionsExpiryCommand";
+  GetDataLakeExceptionSubscriptionCommandInput,
+  GetDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/GetDataLakeExceptionSubscriptionCommand";
 import {
-  GetDatalakeExceptionsSubscriptionCommandInput,
-  GetDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/GetDatalakeExceptionsSubscriptionCommand";
-import { GetDatalakeStatusCommandInput, GetDatalakeStatusCommandOutput } from "./commands/GetDatalakeStatusCommand";
+  GetDataLakeOrganizationConfigurationCommandInput,
+  GetDataLakeOrganizationConfigurationCommandOutput,
+} from "./commands/GetDataLakeOrganizationConfigurationCommand";
+import { GetDataLakeSourcesCommandInput, GetDataLakeSourcesCommandOutput } from "./commands/GetDataLakeSourcesCommand";
 import { GetSubscriberCommandInput, GetSubscriberCommandOutput } from "./commands/GetSubscriberCommand";
 import {
-  ListDatalakeExceptionsCommandInput,
-  ListDatalakeExceptionsCommandOutput,
-} from "./commands/ListDatalakeExceptionsCommand";
+  ListDataLakeExceptionsCommandInput,
+  ListDataLakeExceptionsCommandOutput,
+} from "./commands/ListDataLakeExceptionsCommand";
+import { ListDataLakesCommandInput, ListDataLakesCommandOutput } from "./commands/ListDataLakesCommand";
 import { ListLogSourcesCommandInput, ListLogSourcesCommandOutput } from "./commands/ListLogSourcesCommand";
 import { ListSubscribersCommandInput, ListSubscribersCommandOutput } from "./commands/ListSubscribersCommand";
-import { UpdateDatalakeCommandInput, UpdateDatalakeCommandOutput } from "./commands/UpdateDatalakeCommand";
 import {
-  UpdateDatalakeExceptionsExpiryCommandInput,
-  UpdateDatalakeExceptionsExpiryCommandOutput,
-} from "./commands/UpdateDatalakeExceptionsExpiryCommand";
+  RegisterDataLakeDelegatedAdministratorCommandInput,
+  RegisterDataLakeDelegatedAdministratorCommandOutput,
+} from "./commands/RegisterDataLakeDelegatedAdministratorCommand";
+import { UpdateDataLakeCommandInput, UpdateDataLakeCommandOutput } from "./commands/UpdateDataLakeCommand";
 import {
-  UpdateDatalakeExceptionsSubscriptionCommandInput,
-  UpdateDatalakeExceptionsSubscriptionCommandOutput,
-} from "./commands/UpdateDatalakeExceptionsSubscriptionCommand";
+  UpdateDataLakeExceptionSubscriptionCommandInput,
+  UpdateDataLakeExceptionSubscriptionCommandOutput,
+} from "./commands/UpdateDataLakeExceptionSubscriptionCommand";
 import { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "./commands/UpdateSubscriberCommand";
 import {
-  UpdateSubscriptionNotificationConfigurationCommandInput,
-  UpdateSubscriptionNotificationConfigurationCommandOutput,
-} from "./commands/UpdateSubscriptionNotificationConfigurationCommand";
+  UpdateSubscriberNotificationCommandInput,
+  UpdateSubscriberNotificationCommandOutput,
+} from "./commands/UpdateSubscriberNotificationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -148,34 +140,32 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateAwsLogSourceCommandInput
   | CreateCustomLogSourceCommandInput
-  | CreateDatalakeAutoEnableCommandInput
-  | CreateDatalakeCommandInput
-  | CreateDatalakeDelegatedAdminCommandInput
-  | CreateDatalakeExceptionsSubscriptionCommandInput
+  | CreateDataLakeCommandInput
+  | CreateDataLakeExceptionSubscriptionCommandInput
+  | CreateDataLakeOrganizationConfigurationCommandInput
   | CreateSubscriberCommandInput
-  | CreateSubscriptionNotificationConfigurationCommandInput
+  | CreateSubscriberNotificationCommandInput
   | DeleteAwsLogSourceCommandInput
   | DeleteCustomLogSourceCommandInput
-  | DeleteDatalakeAutoEnableCommandInput
-  | DeleteDatalakeCommandInput
-  | DeleteDatalakeDelegatedAdminCommandInput
-  | DeleteDatalakeExceptionsSubscriptionCommandInput
+  | DeleteDataLakeCommandInput
+  | DeleteDataLakeExceptionSubscriptionCommandInput
+  | DeleteDataLakeOrganizationConfigurationCommandInput
   | DeleteSubscriberCommandInput
-  | DeleteSubscriptionNotificationConfigurationCommandInput
-  | GetDatalakeAutoEnableCommandInput
-  | GetDatalakeCommandInput
-  | GetDatalakeExceptionsExpiryCommandInput
-  | GetDatalakeExceptionsSubscriptionCommandInput
-  | GetDatalakeStatusCommandInput
+  | DeleteSubscriberNotificationCommandInput
+  | DeregisterDataLakeDelegatedAdministratorCommandInput
+  | GetDataLakeExceptionSubscriptionCommandInput
+  | GetDataLakeOrganizationConfigurationCommandInput
+  | GetDataLakeSourcesCommandInput
   | GetSubscriberCommandInput
-  | ListDatalakeExceptionsCommandInput
+  | ListDataLakeExceptionsCommandInput
+  | ListDataLakesCommandInput
   | ListLogSourcesCommandInput
   | ListSubscribersCommandInput
-  | UpdateDatalakeCommandInput
-  | UpdateDatalakeExceptionsExpiryCommandInput
-  | UpdateDatalakeExceptionsSubscriptionCommandInput
+  | RegisterDataLakeDelegatedAdministratorCommandInput
+  | UpdateDataLakeCommandInput
+  | UpdateDataLakeExceptionSubscriptionCommandInput
   | UpdateSubscriberCommandInput
-  | UpdateSubscriptionNotificationConfigurationCommandInput;
+  | UpdateSubscriberNotificationCommandInput;
 
 /**
  * @public
@@ -183,34 +173,32 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateAwsLogSourceCommandOutput
   | CreateCustomLogSourceCommandOutput
-  | CreateDatalakeAutoEnableCommandOutput
-  | CreateDatalakeCommandOutput
-  | CreateDatalakeDelegatedAdminCommandOutput
-  | CreateDatalakeExceptionsSubscriptionCommandOutput
+  | CreateDataLakeCommandOutput
+  | CreateDataLakeExceptionSubscriptionCommandOutput
+  | CreateDataLakeOrganizationConfigurationCommandOutput
   | CreateSubscriberCommandOutput
-  | CreateSubscriptionNotificationConfigurationCommandOutput
+  | CreateSubscriberNotificationCommandOutput
   | DeleteAwsLogSourceCommandOutput
   | DeleteCustomLogSourceCommandOutput
-  | DeleteDatalakeAutoEnableCommandOutput
-  | DeleteDatalakeCommandOutput
-  | DeleteDatalakeDelegatedAdminCommandOutput
-  | DeleteDatalakeExceptionsSubscriptionCommandOutput
+  | DeleteDataLakeCommandOutput
+  | DeleteDataLakeExceptionSubscriptionCommandOutput
+  | DeleteDataLakeOrganizationConfigurationCommandOutput
   | DeleteSubscriberCommandOutput
-  | DeleteSubscriptionNotificationConfigurationCommandOutput
-  | GetDatalakeAutoEnableCommandOutput
-  | GetDatalakeCommandOutput
-  | GetDatalakeExceptionsExpiryCommandOutput
-  | GetDatalakeExceptionsSubscriptionCommandOutput
-  | GetDatalakeStatusCommandOutput
+  | DeleteSubscriberNotificationCommandOutput
+  | DeregisterDataLakeDelegatedAdministratorCommandOutput
+  | GetDataLakeExceptionSubscriptionCommandOutput
+  | GetDataLakeOrganizationConfigurationCommandOutput
+  | GetDataLakeSourcesCommandOutput
   | GetSubscriberCommandOutput
-  | ListDatalakeExceptionsCommandOutput
+  | ListDataLakeExceptionsCommandOutput
+  | ListDataLakesCommandOutput
   | ListLogSourcesCommandOutput
   | ListSubscribersCommandOutput
-  | UpdateDatalakeCommandOutput
-  | UpdateDatalakeExceptionsExpiryCommandOutput
-  | UpdateDatalakeExceptionsSubscriptionCommandOutput
+  | RegisterDataLakeDelegatedAdministratorCommandOutput
+  | UpdateDataLakeCommandOutput
+  | UpdateDataLakeExceptionSubscriptionCommandOutput
   | UpdateSubscriberCommandOutput
-  | UpdateSubscriptionNotificationConfigurationCommandOutput;
+  | UpdateSubscriberNotificationCommandOutput;
 
 /**
  * @public
@@ -376,14 +364,9 @@ export interface SecurityLakeClientResolvedConfig extends SecurityLakeClientReso
 
 /**
  * @public
- * <note>
- *             <p>Amazon Security Lake is in preview release. Your use of the Security Lake preview is subject to
- *             Section 2 of the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
- *                Terms</a>("Betas and Previews").</p>
- *          </note>
- *          <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
+ * <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
  *          automatically centralize security data from cloud, on-premises, and custom sources into a
- *          data lake that's stored in your Amazon Web Servicesaccount. Amazon Web Services Organizations
+ *          data lake that's stored in your Amazon Web Services account. Amazon Web Services Organizations
  *          is an account management service that lets you consolidate multiple Amazon Web Services
  *          accounts into an organization that you create and centrally manage. With Organizations, you
  *          can create member accounts and invite existing accounts to join your organization.
@@ -391,9 +374,9 @@ export interface SecurityLakeClientResolvedConfig extends SecurityLakeClientReso
  *          security posture across the entire organization. It can also help you improve the
  *          protection of your workloads, applications, and data.</p>
  *          <p>The data lake is backed by Amazon Simple Storage Service (Amazon S3) buckets, and you
- *          retain ownership over your data.   </p>
+ *          retain ownership over your data.</p>
  *          <p>Amazon Security Lake integrates with CloudTrail, a service that provides a record of
- *          actions taken by a user, role, or an Amazon Web Services service in Security Lake CloudTrail captures API calls for Security Lake as events. The calls captured include calls
+ *          actions taken by a user, role, or an Amazon Web Services service. In Security Lake, CloudTrail captures API calls for Security Lake as events. The calls captured include calls
  *          from the Security Lake console and code calls to the Security Lake API operations. If you create a
  *          trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Security Lake. If you don't configure a trail, you can still
  *          view the most recent events in the CloudTrail console in Event history. Using the

@@ -14,12 +14,12 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import {
-  UpdateSubscriptionNotificationConfigurationRequest,
-  UpdateSubscriptionNotificationConfigurationResponse,
+  DeleteDataLakeOrganizationConfigurationRequest,
+  DeleteDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
 import {
-  de_UpdateSubscriptionNotificationConfigurationCommand,
-  se_UpdateSubscriptionNotificationConfigurationCommand,
+  de_DeleteDataLakeOrganizationConfigurationCommand,
+  se_DeleteDataLakeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -30,50 +30,55 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateSubscriptionNotificationConfigurationCommand}.
+ * The input for {@link DeleteDataLakeOrganizationConfigurationCommand}.
  */
-export interface UpdateSubscriptionNotificationConfigurationCommandInput
-  extends UpdateSubscriptionNotificationConfigurationRequest {}
+export interface DeleteDataLakeOrganizationConfigurationCommandInput
+  extends DeleteDataLakeOrganizationConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateSubscriptionNotificationConfigurationCommand}.
+ * The output of {@link DeleteDataLakeOrganizationConfigurationCommand}.
  */
-export interface UpdateSubscriptionNotificationConfigurationCommandOutput
-  extends UpdateSubscriptionNotificationConfigurationResponse,
+export interface DeleteDataLakeOrganizationConfigurationCommandOutput
+  extends DeleteDataLakeOrganizationConfigurationResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or
- *          switches the notification subscription endpoint for a subscriber.</p>
+ * <p>Removes automatic the enablement of configuration settings for new member accounts (but
+ *          retains the settings for the delegated administrator) from Amazon Security Lake. You must run this
+ *          API using the credentials of the delegated administrator. When you run this API, new member
+ *          accounts that are added after the organization enables Security Lake won't contribute to the
+ *          data lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // UpdateSubscriptionNotificationConfigurationRequest
- *   subscriptionId: "STRING_VALUE", // required
- *   subscriptionEndpoint: "STRING_VALUE",
- *   httpsApiKeyName: "STRING_VALUE",
- *   httpsApiKeyValue: "STRING_VALUE",
- *   httpsMethod: "STRING_VALUE",
- *   createSqs: true || false,
- *   roleArn: "STRING_VALUE",
+ * const input = { // DeleteDataLakeOrganizationConfigurationRequest
+ *   autoEnableNewAccount: [ // DataLakeAutoEnableNewAccountConfigurationList // required
+ *     { // DataLakeAutoEnableNewAccountConfiguration
+ *       region: "STRING_VALUE", // required
+ *       sources: [ // AwsLogSourceResourceList // required
+ *         { // AwsLogSourceResource
+ *           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
+ *           sourceVersion: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
  * };
- * const command = new UpdateSubscriptionNotificationConfigurationCommand(input);
+ * const command = new DeleteDataLakeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // UpdateSubscriptionNotificationConfigurationResponse
- * //   queueArn: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param UpdateSubscriptionNotificationConfigurationCommandInput - {@link UpdateSubscriptionNotificationConfigurationCommandInput}
- * @returns {@link UpdateSubscriptionNotificationConfigurationCommandOutput}
- * @see {@link UpdateSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
- * @see {@link UpdateSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
+ * @param DeleteDataLakeOrganizationConfigurationCommandInput - {@link DeleteDataLakeOrganizationConfigurationCommandInput}
+ * @returns {@link DeleteDataLakeOrganizationConfigurationCommandOutput}
+ * @see {@link DeleteDataLakeOrganizationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataLakeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -82,35 +87,32 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  *
- * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>More than one process tried to modify a resource at the same time. </p>
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
- *
- * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because a value that's not valid or is out of range was
- *          supplied for an input parameter. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class UpdateSubscriptionNotificationConfigurationCommand extends $Command<
-  UpdateSubscriptionNotificationConfigurationCommandInput,
-  UpdateSubscriptionNotificationConfigurationCommandOutput,
+export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
+  DeleteDataLakeOrganizationConfigurationCommandInput,
+  DeleteDataLakeOrganizationConfigurationCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -128,7 +130,7 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
   /**
    * @public
    */
-  constructor(readonly input: UpdateSubscriptionNotificationConfigurationCommandInput) {
+  constructor(readonly input: DeleteDataLakeOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -142,14 +144,14 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<
-    UpdateSubscriptionNotificationConfigurationCommandInput,
-    UpdateSubscriptionNotificationConfigurationCommandOutput
+    DeleteDataLakeOrganizationConfigurationCommandInput,
+    DeleteDataLakeOrganizationConfigurationCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
       getEndpointPlugin(
         configuration,
-        UpdateSubscriptionNotificationConfigurationCommand.getEndpointParameterInstructions()
+        DeleteDataLakeOrganizationConfigurationCommand.getEndpointParameterInstructions()
       )
     );
 
@@ -157,7 +159,7 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "UpdateSubscriptionNotificationConfigurationCommand";
+    const commandName = "DeleteDataLakeOrganizationConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,10 +179,10 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
    * @internal
    */
   private serialize(
-    input: UpdateSubscriptionNotificationConfigurationCommandInput,
+    input: DeleteDataLakeOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_UpdateSubscriptionNotificationConfigurationCommand(input, context);
+    return se_DeleteDataLakeOrganizationConfigurationCommand(input, context);
   }
 
   /**
@@ -189,8 +191,8 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput> {
-    return de_UpdateSubscriptionNotificationConfigurationCommand(output, context);
+  ): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput> {
+    return de_DeleteDataLakeOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

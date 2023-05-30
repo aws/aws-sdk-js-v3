@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DeleteDatalakeRequest, DeleteDatalakeResponse } from "../models/models_0";
-import { de_DeleteDatalakeCommand, se_DeleteDatalakeCommand } from "../protocols/Aws_restJson1";
+import { ListDataLakesRequest, ListDataLakesResponse } from "../models/models_0";
+import { de_ListDataLakesCommand, se_ListDataLakesCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,43 +24,78 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDatalakeCommand}.
+ * The input for {@link ListDataLakesCommand}.
  */
-export interface DeleteDatalakeCommandInput extends DeleteDatalakeRequest {}
+export interface ListDataLakesCommandInput extends ListDataLakesRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDatalakeCommand}.
+ * The output of {@link ListDataLakesCommand}.
  */
-export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __MetadataBearer {}
+export interface ListDataLakesCommandOutput extends ListDataLakesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>When you delete Amazon Security Lake from your account, Security Lake is disabled in all Amazon Web Services Regions. Also, this API automatically takes steps to remove the account from
- *          Security Lake . </p>
- *          <p>This operation disables security data collection from sources, deletes data stored, and
- *          stops making data accessible to subscribers. Security Lake also deletes all the existing
- *          settings and resources that it stores or maintains for your Amazon Web Services account in
- *          the current Region, including security log and event data. The <code>DeleteDatalake</code>
- *          operation does not delete the Amazon S3 bucket, which is owned by your Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/disable-security-lake.html">Amazon Security Lake User
- *             Guide</a>.</p>
+ * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services account ID. You can use the <code>ListDataLakes</code> API to know whether
+ *          Security Lake is enabled for any region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, ListDataLakesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, ListDataLakesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {};
- * const command = new DeleteDatalakeCommand(input);
+ * const input = { // ListDataLakesRequest
+ *   regions: [ // RegionList
+ *     "STRING_VALUE",
+ *   ],
+ * };
+ * const command = new ListDataLakesCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListDataLakesResponse
+ * //   dataLakes: [ // DataLakeResourceList
+ * //     { // DataLakeResource
+ * //       dataLakeArn: "STRING_VALUE", // required
+ * //       region: "STRING_VALUE", // required
+ * //       s3BucketArn: "STRING_VALUE",
+ * //       encryptionConfiguration: { // DataLakeEncryptionConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //       },
+ * //       lifecycleConfiguration: { // DataLakeLifecycleConfiguration
+ * //         expiration: { // DataLakeLifecycleExpiration
+ * //           days: Number("int"),
+ * //         },
+ * //         transitions: [ // DataLakeLifecycleTransitionList
+ * //           { // DataLakeLifecycleTransition
+ * //             storageClass: "STRING_VALUE",
+ * //             days: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       replicationConfiguration: { // DataLakeReplicationConfiguration
+ * //         regions: [ // RegionList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         roleArn: "STRING_VALUE",
+ * //       },
+ * //       createStatus: "INITIALIZED" || "PENDING" || "COMPLETED" || "FAILED",
+ * //       updateStatus: { // DataLakeUpdateStatus
+ * //         requestId: "STRING_VALUE",
+ * //         status: "INITIALIZED" || "PENDING" || "COMPLETED" || "FAILED",
+ * //         exception: { // DataLakeUpdateException
+ * //           reason: "STRING_VALUE",
+ * //           code: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param DeleteDatalakeCommandInput - {@link DeleteDatalakeCommandInput}
- * @returns {@link DeleteDatalakeCommandOutput}
- * @see {@link DeleteDatalakeCommandInput} for command's `input` shape.
- * @see {@link DeleteDatalakeCommandOutput} for command's `response` shape.
+ * @param ListDataLakesCommandInput - {@link ListDataLakesCommandInput}
+ * @returns {@link ListDataLakesCommandOutput}
+ * @see {@link ListDataLakesCommandInput} for command's `input` shape.
+ * @see {@link ListDataLakesCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -68,6 +103,9 @@ export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __M
  *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Occurs when a conflict with a previous successful write is detected. This generally
@@ -77,28 +115,21 @@ export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __M
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded your service quota. To perform the requested action, remove some of
- *          the relevant resources, or use Service Quotas to request a service quota increase. </p>
- *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded. </p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class DeleteDatalakeCommand extends $Command<
-  DeleteDatalakeCommandInput,
-  DeleteDatalakeCommandOutput,
+export class ListDataLakesCommand extends $Command<
+  ListDataLakesCommandInput,
+  ListDataLakesCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -116,7 +147,7 @@ export class DeleteDatalakeCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteDatalakeCommandInput) {
+  constructor(readonly input: ListDataLakesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -129,17 +160,15 @@ export class DeleteDatalakeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteDatalakeCommandInput, DeleteDatalakeCommandOutput> {
+  ): Handler<ListDataLakesCommandInput, ListDataLakesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteDatalakeCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListDataLakesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "DeleteDatalakeCommand";
+    const commandName = "ListDataLakesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -158,15 +187,15 @@ export class DeleteDatalakeCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteDatalakeCommand(input, context);
+  private serialize(input: ListDataLakesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListDataLakesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatalakeCommandOutput> {
-    return de_DeleteDatalakeCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataLakesCommandOutput> {
+    return de_ListDataLakesCommand(output, context);
   }
 
   // Start section: command_body_extra

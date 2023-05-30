@@ -14,12 +14,12 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import {
-  UpdateDatalakeExceptionsSubscriptionRequest,
-  UpdateDatalakeExceptionsSubscriptionResponse,
+  GetDataLakeOrganizationConfigurationRequest,
+  GetDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
 import {
-  de_UpdateDatalakeExceptionsSubscriptionCommand,
-  se_UpdateDatalakeExceptionsSubscriptionCommand,
+  de_GetDataLakeOrganizationConfigurationCommand,
+  se_GetDataLakeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -30,42 +30,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateDatalakeExceptionsSubscriptionCommand}.
+ * The input for {@link GetDataLakeOrganizationConfigurationCommand}.
  */
-export interface UpdateDatalakeExceptionsSubscriptionCommandInput extends UpdateDatalakeExceptionsSubscriptionRequest {}
+export interface GetDataLakeOrganizationConfigurationCommandInput extends GetDataLakeOrganizationConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateDatalakeExceptionsSubscriptionCommand}.
+ * The output of {@link GetDataLakeOrganizationConfigurationCommand}.
  */
-export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
-  extends UpdateDatalakeExceptionsSubscriptionResponse,
+export interface GetDataLakeOrganizationConfigurationCommandOutput
+  extends GetDataLakeOrganizationConfigurationResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
- *          you specify.</p>
+ * <p>Retrieves the configuration that will be automatically set up for accounts added to the
+ *          organization after the organization has onboarded to Amazon Security Lake. This API does not take
+ *          input parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, UpdateDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, UpdateDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, GetDataLakeOrganizationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, GetDataLakeOrganizationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // UpdateDatalakeExceptionsSubscriptionRequest
- *   subscriptionProtocol: "STRING_VALUE", // required
- *   notificationEndpoint: "STRING_VALUE", // required
- * };
- * const command = new UpdateDatalakeExceptionsSubscriptionCommand(input);
+ * const input = {};
+ * const command = new GetDataLakeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetDataLakeOrganizationConfigurationResponse
+ * //   autoEnableNewAccount: [ // DataLakeAutoEnableNewAccountConfigurationList
+ * //     { // DataLakeAutoEnableNewAccountConfiguration
+ * //       region: "STRING_VALUE", // required
+ * //       sources: [ // AwsLogSourceResourceList // required
+ * //         { // AwsLogSourceResource
+ * //           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
+ * //           sourceVersion: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param UpdateDatalakeExceptionsSubscriptionCommandInput - {@link UpdateDatalakeExceptionsSubscriptionCommandInput}
- * @returns {@link UpdateDatalakeExceptionsSubscriptionCommandOutput}
- * @see {@link UpdateDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
- * @see {@link UpdateDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
+ * @param GetDataLakeOrganizationConfigurationCommandInput - {@link GetDataLakeOrganizationConfigurationCommandInput}
+ * @returns {@link GetDataLakeOrganizationConfigurationCommandOutput}
+ * @see {@link GetDataLakeOrganizationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetDataLakeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,25 +84,32 @@ export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
-  UpdateDatalakeExceptionsSubscriptionCommandInput,
-  UpdateDatalakeExceptionsSubscriptionCommandOutput,
+export class GetDataLakeOrganizationConfigurationCommand extends $Command<
+  GetDataLakeOrganizationConfigurationCommandInput,
+  GetDataLakeOrganizationConfigurationCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -110,7 +127,7 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateDatalakeExceptionsSubscriptionCommandInput) {
+  constructor(readonly input: GetDataLakeOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -123,17 +140,17 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDatalakeExceptionsSubscriptionCommandInput, UpdateDatalakeExceptionsSubscriptionCommandOutput> {
+  ): Handler<GetDataLakeOrganizationConfigurationCommandInput, GetDataLakeOrganizationConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDatalakeExceptionsSubscriptionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetDataLakeOrganizationConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "UpdateDatalakeExceptionsSubscriptionCommand";
+    const commandName = "GetDataLakeOrganizationConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,10 +170,10 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: UpdateDatalakeExceptionsSubscriptionCommandInput,
+    input: GetDataLakeOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_UpdateDatalakeExceptionsSubscriptionCommand(input, context);
+    return se_GetDataLakeOrganizationConfigurationCommand(input, context);
   }
 
   /**
@@ -165,8 +182,8 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<UpdateDatalakeExceptionsSubscriptionCommandOutput> {
-    return de_UpdateDatalakeExceptionsSubscriptionCommand(output, context);
+  ): Promise<GetDataLakeOrganizationConfigurationCommandOutput> {
+    return de_GetDataLakeOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

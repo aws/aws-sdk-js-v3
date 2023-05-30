@@ -39,18 +39,10 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
  *          source types for member accounts in required Amazon Web Services Regions, based on the
  *          parameters you specify. You can choose any source type in any Region for either accounts
- *          that are part of a trusted organization or standalone accounts. At least one of the three
- *          dimensions is a mandatory input to this API. However, you can supply any combination of the
- *          three dimensions to this API. </p>
- *          <p>By default, a dimension refers to the entire set. When you don't provide a dimension,
- *          Security Lake assumes that the missing dimension refers to the entire set. This is overridden
- *          when you supply any one of the inputs. For instance, when you do not specify members, the
- *          API enables all Security Lake member accounts for all sources. Similarly, when you do not
- *          specify Regions, Security Lake is enabled for all the Regions where Security Lake is available as a
- *          service.</p>
+ *          that are part of a trusted organization or standalone accounts. Once you add an Amazon Web Service as a source, Security Lake starts collecting logs and events from it, </p>
  *          <p>You can use this API only to enable natively supported Amazon Web Services as a
  *          source. Use <code>CreateCustomLogSource</code> to enable data collection from a custom
- *          source. </p>
+ *          source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,32 +50,23 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
  * const input = { // CreateAwsLogSourceRequest
- *   inputOrder: [ // DimensionSet // required
- *     "STRING_VALUE",
- *   ],
- *   enableAllDimensions: { // AllDimensionsMap
- *     "<keys>": { // TwoDimensionsMap
- *       "<keys>": [ // ValueSet
+ *   sources: [ // AwsLogSourceConfigurationList // required
+ *     { // AwsLogSourceConfiguration
+ *       accounts: [ // AccountList
  *         "STRING_VALUE",
  *       ],
+ *       regions: [ // RegionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA", // required
+ *       sourceVersion: "STRING_VALUE",
  *     },
- *   },
- *   enableTwoDimensions: {
- *     "<keys>": [
- *       "STRING_VALUE",
- *     ],
- *   },
- *   enableSingleDimension: [ // InputSet
- *     "STRING_VALUE",
  *   ],
  * };
  * const command = new CreateAwsLogSourceCommand(input);
  * const response = await client.send(command);
  * // { // CreateAwsLogSourceResponse
- * //   processing: [ // AccountList
- * //     "STRING_VALUE",
- * //   ],
- * //   failed: [
+ * //   failed: [ // AccountList
  * //     "STRING_VALUE",
  * //   ],
  * // };
@@ -102,26 +85,24 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
- * @throws {@link S3Exception} (client fault)
- *  <p>Provides an extension of the AmazonServiceException for errors reported by Amazon S3 while processing a request. In particular, this class provides access to the
- *             Amazon S3 extended request ID. If Amazon S3 is incorrectly handling a
- *          request and you need to contact Amazon, this extended request ID may provide useful
- *          debugging information. </p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>

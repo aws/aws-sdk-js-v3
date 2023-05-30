@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { CreateDatalakeAutoEnableRequest, CreateDatalakeAutoEnableResponse } from "../models/models_0";
-import { de_CreateDatalakeAutoEnableCommand, se_CreateDatalakeAutoEnableCommand } from "../protocols/Aws_restJson1";
+import { ListDataLakeExceptionsRequest, ListDataLakeExceptionsResponse } from "../models/models_0";
+import { de_ListDataLakeExceptionsCommand, se_ListDataLakeExceptionsCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,47 +24,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateDatalakeAutoEnableCommand}.
+ * The input for {@link ListDataLakeExceptionsCommand}.
  */
-export interface CreateDatalakeAutoEnableCommandInput extends CreateDatalakeAutoEnableRequest {}
+export interface ListDataLakeExceptionsCommandInput extends ListDataLakeExceptionsRequest {}
 /**
  * @public
  *
- * The output of {@link CreateDatalakeAutoEnableCommand}.
+ * The output of {@link ListDataLakeExceptionsCommand}.
  */
-export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAutoEnableResponse, __MetadataBearer {}
+export interface ListDataLakeExceptionsCommandOutput extends ListDataLakeExceptionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.
- *          Security Lake is not automatically enabled for any existing member accounts in your
- *          organization.</p>
+ * <p>Lists the Amazon Security Lake exceptions that you can use to find the source of problems and
+ *          fix them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, CreateDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, CreateDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, ListDataLakeExceptionsCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, ListDataLakeExceptionsCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // CreateDatalakeAutoEnableRequest
- *   configurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
- *     { // AutoEnableNewRegionConfiguration
- *       region: "STRING_VALUE", // required
- *       sources: [ // AwsSourceTypeList // required
- *         "STRING_VALUE",
- *       ],
- *     },
+ * const input = { // ListDataLakeExceptionsRequest
+ *   regions: [ // RegionList
+ *     "STRING_VALUE",
  *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new CreateDatalakeAutoEnableCommand(input);
+ * const command = new ListDataLakeExceptionsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListDataLakeExceptionsResponse
+ * //   exceptions: [ // DataLakeExceptionList
+ * //     { // DataLakeException
+ * //       region: "STRING_VALUE",
+ * //       exception: "STRING_VALUE",
+ * //       remediation: "STRING_VALUE",
+ * //       timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param CreateDatalakeAutoEnableCommandInput - {@link CreateDatalakeAutoEnableCommandInput}
- * @returns {@link CreateDatalakeAutoEnableCommandOutput}
- * @see {@link CreateDatalakeAutoEnableCommandInput} for command's `input` shape.
- * @see {@link CreateDatalakeAutoEnableCommandOutput} for command's `response` shape.
+ * @param ListDataLakeExceptionsCommandInput - {@link ListDataLakeExceptionsCommandInput}
+ * @returns {@link ListDataLakeExceptionsCommandOutput}
+ * @see {@link ListDataLakeExceptionsCommandInput} for command's `input` shape.
+ * @see {@link ListDataLakeExceptionsCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -73,25 +79,32 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class CreateDatalakeAutoEnableCommand extends $Command<
-  CreateDatalakeAutoEnableCommandInput,
-  CreateDatalakeAutoEnableCommandOutput,
+export class ListDataLakeExceptionsCommand extends $Command<
+  ListDataLakeExceptionsCommandInput,
+  ListDataLakeExceptionsCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -109,7 +122,7 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateDatalakeAutoEnableCommandInput) {
+  constructor(readonly input: ListDataLakeExceptionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -122,17 +135,17 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDatalakeAutoEnableCommandInput, CreateDatalakeAutoEnableCommandOutput> {
+  ): Handler<ListDataLakeExceptionsCommandInput, ListDataLakeExceptionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDatalakeAutoEnableCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListDataLakeExceptionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "CreateDatalakeAutoEnableCommand";
+    const commandName = "ListDataLakeExceptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -151,15 +164,15 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDatalakeAutoEnableCommand(input, context);
+  private serialize(input: ListDataLakeExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListDataLakeExceptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeAutoEnableCommandOutput> {
-    return de_CreateDatalakeAutoEnableCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataLakeExceptionsCommandOutput> {
+    return de_ListDataLakeExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

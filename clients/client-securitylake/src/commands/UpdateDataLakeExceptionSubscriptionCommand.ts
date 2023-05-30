@@ -13,8 +13,14 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetDatalakeStatusRequest, GetDatalakeStatusResponse } from "../models/models_0";
-import { de_GetDatalakeStatusCommand, se_GetDatalakeStatusCommand } from "../protocols/Aws_restJson1";
+import {
+  UpdateDataLakeExceptionSubscriptionRequest,
+  UpdateDataLakeExceptionSubscriptionResponse,
+} from "../models/models_0";
+import {
+  de_UpdateDataLakeExceptionSubscriptionCommand,
+  se_UpdateDataLakeExceptionSubscriptionCommand,
+} from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -24,58 +30,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetDatalakeStatusCommand}.
+ * The input for {@link UpdateDataLakeExceptionSubscriptionCommand}.
  */
-export interface GetDatalakeStatusCommandInput extends GetDatalakeStatusRequest {}
+export interface UpdateDataLakeExceptionSubscriptionCommandInput extends UpdateDataLakeExceptionSubscriptionRequest {}
 /**
  * @public
  *
- * The output of {@link GetDatalakeStatusCommand}.
+ * The output of {@link UpdateDataLakeExceptionSubscriptionCommand}.
  */
-export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusResponse, __MetadataBearer {}
+export interface UpdateDataLakeExceptionSubscriptionCommandOutput
+  extends UpdateDataLakeExceptionSubscriptionResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves a snapshot of the current Region, including whether Amazon Security Lake is enabled
- *          for those accounts and which sources Security Lake is collecting data from. </p>
+ * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
+ *          you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, GetDatalakeStatusCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, GetDatalakeStatusCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, UpdateDataLakeExceptionSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, UpdateDataLakeExceptionSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // GetDatalakeStatusRequest
- *   accountSet: [ // InputSet
- *     "STRING_VALUE",
- *   ],
- *   maxAccountResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // UpdateDataLakeExceptionSubscriptionRequest
+ *   subscriptionProtocol: "STRING_VALUE", // required
+ *   notificationEndpoint: "STRING_VALUE", // required
+ *   exceptionTimeToLive: Number("long"),
  * };
- * const command = new GetDatalakeStatusCommand(input);
+ * const command = new UpdateDataLakeExceptionSubscriptionCommand(input);
  * const response = await client.send(command);
- * // { // GetDatalakeStatusResponse
- * //   accountSourcesList: [ // AccountSourcesList // required
- * //     { // AccountSources
- * //       account: "STRING_VALUE", // required
- * //       sourceType: "STRING_VALUE", // required
- * //       logsStatus: [ // LogsStatusList
- * //         { // LogsStatus
- * //           pathToLogs: "STRING_VALUE", // required
- * //           healthStatus: "STRING_VALUE", // required
- * //         },
- * //       ],
- * //       eventClass: "STRING_VALUE",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetDatalakeStatusCommandInput - {@link GetDatalakeStatusCommandInput}
- * @returns {@link GetDatalakeStatusCommandOutput}
- * @see {@link GetDatalakeStatusCommandInput} for command's `input` shape.
- * @see {@link GetDatalakeStatusCommandOutput} for command's `response` shape.
+ * @param UpdateDataLakeExceptionSubscriptionCommandInput - {@link UpdateDataLakeExceptionSubscriptionCommandInput}
+ * @returns {@link UpdateDataLakeExceptionSubscriptionCommandOutput}
+ * @see {@link UpdateDataLakeExceptionSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDataLakeExceptionSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,25 +75,32 @@ export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusRespons
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class GetDatalakeStatusCommand extends $Command<
-  GetDatalakeStatusCommandInput,
-  GetDatalakeStatusCommandOutput,
+export class UpdateDataLakeExceptionSubscriptionCommand extends $Command<
+  UpdateDataLakeExceptionSubscriptionCommandInput,
+  UpdateDataLakeExceptionSubscriptionCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -120,7 +118,7 @@ export class GetDatalakeStatusCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetDatalakeStatusCommandInput) {
+  constructor(readonly input: UpdateDataLakeExceptionSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -133,17 +131,17 @@ export class GetDatalakeStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetDatalakeStatusCommandInput, GetDatalakeStatusCommandOutput> {
+  ): Handler<UpdateDataLakeExceptionSubscriptionCommandInput, UpdateDataLakeExceptionSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDatalakeStatusCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateDataLakeExceptionSubscriptionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "GetDatalakeStatusCommand";
+    const commandName = "UpdateDataLakeExceptionSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -162,15 +160,21 @@ export class GetDatalakeStatusCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetDatalakeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetDatalakeStatusCommand(input, context);
+  private serialize(
+    input: UpdateDataLakeExceptionSubscriptionCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_UpdateDataLakeExceptionSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatalakeStatusCommandOutput> {
-    return de_GetDatalakeStatusCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateDataLakeExceptionSubscriptionCommandOutput> {
+    return de_UpdateDataLakeExceptionSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

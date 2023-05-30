@@ -2,10 +2,10 @@
 import { Paginator } from "@aws-sdk/types";
 
 import {
-  GetDatalakeStatusCommand,
-  GetDatalakeStatusCommandInput,
-  GetDatalakeStatusCommandOutput,
-} from "../commands/GetDatalakeStatusCommand";
+  GetDataLakeSourcesCommand,
+  GetDataLakeSourcesCommandInput,
+  GetDataLakeSourcesCommandOutput,
+} from "../commands/GetDataLakeSourcesCommand";
 import { SecurityLakeClient } from "../SecurityLakeClient";
 import { SecurityLakePaginationConfiguration } from "./Interfaces";
 
@@ -14,27 +14,27 @@ import { SecurityLakePaginationConfiguration } from "./Interfaces";
  */
 const makePagedClientRequest = async (
   client: SecurityLakeClient,
-  input: GetDatalakeStatusCommandInput,
+  input: GetDataLakeSourcesCommandInput,
   ...args: any
-): Promise<GetDatalakeStatusCommandOutput> => {
+): Promise<GetDataLakeSourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDatalakeStatusCommand(input), ...args);
+  return await client.send(new GetDataLakeSourcesCommand(input), ...args);
 };
 /**
  * @public
  */
-export async function* paginateGetDatalakeStatus(
+export async function* paginateGetDataLakeSources(
   config: SecurityLakePaginationConfiguration,
-  input: GetDatalakeStatusCommandInput,
+  input: GetDataLakeSourcesCommandInput,
   ...additionalArguments: any
-): Paginator<GetDatalakeStatusCommandOutput> {
+): Paginator<GetDataLakeSourcesCommandOutput> {
   // ToDo: replace with actual type instead of typeof input.nextToken
   let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
-  let page: GetDatalakeStatusCommandOutput;
+  let page: GetDataLakeSourcesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    input["maxAccountResults"] = config.pageSize;
+    input["maxResults"] = config.pageSize;
     if (config.client instanceof SecurityLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {

@@ -13,13 +13,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
+import { CreateSubscriberNotificationRequest, CreateSubscriberNotificationResponse } from "../models/models_0";
 import {
-  DeleteDatalakeExceptionsSubscriptionRequest,
-  DeleteDatalakeExceptionsSubscriptionResponse,
-} from "../models/models_0";
-import {
-  de_DeleteDatalakeExceptionsSubscriptionCommand,
-  se_DeleteDatalakeExceptionsSubscriptionCommand,
+  de_CreateSubscriberNotificationCommand,
+  se_CreateSubscriberNotificationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -30,41 +27,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDatalakeExceptionsSubscriptionCommand}.
+ * The input for {@link CreateSubscriberNotificationCommand}.
  */
-export interface DeleteDatalakeExceptionsSubscriptionCommandInput extends DeleteDatalakeExceptionsSubscriptionRequest {}
+export interface CreateSubscriberNotificationCommandInput extends CreateSubscriberNotificationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDatalakeExceptionsSubscriptionCommand}.
+ * The output of {@link CreateSubscriberNotificationCommand}.
  */
-export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
-  extends DeleteDatalakeExceptionsSubscriptionResponse,
+export interface CreateSubscriberNotificationCommandOutput
+  extends CreateSubscriberNotificationResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
- *          you specify.</p>
+ * <p>Notifies the subscriber when new data is written to the data lake for the sources that
+ *          the subscriber consumes in Security Lake. You can create only one subscriber notification per
+ *          subscriber.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, CreateSubscriberNotificationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, CreateSubscriberNotificationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {};
- * const command = new DeleteDatalakeExceptionsSubscriptionCommand(input);
+ * const input = { // CreateSubscriberNotificationRequest
+ *   subscriberId: "STRING_VALUE", // required
+ *   configuration: { // NotificationConfiguration Union: only one key present
+ *     sqsNotificationConfiguration: {},
+ *     httpsNotificationConfiguration: { // HttpsNotificationConfiguration
+ *       endpoint: "STRING_VALUE", // required
+ *       authorizationApiKeyName: "STRING_VALUE",
+ *       authorizationApiKeyValue: "STRING_VALUE",
+ *       httpMethod: "POST" || "PUT",
+ *       targetRoleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
+ * const command = new CreateSubscriberNotificationCommand(input);
  * const response = await client.send(command);
- * // { // DeleteDatalakeExceptionsSubscriptionResponse
- * //   status: "STRING_VALUE", // required
+ * // { // CreateSubscriberNotificationResponse
+ * //   subscriberEndpoint: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DeleteDatalakeExceptionsSubscriptionCommandInput - {@link DeleteDatalakeExceptionsSubscriptionCommandInput}
- * @returns {@link DeleteDatalakeExceptionsSubscriptionCommandOutput}
- * @see {@link DeleteDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
- * @see {@link DeleteDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
+ * @param CreateSubscriberNotificationCommandInput - {@link CreateSubscriberNotificationCommandInput}
+ * @returns {@link CreateSubscriberNotificationCommandOutput}
+ * @see {@link CreateSubscriberNotificationCommandInput} for command's `input` shape.
+ * @see {@link CreateSubscriberNotificationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -73,25 +83,32 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
  *          no applicable Allow statement.</p>
  *
- * @throws {@link AccountNotFoundException} (client fault)
- *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
- *          specified, or the account whose credentials you used to make this request isn't a member of
- *          an organization.</p>
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally
+ *          occurs when the previous write did not have time to propagate to the host serving the
+ *          current request. A retry (with appropriate backoff logic) is the recommended response to
+ *          this exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again. </p>
+ *          troubleshooting, perform the operation again.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>Your signing certificate could not be validated. </p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
-  DeleteDatalakeExceptionsSubscriptionCommandInput,
-  DeleteDatalakeExceptionsSubscriptionCommandOutput,
+export class CreateSubscriberNotificationCommand extends $Command<
+  CreateSubscriberNotificationCommandInput,
+  CreateSubscriberNotificationCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -109,7 +126,7 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteDatalakeExceptionsSubscriptionCommandInput) {
+  constructor(readonly input: CreateSubscriberNotificationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -122,17 +139,17 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteDatalakeExceptionsSubscriptionCommandInput, DeleteDatalakeExceptionsSubscriptionCommandOutput> {
+  ): Handler<CreateSubscriberNotificationCommandInput, CreateSubscriberNotificationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteDatalakeExceptionsSubscriptionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateSubscriberNotificationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "DeleteDatalakeExceptionsSubscriptionCommand";
+    const commandName = "CreateSubscriberNotificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -151,11 +168,8 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: DeleteDatalakeExceptionsSubscriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DeleteDatalakeExceptionsSubscriptionCommand(input, context);
+  private serialize(input: CreateSubscriberNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateSubscriberNotificationCommand(input, context);
   }
 
   /**
@@ -164,8 +178,8 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput> {
-    return de_DeleteDatalakeExceptionsSubscriptionCommand(output, context);
+  ): Promise<CreateSubscriberNotificationCommandOutput> {
+    return de_CreateSubscriberNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra
