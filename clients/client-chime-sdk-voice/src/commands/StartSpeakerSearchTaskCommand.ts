@@ -52,6 +52,7 @@ export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchT
  *   TransactionId: "STRING_VALUE", // required
  *   VoiceProfileDomainId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
+ *   CallLeg: "Caller" || "Callee",
  * };
  * const command = new StartSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);

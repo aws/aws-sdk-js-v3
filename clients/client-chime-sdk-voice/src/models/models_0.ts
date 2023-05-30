@@ -494,6 +494,20 @@ export type CallingNameStatus = (typeof CallingNameStatus)[keyof typeof CallingN
 
 /**
  * @public
+ * @enum
+ */
+export const CallLegType = {
+  CALLEE: "Callee",
+  CALLER: "Caller",
+} as const;
+
+/**
+ * @public
+ */
+export type CallLegType = (typeof CallLegType)[keyof typeof CallLegType];
+
+/**
+ * @public
  * <p>A suggested address.</p>
  */
 export interface CandidateAddress {
@@ -3683,6 +3697,11 @@ export interface StartSpeakerSearchTaskRequest {
    * <p>The unique identifier for the client request. Use a different token for different speaker search tasks.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies which call leg to stream for speaker search.</p>
+   */
+  CallLeg?: CallLegType | string;
 }
 
 /**

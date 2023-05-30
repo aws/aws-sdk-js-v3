@@ -2904,6 +2904,7 @@ export const se_StartSpeakerSearchTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CallLeg: [],
       ClientRequestToken: [],
       TransactionId: [],
       VoiceProfileDomainId: [],
