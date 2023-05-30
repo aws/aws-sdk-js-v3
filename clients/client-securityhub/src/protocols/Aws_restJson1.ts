@@ -198,6 +198,13 @@ import {
   AssociationSetDetails,
   AssociationStateDetails,
   AvailabilityZone,
+  AwsAmazonMqBrokerDetails,
+  AwsAmazonMqBrokerEncryptionOptionsDetails,
+  AwsAmazonMqBrokerLdapServerMetadataDetails,
+  AwsAmazonMqBrokerLogsDetails,
+  AwsAmazonMqBrokerLogsPendingDetails,
+  AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails,
+  AwsAmazonMqBrokerUsersDetails,
   AwsApiCallAction,
   AwsApiCallActionDomainDetails,
   AwsApiGatewayAccessLogSettings,
@@ -209,6 +216,12 @@ import {
   AwsApiGatewayV2ApiDetails,
   AwsApiGatewayV2RouteSettings,
   AwsApiGatewayV2StageDetails,
+  AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails,
+  AwsAppSyncGraphQlApiDetails,
+  AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails,
+  AwsAppSyncGraphQlApiLogConfigDetails,
+  AwsAppSyncGraphQlApiOpenIdConnectConfigDetails,
+  AwsAppSyncGraphQlApiUserPoolConfigDetails,
   AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails,
   AwsAutoScalingAutoScalingGroupDetails,
   AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification,
@@ -439,20 +452,8 @@ import {
   AwsElbLbCookieStickinessPolicy,
   AwsElbLoadBalancerAccessLog,
   AwsElbLoadBalancerAdditionalAttribute,
-  AwsElbLoadBalancerAttributes,
-  AwsElbLoadBalancerBackendServerDescription,
   AwsElbLoadBalancerConnectionDraining,
   AwsElbLoadBalancerConnectionSettings,
-  AwsElbLoadBalancerCrossZoneLoadBalancing,
-  AwsElbLoadBalancerDetails,
-  AwsElbLoadBalancerHealthCheck,
-  AwsElbLoadBalancerInstance,
-  AwsElbLoadBalancerListener,
-  AwsElbLoadBalancerListenerDescription,
-  AwsElbLoadBalancerPolicies,
-  AwsElbLoadBalancerSourceSecurityGroup,
-  AwsElbv2LoadBalancerAttribute,
-  AwsElbv2LoadBalancerDetails,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -466,7 +467,6 @@ import {
   IpOrganizationDetails,
   Ipv6CidrBlockAssociation,
   LimitExceededException,
-  LoadBalancerState,
   NetworkConnectionAction,
   PortProbeAction,
   PortProbeDetail,
@@ -480,6 +480,31 @@ import {
 } from "../models/models_0";
 import {
   _Record,
+  AwsElbLoadBalancerAttributes,
+  AwsElbLoadBalancerBackendServerDescription,
+  AwsElbLoadBalancerCrossZoneLoadBalancing,
+  AwsElbLoadBalancerDetails,
+  AwsElbLoadBalancerHealthCheck,
+  AwsElbLoadBalancerInstance,
+  AwsElbLoadBalancerListener,
+  AwsElbLoadBalancerListenerDescription,
+  AwsElbLoadBalancerPolicies,
+  AwsElbLoadBalancerSourceSecurityGroup,
+  AwsElbv2LoadBalancerAttribute,
+  AwsElbv2LoadBalancerDetails,
+  AwsEventSchemasRegistryDetails,
+  AwsGuardDutyDetectorDataSourcesCloudTrailDetails,
+  AwsGuardDutyDetectorDataSourcesDetails,
+  AwsGuardDutyDetectorDataSourcesDnsLogsDetails,
+  AwsGuardDutyDetectorDataSourcesFlowLogsDetails,
+  AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails,
+  AwsGuardDutyDetectorDataSourcesKubernetesDetails,
+  AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails,
+  AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails,
+  AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails,
+  AwsGuardDutyDetectorDataSourcesS3LogsDetails,
+  AwsGuardDutyDetectorDetails,
+  AwsGuardDutyDetectorFeaturesDetails,
   AwsIamAccessKeyDetails,
   AwsIamAccessKeySessionContext,
   AwsIamAccessKeySessionContextAttributes,
@@ -608,6 +633,11 @@ import {
   AwsSsmComplianceSummary,
   AwsSsmPatch,
   AwsSsmPatchComplianceDetails,
+  AwsStepFunctionStateMachineDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDetails,
+  AwsStepFunctionStateMachineTracingConfigurationDetails,
   AwsWafRateBasedRuleDetails,
   AwsWafRateBasedRuleMatchPredicate,
   AwsWafRegionalRateBasedRuleDetails,
@@ -665,6 +695,7 @@ import {
   FirewallPolicyStatelessRuleGroupReferencesDetails,
   IpFilter,
   KeywordFilter,
+  LoadBalancerState,
   Malware,
   MapFilter,
   Network,
@@ -672,7 +703,6 @@ import {
   NetworkPathComponent,
   NetworkPathComponentDetails,
   Note,
-  NoteUpdate,
   NumberFilter,
   Occurrences,
   Page,
@@ -684,7 +714,6 @@ import {
   RelatedFinding,
   Remediation,
   Resource,
-  ResourceConflictException,
   ResourceDetails,
   RuleGroupDetails,
   RuleGroupSource,
@@ -708,11 +737,7 @@ import {
   SensitiveDataDetections,
   SensitiveDataResult,
   Severity,
-  SeverityUpdate,
   SoftwarePackage,
-  StandardsControlAssociationDetail,
-  StandardsControlAssociationId,
-  StandardsControlAssociationUpdate,
   StandardsSubscriptionRequest,
   StatelessCustomActionDefinition,
   StatelessCustomPublishMetricAction,
@@ -728,16 +753,22 @@ import {
   WafExcludedRule,
   WafOverrideAction,
   Workflow,
-  WorkflowUpdate,
 } from "../models/models_1";
 import {
   FindingHistoryRecord,
   Insight,
   Invitation,
   Member,
+  NoteUpdate,
+  ResourceConflictException,
+  SeverityUpdate,
   SortCriterion,
   StandardsControl,
+  StandardsControlAssociationDetail,
+  StandardsControlAssociationId,
   StandardsControlAssociationSummary,
+  StandardsControlAssociationUpdate,
+  WorkflowUpdate,
 } from "../models/models_2";
 import { SecurityHubServiceException as __BaseException } from "../models/SecurityHubServiceException";
 
@@ -6283,6 +6314,22 @@ const se_ActionRemoteIpDetails = (input: ActionRemoteIpDetails, context: __Serde
 
 // se_AvailabilityZones omitted.
 
+// se_AwsAmazonMqBrokerDetails omitted.
+
+// se_AwsAmazonMqBrokerEncryptionOptionsDetails omitted.
+
+// se_AwsAmazonMqBrokerLdapServerMetadataDetails omitted.
+
+// se_AwsAmazonMqBrokerLogsDetails omitted.
+
+// se_AwsAmazonMqBrokerLogsPendingDetails omitted.
+
+// se_AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails omitted.
+
+// se_AwsAmazonMqBrokerUsersDetails omitted.
+
+// se_AwsAmazonMqBrokerUsersList omitted.
+
 /**
  * serializeAws_restJson1AwsApiCallAction
  */
@@ -6409,6 +6456,20 @@ const se_AwsApiGatewayV2StageDetails = (input: AwsApiGatewayV2StageDetails, cont
     StageVariables: _json,
   });
 };
+
+// se_AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails omitted.
+
+// se_AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList omitted.
+
+// se_AwsAppSyncGraphQlApiDetails omitted.
+
+// se_AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails omitted.
+
+// se_AwsAppSyncGraphQlApiLogConfigDetails omitted.
+
+// se_AwsAppSyncGraphQlApiOpenIdConnectConfigDetails omitted.
+
+// se_AwsAppSyncGraphQlApiUserPoolConfigDetails omitted.
 
 // se_AwsAutoScalingAutoScalingGroupAvailabilityZonesList omitted.
 
@@ -7197,6 +7258,34 @@ const se_AwsEc2LaunchTemplateDetails = (input: AwsEc2LaunchTemplateDetails, cont
 
 // se_AwsElbv2LoadBalancerDetails omitted.
 
+// se_AwsEventSchemasRegistryDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesCloudTrailDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesDnsLogsDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesFlowLogsDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesKubernetesDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails omitted.
+
+// se_AwsGuardDutyDetectorDataSourcesS3LogsDetails omitted.
+
+// se_AwsGuardDutyDetectorDetails omitted.
+
+// se_AwsGuardDutyDetectorFeaturesDetails omitted.
+
+// se_AwsGuardDutyDetectorFeaturesList omitted.
+
 // se_AwsIamAccessKeyDetails omitted.
 
 // se_AwsIamAccessKeySessionContext omitted.
@@ -7779,6 +7868,18 @@ const se_AwsSecurityFindingFilters = (input: AwsSecurityFindingFilters, context:
 
 // se_AwsSsmPatchComplianceDetails omitted.
 
+// se_AwsStepFunctionStateMachineDetails omitted.
+
+// se_AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails omitted.
+
+// se_AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails omitted.
+
+// se_AwsStepFunctionStateMachineLoggingConfigurationDestinationsList omitted.
+
+// se_AwsStepFunctionStateMachineLoggingConfigurationDetails omitted.
+
+// se_AwsStepFunctionStateMachineTracingConfigurationDetails omitted.
+
 // se_AwsWafRateBasedRuleDetails omitted.
 
 // se_AwsWafRateBasedRuleMatchPredicate omitted.
@@ -8151,10 +8252,12 @@ const se_Resource = (input: Resource, context: __SerdeContext): any => {
  */
 const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): any => {
   return take(input, {
+    AwsAmazonMqBroker: _json,
     AwsApiGatewayRestApi: _json,
     AwsApiGatewayStage: (_) => se_AwsApiGatewayStageDetails(_, context),
     AwsApiGatewayV2Api: _json,
     AwsApiGatewayV2Stage: (_) => se_AwsApiGatewayV2StageDetails(_, context),
+    AwsAppSyncGraphQlApi: _json,
     AwsAutoScalingAutoScalingGroup: _json,
     AwsAutoScalingLaunchConfiguration: _json,
     AwsBackupBackupPlan: _json,
@@ -8194,6 +8297,8 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsElasticsearchDomain: _json,
     AwsElbLoadBalancer: _json,
     AwsElbv2LoadBalancer: _json,
+    AwsEventSchemasRegistry: _json,
+    AwsGuardDutyDetector: _json,
     AwsIamAccessKey: _json,
     AwsIamGroup: _json,
     AwsIamPolicy: _json,
@@ -8222,6 +8327,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsSnsTopic: _json,
     AwsSqsQueue: _json,
     AwsSsmPatchCompliance: _json,
+    AwsStepFunctionStateMachine: _json,
     AwsWafRateBasedRule: _json,
     AwsWafRegionalRateBasedRule: _json,
     AwsWafRegionalRule: _json,
@@ -8512,6 +8618,22 @@ const de_ActionRemoteIpDetails = (output: any, context: __SerdeContext): ActionR
 
 // de_AvailabilityZones omitted.
 
+// de_AwsAmazonMqBrokerDetails omitted.
+
+// de_AwsAmazonMqBrokerEncryptionOptionsDetails omitted.
+
+// de_AwsAmazonMqBrokerLdapServerMetadataDetails omitted.
+
+// de_AwsAmazonMqBrokerLogsDetails omitted.
+
+// de_AwsAmazonMqBrokerLogsPendingDetails omitted.
+
+// de_AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails omitted.
+
+// de_AwsAmazonMqBrokerUsersDetails omitted.
+
+// de_AwsAmazonMqBrokerUsersList omitted.
+
 /**
  * deserializeAws_restJson1AwsApiCallAction
  */
@@ -8639,6 +8761,20 @@ const de_AwsApiGatewayV2StageDetails = (output: any, context: __SerdeContext): A
     StageVariables: _json,
   }) as any;
 };
+
+// de_AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails omitted.
+
+// de_AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList omitted.
+
+// de_AwsAppSyncGraphQlApiDetails omitted.
+
+// de_AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails omitted.
+
+// de_AwsAppSyncGraphQlApiLogConfigDetails omitted.
+
+// de_AwsAppSyncGraphQlApiOpenIdConnectConfigDetails omitted.
+
+// de_AwsAppSyncGraphQlApiUserPoolConfigDetails omitted.
 
 // de_AwsAutoScalingAutoScalingGroupAvailabilityZonesList omitted.
 
@@ -9428,6 +9564,34 @@ const de_AwsEc2LaunchTemplateDetails = (output: any, context: __SerdeContext): A
 
 // de_AwsElbv2LoadBalancerDetails omitted.
 
+// de_AwsEventSchemasRegistryDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesCloudTrailDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesDnsLogsDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesFlowLogsDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesKubernetesDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails omitted.
+
+// de_AwsGuardDutyDetectorDataSourcesS3LogsDetails omitted.
+
+// de_AwsGuardDutyDetectorDetails omitted.
+
+// de_AwsGuardDutyDetectorFeaturesDetails omitted.
+
+// de_AwsGuardDutyDetectorFeaturesList omitted.
+
 // de_AwsIamAccessKeyDetails omitted.
 
 // de_AwsIamAccessKeySessionContext omitted.
@@ -10022,6 +10186,18 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_AwsSsmPatchComplianceDetails omitted.
 
+// de_AwsStepFunctionStateMachineDetails omitted.
+
+// de_AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails omitted.
+
+// de_AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails omitted.
+
+// de_AwsStepFunctionStateMachineLoggingConfigurationDestinationsList omitted.
+
+// de_AwsStepFunctionStateMachineLoggingConfigurationDetails omitted.
+
+// de_AwsStepFunctionStateMachineTracingConfigurationDetails omitted.
+
 // de_AwsWafRateBasedRuleDetails omitted.
 
 // de_AwsWafRateBasedRuleMatchPredicate omitted.
@@ -10519,10 +10695,12 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
  */
 const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
   return take(output, {
+    AwsAmazonMqBroker: _json,
     AwsApiGatewayRestApi: _json,
     AwsApiGatewayStage: (_: any) => de_AwsApiGatewayStageDetails(_, context),
     AwsApiGatewayV2Api: _json,
     AwsApiGatewayV2Stage: (_: any) => de_AwsApiGatewayV2StageDetails(_, context),
+    AwsAppSyncGraphQlApi: _json,
     AwsAutoScalingAutoScalingGroup: _json,
     AwsAutoScalingLaunchConfiguration: _json,
     AwsBackupBackupPlan: _json,
@@ -10562,6 +10740,8 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsElasticsearchDomain: _json,
     AwsElbLoadBalancer: _json,
     AwsElbv2LoadBalancer: _json,
+    AwsEventSchemasRegistry: _json,
+    AwsGuardDutyDetector: _json,
     AwsIamAccessKey: _json,
     AwsIamGroup: _json,
     AwsIamPolicy: _json,
@@ -10590,6 +10770,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsSnsTopic: _json,
     AwsSqsQueue: _json,
     AwsSsmPatchCompliance: _json,
+    AwsStepFunctionStateMachine: _json,
     AwsWafRateBasedRule: _json,
     AwsWafRegionalRateBasedRule: _json,
     AwsWafRegionalRule: _json,

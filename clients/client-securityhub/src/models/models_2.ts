@@ -1,16 +1,950 @@
 // smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+
 import { AccountDetails, ActionTarget, AdminAccount, AssociationStatus, AutoEnableStandards } from "./models_0";
 import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
-  ControlFindingGenerator,
-  ControlStatus,
-  NoteUpdate,
   RecordState,
-  SeverityRating,
+  RelatedFinding,
+  SeverityLabel,
   StandardsSubscription,
+  VerificationState,
+  WorkflowStatus,
 } from "./models_1";
+import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * @public
+ */
+export interface BatchGetSecurityControlsRequest {
+  /**
+   * <p> A list of security controls (identified with <code>SecurityControlId</code>,
+   *             <code>SecurityControlArn</code>, or a mix of both parameters). The security control ID
+   *          or Amazon Resource Name (ARN) is the same across standards. </p>
+   */
+  SecurityControlIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlStatus = (typeof ControlStatus)[keyof typeof ControlStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SeverityRating = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type SeverityRating = (typeof SeverityRating)[keyof typeof SeverityRating];
+
+/**
+ * @public
+ * <p>
+ *          A security control in Security Hub describes a security best practice related to a specific resource.
+ *       </p>
+ */
+export interface SecurityControl {
+  /**
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service name and a
+   *          number, such as APIGateway.3.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) for a security control across standards, such as
+   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
+   *          parameter doesn't mention a specific standard. </p>
+   */
+  SecurityControlArn: string | undefined;
+
+  /**
+   * <p>The title of a security control.
+   *       </p>
+   */
+  Title: string | undefined;
+
+  /**
+   * <p> The description of a security control across standards. This typically summarizes how
+   *             Security Hub evaluates the control and the conditions under which it produces a
+   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>
+   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
+   *       </p>
+   */
+  RemediationUrl: string | undefined;
+
+  /**
+   * <p>
+   *          The severity of a security control. For more information about how Security Hub determines control severity, see
+   *          <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  SeverityRating: SeverityRating | string | undefined;
+
+  /**
+   * <p>
+   *          The status of a security control based on the compliance status of its findings. For more information about how control
+   *          status is determined, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-overall-status.html">Determining the overall status of a control from its findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  SecurityControlStatus: ControlStatus | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UnprocessedErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INVALID_INPUT: "INVALID_INPUT",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  NOT_FOUND: "NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type UnprocessedErrorCode = (typeof UnprocessedErrorCode)[keyof typeof UnprocessedErrorCode];
+
+/**
+ * @public
+ * <p> Provides details about a security control for which a response couldn't be returned. </p>
+ */
+export interface UnprocessedSecurityControl {
+  /**
+   * <p> The control (identified with <code>SecurityControlId</code>,
+   *             <code>SecurityControlArn</code>, or a mix of both parameters) for which a response
+   *          couldn't be returned. </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          The error code for the unprocessed security control.
+   *       </p>
+   */
+  ErrorCode: UnprocessedErrorCode | string | undefined;
+
+  /**
+   * <p>
+   *          The reason why the security control was unprocessed.
+   *       </p>
+   */
+  ErrorReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSecurityControlsResponse {
+  /**
+   * <p>
+   *          An array that returns the identifier, Amazon Resource Name (ARN), and other details about a security control.
+   *          The same information is returned whether the request includes <code>SecurityControlId</code> or <code>SecurityControlArn</code>.
+   *       </p>
+   */
+  SecurityControls: SecurityControl[] | undefined;
+
+  /**
+   * <p>
+   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) for which
+   *          details cannot be returned.
+   *       </p>
+   */
+  UnprocessedIds?: UnprocessedSecurityControl[];
+}
+
+/**
+ * @public
+ * <p>
+ *          An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters)
+ *          and the Amazon Resource Name (ARN) of a standard. The security control ID or ARN is the same across standards.
+ *       </p>
+ */
+export interface StandardsControlAssociationId {
+  /**
+   * <p>
+   *          The unique identifier (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) of a security
+   *          control across standards.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          The ARN of a standard.
+   *       </p>
+   */
+  StandardsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetStandardsControlAssociationsRequest {
+  /**
+   * <p>
+   *          An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard.
+   *          This field is used to query the enablement status of a control in a specified standard. The security control ID or ARN is the same across standards.
+   *       </p>
+   */
+  StandardsControlAssociationIds: StandardsControlAssociationId[] | undefined;
+}
+
+/**
+ * @public
+ * <p> Provides details about a control's enablement status in a specified standard. </p>
+ */
+export interface StandardsControlAssociationDetail {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of a security standard.
+   *       </p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an Amazon Web Service
+   *          name and a number, such as APIGateway.3.
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p> The ARN of a security control across standards, such as
+   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
+   *          parameter doesn't mention a specific standard. </p>
+   */
+  SecurityControlArn: string | undefined;
+
+  /**
+   * <p>
+   *          Specifies whether a control is enabled or disabled in a specified standard.
+   *       </p>
+   */
+  AssociationStatus: AssociationStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The requirement that underlies a control in the compliance framework related to the standard.
+   *       </p>
+   */
+  RelatedRequirements?: string[];
+
+  /**
+   * <p>
+   *          The time at which the enablement status of the control in the specified standard was last updated.
+   *       </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>
+   *          The reason for updating the enablement status of a control in a specified standard.
+   *       </p>
+   */
+  UpdatedReason?: string;
+
+  /**
+   * <p>
+   *          The title of a control. This field may reference a specific standard.
+   *       </p>
+   */
+  StandardsControlTitle?: string;
+
+  /**
+   * <p>
+   *          The description of a control. This typically summarizes how Security Hub evaluates the control and the
+   *          conditions under which it produces a failed finding. This parameter may reference a specific standard.
+   *       </p>
+   */
+  StandardsControlDescription?: string;
+
+  /**
+   * <p> Provides the input parameter that Security Hub uses to call the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html">UpdateStandardsControl</a> API. This API can be used to enable or disable a control
+   *          in a specified standard. </p>
+   */
+  StandardsControlArns?: string[];
+}
+
+/**
+ * @public
+ * <p> Provides details about which
+ *          control's enablement status couldn't be retrieved in a specified standard when calling <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>. This parameter also provides details
+ *          about why the request was unprocessed. </p>
+ */
+export interface UnprocessedStandardsControlAssociation {
+  /**
+   * <p> An array with one or more objects that includes a security control (identified with
+   *             <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both
+   *          parameters) and the Amazon Resource Name (ARN) of a standard. This parameter shows the
+   *          specific controls for which the enablement status couldn't be retrieved in specified standards when
+   *          calling <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>. </p>
+   */
+  StandardsControlAssociationId: StandardsControlAssociationId | undefined;
+
+  /**
+   * <p>The error code for the unprocessed standard and control association.
+   *       </p>
+   */
+  ErrorCode: UnprocessedErrorCode | string | undefined;
+
+  /**
+   * <p>The reason why the standard and control association was unprocessed. </p>
+   */
+  ErrorReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetStandardsControlAssociationsResponse {
+  /**
+   * <p>Provides the enablement status of a security control in a specified standard and other details for the control in relation to
+   *          the specified standard.
+   *       </p>
+   */
+  StandardsControlAssociationDetails: StandardsControlAssociationDetail[] | undefined;
+
+  /**
+   * <p>
+   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) whose enablement
+   *          status in a specified standard cannot be returned.
+   *       </p>
+   */
+  UnprocessedAssociations?: UnprocessedStandardsControlAssociation[];
+}
+
+/**
+ * @public
+ */
+export interface BatchImportFindingsRequest {
+  /**
+   * <p>A list of findings to import. To successfully import a finding, it must follow the
+   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a>. Maximum of 100 findings per request.</p>
+   */
+  Findings: AwsSecurityFinding[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The list of the findings that cannot be imported. For each finding, the list provides
+ *          the error.</p>
+ */
+export interface ImportFindingsError {
+  /**
+   * <p>The identifier of the finding that could not be updated.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The code of the error returned by the <code>BatchImportFindings</code> operation.</p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The message of the error returned by the <code>BatchImportFindings</code>
+   *          operation.</p>
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchImportFindingsResponse {
+  /**
+   * <p>The number of findings that failed to import.</p>
+   */
+  FailedCount: number | undefined;
+
+  /**
+   * <p>The number of findings that were successfully imported.</p>
+   */
+  SuccessCount: number | undefined;
+
+  /**
+   * <p>The list of findings that failed to import.</p>
+   */
+  FailedFindings?: ImportFindingsError[];
+}
+
+/**
+ * @public
+ * <p>The updated note.</p>
+ */
+export interface NoteUpdate {
+  /**
+   * <p>The updated note text.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The principal that updated the note.</p>
+   */
+  UpdatedBy: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Updates to the severity information for a finding.</p>
+ */
+export interface SeverityUpdate {
+  /**
+   * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
+   *             <code>Label</code>.</p>
+   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>,
+   *             <code>Label</code> is set automatically as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - <code>INFORMATIONAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>1–39 - <code>LOW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>40–69 - <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>70–89 - <code>HIGH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>90–100 - <code>CRITICAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Normalized?: number;
+
+  /**
+   * <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
+   *          generated the finding.</p>
+   */
+  Product?: number;
+
+  /**
+   * <p>The severity value of the finding. The allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code> - The issue does not require action on its own.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
+   *                escalating.</p>
+   *             </li>
+   *          </ul>
+   */
+  Label?: SeverityLabel | string;
+}
+
+/**
+ * @public
+ * <p>Used to update information about the investigation into the finding.</p>
+ */
+export interface WorkflowUpdate {
+  /**
+   * <p>The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to <code>SUPPRESSED</code> or <code>RESOLVED</code> does not prevent a new finding for the same issue.</p>
+   *          <p>The allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code> - The initial state of a finding, before it is reviewed.</p>
+   *                <p>Security Hub also resets <code>WorkFlowStatus</code> from <code>NOTIFIED</code> or
+   *                   <code>RESOLVED</code> to <code>NEW</code> in the following cases:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The record state changes from <code>ARCHIVED</code> to
+   *                      <code>ACTIVE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The compliance status changes from <code>PASSED</code> to either
+   *                         <code>WARNING</code>, <code>FAILED</code>, or
+   *                      <code>NOT_AVAILABLE</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTIFIED</code> - Indicates that you notified the resource owner about the
+   *                security issue. Used when the initial reviewer is not the resource owner, and needs
+   *                intervention from the resource owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESOLVED</code> - The finding was reviewed and remediated and is now
+   *                considered resolved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUPPRESSED</code> - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: WorkflowStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateFindingsRequest {
+  /**
+   * <p>The list of findings to update. <code>BatchUpdateFindings</code> can be used to update
+   *          up to 100 findings at a time.</p>
+   *          <p>For each finding, the list provides the finding identifier and the ARN of the finding
+   *          provider.</p>
+   */
+  FindingIdentifiers: AwsSecurityFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The updated note.</p>
+   */
+  Note?: NoteUpdate;
+
+  /**
+   * <p>Used to update the finding severity.</p>
+   */
+  Severity?: SeverityUpdate;
+
+  /**
+   * <p>Indicates the veracity of a finding.</p>
+   *          <p>The available values for <code>VerificationState</code> are  as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code> – The default disposition of a security finding</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRUE_POSITIVE</code> – The security finding is confirmed</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FALSE_POSITIVE</code> – The security finding was determined to be a false
+   *                alarm</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BENIGN_POSITIVE</code> – A special case of <code>TRUE_POSITIVE</code> where
+   *                the finding doesn't pose any threat, is expected, or both</p>
+   *             </li>
+   *          </ul>
+   */
+  VerificationState?: VerificationState | string;
+
+  /**
+   * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
+   *          that a finding accurately identifies the behavior or issue that it was intended to
+   *          identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The updated value for the level of importance assigned to the resources associated with
+   *          the findings.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources. </p>
+   */
+  Criticality?: number;
+
+  /**
+   * <p>One or more finding types in the format of namespace/category/classifier that classify a
+   *          finding.</p>
+   *          <p>Valid namespace values are as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Software and Configuration Checks</p>
+   *             </li>
+   *             <li>
+   *                <p>TTPs</p>
+   *             </li>
+   *             <li>
+   *                <p>Effects</p>
+   *             </li>
+   *             <li>
+   *                <p>Unusual Behaviors</p>
+   *             </li>
+   *             <li>
+   *                <p>Sensitive Data Identifications </p>
+   *             </li>
+   *          </ul>
+   */
+  Types?: string[];
+
+  /**
+   * <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding.</p>
+   */
+  UserDefinedFields?: Record<string, string>;
+
+  /**
+   * <p>Used to update the workflow status of a finding.</p>
+   *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
+   */
+  Workflow?: WorkflowUpdate;
+
+  /**
+   * <p>A list of findings that are related to the updated findings.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
+}
+
+/**
+ * @public
+ * <p>A finding from a <code>BatchUpdateFindings</code> request that Security Hub was unable to
+ *          update.</p>
+ */
+export interface BatchUpdateFindingsUnprocessedFinding {
+  /**
+   * <p>The identifier of the finding that was not updated.</p>
+   */
+  FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
+
+  /**
+   * <p>The code associated with the error. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConcurrentUpdateError</code> - Another request attempted to update the finding while this request was being processed.
+   * This error may also occur if you call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
+   *                      <code>BatchUpdateFindings</code>
+   *                   </a>
+   * and <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
+   *                      <code>BatchImportFindings</code>
+   *                   </a> at the same time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DuplicatedFindingIdentifier</code> - The request included two or more findings with the same <code>FindingIdentifier</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FindingNotFound</code> - The <code>FindingIdentifier</code> included in the request did not match an existing finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FindingSizeExceeded</code> - The finding size was greater than the permissible value of 240 KB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InternalFailure</code> - An internal service failure occurred when updating the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidInput</code> - The finding update contained an invalid value that did not satisfy the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a> syntax.</p>
+   *             </li>
+   *          </ul>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The message associated with the error. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Concurrent finding updates detected</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Finding Identifier is duplicated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Finding Not Found</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Finding size exceeded 240 KB</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Internal service failure</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Invalid Input</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateFindingsResponse {
+  /**
+   * <p>The list of findings that were updated successfully.</p>
+   */
+  ProcessedFindings: AwsSecurityFindingIdentifier[] | undefined;
+
+  /**
+   * <p>The list of findings that were not updated.</p>
+   */
+  UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An array of requested updates to the enablement status of controls in specified
+ *          standards. The objects in the array include a security control ID, the Amazon Resource Name (ARN) of the standard, the requested
+ *          enablement status, and the reason for updating the enablement status.</p>
+ */
+export interface StandardsControlAssociationUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the standard in which you want to update the
+   *          control's enablement status.</p>
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the security control whose enablement status you want to update.</p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>The desired enablement status of the control in the standard.</p>
+   */
+  AssociationStatus: AssociationStatus | string | undefined;
+
+  /**
+   * <p>The reason for updating the control's enablement status in the standard.</p>
+   */
+  UpdatedReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateStandardsControlAssociationsRequest {
+  /**
+   * <p>
+   *          Updates the enablement status of a security control in a specified standard.
+   *       </p>
+   */
+  StandardsControlAssociationUpdates: StandardsControlAssociationUpdate[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides details about which control's enablement status could not be updated in a
+ *          specified standard when calling the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a> API. This parameter also provides
+ *          details about why the request was unprocessed. </p>
+ */
+export interface UnprocessedStandardsControlAssociationUpdate {
+  /**
+   * <p>An array of control and standard associations for which an update failed when calling
+   *          <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">BatchUpdateStandardsControlAssociations</a>.
+   *       </p>
+   */
+  StandardsControlAssociationUpdate: StandardsControlAssociationUpdate | undefined;
+
+  /**
+   * <p>The error code for the unprocessed update of the control's enablement status in the
+   *          specified standard.</p>
+   */
+  ErrorCode: UnprocessedErrorCode | string | undefined;
+
+  /**
+   * <p>The reason why a control's enablement status in the specified standard couldn't be updated. </p>
+   */
+  ErrorReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateStandardsControlAssociationsResponse {
+  /**
+   * <p>
+   *          A security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) whose enablement status in a specified standard couldn't be updated.
+   *       </p>
+   */
+  UnprocessedAssociationUpdates?: UnprocessedStandardsControlAssociationUpdate[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlFindingGenerator = {
+  SECURITY_CONTROL: "SECURITY_CONTROL",
+  STANDARD_CONTROL: "STANDARD_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlFindingGenerator = (typeof ControlFindingGenerator)[keyof typeof ControlFindingGenerator];
+
+/**
+ * @public
+ */
+export interface CreateActionTargetRequest {
+  /**
+   * <p>The name of the custom action target. Can contain up to 20 characters.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description for the custom action target.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The ID for the custom action target. Can contain up to 20 alphanumeric characters.</p>
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateActionTargetResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the custom action target.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The resource specified in the request conflicts with an existing resource.</p>
+ */
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateFindingAggregatorRequest {
+  /**
+   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
+   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
+   *          <p>The options are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *          </p>
+   *             </li>
+   *          </ul>
+   */
+  RegionLinkingMode: string | undefined;
+
+  /**
+   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
+   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
+   *       </p>
+   */
+  Regions?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CreateFindingAggregatorResponse {
+  /**
+   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop finding aggregation.</p>
+   */
+  FindingAggregatorArn?: string;
+
+  /**
+   * <p>The aggregation Region.</p>
+   */
+  FindingAggregationRegion?: string;
+
+  /**
+   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   */
+  RegionLinkingMode?: string;
+
+  /**
+   * <p>The list of excluded Regions or included Regions.</p>
+   */
+  Regions?: string[];
+}
 
 /**
  * @public
@@ -883,8 +1817,9 @@ export interface FindingHistoryRecord {
   FindingIdentifier?: AwsSecurityFindingIdentifier;
 
   /**
-   * <p> An ISO 8601-formatted timestamp that indicates when the security findings provider last
-   *             updated the finding record. A correctly formatted example is
+   * <p> An ISO 8601-formatted timestamp that indicates when Security Hub
+   *             processed the updated finding record.</p>
+   *          <p>A correctly formatted example is
    *                 <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and
    *             time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6,
    *                 Internet Date/Time Format</a>. </p>

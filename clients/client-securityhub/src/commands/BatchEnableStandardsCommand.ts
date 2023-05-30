@@ -100,9 +100,9 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @example To import security findings from a third party provider to Security Hub
+ * @example To enable security standards
  * ```javascript
- * // The following example imports findings from a third party provider to Security Hub.
+ * // The following example enables the security standard specified by the StandardArn. You can use this operation to enable one or more Security Hub standards.
  * const input = {
  *   "StandardsSubscriptionRequests": [
  *     {
@@ -124,7 +124,7 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  *   ]
  * }
  * *\/
- * // example id: to-import-security-findings-from-a-third-party-provider-to-security-hub-1675090935260
+ * // example id: to-enable-security-standards-1683233792239
  * ```
  *
  */

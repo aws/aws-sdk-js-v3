@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { CreateActionTargetRequest, CreateActionTargetResponse } from "../models/models_1";
+import { CreateActionTargetRequest, CreateActionTargetResponse } from "../models/models_2";
 import { de_CreateActionTargetCommand, se_CreateActionTargetCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 

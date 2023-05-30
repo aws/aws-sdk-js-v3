@@ -3841,6 +3841,177 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               ],
  * //               VpcId: "STRING_VALUE",
  * //             },
+ * //             AwsAmazonMqBroker: { // AwsAmazonMqBrokerDetails
+ * //               AuthenticationStrategy: "STRING_VALUE",
+ * //               AutoMinorVersionUpgrade: true || false,
+ * //               BrokerArn: "STRING_VALUE",
+ * //               BrokerName: "STRING_VALUE",
+ * //               DeploymentMode: "STRING_VALUE",
+ * //               EncryptionOptions: { // AwsAmazonMqBrokerEncryptionOptionsDetails
+ * //                 KmsKeyId: "STRING_VALUE",
+ * //                 UseAwsOwnedKey: true || false,
+ * //               },
+ * //               EngineType: "STRING_VALUE",
+ * //               EngineVersion: "STRING_VALUE",
+ * //               HostInstanceType: "STRING_VALUE",
+ * //               BrokerId: "STRING_VALUE",
+ * //               LdapServerMetadata: { // AwsAmazonMqBrokerLdapServerMetadataDetails
+ * //                 Hosts: "<StringList>",
+ * //                 RoleBase: "STRING_VALUE",
+ * //                 RoleName: "STRING_VALUE",
+ * //                 RoleSearchMatching: "STRING_VALUE",
+ * //                 RoleSearchSubtree: true || false,
+ * //                 ServiceAccountUsername: "STRING_VALUE",
+ * //                 UserBase: "STRING_VALUE",
+ * //                 UserRoleName: "STRING_VALUE",
+ * //                 UserSearchMatching: "STRING_VALUE",
+ * //                 UserSearchSubtree: true || false,
+ * //               },
+ * //               Logs: { // AwsAmazonMqBrokerLogsDetails
+ * //                 Audit: true || false,
+ * //                 General: true || false,
+ * //                 AuditLogGroup: "STRING_VALUE",
+ * //                 GeneralLogGroup: "STRING_VALUE",
+ * //                 Pending: { // AwsAmazonMqBrokerLogsPendingDetails
+ * //                   Audit: true || false,
+ * //                   General: true || false,
+ * //                 },
+ * //               },
+ * //               MaintenanceWindowStartTime: { // AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails
+ * //                 DayOfWeek: "STRING_VALUE",
+ * //                 TimeOfDay: "STRING_VALUE",
+ * //                 TimeZone: "STRING_VALUE",
+ * //               },
+ * //               PubliclyAccessible: true || false,
+ * //               SecurityGroups: "<StringList>",
+ * //               StorageType: "STRING_VALUE",
+ * //               SubnetIds: "<StringList>",
+ * //               Users: [ // AwsAmazonMqBrokerUsersList
+ * //                 { // AwsAmazonMqBrokerUsersDetails
+ * //                   PendingChange: "STRING_VALUE",
+ * //                   Username: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //             AwsAppSyncGraphQlApi: { // AwsAppSyncGraphQlApiDetails
+ * //               ApiId: "STRING_VALUE",
+ * //               Id: "STRING_VALUE",
+ * //               OpenIdConnectConfig: { // AwsAppSyncGraphQlApiOpenIdConnectConfigDetails
+ * //                 AuthTtL: Number("long"),
+ * //                 ClientId: "STRING_VALUE",
+ * //                 IatTtL: Number("long"),
+ * //                 Issuer: "STRING_VALUE",
+ * //               },
+ * //               Name: "STRING_VALUE",
+ * //               LambdaAuthorizerConfig: { // AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails
+ * //                 AuthorizerResultTtlInSeconds: Number("int"),
+ * //                 AuthorizerUri: "STRING_VALUE",
+ * //                 IdentityValidationExpression: "STRING_VALUE",
+ * //               },
+ * //               XrayEnabled: true || false,
+ * //               Arn: "STRING_VALUE",
+ * //               UserPoolConfig: { // AwsAppSyncGraphQlApiUserPoolConfigDetails
+ * //                 AppIdClientRegex: "STRING_VALUE",
+ * //                 AwsRegion: "STRING_VALUE",
+ * //                 DefaultAction: "STRING_VALUE",
+ * //                 UserPoolId: "STRING_VALUE",
+ * //               },
+ * //               AuthenticationType: "STRING_VALUE",
+ * //               LogConfig: { // AwsAppSyncGraphQlApiLogConfigDetails
+ * //                 CloudWatchLogsRoleArn: "STRING_VALUE",
+ * //                 ExcludeVerboseContent: true || false,
+ * //                 FieldLogLevel: "STRING_VALUE",
+ * //               },
+ * //               AdditionalAuthenticationProviders: [ // AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList
+ * //                 { // AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails
+ * //                   AuthenticationType: "STRING_VALUE",
+ * //                   LambdaAuthorizerConfig: {
+ * //                     AuthorizerResultTtlInSeconds: Number("int"),
+ * //                     AuthorizerUri: "STRING_VALUE",
+ * //                     IdentityValidationExpression: "STRING_VALUE",
+ * //                   },
+ * //                   OpenIdConnectConfig: {
+ * //                     AuthTtL: Number("long"),
+ * //                     ClientId: "STRING_VALUE",
+ * //                     IatTtL: Number("long"),
+ * //                     Issuer: "STRING_VALUE",
+ * //                   },
+ * //                   UserPoolConfig: {
+ * //                     AppIdClientRegex: "STRING_VALUE",
+ * //                     AwsRegion: "STRING_VALUE",
+ * //                     DefaultAction: "STRING_VALUE",
+ * //                     UserPoolId: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               WafWebAclArn: "STRING_VALUE",
+ * //             },
+ * //             AwsEventSchemasRegistry: { // AwsEventSchemasRegistryDetails
+ * //               Description: "STRING_VALUE",
+ * //               RegistryArn: "STRING_VALUE",
+ * //               RegistryName: "STRING_VALUE",
+ * //             },
+ * //             AwsGuardDutyDetector: { // AwsGuardDutyDetectorDetails
+ * //               DataSources: { // AwsGuardDutyDetectorDataSourcesDetails
+ * //                 CloudTrail: { // AwsGuardDutyDetectorDataSourcesCloudTrailDetails
+ * //                   Status: "STRING_VALUE",
+ * //                 },
+ * //                 DnsLogs: { // AwsGuardDutyDetectorDataSourcesDnsLogsDetails
+ * //                   Status: "STRING_VALUE",
+ * //                 },
+ * //                 FlowLogs: { // AwsGuardDutyDetectorDataSourcesFlowLogsDetails
+ * //                   Status: "STRING_VALUE",
+ * //                 },
+ * //                 Kubernetes: { // AwsGuardDutyDetectorDataSourcesKubernetesDetails
+ * //                   AuditLogs: { // AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails
+ * //                     Status: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 MalwareProtection: { // AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails
+ * //                   ScanEc2InstanceWithFindings: { // AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails
+ * //                     EbsVolumes: { // AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails
+ * //                       Reason: "STRING_VALUE",
+ * //                       Status: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                   ServiceRole: "STRING_VALUE",
+ * //                 },
+ * //                 S3Logs: { // AwsGuardDutyDetectorDataSourcesS3LogsDetails
+ * //                   Status: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               Features: [ // AwsGuardDutyDetectorFeaturesList
+ * //                 { // AwsGuardDutyDetectorFeaturesDetails
+ * //                   Name: "STRING_VALUE",
+ * //                   Status: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               FindingPublishingFrequency: "STRING_VALUE",
+ * //               ServiceRole: "STRING_VALUE",
+ * //               Status: "STRING_VALUE",
+ * //             },
+ * //             AwsStepFunctionStateMachine: { // AwsStepFunctionStateMachineDetails
+ * //               Label: "STRING_VALUE",
+ * //               LoggingConfiguration: { // AwsStepFunctionStateMachineLoggingConfigurationDetails
+ * //                 Destinations: [ // AwsStepFunctionStateMachineLoggingConfigurationDestinationsList
+ * //                   { // AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails
+ * //                     CloudWatchLogsLogGroup: { // AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
+ * //                       LogGroupArn: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //                 IncludeExecutionData: true || false,
+ * //                 Level: "STRING_VALUE",
+ * //               },
+ * //               Name: "STRING_VALUE",
+ * //               RoleArn: "STRING_VALUE",
+ * //               StateMachineArn: "STRING_VALUE",
+ * //               Status: "STRING_VALUE",
+ * //               TracingConfiguration: { // AwsStepFunctionStateMachineTracingConfigurationDetails
+ * //                 Enabled: true || false,
+ * //               },
+ * //               Type: "STRING_VALUE",
+ * //             },
  * //           },
  * //         },
  * //       ],

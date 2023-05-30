@@ -794,6 +794,360 @@ export interface AvailabilityZone {
 
 /**
  * @public
+ * <p>
+ *             Provides details about broker encryption options.
+ *         </p>
+ */
+export interface AwsAmazonMqBrokerEncryptionOptionsDetails {
+  /**
+   * <p>
+   *             The KMS key that’s used to encrypt your data at rest. If not provided, Amazon MQ will use a
+   *             default KMS key to encrypt your data.
+   *         </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>
+   *             Specifies that an KMS key should be used for at-rest encryption. Set to <code>true</code> by default
+   *             if no value is provided (for example, for RabbitMQ brokers).
+   *         </p>
+   */
+  UseAwsOwnedKey?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             The metadata of the Lightweight Directory Access Protocol (LDAP) server used to authenticate and authorize
+ *             connections to the broker. This is an optional failover server.
+ *         </p>
+ */
+export interface AwsAmazonMqBrokerLdapServerMetadataDetails {
+  /**
+   * <p>
+   *             Specifies the location of the LDAP server, such as Amazon Web Services Directory Service for Microsoft Active Directory.
+   *         </p>
+   */
+  Hosts?: string[];
+
+  /**
+   * <p>
+   *             The distinguished name of the node in the directory information tree (DIT) to search for roles or groups.
+   *         </p>
+   */
+  RoleBase?: string;
+
+  /**
+   * <p>
+   *             The group name attribute in a role entry whose value is the name of that role.
+   *         </p>
+   */
+  RoleName?: string;
+
+  /**
+   * <p>
+   *             The LDAP search filter used to find roles within the <code>roleBase</code>.
+   *         </p>
+   */
+  RoleSearchMatching?: string;
+
+  /**
+   * <p>
+   *             The directory search scope for the role. If set to <code>true</code>, the scope is to search the entire subtree.
+   *         </p>
+   */
+  RoleSearchSubtree?: boolean;
+
+  /**
+   * <p>
+   *             A username for the service account, which is an account in your LDAP server that has access to initiate a connection.
+   *         </p>
+   */
+  ServiceAccountUsername?: string;
+
+  /**
+   * <p>
+   *             Selects a particular subtree of the directory information tree (DIT) to search for user entries.
+   *         </p>
+   */
+  UserBase?: string;
+
+  /**
+   * <p>
+   *             The name of the LDAP attribute in the user's directory entry for the user's group membership. </p>
+   */
+  UserRoleName?: string;
+
+  /**
+   * <p>
+   *             The LDAP search filter used to find users within the <code>userBase</code>.
+   *         </p>
+   */
+  UserSearchMatching?: string;
+
+  /**
+   * <p>
+   *             The directory search scope for the user. If set to true, the scope is to search the entire subtree.
+   *         </p>
+   */
+  UserSearchSubtree?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides information about logs to be activated for the specified broker.
+ *         </p>
+ */
+export interface AwsAmazonMqBrokerLogsPendingDetails {
+  /**
+   * <p>
+   *             Activates audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Doesn't apply
+   *             to RabbitMQ brokers.
+   *         </p>
+   */
+  Audit?: boolean;
+
+  /**
+   * <p>
+   *             Activates general logging.
+   *         </p>
+   */
+  General?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides information about logs to be activated for the specified broker.
+ *         </p>
+ */
+export interface AwsAmazonMqBrokerLogsDetails {
+  /**
+   * <p>
+   *             Activates audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Doesn't apply to RabbitMQ brokers.
+   *         </p>
+   */
+  Audit?: boolean;
+
+  /**
+   * <p>
+   *             Activates general logging.
+   *         </p>
+   */
+  General?: boolean;
+
+  /**
+   * <p>
+   *             The location of the CloudWatch Logs log group where audit logs are sent.
+   *         </p>
+   */
+  AuditLogGroup?: string;
+
+  /**
+   * <p>
+   *             The location of the CloudWatch Logs log group where general logs are sent.
+   *         </p>
+   */
+  GeneralLogGroup?: string;
+
+  /**
+   * <p>
+   *             The list of information about logs that are to be turned on for the specified broker.
+   *         </p>
+   */
+  Pending?: AwsAmazonMqBrokerLogsPendingDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             The scheduled time period (UTC) during which Amazon MQ begins to apply pending updates or patches to the broker.
+ *         </p>
+ */
+export interface AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails {
+  /**
+   * <p>
+   *             The day of the week on which the maintenance window falls.
+   *         </p>
+   */
+  DayOfWeek?: string;
+
+  /**
+   * <p>
+   *             The time, in 24-hour format, on which the maintenance window falls.
+   *         </p>
+   */
+  TimeOfDay?: string;
+
+  /**
+   * <p>
+   *             The time zone in either the Country/City format or the UTC offset format. UTC is the default format.
+   *         </p>
+   */
+  TimeZone?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the broker usernames for the specified broker. Doesn't apply to RabbitMQ brokers.
+ *         </p>
+ */
+export interface AwsAmazonMqBrokerUsersDetails {
+  /**
+   * <p>
+   *             The type of change pending for the broker user.
+   *         </p>
+   */
+  PendingChange?: string;
+
+  /**
+   * <p>
+   *             The username of the broker user.
+   *         </p>
+   */
+  Username?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Amazon MQ message broker. A message broker allows software applications and
+ *             components to communicate using various programming languages, operating systems, and formal messaging protocols.
+ *         </p>
+ */
+export interface AwsAmazonMqBrokerDetails {
+  /**
+   * <p>
+   *             The authentication strategy used to secure the broker. The default is <code>SIMPLE</code>.
+   *         </p>
+   */
+  AuthenticationStrategy?: string;
+
+  /**
+   * <p>
+   *             Whether automatically upgrade new minor versions for brokers, as new versions are released and supported by Amazon MQ.
+   *             Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+   *         </p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the broker.
+   *         </p>
+   */
+  BrokerArn?: string;
+
+  /**
+   * <p>The broker's name.
+   *         </p>
+   */
+  BrokerName?: string;
+
+  /**
+   * <p>
+   *             The broker's deployment mode.
+   *         </p>
+   */
+  DeploymentMode?: string;
+
+  /**
+   * <p>
+   *             Encryption options for the broker. Doesn’t apply to RabbitMQ brokers.
+   *         </p>
+   */
+  EncryptionOptions?: AwsAmazonMqBrokerEncryptionOptionsDetails;
+
+  /**
+   * <p>
+   *             The type of broker engine.
+   *         </p>
+   */
+  EngineType?: string;
+
+  /**
+   * <p>
+   *             The version of the broker engine.
+   *         </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>
+   *             The broker's instance type.
+   *         </p>
+   */
+  HostInstanceType?: string;
+
+  /**
+   * <p>
+   *             The unique ID that Amazon MQ generates for the broker.
+   *         </p>
+   */
+  BrokerId?: string;
+
+  /**
+   * <p>
+   *             The metadata of the Lightweight Directory Access Protocol (LDAP) server used to authenticate and authorize connections to the broker. This is an optional failover server.
+   *         </p>
+   */
+  LdapServerMetadata?: AwsAmazonMqBrokerLdapServerMetadataDetails;
+
+  /**
+   * <p>
+   *             Turns on Amazon CloudWatch logging for brokers.
+   *         </p>
+   */
+  Logs?: AwsAmazonMqBrokerLogsDetails;
+
+  /**
+   * <p>
+   *             The scheduled time period (UTC) during which Amazon MQ begins to apply pending updates or patches to the broker.
+   *         </p>
+   */
+  MaintenanceWindowStartTime?: AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails;
+
+  /**
+   * <p>
+   *             Permits connections from applications outside of the VPC that hosts the broker's subnets.
+   *         </p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>
+   *             The list of rules (one minimum, 125 maximum) that authorize connections to brokers.
+   *         </p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>
+   *             The broker's storage type.
+   *         </p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>
+   *             The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.
+   *         </p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>
+   *             The list of all broker usernames for the specified broker. Doesn't apply to RabbitMQ brokers.
+   *         </p>
+   */
+  Users?: AwsAmazonMqBrokerUsersDetails[];
+}
+
+/**
+ * @public
  * <p>Contains information about settings for logging access for the stage.</p>
  */
 export interface AwsApiGatewayAccessLogSettings {
@@ -1341,6 +1695,275 @@ export interface AwsApiGatewayV2StageDetails {
    * <p>Indicates whether the stage is managed by API Gateway.</p>
    */
   ApiGatewayManaged?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Specifies the authorization configuration for using an Lambda function with your AppSync
+ *             GraphQL API endpoint.
+ *         </p>
+ */
+export interface AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails {
+  /**
+   * <p>
+   *             The number of seconds a response should be cached for. The default is 5 minutes (300 seconds).
+   *         </p>
+   */
+  AuthorizerResultTtlInSeconds?: number;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Lambda function to be called for authorization. This can be a
+   *             standard Lambda ARN, a version ARN (.../v3), or an alias ARN.
+   *         </p>
+   */
+  AuthorizerUri?: string;
+
+  /**
+   * <p>
+   *             A regular expression for validation of tokens before the Lambda function is called.
+   *         </p>
+   */
+  IdentityValidationExpression?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Specifies the authorization configuration for using an OpenID Connect compliant service with your AppSync GraphQL
+ *             API endpoint.
+ *         </p>
+ */
+export interface AwsAppSyncGraphQlApiOpenIdConnectConfigDetails {
+  /**
+   * <p>
+   *             The number of milliseconds that a token is valid after being authenticated.
+   *         </p>
+   */
+  AuthTtL?: number;
+
+  /**
+   * <p>
+   *             The client identifier of the relying party at the OpenID identity provider. This identifier is typically obtained
+   *             when the relying party is registered with the OpenID identity provider. You can specify a regular expression so that
+   *             AppSync can validate against multiple client identifiers at a time.
+   *         </p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>
+   *             The number of milliseconds that a token is valid after it's issued to a user.
+   *         </p>
+   */
+  IatTtL?: number;
+
+  /**
+   * <p>
+   *             The issuer for the OIDC configuration. The issuer returned by discovery must exactly match the value of <code>iss</code>
+   *             in the ID token.
+   *         </p>
+   */
+  Issuer?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Specifies the authorization configuration for using Amazon Cognito user pools with your AppSync GraphQL API
+ *             endpoint.
+ *         </p>
+ */
+export interface AwsAppSyncGraphQlApiUserPoolConfigDetails {
+  /**
+   * <p>
+   *             A regular expression for validating the incoming Amazon Cognito user pools app client ID. If this value isn't set, no
+   *             filtering is applied.
+   *         </p>
+   */
+  AppIdClientRegex?: string;
+
+  /**
+   * <p>
+   *             The Amazon Web Services Region in which the user pool was created.
+   *         </p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>
+   *             The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pools
+   *             authentication doesn't match the Amazon Cognito user pools configuration.
+   *         </p>
+   */
+  DefaultAction?: string;
+
+  /**
+   * <p>
+   *             The user pool ID.
+   *         </p>
+   */
+  UserPoolId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             A list of additional authentication providers for the GraphqlApi API.
+ *         </p>
+ */
+export interface AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails {
+  /**
+   * <p>
+   *             The type of security configuration for your GraphQL API: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
+   *         </p>
+   */
+  AuthenticationType?: string;
+
+  /**
+   * <p>
+   *             The configuration for Lambda function authorization.
+   *         </p>
+   */
+  LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails;
+
+  /**
+   * <p>
+   *             The OpenID Connect configuration.
+   *         </p>
+   */
+  OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails;
+
+  /**
+   * <p>
+   *             The Amazon Cognito user pools configuration.
+   *         </p>
+   */
+  UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Specifies the logging configuration when writing GraphQL operations and tracing to Amazon CloudWatch for an
+ *             AppSync GraphQL API.
+ *         </p>
+ */
+export interface AwsAppSyncGraphQlApiLogConfigDetails {
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the service role that AppSync assumes to publish to CloudWatch Logs
+   *             in your account.
+   *         </p>
+   */
+  CloudWatchLogsRoleArn?: string;
+
+  /**
+   * <p>
+   *             Set to <code>TRUE</code> to exclude sections that contain information such as headers, context, and evaluated mapping templates,
+   *             regardless of logging level.
+   *         </p>
+   */
+  ExcludeVerboseContent?: boolean;
+
+  /**
+   * <p>
+   *             The field logging level.
+   *         </p>
+   */
+  FieldLogLevel?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an AppSync Graph QL API, which lets you query multiple databases, microservices, and APIs from a single GraphQL endpoint.
+ *         </p>
+ */
+export interface AwsAppSyncGraphQlApiDetails {
+  /**
+   * <p>
+   *             The unique identifier for the API.
+   *         </p>
+   */
+  ApiId?: string;
+
+  /**
+   * <p>The unique identifier for the API.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>
+   * Specifies the authorization configuration for using an OpenID Connect compliant service with an AppSync GraphQL API endpoint.
+   * </p>
+   */
+  OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails;
+
+  /**
+   * <p>
+   * The API name.
+   * </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   * Specifies the configuration for Lambda function authorization.
+   * </p>
+   */
+  LambdaAuthorizerConfig?: AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails;
+
+  /**
+   * <p>
+   * Indicates whether to use X-Ray tracing for the GraphQL API.
+   * </p>
+   */
+  XrayEnabled?: boolean;
+
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) of the API.
+   * </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>
+   * The Amazon Cognito user pools configuration.
+   * </p>
+   */
+  UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails;
+
+  /**
+   * <p>
+   * The type of security configuration for your GraphQL API: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
+   * </p>
+   */
+  AuthenticationType?: string;
+
+  /**
+   * <p>
+   *             The Amazon CloudWatch Logs configuration.
+   *         </p>
+   */
+  LogConfig?: AwsAppSyncGraphQlApiLogConfigDetails;
+
+  /**
+   * <p>
+   *             A list of additional authentication providers for the GraphQL API.
+   *         </p>
+   */
+  AdditionalAuthenticationProviders?: AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails[];
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the WAF web access control list (web ACL) associated with this
+   *             GraphQL API, if one exists.
+   *         </p>
+   */
+  WafWebAclArn?: string;
 }
 
 /**
@@ -10343,429 +10966,4 @@ export interface AwsElbLoadBalancerConnectionSettings {
    *          connection) before it is closed by the load balancer.</p>
    */
   IdleTimeout?: number;
-}
-
-/**
- * @public
- * <p>Contains cross-zone load balancing settings for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
-  /**
-   * <p>Indicates whether cross-zone load balancing is enabled for the load balancer.</p>
-   */
-  Enabled?: boolean;
-}
-
-/**
- * @public
- * <p>Contains attributes for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerAttributes {
-  /**
-   * <p>Information about the access log configuration for the load balancer.</p>
-   *          <p>If the access log is enabled, the load balancer captures detailed information about all
-   *          requests. It delivers the information to a specified S3 bucket.</p>
-   */
-  AccessLog?: AwsElbLoadBalancerAccessLog;
-
-  /**
-   * <p>Information about the connection draining configuration for the load balancer.</p>
-   *          <p>If connection draining is enabled, the load balancer allows existing requests to
-   *          complete before it shifts traffic away from a deregistered or unhealthy instance.</p>
-   */
-  ConnectionDraining?: AwsElbLoadBalancerConnectionDraining;
-
-  /**
-   * <p>Connection settings for the load balancer.</p>
-   *          <p>If an idle timeout is configured, the load balancer allows connections to remain idle
-   *          for the specified duration. When a connection is idle, no data is sent over the
-   *          connection.</p>
-   */
-  ConnectionSettings?: AwsElbLoadBalancerConnectionSettings;
-
-  /**
-   * <p>Cross-zone load balancing settings for the load balancer.</p>
-   *          <p>If cross-zone load balancing is enabled, the load balancer routes the request traffic
-   *          evenly across all instances regardless of the Availability Zones.</p>
-   */
-  CrossZoneLoadBalancing?: AwsElbLoadBalancerCrossZoneLoadBalancing;
-
-  /**
-   * <p>Any additional attributes for a load balancer.</p>
-   */
-  AdditionalAttributes?: AwsElbLoadBalancerAdditionalAttribute[];
-}
-
-/**
- * @public
- * <p>Provides information about the configuration of an EC2 instance for the load
- *          balancer.</p>
- */
-export interface AwsElbLoadBalancerBackendServerDescription {
-  /**
-   * <p>The port on which the EC2 instance is listening.</p>
-   */
-  InstancePort?: number;
-
-  /**
-   * <p>The names of the policies that are enabled for the EC2 instance.</p>
-   */
-  PolicyNames?: string[];
-}
-
-/**
- * @public
- * <p>Contains information about the health checks that are conducted on the load
- *          balancer.</p>
- */
-export interface AwsElbLoadBalancerHealthCheck {
-  /**
-   * <p>The number of consecutive health check successes required before the instance is moved
-   *          to the Healthy state.</p>
-   */
-  HealthyThreshold?: number;
-
-  /**
-   * <p>The approximate interval, in seconds, between health checks of an individual
-   *          instance.</p>
-   */
-  Interval?: number;
-
-  /**
-   * <p>The instance that is being checked. The target specifies the protocol and port. The
-   *          available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through
-   *          65535.</p>
-   *          <p>For the HTTP and HTTPS protocols, the target also specifies the ping path.</p>
-   *          <p>For the TCP protocol, the target is specified as <code>TCP:
-   *                <i><port></i>
-   *             </code>.</p>
-   *          <p>For the SSL protocol, the target is specified as
-   *                <code>SSL.<i><port></i>
-   *             </code>.</p>
-   *          <p>For the HTTP and HTTPS protocols, the target is specified as
-   *                <code>
-   *                <i><protocol></i>:<i><port></i>/<i><path
-   *                to ping></i>
-   *             </code>.</p>
-   */
-  Target?: string;
-
-  /**
-   * <p>The amount of time, in seconds, during which no response means a failed health
-   *          check.</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The number of consecutive health check failures that must occur before the instance is
-   *          moved to the Unhealthy state.</p>
-   */
-  UnhealthyThreshold?: number;
-}
-
-/**
- * @public
- * <p>Provides information about an EC2 instance for a load balancer.</p>
- */
-export interface AwsElbLoadBalancerInstance {
-  /**
-   * <p>The instance identifier.</p>
-   */
-  InstanceId?: string;
-}
-
-/**
- * @public
- * <p>Information about a load balancer listener.</p>
- */
-export interface AwsElbLoadBalancerListener {
-  /**
-   * <p>The port on which the instance is listening.</p>
-   */
-  InstancePort?: number;
-
-  /**
-   * <p>The protocol to use to route traffic to instances.</p>
-   *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
-   *             <code>SSL</code>
-   *          </p>
-   */
-  InstanceProtocol?: string;
-
-  /**
-   * <p>The port on which the load balancer is listening.</p>
-   *          <p>On EC2-VPC, you can specify any port from the range 1-65535.</p>
-   *          <p>On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587,
-   *          1024-65535.</p>
-   */
-  LoadBalancerPort?: number;
-
-  /**
-   * <p>The load balancer transport protocol to use for routing.</p>
-   *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
-   *             <code>SSL</code>
-   *          </p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>The ARN of the server certificate.</p>
-   */
-  SslCertificateId?: string;
-}
-
-/**
- * @public
- * <p>Lists the policies that are enabled for a load balancer listener.</p>
- */
-export interface AwsElbLoadBalancerListenerDescription {
-  /**
-   * <p>Information about the listener.</p>
-   */
-  Listener?: AwsElbLoadBalancerListener;
-
-  /**
-   * <p>The policies enabled for the listener.</p>
-   */
-  PolicyNames?: string[];
-}
-
-/**
- * @public
- * <p>Contains information about the policies for a load balancer.</p>
- */
-export interface AwsElbLoadBalancerPolicies {
-  /**
-   * <p>The stickiness policies that are created using
-   *             <code>CreateAppCookieStickinessPolicy</code>.</p>
-   */
-  AppCookieStickinessPolicies?: AwsElbAppCookieStickinessPolicy[];
-
-  /**
-   * <p>The stickiness policies that are created using
-   *             <code>CreateLBCookieStickinessPolicy</code>.</p>
-   */
-  LbCookieStickinessPolicies?: AwsElbLbCookieStickinessPolicy[];
-
-  /**
-   * <p>The policies other than the stickiness policies.</p>
-   */
-  OtherPolicies?: string[];
-}
-
-/**
- * @public
- * <p>Contains information about the security group for the load balancer.</p>
- */
-export interface AwsElbLoadBalancerSourceSecurityGroup {
-  /**
-   * <p>The name of the security group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The owner of the security group.</p>
-   */
-  OwnerAlias?: string;
-}
-
-/**
- * @public
- * <p>Contains details about a Classic Load Balancer.</p>
- */
-export interface AwsElbLoadBalancerDetails {
-  /**
-   * <p>The list of Availability Zones for the load balancer.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>Information about the configuration of the EC2 instances.</p>
-   */
-  BackendServerDescriptions?: AwsElbLoadBalancerBackendServerDescription[];
-
-  /**
-   * <p>The name of the Amazon Route 53 hosted zone for the load balancer.</p>
-   */
-  CanonicalHostedZoneName?: string;
-
-  /**
-   * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
-   */
-  CanonicalHostedZoneNameID?: string;
-
-  /**
-   * <p>Indicates when the load balancer was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedTime?: string;
-
-  /**
-   * <p>The DNS name of the load balancer.</p>
-   */
-  DnsName?: string;
-
-  /**
-   * <p>Information about the health checks that are conducted on the load balancer.</p>
-   */
-  HealthCheck?: AwsElbLoadBalancerHealthCheck;
-
-  /**
-   * <p>List of EC2 instances for the load balancer.</p>
-   */
-  Instances?: AwsElbLoadBalancerInstance[];
-
-  /**
-   * <p>The policies that are enabled for the load balancer listeners.</p>
-   */
-  ListenerDescriptions?: AwsElbLoadBalancerListenerDescription[];
-
-  /**
-   * <p>The attributes for a load balancer.</p>
-   */
-  LoadBalancerAttributes?: AwsElbLoadBalancerAttributes;
-
-  /**
-   * <p>The name of the load balancer.</p>
-   */
-  LoadBalancerName?: string;
-
-  /**
-   * <p>The policies for a load balancer.</p>
-   */
-  Policies?: AwsElbLoadBalancerPolicies;
-
-  /**
-   * <p>The type of load balancer. Only provided if the load balancer is in a VPC.</p>
-   *          <p>If <code>Scheme</code> is <code>internet-facing</code>, the load balancer has a public
-   *          DNS name that resolves to a public IP address.</p>
-   *          <p>If <code>Scheme</code> is <code>internal</code>, the load balancer has a public DNS name
-   *          that resolves to a private IP address.</p>
-   */
-  Scheme?: string;
-
-  /**
-   * <p>The security groups for the load balancer. Only provided if the load balancer is in a
-   *          VPC.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>Information about the security group for the load balancer. This is the security group
-   *          that is used for inbound rules.</p>
-   */
-  SourceSecurityGroup?: AwsElbLoadBalancerSourceSecurityGroup;
-
-  /**
-   * <p>The list of subnet identifiers for the load balancer.</p>
-   */
-  Subnets?: string[];
-
-  /**
-   * <p>The identifier of the VPC for the load balancer.</p>
-   */
-  VpcId?: string;
-}
-
-/**
- * @public
- * <p>A load balancer attribute.</p>
- */
-export interface AwsElbv2LoadBalancerAttribute {
-  /**
-   * <p>The name of the load balancer attribute.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value of the load balancer attribute.</p>
-   */
-  Value?: string;
-}
-
-/**
- * @public
- * <p>Information about the state of the load balancer.</p>
- */
-export interface LoadBalancerState {
-  /**
-   * <p>The state code. The initial state of the load balancer is provisioning.</p>
-   *          <p>After the load balancer is fully set up and ready to route traffic, its state is
-   *          active.</p>
-   *          <p>If the load balancer could not be set up, its state is failed. </p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A description of the state.</p>
-   */
-  Reason?: string;
-}
-
-/**
- * @public
- * <p>Information about a load balancer.</p>
- */
-export interface AwsElbv2LoadBalancerDetails {
-  /**
-   * <p>The Availability Zones for the load balancer.</p>
-   */
-  AvailabilityZones?: AvailabilityZone[];
-
-  /**
-   * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
-   */
-  CanonicalHostedZoneId?: string;
-
-  /**
-   * <p>Indicates when the load balancer was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedTime?: string;
-
-  /**
-   * <p>The public DNS name of the load balancer.</p>
-   */
-  DNSName?: string;
-
-  /**
-   * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
-   *          are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
-   *          addresses).</p>
-   */
-  IpAddressType?: string;
-
-  /**
-   * <p>The nodes of an Internet-facing load balancer have public IP addresses.</p>
-   */
-  Scheme?: string;
-
-  /**
-   * <p>The IDs of the security groups for the load balancer.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>The state of the load balancer.</p>
-   */
-  State?: LoadBalancerState;
-
-  /**
-   * <p>The type of load balancer.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The ID of the VPC for the load balancer.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Attributes of the load balancer.</p>
-   */
-  LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
 }
