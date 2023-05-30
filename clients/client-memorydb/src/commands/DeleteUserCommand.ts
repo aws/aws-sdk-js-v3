@@ -58,7 +58,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * //     ],
  * //     MinimumEngineVersion: "STRING_VALUE",
  * //     Authentication: { // Authentication
- * //       Type: "password" || "no-password",
+ * //       Type: "password" || "no-password" || "iam",
  * //       PasswordCount: Number("int"),
  * //     },
  * //     ARN: "STRING_VALUE",

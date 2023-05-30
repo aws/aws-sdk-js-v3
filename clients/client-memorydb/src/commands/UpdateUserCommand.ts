@@ -46,7 +46,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * const input = { // UpdateUserRequest
  *   UserName: "STRING_VALUE", // required
  *   AuthenticationMode: { // AuthenticationMode
- *     Type: "password",
+ *     Type: "password" || "iam",
  *     Passwords: [ // PasswordListInput
  *       "STRING_VALUE",
  *     ],
@@ -65,7 +65,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * //     ],
  * //     MinimumEngineVersion: "STRING_VALUE",
  * //     Authentication: { // Authentication
- * //       Type: "password" || "no-password",
+ * //       Type: "password" || "no-password" || "iam",
  * //       PasswordCount: Number("int"),
  * //     },
  * //     ARN: "STRING_VALUE",

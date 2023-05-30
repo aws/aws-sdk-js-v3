@@ -46,7 +46,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * const input = { // CreateUserRequest
  *   UserName: "STRING_VALUE", // required
  *   AuthenticationMode: { // AuthenticationMode
- *     Type: "password",
+ *     Type: "password" || "iam",
  *     Passwords: [ // PasswordListInput
  *       "STRING_VALUE",
  *     ],
@@ -71,7 +71,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * //     ],
  * //     MinimumEngineVersion: "STRING_VALUE",
  * //     Authentication: { // Authentication
- * //       Type: "password" || "no-password",
+ * //       Type: "password" || "no-password" || "iam",
  * //       PasswordCount: Number("int"),
  * //     },
  * //     ARN: "STRING_VALUE",

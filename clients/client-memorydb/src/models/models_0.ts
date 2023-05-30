@@ -1822,6 +1822,7 @@ export class SubnetQuotaExceededFault extends __BaseException {
  * @enum
  */
 export const InputAuthenticationType = {
+  IAM: "iam",
   PASSWORD: "password",
 } as const;
 
@@ -1876,6 +1877,7 @@ export interface CreateUserRequest {
  * @enum
  */
 export const AuthenticationType = {
+  IAM: "iam",
   NO_PASSWORD: "no-password",
   PASSWORD: "password",
 } as const;
