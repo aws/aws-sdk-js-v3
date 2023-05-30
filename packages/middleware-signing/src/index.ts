@@ -1,2 +1,2 @@
-export * from "./configurations";
-export * from "./middleware";
+export * from "./awsAuthConfiguration";
+export * from "./awsAuthMiddleware";

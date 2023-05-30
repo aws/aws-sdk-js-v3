@@ -3,7 +3,7 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { Provider, RegionInfo } from "@aws-sdk/types";
 
 import { S3ControlResolvedConfig } from "../configurations";
-import { getProcessArnablesPlugin } from "./plugin";
+import { getProcessArnablesPlugin } from "./getProcessArnablesPlugin";
 
 describe("getProcessArnablesMiddleware", () => {
   type FakeOptions = {

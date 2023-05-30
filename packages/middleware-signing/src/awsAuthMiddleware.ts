@@ -10,7 +10,7 @@ import {
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 
-import { AwsAuthResolvedConfig } from "./configurations";
+import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 

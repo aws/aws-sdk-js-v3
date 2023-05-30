@@ -1,2 +1,2 @@
-export * from "./configurations";
-export * from "./middleware";
+export * from "./apiKeyConfiguration";
+export * from "./apiKeyMiddleware";
