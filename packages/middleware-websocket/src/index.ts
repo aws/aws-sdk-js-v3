@@ -1,4 +1,4 @@
-export * from "./configuration";
 export * from "./eventstream-payload-handler-provider";
-export * from "./plugin";
+export * from "./getWebSocketPlugin";
+export * from "./websocket-configuration";
 export * from "./websocket-fetch-handler";

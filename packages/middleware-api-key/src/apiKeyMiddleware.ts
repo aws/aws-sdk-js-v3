@@ -10,7 +10,7 @@ import {
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 
-import { ApiKeyResolvedConfig } from "./configurations";
+import { ApiKeyResolvedConfig } from "./apiKeyConfiguration";
 
 /**
  * Middleware to inject the API key into the HTTP request.

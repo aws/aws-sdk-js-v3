@@ -1,7 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { FinalizeRequestMiddleware, RelativeMiddlewareOptions } from "@aws-sdk/types";
 
-import { EventStreamResolvedConfig } from "./configuration";
+import { EventStreamResolvedConfig } from "./eventStreamConfiguration";
 
 export const eventStreamHandlingMiddleware =
   (options: EventStreamResolvedConfig): FinalizeRequestMiddleware<any, any> =>

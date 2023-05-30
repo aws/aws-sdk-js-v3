@@ -1,6 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-import { resolveAwsAuthConfig, resolveSigV4AuthConfig } from "./configurations";
+import { resolveAwsAuthConfig, resolveSigV4AuthConfig } from "./awsAuthConfiguration";
 
 describe("AuthConfig", () => {
   const authScheme = {

@@ -1,8 +1,8 @@
 import { Pluggable } from "@aws-sdk/types";
 
-import { EventStreamResolvedConfig } from "./configuration";
-import { eventStreamHandlingMiddleware, eventStreamHandlingMiddlewareOptions } from "./handling-middleware";
-import { eventStreamHeaderMiddleware, eventStreamHeaderMiddlewareOptions } from "./headers-middleware";
+import { EventStreamResolvedConfig } from "./eventStreamConfiguration";
+import { eventStreamHandlingMiddleware, eventStreamHandlingMiddlewareOptions } from "./eventStreamHandlingMiddleware";
+import { eventStreamHeaderMiddleware, eventStreamHeaderMiddlewareOptions } from "./eventStreamHeaderMiddleware";
 
 export const getEventStreamPlugin = (options: EventStreamResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
