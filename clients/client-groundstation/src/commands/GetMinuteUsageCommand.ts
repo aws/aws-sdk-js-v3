@@ -36,7 +36,7 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
 
 /**
  * @public
- * <p>Returns the number of minutes used by account.</p>
+ * <p>Returns the number of reserved minutes used by account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
