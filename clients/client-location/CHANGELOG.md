@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+
+### Features
+
+* **client-location:** This release adds API support for political views for the maps service APIs: CreateMap, UpdateMap, DescribeMap. ([3da6dc1](https://github.com/aws/aws-sdk-js-v3/commit/3da6dc1425d2bb5901d39eceaff8d275127139bf))
+
+
+
+
+
 # [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-location

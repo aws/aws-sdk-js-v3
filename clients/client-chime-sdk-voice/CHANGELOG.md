@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+
+### Features
+
+* **client-chime-sdk-voice:** Added optional CallLeg field to StartSpeakerSearchTask API request ([686075c](https://github.com/aws/aws-sdk-js-v3/commit/686075c08607b6eb67f38212e17ed4950b8ea052))
+
+
+
+
+
 # [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-voice

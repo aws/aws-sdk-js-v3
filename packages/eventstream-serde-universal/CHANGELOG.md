@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+
+### Features
+
+* **event-stream:** implement event stream sra ([#4695](https://github.com/aws/aws-sdk-js-v3/issues/4695)) ([9ba012d](https://github.com/aws/aws-sdk-js-v3/commit/9ba012dfa3a3429aa2db0f90b3b0b3a7a31f9bc3))
+
+
+
+
+
 # [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
 
 **Note:** Version bump only for package @aws-sdk/eventstream-serde-universal

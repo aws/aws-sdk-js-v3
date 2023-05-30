@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+
+### Features
+
+* **client-chime-sdk-voice:** Added optional CallLeg field to StartSpeakerSearchTask API request ([686075c](https://github.com/aws/aws-sdk-js-v3/commit/686075c08607b6eb67f38212e17ed4950b8ea052))
+* **client-glue:** Added Runtime parameter to allow selection of Ray Runtime ([4fe5f19](https://github.com/aws/aws-sdk-js-v3/commit/4fe5f197cff75a178c8bdf009ac160c5813d79f8))
+* **client-iotfleetwise:** Campaigns now support selecting Timestream or S3 as the data destination, Signal catalogs now support "Deprecation" keyword released in VSS v2.1 and "Comment" keyword released in VSS v3.0 ([bbff135](https://github.com/aws/aws-sdk-js-v3/commit/bbff135e03159feffe545f46989c56b5a7f8e0e8))
+* **client-location:** This release adds API support for political views for the maps service APIs: CreateMap, UpdateMap, DescribeMap. ([3da6dc1](https://github.com/aws/aws-sdk-js-v3/commit/3da6dc1425d2bb5901d39eceaff8d275127139bf))
+* **client-memorydb:** Amazon MemoryDB for Redis now supports AWS Identity and Access Management authentication access to Redis clusters starting with redis-engine version 7.0 ([c777cc7](https://github.com/aws/aws-sdk-js-v3/commit/c777cc75f228b1208787e02f9258359470036058))
+* **client-personalize:** This release provides support for the exclusion of certain columns for training when creating a solution and creating or updating a recommender with Amazon Personalize. ([a083178](https://github.com/aws/aws-sdk-js-v3/commit/a0831787a73d35a14d5ce59a3ace76e2c4a13892))
+* **client-polly:** Amazon Polly adds 2 new voices - Sofie (da-DK) and Niamh (en-IE) ([a7078af](https://github.com/aws/aws-sdk-js-v3/commit/a7078afa26366e7d3fc8e47c972552814ed4a2bc))
+* **client-securityhub:** Added new resource detail objects to ASFF, including resources for AwsGuardDutyDetector, AwsAmazonMqBroker, AwsEventSchemasRegistry, AwsAppSyncGraphQlApi and AwsStepFunctionStateMachine. ([f7f67de](https://github.com/aws/aws-sdk-js-v3/commit/f7f67ded6012babd53a8c5ff6f4e1c0578808e4e))
+* **client-securitylake:** Log sources are now versioned. AWS log sources and custom sources will now come with a version identifier that enables producers to vend multiple schema versions to subscribers. Security Lake API have been refactored to more closely align with AWS API conventions. ([c1da60a](https://github.com/aws/aws-sdk-js-v3/commit/c1da60a22cdea479996759d0bc239175fe75a164))
+* **client-wafv2:** This SDK release provides customers the ability to use Header Order as a field to match. ([bc10673](https://github.com/aws/aws-sdk-js-v3/commit/bc10673e5ef7ca1d4ed5105c93287889106e0a75))
+* **clients:** update client endpoints as of 2023-05-30 ([20fd541](https://github.com/aws/aws-sdk-js-v3/commit/20fd541c9dd4566173ca2873a8a8a31d4ee1973b))
+* **event-stream:** implement event stream sra ([#4695](https://github.com/aws/aws-sdk-js-v3/issues/4695)) ([9ba012d](https://github.com/aws/aws-sdk-js-v3/commit/9ba012dfa3a3429aa2db0f90b3b0b3a7a31f9bc3))
+
+
+
+
+
 # [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
 
 

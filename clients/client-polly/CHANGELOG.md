@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+
+### Features
+
+* **client-polly:** Amazon Polly adds 2 new voices - Sofie (da-DK) and Niamh (en-IE) ([a7078af](https://github.com/aws/aws-sdk-js-v3/commit/a7078afa26366e7d3fc8e47c972552814ed4a2bc))
+
+
+
+
+
 # [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-polly

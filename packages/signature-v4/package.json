@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4",
-  "version": "3.341.0",
+  "version": "3.342.0",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -22,13 +22,13 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/eventstream-codec": "*",
     "@aws-sdk/is-array-buffer": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-hex-encoding": "*",
     "@aws-sdk/util-middleware": "*",
     "@aws-sdk/util-uri-escape": "*",
     "@aws-sdk/util-utf8": "*",
-    "@aws-sdk/eventstream-codec": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

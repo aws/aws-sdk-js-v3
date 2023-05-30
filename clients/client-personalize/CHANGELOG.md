@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+
+### Features
+
+* **client-personalize:** This release provides support for the exclusion of certain columns for training when creating a solution and creating or updating a recommender with Amazon Personalize. ([a083178](https://github.com/aws/aws-sdk-js-v3/commit/a0831787a73d35a14d5ce59a3ace76e2c4a13892))
+
+
+
+
+
 # [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-personalize
