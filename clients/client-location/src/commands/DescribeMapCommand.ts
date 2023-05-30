@@ -55,6 +55,7 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * //   DataSource: "STRING_VALUE", // required
  * //   Configuration: { // MapConfiguration
  * //     Style: "STRING_VALUE", // required
+ * //     PoliticalView: "STRING_VALUE",
  * //   },
  * //   Description: "STRING_VALUE", // required
  * //   Tags: { // TagMap

@@ -47,6 +47,9 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  *   MapName: "STRING_VALUE", // required
  *   PricingPlan: "STRING_VALUE",
  *   Description: "STRING_VALUE",
+ *   ConfigurationUpdate: { // MapConfigurationUpdate
+ *     PoliticalView: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateMapCommand(input);
  * const response = await client.send(command);

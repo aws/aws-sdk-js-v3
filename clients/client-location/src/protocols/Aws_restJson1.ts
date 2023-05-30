@@ -190,6 +190,7 @@ import {
   ListRouteCalculatorsResponseEntry,
   ListTrackersResponseEntry,
   MapConfiguration,
+  MapConfigurationUpdate,
   Place,
   PlaceGeometry,
   PositionalAccuracy,
@@ -2338,6 +2339,7 @@ export const se_UpdateMapCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ConfigurationUpdate: (_) => _json(_),
       Description: [],
       PricingPlan: [],
     })
@@ -3392,6 +3394,9 @@ const de_CreateTrackerCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.location#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.location#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.location#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -6234,6 +6239,8 @@ const se_LinearRings = (input: number[][][], context: __SerdeContext): any => {
 };
 
 // se_MapConfiguration omitted.
+
+// se_MapConfigurationUpdate omitted.
 
 /**
  * serializeAws_restJson1Position

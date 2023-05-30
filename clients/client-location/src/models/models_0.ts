@@ -2276,14 +2276,14 @@ export interface MapConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VectorEsriStreets</code> – The Esri World Streets map style, which
+   *                   <code>VectorEsriStreets</code> – The Esri Street Map style, which
    *                     provides a detailed vector basemap for the world symbolized with a classic Esri
    *                     street map style. The vector tile layer is similar in content and style to the
    *                     World Street Map raster map.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VectorEsriNavigation</code> – The Esri World Navigation map style, which
+   *                   <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
    *                     provides a detailed basemap for the world symbolized with a custom navigation
    *                     map style that's designed for use during the day in mobile devices.</p>
    *             </li>
@@ -2389,6 +2389,20 @@ export interface MapConfiguration {
    *          </ul>
    */
   Style: string | undefined;
+
+  /**
+   * <p>Specifies the political view for the style. Leave unset to not use a political
+   *             view, or, for styles that support specific political views, you can choose a view,
+   *             such as <code>IND</code> for the Indian view.</p>
+   *          <p>Default is unset.</p>
+   *          <note>
+   *             <p>Not all map resources or styles support political view styles. See
+   *                 <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+   *                     views</a>
+   *                 for more information.</p>
+   *          </note>
+   */
+  PoliticalView?: string;
 }
 
 /**
@@ -4168,7 +4182,16 @@ export interface GetMapGlyphsRequest {
    *                     <code>Amazon Ember Medium,Noto Sans Medium</code> |
    *                     <code>Amazon Ember Regular Italic,Noto Sans Italic</code> |
    *                     <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> |
-   *                     <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code>
+   *                     <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code> |
+   *                     <code>Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular</code> |
+   *                     <code>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic
+   *                         Condensed Bold</code> |
+   *                     <code>Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold</code> |
+   *                     <code>Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic
+   *                         Regular</code> |
+   *                     <code>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic
+   *                         Condensed Regular</code> |
+   *                     <code>Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -5026,6 +5049,25 @@ export interface ListTrackersResponse {
 
 /**
  * @public
+ * <p>Specifies the political view for the style.</p>
+ */
+export interface MapConfigurationUpdate {
+  /**
+   * <p>Specifies the political view for the style. Set to an empty string to not use a
+   *             political view, or, for styles that support specific political views, you can choose a
+   *             view, such as <code>IND</code> for the Indian view.</p>
+   *          <note>
+   *             <p>Not all map resources or styles support political view styles. See
+   *                 <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#political-views">Political
+   *                     views</a>
+   *                 for more information.</p>
+   *          </note>
+   */
+  PoliticalView?: string;
+}
+
+/**
+ * @public
  */
 export interface UpdateMapRequest {
   /**
@@ -5045,6 +5087,12 @@ export interface UpdateMapRequest {
    * <p>Updates the description for the map resource.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Updates the parts of the map configuration that can be updated, including the
+   *             political view.</p>
+   */
+  ConfigurationUpdate?: MapConfigurationUpdate;
 }
 
 /**
