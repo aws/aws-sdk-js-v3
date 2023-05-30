@@ -1,3 +1,4 @@
+import { HeaderMarshaller } from "@aws-sdk/eventstream-codec";
 import {
   AwsCredentialIdentity,
   ChecksumConstructor,
@@ -8,17 +9,20 @@ import {
   HashConstructor,
   HeaderBag,
   HttpRequest,
+  MessageSigner,
   Provider,
   RequestPresigner,
   RequestPresigningArguments,
   RequestSigner,
   RequestSigningArguments,
+  SignableMessage,
+  SignedMessage,
   SigningArguments,
   StringSigner,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
-import { toUint8Array } from "@aws-sdk/util-utf8";
+import { fromUtf8, toUint8Array, toUtf8 } from "@aws-sdk/util-utf8";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -93,13 +97,14 @@ export interface SignatureV4CryptoInit {
   sha256: ChecksumConstructor | HashConstructor;
 }
 
-export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigner, EventSigner {
+export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigner, EventSigner, MessageSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
   private readonly credentialProvider: Provider<AwsCredentialIdentity>;
   private readonly sha256: ChecksumConstructor | HashConstructor;
   private readonly uriEscapePath: boolean;
   private readonly applyChecksum: boolean;
+  private readonly headerMarshaller = new HeaderMarshaller(toUtf8, fromUtf8);
 
   constructor({
     applyChecksum,
@@ -165,12 +170,15 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
 
   public async sign(stringToSign: string, options?: SigningArguments): Promise<string>;
   public async sign(event: FormattedEvent, options: EventSigningArguments): Promise<string>;
+  public async sign(event: SignableMessage, options: SigningArguments): Promise<SignedMessage>;
   public async sign(requestToSign: HttpRequest, options?: RequestSigningArguments): Promise<HttpRequest>;
   public async sign(toSign: any, options: any): Promise<any> {
     if (typeof toSign === "string") {
       return this.signString(toSign, options);
     } else if (toSign.headers && toSign.payload) {
       return this.signEvent(toSign, options);
+    } else if (toSign.message) {
+      return this.signMessage(toSign, options);
     } else {
       return this.signRequest(toSign, options);
     }
@@ -196,6 +204,28 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
       hashedPayload,
     ].join("\n");
     return this.signString(stringToSign, { signingDate, signingRegion: region, signingService });
+  }
+
+  async signMessage(
+    signableMessage: SignableMessage,
+    { signingDate = new Date(), signingRegion, signingService }: SigningArguments
+  ): Promise<SignedMessage> {
+    const promise = this.signEvent(
+      {
+        headers: this.headerMarshaller.format(signableMessage.message.headers),
+        payload: signableMessage.message.body,
+      },
+      {
+        signingDate,
+        signingRegion,
+        signingService,
+        priorSignature: signableMessage.priorSignature,
+      }
+    );
+
+    return promise.then((signature) => {
+      return { message: signableMessage.message, signature };
+    });
   }
 
   private async signString(

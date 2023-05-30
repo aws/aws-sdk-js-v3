@@ -23,77 +23,17 @@ export interface Message {
  */
 export type MessageHeaders = Record<string, MessageHeaderValue>;
 
-/**
- * @public
- */
-export interface BooleanHeaderValue {
-  type: "boolean";
-  value: boolean;
-}
+type HeaderValue<K extends string, V> = { type: K; value: V };
 
-/**
- * @public
- */
-export interface ByteHeaderValue {
-  type: "byte";
-  value: number;
-}
-
-/**
- * @public
- */
-export interface ShortHeaderValue {
-  type: "short";
-  value: number;
-}
-
-/**
- * @public
- */
-export interface IntegerHeaderValue {
-  type: "integer";
-  value: number;
-}
-
-/**
- * @public
- */
-export interface LongHeaderValue {
-  type: "long";
-  value: Int64;
-}
-
-/**
- * @public
- */
-export interface BinaryHeaderValue {
-  type: "binary";
-  value: Uint8Array;
-}
-
-/**
- * @public
- */
-export interface StringHeaderValue {
-  type: "string";
-  value: string;
-}
-
-/**
- * @public
- */
-export interface TimestampHeaderValue {
-  type: "timestamp";
-  value: Date;
-}
-
-/**
- * @public
- */
-export interface UuidHeaderValue {
-  type: "uuid";
-  value: string;
-}
+export type BooleanHeaderValue = HeaderValue<"boolean", boolean>;
+export type ByteHeaderValue = HeaderValue<"byte", number>;
+export type ShortHeaderValue = HeaderValue<"short", number>;
+export type IntegerHeaderValue = HeaderValue<"integer", number>;
+export type LongHeaderValue = HeaderValue<"long", Int64>;
+export type BinaryHeaderValue = HeaderValue<"binary", Uint8Array>;
+export type StringHeaderValue = HeaderValue<"string", string>;
+export type TimestampHeaderValue = HeaderValue<"timestamp", Date>;
+export type UuidHeaderValue = HeaderValue<"uuid", string>;
 
 /**
  * @public

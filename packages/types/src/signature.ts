@@ -1,3 +1,4 @@
+import { Message } from "./eventStream";
 import { HttpRequest } from "./http";
 
 /**
@@ -138,4 +139,30 @@ export interface EventSigner {
    * Sign the individual event of the event stream.
    */
   sign(event: FormattedEvent, options: EventSigningArguments): Promise<string>;
+}
+
+/**
+ * @public
+ */
+export interface SignableMessage {
+  message: Message;
+
+  priorSignature: string;
+}
+
+/**
+ * @public
+ */
+export interface SignedMessage {
+  message: Message;
+
+  signature: string;
+}
+
+/**
+ * @public
+ */
+export interface MessageSigner {
+  signMessage(message: SignableMessage, args: SigningArguments): Promise<SignedMessage>;
+  sign(event: SignableMessage, options: SigningArguments): Promise<SignedMessage>;
 }

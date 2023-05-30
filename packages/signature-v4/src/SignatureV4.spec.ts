@@ -1,6 +1,6 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { AwsCredentialIdentity, SignableMessage, TimestampHeaderValue } from "@aws-sdk/types";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -783,6 +783,45 @@ describe("SignatureV4", () => {
         }
       );
       expect(eventSignature).toEqual("204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226");
+    });
+  });
+
+  describe("#sign (message)", () => {
+    const signerInit = {
+      service: "SERVICE",
+      region: "REGION",
+      credentials: {
+        accessKeyId: "akid",
+        secretAccessKey: "secret",
+      },
+      sha256: Sha256,
+    };
+
+    it("support message signing", async () => {
+      const signer = new SignatureV4(signerInit);
+
+      const headers = {
+        ":date": {
+          type: "timestamp",
+          value: new Date("2018-12-29T01:04:06.000Z"),
+        } as TimestampHeaderValue,
+      };
+
+      const signedMessage = await signer.sign(
+        {
+          message: {
+            headers,
+            body: "foo" as any,
+          },
+          priorSignature: "",
+        } as SignableMessage,
+        {
+          signingDate: new Date(1369353600000),
+        }
+      );
+      expect(signedMessage.signature).toEqual("204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226");
+      expect(signedMessage.message.body).toEqual("foo");
+      expect(signedMessage.message.headers).toEqual(headers);
     });
   });
 

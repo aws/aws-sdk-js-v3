@@ -32,9 +32,10 @@ export function resolveEventStreamConfig<T>(
   input: T & PreviouslyResolved & EventStreamInputConfig
 ): T & EventStreamResolvedConfig {
   const eventSigner = input.signer;
+  const messageSigner = input.signer;
   const eventStreamPayloadHandler = input.eventStreamPayloadHandlerProvider({
     ...input,
-    eventSigner,
+    messageSigner,
   });
   return {
     ...input,

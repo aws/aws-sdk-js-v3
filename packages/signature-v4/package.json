@@ -28,6 +28,7 @@
     "@aws-sdk/util-middleware": "*",
     "@aws-sdk/util-uri-escape": "*",
     "@aws-sdk/util-utf8": "*",
+    "@aws-sdk/eventstream-codec": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

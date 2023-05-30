@@ -2,13 +2,13 @@ import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import {
   Decoder,
   Encoder,
-  EventSigner,
   EventStreamPayloadHandler as IEventStreamPayloadHandler,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   HandlerExecutionContext,
   HttpRequest,
+  MessageSigner,
   MetadataBearer,
   Provider,
 } from "@aws-sdk/types";
@@ -20,14 +20,14 @@ import { EventSigningStream } from "./EventSigningStream";
  * @internal
  */
 export interface EventStreamPayloadHandlerOptions {
-  eventSigner: Provider<EventSigner>;
+  messageSigner: Provider<MessageSigner>;
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
 }
 
 /**
  * @internal
- * 
+ *
  * A handler that control the eventstream payload flow:
  * 1. Pause stream for initial attempt.
  * 2. Close the stream is attempt fails.
@@ -35,11 +35,11 @@ export interface EventStreamPayloadHandlerOptions {
  * 4. Sign the payload after payload stream starting to flow.
  */
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
-  private readonly eventSigner: Provider<EventSigner>;
+  private readonly messageSigner: Provider<MessageSigner>;
   private readonly eventStreamCodec: EventStreamCodec;
 
   constructor(options: EventStreamPayloadHandlerOptions) {
-    this.eventSigner = options.eventSigner;
+    this.messageSigner = options.messageSigner;
     this.eventStreamCodec = new EventStreamCodec(options.utf8Encoder, options.utf8Decoder);
   }
 
@@ -78,7 +78,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     const signingStream = new EventSigningStream({
       priorSignature,
       eventStreamCodec: this.eventStreamCodec,
-      eventSigner: await this.eventSigner(),
+      messageSigner: await this.messageSigner(),
     });
 
     pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {

@@ -1,5 +1,5 @@
 import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
-import { EventSigner, MessageHeaders } from "@aws-sdk/types";
+import { MessageHeaders, MessageSigner } from "@aws-sdk/types";
 import { Transform, TransformCallback, TransformOptions } from "stream";
 
 /**
@@ -7,18 +7,18 @@ import { Transform, TransformCallback, TransformOptions } from "stream";
  */
 export interface EventSigningStreamOptions extends TransformOptions {
   priorSignature: string;
-  eventSigner: EventSigner;
+  messageSigner: MessageSigner;
   eventStreamCodec: EventStreamCodec;
 }
 
 /**
  * @internal
- * 
+ *
  * A transform stream that signs the eventstream
  */
 export class EventSigningStream extends Transform {
   private priorSignature: string;
-  private eventSigner: EventSigner;
+  private messageSigner: MessageSigner;
   private eventStreamCodec: EventStreamCodec;
 
   constructor(options: EventSigningStreamOptions) {
@@ -30,8 +30,8 @@ export class EventSigningStream extends Transform {
     });
 
     this.priorSignature = options.priorSignature;
-    this.eventSigner = options.eventSigner;
     this.eventStreamCodec = options.eventStreamCodec;
+    this.messageSigner = options.messageSigner;
   }
 
   async _transform(chunk: Uint8Array, encoding: string, callback: TransformCallback): Promise<void> {
@@ -40,23 +40,25 @@ export class EventSigningStream extends Transform {
       const dateHeader: MessageHeaders = {
         ":date": { type: "timestamp", value: now },
       };
-      const signature = await this.eventSigner.sign(
+      const signedMessage = await this.messageSigner.sign(
         {
-          payload: chunk,
-          headers: this.eventStreamCodec.formatHeaders(dateHeader),
+          message: {
+            body: chunk,
+            headers: dateHeader,
+          },
+          priorSignature: this.priorSignature,
         },
         {
-          priorSignature: this.priorSignature,
           signingDate: now,
         }
       );
-      this.priorSignature = signature;
+      this.priorSignature = signedMessage.signature;
       const serializedSigned = this.eventStreamCodec.encode({
         headers: {
           ...dateHeader,
           ":chunk-signature": {
             type: "binary",
-            value: getSignatureBinary(signature),
+            value: getSignatureBinary(signedMessage.signature),
           },
         },
         body: chunk,
