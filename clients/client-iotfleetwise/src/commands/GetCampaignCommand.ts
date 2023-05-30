@@ -85,6 +85,20 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //   ],
  * //   creationTime: new Date("TIMESTAMP"),
  * //   lastModificationTime: new Date("TIMESTAMP"),
+ * //   dataDestinationConfigs: [ // DataDestinationConfigs
+ * //     { // DataDestinationConfig Union: only one key present
+ * //       s3Config: { // S3Config
+ * //         bucketArn: "STRING_VALUE", // required
+ * //         dataFormat: "STRING_VALUE",
+ * //         storageCompressionFormat: "STRING_VALUE",
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       timestreamConfig: { // TimestreamConfig
+ * //         timestreamTableArn: "STRING_VALUE", // required
+ * //         executionRoleArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

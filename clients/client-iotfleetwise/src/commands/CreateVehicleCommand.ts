@@ -40,7 +40,7 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  *             created from the same vehicle model consist of the same signals inherited from the
  *             vehicle model.</p>
  *         <note>
- *             <p> If you have an existing Amazon Web Services IoT Thing, you can use Amazon Web Services IoT FleetWise to create a
+ *             <p> If you have an existing Amazon Web Services IoT thing, you can use Amazon Web Services IoT FleetWise to create a
  *                 vehicle and collect data from your thing. </p>
  *         </note>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html">Create a vehicle

@@ -87,6 +87,20 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   dataDestinationConfigs: [ // DataDestinationConfigs
+ *     { // DataDestinationConfig Union: only one key present
+ *       s3Config: { // S3Config
+ *         bucketArn: "STRING_VALUE", // required
+ *         dataFormat: "STRING_VALUE",
+ *         storageCompressionFormat: "STRING_VALUE",
+ *         prefix: "STRING_VALUE",
+ *       },
+ *       timestreamConfig: { // TimestreamConfig
+ *         timestreamTableArn: "STRING_VALUE", // required
+ *         executionRoleArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);

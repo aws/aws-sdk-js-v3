@@ -59,6 +59,8 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * //       branch: { // Branch
  * //         fullyQualifiedName: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
  * //       },
  * //       sensor: { // Sensor
  * //         fullyQualifiedName: "STRING_VALUE", // required
@@ -70,6 +72,8 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * //         ],
  * //         min: Number("double"),
  * //         max: Number("double"),
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
  * //       },
  * //       actuator: { // Actuator
  * //         fullyQualifiedName: "STRING_VALUE", // required
@@ -82,6 +86,8 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * //         min: Number("double"),
  * //         max: Number("double"),
  * //         assignedValue: "STRING_VALUE",
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
  * //       },
  * //       attribute: { // Attribute
  * //         fullyQualifiedName: "STRING_VALUE", // required
@@ -95,6 +101,8 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * //         max: Number("double"),
  * //         assignedValue: "STRING_VALUE",
  * //         defaultValue: "STRING_VALUE",
+ * //         deprecationMessage: "STRING_VALUE",
+ * //         comment: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

@@ -114,6 +114,16 @@ export interface Actuator {
    * <p>A specified value for the actuator.</p>
    */
   assignedValue?: string;
+
+  /**
+   * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
+   */
+  deprecationMessage?: string;
+
+  /**
+   * <p>A comment in addition to the description.</p>
+   */
+  comment?: string;
 }
 
 /**
@@ -350,6 +360,16 @@ export interface Attribute {
    * <p>The default value of the attribute.</p>
    */
   defaultValue?: string;
+
+  /**
+   * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
+   */
+  deprecationMessage?: string;
+
+  /**
+   * <p>A comment in addition to the description.</p>
+   */
+  comment?: string;
 }
 
 /**
@@ -657,6 +677,16 @@ export interface Branch {
    * <p>A brief description of the branch.</p>
    */
   description?: string;
+
+  /**
+   * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
+   */
+  deprecationMessage?: string;
+
+  /**
+   * <p>A comment in addition to the description.</p>
+   */
+  comment?: string;
 }
 
 /**
@@ -828,6 +858,138 @@ export type Compression = (typeof Compression)[keyof typeof Compression];
  * @public
  * @enum
  */
+export const DataFormat = {
+  JSON: "JSON",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageCompressionFormat = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageCompressionFormat = (typeof StorageCompressionFormat)[keyof typeof StorageCompressionFormat];
+
+/**
+ * @public
+ * <p>The Amazon S3 bucket where the Amazon Web Services IoT FleetWise campaign sends data. Amazon S3 is an object storage service that stores data as objects within buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ */
+export interface S3Config {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</p>
+   */
+  bucketArn: string | undefined;
+
+  /**
+   * <p>Specify the format that files are saved in the Amazon S3 bucket. You can save files in an Apache Parquet or JSON format.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Parquet - Store data in a columnar storage file format. Parquet is optimal for
+   *                     fast data retrieval and can reduce costs. This option is selected by
+   *                     default.</p>
+   *             </li>
+   *             <li>
+   *                 <p>JSON - Store data in a standard text-based JSON file format.</p>
+   *             </li>
+   *          </ul>
+   */
+  dataFormat?: DataFormat | string;
+
+  /**
+   * <p>By default, stored data is compressed as a .gzip file. Compressed files have a reduced
+   *             file size, which can optimize the cost of data storage.</p>
+   */
+  storageCompressionFormat?: StorageCompressionFormat | string;
+
+  /**
+   * <p>(Optional) Enter an S3 bucket prefix. The prefix is the string of characters after the bucket name and before the object name. You can use the prefix to organize data stored in Amazon S3 buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *         <p>By default, Amazon Web Services IoT FleetWise sets the prefix <code>processed-data/year=YY/month=MM/date=DD/hour=HH/</code> (in UTC) to data it delivers to Amazon S3. You can enter a prefix to append it to this default prefix. For example, if you enter the prefix <code>vehicles</code>, the prefix will be <code>vehicles/processed-data/year=YY/month=MM/date=DD/hour=HH/</code>.</p>
+   */
+  prefix?: string;
+}
+
+/**
+ * @public
+ * <p>The Amazon Timestream table where the Amazon Web Services IoT FleetWise campaign sends data. Timestream stores and organizes data to optimize query processing time and to reduce storage costs. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/data-modeling.html">Data modeling</a> in the <i>Amazon Timestream Developer Guide</i>.</p>
+ */
+export interface TimestreamConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Timestream table.</p>
+   */
+  timestreamTableArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task execution role that grants Amazon Web Services IoT FleetWise permission to deliver data to the Amazon Timestream table.</p>
+   */
+  executionRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The destination where the Amazon Web Services IoT FleetWise campaign sends data. You can send data to be stored in Amazon S3 or Amazon Timestream.</p>
+ */
+export type DataDestinationConfig =
+  | DataDestinationConfig.S3ConfigMember
+  | DataDestinationConfig.TimestreamConfigMember
+  | DataDestinationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataDestinationConfig {
+  /**
+   * <p>The Amazon S3 bucket where the Amazon Web Services IoT FleetWise campaign sends data.</p>
+   */
+  export interface S3ConfigMember {
+    s3Config: S3Config;
+    timestreamConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Timestream table where the campaign sends data.</p>
+   */
+  export interface TimestreamConfigMember {
+    s3Config?: never;
+    timestreamConfig: TimestreamConfig;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    s3Config?: never;
+    timestreamConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3Config: (value: S3Config) => T;
+    timestreamConfig: (value: TimestreamConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DataDestinationConfig, visitor: Visitor<T>): T => {
+    if (value.s3Config !== undefined) return visitor.s3Config(value.s3Config);
+    if (value.timestreamConfig !== undefined) return visitor.timestreamConfig(value.timestreamConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DiagnosticsMode = {
   OFF: "OFF",
   SEND_ACTIVE_DTCS: "SEND_ACTIVE_DTCS",
@@ -912,7 +1074,7 @@ export interface CreateCampaignRequest {
 
   /**
    * <p> (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at
-   *             midnight UTC time). Vehicle data won't be collected after the campaign expires. </p>
+   *             midnight UTC time). Vehicle data isn't collected after the campaign expires. </p>
    *         <p>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</p>
    */
   expiryTime?: Date;
@@ -984,6 +1146,14 @@ export interface CreateCampaignRequest {
    * <p>Metadata that can be used to manage the campaign.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
+   *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
+   *         <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
+   *             vehicle data so that you can identify trends and patterns.</p>
+   */
+  dataDestinationConfigs?: DataDestinationConfig[];
 }
 
 /**
@@ -1159,6 +1329,14 @@ export interface GetCampaignResponse {
    * <p>The last time the campaign was modified.</p>
    */
   lastModificationTime?: Date;
+
+  /**
+   * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
+   *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
+   *         <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
+   *             vehicle data so that you can identify trends and patterns.</p>
+   */
+  dataDestinationConfigs?: DataDestinationConfig[];
 }
 
 /**
@@ -1317,11 +1495,11 @@ export interface UpdateCampaignRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>SUSPEND</code> - To suspend collecting signal data. </p>
+   *                     <code>SUSPEND</code> - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>RESUME</code> - To resume collecting signal data. </p>
+   *                     <code>RESUME</code> - To reactivate the <code>SUSPEND</code> campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1440,12 +1618,16 @@ export interface CanSignal {
   isSigned: boolean | undefined;
 
   /**
-   * <p>Indicates the beginning of the CAN message.</p>
+   * <p>Indicates the beginning of the CAN signal. This should always be the least significant bit (LSB).</p>
+   *         <p>This value might be different from the value in a DBC file. For little endian signals,
+   *                 <code>startBit</code> is the same value as in the DBC file. For big endian signals
+   *             in a DBC file, the start bit is the most significant bit (MSB). You will have to
+   *             calculate the LSB instead and pass it as the <code>startBit</code>.</p>
    */
   startBit: number | undefined;
 
   /**
-   * <p>Indicates where data appears in the CAN message.</p>
+   * <p>The offset used to calculate the signal value. Combined with factor, the calculation is <code>value = raw_value * factor + offset</code>.</p>
    */
   offset: number | undefined;
 
@@ -1612,7 +1794,7 @@ export interface ObdSignal {
   scaling: number | undefined;
 
   /**
-   * <p>Indicates where data appears in the message.</p>
+   * <p>The offset used to calculate the signal value. Combined with scaling, the calculation is <code>value = raw_value * scaling + offset</code>.</p>
    */
   offset: number | undefined;
 
@@ -2011,6 +2193,16 @@ export interface Sensor {
    * <p>The specified possible maximum value of the sensor.</p>
    */
   max?: number;
+
+  /**
+   * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
+   */
+  deprecationMessage?: string;
+
+  /**
+   * <p>A comment in addition to the description.</p>
+   */
+  comment?: string;
 }
 
 /**
@@ -2208,6 +2400,7 @@ export interface CreateVehicleRequest {
    * <p>Static information about a vehicle in a key-value pair. For example:
    *                 <code>"engineType"</code> : <code>"1.3 L R2"</code>
    *          </p>
+   *         <p>A campaign must include the keys (attribute names) in <code>dataExtraDimensions</code> for them to display in Amazon Timestream.</p>
    */
   attributes?: Record<string, string>;
 
@@ -2972,7 +3165,8 @@ export interface ListVehiclesInFleetResponse {
 
 /**
  * @public
- * <p>Vehicle Signal Specification (VSS) is a precise language used to describe and model
+ * <p>
+ *             <a href="https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec">Vehicle Signal Specification (VSS)</a> is a precise language used to describe and model
  *             signals in vehicle networks. The JSON file collects signal specificiations in a VSS
  *             format.</p>
  */
@@ -3191,7 +3385,7 @@ export interface GetRegisterAccountStatusResponse {
   /**
    * <p> Information about the registered Amazon Timestream resources or errors, if any.</p>
    */
-  timestreamRegistrationResponse: TimestreamRegistrationResponse | undefined;
+  timestreamRegistrationResponse?: TimestreamRegistrationResponse;
 
   /**
    * <p> Information about the registered IAM resources or errors, if any. </p>
@@ -3723,10 +3917,12 @@ export interface TimestreamResources {
  */
 export interface RegisterAccountRequest {
   /**
+   * @deprecated
+   *
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
    *             your vehicle data to.</p>
    */
-  timestreamResources: TimestreamResources | undefined;
+  timestreamResources?: TimestreamResources;
 
   /**
    * @deprecated
@@ -3750,7 +3946,7 @@ export interface RegisterAccountResponse {
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
    *             your vehicle data to.</p>
    */
-  timestreamResources: TimestreamResources | undefined;
+  timestreamResources?: TimestreamResources;
 
   /**
    * <p> The registered IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream. </p>

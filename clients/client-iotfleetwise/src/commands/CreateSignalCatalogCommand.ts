@@ -52,6 +52,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *       branch: { // Branch
  *         fullyQualifiedName: "STRING_VALUE", // required
  *         description: "STRING_VALUE",
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
  *       },
  *       sensor: { // Sensor
  *         fullyQualifiedName: "STRING_VALUE", // required
@@ -63,6 +65,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         ],
  *         min: Number("double"),
  *         max: Number("double"),
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
  *       },
  *       actuator: { // Actuator
  *         fullyQualifiedName: "STRING_VALUE", // required
@@ -75,6 +79,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         min: Number("double"),
  *         max: Number("double"),
  *         assignedValue: "STRING_VALUE",
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
  *       },
  *       attribute: { // Attribute
  *         fullyQualifiedName: "STRING_VALUE", // required
@@ -88,6 +94,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         max: Number("double"),
  *         assignedValue: "STRING_VALUE",
  *         defaultValue: "STRING_VALUE",
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
  *       },
  *     },
  *   ],
