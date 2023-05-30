@@ -63,7 +63,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *   },
  *   MaxCapacity: Number("double"),
  *   NumberOfWorkers: Number("int"),
- *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X",
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X" || "Z.2X",
  *   SecurityConfiguration: "STRING_VALUE",
  *   GlueVersion: "STRING_VALUE",
  *   Tags: { // TagsMap

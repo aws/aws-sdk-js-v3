@@ -110,7 +110,7 @@ export interface GetMLTransformCommandOutput extends GetMLTransformResponse, __M
  * //   Role: "STRING_VALUE",
  * //   GlueVersion: "STRING_VALUE",
  * //   MaxCapacity: Number("double"),
- * //   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X",
+ * //   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X" || "Z.2X",
  * //   NumberOfWorkers: Number("int"),
  * //   Timeout: Number("int"),
  * //   MaxRetries: Number("int"),

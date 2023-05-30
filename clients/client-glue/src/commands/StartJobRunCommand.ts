@@ -56,7 +56,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *   NotificationProperty: { // NotificationProperty
  *     NotifyDelayAfter: Number("int"),
  *   },
- *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X",
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X" || "Z.2X",
  *   NumberOfWorkers: Number("int"),
  *   ExecutionClass: "FLEX" || "STANDARD",
  * };
