@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.343.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.342.0...v3.343.0) (2023-05-31)
+
+
+### Features
+
+* **client-rds:** This release adds support for changing the engine for Oracle using the ModifyDbInstance API ([913f68e](https://github.com/aws/aws-sdk-js-v3/commit/913f68ee6bb53350a7c7fc794e56b3e5507d07e4))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

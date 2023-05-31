@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.343.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.342.0...v3.343.0) (2023-05-31)
+
+
+### Features
+
+* **client-config-service:** Resource Types Exclusion feature launch by AWS Config ([0da5ec4](https://github.com/aws/aws-sdk-js-v3/commit/0da5ec42015c80ae4c084e7bc26d335666ba2f4f))
+* **client-frauddetector:** This release enables publishing event predictions from Amazon Fraud Detector (AFD) to Amazon EventBridge. For example, after getting predictions from AFD, Amazon EventBridge rules can be configured to trigger notification through an SNS topic, send a message with SES, or trigger Lambda workflows. ([985b058](https://github.com/aws/aws-sdk-js-v3/commit/985b058297cbebc1c62749050f7418364fc8e907))
+* **client-healthlake:** This release adds a new request parameter to the CreateFHIRDatastore API operation. IdentityProviderConfiguration specifies how you want to authenticate incoming requests to your Healthlake Data Store. ([3580eb8](https://github.com/aws/aws-sdk-js-v3/commit/3580eb8ff53c99d9e4f32925686d4ef483fdc458))
+* **client-m2:** Adds an optional create-only 'roleArn' property to Application resources.  Enables PS and PO data set org types. ([eb955ab](https://github.com/aws/aws-sdk-js-v3/commit/eb955ab3b0d039260718912017ac9c8c81103ab2))
+* **client-rds:** This release adds support for changing the engine for Oracle using the ModifyDbInstance API ([913f68e](https://github.com/aws/aws-sdk-js-v3/commit/913f68ee6bb53350a7c7fc794e56b3e5507d07e4))
+* **client-workspaces-web:** WorkSpaces Web now allows you to control which IP addresses your WorkSpaces Web portal may be accessed from. ([3d0da3d](https://github.com/aws/aws-sdk-js-v3/commit/3d0da3d71208cb0c40b89e4e9ee71d36453d3188))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 

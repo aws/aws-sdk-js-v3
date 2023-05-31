@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.343.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.342.0...v3.343.0) (2023-05-31)
+
+
+### Features
+
+* **client-frauddetector:** This release enables publishing event predictions from Amazon Fraud Detector (AFD) to Amazon EventBridge. For example, after getting predictions from AFD, Amazon EventBridge rules can be configured to trigger notification through an SNS topic, send a message with SES, or trigger Lambda workflows. ([985b058](https://github.com/aws/aws-sdk-js-v3/commit/985b058297cbebc1c62749050f7418364fc8e907))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 **Note:** Version bump only for package @aws-sdk/client-frauddetector
