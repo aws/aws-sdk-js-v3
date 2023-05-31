@@ -141,6 +141,7 @@ describe("NodeHttpHandler", () => {
     it("can send http requests", async () => {
       const mockResponse = {
         statusCode: 200,
+        statusText: "OK",
         headers: {},
         body: "test",
       };
@@ -160,6 +161,7 @@ describe("NodeHttpHandler", () => {
       );
 
       expect(response.statusCode).toEqual(mockResponse.statusCode);
+      expect(response.reason).toEqual(mockResponse.statusText);
       expect(response.headers).toBeDefined();
       expect(response.headers).toMatchObject(mockResponse.headers);
       expect(response.body).toBeDefined();

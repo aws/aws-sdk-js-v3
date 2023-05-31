@@ -98,6 +98,7 @@ export interface HttpRequest extends HttpMessage, Endpoint {
  */
 export interface HttpResponse extends HttpMessage {
   statusCode: number;
+  reason?: string;
 }
 
 /**

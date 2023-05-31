@@ -91,6 +91,7 @@ export class FetchHttpHandler implements HttpHandler {
           return response.blob().then((body) => ({
             response: new HttpResponse({
               headers: transformedHeaders,
+              reason: response.statusText,
               statusCode: response.status,
               body,
             }),
@@ -100,6 +101,7 @@ export class FetchHttpHandler implements HttpHandler {
         return {
           response: new HttpResponse({
             headers: transformedHeaders,
+            reason: response.statusText,
             statusCode: response.status,
             body: response.body,
           }),

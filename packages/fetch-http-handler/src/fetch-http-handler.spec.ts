@@ -290,6 +290,28 @@ describe(FetchHttpHandler.name, () => {
     expect(mockRequest.mock.calls[0][1]).not.toHaveProperty("signal");
   });
 
+  it("creates correct HTTPResponse object", async () => {
+    const mockResponse = {
+      headers: {
+        entries: jest.fn().mockReturnValue([["foo", "bar"]]),
+      },
+      blob: jest.fn().mockResolvedValue(new Blob(["FOO"])),
+      status: 200,
+      statusText: "foo",
+    };
+    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+    (global as any).fetch = mockFetch;
+
+    const fetchHttpHandler = new FetchHttpHandler();
+    const { response } = await fetchHttpHandler.handle({} as any, {});
+
+    expect(mockFetch.mock.calls.length).toBe(1);
+    expect(response.headers).toStrictEqual({ foo: "bar" });
+    expect(response.reason).toBe("foo");
+    expect(response.statusCode).toBe(200);
+    expect(await blobToText(response.body)).toBe("FOO");
+  });
+
   describe("#destroy", () => {
     it("should be callable and return nothing", () => {
       const httpHandler = new FetchHttpHandler();
