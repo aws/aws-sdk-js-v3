@@ -449,6 +449,7 @@ import {
   EvaluationModeConfiguration,
   EvaluationResult,
   EvaluationResultIdentifier,
+  ExclusionByResourceTypes,
   ExecutionControls,
   ExternalEvaluation,
   FailedRemediationExceptionBatch,
@@ -510,9 +511,6 @@ import {
   ListStoredQueriesRequest,
   ListTagsForResourceRequest,
   MaxActiveResourcesExceededException,
-  MaxNumberOfConfigRulesExceededException,
-  MaxNumberOfConfigurationRecordersExceededException,
-  MaxNumberOfConformancePacksExceededException,
   MemberAccountStatus,
   NoAvailableConfigurationRecorderException,
   NoRunningConfigurationRecorderException,
@@ -541,6 +539,7 @@ import {
   OrganizationResourceDetailedStatusFilters,
   OversizedConfigurationItemException,
   RecordingGroup,
+  RecordingStrategy,
   RemediationConfiguration,
   RemediationException,
   RemediationExceptionResourceKey,
@@ -573,6 +572,9 @@ import {
   ValidationException,
 } from "../models/models_0";
 import {
+  MaxNumberOfConfigRulesExceededException,
+  MaxNumberOfConfigurationRecordersExceededException,
+  MaxNumberOfConformancePacksExceededException,
   MaxNumberOfDeliveryChannelsExceededException,
   MaxNumberOfOrganizationConfigRulesExceededException,
   MaxNumberOfOrganizationConformancePacksExceededException,
@@ -7564,6 +7566,8 @@ const se_Evaluations = (input: Evaluation[], context: __SerdeContext): any => {
 
 // se_ExcludedAccounts omitted.
 
+// se_ExclusionByResourceTypes omitted.
+
 // se_ExecutionControls omitted.
 
 /**
@@ -7725,6 +7729,8 @@ const se_PutRemediationExceptionsRequest = (input: PutRemediationExceptionsReque
 // se_PutStoredQueryRequest omitted.
 
 // se_RecordingGroup omitted.
+
+// se_RecordingStrategy omitted.
 
 // se_ReevaluateConfigRuleNames omitted.
 
@@ -8674,6 +8680,8 @@ const de_Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
 
 // de_ExcludedAccounts omitted.
 
+// de_ExclusionByResourceTypes omitted.
+
 // de_ExecutionControls omitted.
 
 // de_FailedDeleteRemediationExceptionsBatch omitted.
@@ -9268,6 +9276,8 @@ const de_PutRemediationExceptionsResponse = (
 // de_QueryInfo omitted.
 
 // de_RecordingGroup omitted.
+
+// de_RecordingStrategy omitted.
 
 // de_RelatedEventList omitted.
 

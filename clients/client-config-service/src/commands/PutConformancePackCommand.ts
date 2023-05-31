@@ -40,7 +40,7 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * 			For information on how many conformance packs you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  *          <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
  * 		The service-linked role is created only when the role does not exist in your account. </p>
  *          <note>
@@ -118,7 +118,7 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * @throws {@link MaxNumberOfConformancePacksExceededException} (client fault)
  *  <p>You have reached the limit of the number of conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>

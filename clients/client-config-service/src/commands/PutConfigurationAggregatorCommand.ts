@@ -131,7 +131,7 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>You have provided a null or empty role ARN.</p>
+ *  <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the configuration recorder.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>For <code>StartConfigRulesEvaluation</code> API, this exception

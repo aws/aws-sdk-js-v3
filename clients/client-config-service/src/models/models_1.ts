@@ -34,6 +34,72 @@ import {
 
 /**
  * @public
+ * <p>Failed to add the Config rule because the account already
+ * 			contains the maximum number of 150 rules. Consider deleting any
+ * 			deactivated rules before you add new rules.</p>
+ */
+export class MaxNumberOfConfigRulesExceededException extends __BaseException {
+  readonly name: "MaxNumberOfConfigRulesExceededException" = "MaxNumberOfConfigRulesExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxNumberOfConfigRulesExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfConfigRulesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfConfigRulesExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>You have reached the limit of the number of configuration recorders you can
+ * 			create.</p>
+ */
+export class MaxNumberOfConfigurationRecordersExceededException extends __BaseException {
+  readonly name: "MaxNumberOfConfigurationRecordersExceededException" =
+    "MaxNumberOfConfigurationRecordersExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxNumberOfConfigurationRecordersExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfConfigurationRecordersExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfConfigurationRecordersExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>You have reached the limit of the number of conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
+ */
+export class MaxNumberOfConformancePacksExceededException extends __BaseException {
+  readonly name: "MaxNumberOfConformancePacksExceededException" = "MaxNumberOfConformancePacksExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxNumberOfConformancePacksExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfConformancePacksExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfConformancePacksExceededException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>You have reached the limit of the number of delivery channels
  * 			you can create.</p>
  */
@@ -57,7 +123,7 @@ export class MaxNumberOfDeliveryChannelsExceededException extends __BaseExceptio
  * @public
  * <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  */
 export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
   readonly name: "MaxNumberOfOrganizationConfigRulesExceededException" =
@@ -80,7 +146,7 @@ export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseE
  * @public
  * <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  */
 export class MaxNumberOfOrganizationConformancePacksExceededException extends __BaseException {
   readonly name: "MaxNumberOfOrganizationConformancePacksExceededException" =
@@ -394,8 +460,7 @@ export interface PutConfigurationAggregatorResponse {
  */
 export interface PutConfigurationRecorderRequest {
   /**
-   * <p>The configuration recorder object that records each
-   * 			configuration change made to the resources.</p>
+   * <p>An object for the configuration recorder to record configuration changes for specified resource types.</p>
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
@@ -830,7 +895,7 @@ export class ResourceConcurrentModificationException extends __BaseException {
  * <p>You have reached the limit of the number of tags you can use.
  * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";

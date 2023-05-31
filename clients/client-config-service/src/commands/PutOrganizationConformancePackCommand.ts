@@ -44,7 +44,7 @@ export interface PutOrganizationConformancePackCommandOutput
  * <p>Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  *          <p>Only a management account and a delegated administrator can call this API.
  * 			When calling this API with a delegated administrator, you must ensure Organizations
  * 			<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
@@ -125,7 +125,7 @@ export interface PutOrganizationConformancePackCommandOutput
  * @throws {@link MaxNumberOfOrganizationConformancePacksExceededException} (client fault)
  *  <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  *
  * @throws {@link NoAvailableOrganizationException} (client fault)
  *  <p>Organization is no longer available.</p>

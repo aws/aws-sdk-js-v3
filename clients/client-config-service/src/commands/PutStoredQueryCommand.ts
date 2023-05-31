@@ -85,7 +85,7 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  *  <p>You have reached the limit of the number of tags you can use.
  * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
+ *             </a> in the <i>Config Developer Guide</i>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The requested action is not valid.</p>
