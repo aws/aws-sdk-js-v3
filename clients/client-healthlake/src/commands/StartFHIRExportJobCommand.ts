@@ -59,7 +59,7 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * const response = await client.send(command);
  * // { // StartFHIRExportJobResponse
  * //   JobId: "STRING_VALUE", // required
- * //   JobStatus: "STRING_VALUE", // required
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //   DatastoreId: "STRING_VALUE",
  * // };
  *

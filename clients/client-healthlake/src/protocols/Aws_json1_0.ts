@@ -61,6 +61,7 @@ import {
   DescribeFHIRImportJobRequest,
   DescribeFHIRImportJobResponse,
   ExportJobProperties,
+  IdentityProviderConfiguration,
   ImportJobProperties,
   InputDataConfig,
   InternalServerException,
@@ -1062,6 +1063,7 @@ const se_CreateFHIRDatastoreRequest = (input: CreateFHIRDatastoreRequest, contex
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DatastoreName: [],
     DatastoreTypeVersion: [],
+    IdentityProviderConfiguration: _json,
     PreloadDataConfig: _json,
     SseConfiguration: _json,
     Tags: _json,
@@ -1087,6 +1089,8 @@ const se_DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): an
 // se_DescribeFHIRExportJobRequest omitted.
 
 // se_DescribeFHIRImportJobRequest omitted.
+
+// se_IdentityProviderConfiguration omitted.
 
 // se_InputDataConfig omitted.
 
@@ -1198,6 +1202,7 @@ const de_DatastoreProperties = (output: any, context: __SerdeContext): Datastore
     DatastoreName: __expectString,
     DatastoreStatus: __expectString,
     DatastoreTypeVersion: __expectString,
+    IdentityProviderConfiguration: _json,
     PreloadDataConfig: _json,
     SseConfiguration: _json,
   }) as any;
@@ -1272,6 +1277,8 @@ const de_ExportJobPropertiesList = (output: any, context: __SerdeContext): Expor
     });
   return retVal;
 };
+
+// de_IdentityProviderConfiguration omitted.
 
 /**
  * deserializeAws_json1_0ImportJobProperties

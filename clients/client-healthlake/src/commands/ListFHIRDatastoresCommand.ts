@@ -47,7 +47,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * const input = { // ListFHIRDatastoresRequest
  *   Filter: { // DatastoreFilter
  *     DatastoreName: "STRING_VALUE",
- *     DatastoreStatus: "STRING_VALUE",
+ *     DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
  *     CreatedBefore: new Date("TIMESTAMP"),
  *     CreatedAfter: new Date("TIMESTAMP"),
  *   },
@@ -62,18 +62,24 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * //       DatastoreId: "STRING_VALUE", // required
  * //       DatastoreArn: "STRING_VALUE", // required
  * //       DatastoreName: "STRING_VALUE",
- * //       DatastoreStatus: "STRING_VALUE", // required
+ * //       DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED", // required
  * //       CreatedAt: new Date("TIMESTAMP"),
- * //       DatastoreTypeVersion: "STRING_VALUE", // required
+ * //       DatastoreTypeVersion: "R4", // required
  * //       DatastoreEndpoint: "STRING_VALUE", // required
  * //       SseConfiguration: { // SseConfiguration
  * //         KmsEncryptionConfig: { // KmsEncryptionConfig
- * //           CmkType: "STRING_VALUE", // required
+ * //           CmkType: "CUSTOMER_MANAGED_KMS_KEY" || "AWS_OWNED_KMS_KEY", // required
  * //           KmsKeyId: "STRING_VALUE",
  * //         },
  * //       },
  * //       PreloadDataConfig: { // PreloadDataConfig
- * //         PreloadDataType: "STRING_VALUE", // required
+ * //         PreloadDataType: "SYNTHEA", // required
+ * //       },
+ * //       IdentityProviderConfiguration: { // IdentityProviderConfiguration
+ * //         AuthorizationStrategy: "SMART_ON_FHIR_V1" || "AWS_AUTH", // required
+ * //         FineGrainedAuthorizationEnabled: true || false,
+ * //         Metadata: "STRING_VALUE",
+ * //         IdpLambdaArn: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

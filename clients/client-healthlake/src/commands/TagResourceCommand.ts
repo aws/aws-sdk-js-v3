@@ -37,7 +37,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * @public
  * <p>
- *             Adds a user specifed key and value tag to a Data Store.
+ *             Adds a user specified key and value tag to a Data Store.
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

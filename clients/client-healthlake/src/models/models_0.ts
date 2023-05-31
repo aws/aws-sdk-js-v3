@@ -29,6 +29,20 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const AuthorizationStrategy = {
+  AWS_AUTH: "AWS_AUTH",
+  SMARTV1: "SMART_ON_FHIR_V1",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationStrategy = (typeof AuthorizationStrategy)[keyof typeof AuthorizationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const CmkType = {
   AO_CMK: "AWS_OWNED_KMS_KEY",
   CM_CMK: "CUSTOMER_MANAGED_KMS_KEY",
@@ -73,6 +87,42 @@ export const FHIRVersion = {
  * @public
  */
 export type FHIRVersion = (typeof FHIRVersion)[keyof typeof FHIRVersion];
+
+/**
+ * @public
+ * <p>The identity provider configuration that you gave when the Data Store was created.</p>
+ */
+export interface IdentityProviderConfiguration {
+  /**
+   * <p>The authorization strategy that you selected when you created the Data Store.</p>
+   */
+  AuthorizationStrategy: AuthorizationStrategy | string | undefined;
+
+  /**
+   * <p>If you enabled fine-grained authorization when you created the Data Store.</p>
+   */
+  FineGrainedAuthorizationEnabled?: boolean;
+
+  /**
+   * <p>The JSON metadata elements that you want to use in your identity provider configuration. Required elements are listed based on the launch specification of the SMART application. For more information on all possible elements, see <a href="https://build.fhir.org/ig/HL7/smart-app-launch/conformance.html#metadata">Metadata</a> in SMART's App Launch specification.</p>
+   *          <p>
+   *             <code>authorization_endpoint</code>: The URL to the OAuth2 authorization endpoint.</p>
+   *          <p>
+   *             <code>grant_types_supported</code>:  An array of grant types that are supported at the token endpoint. You must provide at least one grant type option. Valid options are <code>authorization_code</code> and <code>client_credentials</code>.</p>
+   *          <p>
+   *             <code>token_endpoint</code>: The URL to the OAuth2 token endpoint.</p>
+   *          <p>
+   *             <code>capabilities</code>: An array of strings of the SMART capabilities that the authorization server supports.</p>
+   *          <p>
+   *             <code>code_challenge_methods_supported</code>: An array of strings of supported PKCE code challenge methods. You must include the <code>S256</code> method in the array of PKCE code challenge methods.</p>
+   */
+  Metadata?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that you want to use to decode the access token created by the authorization server.</p>
+   */
+  IdpLambdaArn?: string;
+}
 
 /**
  * @public
@@ -151,7 +201,7 @@ export interface Tag {
 
   /**
    * <p>
-   *             The value portion of tag. Tag values are case sensitive.
+   *             The value portion of a tag. Tag values are case sensitive.
    *          </p>
    */
   Value: string | undefined;
@@ -195,6 +245,11 @@ export interface CreateFHIRDatastoreRequest {
    *          </p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The configuration of the identity provider that you want to use for your Data Store.</p>
+   */
+  IdentityProviderConfiguration?: IdentityProviderConfiguration;
 }
 
 /**
@@ -224,7 +279,7 @@ export interface CreateFHIRDatastoreResponse {
   DatastoreId: string | undefined;
 
   /**
-   * <p>The datastore ARN is generated during the creation of the Data Store and can be found in
+   * <p>The Data Store ARN is generated during the creation of the Data Store and can be found in
    *          the output from the initial Data Store creation call.</p>
    */
   DatastoreArn: string | undefined;
@@ -236,8 +291,7 @@ export interface CreateFHIRDatastoreResponse {
   DatastoreStatus: DatastoreStatus | string | undefined;
 
   /**
-   * <p>The AWS endpoint for the created Data Store. For preview, only US-east-1 endpoints are
-   *          supported.</p>
+   * <p>The AWS endpoint for the created Data Store. </p>
    */
   DatastoreEndpoint: string | undefined;
 }
@@ -338,7 +392,7 @@ export interface DatastoreFilter {
 
 /**
  * @public
- * <p>Displays the properties of the Data Store, including the ID, Arn, name, and the status of the Data Store.</p>
+ * <p>Displays the properties of the Data Store, including the ID, ARN, name, and the status of the Data Store.</p>
  */
 export interface DatastoreProperties {
   /**
@@ -378,8 +432,8 @@ export interface DatastoreProperties {
 
   /**
    * <p>
-   *             The server-side encryption key configuration for a customer provided encryption key (CMK).
-   *          </p>
+   *          The server-side encryption key configuration for a customer provided encryption key (CMK).
+   *       </p>
    */
   SseConfiguration?: SseConfiguration;
 
@@ -387,6 +441,11 @@ export interface DatastoreProperties {
    * <p>The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.</p>
    */
   PreloadDataConfig?: PreloadDataConfig;
+
+  /**
+   * <p>The identity provider that you selected when you created the Data Store.</p>
+   */
+  IdentityProviderConfiguration?: IdentityProviderConfiguration;
 }
 
 /**
@@ -396,7 +455,7 @@ export interface DeleteFHIRDatastoreRequest {
   /**
    * <p> The AWS-generated ID for the Data Store to be deleted.</p>
    */
-  DatastoreId?: string;
+  DatastoreId: string | undefined;
 }
 
 /**
@@ -452,9 +511,9 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeFHIRDatastoreRequest {
   /**
-   * <p>The AWS-generated Data Store id. This is part of the ‘CreateFHIRDatastore’ output.</p>
+   * <p>The AWS-generated Data Store ID.</p>
    */
-  DatastoreId?: string;
+  DatastoreId: string | undefined;
 }
 
 /**
@@ -489,6 +548,10 @@ export interface DescribeFHIRExportJobRequest {
  * @enum
  */
 export const JobStatus = {
+  CANCEL_COMPLETED: "CANCEL_COMPLETED",
+  CANCEL_FAILED: "CANCEL_FAILED",
+  CANCEL_IN_PROGRESS: "CANCEL_IN_PROGRESS",
+  CANCEL_SUBMITTED: "CANCEL_SUBMITTED",
   COMPLETED: "COMPLETED",
   COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
   FAILED: "FAILED",
@@ -685,7 +748,7 @@ export interface ImportJobProperties {
   JobName?: string;
 
   /**
-   * <p>The job status for an Import job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, FAILED.</p>
+   * <p>The job status for an Import job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED_WITH_ERRORS, COMPLETED, FAILED.</p>
    */
   JobStatus: JobStatus | string | undefined;
 
