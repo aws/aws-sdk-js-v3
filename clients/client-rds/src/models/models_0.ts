@@ -4334,6 +4334,8 @@ export interface CreateDBClusterMessage {
    *          <p>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
    *          <p>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>For more information on storage types for Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type">Storage configurations for Amazon Aurora DB clusters</a>. For more information on storage types for Multi-AZ DB
+   *             clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings">Settings for creating Multi-AZ DB clusters</a>.</p>
    */
   StorageType?: string;
 
@@ -7614,6 +7616,11 @@ export interface PendingModifiedValues {
    * <p>The storage throughput of the DB instance.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>The database engine of the DB instance.</p>
+   */
+  Engine?: string;
 }
 
 /**

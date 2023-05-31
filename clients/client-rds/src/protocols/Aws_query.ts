@@ -16727,6 +16727,9 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   if (input.MasterUserSecretKmsKeyId != null) {
     entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
+  if (input.Engine != null) {
+    entries["Engine"] = input.Engine;
+  }
   return entries;
 };
 
@@ -25036,6 +25039,9 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
   }
   if (output["StorageThroughput"] !== undefined) {
     contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = __expectString(output["Engine"]);
   }
   return contents;
 };

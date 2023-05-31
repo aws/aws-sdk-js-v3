@@ -5250,6 +5250,42 @@ export interface ModifyDBInstanceMessage {
    *             has a different default KMS key for each Amazon Web Services Region.</p>
    */
   MasterUserSecretKmsKeyId?: string;
+
+  /**
+   * <p>The target Oracle DB engine when you convert a non-CDB to a CDB. This intermediate step is necessary to upgrade an Oracle Database 19c non-CDB
+   *            to an Oracle Database 21c CDB.</p>
+   *          <p>Note the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Make sure that you specify <code>oracle-ee-cdb</code> or <code>oracle-se2-cdb</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Make sure that your DB engine runs Oracle Database 19c with an April 2021 or later RU.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Note the following limitations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can't convert a CDB to a non-CDB.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can't convert a replica database.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can't convert a non-CDB to a CDB and upgrade the engine version in the
+   *                    same command.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can't convert the existing custom parameter or option group when it has
+   *                    options or parameters that are permanent or persistent. In this situation, the
+   *                    DB instance reverts to the default option and parameter group. To avoid
+   *                    reverting to the default, specify a new parameter group with
+   *                        <code>--db-parameter-group-name</code> and a new option group with
+   *                        <code>--option-group-name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Engine?: string;
 }
 
 /**
@@ -5525,16 +5561,6 @@ export interface ModifyDBSnapshotMessage {
    *             <b>Oracle</b>
    *          </p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>19.0.0.0.ru-2022-01.rur-2022-01.r1</code> (supported for 12.2.0.1 DB
-   *                     snapshots)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>19.0.0.0.ru-2022-07.rur-2022-07.r1</code> (supported for 12.1.0.2 DB
-   *                     snapshots)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>12.1.0.2.v8</code>  (supported for 12.1.0.1 DB snapshots)</p>
