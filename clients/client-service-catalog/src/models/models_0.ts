@@ -295,17 +295,80 @@ export interface AssociatePrincipalWithPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> if
-   *       <code>PrincipalType</code> is <code>IAM_PATTERN</code>. </p>
-   *          <p>You can associate multiple <code>IAM</code> patterns even if the account has no principal with that name.
-   *       This is useful in Principal Name Sharing if you want to share a principal without creating it in the
-   *       account that owns the portfolio. </p>
+   * <p>The ARN of the principal (user, role, or group). The supported value is a fully defined <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">
+   *                <code>IAM</code> ARN</a>
+   *          if the
+   *          <code>PrincipalType</code> is <code>IAM</code>. If the <code>PrincipalType</code> is <code>IAM_PATTERN</code>,
+   *          the supported value is an <code>IAM</code> ARN without an AccountID in the following format:</p>
+   *          <p>
+   *             <i>arn:partition:iam:::resource-type/resource-id</i>
+   *          </p>
+   *          <p>The resource-id can be either of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Fully formed, for example <i>arn:aws:iam:::role/resource-name</i> or
+   *             <i>arn:aws:iam:::role/resource-path/resource-name</i>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>A wildcard ARN. The wildcard ARN accepts <code>IAM_PATTERN</code> values with a
+   *                "*" or "?" in the resource-id segment of the ARN, for example <i>arn:partition:service:::resource-type/resource-path/resource-name</i>.
+   *                The new symbols are exclusive to the <b>resource-path</b> and <b>resource-name</b>
+   *                and cannot be used to replace the <b>resource-type</b> or other
+   *             ARN values. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Examples of an <b>acceptable</b> wildcard ARN:</p>
+   *          <ul>
+   *             <li>
+   *                <p>arn:aws:iam:::role/ResourceName_*</p>
+   *             </li>
+   *             <li>
+   *                <p>arn:aws:iam:::role/*\/ResourceName_?</p>
+   *             </li>
+   *          </ul>
+   *          <p>Examples of an <b>unacceptable</b> wildcard ARN:</p>
+   *          <ul>
+   *             <li>
+   *                <p>arn:aws:iam:::*\/ResourceName</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can associate multiple <code>IAM_PATTERN</code>s even if the account has no principal
+   *          with that name. </p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>The ARN path and principal name allow unlimited wildcard characters. </p>
+   *                </li>
+   *                <li>
+   *                   <p>The "?"  wildcard character matches zero or one of any character. This is similar to  ".?" in regular
+   *                   regex context.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The "*" wildcard character matches any number of any characters. This is similar ".*"  in regular
+   *                   regex context.</p>
+   *                </li>
+   *                <li>
+   *                   <p>In the IAM Principal ARNs format (arn:partition:iam:::resource-type/resource-path/resource-name),
+   *                   valid <b>resource-type</b> values include user/, group/, or role/.  The "?" and "*"
+   *                   are allowed only after the <b>resource-type</b>, in the resource-id segment.
+   *                   You can use special characters anywhere within the <b>resource-id</b>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The "*" also matches the "/" character, allowing paths to be formed within the
+   *                   <b>resource-id</b>.
+   *                   For example, arn:aws:iam:::role/*\/ResourceName_? matches both arn:aws:iam:::role/pathA/pathB/ResourceName_1
+   *                   and
+   *                   arn:aws:iam:::role/pathA/ResourceName_1.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   PrincipalARN: string | undefined;
 
   /**
    * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN,
-   *          or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
+   *          or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
    */
   PrincipalType: PrincipalType | string | undefined;
 }
@@ -4331,14 +4394,14 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> with or without wildcard characters if
    *          <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
    */
   PrincipalARN: string | undefined;
 
   /**
    * <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
-   *          if you use no <code>accountID</code>. </p>
+   *          if you specify an <code>IAM</code> ARN with no AccountId, with or without wildcard characters. </p>
    */
   PrincipalType?: PrincipalType | string;
 }
@@ -5185,14 +5248,16 @@ export interface ListPrincipalsForPortfolioInput {
  */
 export interface Principal {
   /**
-   * <p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code> if the
+   * <p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code>, with or without wildcard characters if the
    *       <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>
+   *          <p>For more information, review <a href="https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options">associate-principal-with-portfolio</a>
+   *       in the Amazon Web Services CLI Command Reference. </p>
    */
   PrincipalARN?: string;
 
   /**
    * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
-   *       <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
+   *          <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
    */
   PrincipalType?: PrincipalType | string;
 }
