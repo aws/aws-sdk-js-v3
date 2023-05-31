@@ -64,6 +64,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * //     statusReason: "STRING_VALUE",
  * //     userAccessLoggingSettingsArn: "STRING_VALUE",
  * //     authenticationType: "STRING_VALUE",
+ * //     ipAccessSettingsArn: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -56,6 +56,10 @@ import {
   AssociateBrowserSettingsCommandOutput,
 } from "./commands/AssociateBrowserSettingsCommand";
 import {
+  AssociateIpAccessSettingsCommandInput,
+  AssociateIpAccessSettingsCommandOutput,
+} from "./commands/AssociateIpAccessSettingsCommand";
+import {
   AssociateNetworkSettingsCommandInput,
   AssociateNetworkSettingsCommandOutput,
 } from "./commands/AssociateNetworkSettingsCommand";
@@ -80,6 +84,10 @@ import {
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
 import {
+  CreateIpAccessSettingsCommandInput,
+  CreateIpAccessSettingsCommandOutput,
+} from "./commands/CreateIpAccessSettingsCommand";
+import {
   CreateNetworkSettingsCommandInput,
   CreateNetworkSettingsCommandOutput,
 } from "./commands/CreateNetworkSettingsCommand";
@@ -99,6 +107,10 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
 import {
+  DeleteIpAccessSettingsCommandInput,
+  DeleteIpAccessSettingsCommandOutput,
+} from "./commands/DeleteIpAccessSettingsCommand";
+import {
   DeleteNetworkSettingsCommandInput,
   DeleteNetworkSettingsCommandOutput,
 } from "./commands/DeleteNetworkSettingsCommand";
@@ -113,6 +125,10 @@ import {
   DisassociateBrowserSettingsCommandInput,
   DisassociateBrowserSettingsCommandOutput,
 } from "./commands/DisassociateBrowserSettingsCommand";
+import {
+  DisassociateIpAccessSettingsCommandInput,
+  DisassociateIpAccessSettingsCommandOutput,
+} from "./commands/DisassociateIpAccessSettingsCommand";
 import {
   DisassociateNetworkSettingsCommandInput,
   DisassociateNetworkSettingsCommandOutput,
@@ -134,6 +150,10 @@ import {
   GetIdentityProviderCommandInput,
   GetIdentityProviderCommandOutput,
 } from "./commands/GetIdentityProviderCommand";
+import {
+  GetIpAccessSettingsCommandInput,
+  GetIpAccessSettingsCommandOutput,
+} from "./commands/GetIpAccessSettingsCommand";
 import { GetNetworkSettingsCommandInput, GetNetworkSettingsCommandOutput } from "./commands/GetNetworkSettingsCommand";
 import { GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
 import {
@@ -158,6 +178,10 @@ import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
+import {
+  ListIpAccessSettingsCommandInput,
+  ListIpAccessSettingsCommandOutput,
+} from "./commands/ListIpAccessSettingsCommand";
 import {
   ListNetworkSettingsCommandInput,
   ListNetworkSettingsCommandOutput,
@@ -188,6 +212,10 @@ import {
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
 import {
+  UpdateIpAccessSettingsCommandInput,
+  UpdateIpAccessSettingsCommandOutput,
+} from "./commands/UpdateIpAccessSettingsCommand";
+import {
   UpdateNetworkSettingsCommandInput,
   UpdateNetworkSettingsCommandOutput,
 } from "./commands/UpdateNetworkSettingsCommand";
@@ -213,12 +241,14 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateBrowserSettingsCommandInput
+  | AssociateIpAccessSettingsCommandInput
   | AssociateNetworkSettingsCommandInput
   | AssociateTrustStoreCommandInput
   | AssociateUserAccessLoggingSettingsCommandInput
   | AssociateUserSettingsCommandInput
   | CreateBrowserSettingsCommandInput
   | CreateIdentityProviderCommandInput
+  | CreateIpAccessSettingsCommandInput
   | CreateNetworkSettingsCommandInput
   | CreatePortalCommandInput
   | CreateTrustStoreCommandInput
@@ -226,18 +256,21 @@ export type ServiceInputTypes =
   | CreateUserSettingsCommandInput
   | DeleteBrowserSettingsCommandInput
   | DeleteIdentityProviderCommandInput
+  | DeleteIpAccessSettingsCommandInput
   | DeleteNetworkSettingsCommandInput
   | DeletePortalCommandInput
   | DeleteTrustStoreCommandInput
   | DeleteUserAccessLoggingSettingsCommandInput
   | DeleteUserSettingsCommandInput
   | DisassociateBrowserSettingsCommandInput
+  | DisassociateIpAccessSettingsCommandInput
   | DisassociateNetworkSettingsCommandInput
   | DisassociateTrustStoreCommandInput
   | DisassociateUserAccessLoggingSettingsCommandInput
   | DisassociateUserSettingsCommandInput
   | GetBrowserSettingsCommandInput
   | GetIdentityProviderCommandInput
+  | GetIpAccessSettingsCommandInput
   | GetNetworkSettingsCommandInput
   | GetPortalCommandInput
   | GetPortalServiceProviderMetadataCommandInput
@@ -247,6 +280,7 @@ export type ServiceInputTypes =
   | GetUserSettingsCommandInput
   | ListBrowserSettingsCommandInput
   | ListIdentityProvidersCommandInput
+  | ListIpAccessSettingsCommandInput
   | ListNetworkSettingsCommandInput
   | ListPortalsCommandInput
   | ListTagsForResourceCommandInput
@@ -258,6 +292,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateBrowserSettingsCommandInput
   | UpdateIdentityProviderCommandInput
+  | UpdateIpAccessSettingsCommandInput
   | UpdateNetworkSettingsCommandInput
   | UpdatePortalCommandInput
   | UpdateTrustStoreCommandInput
@@ -269,12 +304,14 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateBrowserSettingsCommandOutput
+  | AssociateIpAccessSettingsCommandOutput
   | AssociateNetworkSettingsCommandOutput
   | AssociateTrustStoreCommandOutput
   | AssociateUserAccessLoggingSettingsCommandOutput
   | AssociateUserSettingsCommandOutput
   | CreateBrowserSettingsCommandOutput
   | CreateIdentityProviderCommandOutput
+  | CreateIpAccessSettingsCommandOutput
   | CreateNetworkSettingsCommandOutput
   | CreatePortalCommandOutput
   | CreateTrustStoreCommandOutput
@@ -282,18 +319,21 @@ export type ServiceOutputTypes =
   | CreateUserSettingsCommandOutput
   | DeleteBrowserSettingsCommandOutput
   | DeleteIdentityProviderCommandOutput
+  | DeleteIpAccessSettingsCommandOutput
   | DeleteNetworkSettingsCommandOutput
   | DeletePortalCommandOutput
   | DeleteTrustStoreCommandOutput
   | DeleteUserAccessLoggingSettingsCommandOutput
   | DeleteUserSettingsCommandOutput
   | DisassociateBrowserSettingsCommandOutput
+  | DisassociateIpAccessSettingsCommandOutput
   | DisassociateNetworkSettingsCommandOutput
   | DisassociateTrustStoreCommandOutput
   | DisassociateUserAccessLoggingSettingsCommandOutput
   | DisassociateUserSettingsCommandOutput
   | GetBrowserSettingsCommandOutput
   | GetIdentityProviderCommandOutput
+  | GetIpAccessSettingsCommandOutput
   | GetNetworkSettingsCommandOutput
   | GetPortalCommandOutput
   | GetPortalServiceProviderMetadataCommandOutput
@@ -303,6 +343,7 @@ export type ServiceOutputTypes =
   | GetUserSettingsCommandOutput
   | ListBrowserSettingsCommandOutput
   | ListIdentityProvidersCommandOutput
+  | ListIpAccessSettingsCommandOutput
   | ListNetworkSettingsCommandOutput
   | ListPortalsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -314,6 +355,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateBrowserSettingsCommandOutput
   | UpdateIdentityProviderCommandOutput
+  | UpdateIpAccessSettingsCommandOutput
   | UpdateNetworkSettingsCommandOutput
   | UpdatePortalCommandOutput
   | UpdateTrustStoreCommandOutput

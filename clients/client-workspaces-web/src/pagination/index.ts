@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListBrowserSettingsPaginator";
 export * from "./ListIdentityProvidersPaginator";
+export * from "./ListIpAccessSettingsPaginator";
 export * from "./ListNetworkSettingsPaginator";
 export * from "./ListPortalsPaginator";
 export * from "./ListTrustStoreCertificatesPaginator";

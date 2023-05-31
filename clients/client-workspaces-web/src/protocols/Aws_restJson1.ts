@@ -24,6 +24,10 @@ import {
   AssociateBrowserSettingsCommandOutput,
 } from "../commands/AssociateBrowserSettingsCommand";
 import {
+  AssociateIpAccessSettingsCommandInput,
+  AssociateIpAccessSettingsCommandOutput,
+} from "../commands/AssociateIpAccessSettingsCommand";
+import {
   AssociateNetworkSettingsCommandInput,
   AssociateNetworkSettingsCommandOutput,
 } from "../commands/AssociateNetworkSettingsCommand";
@@ -48,6 +52,10 @@ import {
   CreateIdentityProviderCommandOutput,
 } from "../commands/CreateIdentityProviderCommand";
 import {
+  CreateIpAccessSettingsCommandInput,
+  CreateIpAccessSettingsCommandOutput,
+} from "../commands/CreateIpAccessSettingsCommand";
+import {
   CreateNetworkSettingsCommandInput,
   CreateNetworkSettingsCommandOutput,
 } from "../commands/CreateNetworkSettingsCommand";
@@ -67,6 +75,10 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "../commands/DeleteIdentityProviderCommand";
 import {
+  DeleteIpAccessSettingsCommandInput,
+  DeleteIpAccessSettingsCommandOutput,
+} from "../commands/DeleteIpAccessSettingsCommand";
+import {
   DeleteNetworkSettingsCommandInput,
   DeleteNetworkSettingsCommandOutput,
 } from "../commands/DeleteNetworkSettingsCommand";
@@ -81,6 +93,10 @@ import {
   DisassociateBrowserSettingsCommandInput,
   DisassociateBrowserSettingsCommandOutput,
 } from "../commands/DisassociateBrowserSettingsCommand";
+import {
+  DisassociateIpAccessSettingsCommandInput,
+  DisassociateIpAccessSettingsCommandOutput,
+} from "../commands/DisassociateIpAccessSettingsCommand";
 import {
   DisassociateNetworkSettingsCommandInput,
   DisassociateNetworkSettingsCommandOutput,
@@ -102,6 +118,10 @@ import {
   GetIdentityProviderCommandInput,
   GetIdentityProviderCommandOutput,
 } from "../commands/GetIdentityProviderCommand";
+import {
+  GetIpAccessSettingsCommandInput,
+  GetIpAccessSettingsCommandOutput,
+} from "../commands/GetIpAccessSettingsCommand";
 import { GetNetworkSettingsCommandInput, GetNetworkSettingsCommandOutput } from "../commands/GetNetworkSettingsCommand";
 import { GetPortalCommandInput, GetPortalCommandOutput } from "../commands/GetPortalCommand";
 import {
@@ -126,6 +146,10 @@ import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "../commands/ListIdentityProvidersCommand";
+import {
+  ListIpAccessSettingsCommandInput,
+  ListIpAccessSettingsCommandOutput,
+} from "../commands/ListIpAccessSettingsCommand";
 import {
   ListNetworkSettingsCommandInput,
   ListNetworkSettingsCommandOutput,
@@ -156,6 +180,10 @@ import {
   UpdateIdentityProviderCommandOutput,
 } from "../commands/UpdateIdentityProviderCommand";
 import {
+  UpdateIpAccessSettingsCommandInput,
+  UpdateIpAccessSettingsCommandOutput,
+} from "../commands/UpdateIpAccessSettingsCommand";
+import {
   UpdateNetworkSettingsCommandInput,
   UpdateNetworkSettingsCommandOutput,
 } from "../commands/UpdateNetworkSettingsCommand";
@@ -172,6 +200,9 @@ import {
   CertificateSummary,
   ConflictException,
   InternalServerException,
+  IpAccessSettings,
+  IpAccessSettingsSummary,
+  IpRule,
   Portal,
   PortalSummary,
   ResourceNotFoundException,
@@ -197,6 +228,34 @@ export const se_AssociateBrowserSettingsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
     browserSettingsArn: [, __expectNonNull(input.browserSettingsArn!, `browserSettingsArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1AssociateIpAccessSettingsCommand
+ */
+export const se_AssociateIpAccessSettingsCommand = async (
+  input: AssociateIpAccessSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/ipAccessSettings";
+  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  const query: any = map({
+    ipAccessSettingsArn: [, __expectNonNull(input.ipAccessSettingsArn!, `ipAccessSettingsArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -380,6 +439,41 @@ export const se_CreateIdentityProviderCommand = async (
       identityProviderName: [],
       identityProviderType: [],
       portalArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateIpAccessSettingsCommand
+ */
+export const se_CreateIpAccessSettingsCommand = async (
+  input: CreateIpAccessSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      additionalEncryptionContext: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customerManagedKey: [],
+      description: [],
+      displayName: [],
+      ipRules: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -623,6 +717,37 @@ export const se_DeleteIdentityProviderCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteIpAccessSettingsCommand
+ */
+export const se_DeleteIpAccessSettingsCommand = async (
+  input: DeleteIpAccessSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings/{ipAccessSettingsArn+}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ipAccessSettingsArn",
+    () => input.ipAccessSettingsArn!,
+    "{ipAccessSettingsArn+}",
+    true
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteNetworkSettingsCommand
  */
 export const se_DeleteNetworkSettingsCommand = async (
@@ -795,6 +920,30 @@ export const se_DisassociateBrowserSettingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateIpAccessSettingsCommand
+ */
+export const se_DisassociateIpAccessSettingsCommand = async (
+  input: DisassociateIpAccessSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/ipAccessSettings";
+  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DisassociateNetworkSettingsCommand
  */
 export const se_DisassociateNetworkSettingsCommand = async (
@@ -939,6 +1088,37 @@ export const se_GetIdentityProviderCommand = async (
     "identityProviderArn",
     () => input.identityProviderArn!,
     "{identityProviderArn+}",
+    true
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetIpAccessSettingsCommand
+ */
+export const se_GetIpAccessSettingsCommand = async (
+  input: GetIpAccessSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings/{ipAccessSettingsArn+}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ipAccessSettingsArn",
+    () => input.ipAccessSettingsArn!,
+    "{ipAccessSettingsArn+}",
     true
   );
   let body: any;
@@ -1198,6 +1378,33 @@ export const se_ListIdentityProvidersCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/identityProviders";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListIpAccessSettingsCommand
+ */
+export const se_ListIpAccessSettingsCommand = async (
+  input: ListIpAccessSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings";
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -1553,6 +1760,47 @@ export const se_UpdateIdentityProviderCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateIpAccessSettingsCommand
+ */
+export const se_UpdateIpAccessSettingsCommand = async (
+  input: UpdateIpAccessSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings/{ipAccessSettingsArn+}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ipAccessSettingsArn",
+    () => input.ipAccessSettingsArn!,
+    "{ipAccessSettingsArn+}",
+    true
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      displayName: [],
+      ipRules: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateNetworkSettingsCommand
  */
 export const se_UpdateNetworkSettingsCommand = async (
@@ -1778,6 +2026,69 @@ const de_AssociateBrowserSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateBrowserSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspacesweb#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AssociateIpAccessSettingsCommand
+ */
+export const de_AssociateIpAccessSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIpAccessSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateIpAccessSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ipAccessSettingsArn: __expectString,
+    portalArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateIpAccessSettingsCommandError
+ */
+const de_AssociateIpAccessSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIpAccessSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2172,6 +2483,68 @@ const de_CreateIdentityProviderCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspacesweb#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.workspacesweb#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateIpAccessSettingsCommand
+ */
+export const de_CreateIpAccessSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpAccessSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateIpAccessSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ipAccessSettingsArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateIpAccessSettingsCommandError
+ */
+const de_CreateIpAccessSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpAccessSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspacesweb#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.workspacesweb#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -2616,6 +2989,61 @@ const de_DeleteIdentityProviderCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteIpAccessSettingsCommand
+ */
+export const de_DeleteIpAccessSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpAccessSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteIpAccessSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteIpAccessSettingsCommandError
+ */
+const de_DeleteIpAccessSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpAccessSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspacesweb#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteNetworkSettingsCommand
  */
 export const de_DeleteNetworkSettingsCommand = async (
@@ -2914,6 +3342,61 @@ const de_DisassociateBrowserSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateBrowserSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DisassociateIpAccessSettingsCommand
+ */
+export const de_DisassociateIpAccessSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIpAccessSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateIpAccessSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateIpAccessSettingsCommandError
+ */
+const de_DisassociateIpAccessSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIpAccessSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3252,6 +3735,65 @@ const de_GetIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetIpAccessSettingsCommand
+ */
+export const de_GetIpAccessSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpAccessSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetIpAccessSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ipAccessSettings: (_) => de_IpAccessSettings(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetIpAccessSettingsCommandError
+ */
+const de_GetIpAccessSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpAccessSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3784,6 +4326,63 @@ const de_ListIdentityProvidersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityProvidersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListIpAccessSettingsCommand
+ */
+export const de_ListIpAccessSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIpAccessSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIpAccessSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ipAccessSettings: (_) => de_IpAccessSettingsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIpAccessSettingsCommandError
+ */
+const de_ListIpAccessSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIpAccessSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4449,6 +5048,65 @@ const de_UpdateIdentityProviderCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateIpAccessSettingsCommand
+ */
+export const de_UpdateIpAccessSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIpAccessSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateIpAccessSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ipAccessSettings: (_) => de_IpAccessSettings(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateIpAccessSettingsCommandError
+ */
+const de_UpdateIpAccessSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIpAccessSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspacesweb#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspacesweb#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspacesweb#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.workspacesweb#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspacesweb#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateNetworkSettingsCommand
  */
 export const de_UpdateNetworkSettingsCommand = async (
@@ -4544,6 +5202,9 @@ const de_UpdatePortalCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.workspacesweb#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspacesweb#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.workspacesweb#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -4938,6 +5599,10 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 
 // se_IdentityProviderDetails omitted.
 
+// se_IpRule omitted.
+
+// se_IpRuleList omitted.
+
 // se_SecurityGroupIdList omitted.
 
 // se_SubnetIdList omitted.
@@ -5001,6 +5666,48 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
 
 // de_IdentityProviderSummary omitted.
 
+/**
+ * deserializeAws_restJson1IpAccessSettings
+ */
+const de_IpAccessSettings = (output: any, context: __SerdeContext): IpAccessSettings => {
+  return take(output, {
+    associatedPortalArns: _json,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    displayName: __expectString,
+    ipAccessSettingsArn: __expectString,
+    ipRules: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IpAccessSettingsList
+ */
+const de_IpAccessSettingsList = (output: any, context: __SerdeContext): IpAccessSettingsSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpAccessSettingsSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1IpAccessSettingsSummary
+ */
+const de_IpAccessSettingsSummary = (output: any, context: __SerdeContext): IpAccessSettingsSummary => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    displayName: __expectString,
+    ipAccessSettingsArn: __expectString,
+  }) as any;
+};
+
+// de_IpRule omitted.
+
+// de_IpRuleList omitted.
+
 // de_NetworkSettings omitted.
 
 // de_NetworkSettingsList omitted.
@@ -5017,6 +5724,7 @@ const de_Portal = (output: any, context: __SerdeContext): Portal => {
     browserType: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     displayName: __expectString,
+    ipAccessSettingsArn: __expectString,
     networkSettingsArn: __expectString,
     portalArn: __expectString,
     portalEndpoint: __expectString,
@@ -5051,6 +5759,7 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
     browserType: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     displayName: __expectString,
+    ipAccessSettingsArn: __expectString,
     networkSettingsArn: __expectString,
     portalArn: __expectString,
     portalEndpoint: __expectString,

@@ -8,6 +8,11 @@ import {
   AssociateBrowserSettingsCommandOutput,
 } from "./commands/AssociateBrowserSettingsCommand";
 import {
+  AssociateIpAccessSettingsCommand,
+  AssociateIpAccessSettingsCommandInput,
+  AssociateIpAccessSettingsCommandOutput,
+} from "./commands/AssociateIpAccessSettingsCommand";
+import {
   AssociateNetworkSettingsCommand,
   AssociateNetworkSettingsCommandInput,
   AssociateNetworkSettingsCommandOutput,
@@ -37,6 +42,11 @@ import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
+import {
+  CreateIpAccessSettingsCommand,
+  CreateIpAccessSettingsCommandInput,
+  CreateIpAccessSettingsCommandOutput,
+} from "./commands/CreateIpAccessSettingsCommand";
 import {
   CreateNetworkSettingsCommand,
   CreateNetworkSettingsCommandInput,
@@ -73,6 +83,11 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
 import {
+  DeleteIpAccessSettingsCommand,
+  DeleteIpAccessSettingsCommandInput,
+  DeleteIpAccessSettingsCommandOutput,
+} from "./commands/DeleteIpAccessSettingsCommand";
+import {
   DeleteNetworkSettingsCommand,
   DeleteNetworkSettingsCommandInput,
   DeleteNetworkSettingsCommandOutput,
@@ -103,6 +118,11 @@ import {
   DisassociateBrowserSettingsCommandOutput,
 } from "./commands/DisassociateBrowserSettingsCommand";
 import {
+  DisassociateIpAccessSettingsCommand,
+  DisassociateIpAccessSettingsCommandInput,
+  DisassociateIpAccessSettingsCommandOutput,
+} from "./commands/DisassociateIpAccessSettingsCommand";
+import {
   DisassociateNetworkSettingsCommand,
   DisassociateNetworkSettingsCommandInput,
   DisassociateNetworkSettingsCommandOutput,
@@ -132,6 +152,11 @@ import {
   GetIdentityProviderCommandInput,
   GetIdentityProviderCommandOutput,
 } from "./commands/GetIdentityProviderCommand";
+import {
+  GetIpAccessSettingsCommand,
+  GetIpAccessSettingsCommandInput,
+  GetIpAccessSettingsCommandOutput,
+} from "./commands/GetIpAccessSettingsCommand";
 import {
   GetNetworkSettingsCommand,
   GetNetworkSettingsCommandInput,
@@ -173,6 +198,11 @@ import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
+import {
+  ListIpAccessSettingsCommand,
+  ListIpAccessSettingsCommandInput,
+  ListIpAccessSettingsCommandOutput,
+} from "./commands/ListIpAccessSettingsCommand";
 import {
   ListNetworkSettingsCommand,
   ListNetworkSettingsCommandInput,
@@ -221,6 +251,11 @@ import {
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
 import {
+  UpdateIpAccessSettingsCommand,
+  UpdateIpAccessSettingsCommandInput,
+  UpdateIpAccessSettingsCommandOutput,
+} from "./commands/UpdateIpAccessSettingsCommand";
+import {
   UpdateNetworkSettingsCommand,
   UpdateNetworkSettingsCommandInput,
   UpdateNetworkSettingsCommandOutput,
@@ -249,12 +284,14 @@ import { WorkSpacesWebClient, WorkSpacesWebClientConfig } from "./WorkSpacesWebC
 
 const commands = {
   AssociateBrowserSettingsCommand,
+  AssociateIpAccessSettingsCommand,
   AssociateNetworkSettingsCommand,
   AssociateTrustStoreCommand,
   AssociateUserAccessLoggingSettingsCommand,
   AssociateUserSettingsCommand,
   CreateBrowserSettingsCommand,
   CreateIdentityProviderCommand,
+  CreateIpAccessSettingsCommand,
   CreateNetworkSettingsCommand,
   CreatePortalCommand,
   CreateTrustStoreCommand,
@@ -262,18 +299,21 @@ const commands = {
   CreateUserSettingsCommand,
   DeleteBrowserSettingsCommand,
   DeleteIdentityProviderCommand,
+  DeleteIpAccessSettingsCommand,
   DeleteNetworkSettingsCommand,
   DeletePortalCommand,
   DeleteTrustStoreCommand,
   DeleteUserAccessLoggingSettingsCommand,
   DeleteUserSettingsCommand,
   DisassociateBrowserSettingsCommand,
+  DisassociateIpAccessSettingsCommand,
   DisassociateNetworkSettingsCommand,
   DisassociateTrustStoreCommand,
   DisassociateUserAccessLoggingSettingsCommand,
   DisassociateUserSettingsCommand,
   GetBrowserSettingsCommand,
   GetIdentityProviderCommand,
+  GetIpAccessSettingsCommand,
   GetNetworkSettingsCommand,
   GetPortalCommand,
   GetPortalServiceProviderMetadataCommand,
@@ -283,6 +323,7 @@ const commands = {
   GetUserSettingsCommand,
   ListBrowserSettingsCommand,
   ListIdentityProvidersCommand,
+  ListIpAccessSettingsCommand,
   ListNetworkSettingsCommand,
   ListPortalsCommand,
   ListTagsForResourceCommand,
@@ -294,6 +335,7 @@ const commands = {
   UntagResourceCommand,
   UpdateBrowserSettingsCommand,
   UpdateIdentityProviderCommand,
+  UpdateIpAccessSettingsCommand,
   UpdateNetworkSettingsCommand,
   UpdatePortalCommand,
   UpdateTrustStoreCommand,
@@ -317,6 +359,23 @@ export interface WorkSpacesWeb {
     args: AssociateBrowserSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateBrowserSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateIpAccessSettingsCommand}
+   */
+  associateIpAccessSettings(
+    args: AssociateIpAccessSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIpAccessSettingsCommandOutput>;
+  associateIpAccessSettings(
+    args: AssociateIpAccessSettingsCommandInput,
+    cb: (err: any, data?: AssociateIpAccessSettingsCommandOutput) => void
+  ): void;
+  associateIpAccessSettings(
+    args: AssociateIpAccessSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIpAccessSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -419,6 +478,23 @@ export interface WorkSpacesWeb {
     args: CreateIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIpAccessSettingsCommand}
+   */
+  createIpAccessSettings(
+    args: CreateIpAccessSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpAccessSettingsCommandOutput>;
+  createIpAccessSettings(
+    args: CreateIpAccessSettingsCommandInput,
+    cb: (err: any, data?: CreateIpAccessSettingsCommandOutput) => void
+  ): void;
+  createIpAccessSettings(
+    args: CreateIpAccessSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpAccessSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -535,6 +611,23 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link DeleteIpAccessSettingsCommand}
+   */
+  deleteIpAccessSettings(
+    args: DeleteIpAccessSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpAccessSettingsCommandOutput>;
+  deleteIpAccessSettings(
+    args: DeleteIpAccessSettingsCommandInput,
+    cb: (err: any, data?: DeleteIpAccessSettingsCommandOutput) => void
+  ): void;
+  deleteIpAccessSettings(
+    args: DeleteIpAccessSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpAccessSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteNetworkSettingsCommand}
    */
   deleteNetworkSettings(
@@ -628,6 +721,23 @@ export interface WorkSpacesWeb {
     args: DisassociateBrowserSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateBrowserSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateIpAccessSettingsCommand}
+   */
+  disassociateIpAccessSettings(
+    args: DisassociateIpAccessSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIpAccessSettingsCommandOutput>;
+  disassociateIpAccessSettings(
+    args: DisassociateIpAccessSettingsCommandInput,
+    cb: (err: any, data?: DisassociateIpAccessSettingsCommandOutput) => void
+  ): void;
+  disassociateIpAccessSettings(
+    args: DisassociateIpAccessSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIpAccessSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -730,6 +840,23 @@ export interface WorkSpacesWeb {
     args: GetIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpAccessSettingsCommand}
+   */
+  getIpAccessSettings(
+    args: GetIpAccessSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpAccessSettingsCommandOutput>;
+  getIpAccessSettings(
+    args: GetIpAccessSettingsCommandInput,
+    cb: (err: any, data?: GetIpAccessSettingsCommandOutput) => void
+  ): void;
+  getIpAccessSettings(
+    args: GetIpAccessSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpAccessSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -868,6 +995,23 @@ export interface WorkSpacesWeb {
     args: ListIdentityProvidersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIdentityProvidersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIpAccessSettingsCommand}
+   */
+  listIpAccessSettings(
+    args: ListIpAccessSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIpAccessSettingsCommandOutput>;
+  listIpAccessSettings(
+    args: ListIpAccessSettingsCommandInput,
+    cb: (err: any, data?: ListIpAccessSettingsCommandOutput) => void
+  ): void;
+  listIpAccessSettings(
+    args: ListIpAccessSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIpAccessSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -1034,6 +1178,23 @@ export interface WorkSpacesWeb {
     args: UpdateIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIpAccessSettingsCommand}
+   */
+  updateIpAccessSettings(
+    args: UpdateIpAccessSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIpAccessSettingsCommandOutput>;
+  updateIpAccessSettings(
+    args: UpdateIpAccessSettingsCommandInput,
+    cb: (err: any, data?: UpdateIpAccessSettingsCommandOutput) => void
+  ): void;
+  updateIpAccessSettings(
+    args: UpdateIpAccessSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIpAccessSettingsCommandOutput) => void
   ): void;
 
   /**

@@ -218,6 +218,14 @@ AssociateBrowserSettings
 </details>
 <details>
 <summary>
+AssociateIpAccessSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/associateipaccesssettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/associateipaccesssettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/associateipaccesssettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
 AssociateNetworkSettings
 </summary>
 
@@ -262,6 +270,14 @@ CreateIdentityProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/createidentityprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/createidentityprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/createidentityprovidercommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateIpAccessSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/createipaccesssettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/createipaccesssettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/createipaccesssettingscommandoutput.html)
 
 </details>
 <details>
@@ -322,6 +338,14 @@ DeleteIdentityProvider
 </details>
 <details>
 <summary>
+DeleteIpAccessSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/deleteipaccesssettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/deleteipaccesssettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/deleteipaccesssettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteNetworkSettings
 </summary>
 
@@ -370,6 +394,14 @@ DisassociateBrowserSettings
 </details>
 <details>
 <summary>
+DisassociateIpAccessSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/disassociateipaccesssettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/disassociateipaccesssettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/disassociateipaccesssettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DisassociateNetworkSettings
 </summary>
 
@@ -414,6 +446,14 @@ GetIdentityProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/getidentityprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/getidentityprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/getidentityprovidercommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetIpAccessSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/getipaccesssettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/getipaccesssettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/getipaccesssettingscommandoutput.html)
 
 </details>
 <details>
@@ -486,6 +526,14 @@ ListIdentityProviders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/listidentityproviderscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/listidentityproviderscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/listidentityproviderscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListIpAccessSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/listipaccesssettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/listipaccesssettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/listipaccesssettingscommandoutput.html)
 
 </details>
 <details>
@@ -574,6 +622,14 @@ UpdateIdentityProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/updateidentityprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/updateidentityprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/updateidentityprovidercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateIpAccessSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/classes/updateipaccesssettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/updateipaccesssettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workspaces-web/interfaces/updateipaccesssettingscommandoutput.html)
 
 </details>
 <details>

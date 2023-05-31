@@ -14,12 +14,12 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import {
-  UpdatePortalRequest,
-  UpdatePortalRequestFilterSensitiveLog,
-  UpdatePortalResponse,
-  UpdatePortalResponseFilterSensitiveLog,
+  UpdateIpAccessSettingsRequest,
+  UpdateIpAccessSettingsRequestFilterSensitiveLog,
+  UpdateIpAccessSettingsResponse,
+  UpdateIpAccessSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_UpdatePortalCommand, se_UpdatePortalCommand } from "../protocols/Aws_restJson1";
+import { de_UpdateIpAccessSettingsCommand, se_UpdateIpAccessSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -29,65 +29,67 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdatePortalCommand}.
+ * The input for {@link UpdateIpAccessSettingsCommand}.
  */
-export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
+export interface UpdateIpAccessSettingsCommandInput extends UpdateIpAccessSettingsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdatePortalCommand}.
+ * The output of {@link UpdateIpAccessSettingsCommand}.
  */
-export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
+export interface UpdateIpAccessSettingsCommandOutput extends UpdateIpAccessSettingsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates a web portal.</p>
+ * <p>Updates IP access settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, UpdatePortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, UpdatePortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, UpdateIpAccessSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
+ * // const { WorkSpacesWebClient, UpdateIpAccessSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = { // UpdatePortalRequest
- *   portalArn: "STRING_VALUE", // required
+ * const input = { // UpdateIpAccessSettingsRequest
+ *   ipAccessSettingsArn: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE",
- *   authenticationType: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   ipRules: [ // IpRuleList
+ *     { // IpRule
+ *       ipRange: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new UpdatePortalCommand(input);
+ * const command = new UpdateIpAccessSettingsCommand(input);
  * const response = await client.send(command);
- * // { // UpdatePortalResponse
- * //   portal: { // Portal
- * //     portalArn: "STRING_VALUE",
- * //     rendererType: "STRING_VALUE",
- * //     browserType: "STRING_VALUE",
- * //     portalStatus: "STRING_VALUE",
- * //     portalEndpoint: "STRING_VALUE",
+ * // { // UpdateIpAccessSettingsResponse
+ * //   ipAccessSettings: { // IpAccessSettings
+ * //     ipAccessSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ipRules: [ // IpRuleList
+ * //       { // IpRule
+ * //         ipRange: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     displayName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
  * //     creationDate: new Date("TIMESTAMP"),
- * //     browserSettingsArn: "STRING_VALUE",
- * //     userSettingsArn: "STRING_VALUE",
- * //     networkSettingsArn: "STRING_VALUE",
- * //     trustStoreArn: "STRING_VALUE",
- * //     statusReason: "STRING_VALUE",
- * //     userAccessLoggingSettingsArn: "STRING_VALUE",
- * //     authenticationType: "STRING_VALUE",
- * //     ipAccessSettingsArn: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdatePortalCommandInput - {@link UpdatePortalCommandInput}
- * @returns {@link UpdatePortalCommandOutput}
- * @see {@link UpdatePortalCommandInput} for command's `input` shape.
- * @see {@link UpdatePortalCommandOutput} for command's `response` shape.
+ * @param UpdateIpAccessSettingsCommandInput - {@link UpdateIpAccessSettingsCommandInput}
+ * @returns {@link UpdateIpAccessSettingsCommandOutput}
+ * @see {@link UpdateIpAccessSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateIpAccessSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is an internal server error.</p>
@@ -105,9 +107,9 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
-export class UpdatePortalCommand extends $Command<
-  UpdatePortalCommandInput,
-  UpdatePortalCommandOutput,
+export class UpdateIpAccessSettingsCommand extends $Command<
+  UpdateIpAccessSettingsCommandInput,
+  UpdateIpAccessSettingsCommandOutput,
   WorkSpacesWebClientResolvedConfig
 > {
   // Start section: command_properties
@@ -125,7 +127,7 @@ export class UpdatePortalCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdatePortalCommandInput) {
+  constructor(readonly input: UpdateIpAccessSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -138,21 +140,23 @@ export class UpdatePortalCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesWebClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdatePortalCommandInput, UpdatePortalCommandOutput> {
+  ): Handler<UpdateIpAccessSettingsCommandInput, UpdateIpAccessSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdatePortalCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateIpAccessSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WorkSpacesWebClient";
-    const commandName = "UpdatePortalCommand";
+    const commandName = "UpdateIpAccessSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePortalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePortalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIpAccessSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIpAccessSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,15 +169,15 @@ export class UpdatePortalCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdatePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdatePortalCommand(input, context);
+  private serialize(input: UpdateIpAccessSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateIpAccessSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortalCommandOutput> {
-    return de_UpdatePortalCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIpAccessSettingsCommandOutput> {
+    return de_UpdateIpAccessSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

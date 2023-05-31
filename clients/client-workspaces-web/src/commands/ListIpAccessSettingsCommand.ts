@@ -13,8 +13,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { ListPortalsRequest, ListPortalsResponse, ListPortalsResponseFilterSensitiveLog } from "../models/models_0";
-import { de_ListPortalsCommand, se_ListPortalsCommand } from "../protocols/Aws_restJson1";
+import {
+  ListIpAccessSettingsRequest,
+  ListIpAccessSettingsResponse,
+  ListIpAccessSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_ListIpAccessSettingsCommand, se_ListIpAccessSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -24,48 +28,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListPortalsCommand}.
+ * The input for {@link ListIpAccessSettingsCommand}.
  */
-export interface ListPortalsCommandInput extends ListPortalsRequest {}
+export interface ListIpAccessSettingsCommandInput extends ListIpAccessSettingsRequest {}
 /**
  * @public
  *
- * The output of {@link ListPortalsCommand}.
+ * The output of {@link ListIpAccessSettingsCommand}.
  */
-export interface ListPortalsCommandOutput extends ListPortalsResponse, __MetadataBearer {}
+export interface ListIpAccessSettingsCommandOutput extends ListIpAccessSettingsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves a list or web portals.</p>
+ * <p>Retrieves a list of IP access settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesWebClient, ListPortalsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
- * // const { WorkSpacesWebClient, ListPortalsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * import { WorkSpacesWebClient, ListIpAccessSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
+ * // const { WorkSpacesWebClient, ListIpAccessSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = { // ListPortalsRequest
+ * const input = { // ListIpAccessSettingsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListPortalsCommand(input);
+ * const command = new ListIpAccessSettingsCommand(input);
  * const response = await client.send(command);
- * // { // ListPortalsResponse
- * //   portals: [ // PortalList
- * //     { // PortalSummary
- * //       portalArn: "STRING_VALUE",
- * //       rendererType: "STRING_VALUE",
- * //       browserType: "STRING_VALUE",
- * //       portalStatus: "STRING_VALUE",
- * //       portalEndpoint: "STRING_VALUE",
- * //       displayName: "STRING_VALUE",
- * //       creationDate: new Date("TIMESTAMP"),
- * //       browserSettingsArn: "STRING_VALUE",
- * //       userSettingsArn: "STRING_VALUE",
- * //       networkSettingsArn: "STRING_VALUE",
- * //       trustStoreArn: "STRING_VALUE",
- * //       userAccessLoggingSettingsArn: "STRING_VALUE",
- * //       authenticationType: "STRING_VALUE",
+ * // { // ListIpAccessSettingsResponse
+ * //   ipAccessSettings: [ // IpAccessSettingsList
+ * //     { // IpAccessSettingsSummary
  * //       ipAccessSettingsArn: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -73,10 +67,10 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  *
  * ```
  *
- * @param ListPortalsCommandInput - {@link ListPortalsCommandInput}
- * @returns {@link ListPortalsCommandOutput}
- * @see {@link ListPortalsCommandInput} for command's `input` shape.
- * @see {@link ListPortalsCommandOutput} for command's `response` shape.
+ * @param ListIpAccessSettingsCommandInput - {@link ListIpAccessSettingsCommandInput}
+ * @returns {@link ListIpAccessSettingsCommandOutput}
+ * @see {@link ListIpAccessSettingsCommandInput} for command's `input` shape.
+ * @see {@link ListIpAccessSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -95,9 +89,9 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
-export class ListPortalsCommand extends $Command<
-  ListPortalsCommandInput,
-  ListPortalsCommandOutput,
+export class ListIpAccessSettingsCommand extends $Command<
+  ListIpAccessSettingsCommandInput,
+  ListIpAccessSettingsCommandOutput,
   WorkSpacesWebClientResolvedConfig
 > {
   // Start section: command_properties
@@ -115,7 +109,7 @@ export class ListPortalsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListPortalsCommandInput) {
+  constructor(readonly input: ListIpAccessSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -128,21 +122,23 @@ export class ListPortalsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesWebClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListPortalsCommandInput, ListPortalsCommandOutput> {
+  ): Handler<ListIpAccessSettingsCommandInput, ListIpAccessSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListPortalsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListIpAccessSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WorkSpacesWebClient";
-    const commandName = "ListPortalsCommand";
+    const commandName = "ListIpAccessSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListPortalsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: ListIpAccessSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,15 +151,15 @@ export class ListPortalsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListPortalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListPortalsCommand(input, context);
+  private serialize(input: ListIpAccessSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListIpAccessSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortalsCommandOutput> {
-    return de_ListPortalsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIpAccessSettingsCommandOutput> {
+    return de_ListIpAccessSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra
