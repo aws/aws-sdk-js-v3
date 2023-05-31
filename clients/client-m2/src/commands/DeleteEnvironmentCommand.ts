@@ -36,8 +36,9 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
 
 /**
  * @public
- * <p>Deletes a specific runtime environment. The environment cannot contain deployed applications. If
- *          it does, you must delete those applications before you delete the environment.</p>
+ * <p>Deletes a specific runtime environment. The environment cannot contain deployed
+ *          applications. If it does, you must delete those applications before you delete the
+ *          environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

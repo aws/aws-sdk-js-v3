@@ -36,8 +36,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
 
 /**
  * @public
- * <p>Creates a new application with given parameters. Requires an existing runtime environment and
- *          application definition file.</p>
+ * <p>Creates a new application with given parameters. Requires an existing runtime
+ *          environment and application definition file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   },
  *   clientToken: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE",
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

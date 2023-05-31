@@ -75,6 +75,17 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  *               limit: Number("int"),
  *               rollDisposition: "STRING_VALUE",
  *             },
+ *             po: { // PoAttributes
+ *               format: "STRING_VALUE", // required
+ *               encoding: "STRING_VALUE",
+ *               memberFileExtensions: [ // String20List // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             ps: { // PsAttributes
+ *               format: "STRING_VALUE", // required
+ *               encoding: "STRING_VALUE",
+ *             },
  *           },
  *           relativePath: "STRING_VALUE",
  *           recordLength: { // RecordLength

@@ -374,6 +374,11 @@ export interface CreateApplicationRequest {
    * <p>The identifier of a customer managed key.</p>
    */
   kmsKeyId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role associated with the application.</p>
+   */
+  roleArn?: string;
 }
 
 /**
@@ -462,6 +467,43 @@ export interface GdgAttributes {
 
 /**
  * @public
+ * <p>The supported properties for a PO type data set.</p>
+ */
+export interface PoAttributes {
+  /**
+   * <p>The format of the data set records.</p>
+   */
+  format: string | undefined;
+
+  /**
+   * <p>The character set encoding of the data set.</p>
+   */
+  encoding?: string;
+
+  /**
+   * <p>An array containing one or more filename extensions, allowing you to specify which files to be included as PDS member.</p>
+   */
+  memberFileExtensions: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The supported properties for a PS type data set.</p>
+ */
+export interface PsAttributes {
+  /**
+   * <p>The format of the data set records.</p>
+   */
+  format: string | undefined;
+
+  /**
+   * <p>The character set encoding of the data set.</p>
+   */
+  encoding?: string;
+}
+
+/**
+ * @public
  * <p>The primary key for a KSDS data set.</p>
  */
 export interface PrimaryKey {
@@ -524,6 +566,8 @@ export interface VsamAttributes {
  */
 export type DatasetOrgAttributes =
   | DatasetOrgAttributes.GdgMember
+  | DatasetOrgAttributes.PoMember
+  | DatasetOrgAttributes.PsMember
   | DatasetOrgAttributes.VsamMember
   | DatasetOrgAttributes.$UnknownMember;
 
@@ -537,6 +581,8 @@ export namespace DatasetOrgAttributes {
   export interface VsamMember {
     vsam: VsamAttributes;
     gdg?: never;
+    po?: never;
+    ps?: never;
     $unknown?: never;
   }
 
@@ -546,24 +592,54 @@ export namespace DatasetOrgAttributes {
   export interface GdgMember {
     vsam?: never;
     gdg: GdgAttributes;
+    po?: never;
+    ps?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of a PO type data set.</p>
+   */
+  export interface PoMember {
+    vsam?: never;
+    gdg?: never;
+    po: PoAttributes;
+    ps?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of a PS type data set.</p>
+   */
+  export interface PsMember {
+    vsam?: never;
+    gdg?: never;
+    po?: never;
+    ps: PsAttributes;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     vsam?: never;
     gdg?: never;
+    po?: never;
+    ps?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     vsam: (value: VsamAttributes) => T;
     gdg: (value: GdgAttributes) => T;
+    po: (value: PoAttributes) => T;
+    ps: (value: PsAttributes) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: DatasetOrgAttributes, visitor: Visitor<T>): T => {
     if (value.vsam !== undefined) return visitor.vsam(value.vsam);
     if (value.gdg !== undefined) return visitor.gdg(value.gdg);
+    if (value.po !== undefined) return visitor.po(value.po);
+    if (value.ps !== undefined) return visitor.ps(value.ps);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -757,7 +833,8 @@ export interface CreateDataSetImportTaskResponse {
  */
 export interface CreateDeploymentRequest {
   /**
-   * <p>The identifier of the runtime environment where you want to deploy this application.</p>
+   * <p>The identifier of the runtime environment where you want to deploy this
+   *          application.</p>
    */
   environmentId: string | undefined;
 
@@ -917,8 +994,8 @@ export interface ApplicationVersionSummary {
 
 /**
  * @public
- * <p>A subset of the attributes that describe a log group. In CloudWatch a log group is a group of log
- *          streams that share the same retention, monitoring, and access control settings.</p>
+ * <p>A subset of the attributes that describe a log group. In CloudWatch a log group is a group of
+ *          log streams that share the same retention, monitoring, and access control settings.</p>
  */
 export interface LogGroupSummary {
   /**
@@ -1001,8 +1078,8 @@ export interface GetApplicationResponse {
 
   /**
    * <p>The list of log summaries. Each log summary includes the log type as well as the log
-   *          group identifier. These are CloudWatch logs. Amazon Web Services Mainframe Modernization pushes the application log to CloudWatch
-   *          under the customer's account.</p>
+   *          group identifier. These are CloudWatch logs. Amazon Web Services Mainframe Modernization pushes the application log to CloudWatch under
+   *          the customer's account.</p>
    */
   logGroups?: LogGroupSummary[];
 
@@ -1012,7 +1089,8 @@ export interface GetApplicationResponse {
   creationTime: Date | undefined;
 
   /**
-   * <p>The timestamp when you last started the application. Null until the application runs for the first time.</p>
+   * <p>The timestamp when you last started the application. Null until the application runs for
+   *          the first time.</p>
    */
   lastStartTime?: Date;
 
@@ -1022,7 +1100,8 @@ export interface GetApplicationResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>The identifier of the runtime environment where you want to deploy the application.</p>
+   * <p>The identifier of the runtime environment where you want to deploy the
+   *          application.</p>
    */
   environmentId?: string;
 
@@ -1059,6 +1138,11 @@ export interface GetApplicationResponse {
    * <p>The identifier of a customer managed key.</p>
    */
   kmsKeyId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role associated with the application.</p>
+   */
+  roleArn?: string;
 }
 
 /**
@@ -1184,7 +1268,8 @@ export namespace BatchJobIdentifier {
   }
 
   /**
-   * <p>A batch job identifier in which the batch job to run is identified by the script name.</p>
+   * <p>A batch job identifier in which the batch job to run is identified by the script
+   *          name.</p>
    */
   export interface ScriptBatchJobIdentifierMember {
     fileBatchJobIdentifier?: never;
@@ -1303,12 +1388,15 @@ export interface GetBatchJobExecutionResponse {
   statusReason?: string;
 
   /**
-   * <p/>
+   * <p>The batch job return code from either the Blu Age or Micro Focus runtime engines. For more
+   *          information, see <a href="https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes">Batch return
+   *             codes</a> in the <i>IBM WebSphere Application Server</i>
+   *          documentation.</p>
    */
   returnCode?: string;
 
   /**
-   * <p>Identifies a specific batch job.</p>
+   * <p>The unique identifier of this batch job.</p>
    */
   batchJobIdentifier?: BatchJobIdentifier;
 }
@@ -1346,6 +1434,38 @@ export interface GdgDetailAttributes {
    * <p>The disposition of the data set in the catalog.</p>
    */
   rollDisposition?: string;
+}
+
+/**
+ * @public
+ * <p>The supported properties for a PO type data set.</p>
+ */
+export interface PoDetailAttributes {
+  /**
+   * <p>The format of the data set records.</p>
+   */
+  format: string | undefined;
+
+  /**
+   * <p>The character set encoding of the data set.</p>
+   */
+  encoding: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The supported properties for a PS type data set.</p>
+ */
+export interface PsDetailAttributes {
+  /**
+   * <p>The format of the data set records.</p>
+   */
+  format: string | undefined;
+
+  /**
+   * <p>The character set encoding of the data set.</p>
+   */
+  encoding: string | undefined;
 }
 
 /**
@@ -1396,6 +1516,8 @@ export interface VsamDetailAttributes {
  */
 export type DatasetDetailOrgAttributes =
   | DatasetDetailOrgAttributes.GdgMember
+  | DatasetDetailOrgAttributes.PoMember
+  | DatasetDetailOrgAttributes.PsMember
   | DatasetDetailOrgAttributes.VsamMember
   | DatasetDetailOrgAttributes.$UnknownMember;
 
@@ -1409,6 +1531,8 @@ export namespace DatasetDetailOrgAttributes {
   export interface VsamMember {
     vsam: VsamDetailAttributes;
     gdg?: never;
+    po?: never;
+    ps?: never;
     $unknown?: never;
   }
 
@@ -1418,24 +1542,54 @@ export namespace DatasetDetailOrgAttributes {
   export interface GdgMember {
     vsam?: never;
     gdg: GdgDetailAttributes;
+    po?: never;
+    ps?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of a PO type data set.</p>
+   */
+  export interface PoMember {
+    vsam?: never;
+    gdg?: never;
+    po: PoDetailAttributes;
+    ps?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of a PS type data set.</p>
+   */
+  export interface PsMember {
+    vsam?: never;
+    gdg?: never;
+    po?: never;
+    ps: PsDetailAttributes;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     vsam?: never;
     gdg?: never;
+    po?: never;
+    ps?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     vsam: (value: VsamDetailAttributes) => T;
     gdg: (value: GdgDetailAttributes) => T;
+    po: (value: PoDetailAttributes) => T;
+    ps: (value: PsDetailAttributes) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: DatasetDetailOrgAttributes, visitor: Visitor<T>): T => {
     if (value.vsam !== undefined) return visitor.vsam(value.vsam);
     if (value.gdg !== undefined) return visitor.gdg(value.gdg);
+    if (value.po !== undefined) return visitor.po(value.po);
+    if (value.ps !== undefined) return visitor.ps(value.ps);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1714,7 +1868,8 @@ export interface ApplicationSummary {
   environmentId?: string;
 
   /**
-   * <p>The timestamp when you last started the application. Null until the application runs for the first time.</p>
+   * <p>The timestamp when you last started the application. Null until the application runs for
+   *          the first time.</p>
    */
   lastStartTime?: Date;
 
@@ -1728,6 +1883,11 @@ export interface ApplicationSummary {
    *          successfully.</p>
    */
   deploymentStatus?: ApplicationDeploymentLifecycle | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role associated with the application.</p>
+   */
+  roleArn?: string;
 }
 
 /**
@@ -1735,7 +1895,8 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>Returns a list of summary details for all the applications in a runtime environment.</p>
+   * <p>Returns a list of summary details for all the applications in a runtime
+   *          environment.</p>
    */
   applications: ApplicationSummary[] | undefined;
 
@@ -1998,12 +2159,15 @@ export interface BatchJobExecutionSummary {
   endTime?: Date;
 
   /**
-   * <p/>
+   * <p>The batch job return code from either the Blu Age or Micro Focus runtime engines. For more
+   *          information, see <a href="https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes">Batch return
+   *             codes</a> in the <i>IBM WebSphere Application Server</i>
+   *          documentation.</p>
    */
   returnCode?: string;
 
   /**
-   * <p>Identifies a specific batch job.</p>
+   * <p>The unique identifier of this batch job.</p>
    */
   batchJobIdentifier?: BatchJobIdentifier;
 }
@@ -2502,8 +2666,8 @@ export interface CreateEnvironmentRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>Configures the maintenance window you want for the runtime environment. If you do not provide a
-   *          value, a random system-generated value will be assigned.</p>
+   * <p>Configures the maintenance window you want for the runtime environment. If you do not
+   *          provide a value, a random system-generated value will be assigned.</p>
    */
   preferredMaintenanceWindow?: string;
 
@@ -2712,8 +2876,8 @@ export interface GetEnvironmentResponse {
   statusReason?: string;
 
   /**
-   * <p>Configures the maintenance window you want for the runtime environment. If you do not provide a
-   *          value, a random system-generated value will be assigned.</p>
+   * <p>Configures the maintenance window you want for the runtime environment. If you do not
+   *          provide a value, a random system-generated value will be assigned.</p>
    */
   preferredMaintenanceWindow?: string;
 
@@ -2733,7 +2897,8 @@ export interface GetEnvironmentResponse {
  */
 export interface ListEnvironmentsRequest {
   /**
-   * <p>A pagination token to control the number of runtime environments displayed in the list.</p>
+   * <p>A pagination token to control the number of runtime environments displayed in the
+   *          list.</p>
    */
   nextToken?: string;
 
@@ -2755,8 +2920,8 @@ export interface ListEnvironmentsRequest {
 
 /**
  * @public
- * <p>Contains a subset of the possible runtime environment attributes. Used in the environment
- *          list.</p>
+ * <p>Contains a subset of the possible runtime environment attributes. Used in the
+ *          environment list.</p>
  */
 export interface EnvironmentSummary {
   /**
@@ -2805,13 +2970,14 @@ export interface EnvironmentSummary {
  */
 export interface ListEnvironmentsResponse {
   /**
-   * <p>Returns a list of summary details for all the runtime environments in your account. </p>
+   * <p>Returns a list of summary details for all the runtime environments in your account.
+   *       </p>
    */
   environments: EnvironmentSummary[] | undefined;
 
   /**
-   * <p>A pagination token that's returned when the response doesn't contain all the
-   *          runtime environments.</p>
+   * <p>A pagination token that's returned when the response doesn't contain all the runtime
+   *          environments.</p>
    */
   nextToken?: string;
 }
@@ -2841,15 +3007,15 @@ export interface UpdateEnvironmentRequest {
   engineVersion?: string;
 
   /**
-   * <p>Configures the maintenance window you want for the runtime environment. If you do not provide a
-   *          value, a random system-generated value will be assigned.</p>
+   * <p>Configures the maintenance window you want for the runtime environment. If you do not
+   *          provide a value, a random system-generated value will be assigned.</p>
    */
   preferredMaintenanceWindow?: string;
 
   /**
-   * <p>Indicates whether to update the runtime environment during the maintenance window. The default
-   *          is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code> parameter only if
-   *             <code>applyDuringMaintenanceWindow</code> is true. If any parameter other than
+   * <p>Indicates whether to update the runtime environment during the maintenance window. The
+   *          default is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code> parameter
+   *          only if <code>applyDuringMaintenanceWindow</code> is true. If any parameter other than
    *             <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>, it will
    *          fail if <code>applyDuringMaintenanceWindow</code> is set to true.</p>
    */

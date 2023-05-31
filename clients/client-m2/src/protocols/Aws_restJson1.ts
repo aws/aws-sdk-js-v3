@@ -113,7 +113,9 @@ import {
   InternalServerException,
   MaintenanceSchedule,
   PendingMaintenance,
+  PoAttributes,
   PrimaryKey,
+  PsAttributes,
   RecordLength,
   ResourceNotFoundException,
   ScriptBatchJobIdentifier,
@@ -178,6 +180,7 @@ export const se_CreateApplicationCommand = async (
       engineType: [],
       kmsKeyId: [],
       name: [],
+      roleArn: [],
       tags: (_) => _json(_),
     })
   );
@@ -1763,6 +1766,7 @@ export const de_GetApplicationCommand = async (
     loadBalancerDnsName: __expectString,
     logGroups: _json,
     name: __expectString,
+    roleArn: __expectString,
     status: __expectString,
     statusReason: __expectString,
     tags: _json,
@@ -3427,7 +3431,11 @@ const se_FsxStorageConfiguration = (input: FsxStorageConfiguration, context: __S
 
 // se_HighAvailabilityConfig omitted.
 
+// se_PoAttributes omitted.
+
 // se_PrimaryKey omitted.
+
+// se_PsAttributes omitted.
 
 // se_RecordLength omitted.
 
@@ -3455,6 +3463,8 @@ const se_StorageConfigurationList = (input: StorageConfiguration[], context: __S
     });
 };
 
+// se_String20List omitted.
+
 // se_String50List omitted.
 
 // se_TagMap omitted.
@@ -3480,6 +3490,7 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
     environmentId: __expectString,
     lastStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    roleArn: __expectString,
     status: __expectString,
     versionStatus: __expectString,
   }) as any;
@@ -3706,9 +3717,13 @@ const de_PendingMaintenance = (output: any, context: __SerdeContext): PendingMai
   }) as any;
 };
 
+// de_PoDetailAttributes omitted.
+
 // de_PortList omitted.
 
 // de_PrimaryKey omitted.
+
+// de_PsDetailAttributes omitted.
 
 // de_ScriptBatchJobDefinition omitted.
 

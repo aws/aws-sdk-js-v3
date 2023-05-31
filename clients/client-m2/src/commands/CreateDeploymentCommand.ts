@@ -36,7 +36,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
 
 /**
  * @public
- * <p>Creates and starts a deployment to deploy an application into a runtime environment.</p>
+ * <p>Creates and starts a deployment to deploy an application into a runtime
+ *          environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

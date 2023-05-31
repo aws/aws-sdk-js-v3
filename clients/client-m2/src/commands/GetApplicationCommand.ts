@@ -90,6 +90,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   loadBalancerDnsName: "STRING_VALUE",
  * //   statusReason: "STRING_VALUE",
  * //   kmsKeyId: "STRING_VALUE",
+ * //   roleArn: "STRING_VALUE",
  * // };
  *
  * ```

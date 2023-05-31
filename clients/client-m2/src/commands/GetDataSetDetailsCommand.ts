@@ -75,6 +75,14 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * //       limit: Number("int"),
  * //       rollDisposition: "STRING_VALUE",
  * //     },
+ * //     po: { // PoDetailAttributes
+ * //       format: "STRING_VALUE", // required
+ * //       encoding: "STRING_VALUE", // required
+ * //     },
+ * //     ps: { // PsDetailAttributes
+ * //       format: "STRING_VALUE", // required
+ * //       encoding: "STRING_VALUE", // required
+ * //     },
  * //   },
  * //   recordLength: Number("int"),
  * //   location: "STRING_VALUE",
