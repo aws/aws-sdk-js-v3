@@ -62,6 +62,9 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   eventOrchestration: { // EventOrchestration
+ *     eventBridgeEnabled: true || false, // required
+ *   },
  * };
  * const command = new PutEventTypeCommand(input);
  * const response = await client.send(command);

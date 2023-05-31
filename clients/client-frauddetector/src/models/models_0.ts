@@ -1001,7 +1001,7 @@ export interface LabelSchema {
    *                <p>Use <code>FRAUD</code>  if you want to categorize all unlabeled events as “Fraud”.  This is recommended when most of the events in your dataset are fraudulent.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>LEGIT</code> f you want to categorize all unlabeled events as “Legit”. This is recommended when most of the events in your dataset are legitimate.</p>
+   *                <p>Use <code>LEGIT</code> if you want to categorize all unlabeled events as “Legit”. This is recommended when most of the events in your dataset are legitimate.</p>
    *             </li>
    *             <li>
    *                <p>Use <code>AUTO</code> if you want Amazon Fraud Detector to decide how to use the unlabeled data.  This is recommended when there is significant unlabeled events in the dataset.</p>
@@ -1823,7 +1823,8 @@ export interface OFIMetricDataPoint {
 /**
  * @public
  * <p>
- *             Range of area under curve (auc) expected from the model. A range greater than 0.1 indicates higher model uncertainity. A range is the difference between upper and lower bound of auc.
+ *             Range of area under curve (auc) expected from the model. A range greater than 0.1 indicates higher model uncertainity.
+ *             A range is the difference between upper and lower bound of auc.
  *         </p>
  */
 export interface UncertaintyRange {
@@ -1836,7 +1837,8 @@ export interface UncertaintyRange {
 
   /**
    * <p>
-   *             The lower bound value of the area under curve (auc).        </p>
+   *             The upper bound value of the area under curve (auc).
+   *         </p>
    */
   upperBoundValue: number | undefined;
 }
@@ -3291,6 +3293,19 @@ export type EventIngestion = (typeof EventIngestion)[keyof typeof EventIngestion
 
 /**
  * @public
+ * <p>
+ *          The event orchestration status.
+ *       </p>
+ */
+export interface EventOrchestration {
+  /**
+   * <p>Specifies if event orchestration is enabled through Amazon EventBridge.</p>
+   */
+  eventBridgeEnabled: boolean | undefined;
+}
+
+/**
+ * @public
  * <p>Data about the stored events.</p>
  */
 export interface IngestedEventStatistics {
@@ -3375,6 +3390,11 @@ export interface EventType {
    * <p>The entity type ARN.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The event orchestration status. </p>
+   */
+  eventOrchestration?: EventOrchestration;
 }
 
 /**
@@ -4438,7 +4458,7 @@ export interface PutEventTypeRequest {
   entityTypes: string[] | undefined;
 
   /**
-   * <p>Specifies if ingenstion is enabled or disabled.</p>
+   * <p>Specifies if ingestion is enabled or disabled.</p>
    */
   eventIngestion?: EventIngestion | string;
 
@@ -4446,6 +4466,11 @@ export interface PutEventTypeRequest {
    * <p>A collection of key and value pairs.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Enables or disables event orchestration. If enabled, you can send event predictions to select AWS services for downstream processing of the events.</p>
+   */
+  eventOrchestration?: EventOrchestration;
 }
 
 /**
@@ -4529,7 +4554,7 @@ export interface PutLabelRequest {
   description?: string;
 
   /**
-   * <p></p>
+   * <p>A collection of key and value pairs.</p>
    */
   tags?: Tag[];
 }

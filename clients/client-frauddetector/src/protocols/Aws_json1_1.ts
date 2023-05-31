@@ -196,6 +196,7 @@ import {
   DescribeModelVersionsResult,
   Entity,
   EvaluatedModelVersion,
+  EventOrchestration,
   ExternalEventsDetail,
   FilterCondition,
   GetBatchImportJobsRequest,
@@ -5634,6 +5635,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Entity omitted.
 
+// se_EventOrchestration omitted.
+
 // se_EventVariableMap omitted.
 
 // se_ExternalEventsDetail omitted.
@@ -6020,6 +6023,8 @@ const de_EvaluatedModelVersion = (output: any, context: __SerdeContext): Evaluat
 // de_Event omitted.
 
 // de_EventAttributeMap omitted.
+
+// de_EventOrchestration omitted.
 
 // de_EventPredictionSummary omitted.
 

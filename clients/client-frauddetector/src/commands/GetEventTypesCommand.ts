@@ -80,6 +80,9 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  * //       lastUpdatedTime: "STRING_VALUE",
  * //       createdTime: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
+ * //       eventOrchestration: { // EventOrchestration
+ * //         eventBridgeEnabled: true || false, // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
