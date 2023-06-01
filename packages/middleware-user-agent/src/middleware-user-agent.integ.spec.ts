@@ -14,7 +14,7 @@ describe("middleware-user-agent", () => {
       requireRequestsFrom(client).toMatch({
         headers: {
           "x-amz-user-agent": /aws-sdk-js\/[\d\.]+/,
-          "user-agent": /aws-sdk-js\/[\d\.]+ (.*?)lang\/js md\/nodejs\/[\d\.]+ (.*?)api\/(.+)\/[\d\.]+/,
+          "user-agent": /aws-sdk-js\/[\d\.]+ (.*?)lang\/js md\/nodejs\#[\d\.]+ (.*?)api\/(.+)\#[\d\.]+/,
         },
       });
       await client.getUserDetails({
