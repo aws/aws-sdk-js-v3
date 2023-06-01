@@ -127,6 +127,10 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *         customProperties: { // CustomProperties
  *           "<keys>": "STRING_VALUE",
  *         },
+ *         dataTransferApi: { // DataTransferApi
+ *           Name: "STRING_VALUE",
+ *           Type: "SYNC" || "ASYNC" || "AUTOMATIC",
+ *         },
  *       },
  *       Pardot: { // PardotSourceProperties
  *         object: "STRING_VALUE", // required

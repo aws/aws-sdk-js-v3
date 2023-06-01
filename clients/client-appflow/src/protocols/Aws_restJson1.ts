@@ -111,6 +111,7 @@ import {
   DatadogConnectorProfileCredentials,
   DatadogConnectorProfileProperties,
   DatadogSourceProperties,
+  DataTransferApi,
   DestinationConnectorProperties,
   DestinationFlowConfig,
   DynatraceConnectorProfileCredentials,
@@ -2566,6 +2567,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DatadogSourceProperties omitted.
 
+// se_DataTransferApi omitted.
+
 // se_DestinationConnectorProperties omitted.
 
 // se_DestinationFlowConfig omitted.
@@ -2817,6 +2820,8 @@ const de_ConnectorConfiguration = (output: any, context: __SerdeContext): Connec
     registeredAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     registeredBy: __expectString,
     supportedApiVersions: _json,
+    supportedDataTransferApis: _json,
+    supportedDataTransferTypes: _json,
     supportedDestinationConnectors: _json,
     supportedOperators: _json,
     supportedSchedulingFrequencies: _json,
@@ -2860,6 +2865,7 @@ const de_ConnectorDetail = (output: any, context: __SerdeContext): ConnectorDeta
     connectorVersion: __expectString,
     registeredAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     registeredBy: __expectString,
+    supportedDataTransferTypes: _json,
   }) as any;
 };
 
@@ -2983,6 +2989,8 @@ const de_ConnectorProfileDetailList = (output: any, context: __SerdeContext): Co
 // de_DatadogMetadata omitted.
 
 // de_DatadogSourceProperties omitted.
+
+// de_DataTransferApi omitted.
 
 // de_DestinationConnectorProperties omitted.
 
@@ -3272,6 +3280,10 @@ const de_ScheduledTriggerProperties = (output: any, context: __SerdeContext): Sc
 // de_SuccessResponseHandlingConfig omitted.
 
 // de_SupportedApiVersionList omitted.
+
+// de_SupportedDataTransferApis omitted.
+
+// de_SupportedDataTransferTypeList omitted.
 
 /**
  * deserializeAws_restJson1SupportedFieldTypeDetails

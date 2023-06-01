@@ -214,6 +214,15 @@ export interface DescribeConnectorsCommandOutput extends DescribeConnectorsRespo
  * //       logoURL: "STRING_VALUE",
  * //       registeredAt: new Date("TIMESTAMP"),
  * //       registeredBy: "STRING_VALUE",
+ * //       supportedDataTransferTypes: [ // SupportedDataTransferTypeList
+ * //         "RECORD" || "FILE",
+ * //       ],
+ * //       supportedDataTransferApis: [ // SupportedDataTransferApis
+ * //         { // DataTransferApi
+ * //           Name: "STRING_VALUE",
+ * //           Type: "SYNC" || "ASYNC" || "AUTOMATIC",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   connectors: [ // ConnectorList
@@ -230,6 +239,9 @@ export interface DescribeConnectorsCommandOutput extends DescribeConnectorsRespo
  * //       connectorProvisioningType: "LAMBDA",
  * //       connectorModes: [
  * //         "STRING_VALUE",
+ * //       ],
+ * //       supportedDataTransferTypes: [
+ * //         "RECORD" || "FILE",
  * //       ],
  * //     },
  * //   ],

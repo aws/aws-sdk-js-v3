@@ -67,6 +67,9 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //       connectorModes: [ // ConnectorModeList
  * //         "STRING_VALUE",
  * //       ],
+ * //       supportedDataTransferTypes: [ // SupportedDataTransferTypeList
+ * //         "RECORD" || "FILE",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

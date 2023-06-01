@@ -209,6 +209,15 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //     logoURL: "STRING_VALUE",
  * //     registeredAt: new Date("TIMESTAMP"),
  * //     registeredBy: "STRING_VALUE",
+ * //     supportedDataTransferTypes: [ // SupportedDataTransferTypeList
+ * //       "RECORD" || "FILE",
+ * //     ],
+ * //     supportedDataTransferApis: [ // SupportedDataTransferApis
+ * //       { // DataTransferApi
+ * //         Name: "STRING_VALUE",
+ * //         Type: "SYNC" || "ASYNC" || "AUTOMATIC",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

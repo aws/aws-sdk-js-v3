@@ -639,8 +639,8 @@ export interface SalesforceMetadata {
 
   /**
    * <p>The OAuth 2.0 grant types that Amazon AppFlow can use when it requests an access
-   *       token from Salesforce. Amazon AppFlow requires an access token each time it
-   *       attempts to access your Salesforce records.</p>
+   *       token from Salesforce. Amazon AppFlow requires an access token each time it attempts to
+   *       access your Salesforce records.</p>
    *          <dl>
    *             <dt>AUTHORIZATION_CODE</dt>
    *             <dd>
@@ -973,6 +973,68 @@ export type ConnectorType = (typeof ConnectorType)[keyof typeof ConnectorType];
  * @public
  * @enum
  */
+export const DataTransferApiType = {
+  ASYNC: "ASYNC",
+  AUTOMATIC: "AUTOMATIC",
+  SYNC: "SYNC",
+} as const;
+
+/**
+ * @public
+ */
+export type DataTransferApiType = (typeof DataTransferApiType)[keyof typeof DataTransferApiType];
+
+/**
+ * @public
+ * <p>The API of the connector application that Amazon AppFlow uses to transfer your
+ *       data.</p>
+ */
+export interface DataTransferApi {
+  /**
+   * <p>The name of the connector application API.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>You can specify one of the following types:</p>
+   *          <dl>
+   *             <dt>AUTOMATIC</dt>
+   *             <dd>
+   *                <p>The default. Optimizes a flow for datasets that fluctuate in size from small to
+   *             large. For each flow run, Amazon AppFlow chooses to use the SYNC or ASYNC API type based on
+   *             the amount of data that the run transfers.</p>
+   *             </dd>
+   *             <dt>SYNC</dt>
+   *             <dd>
+   *                <p>A synchronous API. This type of API optimizes a flow for small to medium-sized datasets.</p>
+   *             </dd>
+   *             <dt>ASYNC</dt>
+   *             <dd>
+   *                <p>An asynchronous API. This type of API optimizes a flow for large datasets.</p>
+   *             </dd>
+   *          </dl>
+   */
+  Type?: DataTransferApiType | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportedDataTransferType = {
+  FILE: "FILE",
+  RECORD: "RECORD",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedDataTransferType = (typeof SupportedDataTransferType)[keyof typeof SupportedDataTransferType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Operators = {
   ADDITION: "ADDITION",
   BETWEEN: "BETWEEN",
@@ -1186,6 +1248,27 @@ export interface ConnectorConfiguration {
    * <p>Information about who registered the connector.</p>
    */
   registeredBy?: string;
+
+  /**
+   * <p>The data transfer types that the connector supports.</p>
+   *          <dl>
+   *             <dt>RECORD</dt>
+   *             <dd>
+   *                <p>Structured records.</p>
+   *             </dd>
+   *             <dt>FILE</dt>
+   *             <dd>
+   *                <p>Files or binary data.</p>
+   *             </dd>
+   *          </dl>
+   */
+  supportedDataTransferTypes?: (SupportedDataTransferType | string)[];
+
+  /**
+   * <p>The APIs of the connector application that Amazon AppFlow can use to transfer your
+   *       data.</p>
+   */
+  supportedDataTransferApis?: DataTransferApi[];
 }
 
 /**
@@ -1247,6 +1330,21 @@ export interface ConnectorDetail {
    * <p>The connection mode that the connector supports.</p>
    */
   connectorModes?: string[];
+
+  /**
+   * <p>The data transfer types that the connector supports.</p>
+   *          <dl>
+   *             <dt>RECORD</dt>
+   *             <dd>
+   *                <p>Structured records.</p>
+   *             </dd>
+   *             <dt>FILE</dt>
+   *             <dd>
+   *                <p>Files or binary data.</p>
+   *             </dd>
+   *          </dl>
+   */
+  supportedDataTransferTypes?: (SupportedDataTransferType | string)[];
 }
 
 /**
@@ -4180,6 +4278,12 @@ export interface CustomConnectorSourceProperties {
    * <p>Custom properties that are required to use the custom connector as a source.</p>
    */
   customProperties?: Record<string, string>;
+
+  /**
+   * <p>The API of the connector application that Amazon AppFlow uses to transfer your
+   *       data.</p>
+   */
+  dataTransferApi?: DataTransferApi;
 }
 
 /**
