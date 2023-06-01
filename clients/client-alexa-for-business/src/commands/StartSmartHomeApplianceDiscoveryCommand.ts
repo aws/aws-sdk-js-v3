@@ -41,6 +41,8 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Initiates the discovery of any smart home appliances associated with the
  *          room.</p>
  * @example

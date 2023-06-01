@@ -36,6 +36,8 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of
  *          a specific gateway group.</p>
  * @example

@@ -36,6 +36,8 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Makes a private skill available for enrolled users to enable on their devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

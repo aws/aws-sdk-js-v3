@@ -36,6 +36,8 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves the details of a gateway group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

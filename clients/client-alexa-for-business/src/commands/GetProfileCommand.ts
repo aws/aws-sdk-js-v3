@@ -36,6 +36,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Gets the details of a room profile by profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,9 +57,9 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * //     IsDefault: true || false,
  * //     Address: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
- * //     DistanceUnit: "STRING_VALUE",
- * //     TemperatureUnit: "STRING_VALUE",
- * //     WakeWord: "STRING_VALUE",
+ * //     DistanceUnit: "METRIC" || "IMPERIAL",
+ * //     TemperatureUnit: "FAHRENHEIT" || "CELSIUS",
+ * //     WakeWord: "ALEXA" || "AMAZON" || "ECHO" || "COMPUTER",
  * //     Locale: "STRING_VALUE",
  * //     SetupModeDisabled: true || false,
  * //     MaxVolumeLimit: Number("int"),
@@ -70,7 +72,7 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * //         ReminderAtMinutes: [ // EndOfMeetingReminderMinutesList
  * //           Number("int"),
  * //         ],
- * //         ReminderType: "STRING_VALUE",
+ * //         ReminderType: "ANNOUNCEMENT_TIME_CHECK" || "ANNOUNCEMENT_VARIABLE_TIME_LEFT" || "CHIME" || "KNOCK",
  * //         Enabled: true || false,
  * //       },
  * //       InstantBooking: { // InstantBooking
@@ -80,6 +82,9 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * //       RequireCheckIn: { // RequireCheckIn
  * //         ReleaseAfterMinutes: Number("int"),
  * //         Enabled: true || false,
+ * //       },
+ * //       ProactiveJoin: { // ProactiveJoin
+ * //         EnabledByMotion: true || false,
  * //       },
  * //     },
  * //   },

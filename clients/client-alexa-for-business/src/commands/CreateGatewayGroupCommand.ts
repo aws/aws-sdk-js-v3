@@ -36,6 +36,8 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a gateway group with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

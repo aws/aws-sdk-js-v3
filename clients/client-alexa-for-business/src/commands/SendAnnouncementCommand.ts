@@ -56,19 +56,19 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  *   Content: { // Content
  *     TextList: [ // TextList
  *       { // Text
- *         Locale: "STRING_VALUE", // required
+ *         Locale: "en-US", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
  *     SsmlList: [ // SsmlList
  *       { // Ssml
- *         Locale: "STRING_VALUE", // required
+ *         Locale: "en-US", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
  *     AudioList: [ // AudioList
  *       { // Audio
- *         Locale: "STRING_VALUE", // required
+ *         Locale: "en-US", // required
  *         Location: "STRING_VALUE", // required
  *       },
  *     ],

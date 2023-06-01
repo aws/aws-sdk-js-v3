@@ -36,6 +36,8 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a gateway group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

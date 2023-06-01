@@ -36,6 +36,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Removes metadata tags from a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

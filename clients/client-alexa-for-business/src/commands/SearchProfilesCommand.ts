@@ -36,6 +36,8 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Searches room profiles and lists the ones that meet a set of filter
  *          criteria.</p>
  * @example
@@ -58,7 +60,7 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  *   SortCriteria: [ // SortList
  *     { // Sort
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
  *     },
  *   ],
  * };
@@ -72,9 +74,9 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * //       IsDefault: true || false,
  * //       Address: "STRING_VALUE",
  * //       Timezone: "STRING_VALUE",
- * //       DistanceUnit: "STRING_VALUE",
- * //       TemperatureUnit: "STRING_VALUE",
- * //       WakeWord: "STRING_VALUE",
+ * //       DistanceUnit: "METRIC" || "IMPERIAL",
+ * //       TemperatureUnit: "FAHRENHEIT" || "CELSIUS",
+ * //       WakeWord: "ALEXA" || "AMAZON" || "ECHO" || "COMPUTER",
  * //       Locale: "STRING_VALUE",
  * //     },
  * //   ],

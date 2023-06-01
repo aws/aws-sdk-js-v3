@@ -36,6 +36,8 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves the configured values for the user enrollment invitation email
  *          template.</p>
  * @example

@@ -36,6 +36,8 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes an address book by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

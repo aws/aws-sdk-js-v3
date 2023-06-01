@@ -36,6 +36,8 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Determines the details for the room from which a skill request was invoked. This
  *          operation is used by skill developers.</p>
  *          <p>To query ResolveRoom from an Alexa skill, the skill ID needs to be authorized. When

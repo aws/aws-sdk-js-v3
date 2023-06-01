@@ -36,6 +36,8 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Associates a skill with the organization under the customer's AWS account. If a skill
  *          is private, the user implicitly accepts access to this skill during enablement.</p>
  * @example

@@ -36,6 +36,8 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates the details of a gateway group. If any optional field is not provided, the
  *          existing corresponding value is left unmodified.</p>
  * @example

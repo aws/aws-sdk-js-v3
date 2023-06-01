@@ -36,6 +36,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists the device event history, including device connection status, for up to 30
  *          days.</p>
  * @example
@@ -46,7 +48,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListDeviceEventsRequest
  *   DeviceArn: "STRING_VALUE", // required
- *   EventType: "STRING_VALUE",
+ *   EventType: "CONNECTION_STATUS" || "DEVICE_STATUS",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -55,7 +57,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * // { // ListDeviceEventsResponse
  * //   DeviceEvents: [ // DeviceEventList
  * //     { // DeviceEvent
- * //       Type: "STRING_VALUE",
+ * //       Type: "CONNECTION_STATUS" || "DEVICE_STATUS",
  * //       Value: "STRING_VALUE",
  * //       Timestamp: new Date("TIMESTAMP"),
  * //     },

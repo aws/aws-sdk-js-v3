@@ -36,6 +36,8 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Removes a device from Alexa For Business.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,6 +36,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates room details by room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

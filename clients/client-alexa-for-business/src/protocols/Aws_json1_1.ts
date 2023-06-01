@@ -252,6 +252,7 @@ import {
   CreateInstantBooking,
   CreateMeetingRoomConfiguration,
   CreateNetworkProfileRequest,
+  CreateProactiveJoin,
   CreateProfileRequest,
   CreateRequireCheckIn,
   CreateRoomRequest,
@@ -367,6 +368,7 @@ import {
   UpdateInstantBooking,
   UpdateMeetingRoomConfiguration,
   UpdateNetworkProfileRequest,
+  UpdateProactiveJoin,
   UpdateProfileRequest,
   UpdateRequireCheckIn,
   UpdateRoomRequest,
@@ -6329,6 +6331,8 @@ const se_CreateNetworkProfileRequest = (input: CreateNetworkProfileRequest, cont
   });
 };
 
+// se_CreateProactiveJoin omitted.
+
 /**
  * serializeAws_json1_1CreateProfileRequest
  */
@@ -6602,6 +6606,8 @@ const se_SendAnnouncementRequest = (input: SendAnnouncementRequest, context: __S
 // se_UpdateMeetingRoomConfiguration omitted.
 
 // se_UpdateNetworkProfileRequest omitted.
+
+// se_UpdateProactiveJoin omitted.
 
 // se_UpdateProfileRequest omitted.
 
@@ -6989,6 +6995,8 @@ const de_ListDeviceEventsResponse = (output: any, context: __SerdeContext): List
 // de_PhoneNumber omitted.
 
 // de_PhoneNumberList omitted.
+
+// de_ProactiveJoin omitted.
 
 // de_Profile omitted.
 

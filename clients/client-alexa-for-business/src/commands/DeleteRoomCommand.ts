@@ -36,6 +36,8 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a room by the room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

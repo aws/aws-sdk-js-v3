@@ -36,6 +36,8 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a skill group by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -40,6 +40,8 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates a network profile by the network profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

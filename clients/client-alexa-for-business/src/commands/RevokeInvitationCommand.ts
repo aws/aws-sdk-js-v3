@@ -36,6 +36,8 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

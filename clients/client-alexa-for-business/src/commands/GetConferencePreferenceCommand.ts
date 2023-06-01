@@ -36,6 +36,8 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves the existing conference preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

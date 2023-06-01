@@ -36,6 +36,8 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Gets address the book details by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

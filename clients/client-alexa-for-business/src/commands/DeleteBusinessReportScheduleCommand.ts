@@ -41,6 +41,8 @@ export interface DeleteBusinessReportScheduleCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes the recurring report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example

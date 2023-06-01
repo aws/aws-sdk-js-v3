@@ -36,6 +36,8 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a skill group with a specified name and description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

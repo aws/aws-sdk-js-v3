@@ -36,6 +36,8 @@ export interface UpdateAddressBookCommandOutput extends UpdateAddressBookRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates address book details by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

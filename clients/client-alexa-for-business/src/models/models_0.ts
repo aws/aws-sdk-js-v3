@@ -1015,6 +1015,13 @@ export interface CreateInstantBooking {
 
 /**
  * @public
+ */
+export interface CreateProactiveJoin {
+  EnabledByMotion: boolean | undefined;
+}
+
+/**
+ * @public
  * <p>Creates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.</p>
  */
 export interface CreateRequireCheckIn {
@@ -1055,6 +1062,8 @@ export interface CreateMeetingRoomConfiguration {
    * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”</p>
    */
   RequireCheckIn?: CreateRequireCheckIn;
+
+  ProactiveJoin?: CreateProactiveJoin;
 }
 
 /**
@@ -2361,6 +2370,13 @@ export interface InstantBooking {
 
 /**
  * @public
+ */
+export interface ProactiveJoin {
+  EnabledByMotion?: boolean;
+}
+
+/**
+ * @public
  * <p>Settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
 export interface RequireCheckIn {
@@ -2404,6 +2420,8 @@ export interface MeetingRoomConfiguration {
    *          in.” </p>
    */
   RequireCheckIn?: RequireCheckIn;
+
+  ProactiveJoin?: ProactiveJoin;
 }
 
 /**
@@ -5104,6 +5122,13 @@ export interface UpdateInstantBooking {
 
 /**
  * @public
+ */
+export interface UpdateProactiveJoin {
+  EnabledByMotion: boolean | undefined;
+}
+
+/**
+ * @public
  * <p>Updates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
 export interface UpdateRequireCheckIn {
@@ -5144,6 +5169,8 @@ export interface UpdateMeetingRoomConfiguration {
    * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.” </p>
    */
   RequireCheckIn?: UpdateRequireCheckIn;
+
+  ProactiveJoin?: UpdateProactiveJoin;
 }
 
 /**

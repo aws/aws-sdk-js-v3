@@ -36,6 +36,8 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Sets the conference preferences on a specific conference provider at the account
  *          level.</p>
  * @example

@@ -36,6 +36,8 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a conference provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

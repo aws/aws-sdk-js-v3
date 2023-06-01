@@ -41,6 +41,8 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists all skills in the Alexa skill store by category.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

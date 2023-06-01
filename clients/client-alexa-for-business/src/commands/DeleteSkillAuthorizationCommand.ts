@@ -36,6 +36,8 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Unlinks a third-party account from a skill.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,6 +36,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists all tags for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -41,6 +41,8 @@ export interface UpdateBusinessReportScheduleCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates the configuration of the report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example
@@ -53,7 +55,7 @@ export interface UpdateBusinessReportScheduleCommandOutput
  *   ScheduleArn: "STRING_VALUE", // required
  *   S3BucketName: "STRING_VALUE",
  *   S3KeyPrefix: "STRING_VALUE",
- *   Format: "STRING_VALUE",
+ *   Format: "CSV" || "CSV_ZIP",
  *   ScheduleName: "STRING_VALUE",
  *   Recurrence: { // BusinessReportRecurrence
  *     StartDate: "STRING_VALUE",

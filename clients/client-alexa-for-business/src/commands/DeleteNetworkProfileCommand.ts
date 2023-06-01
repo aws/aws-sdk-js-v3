@@ -36,6 +36,8 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a network profile by the network profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

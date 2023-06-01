@@ -36,6 +36,8 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
  *          on their devices.</p>
  * @example

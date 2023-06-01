@@ -36,6 +36,8 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Disassociates a device from its current room. The device continues to be connected to
  *          the Wi-Fi network and is still registered to the account. The device settings and skills
  *          are removed from the room.</p>

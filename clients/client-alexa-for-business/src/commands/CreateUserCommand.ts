@@ -36,6 +36,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

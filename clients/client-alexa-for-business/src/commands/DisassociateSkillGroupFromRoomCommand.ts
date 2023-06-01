@@ -41,6 +41,8 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Disassociates a skill group from a specified room. This disables all skills in the
  *          skill group on all devices in the room.</p>
  * @example

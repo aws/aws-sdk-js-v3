@@ -36,6 +36,8 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Searches address books and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -56,7 +58,7 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  *   SortCriteria: [ // SortList
  *     { // Sort
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
  *     },
  *   ],
  *   NextToken: "STRING_VALUE",

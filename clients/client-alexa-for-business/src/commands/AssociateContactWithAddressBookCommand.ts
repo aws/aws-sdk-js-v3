@@ -41,6 +41,8 @@ export interface AssociateContactWithAddressBookCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Associates a contact with a given address book.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,6 +36,8 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Configures the email template for the user enrollment invitation with the specified
  *          attributes.</p>
  * @example

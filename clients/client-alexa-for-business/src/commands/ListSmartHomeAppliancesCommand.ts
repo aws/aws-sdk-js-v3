@@ -36,6 +36,8 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists all of the smart home appliances associated with a room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

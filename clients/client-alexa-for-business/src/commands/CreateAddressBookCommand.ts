@@ -36,6 +36,8 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates an address book with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

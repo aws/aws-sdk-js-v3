@@ -40,6 +40,8 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a contact with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,13 +57,13 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *   PhoneNumbers: [ // PhoneNumberList
  *     { // PhoneNumber
  *       Number: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
+ *       Type: "MOBILE" || "WORK" || "HOME", // required
  *     },
  *   ],
  *   SipAddresses: [ // SipAddressList
  *     { // SipAddress
  *       Uri: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
+ *       Type: "WORK", // required
  *     },
  *   ],
  *   ClientRequestToken: "STRING_VALUE",

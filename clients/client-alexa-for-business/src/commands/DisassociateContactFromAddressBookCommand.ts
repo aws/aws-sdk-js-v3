@@ -44,6 +44,8 @@ export interface DisassociateContactFromAddressBookCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Disassociates a contact from a given address book.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

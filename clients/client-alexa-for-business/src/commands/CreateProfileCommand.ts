@@ -36,6 +36,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a new room profile with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,9 +49,9 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *   ProfileName: "STRING_VALUE", // required
  *   Timezone: "STRING_VALUE", // required
  *   Address: "STRING_VALUE", // required
- *   DistanceUnit: "STRING_VALUE", // required
- *   TemperatureUnit: "STRING_VALUE", // required
- *   WakeWord: "STRING_VALUE", // required
+ *   DistanceUnit: "METRIC" || "IMPERIAL", // required
+ *   TemperatureUnit: "FAHRENHEIT" || "CELSIUS", // required
+ *   WakeWord: "ALEXA" || "AMAZON" || "ECHO" || "COMPUTER", // required
  *   Locale: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",
  *   SetupModeDisabled: true || false,
@@ -62,7 +64,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *       ReminderAtMinutes: [ // EndOfMeetingReminderMinutesList // required
  *         Number("int"),
  *       ],
- *       ReminderType: "STRING_VALUE", // required
+ *       ReminderType: "ANNOUNCEMENT_TIME_CHECK" || "ANNOUNCEMENT_VARIABLE_TIME_LEFT" || "CHIME" || "KNOCK", // required
  *       Enabled: true || false, // required
  *     },
  *     InstantBooking: { // CreateInstantBooking
@@ -72,6 +74,9 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *     RequireCheckIn: { // CreateRequireCheckIn
  *       ReleaseAfterMinutes: Number("int"), // required
  *       Enabled: true || false, // required
+ *     },
+ *     ProactiveJoin: { // CreateProactiveJoin
+ *       EnabledByMotion: true || false, // required
  *     },
  *   },
  *   Tags: [ // TagList

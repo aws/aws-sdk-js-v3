@@ -36,6 +36,8 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Searches devices and lists the ones that meet a set of filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,7 +59,7 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  *   SortCriteria: [ // SortList
  *     { // Sort
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
  *     },
  *   ],
  * };
@@ -72,7 +74,7 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * //       DeviceName: "STRING_VALUE",
  * //       SoftwareVersion: "STRING_VALUE",
  * //       MacAddress: "STRING_VALUE",
- * //       DeviceStatus: "STRING_VALUE",
+ * //       DeviceStatus: "READY" || "PENDING" || "WAS_OFFLINE" || "DEREGISTERED" || "FAILED",
  * //       NetworkProfileArn: "STRING_VALUE",
  * //       NetworkProfileName: "STRING_VALUE",
  * //       RoomArn: "STRING_VALUE",
@@ -80,11 +82,11 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * //       DeviceStatusInfo: { // DeviceStatusInfo
  * //         DeviceStatusDetails: [ // DeviceStatusDetails
  * //           { // DeviceStatusDetail
- * //             Feature: "STRING_VALUE",
- * //             Code: "STRING_VALUE",
+ * //             Feature: "BLUETOOTH" || "VOLUME" || "NOTIFICATIONS" || "LISTS" || "SKILLS" || "NETWORK_PROFILE" || "SETTINGS" || "ALL",
+ * //             Code: "DEVICE_SOFTWARE_UPDATE_NEEDED" || "DEVICE_WAS_OFFLINE" || "CREDENTIALS_ACCESS_FAILURE" || "TLS_VERSION_MISMATCH" || "ASSOCIATION_REJECTION" || "AUTHENTICATION_FAILURE" || "DHCP_FAILURE" || "INTERNET_UNAVAILABLE" || "DNS_FAILURE" || "UNKNOWN_FAILURE" || "CERTIFICATE_ISSUING_LIMIT_EXCEEDED" || "INVALID_CERTIFICATE_AUTHORITY" || "NETWORK_PROFILE_NOT_FOUND" || "INVALID_PASSWORD_STATE" || "PASSWORD_NOT_FOUND" || "PASSWORD_MANAGER_ACCESS_DENIED" || "CERTIFICATE_AUTHORITY_ACCESS_DENIED",
  * //           },
  * //         ],
- * //         ConnectionStatus: "STRING_VALUE",
+ * //         ConnectionStatus: "ONLINE" || "OFFLINE",
  * //         ConnectionStatusUpdatedTime: new Date("TIMESTAMP"),
  * //       },
  * //       CreatedTime: new Date("TIMESTAMP"),

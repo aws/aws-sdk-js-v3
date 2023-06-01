@@ -41,6 +41,8 @@ export interface AssociateSkillWithSkillGroupCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Associates a skill with a skill group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

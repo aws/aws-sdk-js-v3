@@ -36,6 +36,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Searches users and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -58,7 +60,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *   SortCriteria: [ // SortList
  *     { // Sort
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
  *     },
  *   ],
  * };
@@ -71,7 +73,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * //       FirstName: "STRING_VALUE",
  * //       LastName: "STRING_VALUE",
  * //       Email: "STRING_VALUE",
- * //       EnrollmentStatus: "STRING_VALUE",
+ * //       EnrollmentStatus: "INITIALIZED" || "PENDING" || "REGISTERED" || "DISASSOCIATING" || "DEREGISTERING",
  * //       EnrollmentId: "STRING_VALUE",
  * //     },
  * //   ],

@@ -36,6 +36,8 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Gets the contact details by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,13 +60,13 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * //     PhoneNumbers: [ // PhoneNumberList
  * //       { // PhoneNumber
  * //         Number: "STRING_VALUE", // required
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "MOBILE" || "WORK" || "HOME", // required
  * //       },
  * //     ],
  * //     SipAddresses: [ // SipAddressList
  * //       { // SipAddress
  * //         Uri: "STRING_VALUE", // required
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "WORK", // required
  * //       },
  * //     ],
  * //   },

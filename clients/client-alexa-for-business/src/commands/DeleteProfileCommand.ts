@@ -36,6 +36,8 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a room profile by the profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,6 +36,8 @@ export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Searches skill groups and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -58,7 +60,7 @@ export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsRespons
  *   SortCriteria: [ // SortList
  *     { // Sort
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
  *     },
  *   ],
  * };

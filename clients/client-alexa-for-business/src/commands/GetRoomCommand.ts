@@ -36,6 +36,8 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Gets room details by room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

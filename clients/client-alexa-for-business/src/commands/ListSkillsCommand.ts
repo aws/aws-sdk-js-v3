@@ -36,6 +36,8 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Lists all enabled skills in a specific skill group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,8 +47,8 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * const client = new AlexaForBusinessClient(config);
  * const input = { // ListSkillsRequest
  *   SkillGroupArn: "STRING_VALUE",
- *   EnablementType: "STRING_VALUE",
- *   SkillType: "STRING_VALUE",
+ *   EnablementType: "ENABLED" || "PENDING",
+ *   SkillType: "PUBLIC" || "PRIVATE" || "ALL",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -58,8 +60,8 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * //       SkillId: "STRING_VALUE",
  * //       SkillName: "STRING_VALUE",
  * //       SupportsLinking: true || false,
- * //       EnablementType: "STRING_VALUE",
- * //       SkillType: "STRING_VALUE",
+ * //       EnablementType: "ENABLED" || "PENDING",
+ * //       SkillType: "PUBLIC" || "PRIVATE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

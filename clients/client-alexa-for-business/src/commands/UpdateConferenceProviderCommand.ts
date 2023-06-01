@@ -36,6 +36,8 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Updates an existing conference provider's settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +47,10 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * const client = new AlexaForBusinessClient(config);
  * const input = { // UpdateConferenceProviderRequest
  *   ConferenceProviderArn: "STRING_VALUE", // required
- *   ConferenceProviderType: "STRING_VALUE", // required
+ *   ConferenceProviderType: "CHIME" || "BLUEJEANS" || "FUZE" || "GOOGLE_HANGOUTS" || "POLYCOM" || "RINGCENTRAL" || "SKYPE_FOR_BUSINESS" || "WEBEX" || "ZOOM" || "CUSTOM", // required
  *   IPDialIn: { // IPDialIn
  *     Endpoint: "STRING_VALUE", // required
- *     CommsProtocol: "STRING_VALUE", // required
+ *     CommsProtocol: "SIP" || "SIPS" || "H323", // required
  *   },
  *   PSTNDialIn: { // PSTNDialIn
  *     CountryCode: "STRING_VALUE", // required
@@ -57,7 +59,7 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  *     OneClickPinDelay: "STRING_VALUE", // required
  *   },
  *   MeetingSetting: { // MeetingSetting
- *     RequirePin: "STRING_VALUE", // required
+ *     RequirePin: "YES" || "NO" || "OPTIONAL", // required
  *   },
  * };
  * const command = new UpdateConferenceProviderCommand(input);

@@ -36,6 +36,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific
  *          gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries
  *          of gateways that are associated with that gateway group ARN.</p>

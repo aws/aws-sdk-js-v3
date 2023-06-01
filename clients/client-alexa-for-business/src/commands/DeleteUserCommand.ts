@@ -36,6 +36,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a specified user by user ARN and enrollment ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

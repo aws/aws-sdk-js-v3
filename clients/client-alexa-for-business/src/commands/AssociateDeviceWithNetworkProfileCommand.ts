@@ -44,6 +44,8 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Associates a device with the specified network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,6 +36,8 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Disassociates a skill from the organization under a user's AWS account. If the skill
  *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill
  *          that is rejected can be added later by calling the ApproveSkill API. </p>

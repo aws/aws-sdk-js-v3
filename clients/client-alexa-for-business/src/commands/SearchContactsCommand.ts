@@ -40,6 +40,8 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Searches contacts and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -60,7 +62,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *   SortCriteria: [ // SortList
  *     { // Sort
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
  *     },
  *   ],
  *   NextToken: "STRING_VALUE",
@@ -79,13 +81,13 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * //       PhoneNumbers: [ // PhoneNumberList
  * //         { // PhoneNumber
  * //           Number: "STRING_VALUE", // required
- * //           Type: "STRING_VALUE", // required
+ * //           Type: "MOBILE" || "WORK" || "HOME", // required
  * //         },
  * //       ],
  * //       SipAddresses: [ // SipAddressList
  * //         { // SipAddress
  * //           Uri: "STRING_VALUE", // required
- * //           Type: "STRING_VALUE", // required
+ * //           Type: "WORK", // required
  * //         },
  * //       ],
  * //     },

@@ -36,6 +36,8 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Searches network profiles and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -58,7 +60,7 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  *   SortCriteria: [ // SortList
  *     { // Sort
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
+ *       Value: "ASC" || "DESC", // required
  *     },
  *   ],
  * };
@@ -71,8 +73,8 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * //       NetworkProfileName: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       Ssid: "STRING_VALUE",
- * //       SecurityType: "STRING_VALUE",
- * //       EapMethod: "STRING_VALUE",
+ * //       SecurityType: "OPEN" || "WEP" || "WPA_PSK" || "WPA2_PSK" || "WPA2_ENTERPRISE",
+ * //       EapMethod: "EAP_TLS",
  * //       CertificateAuthorityArn: "STRING_VALUE",
  * //     },
  * //   ],

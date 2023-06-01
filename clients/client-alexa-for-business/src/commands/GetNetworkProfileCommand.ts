@@ -40,6 +40,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Gets the network profile details by the network profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,8 +60,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * //     NetworkProfileName: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     Ssid: "STRING_VALUE",
- * //     SecurityType: "STRING_VALUE",
- * //     EapMethod: "STRING_VALUE",
+ * //     SecurityType: "OPEN" || "WEP" || "WPA_PSK" || "WPA2_PSK" || "WPA2_ENTERPRISE",
+ * //     EapMethod: "EAP_TLS",
  * //     CurrentPassword: "STRING_VALUE",
  * //     NextPassword: "STRING_VALUE",
  * //     CertificateAuthorityArn: "STRING_VALUE",

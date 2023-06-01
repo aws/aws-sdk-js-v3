@@ -36,6 +36,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a room with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

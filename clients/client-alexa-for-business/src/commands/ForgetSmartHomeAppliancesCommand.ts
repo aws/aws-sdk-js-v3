@@ -36,6 +36,8 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Forgets smart home appliances associated to a room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,6 +36,8 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves the details of a gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

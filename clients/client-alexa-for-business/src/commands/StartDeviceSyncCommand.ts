@@ -36,6 +36,8 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Resets a device and its account to the known default settings. This clears all
  *          information and settings set by previous users in the following ways:</p>
  *          <ul>
@@ -68,7 +70,7 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  *   RoomArn: "STRING_VALUE",
  *   DeviceArn: "STRING_VALUE",
  *   Features: [ // Features // required
- *     "STRING_VALUE",
+ *     "BLUETOOTH" || "VOLUME" || "NOTIFICATIONS" || "LISTS" || "SKILLS" || "NETWORK_PROFILE" || "SETTINGS" || "ALL",
  *   ],
  * };
  * const command = new StartDeviceSyncCommand(input);

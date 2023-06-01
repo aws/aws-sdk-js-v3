@@ -36,6 +36,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a contact by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

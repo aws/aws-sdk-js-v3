@@ -36,6 +36,8 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>When this action is called for a specified shared device, it allows authorized users to
  *          delete the device's entire previous history of voice input data and associated response
  *          data. This action can be called once every 24 hours for a specific shared device.</p>
@@ -47,7 +49,7 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * const client = new AlexaForBusinessClient(config);
  * const input = { // DeleteDeviceUsageDataRequest
  *   DeviceArn: "STRING_VALUE", // required
- *   DeviceUsageType: "STRING_VALUE", // required
+ *   DeviceUsageType: "VOICE", // required
  * };
  * const command = new DeleteDeviceUsageDataCommand(input);
  * const response = await client.send(command);

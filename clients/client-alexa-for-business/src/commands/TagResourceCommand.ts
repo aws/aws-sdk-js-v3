@@ -36,6 +36,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Adds metadata tags to a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

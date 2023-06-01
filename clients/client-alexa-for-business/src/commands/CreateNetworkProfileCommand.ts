@@ -40,6 +40,8 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a network profile with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,8 +53,8 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  *   NetworkProfileName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Ssid: "STRING_VALUE", // required
- *   SecurityType: "STRING_VALUE", // required
- *   EapMethod: "STRING_VALUE",
+ *   SecurityType: "OPEN" || "WEP" || "WPA_PSK" || "WPA2_PSK" || "WPA2_ENTERPRISE", // required
+ *   EapMethod: "EAP_TLS",
  *   CurrentPassword: "STRING_VALUE",
  *   NextPassword: "STRING_VALUE",
  *   CertificateAuthorityArn: "STRING_VALUE",

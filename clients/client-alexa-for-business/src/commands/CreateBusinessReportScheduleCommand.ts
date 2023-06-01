@@ -41,6 +41,8 @@ export interface CreateBusinessReportScheduleCommandOutput
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
  *          location with a specified daily or weekly interval.</p>
  * @example
@@ -53,9 +55,9 @@ export interface CreateBusinessReportScheduleCommandOutput
  *   ScheduleName: "STRING_VALUE",
  *   S3BucketName: "STRING_VALUE",
  *   S3KeyPrefix: "STRING_VALUE",
- *   Format: "STRING_VALUE", // required
+ *   Format: "CSV" || "CSV_ZIP", // required
  *   ContentRange: { // BusinessReportContentRange
- *     Interval: "STRING_VALUE", // required
+ *     Interval: "ONE_DAY" || "ONE_WEEK" || "THIRTY_DAYS", // required
  *   },
  *   Recurrence: { // BusinessReportRecurrence
  *     StartDate: "STRING_VALUE",
