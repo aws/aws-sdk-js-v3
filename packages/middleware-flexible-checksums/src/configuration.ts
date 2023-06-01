@@ -2,6 +2,7 @@ import {
   BodyLengthCalculator,
   ChecksumConstructor,
   Encoder,
+  GetAwsChunkedBody,
   GetAwsChunkedEncodingStream,
   HashConstructor,
   StreamHasher,
@@ -21,6 +22,8 @@ export interface PreviouslyResolved {
 
   /**
    * A function that returns Readable Stream which follows aws-chunked encoding stream.
+   *
+   * @deprecated Use getAwsChunkedBody
    */
   getAwsChunkedEncodingStream: GetAwsChunkedEncodingStream;
 
@@ -47,4 +50,11 @@ export interface PreviouslyResolved {
    * @internal
    */
   streamHasher: StreamHasher<any>;
+
+  /**
+   * A function that returns AsyncIterable which follows aws-chunked encoding stream.
+   * If provided, it is used instead of getAwsChunkedEncodingStream.
+   * @internal
+   */
+  getAwsChunkedBody?: GetAwsChunkedBody;
 }

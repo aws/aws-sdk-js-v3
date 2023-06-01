@@ -6,6 +6,7 @@ import {
   BuildMiddleware,
   MetadataBearer,
 } from "@aws-sdk/types";
+import { asyncIterableToReadable, readableToAsyncIterable } from "@aws-sdk/util-stream";
 
 import { PreviouslyResolved } from "./configuration";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
@@ -41,14 +42,24 @@ export const flexibleChecksumsMiddleware =
       const checksumLocationName = getChecksumLocationName(checksumAlgorithm);
       const checksumAlgorithmFn = selectChecksumAlgorithmFunction(checksumAlgorithm, config);
       if (isStreaming(requestBody)) {
-        const { getAwsChunkedEncodingStream, bodyLengthChecker } = config;
-        updatedBody = getAwsChunkedEncodingStream(requestBody, {
+        const { bodyLengthChecker } = config;
+        const options = {
           base64Encoder,
           bodyLengthChecker,
           checksumLocationName,
           checksumAlgorithmFn,
           streamHasher,
-        });
+        };
+
+        // Use getAwsChunkedBody over getAwsChunkedEncodingStream when possible.
+        if (config.getAwsChunkedBody) {
+          updatedBody = asyncIterableToReadable(
+            config.getAwsChunkedBody(readableToAsyncIterable(requestBody), options)
+          );
+        } else {
+          updatedBody = config.getAwsChunkedEncodingStream(requestBody, options);
+        }
+
         updatedHeaders = {
           ...headers,
           "content-encoding": headers["content-encoding"]

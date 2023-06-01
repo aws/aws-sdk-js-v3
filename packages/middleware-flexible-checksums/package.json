@@ -27,6 +27,7 @@
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-utf8": "*",
+    "@aws-sdk/util-stream": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

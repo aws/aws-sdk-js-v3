@@ -9,7 +9,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "jest && karma start karma.conf.js"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -52,11 +52,15 @@
   ],
   "browser": {
     "./dist-es/getAwsChunkedEncodingStream": "./dist-es/getAwsChunkedEncodingStream.browser",
-    "./dist-es/sdk-stream-mixin": "./dist-es/sdk-stream-mixin.browser"
+    "./dist-es/sdk-stream-mixin": "./dist-es/sdk-stream-mixin.browser",
+    "./dist-es/asyncIterableToReadable": "./dist-es/asyncIterableToReadable.browser",
+    "./dist-es/readableToAsyncIterable": "./dist-es/readableToAsyncIterable.browser"
   },
   "react-native": {
     "./dist-es/getAwsChunkedEncodingStream": "./dist-es/getAwsChunkedEncodingStream.browser",
-    "./dist-es/sdk-stream-mixin": "./dist-es/sdk-stream-mixin.browser"
+    "./dist-es/sdk-stream-mixin": "./dist-es/sdk-stream-mixin.browser",
+    "./dist-es/asyncIterableToReadable": "./dist-es/asyncIterableToReadable.browser",
+    "./dist-es/readableToAsyncIterable": "./dist-es/readableToAsyncIterable.browser"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-stream",
   "repository": {

@@ -1,5 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildHandlerArguments } from "@aws-sdk/types";
+import { asyncIterableToReadable } from "@aws-sdk/util-stream";
+import { readableToAsyncIterable } from "@aws-sdk/util-stream";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
@@ -13,6 +15,7 @@ import { stringHasher } from "./stringHasher";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
 jest.mock("@aws-sdk/protocol-http");
+jest.mock("@aws-sdk/util-stream");
 jest.mock("./getChecksumAlgorithmForRequest");
 jest.mock("./getChecksumLocationName");
 jest.mock("./hasHeader");
@@ -118,49 +121,86 @@ describe(flexibleChecksumsMiddleware.name, () => {
       expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
     });
 
-    it("for streaming body", async () => {
-      (isStreaming as jest.Mock).mockReturnValue(true);
+    describe("for streaming body", () => {
       const mockUpdatedBody = { body: "mockUpdatedBody" };
 
       const mockBase64Encoder = jest.fn();
       const mockStreamHasher = jest.fn();
       const mockBodyLengthChecker = jest.fn();
-      const mockGetAwsChunkedEncodingStream = jest.fn().mockReturnValue(mockUpdatedBody);
 
-      const handler = flexibleChecksumsMiddleware(
-        {
-          ...mockConfig,
+      const validateNextCall = () => {
+        expect(mockNext).toHaveBeenCalledWith({
+          ...mockArgs,
+          request: {
+            ...mockRequest,
+            headers: {
+              ...mockHeaders,
+              "content-length": undefined,
+              "content-encoding": "gzip,aws-chunked",
+              "transfer-encoding": "chunked",
+              "x-amz-decoded-content-length": mockHeaders["content-length"],
+              "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
+              "x-amz-trailer": mockChecksumLocationName,
+            },
+            body: mockUpdatedBody,
+          },
+        });
+      };
+
+      const validateStreamConversionCall = (mockConverter: jest.Func) => {
+        expect(mockConverter).toHaveBeenCalledWith(mockRequest.body, {
           base64Encoder: mockBase64Encoder,
           bodyLengthChecker: mockBodyLengthChecker,
-          getAwsChunkedEncodingStream: mockGetAwsChunkedEncodingStream,
+          checksumLocationName: mockChecksumLocationName,
+          checksumAlgorithmFn: mockChecksumAlgorithmFunction,
           streamHasher: mockStreamHasher,
-        },
-        mockMiddlewareConfig
-      )(mockNext, {});
-      await handler(mockArgs);
+        });
+      };
 
-      expect(mockNext).toHaveBeenCalledWith({
-        ...mockArgs,
-        request: {
-          ...mockRequest,
-          headers: {
-            ...mockHeaders,
-            "content-length": undefined,
-            "content-encoding": "gzip,aws-chunked",
-            "transfer-encoding": "chunked",
-            "x-amz-decoded-content-length": mockHeaders["content-length"],
-            "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
-            "x-amz-trailer": mockChecksumLocationName,
+      it("when getAwsChunkedBody is provided", async () => {
+        (isStreaming as jest.Mock).mockReturnValue(true);
+        (readableToAsyncIterable as jest.Mock).mockReturnValue(mockRequest.body);
+        (asyncIterableToReadable as jest.Mock).mockReturnValue(mockUpdatedBody);
+
+        const mockGetAwsChunkedBody = jest.fn().mockReturnValue(mockUpdatedBody);
+        const mockGetAwsChunkedEncodingStream = jest.fn().mockReturnValue(mockUpdatedBody);
+
+        const handler = flexibleChecksumsMiddleware(
+          {
+            ...mockConfig,
+            base64Encoder: mockBase64Encoder,
+            bodyLengthChecker: mockBodyLengthChecker,
+            getAwsChunkedBody: mockGetAwsChunkedBody,
+            streamHasher: mockStreamHasher,
+            getAwsChunkedEncodingStream: mockGetAwsChunkedEncodingStream,
           },
-          body: mockUpdatedBody,
-        },
+          mockMiddlewareConfig
+        )(mockNext, {});
+        await handler(mockArgs);
+
+        validateNextCall();
+        validateStreamConversionCall(mockGetAwsChunkedBody);
+        expect(mockGetAwsChunkedEncodingStream).not.toHaveBeenCalled();
       });
-      expect(mockGetAwsChunkedEncodingStream).toHaveBeenCalledWith(mockRequest.body, {
-        base64Encoder: mockBase64Encoder,
-        bodyLengthChecker: mockBodyLengthChecker,
-        checksumLocationName: mockChecksumLocationName,
-        checksumAlgorithmFn: mockChecksumAlgorithmFunction,
-        streamHasher: mockStreamHasher,
+
+      it("when getAwsChunkedBody is not provided", async () => {
+        (isStreaming as jest.Mock).mockReturnValue(true);
+        const mockGetAwsChunkedEncodingStream = jest.fn().mockReturnValue(mockUpdatedBody);
+
+        const handler = flexibleChecksumsMiddleware(
+          {
+            ...mockConfig,
+            base64Encoder: mockBase64Encoder,
+            bodyLengthChecker: mockBodyLengthChecker,
+            getAwsChunkedEncodingStream: mockGetAwsChunkedEncodingStream,
+            streamHasher: mockStreamHasher,
+          },
+          mockMiddlewareConfig
+        )(mockNext, {});
+        await handler(mockArgs);
+
+        validateNextCall();
+        validateStreamConversionCall(mockGetAwsChunkedEncodingStream);
       });
     });
 

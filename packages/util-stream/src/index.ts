@@ -1,7 +1,18 @@
 /**
  * @internal
  */
-export * from "./getAwsChunkedEncodingStream";
+export * from "./asyncIterableToReadable";
+
+/**
+ * @internal
+ */
+export * from "./getAwsChunkedBody";
+
+/**
+ * @internal
+ */
+export * from "./readableToAsyncIterable";
+
 /**
  * @internal
  */
