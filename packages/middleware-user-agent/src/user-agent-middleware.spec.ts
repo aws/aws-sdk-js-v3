@@ -38,7 +38,7 @@ describe("userAgentMiddleware", () => {
         expect(sdkUserAgent).toEqual(expect.stringContaining("aws-sdk-js/1.0.0"));
         expect(sdkUserAgent).toEqual(expect.stringContaining("default_agent/1.0.0"));
         expect(sdkUserAgent).toEqual(expect.stringContaining("custom_ua/abc"));
-        expect(sdkUserAgent).toEqual(expect.stringContaining("cfg/retry-mode/standard"));
+        expect(sdkUserAgent).toEqual(expect.stringContaining("cfg/retry-mode#standard"));
         if (userAgentKey === USER_AGENT) {
           expect(mockNextHandler.mock.calls[0][0].request.headers[userAgentKey]).toBeUndefined();
         } else {
