@@ -170,6 +170,7 @@ export const se_CreateChannelCommand = async (
       insecureIngest: [],
       latencyMode: [],
       name: [],
+      preset: [],
       recordingConfigurationArn: [],
       tags: (_) => _json(_),
       type: [],
@@ -922,6 +923,7 @@ export const se_UpdateChannelCommand = async (
       insecureIngest: [],
       latencyMode: [],
       name: [],
+      preset: [],
       recordingConfigurationArn: [],
       type: [],
     })

@@ -36,8 +36,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
 
 /**
  * @public
- * <p>Updates a channel's configuration. This does not affect an ongoing stream of this channel.
- *       You must stop and restart the stream for the changes to take effect.</p>
+ * <p>Updates a channel's configuration. Live channels cannot be updated. You must stop the
+ *       ongoing stream, update the channel, and restart the stream for the changes to take
+ *       effect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,10 +49,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   arn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   latencyMode: "STRING_VALUE",
- *   type: "BASIC" || "STANDARD",
+ *   type: "BASIC" || "STANDARD" || "ADVANCED_SD" || "ADVANCED_HD",
  *   authorized: true || false,
  *   recordingConfigurationArn: "STRING_VALUE",
  *   insecureIngest: true || false,
+ *   preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -60,7 +62,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //     arn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     latencyMode: "STRING_VALUE",
- * //     type: "BASIC" || "STANDARD",
+ * //     type: "BASIC" || "STANDARD" || "ADVANCED_SD" || "ADVANCED_HD",
  * //     recordingConfigurationArn: "STRING_VALUE",
  * //     ingestEndpoint: "STRING_VALUE",
  * //     playbackUrl: "STRING_VALUE",
@@ -69,6 +71,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     insecureIngest: true || false,
+ * //     preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  * //   },
  * // };
  *

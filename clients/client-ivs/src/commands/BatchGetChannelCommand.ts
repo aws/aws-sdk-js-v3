@@ -56,7 +56,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       latencyMode: "STRING_VALUE",
- * //       type: "BASIC" || "STANDARD",
+ * //       type: "BASIC" || "STANDARD" || "ADVANCED_SD" || "ADVANCED_HD",
  * //       recordingConfigurationArn: "STRING_VALUE",
  * //       ingestEndpoint: "STRING_VALUE",
  * //       playbackUrl: "STRING_VALUE",
@@ -65,6 +65,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       insecureIngest: true || false,
+ * //       preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  * //     },
  * //   ],
  * //   errors: [ // BatchErrors

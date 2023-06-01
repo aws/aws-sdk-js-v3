@@ -40,7 +40,8 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  *          <p>If you try to delete a live channel, you will get an error (409 ConflictException). To
  *       delete a channel that is live, call <a>StopStream</a>, wait for the Amazon
  *       EventBridge "Stream End" event (to verify that the stream's state is no longer Live), then
- *       call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.) </p>
+ *       call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.)
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

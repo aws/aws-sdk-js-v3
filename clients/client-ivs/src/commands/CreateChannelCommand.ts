@@ -50,13 +50,14 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * const input = { // CreateChannelRequest
  *   name: "STRING_VALUE",
  *   latencyMode: "STRING_VALUE",
- *   type: "BASIC" || "STANDARD",
+ *   type: "BASIC" || "STANDARD" || "ADVANCED_SD" || "ADVANCED_HD",
  *   authorized: true || false,
  *   recordingConfigurationArn: "STRING_VALUE",
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  *   insecureIngest: true || false,
+ *   preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
@@ -65,7 +66,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //     arn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     latencyMode: "STRING_VALUE",
- * //     type: "BASIC" || "STANDARD",
+ * //     type: "BASIC" || "STANDARD" || "ADVANCED_SD" || "ADVANCED_HD",
  * //     recordingConfigurationArn: "STRING_VALUE",
  * //     ingestEndpoint: "STRING_VALUE",
  * //     playbackUrl: "STRING_VALUE",
@@ -74,6 +75,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     insecureIngest: true || false,
+ * //     preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  * //   },
  * //   streamKey: { // StreamKey
  * //     arn: "STRING_VALUE",

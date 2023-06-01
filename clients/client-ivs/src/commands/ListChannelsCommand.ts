@@ -66,6 +66,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       insecureIngest: true || false,
+ * //       type: "BASIC" || "STANDARD" || "ADVANCED_SD" || "ADVANCED_HD",
+ * //       preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
