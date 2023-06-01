@@ -20,13 +20,16 @@ export async function writeRequestBody(
   const headers = request.headers ?? {};
   const expect = headers["Expect"] || headers["expect"];
 
+  let timeoutId = -1;
+
   if (expect === "100-continue") {
     await Promise.race<void>([
       new Promise((resolve) => {
-        setTimeout(resolve, Math.max(MIN_WAIT_TIME, maxContinueTimeoutMs));
+        timeoutId = Number(setTimeout(resolve, Math.max(MIN_WAIT_TIME, maxContinueTimeoutMs)));
       }),
       new Promise((resolve) => {
         httpRequest.on("continue", () => {
+          clearTimeout(timeoutId);
           resolve();
         });
       }),
