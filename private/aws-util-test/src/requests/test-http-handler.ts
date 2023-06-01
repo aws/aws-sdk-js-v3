@@ -28,6 +28,14 @@ export type HttpRequestMatcher = {
 };
 
 /**
+ * @internal
+ */
+const MOCK_CREDENTIALS = {
+  accessKeyId: "MOCK_ACCESS_KEY_ID",
+  secretAccessKey: "MOCK_SECRET_ACCESS_KEY_ID",
+};
+
+/**
  * Supplied to test clients to assert correct requests.
  * @internal
  */
@@ -50,10 +58,12 @@ export class TestHttpHandler implements HttpHandler {
     this.client = client;
     this.originalRequestHandler = client.config.originalRequestHandler;
     // mock credentials to avoid default chain lookup.
-    client.config.credentials = async () => ({
-      accessKeyId: "MOCK_ACCESS_KEY_ID",
-      secretAccessKey: "MOCK_SECRET_ACCESS_KEY_ID",
-    });
+    client.config.credentials = async () => MOCK_CREDENTIALS;
+    client.config.credentialDefaultProvider = () => {
+      return async () => {
+        return MOCK_CREDENTIALS;
+      };
+    };
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {
       (client as any)[TestHttpHandler.WATCHER] = true;
