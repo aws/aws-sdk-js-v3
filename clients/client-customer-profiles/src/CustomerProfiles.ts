@@ -8,6 +8,11 @@ import {
   AddProfileKeyCommandOutput,
 } from "./commands/AddProfileKeyCommand";
 import {
+  CreateCalculatedAttributeDefinitionCommand,
+  CreateCalculatedAttributeDefinitionCommandInput,
+  CreateCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/CreateCalculatedAttributeDefinitionCommand";
+import {
   CreateDomainCommand,
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
@@ -22,6 +27,11 @@ import {
   CreateProfileCommandInput,
   CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
+import {
+  DeleteCalculatedAttributeDefinitionCommand,
+  DeleteCalculatedAttributeDefinitionCommandInput,
+  DeleteCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
@@ -62,6 +72,16 @@ import {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
 } from "./commands/GetAutoMergingPreviewCommand";
+import {
+  GetCalculatedAttributeDefinitionCommand,
+  GetCalculatedAttributeDefinitionCommandInput,
+  GetCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/GetCalculatedAttributeDefinitionCommand";
+import {
+  GetCalculatedAttributeForProfileCommand,
+  GetCalculatedAttributeForProfileCommandInput,
+  GetCalculatedAttributeForProfileCommandOutput,
+} from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import {
   GetIdentityResolutionJobCommand,
@@ -95,6 +115,16 @@ import {
   ListAccountIntegrationsCommandInput,
   ListAccountIntegrationsCommandOutput,
 } from "./commands/ListAccountIntegrationsCommand";
+import {
+  ListCalculatedAttributeDefinitionsCommand,
+  ListCalculatedAttributeDefinitionsCommandInput,
+  ListCalculatedAttributeDefinitionsCommandOutput,
+} from "./commands/ListCalculatedAttributeDefinitionsCommand";
+import {
+  ListCalculatedAttributesForProfileCommand,
+  ListCalculatedAttributesForProfileCommandInput,
+  ListCalculatedAttributesForProfileCommandOutput,
+} from "./commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListIdentityResolutionJobsCommand,
@@ -163,6 +193,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateCalculatedAttributeDefinitionCommand,
+  UpdateCalculatedAttributeDefinitionCommandInput,
+  UpdateCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/UpdateCalculatedAttributeDefinitionCommand";
+import {
   UpdateDomainCommand,
   UpdateDomainCommandInput,
   UpdateDomainCommandOutput,
@@ -176,9 +211,11 @@ import { CustomerProfilesClient, CustomerProfilesClientConfig } from "./Customer
 
 const commands = {
   AddProfileKeyCommand,
+  CreateCalculatedAttributeDefinitionCommand,
   CreateDomainCommand,
   CreateIntegrationWorkflowCommand,
   CreateProfileCommand,
+  DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
   DeleteIntegrationCommand,
   DeleteProfileCommand,
@@ -187,6 +224,8 @@ const commands = {
   DeleteProfileObjectTypeCommand,
   DeleteWorkflowCommand,
   GetAutoMergingPreviewCommand,
+  GetCalculatedAttributeDefinitionCommand,
+  GetCalculatedAttributeForProfileCommand,
   GetDomainCommand,
   GetIdentityResolutionJobCommand,
   GetIntegrationCommand,
@@ -196,6 +235,8 @@ const commands = {
   GetWorkflowCommand,
   GetWorkflowStepsCommand,
   ListAccountIntegrationsCommand,
+  ListCalculatedAttributeDefinitionsCommand,
+  ListCalculatedAttributesForProfileCommand,
   ListDomainsCommand,
   ListIdentityResolutionJobsCommand,
   ListIntegrationsCommand,
@@ -211,6 +252,7 @@ const commands = {
   SearchProfilesCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateCalculatedAttributeDefinitionCommand,
   UpdateDomainCommand,
   UpdateProfileCommand,
 };
@@ -225,6 +267,23 @@ export interface CustomerProfiles {
     args: AddProfileKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddProfileKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCalculatedAttributeDefinitionCommand}
+   */
+  createCalculatedAttributeDefinition(
+    args: CreateCalculatedAttributeDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCalculatedAttributeDefinitionCommandOutput>;
+  createCalculatedAttributeDefinition(
+    args: CreateCalculatedAttributeDefinitionCommandInput,
+    cb: (err: any, data?: CreateCalculatedAttributeDefinitionCommandOutput) => void
+  ): void;
+  createCalculatedAttributeDefinition(
+    args: CreateCalculatedAttributeDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCalculatedAttributeDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -264,6 +323,23 @@ export interface CustomerProfiles {
     args: CreateProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCalculatedAttributeDefinitionCommand}
+   */
+  deleteCalculatedAttributeDefinition(
+    args: DeleteCalculatedAttributeDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCalculatedAttributeDefinitionCommandOutput>;
+  deleteCalculatedAttributeDefinition(
+    args: DeleteCalculatedAttributeDefinitionCommandInput,
+    cb: (err: any, data?: DeleteCalculatedAttributeDefinitionCommandOutput) => void
+  ): void;
+  deleteCalculatedAttributeDefinition(
+    args: DeleteCalculatedAttributeDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCalculatedAttributeDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -385,6 +461,40 @@ export interface CustomerProfiles {
     args: GetAutoMergingPreviewCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAutoMergingPreviewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCalculatedAttributeDefinitionCommand}
+   */
+  getCalculatedAttributeDefinition(
+    args: GetCalculatedAttributeDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculatedAttributeDefinitionCommandOutput>;
+  getCalculatedAttributeDefinition(
+    args: GetCalculatedAttributeDefinitionCommandInput,
+    cb: (err: any, data?: GetCalculatedAttributeDefinitionCommandOutput) => void
+  ): void;
+  getCalculatedAttributeDefinition(
+    args: GetCalculatedAttributeDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculatedAttributeDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCalculatedAttributeForProfileCommand}
+   */
+  getCalculatedAttributeForProfile(
+    args: GetCalculatedAttributeForProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalculatedAttributeForProfileCommandOutput>;
+  getCalculatedAttributeForProfile(
+    args: GetCalculatedAttributeForProfileCommandInput,
+    cb: (err: any, data?: GetCalculatedAttributeForProfileCommandOutput) => void
+  ): void;
+  getCalculatedAttributeForProfile(
+    args: GetCalculatedAttributeForProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalculatedAttributeForProfileCommandOutput) => void
   ): void;
 
   /**
@@ -517,6 +627,40 @@ export interface CustomerProfiles {
     args: ListAccountIntegrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAccountIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCalculatedAttributeDefinitionsCommand}
+   */
+  listCalculatedAttributeDefinitions(
+    args: ListCalculatedAttributeDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCalculatedAttributeDefinitionsCommandOutput>;
+  listCalculatedAttributeDefinitions(
+    args: ListCalculatedAttributeDefinitionsCommandInput,
+    cb: (err: any, data?: ListCalculatedAttributeDefinitionsCommandOutput) => void
+  ): void;
+  listCalculatedAttributeDefinitions(
+    args: ListCalculatedAttributeDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCalculatedAttributeDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCalculatedAttributesForProfileCommand}
+   */
+  listCalculatedAttributesForProfile(
+    args: ListCalculatedAttributesForProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCalculatedAttributesForProfileCommandOutput>;
+  listCalculatedAttributesForProfile(
+    args: ListCalculatedAttributesForProfileCommandInput,
+    cb: (err: any, data?: ListCalculatedAttributesForProfileCommandOutput) => void
+  ): void;
+  listCalculatedAttributesForProfile(
+    args: ListCalculatedAttributesForProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCalculatedAttributesForProfileCommandOutput) => void
   ): void;
 
   /**
@@ -736,6 +880,23 @@ export interface CustomerProfiles {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCalculatedAttributeDefinitionCommand}
+   */
+  updateCalculatedAttributeDefinition(
+    args: UpdateCalculatedAttributeDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCalculatedAttributeDefinitionCommandOutput>;
+  updateCalculatedAttributeDefinition(
+    args: UpdateCalculatedAttributeDefinitionCommandInput,
+    cb: (err: any, data?: UpdateCalculatedAttributeDefinitionCommandOutput) => void
+  ): void;
+  updateCalculatedAttributeDefinition(
+    args: UpdateCalculatedAttributeDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCalculatedAttributeDefinitionCommandOutput) => void
   ): void;
 
   /**

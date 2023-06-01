@@ -219,6 +219,14 @@ AddProfileKey
 </details>
 <details>
 <summary>
+CreateCalculatedAttributeDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/createcalculatedattributedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/createcalculatedattributedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/createcalculatedattributedefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateDomain
 </summary>
 
@@ -239,6 +247,14 @@ CreateProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/createprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/createprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/createprofilecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteCalculatedAttributeDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/deletecalculatedattributedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/deletecalculatedattributedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/deletecalculatedattributedefinitioncommandoutput.html)
 
 </details>
 <details>
@@ -303,6 +319,22 @@ GetAutoMergingPreview
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/getautomergingpreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getautomergingpreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getautomergingpreviewcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCalculatedAttributeDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/getcalculatedattributedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getcalculatedattributedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getcalculatedattributedefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCalculatedAttributeForProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/getcalculatedattributeforprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getcalculatedattributeforprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getcalculatedattributeforprofilecommandoutput.html)
 
 </details>
 <details>
@@ -375,6 +407,22 @@ ListAccountIntegrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/listaccountintegrationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listaccountintegrationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listaccountintegrationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCalculatedAttributeDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/listcalculatedattributedefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listcalculatedattributedefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listcalculatedattributedefinitionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCalculatedAttributesForProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/listcalculatedattributesforprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listcalculatedattributesforprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listcalculatedattributesforprofilecommandoutput.html)
 
 </details>
 <details>
@@ -495,6 +543,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateCalculatedAttributeDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/updatecalculatedattributedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/updatecalculatedattributedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/updatecalculatedattributedefinitioncommandoutput.html)
 
 </details>
 <details>

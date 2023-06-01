@@ -52,12 +52,20 @@ import {
 } from "@smithy/types";
 
 import { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
+import {
+  CreateCalculatedAttributeDefinitionCommandInput,
+  CreateCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import {
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
 } from "./commands/CreateIntegrationWorkflowCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import {
+  DeleteCalculatedAttributeDefinitionCommandInput,
+  DeleteCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
@@ -75,6 +83,14 @@ import {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
 } from "./commands/GetAutoMergingPreviewCommand";
+import {
+  GetCalculatedAttributeDefinitionCommandInput,
+  GetCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/GetCalculatedAttributeDefinitionCommand";
+import {
+  GetCalculatedAttributeForProfileCommandInput,
+  GetCalculatedAttributeForProfileCommandOutput,
+} from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import {
   GetIdentityResolutionJobCommandInput,
@@ -96,6 +112,14 @@ import {
   ListAccountIntegrationsCommandInput,
   ListAccountIntegrationsCommandOutput,
 } from "./commands/ListAccountIntegrationsCommand";
+import {
+  ListCalculatedAttributeDefinitionsCommandInput,
+  ListCalculatedAttributeDefinitionsCommandOutput,
+} from "./commands/ListCalculatedAttributeDefinitionsCommand";
+import {
+  ListCalculatedAttributesForProfileCommandInput,
+  ListCalculatedAttributesForProfileCommandOutput,
+} from "./commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListIdentityResolutionJobsCommandInput,
@@ -126,6 +150,10 @@ import {
 import { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateCalculatedAttributeDefinitionCommandInput,
+  UpdateCalculatedAttributeDefinitionCommandOutput,
+} from "./commands/UpdateCalculatedAttributeDefinitionCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import {
@@ -143,9 +171,11 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddProfileKeyCommandInput
+  | CreateCalculatedAttributeDefinitionCommandInput
   | CreateDomainCommandInput
   | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
+  | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
   | DeleteIntegrationCommandInput
   | DeleteProfileCommandInput
@@ -154,6 +184,8 @@ export type ServiceInputTypes =
   | DeleteProfileObjectTypeCommandInput
   | DeleteWorkflowCommandInput
   | GetAutoMergingPreviewCommandInput
+  | GetCalculatedAttributeDefinitionCommandInput
+  | GetCalculatedAttributeForProfileCommandInput
   | GetDomainCommandInput
   | GetIdentityResolutionJobCommandInput
   | GetIntegrationCommandInput
@@ -163,6 +195,8 @@ export type ServiceInputTypes =
   | GetWorkflowCommandInput
   | GetWorkflowStepsCommandInput
   | ListAccountIntegrationsCommandInput
+  | ListCalculatedAttributeDefinitionsCommandInput
+  | ListCalculatedAttributesForProfileCommandInput
   | ListDomainsCommandInput
   | ListIdentityResolutionJobsCommandInput
   | ListIntegrationsCommandInput
@@ -178,6 +212,7 @@ export type ServiceInputTypes =
   | SearchProfilesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCalculatedAttributeDefinitionCommandInput
   | UpdateDomainCommandInput
   | UpdateProfileCommandInput;
 
@@ -186,9 +221,11 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
+  | CreateCalculatedAttributeDefinitionCommandOutput
   | CreateDomainCommandOutput
   | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
+  | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteProfileCommandOutput
@@ -197,6 +234,8 @@ export type ServiceOutputTypes =
   | DeleteProfileObjectTypeCommandOutput
   | DeleteWorkflowCommandOutput
   | GetAutoMergingPreviewCommandOutput
+  | GetCalculatedAttributeDefinitionCommandOutput
+  | GetCalculatedAttributeForProfileCommandOutput
   | GetDomainCommandOutput
   | GetIdentityResolutionJobCommandOutput
   | GetIntegrationCommandOutput
@@ -206,6 +245,8 @@ export type ServiceOutputTypes =
   | GetWorkflowCommandOutput
   | GetWorkflowStepsCommandOutput
   | ListAccountIntegrationsCommandOutput
+  | ListCalculatedAttributeDefinitionsCommandOutput
+  | ListCalculatedAttributesForProfileCommandOutput
   | ListDomainsCommandOutput
   | ListIdentityResolutionJobsCommandOutput
   | ListIntegrationsCommandOutput
@@ -221,6 +262,7 @@ export type ServiceOutputTypes =
   | SearchProfilesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCalculatedAttributeDefinitionCommandOutput
   | UpdateDomainCommandOutput
   | UpdateProfileCommandOutput;
 
