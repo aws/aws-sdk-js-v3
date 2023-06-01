@@ -86,7 +86,7 @@ function copySnapshotIntegration({ encryptSource, encryptDestination } = {}) {
 
       volId = createVolume.VolumeId;
 
-      await waitUntilVolumeAvailable({ client: srcEc2, maxWaitTime: 60 }, { VolumeIds: [volId] });
+      await waitUntilVolumeAvailable({ client: srcEc2, maxWaitTime: 120 }, { VolumeIds: [volId] });
       const createSnapshot = await srcEc2.createSnapshot({
         VolumeId: volId,
         TagSpecifications: [
@@ -100,7 +100,7 @@ function copySnapshotIntegration({ encryptSource, encryptDestination } = {}) {
       srcSnapId = createSnapshot.SnapshotId;
 
       await waitUntilSnapshotCompleted(
-        { client: srcEc2, maxWaitTime: 20 },
+        { client: srcEc2, maxWaitTime: 120 },
         {
           SnapshotId: createSnapshot.SnapshotId,
         }
