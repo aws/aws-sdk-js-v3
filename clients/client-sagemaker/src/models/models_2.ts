@@ -392,12 +392,15 @@ export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof Re
 
 /**
  * @public
- * <p>A set of recommended deployment configurations for the model.</p>
+ * <p>A set of recommended deployment configurations for the model. To get more advanced recommendations, see
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html">CreateInferenceRecommendationsJob</a>
+ *          to create an inference recommendation job.</p>
  */
 export interface DeploymentRecommendation {
   /**
-   * <p>Status of the deployment recommendation. <code>NOT_APPLICABLE</code> means that SageMaker
-   *          is unable to provide a default recommendation for the model using the information provided.</p>
+   * <p>Status of the deployment recommendation. The status <code>NOT_APPLICABLE</code> means that SageMaker
+   *          is unable to provide a default recommendation for the model using the information provided. If the deployment status is <code>IN_PROGRESS</code>,
+   *          retry your API call after a few seconds to get a <code>COMPLETED</code> deployment recommendation.</p>
    */
   RecommendationStatus: RecommendationStatus | string | undefined;
 
