@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.344.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.343.0...v3.344.0) (2023-06-01)
+
+
+### Bug Fixes
+
+* **node-http-handler:** clear open timeout on continue ([#4774](https://github.com/aws/aws-sdk-js-v3/issues/4774)) ([07c972a](https://github.com/aws/aws-sdk-js-v3/commit/07c972a04769f6a007957414c1ab26f5dd00dce2))
+
+
+### Features
+
+* **client-appflow:** Added ability to select DataTransferApiType for DescribeConnector and CreateFlow requests when using Async supported connectors. Added supportedDataTransferType to DescribeConnector/DescribeConnectors/ListConnector response. ([35366f2](https://github.com/aws/aws-sdk-js-v3/commit/35366f2f04826f4e81489010c6ef4afcbf1d646f))
+* **client-customer-profiles:** This release introduces calculated attribute related APIs. ([861251b](https://github.com/aws/aws-sdk-js-v3/commit/861251ba3531a71b041fb36c6f793a76e29ea717))
+* **client-ivs:** API Update for IVS Advanced Channel type ([0c7b812](https://github.com/aws/aws-sdk-js-v3/commit/0c7b812f65e200e8e74f7bc4e1428de02b495fe0))
+* **clients:** update client endpoints as of 2023-06-01 ([4c1650b](https://github.com/aws/aws-sdk-js-v3/commit/4c1650b3390b062fc44c6039927b439a9184d732))
+
+
+
+
+
 # [3.343.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.342.0...v3.343.0) (2023-05-31)
 
 

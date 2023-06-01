@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.344.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.343.0...v3.344.0) (2023-06-01)
+
+
+### Bug Fixes
+
+* **node-http-handler:** clear open timeout on continue ([#4774](https://github.com/aws/aws-sdk-js-v3/issues/4774)) ([07c972a](https://github.com/aws/aws-sdk-js-v3/commit/07c972a04769f6a007957414c1ab26f5dd00dce2))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 **Note:** Version bump only for package @aws-sdk/node-http-handler

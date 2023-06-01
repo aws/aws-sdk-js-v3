@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.344.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.343.0...v3.344.0) (2023-06-01)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces calculated attribute related APIs. ([861251b](https://github.com/aws/aws-sdk-js-v3/commit/861251ba3531a71b041fb36c6f793a76e29ea717))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

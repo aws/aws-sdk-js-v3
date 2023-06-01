@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.344.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.343.0...v3.344.0) (2023-06-01)
+
+
+### Features
+
+* **client-appflow:** Added ability to select DataTransferApiType for DescribeConnector and CreateFlow requests when using Async supported connectors. Added supportedDataTransferType to DescribeConnector/DescribeConnectors/ListConnector response. ([35366f2](https://github.com/aws/aws-sdk-js-v3/commit/35366f2f04826f4e81489010c6ef4afcbf1d646f))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 **Note:** Version bump only for package @aws-sdk/client-appflow
