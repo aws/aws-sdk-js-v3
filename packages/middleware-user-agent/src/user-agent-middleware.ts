@@ -78,14 +78,25 @@ export const userAgentMiddleware =
 const escapeUserAgent = ([name, version]: UserAgentPair): string => {
   const prefixSeparatorIndex = name.indexOf("/");
   const prefix = name.substring(0, prefixSeparatorIndex); // If no prefix, prefix is just ""
+
   let uaName = name.substring(prefixSeparatorIndex + 1);
   if (prefix === "api") {
     uaName = uaName.toLowerCase();
   }
+
   return [prefix, uaName, version]
     .filter((item) => item && item.length > 0)
     .map((item) => item?.replace(UA_ESCAPE_REGEX, "_"))
-    .join("/");
+    .reduce((acc: string, item: string, index: number) => {
+      switch (index) {
+        case 0:
+          return item;
+        case 1:
+          return `${acc}/${item}`;
+        default:
+          return `${acc}#${item}`;
+      }
+    }, "");
 };
 
 export const getUserAgentMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
