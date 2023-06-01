@@ -87,7 +87,7 @@ const escapeUserAgent = ([name, version]: UserAgentPair): string => {
   return [prefix, uaName, version]
     .filter((item) => item && item.length > 0)
     .map((item) => item?.replace(UA_ESCAPE_REGEX, "_"))
-    .reduce((acc: string, item: string, index: number) => {
+    .reduce((acc, item, index) => {
       switch (index) {
         case 0:
           return item;
@@ -96,7 +96,7 @@ const escapeUserAgent = ([name, version]: UserAgentPair): string => {
         default:
           return `${acc}#${item}`;
       }
-    });
+    }, "");
 };
 
 export const getUserAgentMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
