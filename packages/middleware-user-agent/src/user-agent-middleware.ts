@@ -96,7 +96,7 @@ const escapeUserAgent = ([name, version]: UserAgentPair): string => {
         default:
           return `${acc}#${item}`;
       }
-    }, "");
+    });
 };
 
 export const getUserAgentMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
