@@ -2,6 +2,7 @@
 import { NoOpLogger } from "@aws-sdk/smithy-client";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
+import { sdkStreamMixin } from "@aws-sdk/util-stream";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
@@ -17,6 +18,7 @@ export const getRuntimeConfig = (config: PollyClientConfig) => ({
   disableHostPrefix: config?.disableHostPrefix ?? false,
   endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
   logger: config?.logger ?? new NoOpLogger(),
+  sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
   serviceId: config?.serviceId ?? "Polly",
   urlParser: config?.urlParser ?? parseUrl,
   utf8Decoder: config?.utf8Decoder ?? fromUtf8,

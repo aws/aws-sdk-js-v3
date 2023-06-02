@@ -19,6 +19,10 @@ import { de_CreateChannelGroupCommand, se_CreateChannelGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateChannelGroupCommand}.
  */

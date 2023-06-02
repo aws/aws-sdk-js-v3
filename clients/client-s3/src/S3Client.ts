@@ -48,6 +48,7 @@ import {
   Credentials as __Credentials,
   EndpointV2 as __EndpointV2,
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  GetAwsChunkedBody,
   GetAwsChunkedEncodingStream,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
@@ -659,8 +660,15 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * A function that returns Readable Stream which follows aws-chunked encoding stream.
    * @internal
+   * @deprecated Use getAwsChunkedBody
    */
   getAwsChunkedEncodingStream?: GetAwsChunkedEncodingStream;
+
+  /**
+   * A function that returns AsyncIterable which follows aws-chunked encoding stream.
+   * @internal
+   */
+  getAwsChunkedBody?: GetAwsChunkedBody;
 
   /**
    * Value for how many times a request will be made at most in case of retry.

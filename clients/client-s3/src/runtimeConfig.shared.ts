@@ -3,6 +3,7 @@ import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoOpLogger } from "@aws-sdk/smithy-client";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
+import { getAwsChunkedBody, getAwsChunkedEncodingStream, sdkStreamMixin } from "@aws-sdk/util-stream";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
@@ -17,7 +18,10 @@ export const getRuntimeConfig = (config: S3ClientConfig) => ({
   base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
   endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+  getAwsChunkedBody: config?.getAwsChunkedBody ?? getAwsChunkedBody,
+  getAwsChunkedEncodingStream: config?.getAwsChunkedEncodingStream ?? getAwsChunkedEncodingStream,
   logger: config?.logger ?? new NoOpLogger(),
+  sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
   serviceId: config?.serviceId ?? "S3",
   signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
   signingEscapePath: config?.signingEscapePath ?? false,

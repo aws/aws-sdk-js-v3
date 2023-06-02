@@ -2,6 +2,7 @@
 import { NoOpLogger } from "@aws-sdk/smithy-client";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
+import { sdkStreamMixin } from "@aws-sdk/util-stream";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { defaultRegionInfoProvider } from "./endpoints";
@@ -17,6 +18,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => ({
   disableHostPrefix: config?.disableHostPrefix ?? false,
   logger: config?.logger ?? new NoOpLogger(),
   regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+  sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
   serviceId: config?.serviceId ?? "Rest Json Protocol",
   urlParser: config?.urlParser ?? parseUrl,
   utf8Decoder: config?.utf8Decoder ?? fromUtf8,

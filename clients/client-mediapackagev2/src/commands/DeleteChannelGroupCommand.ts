@@ -19,6 +19,10 @@ import { de_DeleteChannelGroupCommand, se_DeleteChannelGroupCommand } from "../p
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteChannelGroupCommand}.
  */

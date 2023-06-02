@@ -16,7 +16,6 @@ import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
-import { sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { PollyClientConfig } from "./PollyClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -52,7 +51,6 @@ export const getRuntimeConfig = (config: PollyClientConfig) => {
         ...NODE_RETRY_MODE_CONFIG_OPTIONS,
         default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
       }),
-    sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),

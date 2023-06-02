@@ -19,6 +19,10 @@ import { de_UpdateOriginEndpointCommand, se_UpdateOriginEndpointCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link UpdateOriginEndpointCommand}.
  */

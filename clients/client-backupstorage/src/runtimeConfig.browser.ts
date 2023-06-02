@@ -8,7 +8,6 @@ import { FetchHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/fe
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
-import { sdkStreamMixin } from "@aws-sdk/util-stream-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { BackupStorageClientConfig } from "./BackupStorageClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -37,7 +36,6 @@ export const getRuntimeConfig = (config: BackupStorageClientConfig) => {
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
-    sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT)),

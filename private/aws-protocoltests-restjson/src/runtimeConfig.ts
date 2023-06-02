@@ -14,7 +14,6 @@ import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/nod
 import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
-import { sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -48,7 +47,6 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
         ...NODE_RETRY_MODE_CONFIG_OPTIONS,
         default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
       }),
-    sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,

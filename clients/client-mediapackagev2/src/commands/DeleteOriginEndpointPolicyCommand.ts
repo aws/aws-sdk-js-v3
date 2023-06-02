@@ -19,6 +19,10 @@ import { de_DeleteOriginEndpointPolicyCommand, se_DeleteOriginEndpointPolicyComm
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteOriginEndpointPolicyCommand}.
  */
