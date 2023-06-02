@@ -81,9 +81,17 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         writer.write("sha1?: __ChecksumConstructor | __HashConstructor;\n");
 
         writer.addImport("GetAwsChunkedEncodingStream", "GetAwsChunkedEncodingStream", "@aws-sdk/types");
-        writer.writeDocs("A function that returns Readable Stream which follows aws-chunked encoding stream.\n"
-                + "@internal");
+        writer.writeDocs("""
+                A function that returns Readable Stream which follows aws-chunked encoding stream.
+                @internal
+                @deprecated Use getAwsChunkedBody""");
         writer.write("getAwsChunkedEncodingStream?: GetAwsChunkedEncodingStream;\n");
+
+        writer.addImport("GetAwsChunkedBody", "GetAwsChunkedBody", TypeScriptDependency.AWS_SDK_TYPES);
+        writer.writeDocs("""
+                A function that returns AsyncIterable which follows aws-chunked encoding stream.
+                @internal""");
+        writer.write("getAwsChunkedBody?: GetAwsChunkedBody;\n");
     }
 
     @Override
@@ -105,6 +113,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
                                 TypeScriptDependency.UTIL_STREAM);
                         writer.write("getAwsChunkedEncodingStream");
+                    },
+                    "getAwsChunkedBody", writer -> {
+                        writer.addDependency(TypeScriptDependency.UTIL_STREAM);
+                        writer.addImport("getAwsChunkedBody", "getAwsChunkedBody", TypeScriptDependency.UTIL_STREAM);
+                        writer.write("getAwsChunkedBody");
                     }
                 );
             case NODE:
