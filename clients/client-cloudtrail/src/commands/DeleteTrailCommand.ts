@@ -36,9 +36,9 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
 
 /**
  * @public
- * <p>Deletes a trail. This operation must be called from the region in which the trail was
+ * <p>Deletes a trail. This operation must be called from the Region in which the trail was
  *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
- *          in other regions) of a trail that is enabled in all regions.</p>
+ *          in other Regions) of a trail that is enabled in all Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +68,7 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  *          </p>
  *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -86,8 +86,8 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  *          organization resource in a required service.</p>
  *
  * @throws {@link InvalidHomeRegionException} (client fault)
- *  <p>This exception is thrown when an operation is called on a trail from a region other than
- *          the region in which the trail was created.</p>
+ *  <p>This exception is thrown when an operation is called on a trail from a Region other than
+ *          the Region in which the trail was created.</p>
  *
  * @throws {@link InvalidTrailNameException} (client fault)
  *  <p>This exception is thrown when the provided trail name is not valid. Trail names must

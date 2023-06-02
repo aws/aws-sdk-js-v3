@@ -40,9 +40,9 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  *          specified time range. The public key is needed to validate digest files that were signed
  *          with its corresponding private key.</p>
  *          <note>
- *             <p>CloudTrail uses different private and public key pairs per region. Each digest
- *             file is signed with a private key unique to its region. When you validate a digest file
- *             from a specific region, you must look in the same region for its corresponding public
+ *             <p>CloudTrail uses different private and public key pairs per Region. Each digest
+ *             file is signed with a private key unique to its Region. When you validate a digest file
+ *             from a specific Region, you must look in the same Region for its corresponding public
  *             key.</p>
  *          </note>
  * @example

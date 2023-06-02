@@ -82,13 +82,14 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *     },
  *   ],
  *   KmsKeyId: "STRING_VALUE",
+ *   StartIngestion: true || false,
  * };
  * const command = new CreateEventDataStoreCommand(input);
  * const response = await client.send(command);
  * // { // CreateEventDataStoreResponse
  * //   EventDataStoreArn: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
- * //   Status: "CREATED" || "ENABLED" || "PENDING_DELETION",
+ * //   Status: "CREATED" || "ENABLED" || "PENDING_DELETION" || "STARTING_INGESTION" || "STOPPING_INGESTION" || "STOPPED_INGESTION",
  * //   AdvancedEventSelectors: [ // AdvancedEventSelectors
  * //     { // AdvancedEventSelector
  * //       Name: "STRING_VALUE",
@@ -208,8 +209,8 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *
  * @throws {@link KmsKeyNotFoundException} (client fault)
  *  <p>This exception is thrown when the KMS key does not exist, when the S3
- *          bucket and the KMS key are not in the same region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
- *          not in the same region.</p>
+ *          bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
+ *          not in the same Region.</p>
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
  *  <p> This exception is thrown when the management account does not have a service-linked

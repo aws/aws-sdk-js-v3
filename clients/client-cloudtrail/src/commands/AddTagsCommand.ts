@@ -42,7 +42,7 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  *          values. If you specify a key without a value, the tag will be created with the specified
  *          key and a value of null. You can tag a trail or event data store that applies to all
  *             Amazon Web Services Regions only from the Region in which the trail or event data store
- *          was created (also known as its home region).</p>
+ *          was created (also known as its home Region).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,7 +85,7 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  *          </p>
  *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>

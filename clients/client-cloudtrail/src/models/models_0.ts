@@ -137,7 +137,7 @@ export interface AddTagsRequest {
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>The format of an event data store ARN is:
-   *          <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
    *          </p>
    *          <p>The format of a channel ARN is:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -217,7 +217,7 @@ export class ChannelNotFoundException extends __BaseException {
  *          </p>
  *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -1503,8 +1503,8 @@ export interface CreateEventDataStoreRequest {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
   /**
-   * <p>Specifies whether the event data store includes events from all regions, or only from
-   *          the region in which the event data store is created.</p>
+   * <p>Specifies whether the event data store includes events from all Regions, or only from
+   *          the Region in which the event data store is created.</p>
    */
   MultiRegionEnabled?: boolean;
 
@@ -1573,6 +1573,11 @@ export interface CreateEventDataStoreRequest {
    *          </ul>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>Specifies whether the event data store should start ingesting live events. The default is true.</p>
+   */
+  StartIngestion?: boolean;
 }
 
 /**
@@ -1583,6 +1588,9 @@ export const EventDataStoreStatus = {
   CREATED: "CREATED",
   ENABLED: "ENABLED",
   PENDING_DELETION: "PENDING_DELETION",
+  STARTING_INGESTION: "STARTING_INGESTION",
+  STOPPED_INGESTION: "STOPPED_INGESTION",
+  STOPPING_INGESTION: "STOPPING_INGESTION",
 } as const;
 
 /**
@@ -1616,8 +1624,8 @@ export interface CreateEventDataStoreResponse {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
   /**
-   * <p>Indicates whether the event data store collects events from all regions, or only from
-   *          the region in which it was created.</p>
+   * <p>Indicates whether the event data store collects events from all Regions, or only from
+   *          the Region in which it was created.</p>
    */
   MultiRegionEnabled?: boolean;
 
@@ -1874,8 +1882,8 @@ export class KmsException extends __BaseException {
 /**
  * @public
  * <p>This exception is thrown when the KMS key does not exist, when the S3
- *          bucket and the KMS key are not in the same region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
- *          not in the same region.</p>
+ *          bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
+ *          not in the same Region.</p>
  */
 export class KmsKeyNotFoundException extends __BaseException {
   readonly name: "KmsKeyNotFoundException" = "KmsKeyNotFoundException";
@@ -1981,7 +1989,7 @@ export class CloudTrailInvalidClientTokenIdException extends __BaseException {
 
 /**
  * @public
- * <p>Cannot set a CloudWatch Logs delivery for this region.</p>
+ * <p>Cannot set a CloudWatch Logs delivery for this Region.</p>
  */
 export class CloudWatchLogsDeliveryUnavailableException extends __BaseException {
   readonly name: "CloudWatchLogsDeliveryUnavailableException" = "CloudWatchLogsDeliveryUnavailableException";
@@ -2060,9 +2068,9 @@ export interface CreateTrailRequest {
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>Specifies whether the trail is created in the current region or in all regions. The
-   *          default is false, which creates a trail only in the region where you are signed in. As a
-   *          best practice, consider creating trails that log events in all regions.</p>
+   * <p>Specifies whether the trail is created in the current Region or in all Regions. The
+   *          default is false, which creates a trail only in the Region where you are signed in. As a
+   *          best practice, consider creating trails that log events in all Regions.</p>
    */
   IsMultiRegionTrail?: boolean;
 
@@ -2186,7 +2194,7 @@ export interface CreateTrailResponse {
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>Specifies whether the trail exists in one region or in all regions.</p>
+   * <p>Specifies whether the trail exists in one Region or in all Regions.</p>
    */
   IsMultiRegionTrail?: boolean;
 
@@ -2739,8 +2747,8 @@ export interface DeleteTrailResponse {}
 
 /**
  * @public
- * <p>This exception is thrown when an operation is called on a trail from a region other than
- *          the region in which the trail was created.</p>
+ * <p>This exception is thrown when an operation is called on a trail from a Region other than
+ *          the Region in which the trail was created.</p>
  */
 export class InvalidHomeRegionException extends __BaseException {
   readonly name: "InvalidHomeRegionException" = "InvalidHomeRegionException";
@@ -2965,23 +2973,23 @@ export interface DescribeTrailsRequest {
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
-   *          <p>If an empty list is specified, information for the trail in the current region is
+   *          <p>If an empty list is specified, information for the trail in the current Region is
    *          returned.</p>
    *          <ul>
    *             <li>
    *                <p>If an empty list is specified and <code>IncludeShadowTrails</code> is false, then
-   *                information for all trails in the current region is returned.</p>
+   *                information for all trails in the current Region is returned.</p>
    *             </li>
    *             <li>
    *                <p>If an empty list is specified and IncludeShadowTrails is null or true, then
-   *                information for all trails in the current region and any associated shadow trails in
-   *                other regions is returned.</p>
+   *                information for all trails in the current Region and any associated shadow trails in
+   *                other Regions is returned.</p>
    *             </li>
    *          </ul>
    *          <note>
    *             <p>If one or more trail names are specified, information is returned only if the names
-   *             match the names of trails belonging only to the current region and current account. To
-   *             return information about a trail in another region, you must specify its trail
+   *             match the names of trails belonging only to the current Region and current account. To
+   *             return information about a trail in another Region, you must specify its trail
    *             ARN.</p>
    *          </note>
    */
@@ -2989,9 +2997,9 @@ export interface DescribeTrailsRequest {
 
   /**
    * <p>Specifies whether to include shadow trails in the response. A shadow trail is the
-   *          replication in a region of a trail that was created in a different region, or in the case
+   *          replication in a Region of a trail that was created in a different Region, or in the case
    *          of an organization trail, the replication of an organization trail in member accounts. If
-   *          you do not include shadow trails, organization trails in a member account and region
+   *          you do not include shadow trails, organization trails in a member account and Region
    *          replication trails will not be returned. The default is true.</p>
    */
   includeShadowTrails?: boolean;
@@ -3046,12 +3054,12 @@ export interface Trail {
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>Specifies whether the trail exists only in one region or exists in all regions.</p>
+   * <p>Specifies whether the trail exists only in one Region or exists in all Regions.</p>
    */
   IsMultiRegionTrail?: boolean;
 
   /**
-   * <p>The region in which the trail was created.</p>
+   * <p>The Region in which the trail was created.</p>
    */
   HomeRegion?: string;
 
@@ -3171,7 +3179,7 @@ export interface IngestionStatus {
  */
 export interface SourceConfig {
   /**
-   * <p> Specifies whether the channel applies to a single region or to all regions.</p>
+   * <p> Specifies whether the channel applies to a single Region or to all Regions.</p>
    */
   ApplyToAllRegions?: boolean;
 
@@ -3206,7 +3214,7 @@ export interface GetChannelResponse {
 
   /**
    * <p> Provides information about the advanced event selectors configured for the channel, and
-   *          whether the channel applies to all regions or a single region. </p>
+   *          whether the channel applies to all Regions or a single Region. </p>
    */
   SourceConfig?: SourceConfig;
 
@@ -3250,8 +3258,7 @@ export interface GetEventDataStoreResponse {
   Name?: string;
 
   /**
-   * <p>The status of an event data store. Values can be <code>ENABLED</code> and
-   *             <code>PENDING_DELETION</code>.</p>
+   * <p>The status of an event data store.</p>
    */
   Status?: EventDataStoreStatus | string;
 
@@ -3261,8 +3268,8 @@ export interface GetEventDataStoreResponse {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
   /**
-   * <p>Indicates whether the event data store includes events from all regions, or only from
-   *          the region in which it was created.</p>
+   * <p>Indicates whether the event data store includes events from all Regions, or only from
+   *          the Region in which it was created.</p>
    */
   MultiRegionEnabled?: boolean;
 
@@ -3593,7 +3600,7 @@ export interface EventSelector {
    *          Guide</i>.</p>
    *          <p>By default, the value is <code>true</code>.</p>
    *          <p>The first copy of management events is free. You are charged for additional copies of
-   *          management events that you are logging on any subsequent trail in the same region. For more
+   *          management events that you are logging on any subsequent trail in the same Region. For more
    *          information about CloudTrail pricing, see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail Pricing</a>.</p>
    */
   IncludeManagementEvents?: boolean;
@@ -3616,7 +3623,7 @@ export interface EventSelector {
    *          containing <code>kms.amazonaws.com</code> or <code>rdsdata.amazonaws.com</code>. By
    *          default, <code>ExcludeManagementEventSources</code> is empty, and KMS and
    *             Amazon RDS Data API events are logged to your trail. You can exclude management
-   *          event sources only in regions that support the event source.</p>
+   *          event sources only in Regions that support the event source.</p>
    */
   ExcludeManagementEventSources?: string[];
 }
@@ -3662,7 +3669,7 @@ export interface S3ImportSource {
   S3LocationUri: string | undefined;
 
   /**
-   * <p> The region associated with the source S3 bucket. </p>
+   * <p> The Region associated with the source S3 bucket. </p>
    */
   S3BucketRegion: string | undefined;
 
@@ -4121,7 +4128,7 @@ export interface GetTrailStatusRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which you are
    *          requesting status. To get the status of a shadow trail (a replication of the trail in
-   *          another region), you must specify its ARN. The following is the format of a trail
+   *          another Region), you must specify its ARN. The following is the format of a trail
    *          ARN.</p>
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
@@ -4326,8 +4333,7 @@ export interface EventDataStore {
   /**
    * @deprecated
    *
-   * <p>The status of an event data store. Values are
-   *             <code>ENABLED</code> and <code>PENDING_DELETION</code>.</p>
+   * <p>The status of an event data store.</p>
    */
   Status?: EventDataStoreStatus | string;
 
@@ -4343,7 +4349,7 @@ export interface EventDataStore {
    * @deprecated
    *
    * <p>Indicates whether the event data store includes events
-   *          from all regions, or only from the region in which it was created.</p>
+   *          from all Regions, or only from the Region in which it was created.</p>
    */
   MultiRegionEnabled?: boolean;
 
@@ -4385,7 +4391,7 @@ export interface EventDataStore {
 export interface ListEventDataStoresResponse {
   /**
    * <p>Contains information about event data stores in the account, in the current
-   *          region.</p>
+   *          Region.</p>
    */
   EventDataStores?: EventDataStore[];
 
@@ -4809,6 +4815,15 @@ export interface ListTagsRequest {
   /**
    * <p>Specifies a list of trail, event data store, or channel ARNs whose tags will be listed. The list
    *          has a limit of 20 ARNs.</p>
+   *          <p> Example trail ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+   *          </p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    */
   ResourceIdList: string[] | undefined;
 
@@ -4866,7 +4881,7 @@ export interface ListTrailsRequest {
 
 /**
  * @public
- * <p>Information about a CloudTrail trail, including the trail's name, home region,
+ * <p>Information about a CloudTrail trail, including the trail's name, home Region,
  *          and Amazon Resource Name (ARN).</p>
  */
 export interface TrailInfo {
@@ -4891,7 +4906,7 @@ export interface TrailInfo {
  */
 export interface ListTrailsResponse {
   /**
-   * <p>Returns the name, ARN, and home region of trails in the current account.</p>
+   * <p>Returns the name, ARN, and home Region of trails in the current account.</p>
    */
   Trails?: TrailInfo[];
 
@@ -5455,7 +5470,7 @@ export interface RemoveTagsRequest {
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>Example event data store ARN format:
-   *             <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
    *          </p>
    *          <p>Example channel ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -5537,8 +5552,8 @@ export interface RestoreEventDataStoreResponse {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
   /**
-   * <p>Indicates whether the event data store is collecting events from all regions, or only
-   *          from the region in which the event data store was created.</p>
+   * <p>Indicates whether the event data store is collecting events from all Regions, or only
+   *          from the Region in which the event data store was created.</p>
    */
   MultiRegionEnabled?: boolean;
 
@@ -5580,6 +5595,21 @@ export interface RestoreEventDataStoreResponse {
    */
   KmsKeyId?: string;
 }
+
+/**
+ * @public
+ */
+export interface StartEventDataStoreIngestionRequest {
+  /**
+   * <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to start ingestion.</p>
+   */
+  EventDataStore: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartEventDataStoreIngestionResponse {}
 
 /**
  * @public
@@ -5801,6 +5831,21 @@ export interface StartQueryResponse {
 /**
  * @public
  */
+export interface StopEventDataStoreIngestionRequest {
+  /**
+   * <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to stop ingestion.</p>
+   */
+  EventDataStore: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEventDataStoreIngestionResponse {}
+
+/**
+ * @public
+ */
 export interface StopImportRequest {
   /**
    * <p> The ID of the import. </p>
@@ -5955,8 +6000,8 @@ export interface UpdateEventDataStoreRequest {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
   /**
-   * <p>Specifies whether an event data store collects events from all regions, or only from the
-   *          region in which it was created.</p>
+   * <p>Specifies whether an event data store collects events from all Regions, or only from the
+   *          Region in which it was created.</p>
    */
   MultiRegionEnabled?: boolean;
 
@@ -6035,8 +6080,7 @@ export interface UpdateEventDataStoreResponse {
   Name?: string;
 
   /**
-   * <p>The status of an event data store. Values can be <code>ENABLED</code> and
-   *             <code>PENDING_DELETION</code>.</p>
+   * <p>The status of an event data store.</p>
    */
   Status?: EventDataStoreStatus | string;
 
@@ -6046,8 +6090,8 @@ export interface UpdateEventDataStoreResponse {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
   /**
-   * <p>Indicates whether the event data store includes events from all regions, or only from
-   *          the region in which it was created.</p>
+   * <p>Indicates whether the event data store includes events from all Regions, or only from
+   *          the Region in which it was created.</p>
    */
   MultiRegionEnabled?: boolean;
 
@@ -6149,12 +6193,12 @@ export interface UpdateTrailRequest {
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>Specifies whether the trail applies only to the current region or to all regions. The
-   *          default is false. If the trail exists only in the current region and this value is set to
-   *          true, shadow trails (replications of the trail) will be created in the other regions. If
-   *          the trail exists in all regions and this value is set to false, the trail will remain in
-   *          the region where it was created, and its shadow trails in other regions will be deleted. As
-   *          a best practice, consider using trails that log events in all regions.</p>
+   * <p>Specifies whether the trail applies only to the current Region or to all Regions. The
+   *          default is false. If the trail exists only in the current Region and this value is set to
+   *          true, shadow trails (replications of the trail) will be created in the other Regions. If
+   *          the trail exists in all Regions and this value is set to false, the trail will remain in
+   *          the Region where it was created, and its shadow trails in other Regions will be deleted. As
+   *          a best practice, consider using trails that log events in all Regions.</p>
    */
   IsMultiRegionTrail?: boolean;
 
@@ -6268,7 +6312,7 @@ export interface UpdateTrailResponse {
   IncludeGlobalServiceEvents?: boolean;
 
   /**
-   * <p>Specifies whether the trail exists in one region or in all regions.</p>
+   * <p>Specifies whether the trail exists in one Region or in all Regions.</p>
    */
   IsMultiRegionTrail?: boolean;
 

@@ -98,7 +98,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *          to an Amazon SNS topic that is in a suspended Amazon Web Services account.</p>
  *
  * @throws {@link CloudWatchLogsDeliveryUnavailableException} (client fault)
- *  <p>Cannot set a CloudWatch Logs delivery for this region.</p>
+ *  <p>Cannot set a CloudWatch Logs delivery for this Region.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>This exception is thrown when the specified resource is not ready for an operation. This
@@ -181,8 +181,8 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *
  * @throws {@link KmsKeyNotFoundException} (client fault)
  *  <p>This exception is thrown when the KMS key does not exist, when the S3
- *          bucket and the KMS key are not in the same region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
- *          not in the same region.</p>
+ *          bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
+ *          not in the same Region.</p>
  *
  * @throws {@link MaximumNumberOfTrailsExceededException} (client fault)
  *  <p>This exception is thrown when the maximum number of trails is reached.</p>

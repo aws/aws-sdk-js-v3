@@ -37,7 +37,7 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
 /**
  * @public
  * <p>Returns information about all event data stores in the account, in the current
- *          region.</p>
+ *          Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,7 +56,7 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * //       EventDataStoreArn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       TerminationProtectionEnabled: true || false,
- * //       Status: "CREATED" || "ENABLED" || "PENDING_DELETION",
+ * //       Status: "CREATED" || "ENABLED" || "PENDING_DELETION" || "STARTING_INGESTION" || "STOPPING_INGESTION" || "STOPPED_INGESTION",
  * //       AdvancedEventSelectors: [ // AdvancedEventSelectors
  * //         { // AdvancedEventSelector
  * //           Name: "STRING_VALUE",

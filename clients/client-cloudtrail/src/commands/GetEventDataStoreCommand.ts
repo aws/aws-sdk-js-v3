@@ -52,7 +52,7 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  * // { // GetEventDataStoreResponse
  * //   EventDataStoreArn: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
- * //   Status: "CREATED" || "ENABLED" || "PENDING_DELETION",
+ * //   Status: "CREATED" || "ENABLED" || "PENDING_DELETION" || "STARTING_INGESTION" || "STOPPING_INGESTION" || "STOPPED_INGESTION",
  * //   AdvancedEventSelectors: [ // AdvancedEventSelectors
  * //     { // AdvancedEventSelector
  * //       Name: "STRING_VALUE",

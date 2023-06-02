@@ -135,6 +135,11 @@ import {
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
+import {
+  StartEventDataStoreIngestionCommand,
+  StartEventDataStoreIngestionCommandInput,
+  StartEventDataStoreIngestionCommandOutput,
+} from "./commands/StartEventDataStoreIngestionCommand";
 import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
   StartLoggingCommand,
@@ -142,6 +147,11 @@ import {
   StartLoggingCommandOutput,
 } from "./commands/StartLoggingCommand";
 import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import {
+  StopEventDataStoreIngestionCommand,
+  StopEventDataStoreIngestionCommandInput,
+  StopEventDataStoreIngestionCommandOutput,
+} from "./commands/StopEventDataStoreIngestionCommand";
 import { StopImportCommand, StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
 import { StopLoggingCommand, StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
 import {
@@ -193,9 +203,11 @@ const commands = {
   RegisterOrganizationDelegatedAdminCommand,
   RemoveTagsCommand,
   RestoreEventDataStoreCommand,
+  StartEventDataStoreIngestionCommand,
   StartImportCommand,
   StartLoggingCommand,
   StartQueryCommand,
+  StopEventDataStoreIngestionCommand,
   StopImportCommand,
   StopLoggingCommand,
   UpdateChannelCommand,
@@ -703,6 +715,23 @@ export interface CloudTrail {
   ): void;
 
   /**
+   * @see {@link StartEventDataStoreIngestionCommand}
+   */
+  startEventDataStoreIngestion(
+    args: StartEventDataStoreIngestionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartEventDataStoreIngestionCommandOutput>;
+  startEventDataStoreIngestion(
+    args: StartEventDataStoreIngestionCommandInput,
+    cb: (err: any, data?: StartEventDataStoreIngestionCommandOutput) => void
+  ): void;
+  startEventDataStoreIngestion(
+    args: StartEventDataStoreIngestionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartEventDataStoreIngestionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartImportCommand}
    */
   startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
@@ -733,6 +762,23 @@ export interface CloudTrail {
     args: StartQueryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopEventDataStoreIngestionCommand}
+   */
+  stopEventDataStoreIngestion(
+    args: StopEventDataStoreIngestionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopEventDataStoreIngestionCommandOutput>;
+  stopEventDataStoreIngestion(
+    args: StopEventDataStoreIngestionCommandInput,
+    cb: (err: any, data?: StopEventDataStoreIngestionCommandOutput) => void
+  ): void;
+  stopEventDataStoreIngestion(
+    args: StopEventDataStoreIngestionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopEventDataStoreIngestionCommandOutput) => void
   ): void;
 
   /**
@@ -814,7 +860,284 @@ export interface CloudTrail {
  *                Amazon Web Services SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools to Build on Amazon Web Services</a>.</p>
  *          </note>
  *          <p>See the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">CloudTrail
- *             User Guide</a> for information about the data that is included with each Amazon Web Services API call listed in the log files.</p>
+ *          User Guide</a> for information about the data that is included with each Amazon Web Services API call listed in the log files.</p>
+ *          <p>
+ *             <b>Actions available for CloudTrail trails</b>
+ *          </p>
+ *          <p>The following actions are available for CloudTrail trails.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>AddTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateTrail</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteTrail</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeTrails</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetEventSelectors</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetInsightSelectors</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetTrail</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetTrailStatus</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListTrails</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutEventSelectors</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutInsightSelectors</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>RemoveTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartLogging</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StopLogging</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateTrail</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Actions available for CloudTrail event data stores</b>
+ *          </p>
+ *          <p>The following actions are available for CloudTrail event data stores.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>AddTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CancelQuery</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateEventDataStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteEventDataStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeQuery</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetEventDataStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetQueryResults</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListEventDataStores</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListQueries</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>RemoveTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>RestoreEventDataStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartEventDataStoreIngestion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartImport</a>
+ *                </p>
+ *                <p>The following additional actions are available for imports.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a>GetImport</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>ListImportFailures</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>ListImports</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a>StopImport</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartQuery</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartEventDataStoreIngestion</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateEventDataStore</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Actions available for CloudTrail channels</b>
+ *          </p>
+ *          <p>The following actions are available for CloudTrail channels.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>AddTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateChannel</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteChannel</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteResourcePolicy</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetChannel</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetResourcePolicy</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListChannels</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutResourcePolicy</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>RemoveTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChannel</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Actions available for managing delegated administrators</b>
+ *          </p>
+ *          <p>The following actions are available for adding or a removing a delegated administrator to manage an Organizations organization’s CloudTrail resources.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DeregisterOrganizationDelegatedAdmin</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>RegisterOrganizationDelegatedAdmin</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class CloudTrail extends CloudTrailClient implements CloudTrail {}
 createAggregatedClient(commands, CloudTrail);

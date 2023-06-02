@@ -36,7 +36,7 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
 
 /**
  * @public
- * <p>Retrieves settings for one or more trails associated with the current region for your
+ * <p>Retrieves settings for one or more trails associated with the current Region for your
  *          account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
