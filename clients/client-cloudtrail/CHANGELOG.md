@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
+
+
+### Features
+
+* **client-cloudtrail:** This feature allows users to start and stop event ingestion on a CloudTrail Lake event data store. ([ac3fec7](https://github.com/aws/aws-sdk-js-v3/commit/ac3fec7e6acc1bca999ee44bd2c010d3b0031ade))
+
+
+
+
+
 # [3.344.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.343.0...v3.344.0) (2023-06-01)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

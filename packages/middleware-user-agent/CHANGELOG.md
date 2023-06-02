@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
+
+
+### Bug Fixes
+
+* **middleware-user-agent:** escape '#' in user-agent name ([#4783](https://github.com/aws/aws-sdk-js-v3/issues/4783)) ([d54028f](https://github.com/aws/aws-sdk-js-v3/commit/d54028fd47cd96d5b6ce9b1187bbf48f620461b6))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 **Note:** Version bump only for package @aws-sdk/middleware-user-agent

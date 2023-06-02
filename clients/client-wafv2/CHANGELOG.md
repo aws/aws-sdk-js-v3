@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
+
+
+### Features
+
+* **client-wafv2:** Added APIs to describe managed products. The APIs retrieve information about rule groups that are managed by AWS and by AWS Marketplace sellers. ([7027dce](https://github.com/aws/aws-sdk-js-v3/commit/7027dcefc698b34b629d35bbfcfe20c45ffa8391))
+
+
+
+
+
 # [3.344.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.343.0...v3.344.0) (2023-06-01)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

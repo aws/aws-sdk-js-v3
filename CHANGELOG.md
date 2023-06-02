@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
+
+
+### Bug Fixes
+
+* **middleware-user-agent:** escape '#' in user-agent name ([#4783](https://github.com/aws/aws-sdk-js-v3/issues/4783)) ([d54028f](https://github.com/aws/aws-sdk-js-v3/commit/d54028fd47cd96d5b6ce9b1187bbf48f620461b6))
+
+
+### Features
+
+* **client-athena:** This release introduces the DeleteCapacityReservation API and the ability to manage capacity reservations using CloudFormation ([5aceef8](https://github.com/aws/aws-sdk-js-v3/commit/5aceef8993e25b2caa91b37e1ae4dc10b96d45d4))
+* **client-cloudtrail:** This feature allows users to start and stop event ingestion on a CloudTrail Lake event data store. ([ac3fec7](https://github.com/aws/aws-sdk-js-v3/commit/ac3fec7e6acc1bca999ee44bd2c010d3b0031ade))
+* **client-sagemaker:** This release adds Selective Execution feature that allows SageMaker Pipelines users to run selected steps in a pipeline. ([4d78994](https://github.com/aws/aws-sdk-js-v3/commit/4d78994a2d0585daa36d44886d3f0930855f1a7a))
+* **client-wafv2:** Added APIs to describe managed products. The APIs retrieve information about rule groups that are managed by AWS and by AWS Marketplace sellers. ([7027dce](https://github.com/aws/aws-sdk-js-v3/commit/7027dcefc698b34b629d35bbfcfe20c45ffa8391))
+* **clients:** update client endpoints as of 2023-06-02 ([1c40620](https://github.com/aws/aws-sdk-js-v3/commit/1c4062009875c963a9c7257b5cf21a24e64d0698))
+
+
+
+
+
 # [3.344.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.343.0...v3.344.0) (2023-06-01)
 
 
