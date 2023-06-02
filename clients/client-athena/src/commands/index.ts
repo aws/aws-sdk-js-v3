@@ -10,6 +10,7 @@ export * from "./CreateNotebookCommand";
 export * from "./CreatePreparedStatementCommand";
 export * from "./CreatePresignedNotebookUrlCommand";
 export * from "./CreateWorkGroupCommand";
+export * from "./DeleteCapacityReservationCommand";
 export * from "./DeleteDataCatalogCommand";
 export * from "./DeleteNamedQueryCommand";
 export * from "./DeleteNotebookCommand";

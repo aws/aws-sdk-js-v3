@@ -59,6 +59,11 @@ import {
   CreateWorkGroupCommandOutput,
 } from "./commands/CreateWorkGroupCommand";
 import {
+  DeleteCapacityReservationCommand,
+  DeleteCapacityReservationCommandInput,
+  DeleteCapacityReservationCommandOutput,
+} from "./commands/DeleteCapacityReservationCommand";
+import {
   DeleteDataCatalogCommand,
   DeleteDataCatalogCommandInput,
   DeleteDataCatalogCommandOutput,
@@ -339,6 +344,7 @@ const commands = {
   CreatePreparedStatementCommand,
   CreatePresignedNotebookUrlCommand,
   CreateWorkGroupCommand,
+  DeleteCapacityReservationCommand,
   DeleteDataCatalogCommand,
   DeleteNamedQueryCommand,
   DeleteNotebookCommand,
@@ -577,6 +583,23 @@ export interface Athena {
     args: CreateWorkGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCapacityReservationCommand}
+   */
+  deleteCapacityReservation(
+    args: DeleteCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapacityReservationCommandOutput>;
+  deleteCapacityReservation(
+    args: DeleteCapacityReservationCommandInput,
+    cb: (err: any, data?: DeleteCapacityReservationCommandOutput) => void
+  ): void;
+  deleteCapacityReservation(
+    args: DeleteCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapacityReservationCommandOutput) => void
   ): void;
 
   /**

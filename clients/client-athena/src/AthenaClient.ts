@@ -80,6 +80,10 @@ import {
   CreatePresignedNotebookUrlCommandOutput,
 } from "./commands/CreatePresignedNotebookUrlCommand";
 import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
+import {
+  DeleteCapacityReservationCommandInput,
+  DeleteCapacityReservationCommandOutput,
+} from "./commands/DeleteCapacityReservationCommand";
 import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "./commands/DeleteDataCatalogCommand";
 import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand";
 import { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "./commands/DeleteNotebookCommand";
@@ -233,6 +237,7 @@ export type ServiceInputTypes =
   | CreatePreparedStatementCommandInput
   | CreatePresignedNotebookUrlCommandInput
   | CreateWorkGroupCommandInput
+  | DeleteCapacityReservationCommandInput
   | DeleteDataCatalogCommandInput
   | DeleteNamedQueryCommandInput
   | DeleteNotebookCommandInput
@@ -305,6 +310,7 @@ export type ServiceOutputTypes =
   | CreatePreparedStatementCommandOutput
   | CreatePresignedNotebookUrlCommandOutput
   | CreateWorkGroupCommandOutput
+  | DeleteCapacityReservationCommandOutput
   | DeleteDataCatalogCommandOutput
   | DeleteNamedQueryCommandOutput
   | DeleteNotebookCommandOutput

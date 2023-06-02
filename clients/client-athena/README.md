@@ -306,6 +306,14 @@ CreateWorkGroup
 </details>
 <details>
 <summary>
+DeleteCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/classes/deletecapacityreservationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/deletecapacityreservationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-athena/interfaces/deletecapacityreservationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteDataCatalog
 </summary>
 

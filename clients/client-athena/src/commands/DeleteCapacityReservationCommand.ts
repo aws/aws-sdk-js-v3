@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { CancelCapacityReservationInput, CancelCapacityReservationOutput } from "../models/models_0";
-import { de_CancelCapacityReservationCommand, se_CancelCapacityReservationCommand } from "../protocols/Aws_json1_1";
+import { DeleteCapacityReservationInput, DeleteCapacityReservationOutput } from "../models/models_0";
+import { de_DeleteCapacityReservationCommand, se_DeleteCapacityReservationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -24,38 +24,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CancelCapacityReservationCommand}.
+ * The input for {@link DeleteCapacityReservationCommand}.
  */
-export interface CancelCapacityReservationCommandInput extends CancelCapacityReservationInput {}
+export interface DeleteCapacityReservationCommandInput extends DeleteCapacityReservationInput {}
 /**
  * @public
  *
- * The output of {@link CancelCapacityReservationCommand}.
+ * The output of {@link DeleteCapacityReservationCommand}.
  */
-export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationOutput, __MetadataBearer {}
+export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityReservationOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Cancels the capacity reservation with the specified name. Cancelled reservations remain in your account and will be deleted 45 days after cancellation. During the 45 days, you cannot re-purpose or reuse a reservation that has been cancelled, but you can refer to its tags and view it for historical reference. </p>
+ * <p>Deletes a cancelled capacity reservation. A reservation must be cancelled before it can be deleted. A deleted reservation is immediately removed from your account and can no longer be referenced, including by its ARN. A deleted reservation cannot be called by <code>GetCapacityReservation</code>, and  deleted reservations do not appear in the output of <code>ListCapacityReservations</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, CancelCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, CancelCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, DeleteCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, DeleteCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = { // CancelCapacityReservationInput
+ * const input = { // DeleteCapacityReservationInput
  *   Name: "STRING_VALUE", // required
  * };
- * const command = new CancelCapacityReservationCommand(input);
+ * const command = new DeleteCapacityReservationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param CancelCapacityReservationCommandInput - {@link CancelCapacityReservationCommandInput}
- * @returns {@link CancelCapacityReservationCommandOutput}
- * @see {@link CancelCapacityReservationCommandInput} for command's `input` shape.
- * @see {@link CancelCapacityReservationCommandOutput} for command's `response` shape.
+ * @param DeleteCapacityReservationCommandInput - {@link DeleteCapacityReservationCommandInput}
+ * @returns {@link DeleteCapacityReservationCommandOutput}
+ * @see {@link DeleteCapacityReservationCommandInput} for command's `input` shape.
+ * @see {@link DeleteCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -70,9 +70,9 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
-export class CancelCapacityReservationCommand extends $Command<
-  CancelCapacityReservationCommandInput,
-  CancelCapacityReservationCommandOutput,
+export class DeleteCapacityReservationCommand extends $Command<
+  DeleteCapacityReservationCommandInput,
+  DeleteCapacityReservationCommandOutput,
   AthenaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -90,7 +90,7 @@ export class CancelCapacityReservationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CancelCapacityReservationCommandInput) {
+  constructor(readonly input: DeleteCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -103,17 +103,17 @@ export class CancelCapacityReservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CancelCapacityReservationCommandInput, CancelCapacityReservationCommandOutput> {
+  ): Handler<DeleteCapacityReservationCommandInput, DeleteCapacityReservationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CancelCapacityReservationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteCapacityReservationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AthenaClient";
-    const commandName = "CancelCapacityReservationCommand";
+    const commandName = "DeleteCapacityReservationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -132,8 +132,8 @@ export class CancelCapacityReservationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CancelCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CancelCapacityReservationCommand(input, context);
+  private serialize(input: DeleteCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteCapacityReservationCommand(input, context);
   }
 
   /**
@@ -142,8 +142,8 @@ export class CancelCapacityReservationCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<CancelCapacityReservationCommandOutput> {
-    return de_CancelCapacityReservationCommand(output, context);
+  ): Promise<DeleteCapacityReservationCommandOutput> {
+    return de_DeleteCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

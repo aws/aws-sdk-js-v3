@@ -45,6 +45,10 @@ import {
   CreatePresignedNotebookUrlCommandOutput,
 } from "../commands/CreatePresignedNotebookUrlCommand";
 import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "../commands/CreateWorkGroupCommand";
+import {
+  DeleteCapacityReservationCommandInput,
+  DeleteCapacityReservationCommandOutput,
+} from "../commands/DeleteCapacityReservationCommand";
 import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "../commands/DeleteDataCatalogCommand";
 import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "../commands/DeleteNamedQueryCommand";
 import { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "../commands/DeleteNotebookCommand";
@@ -196,6 +200,7 @@ import {
   CreatePresignedNotebookUrlRequest,
   CreateWorkGroupInput,
   CustomerContentEncryptionConfiguration,
+  DeleteCapacityReservationInput,
   DeleteDataCatalogInput,
   DeleteNamedQueryInput,
   DeleteNotebookInput,
@@ -444,6 +449,19 @@ export const se_CreateWorkGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWorkGroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteCapacityReservationCommand
+ */
+export const se_DeleteCapacityReservationCommand = async (
+  input: DeleteCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteCapacityReservation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1700,6 +1718,55 @@ const de_CreateWorkGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteCapacityReservationCommand
+ */
+export const de_DeleteCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteCapacityReservationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCapacityReservationCommandError
+ */
+const de_DeleteCapacityReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCapacityReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4708,6 +4775,8 @@ const se_CreateNamedQueryInput = (input: CreateNamedQueryInput, context: __Serde
 
 // se_CustomerContentEncryptionConfiguration omitted.
 
+// se_DeleteCapacityReservationInput omitted.
+
 // se_DeleteDataCatalogInput omitted.
 
 /**
@@ -5040,6 +5109,8 @@ const de_CapacityReservationsList = (output: any, context: __SerdeContext): Capa
 // de_Datum omitted.
 
 // de_datumList omitted.
+
+// de_DeleteCapacityReservationOutput omitted.
 
 // de_DeleteDataCatalogOutput omitted.
 

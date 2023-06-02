@@ -705,7 +705,7 @@ export interface QueryExecution {
 
   /**
    * <p>A list of values for the parameters in a query. The values are applied sequentially to
-   *             the parameters in the query in the order in which the parameters occur.</p>
+   *             the parameters in the query in the order in which the parameters occur. The list of parameters is not returned in the response.</p>
    */
   ExecutionParameters?: string[];
 
@@ -1292,6 +1292,21 @@ export interface CreateWorkGroupInput {
  * @public
  */
 export interface CreateWorkGroupOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityReservationInput {
+  /**
+   * <p>The name of the capacity reservation to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityReservationOutput {}
 
 /**
  * @public
