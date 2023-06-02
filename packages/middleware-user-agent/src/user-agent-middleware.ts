@@ -13,7 +13,7 @@ import {
 import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 
 import { UserAgentResolvedConfig } from "./configurations";
-import { SPACE, UA_ESCAPE_CHAR, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
+import { HASH_ESCAPE_REGEX, SPACE, UA_ESCAPE_CHAR, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
 
 /**
  * Build user agent header sections from:
@@ -77,9 +77,9 @@ export const userAgentMiddleware =
  */
 const escapeUserAgent = ([name, version]: UserAgentPair): string => {
   const prefixSeparatorIndex = name.indexOf("/");
-  const prefix = name.substring(0, prefixSeparatorIndex); // If no prefix, prefix is just ""
+  const prefix = name.substring(0, prefixSeparatorIndex).replace(HASH_ESCAPE_REGEX, UA_ESCAPE_CHAR); // If no prefix, prefix is just ""
 
-  let uaName = name.substring(prefixSeparatorIndex + 1);
+  let uaName = name.substring(prefixSeparatorIndex + 1).replace(HASH_ESCAPE_REGEX, UA_ESCAPE_CHAR);
   if (prefix === "api") {
     uaName = uaName.toLowerCase();
   }

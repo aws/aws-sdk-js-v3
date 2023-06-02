@@ -59,6 +59,8 @@ describe("userAgentMiddleware", () => {
       { ua: ["name(or not)", "1.0.0"], expected: "name-or-not-/1.0.0" },
       { ua: ["name", "1.0.0(test_version)"], expected: "name/1.0.0-test_version" },
       { ua: ["api/Service", "1.0.0"], expected: "api/service#1.0.0" },
+      { ua: ["#name#", "1.0.0#blah"], expected: "-name-/1.0.0#blah" },
+      { ua: ["#prefix#/#name#", "1.0.0#blah"], expected: "-prefix-/-name-#1.0.0#blah" },
     ];
     [
       { runtime: "node", sdkUserAgentKey: USER_AGENT },
