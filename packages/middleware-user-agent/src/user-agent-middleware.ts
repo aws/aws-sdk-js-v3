@@ -13,7 +13,15 @@ import {
 import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 
 import { UserAgentResolvedConfig } from "./configurations";
-import { HASH_ESCAPE_REGEX, SPACE, UA_ESCAPE_CHAR, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
+import {
+  SPACE,
+  UA_ESCAPE_CHAR,
+  UA_NAME_ESCAPE_REGEX,
+  UA_NAME_SEPARATOR,
+  UA_VALUE_ESCAPE_REGEX,
+  USER_AGENT,
+  X_AMZ_USER_AGENT,
+} from "./constants";
 
 /**
  * Build user agent header sections from:
@@ -75,18 +83,23 @@ export const userAgentMiddleware =
  * User agent name may include prefix like `md/`, `api/`, `os/` etc., we should not escape the `/` after the prefix.
  * @private
  */
-const escapeUserAgent = ([name, version]: UserAgentPair): string => {
-  const prefixSeparatorIndex = name.indexOf("/");
-  const prefix = name.substring(0, prefixSeparatorIndex).replace(HASH_ESCAPE_REGEX, UA_ESCAPE_CHAR); // If no prefix, prefix is just ""
+const escapeUserAgent = (userAgentPair: UserAgentPair): string => {
+  const name = userAgentPair[0]
+    .split(UA_NAME_SEPARATOR)
+    .map((part) => part.replace(UA_NAME_ESCAPE_REGEX, UA_ESCAPE_CHAR))
+    .join(UA_NAME_SEPARATOR);
+  const version = userAgentPair[1]?.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
 
-  let uaName = name.substring(prefixSeparatorIndex + 1).replace(HASH_ESCAPE_REGEX, UA_ESCAPE_CHAR);
+  const prefixSeparatorIndex = name.indexOf(UA_NAME_SEPARATOR);
+  const prefix = name.substring(0, prefixSeparatorIndex); // If no prefix, prefix is just ""
+
+  let uaName = name.substring(prefixSeparatorIndex + 1);
   if (prefix === "api") {
     uaName = uaName.toLowerCase();
   }
 
   return [prefix, uaName, version]
     .filter((item) => item && item.length > 0)
-    .map((item) => item?.replace(UA_ESCAPE_REGEX, UA_ESCAPE_CHAR))
     .reduce((acc, item, index) => {
       switch (index) {
         case 0:
