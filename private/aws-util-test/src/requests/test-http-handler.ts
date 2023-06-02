@@ -64,6 +64,20 @@ export class TestHttpHandler implements HttpHandler {
         return MOCK_CREDENTIALS;
       };
     };
+    const signerProvider = client.config.signer;
+    if (typeof signerProvider === "function") {
+      client.config.signer = async () => {
+        const _signer = await signerProvider();
+        if (typeof _signer.credentialProvider === "function") {
+          // signer is instance of SignatureV4
+          _signer.credentialProvider = async () => {
+            return MOCK_CREDENTIALS;
+          };
+        }
+        return _signer;
+      };
+    }
+
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {
       (client as any)[TestHttpHandler.WATCHER] = true;
