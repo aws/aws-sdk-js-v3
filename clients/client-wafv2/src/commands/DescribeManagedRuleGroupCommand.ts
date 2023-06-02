@@ -36,8 +36,7 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
 
 /**
  * @public
- * <p>Provides high-level information for a managed rule group, including descriptions of the
- *          rules. </p>
+ * <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

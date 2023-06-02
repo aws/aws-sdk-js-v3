@@ -13,6 +13,8 @@ export * from "./DeletePermissionPolicyCommand";
 export * from "./DeleteRegexPatternSetCommand";
 export * from "./DeleteRuleGroupCommand";
 export * from "./DeleteWebACLCommand";
+export * from "./DescribeAllManagedProductsCommand";
+export * from "./DescribeManagedProductsByVendorCommand";
 export * from "./DescribeManagedRuleGroupCommand";
 export * from "./DisassociateWebACLCommand";
 export * from "./GenerateMobileSdkReleaseUrlCommand";

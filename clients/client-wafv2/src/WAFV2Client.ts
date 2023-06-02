@@ -81,6 +81,14 @@ import {
 import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
 import { DeleteWebACLCommandInput, DeleteWebACLCommandOutput } from "./commands/DeleteWebACLCommand";
 import {
+  DescribeAllManagedProductsCommandInput,
+  DescribeAllManagedProductsCommandOutput,
+} from "./commands/DescribeAllManagedProductsCommand";
+import {
+  DescribeManagedProductsByVendorCommandInput,
+  DescribeManagedProductsByVendorCommandOutput,
+} from "./commands/DescribeManagedProductsByVendorCommand";
+import {
   DescribeManagedRuleGroupCommandInput,
   DescribeManagedRuleGroupCommandOutput,
 } from "./commands/DescribeManagedRuleGroupCommand";
@@ -205,6 +213,8 @@ export type ServiceInputTypes =
   | DeleteRegexPatternSetCommandInput
   | DeleteRuleGroupCommandInput
   | DeleteWebACLCommandInput
+  | DescribeAllManagedProductsCommandInput
+  | DescribeManagedProductsByVendorCommandInput
   | DescribeManagedRuleGroupCommandInput
   | DisassociateWebACLCommandInput
   | GenerateMobileSdkReleaseUrlCommandInput
@@ -261,6 +271,8 @@ export type ServiceOutputTypes =
   | DeleteRegexPatternSetCommandOutput
   | DeleteRuleGroupCommandOutput
   | DeleteWebACLCommandOutput
+  | DescribeAllManagedProductsCommandOutput
+  | DescribeManagedProductsByVendorCommandOutput
   | DescribeManagedRuleGroupCommandOutput
   | DisassociateWebACLCommandOutput
   | GenerateMobileSdkReleaseUrlCommandOutput

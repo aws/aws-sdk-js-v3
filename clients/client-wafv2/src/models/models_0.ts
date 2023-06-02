@@ -259,7 +259,7 @@ export interface Cookies {
  * <p>Inspect a string containing the list of the request's header names, ordered as they appear in the web request
  * that WAF receives for inspection.
  *            WAF generates the string and then uses that as the field to match component in its inspection.
- *     WAF separates the header names in the string using colons and no added spaces, for example <code>Host:User-Agent:Accept:Authorization:Referer</code>.</p>
+ *     WAF separates the header names in the string using commas and no added spaces.</p>
  *          <p>Matches against the header order string are case insensitive.</p>
  */
 export interface HeaderOrder {
@@ -711,7 +711,7 @@ export interface FieldToMatch {
    * <p>Inspect a string containing the list of the request's header names, ordered as they appear in the web request
    * that WAF receives for inspection.
    *            WAF generates the string and then uses that as the field to match component in its inspection.
-   *     WAF separates the header names in the string using colons and no added spaces, for example <code>Host:User-Agent:Accept:Authorization:Referer</code>.</p>
+   *     WAF separates the header names in the string using commas and no added spaces.</p>
    *          <p>Matches against the header order string are case insensitive.</p>
    */
   HeaderOrder?: HeaderOrder;
@@ -2977,13 +2977,13 @@ export interface Label {
  */
 export interface VisibilityConfig {
   /**
-   * <p>A boolean indicating whether WAF should store a sampling of the web requests that
+   * <p>Indicates whether WAF should store a sampling of the web requests that
    *          match the rules. You can view the sampled requests through the WAF console. </p>
    */
   SampledRequestsEnabled: boolean | undefined;
 
   /**
-   * <p>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the
+   * <p>Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the
    *          list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
    *             Metrics</a> in the <i>WAF Developer Guide</i>.</p>
    *          <p>For web ACLs, the metrics are for web requests that have the web ACL default action applied.
@@ -3912,9 +3912,127 @@ export interface DeleteWebACLResponse {}
 /**
  * @public
  */
+export interface DescribeAllManagedProductsRequest {
+  /**
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The properties of a managed product, such as an Amazon Web Services Managed Rules rule group or an Amazon Web Services Marketplace managed rule group. </p>
+ */
+export interface ManagedProductDescriptor {
+  /**
+   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
+   */
+  VendorName?: string;
+
+  /**
+   * <p>The name of the managed rule group. For example, <code>AWSManagedRulesAnonymousIpList</code> or <code>AWSManagedRulesATPRuleSet</code>.</p>
+   */
+  ManagedRuleSetName?: string;
+
+  /**
+   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  ProductId?: string;
+
+  /**
+   * <p>For Amazon Web Services Marketplace managed rule groups only, the link to the rule group product page. </p>
+   */
+  ProductLink?: string;
+
+  /**
+   * <p>The display name for the managed rule group. For example, <code>Anonymous IP list</code> or <code>Account takeover prevention</code>.</p>
+   */
+  ProductTitle?: string;
+
+  /**
+   * <p>A short description of the managed rule group.</p>
+   */
+  ProductDescription?: string;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's used to provide notification of changes
+   *          to the managed rule group. You can subscribe to the SNS topic to receive notifications when
+   *          the managed rule group is modified, such as for new versions and for version expiration.
+   *          For more information, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service Developer Guide</a>.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>Indicates whether the rule group is versioned. </p>
+   */
+  IsVersioningSupported?: boolean;
+
+  /**
+   * <p>Indicates whether the rule group provides an advanced set of protections, such as the the Amazon Web Services Managed Rules rule groups that
+   *            are used for WAF intelligent threat mitigation.  </p>
+   */
+  IsAdvancedManagedRuleSet?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAllManagedProductsResponse {
+  /**
+   * <p>High-level information for the Amazon Web Services Managed Rules rule groups and Amazon Web Services Marketplace managed rule groups. </p>
+   */
+  ManagedProducts?: ManagedProductDescriptor[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeManagedProductsByVendorRequest {
+  /**
+   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
+   */
+  VendorName: string | undefined;
+
+  /**
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeManagedProductsByVendorResponse {
+  /**
+   * <p>High-level information for the managed rule groups owned by the specified vendor.  </p>
+   */
+  ManagedProducts?: ManagedProductDescriptor[];
+}
+
+/**
+ * @public
+ */
 export interface DescribeManagedRuleGroupRequest {
   /**
-   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
+   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
    */
   VendorName: string | undefined;
 
@@ -3995,7 +4113,7 @@ export interface DescribeManagedRuleGroupResponse {
   VersionName?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's used to record changes
+   * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's used to provide notification of changes
    *          to the managed rule group. You can subscribe to the SNS topic to receive notifications when
    *          the managed rule group is modified, such as for new versions and for version expiration.
    *          For more information, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service Developer Guide</a>.</p>
@@ -5425,11 +5543,11 @@ export interface ListAvailableManagedRuleGroupsRequest {
 
 /**
  * @public
- * <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include Amazon Web Services Managed Rules rule groups, which are free of charge to WAF customers, and Amazon Web Services Marketplace managed rule groups, which you can subscribe to through Amazon Web Services Marketplace. </p>
+ * <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include Amazon Web Services Managed Rules rule groups and Amazon Web Services Marketplace managed rule groups. To use any Amazon Web Services Marketplace managed rule group, first subscribe to the rule group through Amazon Web Services Marketplace. </p>
  */
 export interface ManagedRuleGroupSummary {
   /**
-   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
+   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
    */
   VendorName?: string;
 
@@ -5472,7 +5590,7 @@ export interface ListAvailableManagedRuleGroupsResponse {
  */
 export interface ListAvailableManagedRuleGroupVersionsRequest {
   /**
-   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
+   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
    */
   VendorName: string | undefined;
 
@@ -6768,7 +6886,7 @@ export interface Statement {
  */
 export interface ManagedRuleGroupStatement {
   /**
-   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
+   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
    */
   VendorName: string | undefined;
 

@@ -375,6 +375,22 @@ DeleteWebACL
 </details>
 <details>
 <summary>
+DescribeAllManagedProducts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/classes/describeallmanagedproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/describeallmanagedproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/describeallmanagedproductscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeManagedProductsByVendor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/classes/describemanagedproductsbyvendorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/describemanagedproductsbyvendorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/describemanagedproductsbyvendorcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeManagedRuleGroup
 </summary>
 
