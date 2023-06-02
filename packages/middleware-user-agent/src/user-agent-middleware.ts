@@ -13,7 +13,7 @@ import {
 import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 
 import { UserAgentResolvedConfig } from "./configurations";
-import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
+import { SPACE, UA_ESCAPE_CHAR, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
 
 /**
  * Build user agent header sections from:
@@ -86,7 +86,7 @@ const escapeUserAgent = ([name, version]: UserAgentPair): string => {
 
   return [prefix, uaName, version]
     .filter((item) => item && item.length > 0)
-    .map((item) => item?.replace(UA_ESCAPE_REGEX, "_"))
+    .map((item) => item?.replace(UA_ESCAPE_REGEX, UA_ESCAPE_CHAR))
     .reduce((acc, item, index) => {
       switch (index) {
         case 0:
