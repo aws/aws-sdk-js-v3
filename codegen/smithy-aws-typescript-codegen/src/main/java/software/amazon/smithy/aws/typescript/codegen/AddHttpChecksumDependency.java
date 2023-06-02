@@ -98,6 +98,15 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         }
 
         switch (target) {
+            case SHARED:
+                return MapUtils.of(
+                    "getAwsChunkedEncodingStream", writer -> {
+                        writer.addDependency(TypeScriptDependency.UTIL_STREAM);
+                        writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
+                                TypeScriptDependency.UTIL_STREAM);
+                        writer.write("getAwsChunkedEncodingStream");
+                    }
+                );
             case NODE:
                 return MapUtils.of(
                     "streamHasher", writer -> {
@@ -121,12 +130,6 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
                                 TypeScriptDependency.AWS_SDK_TYPES.packageName);
                         writer.write("Hash.bind(null, \"sha1\")");
-                    },
-                    "getAwsChunkedEncodingStream", writer -> {
-                        writer.addDependency(TypeScriptDependency.UTIL_STREAM_NODE);
-                        writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
-                                TypeScriptDependency.UTIL_STREAM_NODE.packageName);
-                        writer.write("getAwsChunkedEncodingStream");
                     }
                 );
             case BROWSER:
@@ -147,12 +150,6 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.addImport("Sha1",
                             "Sha1", AwsDependency.AWS_CRYPTO_SHA1_BROWSER.packageName);
                         writer.write("Sha1");
-                    },
-                    "getAwsChunkedEncodingStream", writer -> {
-                        writer.addDependency(TypeScriptDependency.UTIL_STREAM_BROWSER);
-                        writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
-                                TypeScriptDependency.UTIL_STREAM_BROWSER.packageName);
-                        writer.write("getAwsChunkedEncodingStream");
                     }
                 );
             default:
