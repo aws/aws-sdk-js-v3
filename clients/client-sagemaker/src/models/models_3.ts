@@ -162,6 +162,7 @@ import {
   ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
+  SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SpaceStatus,
   SubscribedWorkteam,
@@ -176,6 +177,81 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ImportHubContentRequest {
+  /**
+   * <p>The name of the hub content to import.</p>
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The version of the hub content to import.</p>
+   */
+  HubContentVersion?: string;
+
+  /**
+   * <p>The type of hub content to import.</p>
+   */
+  HubContentType: HubContentType | string | undefined;
+
+  /**
+   * <p>The version of the hub content schema to import.</p>
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The name of the hub to import content into.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The display name of the hub content to import.</p>
+   */
+  HubContentDisplayName?: string;
+
+  /**
+   * <p>A description of the hub content to import.</p>
+   */
+  HubContentDescription?: string;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
+   */
+  HubContentMarkdown?: string;
+
+  /**
+   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
+   */
+  HubContentDocument: string | undefined;
+
+  /**
+   * <p>The searchable keywords of the hub content.</p>
+   */
+  HubContentSearchKeywords?: string[];
+
+  /**
+   * <p>Any tags associated with the hub content.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ImportHubContentResponse {
+  /**
+   * <p>The ARN of the hub that the content was imported into.</p>
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content that was imported.</p>
+   */
+  HubContentArn: string | undefined;
+}
 
 /**
  * @public
@@ -5578,6 +5654,17 @@ export interface PipelineExecutionStepMetadata {
 
 /**
  * @public
+ * <p>The ARN from an execution of the current pipeline.</p>
+ */
+export interface SelectiveExecutionResult {
+  /**
+   * <p>The ARN from an execution of the current pipeline.</p>
+   */
+  SourcePipelineExecutionArn?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const StepStatus = {
@@ -5648,6 +5735,12 @@ export interface PipelineExecutionStep {
    * <p>Metadata to run the pipeline step.</p>
    */
   Metadata?: PipelineExecutionStepMetadata;
+
+  /**
+   * <p>The ARN from an execution of the current pipeline from which
+   *            results are reused for this step.</p>
+   */
+  SelectiveExecutionResult?: SelectiveExecutionResult;
 }
 
 /**
@@ -8255,6 +8348,11 @@ export interface PipelineExecution {
    * <p>Contains a list of pipeline parameters. This list can be empty. </p>
    */
   PipelineParameters?: Parameter[];
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig;
 }
 
 /**
@@ -9702,6 +9800,11 @@ export interface StartPipelineExecutionRequest {
    *             of the parent pipeline for this specific run.</p>
    */
   ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig;
 }
 
 /**
@@ -9839,36 +9942,6 @@ export interface StopInferenceExperimentResponse {
    * <p>The ARN of the stopped inference experiment.</p>
    */
   InferenceExperimentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceRecommendationsJobRequest {
-  /**
-   * <p>The name of the job you want to stop.</p>
-   */
-  JobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job to stop.</p>
-   */
-  LabelingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMonitoringScheduleRequest {
-  /**
-   * <p>The name of the schedule to stop.</p>
-   */
-  MonitoringScheduleName: string | undefined;
 }
 
 /**

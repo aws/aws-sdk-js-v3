@@ -57,6 +57,14 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *   ParallelismConfiguration: { // ParallelismConfiguration
  *     MaxParallelExecutionSteps: Number("int"), // required
  *   },
+ *   SelectiveExecutionConfig: { // SelectiveExecutionConfig
+ *     SourcePipelineExecutionArn: "STRING_VALUE", // required
+ *     SelectedSteps: [ // SelectedStepList // required
+ *       { // SelectedStep
+ *         StepName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);

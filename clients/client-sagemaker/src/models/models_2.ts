@@ -6112,6 +6112,37 @@ export interface PipelineExperimentConfig {
 
 /**
  * @public
+ * <p>A step selected to run in selective execution mode.</p>
+ */
+export interface SelectedStep {
+  /**
+   * <p>The name of the pipeline step.</p>
+   */
+  StepName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The selective execution configuration applied to the pipeline run.</p>
+ */
+export interface SelectiveExecutionConfig {
+  /**
+   * <p>The ARN from a reference execution of the current pipeline.
+   *         Used to copy input collaterals needed for the selected steps to run.
+   *         The execution status of the pipeline can be either <code>Failed</code>
+   *         or <code>Success</code>.</p>
+   */
+  SourcePipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A list of pipeline steps to run. All step(s) in all path(s) between
+   *         two selected steps should be included.</p>
+   */
+  SelectedSteps: SelectedStep[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface DescribePipelineExecutionResponse {
   /**
@@ -6175,6 +6206,11 @@ export interface DescribePipelineExecutionResponse {
    * <p>The parallelism configuration applied to the pipeline.</p>
    */
   ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig;
 }
 
 /**
@@ -10431,81 +10467,6 @@ export const ImageVersionSortOrder = {
  * @public
  */
 export type ImageVersionSortOrder = (typeof ImageVersionSortOrder)[keyof typeof ImageVersionSortOrder];
-
-/**
- * @public
- */
-export interface ImportHubContentRequest {
-  /**
-   * <p>The name of the hub content to import.</p>
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The version of the hub content to import.</p>
-   */
-  HubContentVersion?: string;
-
-  /**
-   * <p>The type of hub content to import.</p>
-   */
-  HubContentType: HubContentType | string | undefined;
-
-  /**
-   * <p>The version of the hub content schema to import.</p>
-   */
-  DocumentSchemaVersion: string | undefined;
-
-  /**
-   * <p>The name of the hub to import content into.</p>
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The display name of the hub content to import.</p>
-   */
-  HubContentDisplayName?: string;
-
-  /**
-   * <p>A description of the hub content to import.</p>
-   */
-  HubContentDescription?: string;
-
-  /**
-   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
-   */
-  HubContentMarkdown?: string;
-
-  /**
-   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
-   */
-  HubContentDocument: string | undefined;
-
-  /**
-   * <p>The searchable keywords of the hub content.</p>
-   */
-  HubContentSearchKeywords?: string[];
-
-  /**
-   * <p>Any tags associated with the hub content.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface ImportHubContentResponse {
-  /**
-   * <p>The ARN of the hub that the content was imported into.</p>
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The ARN of the hub content that was imported.</p>
-   */
-  HubContentArn: string | undefined;
-}
 
 /**
  * @internal

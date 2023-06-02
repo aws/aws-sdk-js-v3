@@ -1358,7 +1358,6 @@ import {
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
-  ImportHubContentRequest,
   InferenceRecommendation,
   MetricData,
   MonitoringExecutionSummary,
@@ -1373,12 +1372,15 @@ import {
   RecommendationMetrics,
   RStudioServerProDomainSettingsForUpdate,
   SecondaryStatusTransition,
+  SelectedStep,
+  SelectiveExecutionConfig,
   SuggestionQuery,
   TrialComponentMetricSummary,
   Workforce,
   Workteam,
 } from "../models/models_2";
 import {
+  ImportHubContentRequest,
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
@@ -1583,9 +1585,6 @@ import {
   StopEdgePackagingJobRequest,
   StopHyperParameterTuningJobRequest,
   StopInferenceExperimentRequest,
-  StopInferenceRecommendationsJobRequest,
-  StopLabelingJobRequest,
-  StopMonitoringScheduleRequest,
   StudioLifecycleConfigDetails,
   TrainingJob,
   TrainingJobSummary,
@@ -1603,6 +1602,9 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopInferenceRecommendationsJobRequest,
+  StopLabelingJobRequest,
+  StopMonitoringScheduleRequest,
   StopNotebookInstanceInput,
   StopPipelineExecutionRequest,
   StopProcessingJobRequest,
@@ -21638,6 +21640,12 @@ const se_SearchRequest = (input: SearchRequest, context: __SerdeContext): any =>
 
 // se_SecurityGroupIds omitted.
 
+// se_SelectedStep omitted.
+
+// se_SelectedStepList omitted.
+
+// se_SelectiveExecutionConfig omitted.
+
 /**
  * serializeAws_json1_1SendPipelineExecutionStepFailureRequest
  */
@@ -21709,6 +21717,7 @@ const se_StartPipelineExecutionRequest = (input: StartPipelineExecutionRequest, 
     PipelineExecutionDisplayName: [],
     PipelineName: [],
     PipelineParameters: _json,
+    SelectiveExecutionConfig: _json,
   });
 };
 
@@ -23793,6 +23802,7 @@ const de_DescribePipelineExecutionResponse = (
     PipelineExecutionDisplayName: __expectString,
     PipelineExecutionStatus: __expectString,
     PipelineExperimentConfig: _json,
+    SelectiveExecutionConfig: _json,
   }) as any;
 };
 
@@ -26976,6 +26986,7 @@ const de_PipelineExecution = (output: any, context: __SerdeContext): PipelineExe
     PipelineExecutionStatus: __expectString,
     PipelineExperimentConfig: _json,
     PipelineParameters: _json,
+    SelectiveExecutionConfig: _json,
   }) as any;
 };
 
@@ -26989,6 +27000,7 @@ const de_PipelineExecutionStep = (output: any, context: __SerdeContext): Pipelin
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     FailureReason: __expectString,
     Metadata: _json,
+    SelectiveExecutionResult: _json,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     StepDescription: __expectString,
     StepDisplayName: __expectString,
@@ -27514,6 +27526,14 @@ const de_SecondaryStatusTransitions = (output: any, context: __SerdeContext): Se
 };
 
 // de_SecurityGroupIds omitted.
+
+// de_SelectedStep omitted.
+
+// de_SelectedStepList omitted.
+
+// de_SelectiveExecutionConfig omitted.
+
+// de_SelectiveExecutionResult omitted.
 
 // de_SendPipelineExecutionStepFailureResponse omitted.
 

@@ -61,6 +61,36 @@ import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, Search
 /**
  * @public
  */
+export interface StopInferenceRecommendationsJobRequest {
+  /**
+   * <p>The name of the job you want to stop.</p>
+   */
+  JobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopLabelingJobRequest {
+  /**
+   * <p>The name of the labeling job to stop.</p>
+   */
+  LabelingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to stop.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StopNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance to terminate.</p>

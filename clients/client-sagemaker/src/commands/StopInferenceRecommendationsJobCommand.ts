@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { StopInferenceRecommendationsJobRequest } from "../models/models_3";
+import { StopInferenceRecommendationsJobRequest } from "../models/models_4";
 import {
   de_StopInferenceRecommendationsJobCommand,
   se_StopInferenceRecommendationsJobCommand,

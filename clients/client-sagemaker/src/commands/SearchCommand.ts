@@ -1304,6 +1304,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Value: "STRING_VALUE", // required
  * //           },
  * //         ],
+ * //         SelectiveExecutionConfig: { // SelectiveExecutionConfig
+ * //           SourcePipelineExecutionArn: "STRING_VALUE", // required
+ * //           SelectedSteps: [ // SelectedStepList // required
+ * //             { // SelectedStep
+ * //               StepName: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       FeatureGroup: { // FeatureGroup
  * //         FeatureGroupArn: "STRING_VALUE",

@@ -5028,12 +5028,13 @@ export interface AutoMLJobChannel {
    *          content types for different problems:</p>
    *          <ul>
    *             <li>
-   *                <p>ImageClassification: <code>image/png</code>, <code>image/jpeg</code>, or
-   *                   <code>image/*</code>. The default value is <code>image/*</code>.</p>
+   *                <p>ImageClassification: <code>image/png</code>, <code>image/jpeg</code>,
+   *                   <code>image/*</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>TextClassification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>.
-   *                The default value is <code>text/csv;header=present</code>.</p>
+   *                <p>TextClassification: <code>text/csv;header=present</code>
+   *                </p>
    *             </li>
    *          </ul>
    */

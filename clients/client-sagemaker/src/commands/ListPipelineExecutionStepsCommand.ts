@@ -141,6 +141,9 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //           Arn: "STRING_VALUE",
  * //         },
  * //       },
+ * //       SelectiveExecutionResult: { // SelectiveExecutionResult
+ * //         SourcePipelineExecutionArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

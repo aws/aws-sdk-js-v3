@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { ImportHubContentRequest, ImportHubContentResponse } from "../models/models_2";
+import { ImportHubContentRequest, ImportHubContentResponse } from "../models/models_3";
 import { de_ImportHubContentCommand, se_ImportHubContentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
