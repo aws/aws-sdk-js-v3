@@ -5,7 +5,7 @@ import { DefaultUserAgentOptions } from "./configurations";
 
 /**
  * @internal
- * 
+ *
  * Default provider to the user agent in browsers. It's a best effort to infer
  * the device information. It uses bowser library to detect the browser and version
  */
@@ -19,6 +19,8 @@ export const defaultUserAgent =
     const sections: UserAgent = [
       // sdk-metadata
       ["aws-sdk-js", clientVersion],
+      // ua-metadata
+      ["ua", "2.0"],
       // os-metadata
       [`os/${parsedUA?.os?.name || "other"}`, parsedUA?.os?.version],
       // language-metadata
