@@ -25570,6 +25570,13 @@
         },
         "workspaces": {
           "endpoints": {
+            "fips-us-gov-east-1": {
+              "credentialScope": {
+                "region": "us-gov-east-1"
+              },
+              "deprecated": true,
+              "hostname": "workspaces-fips.us-gov-east-1.amazonaws.com"
+            },
             "fips-us-gov-west-1": {
               "credentialScope": {
                 "region": "us-gov-west-1"
@@ -25577,7 +25584,14 @@
               "deprecated": true,
               "hostname": "workspaces-fips.us-gov-west-1.amazonaws.com"
             },
-            "us-gov-east-1": {},
+            "us-gov-east-1": {
+              "variants": [
+                {
+                  "hostname": "workspaces-fips.us-gov-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "us-gov-west-1": {
               "variants": [
                 {
