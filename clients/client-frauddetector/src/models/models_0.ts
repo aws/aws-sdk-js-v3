@@ -460,6 +460,7 @@ export type DataSource = (typeof DataSource)[keyof typeof DataSource];
  */
 export const DataType = {
   BOOLEAN: "BOOLEAN",
+  DATETIME: "DATETIME",
   FLOAT: "FLOAT",
   INTEGER: "INTEGER",
   STRING: "STRING",
@@ -1180,7 +1181,7 @@ export interface CreateVariableRequest {
   name: string | undefined;
 
   /**
-   * <p>The data type.</p>
+   * <p>The data type of the variable.</p>
    */
   dataType: DataType | string | undefined;
 
@@ -1333,7 +1334,7 @@ export interface DeleteEventRequest {
   eventTypeName: string | undefined;
 
   /**
-   * <p>Specifies whether or not to delete any predictions associated with the event.</p>
+   * <p>Specifies whether or not to delete any predictions associated with the event. If set to <code>True</code>, </p>
    */
   deleteAuditHistory?: boolean;
 }

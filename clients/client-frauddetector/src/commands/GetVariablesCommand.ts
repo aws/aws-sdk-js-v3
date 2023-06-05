@@ -59,7 +59,7 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  * //   variables: [ // VariableList
  * //     { // Variable
  * //       name: "STRING_VALUE",
- * //       dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN",
+ * //       dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN" || "DATETIME",
  * //       dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE",
  * //       defaultValue: "STRING_VALUE",
  * //       description: "STRING_VALUE",

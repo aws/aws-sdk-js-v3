@@ -45,7 +45,7 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateVariableRequest
  *   name: "STRING_VALUE", // required
- *   dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN", // required
+ *   dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN" || "DATETIME", // required
  *   dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE", // required
  *   defaultValue: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
