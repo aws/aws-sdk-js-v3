@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.346.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.345.0...v3.346.0) (2023-06-05)
+
+
+### Features
+
+* **client-ec2:** Making InstanceTagAttribute as the required parameter for the DeregisterInstanceEventNotificationAttributes and RegisterInstanceEventNotificationAttributes APIs. ([8329d54](https://github.com/aws/aws-sdk-js-v3/commit/8329d543de7b03f322eca4bfe88f3cec81770552))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

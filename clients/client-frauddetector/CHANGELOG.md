@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.346.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.345.0...v3.346.0) (2023-06-05)
+
+
+### Features
+
+* **client-frauddetector:** Added new variable types, new DateTime data type, and new rules engine functions for interacting and working with DateTime data types. ([c28015d](https://github.com/aws/aws-sdk-js-v3/commit/c28015dd0a9a9bd9bd92d5a54147918908a42a20))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-frauddetector

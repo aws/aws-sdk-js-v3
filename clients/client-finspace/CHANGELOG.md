@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.346.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.345.0...v3.346.0) (2023-06-05)
+
+
+### Features
+
+* **client-finspace:** Releasing new Managed kdb Insights APIs ([fdbea2d](https://github.com/aws/aws-sdk-js-v3/commit/fdbea2daf082bf51e5978ee30ada86f77c7c009c))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace

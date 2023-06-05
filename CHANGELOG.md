@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.346.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.345.0...v3.346.0) (2023-06-05)
+
+
+### Features
+
+* **client-cloudformation:** AWS CloudFormation StackSets provides customers with three new APIs to activate, deactivate, and describe AWS Organizations trusted access which is needed to get started with service-managed StackSets. ([074bc89](https://github.com/aws/aws-sdk-js-v3/commit/074bc89418c4ca07a09a39df2ffe5ca5281250bb))
+* **client-ec2:** Making InstanceTagAttribute as the required parameter for the DeregisterInstanceEventNotificationAttributes and RegisterInstanceEventNotificationAttributes APIs. ([8329d54](https://github.com/aws/aws-sdk-js-v3/commit/8329d543de7b03f322eca4bfe88f3cec81770552))
+* **client-finspace:** Releasing new Managed kdb Insights APIs ([fdbea2d](https://github.com/aws/aws-sdk-js-v3/commit/fdbea2daf082bf51e5978ee30ada86f77c7c009c))
+* **client-frauddetector:** Added new variable types, new DateTime data type, and new rules engine functions for interacting and working with DateTime data types. ([c28015d](https://github.com/aws/aws-sdk-js-v3/commit/c28015dd0a9a9bd9bd92d5a54147918908a42a20))
+* **client-keyspaces:** This release adds support for MRR GA launch, and includes multiregion support in create-keyspace, get-keyspace, and list-keyspace. ([581ae9b](https://github.com/aws/aws-sdk-js-v3/commit/581ae9b45077e2435915fd20324cbc3b1bed9137))
+* **client-kms:** This release includes feature to import customer's asymmetric (RSA and ECC) and HMAC keys into KMS.  It also includes feature to allow customers to specify number of days to schedule a KMS key deletion as a policy condition key. ([5d65529](https://github.com/aws/aws-sdk-js-v3/commit/5d655292a3a20db0fc1784a188d06b8a58988e32))
+* **client-lambda:** Add Ruby 3.2 (ruby3.2) Runtime support to AWS Lambda. ([7df6c6b](https://github.com/aws/aws-sdk-js-v3/commit/7df6c6b070162b77bd2eefc3ae2f6458b7f32981))
+* **client-mwaa:** This release adds ROLLING_BACK and CREATING_SNAPSHOT environment statuses for Amazon MWAA environments. ([bd0b3a9](https://github.com/aws/aws-sdk-js-v3/commit/bd0b3a99099658fe167396cd820cf30ce0991de0))
+* **clients:** update client endpoints as of 2023-06-05 ([400459c](https://github.com/aws/aws-sdk-js-v3/commit/400459cdee69fd0c778023f8b3f9ea15d4b12429))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 

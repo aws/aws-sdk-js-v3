@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.346.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.345.0...v3.346.0) (2023-06-05)
+
+
+### Features
+
+* **client-mwaa:** This release adds ROLLING_BACK and CREATING_SNAPSHOT environment statuses for Amazon MWAA environments. ([bd0b3a9](https://github.com/aws/aws-sdk-js-v3/commit/bd0b3a99099658fe167396cd820cf30ce0991de0))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-mwaa
