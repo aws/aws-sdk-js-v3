@@ -11,6 +11,8 @@ export const AlgorithmSpec = {
   RSAES_OAEP_SHA_1: "RSAES_OAEP_SHA_1",
   RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
   RSAES_PKCS1_V1_5: "RSAES_PKCS1_V1_5",
+  RSA_AES_KEY_WRAP_SHA_1: "RSA_AES_KEY_WRAP_SHA_1",
+  RSA_AES_KEY_WRAP_SHA_256: "RSA_AES_KEY_WRAP_SHA_256",
 } as const;
 
 /**
@@ -3869,6 +3871,8 @@ export interface GetKeyRotationStatusResponse {
  */
 export const WrappingKeySpec = {
   RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
 } as const;
 
 /**
@@ -3881,8 +3885,10 @@ export type WrappingKeySpec = (typeof WrappingKeySpec)[keyof typeof WrappingKeyS
  */
 export interface GetParametersForImportRequest {
   /**
-   * <p>The identifier of the symmetric encryption KMS key into which you will import key
-   *       material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
+   * <p>The identifier of the KMS key that will be associated with the imported key material. The
+   *         <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
+   *          <p>All KMS key types are supported, including multi-Region keys. However, you cannot import
+   *       key material into a KMS key in a custom key store.</p>
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3900,20 +3906,51 @@ export interface GetParametersForImportRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>The algorithm you will use to encrypt the key material before using the <a>ImportKeyMaterial</a> operation to import it. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
-   *         key material</a> in the <i>Key Management Service Developer Guide</i>.</p>
-   *          <important>
-   *             <p>The <code>RSAES_PKCS1_V1_5</code> wrapping algorithm is deprecated. We recommend that
-   *         you begin using a different wrapping algorithm immediately. KMS will end support for
-   *           <code>RSAES_PKCS1_V1_5</code> by October 1, 2023 pursuant to <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf">cryptographic key management guidance</a> from the National Institute of Standards
-   *         and Technology (NIST).</p>
-   *          </important>
+   * <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the
+   *       response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you
+   *       generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping
+   *       algorithms, you encrypt your key material directly with the RSA public key from KMS.</p>
+   *          <p>The wrapping algorithms that you can use depend on the type of key material that you are
+   *       importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key
+   *           material.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p>
+   *                <p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap
+   *           ECC_NIST_P521 key material.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private
+   *           key).</p>
+   *                <p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap
+   *           ECC_NIST_P521 key material.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RSAES_PKCS1_V1_5</b> (Deprecated) — Supported only for symmetric encryption key
+   *           material (and only in legacy mode).</p>
+   *             </li>
+   *          </ul>
    */
   WrappingAlgorithm: AlgorithmSpec | string | undefined;
 
   /**
-   * <p>The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public
-   *       keys are supported.</p>
+   * <p>The type of RSA public key to return in the response. You will use this wrapping key with
+   *       the specified wrapping algorithm to protect your key material during import. </p>
+   *          <p>Use the longest RSA wrapping key that is practical. </p>
+   *          <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key.
+   *       Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
    */
   WrappingKeySpec: WrappingKeySpec | string | undefined;
 }
@@ -4106,12 +4143,15 @@ export interface GrantListEntry {
  */
 export interface ImportKeyMaterialRequest {
   /**
-   * <p>The identifier of the symmetric encryption KMS key that receives the imported key
-   *       material. This must be the same KMS key specified in the <code>KeyID</code> parameter of the
-   *       corresponding <a>GetParametersForImport</a> request. The <code>Origin</code> of the
-   *       KMS key must be <code>EXTERNAL</code>. You cannot perform this operation on an asymmetric KMS
-   *       key, an HMAC KMS key, a KMS key in a custom key store, or on a KMS key in a different
-   *       Amazon Web Services account</p>
+   * <p>The identifier of the KMS key that will be associated with the imported key material. This
+   *       must be the same KMS key specified in the <code>KeyID</code> parameter of the corresponding
+   *         <a>GetParametersForImport</a> request. The <code>Origin</code> of the KMS key
+   *       must be <code>EXTERNAL</code> and its <code>KeyState</code> must be
+   *       <code>PendingImport</code>. </p>
+   *          <p>The KMS key can be a symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS
+   *       key, or asymmetric signing KMS key, including a <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported
+   *       type. You cannot perform this operation on a KMS key in a custom key store, or on a KMS key in
+   *       a different Amazon Web Services account.</p>
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -4135,7 +4175,7 @@ export interface ImportKeyMaterialRequest {
   ImportToken: Uint8Array | undefined;
 
   /**
-   * <p>The encrypted key material to import. The key material must be encrypted with the public
+   * <p>The encrypted key material to import. The key material must be encrypted under the public
    *       wrapping key that <a>GetParametersForImport</a> returned, using the wrapping
    *       algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
    */
@@ -4157,13 +4197,14 @@ export interface ImportKeyMaterialRequest {
 
   /**
    * <p>Specifies whether the key material expires. The default is
-   *         <code>KEY_MATERIAL_EXPIRES</code>.</p>
+   *         <code>KEY_MATERIAL_EXPIRES</code>. For help with this choice, see <a href="https://docs.aws.amazon.com/en_us/kms/latest/developerguide/importing-keys.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          <p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you
    *       must specify a value for the <code>ValidTo</code> parameter. When value is
    *         <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code>
    *       parameter.</p>
    *          <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the
-   *       current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
+   *       current import after the request completes. To change either value, you must reimport the key
+   *       material.</p>
    */
   ExpirationModel?: ExpirationModelType | string;
 }
@@ -5152,7 +5193,11 @@ export interface ScheduleKeyDeletionRequest {
    *       when the last of its replica keys is deleted. Otherwise, the waiting period begins
    *       immediately.</p>
    *          <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If
-   *       you do not include a value, it defaults to 30.</p>
+   *       you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-pending-deletion-window">
+   *                <code>kms:ScheduleKeyDeletionPendingWindowInDays</code>
+   *             </a>
+   *       condition key to further constrain the values that principals can specify in the
+   *       <code>PendingWindowInDays</code> parameter.</p>
    */
   PendingWindowInDays?: number;
 }
@@ -5301,7 +5346,7 @@ export interface SignResponse {
    *             <li>
    *                <p>When used with the <code>ECDSA_SHA_256</code>, <code>ECDSA_SHA_384</code>, or
    *             <code>ECDSA_SHA_512</code> signing algorithms, this value is a DER-encoded object as
-   *           defined by ANS X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>.
+   *           defined by ANSI X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>.
    *           This is the most commonly used signature format and is appropriate for most uses.
    *           </p>
    *             </li>

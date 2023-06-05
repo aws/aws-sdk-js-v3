@@ -47,8 +47,10 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *          <important>
  *             <p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key
  *         is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only
- *         exception is a multi-Region replica key.) To prevent the use of a KMS key without deleting
- *         it, use <a>DisableKey</a>. </p>
+ *         exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica
+ *           key</a>, or an asymmetric or HMAC KMS key with imported key material[BUGBUG-link to
+ *         importing-keys-managing.html#import-delete-key.) To prevent the use of a KMS key without
+ *         deleting it, use <a>DisableKey</a>. </p>
  *          </important>
  *          <p>You can schedule the deletion of a multi-Region primary key and its replica keys at any
  *       time. However, KMS will not delete a multi-Region primary key with existing replica keys. If
