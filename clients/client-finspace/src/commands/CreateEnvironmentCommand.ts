@@ -54,7 +54,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   federationMode: "STRING_VALUE",
+ *   federationMode: "FEDERATED" || "LOCAL",
  *   federationParameters: { // FederationParameters
  *     samlMetadataDocument: "STRING_VALUE",
  *     samlMetadataURL: "STRING_VALUE",

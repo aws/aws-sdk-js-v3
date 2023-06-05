@@ -8,6 +8,7 @@
 export * from "./FinspaceClient";
 export * from "./Finspace";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { FinspaceServiceException } from "./models/FinspaceServiceException";

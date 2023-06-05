@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { GetEnvironmentRequest, GetEnvironmentResponse } from "../models/models_0";
-import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { GetKxEnvironmentRequest, GetKxEnvironmentResponse } from "../models/models_0";
+import { de_GetKxEnvironmentCommand, se_GetKxEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,62 +24,66 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetEnvironmentCommand}.
+ * The input for {@link GetKxEnvironmentCommand}.
  */
-export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
+export interface GetKxEnvironmentCommandInput extends GetKxEnvironmentRequest {}
 /**
  * @public
  *
- * The output of {@link GetEnvironmentCommand}.
+ * The output of {@link GetKxEnvironmentCommand}.
  */
-export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
+export interface GetKxEnvironmentCommandOutput extends GetKxEnvironmentResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns the FinSpace environment object.</p>
+ * <p>Retrieves all the information for the specified kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, GetEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, GetEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, GetKxEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, GetKxEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // GetEnvironmentRequest
+ * const input = { // GetKxEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required
  * };
- * const command = new GetEnvironmentCommand(input);
+ * const command = new GetKxEnvironmentCommand(input);
  * const response = await client.send(command);
- * // { // GetEnvironmentResponse
- * //   environment: { // Environment
- * //     name: "STRING_VALUE",
- * //     environmentId: "STRING_VALUE",
- * //     awsAccountId: "STRING_VALUE",
- * //     status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
- * //     environmentUrl: "STRING_VALUE",
- * //     description: "STRING_VALUE",
- * //     environmentArn: "STRING_VALUE",
- * //     sageMakerStudioDomainUrl: "STRING_VALUE",
- * //     kmsKeyId: "STRING_VALUE",
- * //     dedicatedServiceAccountId: "STRING_VALUE",
- * //     federationMode: "FEDERATED" || "LOCAL",
- * //     federationParameters: { // FederationParameters
- * //       samlMetadataDocument: "STRING_VALUE",
- * //       samlMetadataURL: "STRING_VALUE",
- * //       applicationCallBackURL: "STRING_VALUE",
- * //       federationURN: "STRING_VALUE",
- * //       federationProviderName: "STRING_VALUE",
- * //       attributeMap: { // AttributeMap
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //     },
+ * // { // GetKxEnvironmentResponse
+ * //   name: "STRING_VALUE",
+ * //   environmentId: "STRING_VALUE",
+ * //   awsAccountId: "STRING_VALUE",
+ * //   status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
+ * //   tgwStatus: "NONE" || "UPDATE_REQUESTED" || "UPDATING" || "FAILED_UPDATE" || "SUCCESSFULLY_UPDATED",
+ * //   dnsStatus: "NONE" || "UPDATE_REQUESTED" || "UPDATING" || "FAILED_UPDATE" || "SUCCESSFULLY_UPDATED",
+ * //   errorMessage: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   environmentArn: "STRING_VALUE",
+ * //   kmsKeyId: "STRING_VALUE",
+ * //   dedicatedServiceAccountId: "STRING_VALUE",
+ * //   transitGatewayConfiguration: { // TransitGatewayConfiguration
+ * //     transitGatewayID: "STRING_VALUE", // required
+ * //     routableCIDRSpace: "STRING_VALUE", // required
  * //   },
+ * //   customDNSConfiguration: [ // CustomDNSConfiguration
+ * //     { // CustomDNSServer
+ * //       customDNSServerName: "STRING_VALUE", // required
+ * //       customDNSServerIP: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   creationTimestamp: new Date("TIMESTAMP"),
+ * //   updateTimestamp: new Date("TIMESTAMP"),
+ * //   availabilityZoneIds: [ // AvailabilityZoneIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   certificateAuthorityArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
- * @returns {@link GetEnvironmentCommandOutput}
- * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
- * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
+ * @param GetKxEnvironmentCommandInput - {@link GetKxEnvironmentCommandInput}
+ * @returns {@link GetKxEnvironmentCommandOutput}
+ * @see {@link GetKxEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link GetKxEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -99,9 +103,9 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class GetEnvironmentCommand extends $Command<
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
+export class GetKxEnvironmentCommand extends $Command<
+  GetKxEnvironmentCommandInput,
+  GetKxEnvironmentCommandOutput,
   FinspaceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -119,7 +123,7 @@ export class GetEnvironmentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetEnvironmentCommandInput) {
+  constructor(readonly input: GetKxEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -132,17 +136,17 @@ export class GetEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetEnvironmentCommandInput, GetEnvironmentCommandOutput> {
+  ): Handler<GetKxEnvironmentCommandInput, GetKxEnvironmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetEnvironmentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetKxEnvironmentCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "GetEnvironmentCommand";
+    const commandName = "GetKxEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -161,15 +165,15 @@ export class GetEnvironmentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetEnvironmentCommand(input, context);
+  private serialize(input: GetKxEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetKxEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
-    return de_GetEnvironmentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKxEnvironmentCommandOutput> {
+    return de_GetKxEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

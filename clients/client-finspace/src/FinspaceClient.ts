@@ -52,9 +52,39 @@ import {
 } from "@smithy/types";
 
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
+import { CreateKxChangesetCommandInput, CreateKxChangesetCommandOutput } from "./commands/CreateKxChangesetCommand";
+import { CreateKxClusterCommandInput, CreateKxClusterCommandOutput } from "./commands/CreateKxClusterCommand";
+import { CreateKxDatabaseCommandInput, CreateKxDatabaseCommandOutput } from "./commands/CreateKxDatabaseCommand";
+import {
+  CreateKxEnvironmentCommandInput,
+  CreateKxEnvironmentCommandOutput,
+} from "./commands/CreateKxEnvironmentCommand";
+import { CreateKxUserCommandInput, CreateKxUserCommandOutput } from "./commands/CreateKxUserCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
+import { DeleteKxClusterCommandInput, DeleteKxClusterCommandOutput } from "./commands/DeleteKxClusterCommand";
+import { DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput } from "./commands/DeleteKxDatabaseCommand";
+import {
+  DeleteKxEnvironmentCommandInput,
+  DeleteKxEnvironmentCommandOutput,
+} from "./commands/DeleteKxEnvironmentCommand";
+import { DeleteKxUserCommandInput, DeleteKxUserCommandOutput } from "./commands/DeleteKxUserCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import { GetKxChangesetCommandInput, GetKxChangesetCommandOutput } from "./commands/GetKxChangesetCommand";
+import { GetKxClusterCommandInput, GetKxClusterCommandOutput } from "./commands/GetKxClusterCommand";
+import {
+  GetKxConnectionStringCommandInput,
+  GetKxConnectionStringCommandOutput,
+} from "./commands/GetKxConnectionStringCommand";
+import { GetKxDatabaseCommandInput, GetKxDatabaseCommandOutput } from "./commands/GetKxDatabaseCommand";
+import { GetKxEnvironmentCommandInput, GetKxEnvironmentCommandOutput } from "./commands/GetKxEnvironmentCommand";
+import { GetKxUserCommandInput, GetKxUserCommandOutput } from "./commands/GetKxUserCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import { ListKxChangesetsCommandInput, ListKxChangesetsCommandOutput } from "./commands/ListKxChangesetsCommand";
+import { ListKxClusterNodesCommandInput, ListKxClusterNodesCommandOutput } from "./commands/ListKxClusterNodesCommand";
+import { ListKxClustersCommandInput, ListKxClustersCommandOutput } from "./commands/ListKxClustersCommand";
+import { ListKxDatabasesCommandInput, ListKxDatabasesCommandOutput } from "./commands/ListKxDatabasesCommand";
+import { ListKxEnvironmentsCommandInput, ListKxEnvironmentsCommandOutput } from "./commands/ListKxEnvironmentsCommand";
+import { ListKxUsersCommandInput, ListKxUsersCommandOutput } from "./commands/ListKxUsersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -62,6 +92,20 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
+import {
+  UpdateKxClusterDatabasesCommandInput,
+  UpdateKxClusterDatabasesCommandOutput,
+} from "./commands/UpdateKxClusterDatabasesCommand";
+import { UpdateKxDatabaseCommandInput, UpdateKxDatabaseCommandOutput } from "./commands/UpdateKxDatabaseCommand";
+import {
+  UpdateKxEnvironmentCommandInput,
+  UpdateKxEnvironmentCommandOutput,
+} from "./commands/UpdateKxEnvironmentCommand";
+import {
+  UpdateKxEnvironmentNetworkCommandInput,
+  UpdateKxEnvironmentNetworkCommandOutput,
+} from "./commands/UpdateKxEnvironmentNetworkCommand";
+import { UpdateKxUserCommandInput, UpdateKxUserCommandOutput } from "./commands/UpdateKxUserCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -77,26 +121,78 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateEnvironmentCommandInput
+  | CreateKxChangesetCommandInput
+  | CreateKxClusterCommandInput
+  | CreateKxDatabaseCommandInput
+  | CreateKxEnvironmentCommandInput
+  | CreateKxUserCommandInput
   | DeleteEnvironmentCommandInput
+  | DeleteKxClusterCommandInput
+  | DeleteKxDatabaseCommandInput
+  | DeleteKxEnvironmentCommandInput
+  | DeleteKxUserCommandInput
   | GetEnvironmentCommandInput
+  | GetKxChangesetCommandInput
+  | GetKxClusterCommandInput
+  | GetKxConnectionStringCommandInput
+  | GetKxDatabaseCommandInput
+  | GetKxEnvironmentCommandInput
+  | GetKxUserCommandInput
   | ListEnvironmentsCommandInput
+  | ListKxChangesetsCommandInput
+  | ListKxClusterNodesCommandInput
+  | ListKxClustersCommandInput
+  | ListKxDatabasesCommandInput
+  | ListKxEnvironmentsCommandInput
+  | ListKxUsersCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateEnvironmentCommandInput;
+  | UpdateEnvironmentCommandInput
+  | UpdateKxClusterDatabasesCommandInput
+  | UpdateKxDatabaseCommandInput
+  | UpdateKxEnvironmentCommandInput
+  | UpdateKxEnvironmentNetworkCommandInput
+  | UpdateKxUserCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateEnvironmentCommandOutput
+  | CreateKxChangesetCommandOutput
+  | CreateKxClusterCommandOutput
+  | CreateKxDatabaseCommandOutput
+  | CreateKxEnvironmentCommandOutput
+  | CreateKxUserCommandOutput
   | DeleteEnvironmentCommandOutput
+  | DeleteKxClusterCommandOutput
+  | DeleteKxDatabaseCommandOutput
+  | DeleteKxEnvironmentCommandOutput
+  | DeleteKxUserCommandOutput
   | GetEnvironmentCommandOutput
+  | GetKxChangesetCommandOutput
+  | GetKxClusterCommandOutput
+  | GetKxConnectionStringCommandOutput
+  | GetKxDatabaseCommandOutput
+  | GetKxEnvironmentCommandOutput
+  | GetKxUserCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListKxChangesetsCommandOutput
+  | ListKxClusterNodesCommandOutput
+  | ListKxClustersCommandOutput
+  | ListKxDatabasesCommandOutput
+  | ListKxEnvironmentsCommandOutput
+  | ListKxUsersCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateEnvironmentCommandOutput;
+  | UpdateEnvironmentCommandOutput
+  | UpdateKxClusterDatabasesCommandOutput
+  | UpdateKxDatabaseCommandOutput
+  | UpdateKxEnvironmentCommandOutput
+  | UpdateKxEnvironmentNetworkCommandOutput
+  | UpdateKxUserCommandOutput;
 
 /**
  * @public

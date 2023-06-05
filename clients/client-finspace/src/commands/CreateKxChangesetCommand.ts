@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { UpdateEnvironmentRequest, UpdateEnvironmentResponse } from "../models/models_0";
-import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { CreateKxChangesetRequest, CreateKxChangesetResponse } from "../models/models_0";
+import { de_CreateKxChangesetCommand, se_CreateKxChangesetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,83 +24,81 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateEnvironmentCommand}.
+ * The input for {@link CreateKxChangesetCommand}.
  */
-export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest {}
+export interface CreateKxChangesetCommandInput extends CreateKxChangesetRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateEnvironmentCommand}.
+ * The output of {@link CreateKxChangesetCommand}.
  */
-export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
+export interface CreateKxChangesetCommandOutput extends CreateKxChangesetResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Update your FinSpace environment.</p>
+ * <p>
+ *    Creates a changeset for a kdb database. A changeset allows you to add and delete existing files by using an ordered list of change requests.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, UpdateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, CreateKxChangesetCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, CreateKxChangesetCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // UpdateEnvironmentRequest
+ * const input = { // CreateKxChangesetRequest
  *   environmentId: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   federationMode: "FEDERATED" || "LOCAL",
- *   federationParameters: { // FederationParameters
- *     samlMetadataDocument: "STRING_VALUE",
- *     samlMetadataURL: "STRING_VALUE",
- *     applicationCallBackURL: "STRING_VALUE",
- *     federationURN: "STRING_VALUE",
- *     federationProviderName: "STRING_VALUE",
- *     attributeMap: { // AttributeMap
- *       "<keys>": "STRING_VALUE",
+ *   databaseName: "STRING_VALUE", // required
+ *   changeRequests: [ // ChangeRequests // required
+ *     { // ChangeRequest
+ *       changeType: "PUT" || "DELETE", // required
+ *       s3Path: "STRING_VALUE",
+ *       dbPath: "STRING_VALUE", // required
  *     },
- *   },
+ *   ],
+ *   clientToken: "STRING_VALUE", // required
  * };
- * const command = new UpdateEnvironmentCommand(input);
+ * const command = new CreateKxChangesetCommand(input);
  * const response = await client.send(command);
- * // { // UpdateEnvironmentResponse
- * //   environment: { // Environment
- * //     name: "STRING_VALUE",
- * //     environmentId: "STRING_VALUE",
- * //     awsAccountId: "STRING_VALUE",
- * //     status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
- * //     environmentUrl: "STRING_VALUE",
- * //     description: "STRING_VALUE",
- * //     environmentArn: "STRING_VALUE",
- * //     sageMakerStudioDomainUrl: "STRING_VALUE",
- * //     kmsKeyId: "STRING_VALUE",
- * //     dedicatedServiceAccountId: "STRING_VALUE",
- * //     federationMode: "FEDERATED" || "LOCAL",
- * //     federationParameters: { // FederationParameters
- * //       samlMetadataDocument: "STRING_VALUE",
- * //       samlMetadataURL: "STRING_VALUE",
- * //       applicationCallBackURL: "STRING_VALUE",
- * //       federationURN: "STRING_VALUE",
- * //       federationProviderName: "STRING_VALUE",
- * //       attributeMap: { // AttributeMap
- * //         "<keys>": "STRING_VALUE",
- * //       },
+ * // { // CreateKxChangesetResponse
+ * //   changesetId: "STRING_VALUE",
+ * //   databaseName: "STRING_VALUE",
+ * //   environmentId: "STRING_VALUE",
+ * //   changeRequests: [ // ChangeRequests
+ * //     { // ChangeRequest
+ * //       changeType: "PUT" || "DELETE", // required
+ * //       s3Path: "STRING_VALUE",
+ * //       dbPath: "STRING_VALUE", // required
  * //     },
+ * //   ],
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //   status: "PENDING" || "PROCESSING" || "FAILED" || "COMPLETED",
+ * //   errorInfo: { // ErrorInfo
+ * //     errorMessage: "STRING_VALUE",
+ * //     errorType: "The inputs to this request are invalid." || "Service limits have been exceeded." || "Missing required permission to perform this request." || "One or more inputs to this request were not found." || "The system temporarily lacks sufficient resources to process the request." || "An internal error has occurred." || "Cancelled" || "A user recoverable error has occurred",
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
- * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
- * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
+ * @param CreateKxChangesetCommandInput - {@link CreateKxChangesetCommandInput}
+ * @returns {@link CreateKxChangesetCommandOutput}
+ * @see {@link CreateKxChangesetCommandInput} for command's `input` shape.
+ * @see {@link CreateKxChangesetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict with this action, and it could not be completed.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit or quota is exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -115,9 +113,9 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class UpdateEnvironmentCommand extends $Command<
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
+export class CreateKxChangesetCommand extends $Command<
+  CreateKxChangesetCommandInput,
+  CreateKxChangesetCommandOutput,
   FinspaceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -135,7 +133,7 @@ export class UpdateEnvironmentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateEnvironmentCommandInput) {
+  constructor(readonly input: CreateKxChangesetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -148,17 +146,17 @@ export class UpdateEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput> {
+  ): Handler<CreateKxChangesetCommandInput, CreateKxChangesetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateEnvironmentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateKxChangesetCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "UpdateEnvironmentCommand";
+    const commandName = "CreateKxChangesetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +175,15 @@ export class UpdateEnvironmentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateEnvironmentCommand(input, context);
+  private serialize(input: CreateKxChangesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateKxChangesetCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return de_UpdateEnvironmentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKxChangesetCommandOutput> {
+    return de_CreateKxChangesetCommand(output, context);
   }
 
   // Start section: command_body_extra

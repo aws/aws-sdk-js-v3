@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
-import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
+import { ListKxUsersRequest, ListKxUsersResponse } from "../models/models_0";
+import { de_ListKxUsersCommand, se_ListKxUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,55 +24,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListEnvironmentsCommand}.
+ * The input for {@link ListKxUsersCommand}.
  */
-export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
+export interface ListKxUsersCommandInput extends ListKxUsersRequest {}
 /**
  * @public
  *
- * The output of {@link ListEnvironmentsCommand}.
+ * The output of {@link ListKxUsersCommand}.
  */
-export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
+export interface ListKxUsersCommandOutput extends ListKxUsersResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>A list of all of your FinSpace environments.</p>
+ * <p>Lists all the users in a kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, ListEnvironmentsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, ListEnvironmentsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, ListKxUsersCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, ListKxUsersCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // ListEnvironmentsRequest
+ * const input = { // ListKxUsersRequest
+ *   environmentId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListEnvironmentsCommand(input);
+ * const command = new ListKxUsersCommand(input);
  * const response = await client.send(command);
- * // { // ListEnvironmentsResponse
- * //   environments: [ // EnvironmentList
- * //     { // Environment
- * //       name: "STRING_VALUE",
- * //       environmentId: "STRING_VALUE",
- * //       awsAccountId: "STRING_VALUE",
- * //       status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
- * //       environmentUrl: "STRING_VALUE",
- * //       description: "STRING_VALUE",
- * //       environmentArn: "STRING_VALUE",
- * //       sageMakerStudioDomainUrl: "STRING_VALUE",
- * //       kmsKeyId: "STRING_VALUE",
- * //       dedicatedServiceAccountId: "STRING_VALUE",
- * //       federationMode: "FEDERATED" || "LOCAL",
- * //       federationParameters: { // FederationParameters
- * //         samlMetadataDocument: "STRING_VALUE",
- * //         samlMetadataURL: "STRING_VALUE",
- * //         applicationCallBackURL: "STRING_VALUE",
- * //         federationURN: "STRING_VALUE",
- * //         federationProviderName: "STRING_VALUE",
- * //         attributeMap: { // AttributeMap
- * //           "<keys>": "STRING_VALUE",
- * //         },
- * //       },
+ * // { // ListKxUsersResponse
+ * //   users: [ // KxUserList
+ * //     { // KxUser
+ * //       userArn: "STRING_VALUE",
+ * //       userName: "STRING_VALUE",
+ * //       iamRole: "STRING_VALUE",
+ * //       createTimestamp: new Date("TIMESTAMP"),
+ * //       updateTimestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -80,15 +65,24 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
- * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
- * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
+ * @param ListKxUsersCommandInput - {@link ListKxUsersCommandInput}
+ * @returns {@link ListKxUsersCommandOutput}
+ * @see {@link ListKxUsersCommandInput} for command's `input` shape.
+ * @see {@link ListKxUsersCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
@@ -97,9 +91,9 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class ListEnvironmentsCommand extends $Command<
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
+export class ListKxUsersCommand extends $Command<
+  ListKxUsersCommandInput,
+  ListKxUsersCommandOutput,
   FinspaceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -117,7 +111,7 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListEnvironmentsCommandInput) {
+  constructor(readonly input: ListKxUsersCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -130,17 +124,15 @@ export class ListEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput> {
+  ): Handler<ListKxUsersCommandInput, ListKxUsersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEnvironmentsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListKxUsersCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "ListEnvironmentsCommand";
+    const commandName = "ListKxUsersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -159,15 +151,15 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEnvironmentsCommand(input, context);
+  private serialize(input: ListKxUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListKxUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return de_ListEnvironmentsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKxUsersCommandOutput> {
+    return de_ListKxUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

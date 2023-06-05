@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
-import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
+import { DeleteKxDatabaseRequest, DeleteKxDatabaseResponse } from "../models/models_0";
+import { de_DeleteKxDatabaseCommand, se_DeleteKxDatabaseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,71 +24,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListEnvironmentsCommand}.
+ * The input for {@link DeleteKxDatabaseCommand}.
  */
-export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
+export interface DeleteKxDatabaseCommandInput extends DeleteKxDatabaseRequest {}
 /**
  * @public
  *
- * The output of {@link ListEnvironmentsCommand}.
+ * The output of {@link DeleteKxDatabaseCommand}.
  */
-export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
+export interface DeleteKxDatabaseCommandOutput extends DeleteKxDatabaseResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>A list of all of your FinSpace environments.</p>
+ * <p>Deletes the specified database and all of its associated data. This action is irreversible. You must copy any data out of the database before deleting it if the data is to be retained.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, ListEnvironmentsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, ListEnvironmentsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, DeleteKxDatabaseCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, DeleteKxDatabaseCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // ListEnvironmentsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ * const input = { // DeleteKxDatabaseRequest
+ *   environmentId: "STRING_VALUE", // required
+ *   databaseName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
  * };
- * const command = new ListEnvironmentsCommand(input);
+ * const command = new DeleteKxDatabaseCommand(input);
  * const response = await client.send(command);
- * // { // ListEnvironmentsResponse
- * //   environments: [ // EnvironmentList
- * //     { // Environment
- * //       name: "STRING_VALUE",
- * //       environmentId: "STRING_VALUE",
- * //       awsAccountId: "STRING_VALUE",
- * //       status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
- * //       environmentUrl: "STRING_VALUE",
- * //       description: "STRING_VALUE",
- * //       environmentArn: "STRING_VALUE",
- * //       sageMakerStudioDomainUrl: "STRING_VALUE",
- * //       kmsKeyId: "STRING_VALUE",
- * //       dedicatedServiceAccountId: "STRING_VALUE",
- * //       federationMode: "FEDERATED" || "LOCAL",
- * //       federationParameters: { // FederationParameters
- * //         samlMetadataDocument: "STRING_VALUE",
- * //         samlMetadataURL: "STRING_VALUE",
- * //         applicationCallBackURL: "STRING_VALUE",
- * //         federationURN: "STRING_VALUE",
- * //         federationProviderName: "STRING_VALUE",
- * //         attributeMap: { // AttributeMap
- * //           "<keys>": "STRING_VALUE",
- * //         },
- * //       },
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
- * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
- * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
+ * @param DeleteKxDatabaseCommandInput - {@link DeleteKxDatabaseCommandInput}
+ * @returns {@link DeleteKxDatabaseCommandOutput}
+ * @see {@link DeleteKxDatabaseCommandInput} for command's `input` shape.
+ * @see {@link DeleteKxDatabaseCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict with this action, and it could not be completed.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
@@ -97,9 +83,9 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class ListEnvironmentsCommand extends $Command<
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
+export class DeleteKxDatabaseCommand extends $Command<
+  DeleteKxDatabaseCommandInput,
+  DeleteKxDatabaseCommandOutput,
   FinspaceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -117,7 +103,7 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListEnvironmentsCommandInput) {
+  constructor(readonly input: DeleteKxDatabaseCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -130,17 +116,17 @@ export class ListEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput> {
+  ): Handler<DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEnvironmentsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteKxDatabaseCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "ListEnvironmentsCommand";
+    const commandName = "DeleteKxDatabaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -159,15 +145,15 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEnvironmentsCommand(input, context);
+  private serialize(input: DeleteKxDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteKxDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return de_ListEnvironmentsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxDatabaseCommandOutput> {
+    return de_DeleteKxDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

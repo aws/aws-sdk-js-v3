@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { GetEnvironmentRequest, GetEnvironmentResponse } from "../models/models_0";
-import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { GetKxDatabaseRequest, GetKxDatabaseResponse } from "../models/models_0";
+import { de_GetKxDatabaseCommand, se_GetKxDatabaseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,62 +24,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetEnvironmentCommand}.
+ * The input for {@link GetKxDatabaseCommand}.
  */
-export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
+export interface GetKxDatabaseCommandInput extends GetKxDatabaseRequest {}
 /**
  * @public
  *
- * The output of {@link GetEnvironmentCommand}.
+ * The output of {@link GetKxDatabaseCommand}.
  */
-export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
+export interface GetKxDatabaseCommandOutput extends GetKxDatabaseResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns the FinSpace environment object.</p>
+ * <p>Returns database information for the specified environment ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, GetEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, GetEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, GetKxDatabaseCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, GetKxDatabaseCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // GetEnvironmentRequest
+ * const input = { // GetKxDatabaseRequest
  *   environmentId: "STRING_VALUE", // required
+ *   databaseName: "STRING_VALUE", // required
  * };
- * const command = new GetEnvironmentCommand(input);
+ * const command = new GetKxDatabaseCommand(input);
  * const response = await client.send(command);
- * // { // GetEnvironmentResponse
- * //   environment: { // Environment
- * //     name: "STRING_VALUE",
- * //     environmentId: "STRING_VALUE",
- * //     awsAccountId: "STRING_VALUE",
- * //     status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
- * //     environmentUrl: "STRING_VALUE",
- * //     description: "STRING_VALUE",
- * //     environmentArn: "STRING_VALUE",
- * //     sageMakerStudioDomainUrl: "STRING_VALUE",
- * //     kmsKeyId: "STRING_VALUE",
- * //     dedicatedServiceAccountId: "STRING_VALUE",
- * //     federationMode: "FEDERATED" || "LOCAL",
- * //     federationParameters: { // FederationParameters
- * //       samlMetadataDocument: "STRING_VALUE",
- * //       samlMetadataURL: "STRING_VALUE",
- * //       applicationCallBackURL: "STRING_VALUE",
- * //       federationURN: "STRING_VALUE",
- * //       federationProviderName: "STRING_VALUE",
- * //       attributeMap: { // AttributeMap
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //     },
- * //   },
+ * // { // GetKxDatabaseResponse
+ * //   databaseName: "STRING_VALUE",
+ * //   databaseArn: "STRING_VALUE",
+ * //   environmentId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //   lastCompletedChangesetId: "STRING_VALUE",
+ * //   numBytes: Number("long"),
+ * //   numChangesets: Number("int"),
+ * //   numFiles: Number("int"),
  * // };
  *
  * ```
  *
- * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
- * @returns {@link GetEnvironmentCommandOutput}
- * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
- * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
+ * @param GetKxDatabaseCommandInput - {@link GetKxDatabaseCommandInput}
+ * @returns {@link GetKxDatabaseCommandOutput}
+ * @see {@link GetKxDatabaseCommandInput} for command's `input` shape.
+ * @see {@link GetKxDatabaseCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,6 +80,9 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
@@ -99,9 +90,9 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class GetEnvironmentCommand extends $Command<
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
+export class GetKxDatabaseCommand extends $Command<
+  GetKxDatabaseCommandInput,
+  GetKxDatabaseCommandOutput,
   FinspaceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -119,7 +110,7 @@ export class GetEnvironmentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetEnvironmentCommandInput) {
+  constructor(readonly input: GetKxDatabaseCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -132,17 +123,15 @@ export class GetEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetEnvironmentCommandInput, GetEnvironmentCommandOutput> {
+  ): Handler<GetKxDatabaseCommandInput, GetKxDatabaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetEnvironmentCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetKxDatabaseCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "GetEnvironmentCommand";
+    const commandName = "GetKxDatabaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -161,15 +150,15 @@ export class GetEnvironmentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetEnvironmentCommand(input, context);
+  private serialize(input: GetKxDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetKxDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
-    return de_GetEnvironmentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKxDatabaseCommandOutput> {
+    return de_GetKxDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

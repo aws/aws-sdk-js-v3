@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
-import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
+import { ListKxEnvironmentsRequest, ListKxEnvironmentsResponse } from "../models/models_0";
+import { de_ListKxEnvironmentsCommand, se_ListKxEnvironmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,55 +24,61 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListEnvironmentsCommand}.
+ * The input for {@link ListKxEnvironmentsCommand}.
  */
-export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
+export interface ListKxEnvironmentsCommandInput extends ListKxEnvironmentsRequest {}
 /**
  * @public
  *
- * The output of {@link ListEnvironmentsCommand}.
+ * The output of {@link ListKxEnvironmentsCommand}.
  */
-export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
+export interface ListKxEnvironmentsCommandOutput extends ListKxEnvironmentsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>A list of all of your FinSpace environments.</p>
+ * <p>Returns a list of kdb environments created in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, ListEnvironmentsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, ListEnvironmentsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, ListKxEnvironmentsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, ListKxEnvironmentsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // ListEnvironmentsRequest
+ * const input = { // ListKxEnvironmentsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListEnvironmentsCommand(input);
+ * const command = new ListKxEnvironmentsCommand(input);
  * const response = await client.send(command);
- * // { // ListEnvironmentsResponse
- * //   environments: [ // EnvironmentList
- * //     { // Environment
+ * // { // ListKxEnvironmentsResponse
+ * //   environments: [ // KxEnvironmentList
+ * //     { // KxEnvironment
  * //       name: "STRING_VALUE",
  * //       environmentId: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //       status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
- * //       environmentUrl: "STRING_VALUE",
+ * //       tgwStatus: "NONE" || "UPDATE_REQUESTED" || "UPDATING" || "FAILED_UPDATE" || "SUCCESSFULLY_UPDATED",
+ * //       dnsStatus: "NONE" || "UPDATE_REQUESTED" || "UPDATING" || "FAILED_UPDATE" || "SUCCESSFULLY_UPDATED",
+ * //       errorMessage: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       environmentArn: "STRING_VALUE",
- * //       sageMakerStudioDomainUrl: "STRING_VALUE",
  * //       kmsKeyId: "STRING_VALUE",
  * //       dedicatedServiceAccountId: "STRING_VALUE",
- * //       federationMode: "FEDERATED" || "LOCAL",
- * //       federationParameters: { // FederationParameters
- * //         samlMetadataDocument: "STRING_VALUE",
- * //         samlMetadataURL: "STRING_VALUE",
- * //         applicationCallBackURL: "STRING_VALUE",
- * //         federationURN: "STRING_VALUE",
- * //         federationProviderName: "STRING_VALUE",
- * //         attributeMap: { // AttributeMap
- * //           "<keys>": "STRING_VALUE",
- * //         },
+ * //       transitGatewayConfiguration: { // TransitGatewayConfiguration
+ * //         transitGatewayID: "STRING_VALUE", // required
+ * //         routableCIDRSpace: "STRING_VALUE", // required
  * //       },
+ * //       customDNSConfiguration: [ // CustomDNSConfiguration
+ * //         { // CustomDNSServer
+ * //           customDNSServerName: "STRING_VALUE", // required
+ * //           customDNSServerIP: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       creationTimestamp: new Date("TIMESTAMP"),
+ * //       updateTimestamp: new Date("TIMESTAMP"),
+ * //       availabilityZoneIds: [ // AvailabilityZoneIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       certificateAuthorityArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -80,10 +86,10 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
- * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
- * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
+ * @param ListKxEnvironmentsCommandInput - {@link ListKxEnvironmentsCommandInput}
+ * @returns {@link ListKxEnvironmentsCommandOutput}
+ * @see {@link ListKxEnvironmentsCommandInput} for command's `input` shape.
+ * @see {@link ListKxEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -97,9 +103,9 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class ListEnvironmentsCommand extends $Command<
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
+export class ListKxEnvironmentsCommand extends $Command<
+  ListKxEnvironmentsCommandInput,
+  ListKxEnvironmentsCommandOutput,
   FinspaceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -117,7 +123,7 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListEnvironmentsCommandInput) {
+  constructor(readonly input: ListKxEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -130,17 +136,17 @@ export class ListEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput> {
+  ): Handler<ListKxEnvironmentsCommandInput, ListKxEnvironmentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEnvironmentsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListKxEnvironmentsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "ListEnvironmentsCommand";
+    const commandName = "ListKxEnvironmentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -159,15 +165,15 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEnvironmentsCommand(input, context);
+  private serialize(input: ListKxEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListKxEnvironmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return de_ListEnvironmentsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKxEnvironmentsCommandOutput> {
+    return de_ListKxEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

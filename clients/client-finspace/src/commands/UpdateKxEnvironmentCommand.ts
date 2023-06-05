@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { UpdateEnvironmentRequest, UpdateEnvironmentResponse } from "../models/models_0";
-import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { UpdateKxEnvironmentRequest, UpdateKxEnvironmentResponse } from "../models/models_0";
+import { de_UpdateKxEnvironmentCommand, se_UpdateKxEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,79 +24,75 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateEnvironmentCommand}.
+ * The input for {@link UpdateKxEnvironmentCommand}.
  */
-export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest {}
+export interface UpdateKxEnvironmentCommandInput extends UpdateKxEnvironmentRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateEnvironmentCommand}.
+ * The output of {@link UpdateKxEnvironmentCommand}.
  */
-export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
+export interface UpdateKxEnvironmentCommandOutput extends UpdateKxEnvironmentResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Update your FinSpace environment.</p>
+ * <p>Updates information for the given kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, UpdateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, UpdateKxEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, UpdateKxEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // UpdateEnvironmentRequest
+ * const input = { // UpdateKxEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   federationMode: "FEDERATED" || "LOCAL",
- *   federationParameters: { // FederationParameters
- *     samlMetadataDocument: "STRING_VALUE",
- *     samlMetadataURL: "STRING_VALUE",
- *     applicationCallBackURL: "STRING_VALUE",
- *     federationURN: "STRING_VALUE",
- *     federationProviderName: "STRING_VALUE",
- *     attributeMap: { // AttributeMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new UpdateEnvironmentCommand(input);
+ * const command = new UpdateKxEnvironmentCommand(input);
  * const response = await client.send(command);
- * // { // UpdateEnvironmentResponse
- * //   environment: { // Environment
- * //     name: "STRING_VALUE",
- * //     environmentId: "STRING_VALUE",
- * //     awsAccountId: "STRING_VALUE",
- * //     status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
- * //     environmentUrl: "STRING_VALUE",
- * //     description: "STRING_VALUE",
- * //     environmentArn: "STRING_VALUE",
- * //     sageMakerStudioDomainUrl: "STRING_VALUE",
- * //     kmsKeyId: "STRING_VALUE",
- * //     dedicatedServiceAccountId: "STRING_VALUE",
- * //     federationMode: "FEDERATED" || "LOCAL",
- * //     federationParameters: { // FederationParameters
- * //       samlMetadataDocument: "STRING_VALUE",
- * //       samlMetadataURL: "STRING_VALUE",
- * //       applicationCallBackURL: "STRING_VALUE",
- * //       federationURN: "STRING_VALUE",
- * //       federationProviderName: "STRING_VALUE",
- * //       attributeMap: { // AttributeMap
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //     },
+ * // { // UpdateKxEnvironmentResponse
+ * //   name: "STRING_VALUE",
+ * //   environmentId: "STRING_VALUE",
+ * //   awsAccountId: "STRING_VALUE",
+ * //   status: "CREATE_REQUESTED" || "CREATING" || "CREATED" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "FAILED_CREATION" || "RETRY_DELETION" || "FAILED_DELETION" || "UPDATE_NETWORK_REQUESTED" || "UPDATING_NETWORK" || "FAILED_UPDATING_NETWORK" || "SUSPENDED",
+ * //   tgwStatus: "NONE" || "UPDATE_REQUESTED" || "UPDATING" || "FAILED_UPDATE" || "SUCCESSFULLY_UPDATED",
+ * //   dnsStatus: "NONE" || "UPDATE_REQUESTED" || "UPDATING" || "FAILED_UPDATE" || "SUCCESSFULLY_UPDATED",
+ * //   errorMessage: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   environmentArn: "STRING_VALUE",
+ * //   kmsKeyId: "STRING_VALUE",
+ * //   dedicatedServiceAccountId: "STRING_VALUE",
+ * //   transitGatewayConfiguration: { // TransitGatewayConfiguration
+ * //     transitGatewayID: "STRING_VALUE", // required
+ * //     routableCIDRSpace: "STRING_VALUE", // required
  * //   },
+ * //   customDNSConfiguration: [ // CustomDNSConfiguration
+ * //     { // CustomDNSServer
+ * //       customDNSServerName: "STRING_VALUE", // required
+ * //       customDNSServerIP: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   creationTimestamp: new Date("TIMESTAMP"),
+ * //   updateTimestamp: new Date("TIMESTAMP"),
+ * //   availabilityZoneIds: [ // AvailabilityZoneIds
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
- * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
- * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
+ * @param UpdateKxEnvironmentCommandInput - {@link UpdateKxEnvironmentCommandInput}
+ * @returns {@link UpdateKxEnvironmentCommandOutput}
+ * @see {@link UpdateKxEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link UpdateKxEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict with this action, and it could not be completed.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
@@ -115,9 +111,9 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class UpdateEnvironmentCommand extends $Command<
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
+export class UpdateKxEnvironmentCommand extends $Command<
+  UpdateKxEnvironmentCommandInput,
+  UpdateKxEnvironmentCommandOutput,
   FinspaceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -135,7 +131,7 @@ export class UpdateEnvironmentCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateEnvironmentCommandInput) {
+  constructor(readonly input: UpdateKxEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -148,17 +144,17 @@ export class UpdateEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput> {
+  ): Handler<UpdateKxEnvironmentCommandInput, UpdateKxEnvironmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateEnvironmentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateKxEnvironmentCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "UpdateEnvironmentCommand";
+    const commandName = "UpdateKxEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +173,15 @@ export class UpdateEnvironmentCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateEnvironmentCommand(input, context);
+  private serialize(input: UpdateKxEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateKxEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return de_UpdateEnvironmentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKxEnvironmentCommandOutput> {
+    return de_UpdateKxEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra
