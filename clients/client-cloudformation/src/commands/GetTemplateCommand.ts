@@ -37,9 +37,9 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
 /**
  * @public
  * <p>Returns the template body for a specified stack. You can get the template for running or
- *          deleted stacks.</p>
- *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days
- *          after the stack has been deleted.</p>
+ *       deleted stacks.</p>
+ *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days after
+ *       the stack has been deleted.</p>
  *          <note>
  *             <p>If the template doesn't exist, a <code>ValidationError</code> is returned.</p>
  *          </note>
@@ -72,8 +72,8 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ChangeSetNotFoundException} (client fault)
- *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
- *          use the <code>ListChangeSets</code> operation.</p>
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
+ *     <code>ListChangeSets</code> operation.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

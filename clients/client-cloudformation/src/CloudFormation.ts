@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CloudFormationClient, CloudFormationClientConfig } from "./CloudFormationClient";
 import {
+  ActivateOrganizationsAccessCommand,
+  ActivateOrganizationsAccessCommandInput,
+  ActivateOrganizationsAccessCommandOutput,
+} from "./commands/ActivateOrganizationsAccessCommand";
+import {
   ActivateTypeCommand,
   ActivateTypeCommandInput,
   ActivateTypeCommandOutput,
@@ -39,6 +44,11 @@ import {
   CreateStackSetCommandInput,
   CreateStackSetCommandOutput,
 } from "./commands/CreateStackSetCommand";
+import {
+  DeactivateOrganizationsAccessCommand,
+  DeactivateOrganizationsAccessCommandInput,
+  DeactivateOrganizationsAccessCommandOutput,
+} from "./commands/DeactivateOrganizationsAccessCommand";
 import {
   DeactivateTypeCommand,
   DeactivateTypeCommandInput,
@@ -80,6 +90,11 @@ import {
   DescribeChangeSetHooksCommandInput,
   DescribeChangeSetHooksCommandOutput,
 } from "./commands/DescribeChangeSetHooksCommand";
+import {
+  DescribeOrganizationsAccessCommand,
+  DescribeOrganizationsAccessCommandInput,
+  DescribeOrganizationsAccessCommandOutput,
+} from "./commands/DescribeOrganizationsAccessCommand";
 import {
   DescribePublisherCommand,
   DescribePublisherCommandInput,
@@ -295,6 +310,7 @@ import {
 } from "./commands/ValidateTemplateCommand";
 
 const commands = {
+  ActivateOrganizationsAccessCommand,
   ActivateTypeCommand,
   BatchDescribeTypeConfigurationsCommand,
   CancelUpdateStackCommand,
@@ -303,6 +319,7 @@ const commands = {
   CreateStackCommand,
   CreateStackInstancesCommand,
   CreateStackSetCommand,
+  DeactivateOrganizationsAccessCommand,
   DeactivateTypeCommand,
   DeleteChangeSetCommand,
   DeleteStackCommand,
@@ -312,6 +329,7 @@ const commands = {
   DescribeAccountLimitsCommand,
   DescribeChangeSetCommand,
   DescribeChangeSetHooksCommand,
+  DescribeOrganizationsAccessCommand,
   DescribePublisherCommand,
   DescribeStackDriftDetectionStatusCommand,
   DescribeStackEventsCommand,
@@ -364,6 +382,23 @@ const commands = {
 };
 
 export interface CloudFormation {
+  /**
+   * @see {@link ActivateOrganizationsAccessCommand}
+   */
+  activateOrganizationsAccess(
+    args: ActivateOrganizationsAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ActivateOrganizationsAccessCommandOutput>;
+  activateOrganizationsAccess(
+    args: ActivateOrganizationsAccessCommandInput,
+    cb: (err: any, data?: ActivateOrganizationsAccessCommandOutput) => void
+  ): void;
+  activateOrganizationsAccess(
+    args: ActivateOrganizationsAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ActivateOrganizationsAccessCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link ActivateTypeCommand}
    */
@@ -480,6 +515,23 @@ export interface CloudFormation {
     args: CreateStackSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateStackSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeactivateOrganizationsAccessCommand}
+   */
+  deactivateOrganizationsAccess(
+    args: DeactivateOrganizationsAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeactivateOrganizationsAccessCommandOutput>;
+  deactivateOrganizationsAccess(
+    args: DeactivateOrganizationsAccessCommandInput,
+    cb: (err: any, data?: DeactivateOrganizationsAccessCommandOutput) => void
+  ): void;
+  deactivateOrganizationsAccess(
+    args: DeactivateOrganizationsAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeactivateOrganizationsAccessCommandOutput) => void
   ): void;
 
   /**
@@ -615,6 +667,23 @@ export interface CloudFormation {
     args: DescribeChangeSetHooksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeChangeSetHooksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeOrganizationsAccessCommand}
+   */
+  describeOrganizationsAccess(
+    args: DescribeOrganizationsAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOrganizationsAccessCommandOutput>;
+  describeOrganizationsAccess(
+    args: DescribeOrganizationsAccessCommandInput,
+    cb: (err: any, data?: DescribeOrganizationsAccessCommandOutput) => void
+  ): void;
+  describeOrganizationsAccess(
+    args: DescribeOrganizationsAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOrganizationsAccessCommandOutput) => void
   ): void;
 
   /**
@@ -1364,20 +1433,15 @@ export interface CloudFormation {
 /**
  * @public
  * <fullname>CloudFormation</fullname>
- *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure
- *          deployments predictably and repeatedly. You can use CloudFormation to leverage
- *             Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
- *             Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly
- *          reliable, highly scalable, cost-effective applications without creating or configuring the
- *          underlying Amazon Web Services infrastructure.</p>
- *          <p>With CloudFormation, you declare all your resources and dependencies in a template
- *          file. The template defines a collection of resources as a single unit called a stack.
- *             CloudFormation creates and deletes all member resources of the stack together and
- *          manages all dependencies between the resources for you.</p>
+ *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure deployments predictably
+ *    and repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build
+ *    highly reliable, highly scalable, cost-effective applications without creating or configuring the underlying Amazon Web Services infrastructure.</p>
+ *          <p>With CloudFormation, you declare all your resources and dependencies in a template file. The template
+ *    defines a collection of resources as a single unit called a stack. CloudFormation creates and deletes all member
+ *    resources of the stack together and manages all dependencies between the resources for you.</p>
  *          <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation product page</a>.</p>
- *          <p>CloudFormation makes use of other Amazon Web Services products. If you need
- *          additional technical information about a specific Amazon Web Services product, you can find
- *          the product's technical documentation at <a href="https://docs.aws.amazon.com/">
+ *          <p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information
+ *    about a specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">
  *                <code>docs.aws.amazon.com</code>
  *             </a>.</p>
  */

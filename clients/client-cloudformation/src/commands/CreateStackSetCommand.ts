@@ -98,8 +98,8 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The quota for the resource has already been reached.</p>
- *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
- *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+ *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation quotas</a> in the
+ *     <i>CloudFormation User Guide</i>.</p>
  *
  * @throws {@link NameAlreadyExistsException} (client fault)
  *  <p>The specified name is already in use.</p>

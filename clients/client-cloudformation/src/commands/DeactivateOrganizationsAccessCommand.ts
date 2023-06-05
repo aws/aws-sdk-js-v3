@@ -14,8 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/models_0";
-import { de_DeleteChangeSetCommand, se_DeleteChangeSetCommand } from "../protocols/Aws_query";
+import { DeactivateOrganizationsAccessInput, DeactivateOrganizationsAccessOutput } from "../models/models_0";
+import {
+  de_DeactivateOrganizationsAccessCommand,
+  se_DeactivateOrganizationsAccessCommand,
+} from "../protocols/Aws_query";
 
 /**
  * @public
@@ -24,59 +27,55 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteChangeSetCommand}.
+ * The input for {@link DeactivateOrganizationsAccessCommand}.
  */
-export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
+export interface DeactivateOrganizationsAccessCommandInput extends DeactivateOrganizationsAccessInput {}
 /**
  * @public
  *
- * The output of {@link DeleteChangeSetCommand}.
+ * The output of {@link DeactivateOrganizationsAccessCommand}.
  */
-export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
+export interface DeactivateOrganizationsAccessCommandOutput
+  extends DeactivateOrganizationsAccessOutput,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the
- *       wrong change set.</p>
- *          <p>If the call successfully completes, CloudFormation successfully deleted the change
- *       set.</p>
- *          <p>If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation of the
- *       nested change set, then <code>DeleteChangeSet</code> will delete all change sets that belong
- *       to the stacks hierarchy and will also delete all change sets for nested stacks with the status
- *       of <code>REVIEW_IN_PROGRESS</code>.</p>
+ * <p>Deactivates trusted access with Organizations. If trusted access is deactivated,
+ *       the management account does not have permissions to create and manage
+ *       service-managed StackSets for your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFormationClient, DeleteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
- * // const { CloudFormationClient, DeleteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * import { CloudFormationClient, DeactivateOrganizationsAccessCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DeactivateOrganizationsAccessCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = { // DeleteChangeSetInput
- *   ChangeSetName: "STRING_VALUE", // required
- *   StackName: "STRING_VALUE",
- * };
- * const command = new DeleteChangeSetCommand(input);
+ * const input = {};
+ * const command = new DeactivateOrganizationsAccessCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteChangeSetCommandInput - {@link DeleteChangeSetCommandInput}
- * @returns {@link DeleteChangeSetCommandOutput}
- * @see {@link DeleteChangeSetCommandInput} for command's `input` shape.
- * @see {@link DeleteChangeSetCommandOutput} for command's `response` shape.
+ * @param DeactivateOrganizationsAccessCommandInput - {@link DeactivateOrganizationsAccessCommandInput}
+ * @returns {@link DeactivateOrganizationsAccessCommandOutput}
+ * @see {@link DeactivateOrganizationsAccessCommandInput} for command's `input` shape.
+ * @see {@link DeactivateOrganizationsAccessCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
- * @throws {@link InvalidChangeSetStatusException} (client fault)
- *  <p>The specified change set can't be used to update the stack. For example, the change set status might be
- *     <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The specified operation isn't valid.</p>
+ *
+ * @throws {@link OperationNotFoundException} (client fault)
+ *  <p>The specified ID refers to an operation that doesn't exist.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
-export class DeleteChangeSetCommand extends $Command<
-  DeleteChangeSetCommandInput,
-  DeleteChangeSetCommandOutput,
+export class DeactivateOrganizationsAccessCommand extends $Command<
+  DeactivateOrganizationsAccessCommandInput,
+  DeactivateOrganizationsAccessCommandOutput,
   CloudFormationClientResolvedConfig
 > {
   // Start section: command_properties
@@ -94,7 +93,7 @@ export class DeleteChangeSetCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteChangeSetCommandInput) {
+  constructor(readonly input: DeactivateOrganizationsAccessCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -107,17 +106,17 @@ export class DeleteChangeSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput> {
+  ): Handler<DeactivateOrganizationsAccessCommandInput, DeactivateOrganizationsAccessCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteChangeSetCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeactivateOrganizationsAccessCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudFormationClient";
-    const commandName = "DeleteChangeSetCommand";
+    const commandName = "DeactivateOrganizationsAccessCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -136,15 +135,18 @@ export class DeleteChangeSetCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteChangeSetCommand(input, context);
+  private serialize(input: DeactivateOrganizationsAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeactivateOrganizationsAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChangeSetCommandOutput> {
-    return de_DeleteChangeSetCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeactivateOrganizationsAccessCommandOutput> {
+    return de_DeactivateOrganizationsAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

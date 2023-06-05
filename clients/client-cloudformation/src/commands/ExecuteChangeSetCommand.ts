@@ -37,16 +37,16 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
 /**
  * @public
  * <p>Updates a stack using the input information that was provided when the specified change
- *          set was created. After the call successfully completes, CloudFormation starts updating
- *          the stack. Use the <a>DescribeStacks</a> action to view the status of the
- *          update.</p>
- *          <p>When you execute a change set, CloudFormation deletes all other change sets
- *          associated with the stack because they aren't valid for the updated stack.</p>
+ *       set was created. After the call successfully completes, CloudFormation starts updating the
+ *       stack. Use the <a>DescribeStacks</a> action to view the status of the
+ *       update.</p>
+ *          <p>When you execute a change set, CloudFormation deletes all other change sets associated
+ *       with the stack because they aren't valid for the updated stack.</p>
  *          <p>If a stack policy is associated with the stack, CloudFormation enforces the policy
- *          during the update. You can't specify a temporary stack policy that overrides the current
- *          policy.</p>
+ *       during the update. You can't specify a temporary stack policy that overrides the current
+ *       policy.</p>
  *          <p>To create a change set for the entire stack hierarchy, <code>IncludeNestedStacks</code>
- *          must have been set to <code>True</code>.</p>
+ *       must have been set to <code>True</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,17 +72,15 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ChangeSetNotFoundException} (client fault)
- *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
- *          use the <code>ListChangeSets</code> operation.</p>
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
+ *     <code>ListChangeSets</code> operation.</p>
  *
  * @throws {@link InsufficientCapabilitiesException} (client fault)
- *  <p>The template contains resources with capabilities that weren't specified in the
- *          Capabilities parameter.</p>
+ *  <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
  *
  * @throws {@link InvalidChangeSetStatusException} (client fault)
- *  <p>The specified change set can't be used to update the stack. For example, the change set
- *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
- *             <code>UPDATE_IN_PROGRESS</code>.</p>
+ *  <p>The specified change set can't be used to update the stack. For example, the change set status might be
+ *     <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
  *
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>

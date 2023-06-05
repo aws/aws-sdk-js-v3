@@ -38,7 +38,7 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  * @public
  * <p>Returns a description of the specified resource in the specified stack.</p>
  *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days
- *          after the stack has been deleted.</p>
+ *       after the stack has been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

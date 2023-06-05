@@ -37,15 +37,16 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
 /**
  * @public
  * <p>Returns drift information for the resources that have been checked for drift in the
- *          specified stack. This includes actual and expected configuration values for resources where
- *          CloudFormation detects configuration drift.</p>
+ *       specified stack. This includes actual and expected configuration values for resources where
+ *       CloudFormation detects configuration drift.</p>
  *          <p>For a given stack, there will be one <code>StackResourceDrift</code> for each stack
- *          resource that has been checked for drift. Resources that haven't yet been checked for drift
- *          aren't included. Resources that don't currently support drift detection aren't checked, and
- *          so not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
- *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual resources,
- *          or <a>DetectStackDrift</a> to detect drift on all supported resources for a
- *          given stack.</p>
+ *       resource that has been checked for drift. Resources that haven't yet been checked for drift
+ *       aren't included. Resources that don't currently support drift detection aren't checked, and so
+ *       not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
+ *         that Support Drift Detection</a>.</p>
+ *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual resources, or
+ *         <a>DetectStackDrift</a> to detect drift on all supported resources for a given
+ *       stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

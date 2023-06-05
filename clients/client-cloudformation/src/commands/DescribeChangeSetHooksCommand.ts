@@ -86,8 +86,8 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ChangeSetNotFoundException} (client fault)
- *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
- *          use the <code>ListChangeSets</code> operation.</p>
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
+ *     <code>ListChangeSets</code> operation.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

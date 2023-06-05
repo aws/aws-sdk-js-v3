@@ -36,7 +36,7 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
 
 /**
  * @public
- * <p>Returns the description of the specified stack set operation.</p>
+ * <p>Returns the description of the specified StackSet operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

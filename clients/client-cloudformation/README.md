@@ -8,20 +8,15 @@ AWS SDK for JavaScript CloudFormation Client for Node.js, Browser and React Nati
 
 <fullname>CloudFormation</fullname>
 
-<p>CloudFormation allows you to create and manage Amazon Web Services infrastructure
-deployments predictably and repeatedly. You can use CloudFormation to leverage
-Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
-Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly
-reliable, highly scalable, cost-effective applications without creating or configuring the
-underlying Amazon Web Services infrastructure.</p>
-<p>With CloudFormation, you declare all your resources and dependencies in a template
-file. The template defines a collection of resources as a single unit called a stack.
-CloudFormation creates and deletes all member resources of the stack together and
-manages all dependencies between the resources for you.</p>
+<p>CloudFormation allows you to create and manage Amazon Web Services infrastructure deployments predictably
+and repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build
+highly reliable, highly scalable, cost-effective applications without creating or configuring the underlying Amazon Web Services infrastructure.</p>
+<p>With CloudFormation, you declare all your resources and dependencies in a template file. The template
+defines a collection of resources as a single unit called a stack. CloudFormation creates and deletes all member
+resources of the stack together and manages all dependencies between the resources for you.</p>
 <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation product page</a>.</p>
-<p>CloudFormation makes use of other Amazon Web Services products. If you need
-additional technical information about a specific Amazon Web Services product, you can find
-the product's technical documentation at <a href="https://docs.aws.amazon.com/">
+<p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information
+about a specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">
 <code>docs.aws.amazon.com</code>
 </a>.</p>
 
@@ -40,16 +35,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CloudFormationClient` and
-the commands you need, for example `ActivateTypeCommand`:
+the commands you need, for example `ActivateOrganizationsAccessCommand`:
 
 ```js
 // ES5 example
-const { CloudFormationClient, ActivateTypeCommand } = require("@aws-sdk/client-cloudformation");
+const { CloudFormationClient, ActivateOrganizationsAccessCommand } = require("@aws-sdk/client-cloudformation");
 ```
 
 ```ts
 // ES6+ example
-import { CloudFormationClient, ActivateTypeCommand } from "@aws-sdk/client-cloudformation";
+import { CloudFormationClient, ActivateOrganizationsAccessCommand } from "@aws-sdk/client-cloudformation";
 ```
 
 ### Usage
@@ -68,7 +63,7 @@ const client = new CloudFormationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateTypeCommand(params);
+const command = new ActivateOrganizationsAccessCommand(params);
 ```
 
 #### Async/await
@@ -147,7 +142,7 @@ const client = new AWS.CloudFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateType(params);
+  const data = await client.activateOrganizationsAccess(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -155,7 +150,7 @@ try {
 
 // Promises.
 client
-  .activateType(params)
+  .activateOrganizationsAccess(params)
   .then((data) => {
     // process data.
   })
@@ -164,7 +159,7 @@ client
   });
 
 // callbacks.
-client.activateType(params, (err, data) => {
+client.activateOrganizationsAccess(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -220,6 +215,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+ActivateOrganizationsAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/classes/activateorganizationsaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/activateorganizationsaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/activateorganizationsaccesscommandoutput.html)
+
+</details>
 <details>
 <summary>
 ActivateType
@@ -282,6 +285,14 @@ CreateStackSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/classes/createstacksetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/createstacksetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/createstacksetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeactivateOrganizationsAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/classes/deactivateorganizationsaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/deactivateorganizationsaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/deactivateorganizationsaccesscommandoutput.html)
 
 </details>
 <details>
@@ -354,6 +365,14 @@ DescribeChangeSetHooks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/classes/describechangesethookscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/describechangesethookscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/describechangesethookscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeOrganizationsAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/classes/describeorganizationsaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/describeorganizationsaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/describeorganizationsaccesscommandoutput.html)
 
 </details>
 <details>

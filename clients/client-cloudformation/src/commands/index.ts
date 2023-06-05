@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./ActivateOrganizationsAccessCommand";
 export * from "./ActivateTypeCommand";
 export * from "./BatchDescribeTypeConfigurationsCommand";
 export * from "./CancelUpdateStackCommand";
@@ -7,6 +8,7 @@ export * from "./CreateChangeSetCommand";
 export * from "./CreateStackCommand";
 export * from "./CreateStackInstancesCommand";
 export * from "./CreateStackSetCommand";
+export * from "./DeactivateOrganizationsAccessCommand";
 export * from "./DeactivateTypeCommand";
 export * from "./DeleteChangeSetCommand";
 export * from "./DeleteStackCommand";
@@ -16,6 +18,7 @@ export * from "./DeregisterTypeCommand";
 export * from "./DescribeAccountLimitsCommand";
 export * from "./DescribeChangeSetCommand";
 export * from "./DescribeChangeSetHooksCommand";
+export * from "./DescribeOrganizationsAccessCommand";
 export * from "./DescribePublisherCommand";
 export * from "./DescribeStackDriftDetectionStatusCommand";
 export * from "./DescribeStackEventsCommand";

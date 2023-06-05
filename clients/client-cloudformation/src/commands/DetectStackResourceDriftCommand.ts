@@ -37,17 +37,18 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
 /**
  * @public
  * <p>Returns information about whether a resource's actual configuration differs, or has
- *             <i>drifted</i>, from it's expected configuration, as defined in the stack
- *          template and any values specified as template parameters. This information includes actual
- *          and expected property values for resources in which CloudFormation detects drift. Only resource
- *          properties explicitly defined in the stack template are checked for drift. For more
- *          information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
- *             Unregulated Configuration Changes to Stacks and Resources</a>.</p>
+ *         <i>drifted</i>, from its expected configuration, as defined in the stack
+ *       template and any values specified as template parameters. This information includes actual and
+ *       expected property values for resources in which CloudFormation detects drift. Only resource properties
+ *       explicitly defined in the stack template are checked for drift. For more information about
+ *       stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated
+ *         Configuration Changes to Stacks and Resources</a>.</p>
  *          <p>Use <code>DetectStackResourceDrift</code> to detect drift on individual resources, or
- *             <a>DetectStackDrift</a> to detect drift on all resources in a given stack
- *          that support drift detection.</p>
+ *         <a>DetectStackDrift</a> to detect drift on all resources in a given stack that
+ *       support drift detection.</p>
  *          <p>Resources that don't currently support drift detection can't be checked. For a list of
- *          resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
+ *       resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
+ *         that Support Drift Detection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

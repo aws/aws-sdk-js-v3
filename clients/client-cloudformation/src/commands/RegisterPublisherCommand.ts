@@ -36,12 +36,12 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
 
 /**
  * @public
- * <p>Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users.
- *          This publisher ID applies to your account in all Amazon Web Services Regions.</p>
+ * <p>Registers your account as a publisher of public extensions in the CloudFormation
+ *       registry. Public extensions are available for use by all CloudFormation users. This
+ *       publisher ID applies to your account in all Amazon Web Services Regions.</p>
  *          <p>For information about requirements for registering as a public extension publisher, see
- *             <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering your account to publish CloudFormation
- *             extensions</a> in the <i>CloudFormation CLI User
- *          Guide</i>.</p>
+ *         <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering your account to publish CloudFormation extensions</a> in the
+ *           <i>CloudFormation CLI User Guide</i>.</p>
  *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

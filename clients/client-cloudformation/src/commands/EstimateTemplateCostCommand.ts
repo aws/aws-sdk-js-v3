@@ -36,8 +36,8 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
 
 /**
  * @public
- * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly Calculator URL with a query string that describes the
- *          resources required to run the template.</p>
+ * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly Calculator URL with a query string that describes the resources required to
+ *       run the template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

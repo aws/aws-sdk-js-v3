@@ -41,10 +41,10 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
 
 /**
  * @public
- * <p>Returns configuration data for the specified CloudFormation extensions, from
- *          the CloudFormation registry for the account and region.</p>
+ * <p>Returns configuration data for the specified CloudFormation extensions, from the
+ *         CloudFormation registry for the account and Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the
- *             <i>CloudFormation User Guide</i>.</p>
+ *         <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

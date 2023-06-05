@@ -37,11 +37,11 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
 /**
  * @public
  * <p>Deactivates a public extension that was previously activated in this account and
- *          region.</p>
+ *       Region.</p>
  *          <p>Once deactivated, an extension can't be used in any CloudFormation operation.
- *          This includes stack update operations where the stack template includes the extension, even
- *          if no updates are being made to the extension. In addition, deactivated extensions aren't
- *          automatically updated if a new version of the extension is released.</p>
+ *       This includes stack update operations where the stack template includes the extension, even if
+ *       no updates are being made to the extension. In addition, deactivated extensions aren't
+ *       automatically updated if a new version of the extension is released.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

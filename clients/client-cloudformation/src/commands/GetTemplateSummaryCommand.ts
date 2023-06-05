@@ -36,15 +36,14 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
 
 /**
  * @public
- * <p>Returns information about a new or existing template. The
- *             <code>GetTemplateSummary</code> action is useful for viewing parameter information, such
- *          as default parameter values and parameter types, before you create or update a stack or
- *          stack set.</p>
- *          <p>You can use the <code>GetTemplateSummary</code> action when you submit a template, or
- *          you can get template information for a stack set, or a running or deleted stack.</p>
+ * <p>Returns information about a new or existing template. The <code>GetTemplateSummary</code>
+ *       action is useful for viewing parameter information, such as default parameter values and
+ *       parameter types, before you create or update a stack or stack set.</p>
+ *          <p>You can use the <code>GetTemplateSummary</code> action when you submit a template, or you
+ *       can get template information for a stack set, or a running or deleted stack.</p>
  *          <p>For deleted stacks, <code>GetTemplateSummary</code> returns the template information for
- *          up to 90 days after the stack has been deleted. If the template doesn't exist, a
- *             <code>ValidationError</code> is returned.</p>
+ *       up to 90 days after the stack has been deleted. If the template doesn't exist, a
+ *         <code>ValidationError</code> is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

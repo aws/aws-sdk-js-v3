@@ -36,12 +36,12 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sends a signal to the specified resource with a success or failure status. You can use
- *          the <code>SignalResource</code> operation in conjunction with a creation policy or update
- *          policy. CloudFormation doesn't proceed with a stack creation or update until
- *          resources receive the required number of signals or the timeout period is exceeded. The
- *             <code>SignalResource</code> operation is useful in cases where you want to send signals
- *          from anywhere other than an Amazon EC2 instance.</p>
+ * <p>Sends a signal to the specified resource with a success or failure status. You can use the
+ *         <code>SignalResource</code> operation in conjunction with a creation policy or update
+ *       policy. CloudFormation doesn't proceed with a stack creation or update until resources
+ *       receive the required number of signals or the timeout period is exceeded. The
+ *         <code>SignalResource</code> operation is useful in cases where you want to send signals from
+ *       anywhere other than an Amazon EC2 instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

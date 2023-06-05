@@ -37,7 +37,7 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
 /**
  * @public
  * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null
- *          value is returned.</p>
+ *       value is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

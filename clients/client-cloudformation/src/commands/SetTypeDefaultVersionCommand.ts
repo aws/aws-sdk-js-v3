@@ -37,7 +37,7 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
 /**
  * @public
  * <p>Specify the default version of an extension. The default version of an extension will be
- *          used in CloudFormation operations.</p>
+ *       used in CloudFormation operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

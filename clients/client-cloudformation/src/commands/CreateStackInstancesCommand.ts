@@ -36,10 +36,10 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
 
 /**
  * @public
- * <p>Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and Region.
- *          You must specify at least one value for either <code>Accounts</code> or
- *             <code>DeploymentTargets</code>, and you must specify at least one value for
- *             <code>Regions</code>.</p>
+ * <p>Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack
+ *    instance refers to a stack in a specific account and Region. You must specify at least one value for either
+ *     <code>Accounts</code> or <code>DeploymentTargets</code>, and you must specify at least one value for
+ *     <code>Regions</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,22 +104,21 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The quota for the resource has already been reached.</p>
- *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
- *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+ *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation quotas</a> in the
+ *     <i>CloudFormation User Guide</i>.</p>
  *
  * @throws {@link OperationIdAlreadyExistsException} (client fault)
  *  <p>The specified operation ID already exists.</p>
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Another operation is currently in progress for this stack set. Only one operation can be
- *          performed for a stack set at a given time.</p>
+ *  <p>Another operation is currently in progress for this stack set. Only one operation can be performed for a stack
+ *    set at a given time.</p>
  *
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
  * @throws {@link StaleRequestException} (client fault)
- *  <p>Another operation has been performed on this stack set since the specified operation was
- *          performed.</p>
+ *  <p>Another operation has been performed on this stack set since the specified operation was performed.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

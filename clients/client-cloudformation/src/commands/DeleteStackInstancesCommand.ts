@@ -96,15 +96,14 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  *  <p>The specified operation ID already exists.</p>
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Another operation is currently in progress for this stack set. Only one operation can be
- *          performed for a stack set at a given time.</p>
+ *  <p>Another operation is currently in progress for this stack set. Only one operation can be performed for a stack
+ *    set at a given time.</p>
  *
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
  * @throws {@link StaleRequestException} (client fault)
- *  <p>Another operation has been performed on this stack set since the specified operation was
- *          performed.</p>
+ *  <p>Another operation has been performed on this stack set since the specified operation was performed.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

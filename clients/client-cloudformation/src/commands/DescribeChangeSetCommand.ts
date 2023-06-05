@@ -37,7 +37,8 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
 /**
  * @public
  * <p>Returns the inputs for the change set and a list of changes that CloudFormation will
- *          make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change Sets</a> in the CloudFormation User Guide.</p>
+ *       make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating
+ *         Stacks Using Change Sets</a> in the CloudFormation User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,8 +139,8 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ChangeSetNotFoundException} (client fault)
- *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
- *          use the <code>ListChangeSets</code> operation.</p>
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
+ *     <code>ListChangeSets</code> operation.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

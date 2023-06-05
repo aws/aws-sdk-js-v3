@@ -37,10 +37,9 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Cancels an update on the specified stack. If the call completes successfully, the stack
- *          rolls back the update and reverts to the previous stack configuration.</p>
+ *       rolls back the update and reverts to the previous stack configuration.</p>
  *          <note>
- *             <p>You can cancel only stacks that are in the <code>UPDATE_IN_PROGRESS</code>
- *             state.</p>
+ *             <p>You can cancel only stacks that are in the <code>UPDATE_IN_PROGRESS</code> state.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
