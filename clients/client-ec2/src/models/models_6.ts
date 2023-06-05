@@ -5531,7 +5531,7 @@ export interface RegisterInstanceEventNotificationAttributesRequest {
   /**
    * <p>Information about the tag keys to register.</p>
    */
-  InstanceTagAttribute?: RegisterInstanceTagAttributeRequest;
+  InstanceTagAttribute: RegisterInstanceTagAttributeRequest | undefined;
 }
 
 /**

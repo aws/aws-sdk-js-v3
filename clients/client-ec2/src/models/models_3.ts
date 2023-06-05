@@ -1152,7 +1152,7 @@ export interface DeregisterInstanceEventNotificationAttributesRequest {
   /**
    * <p>Information about the tag keys to deregister.</p>
    */
-  InstanceTagAttribute?: DeregisterInstanceTagAttributeRequest;
+  InstanceTagAttribute: DeregisterInstanceTagAttributeRequest | undefined;
 }
 
 /**
