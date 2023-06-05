@@ -55,6 +55,10 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * //     { // KeyspaceSummary
  * //       keyspaceName: "STRING_VALUE", // required
  * //       resourceArn: "STRING_VALUE", // required
+ * //       replicationStrategy: "STRING_VALUE", // required
+ * //       replicationRegions: [ // RegionList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

@@ -248,6 +248,53 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const Rs = {
+  MULTI_REGION: "MULTI_REGION",
+  SINGLE_REGION: "SINGLE_REGION",
+} as const;
+
+/**
+ * @public
+ */
+export type Rs = (typeof Rs)[keyof typeof Rs];
+
+/**
+ * @public
+ * <p>
+ *             The replication specification of the keyspace includes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>regionList</code> - up to six Amazon Web Services Regions where the keyspace is replicated in.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or
+ *                <code>MULTI_REGION</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ReplicationSpecification {
+  /**
+   * <p>
+   *          The <code>replicationStrategy</code> of a keyspace, the required value is <code>SINGLE_REGION</code> or
+   *             <code>MULTI_REGION</code>.
+   *       </p>
+   */
+  replicationStrategy: Rs | string | undefined;
+
+  /**
+   * <p>
+   *          The <code>regionList</code> can contain up to six Amazon Web Services Regions where the keyspace is replicated in.
+   *       </p>
+   */
+  regionList?: string[];
+}
+
+/**
+ * @public
  * <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.</p>
  *          <p>Amazon Web Services-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign.
  *          Amazon Web Services-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the
@@ -283,6 +330,26 @@ export interface CreateKeyspaceRequest {
    *             Guide</i>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>
+   *          The replication specification of the keyspace includes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or
+   *             <code>MULTI_REGION</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>regionList</code> - if the <code>replicationStrategy</code> is <code>MULTI_REGION</code>, the
+   *             <code>regionList</code> requires the current Region and at least one additional Amazon Web Services Region where
+   *             the keyspace is going to be replicated in. The maximum number of supported replication Regions including the current
+   *             Region is six.</p>
+   *             </li>
+   *          </ul>
+   */
+  replicationSpecification?: ReplicationSpecification;
 }
 
 /**
@@ -819,9 +886,23 @@ export interface GetKeyspaceResponse {
   keyspaceName: string | undefined;
 
   /**
-   * <p>The ARN of the keyspace.</p>
+   * <p>Returns the ARN of the keyspace.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>
+   *          Returns the replication strategy of the keyspace. The options are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.
+   *       </p>
+   */
+  replicationStrategy: Rs | string | undefined;
+
+  /**
+   * <p>
+   *          If the <code>replicationStrategy</code> of the keyspace is <code>MULTI_REGION</code>, a list of replication Regions is returned.
+   *       </p>
+   */
+  replicationRegions?: string[];
 }
 
 /**
@@ -988,6 +1069,21 @@ export interface KeyspaceSummary {
    * <p>The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>
+   *       This property specifies if a keyspace is a single Region keyspace or a multi-Region keyspace.  The available
+   *       values are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.
+   *    </p>
+   */
+  replicationStrategy: Rs | string | undefined;
+
+  /**
+   * <p>
+   *          If the <code>replicationStrategy</code> of the keyspace is <code>MULTI_REGION</code>, a list of replication Regions is returned.
+   *       </p>
+   */
+  replicationRegions?: string[];
 }
 
 /**

@@ -57,6 +57,12 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   replicationSpecification: { // ReplicationSpecification
+ *     replicationStrategy: "STRING_VALUE", // required
+ *     regionList: [ // RegionList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateKeyspaceCommand(input);
  * const response = await client.send(command);

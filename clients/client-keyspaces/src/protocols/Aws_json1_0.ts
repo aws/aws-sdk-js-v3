@@ -56,6 +56,7 @@ import {
   PartitionKey,
   PointInTimeRecovery,
   PointInTimeRecoverySummary,
+  ReplicationSpecification,
   ResourceNotFoundException,
   RestoreTableRequest,
   SchemaDefinition,
@@ -1140,6 +1141,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_PointInTimeRecovery omitted.
 
+// se_RegionList omitted.
+
+// se_ReplicationSpecification omitted.
+
 /**
  * serializeAws_json1_0RestoreTableRequest
  */
@@ -1261,6 +1266,8 @@ const de_PointInTimeRecoverySummary = (output: any, context: __SerdeContext): Po
     status: __expectString,
   }) as any;
 };
+
+// de_RegionList omitted.
 
 // de_ResourceNotFoundException omitted.
 

@@ -51,6 +51,10 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * // { // GetKeyspaceResponse
  * //   keyspaceName: "STRING_VALUE", // required
  * //   resourceArn: "STRING_VALUE", // required
+ * //   replicationStrategy: "STRING_VALUE", // required
+ * //   replicationRegions: [ // RegionList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
