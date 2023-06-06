@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListExportsRequest, ListExportsResponse } from "../models/models_0";
+import { ListExportsRequest, ListExportsResponse } from "../models/models_1";
 import { de_ListExportsCommand, se_ListExportsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -87,8 +87,11 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * //           botVersion: "STRING_VALUE", // required
  * //           localeId: "STRING_VALUE", // required
  * //         },
+ * //         testSetExportSpecification: { // TestSetExportSpecification
+ * //           testSetId: "STRING_VALUE", // required
+ * //         },
  * //       },
- * //       fileFormat: "LexJson" || "TSV",
+ * //       fileFormat: "LexJson" || "TSV" || "CSV",
  * //       exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
  * //       creationDateTime: new Date("TIMESTAMP"),
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),

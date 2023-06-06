@@ -14,8 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListCustomVocabularyItemsRequest, ListCustomVocabularyItemsResponse } from "../models/models_1";
-import { de_ListCustomVocabularyItemsCommand, se_ListCustomVocabularyItemsCommand } from "../protocols/Aws_restJson1";
+import { DescribeTestSetDiscrepancyReportRequest, DescribeTestSetDiscrepancyReportResponse } from "../models/models_0";
+import {
+  de_DescribeTestSetDiscrepancyReportCommand,
+  se_DescribeTestSetDiscrepancyReportCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,56 +27,72 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListCustomVocabularyItemsCommand}.
+ * The input for {@link DescribeTestSetDiscrepancyReportCommand}.
  */
-export interface ListCustomVocabularyItemsCommandInput extends ListCustomVocabularyItemsRequest {}
+export interface DescribeTestSetDiscrepancyReportCommandInput extends DescribeTestSetDiscrepancyReportRequest {}
 /**
  * @public
  *
- * The output of {@link ListCustomVocabularyItemsCommand}.
+ * The output of {@link DescribeTestSetDiscrepancyReportCommand}.
  */
-export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabularyItemsResponse, __MetadataBearer {}
+export interface DescribeTestSetDiscrepancyReportCommandOutput
+  extends DescribeTestSetDiscrepancyReportResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Paginated list of custom vocabulary items for a given bot locale's
- *          custom vocabulary.</p>
+ * <p>Gets metadata information about the test set discrepancy report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListCustomVocabularyItemsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListCustomVocabularyItemsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeTestSetDiscrepancyReportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DescribeTestSetDiscrepancyReportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // ListCustomVocabularyItemsRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // DescribeTestSetDiscrepancyReportRequest
+ *   testSetDiscrepancyReportId: "STRING_VALUE", // required
  * };
- * const command = new ListCustomVocabularyItemsCommand(input);
+ * const command = new DescribeTestSetDiscrepancyReportCommand(input);
  * const response = await client.send(command);
- * // { // ListCustomVocabularyItemsResponse
- * //   botId: "STRING_VALUE",
- * //   botVersion: "STRING_VALUE",
- * //   localeId: "STRING_VALUE",
- * //   customVocabularyItems: [ // CustomVocabularyItems
- * //     { // CustomVocabularyItem
- * //       itemId: "STRING_VALUE", // required
- * //       phrase: "STRING_VALUE", // required
- * //       weight: Number("int"),
- * //       displayAs: "STRING_VALUE",
+ * // { // DescribeTestSetDiscrepancyReportResponse
+ * //   testSetDiscrepancyReportId: "STRING_VALUE",
+ * //   testSetId: "STRING_VALUE",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   target: { // TestSetDiscrepancyReportResourceTarget
+ * //     botAliasTarget: { // TestSetDiscrepancyReportBotAliasTarget
+ * //       botId: "STRING_VALUE", // required
+ * //       botAliasId: "STRING_VALUE", // required
+ * //       localeId: "STRING_VALUE", // required
  * //     },
+ * //   },
+ * //   testSetDiscrepancyReportStatus: "InProgress" || "Completed" || "Failed",
+ * //   lastUpdatedDataTime: new Date("TIMESTAMP"),
+ * //   testSetDiscrepancyTopErrors: { // TestSetDiscrepancyErrors
+ * //     intentDiscrepancies: [ // TestSetIntentDiscrepancyList // required
+ * //       { // TestSetIntentDiscrepancyItem
+ * //         intentName: "STRING_VALUE", // required
+ * //         errorMessage: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     slotDiscrepancies: [ // TestSetSlotDiscrepancyList // required
+ * //       { // TestSetSlotDiscrepancyItem
+ * //         intentName: "STRING_VALUE", // required
+ * //         slotName: "STRING_VALUE", // required
+ * //         errorMessage: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   testSetDiscrepancyRawOutputUrl: "STRING_VALUE",
+ * //   failureReasons: [ // FailureReasons
+ * //     "STRING_VALUE",
  * //   ],
- * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListCustomVocabularyItemsCommandInput - {@link ListCustomVocabularyItemsCommandInput}
- * @returns {@link ListCustomVocabularyItemsCommandOutput}
- * @see {@link ListCustomVocabularyItemsCommandInput} for command's `input` shape.
- * @see {@link ListCustomVocabularyItemsCommandOutput} for command's `response` shape.
+ * @param DescribeTestSetDiscrepancyReportCommandInput - {@link DescribeTestSetDiscrepancyReportCommandInput}
+ * @returns {@link DescribeTestSetDiscrepancyReportCommandOutput}
+ * @see {@link DescribeTestSetDiscrepancyReportCommandInput} for command's `input` shape.
+ * @see {@link DescribeTestSetDiscrepancyReportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -99,9 +118,9 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class ListCustomVocabularyItemsCommand extends $Command<
-  ListCustomVocabularyItemsCommandInput,
-  ListCustomVocabularyItemsCommandOutput,
+export class DescribeTestSetDiscrepancyReportCommand extends $Command<
+  DescribeTestSetDiscrepancyReportCommandInput,
+  DescribeTestSetDiscrepancyReportCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -119,7 +138,7 @@ export class ListCustomVocabularyItemsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListCustomVocabularyItemsCommandInput) {
+  constructor(readonly input: DescribeTestSetDiscrepancyReportCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -132,17 +151,17 @@ export class ListCustomVocabularyItemsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListCustomVocabularyItemsCommandInput, ListCustomVocabularyItemsCommandOutput> {
+  ): Handler<DescribeTestSetDiscrepancyReportCommandInput, DescribeTestSetDiscrepancyReportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListCustomVocabularyItemsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeTestSetDiscrepancyReportCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "ListCustomVocabularyItemsCommand";
+    const commandName = "DescribeTestSetDiscrepancyReportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -161,8 +180,11 @@ export class ListCustomVocabularyItemsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListCustomVocabularyItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListCustomVocabularyItemsCommand(input, context);
+  private serialize(
+    input: DescribeTestSetDiscrepancyReportCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_DescribeTestSetDiscrepancyReportCommand(input, context);
   }
 
   /**
@@ -171,8 +193,8 @@ export class ListCustomVocabularyItemsCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<ListCustomVocabularyItemsCommandOutput> {
-    return de_ListCustomVocabularyItemsCommand(output, context);
+  ): Promise<DescribeTestSetDiscrepancyReportCommandOutput> {
+    return de_DescribeTestSetDiscrepancyReportCommand(output, context);
   }
 
   // Start section: command_body_extra

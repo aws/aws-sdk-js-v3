@@ -68,8 +68,11 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  *       botVersion: "STRING_VALUE", // required
  *       localeId: "STRING_VALUE", // required
  *     },
+ *     testSetExportSpecification: { // TestSetExportSpecification
+ *       testSetId: "STRING_VALUE", // required
+ *     },
  *   },
- *   fileFormat: "LexJson" || "TSV", // required
+ *   fileFormat: "LexJson" || "TSV" || "CSV", // required
  *   filePassword: "STRING_VALUE",
  * };
  * const command = new CreateExportCommand(input);
@@ -91,8 +94,11 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * //       botVersion: "STRING_VALUE", // required
  * //       localeId: "STRING_VALUE", // required
  * //     },
+ * //     testSetExportSpecification: { // TestSetExportSpecification
+ * //       testSetId: "STRING_VALUE", // required
+ * //     },
  * //   },
- * //   fileFormat: "LexJson" || "TSV",
+ * //   fileFormat: "LexJson" || "TSV" || "CSV",
  * //   exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
  * //   creationDateTime: new Date("TIMESTAMP"),
  * // };

@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListImportsRequest, ListImportsResponse } from "../models/models_1";
-import { de_ListImportsCommand, se_ListImportsCommand } from "../protocols/Aws_restJson1";
+import { UpdateTestSetRequest, UpdateTestSetResponse } from "../models/models_1";
+import { de_UpdateTestSetCommand, se_UpdateTestSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,78 +24,73 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListImportsCommand}.
+ * The input for {@link UpdateTestSetCommand}.
  */
-export interface ListImportsCommandInput extends ListImportsRequest {}
+export interface UpdateTestSetCommandInput extends UpdateTestSetRequest {}
 /**
  * @public
  *
- * The output of {@link ListImportsCommand}.
+ * The output of {@link UpdateTestSetCommand}.
  */
-export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
+export interface UpdateTestSetCommandOutput extends UpdateTestSetResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the imports for a bot, bot locale, or custom vocabulary.
- *          Imports are kept in the list for 7 days.</p>
+ * <p>The action to update the test set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListImportsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListImportsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, UpdateTestSetCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, UpdateTestSetCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // ListImportsRequest
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   sortBy: { // ImportSortBy
- *     attribute: "LastUpdatedDateTime", // required
- *     order: "Ascending" || "Descending", // required
- *   },
- *   filters: [ // ImportFilters
- *     { // ImportFilter
- *       name: "ImportResourceType", // required
- *       values: [ // FilterValues // required
- *         "STRING_VALUE",
- *       ],
- *       operator: "CO" || "EQ", // required
- *     },
- *   ],
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
+ * const input = { // UpdateTestSetRequest
+ *   testSetId: "STRING_VALUE", // required
+ *   testSetName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
  * };
- * const command = new ListImportsCommand(input);
+ * const command = new UpdateTestSetCommand(input);
  * const response = await client.send(command);
- * // { // ListImportsResponse
- * //   botId: "STRING_VALUE",
- * //   botVersion: "STRING_VALUE",
- * //   importSummaries: [ // ImportSummaryList
- * //     { // ImportSummary
- * //       importId: "STRING_VALUE",
- * //       importedResourceId: "STRING_VALUE",
- * //       importedResourceName: "STRING_VALUE",
- * //       importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
- * //       mergeStrategy: "Overwrite" || "FailOnConflict" || "Append",
- * //       creationDateTime: new Date("TIMESTAMP"),
- * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
- * //       importedResourceType: "Bot" || "BotLocale" || "CustomVocabulary" || "TestSet",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * //   localeId: "STRING_VALUE",
+ * // { // UpdateTestSetResponse
+ * //   testSetId: "STRING_VALUE",
+ * //   testSetName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   modality: "Text" || "Audio",
+ * //   status: "Importing" || "PendingAnnotation" || "Deleting" || "ValidationError" || "Ready",
+ * //   roleArn: "STRING_VALUE",
+ * //   numTurns: Number("int"),
+ * //   storageLocation: { // TestSetStorageLocation
+ * //     s3BucketName: "STRING_VALUE", // required
+ * //     s3Path: "STRING_VALUE", // required
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param ListImportsCommandInput - {@link ListImportsCommandInput}
- * @returns {@link ListImportsCommandOutput}
- * @see {@link ListImportsCommandInput} for command's `input` shape.
- * @see {@link ListImportsCommandOutput} for command's `response` shape.
+ * @param UpdateTestSetCommandInput - {@link UpdateTestSetCommandInput}
+ * @returns {@link UpdateTestSetCommandOutput}
+ * @see {@link UpdateTestSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateTestSetCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The action that you tried to perform couldn't be completed because
+ *          the resource is in a conflicting state. For example, deleting a bot
+ *          that is in the CREATING state. Try your request again. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an unexpected condition. Try your request
  *          again.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>Your request couldn't be completed because one or more request
+ *          fields aren't valid. Check the fields in your request and try
+ *          again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached a quota for your bot. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request rate is too high. Reduce the frequency of
@@ -109,9 +104,9 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class ListImportsCommand extends $Command<
-  ListImportsCommandInput,
-  ListImportsCommandOutput,
+export class UpdateTestSetCommand extends $Command<
+  UpdateTestSetCommandInput,
+  UpdateTestSetCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -129,7 +124,7 @@ export class ListImportsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListImportsCommandInput) {
+  constructor(readonly input: UpdateTestSetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -142,15 +137,15 @@ export class ListImportsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListImportsCommandInput, ListImportsCommandOutput> {
+  ): Handler<UpdateTestSetCommandInput, UpdateTestSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListImportsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateTestSetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "ListImportsCommand";
+    const commandName = "UpdateTestSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -169,15 +164,15 @@ export class ListImportsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListImportsCommand(input, context);
+  private serialize(input: UpdateTestSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateTestSetCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
-    return de_ListImportsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTestSetCommandOutput> {
+    return de_UpdateTestSetCommand(output, context);
   }
 
   // Start section: command_body_extra

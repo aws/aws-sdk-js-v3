@@ -80,6 +80,10 @@ import {
 } from "./commands/CreateResourcePolicyStatementCommand";
 import { CreateSlotCommandInput, CreateSlotCommandOutput } from "./commands/CreateSlotCommand";
 import { CreateSlotTypeCommandInput, CreateSlotTypeCommandOutput } from "./commands/CreateSlotTypeCommand";
+import {
+  CreateTestSetDiscrepancyReportCommandInput,
+  CreateTestSetDiscrepancyReportCommandOutput,
+} from "./commands/CreateTestSetDiscrepancyReportCommand";
 import { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "./commands/CreateUploadUrlCommand";
 import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
@@ -102,6 +106,7 @@ import {
 } from "./commands/DeleteResourcePolicyStatementCommand";
 import { DeleteSlotCommandInput, DeleteSlotCommandOutput } from "./commands/DeleteSlotCommand";
 import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand";
+import { DeleteTestSetCommandInput, DeleteTestSetCommandOutput } from "./commands/DeleteTestSetCommand";
 import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
 import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "./commands/DescribeBotAliasCommand";
 import { DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
@@ -124,6 +129,23 @@ import {
 } from "./commands/DescribeResourcePolicyCommand";
 import { DescribeSlotCommandInput, DescribeSlotCommandOutput } from "./commands/DescribeSlotCommand";
 import { DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput } from "./commands/DescribeSlotTypeCommand";
+import {
+  DescribeTestExecutionCommandInput,
+  DescribeTestExecutionCommandOutput,
+} from "./commands/DescribeTestExecutionCommand";
+import { DescribeTestSetCommandInput, DescribeTestSetCommandOutput } from "./commands/DescribeTestSetCommand";
+import {
+  DescribeTestSetDiscrepancyReportCommandInput,
+  DescribeTestSetDiscrepancyReportCommandOutput,
+} from "./commands/DescribeTestSetDiscrepancyReportCommand";
+import {
+  DescribeTestSetGenerationCommandInput,
+  DescribeTestSetGenerationCommandOutput,
+} from "./commands/DescribeTestSetGenerationCommand";
+import {
+  GetTestExecutionArtifactsUrlCommandInput,
+  GetTestExecutionArtifactsUrlCommandOutput,
+} from "./commands/GetTestExecutionArtifactsUrlCommand";
 import {
   ListAggregatedUtterancesCommandInput,
   ListAggregatedUtterancesCommandOutput,
@@ -159,6 +181,13 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTestExecutionResultItemsCommandInput,
+  ListTestExecutionResultItemsCommandOutput,
+} from "./commands/ListTestExecutionResultItemsCommand";
+import { ListTestExecutionsCommandInput, ListTestExecutionsCommandOutput } from "./commands/ListTestExecutionsCommand";
+import { ListTestSetRecordsCommandInput, ListTestSetRecordsCommandOutput } from "./commands/ListTestSetRecordsCommand";
+import { ListTestSetsCommandInput, ListTestSetsCommandOutput } from "./commands/ListTestSetsCommand";
+import {
   SearchAssociatedTranscriptsCommandInput,
   SearchAssociatedTranscriptsCommandOutput,
 } from "./commands/SearchAssociatedTranscriptsCommand";
@@ -167,6 +196,11 @@ import {
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import { StartTestExecutionCommandInput, StartTestExecutionCommandOutput } from "./commands/StartTestExecutionCommand";
+import {
+  StartTestSetGenerationCommandInput,
+  StartTestSetGenerationCommandOutput,
+} from "./commands/StartTestSetGenerationCommand";
 import {
   StopBotRecommendationCommandInput,
   StopBotRecommendationCommandOutput,
@@ -188,6 +222,7 @@ import {
 } from "./commands/UpdateResourcePolicyCommand";
 import { UpdateSlotCommandInput, UpdateSlotCommandOutput } from "./commands/UpdateSlotCommand";
 import { UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput } from "./commands/UpdateSlotTypeCommand";
+import { UpdateTestSetCommandInput, UpdateTestSetCommandOutput } from "./commands/UpdateTestSetCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -216,6 +251,7 @@ export type ServiceInputTypes =
   | CreateResourcePolicyStatementCommandInput
   | CreateSlotCommandInput
   | CreateSlotTypeCommandInput
+  | CreateTestSetDiscrepancyReportCommandInput
   | CreateUploadUrlCommandInput
   | DeleteBotAliasCommandInput
   | DeleteBotCommandInput
@@ -229,6 +265,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyStatementCommandInput
   | DeleteSlotCommandInput
   | DeleteSlotTypeCommandInput
+  | DeleteTestSetCommandInput
   | DeleteUtterancesCommandInput
   | DescribeBotAliasCommandInput
   | DescribeBotCommandInput
@@ -242,6 +279,11 @@ export type ServiceInputTypes =
   | DescribeResourcePolicyCommandInput
   | DescribeSlotCommandInput
   | DescribeSlotTypeCommandInput
+  | DescribeTestExecutionCommandInput
+  | DescribeTestSetCommandInput
+  | DescribeTestSetDiscrepancyReportCommandInput
+  | DescribeTestSetGenerationCommandInput
+  | GetTestExecutionArtifactsUrlCommandInput
   | ListAggregatedUtterancesCommandInput
   | ListBotAliasesCommandInput
   | ListBotLocalesCommandInput
@@ -258,9 +300,15 @@ export type ServiceInputTypes =
   | ListSlotTypesCommandInput
   | ListSlotsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTestExecutionResultItemsCommandInput
+  | ListTestExecutionsCommandInput
+  | ListTestSetRecordsCommandInput
+  | ListTestSetsCommandInput
   | SearchAssociatedTranscriptsCommandInput
   | StartBotRecommendationCommandInput
   | StartImportCommandInput
+  | StartTestExecutionCommandInput
+  | StartTestSetGenerationCommandInput
   | StopBotRecommendationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -272,7 +320,8 @@ export type ServiceInputTypes =
   | UpdateIntentCommandInput
   | UpdateResourcePolicyCommandInput
   | UpdateSlotCommandInput
-  | UpdateSlotTypeCommandInput;
+  | UpdateSlotTypeCommandInput
+  | UpdateTestSetCommandInput;
 
 /**
  * @public
@@ -292,6 +341,7 @@ export type ServiceOutputTypes =
   | CreateResourcePolicyStatementCommandOutput
   | CreateSlotCommandOutput
   | CreateSlotTypeCommandOutput
+  | CreateTestSetDiscrepancyReportCommandOutput
   | CreateUploadUrlCommandOutput
   | DeleteBotAliasCommandOutput
   | DeleteBotCommandOutput
@@ -305,6 +355,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyStatementCommandOutput
   | DeleteSlotCommandOutput
   | DeleteSlotTypeCommandOutput
+  | DeleteTestSetCommandOutput
   | DeleteUtterancesCommandOutput
   | DescribeBotAliasCommandOutput
   | DescribeBotCommandOutput
@@ -318,6 +369,11 @@ export type ServiceOutputTypes =
   | DescribeResourcePolicyCommandOutput
   | DescribeSlotCommandOutput
   | DescribeSlotTypeCommandOutput
+  | DescribeTestExecutionCommandOutput
+  | DescribeTestSetCommandOutput
+  | DescribeTestSetDiscrepancyReportCommandOutput
+  | DescribeTestSetGenerationCommandOutput
+  | GetTestExecutionArtifactsUrlCommandOutput
   | ListAggregatedUtterancesCommandOutput
   | ListBotAliasesCommandOutput
   | ListBotLocalesCommandOutput
@@ -334,9 +390,15 @@ export type ServiceOutputTypes =
   | ListSlotTypesCommandOutput
   | ListSlotsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTestExecutionResultItemsCommandOutput
+  | ListTestExecutionsCommandOutput
+  | ListTestSetRecordsCommandOutput
+  | ListTestSetsCommandOutput
   | SearchAssociatedTranscriptsCommandOutput
   | StartBotRecommendationCommandOutput
   | StartImportCommandOutput
+  | StartTestExecutionCommandOutput
+  | StartTestSetGenerationCommandOutput
   | StopBotRecommendationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -348,7 +410,8 @@ export type ServiceOutputTypes =
   | UpdateIntentCommandOutput
   | UpdateResourcePolicyCommandOutput
   | UpdateSlotCommandOutput
-  | UpdateSlotTypeCommandOutput;
+  | UpdateSlotTypeCommandOutput
+  | UpdateTestSetCommandOutput;
 
 /**
  * @public

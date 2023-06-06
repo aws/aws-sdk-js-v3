@@ -65,8 +65,11 @@ export interface DescribeExportCommandOutput extends DescribeExportResponse, __M
  * //       botVersion: "STRING_VALUE", // required
  * //       localeId: "STRING_VALUE", // required
  * //     },
+ * //     testSetExportSpecification: { // TestSetExportSpecification
+ * //       testSetId: "STRING_VALUE", // required
+ * //     },
  * //   },
- * //   fileFormat: "LexJson" || "TSV",
+ * //   fileFormat: "LexJson" || "TSV" || "CSV",
  * //   exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
  * //   failureReasons: [ // FailureReasons
  * //     "STRING_VALUE",

@@ -14,8 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListBotRecommendationsRequest, ListBotRecommendationsResponse } from "../models/models_1";
-import { de_ListBotRecommendationsCommand, se_ListBotRecommendationsCommand } from "../protocols/Aws_restJson1";
+import { CreateTestSetDiscrepancyReportRequest, CreateTestSetDiscrepancyReportResponse } from "../models/models_0";
+import {
+  de_CreateTestSetDiscrepancyReportCommand,
+  se_CreateTestSetDiscrepancyReportCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,57 +27,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListBotRecommendationsCommand}.
+ * The input for {@link CreateTestSetDiscrepancyReportCommand}.
  */
-export interface ListBotRecommendationsCommandInput extends ListBotRecommendationsRequest {}
+export interface CreateTestSetDiscrepancyReportCommandInput extends CreateTestSetDiscrepancyReportRequest {}
 /**
  * @public
  *
- * The output of {@link ListBotRecommendationsCommand}.
+ * The output of {@link CreateTestSetDiscrepancyReportCommand}.
  */
-export interface ListBotRecommendationsCommandOutput extends ListBotRecommendationsResponse, __MetadataBearer {}
+export interface CreateTestSetDiscrepancyReportCommandOutput
+  extends CreateTestSetDiscrepancyReportResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Get a list of bot recommendations that meet the specified
- *          criteria.</p>
+ * <p>Create a report that describes the differences between the bot and the test set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListBotRecommendationsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListBotRecommendationsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, CreateTestSetDiscrepancyReportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, CreateTestSetDiscrepancyReportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // ListBotRecommendationsRequest
- *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // CreateTestSetDiscrepancyReportRequest
+ *   testSetId: "STRING_VALUE", // required
+ *   target: { // TestSetDiscrepancyReportResourceTarget
+ *     botAliasTarget: { // TestSetDiscrepancyReportBotAliasTarget
+ *       botId: "STRING_VALUE", // required
+ *       botAliasId: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
- * const command = new ListBotRecommendationsCommand(input);
+ * const command = new CreateTestSetDiscrepancyReportCommand(input);
  * const response = await client.send(command);
- * // { // ListBotRecommendationsResponse
- * //   botId: "STRING_VALUE",
- * //   botVersion: "STRING_VALUE",
- * //   localeId: "STRING_VALUE",
- * //   botRecommendationSummaries: [ // BotRecommendationSummaryList
- * //     { // BotRecommendationSummary
- * //       botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped", // required
- * //       botRecommendationId: "STRING_VALUE", // required
- * //       creationDateTime: new Date("TIMESTAMP"),
- * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * // { // CreateTestSetDiscrepancyReportResponse
+ * //   testSetDiscrepancyReportId: "STRING_VALUE",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   testSetId: "STRING_VALUE",
+ * //   target: { // TestSetDiscrepancyReportResourceTarget
+ * //     botAliasTarget: { // TestSetDiscrepancyReportBotAliasTarget
+ * //       botId: "STRING_VALUE", // required
+ * //       botAliasId: "STRING_VALUE", // required
+ * //       localeId: "STRING_VALUE", // required
  * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListBotRecommendationsCommandInput - {@link ListBotRecommendationsCommandInput}
- * @returns {@link ListBotRecommendationsCommandOutput}
- * @see {@link ListBotRecommendationsCommandInput} for command's `input` shape.
- * @see {@link ListBotRecommendationsCommandOutput} for command's `response` shape.
+ * @param CreateTestSetDiscrepancyReportCommandInput - {@link CreateTestSetDiscrepancyReportCommandInput}
+ * @returns {@link CreateTestSetDiscrepancyReportCommandOutput}
+ * @see {@link CreateTestSetDiscrepancyReportCommandInput} for command's `input` shape.
+ * @see {@link CreateTestSetDiscrepancyReportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The action that you tried to perform couldn't be completed because
+ *          the resource is in a conflicting state. For example, deleting a bot
+ *          that is in the CREATING state. Try your request again. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an unexpected condition. Try your request
@@ -83,6 +93,9 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You asked to describe a resource that doesn't exist. Check the
  *          resource that you are requesting and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached a quota for your bot. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request rate is too high. Reduce the frequency of
@@ -96,9 +109,9 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class ListBotRecommendationsCommand extends $Command<
-  ListBotRecommendationsCommandInput,
-  ListBotRecommendationsCommandOutput,
+export class CreateTestSetDiscrepancyReportCommand extends $Command<
+  CreateTestSetDiscrepancyReportCommandInput,
+  CreateTestSetDiscrepancyReportCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -116,7 +129,7 @@ export class ListBotRecommendationsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListBotRecommendationsCommandInput) {
+  constructor(readonly input: CreateTestSetDiscrepancyReportCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -129,17 +142,17 @@ export class ListBotRecommendationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListBotRecommendationsCommandInput, ListBotRecommendationsCommandOutput> {
+  ): Handler<CreateTestSetDiscrepancyReportCommandInput, CreateTestSetDiscrepancyReportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListBotRecommendationsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateTestSetDiscrepancyReportCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "ListBotRecommendationsCommand";
+    const commandName = "CreateTestSetDiscrepancyReportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -158,15 +171,21 @@ export class ListBotRecommendationsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListBotRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListBotRecommendationsCommand(input, context);
+  private serialize(
+    input: CreateTestSetDiscrepancyReportCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_CreateTestSetDiscrepancyReportCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotRecommendationsCommandOutput> {
-    return de_ListBotRecommendationsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreateTestSetDiscrepancyReportCommandOutput> {
+    return de_CreateTestSetDiscrepancyReportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListImportsRequest, ListImportsResponse } from "../models/models_1";
-import { de_ListImportsCommand, se_ListImportsCommand } from "../protocols/Aws_restJson1";
+import { ListTestExecutionsRequest, ListTestExecutionsResponse } from "../models/models_1";
+import { de_ListTestExecutionsCommand, se_ListTestExecutionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,78 +24,72 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListImportsCommand}.
+ * The input for {@link ListTestExecutionsCommand}.
  */
-export interface ListImportsCommandInput extends ListImportsRequest {}
+export interface ListTestExecutionsCommandInput extends ListTestExecutionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListImportsCommand}.
+ * The output of {@link ListTestExecutionsCommand}.
  */
-export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
+export interface ListTestExecutionsCommandOutput extends ListTestExecutionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the imports for a bot, bot locale, or custom vocabulary.
- *          Imports are kept in the list for 7 days.</p>
+ * <p>The list of test set executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, ListImportsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, ListImportsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, ListTestExecutionsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListTestExecutionsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // ListImportsRequest
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   sortBy: { // ImportSortBy
- *     attribute: "LastUpdatedDateTime", // required
+ * const input = { // ListTestExecutionsRequest
+ *   sortBy: { // TestExecutionSortBy
+ *     attribute: "TestSetName" || "CreationDateTime", // required
  *     order: "Ascending" || "Descending", // required
  *   },
- *   filters: [ // ImportFilters
- *     { // ImportFilter
- *       name: "ImportResourceType", // required
- *       values: [ // FilterValues // required
- *         "STRING_VALUE",
- *       ],
- *       operator: "CO" || "EQ", // required
- *     },
- *   ],
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
  * };
- * const command = new ListImportsCommand(input);
+ * const command = new ListTestExecutionsCommand(input);
  * const response = await client.send(command);
- * // { // ListImportsResponse
- * //   botId: "STRING_VALUE",
- * //   botVersion: "STRING_VALUE",
- * //   importSummaries: [ // ImportSummaryList
- * //     { // ImportSummary
- * //       importId: "STRING_VALUE",
- * //       importedResourceId: "STRING_VALUE",
- * //       importedResourceName: "STRING_VALUE",
- * //       importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
- * //       mergeStrategy: "Overwrite" || "FailOnConflict" || "Append",
+ * // { // ListTestExecutionsResponse
+ * //   testExecutions: [ // TestExecutionSummaryList
+ * //     { // TestExecutionSummary
+ * //       testExecutionId: "STRING_VALUE",
  * //       creationDateTime: new Date("TIMESTAMP"),
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
- * //       importedResourceType: "Bot" || "BotLocale" || "CustomVocabulary" || "TestSet",
+ * //       testExecutionStatus: "Pending" || "Waiting" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //       testSetId: "STRING_VALUE",
+ * //       testSetName: "STRING_VALUE",
+ * //       target: { // TestExecutionTarget
+ * //         botAliasTarget: { // BotAliasTestExecutionTarget
+ * //           botId: "STRING_VALUE", // required
+ * //           botAliasId: "STRING_VALUE", // required
+ * //           localeId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       apiMode: "Streaming" || "NonStreaming",
+ * //       testExecutionModality: "Text" || "Audio",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
- * //   localeId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListImportsCommandInput - {@link ListImportsCommandInput}
- * @returns {@link ListImportsCommandOutput}
- * @see {@link ListImportsCommandInput} for command's `input` shape.
- * @see {@link ListImportsCommandOutput} for command's `response` shape.
+ * @param ListTestExecutionsCommandInput - {@link ListTestExecutionsCommandInput}
+ * @returns {@link ListTestExecutionsCommandOutput}
+ * @see {@link ListTestExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListTestExecutionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an unexpected condition. Try your request
  *          again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have reached a quota for your bot. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request rate is too high. Reduce the frequency of
@@ -109,9 +103,9 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class ListImportsCommand extends $Command<
-  ListImportsCommandInput,
-  ListImportsCommandOutput,
+export class ListTestExecutionsCommand extends $Command<
+  ListTestExecutionsCommandInput,
+  ListTestExecutionsCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -129,7 +123,7 @@ export class ListImportsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListImportsCommandInput) {
+  constructor(readonly input: ListTestExecutionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -142,15 +136,17 @@ export class ListImportsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListImportsCommandInput, ListImportsCommandOutput> {
+  ): Handler<ListTestExecutionsCommandInput, ListTestExecutionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListImportsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTestExecutionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "ListImportsCommand";
+    const commandName = "ListTestExecutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -169,15 +165,15 @@ export class ListImportsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListImportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListImportsCommand(input, context);
+  private serialize(input: ListTestExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListTestExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportsCommandOutput> {
-    return de_ListImportsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestExecutionsCommandOutput> {
+    return de_ListTestExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

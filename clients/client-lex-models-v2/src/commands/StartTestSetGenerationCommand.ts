@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { UpdateExportRequest, UpdateExportRequestFilterSensitiveLog, UpdateExportResponse } from "../models/models_1";
-import { de_UpdateExportCommand, se_UpdateExportCommand } from "../protocols/Aws_restJson1";
+import { StartTestSetGenerationRequest, StartTestSetGenerationResponse } from "../models/models_1";
+import { de_StartTestSetGenerationCommand, se_StartTestSetGenerationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,68 +24,87 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateExportCommand}.
+ * The input for {@link StartTestSetGenerationCommand}.
  */
-export interface UpdateExportCommandInput extends UpdateExportRequest {}
+export interface StartTestSetGenerationCommandInput extends StartTestSetGenerationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateExportCommand}.
+ * The output of {@link StartTestSetGenerationCommand}.
  */
-export interface UpdateExportCommandOutput extends UpdateExportResponse, __MetadataBearer {}
+export interface StartTestSetGenerationCommandOutput extends StartTestSetGenerationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the password used to protect an export zip archive.</p>
- *          <p>The password is not required. If you don't supply a password, Amazon Lex
- *          generates a zip file that is not protected by a password. This is the
- *          archive that is available at the pre-signed S3 URL provided by the
- *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation.</p>
+ * <p>The action to start the generation of test set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, UpdateExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, UpdateExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, StartTestSetGenerationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, StartTestSetGenerationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // UpdateExportRequest
- *   exportId: "STRING_VALUE", // required
- *   filePassword: "STRING_VALUE",
+ * const input = { // StartTestSetGenerationRequest
+ *   testSetName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   storageLocation: { // TestSetStorageLocation
+ *     s3BucketName: "STRING_VALUE", // required
+ *     s3Path: "STRING_VALUE", // required
+ *     kmsKeyArn: "STRING_VALUE",
+ *   },
+ *   generationDataSource: { // TestSetGenerationDataSource
+ *     conversationLogsDataSource: { // ConversationLogsDataSource
+ *       botId: "STRING_VALUE", // required
+ *       botAliasId: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *       filter: { // ConversationLogsDataSourceFilterBy
+ *         startTime: new Date("TIMESTAMP"), // required
+ *         endTime: new Date("TIMESTAMP"), // required
+ *         inputMode: "Speech" || "Text", // required
+ *       },
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   testSetTags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new UpdateExportCommand(input);
+ * const command = new StartTestSetGenerationCommand(input);
  * const response = await client.send(command);
- * // { // UpdateExportResponse
- * //   exportId: "STRING_VALUE",
- * //   resourceSpecification: { // ExportResourceSpecification
- * //     botExportSpecification: { // BotExportSpecification
+ * // { // StartTestSetGenerationResponse
+ * //   testSetGenerationId: "STRING_VALUE",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   testSetGenerationStatus: "Generating" || "Ready" || "Failed" || "Pending",
+ * //   testSetName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   storageLocation: { // TestSetStorageLocation
+ * //     s3BucketName: "STRING_VALUE", // required
+ * //     s3Path: "STRING_VALUE", // required
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   generationDataSource: { // TestSetGenerationDataSource
+ * //     conversationLogsDataSource: { // ConversationLogsDataSource
  * //       botId: "STRING_VALUE", // required
- * //       botVersion: "STRING_VALUE", // required
- * //     },
- * //     botLocaleExportSpecification: { // BotLocaleExportSpecification
- * //       botId: "STRING_VALUE", // required
- * //       botVersion: "STRING_VALUE", // required
+ * //       botAliasId: "STRING_VALUE", // required
  * //       localeId: "STRING_VALUE", // required
- * //     },
- * //     customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
- * //       botId: "STRING_VALUE", // required
- * //       botVersion: "STRING_VALUE", // required
- * //       localeId: "STRING_VALUE", // required
- * //     },
- * //     testSetExportSpecification: { // TestSetExportSpecification
- * //       testSetId: "STRING_VALUE", // required
+ * //       filter: { // ConversationLogsDataSourceFilterBy
+ * //         startTime: new Date("TIMESTAMP"), // required
+ * //         endTime: new Date("TIMESTAMP"), // required
+ * //         inputMode: "Speech" || "Text", // required
+ * //       },
  * //     },
  * //   },
- * //   fileFormat: "LexJson" || "TSV" || "CSV",
- * //   exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
- * //   creationDateTime: new Date("TIMESTAMP"),
- * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   roleArn: "STRING_VALUE",
+ * //   testSetTags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param UpdateExportCommandInput - {@link UpdateExportCommandInput}
- * @returns {@link UpdateExportCommandOutput}
- * @see {@link UpdateExportCommandInput} for command's `input` shape.
- * @see {@link UpdateExportCommandOutput} for command's `response` shape.
+ * @param StartTestSetGenerationCommandInput - {@link StartTestSetGenerationCommandInput}
+ * @returns {@link StartTestSetGenerationCommandOutput}
+ * @see {@link StartTestSetGenerationCommandInput} for command's `input` shape.
+ * @see {@link StartTestSetGenerationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -116,9 +135,9 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class UpdateExportCommand extends $Command<
-  UpdateExportCommandInput,
-  UpdateExportCommandOutput,
+export class StartTestSetGenerationCommand extends $Command<
+  StartTestSetGenerationCommandInput,
+  StartTestSetGenerationCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -136,7 +155,7 @@ export class UpdateExportCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateExportCommandInput) {
+  constructor(readonly input: StartTestSetGenerationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -149,20 +168,22 @@ export class UpdateExportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateExportCommandInput, UpdateExportCommandOutput> {
+  ): Handler<StartTestSetGenerationCommandInput, StartTestSetGenerationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateExportCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartTestSetGenerationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "UpdateExportCommand";
+    const commandName = "StartTestSetGenerationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExportRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
@@ -176,15 +197,15 @@ export class UpdateExportCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateExportCommand(input, context);
+  private serialize(input: StartTestSetGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartTestSetGenerationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExportCommandOutput> {
-    return de_UpdateExportCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTestSetGenerationCommandOutput> {
+    return de_StartTestSetGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

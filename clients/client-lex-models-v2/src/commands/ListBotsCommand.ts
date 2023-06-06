@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListBotsRequest, ListBotsResponse } from "../models/models_0";
+import { ListBotsRequest, ListBotsResponse } from "../models/models_1";
 import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJson1";
 
 /**

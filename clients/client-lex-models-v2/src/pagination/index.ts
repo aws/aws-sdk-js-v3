@@ -15,3 +15,7 @@ export * from "./ListIntentsPaginator";
 export * from "./ListRecommendedIntentsPaginator";
 export * from "./ListSlotTypesPaginator";
 export * from "./ListSlotsPaginator";
+export * from "./ListTestExecutionResultItemsPaginator";
+export * from "./ListTestExecutionsPaginator";
+export * from "./ListTestSetRecordsPaginator";
+export * from "./ListTestSetsPaginator";

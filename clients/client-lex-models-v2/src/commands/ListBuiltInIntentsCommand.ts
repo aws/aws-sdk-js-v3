@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListBuiltInIntentsRequest, ListBuiltInIntentsResponse } from "../models/models_0";
+import { ListBuiltInIntentsRequest, ListBuiltInIntentsResponse } from "../models/models_1";
 import { de_ListBuiltInIntentsCommand, se_ListBuiltInIntentsCommand } from "../protocols/Aws_restJson1";
 
 /**

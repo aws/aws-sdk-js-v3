@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListBuiltInSlotTypesRequest, ListBuiltInSlotTypesResponse } from "../models/models_0";
+import { ListBuiltInSlotTypesRequest, ListBuiltInSlotTypesResponse } from "../models/models_1";
 import { de_ListBuiltInSlotTypesCommand, se_ListBuiltInSlotTypesCommand } from "../protocols/Aws_restJson1";
 
 /**

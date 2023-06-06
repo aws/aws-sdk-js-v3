@@ -317,6 +317,14 @@ CreateSlotType
 </details>
 <details>
 <summary>
+CreateTestSetDiscrepancyReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/createtestsetdiscrepancyreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/createtestsetdiscrepancyreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/createtestsetdiscrepancyreportcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateUploadUrl
 </summary>
 
@@ -421,6 +429,14 @@ DeleteSlotType
 </details>
 <details>
 <summary>
+DeleteTestSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/deletetestsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/deletetestsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/deletetestsetcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteUtterances
 </summary>
 
@@ -521,6 +537,46 @@ DescribeSlotType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/describeslottypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describeslottypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describeslottypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTestExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/describetestexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTestSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/describetestsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestsetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTestSetDiscrepancyReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/describetestsetdiscrepancyreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestsetdiscrepancyreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestsetdiscrepancyreportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeTestSetGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/describetestsetgenerationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestsetgenerationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/describetestsetgenerationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetTestExecutionArtifactsUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/gettestexecutionartifactsurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/gettestexecutionartifactsurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/gettestexecutionartifactsurlcommandoutput.html)
 
 </details>
 <details>
@@ -653,6 +709,38 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListTestExecutionResultItems
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listtestexecutionresultitemscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestexecutionresultitemscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestexecutionresultitemscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTestExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listtestexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestexecutionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTestSetRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listtestsetrecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestsetrecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestsetrecordscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTestSets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listtestsetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestsetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestsetscommandoutput.html)
+
+</details>
+<details>
+<summary>
 SearchAssociatedTranscripts
 </summary>
 
@@ -673,6 +761,22 @@ StartImport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/startimportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/startimportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/startimportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartTestExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/starttestexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/starttestexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/starttestexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartTestSetGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/starttestsetgenerationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/starttestsetgenerationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/starttestsetgenerationcommandoutput.html)
 
 </details>
 <details>
@@ -769,5 +873,13 @@ UpdateSlotType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/updateslottypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/updateslottypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/updateslottypecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateTestSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/updatetestsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/updatetestsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/updatetestsetcommandoutput.html)
 
 </details>

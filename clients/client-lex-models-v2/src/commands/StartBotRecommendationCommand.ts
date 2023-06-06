@@ -19,7 +19,7 @@ import {
   StartBotRecommendationRequestFilterSensitiveLog,
   StartBotRecommendationResponse,
   StartBotRecommendationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StartBotRecommendationCommand, se_StartBotRecommendationCommand } from "../protocols/Aws_restJson1";
 
 /**

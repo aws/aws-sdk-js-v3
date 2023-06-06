@@ -4,6 +4,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -51,6 +52,10 @@ import {
 } from "../commands/CreateResourcePolicyStatementCommand";
 import { CreateSlotCommandInput, CreateSlotCommandOutput } from "../commands/CreateSlotCommand";
 import { CreateSlotTypeCommandInput, CreateSlotTypeCommandOutput } from "../commands/CreateSlotTypeCommand";
+import {
+  CreateTestSetDiscrepancyReportCommandInput,
+  CreateTestSetDiscrepancyReportCommandOutput,
+} from "../commands/CreateTestSetDiscrepancyReportCommand";
 import { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "../commands/CreateUploadUrlCommand";
 import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "../commands/DeleteBotAliasCommand";
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "../commands/DeleteBotCommand";
@@ -73,6 +78,7 @@ import {
 } from "../commands/DeleteResourcePolicyStatementCommand";
 import { DeleteSlotCommandInput, DeleteSlotCommandOutput } from "../commands/DeleteSlotCommand";
 import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "../commands/DeleteSlotTypeCommand";
+import { DeleteTestSetCommandInput, DeleteTestSetCommandOutput } from "../commands/DeleteTestSetCommand";
 import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "../commands/DeleteUtterancesCommand";
 import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "../commands/DescribeBotAliasCommand";
 import { DescribeBotCommandInput, DescribeBotCommandOutput } from "../commands/DescribeBotCommand";
@@ -95,6 +101,23 @@ import {
 } from "../commands/DescribeResourcePolicyCommand";
 import { DescribeSlotCommandInput, DescribeSlotCommandOutput } from "../commands/DescribeSlotCommand";
 import { DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput } from "../commands/DescribeSlotTypeCommand";
+import {
+  DescribeTestExecutionCommandInput,
+  DescribeTestExecutionCommandOutput,
+} from "../commands/DescribeTestExecutionCommand";
+import { DescribeTestSetCommandInput, DescribeTestSetCommandOutput } from "../commands/DescribeTestSetCommand";
+import {
+  DescribeTestSetDiscrepancyReportCommandInput,
+  DescribeTestSetDiscrepancyReportCommandOutput,
+} from "../commands/DescribeTestSetDiscrepancyReportCommand";
+import {
+  DescribeTestSetGenerationCommandInput,
+  DescribeTestSetGenerationCommandOutput,
+} from "../commands/DescribeTestSetGenerationCommand";
+import {
+  GetTestExecutionArtifactsUrlCommandInput,
+  GetTestExecutionArtifactsUrlCommandOutput,
+} from "../commands/GetTestExecutionArtifactsUrlCommand";
 import {
   ListAggregatedUtterancesCommandInput,
   ListAggregatedUtterancesCommandOutput,
@@ -130,6 +153,13 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListTestExecutionResultItemsCommandInput,
+  ListTestExecutionResultItemsCommandOutput,
+} from "../commands/ListTestExecutionResultItemsCommand";
+import { ListTestExecutionsCommandInput, ListTestExecutionsCommandOutput } from "../commands/ListTestExecutionsCommand";
+import { ListTestSetRecordsCommandInput, ListTestSetRecordsCommandOutput } from "../commands/ListTestSetRecordsCommand";
+import { ListTestSetsCommandInput, ListTestSetsCommandOutput } from "../commands/ListTestSetsCommand";
+import {
   SearchAssociatedTranscriptsCommandInput,
   SearchAssociatedTranscriptsCommandOutput,
 } from "../commands/SearchAssociatedTranscriptsCommand";
@@ -138,6 +168,11 @@ import {
   StartBotRecommendationCommandOutput,
 } from "../commands/StartBotRecommendationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
+import { StartTestExecutionCommandInput, StartTestExecutionCommandOutput } from "../commands/StartTestExecutionCommand";
+import {
+  StartTestSetGenerationCommandInput,
+  StartTestSetGenerationCommandOutput,
+} from "../commands/StartTestSetGenerationCommand";
 import {
   StopBotRecommendationCommandInput,
   StopBotRecommendationCommandOutput,
@@ -159,6 +194,7 @@ import {
 } from "../commands/UpdateResourcePolicyCommand";
 import { UpdateSlotCommandInput, UpdateSlotCommandOutput } from "../commands/UpdateSlotCommand";
 import { UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput } from "../commands/UpdateSlotTypeCommand";
+import { UpdateTestSetCommandInput, UpdateTestSetCommandOutput } from "../commands/UpdateTestSetCommand";
 import { LexModelsV2ServiceException as __BaseException } from "../models/LexModelsV2ServiceException";
 import {
   AdvancedRecognitionSetting,
@@ -174,6 +210,7 @@ import {
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
   BotAliasSummary,
+  BotAliasTestExecutionTarget,
   BotExportSpecification,
   BotFilter,
   BotImportSpecification,
@@ -198,6 +235,9 @@ import {
   CompositeSlotTypeSetting,
   Condition,
   ConflictException,
+  ConversationLevelTestResultsFilterBy,
+  ConversationLogsDataSource,
+  ConversationLogsDataSourceFilterBy,
   ConversationLogSettings,
   CustomPayload,
   CustomVocabularyEntryId,
@@ -257,13 +297,7 @@ import {
   ServiceQuotaExceededException,
   SlotDefaultValue,
   SlotDefaultValueSpecification,
-  SlotFilter,
   SlotPriority,
-  SlotSortBy,
-  SlotSummary,
-  SlotTypeFilter,
-  SlotTypeSortBy,
-  SlotTypeSummary,
   SlotTypeValue,
   SlotValue,
   SlotValueRegexFilter,
@@ -274,6 +308,14 @@ import {
   SubSlotSetting,
   SubSlotTypeComposition,
   SubSlotValueElicitationSetting,
+  TestExecutionTarget,
+  TestSetDiscrepancyReportBotAliasTarget,
+  TestSetDiscrepancyReportResourceTarget,
+  TestSetExportSpecification,
+  TestSetGenerationDataSource,
+  TestSetImportInputLocation,
+  TestSetImportResourceSpecification,
+  TestSetStorageLocation,
   TextInputSpecification,
   TextLogDestination,
   TextLogSetting,
@@ -293,14 +335,40 @@ import {
   DialogState,
   FulfillmentCodeHookSettings,
   InitialResponseSetting,
+  InputSessionStateSpecification,
   IntentClosingSetting,
   IntentConfirmationSetting,
   IntentOverride,
   PostDialogCodeHookInvocationSpecification,
   PostFulfillmentStatusSpecification,
+  RuntimeHintDetails,
+  RuntimeHints,
   SlotCaptureSetting,
+  SlotFilter,
+  SlotSortBy,
+  SlotSummary,
+  SlotTypeFilter,
+  SlotTypeSortBy,
+  SlotTypeSummary,
   SlotValueElicitationSetting,
   SlotValueOverride,
+  TestExecutionResultFilterBy,
+  TestExecutionResultItems,
+  TestExecutionSortBy,
+  TestExecutionSummary,
+  TestSetSortBy,
+  TestSetSummary,
+  TestSetTurnRecord,
+  TestSetTurnResult,
+  TurnSpecification,
+  UserTurnInputSpecification,
+  UserTurnIntentOutput,
+  UserTurnOutputSpecification,
+  UserTurnResult,
+  UserTurnSlotOutput,
+  UserTurnSpecification,
+  UtteranceLevelTestResultItem,
+  UtteranceLevelTestResults,
 } from "../models/models_1";
 
 /**
@@ -800,6 +868,37 @@ export const se_CreateSlotTypeCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateTestSetDiscrepancyReportCommand
+ */
+export const se_CreateTestSetDiscrepancyReportCommand = async (
+  input: CreateTestSetDiscrepancyReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}/testsetdiscrepancy";
+  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      target: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateUploadUrlCommand
  */
 export const se_CreateUploadUrlCommand = async (
@@ -1168,6 +1267,29 @@ export const se_DeleteSlotTypeCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteTestSetCommand
+ */
+export const se_DeleteTestSetCommand = async (
+  input: DeleteTestSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteUtterancesCommand
  */
 export const se_DeleteUtterancesCommand = async (
@@ -1499,6 +1621,155 @@ export const se_DescribeSlotTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeTestExecutionCommand
+ */
+export const se_DescribeTestExecutionCommand = async (
+  input: DescribeTestExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testexecutions/{testExecutionId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "testExecutionId",
+    () => input.testExecutionId!,
+    "{testExecutionId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeTestSetCommand
+ */
+export const se_DescribeTestSetCommand = async (
+  input: DescribeTestSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeTestSetDiscrepancyReportCommand
+ */
+export const se_DescribeTestSetDiscrepancyReportCommand = async (
+  input: DescribeTestSetDiscrepancyReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/testsetdiscrepancy/{testSetDiscrepancyReportId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "testSetDiscrepancyReportId",
+    () => input.testSetDiscrepancyReportId!,
+    "{testSetDiscrepancyReportId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeTestSetGenerationCommand
+ */
+export const se_DescribeTestSetGenerationCommand = async (
+  input: DescribeTestSetGenerationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsetgenerations/{testSetGenerationId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "testSetGenerationId",
+    () => input.testSetGenerationId!,
+    "{testSetGenerationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetTestExecutionArtifactsUrlCommand
+ */
+export const se_GetTestExecutionArtifactsUrlCommand = async (
+  input: GetTestExecutionArtifactsUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/testexecutions/{testExecutionId}/artifacturl";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "testExecutionId",
+    () => input.testExecutionId!,
+    "{testExecutionId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2066,6 +2337,140 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTestExecutionResultItemsCommand
+ */
+export const se_ListTestExecutionResultItemsCommand = async (
+  input: ListTestExecutionResultItemsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testexecutions/{testExecutionId}/results";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "testExecutionId",
+    () => input.testExecutionId!,
+    "{testExecutionId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resultFilterBy: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTestExecutionsCommand
+ */
+export const se_ListTestExecutionsCommand = async (
+  input: ListTestExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testexecutions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTestSetRecordsCommand
+ */
+export const se_ListTestSetRecordsCommand = async (
+  input: ListTestSetRecordsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}/records";
+  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTestSetsCommand
+ */
+export const se_ListTestSetsCommand = async (
+  input: ListTestSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1SearchAssociatedTranscriptsCommand
  */
 export const se_SearchAssociatedTranscriptsCommand = async (
@@ -2164,6 +2569,73 @@ export const se_StartImportCommand = async (
       importId: [],
       mergeStrategy: [],
       resourceSpecification: (_) => se_ImportResourceSpecification(_, context),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartTestExecutionCommand
+ */
+export const se_StartTestExecutionCommand = async (
+  input: StartTestExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}/testexecutions";
+  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      apiMode: [],
+      target: (_) => _json(_),
+      testExecutionModality: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartTestSetGenerationCommand
+ */
+export const se_StartTestSetGenerationCommand = async (
+  input: StartTestSetGenerationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsetgenerations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      generationDataSource: (_) => se_TestSetGenerationDataSource(_, context),
+      roleArn: [],
+      storageLocation: (_) => _json(_),
+      testSetName: [],
+      testSetTags: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -2604,6 +3076,37 @@ export const se_UpdateSlotTypeCommand = async (
       slotTypeName: [],
       slotTypeValues: (_) => _json(_),
       valueSelectionSetting: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateTestSetCommand
+ */
+export const se_UpdateTestSetCommand = async (
+  input: UpdateTestSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      testSetName: [],
     })
   );
   return new __HttpRequest({
@@ -3575,6 +4078,71 @@ const de_CreateSlotTypeCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateTestSetDiscrepancyReportCommand
+ */
+export const de_CreateTestSetDiscrepancyReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTestSetDiscrepancyReportCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CreateTestSetDiscrepancyReportCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    target: _json,
+    testSetDiscrepancyReportId: __expectString,
+    testSetId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTestSetDiscrepancyReportCommandError
+ */
+const de_CreateTestSetDiscrepancyReportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTestSetDiscrepancyReportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateUploadUrlCommand
  */
 export const de_CreateUploadUrlCommand = async (
@@ -4329,6 +4897,64 @@ const de_DeleteSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteTestSetCommand
+ */
+export const de_DeleteTestSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTestSetCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteTestSetCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTestSetCommandError
+ */
+const de_DeleteTestSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTestSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5199,6 +5825,338 @@ const de_DescribeSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSlotTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestExecutionCommand
+ */
+export const de_DescribeTestExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTestExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    apiMode: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    target: _json,
+    testExecutionId: __expectString,
+    testExecutionModality: __expectString,
+    testExecutionStatus: __expectString,
+    testSetId: __expectString,
+    testSetName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestExecutionCommandError
+ */
+const de_DescribeTestExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestSetCommand
+ */
+export const de_DescribeTestSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTestSetCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modality: __expectString,
+    numTurns: __expectInt32,
+    roleArn: __expectString,
+    status: __expectString,
+    storageLocation: _json,
+    testSetId: __expectString,
+    testSetName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestSetCommandError
+ */
+const de_DescribeTestSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestSetDiscrepancyReportCommand
+ */
+export const de_DescribeTestSetDiscrepancyReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestSetDiscrepancyReportCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTestSetDiscrepancyReportCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+    lastUpdatedDataTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    target: _json,
+    testSetDiscrepancyRawOutputUrl: __expectString,
+    testSetDiscrepancyReportId: __expectString,
+    testSetDiscrepancyReportStatus: __expectString,
+    testSetDiscrepancyTopErrors: _json,
+    testSetId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestSetDiscrepancyReportCommandError
+ */
+const de_DescribeTestSetDiscrepancyReportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestSetDiscrepancyReportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestSetGenerationCommand
+ */
+export const de_DescribeTestSetGenerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestSetGenerationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTestSetGenerationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    failureReasons: _json,
+    generationDataSource: (_) => de_TestSetGenerationDataSource(_, context),
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    storageLocation: _json,
+    testSetGenerationId: __expectString,
+    testSetGenerationStatus: __expectString,
+    testSetId: __expectString,
+    testSetName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTestSetGenerationCommandError
+ */
+const de_DescribeTestSetGenerationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTestSetGenerationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetTestExecutionArtifactsUrlCommand
+ */
+export const de_GetTestExecutionArtifactsUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTestExecutionArtifactsUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetTestExecutionArtifactsUrlCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    downloadArtifactsUrl: __expectString,
+    testExecutionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTestExecutionArtifactsUrlCommandError
+ */
+const de_GetTestExecutionArtifactsUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTestExecutionArtifactsUrlCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6182,6 +7140,240 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTestExecutionResultItemsCommand
+ */
+export const de_ListTestExecutionResultItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestExecutionResultItemsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTestExecutionResultItemsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    testExecutionResults: (_) => de_TestExecutionResultItems(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTestExecutionResultItemsCommandError
+ */
+const de_ListTestExecutionResultItemsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestExecutionResultItemsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTestExecutionsCommand
+ */
+export const de_ListTestExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTestExecutionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    testExecutions: (_) => de_TestExecutionSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTestExecutionsCommandError
+ */
+const de_ListTestExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTestSetRecordsCommand
+ */
+export const de_ListTestSetRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestSetRecordsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTestSetRecordsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    testSetRecords: (_) => de_TestSetTurnRecordList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTestSetRecordsCommandError
+ */
+const de_ListTestSetRecordsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestSetRecordsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTestSetsCommand
+ */
+export const de_ListTestSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestSetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTestSetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    testSets: (_) => de_TestSetSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTestSetsCommandError
+ */
+const de_ListTestSetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1SearchAssociatedTranscriptsCommand
  */
 export const de_SearchAssociatedTranscriptsCommand = async (
@@ -6350,6 +7542,143 @@ const de_StartImportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartTestExecutionCommand
+ */
+export const de_StartTestExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTestExecutionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_StartTestExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    apiMode: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    target: _json,
+    testExecutionId: __expectString,
+    testExecutionModality: __expectString,
+    testSetId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartTestExecutionCommandError
+ */
+const de_StartTestExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTestExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartTestSetGenerationCommand
+ */
+export const de_StartTestSetGenerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTestSetGenerationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_StartTestSetGenerationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    generationDataSource: (_) => de_TestSetGenerationDataSource(_, context),
+    roleArn: __expectString,
+    storageLocation: _json,
+    testSetGenerationId: __expectString,
+    testSetGenerationStatus: __expectString,
+    testSetName: __expectString,
+    testSetTags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartTestSetGenerationCommandError
+ */
+const de_StartTestSetGenerationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTestSetGenerationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7206,6 +8535,77 @@ const de_UpdateSlotTypeCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateTestSetCommand
+ */
+export const de_UpdateTestSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTestSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateTestSetCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modality: __expectString,
+    numTurns: __expectInt32,
+    roleArn: __expectString,
+    status: __expectString,
+    storageLocation: _json,
+    testSetId: __expectString,
+    testSetName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTestSetCommandError
+ */
+const de_UpdateTestSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTestSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
@@ -7371,6 +8771,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BotAliasLocaleSettingsMap omitted.
 
+// se_BotAliasTestExecutionTarget omitted.
+
 // se_BotExportSpecification omitted.
 
 // se_BotFilter omitted.
@@ -7465,6 +8867,34 @@ const se_ConditionalSpecification = (input: ConditionalSpecification, context: _
 // se_ConditionKeyValueMap omitted.
 
 // se_ConditionMap omitted.
+
+// se_ConversationLevelTestResultsFilterBy omitted.
+
+/**
+ * serializeAws_restJson1ConversationLogsDataSource
+ */
+const se_ConversationLogsDataSource = (input: ConversationLogsDataSource, context: __SerdeContext): any => {
+  return take(input, {
+    botAliasId: [],
+    botId: [],
+    filter: (_) => se_ConversationLogsDataSourceFilterBy(_, context),
+    localeId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ConversationLogsDataSourceFilterBy
+ */
+const se_ConversationLogsDataSourceFilterBy = (
+  input: ConversationLogsDataSourceFilterBy,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    endTime: (_) => Math.round(_.getTime() / 1000),
+    inputMode: [],
+    startTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
 
 // se_ConversationLogSettings omitted.
 
@@ -7585,6 +9015,7 @@ const se_ImportResourceSpecification = (input: ImportResourceSpecification, cont
     botImportSpecification: _json,
     botLocaleImportSpecification: (_) => se_BotLocaleImportSpecification(_, context),
     customVocabularyImportSpecification: _json,
+    testSetImportResourceSpecification: _json,
   });
 };
 
@@ -7917,6 +9348,35 @@ const se_SubSlotSpecificationMap = (input: Record<string, Specifications>, conte
 
 // se_TagMap omitted.
 
+// se_TestExecutionResultFilterBy omitted.
+
+// se_TestExecutionSortBy omitted.
+
+// se_TestExecutionTarget omitted.
+
+// se_TestSetDiscrepancyReportBotAliasTarget omitted.
+
+// se_TestSetDiscrepancyReportResourceTarget omitted.
+
+// se_TestSetExportSpecification omitted.
+
+/**
+ * serializeAws_restJson1TestSetGenerationDataSource
+ */
+const se_TestSetGenerationDataSource = (input: TestSetGenerationDataSource, context: __SerdeContext): any => {
+  return take(input, {
+    conversationLogsDataSource: (_) => se_ConversationLogsDataSource(_, context),
+  });
+};
+
+// se_TestSetImportInputLocation omitted.
+
+// se_TestSetImportResourceSpecification omitted.
+
+// se_TestSetSortBy omitted.
+
+// se_TestSetStorageLocation omitted.
+
 // se_TextInputSpecification omitted.
 
 // se_TextLogDestination omitted.
@@ -7951,7 +9411,15 @@ const se_TranscriptSourceSetting = (input: TranscriptSourceSetting, context: __S
 
 // se_WaitAndContinueSpecification omitted.
 
+// de_ActiveContext omitted.
+
+// de_ActiveContextList omitted.
+
 // de_AdvancedRecognitionSetting omitted.
+
+// de_AgentTurnResult omitted.
+
+// de_AgentTurnSpecification omitted.
 
 /**
  * deserializeAws_restJson1AggregatedUtterancesSummary
@@ -8048,6 +9516,8 @@ const de_BotAliasSummaryList = (output: any, context: __SerdeContext): BotAliasS
     });
   return retVal;
 };
+
+// de_BotAliasTestExecutionTarget omitted.
 
 // de_BotExportSpecification omitted.
 
@@ -8259,6 +9729,48 @@ const de_ConditionalSpecification = (output: any, context: __SerdeContext): Cond
   }) as any;
 };
 
+// de_ConversationLevelIntentClassificationResultItem omitted.
+
+// de_ConversationLevelIntentClassificationResults omitted.
+
+// de_ConversationLevelResultDetail omitted.
+
+// de_ConversationLevelSlotResolutionResultItem omitted.
+
+// de_ConversationLevelSlotResolutionResults omitted.
+
+// de_ConversationLevelTestResultItem omitted.
+
+// de_ConversationLevelTestResultItemList omitted.
+
+// de_ConversationLevelTestResults omitted.
+
+/**
+ * deserializeAws_restJson1ConversationLogsDataSource
+ */
+const de_ConversationLogsDataSource = (output: any, context: __SerdeContext): ConversationLogsDataSource => {
+  return take(output, {
+    botAliasId: __expectString,
+    botId: __expectString,
+    filter: (_: any) => de_ConversationLogsDataSourceFilterBy(_, context),
+    localeId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConversationLogsDataSourceFilterBy
+ */
+const de_ConversationLogsDataSourceFilterBy = (
+  output: any,
+  context: __SerdeContext
+): ConversationLogsDataSourceFilterBy => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    inputMode: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_ConversationLogSettings omitted.
 
 // de_CustomPayload omitted.
@@ -8325,6 +9837,8 @@ const de_DialogState = (output: any, context: __SerdeContext): DialogState => {
 // de_ElicitationCodeHookInvocationSetting omitted.
 
 // de_EncryptionSetting omitted.
+
+// de_ExecutionErrorDetails omitted.
 
 // de_ExportResourceSpecification omitted.
 
@@ -8394,6 +9908,7 @@ const de_ImportResourceSpecification = (output: any, context: __SerdeContext): I
     botImportSpecification: _json,
     botLocaleImportSpecification: (_: any) => de_BotLocaleImportSpecification(_, context),
     customVocabularyImportSpecification: _json,
+    testSetImportResourceSpecification: _json,
   }) as any;
 };
 
@@ -8442,6 +9957,25 @@ const de_InitialResponseSetting = (output: any, context: __SerdeContext): Initia
 // de_InputContextsList omitted.
 
 /**
+ * deserializeAws_restJson1InputSessionStateSpecification
+ */
+const de_InputSessionStateSpecification = (output: any, context: __SerdeContext): InputSessionStateSpecification => {
+  return take(output, {
+    activeContexts: _json,
+    runtimeHints: (_: any) => de_RuntimeHints(_, context),
+    sessionAttributes: _json,
+  }) as any;
+};
+
+// de_IntentClassificationTestResultItem omitted.
+
+// de_IntentClassificationTestResultItemCounts omitted.
+
+// de_IntentClassificationTestResultItemList omitted.
+
+// de_IntentClassificationTestResults omitted.
+
+/**
  * deserializeAws_restJson1IntentClosingSetting
  */
 const de_IntentClosingSetting = (output: any, context: __SerdeContext): IntentClosingSetting => {
@@ -8473,6 +10007,12 @@ const de_IntentConfirmationSetting = (output: any, context: __SerdeContext): Int
     promptSpecification: _json,
   }) as any;
 };
+
+// de_IntentLevelSlotResolutionTestResultItem omitted.
+
+// de_IntentLevelSlotResolutionTestResultItemList omitted.
+
+// de_IntentLevelSlotResolutionTestResults omitted.
 
 /**
  * deserializeAws_restJson1IntentOverride
@@ -8544,6 +10084,12 @@ const de_LexTranscriptFilter = (output: any, context: __SerdeContext): LexTransc
 
 // de_OutputContextsList omitted.
 
+// de_OverallTestResultItem omitted.
+
+// de_OverallTestResultItemList omitted.
+
+// de_OverallTestResults omitted.
+
 // de_ParentBotNetwork omitted.
 
 // de_ParentBotNetworks omitted.
@@ -8608,6 +10154,29 @@ const de_PostFulfillmentStatusSpecification = (
 
 // de_ResponseSpecification omitted.
 
+/**
+ * deserializeAws_restJson1RuntimeHintDetails
+ */
+const de_RuntimeHintDetails = (output: any, context: __SerdeContext): RuntimeHintDetails => {
+  return take(output, {
+    runtimeHintValues: _json,
+    subSlotHints: (_: any) => de_SlotHintsSlotMap(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RuntimeHints
+ */
+const de_RuntimeHints = (output: any, context: __SerdeContext): RuntimeHints => {
+  return take(output, {
+    slotHints: (_: any) => de_SlotHintsIntentMap(_, context),
+  }) as any;
+};
+
+// de_RuntimeHintValue omitted.
+
+// de_RuntimeHintValuesList omitted.
+
 // de_S3BucketLogDestination omitted.
 
 /**
@@ -8653,9 +10222,47 @@ const de_SlotCaptureSetting = (output: any, context: __SerdeContext): SlotCaptur
 
 // de_SlotDefaultValueSpecification omitted.
 
+/**
+ * deserializeAws_restJson1SlotHintsIntentMap
+ */
+const de_SlotHintsIntentMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, Record<string, RuntimeHintDetails>> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, Record<string, RuntimeHintDetails>>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = de_SlotHintsSlotMap(value, context);
+      return acc;
+    },
+    {}
+  );
+};
+
+/**
+ * deserializeAws_restJson1SlotHintsSlotMap
+ */
+const de_SlotHintsSlotMap = (output: any, context: __SerdeContext): Record<string, RuntimeHintDetails> => {
+  return Object.entries(output).reduce((acc: Record<string, RuntimeHintDetails>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = de_RuntimeHintDetails(value, context);
+    return acc;
+  }, {});
+};
+
 // de_SlotPrioritiesList omitted.
 
 // de_SlotPriority omitted.
+
+// de_SlotResolutionTestResultItem omitted.
+
+// de_SlotResolutionTestResultItemCounts omitted.
+
+// de_SlotResolutionTestResultItems omitted.
 
 /**
  * deserializeAws_restJson1SlotSummary
@@ -8821,6 +10428,147 @@ const de_SubSlotSpecificationMap = (output: any, context: __SerdeContext): Recor
 
 // de_TagMap omitted.
 
+/**
+ * deserializeAws_restJson1TestExecutionResultItems
+ */
+const de_TestExecutionResultItems = (output: any, context: __SerdeContext): TestExecutionResultItems => {
+  return take(output, {
+    conversationLevelTestResults: _json,
+    intentClassificationTestResults: _json,
+    intentLevelSlotResolutionTestResults: _json,
+    overallTestResults: _json,
+    utteranceLevelTestResults: (_: any) => de_UtteranceLevelTestResults(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TestExecutionSummary
+ */
+const de_TestExecutionSummary = (output: any, context: __SerdeContext): TestExecutionSummary => {
+  return take(output, {
+    apiMode: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    target: _json,
+    testExecutionId: __expectString,
+    testExecutionModality: __expectString,
+    testExecutionStatus: __expectString,
+    testSetId: __expectString,
+    testSetName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TestExecutionSummaryList
+ */
+const de_TestExecutionSummaryList = (output: any, context: __SerdeContext): TestExecutionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TestExecutionSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_TestExecutionTarget omitted.
+
+// de_TestResultMatchStatusCountMap omitted.
+
+// de_TestSetDiscrepancyErrors omitted.
+
+// de_TestSetDiscrepancyReportBotAliasTarget omitted.
+
+// de_TestSetDiscrepancyReportResourceTarget omitted.
+
+// de_TestSetExportSpecification omitted.
+
+/**
+ * deserializeAws_restJson1TestSetGenerationDataSource
+ */
+const de_TestSetGenerationDataSource = (output: any, context: __SerdeContext): TestSetGenerationDataSource => {
+  return take(output, {
+    conversationLogsDataSource: (_: any) => de_ConversationLogsDataSource(_, context),
+  }) as any;
+};
+
+// de_TestSetImportInputLocation omitted.
+
+// de_TestSetImportResourceSpecification omitted.
+
+// de_TestSetIntentDiscrepancyItem omitted.
+
+// de_TestSetIntentDiscrepancyList omitted.
+
+// de_TestSetSlotDiscrepancyItem omitted.
+
+// de_TestSetSlotDiscrepancyList omitted.
+
+// de_TestSetStorageLocation omitted.
+
+/**
+ * deserializeAws_restJson1TestSetSummary
+ */
+const de_TestSetSummary = (output: any, context: __SerdeContext): TestSetSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modality: __expectString,
+    numTurns: __expectInt32,
+    roleArn: __expectString,
+    status: __expectString,
+    storageLocation: _json,
+    testSetId: __expectString,
+    testSetName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TestSetSummaryList
+ */
+const de_TestSetSummaryList = (output: any, context: __SerdeContext): TestSetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TestSetSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1TestSetTurnRecord
+ */
+const de_TestSetTurnRecord = (output: any, context: __SerdeContext): TestSetTurnRecord => {
+  return take(output, {
+    conversationId: __expectString,
+    recordNumber: __expectLong,
+    turnNumber: __expectInt32,
+    turnSpecification: (_: any) => de_TurnSpecification(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TestSetTurnRecordList
+ */
+const de_TestSetTurnRecordList = (output: any, context: __SerdeContext): TestSetTurnRecord[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TestSetTurnRecord(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1TestSetTurnResult
+ */
+const de_TestSetTurnResult = (output: any, context: __SerdeContext): TestSetTurnResult => {
+  return take(output, {
+    agent: _json,
+    user: (_: any) => de_UserTurnResult(_, context),
+  }) as any;
+};
+
 // de_TextInputSpecification omitted.
 
 // de_TextLogDestination omitted.
@@ -8847,7 +10595,148 @@ const de_TranscriptSourceSetting = (output: any, context: __SerdeContext): Trans
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1TurnSpecification
+ */
+const de_TurnSpecification = (output: any, context: __SerdeContext): TurnSpecification => {
+  return take(output, {
+    agentTurn: _json,
+    userTurn: (_: any) => de_UserTurnSpecification(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserTurnInputSpecification
+ */
+const de_UserTurnInputSpecification = (output: any, context: __SerdeContext): UserTurnInputSpecification => {
+  return take(output, {
+    requestAttributes: _json,
+    sessionState: (_: any) => de_InputSessionStateSpecification(_, context),
+    utteranceInput: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserTurnIntentOutput
+ */
+const de_UserTurnIntentOutput = (output: any, context: __SerdeContext): UserTurnIntentOutput => {
+  return take(output, {
+    name: __expectString,
+    slots: (_: any) => de_UserTurnSlotOutputMap(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserTurnOutputSpecification
+ */
+const de_UserTurnOutputSpecification = (output: any, context: __SerdeContext): UserTurnOutputSpecification => {
+  return take(output, {
+    activeContexts: _json,
+    intent: (_: any) => de_UserTurnIntentOutput(_, context),
+    transcript: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserTurnResult
+ */
+const de_UserTurnResult = (output: any, context: __SerdeContext): UserTurnResult => {
+  return take(output, {
+    actualOutput: (_: any) => de_UserTurnOutputSpecification(_, context),
+    conversationLevelResult: _json,
+    endToEndResult: __expectString,
+    errorDetails: _json,
+    expectedOutput: (_: any) => de_UserTurnOutputSpecification(_, context),
+    input: (_: any) => de_UserTurnInputSpecification(_, context),
+    intentMatchResult: __expectString,
+    slotMatchResult: __expectString,
+    speechTranscriptionResult: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserTurnSlotOutput
+ */
+const de_UserTurnSlotOutput = (output: any, context: __SerdeContext): UserTurnSlotOutput => {
+  return take(output, {
+    subSlots: (_: any) => de_UserTurnSlotOutputMap(_, context),
+    value: __expectString,
+    values: (_: any) => de_UserTurnSlotOutputList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserTurnSlotOutputList
+ */
+const de_UserTurnSlotOutputList = (output: any, context: __SerdeContext): UserTurnSlotOutput[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UserTurnSlotOutput(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1UserTurnSlotOutputMap
+ */
+const de_UserTurnSlotOutputMap = (output: any, context: __SerdeContext): Record<string, UserTurnSlotOutput> => {
+  return Object.entries(output).reduce((acc: Record<string, UserTurnSlotOutput>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = de_UserTurnSlotOutput(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * deserializeAws_restJson1UserTurnSpecification
+ */
+const de_UserTurnSpecification = (output: any, context: __SerdeContext): UserTurnSpecification => {
+  return take(output, {
+    expected: (_: any) => de_UserTurnOutputSpecification(_, context),
+    input: (_: any) => de_UserTurnInputSpecification(_, context),
+  }) as any;
+};
+
 // de_UtteranceAggregationDuration omitted.
+
+// de_UtteranceAudioInputSpecification omitted.
+
+// de_UtteranceInputSpecification omitted.
+
+/**
+ * deserializeAws_restJson1UtteranceLevelTestResultItem
+ */
+const de_UtteranceLevelTestResultItem = (output: any, context: __SerdeContext): UtteranceLevelTestResultItem => {
+  return take(output, {
+    conversationId: __expectString,
+    recordNumber: __expectLong,
+    turnResult: (_: any) => de_TestSetTurnResult(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UtteranceLevelTestResultItemList
+ */
+const de_UtteranceLevelTestResultItemList = (output: any, context: __SerdeContext): UtteranceLevelTestResultItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UtteranceLevelTestResultItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1UtteranceLevelTestResults
+ */
+const de_UtteranceLevelTestResults = (output: any, context: __SerdeContext): UtteranceLevelTestResults => {
+  return take(output, {
+    items: (_: any) => de_UtteranceLevelTestResultItemList(_, context),
+  }) as any;
+};
 
 // de_VoiceSettings omitted.
 

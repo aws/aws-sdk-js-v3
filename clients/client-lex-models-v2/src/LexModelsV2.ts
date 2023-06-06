@@ -65,6 +65,11 @@ import {
   CreateSlotTypeCommandOutput,
 } from "./commands/CreateSlotTypeCommand";
 import {
+  CreateTestSetDiscrepancyReportCommand,
+  CreateTestSetDiscrepancyReportCommandInput,
+  CreateTestSetDiscrepancyReportCommandOutput,
+} from "./commands/CreateTestSetDiscrepancyReportCommand";
+import {
   CreateUploadUrlCommand,
   CreateUploadUrlCommandInput,
   CreateUploadUrlCommandOutput,
@@ -121,6 +126,11 @@ import {
   DeleteSlotTypeCommandInput,
   DeleteSlotTypeCommandOutput,
 } from "./commands/DeleteSlotTypeCommand";
+import {
+  DeleteTestSetCommand,
+  DeleteTestSetCommandInput,
+  DeleteTestSetCommandOutput,
+} from "./commands/DeleteTestSetCommand";
 import {
   DeleteUtterancesCommand,
   DeleteUtterancesCommandInput,
@@ -183,6 +193,31 @@ import {
   DescribeSlotTypeCommandOutput,
 } from "./commands/DescribeSlotTypeCommand";
 import {
+  DescribeTestExecutionCommand,
+  DescribeTestExecutionCommandInput,
+  DescribeTestExecutionCommandOutput,
+} from "./commands/DescribeTestExecutionCommand";
+import {
+  DescribeTestSetCommand,
+  DescribeTestSetCommandInput,
+  DescribeTestSetCommandOutput,
+} from "./commands/DescribeTestSetCommand";
+import {
+  DescribeTestSetDiscrepancyReportCommand,
+  DescribeTestSetDiscrepancyReportCommandInput,
+  DescribeTestSetDiscrepancyReportCommandOutput,
+} from "./commands/DescribeTestSetDiscrepancyReportCommand";
+import {
+  DescribeTestSetGenerationCommand,
+  DescribeTestSetGenerationCommandInput,
+  DescribeTestSetGenerationCommandOutput,
+} from "./commands/DescribeTestSetGenerationCommand";
+import {
+  GetTestExecutionArtifactsUrlCommand,
+  GetTestExecutionArtifactsUrlCommandInput,
+  GetTestExecutionArtifactsUrlCommandOutput,
+} from "./commands/GetTestExecutionArtifactsUrlCommand";
+import {
   ListAggregatedUtterancesCommand,
   ListAggregatedUtterancesCommandInput,
   ListAggregatedUtterancesCommandOutput,
@@ -243,6 +278,26 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTestExecutionResultItemsCommand,
+  ListTestExecutionResultItemsCommandInput,
+  ListTestExecutionResultItemsCommandOutput,
+} from "./commands/ListTestExecutionResultItemsCommand";
+import {
+  ListTestExecutionsCommand,
+  ListTestExecutionsCommandInput,
+  ListTestExecutionsCommandOutput,
+} from "./commands/ListTestExecutionsCommand";
+import {
+  ListTestSetRecordsCommand,
+  ListTestSetRecordsCommandInput,
+  ListTestSetRecordsCommandOutput,
+} from "./commands/ListTestSetRecordsCommand";
+import {
+  ListTestSetsCommand,
+  ListTestSetsCommandInput,
+  ListTestSetsCommandOutput,
+} from "./commands/ListTestSetsCommand";
+import {
   SearchAssociatedTranscriptsCommand,
   SearchAssociatedTranscriptsCommandInput,
   SearchAssociatedTranscriptsCommandOutput,
@@ -253,6 +308,16 @@ import {
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
 import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import {
+  StartTestExecutionCommand,
+  StartTestExecutionCommandInput,
+  StartTestExecutionCommandOutput,
+} from "./commands/StartTestExecutionCommand";
+import {
+  StartTestSetGenerationCommand,
+  StartTestSetGenerationCommandInput,
+  StartTestSetGenerationCommandOutput,
+} from "./commands/StartTestSetGenerationCommand";
 import {
   StopBotRecommendationCommand,
   StopBotRecommendationCommandInput,
@@ -301,6 +366,11 @@ import {
   UpdateSlotTypeCommandInput,
   UpdateSlotTypeCommandOutput,
 } from "./commands/UpdateSlotTypeCommand";
+import {
+  UpdateTestSetCommand,
+  UpdateTestSetCommandInput,
+  UpdateTestSetCommandOutput,
+} from "./commands/UpdateTestSetCommand";
 import { LexModelsV2Client, LexModelsV2ClientConfig } from "./LexModelsV2Client";
 
 const commands = {
@@ -318,6 +388,7 @@ const commands = {
   CreateResourcePolicyStatementCommand,
   CreateSlotCommand,
   CreateSlotTypeCommand,
+  CreateTestSetDiscrepancyReportCommand,
   CreateUploadUrlCommand,
   DeleteBotCommand,
   DeleteBotAliasCommand,
@@ -331,6 +402,7 @@ const commands = {
   DeleteResourcePolicyStatementCommand,
   DeleteSlotCommand,
   DeleteSlotTypeCommand,
+  DeleteTestSetCommand,
   DeleteUtterancesCommand,
   DescribeBotCommand,
   DescribeBotAliasCommand,
@@ -344,6 +416,11 @@ const commands = {
   DescribeResourcePolicyCommand,
   DescribeSlotCommand,
   DescribeSlotTypeCommand,
+  DescribeTestExecutionCommand,
+  DescribeTestSetCommand,
+  DescribeTestSetDiscrepancyReportCommand,
+  DescribeTestSetGenerationCommand,
+  GetTestExecutionArtifactsUrlCommand,
   ListAggregatedUtterancesCommand,
   ListBotAliasesCommand,
   ListBotLocalesCommand,
@@ -360,9 +437,15 @@ const commands = {
   ListSlotsCommand,
   ListSlotTypesCommand,
   ListTagsForResourceCommand,
+  ListTestExecutionResultItemsCommand,
+  ListTestExecutionsCommand,
+  ListTestSetRecordsCommand,
+  ListTestSetsCommand,
   SearchAssociatedTranscriptsCommand,
   StartBotRecommendationCommand,
   StartImportCommand,
+  StartTestExecutionCommand,
+  StartTestSetGenerationCommand,
   StopBotRecommendationCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -375,6 +458,7 @@ const commands = {
   UpdateResourcePolicyCommand,
   UpdateSlotCommand,
   UpdateSlotTypeCommand,
+  UpdateTestSetCommand,
 };
 
 export interface LexModelsV2 {
@@ -581,6 +665,23 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link CreateTestSetDiscrepancyReportCommand}
+   */
+  createTestSetDiscrepancyReport(
+    args: CreateTestSetDiscrepancyReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTestSetDiscrepancyReportCommandOutput>;
+  createTestSetDiscrepancyReport(
+    args: CreateTestSetDiscrepancyReportCommandInput,
+    cb: (err: any, data?: CreateTestSetDiscrepancyReportCommandOutput) => void
+  ): void;
+  createTestSetDiscrepancyReport(
+    args: CreateTestSetDiscrepancyReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTestSetDiscrepancyReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateUploadUrlCommand}
    */
   createUploadUrl(
@@ -757,6 +858,17 @@ export interface LexModelsV2 {
     args: DeleteSlotTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSlotTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTestSetCommand}
+   */
+  deleteTestSet(args: DeleteTestSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTestSetCommandOutput>;
+  deleteTestSet(args: DeleteTestSetCommandInput, cb: (err: any, data?: DeleteTestSetCommandOutput) => void): void;
+  deleteTestSet(
+    args: DeleteTestSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTestSetCommandOutput) => void
   ): void;
 
   /**
@@ -957,6 +1069,88 @@ export interface LexModelsV2 {
     args: DescribeSlotTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSlotTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTestExecutionCommand}
+   */
+  describeTestExecution(
+    args: DescribeTestExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTestExecutionCommandOutput>;
+  describeTestExecution(
+    args: DescribeTestExecutionCommandInput,
+    cb: (err: any, data?: DescribeTestExecutionCommandOutput) => void
+  ): void;
+  describeTestExecution(
+    args: DescribeTestExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTestExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTestSetCommand}
+   */
+  describeTestSet(
+    args: DescribeTestSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTestSetCommandOutput>;
+  describeTestSet(args: DescribeTestSetCommandInput, cb: (err: any, data?: DescribeTestSetCommandOutput) => void): void;
+  describeTestSet(
+    args: DescribeTestSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTestSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTestSetDiscrepancyReportCommand}
+   */
+  describeTestSetDiscrepancyReport(
+    args: DescribeTestSetDiscrepancyReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTestSetDiscrepancyReportCommandOutput>;
+  describeTestSetDiscrepancyReport(
+    args: DescribeTestSetDiscrepancyReportCommandInput,
+    cb: (err: any, data?: DescribeTestSetDiscrepancyReportCommandOutput) => void
+  ): void;
+  describeTestSetDiscrepancyReport(
+    args: DescribeTestSetDiscrepancyReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTestSetDiscrepancyReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTestSetGenerationCommand}
+   */
+  describeTestSetGeneration(
+    args: DescribeTestSetGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTestSetGenerationCommandOutput>;
+  describeTestSetGeneration(
+    args: DescribeTestSetGenerationCommandInput,
+    cb: (err: any, data?: DescribeTestSetGenerationCommandOutput) => void
+  ): void;
+  describeTestSetGeneration(
+    args: DescribeTestSetGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTestSetGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTestExecutionArtifactsUrlCommand}
+   */
+  getTestExecutionArtifactsUrl(
+    args: GetTestExecutionArtifactsUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestExecutionArtifactsUrlCommandOutput>;
+  getTestExecutionArtifactsUrl(
+    args: GetTestExecutionArtifactsUrlCommandInput,
+    cb: (err: any, data?: GetTestExecutionArtifactsUrlCommandOutput) => void
+  ): void;
+  getTestExecutionArtifactsUrl(
+    args: GetTestExecutionArtifactsUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestExecutionArtifactsUrlCommandOutput) => void
   ): void;
 
   /**
@@ -1187,6 +1381,68 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link ListTestExecutionResultItemsCommand}
+   */
+  listTestExecutionResultItems(
+    args: ListTestExecutionResultItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestExecutionResultItemsCommandOutput>;
+  listTestExecutionResultItems(
+    args: ListTestExecutionResultItemsCommandInput,
+    cb: (err: any, data?: ListTestExecutionResultItemsCommandOutput) => void
+  ): void;
+  listTestExecutionResultItems(
+    args: ListTestExecutionResultItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestExecutionResultItemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestExecutionsCommand}
+   */
+  listTestExecutions(
+    args: ListTestExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestExecutionsCommandOutput>;
+  listTestExecutions(
+    args: ListTestExecutionsCommandInput,
+    cb: (err: any, data?: ListTestExecutionsCommandOutput) => void
+  ): void;
+  listTestExecutions(
+    args: ListTestExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestSetRecordsCommand}
+   */
+  listTestSetRecords(
+    args: ListTestSetRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestSetRecordsCommandOutput>;
+  listTestSetRecords(
+    args: ListTestSetRecordsCommandInput,
+    cb: (err: any, data?: ListTestSetRecordsCommandOutput) => void
+  ): void;
+  listTestSetRecords(
+    args: ListTestSetRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestSetRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestSetsCommand}
+   */
+  listTestSets(args: ListTestSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListTestSetsCommandOutput>;
+  listTestSets(args: ListTestSetsCommandInput, cb: (err: any, data?: ListTestSetsCommandOutput) => void): void;
+  listTestSets(
+    args: ListTestSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestSetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchAssociatedTranscriptsCommand}
    */
   searchAssociatedTranscripts(
@@ -1229,6 +1485,40 @@ export interface LexModelsV2 {
     args: StartImportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTestExecutionCommand}
+   */
+  startTestExecution(
+    args: StartTestExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTestExecutionCommandOutput>;
+  startTestExecution(
+    args: StartTestExecutionCommandInput,
+    cb: (err: any, data?: StartTestExecutionCommandOutput) => void
+  ): void;
+  startTestExecution(
+    args: StartTestExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTestExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTestSetGenerationCommand}
+   */
+  startTestSetGeneration(
+    args: StartTestSetGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTestSetGenerationCommandOutput>;
+  startTestSetGeneration(
+    args: StartTestSetGenerationCommandInput,
+    cb: (err: any, data?: StartTestSetGenerationCommandOutput) => void
+  ): void;
+  startTestSetGeneration(
+    args: StartTestSetGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTestSetGenerationCommandOutput) => void
   ): void;
 
   /**
@@ -1388,6 +1678,17 @@ export interface LexModelsV2 {
     args: UpdateSlotTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSlotTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTestSetCommand}
+   */
+  updateTestSet(args: UpdateTestSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTestSetCommandOutput>;
+  updateTestSet(args: UpdateTestSetCommandInput, cb: (err: any, data?: UpdateTestSetCommandOutput) => void): void;
+  updateTestSet(
+    args: UpdateTestSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTestSetCommandOutput) => void
   ): void;
 }
 

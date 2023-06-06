@@ -80,6 +80,24 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * //       botVersion: "STRING_VALUE", // required
  * //       localeId: "STRING_VALUE", // required
  * //     },
+ * //     testSetImportResourceSpecification: { // TestSetImportResourceSpecification
+ * //       testSetName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE", // required
+ * //       storageLocation: { // TestSetStorageLocation
+ * //         s3BucketName: "STRING_VALUE", // required
+ * //         s3Path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //       importInputLocation: { // TestSetImportInputLocation
+ * //         s3BucketName: "STRING_VALUE", // required
+ * //         s3Path: "STRING_VALUE", // required
+ * //       },
+ * //       modality: "Text" || "Audio", // required
+ * //       testSetTags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   importedResourceId: "STRING_VALUE",
  * //   importedResourceName: "STRING_VALUE",

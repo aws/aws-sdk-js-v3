@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { StartImportRequest, StartImportRequestFilterSensitiveLog, StartImportResponse } from "../models/models_0";
+import { StartImportRequest, StartImportRequestFilterSensitiveLog, StartImportResponse } from "../models/models_1";
 import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -76,6 +76,24 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *       botVersion: "STRING_VALUE", // required
  *       localeId: "STRING_VALUE", // required
  *     },
+ *     testSetImportResourceSpecification: { // TestSetImportResourceSpecification
+ *       testSetName: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE", // required
+ *       storageLocation: { // TestSetStorageLocation
+ *         s3BucketName: "STRING_VALUE", // required
+ *         s3Path: "STRING_VALUE", // required
+ *         kmsKeyArn: "STRING_VALUE",
+ *       },
+ *       importInputLocation: { // TestSetImportInputLocation
+ *         s3BucketName: "STRING_VALUE", // required
+ *         s3Path: "STRING_VALUE", // required
+ *       },
+ *       modality: "Text" || "Audio", // required
+ *       testSetTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   mergeStrategy: "Overwrite" || "FailOnConflict" || "Append", // required
  *   filePassword: "STRING_VALUE",
@@ -113,6 +131,24 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //       botId: "STRING_VALUE", // required
  * //       botVersion: "STRING_VALUE", // required
  * //       localeId: "STRING_VALUE", // required
+ * //     },
+ * //     testSetImportResourceSpecification: { // TestSetImportResourceSpecification
+ * //       testSetName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE", // required
+ * //       storageLocation: { // TestSetStorageLocation
+ * //         s3BucketName: "STRING_VALUE", // required
+ * //         s3Path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //       importInputLocation: { // TestSetImportInputLocation
+ * //         s3BucketName: "STRING_VALUE", // required
+ * //         s3Path: "STRING_VALUE", // required
+ * //       },
+ * //       modality: "Text" || "Audio", // required
+ * //       testSetTags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * //   mergeStrategy: "Overwrite" || "FailOnConflict" || "Append",
