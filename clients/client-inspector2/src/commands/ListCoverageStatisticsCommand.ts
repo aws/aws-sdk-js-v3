@@ -94,6 +94,12 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *       },
  *     ],
  *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
+ *     lastScannedAt: [ // CoverageDateFilterList
+ *       { // CoverageDateFilter
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
  *   },
  *   groupBy: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

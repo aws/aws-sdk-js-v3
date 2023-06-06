@@ -96,6 +96,12 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *       },
  *     ],
  *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
+ *     lastScannedAt: [ // CoverageDateFilterList
+ *       { // CoverageDateFilter
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
  *   },
  * };
  * const command = new ListCoverageCommand(input);
@@ -140,6 +146,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //           runtime: "STRING_VALUE",
  * //         },
  * //       },
+ * //       lastScannedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * // };

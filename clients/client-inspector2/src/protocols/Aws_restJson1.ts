@@ -144,9 +144,11 @@ import {
   BadRequestException,
   CisaData,
   ConflictException,
+  CoverageDateFilter,
   CoverageFilterCriteria,
   CoverageMapFilter,
   CoverageStringFilter,
+  CoveredResource,
   Cvss2,
   Cvss3,
   CvssScore,
@@ -825,7 +827,7 @@ export const se_ListCoverageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      filterCriteria: (_) => _json(_),
+      filterCriteria: (_) => se_CoverageFilterCriteria(_, context),
       maxResults: [],
       nextToken: [],
     })
@@ -857,7 +859,7 @@ export const se_ListCoverageStatisticsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      filterCriteria: (_) => _json(_),
+      filterCriteria: (_) => se_CoverageFilterCriteria(_, context),
       groupBy: [],
       nextToken: [],
     })
@@ -2579,7 +2581,7 @@ export const de_ListCoverageCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    coveredResources: _json,
+    coveredResources: (_) => de_CoveredResources(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3684,7 +3686,47 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AwsEcrContainerAggregation omitted.
 
-// se_CoverageFilterCriteria omitted.
+/**
+ * serializeAws_restJson1CoverageDateFilter
+ */
+const se_CoverageDateFilter = (input: CoverageDateFilter, context: __SerdeContext): any => {
+  return take(input, {
+    endInclusive: (_) => Math.round(_.getTime() / 1000),
+    startInclusive: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+/**
+ * serializeAws_restJson1CoverageDateFilterList
+ */
+const se_CoverageDateFilterList = (input: CoverageDateFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CoverageDateFilter(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1CoverageFilterCriteria
+ */
+const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    accountId: _json,
+    ec2InstanceTags: _json,
+    ecrImageTags: _json,
+    ecrRepositoryName: _json,
+    lambdaFunctionName: _json,
+    lambdaFunctionRuntime: _json,
+    lambdaFunctionTags: _json,
+    lastScannedAt: (_) => se_CoverageDateFilterList(_, context),
+    resourceId: _json,
+    resourceType: _json,
+    scanStatusCode: _json,
+    scanStatusReason: _json,
+    scanType: _json,
+  });
+};
 
 // se_CoverageMapFilter omitted.
 
@@ -4035,9 +4077,32 @@ const de_CisaData = (output: any, context: __SerdeContext): CisaData => {
 
 // de_CountsList omitted.
 
-// de_CoveredResource omitted.
+/**
+ * deserializeAws_restJson1CoveredResource
+ */
+const de_CoveredResource = (output: any, context: __SerdeContext): CoveredResource => {
+  return take(output, {
+    accountId: __expectString,
+    lastScannedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resourceId: __expectString,
+    resourceMetadata: _json,
+    resourceType: __expectString,
+    scanStatus: _json,
+    scanType: __expectString,
+  }) as any;
+};
 
-// de_CoveredResources omitted.
+/**
+ * deserializeAws_restJson1CoveredResources
+ */
+const de_CoveredResources = (output: any, context: __SerdeContext): CoveredResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CoveredResource(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Cvss2

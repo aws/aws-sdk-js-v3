@@ -2581,6 +2581,22 @@ export interface Counts {
 
 /**
  * @public
+ * <p>Contains details of a coverage date filter.</p>
+ */
+export interface CoverageDateFilter {
+  /**
+   * <p>A timestamp representing the start of the time period to filter results by.</p>
+   */
+  startInclusive?: Date;
+
+  /**
+   * <p>A timestamp representing the end of the time period to filter results by.</p>
+   */
+  endInclusive?: Date;
+}
+
+/**
+ * @public
  * @enum
  */
 export const CoverageStringComparison = {
@@ -2669,7 +2685,7 @@ export interface CoverageFilterCriteria {
   resourceId?: CoverageStringFilter[];
 
   /**
-   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code> or <code>AWS_ECR_REPOSITORY</code>.</p>
+   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code> or <code>AWS_ECR_REPOSITORY</code>.</p>
    */
   resourceType?: CoverageStringFilter[];
 
@@ -2707,6 +2723,11 @@ export interface CoverageFilterCriteria {
    * <p>Returns coverage statistics for AWS Lambda functions filtered by runtime.</p>
    */
   lambdaFunctionRuntime?: CoverageStringFilter[];
+
+  /**
+   * <p>Filters Amazon Web Services resources based on whether Amazon Inspector has checked them for vulnerabilities within the specified time range.</p>
+   */
+  lastScannedAt?: CoverageDateFilter[];
 }
 
 /**
@@ -2969,6 +2990,11 @@ export interface CoveredResource {
    * <p>An object that contains details about the metadata.</p>
    */
   resourceMetadata?: ResourceScanMetadata;
+
+  /**
+   * <p>The date and time the resource was last checked for vulnerabilities.</p>
+   */
+  lastScannedAt?: Date;
 }
 
 /**
