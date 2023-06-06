@@ -2,17 +2,20 @@ import { HeaderBag, HttpMessage, HttpResponse as IHttpResponse } from "@aws-sdk/
 
 type HttpResponseOptions = Partial<HttpMessage> & {
   statusCode: number;
+  reason?: string;
 };
 
 export interface HttpResponse extends IHttpResponse {}
 
 export class HttpResponse {
   public statusCode: number;
+  public reason?: string;
   public headers: HeaderBag;
   public body?: any;
 
   constructor(options: HttpResponseOptions) {
     this.statusCode = options.statusCode;
+    this.reason = options.reason;
     this.headers = options.headers || {};
     this.body = options.body;
   }

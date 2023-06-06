@@ -134,6 +134,7 @@ export class NodeHttpHandler implements HttpHandler {
       const req = requestFunc(nodeHttpsOptions, (res) => {
         const httpResponse = new HttpResponse({
           statusCode: res.statusCode || -1,
+          reason: res.statusMessage,
           headers: getTransformedHeaders(res.headers),
           body: res,
         });
