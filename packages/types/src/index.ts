@@ -25,5 +25,6 @@ export * from "./signature";
 export * from "./stream";
 export * from "./token";
 export * from "./transfer";
+export * from "./uri";
 export * from "./util";
 export * from "./waiter";

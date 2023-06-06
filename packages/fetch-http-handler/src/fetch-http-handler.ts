@@ -50,15 +50,23 @@ export class FetchHttpHandler implements HttpHandler {
     }
 
     let path = request.path;
-    if (request.query) {
-      const queryString = buildQueryString(request.query);
-      if (queryString) {
-        path += `?${queryString}`;
-      }
+    const queryString = buildQueryString(request.query || {});
+    if (queryString) {
+      path += `?${queryString}`;
+    }
+    if (request.fragment) {
+      path += `#${request.fragment}`;
+    }
+
+    let auth = "";
+    if (request.username != null || request.password != null) {
+      const username = request.username ?? "";
+      const password = request.password ?? "";
+      auth = `${username}:${password}@`;
     }
 
     const { port, method } = request;
-    const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ""}${path}`;
+    const url = `${request.protocol}//${auth}${request.hostname}${port ? `:${port}` : ""}${path}`;
     // Request constructor doesn't allow GET/HEAD request with body
     // ref: https://github.com/whatwg/fetch/issues/551
     const body = method === "GET" || method === "HEAD" ? undefined : request.body;

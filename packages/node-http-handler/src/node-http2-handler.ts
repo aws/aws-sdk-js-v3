@@ -100,8 +100,14 @@ export class NodeHttp2Handler implements HttpHandler {
         return;
       }
 
-      const { hostname, method, port, protocol, path, query } = request;
-      const authority = `${protocol}//${hostname}${port ? `:${port}` : ""}`;
+      const { hostname, method, port, protocol, query } = request;
+      let auth = "";
+      if (request.username != null || request.password != null) {
+        const username = request.username ?? "";
+        const password = request.password ?? "";
+        auth = `${username}:${password}@`;
+      }
+      const authority = `${protocol}//${auth}${hostname}${port ? `:${port}` : ""}`;
       const requestContext = { destination: new URL(authority) } as RequestContext;
       const session = this.connectionManager.lease(requestContext, {
         requestTimeout: this.config?.sessionTimeout,
@@ -117,10 +123,17 @@ export class NodeHttp2Handler implements HttpHandler {
       };
 
       const queryString = buildQueryString(query || {});
+      let path = request.path;
+      if (queryString) {
+        path += `?${queryString}`;
+      }
+      if (request.fragment) {
+        path += `#${request.fragment}`;
+      }
       // create the http2 request
       const req = session.request({
         ...request.headers,
-        [constants.HTTP2_HEADER_PATH]: queryString ? `${path}?${queryString}` : path,
+        [constants.HTTP2_HEADER_PATH]: path,
         [constants.HTTP2_HEADER_METHOD]: method,
       });
 

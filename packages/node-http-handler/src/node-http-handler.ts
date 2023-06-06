@@ -119,13 +119,27 @@ export class NodeHttpHandler implements HttpHandler {
       // determine which http(s) client to use
       const isSSL = request.protocol === "https:";
       const queryString = buildQueryString(request.query || {});
+      let auth = undefined;
+      if (request.username != null || request.password != null) {
+        const username = request.username ?? "";
+        const password = request.password ?? "";
+        auth = `${username}:${password}`;
+      }
+      let path = request.path;
+      if (queryString) {
+        path += `?${queryString}`;
+      }
+      if (request.fragment) {
+        path += `#${request.fragment}`;
+      }
       const nodeHttpsOptions: RequestOptions = {
         headers: request.headers,
         host: request.hostname,
         method: request.method,
-        path: queryString ? `${request.path}?${queryString}` : request.path,
+        path,
         port: request.port,
         agent: isSSL ? this.config.httpsAgent : this.config.httpAgent,
+        auth,
       };
 
       // create the http request
