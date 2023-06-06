@@ -41,14 +41,14 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  *          <important>
  *             <p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages
  *                 deleted from a queue.</p>
- *             <p>The message deletion process takes up to 60 seconds. We recommend waiting for
- *                 60 seconds regardless of your queue's size. </p>
+ *             <p>The message deletion process takes up to 60 seconds. We recommend waiting for 60
+ *                 seconds regardless of your queue's size. </p>
  *          </important>
  *          <p>Messages sent to the queue <i>before</i> you call
  *                 <code>PurgeQueue</code> might be received but are deleted within the next
  *             minute.</p>
- *          <p>Messages sent to the queue <i>after</i> you call
- *                 <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
+ *          <p>Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code>
+ *             might be deleted while the queue is being purged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +71,9 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link PurgeQueueInProgress} (client fault)
- *  <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
+ *  <p>Indicates that the specified queue previously received a <code>PurgeQueue</code>
+ *             request within the last 60 seconds (the time it can take to delete the messages in the
+ *             queue).</p>
  *
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>

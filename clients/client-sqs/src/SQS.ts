@@ -8,6 +8,11 @@ import {
   AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand";
 import {
+  CancelMessageMoveTaskCommand,
+  CancelMessageMoveTaskCommandInput,
+  CancelMessageMoveTaskCommandOutput,
+} from "./commands/CancelMessageMoveTaskCommand";
+import {
   ChangeMessageVisibilityBatchCommand,
   ChangeMessageVisibilityBatchCommandInput,
   ChangeMessageVisibilityBatchCommandOutput,
@@ -40,6 +45,11 @@ import {
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput,
 } from "./commands/ListDeadLetterSourceQueuesCommand";
+import {
+  ListMessageMoveTasksCommand,
+  ListMessageMoveTasksCommandInput,
+  ListMessageMoveTasksCommandOutput,
+} from "./commands/ListMessageMoveTasksCommand";
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
   ListQueueTagsCommand,
@@ -68,12 +78,18 @@ import {
   SetQueueAttributesCommandInput,
   SetQueueAttributesCommandOutput,
 } from "./commands/SetQueueAttributesCommand";
+import {
+  StartMessageMoveTaskCommand,
+  StartMessageMoveTaskCommandInput,
+  StartMessageMoveTaskCommandOutput,
+} from "./commands/StartMessageMoveTaskCommand";
 import { TagQueueCommand, TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
 import { UntagQueueCommand, UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
 import { SQSClient, SQSClientConfig } from "./SQSClient";
 
 const commands = {
   AddPermissionCommand,
+  CancelMessageMoveTaskCommand,
   ChangeMessageVisibilityCommand,
   ChangeMessageVisibilityBatchCommand,
   CreateQueueCommand,
@@ -83,6 +99,7 @@ const commands = {
   GetQueueAttributesCommand,
   GetQueueUrlCommand,
   ListDeadLetterSourceQueuesCommand,
+  ListMessageMoveTasksCommand,
   ListQueuesCommand,
   ListQueueTagsCommand,
   PurgeQueueCommand,
@@ -91,6 +108,7 @@ const commands = {
   SendMessageCommand,
   SendMessageBatchCommand,
   SetQueueAttributesCommand,
+  StartMessageMoveTaskCommand,
   TagQueueCommand,
   UntagQueueCommand,
 };
@@ -105,6 +123,23 @@ export interface SQS {
     args: AddPermissionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelMessageMoveTaskCommand}
+   */
+  cancelMessageMoveTask(
+    args: CancelMessageMoveTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMessageMoveTaskCommandOutput>;
+  cancelMessageMoveTask(
+    args: CancelMessageMoveTaskCommandInput,
+    cb: (err: any, data?: CancelMessageMoveTaskCommandOutput) => void
+  ): void;
+  cancelMessageMoveTask(
+    args: CancelMessageMoveTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMessageMoveTaskCommandOutput) => void
   ): void;
 
   /**
@@ -237,6 +272,23 @@ export interface SQS {
   ): void;
 
   /**
+   * @see {@link ListMessageMoveTasksCommand}
+   */
+  listMessageMoveTasks(
+    args: ListMessageMoveTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMessageMoveTasksCommandOutput>;
+  listMessageMoveTasks(
+    args: ListMessageMoveTasksCommandInput,
+    cb: (err: any, data?: ListMessageMoveTasksCommandOutput) => void
+  ): void;
+  listMessageMoveTasks(
+    args: ListMessageMoveTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMessageMoveTasksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListQueuesCommand}
    */
   listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
@@ -346,6 +398,23 @@ export interface SQS {
   ): void;
 
   /**
+   * @see {@link StartMessageMoveTaskCommand}
+   */
+  startMessageMoveTask(
+    args: StartMessageMoveTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMessageMoveTaskCommandOutput>;
+  startMessageMoveTask(
+    args: StartMessageMoveTaskCommandInput,
+    cb: (err: any, data?: StartMessageMoveTaskCommandOutput) => void
+  ): void;
+  startMessageMoveTask(
+    args: StartMessageMoveTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMessageMoveTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagQueueCommand}
    */
   tagQueue(args: TagQueueCommandInput, options?: __HttpHandlerOptions): Promise<TagQueueCommandOutput>;
@@ -371,12 +440,15 @@ export interface SQS {
 /**
  * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
- *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
- *          <p>For information on the permissions you need to use this API, see
- *             <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and
- *             access management</a> in the <i>Amazon SQS Developer Guide.</i>
+ *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel
+ *             between applications or microservices. Amazon SQS moves data between distributed application
+ *             components and helps you decouple these components.</p>
+ *          <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and access management</a> in the <i>Amazon SQS Developer
+ *                 Guide.</i>
  *          </p>
- *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
+ *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access
+ *             Amazon SQS using your favorite programming language. The SDKs perform tasks such as the
+ *             following automatically:</p>
  *          <ul>
  *             <li>
  *                <p>Cryptographically sign your service requests</p>
@@ -432,7 +504,8 @@ export interface SQS {
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and Endpoints</a>
+ *                         <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and
+ *                                 Endpoints</a>
  *                      </p>
  *                   </li>
  *                </ul>

@@ -53,6 +53,10 @@ import {
 
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
 import {
+  CancelMessageMoveTaskCommandInput,
+  CancelMessageMoveTaskCommandOutput,
+} from "./commands/CancelMessageMoveTaskCommand";
+import {
   ChangeMessageVisibilityBatchCommandInput,
   ChangeMessageVisibilityBatchCommandOutput,
 } from "./commands/ChangeMessageVisibilityBatchCommand";
@@ -70,6 +74,10 @@ import {
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput,
 } from "./commands/ListDeadLetterSourceQueuesCommand";
+import {
+  ListMessageMoveTasksCommandInput,
+  ListMessageMoveTasksCommandOutput,
+} from "./commands/ListMessageMoveTasksCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import { ListQueueTagsCommandInput, ListQueueTagsCommandOutput } from "./commands/ListQueueTagsCommand";
 import { PurgeQueueCommandInput, PurgeQueueCommandOutput } from "./commands/PurgeQueueCommand";
@@ -78,6 +86,10 @@ import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./c
 import { SendMessageBatchCommandInput, SendMessageBatchCommandOutput } from "./commands/SendMessageBatchCommand";
 import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import { SetQueueAttributesCommandInput, SetQueueAttributesCommandOutput } from "./commands/SetQueueAttributesCommand";
+import {
+  StartMessageMoveTaskCommandInput,
+  StartMessageMoveTaskCommandOutput,
+} from "./commands/StartMessageMoveTaskCommand";
 import { TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
 import { UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
 import {
@@ -95,6 +107,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddPermissionCommandInput
+  | CancelMessageMoveTaskCommandInput
   | ChangeMessageVisibilityBatchCommandInput
   | ChangeMessageVisibilityCommandInput
   | CreateQueueCommandInput
@@ -104,6 +117,7 @@ export type ServiceInputTypes =
   | GetQueueAttributesCommandInput
   | GetQueueUrlCommandInput
   | ListDeadLetterSourceQueuesCommandInput
+  | ListMessageMoveTasksCommandInput
   | ListQueueTagsCommandInput
   | ListQueuesCommandInput
   | PurgeQueueCommandInput
@@ -112,6 +126,7 @@ export type ServiceInputTypes =
   | SendMessageBatchCommandInput
   | SendMessageCommandInput
   | SetQueueAttributesCommandInput
+  | StartMessageMoveTaskCommandInput
   | TagQueueCommandInput
   | UntagQueueCommandInput;
 
@@ -120,6 +135,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddPermissionCommandOutput
+  | CancelMessageMoveTaskCommandOutput
   | ChangeMessageVisibilityBatchCommandOutput
   | ChangeMessageVisibilityCommandOutput
   | CreateQueueCommandOutput
@@ -129,6 +145,7 @@ export type ServiceOutputTypes =
   | GetQueueAttributesCommandOutput
   | GetQueueUrlCommandOutput
   | ListDeadLetterSourceQueuesCommandOutput
+  | ListMessageMoveTasksCommandOutput
   | ListQueueTagsCommandOutput
   | ListQueuesCommandOutput
   | PurgeQueueCommandOutput
@@ -137,6 +154,7 @@ export type ServiceOutputTypes =
   | SendMessageBatchCommandOutput
   | SendMessageCommandOutput
   | SetQueueAttributesCommandOutput
+  | StartMessageMoveTaskCommandOutput
   | TagQueueCommandOutput
   | UntagQueueCommandOutput;
 
@@ -312,12 +330,15 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
 /**
  * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
- *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
- *          <p>For information on the permissions you need to use this API, see
- *             <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and
- *             access management</a> in the <i>Amazon SQS Developer Guide.</i>
+ *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel
+ *             between applications or microservices. Amazon SQS moves data between distributed application
+ *             components and helps you decouple these components.</p>
+ *          <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and access management</a> in the <i>Amazon SQS Developer
+ *                 Guide.</i>
  *          </p>
- *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
+ *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access
+ *             Amazon SQS using your favorite programming language. The SDKs perform tasks such as the
+ *             following automatically:</p>
  *          <ul>
  *             <li>
  *                <p>Cryptographically sign your service requests</p>
@@ -373,7 +394,8 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and Endpoints</a>
+ *                         <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and
+ *                                 Endpoints</a>
  *                      </p>
  *                   </li>
  *                </ul>

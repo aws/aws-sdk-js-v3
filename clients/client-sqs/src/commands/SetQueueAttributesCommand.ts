@@ -36,8 +36,12 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system.
- *       Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes.</p>
+ * <p>Sets the value of one or more queue attributes. When you change a queue's attributes,
+ *             the change can take up to 60 seconds for most of the attributes to propagate throughout
+ *             the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can
+ *             take up to 15 minutes and will impact existing messages in the queue potentially causing
+ *             them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced
+ *             below the age of existing messages.</p>
  *          <note>
  *             <ul>
  *                <li>
@@ -46,7 +50,7 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  *                <li>
  *                   <p>Cross-account permissions don't apply to this action. For more information,
  * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *                </li>
  *                <li>
  *                   <p>To remove the ability to change queue permissions, you must deny permission to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetQueueAttributes</code> actions in your IAM policy.</p>

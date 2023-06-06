@@ -37,10 +37,16 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
 
 /**
  * @public
- * <p>Delivers up to ten messages to the specified queue. This is a batch version of <code>
- *                <a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p>
- *          <p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
- *          <p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KB (262,144 bytes).</p>
+ * <p>You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified
+ *             queue by assigning either identical or different values to each message (or by not
+ *             assigning values at all). This is a batch version of <code>
+ *                <a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued
+ *             in the order they are sent.</p>
+ *          <p>The result of sending each message is reported individually in the response.
+ *             Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
+ *          <p>The maximum allowed individual message size and the maximum total payload size (the
+ *             sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144
+ *             bytes).</p>
  *          <important>
  *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
  *             <p>
@@ -48,14 +54,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *             </p>
  *             <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
  *          </important>
- *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses the default value for the queue.</p>
- *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
- *          <p>
- *             <code>&AttributeName.1=first</code>
- *          </p>
- *          <p>
- *             <code>&AttributeName.2=second</code>
- *          </p>
+ *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses
+ *             the default value for the queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,7 +141,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *  <p>The batch request doesn't contain any entries.</p>
  *
  * @throws {@link InvalidBatchEntryId} (client fault)
- *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+ *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
+ *             specification.</p>
  *
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
  *  <p>The batch request contains more entries than permissible.</p>

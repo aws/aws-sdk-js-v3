@@ -7,12 +7,15 @@
 AWS SDK for JavaScript SQS Client for Node.js, Browser and React Native.
 
 <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
-<p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
-<p>For information on the permissions you need to use this API, see
-<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and
-access management</a> in the <i>Amazon SQS Developer Guide.</i>
+<p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel
+between applications or microservices. Amazon SQS moves data between distributed application
+components and helps you decouple these components.</p>
+<p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and access management</a> in the <i>Amazon SQS Developer
+Guide.</i>
 </p>
-<p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
+<p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access
+Amazon SQS using your favorite programming language. The SDKs perform tasks such as the
+following automatically:</p>
 <ul>
 <li>
 <p>Cryptographically sign your service requests</p>
@@ -68,7 +71,8 @@ access management</a> in the <i>Amazon SQS Developer Guide.</i>
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and Endpoints</a>
+<a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region">Regions and
+Endpoints</a>
 </p>
 </li>
 </ul>
@@ -280,6 +284,14 @@ AddPermission
 </details>
 <details>
 <summary>
+CancelMessageMoveTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/classes/cancelmessagemovetaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/cancelmessagemovetaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/cancelmessagemovetaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ChangeMessageVisibility
 </summary>
 
@@ -352,6 +364,14 @@ ListDeadLetterSourceQueues
 </details>
 <details>
 <summary>
+ListMessageMoveTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/classes/listmessagemovetaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/listmessagemovetaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/listmessagemovetaskscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListQueues
 </summary>
 
@@ -412,6 +432,14 @@ SetQueueAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/classes/setqueueattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/setqueueattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/setqueueattributescommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartMessageMoveTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/classes/startmessagemovetaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/startmessagemovetaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/interfaces/startmessagemovetaskcommandoutput.html)
 
 </details>
 <details>

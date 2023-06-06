@@ -36,12 +36,13 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
 
 /**
  * @public
- * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
+ * <p>List all cost allocation tags added to the specified Amazon SQS queue.
+ *             For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          <note>
  *             <p>Cross-account permissions don't apply to this action. For more information,
  * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

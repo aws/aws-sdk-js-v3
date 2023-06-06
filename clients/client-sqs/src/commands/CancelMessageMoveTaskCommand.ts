@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { UntagQueueRequest } from "../models/models_0";
-import { de_UntagQueueCommand, se_UntagQueueCommand } from "../protocols/Aws_query";
+import { CancelMessageMoveTaskRequest, CancelMessageMoveTaskResult } from "../models/models_0";
+import { de_CancelMessageMoveTaskCommand, se_CancelMessageMoveTaskCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -24,56 +24,68 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UntagQueueCommand}.
+ * The input for {@link CancelMessageMoveTaskCommand}.
  */
-export interface UntagQueueCommandInput extends UntagQueueRequest {}
+export interface CancelMessageMoveTaskCommandInput extends CancelMessageMoveTaskRequest {}
 /**
  * @public
  *
- * The output of {@link UntagQueueCommand}.
+ * The output of {@link CancelMessageMoveTaskCommand}.
  */
-export interface UntagQueueCommandOutput extends __MetadataBearer {}
+export interface CancelMessageMoveTaskCommandOutput extends CancelMessageMoveTaskResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
- * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ * <p>Cancels a specified message movement task.</p>
  *          <note>
- *             <p>Cross-account permissions don't apply to this action. For more information,
- * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>A message movement can only be cancelled when the current status is
+ *                         RUNNING.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Cancelling a message movement task does not revert the messages that have
+ *                         already been moved. It can only stop the messages that have not been moved
+ *                         yet.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SQSClient, UntagQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
- * // const { SQSClient, UntagQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * import { SQSClient, CancelMessageMoveTaskCommand } from "@aws-sdk/client-sqs"; // ES Modules import
+ * // const { SQSClient, CancelMessageMoveTaskCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = { // UntagQueueRequest
- *   QueueUrl: "STRING_VALUE", // required
- *   TagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // CancelMessageMoveTaskRequest
+ *   TaskHandle: "STRING_VALUE", // required
  * };
- * const command = new UntagQueueCommand(input);
+ * const command = new CancelMessageMoveTaskCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CancelMessageMoveTaskResult
+ * //   ApproximateNumberOfMessagesMoved: Number("long"),
+ * // };
  *
  * ```
  *
- * @param UntagQueueCommandInput - {@link UntagQueueCommandInput}
- * @returns {@link UntagQueueCommandOutput}
- * @see {@link UntagQueueCommandInput} for command's `input` shape.
- * @see {@link UntagQueueCommandOutput} for command's `response` shape.
+ * @param CancelMessageMoveTaskCommandInput - {@link CancelMessageMoveTaskCommandInput}
+ * @returns {@link CancelMessageMoveTaskCommandOutput}
+ * @see {@link CancelMessageMoveTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelMessageMoveTaskCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more specified resources don't exist.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
-export class UntagQueueCommand extends $Command<
-  UntagQueueCommandInput,
-  UntagQueueCommandOutput,
+export class CancelMessageMoveTaskCommand extends $Command<
+  CancelMessageMoveTaskCommandInput,
+  CancelMessageMoveTaskCommandOutput,
   SQSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -91,7 +103,7 @@ export class UntagQueueCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UntagQueueCommandInput) {
+  constructor(readonly input: CancelMessageMoveTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -104,15 +116,17 @@ export class UntagQueueCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagQueueCommandInput, UntagQueueCommandOutput> {
+  ): Handler<CancelMessageMoveTaskCommandInput, CancelMessageMoveTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UntagQueueCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelMessageMoveTaskCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SQSClient";
-    const commandName = "UntagQueueCommand";
+    const commandName = "CancelMessageMoveTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -131,15 +145,15 @@ export class UntagQueueCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UntagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UntagQueueCommand(input, context);
+  private serialize(input: CancelMessageMoveTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CancelMessageMoveTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagQueueCommandOutput> {
-    return de_UntagQueueCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelMessageMoveTaskCommandOutput> {
+    return de_CancelMessageMoveTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AddPermissionCommand";
+export * from "./CancelMessageMoveTaskCommand";
 export * from "./ChangeMessageVisibilityBatchCommand";
 export * from "./ChangeMessageVisibilityCommand";
 export * from "./CreateQueueCommand";
@@ -9,6 +10,7 @@ export * from "./DeleteQueueCommand";
 export * from "./GetQueueAttributesCommand";
 export * from "./GetQueueUrlCommand";
 export * from "./ListDeadLetterSourceQueuesCommand";
+export * from "./ListMessageMoveTasksCommand";
 export * from "./ListQueueTagsCommand";
 export * from "./ListQueuesCommand";
 export * from "./PurgeQueueCommand";
@@ -17,5 +19,6 @@ export * from "./RemovePermissionCommand";
 export * from "./SendMessageBatchCommand";
 export * from "./SendMessageCommand";
 export * from "./SetQueueAttributesCommand";
+export * from "./StartMessageMoveTaskCommand";
 export * from "./TagQueueCommand";
 export * from "./UntagQueueCommand";

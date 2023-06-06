@@ -38,21 +38,17 @@ export interface ChangeMessageVisibilityBatchCommandOutput
 
 /**
  * @public
- * <p>Changes the visibility timeout of multiple messages. This is a batch version of <code>
- *                <a>ChangeMessageVisibility</a>.</code> The result of the action on each message is reported individually in the response.
- *           You can send up to 10 <code>
+ * <p>Changes the visibility timeout of multiple messages. This is a batch version of
+ *                     <code>
+ *                <a>ChangeMessageVisibility</a>.</code> The result of the action
+ *             on each message is reported individually in the response. You can send up to 10
+ *                     <code>
  *                <a>ChangeMessageVisibility</a>
- *             </code> requests with each <code>ChangeMessageVisibilityBatch</code> action.</p>
+ *             </code> requests with each
+ *                 <code>ChangeMessageVisibilityBatch</code> action.</p>
  *          <important>
  *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
  *          </important>
- *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
- *          <p>
- *             <code>&AttributeName.1=first</code>
- *          </p>
- *          <p>
- *             <code>&AttributeName.2=second</code>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,7 +98,8 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  *  <p>The batch request doesn't contain any entries.</p>
  *
  * @throws {@link InvalidBatchEntryId} (client fault)
- *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+ *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
+ *             specification.</p>
  *
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
  *  <p>The batch request contains more entries than permissible.</p>

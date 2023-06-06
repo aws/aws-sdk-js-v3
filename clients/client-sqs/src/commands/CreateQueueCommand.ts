@@ -50,42 +50,43 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *                </note>
  *             </li>
  *             <li>
- *                <p>If you don't provide a value for an attribute, the queue is created with the default value for the attribute.</p>
+ *                <p>If you don't provide a value for an attribute, the queue is created with the
+ *                     default value for the attribute.</p>
  *             </li>
  *             <li>
- *                <p>If you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.</p>
+ *                <p>If you delete a queue, you must wait at least 60 seconds before creating a
+ *                     queue with the same name.</p>
  *             </li>
  *          </ul>
- *          <p>To successfully create a new queue, you must provide a queue name that adheres to the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">limits related to queues</a> and is unique within the scope of your queues.</p>
+ *          <p>To successfully create a new queue, you must provide a queue name that adheres to the
+ *                 <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">limits
+ *                 related to queues</a> and is unique within the scope of your queues.</p>
  *          <note>
  *             <p>After you create a queue, you must wait at least one second after the queue is
  *                 created to be able to use the queue.</p>
  *          </note>
  *          <p>To get the queue URL, use the <code>
  *                <a>GetQueueUrl</a>
- *             </code> action. <code>
+ *             </code> action.
+ *                     <code>
  *                <a>GetQueueUrl</a>
- *             </code> requires only the <code>QueueName</code> parameter.
- *           be aware of existing queue names:</p>
+ *             </code> requires only the
+ *                 <code>QueueName</code> parameter. be aware of existing queue names:</p>
  *          <ul>
  *             <li>
- *                <p>If you provide the name of an existing queue along with the exact names and values of all the queue's attributes, <code>CreateQueue</code> returns the queue URL for the existing queue.</p>
+ *                <p>If you provide the name of an existing queue along with the exact names and
+ *                     values of all the queue's attributes, <code>CreateQueue</code> returns the queue
+ *                     URL for the existing queue.</p>
  *             </li>
  *             <li>
- *                <p>If the queue name, attribute names, or attribute values don't match an existing queue, <code>CreateQueue</code> returns an error.</p>
+ *                <p>If the queue name, attribute names, or attribute values don't match an
+ *                     existing queue, <code>CreateQueue</code> returns an error.</p>
  *             </li>
  *          </ul>
- *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
- *          <p>
- *             <code>&AttributeName.1=first</code>
- *          </p>
- *          <p>
- *             <code>&AttributeName.2=second</code>
- *          </p>
  *          <note>
  *             <p>Cross-account permissions don't apply to this action. For more information,
  * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
