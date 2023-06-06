@@ -45,8 +45,7 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  *    intervals.</p>
  *          <p>For a description of the historical metrics that are supported by
  *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics
- *     definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
- *          <p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
+ *     definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
