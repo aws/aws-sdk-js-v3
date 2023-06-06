@@ -41,7 +41,7 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * 			performed. Note the following requirements: </p>
  * 		       <ul>
  *             <li>
- * 				           <p> You must create an Amazon S3 source bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Create a Bucket</a> in the
+ * 				           <p> You must create an Amazon S3 source bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html">Creating a Bucket</a> in the
  * 						<i>Amazon S3 Getting Started Guide</i>. </p>
  * 			         </li>
  *             <li>
@@ -62,8 +62,7 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  *          </ul>
  * 		       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call
  * 			<code>StartSigningJob</code>.</p>
- * 		       <p>For a Java example that shows how to use this action, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/">http://docs.aws.amazon.com/acm/latest/userguide/</a>
- *          </p>
+ * 		       <p>For a Java example that shows how to use this action, see <a href="https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html">StartSigningJob</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,7 +113,7 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
- *         <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+ * 		       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>

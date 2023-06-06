@@ -65,26 +65,26 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * //       displayName: "STRING_VALUE",
  * //       partner: "STRING_VALUE",
  * //       target: "STRING_VALUE",
- * //       category: "STRING_VALUE",
+ * //       category: "AWSIoT",
  * //       signingConfiguration: { // SigningConfiguration
  * //         encryptionAlgorithmOptions: { // EncryptionAlgorithmOptions
  * //           allowedValues: [ // EncryptionAlgorithms // required
- * //             "STRING_VALUE",
+ * //             "RSA" || "ECDSA",
  * //           ],
- * //           defaultValue: "STRING_VALUE", // required
+ * //           defaultValue: "RSA" || "ECDSA", // required
  * //         },
  * //         hashAlgorithmOptions: { // HashAlgorithmOptions
  * //           allowedValues: [ // HashAlgorithms // required
- * //             "STRING_VALUE",
+ * //             "SHA1" || "SHA256",
  * //           ],
- * //           defaultValue: "STRING_VALUE", // required
+ * //           defaultValue: "SHA1" || "SHA256", // required
  * //         },
  * //       },
  * //       signingImageFormat: { // SigningImageFormat
  * //         supportedFormats: [ // ImageFormats // required
- * //           "STRING_VALUE",
+ * //           "JSON" || "JSONEmbedded" || "JSONDetached",
  * //         ],
- * //         defaultFormat: "STRING_VALUE", // required
+ * //         defaultFormat: "JSON" || "JSONEmbedded" || "JSONDetached", // required
  * //       },
  * //       maxSizeInMB: Number("int"),
  * //       revocationSupported: true || false,

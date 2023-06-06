@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/models_0";
-import { de_GetSigningPlatformCommand, se_GetSigningPlatformCommand } from "../protocols/Aws_restJson1";
+import { SignPayloadRequest, SignPayloadResponse } from "../models/models_0";
+import { de_SignPayloadCommand, se_SignPayloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -24,66 +24,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetSigningPlatformCommand}.
+ * The input for {@link SignPayloadCommand}.
  */
-export interface GetSigningPlatformCommandInput extends GetSigningPlatformRequest {}
+export interface SignPayloadCommandInput extends SignPayloadRequest {}
 /**
  * @public
  *
- * The output of {@link GetSigningPlatformCommand}.
+ * The output of {@link SignPayloadCommand}.
  */
-export interface GetSigningPlatformCommandOutput extends GetSigningPlatformResponse, __MetadataBearer {}
+export interface SignPayloadCommandOutput extends SignPayloadResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information on a specific signing platform.</p>
+ * <p>Signs a binary
+ * 			payload and returns a signature envelope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, GetSigningPlatformCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, GetSigningPlatformCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, SignPayloadCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, SignPayloadCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
- * const input = { // GetSigningPlatformRequest
- *   platformId: "STRING_VALUE", // required
+ * const input = { // SignPayloadRequest
+ *   profileName: "STRING_VALUE", // required
+ *   profileOwner: "STRING_VALUE",
+ *   payload: "BLOB_VALUE", // required
+ *   payloadFormat: "STRING_VALUE", // required
  * };
- * const command = new GetSigningPlatformCommand(input);
+ * const command = new SignPayloadCommand(input);
  * const response = await client.send(command);
- * // { // GetSigningPlatformResponse
- * //   platformId: "STRING_VALUE",
- * //   displayName: "STRING_VALUE",
- * //   partner: "STRING_VALUE",
- * //   target: "STRING_VALUE",
- * //   category: "AWSIoT",
- * //   signingConfiguration: { // SigningConfiguration
- * //     encryptionAlgorithmOptions: { // EncryptionAlgorithmOptions
- * //       allowedValues: [ // EncryptionAlgorithms // required
- * //         "RSA" || "ECDSA",
- * //       ],
- * //       defaultValue: "RSA" || "ECDSA", // required
- * //     },
- * //     hashAlgorithmOptions: { // HashAlgorithmOptions
- * //       allowedValues: [ // HashAlgorithms // required
- * //         "SHA1" || "SHA256",
- * //       ],
- * //       defaultValue: "SHA1" || "SHA256", // required
- * //     },
+ * // { // SignPayloadResponse
+ * //   jobId: "STRING_VALUE",
+ * //   jobOwner: "STRING_VALUE",
+ * //   metadata: { // Metadata
+ * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   signingImageFormat: { // SigningImageFormat
- * //     supportedFormats: [ // ImageFormats // required
- * //       "JSON" || "JSONEmbedded" || "JSONDetached",
- * //     ],
- * //     defaultFormat: "JSON" || "JSONEmbedded" || "JSONDetached", // required
- * //   },
- * //   maxSizeInMB: Number("int"),
- * //   revocationSupported: true || false,
+ * //   signature: "BLOB_VALUE",
  * // };
  *
  * ```
  *
- * @param GetSigningPlatformCommandInput - {@link GetSigningPlatformCommandInput}
- * @returns {@link GetSigningPlatformCommandOutput}
- * @see {@link GetSigningPlatformCommandInput} for command's `input` shape.
- * @see {@link GetSigningPlatformCommandOutput} for command's `response` shape.
+ * @param SignPayloadCommandInput - {@link SignPayloadCommandInput}
+ * @returns {@link SignPayloadCommandOutput}
+ * @see {@link SignPayloadCommandInput} for command's `input` shape.
+ * @see {@link SignPayloadCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -99,13 +82,16 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You signing certificate could not be validated.</p>
+ *
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
-export class GetSigningPlatformCommand extends $Command<
-  GetSigningPlatformCommandInput,
-  GetSigningPlatformCommandOutput,
+export class SignPayloadCommand extends $Command<
+  SignPayloadCommandInput,
+  SignPayloadCommandOutput,
   SignerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -123,7 +109,7 @@ export class GetSigningPlatformCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetSigningPlatformCommandInput) {
+  constructor(readonly input: SignPayloadCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -136,17 +122,15 @@ export class GetSigningPlatformCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput> {
+  ): Handler<SignPayloadCommandInput, SignPayloadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetSigningPlatformCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, SignPayloadCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SignerClient";
-    const commandName = "GetSigningPlatformCommand";
+    const commandName = "SignPayloadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -165,15 +149,15 @@ export class GetSigningPlatformCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetSigningPlatformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetSigningPlatformCommand(input, context);
+  private serialize(input: SignPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_SignPayloadCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningPlatformCommandOutput> {
-    return de_GetSigningPlatformCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignPayloadCommandOutput> {
+    return de_SignPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

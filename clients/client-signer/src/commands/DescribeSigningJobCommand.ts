@@ -36,8 +36,8 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
 
 /**
  * @public
- * <p>Returns information about a specific code signing job. You specify the job by using
- * 			the <code>jobId</code> value that is returned by the <a>StartSigningJob</a>
+ * <p>Returns information about a specific code signing job. You specify the job by using the
+ * 				<code>jobId</code> value that is returned by the <a>StartSigningJob</a>
  * 			operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,10 +68,10 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * //   profileVersion: "STRING_VALUE",
  * //   overrides: { // SigningPlatformOverrides
  * //     signingConfiguration: { // SigningConfigurationOverrides
- * //       encryptionAlgorithm: "STRING_VALUE",
- * //       hashAlgorithm: "STRING_VALUE",
+ * //       encryptionAlgorithm: "RSA" || "ECDSA",
+ * //       hashAlgorithm: "SHA1" || "SHA256",
  * //     },
- * //     signingImageFormat: "STRING_VALUE",
+ * //     signingImageFormat: "JSON" || "JSONEmbedded" || "JSONDetached",
  * //   },
  * //   signingParameters: { // SigningParameters
  * //     "<keys>": "STRING_VALUE",
@@ -80,7 +80,7 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * //   completedAt: new Date("TIMESTAMP"),
  * //   signatureExpiresAt: new Date("TIMESTAMP"),
  * //   requestedBy: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "InProgress" || "Failed" || "Succeeded",
  * //   statusReason: "STRING_VALUE",
  * //   revocationRecord: { // SigningJobRevocationRecord
  * //     reason: "STRING_VALUE",

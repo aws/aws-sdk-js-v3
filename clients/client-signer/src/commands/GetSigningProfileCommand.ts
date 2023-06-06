@@ -65,19 +65,19 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * //   platformDisplayName: "STRING_VALUE",
  * //   signatureValidityPeriod: { // SignatureValidityPeriod
  * //     value: Number("int"),
- * //     type: "STRING_VALUE",
+ * //     type: "DAYS" || "MONTHS" || "YEARS",
  * //   },
  * //   overrides: { // SigningPlatformOverrides
  * //     signingConfiguration: { // SigningConfigurationOverrides
- * //       encryptionAlgorithm: "STRING_VALUE",
- * //       hashAlgorithm: "STRING_VALUE",
+ * //       encryptionAlgorithm: "RSA" || "ECDSA",
+ * //       hashAlgorithm: "SHA1" || "SHA256",
  * //     },
- * //     signingImageFormat: "STRING_VALUE",
+ * //     signingImageFormat: "JSON" || "JSONEmbedded" || "JSONDetached",
  * //   },
  * //   signingParameters: { // SigningParameters
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   status: "STRING_VALUE",
+ * //   status: "Active" || "Canceled" || "Revoked",
  * //   statusReason: "STRING_VALUE",
  * //   arn: "STRING_VALUE",
  * //   tags: { // TagMap

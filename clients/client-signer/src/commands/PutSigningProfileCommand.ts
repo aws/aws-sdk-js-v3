@@ -37,8 +37,8 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
 /**
  * @public
  * <p>Creates a signing profile. A signing profile is a code signing template that can be used to
- * 			carry out a pre-defined signing job. For more information, see <a href="http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>
- *          </p>
+ * 			carry out a pre-defined signing job.
+ * 			</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,15 +52,15 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  *   },
  *   signatureValidityPeriod: { // SignatureValidityPeriod
  *     value: Number("int"),
- *     type: "STRING_VALUE",
+ *     type: "DAYS" || "MONTHS" || "YEARS",
  *   },
  *   platformId: "STRING_VALUE", // required
  *   overrides: { // SigningPlatformOverrides
  *     signingConfiguration: { // SigningConfigurationOverrides
- *       encryptionAlgorithm: "STRING_VALUE",
- *       hashAlgorithm: "STRING_VALUE",
+ *       encryptionAlgorithm: "RSA" || "ECDSA",
+ *       hashAlgorithm: "SHA1" || "SHA256",
  *     },
- *     signingImageFormat: "STRING_VALUE",
+ *     signingImageFormat: "JSON" || "JSONEmbedded" || "JSONDetached",
  *   },
  *   signingParameters: { // SigningParameters
  *     "<keys>": "STRING_VALUE",

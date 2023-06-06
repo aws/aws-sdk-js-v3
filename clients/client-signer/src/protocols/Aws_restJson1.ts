@@ -16,7 +16,11 @@ import {
   withBaseException,
 } from "@aws-sdk/smithy-client";
 import { ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@smithy/protocol-http";
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -29,6 +33,10 @@ import {
   CancelSigningProfileCommandOutput,
 } from "../commands/CancelSigningProfileCommand";
 import { DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput } from "../commands/DescribeSigningJobCommand";
+import {
+  GetRevocationStatusCommandInput,
+  GetRevocationStatusCommandOutput,
+} from "../commands/GetRevocationStatusCommand";
 import { GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput } from "../commands/GetSigningPlatformCommand";
 import { GetSigningProfileCommandInput, GetSigningProfileCommandOutput } from "../commands/GetSigningProfileCommand";
 import {
@@ -58,6 +66,7 @@ import {
   RevokeSigningProfileCommandInput,
   RevokeSigningProfileCommandOutput,
 } from "../commands/RevokeSigningProfileCommand";
+import { SignPayloadCommandInput, SignPayloadCommandOutput } from "../commands/SignPayloadCommand";
 import { StartSigningJobCommandInput, StartSigningJobCommandOutput } from "../commands/StartSigningJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -165,6 +174,49 @@ export const se_DescribeSigningJobCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetRevocationStatusCommand
+ */
+export const se_GetRevocationStatusCommand = async (
+  input: GetRevocationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/revocations";
+  const query: any = map({
+    signatureTimestamp: [
+      __expectNonNull(input.signatureTimestamp, `signatureTimestamp`) != null,
+      () => (input.signatureTimestamp!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    platformId: [, __expectNonNull(input.platformId!, `platformId`)],
+    profileVersionArn: [, __expectNonNull(input.profileVersionArn!, `profileVersionArn`)],
+    jobArn: [, __expectNonNull(input.jobArn!, `jobArn`)],
+    certificateHashes: [
+      __expectNonNull(input.certificateHashes, `certificateHashes`) != null,
+      () => (input.certificateHashes! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "verification." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -505,6 +557,39 @@ export const se_RevokeSigningProfileCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SignPayloadCommand
+ */
+export const se_SignPayloadCommand = async (
+  input: SignPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/with-payload";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      payload: (_) => context.base64Encoder(_),
+      payloadFormat: [],
+      profileName: [],
+      profileOwner: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StartSigningJobCommand
  */
 export const se_StartSigningJobCommand = async (
@@ -778,6 +863,62 @@ const de_DescribeSigningJobCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRevocationStatusCommand
+ */
+export const de_GetRevocationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRevocationStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRevocationStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    revokedEntities: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRevocationStatusCommandError
+ */
+const de_GetRevocationStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRevocationStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.signer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.signer#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.signer#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.signer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1441,6 +1582,68 @@ const de_RevokeSigningProfileCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SignPayloadCommand
+ */
+export const de_SignPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SignPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SignPayloadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobId: __expectString,
+    jobOwner: __expectString,
+    metadata: _json,
+    signature: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SignPayloadCommandError
+ */
+const de_SignPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SignPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.signer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.signer#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.signer#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.signer#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.signer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartSigningJobCommand
  */
 export const de_StartSigningJobCommand = async (
@@ -1833,9 +2036,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_ImageFormats omitted.
 
+// de_Metadata omitted.
+
 // de_Permission omitted.
 
 // de_Permissions omitted.
+
+// de_RevokedEntities omitted.
 
 // de_S3SignedObject omitted.
 

@@ -50,7 +50,7 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * // const { SignerClient, ListSigningJobsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
  * const input = { // ListSigningJobsRequest
- *   status: "STRING_VALUE",
+ *   status: "InProgress" || "Failed" || "Succeeded",
  *   platformId: "STRING_VALUE",
  *   requestedBy: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -83,7 +83,7 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * //         certificateArn: "STRING_VALUE", // required
  * //       },
  * //       createdAt: new Date("TIMESTAMP"),
- * //       status: "STRING_VALUE",
+ * //       status: "InProgress" || "Failed" || "Succeeded",
  * //       isRevoked: true || false,
  * //       profileName: "STRING_VALUE",
  * //       profileVersion: "STRING_VALUE",

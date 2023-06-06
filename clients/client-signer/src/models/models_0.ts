@@ -239,8 +239,16 @@ export interface CancelSigningProfileRequest {
 
 /**
  * @public
+ * @enum
  */
-export type Category = "AWSIoT";
+export const Category = {
+  AWSIoT: "AWSIoT",
+} as const;
+
+/**
+ * @public
+ */
+export type Category = (typeof Category)[keyof typeof Category];
 
 /**
  * @public
@@ -254,13 +262,31 @@ export interface DescribeSigningJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export type EncryptionAlgorithm = "ECDSA" | "RSA";
+export const EncryptionAlgorithm = {
+  ECDSA: "ECDSA",
+  RSA: "RSA",
+} as const;
 
 /**
  * @public
  */
-export type HashAlgorithm = "SHA1" | "SHA256";
+export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const HashAlgorithm = {
+  SHA1: "SHA1",
+  SHA256: "SHA256",
+} as const;
+
+/**
+ * @public
+ */
+export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
 
 /**
  * @public
@@ -283,8 +309,18 @@ export interface SigningConfigurationOverrides {
 
 /**
  * @public
+ * @enum
  */
-export type ImageFormat = "JSON" | "JSONDetached" | "JSONEmbedded";
+export const ImageFormat = {
+  JSON: "JSON",
+  JSONDetached: "JSONDetached",
+  JSONEmbedded: "JSONEmbedded",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageFormat = (typeof ImageFormat)[keyof typeof ImageFormat];
 
 /**
  * @public
@@ -405,8 +441,18 @@ export interface Source {
 
 /**
  * @public
+ * @enum
  */
-export type SigningStatus = "Failed" | "InProgress" | "Succeeded";
+export const SigningStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type SigningStatus = (typeof SigningStatus)[keyof typeof SigningStatus];
 
 /**
  * @public
@@ -559,6 +605,50 @@ export interface EncryptionAlgorithmOptions {
 /**
  * @public
  */
+export interface GetRevocationStatusRequest {
+  /**
+   * <p>The timestamp of the signature that validates the profile or job.</p>
+   */
+  signatureTimestamp: Date | undefined;
+
+  /**
+   * <p>The ID of a signing platform. </p>
+   */
+  platformId: string | undefined;
+
+  /**
+   * <p>The version of a signing profile.</p>
+   */
+  profileVersionArn: string | undefined;
+
+  /**
+   * <p>The ARN of a signing job.</p>
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>A list of composite signed hashes that identify certificates.</p>
+   * 		       <p>A certificate identifier consists of a subject certificate TBS hash (signed by the
+   * 			parent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root
+   * 			certificates are defined as their own CA.</p>
+   */
+  certificateHashes: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRevocationStatusResponse {
+  /**
+   * <p>A list of revoked entities (including one or more of the signing profile ARN, signing
+   * 			job ID, and certificate hash) supplied as input to the API.</p>
+   */
+  revokedEntities?: string[];
+}
+
+/**
+ * @public
+ */
 export interface GetSigningPlatformRequest {
   /**
    * <p>The ID of the target signing platform.</p>
@@ -704,8 +794,18 @@ export interface SigningProfileRevocationRecord {
 
 /**
  * @public
+ * @enum
  */
-export type ValidityType = "DAYS" | "MONTHS" | "YEARS";
+export const ValidityType = {
+  DAYS: "DAYS",
+  MONTHS: "MONTHS",
+  YEARS: "YEARS",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidityType = (typeof ValidityType)[keyof typeof ValidityType];
 
 /**
  * @public
@@ -718,16 +818,25 @@ export interface SignatureValidityPeriod {
   value?: number;
 
   /**
-   * <p>The time unit for signature
-   * 			validity.</p>
+   * <p>The time unit for signature validity.</p>
    */
   type?: ValidityType | string;
 }
 
 /**
  * @public
+ * @enum
  */
-export type SigningProfileStatus = "Active" | "Canceled" | "Revoked";
+export const SigningProfileStatus = {
+  Active: "Active",
+  Canceled: "Canceled",
+  Revoked: "Revoked",
+} as const;
+
+/**
+ * @public
+ */
+export type SigningProfileStatus = (typeof SigningProfileStatus)[keyof typeof SigningProfileStatus];
 
 /**
  * @public
@@ -1066,7 +1175,7 @@ export interface ListSigningPlatformsRequest {
  */
 export interface SigningPlatform {
   /**
-   * <p>The ID of a code signing; platform.</p>
+   * <p>The ID of a code signing platform.</p>
    */
   platformId?: string;
 
@@ -1428,6 +1537,58 @@ export interface RevokeSigningProfileRequest {
 /**
  * @public
  */
+export interface SignPayloadRequest {
+  /**
+   * <p>The name of the signing profile.</p>
+   */
+  profileName: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the profile owner.</p>
+   */
+  profileOwner?: string;
+
+  /**
+   * <p>Specifies the object digest (hash) to sign.</p>
+   */
+  payload: Uint8Array | undefined;
+
+  /**
+   * <p>Payload content type</p>
+   */
+  payloadFormat: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SignPayloadResponse {
+  /**
+   * <p>Unique identifier of the signing job.</p>
+   */
+  jobId?: string;
+
+  /**
+   * <p>The AWS account ID of the job owner.</p>
+   */
+  jobOwner?: string;
+
+  /**
+   * <p>Information including the signing profile ARN and the signing job ID. Clients use
+   * 			metadata to signature records, for example, as annotations added to the signature
+   * 			manifest inside an OCI registry.</p>
+   */
+  metadata?: Record<string, string>;
+
+  /**
+   * <p>A cryptographic signature.</p>
+   */
+  signature?: Uint8Array;
+}
+
+/**
+ * @public
+ */
 export interface StartSigningJobRequest {
   /**
    * <p>The S3 bucket that contains the object to sign or a BLOB that contains your raw
@@ -1478,7 +1639,7 @@ export interface StartSigningJobResponse {
  * @deprecated
  *
  * <p>The request was denied due to request throttling.</p>
- *         <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+ * 		       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";

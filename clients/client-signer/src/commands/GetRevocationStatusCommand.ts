@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/models_0";
-import { de_GetSigningPlatformCommand, se_GetSigningPlatformCommand } from "../protocols/Aws_restJson1";
+import { GetRevocationStatusRequest, GetRevocationStatusResponse } from "../models/models_0";
+import { de_GetRevocationStatusCommand, se_GetRevocationStatusCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -24,66 +24,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetSigningPlatformCommand}.
+ * The input for {@link GetRevocationStatusCommand}.
  */
-export interface GetSigningPlatformCommandInput extends GetSigningPlatformRequest {}
+export interface GetRevocationStatusCommandInput extends GetRevocationStatusRequest {}
 /**
  * @public
  *
- * The output of {@link GetSigningPlatformCommand}.
+ * The output of {@link GetRevocationStatusCommand}.
  */
-export interface GetSigningPlatformCommandOutput extends GetSigningPlatformResponse, __MetadataBearer {}
+export interface GetRevocationStatusCommandOutput extends GetRevocationStatusResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information on a specific signing platform.</p>
+ * <p>Retrieves the
+ * 			revocation status of one or more of the signing profile, signing job, and signing
+ * 			certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SignerClient, GetSigningPlatformCommand } from "@aws-sdk/client-signer"; // ES Modules import
- * // const { SignerClient, GetSigningPlatformCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * import { SignerClient, GetRevocationStatusCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, GetRevocationStatusCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
- * const input = { // GetSigningPlatformRequest
+ * const input = { // GetRevocationStatusRequest
+ *   signatureTimestamp: new Date("TIMESTAMP"), // required
  *   platformId: "STRING_VALUE", // required
+ *   profileVersionArn: "STRING_VALUE", // required
+ *   jobArn: "STRING_VALUE", // required
+ *   certificateHashes: [ // CertificateHashes // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new GetSigningPlatformCommand(input);
+ * const command = new GetRevocationStatusCommand(input);
  * const response = await client.send(command);
- * // { // GetSigningPlatformResponse
- * //   platformId: "STRING_VALUE",
- * //   displayName: "STRING_VALUE",
- * //   partner: "STRING_VALUE",
- * //   target: "STRING_VALUE",
- * //   category: "AWSIoT",
- * //   signingConfiguration: { // SigningConfiguration
- * //     encryptionAlgorithmOptions: { // EncryptionAlgorithmOptions
- * //       allowedValues: [ // EncryptionAlgorithms // required
- * //         "RSA" || "ECDSA",
- * //       ],
- * //       defaultValue: "RSA" || "ECDSA", // required
- * //     },
- * //     hashAlgorithmOptions: { // HashAlgorithmOptions
- * //       allowedValues: [ // HashAlgorithms // required
- * //         "SHA1" || "SHA256",
- * //       ],
- * //       defaultValue: "SHA1" || "SHA256", // required
- * //     },
- * //   },
- * //   signingImageFormat: { // SigningImageFormat
- * //     supportedFormats: [ // ImageFormats // required
- * //       "JSON" || "JSONEmbedded" || "JSONDetached",
- * //     ],
- * //     defaultFormat: "JSON" || "JSONEmbedded" || "JSONDetached", // required
- * //   },
- * //   maxSizeInMB: Number("int"),
- * //   revocationSupported: true || false,
+ * // { // GetRevocationStatusResponse
+ * //   revokedEntities: [ // RevokedEntities
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param GetSigningPlatformCommandInput - {@link GetSigningPlatformCommandInput}
- * @returns {@link GetSigningPlatformCommandOutput}
- * @see {@link GetSigningPlatformCommandInput} for command's `input` shape.
- * @see {@link GetSigningPlatformCommandOutput} for command's `response` shape.
+ * @param GetRevocationStatusCommandInput - {@link GetRevocationStatusCommandInput}
+ * @returns {@link GetRevocationStatusCommandOutput}
+ * @see {@link GetRevocationStatusCommandInput} for command's `input` shape.
+ * @see {@link GetRevocationStatusCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,20 +76,20 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>An internal error occurred.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be found.</p>
- *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You signing certificate could not be validated.</p>
  *
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
-export class GetSigningPlatformCommand extends $Command<
-  GetSigningPlatformCommandInput,
-  GetSigningPlatformCommandOutput,
+export class GetRevocationStatusCommand extends $Command<
+  GetRevocationStatusCommandInput,
+  GetRevocationStatusCommandOutput,
   SignerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -123,7 +107,7 @@ export class GetSigningPlatformCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetSigningPlatformCommandInput) {
+  constructor(readonly input: GetRevocationStatusCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -136,17 +120,17 @@ export class GetSigningPlatformCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SignerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput> {
+  ): Handler<GetRevocationStatusCommandInput, GetRevocationStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetSigningPlatformCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetRevocationStatusCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SignerClient";
-    const commandName = "GetSigningPlatformCommand";
+    const commandName = "GetRevocationStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -165,15 +149,15 @@ export class GetSigningPlatformCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetSigningPlatformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetSigningPlatformCommand(input, context);
+  private serialize(input: GetRevocationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetRevocationStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningPlatformCommandOutput> {
-    return de_GetSigningPlatformCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRevocationStatusCommandOutput> {
+    return de_GetRevocationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

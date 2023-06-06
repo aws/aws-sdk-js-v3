@@ -56,7 +56,7 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  *   nextToken: "STRING_VALUE",
  *   platformId: "STRING_VALUE",
  *   statuses: [ // Statuses
- *     "STRING_VALUE",
+ *     "Active" || "Canceled" || "Revoked",
  *   ],
  * };
  * const command = new ListSigningProfilesCommand(input);
@@ -72,14 +72,14 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * //       },
  * //       signatureValidityPeriod: { // SignatureValidityPeriod
  * //         value: Number("int"),
- * //         type: "STRING_VALUE",
+ * //         type: "DAYS" || "MONTHS" || "YEARS",
  * //       },
  * //       platformId: "STRING_VALUE",
  * //       platformDisplayName: "STRING_VALUE",
  * //       signingParameters: { // SigningParameters
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       status: "STRING_VALUE",
+ * //       status: "Active" || "Canceled" || "Revoked",
  * //       arn: "STRING_VALUE",
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
