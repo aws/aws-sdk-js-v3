@@ -63,6 +63,10 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * @see {@link DeactivateMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
  * @throws {@link EntityTemporarilyUnmodifiableException} (client fault)
  *  <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
  *       such as a user name that was deleted and then recreated. The error indicates that the request

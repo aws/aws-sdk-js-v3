@@ -3861,6 +3861,9 @@ const de_CreateAccountAliasCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
@@ -4603,6 +4606,9 @@ const de_DeactivateMFADeviceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityTemporarilyUnmodifiable":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
       throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
@@ -4704,6 +4710,9 @@ const de_DeleteAccountAliasCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
@@ -5524,6 +5533,9 @@ const de_DeleteSigningCertificateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
@@ -5766,6 +5778,9 @@ const de_DeleteVirtualMFADeviceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await de_DeleteConflictExceptionRes(parsedOutput, context);
@@ -5977,6 +5992,9 @@ const de_EnableMFADeviceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExists":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
@@ -9529,6 +9547,9 @@ const de_ResyncMFADeviceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
       throw await de_InvalidAuthenticationCodeExceptionRes(parsedOutput, context);
@@ -11410,6 +11431,9 @@ const de_UploadSigningCertificateCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "DuplicateCertificate":
     case "com.amazonaws.iam#DuplicateCertificateException":
       throw await de_DuplicateCertificateExceptionRes(parsedOutput, context);

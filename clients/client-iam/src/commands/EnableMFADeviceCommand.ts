@@ -63,6 +63,10 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * @see {@link EnableMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
  * @throws {@link EntityAlreadyExistsException} (client fault)
  *  <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>

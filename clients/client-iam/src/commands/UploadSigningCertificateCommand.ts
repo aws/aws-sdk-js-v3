@@ -86,6 +86,10 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * @see {@link UploadSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
  * @throws {@link DuplicateCertificateException} (client fault)
  *  <p>The request was rejected because the same certificate is associated with an IAM user in
  *       the account.</p>

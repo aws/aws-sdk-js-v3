@@ -37,8 +37,9 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p> Deletes the specified Amazon Web Services account alias. For information about using an Amazon Web Services
- *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your Amazon Web Services account ID</a> in the
- *                 <i>IAM User Guide</i>.</p>
+ *             account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating, deleting, and
+ *                 listing an Amazon Web Services account alias</a> in the <i>Amazon Web Services Sign-In User
+ *                 Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,10 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request was rejected because it attempted to create resources beyond the current
