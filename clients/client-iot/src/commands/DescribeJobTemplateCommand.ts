@@ -97,6 +97,9 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * //       durationInMinutes: Number("int"), // required
  * //     },
  * //   ],
+ * //   destinationPackageVersions: [ // DestinationPackageVersions
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

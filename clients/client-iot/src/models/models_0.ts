@@ -4353,7 +4353,8 @@ export interface CreateJobRequest {
 
   /**
    * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p>
-   *          <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>.</p>
+   *          <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>
+   *          </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a bucket</a>.</p>
    */
   documentSource?: string;
@@ -4448,6 +4449,15 @@ export interface CreateJobRequest {
    *             addition to specifying the end behavior for each job execution.</p>
    */
   schedulingConfig?: SchedulingConfig;
+
+  /**
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
+   *         job successfully completes. </p>
+   *          <p>
+   *             <b>Note:</b>The following Length Constraints relates to a single string.
+   *         Up to five strings are allowed.</p>
+   */
+  destinationPackageVersions?: string[];
 }
 
 /**
@@ -4478,6 +4488,11 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * <p>A resource with the same name already exists.</p>
+   */
+  resourceId?: string;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
@@ -4487,6 +4502,7 @@ export class ConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
   }
 }
 
@@ -4565,6 +4581,14 @@ export interface CreateJobTemplateRequest {
    * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
    */
   maintenanceWindows?: MaintenanceWindow[];
+
+  /**
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   *          <p>
+   *             <b>Note:</b>The following Length Constraints relates to a single string.
+   *         Up to five strings are allowed.</p>
+   */
+  destinationPackageVersions?: string[];
 }
 
 /**
@@ -5363,6 +5387,205 @@ export interface CreateOTAUpdateResponse {
    * <p>The OTA update status.</p>
    */
   otaUpdateStatus?: OTAUpdateStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface CreatePackageRequest {
+  /**
+   * <p>The name of the new package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>A summary of the package being created. This can be used to outline the package's contents or purpose.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Metadata that can be used to manage the package.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreatePackageResponse {
+  /**
+   * <p>The name of the package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the package.</p>
+   */
+  packageArn?: string;
+
+  /**
+   * <p>The package description.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ * <p>Internal error from the service that indicates an unexpected error or that the service
+ *             is unavailable.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>A limit has been exceeded.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request is not valid.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreatePackageVersionRequest {
+  /**
+   * <p>The name of the associated package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the new package version.</p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>A summary of the package version being created. This can be used to outline the package's contents or purpose.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.</p>
+   *          <p>The combined size of all the attributes on a package version is limited to 3KB.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>Metadata that can be used to manage the package version.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageVersionStatus = {
+  DEPRECATED: "DEPRECATED",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof PackageVersionStatus];
+
+/**
+ * @public
+ */
+export interface CreatePackageVersionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the package.</p>
+   */
+  packageVersionArn?: string;
+
+  /**
+   * <p>The name of the associated package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * <p>The name of the new package version.</p>
+   */
+  versionName?: string;
+
+  /**
+   * <p>The package version description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Metadata that were added to the package version that can be used to define a package version’s configuration.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   */
+  status?: PackageVersionStatus | string;
+
+  /**
+   * <p>Error reason for a package version failure during creation or update.</p>
+   */
+  errorReason?: string;
 }
 
 /**
@@ -6637,160 +6860,6 @@ export interface DeleteDynamicThingGroupRequest {
 export interface DeleteDynamicThingGroupResponse {}
 
 /**
- * @public
- */
-export interface DeleteFleetMetricRequest {
-  /**
-   * <p>The name of the fleet metric to delete.</p>
-   */
-  metricName: string | undefined;
-
-  /**
-   * <p>The expected version of the fleet metric to delete.</p>
-   */
-  expectedVersion?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteJobRequest {
-  /**
-   * <p>The ID of the job to be deleted.</p>
-   *          <p>After a job deletion is completed, you may reuse this jobId when you create a new job.
-   *         However, this is not recommended, and you must ensure that your devices are not using the
-   *         jobId to refer to the deleted job.</p>
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can
-   *         only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception
-   *         will occur. The default is false.</p>
-   *          <note>
-   *             <p>Deleting a job which is "IN_PROGRESS", will cause a device which is executing
-   *         the job to be unable to access job information or update the job execution status.
-   *         Use caution and ensure that each device executing a job which is deleted is able to recover to
-   *         a valid state.</p>
-   *          </note>
-   */
-  force?: boolean;
-
-  /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *          <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
-   *          </note>
-   */
-  namespaceId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteJobExecutionRequest {
-  /**
-   * <p>The ID of the job whose execution on a particular device will be deleted.</p>
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The name of the thing whose job execution will be deleted.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the
-   *         execution of a particular job on a particular device.</p>
-   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused
-   *         by IoT, so be sure you get and use the correct value here.</p>
-   */
-  executionNumber: number | undefined;
-
-  /**
-   * <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise,
-   *         you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED",
-   *         "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.</p>
-   *          <note>
-   *             <p>Deleting a job execution which is "IN_PROGRESS", will cause the device
-   *         to be unable to access job information or update the job execution status.
-   *         Use caution and ensure that the device is able to recover to a valid state.</p>
-   *          </note>
-   */
-  force?: boolean;
-
-  /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *          <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
-   *          </note>
-   */
-  namespaceId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteJobTemplateRequest {
-  /**
-   * <p>The unique identifier of the job template to delete.</p>
-   */
-  jobTemplateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMitigationActionRequest {
-  /**
-   * <p>The name of the mitigation action that you want to delete.</p>
-   */
-  actionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMitigationActionResponse {}
-
-/**
- * @public
- */
-export interface DeleteOTAUpdateRequest {
-  /**
-   * <p>The ID of the OTA update to delete.</p>
-   */
-  otaUpdateId: string | undefined;
-
-  /**
-   * <p>When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted.
-   *             Ignored if the stream specified in the OTAUpdate is supplied by the user.</p>
-   */
-  deleteStream?: boolean;
-
-  /**
-   * <p>When true, deletes the IoT job created by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the
-   *             job is not in a terminal state ("COMPLETED" or "CANCELED") an exception will occur. The default is false.</p>
-   */
-  forceDeleteAWSJob?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteOTAUpdateResponse {}
-
-/**
  * @internal
  */
 export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
@@ -6804,6 +6873,40 @@ export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
 export const CreateKeysAndCertificateResponseFilterSensitiveLog = (obj: CreateKeysAndCertificateResponse): any => ({
   ...obj,
   ...(obj.keyPair && { keyPair: KeyPairFilterSensitiveLog(obj.keyPair) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageRequestFilterSensitiveLog = (obj: CreatePackageRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageResponse): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageVersionRequestFilterSensitiveLog = (obj: CreatePackageVersionRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageVersionResponseFilterSensitiveLog = (obj: CreatePackageVersionResponse): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
 });
 
 /**

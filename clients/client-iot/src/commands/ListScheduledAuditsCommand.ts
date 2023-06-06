@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListScheduledAuditsRequest, ListScheduledAuditsResponse } from "../models/models_1";
+import { ListScheduledAuditsRequest, ListScheduledAuditsResponse } from "../models/models_2";
 import { de_ListScheduledAuditsCommand, se_ListScheduledAuditsCommand } from "../protocols/Aws_restJson1";
 
 /**

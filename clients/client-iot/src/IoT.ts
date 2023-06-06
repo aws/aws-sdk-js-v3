@@ -145,6 +145,16 @@ import {
   CreateOTAUpdateCommandOutput,
 } from "./commands/CreateOTAUpdateCommand";
 import {
+  CreatePackageCommand,
+  CreatePackageCommandInput,
+  CreatePackageCommandOutput,
+} from "./commands/CreatePackageCommand";
+import {
+  CreatePackageVersionCommand,
+  CreatePackageVersionCommandInput,
+  CreatePackageVersionCommandOutput,
+} from "./commands/CreatePackageVersionCommand";
+import {
   CreatePolicyCommand,
   CreatePolicyCommandInput,
   CreatePolicyCommandOutput,
@@ -286,6 +296,16 @@ import {
   DeleteOTAUpdateCommandInput,
   DeleteOTAUpdateCommandOutput,
 } from "./commands/DeleteOTAUpdateCommand";
+import {
+  DeletePackageCommand,
+  DeletePackageCommandInput,
+  DeletePackageCommandOutput,
+} from "./commands/DeletePackageCommand";
+import {
+  DeletePackageVersionCommand,
+  DeletePackageVersionCommandInput,
+  DeletePackageVersionCommandOutput,
+} from "./commands/DeletePackageVersionCommand";
 import {
   DeletePolicyCommand,
   DeletePolicyCommandInput,
@@ -593,6 +613,17 @@ import {
   GetOTAUpdateCommandInput,
   GetOTAUpdateCommandOutput,
 } from "./commands/GetOTAUpdateCommand";
+import { GetPackageCommand, GetPackageCommandInput, GetPackageCommandOutput } from "./commands/GetPackageCommand";
+import {
+  GetPackageConfigurationCommand,
+  GetPackageConfigurationCommandInput,
+  GetPackageConfigurationCommandOutput,
+} from "./commands/GetPackageConfigurationCommand";
+import {
+  GetPackageVersionCommand,
+  GetPackageVersionCommandInput,
+  GetPackageVersionCommandOutput,
+} from "./commands/GetPackageVersionCommand";
 import {
   GetPercentilesCommand,
   GetPercentilesCommandInput,
@@ -761,6 +792,16 @@ import {
   ListOutgoingCertificatesCommandInput,
   ListOutgoingCertificatesCommandOutput,
 } from "./commands/ListOutgoingCertificatesCommand";
+import {
+  ListPackagesCommand,
+  ListPackagesCommandInput,
+  ListPackagesCommandOutput,
+} from "./commands/ListPackagesCommand";
+import {
+  ListPackageVersionsCommand,
+  ListPackageVersionsCommandInput,
+  ListPackageVersionsCommandOutput,
+} from "./commands/ListPackageVersionsCommand";
 import {
   ListPoliciesCommand,
   ListPoliciesCommandInput,
@@ -1087,6 +1128,21 @@ import {
   UpdateMitigationActionCommandOutput,
 } from "./commands/UpdateMitigationActionCommand";
 import {
+  UpdatePackageCommand,
+  UpdatePackageCommandInput,
+  UpdatePackageCommandOutput,
+} from "./commands/UpdatePackageCommand";
+import {
+  UpdatePackageConfigurationCommand,
+  UpdatePackageConfigurationCommandInput,
+  UpdatePackageConfigurationCommandOutput,
+} from "./commands/UpdatePackageConfigurationCommand";
+import {
+  UpdatePackageVersionCommand,
+  UpdatePackageVersionCommandInput,
+  UpdatePackageVersionCommandOutput,
+} from "./commands/UpdatePackageVersionCommand";
+import {
   UpdateProvisioningTemplateCommand,
   UpdateProvisioningTemplateCommandInput,
   UpdateProvisioningTemplateCommandOutput,
@@ -1165,6 +1221,8 @@ const commands = {
   CreateKeysAndCertificateCommand,
   CreateMitigationActionCommand,
   CreateOTAUpdateCommand,
+  CreatePackageCommand,
+  CreatePackageVersionCommand,
   CreatePolicyCommand,
   CreatePolicyVersionCommand,
   CreateProvisioningClaimCommand,
@@ -1195,6 +1253,8 @@ const commands = {
   DeleteJobTemplateCommand,
   DeleteMitigationActionCommand,
   DeleteOTAUpdateCommand,
+  DeletePackageCommand,
+  DeletePackageVersionCommand,
   DeletePolicyCommand,
   DeletePolicyVersionCommand,
   DeleteProvisioningTemplateCommand,
@@ -1258,6 +1318,9 @@ const commands = {
   GetJobDocumentCommand,
   GetLoggingOptionsCommand,
   GetOTAUpdateCommand,
+  GetPackageCommand,
+  GetPackageConfigurationCommand,
+  GetPackageVersionCommand,
   GetPercentilesCommand,
   GetPolicyCommand,
   GetPolicyVersionCommand,
@@ -1294,6 +1357,8 @@ const commands = {
   ListMitigationActionsCommand,
   ListOTAUpdatesCommand,
   ListOutgoingCertificatesCommand,
+  ListPackagesCommand,
+  ListPackageVersionsCommand,
   ListPoliciesCommand,
   ListPolicyPrincipalsCommand,
   ListPolicyVersionsCommand,
@@ -1363,6 +1428,9 @@ const commands = {
   UpdateIndexingConfigurationCommand,
   UpdateJobCommand,
   UpdateMitigationActionCommand,
+  UpdatePackageCommand,
+  UpdatePackageConfigurationCommand,
+  UpdatePackageVersionCommand,
   UpdateProvisioningTemplateCommand,
   UpdateRoleAliasCommand,
   UpdateScheduledAuditCommand,
@@ -1860,6 +1928,34 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link CreatePackageCommand}
+   */
+  createPackage(args: CreatePackageCommandInput, options?: __HttpHandlerOptions): Promise<CreatePackageCommandOutput>;
+  createPackage(args: CreatePackageCommandInput, cb: (err: any, data?: CreatePackageCommandOutput) => void): void;
+  createPackage(
+    args: CreatePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePackageVersionCommand}
+   */
+  createPackageVersion(
+    args: CreatePackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePackageVersionCommandOutput>;
+  createPackageVersion(
+    args: CreatePackageVersionCommandInput,
+    cb: (err: any, data?: CreatePackageVersionCommandOutput) => void
+  ): void;
+  createPackageVersion(
+    args: CreatePackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePackageVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreatePolicyCommand}
    */
   createPolicy(args: CreatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<CreatePolicyCommandOutput>;
@@ -2328,6 +2424,34 @@ export interface IoT {
     args: DeleteOTAUpdateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePackageCommand}
+   */
+  deletePackage(args: DeletePackageCommandInput, options?: __HttpHandlerOptions): Promise<DeletePackageCommandOutput>;
+  deletePackage(args: DeletePackageCommandInput, cb: (err: any, data?: DeletePackageCommandOutput) => void): void;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePackageVersionCommand}
+   */
+  deletePackageVersion(
+    args: DeletePackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageVersionCommandOutput>;
+  deletePackageVersion(
+    args: DeletePackageVersionCommandInput,
+    cb: (err: any, data?: DeletePackageVersionCommandOutput) => void
+  ): void;
+  deletePackageVersion(
+    args: DeletePackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackageVersionCommandOutput) => void
   ): void;
 
   /**
@@ -3333,6 +3457,51 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link GetPackageCommand}
+   */
+  getPackage(args: GetPackageCommandInput, options?: __HttpHandlerOptions): Promise<GetPackageCommandOutput>;
+  getPackage(args: GetPackageCommandInput, cb: (err: any, data?: GetPackageCommandOutput) => void): void;
+  getPackage(
+    args: GetPackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPackageConfigurationCommand}
+   */
+  getPackageConfiguration(
+    args: GetPackageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPackageConfigurationCommandOutput>;
+  getPackageConfiguration(
+    args: GetPackageConfigurationCommandInput,
+    cb: (err: any, data?: GetPackageConfigurationCommandOutput) => void
+  ): void;
+  getPackageConfiguration(
+    args: GetPackageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPackageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPackageVersionCommand}
+   */
+  getPackageVersion(
+    args: GetPackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPackageVersionCommandOutput>;
+  getPackageVersion(
+    args: GetPackageVersionCommandInput,
+    cb: (err: any, data?: GetPackageVersionCommandOutput) => void
+  ): void;
+  getPackageVersion(
+    args: GetPackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPackageVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPercentilesCommand}
    */
   getPercentiles(
@@ -3897,6 +4066,34 @@ export interface IoT {
     args: ListOutgoingCertificatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListOutgoingCertificatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPackagesCommand}
+   */
+  listPackages(args: ListPackagesCommandInput, options?: __HttpHandlerOptions): Promise<ListPackagesCommandOutput>;
+  listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
+  listPackages(
+    args: ListPackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPackagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPackageVersionsCommand}
+   */
+  listPackageVersions(
+    args: ListPackageVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPackageVersionsCommandOutput>;
+  listPackageVersions(
+    args: ListPackageVersionsCommandInput,
+    cb: (err: any, data?: ListPackageVersionsCommandOutput) => void
+  ): void;
+  listPackageVersions(
+    args: ListPackageVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPackageVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -5007,6 +5204,51 @@ export interface IoT {
     args: UpdateMitigationActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMitigationActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePackageCommand}
+   */
+  updatePackage(args: UpdatePackageCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePackageCommandOutput>;
+  updatePackage(args: UpdatePackageCommandInput, cb: (err: any, data?: UpdatePackageCommandOutput) => void): void;
+  updatePackage(
+    args: UpdatePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePackageConfigurationCommand}
+   */
+  updatePackageConfiguration(
+    args: UpdatePackageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageConfigurationCommandOutput>;
+  updatePackageConfiguration(
+    args: UpdatePackageConfigurationCommandInput,
+    cb: (err: any, data?: UpdatePackageConfigurationCommandOutput) => void
+  ): void;
+  updatePackageConfiguration(
+    args: UpdatePackageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePackageVersionCommand}
+   */
+  updatePackageVersion(
+    args: UpdatePackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageVersionCommandOutput>;
+  updatePackageVersion(
+    args: UpdatePackageVersionCommandInput,
+    cb: (err: any, data?: UpdatePackageVersionCommandOutput) => void
+  ): void;
+  updatePackageVersion(
+    args: UpdatePackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageVersionCommandOutput) => void
   ): void;
 
   /**

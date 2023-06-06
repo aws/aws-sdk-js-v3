@@ -141,6 +141,11 @@ import {
   CreateMitigationActionCommandOutput,
 } from "./commands/CreateMitigationActionCommand";
 import { CreateOTAUpdateCommandInput, CreateOTAUpdateCommandOutput } from "./commands/CreateOTAUpdateCommand";
+import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import {
+  CreatePackageVersionCommandInput,
+  CreatePackageVersionCommandOutput,
+} from "./commands/CreatePackageVersionCommand";
 import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
 import {
   CreatePolicyVersionCommandInput,
@@ -210,6 +215,11 @@ import {
   DeleteMitigationActionCommandOutput,
 } from "./commands/DeleteMitigationActionCommand";
 import { DeleteOTAUpdateCommandInput, DeleteOTAUpdateCommandOutput } from "./commands/DeleteOTAUpdateCommand";
+import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import {
+  DeletePackageVersionCommandInput,
+  DeletePackageVersionCommandOutput,
+} from "./commands/DeletePackageVersionCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DeletePolicyVersionCommandInput,
@@ -384,6 +394,12 @@ import {
 import { GetJobDocumentCommandInput, GetJobDocumentCommandOutput } from "./commands/GetJobDocumentCommand";
 import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand";
 import { GetOTAUpdateCommandInput, GetOTAUpdateCommandOutput } from "./commands/GetOTAUpdateCommand";
+import { GetPackageCommandInput, GetPackageCommandOutput } from "./commands/GetPackageCommand";
+import {
+  GetPackageConfigurationCommandInput,
+  GetPackageConfigurationCommandOutput,
+} from "./commands/GetPackageConfigurationCommand";
+import { GetPackageVersionCommandInput, GetPackageVersionCommandOutput } from "./commands/GetPackageVersionCommand";
 import { GetPercentilesCommandInput, GetPercentilesCommandOutput } from "./commands/GetPercentilesCommand";
 import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
@@ -471,6 +487,11 @@ import {
   ListOutgoingCertificatesCommandInput,
   ListOutgoingCertificatesCommandOutput,
 } from "./commands/ListOutgoingCertificatesCommand";
+import { ListPackagesCommandInput, ListPackagesCommandOutput } from "./commands/ListPackagesCommand";
+import {
+  ListPackageVersionsCommandInput,
+  ListPackageVersionsCommandOutput,
+} from "./commands/ListPackageVersionsCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListPolicyPrincipalsCommandInput,
@@ -678,6 +699,15 @@ import {
   UpdateMitigationActionCommandInput,
   UpdateMitigationActionCommandOutput,
 } from "./commands/UpdateMitigationActionCommand";
+import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import {
+  UpdatePackageConfigurationCommandInput,
+  UpdatePackageConfigurationCommandOutput,
+} from "./commands/UpdatePackageConfigurationCommand";
+import {
+  UpdatePackageVersionCommandInput,
+  UpdatePackageVersionCommandOutput,
+} from "./commands/UpdatePackageVersionCommand";
 import {
   UpdateProvisioningTemplateCommandInput,
   UpdateProvisioningTemplateCommandOutput,
@@ -750,6 +780,8 @@ export type ServiceInputTypes =
   | CreateKeysAndCertificateCommandInput
   | CreateMitigationActionCommandInput
   | CreateOTAUpdateCommandInput
+  | CreatePackageCommandInput
+  | CreatePackageVersionCommandInput
   | CreatePolicyCommandInput
   | CreatePolicyVersionCommandInput
   | CreateProvisioningClaimCommandInput
@@ -780,6 +812,8 @@ export type ServiceInputTypes =
   | DeleteJobTemplateCommandInput
   | DeleteMitigationActionCommandInput
   | DeleteOTAUpdateCommandInput
+  | DeletePackageCommandInput
+  | DeletePackageVersionCommandInput
   | DeletePolicyCommandInput
   | DeletePolicyVersionCommandInput
   | DeleteProvisioningTemplateCommandInput
@@ -843,6 +877,9 @@ export type ServiceInputTypes =
   | GetJobDocumentCommandInput
   | GetLoggingOptionsCommandInput
   | GetOTAUpdateCommandInput
+  | GetPackageCommandInput
+  | GetPackageConfigurationCommandInput
+  | GetPackageVersionCommandInput
   | GetPercentilesCommandInput
   | GetPolicyCommandInput
   | GetPolicyVersionCommandInput
@@ -879,6 +916,8 @@ export type ServiceInputTypes =
   | ListMitigationActionsCommandInput
   | ListOTAUpdatesCommandInput
   | ListOutgoingCertificatesCommandInput
+  | ListPackageVersionsCommandInput
+  | ListPackagesCommandInput
   | ListPoliciesCommandInput
   | ListPolicyPrincipalsCommandInput
   | ListPolicyVersionsCommandInput
@@ -948,6 +987,9 @@ export type ServiceInputTypes =
   | UpdateIndexingConfigurationCommandInput
   | UpdateJobCommandInput
   | UpdateMitigationActionCommandInput
+  | UpdatePackageCommandInput
+  | UpdatePackageConfigurationCommandInput
+  | UpdatePackageVersionCommandInput
   | UpdateProvisioningTemplateCommandInput
   | UpdateRoleAliasCommandInput
   | UpdateScheduledAuditCommandInput
@@ -993,6 +1035,8 @@ export type ServiceOutputTypes =
   | CreateKeysAndCertificateCommandOutput
   | CreateMitigationActionCommandOutput
   | CreateOTAUpdateCommandOutput
+  | CreatePackageCommandOutput
+  | CreatePackageVersionCommandOutput
   | CreatePolicyCommandOutput
   | CreatePolicyVersionCommandOutput
   | CreateProvisioningClaimCommandOutput
@@ -1023,6 +1067,8 @@ export type ServiceOutputTypes =
   | DeleteJobTemplateCommandOutput
   | DeleteMitigationActionCommandOutput
   | DeleteOTAUpdateCommandOutput
+  | DeletePackageCommandOutput
+  | DeletePackageVersionCommandOutput
   | DeletePolicyCommandOutput
   | DeletePolicyVersionCommandOutput
   | DeleteProvisioningTemplateCommandOutput
@@ -1086,6 +1132,9 @@ export type ServiceOutputTypes =
   | GetJobDocumentCommandOutput
   | GetLoggingOptionsCommandOutput
   | GetOTAUpdateCommandOutput
+  | GetPackageCommandOutput
+  | GetPackageConfigurationCommandOutput
+  | GetPackageVersionCommandOutput
   | GetPercentilesCommandOutput
   | GetPolicyCommandOutput
   | GetPolicyVersionCommandOutput
@@ -1122,6 +1171,8 @@ export type ServiceOutputTypes =
   | ListMitigationActionsCommandOutput
   | ListOTAUpdatesCommandOutput
   | ListOutgoingCertificatesCommandOutput
+  | ListPackageVersionsCommandOutput
+  | ListPackagesCommandOutput
   | ListPoliciesCommandOutput
   | ListPolicyPrincipalsCommandOutput
   | ListPolicyVersionsCommandOutput
@@ -1191,6 +1242,9 @@ export type ServiceOutputTypes =
   | UpdateIndexingConfigurationCommandOutput
   | UpdateJobCommandOutput
   | UpdateMitigationActionCommandOutput
+  | UpdatePackageCommandOutput
+  | UpdatePackageConfigurationCommandOutput
+  | UpdatePackageVersionCommandOutput
   | UpdateProvisioningTemplateCommandOutput
   | UpdateRoleAliasCommandOutput
   | UpdateScheduledAuditCommandOutput

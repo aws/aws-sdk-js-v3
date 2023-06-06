@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteOTAUpdateRequest, DeleteOTAUpdateResponse } from "../models/models_0";
+import { DeleteOTAUpdateRequest, DeleteOTAUpdateResponse } from "../models/models_1";
 import { de_DeleteOTAUpdateCommand, se_DeleteOTAUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListPrincipalPoliciesRequest, ListPrincipalPoliciesResponse } from "../models/models_1";
+import { ListPrincipalPoliciesRequest, ListPrincipalPoliciesResponse } from "../models/models_2";
 import { de_ListPrincipalPoliciesCommand, se_ListPrincipalPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**

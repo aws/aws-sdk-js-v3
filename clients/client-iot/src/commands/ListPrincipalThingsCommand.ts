@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListPrincipalThingsRequest, ListPrincipalThingsResponse } from "../models/models_1";
+import { ListPrincipalThingsRequest, ListPrincipalThingsResponse } from "../models/models_2";
 import { de_ListPrincipalThingsCommand, se_ListPrincipalThingsCommand } from "../protocols/Aws_restJson1";
 
 /**

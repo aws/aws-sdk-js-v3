@@ -29,6 +29,8 @@ export * from "./ListMetricValuesPaginator";
 export * from "./ListMitigationActionsPaginator";
 export * from "./ListOTAUpdatesPaginator";
 export * from "./ListOutgoingCertificatesPaginator";
+export * from "./ListPackageVersionsPaginator";
+export * from "./ListPackagesPaginator";
 export * from "./ListPoliciesPaginator";
 export * from "./ListPolicyPrincipalsPaginator";
 export * from "./ListPrincipalPoliciesPaginator";

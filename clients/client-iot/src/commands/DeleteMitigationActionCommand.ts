@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteMitigationActionRequest, DeleteMitigationActionResponse } from "../models/models_0";
+import { DeleteMitigationActionRequest, DeleteMitigationActionResponse } from "../models/models_1";
 import { de_DeleteMitigationActionCommand, se_DeleteMitigationActionCommand } from "../protocols/Aws_restJson1";
 
 /**

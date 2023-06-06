@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteJobExecutionRequest } from "../models/models_1";
-import { de_DeleteJobExecutionCommand, se_DeleteJobExecutionCommand } from "../protocols/Aws_restJson1";
+import { UpdatePackageConfigurationRequest, UpdatePackageConfigurationResponse } from "../models/models_2";
+import { de_UpdatePackageConfigurationCommand, se_UpdatePackageConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,69 +24,62 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteJobExecutionCommand}.
+ * The input for {@link UpdatePackageConfigurationCommand}.
  */
-export interface DeleteJobExecutionCommandInput extends DeleteJobExecutionRequest {}
+export interface UpdatePackageConfigurationCommandInput extends UpdatePackageConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteJobExecutionCommand}.
+ * The output of {@link UpdatePackageConfigurationCommand}.
  */
-export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
+export interface UpdatePackageConfigurationCommandOutput extends UpdatePackageConfigurationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a job execution.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJobExecution</a> action.</p>
+ * <p>Updates the package configuration.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdatePackageConfiguration</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdatePackageConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdatePackageConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = { // DeleteJobExecutionRequest
- *   jobId: "STRING_VALUE", // required
- *   thingName: "STRING_VALUE", // required
- *   executionNumber: Number("long"), // required
- *   force: true || false,
- *   namespaceId: "STRING_VALUE",
+ * const input = { // UpdatePackageConfigurationRequest
+ *   versionUpdateByJobsConfig: { // VersionUpdateByJobsConfig
+ *     enabled: true || false,
+ *     roleArn: "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new DeleteJobExecutionCommand(input);
+ * const command = new UpdatePackageConfigurationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteJobExecutionCommandInput - {@link DeleteJobExecutionCommandInput}
- * @returns {@link DeleteJobExecutionCommandOutput}
- * @see {@link DeleteJobExecutionCommandInput} for command's `input` shape.
- * @see {@link DeleteJobExecutionCommandOutput} for command's `response` shape.
+ * @param UpdatePackageConfigurationCommandInput - {@link UpdatePackageConfigurationCommandInput}
+ * @returns {@link UpdatePackageConfigurationCommandOutput}
+ * @see {@link UpdatePackageConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdatePackageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
- *
- * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>An attempt was made to change to an invalid state, for example by deleting a job or a
- *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
- *          parameter.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
- *
- * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal error from the service that indicates an unexpected error or that the service
+ *             is unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request is not valid.</p>
  *
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
-export class DeleteJobExecutionCommand extends $Command<
-  DeleteJobExecutionCommandInput,
-  DeleteJobExecutionCommandOutput,
+export class UpdatePackageConfigurationCommand extends $Command<
+  UpdatePackageConfigurationCommandInput,
+  UpdatePackageConfigurationCommandOutput,
   IoTClientResolvedConfig
 > {
   // Start section: command_properties
@@ -104,7 +97,7 @@ export class DeleteJobExecutionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteJobExecutionCommandInput) {
+  constructor(readonly input: UpdatePackageConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -117,17 +110,17 @@ export class DeleteJobExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteJobExecutionCommandInput, DeleteJobExecutionCommandOutput> {
+  ): Handler<UpdatePackageConfigurationCommandInput, UpdatePackageConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteJobExecutionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdatePackageConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTClient";
-    const commandName = "DeleteJobExecutionCommand";
+    const commandName = "UpdatePackageConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -146,15 +139,18 @@ export class DeleteJobExecutionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteJobExecutionCommand(input, context);
+  private serialize(input: UpdatePackageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdatePackageConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobExecutionCommandOutput> {
-    return de_DeleteJobExecutionCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdatePackageConfigurationCommandOutput> {
+    return de_UpdatePackageConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

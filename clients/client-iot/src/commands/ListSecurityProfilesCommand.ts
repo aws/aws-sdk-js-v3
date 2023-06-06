@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListSecurityProfilesRequest, ListSecurityProfilesResponse } from "../models/models_1";
+import { ListSecurityProfilesRequest, ListSecurityProfilesResponse } from "../models/models_2";
 import { de_ListSecurityProfilesCommand, se_ListSecurityProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**

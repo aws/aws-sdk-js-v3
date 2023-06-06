@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 import {
@@ -45,11 +45,11 @@ import {
   MitigationActionParams,
   OTAUpdateFile,
   OTAUpdateStatus,
+  PackageVersionStatus,
   Policy,
   PresignedUrlConfig,
   Protocol,
   ProvisioningHook,
-  RelatedResource,
   ResourceIdentifier,
   SchedulingConfig,
   ServiceType,
@@ -64,6 +64,207 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteFleetMetricRequest {
+  /**
+   * <p>The name of the fleet metric to delete.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The expected version of the fleet metric to delete.</p>
+   */
+  expectedVersion?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobRequest {
+  /**
+   * <p>The ID of the job to be deleted.</p>
+   *          <p>After a job deletion is completed, you may reuse this jobId when you create a new job.
+   *         However, this is not recommended, and you must ensure that your devices are not using the
+   *         jobId to refer to the deleted job.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can
+   *         only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception
+   *         will occur. The default is false.</p>
+   *          <note>
+   *             <p>Deleting a job which is "IN_PROGRESS", will cause a device which is executing
+   *         the job to be unable to access job information or update the job execution status.
+   *         Use caution and ensure that each device executing a job which is deleted is able to recover to
+   *         a valid state.</p>
+   *          </note>
+   */
+  force?: boolean;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *             contain the value in the following format.</p>
+   *          <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *          <note>
+   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *          </note>
+   */
+  namespaceId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobExecutionRequest {
+  /**
+   * <p>The ID of the job whose execution on a particular device will be deleted.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The name of the thing whose job execution will be deleted.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the
+   *         execution of a particular job on a particular device.</p>
+   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused
+   *         by IoT, so be sure you get and use the correct value here.</p>
+   */
+  executionNumber: number | undefined;
+
+  /**
+   * <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise,
+   *         you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED",
+   *         "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.</p>
+   *          <note>
+   *             <p>Deleting a job execution which is "IN_PROGRESS", will cause the device
+   *         to be unable to access job information or update the job execution status.
+   *         Use caution and ensure that the device is able to recover to a valid state.</p>
+   *          </note>
+   */
+  force?: boolean;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
+   *             contain the value in the following format.</p>
+   *          <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *          <note>
+   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *          </note>
+   */
+  namespaceId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobTemplateRequest {
+  /**
+   * <p>The unique identifier of the job template to delete.</p>
+   */
+  jobTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMitigationActionRequest {
+  /**
+   * <p>The name of the mitigation action that you want to delete.</p>
+   */
+  actionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMitigationActionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteOTAUpdateRequest {
+  /**
+   * <p>The ID of the OTA update to delete.</p>
+   */
+  otaUpdateId: string | undefined;
+
+  /**
+   * <p>When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted.
+   *             Ignored if the stream specified in the OTAUpdate is supplied by the user.</p>
+   */
+  deleteStream?: boolean;
+
+  /**
+   * <p>When true, deletes the IoT job created by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the
+   *             job is not in a terminal state ("COMPLETED" or "CANCELED") an exception will occur. The default is false.</p>
+   */
+  forceDeleteAWSJob?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOTAUpdateResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePackageRequest {
+  /**
+   * <p>The name of the target package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeletePackageResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePackageVersionRequest {
+  /**
+   * <p>The name of the associated package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the target package version.</p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeletePackageVersionResponse {}
 
 /**
  * @public
@@ -1971,6 +2172,14 @@ export interface Job {
    * <p>Displays the next seven maintenance window occurrences and their start times.</p>
    */
   scheduledJobRollouts?: ScheduledJobRollout[];
+
+  /**
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   *          <p>
+   *             <b>Note:</b>The following Length Constraints relates to a single string.
+   *         Up to five strings are allowed.</p>
+   */
+  destinationPackageVersions?: string[];
 }
 
 /**
@@ -2196,6 +2405,14 @@ export interface DescribeJobTemplateResponse {
    * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
    */
   maintenanceWindows?: MaintenanceWindow[];
+
+  /**
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   *          <p>
+   *             <b>Note:</b>The following Length Constraints relates to a single string.
+   *         Up to five strings are allowed.</p>
+   */
+  destinationPackageVersions?: string[];
 }
 
 /**
@@ -2303,27 +2520,6 @@ export interface DescribeManagedJobTemplateResponse {
    * <p>The document schema for a managed job template.</p>
    */
   document?: string;
-}
-
-/**
- * @public
- * <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
 }
 
 /**
@@ -3928,6 +4124,151 @@ export interface GetOTAUpdateResponse {
    * <p>The OTA update info.</p>
    */
   otaUpdateInfo?: OTAUpdateInfo;
+}
+
+/**
+ * @public
+ */
+export interface GetPackageRequest {
+  /**
+   * <p>The name of the target package.</p>
+   */
+  packageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPackageResponse {
+  /**
+   * <p>The name of the package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * <p>The ARN for the package.</p>
+   */
+  packageArn?: string;
+
+  /**
+   * <p>The package description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the default package version.</p>
+   */
+  defaultVersionName?: string;
+
+  /**
+   * <p>The date the package was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date when the package was last updated.</p>
+   */
+  lastModifiedDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetPackageConfigurationRequest {}
+
+/**
+ * @public
+ * <p>Configuration to manage IoT Job's package version reporting. If configured, Jobs updates the thing's reserved named shadow with the package version information up on successful job completion.</p>
+ *          <p>
+ *             <b>Note:</b> For each job, the destinationPackageVersions attribute has to be set with the correct data for Jobs to report to the thing shadow.
+ *       </p>
+ */
+export interface VersionUpdateByJobsConfig {
+  /**
+   * <p>Indicates whether the Job is enabled or not.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role that grants permission to the IoT
+   *       jobs service to update the reserved named shadow when the job successfully completes.</p>
+   */
+  roleArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetPackageConfigurationResponse {
+  /**
+   * <p>The version that is associated to a specific job.</p>
+   */
+  versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
+}
+
+/**
+ * @public
+ */
+export interface GetPackageVersionRequest {
+  /**
+   * <p>The name of the associated package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the target package version.</p>
+   */
+  versionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPackageVersionResponse {
+  /**
+   * <p>The ARN for the package version.</p>
+   */
+  packageVersionArn?: string;
+
+  /**
+   * <p>The name of the package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * <p>The name of the package version.</p>
+   */
+  versionName?: string;
+
+  /**
+   * <p>The package version description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Metadata that were added to the package version that can be used to define a package version’s configuration.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>The status associated to the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   */
+  status?: PackageVersionStatus | string;
+
+  /**
+   * <p>Error reason for a package version failure during creation or update.</p>
+   */
+  errorReason?: string;
+
+  /**
+   * <p>The date when the package version was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date when the package version was last updated.</p>
+   */
+  lastModifiedDate?: Date;
 }
 
 /**
@@ -6133,6 +6474,133 @@ export interface ListOutgoingCertificatesResponse {
 
 /**
  * @public
+ */
+export interface ListPackagesRequest {
+  /**
+   * <p>The maximum number of results returned at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A summary of information about a software package.</p>
+ */
+export interface PackageSummary {
+  /**
+   * <p>The name for the target package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * <p>The name of the default package version.</p>
+   */
+  defaultVersionName?: string;
+
+  /**
+   * <p>The date that the package was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date that the package was last updated.</p>
+   */
+  lastModifiedDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListPackagesResponse {
+  /**
+   * <p>The software package summary.</p>
+   */
+  packageSummaries?: PackageSummary[];
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPackageVersionsRequest {
+  /**
+   * <p>The name of the target package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   */
+  status?: PackageVersionStatus | string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A summary of information about a package version.</p>
+ */
+export interface PackageVersionSummary {
+  /**
+   * <p>The name of the associated software package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * <p>The name of the target package version.</p>
+   */
+  versionName?: string;
+
+  /**
+   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   */
+  status?: PackageVersionStatus | string;
+
+  /**
+   * <p>The date that the package version was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date that the package version was last updated.</p>
+   */
+  lastModifiedDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListPackageVersionsResponse {
+  /**
+   * <p>Lists the package versions associated to the package.</p>
+   */
+  packageVersionSummaries?: PackageVersionSummary[];
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>The input for the ListPolicies operation.</p>
  */
 export interface ListPoliciesRequest {
@@ -6247,477 +6715,18 @@ export interface PolicyVersion {
 }
 
 /**
- * @public
- * <p>The output from the ListPolicyVersions operation.</p>
+ * @internal
  */
-export interface ListPolicyVersionsResponse {
-  /**
-   * <p>The policy versions.</p>
-   */
-  policyVersions?: PolicyVersion[];
-}
+export const GetPackageResponseFilterSensitiveLog = (obj: GetPackageResponse): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
 
 /**
- * @public
- * <p>The input for the ListPrincipalPolicies operation.</p>
+ * @internal
  */
-export interface ListPrincipalPoliciesRequest {
-  /**
-   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  principal: string | undefined;
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>Specifies the order for results. If true, results are returned in ascending creation
-   *          order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-/**
- * @public
- * <p>The output from the ListPrincipalPolicies operation.</p>
- */
-export interface ListPrincipalPoliciesResponse {
-  /**
-   * <p>The policies.</p>
-   */
-  policies?: Policy[];
-
-  /**
-   * <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   */
-  nextMarker?: string;
-}
-
-/**
- * @public
- * <p>The input for the ListPrincipalThings operation.</p>
- */
-export interface ListPrincipalThingsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The principal.</p>
-   */
-  principal: string | undefined;
-}
-
-/**
- * @public
- * <p>The output from the ListPrincipalThings operation.</p>
- */
-export interface ListPrincipalThingsResponse {
-  /**
-   * <p>The things.</p>
-   */
-  things?: string[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListProvisioningTemplatesRequest {
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>A summary of information about a provisioning template.</p>
- */
-export interface ProvisioningTemplateSummary {
-  /**
-   * <p>The ARN of the provisioning template.</p>
-   */
-  templateArn?: string;
-
-  /**
-   * <p>The name of the provisioning template.</p>
-   */
-  templateName?: string;
-
-  /**
-   * <p>The description of the provisioning template.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The date when the provisioning template summary was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date when the provisioning template summary was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>True if the fleet provision template is enabled, otherwise false.</p>
-   */
-  enabled?: boolean;
-
-  /**
-   * <p>The type you define in a provisioning template. You can create a template with only one type.
-   *          You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>.
-   *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
-   *       </p>
-   */
-  type?: TemplateType | string;
-}
-
-/**
- * @public
- */
-export interface ListProvisioningTemplatesResponse {
-  /**
-   * <p>A list of provisioning templates</p>
-   */
-  templates?: ProvisioningTemplateSummary[];
-
-  /**
-   * <p>A token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListProvisioningTemplateVersionsRequest {
-  /**
-   * <p>The name of the provisioning template.</p>
-   */
-  templateName: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>A summary of information about a fleet provision template version.</p>
- */
-export interface ProvisioningTemplateVersionSummary {
-  /**
-   * <p>The ID of the fleet provisioning template version.</p>
-   */
-  versionId?: number;
-
-  /**
-   * <p>The date when the provisioning template version was created</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>True if the provisioning template version is the default version, otherwise
-   *          false.</p>
-   */
-  isDefaultVersion?: boolean;
-}
-
-/**
- * @public
- */
-export interface ListProvisioningTemplateVersionsResponse {
-  /**
-   * <p>The list of provisioning template versions.</p>
-   */
-  versions?: ProvisioningTemplateVersionSummary[];
-
-  /**
-   * <p>A token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListRelatedResourcesForAuditFindingRequest {
-  /**
-   * <p>The finding Id.</p>
-   */
-  findingId: string | undefined;
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results,
-   *       or <code>null</code> if there are no additional results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListRelatedResourcesForAuditFindingResponse {
-  /**
-   * <p>The related resources.</p>
-   */
-  relatedResources?: RelatedResource[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results,
-   *       or <code>null</code> for the first API call.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListRoleAliasesRequest {
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>Return the list of role aliases in ascending alphabetical order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-/**
- * @public
- */
-export interface ListRoleAliasesResponse {
-  /**
-   * <p>The role aliases.</p>
-   */
-  roleAliases?: string[];
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-/**
- * @public
- */
-export interface ListScheduledAuditsRequest {
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- * <p>Information about the scheduled audit.</p>
- */
-export interface ScheduledAuditMetadata {
-  /**
-   * <p>The name of the scheduled audit.</p>
-   */
-  scheduledAuditName?: string;
-
-  /**
-   * <p>The ARN of the scheduled audit.</p>
-   */
-  scheduledAuditArn?: string;
-
-  /**
-   * <p>How often the scheduled audit occurs.</p>
-   */
-  frequency?: AuditFrequency | string;
-
-  /**
-   * <p>The day of the month on which the scheduled audit is run (if the
-   *           <code>frequency</code> is "MONTHLY").
-   *         If days 29-31 are specified, and the month does not have that many
-   *         days, the audit takes place on the "LAST" day of the month.</p>
-   */
-  dayOfMonth?: string;
-
-  /**
-   * <p>The day of the week on which the scheduled audit is run (if the
-   *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
-   */
-  dayOfWeek?: DayOfWeek | string;
-}
-
-/**
- * @public
- */
-export interface ListScheduledAuditsResponse {
-  /**
-   * <p>The list of scheduled audits.</p>
-   */
-  scheduledAudits?: ScheduledAuditMetadata[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results,
-   *             or <code>null</code> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilesRequest {
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>A filter to limit results to the security profiles that use the defined dimension.
-   *       Cannot be used with <code>metricName</code>
-   *          </p>
-   */
-  dimensionName?: string;
-
-  /**
-   * <p> The name of the custom metric.
-   *       Cannot be used with <code>dimensionName</code>. </p>
-   */
-  metricName?: string;
-}
-
-/**
- * @public
- * <p>Identifying information for a Device Defender security profile.</p>
- */
-export interface SecurityProfileIdentifier {
-  /**
-   * <p>The name you've given to the security profile.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ARN of the security profile.</p>
-   */
-  arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilesResponse {
-  /**
-   * <p>A list of security profile identifiers (names and ARNs).</p>
-   */
-  securityProfileIdentifiers?: SecurityProfileIdentifier[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilesForTargetRequest {
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If true, return child groups too.</p>
-   */
-  recursive?: boolean;
-
-  /**
-   * <p>The ARN of the target (thing group) whose attached security profiles you want to get.</p>
-   */
-  securityProfileTargetArn: string | undefined;
-}
-
-/**
- * @public
- * <p>A target to which an alert is sent when a security profile behavior is
- *           violated.</p>
- */
-export interface SecurityProfileTarget {
-  /**
-   * <p>The ARN of the security profile.</p>
-   */
-  arn: string | undefined;
-}
-
-/**
- * @public
- * <p>Information about a security profile and the target associated with it.</p>
- */
-export interface SecurityProfileTargetMapping {
-  /**
-   * <p>Information that identifies the security profile.</p>
-   */
-  securityProfileIdentifier?: SecurityProfileIdentifier;
-
-  /**
-   * <p>Information about the target (thing group) associated with the security profile.</p>
-   */
-  target?: SecurityProfileTarget;
-}
+export const GetPackageVersionResponseFilterSensitiveLog = (obj: GetPackageVersionResponse): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+});

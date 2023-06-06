@@ -137,6 +137,9 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * //         startTime: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     destinationPackageVersions: [ // DestinationPackageVersions
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

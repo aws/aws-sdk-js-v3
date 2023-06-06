@@ -111,6 +111,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       },
  *     ],
  *   },
+ *   destinationPackageVersions: [ // DestinationPackageVersions
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);

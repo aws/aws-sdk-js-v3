@@ -98,6 +98,9 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *       durationInMinutes: Number("int"), // required
  *     },
  *   ],
+ *   destinationPackageVersions: [ // DestinationPackageVersions
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);

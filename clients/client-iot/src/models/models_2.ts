@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 import {
@@ -28,11 +28,14 @@ import {
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
+  Policy,
   PresignedUrlConfig,
   ProvisioningHook,
+  RelatedResource,
   ResourceIdentifier,
   StreamFile,
   Tag,
+  TemplateType,
   ThingGroupProperties,
   ThingTypeProperties,
   TimeoutConfig,
@@ -52,15 +55,491 @@ import {
   DomainConfigurationStatus,
   GroupNameAndArn,
   LogTargetType,
+  PolicyVersion,
   RegistrationConfig,
-  SecurityProfileTarget,
-  SecurityProfileTargetMapping,
   Status,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
+  VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>The output from the ListPolicyVersions operation.</p>
+ */
+export interface ListPolicyVersionsResponse {
+  /**
+   * <p>The policy versions.</p>
+   */
+  policyVersions?: PolicyVersion[];
+}
+
+/**
+ * @public
+ * <p>The input for the ListPrincipalPolicies operation.</p>
+ */
+export interface ListPrincipalPoliciesRequest {
+  /**
+   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+   */
+  principal: string | undefined;
+
+  /**
+   * <p>The marker for the next set of results.</p>
+   */
+  marker?: string;
+
+  /**
+   * <p>The result page size.</p>
+   */
+  pageSize?: number;
+
+  /**
+   * <p>Specifies the order for results. If true, results are returned in ascending creation
+   *          order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * @public
+ * <p>The output from the ListPrincipalPolicies operation.</p>
+ */
+export interface ListPrincipalPoliciesResponse {
+  /**
+   * <p>The policies.</p>
+   */
+  policies?: Policy[];
+
+  /**
+   * <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   */
+  nextMarker?: string;
+}
+
+/**
+ * @public
+ * <p>The input for the ListPrincipalThings operation.</p>
+ */
+export interface ListPrincipalThingsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The principal.</p>
+   */
+  principal: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The output from the ListPrincipalThings operation.</p>
+ */
+export interface ListPrincipalThingsResponse {
+  /**
+   * <p>The things.</p>
+   */
+  things?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListProvisioningTemplatesRequest {
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A summary of information about a provisioning template.</p>
+ */
+export interface ProvisioningTemplateSummary {
+  /**
+   * <p>The ARN of the provisioning template.</p>
+   */
+  templateArn?: string;
+
+  /**
+   * <p>The name of the provisioning template.</p>
+   */
+  templateName?: string;
+
+  /**
+   * <p>The description of the provisioning template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The date when the provisioning template summary was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date when the provisioning template summary was last modified.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>True if the fleet provision template is enabled, otherwise false.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>The type you define in a provisioning template. You can create a template with only one type.
+   *          You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>.
+   *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
+   *       </p>
+   */
+  type?: TemplateType | string;
+}
+
+/**
+ * @public
+ */
+export interface ListProvisioningTemplatesResponse {
+  /**
+   * <p>A list of provisioning templates</p>
+   */
+  templates?: ProvisioningTemplateSummary[];
+
+  /**
+   * <p>A token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListProvisioningTemplateVersionsRequest {
+  /**
+   * <p>The name of the provisioning template.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A summary of information about a fleet provision template version.</p>
+ */
+export interface ProvisioningTemplateVersionSummary {
+  /**
+   * <p>The ID of the fleet provisioning template version.</p>
+   */
+  versionId?: number;
+
+  /**
+   * <p>The date when the provisioning template version was created</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>True if the provisioning template version is the default version, otherwise
+   *          false.</p>
+   */
+  isDefaultVersion?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListProvisioningTemplateVersionsResponse {
+  /**
+   * <p>The list of provisioning template versions.</p>
+   */
+  versions?: ProvisioningTemplateVersionSummary[];
+
+  /**
+   * <p>A token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRelatedResourcesForAuditFindingRequest {
+  /**
+   * <p>The finding Id.</p>
+   */
+  findingId: string | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> if there are no additional results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListRelatedResourcesForAuditFindingResponse {
+  /**
+   * <p>The related resources.</p>
+   */
+  relatedResources?: RelatedResource[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> for the first API call.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRoleAliasesRequest {
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  pageSize?: number;
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   */
+  marker?: string;
+
+  /**
+   * <p>Return the list of role aliases in ascending alphabetical order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListRoleAliasesResponse {
+  /**
+   * <p>The role aliases.</p>
+   */
+  roleAliases?: string[];
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   */
+  nextMarker?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledAuditsRequest {
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the scheduled audit.</p>
+ */
+export interface ScheduledAuditMetadata {
+  /**
+   * <p>The name of the scheduled audit.</p>
+   */
+  scheduledAuditName?: string;
+
+  /**
+   * <p>The ARN of the scheduled audit.</p>
+   */
+  scheduledAuditArn?: string;
+
+  /**
+   * <p>How often the scheduled audit occurs.</p>
+   */
+  frequency?: AuditFrequency | string;
+
+  /**
+   * <p>The day of the month on which the scheduled audit is run (if the
+   *           <code>frequency</code> is "MONTHLY").
+   *         If days 29-31 are specified, and the month does not have that many
+   *         days, the audit takes place on the "LAST" day of the month.</p>
+   */
+  dayOfMonth?: string;
+
+  /**
+   * <p>The day of the week on which the scheduled audit is run (if the
+   *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
+   */
+  dayOfWeek?: DayOfWeek | string;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledAuditsResponse {
+  /**
+   * <p>The list of scheduled audits.</p>
+   */
+  scheduledAudits?: ScheduledAuditMetadata[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *             or <code>null</code> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfilesRequest {
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A filter to limit results to the security profiles that use the defined dimension.
+   *       Cannot be used with <code>metricName</code>
+   *          </p>
+   */
+  dimensionName?: string;
+
+  /**
+   * <p> The name of the custom metric.
+   *       Cannot be used with <code>dimensionName</code>. </p>
+   */
+  metricName?: string;
+}
+
+/**
+ * @public
+ * <p>Identifying information for a Device Defender security profile.</p>
+ */
+export interface SecurityProfileIdentifier {
+  /**
+   * <p>The name you've given to the security profile.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the security profile.</p>
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfilesResponse {
+  /**
+   * <p>A list of security profile identifiers (names and ARNs).</p>
+   */
+  securityProfileIdentifiers?: SecurityProfileIdentifier[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfilesForTargetRequest {
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If true, return child groups too.</p>
+   */
+  recursive?: boolean;
+
+  /**
+   * <p>The ARN of the target (thing group) whose attached security profiles you want to get.</p>
+   */
+  securityProfileTargetArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A target to which an alert is sent when a security profile behavior is
+ *           violated.</p>
+ */
+export interface SecurityProfileTarget {
+  /**
+   * <p>The ARN of the security profile.</p>
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about a security profile and the target associated with it.</p>
+ */
+export interface SecurityProfileTargetMapping {
+  /**
+   * <p>Information that identifies the security profile.</p>
+   */
+  securityProfileIdentifier?: SecurityProfileIdentifier;
+
+  /**
+   * <p>Information about the target (thing group) associated with the security profile.</p>
+   */
+  target?: SecurityProfileTarget;
+}
 
 /**
  * @public
@@ -2871,6 +3350,129 @@ export interface UpdateMitigationActionResponse {
 /**
  * @public
  */
+export interface UpdatePackageRequest {
+  /**
+   * <p>The name of the target package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The package description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the default package version.</p>
+   *          <p>
+   *             <b>Note:</b> You cannot name a <code>defaultVersion</code>
+   *        and set <code>unsetDefaultVersion</code> equal to <code>true</code> at the same time.</p>
+   */
+  defaultVersionName?: string;
+
+  /**
+   * <p>Indicates whether you want to remove the named default package version from the software package.
+   *       Set as <code>true</code> to remove the default package version. </p>
+   *          <p>
+   *             <b>Note:</b> You cannot name a <code>defaultVersion</code>
+   *        and set <code>unsetDefaultVersion</code> equal to <code>true</code> at the same time.</p>
+   */
+  unsetDefaultVersion?: boolean;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePackageResponse {}
+
+/**
+ * @public
+ */
+export interface UpdatePackageConfigurationRequest {
+  /**
+   * <p>Configuration to manage job's package version reporting. This updates the thing's reserved named shadow that the job targets.</p>
+   */
+  versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePackageConfigurationResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageVersionAction = {
+  DEPRECATE: "DEPRECATE",
+  PUBLISH: "PUBLISH",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageVersionAction = (typeof PackageVersionAction)[keyof typeof PackageVersionAction];
+
+/**
+ * @public
+ */
+export interface UpdatePackageVersionRequest {
+  /**
+   * <p>The name of the associated software package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the target package version.</p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>The package version description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet. </p>
+   *          <p>
+   *             <b>Note:</b> Attributes can be updated only when the package version
+   *       is in a draft state.</p>
+   *          <p>The combined size of all the attributes on a package version is limited to 3KB.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>The status that the package version should be assigned. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   */
+  action?: PackageVersionAction | string;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePackageVersionResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateProvisioningTemplateRequest {
   /**
    * <p>The name of the provisioning template.</p>
@@ -3395,3 +3997,20 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
+
+/**
+ * @internal
+ */
+export const UpdatePackageRequestFilterSensitiveLog = (obj: UpdatePackageRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePackageVersionRequestFilterSensitiveLog = (obj: UpdatePackageVersionRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+});

@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListRoleAliasesRequest, ListRoleAliasesResponse } from "../models/models_2";
-import { de_ListRoleAliasesCommand, se_ListRoleAliasesCommand } from "../protocols/Aws_restJson1";
+import { ListPackageVersionsRequest, ListPackageVersionsResponse } from "../models/models_1";
+import { de_ListPackageVersionsCommand, se_ListPackageVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,70 +24,72 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListRoleAliasesCommand}.
+ * The input for {@link ListPackageVersionsCommand}.
  */
-export interface ListRoleAliasesCommandInput extends ListRoleAliasesRequest {}
+export interface ListPackageVersionsCommandInput extends ListPackageVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link ListRoleAliasesCommand}.
+ * The output of {@link ListPackageVersionsCommand}.
  */
-export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, __MetadataBearer {}
+export interface ListPackageVersionsCommandOutput extends ListPackageVersionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the role aliases registered in your account.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
+ * <p>Lists the software package versions associated to the account.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPackageVersions</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, ListRoleAliasesCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, ListRoleAliasesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, ListPackageVersionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListPackageVersionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = { // ListRoleAliasesRequest
- *   pageSize: Number("int"),
- *   marker: "STRING_VALUE",
- *   ascendingOrder: true || false,
+ * const input = { // ListPackageVersionsRequest
+ *   packageName: "STRING_VALUE", // required
+ *   status: "DRAFT" || "PUBLISHED" || "DEPRECATED",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListRoleAliasesCommand(input);
+ * const command = new ListPackageVersionsCommand(input);
  * const response = await client.send(command);
- * // { // ListRoleAliasesResponse
- * //   roleAliases: [ // RoleAliases
- * //     "STRING_VALUE",
+ * // { // ListPackageVersionsResponse
+ * //   packageVersionSummaries: [ // PackageVersionSummaryList
+ * //     { // PackageVersionSummary
+ * //       packageName: "STRING_VALUE",
+ * //       versionName: "STRING_VALUE",
+ * //       status: "DRAFT" || "PUBLISHED" || "DEPRECATED",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //       lastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
  * //   ],
- * //   nextMarker: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListRoleAliasesCommandInput - {@link ListRoleAliasesCommandInput}
- * @returns {@link ListRoleAliasesCommandOutput}
- * @see {@link ListRoleAliasesCommandInput} for command's `input` shape.
- * @see {@link ListRoleAliasesCommandOutput} for command's `response` shape.
+ * @param ListPackageVersionsCommandInput - {@link ListPackageVersionsCommandInput}
+ * @returns {@link ListPackageVersionsCommandOutput}
+ * @see {@link ListPackageVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListPackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
- * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
- *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
- *
- * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal error from the service that indicates an unexpected error or that the service
+ *             is unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request is not valid.</p>
  *
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
-export class ListRoleAliasesCommand extends $Command<
-  ListRoleAliasesCommandInput,
-  ListRoleAliasesCommandOutput,
+export class ListPackageVersionsCommand extends $Command<
+  ListPackageVersionsCommandInput,
+  ListPackageVersionsCommandOutput,
   IoTClientResolvedConfig
 > {
   // Start section: command_properties
@@ -105,7 +107,7 @@ export class ListRoleAliasesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListRoleAliasesCommandInput) {
+  constructor(readonly input: ListPackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -118,17 +120,17 @@ export class ListRoleAliasesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput> {
+  ): Handler<ListPackageVersionsCommandInput, ListPackageVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListRoleAliasesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListPackageVersionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTClient";
-    const commandName = "ListRoleAliasesCommand";
+    const commandName = "ListPackageVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -147,15 +149,15 @@ export class ListRoleAliasesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListRoleAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListRoleAliasesCommand(input, context);
+  private serialize(input: ListPackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListPackageVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoleAliasesCommandOutput> {
-    return de_ListRoleAliasesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackageVersionsCommandOutput> {
+    return de_ListPackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra
