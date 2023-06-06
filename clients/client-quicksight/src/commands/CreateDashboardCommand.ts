@@ -1399,6 +1399,15 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       Width: "STRING_VALUE",
  *                     },
  *                   ],
+ *                   CollapseStateOptions: [ // PivotTableFieldCollapseStateOptionList
+ *                     { // PivotTableFieldCollapseStateOption
+ *                       Target: { // PivotTableFieldCollapseStateTarget
+ *                         FieldId: "STRING_VALUE",
+ *                         FieldDataPathValues: "<DataPathValueList>",
+ *                       },
+ *                       State: "COLLAPSED" || "EXPANDED",
+ *                     },
+ *                   ],
  *                 },
  *                 PaginatedReportOptions: { // PivotTablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -1451,6 +1460,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       Scope: { // PivotTableConditionalFormattingScope
  *                         Role: "FIELD" || "FIELD_TOTAL" || "GRAND_TOTAL",
  *                       },
+ *                       Scopes: [ // PivotTableConditionalFormattingScopeList
+ *                         {
+ *                           Role: "FIELD" || "FIELD_TOTAL" || "GRAND_TOTAL",
+ *                         },
+ *                       ],
  *                     },
  *                   },
  *                 ],
@@ -3928,6 +3942,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ColorAxis: "<AxisDisplayOptions>",
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 Legend: "<LegendOptions>",
+ *                 AxesRangeScale: "AUTO" || "INDEPENDENT" || "SHARED",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",

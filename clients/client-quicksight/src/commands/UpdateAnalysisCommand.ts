@@ -1339,6 +1339,15 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       Width: "STRING_VALUE",
  *                     },
  *                   ],
+ *                   CollapseStateOptions: [ // PivotTableFieldCollapseStateOptionList
+ *                     { // PivotTableFieldCollapseStateOption
+ *                       Target: { // PivotTableFieldCollapseStateTarget
+ *                         FieldId: "STRING_VALUE",
+ *                         FieldDataPathValues: "<DataPathValueList>",
+ *                       },
+ *                       State: "COLLAPSED" || "EXPANDED",
+ *                     },
+ *                   ],
  *                 },
  *                 PaginatedReportOptions: { // PivotTablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -1391,6 +1400,11 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       Scope: { // PivotTableConditionalFormattingScope
  *                         Role: "FIELD" || "FIELD_TOTAL" || "GRAND_TOTAL",
  *                       },
+ *                       Scopes: [ // PivotTableConditionalFormattingScopeList
+ *                         {
+ *                           Role: "FIELD" || "FIELD_TOTAL" || "GRAND_TOTAL",
+ *                         },
+ *                       ],
  *                     },
  *                   },
  *                 ],
@@ -3868,6 +3882,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                 ColorAxis: "<AxisDisplayOptions>",
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 Legend: "<LegendOptions>",
+ *                 AxesRangeScale: "AUTO" || "INDEPENDENT" || "SHARED",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",

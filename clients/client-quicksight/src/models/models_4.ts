@@ -1,11 +1,109 @@
 // smithy-typescript generated code
 import {
   ResourcePermission,
+  ThemeAlias,
+  TopicDetails,
   TopicRefreshSchedule,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { User, UserRole } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateThemeAliasResponse {
+  /**
+   * <p>Information about the theme alias.</p>
+   */
+  ThemeAlias?: ThemeAlias;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be granted for the theme.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>A list of resource permissions to be revoked from the theme.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemePermissionsResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>The resulting list of resource permissions for the theme.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTopicRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
+   *          update.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The definition of the topic that you want to update.</p>
+   */
+  Topic: TopicDetails | undefined;
+}
 
 /**
  * @public
@@ -368,3 +466,10 @@ export interface UpdateVPCConnectionResponse {
    */
   Status?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateTopicRequestFilterSensitiveLog = (obj: UpdateTopicRequest): any => ({
+  ...obj,
+});

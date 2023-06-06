@@ -722,7 +722,6 @@ import {
   CustomNarrativeOptions,
   DashboardVisualId,
   DataBarsOptions,
-  DatabricksParameters,
   DataColor,
   DataFieldSeriesItem,
   DataPathSort,
@@ -730,7 +729,6 @@ import {
   DonutCenterOptions,
   DonutOptions,
   EmptyVisual,
-  ExasolParameters,
   FieldSeriesItem,
   FilledMapAggregatedFieldWells,
   FilledMapConditionalFormatting,
@@ -784,7 +782,6 @@ import {
   HistogramVisual,
   InsightConfiguration,
   InsightVisual,
-  JiraParameters,
   KPIConditionalFormatting,
   KPIConditionalFormattingOption,
   KPIConfiguration,
@@ -804,7 +801,6 @@ import {
   LineChartSortConfiguration,
   LineChartVisual,
   LineSeriesAxisDisplayOptions,
-  MariaDbParameters,
   MaximumMinimumComputation,
   MetricComparisonComputation,
   MissingDataConfiguration,
@@ -823,6 +819,8 @@ import {
   PivotTableConditionalFormattingScope,
   PivotTableConfiguration,
   PivotTableDataPathOption,
+  PivotTableFieldCollapseStateOption,
+  PivotTableFieldCollapseStateTarget,
   PivotTableFieldOption,
   PivotTableFieldOptions,
   PivotTableFieldSubtotalOptions,
@@ -956,6 +954,7 @@ import {
   DashboardVersionSummary,
   DashboardVisualPublishOptions,
   DataAggregation,
+  DatabricksParameters,
   DataColorPalette,
   DataPointDrillUpDownOption,
   DataPointMenuLabelOption,
@@ -982,6 +981,7 @@ import {
   DecimalParameter,
   DefaultFormatting,
   DisplayFormatOptions,
+  ExasolParameters,
   ExportHiddenFieldsOption,
   ExportToCSVOption,
   ExportWithHiddenFieldsOption,
@@ -997,6 +997,7 @@ import {
   IntegerParameter,
   InternalFailureException,
   InvalidParameterValueException,
+  JiraParameters,
   JoinInstruction,
   JoinKeyProperties,
   LimitExceededException,
@@ -1005,6 +1006,7 @@ import {
   LookbackWindow,
   ManifestFileLocation,
   MarginStyle,
+  MariaDbParameters,
   MySqlParameters,
   NamedEntityDefinition,
   NamedEntityDefinitionMetric,
@@ -21551,6 +21553,7 @@ const se_PivotTableCellConditionalFormatting = (
   return take(input, {
     FieldId: [],
     Scope: _json,
+    Scopes: _json,
     TextFormat: (_) => se_TextConditionalFormat(_, context),
   });
 };
@@ -21592,6 +21595,8 @@ const se_PivotTableConditionalFormattingOptionList = (
 
 // se_PivotTableConditionalFormattingScope omitted.
 
+// se_PivotTableConditionalFormattingScopeList omitted.
+
 /**
  * serializeAws_restJson1PivotTableConfiguration
  */
@@ -21611,6 +21616,12 @@ const se_PivotTableConfiguration = (input: PivotTableConfiguration, context: __S
 // se_PivotTableDataPathOptionList omitted.
 
 // se_PivotTableDimensionList omitted.
+
+// se_PivotTableFieldCollapseStateOption omitted.
+
+// se_PivotTableFieldCollapseStateOptionList omitted.
+
+// se_PivotTableFieldCollapseStateTarget omitted.
 
 // se_PivotTableFieldOption omitted.
 
@@ -21723,6 +21734,7 @@ const se_RadarChartConfiguration = (input: RadarChartConfiguration, context: __S
     AlternateBandColorsVisibility: [],
     AlternateBandEvenColor: [],
     AlternateBandOddColor: [],
+    AxesRangeScale: [],
     BaseSeriesSettings: _json,
     CategoryAxis: (_) => se_AxisDisplayOptions(_, context),
     CategoryLabelOptions: _json,
@@ -26454,6 +26466,7 @@ const de_PivotTableCellConditionalFormatting = (
   return take(output, {
     FieldId: __expectString,
     Scope: _json,
+    Scopes: _json,
     TextFormat: (_: any) => de_TextConditionalFormat(_, context),
   }) as any;
 };
@@ -26496,6 +26509,8 @@ const de_PivotTableConditionalFormattingOptionList = (
 
 // de_PivotTableConditionalFormattingScope omitted.
 
+// de_PivotTableConditionalFormattingScopeList omitted.
+
 /**
  * deserializeAws_restJson1PivotTableConfiguration
  */
@@ -26515,6 +26530,12 @@ const de_PivotTableConfiguration = (output: any, context: __SerdeContext): Pivot
 // de_PivotTableDataPathOptionList omitted.
 
 // de_PivotTableDimensionList omitted.
+
+// de_PivotTableFieldCollapseStateOption omitted.
+
+// de_PivotTableFieldCollapseStateOptionList omitted.
+
+// de_PivotTableFieldCollapseStateTarget omitted.
 
 // de_PivotTableFieldOption omitted.
 
@@ -26629,6 +26650,7 @@ const de_RadarChartConfiguration = (output: any, context: __SerdeContext): Radar
     AlternateBandColorsVisibility: __expectString,
     AlternateBandEvenColor: __expectString,
     AlternateBandOddColor: __expectString,
+    AxesRangeScale: __expectString,
     BaseSeriesSettings: _json,
     CategoryAxis: (_: any) => de_AxisDisplayOptions(_, context),
     CategoryLabelOptions: _json,

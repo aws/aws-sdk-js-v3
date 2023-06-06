@@ -3544,6 +3544,65 @@ export interface PieChartVisual {
 
 /**
  * @public
+ * @enum
+ */
+export const PivotTableFieldCollapseState = {
+  COLLAPSED: "COLLAPSED",
+  EXPANDED: "EXPANDED",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableFieldCollapseState =
+  (typeof PivotTableFieldCollapseState)[keyof typeof PivotTableFieldCollapseState];
+
+/**
+ * @public
+ * <p>The target of a pivot table field collapse state.</p>
+ */
+export interface PivotTableFieldCollapseStateTarget {
+  /**
+   * <p>The field ID of the pivot table that the collapse state needs to be set to.</p>
+   */
+  FieldId?: string;
+
+  /**
+   * <p>The data path of the pivot table's header. Used to set the collapse state.</p>
+   */
+  FieldDataPathValues?: DataPathValue[];
+}
+
+/**
+ * @public
+ * <p>The collapse state options for the pivot table field options.</p>
+ */
+export interface PivotTableFieldCollapseStateOption {
+  /**
+   * <p>A tagged-union object that sets the collapse state.</p>
+   */
+  Target: PivotTableFieldCollapseStateTarget | undefined;
+
+  /**
+   * <p>The state of the field target of a pivot table. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COLLAPSED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPANDED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  State?: PivotTableFieldCollapseState | string;
+}
+
+/**
+ * @public
  * <p>The data path options for the pivot table field options.</p>
  */
 export interface PivotTableDataPathOption {
@@ -3593,6 +3652,11 @@ export interface PivotTableFieldOptions {
    * <p>The data path options for the pivot table field options.</p>
    */
   DataPathOptions?: PivotTableDataPathOption[];
+
+  /**
+   * <p>The collapse state options for the pivot table field options.</p>
+   */
+  CollapseStateOptions?: PivotTableFieldCollapseStateOption[];
 }
 
 /**
@@ -4221,6 +4285,11 @@ export interface PivotTableCellConditionalFormatting {
    * <p>The scope of the cell for conditional formatting.</p>
    */
   Scope?: PivotTableConditionalFormattingScope;
+
+  /**
+   * <p>A list of cell scopes for conditional formatting.</p>
+   */
+  Scopes?: PivotTableConditionalFormattingScope[];
 }
 
 /**
@@ -4281,6 +4350,21 @@ export interface PivotTableVisual {
    */
   Actions?: VisualCustomAction[];
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const RadarChartAxesRangeScale = {
+  AUTO: "AUTO",
+  INDEPENDENT: "INDEPENDENT",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type RadarChartAxesRangeScale = (typeof RadarChartAxesRangeScale)[keyof typeof RadarChartAxesRangeScale];
 
 /**
  * @public
@@ -4450,6 +4534,11 @@ export interface RadarChartConfiguration {
    * <p>The legend display setup of the visual.</p>
    */
   Legend?: LegendOptions;
+
+  /**
+   * <p>The axis behavior options of a radar chart.</p>
+   */
+  AxesRangeScale?: RadarChartAxesRangeScale | string;
 }
 
 /**
@@ -6762,12 +6851,12 @@ export interface AssetBundleImportJobDataSourceCredentialPair {
  */
 export interface AssetBundleImportJobDataSourceCredentials {
   /**
-   * <p>A username and password credential pair to be used to create the imported data source. Leave this field blank if you are using an Secrets Manager Secret to provide credentials.</p>
+   * <p>A username and password credential pair to be used to create the imported data source. Keep this field blank if you are using a Secrets Manager secret to provide credentials.</p>
    */
   CredentialPair?: AssetBundleImportJobDataSourceCredentialPair;
 
   /**
-   * <p>The ARN of the Secrets Manager Secret to be used to create the imported data source leave this field blank if you aren't using a Secret in place of a credential pair.</p>
+   * <p>The ARN of the Secrets Manager secret that's used to create the imported data source. Keep this field blank, unless you are using a secret in place of a credential pair.</p>
    */
   SecretArn?: string;
 }
@@ -6839,75 +6928,6 @@ export interface AwsIotAnalyticsParameters {
    * <p>Dataset name.</p>
    */
   DataSetName: string | undefined;
-}
-
-/**
- * @public
- * <p>The required parameters that are needed to connect to a Databricks data source.</p>
- */
-export interface DatabricksParameters {
-  /**
-   * <p>The host name of the Databricks data source.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port for the Databricks data source.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>The HTTP path of the Databricks data source.</p>
-   */
-  SqlEndpointPath: string | undefined;
-}
-
-/**
- * @public
- * <p>The required parameters for connecting to an Exasol data source.</p>
- */
-export interface ExasolParameters {
-  /**
-   * <p>The hostname or IP address of the Exasol data source.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port for the Exasol data source.</p>
-   */
-  Port: number | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for Jira.</p>
- */
-export interface JiraParameters {
-  /**
-   * <p>The base URL of the Jira site.</p>
-   */
-  SiteBaseUrl: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for MariaDB.</p>
- */
-export interface MariaDbParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
 }
 
 /**
@@ -7591,6 +7611,24 @@ export const PieChartConfigurationFilterSensitiveLog = (obj: PieChartConfigurati
  */
 export const PieChartVisualFilterSensitiveLog = (obj: PieChartVisual): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PivotTableFieldCollapseStateTargetFilterSensitiveLog = (obj: PivotTableFieldCollapseStateTarget): any => ({
+  ...obj,
+  ...(obj.FieldDataPathValues && {
+    FieldDataPathValues: obj.FieldDataPathValues.map((item) => DataPathValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PivotTableFieldCollapseStateOptionFilterSensitiveLog = (obj: PivotTableFieldCollapseStateOption): any => ({
+  ...obj,
+  ...(obj.Target && { Target: PivotTableFieldCollapseStateTargetFilterSensitiveLog(obj.Target) }),
 });
 
 /**

@@ -96,6 +96,77 @@ import { QuickSightServiceException as __BaseException } from "./QuickSightServi
 /**
  * @public
  */
+export interface DeleteGroupMembershipResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIAMPolicyAssignmentRequest {
+  /**
+   * <p>The Amazon Web Services account ID where you want to delete the IAM
+   * 			policy assignment.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the assignment. </p>
+   */
+  AssignmentName: string | undefined;
+
+  /**
+   * <p>The namespace that contains the assignment.</p>
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIAMPolicyAssignmentResponse {
+  /**
+   * <p>The name of the assignment. </p>
+   */
+  AssignmentName?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNamespaceRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that you want to delete.</p>
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteNamespaceResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -922,7 +993,7 @@ export interface DescribeAssetBundleExportJobRequest {
  */
 export interface DescribeAssetBundleExportJobResponse {
   /**
-   * <p>Indicates tha status of a job through its queueing and execution.</p>
+   * <p>Indicates the status of a job through its queuing and execution.</p>
    *          <p>Poll this <code>DescribeAssetBundleExportApi</code> until <code>JobStatus</code> is either <code>SUCCESSFUL</code> or <code>FAILED</code>.</p>
    */
   JobStatus?: AssetBundleExportJobStatus | string;
@@ -1012,8 +1083,8 @@ export interface DescribeAssetBundleImportJobRequest {
  */
 export interface DescribeAssetBundleImportJobResponse {
   /**
-   * <p>Indicates tha status of a job through its queueing and execution.</p>
-   *          <p>Poll this <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values.</p>
+   * <p>Indicates the status of a job through its queuing and execution.</p>
+   *          <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6740,7 +6811,11 @@ export interface StartAssetBundleExportJobRequest {
   ResourceArns: string[] | undefined;
 
   /**
-   * <p>A Boolean that determines whether all dependencies of each resource ARN are recursively exported with the job. For example, say you provided a Dashboard ARN to the <code>ResourceArns</code> parameter. If you set <code>IncludeAllDependencies</code> to <code>TRUE</code>, any theme, dataset, and dataource resource that is a dependency of the dashboard is also exported.</p>
+   * <p>A Boolean that determines whether all dependencies of each resource ARN are recursively
+   *          exported with the job. For example, say you provided a Dashboard ARN to the
+   *             <code>ResourceArns</code> parameter. If you set <code>IncludeAllDependencies</code> to
+   *             <code>TRUE</code>, any theme, dataset, and data source resource that is a dependency of the dashboard is also
+   *          exported.</p>
    */
   IncludeAllDependencies?: boolean;
 
@@ -6808,7 +6883,8 @@ export interface StartAssetBundleImportJobRequest {
   /**
    * <p>The failure action for the import job.</p>
    *          <p>If you choose <code>ROLLBACK</code>, failed  import jobs will attempt to  undo any asset changes caused by the failed job.</p>
-   *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back any asset changes caused by the failed job, possibly leaving the Amazon QuickSight account in an inconsistent state.</p>
+   *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back
+   *          any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
    */
   FailureAction?: AssetBundleImportFailureAction | string;
 }
@@ -8330,102 +8406,6 @@ export interface UpdateThemeAliasRequest {
 }
 
 /**
- * @public
- */
-export interface UpdateThemeAliasResponse {
-  /**
-   * <p>Information about the theme alias.</p>
-   */
-  ThemeAlias?: ThemeAlias;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateThemePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>A list of resource permissions to be granted for the theme.</p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * <p>A list of resource permissions to be revoked from the theme.</p>
-   */
-  RevokePermissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface UpdateThemePermissionsResponse {
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>The resulting list of resource permissions for the theme.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateTopicRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
-   *          update.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The definition of the topic that you want to update.</p>
-   */
-  Topic: TopicDetails | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
@@ -8589,12 +8569,5 @@ export const UpdateDataSourceRequestFilterSensitiveLog = (obj: UpdateDataSourceR
  * @internal
  */
 export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTopicRequestFilterSensitiveLog = (obj: UpdateTopicRequest): any => ({
   ...obj,
 });

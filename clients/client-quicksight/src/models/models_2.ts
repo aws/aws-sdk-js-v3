@@ -36,15 +36,80 @@ import {
   AuroraParameters,
   AuroraPostgreSqlParameters,
   AwsIotAnalyticsParameters,
-  DatabricksParameters,
   DataSetReference,
-  ExasolParameters,
   FilterOperator,
-  JiraParameters,
-  MariaDbParameters,
   SheetDefinition,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>The required parameters that are needed to connect to a Databricks data source.</p>
+ */
+export interface DatabricksParameters {
+  /**
+   * <p>The host name of the Databricks data source.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port for the Databricks data source.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The HTTP path of the Databricks data source.</p>
+   */
+  SqlEndpointPath: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The required parameters for connecting to an Exasol data source.</p>
+ */
+export interface ExasolParameters {
+  /**
+   * <p>The hostname or IP address of the Exasol data source.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port for the Exasol data source.</p>
+   */
+  Port: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for Jira.</p>
+ */
+export interface JiraParameters {
+  /**
+   * <p>The base URL of the Jira site.</p>
+   */
+  SiteBaseUrl: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for MariaDB.</p>
+ */
+export interface MariaDbParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+}
 
 /**
  * @public
@@ -1225,14 +1290,16 @@ export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
   ScheduleId: string | undefined;
 
   /**
-   * <p>An override for the <code>StartAfterDateTime</code> of a <code>RefreshSchedule</code> to ensure that the <code>StartAfterDateTime</code> is set to a time that takes place in the future.</p>
+   * <p>An override for the <code>StartAfterDateTime</code> of a <code>RefreshSchedule</code>. Make
+   *          sure that the <code>StartAfterDateTime</code> is set to a time that takes
+   *          place in the future.</p>
    */
   StartAfterDateTime?: Date;
 }
 
 /**
  * @public
- * <p>An optional structure that configures resource ID overrides for the import job</p>
+ * <p>An optional structure that configures resource ID overrides for the import job.</p>
  */
 export interface AssetBundleImportJobResourceIdOverrideConfiguration {
   /**
@@ -1273,17 +1340,19 @@ export interface AssetBundleImportJobVPCConnectionOverrideParameters {
   Name?: string;
 
   /**
-   * <p>A list of  new subnet IDs for the VPC connection you are importing. This field is required if you are importing the VPC connection from another Amazon Web Services account or region.</p>
+   * <p>A list of new subnet IDs for the VPC connection you are importing. This field is
+   *          required if you are importing the VPC connection from another Amazon Web Services account or Region.</p>
    */
   SubnetIds?: string[];
 
   /**
-   * <p>A new security group ID for the VPC connection you are importing. This field is required if you are importing the VPC connection from another Amazon Web Services account or region.</p>
+   * <p>A new security group ID for the VPC connection you are importing. This field is required
+   *          if you are importing the VPC connection from another Amazon Web Services account or Region.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
-   * <p>An optional override of dns resolvers to be used by the VPC connection.</p>
+   * <p>An optional override of DNS resolvers to be used by the VPC connection.</p>
    */
   DnsResolvers?: string[];
 
@@ -1395,29 +1464,32 @@ export interface AssetBundleImportJobSummary {
  */
 export interface AssetBundleImportSource {
   /**
-   * <p>The bytes of the Base64 encoded asset bundle import zip file. This file can't exceed 20MB.</p>
-   *          <p>If you are calling the APIs from the Amazon Web Services Java, JavaScript, Python, or PHP SDKs, the SDK encodes Base64 automatically to allow the direct setting of the zip file's bytes. If you are using a SDK of a different language or are receiving related errors, try to Base64 encode your data.</p>
+   * <p>The bytes of the base64 encoded asset bundle import zip file. This file can't exceed 20 MB.</p>
+   *          <p>If you are calling the API operations from the Amazon Web Services SDK for Java, JavaScript, Python, or
+   *          PHP, the SDK encodes base64 automatically to allow the direct setting of the zip file's bytes. If you are using
+   *          an SDK for a different language or receiving related errors, try to base64 encode your data.</p>
    */
   Body?: Uint8Array;
 
   /**
-   * <p>The Amazon S3 uri for an asset bundle import file that exists in an Amazon S3 bucket that the caller has read access to. The file must be a zip format file and can't exceed 20MB.</p>
+   * <p>The Amazon S3 URI for an asset bundle import file that exists in an Amazon S3 bucket that the caller
+   *          has read access to. The file must be a zip format file and can't exceed 20 MB.</p>
    */
   S3Uri?: string;
 }
 
 /**
  * @public
- * <p>A description of the import source that you provide at the start of an import job. This value is set to either <code>Body</code> or <code>S3Uri</code> depending on how the <code>StartAssetBundleImportJobRequest</code> is configured.</p>
+ * <p>A description of the import source that you provide at the start of an import job. This value is set to either <code>Body</code> or <code>S3Uri</code>, depending on how the <code>StartAssetBundleImportJobRequest</code> is configured.</p>
  */
 export interface AssetBundleImportSourceDescription {
   /**
-   * <p>A HTTPS download URL for the provided asset bundle that you optionally provided at the start of the import job. This URL is valid for 5 minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed. The downloaded asset bundle is a <code>.qs</code> zip file.</p>
+   * <p>An HTTPS download URL for the provided asset bundle that you optionally provided at the start of the import job. This URL is valid for five minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed. The downloaded asset bundle is a <code>.qs</code> zip file.</p>
    */
   Body?: string;
 
   /**
-   * <p>The Amazon S3 uri that you provided at the start of the import job.</p>
+   * <p>The Amazon S3 URI that you provided at the start of the import job.</p>
    */
   S3Uri?: string;
 }
@@ -8499,77 +8571,6 @@ export interface DeleteGroupMembershipRequest {
 
   /**
    * <p>The namespace of the group that you want to remove a user from.</p>
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupMembershipResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteIAMPolicyAssignmentRequest {
-  /**
-   * <p>The Amazon Web Services account ID where you want to delete the IAM
-   * 			policy assignment.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the assignment. </p>
-   */
-  AssignmentName: string | undefined;
-
-  /**
-   * <p>The namespace that contains the assignment.</p>
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIAMPolicyAssignmentResponse {
-  /**
-   * <p>The name of the assignment. </p>
-   */
-  AssignmentName?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteNamespaceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that you want to delete.</p>
    */
   Namespace: string | undefined;
 }
