@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+
+### Features
+
+* **client-emr:** This release provides customers the ability to specify an allocation strategies amongst PRICE_CAPACITY_OPTIMIZED, CAPACITY_OPTIMIZED, LOWEST_PRICE, DIVERSIFIED for Spot instances in Instance Feet cluster. This enables customers to choose an allocation strategy best suited for their workload. ([ada81f8](https://github.com/aws/aws-sdk-js-v3/commit/ada81f81574fde240e25a4c562df38b8e7d960dd))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

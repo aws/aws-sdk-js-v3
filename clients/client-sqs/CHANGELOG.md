@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+
+### Features
+
+* **client-sqs:** Amazon SQS adds three new APIs - StartMessageMoveTask, CancelMessageMoveTask, and ListMessageMoveTasks to automate redriving messages from dead-letter queues to source queues or a custom destination. ([00f8d8a](https://github.com/aws/aws-sdk-js-v3/commit/00f8d8af60c34a1faa797382264ae37a65b7a70b))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-sqs

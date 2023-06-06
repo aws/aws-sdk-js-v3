@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+
+### Features
+
+* **client-iam:** This release updates the AccountAlias regex pattern with the same length restrictions enforced by the length constraint. ([817667a](https://github.com/aws/aws-sdk-js-v3/commit/817667af9960fae164e1f3538aa0981d90f6d0d4))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

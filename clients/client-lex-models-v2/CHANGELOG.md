@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+
+### Features
+
+* **client-lex-models-v2:** This release adds support for Lex Developers to create test sets and to execute those test-sets against their bots. ([454008a](https://github.com/aws/aws-sdk-js-v3/commit/454008a3d319b6f470206fc94576cd348c1b00d2))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-models-v2

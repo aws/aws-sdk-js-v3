@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+
+### Features
+
+* **client-quicksight:** QuickSight support for pivot table field collapse state, radar chart range scale and multiple scope options in conditional formatting. ([e89e93c](https://github.com/aws/aws-sdk-js-v3/commit/e89e93c14912ead983fbf43797a5ccca80ef909c))
+
+
+
+
+
 # [3.345.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.344.0...v3.345.0) (2023-06-02)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

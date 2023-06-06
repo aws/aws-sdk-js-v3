@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+
+### Features
+
+* **client-emr:** This release provides customers the ability to specify an allocation strategies amongst PRICE_CAPACITY_OPTIMIZED, CAPACITY_OPTIMIZED, LOWEST_PRICE, DIVERSIFIED for Spot instances in Instance Feet cluster. This enables customers to choose an allocation strategy best suited for their workload. ([ada81f8](https://github.com/aws/aws-sdk-js-v3/commit/ada81f81574fde240e25a4c562df38b8e7d960dd))
+* **client-iam:** This release updates the AccountAlias regex pattern with the same length restrictions enforced by the length constraint. ([817667a](https://github.com/aws/aws-sdk-js-v3/commit/817667af9960fae164e1f3538aa0981d90f6d0d4))
+* **client-inspector2:** Adds new response properties and request parameters for 'last scanned at' on the ListCoverage operation. This feature allows you to search and view the date of which your resources were last scanned by Inspector. ([b61d062](https://github.com/aws/aws-sdk-js-v3/commit/b61d0624b983409d60beffa4f27c4e68faca5cb6))
+* **client-iot-data-plane:** Update thing shadow name regex to allow '$' character ([d678417](https://github.com/aws/aws-sdk-js-v3/commit/d67841768a4377efe44828c5a92bcb98293d6a47))
+* **client-iot:** Adding IoT Device Management Software Package Catalog APIs to register, store, and report system software packages, along with their versions and metadata in a centralized location. ([7bf4fb1](https://github.com/aws/aws-sdk-js-v3/commit/7bf4fb1e25add6e6265de44041ff128ed7153c3d))
+* **client-lex-models-v2:** This release adds support for Lex Developers to create test sets and to execute those test-sets against their bots. ([454008a](https://github.com/aws/aws-sdk-js-v3/commit/454008a3d319b6f470206fc94576cd348c1b00d2))
+* **client-quicksight:** QuickSight support for pivot table field collapse state, radar chart range scale and multiple scope options in conditional formatting. ([e89e93c](https://github.com/aws/aws-sdk-js-v3/commit/e89e93c14912ead983fbf43797a5ccca80ef909c))
+* **client-signer:** AWS Signer is launching Container Image Signing, a new feature that enables you to sign and verify container images. This feature enables you to validate that only container images you approve are used in your enterprise. ([6647d54](https://github.com/aws/aws-sdk-js-v3/commit/6647d54268d3ab2b3ba3d3152c2232f023473c8c))
+* **client-sqs:** Amazon SQS adds three new APIs - StartMessageMoveTask, CancelMessageMoveTask, and ListMessageMoveTasks to automate redriving messages from dead-letter queues to source queues or a custom destination. ([00f8d8a](https://github.com/aws/aws-sdk-js-v3/commit/00f8d8af60c34a1faa797382264ae37a65b7a70b))
+* **clients:** update client endpoints as of 2023-06-06 ([eefb716](https://github.com/aws/aws-sdk-js-v3/commit/eefb7164bcf1edca717cfb676c1fc08e9c06db0e))
+* **protocol-http:** add reason to HttpResponse ([#4772](https://github.com/aws/aws-sdk-js-v3/issues/4772)) ([d29cb58](https://github.com/aws/aws-sdk-js-v3/commit/d29cb588373dff875ed82cda709ce0bf67c1de54))
+* **protocol-http:** add uri type and implementation ([#4771](https://github.com/aws/aws-sdk-js-v3/issues/4771)) ([5c7b40e](https://github.com/aws/aws-sdk-js-v3/commit/5c7b40e16e40fe55ba8428bd9cab5b7fd181d1e7))
+
+
+
+
+
 # [3.346.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.345.0...v3.346.0) (2023-06-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+
+### Features
+
+* **protocol-http:** add uri type and implementation ([#4771](https://github.com/aws/aws-sdk-js-v3/issues/4771)) ([5c7b40e](https://github.com/aws/aws-sdk-js-v3/commit/5c7b40e16e40fe55ba8428bd9cab5b7fd181d1e7))
+
+
+
+
+
 # [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
 
 **Note:** Version bump only for package @aws-sdk/util-format-url
