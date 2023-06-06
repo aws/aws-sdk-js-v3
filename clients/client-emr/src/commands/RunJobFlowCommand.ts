@@ -190,7 +190,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             TimeoutDurationMinutes: Number("int"), // required
  *             TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
  *             BlockDurationMinutes: Number("int"),
- *             AllocationStrategy: "capacity-optimized",
+ *             AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified",
  *           },
  *           OnDemandSpecification: { // OnDemandProvisioningSpecification
  *             AllocationStrategy: "lowest-price", // required
