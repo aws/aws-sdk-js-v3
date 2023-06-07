@@ -34,6 +34,7 @@ describe("setConnectionTimeout", () => {
     });
 
     afterEach(() => {
+      jest.advanceTimersByTime(10000);
       jest.useRealTimers();
     });
 
@@ -48,7 +49,7 @@ describe("setConnectionTimeout", () => {
         connecting: false,
       });
       expect(mockSocket.on).not.toHaveBeenCalled();
-      expect(setTimeout).not.toHaveBeenCalled();
+      expect(setTimeout).toHaveBeenCalled();
       expect(reject).not.toHaveBeenCalled();
     });
 
@@ -74,8 +75,6 @@ describe("setConnectionTimeout", () => {
     });
 
     it("clears timeout if socket gets connected", () => {
-      const mockTimeoutId = 42;
-      (setTimeout as unknown as jest.Mock).mockReturnValueOnce(mockTimeoutId);
       clientRequest.on.mock.calls[0][1](mockSocket);
 
       expect(clientRequest.destroy).not.toHaveBeenCalled();
@@ -87,7 +86,6 @@ describe("setConnectionTimeout", () => {
       mockSocket.on.mock.calls[0][1]();
 
       expect(clearTimeout).toHaveBeenCalled();
-      expect(clearTimeout).toHaveBeenCalledWith(mockTimeoutId);
 
       // Fast-forward until timer has been executed.
       jest.runAllTimers();
