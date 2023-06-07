@@ -62,7 +62,8 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *          <p>Each log group can have up to two subscription filters associated with it. If you are
  *       updating an existing filter, you must specify the correct name in <code>filterName</code>.
  *       </p>
- *          <p>To perform a <code>PutSubscriptionFilter</code> operation, you must also have the
+ *          <p>To perform a <code>PutSubscriptionFilter</code> operation for any destination except a Lambda function,
+ *     you must also have the
  *       <code>iam:PassRole</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

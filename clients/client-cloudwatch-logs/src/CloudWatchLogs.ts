@@ -29,6 +29,11 @@ import {
   CreateLogStreamCommandOutput,
 } from "./commands/CreateLogStreamCommand";
 import {
+  DeleteAccountPolicyCommand,
+  DeleteAccountPolicyCommandInput,
+  DeleteAccountPolicyCommandOutput,
+} from "./commands/DeleteAccountPolicyCommand";
+import {
   DeleteDataProtectionPolicyCommand,
   DeleteDataProtectionPolicyCommandInput,
   DeleteDataProtectionPolicyCommandOutput,
@@ -73,6 +78,11 @@ import {
   DeleteSubscriptionFilterCommandInput,
   DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand";
+import {
+  DescribeAccountPoliciesCommand,
+  DescribeAccountPoliciesCommandInput,
+  DescribeAccountPoliciesCommandOutput,
+} from "./commands/DescribeAccountPoliciesCommand";
 import {
   DescribeDestinationsCommand,
   DescribeDestinationsCommandInput,
@@ -164,6 +174,11 @@ import {
   ListTagsLogGroupCommandOutput,
 } from "./commands/ListTagsLogGroupCommand";
 import {
+  PutAccountPolicyCommand,
+  PutAccountPolicyCommandInput,
+  PutAccountPolicyCommandOutput,
+} from "./commands/PutAccountPolicyCommand";
+import {
   PutDataProtectionPolicyCommand,
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
@@ -234,6 +249,7 @@ const commands = {
   CreateExportTaskCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
+  DeleteAccountPolicyCommand,
   DeleteDataProtectionPolicyCommand,
   DeleteDestinationCommand,
   DeleteLogGroupCommand,
@@ -243,6 +259,7 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeleteRetentionPolicyCommand,
   DeleteSubscriptionFilterCommand,
+  DescribeAccountPoliciesCommand,
   DescribeDestinationsCommand,
   DescribeExportTasksCommand,
   DescribeLogGroupsCommand,
@@ -261,6 +278,7 @@ const commands = {
   GetQueryResultsCommand,
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
+  PutAccountPolicyCommand,
   PutDataProtectionPolicyCommand,
   PutDestinationCommand,
   PutDestinationPolicyCommand,
@@ -354,6 +372,23 @@ export interface CloudWatchLogs {
     args: CreateLogStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLogStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccountPolicyCommand}
+   */
+  deleteAccountPolicy(
+    args: DeleteAccountPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountPolicyCommandOutput>;
+  deleteAccountPolicy(
+    args: DeleteAccountPolicyCommandInput,
+    cb: (err: any, data?: DeleteAccountPolicyCommandOutput) => void
+  ): void;
+  deleteAccountPolicy(
+    args: DeleteAccountPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -501,6 +536,23 @@ export interface CloudWatchLogs {
     args: DeleteSubscriptionFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSubscriptionFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccountPoliciesCommand}
+   */
+  describeAccountPolicies(
+    args: DescribeAccountPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountPoliciesCommandOutput>;
+  describeAccountPolicies(
+    args: DescribeAccountPoliciesCommandInput,
+    cb: (err: any, data?: DescribeAccountPoliciesCommandOutput) => void
+  ): void;
+  describeAccountPolicies(
+    args: DescribeAccountPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountPoliciesCommandOutput) => void
   ): void;
 
   /**
@@ -786,6 +838,23 @@ export interface CloudWatchLogs {
     args: ListTagsLogGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsLogGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountPolicyCommand}
+   */
+  putAccountPolicy(
+    args: PutAccountPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountPolicyCommandOutput>;
+  putAccountPolicy(
+    args: PutAccountPolicyCommandInput,
+    cb: (err: any, data?: PutAccountPolicyCommandOutput) => void
+  ): void;
+  putAccountPolicy(
+    args: PutAccountPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountPolicyCommandOutput) => void
   ): void;
 
   /**

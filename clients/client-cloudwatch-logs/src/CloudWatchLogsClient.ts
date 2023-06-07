@@ -57,6 +57,10 @@ import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./c
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand";
 import {
+  DeleteAccountPolicyCommandInput,
+  DeleteAccountPolicyCommandOutput,
+} from "./commands/DeleteAccountPolicyCommand";
+import {
   DeleteDataProtectionPolicyCommandInput,
   DeleteDataProtectionPolicyCommandOutput,
 } from "./commands/DeleteDataProtectionPolicyCommand";
@@ -80,6 +84,10 @@ import {
   DeleteSubscriptionFilterCommandInput,
   DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand";
+import {
+  DescribeAccountPoliciesCommandInput,
+  DescribeAccountPoliciesCommandOutput,
+} from "./commands/DescribeAccountPoliciesCommand";
 import {
   DescribeDestinationsCommandInput,
   DescribeDestinationsCommandOutput,
@@ -122,6 +130,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput } from "./commands/ListTagsLogGroupCommand";
+import { PutAccountPolicyCommandInput, PutAccountPolicyCommandOutput } from "./commands/PutAccountPolicyCommand";
 import {
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
@@ -166,6 +175,7 @@ export type ServiceInputTypes =
   | CreateExportTaskCommandInput
   | CreateLogGroupCommandInput
   | CreateLogStreamCommandInput
+  | DeleteAccountPolicyCommandInput
   | DeleteDataProtectionPolicyCommandInput
   | DeleteDestinationCommandInput
   | DeleteLogGroupCommandInput
@@ -175,6 +185,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
+  | DescribeAccountPoliciesCommandInput
   | DescribeDestinationsCommandInput
   | DescribeExportTasksCommandInput
   | DescribeLogGroupsCommandInput
@@ -193,6 +204,7 @@ export type ServiceInputTypes =
   | GetQueryResultsCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
+  | PutAccountPolicyCommandInput
   | PutDataProtectionPolicyCommandInput
   | PutDestinationCommandInput
   | PutDestinationPolicyCommandInput
@@ -219,6 +231,7 @@ export type ServiceOutputTypes =
   | CreateExportTaskCommandOutput
   | CreateLogGroupCommandOutput
   | CreateLogStreamCommandOutput
+  | DeleteAccountPolicyCommandOutput
   | DeleteDataProtectionPolicyCommandOutput
   | DeleteDestinationCommandOutput
   | DeleteLogGroupCommandOutput
@@ -228,6 +241,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
+  | DescribeAccountPoliciesCommandOutput
   | DescribeDestinationsCommandOutput
   | DescribeExportTasksCommandOutput
   | DescribeLogGroupsCommandOutput
@@ -246,6 +260,7 @@ export type ServiceOutputTypes =
   | GetQueryResultsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
+  | PutAccountPolicyCommandOutput
   | PutDataProtectionPolicyCommandOutput
   | PutDestinationCommandOutput
   | PutDestinationPolicyCommandOutput

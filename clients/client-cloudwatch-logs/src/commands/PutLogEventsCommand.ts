@@ -69,6 +69,9 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *                <p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p>
  *             </li>
  *             <li>
+ *                <p>Each log event can be no larger than 256 KB.</p>
+ *             </li>
+ *             <li>
  *                <p>The maximum number of log events in a batch is 10,000.</p>
  *             </li>
  *             <li>

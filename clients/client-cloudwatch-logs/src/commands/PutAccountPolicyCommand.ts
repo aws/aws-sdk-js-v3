@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { PutDataProtectionPolicyRequest, PutDataProtectionPolicyResponse } from "../models/models_0";
-import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } from "../protocols/Aws_json1_1";
+import { PutAccountPolicyRequest, PutAccountPolicyResponse } from "../models/models_0";
+import { de_PutAccountPolicyCommand, se_PutAccountPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -24,24 +24,28 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link PutDataProtectionPolicyCommand}.
+ * The input for {@link PutAccountPolicyCommand}.
  */
-export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPolicyRequest {}
+export interface PutAccountPolicyCommandInput extends PutAccountPolicyRequest {}
 /**
  * @public
  *
- * The output of {@link PutDataProtectionPolicyCommand}.
+ * The output of {@link PutAccountPolicyCommand}.
  */
-export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionPolicyResponse, __MetadataBearer {}
+export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive
- *       data that's ingested by the log group by auditing and masking the sensitive log data.</p>
+ * <p>Creates an account-level data protection policy that applies to all log groups in the account. A data protection policy can help safeguard sensitive
+ *       data that's ingested by your log groups by auditing and masking the sensitive log data. Each account can have only
+ *     one account-level policy.</p>
  *          <important>
- *             <p>Sensitive data is detected and masked when it is ingested into the log group. When you set a
- *       data protection policy, log events ingested into the log group before that time are not masked.</p>
+ *             <p>Sensitive data is detected and masked when it is ingested into a log group. When you set a
+ *       data protection policy, log events ingested into the log groups before that time are not masked.</p>
  *          </important>
+ *          <p>If you use <code>PutAccountPolicy</code> to create a data protection policy for your whole account, it applies to both existing log groups
+ *     and all log groups that are created later in this account. The account policy is applied to existing log groups
+ *     with eventual consistency. It might take up to 5 minutes before sensitive data in existing log groups begins to be masked.</p>
  *          <p>By default, when a user views a log event that includes masked data, the sensitive data is replaced by asterisks.
  *       A user who has the <code>logs:Unmask</code> permission can use a
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> or
@@ -51,36 +55,45 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  *       console by running a CloudWatch Logs Insights query with the <code>unmask</code> query command.</p>
  *          <p>For more information, including a list of types of data that can be audited and masked, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">Protect sensitive log data with masking</a>.</p>
- *          <p>The <code>PutDataProtectionPolicy</code> operation applies to only the specified log group. You can also use
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>
- *       to create an account-level data protection policy that applies to all log groups in the account,
- *     including both existing log groups and log groups that are created level. If a log group has its own data protection policy and
- *     the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term
- *     specified in either policy is masked.</p>
+ *          <p>To use the <code>PutAccountPolicy</code> operation, you must be signed on with the <code>logs:PutDataProtectionPolicy</code>
+ *     and <code>logs:PutAccountPolicy</code> permissions.</p>
+ *          <p>The <code>PutAccountPolicy</code> operation applies to all log groups in the account. You can also use
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>
+ *       to create a data protection policy that applies to just one log group.
+ *       If a log group has its own data protection policy and
+ *       the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term
+ *       specified in either policy is masked.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, PutDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, PutDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, PutAccountPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, PutAccountPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = { // PutDataProtectionPolicyRequest
- *   logGroupIdentifier: "STRING_VALUE", // required
+ * const input = { // PutAccountPolicyRequest
+ *   policyName: "STRING_VALUE", // required
  *   policyDocument: "STRING_VALUE", // required
+ *   policyType: "DATA_PROTECTION_POLICY", // required
+ *   scope: "ALL",
  * };
- * const command = new PutDataProtectionPolicyCommand(input);
+ * const command = new PutAccountPolicyCommand(input);
  * const response = await client.send(command);
- * // { // PutDataProtectionPolicyResponse
- * //   logGroupIdentifier: "STRING_VALUE",
- * //   policyDocument: "STRING_VALUE",
- * //   lastUpdatedTime: Number("long"),
+ * // { // PutAccountPolicyResponse
+ * //   accountPolicy: { // AccountPolicy
+ * //     policyName: "STRING_VALUE",
+ * //     policyDocument: "STRING_VALUE",
+ * //     lastUpdatedTime: Number("long"),
+ * //     policyType: "DATA_PROTECTION_POLICY",
+ * //     scope: "ALL",
+ * //     accountId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
- * @returns {@link PutDataProtectionPolicyCommandOutput}
- * @see {@link PutDataProtectionPolicyCommandInput} for command's `input` shape.
- * @see {@link PutDataProtectionPolicyCommandOutput} for command's `response` shape.
+ * @param PutAccountPolicyCommandInput - {@link PutAccountPolicyCommandInput}
+ * @returns {@link PutAccountPolicyCommandOutput}
+ * @see {@link PutAccountPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutAccountPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
@@ -92,9 +105,6 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * @throws {@link OperationAbortedException} (client fault)
  *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
- *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
@@ -102,9 +112,9 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
-export class PutDataProtectionPolicyCommand extends $Command<
-  PutDataProtectionPolicyCommandInput,
-  PutDataProtectionPolicyCommandOutput,
+export class PutAccountPolicyCommand extends $Command<
+  PutAccountPolicyCommandInput,
+  PutAccountPolicyCommandOutput,
   CloudWatchLogsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -122,7 +132,7 @@ export class PutDataProtectionPolicyCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PutDataProtectionPolicyCommandInput) {
+  constructor(readonly input: PutAccountPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -135,17 +145,17 @@ export class PutDataProtectionPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutDataProtectionPolicyCommandInput, PutDataProtectionPolicyCommandOutput> {
+  ): Handler<PutAccountPolicyCommandInput, PutAccountPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutDataProtectionPolicyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PutAccountPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudWatchLogsClient";
-    const commandName = "PutDataProtectionPolicyCommand";
+    const commandName = "PutAccountPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -164,15 +174,15 @@ export class PutDataProtectionPolicyCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: PutDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutDataProtectionPolicyCommand(input, context);
+  private serialize(input: PutAccountPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PutAccountPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataProtectionPolicyCommandOutput> {
-    return de_PutDataProtectionPolicyCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountPolicyCommandOutput> {
+    return de_PutAccountPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

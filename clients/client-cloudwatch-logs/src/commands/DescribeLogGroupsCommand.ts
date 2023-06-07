@@ -77,6 +77,9 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * //       storedBytes: Number("long"),
  * //       kmsKeyId: "STRING_VALUE",
  * //       dataProtectionStatus: "ACTIVATED" || "DELETED" || "ARCHIVED" || "DISABLED",
+ * //       inheritedProperties: [ // InheritedProperties
+ * //         "ACCOUNT_DATA_PROTECTION",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
