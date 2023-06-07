@@ -101,7 +101,18 @@ export interface SuiteDefinitionConfiguration {
   isLongDurationTest?: boolean;
 
   /**
-   * <p>Gets the test suite root group. This is a required parameter.</p>
+   * <p>Gets the test suite root group. This is a required parameter.
+   *             For updating or creating the latest qualification suite,
+   *             if <code>intendedForQualification</code> is set to true,
+   *             <code>rootGroup</code> can be an empty string. If <code>intendedForQualification</code> is false,
+   *             <code>rootGroup</code> cannot be an empty string.
+   *             If <code>rootGroup</code> is empty, and
+   *             <code>intendedForQualification</code> is set to true,
+   *             all the qualification tests are included, and the configuration is default.</p>
+   *          <p>
+   *             For a qualification suite, the minimum length is 0, and the maximum is 2048.  For a
+   *             non-qualification suite, the minimum length is 1, and the maximum is 2048.
+   *         </p>
    */
   rootGroup: string | undefined;
 
@@ -368,8 +379,8 @@ export type SuiteRunStatus = (typeof SuiteRunStatus)[keyof typeof SuiteRunStatus
  */
 export interface SuiteRunConfiguration {
   /**
-   * <p>Sets the primary device for the test suite run. This requires
-   *         a thing ARN or a certificate ARN.</p>
+   * <p>Sets the primary device for the test suite run. This requires a thing ARN or a
+   *             certificate ARN.</p>
    */
   primaryDevice: DeviceUnderTest | undefined;
 
@@ -511,8 +522,7 @@ export interface TestCaseScenario {
   failure?: string;
 
   /**
-   * <p>
-   *         </p>
+   * <p>Provides test case scenario system messages if any.</p>
    */
   systemMessage?: string;
 }
@@ -904,8 +914,8 @@ export interface ListSuiteRunsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The resource ARN of the IoT Device Advisor resource.
-   *         This can be SuiteDefinition ARN or SuiteRun ARN.</p>
+   * <p>The resource ARN of the IoT Device Advisor resource. This can be SuiteDefinition ARN or
+   *             SuiteRun ARN.</p>
    */
   resourceArn: string | undefined;
 }
@@ -995,8 +1005,8 @@ export interface StopSuiteRunResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The resource ARN of an IoT Device Advisor resource.
-   *             This can be SuiteDefinition ARN or SuiteRun ARN.</p>
+   * <p>The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
+   *             SuiteRun ARN.</p>
    */
   resourceArn: string | undefined;
 
@@ -1016,8 +1026,8 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The resource ARN of an IoT Device Advisor resource.
-   *             This can be SuiteDefinition ARN or SuiteRun ARN.</p>
+   * <p>The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
+   *             SuiteRun ARN.</p>
    */
   resourceArn: string | undefined;
 
