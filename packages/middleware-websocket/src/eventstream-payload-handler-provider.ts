@@ -1,4 +1,4 @@
-import { Decoder, Encoder, EventSigner, EventStreamPayloadHandlerProvider, Provider } from "@aws-sdk/types";
+import { Decoder, Encoder, EventStreamPayloadHandlerProvider, MessageSigner, Provider } from "@aws-sdk/types";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
@@ -6,5 +6,5 @@ import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 export const eventStreamPayloadHandlerProvider: EventStreamPayloadHandlerProvider = (options: {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
-  eventSigner: Provider<EventSigner>;
+  messageSigner: Provider<MessageSigner>;
 }) => new EventStreamPayloadHandler(options);
