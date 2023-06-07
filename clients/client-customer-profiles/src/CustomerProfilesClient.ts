@@ -57,6 +57,7 @@ import {
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "./commands/CreateEventStreamCommand";
 import {
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
@@ -67,6 +68,7 @@ import {
   DeleteCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "./commands/DeleteEventStreamCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteProfileKeyCommandInput, DeleteProfileKeyCommandOutput } from "./commands/DeleteProfileKeyCommand";
@@ -92,6 +94,7 @@ import {
   GetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand";
 import {
   GetIdentityResolutionJobCommandInput,
   GetIdentityResolutionJobCommandOutput,
@@ -121,6 +124,7 @@ import {
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "./commands/ListEventStreamsCommand";
 import {
   ListIdentityResolutionJobsCommandInput,
   ListIdentityResolutionJobsCommandOutput,
@@ -173,10 +177,12 @@ export type ServiceInputTypes =
   | AddProfileKeyCommandInput
   | CreateCalculatedAttributeDefinitionCommandInput
   | CreateDomainCommandInput
+  | CreateEventStreamCommandInput
   | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
   | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
+  | DeleteEventStreamCommandInput
   | DeleteIntegrationCommandInput
   | DeleteProfileCommandInput
   | DeleteProfileKeyCommandInput
@@ -187,6 +193,7 @@ export type ServiceInputTypes =
   | GetCalculatedAttributeDefinitionCommandInput
   | GetCalculatedAttributeForProfileCommandInput
   | GetDomainCommandInput
+  | GetEventStreamCommandInput
   | GetIdentityResolutionJobCommandInput
   | GetIntegrationCommandInput
   | GetMatchesCommandInput
@@ -198,6 +205,7 @@ export type ServiceInputTypes =
   | ListCalculatedAttributeDefinitionsCommandInput
   | ListCalculatedAttributesForProfileCommandInput
   | ListDomainsCommandInput
+  | ListEventStreamsCommandInput
   | ListIdentityResolutionJobsCommandInput
   | ListIntegrationsCommandInput
   | ListProfileObjectTypeTemplatesCommandInput
@@ -223,10 +231,12 @@ export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
   | CreateCalculatedAttributeDefinitionCommandOutput
   | CreateDomainCommandOutput
+  | CreateEventStreamCommandOutput
   | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
   | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
+  | DeleteEventStreamCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteProfileCommandOutput
   | DeleteProfileKeyCommandOutput
@@ -237,6 +247,7 @@ export type ServiceOutputTypes =
   | GetCalculatedAttributeDefinitionCommandOutput
   | GetCalculatedAttributeForProfileCommandOutput
   | GetDomainCommandOutput
+  | GetEventStreamCommandOutput
   | GetIdentityResolutionJobCommandOutput
   | GetIntegrationCommandOutput
   | GetMatchesCommandOutput
@@ -248,6 +259,7 @@ export type ServiceOutputTypes =
   | ListCalculatedAttributeDefinitionsCommandOutput
   | ListCalculatedAttributesForProfileCommandOutput
   | ListDomainsCommandOutput
+  | ListEventStreamsCommandOutput
   | ListIdentityResolutionJobsCommandOutput
   | ListIntegrationsCommandOutput
   | ListProfileObjectTypeTemplatesCommandOutput

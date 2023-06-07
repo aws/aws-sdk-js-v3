@@ -28,6 +28,7 @@ import {
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "../commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "../commands/CreateEventStreamCommand";
 import {
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
@@ -38,6 +39,7 @@ import {
   DeleteCalculatedAttributeDefinitionCommandOutput,
 } from "../commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
+import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "../commands/DeleteEventStreamCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteProfileKeyCommandInput, DeleteProfileKeyCommandOutput } from "../commands/DeleteProfileKeyCommand";
@@ -63,6 +65,7 @@ import {
   GetCalculatedAttributeForProfileCommandOutput,
 } from "../commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
+import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "../commands/GetEventStreamCommand";
 import {
   GetIdentityResolutionJobCommandInput,
   GetIdentityResolutionJobCommandOutput,
@@ -92,6 +95,7 @@ import {
   ListCalculatedAttributesForProfileCommandOutput,
 } from "../commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
+import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "../commands/ListEventStreamsCommand";
 import {
   ListIdentityResolutionJobsCommandInput,
   ListIdentityResolutionJobsCommandOutput,
@@ -143,6 +147,9 @@ import {
   ConflictResolution,
   ConnectorOperator,
   Consolidation,
+  DestinationSummary,
+  EventStreamDestinationDetails,
+  EventStreamSummary,
   ExportingConfig,
   FieldSourceProfileIds,
   FlowDefinition,
@@ -296,6 +303,47 @@ export const se_CreateDomainCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateEventStreamCommand
+ */
+export const se_CreateEventStreamCommand = async (
+  input: CreateEventStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/event-streams/{EventStreamName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EventStreamName",
+    () => input.EventStreamName!,
+    "{EventStreamName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+      Uri: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateIntegrationWorkflowCommand
  */
 export const se_CreateIntegrationWorkflowCommand = async (
@@ -428,6 +476,39 @@ export const se_DeleteDomainCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteEventStreamCommand
+ */
+export const se_DeleteEventStreamCommand = async (
+  input: DeleteEventStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/event-streams/{EventStreamName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EventStreamName",
+    () => input.EventStreamName!,
+    "{EventStreamName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -754,6 +835,39 @@ export const se_GetDomainCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetEventStreamCommand
+ */
+export const se_GetEventStreamCommand = async (
+  input: GetEventStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/event-streams/{EventStreamName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EventStreamName",
+    () => input.EventStreamName!,
+    "{EventStreamName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetIdentityResolutionJobCommand
  */
 export const se_GetIdentityResolutionJobCommand = async (
@@ -1058,6 +1172,35 @@ export const se_ListDomainsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains";
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListEventStreamsCommand
+ */
+export const se_ListEventStreamsCommand = async (
+  input: ListEventStreamsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/event-streams";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
     "next-token": [, input.NextToken!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -1863,6 +2006,66 @@ const de_CreateDomainCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateEventStreamCommand
+ */
+export const de_CreateEventStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateEventStreamCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EventStreamArn: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateEventStreamCommandError
+ */
+const de_CreateEventStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateIntegrationWorkflowCommand
  */
 export const de_CreateIntegrationWorkflowCommand = async (
@@ -2064,6 +2267,61 @@ const de_DeleteDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteEventStreamCommand
+ */
+export const de_DeleteEventStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteEventStreamCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEventStreamCommandError
+ */
+const de_DeleteEventStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2672,6 +2930,71 @@ const de_GetDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetEventStreamCommand
+ */
+export const de_GetEventStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetEventStreamCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationDetails: (_) => de_EventStreamDestinationDetails(_, context),
+    DomainName: __expectString,
+    EventStreamArn: __expectString,
+    State: __expectString,
+    StoppedSince: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEventStreamCommandError
+ */
+const de_GetEventStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventStreamCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3373,6 +3696,66 @@ const de_ListDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListEventStreamsCommand
+ */
+export const de_ListEventStreamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventStreamsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListEventStreamsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de_EventStreamSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEventStreamsCommandError
+ */
+const de_ListEventStreamsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventStreamsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4784,6 +5167,17 @@ const de_CalculatedAttributeDefinitionsList = (
 // de_Consolidation omitted.
 
 /**
+ * deserializeAws_restJson1DestinationSummary
+ */
+const de_DestinationSummary = (output: any, context: __SerdeContext): DestinationSummary => {
+  return take(output, {
+    Status: __expectString,
+    UnhealthySince: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Uri: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1DomainList
  */
 const de_DomainList = (output: any, context: __SerdeContext): ListDomainItem[] => {
@@ -4796,6 +5190,45 @@ const de_DomainList = (output: any, context: __SerdeContext): ListDomainItem[] =
 };
 
 // de_DomainStats omitted.
+
+/**
+ * deserializeAws_restJson1EventStreamDestinationDetails
+ */
+const de_EventStreamDestinationDetails = (output: any, context: __SerdeContext): EventStreamDestinationDetails => {
+  return take(output, {
+    Message: __expectString,
+    Status: __expectString,
+    UnhealthySince: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Uri: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventStreamSummary
+ */
+const de_EventStreamSummary = (output: any, context: __SerdeContext): EventStreamSummary => {
+  return take(output, {
+    DestinationSummary: (_: any) => de_DestinationSummary(_, context),
+    DomainName: __expectString,
+    EventStreamArn: __expectString,
+    EventStreamName: __expectString,
+    State: __expectString,
+    StoppedSince: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventStreamSummaryList
+ */
+const de_EventStreamSummaryList = (output: any, context: __SerdeContext): EventStreamSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EventStreamSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_ExportingConfig omitted.
 

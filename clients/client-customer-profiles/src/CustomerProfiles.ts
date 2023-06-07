@@ -18,6 +18,11 @@ import {
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  CreateEventStreamCommand,
+  CreateEventStreamCommandInput,
+  CreateEventStreamCommandOutput,
+} from "./commands/CreateEventStreamCommand";
+import {
   CreateIntegrationWorkflowCommand,
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
@@ -37,6 +42,11 @@ import {
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
+import {
+  DeleteEventStreamCommand,
+  DeleteEventStreamCommandInput,
+  DeleteEventStreamCommandOutput,
+} from "./commands/DeleteEventStreamCommand";
 import {
   DeleteIntegrationCommand,
   DeleteIntegrationCommandInput,
@@ -84,6 +94,11 @@ import {
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import {
+  GetEventStreamCommand,
+  GetEventStreamCommandInput,
+  GetEventStreamCommandOutput,
+} from "./commands/GetEventStreamCommand";
+import {
   GetIdentityResolutionJobCommand,
   GetIdentityResolutionJobCommandInput,
   GetIdentityResolutionJobCommandOutput,
@@ -126,6 +141,11 @@ import {
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListEventStreamsCommand,
+  ListEventStreamsCommandInput,
+  ListEventStreamsCommandOutput,
+} from "./commands/ListEventStreamsCommand";
 import {
   ListIdentityResolutionJobsCommand,
   ListIdentityResolutionJobsCommandInput,
@@ -213,10 +233,12 @@ const commands = {
   AddProfileKeyCommand,
   CreateCalculatedAttributeDefinitionCommand,
   CreateDomainCommand,
+  CreateEventStreamCommand,
   CreateIntegrationWorkflowCommand,
   CreateProfileCommand,
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
+  DeleteEventStreamCommand,
   DeleteIntegrationCommand,
   DeleteProfileCommand,
   DeleteProfileKeyCommand,
@@ -227,6 +249,7 @@ const commands = {
   GetCalculatedAttributeDefinitionCommand,
   GetCalculatedAttributeForProfileCommand,
   GetDomainCommand,
+  GetEventStreamCommand,
   GetIdentityResolutionJobCommand,
   GetIntegrationCommand,
   GetMatchesCommand,
@@ -238,6 +261,7 @@ const commands = {
   ListCalculatedAttributeDefinitionsCommand,
   ListCalculatedAttributesForProfileCommand,
   ListDomainsCommand,
+  ListEventStreamsCommand,
   ListIdentityResolutionJobsCommand,
   ListIntegrationsCommand,
   ListProfileObjectsCommand,
@@ -298,6 +322,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link CreateEventStreamCommand}
+   */
+  createEventStream(
+    args: CreateEventStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventStreamCommandOutput>;
+  createEventStream(
+    args: CreateEventStreamCommandInput,
+    cb: (err: any, data?: CreateEventStreamCommandOutput) => void
+  ): void;
+  createEventStream(
+    args: CreateEventStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventStreamCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateIntegrationWorkflowCommand}
    */
   createIntegrationWorkflow(
@@ -351,6 +392,23 @@ export interface CustomerProfiles {
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEventStreamCommand}
+   */
+  deleteEventStream(
+    args: DeleteEventStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventStreamCommandOutput>;
+  deleteEventStream(
+    args: DeleteEventStreamCommandInput,
+    cb: (err: any, data?: DeleteEventStreamCommandOutput) => void
+  ): void;
+  deleteEventStream(
+    args: DeleteEventStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventStreamCommandOutput) => void
   ): void;
 
   /**
@@ -506,6 +564,20 @@ export interface CustomerProfiles {
     args: GetDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventStreamCommand}
+   */
+  getEventStream(
+    args: GetEventStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventStreamCommandOutput>;
+  getEventStream(args: GetEventStreamCommandInput, cb: (err: any, data?: GetEventStreamCommandOutput) => void): void;
+  getEventStream(
+    args: GetEventStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventStreamCommandOutput) => void
   ): void;
 
   /**
@@ -672,6 +744,23 @@ export interface CustomerProfiles {
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventStreamsCommand}
+   */
+  listEventStreams(
+    args: ListEventStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventStreamsCommandOutput>;
+  listEventStreams(
+    args: ListEventStreamsCommandInput,
+    cb: (err: any, data?: ListEventStreamsCommandOutput) => void
+  ): void;
+  listEventStreams(
+    args: ListEventStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventStreamsCommandOutput) => void
   ): void;
 
   /**

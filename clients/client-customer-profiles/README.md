@@ -235,6 +235,14 @@ CreateDomain
 </details>
 <details>
 <summary>
+CreateEventStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/createeventstreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/createeventstreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/createeventstreamcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateIntegrationWorkflow
 </summary>
 
@@ -263,6 +271,14 @@ DeleteDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/deletedomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/deletedomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/deletedomaincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteEventStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/deleteeventstreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/deleteeventstreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/deleteeventstreamcommandoutput.html)
 
 </details>
 <details>
@@ -343,6 +359,14 @@ GetDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/getdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/getdomaincommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetEventStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/geteventstreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/geteventstreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/geteventstreamcommandoutput.html)
 
 </details>
 <details>
@@ -431,6 +455,14 @@ ListDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/listdomainscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listdomainscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listdomainscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEventStreams
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/classes/listeventstreamscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listeventstreamscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-customer-profiles/interfaces/listeventstreamscommandoutput.html)
 
 </details>
 <details>

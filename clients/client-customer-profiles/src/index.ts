@@ -13,6 +13,7 @@
 export * from "./CustomerProfilesClient";
 export * from "./CustomerProfiles";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { CustomerProfilesServiceException } from "./models/CustomerProfilesServiceException";

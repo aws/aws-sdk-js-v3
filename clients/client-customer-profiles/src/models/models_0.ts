@@ -1548,6 +1548,47 @@ export interface CreateDomainResponse {
 
 /**
  * @public
+ */
+export interface CreateEventStreamRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The StreamARN of the destination to deliver profile events to. For example,
+   *          arn:aws:kinesis:region:account-id:stream/stream-name</p>
+   */
+  Uri: string | undefined;
+
+  /**
+   * <p>The name of the event stream.</p>
+   */
+  EventStreamName: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateEventStreamResponse {
+  /**
+   * <p>A unique identifier for the event stream.</p>
+   */
+  EventStreamArn: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
  * <p>Configuration data for integration workflow.</p>
  */
 export interface IntegrationConfig {
@@ -1831,6 +1872,26 @@ export interface DeleteDomainResponse {
    */
   Message: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteEventStreamRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the event stream</p>
+   */
+  EventStreamName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEventStreamResponse {}
 
 /**
  * @public
@@ -2248,6 +2309,117 @@ export interface GetDomainResponse {
    * <p>The timestamp of when the domain was most recently edited.</p>
    */
   LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetEventStreamRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the event stream provided during create operations.</p>
+   */
+  EventStreamName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EventStreamDestinationStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type EventStreamDestinationStatus =
+  (typeof EventStreamDestinationStatus)[keyof typeof EventStreamDestinationStatus];
+
+/**
+ * @public
+ * <p>Details of the destination being used for the EventStream.</p>
+ */
+export interface EventStreamDestinationDetails {
+  /**
+   * <p>The StreamARN of the destination to deliver profile events to. For example,
+   *          arn:aws:kinesis:region:account-id:stream/stream-name.</p>
+   */
+  Uri: string | undefined;
+
+  /**
+   * <p>The status of enabling the Kinesis stream as a destination for export.</p>
+   */
+  Status: EventStreamDestinationStatus | string | undefined;
+
+  /**
+   * <p>The timestamp when the status last changed to <code>UNHEALHY</code>.</p>
+   */
+  UnhealthySince?: Date;
+
+  /**
+   * <p>The human-readable string that corresponds to the error or success while enabling the streaming destination.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EventStreamState = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type EventStreamState = (typeof EventStreamState)[keyof typeof EventStreamState];
+
+/**
+ * @public
+ */
+export interface GetEventStreamResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the event stream.</p>
+   */
+  EventStreamArn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the export was created.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The operational state of destination stream for export.</p>
+   */
+  State: EventStreamState | string | undefined;
+
+  /**
+   * <p>The timestamp when the <code>State</code> changed to <code>STOPPED</code>.</p>
+   */
+  StoppedSince?: Date;
+
+  /**
+   * <p>Details regarding the Kinesis stream.</p>
+   */
+  DestinationDetails: EventStreamDestinationDetails | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -3164,6 +3336,104 @@ export interface ListDomainsResponse {
 
   /**
    * <p>The pagination token from the previous ListDomains API call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListEventStreamsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary information about the Kinesis data stream</p>
+ */
+export interface DestinationSummary {
+  /**
+   * <p>The StreamARN of the destination to deliver profile events to. For example,
+   *          arn:aws:kinesis:region:account-id:stream/stream-name.</p>
+   */
+  Uri: string | undefined;
+
+  /**
+   * <p>The status of enabling the Kinesis stream as a destination for export.</p>
+   */
+  Status: EventStreamDestinationStatus | string | undefined;
+
+  /**
+   * <p>The timestamp when the status last changed to <code>UNHEALHY</code>.</p>
+   */
+  UnhealthySince?: Date;
+}
+
+/**
+ * @public
+ * <p>An instance of EventStream in a list of EventStreams.</p>
+ */
+export interface EventStreamSummary {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the event stream.</p>
+   */
+  EventStreamName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the event stream.</p>
+   */
+  EventStreamArn: string | undefined;
+
+  /**
+   * <p>The operational state of destination stream for export.</p>
+   */
+  State: EventStreamState | string | undefined;
+
+  /**
+   * <p>The timestamp when the <code>State</code> changed to <code>STOPPED</code>.</p>
+   */
+  StoppedSince?: Date;
+
+  /**
+   * <p>Summary information about the Kinesis data stream.</p>
+   */
+  DestinationSummary?: DestinationSummary;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListEventStreamsResponse {
+  /**
+   * <p>Contains summary information about an EventStream.</p>
+   */
+  Items?: EventStreamSummary[];
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
 }
