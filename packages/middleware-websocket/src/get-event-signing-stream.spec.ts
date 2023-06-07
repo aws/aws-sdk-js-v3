@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
-import { Message, MessageHeaders } from "@aws-sdk/types";
+import { Message, MessageHeaders, SignedMessage } from "@aws-sdk/types";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 import { TransformStream } from "web-streams-polyfill";
 
@@ -50,10 +50,19 @@ describe(getEventSigningTransformStream.name, () => {
         },
       },
     ];
-    const mockEventSigner = jest
+    const message1: Message = {
+      headers: {},
+      body: fromUtf8("foo"),
+    };
+    const message2: Message = {
+      headers: {},
+      body: fromUtf8("bar"),
+    };
+    const mockMessageSigner = jest
       .fn()
-      .mockReturnValueOnce("7369676e617475726531") //'signature1'
-      .mockReturnValueOnce("7369676e617475726532"); //'signature2'
+      .mockReturnValueOnce({ message: message1, signature: "7369676e617475726531" } as SignedMessage) //'signature1'
+      .mockReturnValueOnce({ message: message2, signature: "7369676e617475726532" } as SignedMessage); //'signature2'
+
     // mock 'new Date()'
     let mockDateCount = 0;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -65,7 +74,14 @@ describe(getEventSigningTransformStream.name, () => {
         mockDateCount += 1;
         return expected[mockDateCount - 1][":date"].value;
       });
-    const signingStream = getEventSigningTransformStream("initial", { sign: mockEventSigner }, eventStreamCodec);
+    const signingStream = getEventSigningTransformStream(
+      "initial",
+      {
+        sign: mockMessageSigner,
+        signMessage: mockMessageSigner,
+      },
+      eventStreamCodec
+    );
     const output: Array<MessageHeaders> = [];
 
     const reader = signingStream.readable.getReader();
@@ -87,9 +103,13 @@ describe(getEventSigningTransformStream.name, () => {
     await writer.close();
     await writer.closed;
     expect(output).toEqual(expected);
-    expect(mockEventSigner.mock.calls[0][1].priorSignature).toBe("initial");
-    expect(mockEventSigner.mock.calls[0][1].signingDate.getTime()).toBe((expected[0][":date"].value as Date).getTime());
-    expect(mockEventSigner.mock.calls[1][1].priorSignature).toBe("7369676e617475726531");
-    expect(mockEventSigner.mock.calls[1][1].signingDate.getTime()).toBe((expected[1][":date"].value as Date).getTime());
+    expect(mockMessageSigner.mock.calls[0][0].priorSignature).toBe("initial");
+    expect(mockMessageSigner.mock.calls[0][1].signingDate.getTime()).toBe(
+      (expected[0][":date"].value as Date).getTime()
+    );
+    expect(mockMessageSigner.mock.calls[1][0].priorSignature).toBe("7369676e617475726531");
+    expect(mockMessageSigner.mock.calls[1][1].signingDate.getTime()).toBe(
+      (expected[1][":date"].value as Date).getTime()
+    );
   });
 });
