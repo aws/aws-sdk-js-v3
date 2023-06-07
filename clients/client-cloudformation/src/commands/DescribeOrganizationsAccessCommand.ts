@@ -38,7 +38,7 @@ export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrgani
  * @public
  * <p>Retrieves information about the account's <code>OrganizationAccess</code> status. This API
  *       can be called either by the management account or the delegated administrator by using the
- *         <code>CallAs</code> parameter. This API can also be called without the <code>CallAs</code>
+ *       <code>CallAs</code> parameter. This API can also be called without the <code>CallAs</code>
  *       parameter by the management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

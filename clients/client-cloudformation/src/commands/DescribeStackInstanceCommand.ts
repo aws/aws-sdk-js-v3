@@ -69,7 +69,7 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * //     ],
  * //     Status: "CURRENT" || "OUTDATED" || "INOPERABLE",
  * //     StackInstanceStatus: { // StackInstanceComprehensiveStatus
- * //       DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE",
+ * //       DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE" || "SKIPPED_SUSPENDED_ACCOUNT",
  * //     },
  * //     StatusReason: "STRING_VALUE",
  * //     OrganizationalUnitId: "STRING_VALUE",

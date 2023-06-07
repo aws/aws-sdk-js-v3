@@ -71,7 +71,7 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * //       Status: "CURRENT" || "OUTDATED" || "INOPERABLE",
  * //       StatusReason: "STRING_VALUE",
  * //       StackInstanceStatus: { // StackInstanceComprehensiveStatus
- * //         DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE",
+ * //         DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE" || "SKIPPED_SUSPENDED_ACCOUNT",
  * //       },
  * //       OrganizationalUnitId: "STRING_VALUE",
  * //       DriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",

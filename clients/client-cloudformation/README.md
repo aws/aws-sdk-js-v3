@@ -16,9 +16,7 @@ defines a collection of resources as a single unit called a stack. CloudFormatio
 resources of the stack together and manages all dependencies between the resources for you.</p>
 <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation product page</a>.</p>
 <p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information
-about a specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">
-<code>docs.aws.amazon.com</code>
-</a>.</p>
+about a specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
 
 ## Installing
 

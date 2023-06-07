@@ -36,8 +36,8 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
 
 /**
  * @public
- * <p>Returns the description for the specified stack; if no stack name was specified, then it
- *       returns the description for all the stacks created.</p>
+ * <p>Returns the description for the specified stack; if no stack name was specified, then it returns the description
+ *    for all the stacks created.</p>
  *          <note>
  *             <p>If the stack doesn't exist, an <code>ValidationError</code> is returned.</p>
  *          </note>

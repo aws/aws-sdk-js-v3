@@ -36,7 +36,8 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
 
 /**
  * @public
- * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the change set.</p>
+ * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you
+ *    run the change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
