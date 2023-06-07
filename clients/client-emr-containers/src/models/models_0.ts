@@ -274,6 +274,22 @@ export interface CloudWatchMonitoringConfiguration {
 
 /**
  * @public
+ * <p>The settings for container log rotation.</p>
+ */
+export interface ContainerLogRotationConfiguration {
+  /**
+   * <p>The file size at which to rotate logs. Minimum of 2KB, Maximum of 2GB.</p>
+   */
+  rotationSize: string | undefined;
+
+  /**
+   * <p>The number of files to keep in container after rotation.</p>
+   */
+  maxFilesToKeep: number | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const PersistentAppUI = {
@@ -317,6 +333,11 @@ export interface MonitoringConfiguration {
    * <p>Amazon S3 configuration for monitoring log publishing.</p>
    */
   s3MonitoringConfiguration?: S3MonitoringConfiguration;
+
+  /**
+   * <p>Enable or disable container log rotation.</p>
+   */
+  containerLogRotationConfiguration?: ContainerLogRotationConfiguration;
 }
 
 /**
@@ -408,7 +429,8 @@ export type ContainerProviderType = (typeof ContainerProviderType)[keyof typeof 
  */
 export interface ContainerProvider {
   /**
-   * <p>The type of the container provider. Amazon EKS is the only supported type as of now.</p>
+   * <p>The type of the container provider. Amazon EKS is the only supported type as of
+   *          now.</p>
    */
   type: ContainerProviderType | string | undefined;
 
@@ -697,11 +719,11 @@ export type VirtualClusterState = (typeof VirtualClusterState)[keyof typeof Virt
 /**
  * @public
  * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace
- *          that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run jobs and host
- *          endpoints. Multiple virtual clusters can be backed by the same physical cluster. However,
- *          each virtual cluster maps to one namespace on an Amazon EKS cluster. Virtual clusters do not
- *          create any active resources that contribute to your bill or that require lifecycle
- *          management outside the service.</p>
+ *          that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run
+ *          jobs and host endpoints. Multiple virtual clusters can be backed by the same physical
+ *          cluster. However, each virtual cluster maps to one namespace on an Amazon EKS
+ *          cluster. Virtual clusters do not create any active resources that contribute to your bill
+ *          or that require lifecycle management outside the service.</p>
  */
 export interface VirtualCluster {
   /**
@@ -1001,8 +1023,8 @@ export interface ListVirtualClustersRequest {
   containerProviderId?: string;
 
   /**
-   * <p>The container provider type of the virtual cluster. Amazon EKS is the only supported type as of
-   *          now.</p>
+   * <p>The container provider type of the virtual cluster. Amazon EKS is the only
+   *          supported type as of now.</p>
    */
   containerProviderType?: ContainerProviderType | string;
 

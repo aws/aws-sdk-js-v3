@@ -77,6 +77,7 @@ import {
   Configuration,
   ConfigurationOverrides,
   ContainerInfo,
+  ContainerLogRotationConfiguration,
   ContainerProvider,
   EksInfo,
   Endpoint,
@@ -1949,6 +1950,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_ContainerInfo omitted.
 
+// se_ContainerLogRotationConfiguration omitted.
+
 // se_ContainerProvider omitted.
 
 // se_EksInfo omitted.
@@ -2045,6 +2048,8 @@ const de_ConfigurationOverrides = (output: any, context: __SerdeContext): Config
 };
 
 // de_ContainerInfo omitted.
+
+// de_ContainerLogRotationConfiguration omitted.
 
 // de_ContainerProvider omitted.
 

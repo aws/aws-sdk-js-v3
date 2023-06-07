@@ -4,11 +4,11 @@
  * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows
  *          you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS).
  *          With this deployment option, you can focus on running analytics workloads while Amazon EMR on EKS builds, configures, and manages containers for open-source applications.
- *          For more information about Amazon EMR on EKS  concepts and tasks, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html">What is
+ *          For more information about Amazon EMR on EKS concepts and tasks, see <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html">What is
  *             shared id="EMR-EKS"/></a>.</p>
  *          <p>
- *             <i>Amazon EMR containers</i> is the API name for Amazon EMR on EKS.
- *          The <code>emr-containers</code> prefix is used in the following scenarios: </p>
+ *             <i>Amazon EMR containers</i> is the API name for Amazon EMR on EKS. The <code>emr-containers</code> prefix is used in the following
+ *          scenarios: </p>
  *          <ul>
  *             <li>
  *                <p>It is the prefix in the CLI commands for Amazon EMR on EKS. For example,

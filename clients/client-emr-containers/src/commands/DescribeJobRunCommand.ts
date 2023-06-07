@@ -91,6 +91,10 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * //         s3MonitoringConfiguration: { // S3MonitoringConfiguration
  * //           logUri: "STRING_VALUE", // required
  * //         },
+ * //         containerLogRotationConfiguration: { // ContainerLogRotationConfiguration
+ * //           rotationSize: "STRING_VALUE", // required
+ * //           maxFilesToKeep: Number("int"), // required
+ * //         },
  * //       },
  * //     },
  * //     jobDriver: { // JobDriver

@@ -40,9 +40,8 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
 
 /**
  * @public
- * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to
- *             Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual
- *          cluster.</p>
+ * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can
+ *          communicate with your virtual cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +81,10 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  *       },
  *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
  *         logUri: "STRING_VALUE", // required
+ *       },
+ *       containerLogRotationConfiguration: { // ContainerLogRotationConfiguration
+ *         rotationSize: "STRING_VALUE", // required
+ *         maxFilesToKeep: Number("int"), // required
  *       },
  *     },
  *   },
