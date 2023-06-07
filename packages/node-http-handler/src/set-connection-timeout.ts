@@ -6,23 +6,23 @@ export const setConnectionTimeout = (request: ClientRequest, reject: (err: Error
     return;
   }
 
+  // Throw a connecting timeout error unless a connection is made within time.
+  const timeoutId = setTimeout(() => {
+    request.destroy();
+    reject(
+      Object.assign(new Error(`Socket timed out without establishing a connection within ${timeoutInMs} ms`), {
+        name: "TimeoutError",
+      })
+    );
+  }, timeoutInMs);
+
   request.on("socket", (socket: Socket) => {
     if (socket.connecting) {
-      // Throw a connecting timeout error unless a connection is made within x time.
-      const timeoutId = setTimeout(() => {
-        // destroy the request.
-        request.destroy();
-        reject(
-          Object.assign(new Error(`Socket timed out without establishing a connection within ${timeoutInMs} ms`), {
-            name: "TimeoutError",
-          })
-        );
-      }, timeoutInMs);
-
-      // if the connection was established, cancel the timeout.
       socket.on("connect", () => {
         clearTimeout(timeoutId);
       });
+    } else {
+      clearTimeout(timeoutId);
     }
   });
 };
