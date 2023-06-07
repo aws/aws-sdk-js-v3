@@ -1,5 +1,5 @@
 import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
-import { EventSigner, MessageHeaders } from "@aws-sdk/types";
+import { MessageHeaders, MessageSigner } from "@aws-sdk/types";
 import { fromHex } from "@aws-sdk/util-hex-encoding";
 
 /**
@@ -9,7 +9,7 @@ import { fromHex } from "@aws-sdk/util-hex-encoding";
  */
 export const getEventSigningTransformStream = (
   initialSignature: string,
-  eventSigner: EventSigner,
+  messageSigner: MessageSigner,
   eventStreamCodec: EventStreamCodec
 ): TransformStream<Uint8Array, Uint8Array> => {
   let priorSignature = initialSignature;
@@ -21,23 +21,25 @@ export const getEventSigningTransformStream = (
         const dateHeader: MessageHeaders = {
           ":date": { type: "timestamp", value: now },
         };
-        const signature = await eventSigner.sign(
+        const signedMessage = await messageSigner.sign(
           {
-            payload: chunk,
-            headers: eventStreamCodec.formatHeaders(dateHeader),
+            message: {
+              body: chunk,
+              headers: dateHeader,
+            },
+            priorSignature: priorSignature,
           },
           {
-            priorSignature,
             signingDate: now,
           }
         );
-        priorSignature = signature;
+        priorSignature = signedMessage.signature;
         const serializedSigned = eventStreamCodec.encode({
           headers: {
             ...dateHeader,
             ":chunk-signature": {
               type: "binary",
-              value: fromHex(signature),
+              value: fromHex(signedMessage.signature),
             },
           },
           body: chunk,
