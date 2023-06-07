@@ -12,7 +12,7 @@ import { Readable } from "stream";
 export async function* readableToAsyncIterable<T>(readStream: Readable): AsyncIterable<T> {
   let streamEnded = false;
   let generationEnded = false;
-  const records = new Array<T>();
+  const records: T[] = [];
 
   readStream.on("error", (err) => {
     if (!streamEnded) {
@@ -32,8 +32,9 @@ export async function* readableToAsyncIterable<T>(readStream: Readable): AsyncIt
   });
 
   while (!generationEnded) {
-    // @ts-ignore TS2345: Argument of type 'T | undefined' is not assignable to type 'T | PromiseLike<T>'.
-    const value = await new Promise<T>((resolve) => setTimeout(() => resolve(records.shift()), 0));
+    // Wait one event loop before yielding the next value.
+    await 0;
+    const value = records.shift();
     if (value) {
       yield value;
     }
