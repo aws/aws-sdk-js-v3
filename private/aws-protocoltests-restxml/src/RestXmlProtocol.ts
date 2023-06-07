@@ -178,6 +178,11 @@ import {
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import {
+  PutWithContentEncodingCommand,
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -296,6 +301,7 @@ const commands = {
   NullAndEmptyHeadersClientCommand,
   NullAndEmptyHeadersServerCommand,
   OmitsNullSerializesEmptyStringCommand,
+  PutWithContentEncodingCommand,
   QueryIdempotencyTokenAutoFillCommand,
   QueryParamsAsStringListMapCommand,
   QueryPrecedenceCommand,
@@ -898,6 +904,23 @@ export interface RestXmlProtocol {
     args: OmitsNullSerializesEmptyStringCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutWithContentEncodingCommand}
+   */
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWithContentEncodingCommandOutput>;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
+  ): void;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
   /**

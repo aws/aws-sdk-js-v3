@@ -187,8 +187,8 @@ it("RestJsonMalformedEnumString_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -226,8 +226,8 @@ it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -343,8 +343,8 @@ it("RestJsonMalformedEnumList_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -382,8 +382,8 @@ it("RestJsonMalformedEnumList_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -421,8 +421,8 @@ it("RestJsonMalformedEnumMapKey_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -460,8 +460,8 @@ it("RestJsonMalformedEnumMapKey_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -499,8 +499,8 @@ it("RestJsonMalformedEnumMapValue_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map/abc\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map/abc\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -538,8 +538,8 @@ it("RestJsonMalformedEnumMapValue_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map/abc\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map/abc\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -577,8 +577,8 @@ it("RestJsonMalformedEnumUnion_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -616,8 +616,8 @@ it("RestJsonMalformedEnumUnion_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -4786,6 +4786,45 @@ it("RestJsonMalformedUniqueItemsStructureList:MalformedRequest", async () => {
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/structureList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/structureList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/structureList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a list of structures does not contain required keys,
+ * the response should be a 400 ValidationException and not
+ * a 500 error.
+ */
+it("RestJsonMalformedUniqueItemsStructureMissingKeyList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "structureListWithNoKey" : [{"hi2": "bar"}] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/structureListWithNoKey/0/hi' failed to satisfy constraint: Member must not be null\",
+    \"fieldList\" : [{\"message\": \"Value at '/structureListWithNoKey/0/hi' failed to satisfy constraint: Member must not be null\", \"path\": \"/structureListWithNoKey/0/hi\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });

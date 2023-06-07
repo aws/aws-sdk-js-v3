@@ -53,6 +53,11 @@ import {
   NoInputAndOutputCommandOutput,
 } from "./commands/NoInputAndOutputCommand";
 import {
+  PutWithContentEncodingCommand,
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -115,6 +120,7 @@ const commands = {
   IgnoresWrappingXmlNameCommand,
   NestedStructuresCommand,
   NoInputAndOutputCommand,
+  PutWithContentEncodingCommand,
   QueryIdempotencyTokenAutoFillCommand,
   QueryListsCommand,
   QueryTimestampsCommand,
@@ -297,6 +303,23 @@ export interface EC2Protocol {
     args: NoInputAndOutputCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: NoInputAndOutputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutWithContentEncodingCommand}
+   */
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWithContentEncodingCommandOutput>;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
+  ): void;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
   /**

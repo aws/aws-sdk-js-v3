@@ -259,6 +259,10 @@ import {
   PostUnionWithJsonNameCommandOutput,
 } from "./commands/PostUnionWithJsonNameCommand";
 import {
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
@@ -377,6 +381,7 @@ export type ServiceInputTypes =
   | OmitsSerializingEmptyListsCommandInput
   | PostPlayerActionCommandInput
   | PostUnionWithJsonNameCommandInput
+  | PutWithContentEncodingCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
   | QueryParamsAsStringListMapCommandInput
   | QueryPrecedenceCommandInput
@@ -472,6 +477,7 @@ export type ServiceOutputTypes =
   | OmitsSerializingEmptyListsCommandOutput
   | PostPlayerActionCommandOutput
   | PostUnionWithJsonNameCommandOutput
+  | PutWithContentEncodingCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
   | QueryParamsAsStringListMapCommandOutput
   | QueryPrecedenceCommandOutput

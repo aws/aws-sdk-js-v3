@@ -141,6 +141,10 @@ import {
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "../commands/OmitsNullSerializesEmptyStringCommand";
 import {
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "../commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
@@ -1428,6 +1432,41 @@ export const se_OmitsNullSerializesEmptyStringCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restXmlPutWithContentEncodingCommand
+ */
+export const se_PutWithContentEncodingCommand = async (
+  input: PutWithContentEncodingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "text/plain",
+    "content-encoding": input.encoding!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/requestcompression/putcontentwithencoding";
+  let body: any;
+  if (input.data !== undefined) {
+    body = input.data;
+  }
+  let contents: any;
+  if (input.data !== undefined) {
+    contents = input.data;
+    body = contents;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3875,6 +3914,43 @@ const de_OmitsNullSerializesEmptyStringCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OmitsNullSerializesEmptyStringCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlPutWithContentEncodingCommand
+ */
+export const de_PutWithContentEncodingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutWithContentEncodingCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlPutWithContentEncodingCommandError
+ */
+const de_PutWithContentEncodingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

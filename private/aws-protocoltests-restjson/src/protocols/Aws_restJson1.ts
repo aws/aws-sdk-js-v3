@@ -254,6 +254,10 @@ import {
   PostUnionWithJsonNameCommandOutput,
 } from "../commands/PostUnionWithJsonNameCommand";
 import {
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "../commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
@@ -2813,6 +2817,36 @@ export const se_PostUnionWithJsonNameCommand = async (
       value: (_) => se_UnionWithJsonName(_, context),
     })
   );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutWithContentEncodingCommand
+ */
+export const se_PutWithContentEncodingCommand = async (
+  input: PutWithContentEncodingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "text/plain",
+    "content-encoding": input.encoding!,
+  });
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/requestcompression/putcontentwithencoding";
+  let body: any;
+  if (input.data !== undefined) {
+    body = input.data;
+  }
   return new __HttpRequest({
     protocol,
     hostname,
@@ -6261,6 +6295,43 @@ const de_PostUnionWithJsonNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostUnionWithJsonNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1PutWithContentEncodingCommand
+ */
+export const de_PutWithContentEncodingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutWithContentEncodingCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutWithContentEncodingCommandError
+ */
+const de_PutWithContentEncodingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

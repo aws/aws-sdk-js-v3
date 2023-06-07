@@ -4438,6 +4438,47 @@ export namespace PostUnionWithJsonNameOutput {
 /**
  * @public
  */
+export interface PutWithContentEncodingInput {
+  encoding?: string;
+  data?: string;
+}
+
+export namespace PutWithContentEncodingInput {
+  const memberValidators: {
+    encoding?: __MultiConstraintValidator<string>;
+    data?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: PutWithContentEncodingInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "encoding": {
+            memberValidators["encoding"] = new __NoOpValidator();
+            break;
+          }
+          case "data": {
+            memberValidators["data"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("encoding").validate(obj.encoding, `${path}/encoding`),
+      ...getMemberValidator("data").validate(obj.data, `${path}/data`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
 export interface QueryIdempotencyTokenAutoFillInput {
   token?: string;
 }

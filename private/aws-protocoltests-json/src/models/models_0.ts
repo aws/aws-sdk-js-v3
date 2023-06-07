@@ -404,6 +404,14 @@ export interface PutAndGetInlineDocumentsInputOutput {
 /**
  * @public
  */
+export interface PutWithContentEncodingInput {
+  encoding?: string;
+  data?: string;
+}
+
+/**
+ * @public
+ */
 export interface SimpleScalarPropertiesInputOutput {
   floatValue?: number;
   doubleValue?: number;

@@ -9,6 +9,7 @@ export * from "./HostWithPathOperationCommand";
 export * from "./IgnoresWrappingXmlNameCommand";
 export * from "./NestedStructuresCommand";
 export * from "./NoInputAndOutputCommand";
+export * from "./PutWithContentEncodingCommand";
 export * from "./QueryIdempotencyTokenAutoFillCommand";
 export * from "./QueryListsCommand";
 export * from "./QueryTimestampsCommand";

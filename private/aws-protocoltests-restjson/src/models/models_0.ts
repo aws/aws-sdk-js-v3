@@ -1152,6 +1152,14 @@ export interface PostUnionWithJsonNameOutput {
 /**
  * @public
  */
+export interface PutWithContentEncodingInput {
+  encoding?: string;
+  data?: string;
+}
+
+/**
+ * @public
+ */
 export interface QueryIdempotencyTokenAutoFillInput {
   token?: string;
 }

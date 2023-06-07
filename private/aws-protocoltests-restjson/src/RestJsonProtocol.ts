@@ -363,6 +363,11 @@ import {
   PostUnionWithJsonNameCommandOutput,
 } from "./commands/PostUnionWithJsonNameCommand";
 import {
+  PutWithContentEncodingCommand,
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -511,6 +516,7 @@ const commands = {
   OmitsSerializingEmptyListsCommand,
   PostPlayerActionCommand,
   PostUnionWithJsonNameCommand,
+  PutWithContentEncodingCommand,
   QueryIdempotencyTokenAutoFillCommand,
   QueryParamsAsStringListMapCommand,
   QueryPrecedenceCommand,
@@ -1719,6 +1725,23 @@ export interface RestJsonProtocol {
     args: PostUnionWithJsonNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutWithContentEncodingCommand}
+   */
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWithContentEncodingCommandOutput>;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
+  ): void;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
   /**

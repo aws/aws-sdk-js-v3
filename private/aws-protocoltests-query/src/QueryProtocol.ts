@@ -73,6 +73,11 @@ import {
   NoInputAndOutputCommandOutput,
 } from "./commands/NoInputAndOutputCommand";
 import {
+  PutWithContentEncodingCommand,
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -151,6 +156,7 @@ const commands = {
   NestedStructuresCommand,
   NoInputAndNoOutputCommand,
   NoInputAndOutputCommand,
+  PutWithContentEncodingCommand,
   QueryIdempotencyTokenAutoFillCommand,
   QueryListsCommand,
   QueryMapsCommand,
@@ -402,6 +408,23 @@ export interface QueryProtocol {
     args: NoInputAndOutputCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: NoInputAndOutputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutWithContentEncodingCommand}
+   */
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWithContentEncodingCommandOutput>;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
+  ): void;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
   /**

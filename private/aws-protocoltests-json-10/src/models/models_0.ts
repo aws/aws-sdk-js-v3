@@ -369,6 +369,14 @@ export interface NoInputAndOutputOutput {}
 /**
  * @public
  */
+export interface PutWithContentEncodingInput {
+  encoding?: string;
+  data?: string;
+}
+
+/**
+ * @public
+ */
 export interface SimpleScalarPropertiesInput {
   floatValue?: number;
   doubleValue?: number;
