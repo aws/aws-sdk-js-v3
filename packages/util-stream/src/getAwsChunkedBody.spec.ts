@@ -56,7 +56,13 @@ describe(getAwsChunkedBody.name, () => {
       readable.on("end", () => {
         expect(mockStreamHasher).not.toHaveBeenCalled();
         expect(mockBase64Encoder).not.toHaveBeenCalled();
-        expect(buffer).toEqual(`5\r\nHello\r\n5\r\nWorld\r\n0\r\n`);
+        const expectedBuffer = `5\r
+Hello\r
+5\r
+World\r
+0\r
+`;
+        expect(buffer).toEqual(expectedBuffer);
         done();
       });
     };
@@ -97,9 +103,15 @@ describe(getAwsChunkedBody.name, () => {
     awsChunkedBody.on("end", () => {
       expect(mockStreamHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFn, asyncIterable);
       expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
-      expect(buffer).toStrictEqual(
-        `5\r\nHello\r\n5\r\nWorld\r\n0\r\n${mockChecksumLocationName}:${mockChecksum}\r\n\r\n`
-      );
+      const expectedBuffer = `5\r
+Hello\r
+5\r
+World\r
+0\r
+${mockChecksumLocationName}:${mockChecksum}\r
+\r
+`;
+      expect(buffer).toStrictEqual(expectedBuffer);
       done();
     });
   });

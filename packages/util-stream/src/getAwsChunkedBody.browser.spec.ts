@@ -49,7 +49,12 @@ describe(getAwsChunkedBody.name, () => {
   };
 
   describe("skips checksum computation", () => {
-    const expectedBuffer = `5\r\nHello\r\n5\r\nWorld\r\n0\r\n`;
+    const expectedBuffer = `5\r
+Hello\r
+5\r
+World\r
+0\r
+`;
 
     it("if none of the required options are passed", async () => {
       const readableStream = getMockReadableStream();
@@ -80,7 +85,14 @@ describe(getAwsChunkedBody.name, () => {
     const awsChunkedBody = asyncIterableToReadable(
       getAwsChunkedBody(readableToAsyncIterable(readableStream), mockOptions)
     );
-    const expectedBuffer = `5\r\nHello\r\n5\r\nWorld\r\n0\r\n${mockChecksumLocationName}:${mockChecksum}\r\n\r\n`;
+    const expectedBuffer = `5\r
+Hello\r
+5\r
+World\r
+0\r
+${mockChecksumLocationName}:${mockChecksum}\r
+\r
+`;
     await validateStream(awsChunkedBody, expectedBuffer);
   });
 });
