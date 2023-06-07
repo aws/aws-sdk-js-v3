@@ -44,7 +44,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
  *       the connection disrupts network connectivity for all virtual interfaces associated with
  *       the connection for up to 30 seconds. To check whether your connection supports jumbo
- *       frames, call <a>DescribeConnections</a>. To check whether your virtual q
+ *       frames, call <a>DescribeConnections</a>. To check whether your virtual
  *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

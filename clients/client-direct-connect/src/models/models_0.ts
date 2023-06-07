@@ -497,7 +497,7 @@ export interface Connection {
   awsDevice?: string;
 
   /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   * <p>Indicates whether jumbo frames are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
@@ -969,7 +969,7 @@ export interface VirtualInterface {
   mtu?: number;
 
   /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   * <p>Indicates whether jumbo frames are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
@@ -2031,7 +2031,7 @@ export interface Interconnect {
   awsDevice?: string;
 
   /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   * <p>Indicates whether jumbo frames are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
@@ -2247,7 +2247,7 @@ export interface Lag {
   allowsHostedConnections?: boolean;
 
   /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   * <p>Indicates whether jumbo frames are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
