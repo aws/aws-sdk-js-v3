@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
+
+
+### Features
+
+* **client-cloudformation:** AWS CloudFormation StackSets is updating the deployment experience for all stackset operations to skip suspended AWS accounts during deployments. StackSets will skip target AWS accounts that are suspended and set the Detailed Status of the corresponding stack instances as SKIPPED_SUSPENDED_ACCOUNT ([83514db](https://github.com/aws/aws-sdk-js-v3/commit/83514dbfb9ab4568b13bfa9ebd218582db83b0d0))
+
+
+
+
+
 ## [3.347.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.0...v3.347.1) (2023-06-07)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

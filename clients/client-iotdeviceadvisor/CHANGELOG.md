@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
+
+
+### Features
+
+* **client-iotdeviceadvisor:** AWS IoT Core Device Advisor now supports new Qualification Suite test case list. With this update, customers can more easily create new qualification test suite with an empty rootGroup input. ([1f9abd0](https://github.com/aws/aws-sdk-js-v3/commit/1f9abd0faea0671f6b5eb0e1a44f7fec51eed914))
+
+
+
+
+
 ## [3.347.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.0...v3.347.1) (2023-06-07)
 
 **Note:** Version bump only for package @aws-sdk/client-iotdeviceadvisor

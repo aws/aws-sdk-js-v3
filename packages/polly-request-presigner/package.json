@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/polly-request-presigner",
-  "version": "3.347.1",
+  "version": "3.348.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

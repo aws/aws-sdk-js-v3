@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
+
+
+### Features
+
+* **client-emr-containers:** EMR on EKS adds support for log rotation of Spark container logs with EMR-6.11.0 onwards, to the StartJobRun API. ([9a4e143](https://github.com/aws/aws-sdk-js-v3/commit/9a4e1431515ef4d12cdfe747c495fcf28d4ad41e))
+
+
+
+
+
 ## [3.347.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.0...v3.347.1) (2023-06-07)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-containers

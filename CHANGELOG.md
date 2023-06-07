@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
+
+
+### Bug Fixes
+
+* **middleware-websocket:** update eventStreamHandler to use MessageSigner ([#4803](https://github.com/aws/aws-sdk-js-v3/issues/4803)) ([d8317fe](https://github.com/aws/aws-sdk-js-v3/commit/d8317fefb82a52bddb392f0323dc7ae14aaf68f2))
+* **node-http-handler:** begin socket timeout countdown before socket event ([#4804](https://github.com/aws/aws-sdk-js-v3/issues/4804)) ([f5ce61a](https://github.com/aws/aws-sdk-js-v3/commit/f5ce61a985ee5da6461c4c6161a2a3c36f438483))
+
+
+### Features
+
+* **client-cloudformation:** AWS CloudFormation StackSets is updating the deployment experience for all stackset operations to skip suspended AWS accounts during deployments. StackSets will skip target AWS accounts that are suspended and set the Detailed Status of the corresponding stack instances as SKIPPED_SUSPENDED_ACCOUNT ([83514db](https://github.com/aws/aws-sdk-js-v3/commit/83514dbfb9ab4568b13bfa9ebd218582db83b0d0))
+* **client-cloudwatch-logs:** This change adds support for account level data protection policies using 3 new APIs, PutAccountPolicy, DeleteAccountPolicy and DescribeAccountPolicy. DescribeLogGroup API has been modified to indicate if account level policy is applied to the LogGroup via "inheritedProperties" list in the response. ([d6b0058](https://github.com/aws/aws-sdk-js-v3/commit/d6b00582710710f8ed35501bff5bbb6e2926e963))
+* **client-customer-profiles:** This release introduces event stream related APIs. ([5263022](https://github.com/aws/aws-sdk-js-v3/commit/526302260790ff22397663382fe49e81150d91dc))
+* **client-emr-containers:** EMR on EKS adds support for log rotation of Spark container logs with EMR-6.11.0 onwards, to the StartJobRun API. ([9a4e143](https://github.com/aws/aws-sdk-js-v3/commit/9a4e1431515ef4d12cdfe747c495fcf28d4ad41e))
+* **client-iotdeviceadvisor:** AWS IoT Core Device Advisor now supports new Qualification Suite test case list. With this update, customers can more easily create new qualification test suite with an empty rootGroup input. ([1f9abd0](https://github.com/aws/aws-sdk-js-v3/commit/1f9abd0faea0671f6b5eb0e1a44f7fec51eed914))
+
+
+
+
+
 ## [3.347.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.0...v3.347.1) (2023-06-07)
 
 **Note:** Version bump only for package aws-sdk-js-v3

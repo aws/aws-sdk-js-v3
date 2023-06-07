@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
+
+
+### Features
+
+* **client-cloudwatch-logs:** This change adds support for account level data protection policies using 3 new APIs, PutAccountPolicy, DeleteAccountPolicy and DescribeAccountPolicy. DescribeLogGroup API has been modified to indicate if account level policy is applied to the LogGroup via "inheritedProperties" list in the response. ([d6b0058](https://github.com/aws/aws-sdk-js-v3/commit/d6b00582710710f8ed35501bff5bbb6e2926e963))
+
+
+
+
+
 ## [3.347.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.0...v3.347.1) (2023-06-07)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

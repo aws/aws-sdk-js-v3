@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
+
+
+### Bug Fixes
+
+* **node-http-handler:** begin socket timeout countdown before socket event ([#4804](https://github.com/aws/aws-sdk-js-v3/issues/4804)) ([f5ce61a](https://github.com/aws/aws-sdk-js-v3/commit/f5ce61a985ee5da6461c4c6161a2a3c36f438483))
+
+
+
+
+
 # [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
 
 
