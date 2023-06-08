@@ -50,13 +50,13 @@ export const resolveSSOCredentials = async ({
         SHOULD_FAIL_CREDENTIAL_CHAIN
       );
     }
-  }
 
-  if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
-    throw new CredentialsProviderError(
-      `The SSO session associated with this profile has expired. ${refreshMessage}`,
-      SHOULD_FAIL_CREDENTIAL_CHAIN
-    );
+    if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
+      throw new CredentialsProviderError(
+        `The SSO session associated with this profile has expired. ${refreshMessage}`,
+        SHOULD_FAIL_CREDENTIAL_CHAIN
+      );
+    }
   }
 
   const { accessToken } = token;

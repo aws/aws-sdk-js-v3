@@ -2,6 +2,7 @@ import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { getSSOTokenFromFile } from "@aws-sdk/shared-ini-file-loader";
 import * as tokenProviders from "@aws-sdk/token-providers";
+import { TokenIdentity } from "@aws-sdk/types";
 
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 
@@ -75,6 +76,29 @@ describe(resolveSSOCredentials.name, () => {
     });
     expect(tokenProviders.fromSso).toHaveBeenCalledWith({
       profile: undefined,
+    });
+  });
+
+  it("accepts the SSOTokenProvider provided token even if it expiring soon", async () => {
+    const mockSoonExpiringToken: TokenIdentity = {
+      token: "mockAccessToken",
+      expiration: new Date(Date.now() + 10 * 1000),
+    };
+    (tokenProviders.fromSso as jest.Mock).mockImplementation(() => async () => mockSoonExpiringToken);
+
+    await resolveSSOCredentials({
+      ...mockOptions,
+      ssoSession: "test-sso-session",
+    });
+
+    expect(tokenProviders.fromSso).toHaveBeenCalledWith({
+      profile: undefined,
+    });
+
+    expect(GetRoleCredentialsCommand).toHaveBeenCalledWith({
+      accountId: mockOptions.ssoAccountId,
+      roleName: mockOptions.ssoRoleName,
+      accessToken: mockSoonExpiringToken.token,
     });
   });
 
