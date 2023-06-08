@@ -76,6 +76,15 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * //         },
  * //       },
  * //     },
+ * //     Schema: { // Schema
+ * //       CompositePartitionKey: [ // PartitionKeyList
+ * //         { // PartitionKey
+ * //           Type: "DIMENSION" || "MEASURE", // required
+ * //           Name: "STRING_VALUE",
+ * //           EnforcementInRecord: "REQUIRED" || "OPTIONAL",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

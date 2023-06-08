@@ -67,6 +67,15 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *       },
  *     },
  *   },
+ *   Schema: { // Schema
+ *     CompositePartitionKey: [ // PartitionKeyList
+ *       { // PartitionKey
+ *         Type: "DIMENSION" || "MEASURE", // required
+ *         Name: "STRING_VALUE",
+ *         EnforcementInRecord: "REQUIRED" || "OPTIONAL",
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
@@ -92,6 +101,15 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * //           KmsKeyId: "STRING_VALUE",
  * //         },
  * //       },
+ * //     },
+ * //     Schema: { // Schema
+ * //       CompositePartitionKey: [ // PartitionKeyList
+ * //         { // PartitionKey
+ * //           Type: "DIMENSION" || "MEASURE", // required
+ * //           Name: "STRING_VALUE",
+ * //           EnforcementInRecord: "REQUIRED" || "OPTIONAL",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };

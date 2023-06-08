@@ -73,6 +73,15 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *       },
  *     },
  *   },
+ *   Schema: { // Schema
+ *     CompositePartitionKey: [ // PartitionKeyList
+ *       { // PartitionKey
+ *         Type: "DIMENSION" || "MEASURE", // required
+ *         Name: "STRING_VALUE",
+ *         EnforcementInRecord: "REQUIRED" || "OPTIONAL",
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
@@ -98,6 +107,15 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * //           KmsKeyId: "STRING_VALUE",
  * //         },
  * //       },
+ * //     },
+ * //     Schema: { // Schema
+ * //       CompositePartitionKey: [ // PartitionKeyList
+ * //         { // PartitionKey
+ * //           Type: "DIMENSION" || "MEASURE", // required
+ * //           Name: "STRING_VALUE",
+ * //           EnforcementInRecord: "REQUIRED" || "OPTIONAL",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };

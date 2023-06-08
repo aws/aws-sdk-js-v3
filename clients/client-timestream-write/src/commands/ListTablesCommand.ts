@@ -77,6 +77,15 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * //           },
  * //         },
  * //       },
+ * //       Schema: { // Schema
+ * //         CompositePartitionKey: [ // PartitionKeyList
+ * //           { // PartitionKey
+ * //             Type: "DIMENSION" || "MEASURE", // required
+ * //             Name: "STRING_VALUE",
+ * //             EnforcementInRecord: "REQUIRED" || "OPTIONAL",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

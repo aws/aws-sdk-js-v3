@@ -90,6 +90,7 @@ import {
   MixedMeasureMapping,
   MultiMeasureAttributeMapping,
   MultiMeasureMappings,
+  PartitionKey,
   RejectedRecordsException,
   ReportConfiguration,
   ReportS3Configuration,
@@ -97,6 +98,7 @@ import {
   ResumeBatchLoadTaskRequest,
   RetentionProperties,
   S3Configuration,
+  Schema,
   ServiceQuotaExceededException,
   Table,
   Tag,
@@ -1715,6 +1717,10 @@ const se_CreateBatchLoadTaskRequest = (input: CreateBatchLoadTaskRequest, contex
 
 // se_MultiMeasureMappings omitted.
 
+// se_PartitionKey omitted.
+
+// se_PartitionKeyList omitted.
+
 // se__Record omitted.
 
 // se_Records omitted.
@@ -1728,6 +1734,8 @@ const se_CreateBatchLoadTaskRequest = (input: CreateBatchLoadTaskRequest, contex
 // se_RetentionProperties omitted.
 
 // se_S3Configuration omitted.
+
+// se_Schema omitted.
 
 // se_Tag omitted.
 
@@ -1944,6 +1952,10 @@ const de_ListTablesResponse = (output: any, context: __SerdeContext): ListTables
 
 // de_MultiMeasureMappings omitted.
 
+// de_PartitionKey omitted.
+
+// de_PartitionKeyList omitted.
+
 // de_RecordsIngested omitted.
 
 // de_RejectedRecord omitted.
@@ -1964,6 +1976,8 @@ const de_ListTablesResponse = (output: any, context: __SerdeContext): ListTables
 
 // de_S3Configuration omitted.
 
+// de_Schema omitted.
+
 // de_ServiceQuotaExceededException omitted.
 
 /**
@@ -1977,6 +1991,7 @@ const de_Table = (output: any, context: __SerdeContext): Table => {
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MagneticStoreWriteProperties: _json,
     RetentionProperties: _json,
+    Schema: _json,
     TableName: __expectString,
     TableStatus: __expectString,
   }) as any;

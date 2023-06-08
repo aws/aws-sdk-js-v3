@@ -455,7 +455,8 @@ export interface ReportS3Configuration {
 
 /**
  * @public
- * <p>Report configuration for a batch load task. This contains details about where error reports are stored.</p>
+ * <p>Report configuration for a batch load task. This contains details about where error
+ *          reports are stored.</p>
  */
 export interface ReportConfiguration {
   /**
@@ -491,12 +492,14 @@ export interface BatchLoadTaskDescription {
   ProgressReport?: BatchLoadProgressReport;
 
   /**
-   * <p>Report configuration for a batch load task. This contains details about where error reports are stored.</p>
+   * <p>Report configuration for a batch load task. This contains details about where error
+   *          reports are stored.</p>
    */
   ReportConfiguration?: ReportConfiguration;
 
   /**
-   * <p>Data model configuration for a batch load task. This contains details about where a data model for a batch load task is stored.</p>
+   * <p>Data model configuration for a batch load task. This contains details about where a data
+   *          model for a batch load task is stored.</p>
    */
   DataModelConfiguration?: DataModelConfiguration;
 
@@ -580,7 +583,8 @@ export interface CreateBatchLoadTaskRequest {
   DataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * <p>Report configuration for a batch load task. This contains details about where error reports are stored.</p>
+   * <p>Report configuration for a batch load task. This contains details about where error
+   *          reports are stored.</p>
    */
   ReportConfiguration: ReportConfiguration | undefined;
 
@@ -911,6 +915,76 @@ export interface RetentionProperties {
 
 /**
  * @public
+ * @enum
+ */
+export const PartitionKeyEnforcementLevel = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRED: "REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type PartitionKeyEnforcementLevel =
+  (typeof PartitionKeyEnforcementLevel)[keyof typeof PartitionKeyEnforcementLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const PartitionKeyType = {
+  DIMENSION: "DIMENSION",
+  MEASURE: "MEASURE",
+} as const;
+
+/**
+ * @public
+ */
+export type PartitionKeyType = (typeof PartitionKeyType)[keyof typeof PartitionKeyType];
+
+/**
+ * @public
+ * <p> An attribute used in partitioning data in a table. A dimension key partitions data
+ *          using the values of the dimension specified by the dimension-name as partition key, while a
+ *          measure key partitions data using measure names (values of the 'measure_name' column).
+ *       </p>
+ */
+export interface PartitionKey {
+  /**
+   * <p> The type of the partition key. Options are DIMENSION (dimension key) and MEASURE
+   *          (measure key). </p>
+   */
+  Type: PartitionKeyType | string | undefined;
+
+  /**
+   * <p> The name of the attribute used for a dimension key. </p>
+   */
+  Name?: string;
+
+  /**
+   * <p> The level of enforcement for the specification of a dimension key in ingested records.
+   *          Options are REQUIRED (dimension key must be specified) and OPTIONAL (dimension key does not
+   *          have to be specified). </p>
+   */
+  EnforcementInRecord?: PartitionKeyEnforcementLevel | string;
+}
+
+/**
+ * @public
+ * <p> A Schema specifies the expected data model of the table. </p>
+ */
+export interface Schema {
+  /**
+   * <p>A non-empty list of partition keys defining the attributes used to partition the table
+   *          data. The order of the list determines the partition hierarchy. The name and type of each
+   *          partition key as well as the partition key order cannot be changed after the table is
+   *          created. However, the enforcement level of each partition key can be changed. </p>
+   */
+  CompositePartitionKey?: PartitionKey[];
+}
+
+/**
+ * @public
  */
 export interface CreateTableRequest {
   /**
@@ -938,6 +1012,11 @@ export interface CreateTableRequest {
    * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
    */
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
+
+  /**
+   * <p> The schema of the table. </p>
+   */
+  Schema?: Schema;
 }
 
 /**
@@ -1011,6 +1090,11 @@ export interface Table {
    * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
    */
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
+
+  /**
+   * <p> The schema of the table. </p>
+   */
+  Schema?: Schema;
 }
 
 /**
@@ -1338,7 +1422,8 @@ export interface MeasureValue {
   Name: string | undefined;
 
   /**
-   * <p> The value for the MeasureValue. </p>
+   * <p> The value for the MeasureValue. For information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types">Data
+   *          types</a>.</p>
    */
   Value: string | undefined;
 
@@ -1384,7 +1469,8 @@ export interface _Record {
 
   /**
    * <p> Contains the data type of the measure value for the time-series data point. Default
-   *          type is <code>DOUBLE</code>. </p>
+   *          type is <code>DOUBLE</code>. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types">Data
+   *          types</a>.</p>
    */
   MeasureValueType?: MeasureValueType | string;
 
@@ -1699,6 +1785,11 @@ export interface UpdateTableRequest {
    * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
    */
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
+
+  /**
+   * <p> The schema of the table. </p>
+   */
+  Schema?: Schema;
 }
 
 /**
