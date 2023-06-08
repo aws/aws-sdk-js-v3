@@ -39,6 +39,7 @@ export const RelationshipType = {
   FREQUENCY: "FREQUENCY",
   NEGATIVE: "NEGATIVE",
   OVERLAP: "OVERLAP",
+  QUALITY: "QUALITY",
   RATE: "RATE",
   ROUTE_OR_MODE: "ROUTE_OR_MODE",
   STRENGTH: "STRENGTH",
@@ -46,6 +47,7 @@ export const RelationshipType = {
   TEST_UNIT: "TEST_UNIT",
   TEST_UNITS: "TEST_UNITS",
   TEST_VALUE: "TEST_VALUE",
+  USAGE: "USAGE",
   WITH_DOSAGE: "WITH_DOSAGE",
 } as const;
 
@@ -877,6 +879,7 @@ export type ICD10CMEntityType = (typeof ICD10CMEntityType)[keyof typeof ICD10CME
  */
 export const ICD10CMRelationshipType = {
   OVERLAP: "OVERLAP",
+  QUALITY: "QUALITY",
   SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
 } as const;
 
@@ -1161,6 +1164,7 @@ export interface InferRxNormRequest {
  */
 export const RxNormTraitName = {
   NEGATION: "NEGATION",
+  PAST_HISTORY: "PAST_HISTORY",
 } as const;
 
 /**
@@ -1443,6 +1447,7 @@ export const SNOMEDCTRelationshipType = {
   DIRECTION: "DIRECTION",
   QUALITY: "QUALITY",
   SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
+  TEST_UNIT: "TEST_UNIT",
   TEST_UNITS: "TEST_UNITS",
   TEST_VALUE: "TEST_VALUE",
 } as const;

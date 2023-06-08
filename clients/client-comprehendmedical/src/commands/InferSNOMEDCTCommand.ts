@@ -69,7 +69,7 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  * //           Type: "ACUITY" || "QUALITY" || "DIRECTION" || "SYSTEM_ORGAN_SITE" || "TEST_VALUE" || "TEST_UNIT",
  * //           Score: Number("float"),
  * //           RelationshipScore: Number("float"),
- * //           RelationshipType: "ACUITY" || "QUALITY" || "TEST_VALUE" || "TEST_UNITS" || "DIRECTION" || "SYSTEM_ORGAN_SITE",
+ * //           RelationshipType: "ACUITY" || "QUALITY" || "TEST_VALUE" || "TEST_UNITS" || "DIRECTION" || "SYSTEM_ORGAN_SITE" || "TEST_UNIT",
  * //           Id: Number("int"),
  * //           BeginOffset: Number("int"),
  * //           EndOffset: Number("int"),

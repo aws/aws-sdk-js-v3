@@ -81,7 +81,7 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  * //             },
  * //           ],
  * //           Category: "DX_NAME" || "TIME_EXPRESSION",
- * //           RelationshipType: "OVERLAP" || "SYSTEM_ORGAN_SITE",
+ * //           RelationshipType: "OVERLAP" || "SYSTEM_ORGAN_SITE" || "QUALITY",
  * //         },
  * //       ],
  * //       Traits: [

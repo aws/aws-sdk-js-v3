@@ -75,7 +75,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * //           Text: "STRING_VALUE",
  * //           Traits: [ // RxNormTraitList
  * //             { // RxNormTrait
- * //               Name: "NEGATION",
+ * //               Name: "NEGATION" || "PAST_HISTORY",
  * //               Score: Number("float"),
  * //             },
  * //           ],
@@ -83,7 +83,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * //       ],
  * //       Traits: [
  * //         {
- * //           Name: "NEGATION",
+ * //           Name: "NEGATION" || "PAST_HISTORY",
  * //           Score: Number("float"),
  * //         },
  * //       ],
