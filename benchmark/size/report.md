@@ -3,7 +3,7 @@
 |@aws-sdk/abort-controller|3.342.0|17.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-app-mesh|3.347.1|1.1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-application-insights|3.347.1|545.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-athena|3.347.1|1.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-athena|3.348.0|1.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-auto-scaling|3.347.1|1.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudformation|3.347.1|1.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudhsm-v2|3.347.1|357.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

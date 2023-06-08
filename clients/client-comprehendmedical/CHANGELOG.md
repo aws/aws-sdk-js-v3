@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.349.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.348.0...v3.349.0) (2023-06-08)
+
+
+### Features
+
+* **client-comprehendmedical:** This release supports a new set of entities and traits. ([83e8430](https://github.com/aws/aws-sdk-js-v3/commit/83e84301b0c46f1ac906561e250aff98ee2cb73e))
+
+
+
+
+
 # [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
 
 **Note:** Version bump only for package @aws-sdk/client-comprehendmedical

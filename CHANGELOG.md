@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.349.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.348.0...v3.349.0) (2023-06-08)
+
+
+### Features
+
+* **client-athena:** You can now define custom spark properties at start of the session for use cases like cluster encryption, table formats, and general Spark tuning. ([655c2dd](https://github.com/aws/aws-sdk-js-v3/commit/655c2dd03fddc3ee513122588b6b0ba2a65b8fd4))
+* **client-comprehendmedical:** This release supports a new set of entities and traits. ([83e8430](https://github.com/aws/aws-sdk-js-v3/commit/83e84301b0c46f1ac906561e250aff98ee2cb73e))
+* **client-payment-cryptography-data:** Initial release of AWS Payment Cryptography DataPlane Plane service for performing cryptographic operations typically used during card payment processing. ([f930913](https://github.com/aws/aws-sdk-js-v3/commit/f9309133c2c4ee5fe364a88d306649194f905491))
+* **client-payment-cryptography:** Initial release of AWS Payment Cryptography Control Plane service for creating and managing cryptographic keys used during card payment processing. ([6658867](https://github.com/aws/aws-sdk-js-v3/commit/6658867b30b699376e408aa777cf3149308bd3de))
+* **client-service-catalog:** New parameter added in ServiceCatalog DescribeProvisioningArtifact api - IncludeProvisioningArtifactParameters. This parameter can be used to return information about the parameters used to provision the product ([ea91820](https://github.com/aws/aws-sdk-js-v3/commit/ea91820feeba59630fbbfc920983d0faa4271d57))
+* **client-timestream-write:** This release adds the capability for customers to define how their data should be partitioned, optimizing for certain access patterns. This definition will take place as a part of the table creation. ([bba2033](https://github.com/aws/aws-sdk-js-v3/commit/bba2033a255572752792560b678c89489fd743c4))
+* **clients:** update client endpoints as of 2023-06-08 ([0c458b2](https://github.com/aws/aws-sdk-js-v3/commit/0c458b2b0caa8ce3ee6e9db47d5173a0f619d465))
+
+
+
+
+
 # [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
 
 

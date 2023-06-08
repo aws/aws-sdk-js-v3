@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.349.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.348.0...v3.349.0) (2023-06-08)
+
+
+### Features
+
+* **client-timestream-write:** This release adds the capability for customers to define how their data should be partitioned, optimizing for certain access patterns. This definition will take place as a part of the table creation. ([bba2033](https://github.com/aws/aws-sdk-js-v3/commit/bba2033a255572752792560b678c89489fd743c4))
+
+
+
+
+
 # [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-write
