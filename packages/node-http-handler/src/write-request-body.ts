@@ -21,6 +21,7 @@ export async function writeRequestBody(
   const expect = headers["Expect"] || headers["expect"];
 
   let timeoutId = -1;
+  let hasError = false;
 
   if (expect === "100-continue") {
     await Promise.race<void>([
@@ -32,11 +33,22 @@ export async function writeRequestBody(
           clearTimeout(timeoutId);
           resolve();
         });
+        httpRequest.on("error", () => {
+          hasError = true;
+          clearTimeout(timeoutId);
+          // this handler does not reject with the error
+          // because there is already an error listener
+          // on the request in node-http-handler
+          // and node-http2-handler.
+          resolve();
+        });
       }),
     ]);
   }
 
-  writeBody(httpRequest, request.body);
+  if (!hasError) {
+    writeBody(httpRequest, request.body);
+  }
 }
 
 function writeBody(
