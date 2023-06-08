@@ -54,6 +54,9 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *     AdditionalConfigs: { // ParametersMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     SparkProperties: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   NotebookVersion: "STRING_VALUE",
  *   SessionIdleTimeoutInMinutes: Number("int"),
