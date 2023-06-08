@@ -10,7 +10,12 @@ describe("localStorage", () => {
 
   beforeEach(() => {
     if (window) {
-      (window.localStorage as any) = undefined;
+      Object.defineProperty(window, "localStorage", {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: undefined,
+      });
     }
 
     if (self) {
@@ -20,7 +25,12 @@ describe("localStorage", () => {
 
   afterEach(() => {
     if (window) {
-      (window.localStorage as any) = storageAtInit;
+      Object.defineProperty(window, "localStorage", {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: storageAtInit,
+      });
     }
 
     if (self) {

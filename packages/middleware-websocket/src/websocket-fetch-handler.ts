@@ -114,10 +114,14 @@ export class WebSocketFetchHandler {
     // To notify output stream any error thrown after response
     // is returned while data keeps streaming.
     let streamError: Error | undefined = undefined;
-    // To notify onclose event that error has occurred
+
+    // To notify onclose event that error has occurred.
     let socketErrorOccurred = false;
-    let reject: (err?: unknown) => void;
-    let resolve: ({ done, value }: { done: boolean; value: Uint8Array }) => void;
+
+    // initialize as no-op.
+    let reject: (err?: unknown) => void = () => {};
+    let resolve: ({ done, value }: { done: boolean; value: Uint8Array }) => void = () => {};
+
     socket.onmessage = (event) => {
       resolve({
         done: false,
@@ -140,7 +144,7 @@ export class WebSocketFetchHandler {
       } else {
         resolve({
           done: true,
-          value: undefined,
+          value: undefined as any, // unchecked because done=true.
         });
       }
     };
