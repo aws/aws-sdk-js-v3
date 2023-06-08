@@ -6963,6 +6963,7 @@ const de_DescribeProvisioningArtifactOutput = (
   return take(output, {
     Info: _json,
     ProvisioningArtifactDetail: (_: any) => de_ProvisioningArtifactDetail(_, context),
+    ProvisioningArtifactParameters: _json,
     Status: __expectString,
   }) as any;
 };

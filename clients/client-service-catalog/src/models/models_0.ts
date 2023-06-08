@@ -295,27 +295,28 @@ export interface AssociatePrincipalWithPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (user, role, or group). The supported value is a fully defined <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">
-   *                <code>IAM</code> ARN</a>
-   *          if the
-   *          <code>PrincipalType</code> is <code>IAM</code>. If the <code>PrincipalType</code> is <code>IAM_PATTERN</code>,
-   *          the supported value is an <code>IAM</code> ARN without an AccountID in the following format:</p>
+   * <p>The ARN of the principal (user, role, or group). If the <code>PrincipalType</code> is <code>IAM</code>, the supported value is a
+   *          fully defined
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM Amazon Resource Name (ARN)</a>.
+   *          If the <code>PrincipalType</code> is <code>IAM_PATTERN</code>,
+   *          the supported value is an <code>IAM</code> ARN <i>without an AccountID</i> in the following format:</p>
    *          <p>
    *             <i>arn:partition:iam:::resource-type/resource-id</i>
    *          </p>
-   *          <p>The resource-id can be either of the following:</p>
+   *          <p>The ARN resource-id can be either:</p>
    *          <ul>
    *             <li>
-   *                <p>Fully formed, for example <i>arn:aws:iam:::role/resource-name</i> or
+   *                <p>A fully formed resource-id. For example, <i>arn:aws:iam:::role/resource-name</i> or
    *             <i>arn:aws:iam:::role/resource-path/resource-name</i>
    *                </p>
    *             </li>
    *             <li>
    *                <p>A wildcard ARN. The wildcard ARN accepts <code>IAM_PATTERN</code> values with a
-   *                "*" or "?" in the resource-id segment of the ARN, for example <i>arn:partition:service:::resource-type/resource-path/resource-name</i>.
+   *                "*" or "?" in the resource-id segment of the ARN. For example <i>arn:partition:service:::resource-type/resource-path/resource-name</i>.
    *                The new symbols are exclusive to the <b>resource-path</b> and <b>resource-name</b>
-   *                and cannot be used to replace the <b>resource-type</b> or other
+   *                and cannot replace the <b>resource-type</b> or other
    *             ARN values. </p>
+   *                <p>The ARN path and principal name allow unlimited wildcard characters.</p>
    *             </li>
    *          </ul>
    *          <p>Examples of an <b>acceptable</b> wildcard ARN:</p>
@@ -335,40 +336,26 @@ export interface AssociatePrincipalWithPortfolioInput {
    *          </ul>
    *          <p>You can associate multiple <code>IAM_PATTERN</code>s even if the account has no principal
    *          with that name. </p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>The ARN path and principal name allow unlimited wildcard characters. </p>
-   *                </li>
-   *                <li>
-   *                   <p>The "?"  wildcard character matches zero or one of any character. This is similar to  ".?" in regular
-   *                   regex context.</p>
-   *                </li>
-   *                <li>
-   *                   <p>The "*" wildcard character matches any number of any characters. This is similar ".*"  in regular
-   *                   regex context.</p>
-   *                </li>
-   *                <li>
-   *                   <p>In the IAM Principal ARNs format (arn:partition:iam:::resource-type/resource-path/resource-name),
-   *                   valid <b>resource-type</b> values include user/, group/, or role/.  The "?" and "*"
-   *                   are allowed only after the <b>resource-type</b>, in the resource-id segment.
-   *                   You can use special characters anywhere within the <b>resource-id</b>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>The "*" also matches the "/" character, allowing paths to be formed within the
-   *                   <b>resource-id</b>.
-   *                   For example, arn:aws:iam:::role/*\/ResourceName_? matches both arn:aws:iam:::role/pathA/pathB/ResourceName_1
+   *          <p>The "?" wildcard character matches zero or one of any character. This is similar to ".?" in regular
+   *                   regex context. The "*" wildcard character matches any number of any characters.
+   *                   This is similar to ".*" in regular regex context.</p>
+   *          <p>In the IAM Principal ARN format (<i>arn:partition:iam:::resource-type/resource-path/resource-name</i>),
+   *          valid resource-type values include <b>user/</b>, <b>group/</b>,
+   *             or <b>role/</b>.  The "?" and "*" characters
+   *                   are allowed only after the resource-type in the resource-id segment.
+   *                   You can use special characters anywhere within the resource-id. </p>
+   *          <p>The "*" character also matches the "/" character, allowing paths to be formed <i>within</i> the
+   *                   resource-id. For example, <i>arn:aws:iam:::role/<b>*</b>/ResourceName_?</i>
+   *                   matches both <i>arn:aws:iam:::role/pathA/pathB/ResourceName_1</i>
    *                   and
-   *                   arn:aws:iam:::role/pathA/ResourceName_1.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   *                   <i>arn:aws:iam:::role/pathA/ResourceName_1</i>. </p>
    */
   PrincipalARN: string | undefined;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN,
-   *          or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
+   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined Amazon Resource Name
+   *          (ARN), or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>,
+   *          with or without wildcard characters. </p>
    */
   PrincipalType: PrincipalType | string | undefined;
 }
@@ -3673,6 +3660,96 @@ export interface DescribeProvisioningArtifactInput {
    * <p>Indicates whether a verbose level of detail is enabled.</p>
    */
   Verbose?: boolean;
+
+  /**
+   * <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
+   */
+  IncludeProvisioningArtifactParameters?: boolean;
+}
+
+/**
+ * @public
+ * <p>The constraints that the administrator has put on the parameter.</p>
+ */
+export interface ParameterConstraints {
+  /**
+   * <p>The values that the administrator has allowed for the parameter.</p>
+   */
+  AllowedValues?: string[];
+
+  /**
+   * <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
+   */
+  AllowedPattern?: string;
+
+  /**
+   * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
+   *          <p>
+   *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
+   *          </p>
+   *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
+   *          <p>
+   *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
+   *          </p>
+   */
+  ConstraintDescription?: string;
+
+  /**
+   * <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
+   */
+  MaxLength?: string;
+
+  /**
+   * <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
+   */
+  MinLength?: string;
+
+  /**
+   * <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
+   */
+  MaxValue?: string;
+
+  /**
+   * <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
+   */
+  MinValue?: string;
+}
+
+/**
+ * @public
+ * <p>Information about a parameter used to provision a product.</p>
+ */
+export interface ProvisioningArtifactParameter {
+  /**
+   * <p>The parameter key.</p>
+   */
+  ParameterKey?: string;
+
+  /**
+   * <p>The default value.</p>
+   */
+  DefaultValue?: string;
+
+  /**
+   * <p>The parameter type.</p>
+   */
+  ParameterType?: string;
+
+  /**
+   * <p>If this value is true, the value for this parameter is obfuscated from view when the
+   *          parameter is retrieved. This parameter is used to hide sensitive information.</p>
+   */
+  IsNoEcho?: boolean;
+
+  /**
+   * <p>The description of the parameter.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Constraints that the administrator has put on a parameter.</p>
+   */
+  ParameterConstraints?: ParameterConstraints;
 }
 
 /**
@@ -3693,6 +3770,11 @@ export interface DescribeProvisioningArtifactOutput {
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
+
+  /**
+   * <p>Information about the parameters used to provision the product.  </p>
+   */
+  ProvisioningArtifactParameters?: ProvisioningArtifactParameter[];
 }
 
 /**
@@ -3797,91 +3879,6 @@ export interface ProvisioningArtifactOutput {
    * <p>Description of the provisioning artifact output key.</p>
    */
   Description?: string;
-}
-
-/**
- * @public
- * <p>The constraints that the administrator has put on the parameter.</p>
- */
-export interface ParameterConstraints {
-  /**
-   * <p>The values that the administrator has allowed for the parameter.</p>
-   */
-  AllowedValues?: string[];
-
-  /**
-   * <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
-   */
-  AllowedPattern?: string;
-
-  /**
-   * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
-   *          <p>
-   *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
-   *          </p>
-   *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
-   *          <p>
-   *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
-   *          </p>
-   */
-  ConstraintDescription?: string;
-
-  /**
-   * <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
-   */
-  MaxLength?: string;
-
-  /**
-   * <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
-   */
-  MinLength?: string;
-
-  /**
-   * <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
-   */
-  MaxValue?: string;
-
-  /**
-   * <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
-   */
-  MinValue?: string;
-}
-
-/**
- * @public
- * <p>Information about a parameter used to provision a product.</p>
- */
-export interface ProvisioningArtifactParameter {
-  /**
-   * <p>The parameter key.</p>
-   */
-  ParameterKey?: string;
-
-  /**
-   * <p>The default value.</p>
-   */
-  DefaultValue?: string;
-
-  /**
-   * <p>The parameter type.</p>
-   */
-  ParameterType?: string;
-
-  /**
-   * <p>If this value is true, the value for this parameter is obfuscated from view when the
-   *          parameter is retrieved. This parameter is used to hide sensitive information.</p>
-   */
-  IsNoEcho?: boolean;
-
-  /**
-   * <p>The description of the parameter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Constraints that the administrator has put on a parameter.</p>
-   */
-  ParameterConstraints?: ParameterConstraints;
 }
 
 /**

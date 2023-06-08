@@ -55,6 +55,7 @@ export interface DescribeProvisioningArtifactCommandOutput
  *   ProvisioningArtifactName: "STRING_VALUE",
  *   ProductName: "STRING_VALUE",
  *   Verbose: true || false,
+ *   IncludeProvisioningArtifactParameters: true || false,
  * };
  * const command = new DescribeProvisioningArtifactCommand(input);
  * const response = await client.send(command);
@@ -73,6 +74,26 @@ export interface DescribeProvisioningArtifactCommandOutput
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   Status: "AVAILABLE" || "CREATING" || "FAILED",
+ * //   ProvisioningArtifactParameters: [ // ProvisioningArtifactParameters
+ * //     { // ProvisioningArtifactParameter
+ * //       ParameterKey: "STRING_VALUE",
+ * //       DefaultValue: "STRING_VALUE",
+ * //       ParameterType: "STRING_VALUE",
+ * //       IsNoEcho: true || false,
+ * //       Description: "STRING_VALUE",
+ * //       ParameterConstraints: { // ParameterConstraints
+ * //         AllowedValues: [ // AllowedValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllowedPattern: "STRING_VALUE",
+ * //         ConstraintDescription: "STRING_VALUE",
+ * //         MaxLength: "STRING_VALUE",
+ * //         MinLength: "STRING_VALUE",
+ * //         MaxValue: "STRING_VALUE",
+ * //         MinValue: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```
