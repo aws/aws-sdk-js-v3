@@ -29,6 +29,7 @@ import {
   Filters,
   Grouping,
   HierarchyGroupSummary,
+  HoursOfOperation,
   HoursOfOperationConfig,
   InstanceAttributeType,
   InstanceStatus,
@@ -42,9 +43,11 @@ import {
   OutboundCallerConfig,
   PhoneNumberCountryCode,
   PhoneNumberType,
+  Prompt,
   Queue,
   QueueReference,
   QueueStatus,
+  QuickConnect,
   QuickConnectConfig,
   QuickConnectType,
   Reference,
@@ -4163,19 +4166,6 @@ export interface SearchAvailablePhoneNumbersResponse {
  * @public
  * @enum
  */
-export const SearchableQueueType = {
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type SearchableQueueType = (typeof SearchableQueueType)[keyof typeof SearchableQueueType];
-
-/**
- * @public
- * @enum
- */
 export const StringComparisonType = {
   CONTAINS: "CONTAINS",
   EXACT: "EXACT",
@@ -4190,10 +4180,6 @@ export type StringComparisonType = (typeof StringComparisonType)[keyof typeof St
 /**
  * @public
  * <p>A leaf node condition which can be used to specify a string condition. </p>
- *          <note>
- *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
- *             </p>
- *          </note>
  */
 export interface StringCondition {
   /**
@@ -4267,6 +4253,103 @@ export interface ControlPlaneTagFilter {
  * @public
  * <p>Filters to be applied to search results.</p>
  */
+export interface HoursOfOperationSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchHoursOfOperationsResponse {
+  /**
+   * <p>Information about the hours of operations.</p>
+   */
+  HoursOfOperations?: HoursOfOperation[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of hours of operations which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface PromptSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchPromptsResponse {
+  /**
+   * <p>Information about the prompts.</p>
+   */
+  Prompts?: Prompt[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of quick connects which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchableQueueType = {
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchableQueueType = (typeof SearchableQueueType)[keyof typeof SearchableQueueType];
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
 export interface QueueSearchFilter {
   /**
    * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
@@ -4301,6 +4384,48 @@ export interface SearchQueuesResponse {
 
   /**
    * <p>The total number of queues which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface QuickConnectSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchQuickConnectsResponse {
+  /**
+   * <p>Information about the quick connects.</p>
+   */
+  QuickConnects?: QuickConnect[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of quick connects which matched your search query.</p>
    */
   ApproximateTotalCount?: number;
 }
@@ -7112,6 +7237,56 @@ export interface EvaluationFormContent {
 
 /**
  * @public
+ * <p>The search criteria to be used to return hours of operations.</p>
+ */
+export interface HoursOfOperationSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: HoursOfOperationSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: HoursOfOperationSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *     <code>description</code>, <code>timezone</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
+ * @public
+ * <p>The search criteria to be used to return prompts.</p>
+ */
+export interface PromptSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: PromptSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: PromptSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *     <code>description</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
+ * @public
  * <p>The search criteria to be used to return queues.</p>
  *          <note>
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
@@ -7131,10 +7306,10 @@ export interface QueueSearchCriteria {
   AndConditions?: QueueSearchCriteria[];
 
   /**
-   * <p>A leaf node condition which can be used to specify a string condition. </p>
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
-   *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
-   *             </p>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *     <code>description</code>, and <code>resourceID</code>.</p>
    *          </note>
    */
   StringCondition?: StringCondition;
@@ -7143,6 +7318,31 @@ export interface QueueSearchCriteria {
    * <p>The type of queue.</p>
    */
   QueueTypeCondition?: SearchableQueueType | string;
+}
+
+/**
+ * @public
+ * <p>The search criteria to be used to return quick connects.</p>
+ */
+export interface QuickConnectSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: QuickConnectSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: QuickConnectSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *     <code>description</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   */
+  StringCondition?: StringCondition;
 }
 
 /**
@@ -7166,10 +7366,10 @@ export interface RoutingProfileSearchCriteria {
   AndConditions?: RoutingProfileSearchCriteria[];
 
   /**
-   * <p>A leaf node condition which can be used to specify a string condition. </p>
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
-   *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
-   *             </p>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *     <code>description</code>, and <code>resourceID</code>.</p>
    *          </note>
    */
   StringCondition?: StringCondition;
@@ -7197,10 +7397,6 @@ export interface SecurityProfileSearchCriteria {
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition. </p>
-   *          <note>
-   *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
-   *             </p>
-   *          </note>
    */
   StringCondition?: StringCondition;
 }
@@ -7282,6 +7478,10 @@ export interface UserSearchCriteria {
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *    <code>description</code>, and <code>resourceID</code>.</p>
+   *          </note>
    */
   StringCondition?: StringCondition;
 
@@ -7304,164 +7504,6 @@ export interface DescribeContactEvaluationResponse {
    * <p>Information about the evaluation form.</p>
    */
   EvaluationForm: EvaluationFormContent | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEvaluationFormResponse {
-  /**
-   * <p>Information about the evaluation form.</p>
-   */
-  EvaluationForm: EvaluationForm | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchQueuesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   */
-  SearchFilter?: QueueSearchFilter;
-
-  /**
-   * <p>The search criteria to be used to return queues.</p>
-   *          <note>
-   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
-   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
-   *     outside of this range will throw invalid results. </p>
-   *          </note>
-   */
-  SearchCriteria?: QueueSearchCriteria;
-}
-
-/**
- * @public
- */
-export interface SearchRoutingProfilesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   */
-  SearchFilter?: RoutingProfileSearchFilter;
-
-  /**
-   * <p>The search criteria to be used to return routing profiles.</p>
-   *          <note>
-   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
-   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
-   *     outside of this range will throw invalid results. </p>
-   *          </note>
-   */
-  SearchCriteria?: RoutingProfileSearchCriteria;
-}
-
-/**
- * @public
- */
-export interface SearchSecurityProfilesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The search criteria to be used to return security profiles. </p>
-   *          <note>
-   *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and
-   *     maximum of 25 characters. Any queries with character lengths outside of this range will throw
-   *     invalid results.</p>
-   *          </note>
-   *          <note>
-   *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
-   *             </p>
-   *          </note>
-   */
-  SearchCriteria?: SecurityProfileSearchCriteria;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   */
-  SearchFilter?: SecurityProfilesSearchFilter;
-}
-
-/**
- * @public
- */
-export interface SearchUsersRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   */
-  SearchFilter?: UserSearchFilter;
-
-  /**
-   * <p>The search criteria to be used to return users.</p>
-   *          <note>
-   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
-   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
-   *     outside of this range will throw invalid results.  </p>
-   *          </note>
-   */
-  SearchCriteria?: UserSearchCriteria;
 }
 
 /**

@@ -619,10 +619,25 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  SearchHoursOfOperationsCommand,
+  SearchHoursOfOperationsCommandInput,
+  SearchHoursOfOperationsCommandOutput,
+} from "./commands/SearchHoursOfOperationsCommand";
+import {
+  SearchPromptsCommand,
+  SearchPromptsCommandInput,
+  SearchPromptsCommandOutput,
+} from "./commands/SearchPromptsCommand";
+import {
   SearchQueuesCommand,
   SearchQueuesCommandInput,
   SearchQueuesCommandOutput,
 } from "./commands/SearchQueuesCommand";
+import {
+  SearchQuickConnectsCommand,
+  SearchQuickConnectsCommandInput,
+  SearchQuickConnectsCommandOutput,
+} from "./commands/SearchQuickConnectsCommand";
 import {
   SearchRoutingProfilesCommand,
   SearchRoutingProfilesCommandInput,
@@ -1027,7 +1042,10 @@ const commands = {
   ReplicateInstanceCommand,
   ResumeContactRecordingCommand,
   SearchAvailablePhoneNumbersCommand,
+  SearchHoursOfOperationsCommand,
+  SearchPromptsCommand,
   SearchQueuesCommand,
+  SearchQuickConnectsCommand,
   SearchRoutingProfilesCommand,
   SearchSecurityProfilesCommand,
   SearchUsersCommand,
@@ -3162,6 +3180,34 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchHoursOfOperationsCommand}
+   */
+  searchHoursOfOperations(
+    args: SearchHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchHoursOfOperationsCommandOutput>;
+  searchHoursOfOperations(
+    args: SearchHoursOfOperationsCommandInput,
+    cb: (err: any, data?: SearchHoursOfOperationsCommandOutput) => void
+  ): void;
+  searchHoursOfOperations(
+    args: SearchHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchHoursOfOperationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchPromptsCommand}
+   */
+  searchPrompts(args: SearchPromptsCommandInput, options?: __HttpHandlerOptions): Promise<SearchPromptsCommandOutput>;
+  searchPrompts(args: SearchPromptsCommandInput, cb: (err: any, data?: SearchPromptsCommandOutput) => void): void;
+  searchPrompts(
+    args: SearchPromptsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchPromptsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchQueuesCommand}
    */
   searchQueues(args: SearchQueuesCommandInput, options?: __HttpHandlerOptions): Promise<SearchQueuesCommandOutput>;
@@ -3170,6 +3216,23 @@ export interface Connect {
     args: SearchQueuesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchQueuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchQuickConnectsCommand}
+   */
+  searchQuickConnects(
+    args: SearchQuickConnectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchQuickConnectsCommandOutput>;
+  searchQuickConnects(
+    args: SearchQuickConnectsCommandInput,
+    cb: (err: any, data?: SearchQuickConnectsCommandOutput) => void
+  ): void;
+  searchQuickConnects(
+    args: SearchQuickConnectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchQuickConnectsCommandOutput) => void
   ): void;
 
   /**

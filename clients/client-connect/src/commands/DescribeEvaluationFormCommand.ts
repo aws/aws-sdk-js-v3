@@ -15,7 +15,7 @@ import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeEvaluationFormRequest } from "../models/models_0";
-import { DescribeEvaluationFormResponse } from "../models/models_1";
+import { DescribeEvaluationFormResponse } from "../models/models_2";
 import { de_DescribeEvaluationFormCommand, se_DescribeEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -14,9 +14,9 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchSecurityProfilesResponse } from "../models/models_1";
-import { SearchSecurityProfilesRequest } from "../models/models_2";
-import { de_SearchSecurityProfilesCommand, se_SearchSecurityProfilesCommand } from "../protocols/Aws_restJson1";
+import { SearchPromptsResponse } from "../models/models_1";
+import { SearchPromptsRequest } from "../models/models_2";
+import { de_SearchPromptsCommand, se_SearchPromptsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,57 +25,30 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link SearchSecurityProfilesCommand}.
+ * The input for {@link SearchPromptsCommand}.
  */
-export interface SearchSecurityProfilesCommandInput extends SearchSecurityProfilesRequest {}
+export interface SearchPromptsCommandInput extends SearchPromptsRequest {}
 /**
  * @public
  *
- * The output of {@link SearchSecurityProfilesCommand}.
+ * The output of {@link SearchPromptsCommand}.
  */
-export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfilesResponse, __MetadataBearer {}
+export interface SearchPromptsCommandOutput extends SearchPromptsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Searches security profiles in an Amazon Connect instance, with optional
- *    filtering.</p>
+ * <p>Searches prompts in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchPromptsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, SearchPromptsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // SearchSecurityProfilesRequest
+ * const input = { // SearchPromptsRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SearchCriteria: { // SecurityProfileSearchCriteria
- *     OrConditions: [ // SecurityProfileSearchConditionList
- *       {
- *         OrConditions: [
- *           "<SecurityProfileSearchCriteria>",
- *         ],
- *         AndConditions: [
- *           "<SecurityProfileSearchCriteria>",
- *         ],
- *         StringCondition: { // StringCondition
- *           FieldName: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
- *         },
- *       },
- *     ],
- *     AndConditions: [
- *       "<SecurityProfileSearchCriteria>",
- *     ],
- *     StringCondition: {
- *       FieldName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
- *     },
- *   },
- *   SearchFilter: { // SecurityProfilesSearchFilter
+ *   SearchFilter: { // PromptSearchFilter
  *     TagFilter: { // ControlPlaneTagFilter
  *       OrConditions: [ // TagOrConditionList
  *         [ // TagAndConditionList
@@ -94,16 +67,40 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *       TagCondition: "<TagCondition>",
  *     },
  *   },
+ *   SearchCriteria: { // PromptSearchCriteria
+ *     OrConditions: [ // PromptSearchConditionList
+ *       {
+ *         OrConditions: [
+ *           "<PromptSearchCriteria>",
+ *         ],
+ *         AndConditions: [
+ *           "<PromptSearchCriteria>",
+ *         ],
+ *         StringCondition: { // StringCondition
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *       },
+ *     ],
+ *     AndConditions: [
+ *       "<PromptSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
+ *   },
  * };
- * const command = new SearchSecurityProfilesCommand(input);
+ * const command = new SearchPromptsCommand(input);
  * const response = await client.send(command);
- * // { // SearchSecurityProfilesResponse
- * //   SecurityProfiles: [ // SecurityProfilesSearchSummaryList
- * //     { // SecurityProfileSearchSummary
- * //       Id: "STRING_VALUE",
- * //       OrganizationResourceId: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       SecurityProfileName: "STRING_VALUE",
+ * // { // SearchPromptsResponse
+ * //   Prompts: [ // PromptList
+ * //     { // Prompt
+ * //       PromptARN: "STRING_VALUE",
+ * //       PromptId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
@@ -116,10 +113,10 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *
  * ```
  *
- * @param SearchSecurityProfilesCommandInput - {@link SearchSecurityProfilesCommandInput}
- * @returns {@link SearchSecurityProfilesCommandOutput}
- * @see {@link SearchSecurityProfilesCommandInput} for command's `input` shape.
- * @see {@link SearchSecurityProfilesCommandOutput} for command's `response` shape.
+ * @param SearchPromptsCommandInput - {@link SearchPromptsCommandInput}
+ * @returns {@link SearchPromptsCommandOutput}
+ * @see {@link SearchPromptsCommandInput} for command's `input` shape.
+ * @see {@link SearchPromptsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -141,9 +138,9 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class SearchSecurityProfilesCommand extends $Command<
-  SearchSecurityProfilesCommandInput,
-  SearchSecurityProfilesCommandOutput,
+export class SearchPromptsCommand extends $Command<
+  SearchPromptsCommandInput,
+  SearchPromptsCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -161,7 +158,7 @@ export class SearchSecurityProfilesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: SearchSecurityProfilesCommandInput) {
+  constructor(readonly input: SearchPromptsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -174,17 +171,15 @@ export class SearchSecurityProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<SearchSecurityProfilesCommandInput, SearchSecurityProfilesCommandOutput> {
+  ): Handler<SearchPromptsCommandInput, SearchPromptsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, SearchSecurityProfilesCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, SearchPromptsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "SearchSecurityProfilesCommand";
+    const commandName = "SearchPromptsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -203,15 +198,15 @@ export class SearchSecurityProfilesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: SearchSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SearchSecurityProfilesCommand(input, context);
+  private serialize(input: SearchPromptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_SearchPromptsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSecurityProfilesCommandOutput> {
-    return de_SearchSecurityProfilesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchPromptsCommandOutput> {
+    return de_SearchPromptsCommand(output, context);
   }
 
   // Start section: command_body_extra

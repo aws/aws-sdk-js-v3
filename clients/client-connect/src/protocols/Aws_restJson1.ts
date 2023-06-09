@@ -375,7 +375,16 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchHoursOfOperationsCommandInput,
+  SearchHoursOfOperationsCommandOutput,
+} from "../commands/SearchHoursOfOperationsCommand";
+import { SearchPromptsCommandInput, SearchPromptsCommandOutput } from "../commands/SearchPromptsCommand";
 import { SearchQueuesCommandInput, SearchQueuesCommandOutput } from "../commands/SearchQueuesCommand";
+import {
+  SearchQuickConnectsCommandInput,
+  SearchQuickConnectsCommandOutput,
+} from "../commands/SearchQuickConnectsCommand";
 import {
   SearchRoutingProfilesCommandInput,
   SearchRoutingProfilesCommandOutput,
@@ -677,6 +686,8 @@ import {
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
+  HoursOfOperationSearchCriteria,
+  HoursOfOperationSearchFilter,
   InstanceSummary,
   MetricDataV2,
   MetricFilterV2,
@@ -687,8 +698,12 @@ import {
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PersistentChat,
+  PromptSearchCriteria,
+  PromptSearchFilter,
   QueueSearchCriteria,
   QueueSearchFilter,
+  QuickConnectSearchCriteria,
+  QuickConnectSearchFilter,
   RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
   RuleSummary,
@@ -4978,6 +4993,73 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchHoursOfOperationsCommand
+ */
+export const se_SearchHoursOfOperationsCommand = async (
+  input: SearchHoursOfOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-hours-of-operations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_HoursOfOperationSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SearchPromptsCommand
+ */
+export const se_SearchPromptsCommand = async (
+  input: SearchPromptsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-prompts";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_PromptSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1SearchQueuesCommand
  */
 export const se_SearchQueuesCommand = async (
@@ -4996,6 +5078,39 @@ export const se_SearchQueuesCommand = async (
       MaxResults: [],
       NextToken: [],
       SearchCriteria: (_) => se_QueueSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SearchQuickConnectsCommand
+ */
+export const se_SearchQuickConnectsCommand = async (
+  input: SearchQuickConnectsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-quick-connects";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_QuickConnectSearchCriteria(_, context),
       SearchFilter: (_) => _json(_),
     })
   );
@@ -14937,6 +15052,128 @@ const de_SearchAvailablePhoneNumbersCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchHoursOfOperationsCommand
+ */
+export const de_SearchHoursOfOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchHoursOfOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchHoursOfOperationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    HoursOfOperations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchHoursOfOperationsCommandError
+ */
+const de_SearchHoursOfOperationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchHoursOfOperationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SearchPromptsCommand
+ */
+export const de_SearchPromptsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPromptsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchPromptsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    NextToken: __expectString,
+    Prompts: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchPromptsCommandError
+ */
+const de_SearchPromptsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPromptsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1SearchQueuesCommand
  */
 export const de_SearchQueuesCommand = async (
@@ -14966,6 +15203,67 @@ const de_SearchQueuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchQueuesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SearchQuickConnectsCommand
+ */
+export const de_SearchQuickConnectsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchQuickConnectsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchQuickConnectsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    NextToken: __expectString,
+    QuickConnects: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchQuickConnectsCommandError
+ */
+const de_SearchQuickConnectsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchQuickConnectsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -18906,6 +19204,33 @@ const se_HistoricalMetrics = (input: HistoricalMetric[], context: __SerdeContext
 
 // se_HoursOfOperationConfigList omitted.
 
+/**
+ * serializeAws_restJson1HoursOfOperationSearchConditionList
+ */
+const se_HoursOfOperationSearchConditionList = (
+  input: HoursOfOperationSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_HoursOfOperationSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1HoursOfOperationSearchCriteria
+ */
+const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_HoursOfOperationSearchConditionList(_, context),
+    OrConditions: (_) => se_HoursOfOperationSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_HoursOfOperationSearchFilter omitted.
+
 // se_HoursOfOperationTimeSlice omitted.
 
 // se_InstanceStorageConfig omitted.
@@ -18982,6 +19307,30 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 
 // se_PhoneNumberTypes omitted.
 
+/**
+ * serializeAws_restJson1PromptSearchConditionList
+ */
+const se_PromptSearchConditionList = (input: PromptSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_PromptSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1PromptSearchCriteria
+ */
+const se_PromptSearchCriteria = (input: PromptSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_PromptSearchConditionList(_, context),
+    OrConditions: (_) => se_PromptSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_PromptSearchFilter omitted.
+
 // se_QueueQuickConnectConfig omitted.
 
 // se_Queues omitted.
@@ -19012,6 +19361,30 @@ const se_QueueSearchCriteria = (input: QueueSearchCriteria, context: __SerdeCont
 // se_QueueSearchFilter omitted.
 
 // se_QuickConnectConfig omitted.
+
+/**
+ * serializeAws_restJson1QuickConnectSearchConditionList
+ */
+const se_QuickConnectSearchConditionList = (input: QuickConnectSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_QuickConnectSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1QuickConnectSearchCriteria
+ */
+const se_QuickConnectSearchCriteria = (input: QuickConnectSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_QuickConnectSearchConditionList(_, context),
+    OrConditions: (_) => se_QuickConnectSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_QuickConnectSearchFilter omitted.
 
 // se_QuickConnectsList omitted.
 
@@ -19791,6 +20164,8 @@ const de_HistoricalMetricResults = (output: any, context: __SerdeContext): Histo
 
 // de_HoursOfOperationConfigList omitted.
 
+// de_HoursOfOperationList omitted.
+
 // de_HoursOfOperationSummary omitted.
 
 // de_HoursOfOperationSummaryList omitted.
@@ -19971,6 +20346,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_Prompt omitted.
 
+// de_PromptList omitted.
+
 // de_PromptSummary omitted.
 
 // de_PromptSummaryList omitted.
@@ -20004,6 +20381,8 @@ const de_QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
 // de_QuickConnect omitted.
 
 // de_QuickConnectConfig omitted.
+
+// de_QuickConnectSearchSummaryList omitted.
 
 // de_QuickConnectSummary omitted.
 

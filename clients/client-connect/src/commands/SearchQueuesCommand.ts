@@ -14,7 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchQueuesRequest, SearchQueuesResponse } from "../models/models_1";
+import { SearchQueuesResponse } from "../models/models_1";
+import { SearchQueuesRequest } from "../models/models_2";
 import { de_SearchQueuesCommand, se_SearchQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**

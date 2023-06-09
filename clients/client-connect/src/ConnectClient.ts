@@ -402,7 +402,16 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchHoursOfOperationsCommandInput,
+  SearchHoursOfOperationsCommandOutput,
+} from "./commands/SearchHoursOfOperationsCommand";
+import { SearchPromptsCommandInput, SearchPromptsCommandOutput } from "./commands/SearchPromptsCommand";
 import { SearchQueuesCommandInput, SearchQueuesCommandOutput } from "./commands/SearchQueuesCommand";
+import {
+  SearchQuickConnectsCommandInput,
+  SearchQuickConnectsCommandOutput,
+} from "./commands/SearchQuickConnectsCommand";
 import {
   SearchRoutingProfilesCommandInput,
   SearchRoutingProfilesCommandOutput,
@@ -729,7 +738,10 @@ export type ServiceInputTypes =
   | ReplicateInstanceCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchHoursOfOperationsCommandInput
+  | SearchPromptsCommandInput
   | SearchQueuesCommandInput
+  | SearchQuickConnectsCommandInput
   | SearchRoutingProfilesCommandInput
   | SearchSecurityProfilesCommandInput
   | SearchUsersCommandInput
@@ -924,7 +936,10 @@ export type ServiceOutputTypes =
   | ReplicateInstanceCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchHoursOfOperationsCommandOutput
+  | SearchPromptsCommandOutput
   | SearchQueuesCommandOutput
+  | SearchQuickConnectsCommandOutput
   | SearchRoutingProfilesCommandOutput
   | SearchSecurityProfilesCommandOutput
   | SearchUsersCommandOutput

@@ -5392,7 +5392,7 @@ export interface Prompt {
   Name?: string;
 
   /**
-   * <p>A description for the prompt.</p>
+   * <p>The description of the prompt.</p>
    */
   Description?: string;
 
