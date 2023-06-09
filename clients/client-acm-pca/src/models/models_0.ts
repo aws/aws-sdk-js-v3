@@ -780,23 +780,15 @@ export interface CreateCertificateAuthorityRequest {
    * <p>Specifies a cryptographic key management compliance standard used for handling CA
    * 			keys.</p>
    *          <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p>
-   *          <p>
-   *             <i>Note:</i>
-   *             <code>FIPS_140_2_LEVEL_3_OR_HIGHER</code> is not supported in the following
-   * 			Regions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ap-northeast-3</p>
-   *             </li>
-   *             <li>
-   *                <p>ap-southeast-3</p>
-   *             </li>
-   *          </ul>
-   *          <p>When creating a CA in these Regions, you must provide
-   * 				<code>FIPS_140_2_LEVEL_2_OR_HIGHER</code> as the argument for
-   * 				<code>KeyStorageSecurityStandard</code>. Failure to do this results in an
-   * 				<code>InvalidArgsException</code> with the message, "A certificate authority cannot
-   * 			be created in this region with the specified security standard."</p>
+   *          <note>
+   *             <p>Some Amazon Web Services Regions do not support the default. When creating a CA in these Regions, you
+   * 				must provide <code>FIPS_140_2_LEVEL_2_OR_HIGHER</code> as the argument for
+   * 					<code>KeyStorageSecurityStandard</code>. Failure to do this results in an
+   * 					<code>InvalidArgsException</code> with the message, "A certificate authority
+   * 				cannot be created in this region with the specified security standard."</p>
+   *             <p>For information about security standard support in various Regions, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys">Storage
+   * 					and security compliance of Amazon Web Services Private CA private keys</a>.</p>
+   *          </note>
    */
   KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
 
@@ -2018,8 +2010,8 @@ export interface IssueCertificateRequest {
    *          <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
    * 			used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</p>
    *          <note>
-   *             <p>The specified signing algorithm family (RSA or ECDSA) much match the algorithm
-   * 				family of the CA's secret key.</p>
+   *             <p>The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of
+   * 				the CA's secret key.</p>
    *          </note>
    */
   SigningAlgorithm: SigningAlgorithm | string | undefined;
@@ -2067,7 +2059,8 @@ export interface IssueCertificateRequest {
    * 			parameter is optional.</p>
    *          <p>The <code>ValidityNotBefore</code> value is expressed as an explicit date and time,
    * 			using the <code>Validity</code> type value <code>ABSOLUTE</code>. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html">Validity</a> in this API reference and <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
+   * 			see <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_Validity.html">Validity</a> in
+   * 			this API reference and <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
    * 			in RFC 5280.</p>
    */
   ValidityNotBefore?: Validity;
