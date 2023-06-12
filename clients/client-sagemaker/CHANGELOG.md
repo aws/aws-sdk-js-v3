@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.351.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.350.0...v3.351.0) (2023-06-12)
+
+
+### Features
+
+* **client-sagemaker:** Sagemaker Neo now supports compilation for inferentia2 (ML_INF2) and Trainium1 (ML_TRN1) as available targets. With these devices, you can run your workloads at highest performance with lowest cost. inferentia2 (ML_INF2) is available in CMH and Trainium1 (ML_TRN1) is available in IAD currently ([c84177f](https://github.com/aws/aws-sdk-js-v3/commit/c84177fd09fe7f2e31dea60aab8dca09cb919e2c))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

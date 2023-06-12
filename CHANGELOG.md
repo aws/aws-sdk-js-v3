@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.351.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.350.0...v3.351.0) (2023-06-12)
+
+
+### Bug Fixes
+
+* **middleware-websocket:** move event listener functions outside of async iterator ([#4816](https://github.com/aws/aws-sdk-js-v3/issues/4816)) ([9055419](https://github.com/aws/aws-sdk-js-v3/commit/9055419c2754f44fb3c924160323853f9e358b2a))
+
+
+### Features
+
+* **client-amplifyuibuilder:** AWS Amplify UIBuilder is launching Codegen UI, a new feature that enables you to generate your amplify uibuilder components and forms. ([4479c1d](https://github.com/aws/aws-sdk-js-v3/commit/4479c1d24efe540eb0124bd0303a2ab265327cac))
+* **client-fsx:** Amazon FSx for NetApp ONTAP now supports joining a storage virtual machine (SVM) to Active Directory after the SVM has been created. ([5fac884](https://github.com/aws/aws-sdk-js-v3/commit/5fac884c9ad3dce73cf2b16d4d12973ff3c02d76))
+* **client-opensearch:** This release adds support for SkipUnavailable connection property for cross cluster search ([be0249f](https://github.com/aws/aws-sdk-js-v3/commit/be0249fe4be6673605bd9bc0e6b14b5706c456ca))
+* **client-rekognition:** This release adds support for improved accuracy with user vector in Amazon Rekognition Face Search. Adds new APIs: AssociateFaces, CreateUser, DeleteUser, DisassociateFaces, ListUsers, SearchUsers, SearchUsersByImage. Also adds new face metadata that can be stored: user vector. ([d9b8ffe](https://github.com/aws/aws-sdk-js-v3/commit/d9b8ffe50702fb5238722d6fdded16c044e83a16))
+* **client-sagemaker:** Sagemaker Neo now supports compilation for inferentia2 (ML_INF2) and Trainium1 (ML_TRN1) as available targets. With these devices, you can run your workloads at highest performance with lowest cost. inferentia2 (ML_INF2) is available in CMH and Trainium1 (ML_TRN1) is available in IAD currently ([c84177f](https://github.com/aws/aws-sdk-js-v3/commit/c84177fd09fe7f2e31dea60aab8dca09cb919e2c))
+* **clients:** update client endpoints as of 2023-06-12 ([2b76d36](https://github.com/aws/aws-sdk-js-v3/commit/2b76d361ecf07af3312aefd45746980b4601eb7c))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.351.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.350.0...v3.351.0) (2023-06-12)
+
+
+### Features
+
+* **client-amplifyuibuilder:** AWS Amplify UIBuilder is launching Codegen UI, a new feature that enables you to generate your amplify uibuilder components and forms. ([4479c1d](https://github.com/aws/aws-sdk-js-v3/commit/4479c1d24efe540eb0124bd0303a2ab265327cac))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-amplifyuibuilder

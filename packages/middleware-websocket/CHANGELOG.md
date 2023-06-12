@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.351.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.350.0...v3.351.0) (2023-06-12)
+
+
+### Bug Fixes
+
+* **middleware-websocket:** move event listener functions outside of async iterator ([#4816](https://github.com/aws/aws-sdk-js-v3/issues/4816)) ([9055419](https://github.com/aws/aws-sdk-js-v3/commit/9055419c2754f44fb3c924160323853f9e358b2a))
+
+
+
+
+
 # [3.348.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.347.1...v3.348.0) (2023-06-07)
 
 

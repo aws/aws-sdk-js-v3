@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.351.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.350.0...v3.351.0) (2023-06-12)
+
+
+### Features
+
+* **client-fsx:** Amazon FSx for NetApp ONTAP now supports joining a storage virtual machine (SVM) to Active Directory after the SVM has been created. ([5fac884](https://github.com/aws/aws-sdk-js-v3/commit/5fac884c9ad3dce73cf2b16d4d12973ff3c02d76))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx

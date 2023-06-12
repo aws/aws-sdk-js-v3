@@ -16,7 +16,7 @@
 |@aws-sdk/client-cognito-identity|3.348.0|504.7 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-identity-provider|3.348.0|2.4 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-sync|3.348.0|436.6 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-dynamodb|3.348.0|1.7 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-dynamodb|3.350.0|1.7 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-ec2|3.348.0|14.7 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-efs|3.348.0|766 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-eventbridge|3.348.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -35,7 +35,7 @@
 |@aws-sdk/client-ssm|3.348.0|3.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-sts|3.348.0|386.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-xray|3.348.0|686.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/credential-provider-cognito-identity|3.348.0|36.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/credential-provider-cognito-identity|3.350.0|36.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-provider-env|3.342.0|17.3 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-imds|3.342.0|50.4 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-ini|3.348.0|37 KB|N/A|N/A|N/A|
@@ -43,9 +43,9 @@
 |@aws-sdk/credential-provider-process|3.342.0|21.9 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-sso|3.348.0|30.9 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-web-identity|3.342.0|28.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/credential-providers|3.348.0|80.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/credential-providers|3.350.0|80.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/fetch-http-handler|3.342.0|27.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/lib-dynamodb|3.348.0|154.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/lib-dynamodb|3.350.0|154.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/lib-storage|3.348.0|53.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/node-http-handler|3.348.0|70.8 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.348.0|23.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.351.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.350.0...v3.351.0) (2023-06-12)
+
+
+### Features
+
+* **client-opensearch:** This release adds support for SkipUnavailable connection property for cross cluster search ([be0249f](https://github.com/aws/aws-sdk-js-v3/commit/be0249fe4be6673605bd9bc0e6b14b5706c456ca))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch
