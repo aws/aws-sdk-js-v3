@@ -452,7 +452,7 @@ export interface KeySchemaElement {
 export interface ProvisionedThroughput {
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
-   *             returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
+   *             returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
    *                 Developer Guide</i>.</p>
    *          <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to
    *             0.</p>
@@ -461,7 +461,7 @@ export interface ProvisionedThroughput {
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
-   *                 <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
+   *                 <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
    *                 Developer Guide</i>.</p>
    *          <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to
    *             0.</p>
@@ -1615,6 +1615,9 @@ export interface CreateBackupOutput {
  *             of concurrent operations.</p>
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
+ *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
+ *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
+ *             this limit may result in request throttling.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";

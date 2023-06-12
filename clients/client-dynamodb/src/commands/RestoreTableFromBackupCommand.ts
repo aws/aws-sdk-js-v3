@@ -291,6 +291,9 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  *             of concurrent operations.</p>
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
+ *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
+ *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
+ *             this limit may result in request throttling.</p>
  *
  * @throws {@link TableAlreadyExistsException} (client fault)
  *  <p>A target table with the specified name already exists. </p>

@@ -177,6 +177,9 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  *             of concurrent operations.</p>
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
+ *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
+ *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
+ *             this limit may result in request throttling.</p>
  *
  * @throws {@link TableNotFoundException} (client fault)
  *  <p>A source table with the name <code>TableName</code> does not currently exist within
