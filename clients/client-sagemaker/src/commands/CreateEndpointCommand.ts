@@ -54,22 +54,22 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *          <p>When it receives the request, SageMaker creates the endpoint, launches the resources (ML
  *             compute instances), and deploys the model(s) on them. </p>
  *          <note>
- *             <p>When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>, a load call is made to DynamoDB to
- *                 verify that your endpoint configuration exists. When you read data from a DynamoDB
- *                 table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
+ *             <p>When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>, a load call is made to DynamoDB to verify that your
+ *                 endpoint configuration exists. When you read data from a DynamoDB table supporting
+ *                     <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
  *                   <code>Eventually Consistent Reads</code>
  *                </a>, the response might not
  *                 reflect the results of a recently completed write operation. The response might
  *                 include some stale data. If the dependent entities are not yet in DynamoDB, this
  *                 causes a validation error. If you repeat your read request after a short time, the
  *                 response should return the latest data. So retry logic is recommended to handle
- *                 these possible issues. We also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a> before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
+ *                 these possible issues. We also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a> before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> to minimize the potential impact of a DynamoDB
+ *                 eventually consistent read.</p>
  *          </note>
  *          <p>When SageMaker receives the request, it sets the endpoint status to
  *                 <code>Creating</code>. After it creates the endpoint, it sets the status to
  *                 <code>InService</code>. SageMaker can then process incoming requests for inferences. To
- *             check the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a>
- *             API.</p>
+ *             check the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API.</p>
  *          <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
  *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the
  *             S3 path you provided. Amazon Web Services STS is activated in your Amazon Web Services
@@ -82,8 +82,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *          <note>
  *             <p> To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM console</a>, and choose
  *                 Roles in the left navigation pane. Search the IAM role that you want to grant
- *                 access to use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> API operations, add the following policies to
- *                 the role. </p>
+ *                 access to use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> API operations, add the following policies to the
+ *                 role. </p>
  *             <ul>
  *                <li>
  *                   <p>Option 1: For a full SageMaker access, search and attach the

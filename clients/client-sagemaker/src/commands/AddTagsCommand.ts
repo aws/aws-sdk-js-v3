@@ -59,7 +59,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *                 this API. To make sure that the tags associated with a Domain or User Profile are
  *                 also added to all Apps that the Domain or User Profile launches, add the tags when
  *                 you first create the Domain or User Profile by specifying them in the
- *                 <code>Tags</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html">CreateDomain</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html">CreateUserProfile</a>.</p>
+ *                     <code>Tags</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
+ *                 or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html">CreateUserProfile</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -433,10 +433,10 @@ export type VariantPropertyType = (typeof VariantPropertyType)[keyof typeof Vari
  * @public
  * <p>Specifies a production variant property type for an Endpoint.</p>
  *          <p>If you are updating an endpoint with the <code>RetainAllVariantProperties</code>
- *             option of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> set to
- *             <code>true</code>, the <code>VariantProperty</code> objects listed in the <code>ExcludeRetainedVariantProperties</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a>
- *                 override the
- *             existing variant properties of the endpoint.</p>
+ *             option of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> set to <code>true</code>, the
+ *                 <code>VariantProperty</code> objects listed in the
+ *                 <code>ExcludeRetainedVariantProperties</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> override the existing variant properties of the
+ *             endpoint.</p>
  */
 export interface VariantProperty {
   /**
@@ -445,13 +445,14 @@ export interface VariantProperty {
    *             <li>
    *                <p>
    *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
-   *                     counts using the <code>InitialInstanceCount</code> values
-   *                     in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p>
+   *                     counts using the <code>InitialInstanceCount</code> values in the
+   *                         <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
-   *                     <code>InitialVariantWeight</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p>
+   *                         <code>InitialVariantWeight</code> values in the
+   *                         <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -487,12 +488,12 @@ export interface UpdateEndpointInput {
   RetainAllVariantProperties?: boolean;
 
   /**
-   * <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>, whose value is set to
-   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
-   *             of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a> to override with the values provided by
-   *                 <code>EndpointConfig</code>. If you don't specify a value for
-   *                 <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden.
-   *         </p>
+   * <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>,
+   *             whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code>
+   *             specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a>
+   *             to override with the values provided by <code>EndpointConfig</code>. If you don't
+   *             specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties
+   *             are overridden. </p>
    */
   ExcludeRetainedVariantProperties?: VariantProperty[];
 
@@ -1122,7 +1123,8 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
    *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in
+   *             Amazon SageMaker</a>.</p>
    */
   AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 

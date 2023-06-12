@@ -39,7 +39,8 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  * <p>Creates an endpoint configuration that SageMaker hosting services uses to deploy models. In
  *             the configuration, you identify one or more models, created using the
  *                 <code>CreateModel</code> API, to deploy and the resources that you want SageMaker to
- *             provision. Then you call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> API.</p>
+ *             provision. Then you call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
+ *             API.</p>
  *          <note>
  *             <p> Use this API if you want to use SageMaker hosting services to deploy models into
  *                 production. </p>
@@ -54,16 +55,17 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *             for model B. SageMaker distributes two-thirds of the traffic to Model A, and one-third to
  *             model B. </p>
  *          <note>
- *             <p>When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>, a load call is made to DynamoDB to
- *                 verify that your endpoint configuration exists. When you read data from a DynamoDB
- *                 table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
+ *             <p>When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>, a load call is made to DynamoDB to verify that your
+ *                 endpoint configuration exists. When you read data from a DynamoDB table supporting
+ *                     <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
  *                   <code>Eventually Consistent Reads</code>
  *                </a>, the response might not
  *                 reflect the results of a recently completed write operation. The response might
  *                 include some stale data. If the dependent entities are not yet in DynamoDB, this
  *                 causes a validation error. If you repeat your read request after a short time, the
  *                 response should return the latest data. So retry logic is recommended to handle
- *                 these possible issues. We also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a> before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
+ *                 these possible issues. We also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a> before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> to minimize the potential impact of a DynamoDB
+ *                 eventually consistent read.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

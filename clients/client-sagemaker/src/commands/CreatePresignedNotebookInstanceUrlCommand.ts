@@ -55,9 +55,8 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  *                 <code>aws:SourceIP</code> condition context key to specify the list of IP addresses
  *             that you want to have access to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter">Limit Access to a Notebook Instance by IP Address</a>.</p>
  *          <note>
- *             <p>The URL that you get from a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePresignedNotebookInstanceUrl.html">CreatePresignedNotebookInstanceUrl</a> is valid only for 5 minutes. If
- *                 you try to use the URL after the 5-minute limit expires, you are directed to the
- *                     Amazon Web Services console sign-in page.</p>
+ *             <p>The URL that you get from a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePresignedNotebookInstanceUrl.html">CreatePresignedNotebookInstanceUrl</a> is valid only for 5 minutes. If you
+ *                 try to use the URL after the 5-minute limit expires, you are directed to the Amazon Web Services console sign-in page.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

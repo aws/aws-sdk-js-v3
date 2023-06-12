@@ -882,8 +882,10 @@ export interface ListAliasesResponse {
  */
 export interface ListAppImageConfigsRequest {
   /**
-   * <p>The maximum number of AppImageConfigs to return in the response. The default value is
-   *         10. </p>
+   * <p>The total number of items to return in the response. If the total
+   *          number of items available is more than the value specified, a <code>NextToken</code>
+   *          is provided in the response. To resume pagination, provide the <code>NextToken</code>
+   *          value in the as part of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -955,7 +957,10 @@ export interface ListAppsRequest {
   NextToken?: string;
 
   /**
-   * <p>Returns a list up to a specified limit.</p>
+   * <p>The total number of items to return in the response. If the total
+   *           number of items available is more than the value specified, a <code>NextToken</code>
+   *           is provided in the response. To resume pagination, provide the <code>NextToken</code>
+   *           value in the as part of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -1807,7 +1812,10 @@ export interface ListDomainsRequest {
   NextToken?: string;
 
   /**
-   * <p>Returns a list up to a specified limit.</p>
+   * <p>The total number of items to return in the response. If the total
+   *           number of items available is more than the value specified, a <code>NextToken</code>
+   *           is provided in the response. To resume pagination, provide the <code>NextToken</code>
+   *           value in the as part of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 }
@@ -5272,7 +5280,7 @@ export type SortPipelineExecutionsBy = (typeof SortPipelineExecutionsBy)[keyof t
  */
 export interface ListPipelineExecutionsRequest {
   /**
-   * <p>The name of the pipeline.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
    */
   PipelineName: string | undefined;
 
@@ -6212,7 +6220,10 @@ export interface ListSpacesRequest {
   NextToken?: string;
 
   /**
-   * <p>Returns a list up to a specified limit.</p>
+   * <p>The total number of items to return in the response. If the total
+   *             number of items available is more than the value specified, a <code>NextToken</code>
+   *             is provided in the response. To resume pagination, provide the <code>NextToken</code>
+   *             value in the as part of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -6350,7 +6361,10 @@ export type StudioLifecycleConfigSortKey =
  */
 export interface ListStudioLifecycleConfigsRequest {
   /**
-   * <p>The maximum number of Studio Lifecycle Configurations to return in the response. The default value is 10.</p>
+   * <p>The total number of items to return in the response. If the total
+   *             number of items available is more than the value specified, a <code>NextToken</code>
+   *             is provided in the response. To resume pagination, provide the <code>NextToken</code>
+   *             value in the as part of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -6436,7 +6450,8 @@ export interface StudioLifecycleConfigDetails {
  */
 export interface ListStudioLifecycleConfigsResponse {
   /**
-   * <p>A token for getting the next set of actions, if there are any.</p>
+   * <p>If the previous response was truncated, you will receive this token.
+   *             Use it in your next request to receive the next set of results.</p>
    */
   NextToken?: string;
 
@@ -7155,7 +7170,10 @@ export interface ListUserProfilesRequest {
   NextToken?: string;
 
   /**
-   * <p>Returns a list up to a specified limit.</p>
+   * <p>The total number of items to return in the response. If the total
+   *           number of items available is more than the value specified, a <code>NextToken</code>
+   *           is provided in the response. To resume pagination, provide the <code>NextToken</code>
+   *           value in the as part of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -9007,7 +9025,7 @@ export interface TrainingJob {
   /**
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information about the secondary status of the training job, see
-   *             <code>StatusMessage</code> under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p>
+   *                 <code>StatusMessage</code> under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p>
    *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
    *          <dl>
@@ -9145,8 +9163,8 @@ export interface TrainingJob {
   ResourceConfig?: ResourceConfig;
 
   /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has
-   *             access to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has access
+   *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
    */
   VpcConfig?: VpcConfig;
@@ -9770,7 +9788,7 @@ export interface StartNotebookInstanceInput {
  */
 export interface StartPipelineExecutionRequest {
   /**
-   * <p>The name of the pipeline.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
    */
   PipelineName: string | undefined;
 

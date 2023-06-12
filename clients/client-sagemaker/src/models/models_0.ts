@@ -646,8 +646,7 @@ export interface MetricDefinition {
   /**
    * <p>A regular expression that searches the output of a training job and gets the value of
    *             the metric. For more information about using regular expressions to define metrics, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Defining
-   *                 metrics and environment variables</a>.</p>
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Defining metrics and environment variables</a>.</p>
    */
   Regex: string | undefined;
 }
@@ -716,11 +715,10 @@ export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof Training
 
 /**
  * @public
- * <p>Specifies the training algorithm to use in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
- *             request.</p>
+ * <p>Specifies the training algorithm to use in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> request.</p>
  *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
  *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
- *             Amazon SageMaker</a>. </p>
+ *                 Amazon SageMaker</a>. </p>
  */
 export interface AlgorithmSpecification {
   /**
@@ -1058,7 +1056,8 @@ export type S3DataType = (typeof S3DataType)[keyof typeof S3DataType];
 /**
  * @public
  * <p>Describes the S3 data source.</p>
- *          <p>Your input bucket must be in the same Amazon Web Services region as your training job.</p>
+ *          <p>Your input bucket must be in the same Amazon Web Services region as your training
+ *             job.</p>
  */
 export interface S3DataSource {
   /**
@@ -1089,8 +1088,8 @@ export interface S3DataSource {
    *                </p>
    *                <p> A manifest is an S3 object which is a JSON file consisting of an array of
    *                     elements. The first element is a prefix which is followed by one or more
-   *                     suffixes. SageMaker appends the suffix elements to the prefix to get a full set
-   *                     of <code>S3Uri</code>. Note that the prefix must be a valid non-empty
+   *                     suffixes. SageMaker appends the suffix elements to the prefix to get a full set of
+   *                         <code>S3Uri</code>. Note that the prefix must be a valid non-empty
    *                         <code>S3Uri</code> that precludes users from specifying a manifest whose
    *                     individual <code>S3Uri</code> is sourced from different S3 buckets.</p>
    *                <p> The following code example shows a valid manifest format: </p>
@@ -1132,7 +1131,8 @@ export interface S3DataSource {
    *                     your behalf. </p>
    *             </li>
    *          </ul>
-   *          <p>Your input bucket must be located in same Amazon Web Services region as your training job.</p>
+   *          <p>Your input bucket must be located in same Amazon Web Services region as your
+   *             training job.</p>
    */
   S3Uri: string | undefined;
 
@@ -1263,12 +1263,11 @@ export interface Channel {
    * <p>(Optional) The input mode to use for the data channel in a training job. If you don't
    *             set a value for <code>InputMode</code>, SageMaker uses the value set for
    *                 <code>TrainingInputMode</code>. Use this parameter to override the
-   *             <code>TrainingInputMode</code> setting in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html">AlgorithmSpecification</a>
-   *             request when you have a channel that needs a different input mode from the training
-   *             job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML
-   *             storage volume, and mount the directory to a Docker volume, use <code>File</code> input
-   *             mode. To stream data directly from Amazon S3 to the container, choose <code>Pipe</code> input
-   *             mode.</p>
+   *                 <code>TrainingInputMode</code> setting in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html">AlgorithmSpecification</a> request when you have a channel that needs a
+   *             different input mode from the training job's general setting. To download the data from
+   *             Amazon Simple Storage Service (Amazon S3) to the provisioned ML storage volume, and mount the directory to a
+   *             Docker volume, use <code>File</code> input mode. To stream data directly from Amazon S3 to
+   *             the container, choose <code>Pipe</code> input mode.</p>
    *          <p>To use a model for incremental training, choose <code>File</code> input model.</p>
    */
   InputMode?: TrainingInputMode | string;
@@ -2044,8 +2043,8 @@ export interface TransformJobDefinition {
   TransformInput: TransformInput | undefined;
 
   /**
-   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results
-   *             from the transform job.</p>
+   * <p>Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the
+   *             transform job.</p>
    */
   TransformOutput: TransformOutput | undefined;
 
@@ -4160,7 +4159,8 @@ export interface AsyncInferenceNotificationConfig {
   /**
    * <p>The Amazon SNS topics where you want the inference response to be included.</p>
    *          <note>
-   *             <p>The inference response is included only if the response size is less than or equal to 128 KB.</p>
+   *             <p>The inference response is included only if the response size is less than or equal
+   *                 to 128 KB.</p>
    *          </note>
    */
   IncludeInferenceResponseIn?: (AsyncNotificationTopicTypes | string)[];
@@ -5028,13 +5028,12 @@ export interface AutoMLJobChannel {
    *          content types for different problems:</p>
    *          <ul>
    *             <li>
-   *                <p>ImageClassification: <code>image/png</code>, <code>image/jpeg</code>,
-   *                   <code>image/*</code>
-   *                </p>
+   *                <p>ImageClassification: <code>image/png</code>, <code>image/jpeg</code>, or
+   *                   <code>image/*</code>. The default value is <code>image/*</code>.</p>
    *             </li>
    *             <li>
-   *                <p>TextClassification: <code>text/csv;header=present</code>
-   *                </p>
+   *                <p>TextClassification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>.
+   *                The default value is <code>text/csv;header=present</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -5487,9 +5486,9 @@ export type AutoMLSortOrder = (typeof AutoMLSortOrder)[keyof typeof AutoMLSortOr
 
 /**
  * @public
- * <p>The name and an example value of the hyperparameter that
- *             you want to use in Autotune. If Automatic model tuning (AMT) determines that your hyperparameter is eligible
- *             for Autotune, an optimal hyperparameter range is selected for you.</p>
+ * <p>The name and an example value of the hyperparameter that you want to use in Autotune.
+ *             If Automatic model tuning (AMT) determines that your hyperparameter is eligible for
+ *             Autotune, an optimal hyperparameter range is selected for you.</p>
  */
 export interface AutoParameter {
   /**
@@ -5532,24 +5531,26 @@ export type AutotuneMode = (typeof AutotuneMode)[keyof typeof AutotuneMode];
 
 /**
  * @public
- * <p>A flag to indicate if you want to use Autotune to automatically find optimal values for
- *             the following fields:</p>
+ * <p>A flag to indicate if you want to use Autotune to automatically find optimal values
+ *             for the following fields:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges">ParameterRanges</a>: The names and ranges of parameters that a hyperparameter
- *                     tuning job can optimize.</p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges">ParameterRanges</a>: The names and ranges of parameters that a
+ *                     hyperparameter tuning job can optimize.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>: The maximum resources that can be used for a training job.
- *                     These resources include the maximum number of training jobs, the maximum runtime of a
- *                     tuning job, and the maximum number of training jobs to run at the same time.</p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>: The maximum resources that can be used for a
+ *                     training job. These resources include the maximum number of training jobs, the
+ *                     maximum runtime of a tuning job, and the maximum number of training jobs to run
+ *                     at the same time.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType">TrainingJobEarlyStoppingType</a>: A flag that specifies whether or not to use
- *                     early stopping for training jobs launched by a hyperparameter tuning job.</p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType">TrainingJobEarlyStoppingType</a>: A flag that specifies whether or not
+ *                     to use early stopping for training jobs launched by a hyperparameter tuning
+ *                     job.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -5557,13 +5558,14 @@ export type AutotuneMode = (typeof AutotuneMode)[keyof typeof AutotuneMode];
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">Strategy</a>: Specifies how hyperparameter tuning chooses the combinations of
- *                     hyperparameter values to use for the training jobs that it launches.</p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">Strategy</a>: Specifies how hyperparameter tuning chooses the
+ *                     combinations of hyperparameter values to use for the training jobs that it
+ *                     launches.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html">ConvergenceDetected</a>: A flag to indicate that Automatic model tuning (AMT) has detected model
- *                     convergence.</p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html">ConvergenceDetected</a>: A flag to indicate that Automatic model tuning
+ *                     (AMT) has detected model convergence.</p>
  *             </li>
  *          </ul>
  */
@@ -6415,11 +6417,11 @@ export interface ChannelSpecification {
 
   /**
    * <p>The allowed input mode, either FILE or PIPE.</p>
-   *          <p>In FILE mode, Amazon SageMaker copies the data from the input source onto the local
-   *             Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm.
-   *             This is the most commonly used input mode.</p>
-   *          <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your
-   *             algorithm without using the EBS volume.</p>
+   *          <p>In FILE mode, Amazon SageMaker copies the data from the input source onto the local Amazon
+   *             Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This
+   *             is the most commonly used input mode.</p>
+   *          <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your algorithm
+   *             without using the EBS volume.</p>
    */
   SupportedInputModes: (TrainingInputMode | string)[] | undefined;
 }
@@ -7073,10 +7075,12 @@ export const TargetDevice = {
   ML_EIA2: "ml_eia2",
   ML_G4DN: "ml_g4dn",
   ML_INF1: "ml_inf1",
+  ML_INF2: "ml_inf2",
   ML_M4: "ml_m4",
   ML_M5: "ml_m5",
   ML_P2: "ml_p2",
   ML_P3: "ml_p3",
+  ML_TRN1: "ml_trn1",
   QCS603: "qcs603",
   QCS605: "qcs605",
   RASP3B: "rasp3b",
@@ -7407,8 +7411,7 @@ export interface ContainerDefinition {
    *             SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both
    *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
    *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
-   *             Amazon SageMaker</a>.
-   *         </p>
+   *                 Amazon SageMaker</a>. </p>
    *          <note>
    *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
    *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
@@ -7421,8 +7424,7 @@ export interface ContainerDefinition {
    * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
    *             accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a
    *             private Docker registry, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html">Use a
-   *                 Private Docker Registry for Real-Time Inference Containers</a>.
-   *         </p>
+   *                 Private Docker Registry for Real-Time Inference Containers</a>. </p>
    *          <note>
    *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
    *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
@@ -10353,7 +10355,8 @@ export interface CreateDomainRequest {
    *             communication in <code>VPCOnly</code> mode. Required when
    *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
    *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided. If setting up the domain for use with RStudio, this value must be set to <code>Service</code>.</p>
+   *             provided. If setting up the domain for use with RStudio, this value must be set to
+   *                 <code>Service</code>.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
 

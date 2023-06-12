@@ -203,7 +203,7 @@ export interface CreateEndpointInput {
   /**
    * <p>The name of the endpoint.The name must be unique within an Amazon Web Services
    *             Region in your Amazon Web Services account. The name is case-insensitive in
-   *             <code>CreateEndpoint</code>, but the case is preserved and must be matched in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">InvokeEndpoint</a>.</p>
+   *                 <code>CreateEndpoint</code>, but the case is preserved and must be matched in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">InvokeEndpoint</a>.</p>
    */
   EndpointName: string | undefined;
 
@@ -411,12 +411,10 @@ export interface ProductionVariantServerlessConfig {
 
 /**
  * @public
- * <p>
- *             Identifies a model that you want to host and the resources chosen to deploy for
+ * <p> Identifies a model that you want to host and the resources chosen to deploy for
  *             hosting it. If you are deploying multiple models, tell SageMaker how to distribute traffic
  *             among the models by specifying variant weights. For more information on production
- *             variants, check <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html">
- *             Production variants</a>.
+ *             variants, check <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html"> Production variants</a>.
  *         </p>
  */
 export interface ProductionVariant {
@@ -453,8 +451,8 @@ export interface ProductionVariant {
   /**
    * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
    *             instances provide on-demand GPU computing for inference. For more information, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
-   *             Inference in Amazon SageMaker</a>.</p>
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
+   *                 Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorType?: ProductionVariantAcceleratorType | string;
 
@@ -490,13 +488,11 @@ export interface ProductionVariant {
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
 
   /**
-   * <p>
-   *             You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM)
+   * <p> You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM)
    *             access for a production variant behind an endpoint. By default, SSM access is disabled
    *             for all production variants behind an endpoint. You can turn on or turn off SSM access
    *             for a production variant behind an existing endpoint by creating a new endpoint
-   *             configuration and calling <code>UpdateEndpoint</code>.
-   *         </p>
+   *             configuration and calling <code>UpdateEndpoint</code>. </p>
    */
   EnableSSMAccess?: boolean;
 }
@@ -2005,25 +2001,26 @@ export interface IntegerParameterRange {
  */
 export interface ParameterRanges {
   /**
-   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_IntegerParameterRange.html">IntegerParameterRange</a> objects that specify ranges of
-   *             integer hyperparameters that a hyperparameter tuning job searches.</p>
+   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_IntegerParameterRange.html">IntegerParameterRange</a> objects that specify ranges of integer
+   *             hyperparameters that a hyperparameter tuning job searches.</p>
    */
   IntegerParameterRanges?: IntegerParameterRange[];
 
   /**
-   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContinuousParameterRange.html">ContinuousParameterRange</a> objects that specify ranges of
-   *             continuous hyperparameters that a hyperparameter tuning job searches.</p>
+   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContinuousParameterRange.html">ContinuousParameterRange</a> objects that specify ranges of continuous
+   *             hyperparameters that a hyperparameter tuning job searches.</p>
    */
   ContinuousParameterRanges?: ContinuousParameterRange[];
 
   /**
-   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CategoricalParameterRange.html">CategoricalParameterRange</a> objects that specify ranges
-   *             of categorical hyperparameters that a hyperparameter tuning job searches.</p>
+   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CategoricalParameterRange.html">CategoricalParameterRange</a> objects that specify ranges of categorical
+   *             hyperparameters that a hyperparameter tuning job searches.</p>
    */
   CategoricalParameterRanges?: CategoricalParameterRange[];
 
   /**
-   * <p>A list containing hyperparameter names and example values to be used by Autotune to determine optimal ranges for your tuning job.</p>
+   * <p>A list containing hyperparameter names and example values to be used by Autotune to
+   *             determine optimal ranges for your tuning job.</p>
    */
   AutoParameters?: AutoParameter[];
 }
@@ -2209,22 +2206,23 @@ export interface HyperParameterTuningJobConfig {
   StrategyConfig?: HyperParameterTuningJobStrategyConfig;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html">HyperParameterTuningJobObjective</a> specifies the objective metric
-   *             used to evaluate the performance of training jobs launched by this tuning job.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html">HyperParameterTuningJobObjective</a> specifies the objective metric used to
+   *             evaluate the performance of training jobs launched by this tuning job.</p>
    */
   HyperParameterTuningJobObjective?: HyperParameterTuningJobObjective;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a> object that specifies the maximum number of
-   *             training and parallel training jobs that can be used for this hyperparameter tuning
-   *             job.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>
+   *             object that specifies the maximum number of training and parallel training jobs that can
+   *             be used for this hyperparameter tuning job.</p>
    */
   ResourceLimits: ResourceLimits | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ParameterRanges.html">ParameterRanges</a> object that specifies the ranges of
-   *             hyperparameters that this tuning job searches over to find the optimal configuration for
-   *             the highest model performance against your chosen objective metric. </p>
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ParameterRanges.html">ParameterRanges</a>
+   *             object that specifies the ranges of hyperparameters that this tuning job searches over
+   *             to find the optimal configuration for the highest model performance against your chosen
+   *             objective metric. </p>
    */
   ParameterRanges?: ParameterRanges;
 
@@ -2277,7 +2275,7 @@ export interface HyperParameterAlgorithmSpecification {
    *                 Provided by Amazon SageMaker: Common Parameters</a>. SageMaker supports both
    *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
    *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
-   *             Amazon SageMaker</a>.</p>
+   *                 Amazon SageMaker</a>.</p>
    */
   TrainingImage?: string;
 
@@ -2366,8 +2364,8 @@ export interface HyperParameterTuningInstanceConfig {
 
   /**
    * <p>The number of instances of the type specified by <code>InstanceType</code>. Choose an
-   *             instance count larger than 1 for distributed training algorithms. See <a href="https://docs.aws.amazon.com/data-parallel-use-api.html">SageMaker distributed training
-   *                 jobs</a> for more information.</p>
+   *             instance count larger than 1 for distributed training algorithms. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html">Step 2:
+   *                 Launch a SageMaker Distributed Training Job Using the SageMaker Python SDK</a> for more information.</p>
    */
   InstanceCount: number | undefined;
 
@@ -2397,7 +2395,7 @@ export interface HyperParameterTuningInstanceConfig {
  */
 export interface HyperParameterTuningResourceConfig {
   /**
-   * <p>The instance type used to run hyperparameter optimization tuning jobs. See <a href="https://docs.aws.amazon.com/notebooks-available-instance-types.html"> descriptions of
+   * <p>The instance type used to run hyperparameter optimization tuning jobs. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html"> descriptions of
    *                 instance types</a> for more information.</p>
    */
   InstanceType?: TrainingInstanceType | string;
@@ -2545,18 +2543,18 @@ export interface HyperParameterTrainingJobDefinition {
   RoleArn: string | undefined;
 
   /**
-   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">Channel</a> objects that specify
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">Channel</a> objects that
+   *             specify
    *             the
    *             input for the training jobs that the tuning job launches.</p>
    */
   InputDataConfig?: Channel[];
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want the
-   *             training jobs that this hyperparameter tuning job launches to connect to. Control access
-   *             to and from your training container by configuring the VPC. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect
-   *                 Training Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want the training jobs
+   *             that this hyperparameter tuning job launches to connect to. Control access to and from
+   *             your training container by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+   *                 by Using an Amazon Virtual Private Cloud</a>.</p>
    */
   VpcConfig?: VpcConfig;
 
@@ -2643,8 +2641,7 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * <p>An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment variable from the training container</a> or use your own. See
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics
-   *                 and variables</a> for more information.</p>
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and variables</a> for more information.</p>
    *          <note>
    *             <p>The maximum number of items specified for <code>Map Entries</code> refers to the
    *                 maximum number of environment variables for each <code>TrainingJobDefinition</code>
@@ -2759,8 +2756,8 @@ export interface CreateHyperParameterTuningJobRequest {
   HyperParameterTuningJobName: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a> object that describes the tuning
-   *             job, including the search strategy, the objective metric used to evaluate training jobs,
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a> object that describes the tuning job,
+   *             including the search strategy, the objective metric used to evaluate training jobs,
    *             ranges of parameters to search, and resource limits for the tuning job. For more
    *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
    *                 Hyperparameter Tuning Works</a>.</p>
@@ -2768,16 +2765,16 @@ export interface CreateHyperParameterTuningJobRequest {
   HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> object that describes the
-   *             training jobs that this tuning job launches, including static hyperparameters, input
-   *             data configuration, output data configuration, resource configuration, and stopping
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> object that describes the training jobs
+   *             that this tuning job launches, including static hyperparameters, input data
+   *             configuration, output data configuration, resource configuration, and stopping
    *             condition.</p>
    */
   TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
 
   /**
-   * <p>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> objects launched
-   *             for this tuning job.</p>
+   * <p>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> objects launched for this tuning
+   *             job.</p>
    */
   TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
 
@@ -2810,24 +2807,26 @@ export interface CreateHyperParameterTuningJobRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Configures SageMaker Automatic model tuning (AMT) to automatically find optimal parameters
-   *             for the following fields:</p>
+   * <p>Configures SageMaker Automatic model tuning (AMT) to automatically find optimal
+   *             parameters for the following fields:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges">ParameterRanges</a>: The names and ranges of parameters that a hyperparameter
-   *                     tuning job can optimize.</p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges">ParameterRanges</a>: The names and ranges of parameters that a
+   *                     hyperparameter tuning job can optimize.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>: The maximum resources that can be used for a training job.
-   *                     These resources include the maximum number of training jobs, the maximum runtime of a
-   *                     tuning job, and the maximum number of training jobs to run at the same time.</p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>: The maximum resources that can be used for a
+   *                     training job. These resources include the maximum number of training jobs, the
+   *                     maximum runtime of a tuning job, and the maximum number of training jobs to run
+   *                     at the same time.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType">TrainingJobEarlyStoppingType</a>: A flag that specifies whether or not to use
-   *                     early stopping for training jobs launched by a hyperparameter tuning job.</p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType">TrainingJobEarlyStoppingType</a>: A flag that specifies whether or not
+   *                     to use early stopping for training jobs launched by a hyperparameter tuning
+   *                     job.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2835,13 +2834,14 @@ export interface CreateHyperParameterTuningJobRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">Strategy</a>: Specifies how hyperparameter tuning chooses the combinations of
-   *                     hyperparameter values to use for the training jobs that it launches.</p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">Strategy</a>: Specifies how hyperparameter tuning chooses the
+   *                     combinations of hyperparameter values to use for the training jobs that it
+   *                     launches.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html">ConvergenceDetected</a>: A flag to indicate that Automatic model tuning (AMT) has detected model
-   *                     convergence.</p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html">ConvergenceDetected</a>: A flag to indicate that Automatic model tuning
+   *                     (AMT) has detected model convergence.</p>
    *             </li>
    *          </ul>
    */
@@ -6141,8 +6141,8 @@ export interface CreateModelInput {
   Tags?: Tag[];
 
   /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your model
-   *             to connect to. Control access to and from your model container by configuring the VPC.
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your model to connect
+   *             to. Control access to and from your model container by configuring the VPC.
    *                 <code>VpcConfig</code> is used in hosting services and in batch transform. For more
    *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html">Protect Data in Batch
    *                 Transform Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
@@ -6770,8 +6770,8 @@ export interface SourceAlgorithm {
    *             This path must point to a single <code>gzip</code> compressed tar archive
    *                 (<code>.tar.gz</code> suffix).</p>
    *          <note>
-   *             <p>The model artifacts must be in an S3 bucket that is in the same Amazon Web Services region as the
-   *                 algorithm.</p>
+   *             <p>The model artifacts must be in an S3 bucket that is in the same Amazon Web Services
+   *                 region as the algorithm.</p>
    *          </note>
    */
   ModelDataUrl?: string;
@@ -8851,8 +8851,8 @@ export interface CreateTrainingJobRequest {
    * <p>The registry path of the Docker image that contains the training algorithm and
    *             algorithm-specific metadata, including the input mode. For more information about
    *             algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For information about
-   *             providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon SageMaker</a>.
-   *         </p>
+   *             providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+   *                 Amazon SageMaker</a>. </p>
    */
   AlgorithmSpecification: AlgorithmSpecification | undefined;
 
@@ -8884,7 +8884,8 @@ export interface CreateTrainingJobRequest {
    *             data files from an S3 bucket to a local directory in the Docker container, or makes it
    *             available as input streams. For example, if you specify an EFS location, input data
    *             files are available as input streams. They do not need to be downloaded.</p>
-   *          <p>Your input must be in the same Amazon Web Services region as your training job.</p>
+   *          <p>Your input must be in the same Amazon Web Services region as your training
+   *             job.</p>
    */
   InputDataConfig?: Channel[];
 
@@ -8906,9 +8907,9 @@ export interface CreateTrainingJobRequest {
   ResourceConfig: ResourceConfig | undefined;
 
   /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your
-   *             training job to connect to. Control access to and from your training container by
-   *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your training job to
+   *             connect to. Control access to and from your training container by configuring the VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
    */
   VpcConfig?: VpcConfig;
