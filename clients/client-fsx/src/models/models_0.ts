@@ -654,16 +654,16 @@ export type DiskIopsConfigurationMode = (typeof DiskIopsConfigurationMode)[keyof
 
 /**
  * @public
- * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system. The
- *             default is 3 IOPS per GB of storage capacity, but you can provision additional IOPS per
+ * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or FSx for OpenZFS file system. By default, Amazon FSx
+ *             automatically provisions 3 IOPS per GB of storage capacity. You can provision additional IOPS per
  *             GB of storage. The configuration consists of the total number of provisioned SSD IOPS
- *             and how the amount was provisioned (by the customer or by the system).</p>
+ *             and how it is was provisioned, or the mode (by the customer or by Amazon FSx).</p>
  */
 export interface DiskIopsConfiguration {
   /**
-   * <p>Specifies whether the number of IOPS for the file system is
-   *             using the system default (<code>AUTOMATIC</code>) or was
-   *             provisioned by the customer (<code>USER_PROVISIONED</code>).</p>
+   * <p>Specifies whether the file system is
+   *             using the <code>AUTOMATIC</code> setting of SSD IOPS of 3 IOPS per GB of storage capacity, , or
+   *             if it using a <code>USER_PROVISIONED</code> value.</p>
    */
   Mode?: DiskIopsConfigurationMode | string;
 
@@ -682,7 +682,7 @@ export interface DiskIopsConfiguration {
  */
 export interface FileSystemEndpoint {
   /**
-   * <p>The Domain Name Service (DNS) name for the file system. You can mount your file
+   * <p>The file system's DNS name. You can mount your file
    *             system using its DNS name.</p>
    */
   DNSName?: string;
@@ -808,6 +808,12 @@ export interface OntapFileSystemConfiguration {
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>You can use the <code>fsxadmin</code> user account to access the NetApp ONTAP CLI and
+   *         REST API. The password value is always redacted in the response.</p>
+   */
+  FsxAdminPassword?: string;
 }
 
 /**
@@ -888,10 +894,10 @@ export interface OpenZFSFileSystemConfiguration {
   WeeklyMaintenanceStartTime?: string;
 
   /**
-   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system. The
-   *             default is 3 IOPS per GB of storage capacity, but you can provision additional IOPS per
+   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or FSx for OpenZFS file system. By default, Amazon FSx
+   *             automatically provisions 3 IOPS per GB of storage capacity. You can provision additional IOPS per
    *             GB of storage. The configuration consists of the total number of provisioned SSD IOPS
-   *             and how the amount was provisioned (by the customer or by the system).</p>
+   *             and how it is was provisioned, or the mode (by the customer or by Amazon FSx).</p>
    */
   DiskIopsConfiguration?: DiskIopsConfiguration;
 
@@ -2882,8 +2888,8 @@ export interface NFSDataRepositoryConfiguration {
  *             </li>
  *          </ul>
  *          <p>Data repository associations are supported on Amazon File Cache resources and
- *             all Amazon FSx for Lustre file systems excluding <code>Scratch_1</code> deployment
- *             types.</p>
+ *             all FSx for Lustre 2.12 and newer file systems, excluding
+ *             <code>scratch_1</code> deployment type.</p>
  */
 export interface DataRepositoryAssociation {
   /**
@@ -4595,13 +4601,13 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities of 64 - 4,096 MB/s.
+   *                   <code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities of 64 - 4,096 MBps.
    *                 <code>Single_AZ_1</code> is available in all Amazon Web Services Regions where Amazon FSx
    *                 for OpenZFS is available, except US West (Oregon).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160 - 10,240 MB/s
+   *                   <code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160 - 10,240 MBps
    *                 using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only in the US East (N. Virginia), US East (Ohio),
    *                 US West (Oregon), and Europe (Ireland) Amazon Web Services Regions.</p>
    *             </li>
@@ -4613,13 +4619,13 @@ export interface CreateFileSystemOpenZFSConfiguration {
   DeploymentType: OpenZFSDeploymentType | string | undefined;
 
   /**
-   * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>
+   * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</p>
    *          <ul>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.</p>
    *             </li>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</p>
+   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>
    *             </li>
    *          </ul>
    *          <p>You pay for additional throughput capacity that you provision.</p>
@@ -4639,10 +4645,10 @@ export interface CreateFileSystemOpenZFSConfiguration {
   WeeklyMaintenanceStartTime?: string;
 
   /**
-   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system. The
-   *             default is 3 IOPS per GB of storage capacity, but you can provision additional IOPS per
+   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or FSx for OpenZFS file system. By default, Amazon FSx
+   *             automatically provisions 3 IOPS per GB of storage capacity. You can provision additional IOPS per
    *             GB of storage. The configuration consists of the total number of provisioned SSD IOPS
-   *             and how the amount was provisioned (by the customer or by the system).</p>
+   *             and how it is was provisioned, or the mode (by the customer or by Amazon FSx).</p>
    */
   DiskIopsConfiguration?: DiskIopsConfiguration;
 
@@ -4747,12 +4753,12 @@ export interface WindowsAuditLogCreateConfiguration {
 
 /**
  * @public
- * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+ * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an FSx for ONTAP storage virtual machine (SVM) to
  *             a self-managed (including on-premises) Microsoft Active Directory (AD)
  *             directory. For more information, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
- *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a> or
- *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing SVMs</a>.</p>
+ *                 Using Amazon FSx for Windows with your self-managed Microsoft Active Directory</a> or
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP SVMs</a>.</p>
  */
 export interface SelfManagedActiveDirectoryConfiguration {
   /**
@@ -4820,12 +4826,12 @@ export interface CreateFileSystemWindowsConfiguration {
   ActiveDirectoryId?: string;
 
   /**
-   * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+   * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an FSx for ONTAP storage virtual machine (SVM) to
    *             a self-managed (including on-premises) Microsoft Active Directory (AD)
    *             directory. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
-   *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a> or
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing SVMs</a>.</p>
+   *                 Using Amazon FSx for Windows with your self-managed Microsoft Active Directory</a> or
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP SVMs</a>.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfiguration;
 
@@ -5422,12 +5428,12 @@ export interface CreateSvmActiveDirectoryConfiguration {
   NetBiosName: string | undefined;
 
   /**
-   * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+   * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an FSx for ONTAP storage virtual machine (SVM) to
    *             a self-managed (including on-premises) Microsoft Active Directory (AD)
    *             directory. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
-   *                 Using Amazon FSx with your self-managed Microsoft Active Directory</a> or
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing SVMs</a>.</p>
+   *                 Using Amazon FSx for Windows with your self-managed Microsoft Active Directory</a> or
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP SVMs</a>.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfiguration;
 }
@@ -5515,13 +5521,12 @@ export interface CreateStorageVirtualMachineRequest {
 
 /**
  * @public
- * <p>Describes the configuration of the Microsoft Active Directory (AD)
- *             directory to which the Amazon FSx for ONTAP storage virtual machine (SVM) is joined.
- *             Pleae note, account credentials are not returned in the response payload.</p>
+ * <p>Describes the Microsoft Active Directory (AD) directory configuration to which the FSx for ONTAP storage virtual machine (SVM) is joined.
+ *             Note that account credentials are not returned in the response payload.</p>
  */
 export interface SvmActiveDirectoryConfiguration {
   /**
-   * <p>The NetBIOS name of the Active Directory computer object that is joined to your SVM.</p>
+   * <p>The NetBIOS name of the AD computer object to which the SVM is joined.</p>
    */
   NetBiosName?: string;
 
@@ -5542,7 +5547,7 @@ export interface SvmActiveDirectoryConfiguration {
  */
 export interface SvmEndpoint {
   /**
-   * <p>The Domain Name Service (DNS) name for the file system. You can mount your file
+   * <p>The file system's DNS name. You can mount your file
    *             system using its DNS name.</p>
    */
   DNSName?: string;
@@ -7977,7 +7982,10 @@ export interface UpdateFileSystemOntapConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>The ONTAP administrative password for the <code>fsxadmin</code> user.</p>
+   * <p>Update the password for the <code>fsxadmin</code> user by entering a new password.
+   *         You use the <code>fsxadmin</code> user to access the NetApp ONTAP CLI and REST API to manage your file system resources.
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html">Managing resources using NetApp Applicaton</a>.</p>
    */
   FsxAdminPassword?: string;
 
@@ -7994,16 +8002,20 @@ export interface UpdateFileSystemOntapConfiguration {
   WeeklyMaintenanceStartTime?: string;
 
   /**
-   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of storage capacity,
+   * <p>The SSD IOPS (input output operations per second) configuration for an Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of storage capacity,
    *             but you can provision additional IOPS per GB of storage. The configuration consists
    *             of an IOPS mode (<code>AUTOMATIC</code> or <code>USER_PROVISIONED</code>), and in
-   *             the case of <code>USER_PROVISIONED</code> IOPS, the total number of SSD IOPS provisioned.</p>
+   *             the case of <code>USER_PROVISIONED</code> IOPS, the total number of SSD IOPS provisioned.
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/increase-primary-storage.html">Updating SSD storage capacity and IOPS</a>.</p>
    */
   DiskIopsConfiguration?: DiskIopsConfiguration;
 
   /**
-   * <p>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes per second
-   *             (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps.</p>
+   * <p>Enter a new value to change the amount of throughput capacity for the file system. Throughput capacity is measured in megabytes per second
+   *             (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps. For more information, see
+   *           <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing throughput capacity</a>
+   *           in the FSx for ONTAP User Guide.</p>
    */
   ThroughputCapacity?: number;
 
@@ -8088,39 +8100,56 @@ export interface UpdateFileSystemOpenZFSConfiguration {
   WeeklyMaintenanceStartTime?: string;
 
   /**
-   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS file system. The
-   *             default is 3 IOPS per GB of storage capacity, but you can provision additional IOPS per
+   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP or FSx for OpenZFS file system. By default, Amazon FSx
+   *             automatically provisions 3 IOPS per GB of storage capacity. You can provision additional IOPS per
    *             GB of storage. The configuration consists of the total number of provisioned SSD IOPS
-   *             and how the amount was provisioned (by the customer or by the system).</p>
+   *             and how it is was provisioned, or the mode (by the customer or by Amazon FSx).</p>
    */
   DiskIopsConfiguration?: DiskIopsConfiguration;
 }
 
 /**
  * @public
- * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to a
- *             self-managed Microsoft Active Directory (AD) directory.</p>
+ * <p>Specifies changes you are making to the self-managed Microsoft Active Directory (AD) configuration to which
+ *             an FSx for Windows File Server file system or an FSx for ONTAP SVM is joined.</p>
  */
 export interface SelfManagedActiveDirectoryConfigurationUpdates {
   /**
-   * <p>The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to
-   *             your AD domain. This account must have the permission to join
+   * <p>Specifies the updated user name for the service account on your self-managed AD domain.
+   *             Amazon FSx uses this account to join to your self-managed AD domain.</p>
+   *          <p>This account must have the permissions required to join
    *             computers to the domain in the organizational unit provided in
    *             <code>OrganizationalUnitDistinguishedName</code>.</p>
    */
   UserName?: string;
 
   /**
-   * <p>The password for the service account on your self-managed AD domain that Amazon FSx will use to join to
-   *             your AD domain.</p>
+   * <p>Specifies the updated password for the service account on your self-managed AD domain.
+   *             Amazon FSx uses this account to join to your self-managed AD domain.</p>
    */
   Password?: string;
 
   /**
-   * <p>A list of up to three IP addresses of DNS servers or domain controllers in the
-   *             self-managed AD directory.</p>
+   * <p>A list of up to three DNS server or domain controller IP addresses in your
+   *             self-managed AD domain.</p>
    */
   DnsIps?: string[];
+
+  /**
+   * <p>Specifies an updated fully qualified domain name of your self-managed AD configuration.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>Specifies an updated fully qualified distinguished name of the organization unit within your self-managed AD.</p>
+   */
+  OrganizationalUnitDistinguishedName?: string;
+
+  /**
+   * <p>Specifies the updated name of the self-managed AD domain group whose members are granted administrative privileges
+   *             for the Amazon FSx resource.</p>
+   */
+  FileSystemAdministratorsGroup?: string;
 }
 
 /**
@@ -8220,7 +8249,7 @@ export interface UpdateFileSystemRequest {
    *          <p>For Windows file systems, the storage capacity target value must be at least 10 percent
    *       greater than the current storage capacity value. To increase storage capacity, the file system
    *       must have at least 16 MBps of throughput capacity. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage
-   *         capacity</a> in the <i>Amazon FSx for Windows File Server User
+   *         capacity</a> in the <i>Amazon FSxfor Windows File Server User
    *           Guide</i>.</p>
    *          <p>For ONTAP file systems, the storage capacity target value must be at least 10 percent
    *       greater than the current storage capacity value.  For more information, see
@@ -8246,7 +8275,7 @@ export interface UpdateFileSystemRequest {
   OntapConfiguration?: UpdateFileSystemOntapConfiguration;
 
   /**
-   * <p>The configuration updates for an Amazon FSx for OpenZFS file system.</p>
+   * <p>The configuration updates for an FSx for OpenZFS file system.</p>
    */
   OpenZFSConfiguration?: UpdateFileSystemOpenZFSConfiguration;
 }
@@ -8276,15 +8305,20 @@ export interface UpdateSnapshotRequest {
 
 /**
  * @public
- * <p>Updates the Microsoft Active Directory (AD) configuration of an SVM joined to an AD.
- *             Please note, account credentials are not returned in the response payload.</p>
+ * <p>Specifies updates to an FSx for ONTAP storage virtual machine's (SVM) Microsoft Active Directory (AD) configuration.
+ *             Note that account credentials are not returned in the response payload.</p>
  */
 export interface UpdateSvmActiveDirectoryConfiguration {
   /**
-   * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to a
-   *             self-managed Microsoft Active Directory (AD) directory.</p>
+   * <p>Specifies changes you are making to the self-managed Microsoft Active Directory (AD) configuration to which
+   *             an FSx for Windows File Server file system or an FSx for ONTAP SVM is joined.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfigurationUpdates;
+
+  /**
+   * <p>Specifies an updated NetBIOS name of the AD computer object <code>NetBiosName</code> to which an SVM is joined.</p>
+   */
+  NetBiosName?: string;
 }
 
 /**
@@ -8292,7 +8326,7 @@ export interface UpdateSvmActiveDirectoryConfiguration {
  */
 export interface UpdateStorageVirtualMachineRequest {
   /**
-   * <p>Updates the Microsoft Active Directory (AD) configuration for an SVM that is joined to an AD.</p>
+   * <p>Specifies updates to an SVM's Microsoft Active Directory (AD) configuration.</p>
    */
   ActiveDirectoryConfiguration?: UpdateSvmActiveDirectoryConfiguration;
 
@@ -8309,7 +8343,7 @@ export interface UpdateStorageVirtualMachineRequest {
   StorageVirtualMachineId: string | undefined;
 
   /**
-   * <p>Enter a new SvmAdminPassword if you are updating it.</p>
+   * <p>Specifies a new SvmAdminPassword.</p>
    */
   SvmAdminPassword?: string;
 }
@@ -9254,7 +9288,7 @@ export interface Backup {
   Type: BackupType | string | undefined;
 
   /**
-   * <p>The current percent of progress of an asynchronous task.</p>
+   * <p>Displays the current percent of progress of an asynchronous task.</p>
    */
   ProgressPercent?: number;
 
@@ -9360,6 +9394,14 @@ export interface DescribeBackupsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const OntapFileSystemConfigurationFilterSensitiveLog = (obj: OntapFileSystemConfiguration): any => ({
+  ...obj,
+  ...(obj.FsxAdminPassword && { FsxAdminPassword: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -9513,4 +9555,180 @@ export const UpdateStorageVirtualMachineRequestFilterSensitiveLog = (obj: Update
     ),
   }),
   ...(obj.SvmAdminPassword && { SvmAdminPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdministrativeActionFilterSensitiveLog = (obj: AdministrativeAction): any => ({
+  ...obj,
+  ...(obj.TargetFileSystemValues && {
+    TargetFileSystemValues: FileSystemFilterSensitiveLog(obj.TargetFileSystemValues),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const FileSystemFilterSensitiveLog = (obj: FileSystem): any => ({
+  ...obj,
+  ...(obj.AdministrativeActions && {
+    AdministrativeActions: obj.AdministrativeActions.map((item) => AdministrativeActionFilterSensitiveLog(item)),
+  }),
+  ...(obj.OntapConfiguration && {
+    OntapConfiguration: OntapFileSystemConfigurationFilterSensitiveLog(obj.OntapConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
+  ...obj,
+  ...(obj.AdministrativeActions && {
+    AdministrativeActions: obj.AdministrativeActions.map((item) => AdministrativeActionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
+  ...obj,
+  ...(obj.AdministrativeActions && {
+    AdministrativeActions: obj.AdministrativeActions.map((item) => AdministrativeActionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreVolumeFromSnapshotResponseFilterSensitiveLog = (obj: RestoreVolumeFromSnapshotResponse): any => ({
+  ...obj,
+  ...(obj.AdministrativeActions && {
+    AdministrativeActions: obj.AdministrativeActions.map((item) => AdministrativeActionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemFromBackupResponseFilterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemResponseFilterSensitiveLog = (obj: CreateFileSystemResponse): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotResponseFilterSensitiveLog = (obj: CreateSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVolumeFromBackupResponseFilterSensitiveLog = (obj: CreateVolumeFromBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVolumeResponseFilterSensitiveLog = (obj: CreateVolumeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog = (
+  obj: ReleaseFileSystemNfsV3LocksResponse
+): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemResponseFilterSensitiveLog = (obj: UpdateFileSystemResponse): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotResponseFilterSensitiveLog = (obj: UpdateSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVolumeResponseFilterSensitiveLog = (obj: UpdateVolumeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemsResponseFilterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
+  ...obj,
+  ...(obj.FileSystems && { FileSystems: obj.FileSystems.map((item) => FileSystemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotsResponseFilterSensitiveLog = (obj: DescribeSnapshotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVolumesResponseFilterSensitiveLog = (obj: DescribeVolumesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackupFilterSensitiveLog = (obj: Backup): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
+
+/**
+ * @internal
+ */
+export const CopyBackupResponseFilterSensitiveLog = (obj: CopyBackupResponse): any => ({
+  ...obj,
+  ...(obj.Backup && { Backup: BackupFilterSensitiveLog(obj.Backup) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBackupResponseFilterSensitiveLog = (obj: CreateBackupResponse): any => ({
+  ...obj,
+  ...(obj.Backup && { Backup: BackupFilterSensitiveLog(obj.Backup) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeBackupsResponseFilterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
+  ...obj,
+  ...(obj.Backups && { Backups: obj.Backups.map((item) => BackupFilterSensitiveLog(item)) }),
 });

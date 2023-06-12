@@ -14,7 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse } from "../models/models_0";
+import {
+  RestoreVolumeFromSnapshotRequest,
+  RestoreVolumeFromSnapshotResponse,
+  RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_RestoreVolumeFromSnapshotCommand, se_RestoreVolumeFromSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -285,6 +289,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //                 ],
  * //                 ThroughputCapacity: Number("int"),
  * //                 WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //                 FsxAdminPassword: "STRING_VALUE",
  * //               },
  * //               FileSystemTypeVersion: "STRING_VALUE",
  * //               OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -426,6 +431,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //           ],
  * //           ThroughputCapacity: Number("int"),
  * //           WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //           FsxAdminPassword: "STRING_VALUE",
  * //         },
  * //         FileSystemTypeVersion: "STRING_VALUE",
  * //         OpenZFSConfiguration: {
@@ -605,7 +611,7 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

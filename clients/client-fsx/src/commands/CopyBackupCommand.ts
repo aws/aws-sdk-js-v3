@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CopyBackupRequest, CopyBackupResponse } from "../models/models_0";
+import { CopyBackupRequest, CopyBackupResponse, CopyBackupResponseFilterSensitiveLog } from "../models/models_0";
 import { de_CopyBackupCommand, se_CopyBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -404,6 +404,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //               ],
  * //               ThroughputCapacity: Number("int"),
  * //               WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //               FsxAdminPassword: "STRING_VALUE",
  * //             },
  * //             FileSystemTypeVersion: "STRING_VALUE",
  * //             OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -535,6 +536,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //         ],
  * //         ThroughputCapacity: Number("int"),
  * //         WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //         FsxAdminPassword: "STRING_VALUE",
  * //       },
  * //       FileSystemTypeVersion: "STRING_VALUE",
  * //       OpenZFSConfiguration: {
@@ -709,7 +711,7 @@ export class CopyBackupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: CopyBackupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

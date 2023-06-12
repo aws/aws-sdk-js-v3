@@ -14,7 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateSnapshotRequest, CreateSnapshotResponse } from "../models/models_0";
+import {
+  CreateSnapshotRequest,
+  CreateSnapshotResponse,
+  CreateSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateSnapshotCommand, se_CreateSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -323,6 +327,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //                   ],
  * //                   ThroughputCapacity: Number("int"),
  * //                   WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //                   FsxAdminPassword: "STRING_VALUE",
  * //                 },
  * //                 FileSystemTypeVersion: "STRING_VALUE",
  * //                 OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -454,6 +459,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //             ],
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //             FsxAdminPassword: "STRING_VALUE",
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: {
@@ -619,7 +625,7 @@ export class CreateSnapshotCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: CreateSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

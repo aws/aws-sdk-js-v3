@@ -14,7 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
+import {
+  DescribeBackupsRequest,
+  DescribeBackupsResponse,
+  DescribeBackupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeBackupsCommand, se_DescribeBackupsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -412,6 +416,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                 ],
  * //                 ThroughputCapacity: Number("int"),
  * //                 WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //                 FsxAdminPassword: "STRING_VALUE",
  * //               },
  * //               FileSystemTypeVersion: "STRING_VALUE",
  * //               OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -543,6 +548,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //           ],
  * //           ThroughputCapacity: Number("int"),
  * //           WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //           FsxAdminPassword: "STRING_VALUE",
  * //         },
  * //         FileSystemTypeVersion: "STRING_VALUE",
  * //         OpenZFSConfiguration: {
@@ -690,7 +696,7 @@ export class DescribeBackupsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeBackupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

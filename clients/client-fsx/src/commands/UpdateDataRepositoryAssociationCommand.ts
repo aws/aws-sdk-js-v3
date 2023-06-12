@@ -43,8 +43,8 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  * @public
  * <p>Updates the configuration of an existing data repository association
  *             on an Amazon FSx for Lustre file system. Data repository associations
- *             are supported for all file systems except for <code>Scratch_1</code>
- *             deployment type.</p>
+ *             are supported on all FSx for Lustre 2.12 and newer file systems,
+ *             excluding <code>scratch_1</code> deployment type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

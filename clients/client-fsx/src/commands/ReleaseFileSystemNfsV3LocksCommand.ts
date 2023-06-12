@@ -14,7 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
+import {
+  ReleaseFileSystemNfsV3LocksRequest,
+  ReleaseFileSystemNfsV3LocksResponse,
+  ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ReleaseFileSystemNfsV3LocksCommand, se_ReleaseFileSystemNfsV3LocksCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -366,6 +370,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //             ],
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //             FsxAdminPassword: "STRING_VALUE",
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -497,6 +502,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //       ],
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //       FsxAdminPassword: "STRING_VALUE",
  * //     },
  * //     FileSystemTypeVersion: "STRING_VALUE",
  * //     OpenZFSConfiguration: {
@@ -595,7 +601,7 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

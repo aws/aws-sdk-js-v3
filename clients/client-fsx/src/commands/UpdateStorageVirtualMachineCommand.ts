@@ -42,7 +42,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
 
 /**
  * @public
- * <p>Updates an Amazon FSx for ONTAP storage virtual machine (SVM).</p>
+ * <p>Updates an FSx for ONTAP storage virtual machine (SVM).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,7 +57,11 @@ export interface UpdateStorageVirtualMachineCommandOutput
  *       DnsIps: [ // DnsIps
  *         "STRING_VALUE",
  *       ],
+ *       DomainName: "STRING_VALUE",
+ *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *       FileSystemAdministratorsGroup: "STRING_VALUE",
  *     },
+ *     NetBiosName: "STRING_VALUE",
  *   },
  *   ClientRequestToken: "STRING_VALUE",
  *   StorageVirtualMachineId: "STRING_VALUE", // required

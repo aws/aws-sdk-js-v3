@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { UpdateVolumeRequest, UpdateVolumeResponse } from "../models/models_0";
+import { UpdateVolumeRequest, UpdateVolumeResponse, UpdateVolumeResponseFilterSensitiveLog } from "../models/models_0";
 import { de_UpdateVolumeCommand, se_UpdateVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -346,6 +346,7 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * //                   ],
  * //                   ThroughputCapacity: Number("int"),
  * //                   WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //                   FsxAdminPassword: "STRING_VALUE",
  * //                 },
  * //                 FileSystemTypeVersion: "STRING_VALUE",
  * //                 OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -477,6 +478,7 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * //             ],
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //             FsxAdminPassword: "STRING_VALUE",
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: {
@@ -626,7 +628,7 @@ export class UpdateVolumeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: UpdateVolumeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

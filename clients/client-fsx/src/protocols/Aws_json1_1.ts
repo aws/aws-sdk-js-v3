@@ -2044,6 +2044,9 @@ const de_DeleteVolumeCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.fsx#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      throw await de_ServiceLimitExceededRes(parsedOutput, context);
     case "VolumeNotFound":
     case "com.amazonaws.fsx#VolumeNotFound":
       throw await de_VolumeNotFoundRes(parsedOutput, context);

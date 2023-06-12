@@ -18,6 +18,7 @@ import {
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupRequestFilterSensitiveLog,
   CreateFileSystemFromBackupResponse,
+  CreateFileSystemFromBackupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_CreateFileSystemFromBackupCommand, se_CreateFileSystemFromBackupCommand } from "../protocols/Aws_json1_1";
 
@@ -505,6 +506,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //             ],
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //             FsxAdminPassword: "STRING_VALUE",
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -636,6 +638,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //       ],
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //       FsxAdminPassword: "STRING_VALUE",
  * //     },
  * //     FileSystemTypeVersion: "STRING_VALUE",
  * //     OpenZFSConfiguration: {
@@ -804,7 +807,7 @@ export class CreateFileSystemFromBackupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFileSystemFromBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: CreateFileSystemFromBackupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

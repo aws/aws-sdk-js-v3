@@ -18,6 +18,7 @@ import {
   UpdateFileSystemRequest,
   UpdateFileSystemRequestFilterSensitiveLog,
   UpdateFileSystemResponse,
+  UpdateFileSystemResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_UpdateFileSystemCommand, se_UpdateFileSystemCommand } from "../protocols/Aws_json1_1";
 
@@ -234,6 +235,9 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       DnsIps: [ // DnsIps
  *         "STRING_VALUE",
  *       ],
+ *       DomainName: "STRING_VALUE",
+ *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *       FileSystemAdministratorsGroup: "STRING_VALUE",
  *     },
  *     AuditLogConfiguration: { // WindowsAuditLogCreateConfiguration
  *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
@@ -604,6 +608,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             ],
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //             FsxAdminPassword: "STRING_VALUE",
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -735,6 +740,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //       ],
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //       FsxAdminPassword: "STRING_VALUE",
  * //     },
  * //     FileSystemTypeVersion: "STRING_VALUE",
  * //     OpenZFSConfiguration: {
@@ -888,7 +894,7 @@ export class UpdateFileSystemCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateFileSystemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: UpdateFileSystemResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
