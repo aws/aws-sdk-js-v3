@@ -2111,6 +2111,50 @@ export class ResourceAlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const SkipUnavailableStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type SkipUnavailableStatus = (typeof SkipUnavailableStatus)[keyof typeof SkipUnavailableStatus];
+
+/**
+ * @public
+ * <p>Cross cluster search specific connection properties.</p>
+ */
+export interface CrossClusterSearchConnectionProperties {
+  /**
+   * <p>Status of SkipUnavailable param for outbound connection.</p>
+   */
+  SkipUnavailable?: SkipUnavailableStatus | string;
+}
+
+/**
+ * @public
+ * <p>The connection properties of an outbound connection.</p>
+ */
+export interface ConnectionProperties {
+  /**
+   * <important>
+   *             <p>The Endpoint attribute cannot be modified. </p>
+   *          </important>
+   *          <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The connection properties for cross cluster search.</p>
+   */
+  CrossClusterSearch?: CrossClusterSearchConnectionProperties;
+}
+
+/**
+ * @public
  * <p>Container for the parameters to the <code>CreateOutboundConnection</code> operation.</p>
  */
 export interface CreateOutboundConnectionRequest {
@@ -2133,17 +2177,11 @@ export interface CreateOutboundConnectionRequest {
    * <p>The connection mode.</p>
    */
   ConnectionMode?: ConnectionMode | string;
-}
 
-/**
- * @public
- * <p>The connection properties of an outbound connection.</p>
- */
-export interface ConnectionProperties {
   /**
-   * <p>The endpoint of the remote domain.</p>
+   * <p>The <code>ConnectionProperties</code> for the outbound connection.</p>
    */
-  Endpoint?: string;
+  ConnectionProperties?: ConnectionProperties;
 }
 
 /**

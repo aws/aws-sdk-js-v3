@@ -192,6 +192,8 @@ import {
   CognitoOptionsStatus,
   ColdStorageOptions,
   ConflictException,
+  ConnectionProperties,
+  CrossClusterSearchConnectionProperties,
   DependencyFailureException,
   DescribePackagesFilter,
   DisabledOperationException,
@@ -466,6 +468,7 @@ export const se_CreateOutboundConnectionCommand = async (
     take(input, {
       ConnectionAlias: [],
       ConnectionMode: [],
+      ConnectionProperties: (_) => _json(_),
       LocalDomainInfo: (_) => _json(_),
       RemoteDomainInfo: (_) => _json(_),
     })
@@ -5367,6 +5370,10 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_ColdStorageOptions omitted.
 
+// se_ConnectionProperties omitted.
+
+// se_CrossClusterSearchConnectionProperties omitted.
+
 // se_DescribePackagesFilter omitted.
 
 // se_DescribePackagesFilterList omitted.
@@ -5652,6 +5659,8 @@ const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoO
 // de_CompatibleVersionsMap omitted.
 
 // de_ConnectionProperties omitted.
+
+// de_CrossClusterSearchConnectionProperties omitted.
 
 /**
  * deserializeAws_restJson1DomainConfig

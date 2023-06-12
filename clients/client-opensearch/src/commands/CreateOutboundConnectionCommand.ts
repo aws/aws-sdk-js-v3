@@ -62,6 +62,12 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  *   },
  *   ConnectionAlias: "STRING_VALUE", // required
  *   ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ *   ConnectionProperties: { // ConnectionProperties
+ *     Endpoint: "STRING_VALUE",
+ *     CrossClusterSearch: { // CrossClusterSearchConnectionProperties
+ *       SkipUnavailable: "ENABLED" || "DISABLED",
+ *     },
+ *   },
  * };
  * const command = new CreateOutboundConnectionCommand(input);
  * const response = await client.send(command);
@@ -89,6 +95,9 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * //   ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
  * //   ConnectionProperties: { // ConnectionProperties
  * //     Endpoint: "STRING_VALUE",
+ * //     CrossClusterSearch: { // CrossClusterSearchConnectionProperties
+ * //       SkipUnavailable: "ENABLED" || "DISABLED",
+ * //     },
  * //   },
  * // };
  *

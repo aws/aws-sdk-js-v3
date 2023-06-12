@@ -75,6 +75,9 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * //     ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
  * //     ConnectionProperties: { // ConnectionProperties
  * //       Endpoint: "STRING_VALUE",
+ * //       CrossClusterSearch: { // CrossClusterSearchConnectionProperties
+ * //         SkipUnavailable: "ENABLED" || "DISABLED",
+ * //       },
  * //     },
  * //   },
  * // };
