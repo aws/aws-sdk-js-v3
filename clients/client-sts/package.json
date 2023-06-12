@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sts",
   "description": "AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native",
-  "version": "3.335.0",
+  "version": "3.335.1",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -56,7 +56,7 @@
     "@aws-sdk/util-utf8": "*",
     "@smithy/protocol-http": "^1.0.1",
     "@smithy/types": "^1.0.0",
-    "fast-xml-parser": "4.1.2",
+    "fast-xml-parser": "4.2.4",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
