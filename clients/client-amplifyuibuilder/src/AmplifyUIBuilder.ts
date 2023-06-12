@@ -34,6 +34,11 @@ import {
   ExportThemesCommandOutput,
 } from "./commands/ExportThemesCommand";
 import {
+  GetCodegenJobCommand,
+  GetCodegenJobCommandInput,
+  GetCodegenJobCommandOutput,
+} from "./commands/GetCodegenJobCommand";
+import {
   GetComponentCommand,
   GetComponentCommandInput,
   GetComponentCommandOutput,
@@ -41,6 +46,11 @@ import {
 import { GetFormCommand, GetFormCommandInput, GetFormCommandOutput } from "./commands/GetFormCommand";
 import { GetMetadataCommand, GetMetadataCommandInput, GetMetadataCommandOutput } from "./commands/GetMetadataCommand";
 import { GetThemeCommand, GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetThemeCommand";
+import {
+  ListCodegenJobsCommand,
+  ListCodegenJobsCommandInput,
+  ListCodegenJobsCommandOutput,
+} from "./commands/ListCodegenJobsCommand";
 import {
   ListComponentsCommand,
   ListComponentsCommandInput,
@@ -58,6 +68,11 @@ import {
   RefreshTokenCommandInput,
   RefreshTokenCommandOutput,
 } from "./commands/RefreshTokenCommand";
+import {
+  StartCodegenJobCommand,
+  StartCodegenJobCommandInput,
+  StartCodegenJobCommandOutput,
+} from "./commands/StartCodegenJobCommand";
 import {
   UpdateComponentCommand,
   UpdateComponentCommandInput,
@@ -77,15 +92,18 @@ const commands = {
   ExportComponentsCommand,
   ExportFormsCommand,
   ExportThemesCommand,
+  GetCodegenJobCommand,
   GetComponentCommand,
   GetFormCommand,
   GetMetadataCommand,
   GetThemeCommand,
+  ListCodegenJobsCommand,
   ListComponentsCommand,
   ListFormsCommand,
   ListThemesCommand,
   PutMetadataFlagCommand,
   RefreshTokenCommand,
+  StartCodegenJobCommand,
   UpdateComponentCommand,
   UpdateFormCommand,
   UpdateThemeCommand,
@@ -221,6 +239,17 @@ export interface AmplifyUIBuilder {
   ): void;
 
   /**
+   * @see {@link GetCodegenJobCommand}
+   */
+  getCodegenJob(args: GetCodegenJobCommandInput, options?: __HttpHandlerOptions): Promise<GetCodegenJobCommandOutput>;
+  getCodegenJob(args: GetCodegenJobCommandInput, cb: (err: any, data?: GetCodegenJobCommandOutput) => void): void;
+  getCodegenJob(
+    args: GetCodegenJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCodegenJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetComponentCommand}
    */
   getComponent(args: GetComponentCommandInput, options?: __HttpHandlerOptions): Promise<GetComponentCommandOutput>;
@@ -262,6 +291,20 @@ export interface AmplifyUIBuilder {
     args: GetThemeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetThemeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCodegenJobsCommand}
+   */
+  listCodegenJobs(
+    args: ListCodegenJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodegenJobsCommandOutput>;
+  listCodegenJobs(args: ListCodegenJobsCommandInput, cb: (err: any, data?: ListCodegenJobsCommandOutput) => void): void;
+  listCodegenJobs(
+    args: ListCodegenJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodegenJobsCommandOutput) => void
   ): void;
 
   /**
@@ -323,6 +366,20 @@ export interface AmplifyUIBuilder {
     args: RefreshTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RefreshTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCodegenJobCommand}
+   */
+  startCodegenJob(
+    args: StartCodegenJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCodegenJobCommandOutput>;
+  startCodegenJob(args: StartCodegenJobCommandInput, cb: (err: any, data?: StartCodegenJobCommandOutput) => void): void;
+  startCodegenJob(
+    args: StartCodegenJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCodegenJobCommandOutput) => void
   ): void;
 
   /**

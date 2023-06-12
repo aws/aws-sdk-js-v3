@@ -64,15 +64,18 @@ import {
 import { ExportComponentsCommandInput, ExportComponentsCommandOutput } from "./commands/ExportComponentsCommand";
 import { ExportFormsCommandInput, ExportFormsCommandOutput } from "./commands/ExportFormsCommand";
 import { ExportThemesCommandInput, ExportThemesCommandOutput } from "./commands/ExportThemesCommand";
+import { GetCodegenJobCommandInput, GetCodegenJobCommandOutput } from "./commands/GetCodegenJobCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
 import { GetFormCommandInput, GetFormCommandOutput } from "./commands/GetFormCommand";
 import { GetMetadataCommandInput, GetMetadataCommandOutput } from "./commands/GetMetadataCommand";
 import { GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetThemeCommand";
+import { ListCodegenJobsCommandInput, ListCodegenJobsCommandOutput } from "./commands/ListCodegenJobsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import { ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
 import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import { PutMetadataFlagCommandInput, PutMetadataFlagCommandOutput } from "./commands/PutMetadataFlagCommand";
 import { RefreshTokenCommandInput, RefreshTokenCommandOutput } from "./commands/RefreshTokenCommand";
+import { StartCodegenJobCommandInput, StartCodegenJobCommandOutput } from "./commands/StartCodegenJobCommand";
 import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
 import { UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
 import { UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
@@ -100,15 +103,18 @@ export type ServiceInputTypes =
   | ExportComponentsCommandInput
   | ExportFormsCommandInput
   | ExportThemesCommandInput
+  | GetCodegenJobCommandInput
   | GetComponentCommandInput
   | GetFormCommandInput
   | GetMetadataCommandInput
   | GetThemeCommandInput
+  | ListCodegenJobsCommandInput
   | ListComponentsCommandInput
   | ListFormsCommandInput
   | ListThemesCommandInput
   | PutMetadataFlagCommandInput
   | RefreshTokenCommandInput
+  | StartCodegenJobCommandInput
   | UpdateComponentCommandInput
   | UpdateFormCommandInput
   | UpdateThemeCommandInput;
@@ -127,15 +133,18 @@ export type ServiceOutputTypes =
   | ExportComponentsCommandOutput
   | ExportFormsCommandOutput
   | ExportThemesCommandOutput
+  | GetCodegenJobCommandOutput
   | GetComponentCommandOutput
   | GetFormCommandOutput
   | GetMetadataCommandOutput
   | GetThemeCommandOutput
+  | ListCodegenJobsCommandOutput
   | ListComponentsCommandOutput
   | ListFormsCommandOutput
   | ListThemesCommandOutput
   | PutMetadataFlagCommandOutput
   | RefreshTokenCommandOutput
+  | StartCodegenJobCommandOutput
   | UpdateComponentCommandOutput
   | UpdateFormCommandOutput
   | UpdateThemeCommandOutput;

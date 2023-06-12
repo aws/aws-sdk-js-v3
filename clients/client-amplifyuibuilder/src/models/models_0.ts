@@ -39,41 +39,468 @@ export interface FormBindingElement {
 /**
  * @public
  */
-export type SortDirection = "ASC" | "DESC";
-
-/**
- * @public
- * <p>Describes how to sort the data that you bind to a component.</p>
- */
-export interface SortProperty {
+export interface GetCodegenJobRequest {
   /**
-   * <p>The field to perform the sort on.</p>
+   * <p>The unique ID of the Amplify app associated with the code generation job.</p>
    */
-  field: string | undefined;
+  appId: string | undefined;
 
   /**
-   * <p>The direction of the sort, either ascending or descending.</p>
+   * <p>The name of the backend environment that is a part of the Amplify app associated with the code generation job.</p>
    */
-  direction: SortDirection | string | undefined;
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID of the code generation job.</p>
+   */
+  id: string | undefined;
 }
 
 /**
  * @public
- * <p>Describes the style configuration of a unique variation of a main component.</p>
+ * <p>Describes an asset for a code generation job.</p>
  */
-export interface ComponentVariant {
+export interface CodegenJobAsset {
   /**
-   * <p>The combination of variants that comprise this variant. You can't specify
-   *         <code>tags</code> as a valid property for <code>variantValues</code>.</p>
+   * <p>The URL to use to access the asset.</p>
    */
-  variantValues?: Record<string, string>;
+  downloadUrl?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the feature flags that you can specify for a code generation job.</p>
+ */
+export interface CodegenFeatureFlags {
+  /**
+   * <p>Specifes whether a code generation job supports data relationships.</p>
+   */
+  isRelationshipSupported?: boolean;
 
   /**
-   * <p>The properties of the component variant that can be overriden when customizing an instance
-   *       of the component. You can't specify <code>tags</code> as a valid property for
-   *         <code>overrides</code>.</p>
+   * <p>Specifies whether a code generation job supports non models.</p>
    */
-  overrides?: Record<string, Record<string, string>>;
+  isNonModelSupported?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CodegenJobGenericDataSourceType = {
+  DATA_STORE: "DataStore",
+} as const;
+
+/**
+ * @public
+ */
+export type CodegenJobGenericDataSourceType =
+  (typeof CodegenJobGenericDataSourceType)[keyof typeof CodegenJobGenericDataSourceType];
+
+/**
+ * @public
+ * <p>Describes the enums in a generic data schema.</p>
+ */
+export interface CodegenGenericDataEnum {
+  /**
+   * <p>The list of enum values in the generic data schema.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CodegenGenericDataFieldDataType = {
+  AWS_DATE: "AWSDate",
+  AWS_DATE_TIME: "AWSDateTime",
+  AWS_EMAIL: "AWSEmail",
+  AWS_IP_ADDRESS: "AWSIPAddress",
+  AWS_JSON: "AWSJSON",
+  AWS_PHONE: "AWSPhone",
+  AWS_TIME: "AWSTime",
+  AWS_TIMESTAMP: "AWSTimestamp",
+  AWS_URL: "AWSURL",
+  BOOLEAN: "Boolean",
+  ENUM: "Enum",
+  FLOAT: "Float",
+  ID: "ID",
+  INT: "Int",
+  MODEL: "Model",
+  NON_MODEL: "NonModel",
+  STRING: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type CodegenGenericDataFieldDataType =
+  (typeof CodegenGenericDataFieldDataType)[keyof typeof CodegenGenericDataFieldDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GenericDataRelationshipType = {
+  BELONGS_TO: "BELONGS_TO",
+  HAS_MANY: "HAS_MANY",
+  HAS_ONE: "HAS_ONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GenericDataRelationshipType =
+  (typeof GenericDataRelationshipType)[keyof typeof GenericDataRelationshipType];
+
+/**
+ * @public
+ * <p>Describes the relationship between generic data models.</p>
+ */
+export interface CodegenGenericDataRelationshipType {
+  /**
+   * <p>The data relationship type.</p>
+   */
+  type: GenericDataRelationshipType | string | undefined;
+
+  /**
+   * <p>The name of the related model in the data relationship.</p>
+   */
+  relatedModelName: string | undefined;
+
+  /**
+   * <p>The related model fields in the data relationship.</p>
+   */
+  relatedModelFields?: string[];
+
+  /**
+   * <p>Specifies whether the relationship can unlink the associated model.</p>
+   */
+  canUnlinkAssociatedModel?: boolean;
+
+  /**
+   * <p>The name of the related join field in the data relationship.</p>
+   */
+  relatedJoinFieldName?: string;
+
+  /**
+   * <p>The name of the related join table in the data relationship.</p>
+   */
+  relatedJoinTableName?: string;
+
+  /**
+   * <p>The value of the <code>belongsTo</code> field on the related data model. </p>
+   */
+  belongsToFieldOnRelatedModel?: string;
+
+  /**
+   * <p>The associated fields of the data relationship.</p>
+   */
+  associatedFields?: string[];
+
+  /**
+   * <p>Specifies whether the <code>@index</code> directive is supported for a <code>hasMany</code> data relationship.</p>
+   */
+  isHasManyIndex?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes a field in a generic data schema.</p>
+ */
+export interface CodegenGenericDataField {
+  /**
+   * <p>The data type for the generic data field.</p>
+   */
+  dataType: CodegenGenericDataFieldDataType | string | undefined;
+
+  /**
+   * <p>The value of the data type for the generic data field.</p>
+   */
+  dataTypeValue: string | undefined;
+
+  /**
+   * <p>Specifies whether the generic data field is required.</p>
+   */
+  required: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the generic data field is read-only.</p>
+   */
+  readOnly: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the generic data field is an array.</p>
+   */
+  isArray: boolean | undefined;
+
+  /**
+   * <p>The relationship of the generic data schema.</p>
+   */
+  relationship?: CodegenGenericDataRelationshipType;
+}
+
+/**
+ * @public
+ * <p>Describes a model in a generic data schema.</p>
+ */
+export interface CodegenGenericDataModel {
+  /**
+   * <p>The fields in the generic data model.</p>
+   */
+  fields: Record<string, CodegenGenericDataField> | undefined;
+
+  /**
+   * <p>Specifies whether the generic data model is a join table.</p>
+   */
+  isJoinTable?: boolean;
+
+  /**
+   * <p>The primary keys of the generic data model.</p>
+   */
+  primaryKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes a non-model in a generic data schema.</p>
+ */
+export interface CodegenGenericDataNonModel {
+  /**
+   * <p>The fields in a generic data schema non model.</p>
+   */
+  fields: Record<string, CodegenGenericDataField> | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes the data schema for a code generation job.</p>
+ */
+export interface CodegenJobGenericDataSchema {
+  /**
+   * <p>The type of the data source for the schema. Currently, the only valid value is an Amplify <code>DataStore</code>.</p>
+   */
+  dataSourceType: CodegenJobGenericDataSourceType | string | undefined;
+
+  /**
+   * <p>The name of a <code>CodegenGenericDataModel</code>.</p>
+   */
+  models: Record<string, CodegenGenericDataModel> | undefined;
+
+  /**
+   * <p>The name of a <code>CodegenGenericDataEnum</code>.</p>
+   */
+  enums: Record<string, CodegenGenericDataEnum> | undefined;
+
+  /**
+   * <p>The name of a <code>CodegenGenericDataNonModel</code>.</p>
+   */
+  nonModels: Record<string, CodegenGenericDataNonModel> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JSModule = {
+  ES2020: "es2020",
+  ESNEXT: "esnext",
+} as const;
+
+/**
+ * @public
+ */
+export type JSModule = (typeof JSModule)[keyof typeof JSModule];
+
+/**
+ * @public
+ * @enum
+ */
+export const JSScript = {
+  JS: "js",
+  JSX: "jsx",
+  TSX: "tsx",
+} as const;
+
+/**
+ * @public
+ */
+export type JSScript = (typeof JSScript)[keyof typeof JSScript];
+
+/**
+ * @public
+ * @enum
+ */
+export const JSTarget = {
+  ES2015: "es2015",
+  ES2020: "es2020",
+} as const;
+
+/**
+ * @public
+ */
+export type JSTarget = (typeof JSTarget)[keyof typeof JSTarget];
+
+/**
+ * @public
+ * <p>Describes the code generation job configuration for a React project.</p>
+ */
+export interface ReactStartCodegenJobData {
+  /**
+   * <p>The JavaScript module type.</p>
+   */
+  module?: JSModule | string;
+
+  /**
+   * <p>The ECMAScript specification to use.</p>
+   */
+  target?: JSTarget | string;
+
+  /**
+   * <p>The file type to use for a JavaScript project.</p>
+   */
+  script?: JSScript | string;
+
+  /**
+   * <p>Specifies whether the code generation job should render type declaration files.</p>
+   */
+  renderTypeDeclarations?: boolean;
+
+  /**
+   * <p>Specifies whether the code generation job should render inline source maps.</p>
+   */
+  inlineSourceMap?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes the configuration information for rendering the UI component associated the code generation job.</p>
+ */
+export type CodegenJobRenderConfig = CodegenJobRenderConfig.ReactMember | CodegenJobRenderConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CodegenJobRenderConfig {
+  /**
+   * <p>The name of the <code>ReactStartCodegenJobData</code> object.</p>
+   */
+  export interface ReactMember {
+    react: ReactStartCodegenJobData;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    react?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    react: (value: ReactStartCodegenJobData) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CodegenJobRenderConfig, visitor: Visitor<T>): T => {
+    if (value.react !== undefined) return visitor.react(value.react);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CodegenJobStatus = {
+  FAILED: "failed",
+  IN_PROGRESS: "in_progress",
+  SUCCEEDED: "succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type CodegenJobStatus = (typeof CodegenJobStatus)[keyof typeof CodegenJobStatus];
+
+/**
+ * @public
+ * <p>Describes the configuration for a code generation job that is associated with an Amplify app.</p>
+ */
+export interface CodegenJob {
+  /**
+   * <p>The unique ID for the code generation job.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ID of the Amplify app associated with the code generation job.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment associated with the code generation job.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>Describes the configuration information for rendering the UI component associated the code generation job.</p>
+   */
+  renderConfig?: CodegenJobRenderConfig;
+
+  /**
+   * <p>Describes the data schema for a code generation job.</p>
+   */
+  genericDataSchema?: CodegenJobGenericDataSchema;
+
+  /**
+   * <p>Specifies whether to autogenerate forms in the code generation job.</p>
+   */
+  autoGenerateForms?: boolean;
+
+  /**
+   * <p>Describes the feature flags that you can specify for a code generation job.</p>
+   */
+  features?: CodegenFeatureFlags;
+
+  /**
+   * <p>The status of the code generation job.</p>
+   */
+  status?: CodegenJobStatus | string;
+
+  /**
+   * <p>The customized status message for the code generation job.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The <code>CodegenJobAsset</code> to use for the code generation job.</p>
+   */
+  asset?: CodegenJobAsset;
+
+  /**
+   * <p>One or more key-value pairs to use when tagging the code generation job.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The time that the code generation job was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The time that the code generation job was modified.</p>
+   */
+  modifiedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetCodegenJobResponse {
+  /**
+   * <p>The configuration settings for the code generation job.</p>
+   */
+  job?: CodegenJob;
 }
 
 /**
@@ -114,6 +541,223 @@ export class InvalidParameterException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidParameterException.prototype);
   }
+}
+
+/**
+ * @public
+ * <p>The requested resource does not exist, or access was denied.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListCodegenJobsRequest {
+  /**
+   * <p>The unique ID for the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to retrieve.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the basic information about the code generation job.</p>
+ */
+export interface CodegenJobSummary {
+  /**
+   * <p>The unique ID of the Amplify app associated with the code generation job.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment associated with the code generation job.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID for the code generation job summary.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The time that the code generation job summary was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The time that the code generation job summary was modified.</p>
+   */
+  modifiedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListCodegenJobsResponse {
+  /**
+   * <p>The list of code generation jobs for the Amplify app.</p>
+   */
+  entities: CodegenJobSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The code generation job resource configuration.</p>
+ */
+export interface StartCodegenJobData {
+  /**
+   * <p>The code generation configuration for the codegen job.</p>
+   */
+  renderConfig: CodegenJobRenderConfig | undefined;
+
+  /**
+   * <p>The data schema to use for a code generation job.</p>
+   */
+  genericDataSchema?: CodegenJobGenericDataSchema;
+
+  /**
+   * <p>Specifies whether to autogenerate forms in the code generation job.</p>
+   */
+  autoGenerateForms?: boolean;
+
+  /**
+   * <p>The feature flags for a code generation job.</p>
+   */
+  features?: CodegenFeatureFlags;
+
+  /**
+   * <p>One or more key-value pairs to use when tagging the code generation job data.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface StartCodegenJobRequest {
+  /**
+   * <p>The unique ID for the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The idempotency token used to ensure that the code generation job request completes only once.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The code generation job resource configuration.</p>
+   */
+  codegenJobToCreate: StartCodegenJobData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCodegenJobResponse {
+  /**
+   * <p>The code generation job for a UI component that is associated with an Amplify app.</p>
+   */
+  entity?: CodegenJob;
+}
+
+/**
+ * @public
+ */
+export type SortDirection = "ASC" | "DESC";
+
+/**
+ * @public
+ * <p>Describes how to sort the data that you bind to a component.</p>
+ */
+export interface SortProperty {
+  /**
+   * <p>The field to perform the sort on.</p>
+   */
+  field: string | undefined;
+
+  /**
+   * <p>The direction of the sort, either ascending or descending.</p>
+   */
+  direction: SortDirection | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes the style configuration of a unique variation of a main component.</p>
+ */
+export interface ComponentVariant {
+  /**
+   * <p>The combination of variants that comprise this variant. You can't specify
+   *         <code>tags</code> as a valid property for <code>variantValues</code>.</p>
+   */
+  variantValues?: Record<string, string>;
+
+  /**
+   * <p>The properties of the component variant that can be overriden when customizing an instance
+   *       of the component. You can't specify <code>tags</code> as a valid property for
+   *         <code>overrides</code>.</p>
+   */
+  overrides?: Record<string, Record<string, string>>;
 }
 
 /**
@@ -177,26 +821,6 @@ export interface DeleteComponentRequest {
    * <p>The unique ID of the component to delete.</p>
    */
   id: string | undefined;
-}
-
-/**
- * @public
- * <p>The requested resource does not exist, or access was denied.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
