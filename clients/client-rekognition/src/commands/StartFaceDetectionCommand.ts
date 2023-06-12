@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { StartFaceDetectionRequest, StartFaceDetectionResponse } from "../models/models_0";
+import { StartFaceDetectionRequest, StartFaceDetectionResponse } from "../models/models_1";
 import { de_StartFaceDetectionCommand, se_StartFaceDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 

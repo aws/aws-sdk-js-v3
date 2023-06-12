@@ -25,3 +25,4 @@ export * from "./ListDatasetLabelsPaginator";
 export * from "./ListFacesPaginator";
 export * from "./ListProjectPoliciesPaginator";
 export * from "./ListStreamProcessorsPaginator";
+export * from "./ListUsersPaginator";

@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AssociateFacesCommand,
+  AssociateFacesCommandInput,
+  AssociateFacesCommandOutput,
+} from "./commands/AssociateFacesCommand";
+import {
   CompareFacesCommand,
   CompareFacesCommandInput,
   CompareFacesCommandOutput,
@@ -42,6 +47,7 @@ import {
   CreateStreamProcessorCommandInput,
   CreateStreamProcessorCommandOutput,
 } from "./commands/CreateStreamProcessorCommand";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   DeleteCollectionCommand,
   DeleteCollectionCommandInput,
@@ -73,6 +79,7 @@ import {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeCollectionCommand,
   DescribeCollectionCommandInput,
@@ -120,6 +127,11 @@ import {
   DetectProtectiveEquipmentCommandOutput,
 } from "./commands/DetectProtectiveEquipmentCommand";
 import { DetectTextCommand, DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
+import {
+  DisassociateFacesCommand,
+  DisassociateFacesCommandInput,
+  DisassociateFacesCommandOutput,
+} from "./commands/DisassociateFacesCommand";
 import {
   DistributeDatasetEntriesCommand,
   DistributeDatasetEntriesCommandInput,
@@ -207,6 +219,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   PutProjectPolicyCommand,
   PutProjectPolicyCommandInput,
@@ -223,6 +236,12 @@ import {
   SearchFacesByImageCommandOutput,
 } from "./commands/SearchFacesByImageCommand";
 import { SearchFacesCommand, SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
+import {
+  SearchUsersByImageCommand,
+  SearchUsersByImageCommandInput,
+  SearchUsersByImageCommandOutput,
+} from "./commands/SearchUsersByImageCommand";
+import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import {
   StartCelebrityRecognitionCommand,
   StartCelebrityRecognitionCommandInput,
@@ -302,6 +321,7 @@ import {
 import { RekognitionClient, RekognitionClientConfig } from "./RekognitionClient";
 
 const commands = {
+  AssociateFacesCommand,
   CompareFacesCommand,
   CopyProjectVersionCommand,
   CreateCollectionCommand,
@@ -310,6 +330,7 @@ const commands = {
   CreateProjectCommand,
   CreateProjectVersionCommand,
   CreateStreamProcessorCommand,
+  CreateUserCommand,
   DeleteCollectionCommand,
   DeleteDatasetCommand,
   DeleteFacesCommand,
@@ -317,6 +338,7 @@ const commands = {
   DeleteProjectPolicyCommand,
   DeleteProjectVersionCommand,
   DeleteStreamProcessorCommand,
+  DeleteUserCommand,
   DescribeCollectionCommand,
   DescribeDatasetCommand,
   DescribeProjectsCommand,
@@ -328,6 +350,7 @@ const commands = {
   DetectModerationLabelsCommand,
   DetectProtectiveEquipmentCommand,
   DetectTextCommand,
+  DisassociateFacesCommand,
   DistributeDatasetEntriesCommand,
   GetCelebrityInfoCommand,
   GetCelebrityRecognitionCommand,
@@ -347,10 +370,13 @@ const commands = {
   ListProjectPoliciesCommand,
   ListStreamProcessorsCommand,
   ListTagsForResourceCommand,
+  ListUsersCommand,
   PutProjectPolicyCommand,
   RecognizeCelebritiesCommand,
   SearchFacesCommand,
   SearchFacesByImageCommand,
+  SearchUsersCommand,
+  SearchUsersByImageCommand,
   StartCelebrityRecognitionCommand,
   StartContentModerationCommand,
   StartFaceDetectionCommand,
@@ -370,6 +396,20 @@ const commands = {
 };
 
 export interface Rekognition {
+  /**
+   * @see {@link AssociateFacesCommand}
+   */
+  associateFaces(
+    args: AssociateFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateFacesCommandOutput>;
+  associateFaces(args: AssociateFacesCommandInput, cb: (err: any, data?: AssociateFacesCommandOutput) => void): void;
+  associateFaces(
+    args: AssociateFacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateFacesCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CompareFacesCommand}
    */
@@ -489,6 +529,17 @@ export interface Rekognition {
   ): void;
 
   /**
+   * @see {@link CreateUserCommand}
+   */
+  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCollectionCommand}
    */
   deleteCollection(
@@ -587,6 +638,17 @@ export interface Rekognition {
     args: DeleteStreamProcessorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteStreamProcessorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteUserCommand}
+   */
+  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
   /**
@@ -753,6 +815,23 @@ export interface Rekognition {
     args: DetectTextCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectTextCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateFacesCommand}
+   */
+  disassociateFaces(
+    args: DisassociateFacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFacesCommandOutput>;
+  disassociateFaces(
+    args: DisassociateFacesCommandInput,
+    cb: (err: any, data?: DisassociateFacesCommandOutput) => void
+  ): void;
+  disassociateFaces(
+    args: DisassociateFacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFacesCommandOutput) => void
   ): void;
 
   /**
@@ -1058,6 +1137,17 @@ export interface Rekognition {
   ): void;
 
   /**
+   * @see {@link ListUsersCommand}
+   */
+  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutProjectPolicyCommand}
    */
   putProjectPolicy(
@@ -1117,6 +1207,34 @@ export interface Rekognition {
     args: SearchFacesByImageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchFacesByImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchUsersCommand}
+   */
+  searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
+  searchUsers(args: SearchUsersCommandInput, cb: (err: any, data?: SearchUsersCommandOutput) => void): void;
+  searchUsers(
+    args: SearchUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchUsersByImageCommand}
+   */
+  searchUsersByImage(
+    args: SearchUsersByImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchUsersByImageCommandOutput>;
+  searchUsersByImage(
+    args: SearchUsersByImageCommandInput,
+    cb: (err: any, data?: SearchUsersByImageCommandOutput) => void
+  ): void;
+  searchUsersByImage(
+    args: SearchUsersByImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchUsersByImageCommandOutput) => void
   ): void;
 
   /**
@@ -1389,6 +1507,11 @@ export interface Rekognition {
  *          <ul>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html">AssociateFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html">CompareFaces</a>
  *                </p>
  *             </li>
@@ -1399,12 +1522,22 @@ export interface Rekognition {
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html">CreateUser</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html">DeleteCollection</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html">DeleteFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html">DeleteUser</a>
  *                </p>
  *             </li>
  *             <li>
@@ -1439,6 +1572,11 @@ export interface Rekognition {
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html">DisassociateFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html">GetCelebrityInfo</a>
  *                </p>
  *             </li>
@@ -1459,6 +1597,11 @@ export interface Rekognition {
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html">ListUsers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html">RecognizeCelebrities</a>
  *                </p>
  *             </li>
@@ -1470,6 +1613,16 @@ export interface Rekognition {
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html">SearchFacesByImage</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html">SearchUsers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html">SearchUsersByImage</a>
  *                </p>
  *             </li>
  *          </ul>

@@ -52,6 +52,10 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  *   CollectionId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   UserId: "STRING_VALUE",
+ *   FaceIds: [ // FaceIdList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new ListFacesCommand(input);
  * const response = await client.send(command);
@@ -69,6 +73,7 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * //       ExternalImageId: "STRING_VALUE",
  * //       Confidence: Number("float"),
  * //       IndexFacesModelVersion: "STRING_VALUE",
+ * //       UserId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

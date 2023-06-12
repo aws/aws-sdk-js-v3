@@ -51,6 +51,7 @@ import {
   StreamCollector as __StreamCollector,
 } from "@smithy/types";
 
+import { AssociateFacesCommandInput, AssociateFacesCommandOutput } from "./commands/AssociateFacesCommand";
 import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand";
 import { CopyProjectVersionCommandInput, CopyProjectVersionCommandOutput } from "./commands/CopyProjectVersionCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
@@ -68,6 +69,7 @@ import {
   CreateStreamProcessorCommandInput,
   CreateStreamProcessorCommandOutput,
 } from "./commands/CreateStreamProcessorCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
@@ -84,6 +86,7 @@ import {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import { DescribeCollectionCommandInput, DescribeCollectionCommandOutput } from "./commands/DescribeCollectionCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import { DescribeProjectsCommandInput, DescribeProjectsCommandOutput } from "./commands/DescribeProjectsCommand";
@@ -107,6 +110,7 @@ import {
   DetectProtectiveEquipmentCommandOutput,
 } from "./commands/DetectProtectiveEquipmentCommand";
 import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
+import { DisassociateFacesCommandInput, DisassociateFacesCommandOutput } from "./commands/DisassociateFacesCommand";
 import {
   DistributeDatasetEntriesCommandInput,
   DistributeDatasetEntriesCommandOutput,
@@ -150,6 +154,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput } from "./commands/PutProjectPolicyCommand";
 import {
   RecognizeCelebritiesCommandInput,
@@ -157,6 +162,8 @@ import {
 } from "./commands/RecognizeCelebritiesCommand";
 import { SearchFacesByImageCommandInput, SearchFacesByImageCommandOutput } from "./commands/SearchFacesByImageCommand";
 import { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
+import { SearchUsersByImageCommandInput, SearchUsersByImageCommandOutput } from "./commands/SearchUsersByImageCommand";
+import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import {
   StartCelebrityRecognitionCommandInput,
   StartCelebrityRecognitionCommandOutput,
@@ -217,6 +224,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateFacesCommandInput
   | CompareFacesCommandInput
   | CopyProjectVersionCommandInput
   | CreateCollectionCommandInput
@@ -225,6 +233,7 @@ export type ServiceInputTypes =
   | CreateProjectCommandInput
   | CreateProjectVersionCommandInput
   | CreateStreamProcessorCommandInput
+  | CreateUserCommandInput
   | DeleteCollectionCommandInput
   | DeleteDatasetCommandInput
   | DeleteFacesCommandInput
@@ -232,6 +241,7 @@ export type ServiceInputTypes =
   | DeleteProjectPolicyCommandInput
   | DeleteProjectVersionCommandInput
   | DeleteStreamProcessorCommandInput
+  | DeleteUserCommandInput
   | DescribeCollectionCommandInput
   | DescribeDatasetCommandInput
   | DescribeProjectVersionsCommandInput
@@ -243,6 +253,7 @@ export type ServiceInputTypes =
   | DetectModerationLabelsCommandInput
   | DetectProtectiveEquipmentCommandInput
   | DetectTextCommandInput
+  | DisassociateFacesCommandInput
   | DistributeDatasetEntriesCommandInput
   | GetCelebrityInfoCommandInput
   | GetCelebrityRecognitionCommandInput
@@ -262,10 +273,13 @@ export type ServiceInputTypes =
   | ListProjectPoliciesCommandInput
   | ListStreamProcessorsCommandInput
   | ListTagsForResourceCommandInput
+  | ListUsersCommandInput
   | PutProjectPolicyCommandInput
   | RecognizeCelebritiesCommandInput
   | SearchFacesByImageCommandInput
   | SearchFacesCommandInput
+  | SearchUsersByImageCommandInput
+  | SearchUsersCommandInput
   | StartCelebrityRecognitionCommandInput
   | StartContentModerationCommandInput
   | StartFaceDetectionCommandInput
@@ -287,6 +301,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateFacesCommandOutput
   | CompareFacesCommandOutput
   | CopyProjectVersionCommandOutput
   | CreateCollectionCommandOutput
@@ -295,6 +310,7 @@ export type ServiceOutputTypes =
   | CreateProjectCommandOutput
   | CreateProjectVersionCommandOutput
   | CreateStreamProcessorCommandOutput
+  | CreateUserCommandOutput
   | DeleteCollectionCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteFacesCommandOutput
@@ -302,6 +318,7 @@ export type ServiceOutputTypes =
   | DeleteProjectPolicyCommandOutput
   | DeleteProjectVersionCommandOutput
   | DeleteStreamProcessorCommandOutput
+  | DeleteUserCommandOutput
   | DescribeCollectionCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeProjectVersionsCommandOutput
@@ -313,6 +330,7 @@ export type ServiceOutputTypes =
   | DetectModerationLabelsCommandOutput
   | DetectProtectiveEquipmentCommandOutput
   | DetectTextCommandOutput
+  | DisassociateFacesCommandOutput
   | DistributeDatasetEntriesCommandOutput
   | GetCelebrityInfoCommandOutput
   | GetCelebrityRecognitionCommandOutput
@@ -332,10 +350,13 @@ export type ServiceOutputTypes =
   | ListProjectPoliciesCommandOutput
   | ListStreamProcessorsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListUsersCommandOutput
   | PutProjectPolicyCommandOutput
   | RecognizeCelebritiesCommandOutput
   | SearchFacesByImageCommandOutput
   | SearchFacesCommandOutput
+  | SearchUsersByImageCommandOutput
+  | SearchUsersCommandOutput
   | StartCelebrityRecognitionCommandOutput
   | StartContentModerationCommandOutput
   | StartFaceDetectionCommandOutput
@@ -527,6 +548,11 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *          <ul>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html">AssociateFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html">CompareFaces</a>
  *                </p>
  *             </li>
@@ -537,12 +563,22 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html">CreateUser</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html">DeleteCollection</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html">DeleteFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html">DeleteUser</a>
  *                </p>
  *             </li>
  *             <li>
@@ -577,6 +613,11 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html">DisassociateFaces</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html">GetCelebrityInfo</a>
  *                </p>
  *             </li>
@@ -597,6 +638,11 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html">ListUsers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html">RecognizeCelebrities</a>
  *                </p>
  *             </li>
@@ -608,6 +654,16 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html">SearchFacesByImage</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html">SearchUsers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html">SearchUsersByImage</a>
  *                </p>
  *             </li>
  *          </ul>

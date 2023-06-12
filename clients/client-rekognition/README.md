@@ -16,6 +16,11 @@ parameters, and common errors.</p>
 <ul>
 <li>
 <p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html">AssociateFaces</a>
+</p>
+</li>
+<li>
+<p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html">CompareFaces</a>
 </p>
 </li>
@@ -26,12 +31,22 @@ parameters, and common errors.</p>
 </li>
 <li>
 <p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html">CreateUser</a>
+</p>
+</li>
+<li>
+<p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html">DeleteCollection</a>
 </p>
 </li>
 <li>
 <p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html">DeleteFaces</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html">DeleteUser</a>
 </p>
 </li>
 <li>
@@ -66,6 +81,11 @@ parameters, and common errors.</p>
 </li>
 <li>
 <p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html">DisassociateFaces</a>
+</p>
+</li>
+<li>
+<p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html">GetCelebrityInfo</a>
 </p>
 </li>
@@ -86,6 +106,11 @@ parameters, and common errors.</p>
 </li>
 <li>
 <p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html">ListUsers</a>
+</p>
+</li>
+<li>
+<p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html">RecognizeCelebrities</a>
 </p>
 </li>
@@ -97,6 +122,16 @@ parameters, and common errors.</p>
 <li>
 <p>
 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html">SearchFacesByImage</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html">SearchUsers</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html">SearchUsersByImage</a>
 </p>
 </li>
 </ul>
@@ -346,16 +381,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RekognitionClient` and
-the commands you need, for example `CompareFacesCommand`:
+the commands you need, for example `AssociateFacesCommand`:
 
 ```js
 // ES5 example
-const { RekognitionClient, CompareFacesCommand } = require("@aws-sdk/client-rekognition");
+const { RekognitionClient, AssociateFacesCommand } = require("@aws-sdk/client-rekognition");
 ```
 
 ```ts
 // ES6+ example
-import { RekognitionClient, CompareFacesCommand } from "@aws-sdk/client-rekognition";
+import { RekognitionClient, AssociateFacesCommand } from "@aws-sdk/client-rekognition";
 ```
 
 ### Usage
@@ -374,7 +409,7 @@ const client = new RekognitionClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CompareFacesCommand(params);
+const command = new AssociateFacesCommand(params);
 ```
 
 #### Async/await
@@ -453,7 +488,7 @@ const client = new AWS.Rekognition({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.compareFaces(params);
+  const data = await client.associateFaces(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -461,7 +496,7 @@ try {
 
 // Promises.
 client
-  .compareFaces(params)
+  .associateFaces(params)
   .then((data) => {
     // process data.
   })
@@ -470,7 +505,7 @@ client
   });
 
 // callbacks.
-client.compareFaces(params, (err, data) => {
+client.associateFaces(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -526,6 +561,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+AssociateFaces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/associatefacescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/associatefacescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/associatefacescommandoutput.html)
+
+</details>
 <details>
 <summary>
 CompareFaces
@@ -592,6 +635,14 @@ CreateStreamProcessor
 </details>
 <details>
 <summary>
+CreateUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/createusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/createusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/createusercommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteCollection
 </summary>
 
@@ -644,6 +695,14 @@ DeleteStreamProcessor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/deletestreamprocessorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/deletestreamprocessorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/deletestreamprocessorcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/deleteusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/deleteusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/deleteusercommandoutput.html)
 
 </details>
 <details>
@@ -732,6 +791,14 @@ DetectText
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/detecttextcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/detecttextcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/detecttextcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DisassociateFaces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/disassociatefacescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/disassociatefacescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/disassociatefacescommandoutput.html)
 
 </details>
 <details>
@@ -888,6 +955,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListUsers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/listuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/listuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/listuserscommandoutput.html)
+
+</details>
+<details>
+<summary>
 PutProjectPolicy
 </summary>
 
@@ -916,6 +991,22 @@ SearchFacesByImage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/searchfacesbyimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/searchfacesbyimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/searchfacesbyimagecommandoutput.html)
+
+</details>
+<details>
+<summary>
+SearchUsers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/searchuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/searchuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/searchuserscommandoutput.html)
+
+</details>
+<details>
+<summary>
+SearchUsersByImage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/searchusersbyimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/searchusersbyimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/searchusersbyimagecommandoutput.html)
 
 </details>
 <details>

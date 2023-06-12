@@ -58,6 +58,15 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * //   DeletedFaces: [ // FaceIdList
  * //     "STRING_VALUE",
  * //   ],
+ * //   UnsuccessfulFaceDeletions: [ // UnsuccessfulFaceDeletionsList
+ * //     { // UnsuccessfulFaceDeletion
+ * //       FaceId: "STRING_VALUE",
+ * //       UserId: "STRING_VALUE",
+ * //       Reasons: [ // UnsuccessfulFaceDeletionReasons
+ * //         "ASSOCIATED_TO_AN_EXISTING_USER" || "FACE_NOT_FOUND",
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

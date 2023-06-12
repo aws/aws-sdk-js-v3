@@ -13,7 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse } from "../models/models_0";
+import { StartCelebrityRecognitionRequest } from "../models/models_0";
+import { StartCelebrityRecognitionResponse } from "../models/models_1";
 import { de_StartCelebrityRecognitionCommand, se_StartCelebrityRecognitionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 

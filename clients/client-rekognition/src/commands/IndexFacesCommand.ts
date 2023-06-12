@@ -169,6 +169,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * //         ExternalImageId: "STRING_VALUE",
  * //         Confidence: Number("float"),
  * //         IndexFacesModelVersion: "STRING_VALUE",
+ * //         UserId: "STRING_VALUE",
  * //       },
  * //       FaceDetail: { // FaceDetail
  * //         BoundingBox: {

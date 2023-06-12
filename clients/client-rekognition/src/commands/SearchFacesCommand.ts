@@ -83,6 +83,7 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * //         ExternalImageId: "STRING_VALUE",
  * //         Confidence: Number("float"),
  * //         IndexFacesModelVersion: "STRING_VALUE",
+ * //         UserId: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

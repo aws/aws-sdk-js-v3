@@ -190,6 +190,7 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * //             ExternalImageId: "STRING_VALUE",
  * //             Confidence: Number("float"),
  * //             IndexFacesModelVersion: "STRING_VALUE",
+ * //             UserId: "STRING_VALUE",
  * //           },
  * //         },
  * //       ],

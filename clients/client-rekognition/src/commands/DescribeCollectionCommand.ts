@@ -57,6 +57,7 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * //   FaceModelVersion: "STRING_VALUE",
  * //   CollectionARN: "STRING_VALUE",
  * //   CreationTimestamp: new Date("TIMESTAMP"),
+ * //   UserCount: Number("long"),
  * // };
  *
  * ```
