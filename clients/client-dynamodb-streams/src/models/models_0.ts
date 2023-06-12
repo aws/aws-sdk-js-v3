@@ -63,11 +63,11 @@ export interface KeySchemaElement {
    * <p>The role that this key attribute will assume:</p>
    *          <ul>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>HASH</code> - partition key</p>
    *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>RANGE</code> - sort key</p>
    *             </li>
    *          </ul>
@@ -171,7 +171,7 @@ export interface StreamDescription {
    *       combination of the following three elements is guaranteed to be unique:</p>
    *          <ul>
    *             <li>
-   *                <p>the AWS customer ID.</p>
+   *                <p>the Amazon Web Services customer ID.</p>
    *             </li>
    *             <li>
    *                <p>the table name</p>
@@ -397,6 +397,9 @@ export interface Identity {
  *           of concurrent operations.</p>
  *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
+ *          <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p>
+ *          <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding
+ *           this limit may result in request throttling.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -567,7 +570,7 @@ export interface _Stream {
    *       combination of the following three elements is guaranteed to be unique:</p>
    *          <ul>
    *             <li>
-   *                <p>the AWS customer ID.</p>
+   *                <p>the Amazon Web Services customer ID.</p>
    *             </li>
    *             <li>
    *                <p>the table name</p>
@@ -877,7 +880,7 @@ export namespace AttributeValue {
  */
 export interface StreamRecord {
   /**
-   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format and rounded down to the closest second.</p>
    */
   ApproximateCreationDateTime?: Date;
 
@@ -968,7 +971,7 @@ export interface _Record {
   eventVersion?: string;
 
   /**
-   * <p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
+   * <p>The Amazon Web Services service from which the stream record originated. For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
    */
   eventSource?: string;
 
