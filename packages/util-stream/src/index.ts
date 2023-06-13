@@ -1,8 +1,3 @@
-/**
- * @internal
- */
+export * from "./blob/Uint8ArrayBlobAdapter";
 export * from "./getAwsChunkedEncodingStream";
-/**
- * @internal
- */
 export * from "./sdk-stream-mixin";

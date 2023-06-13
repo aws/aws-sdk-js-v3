@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -10,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -31,13 +33,19 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link InvokeCommand}.
  */
-export interface InvokeCommandInput extends InvocationRequest {}
+export type InvokeCommandInputType = Omit<InvocationRequest, "Payload"> & {
+  Payload?: BlobTypes;
+};
+export interface InvokeCommandInput extends InvokeCommandInputType {}
 /**
  * @public
  *
  * The output of {@link InvokeCommand}.
  */
-export interface InvokeCommandOutput extends InvocationResponse, __MetadataBearer {}
+export type InvokeCommandOutputType = Omit<InvocationResponse, "Payload"> & {
+  Payload?: Uint8ArrayBlobAdapter;
+};
+export interface InvokeCommandOutput extends InvokeCommandOutputType, __MetadataBearer {}
 
 /**
  * @public
