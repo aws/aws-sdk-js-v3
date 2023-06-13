@@ -341,6 +341,7 @@ export interface AccessControlTranslation {
 export const ServerSideEncryption = {
   AES256: "AES256",
   aws_kms: "aws:kms",
+  aws_kms_dsse: "aws:kms:dsse",
 } as const;
 
 /**

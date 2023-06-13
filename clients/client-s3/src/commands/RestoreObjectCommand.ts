@@ -352,7 +352,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *         BucketName: "STRING_VALUE", // required
  *         Prefix: "STRING_VALUE", // required
  *         Encryption: { // Encryption
- *           EncryptionType: "AES256" || "aws:kms", // required
+ *           EncryptionType: "AES256" || "aws:kms" || "aws:kms:dsse", // required
  *           KMSKeyId: "STRING_VALUE",
  *           KMSContext: "STRING_VALUE",
  *         },

@@ -266,7 +266,7 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * //   ContentType: "STRING_VALUE",
  * //   Expires: new Date("TIMESTAMP"),
  * //   WebsiteRedirectLocation: "STRING_VALUE",
- * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  * //   Metadata: { // Metadata
  * //     "<keys>": "STRING_VALUE",
  * //   },

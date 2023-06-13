@@ -85,7 +85,7 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *     Rules: [ // ServerSideEncryptionRules // required
  *       { // ServerSideEncryptionRule
  *         ApplyServerSideEncryptionByDefault: { // ServerSideEncryptionByDefault
- *           SSEAlgorithm: "AES256" || "aws:kms", // required
+ *           SSEAlgorithm: "AES256" || "aws:kms" || "aws:kms:dsse", // required
  *           KMSMasterKeyID: "STRING_VALUE",
  *         },
  *         BucketKeyEnabled: true || false,

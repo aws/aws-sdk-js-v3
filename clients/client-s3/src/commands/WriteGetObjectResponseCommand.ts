@@ -120,7 +120,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA",
  *   RequestCharged: "requester",
  *   Restore: "STRING_VALUE",
- *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSEKMSKeyId: "STRING_VALUE",
  *   SSECustomerKeyMD5: "STRING_VALUE",

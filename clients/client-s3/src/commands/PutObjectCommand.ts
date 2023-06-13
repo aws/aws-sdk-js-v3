@@ -174,7 +174,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *   Metadata: { // Metadata
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
  *   WebsiteRedirectLocation: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
@@ -199,7 +199,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * //   ChecksumCRC32C: "STRING_VALUE",
  * //   ChecksumSHA1: "STRING_VALUE",
  * //   ChecksumSHA256: "STRING_VALUE",
- * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  * //   VersionId: "STRING_VALUE",
  * //   SSECustomerAlgorithm: "STRING_VALUE",
  * //   SSECustomerKeyMD5: "STRING_VALUE",

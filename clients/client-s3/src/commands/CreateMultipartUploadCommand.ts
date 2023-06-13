@@ -358,7 +358,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *   Metadata: { // Metadata
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
  *   WebsiteRedirectLocation: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
@@ -383,7 +383,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * //   Bucket: "STRING_VALUE",
  * //   Key: "STRING_VALUE",
  * //   UploadId: "STRING_VALUE",
- * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  * //   SSECustomerAlgorithm: "STRING_VALUE",
  * //   SSECustomerKeyMD5: "STRING_VALUE",
  * //   SSEKMSKeyId: "STRING_VALUE",
