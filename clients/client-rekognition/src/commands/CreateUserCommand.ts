@@ -104,6 +104,18 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example CreateUser
+ * ```javascript
+ * // Creates a new User within a collection specified by CollectionId.
+ * const input = {
+ *   "CollectionId": "MyCollection",
+ *   "UserId": "DemoUser"
+ * };
+ * const command = new CreateUserCommand(input);
+ * await client.send(command);
+ * // example id: createuser-1686181562299
+ * ```
+ *
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,
