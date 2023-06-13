@@ -1,8 +1,344 @@
 // smithy-typescript generated code
-import { ByoipCidr, IpPermission, NatGatewayAddress, TagSpecification } from "./models_0";
-import { ClientVpnConnectionStatus } from "./models_3";
+import {
+  ByoipCidr,
+  IpPermission,
+  NatGatewayAddress,
+  TagSpecification,
+  TransitGatewayAttachmentResourceType,
+} from "./models_0";
+import { LocalGatewayRoute } from "./models_1";
+import { TransitGatewayRoute } from "./models_2";
+import { ClientVpnConnectionStatus, Filter } from "./models_3";
 import { InstanceState, NetworkInsightsAccessScopeAnalysis, NetworkInsightsAnalysis } from "./models_4";
 import { InstanceMonitoring } from "./models_6";
+
+/**
+ * @public
+ */
+export interface SearchLocalGatewayRoutesRequest {
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter.
+   *                For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code>
+   *                as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The route type.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface SearchLocalGatewayRoutesResult {
+  /**
+   * <p>Information about the routes.</p>
+   */
+  Routes?: LocalGatewayRoute[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchTransitGatewayMulticastGroupsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>group-ip-address</code> - The IP address of the  transit gateway multicast group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is-group-member</code> - The resource is a group member. Valid values are <code>true</code> | <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is-group-source</code> - The resource is a group source. Valid values are <code>true</code> | <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>member-type</code> - The member type. Valid values are <code>igmp</code> | <code>static</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The type of resource. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-type</code> - The source type. Valid values are <code>igmp</code> | <code>static</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipType = {
+  igmp: "igmp",
+  static: "static",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipType = (typeof MembershipType)[keyof typeof MembershipType];
+
+/**
+ * @public
+ * <p>Describes the  transit gateway multicast group resources.</p>
+ */
+export interface TransitGatewayMulticastGroup {
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The type of resource, for example a VPC attachment.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
+
+  /**
+   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain group resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>Indicates that the resource is a  transit gateway multicast group member.</p>
+   */
+  GroupMember?: boolean;
+
+  /**
+   * <p>Indicates that the resource is a  transit gateway multicast group member.</p>
+   */
+  GroupSource?: boolean;
+
+  /**
+   * <p>The member type (for example, <code>static</code>).</p>
+   */
+  MemberType?: MembershipType | string;
+
+  /**
+   * <p>The source type.</p>
+   */
+  SourceType?: MembershipType | string;
+}
+
+/**
+ * @public
+ */
+export interface SearchTransitGatewayMulticastGroupsResult {
+  /**
+   * <p>Information about the  transit gateway multicast group.</p>
+   */
+  MulticastGroups?: TransitGatewayMulticastGroup[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchTransitGatewayRoutesRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-type</code> - The attachment resource type. Valid values
+   *                     are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> |
+   *                         <code>peering</code> | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The type of route (<code>propagated</code> |
+   *                   <code>static</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of routes to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface SearchTransitGatewayRoutesResult {
+  /**
+   * <p>Information about the routes.</p>
+   */
+  Routes?: TransitGatewayRoute[];
+
+  /**
+   * <p>Indicates whether there are additional routes available.</p>
+   */
+  AdditionalRoutesAvailable?: boolean;
+}
 
 /**
  * @public

@@ -19,7 +19,7 @@ import {
   ImportInstanceRequestFilterSensitiveLog,
   ImportInstanceResult,
   ImportInstanceResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { de_ImportInstanceCommand, se_ImportInstanceCommand } from "../protocols/Aws_ec2";
 
 /**

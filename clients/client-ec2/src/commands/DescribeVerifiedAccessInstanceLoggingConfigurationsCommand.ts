@@ -14,10 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
-} from "../models/models_4";
+import { DescribeVerifiedAccessInstanceLoggingConfigurationsRequest } from "../models/models_4";
+import { DescribeVerifiedAccessInstanceLoggingConfigurationsResult } from "../models/models_5";
 import {
   de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
   se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,

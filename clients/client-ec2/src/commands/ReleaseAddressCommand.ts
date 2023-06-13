@@ -37,23 +37,17 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Releases the specified Elastic IP address.</p>
- *          <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it
+ *          <p>[Default VPC] Releasing an Elastic IP address automatically disassociates it
  * 				from any instance that it's associated with. To disassociate an Elastic IP address without
  * 				releasing it, use <a>DisassociateAddress</a>.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
  *          <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address
  * 			  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>
  *          <p>After releasing an Elastic IP address, it is released to the IP address pool.
  *         Be sure to update your DNS records and any servers or devices that communicate with the address.
  *         If you attempt to release an Elastic IP address that you already released, you'll get an
  *        <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p>
- *          <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.
+ *          <p>After you release an Elastic IP address, you might be able to recover it.
  *         For more information, see <a>AllocateAddress</a>.</p>
- *          <p>For more
- *        information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
- *          Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

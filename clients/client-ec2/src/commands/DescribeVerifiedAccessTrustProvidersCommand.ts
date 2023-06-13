@@ -18,7 +18,7 @@ import {
   DescribeVerifiedAccessTrustProvidersRequest,
   DescribeVerifiedAccessTrustProvidersResult,
   DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeVerifiedAccessTrustProvidersCommand,
   se_DescribeVerifiedAccessTrustProvidersCommand,

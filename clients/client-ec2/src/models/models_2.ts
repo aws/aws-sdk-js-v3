@@ -33,6 +33,7 @@ import {
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  Ec2InstanceConnectEndpoint,
   GatewayType,
   Ipam,
   IpamPool,
@@ -44,12 +45,113 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  ReplaceRootVolumeTaskState,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreatePublicIpv4PoolRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+/**
+ * @public
+ */
+export interface CreatePublicIpv4PoolResult {
+  /**
+   * <p>The ID of the public IPv4 pool.</p>
+   */
+  PoolId?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateReplaceRootVolumeTaskRequest {
+  /**
+   * <p>The ID of the instance for which to replace the root volume.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot from which to restore the replacement root volume. The
+   *       specified snapshot must be a snapshot that you previously created from the original
+   *       root volume.</p>
+   *          <p>If you want to restore the replacement root volume to the initial launch state,
+   *       or if you want to restore the replacement root volume from an AMI, omit this
+   *       parameter.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+   *       If you do not specify a client token, a randomly generated token is used for the request
+   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply to the root volume replacement task.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the
+   *       same product code, billing information, architecture type, and virtualization type as
+   *       that of the instance.</p>
+   *          <p>If you want to restore the replacement volume from a specific snapshot, or if you want
+   *       to restore it to its launch state, omit this parameter.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>Indicates whether to automatically delete the original root volume after the root volume
+   *       replacement task completes. To delete the original root volume, specify <code>true</code>.
+   *       If you choose to keep the original root volume after the replacement task completes, you must
+   *       manually delete it when you no longer need it.</p>
+   */
+  DeleteReplacedRootVolume?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplaceRootVolumeTaskState = {
+  failed: "failed",
+  failed_detached: "failed-detached",
+  failing: "failing",
+  in_progress: "in-progress",
+  pending: "pending",
+  succeeded: "succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplaceRootVolumeTaskState = (typeof ReplaceRootVolumeTaskState)[keyof typeof ReplaceRootVolumeTaskState];
 
 /**
  * @public
@@ -6716,6 +6818,33 @@ export interface DeleteFpgaImageResult {
 /**
  * @public
  */
+export interface DeleteInstanceConnectEndpointRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the EC2 Instance Connect Endpoint to delete.</p>
+   */
+  InstanceConnectEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceConnectEndpointResult {
+  /**
+   * <p>Information about the EC2 Instance Connect Endpoint.</p>
+   */
+  InstanceConnectEndpoint?: Ec2InstanceConnectEndpoint;
+}
+
+/**
+ * @public
+ */
 export interface DeleteInstanceEventWindowRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7592,122 +7721,6 @@ export interface FailedQueuedPurchaseDeletion {
    * <p>The ID of the Reserved Instance.</p>
    */
   ReservedInstancesId?: string;
-}
-
-/**
- * @public
- * <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
- */
-export interface SuccessfulQueuedPurchaseDeletion {
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   */
-  ReservedInstancesId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteQueuedReservedInstancesResult {
-  /**
-   * <p>Information about the queued purchases that were successfully deleted.</p>
-   */
-  SuccessfulQueuedPurchaseDeletions?: SuccessfulQueuedPurchaseDeletion[];
-
-  /**
-   * <p>Information about the queued purchases that could not be deleted.</p>
-   */
-  FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[];
-}
-
-/**
- * @public
- */
-export interface DeleteRouteRequest {
-  /**
-   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
-   * <p>The ID of the prefix list for the route.</p>
-   */
-  DestinationPrefixListId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteTableRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecurityGroupRequest {
-  /**
-   * <p>The ID of the security group. Required for a nondefault VPC.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the
-   *             security group name or the security group ID. For security groups in a nondefault VPC,
-   *             you must specify the security group ID.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteSnapshotRequest {
-  /**
-   * <p>The ID of the EBS snapshot.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 /**

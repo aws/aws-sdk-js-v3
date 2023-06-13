@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteRouteTableRequest } from "../models/models_2";
+import { DeleteRouteTableRequest } from "../models/models_3";
 import { de_DeleteRouteTableCommand, se_DeleteRouteTableCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -14,8 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumeAttributeRequest } from "../models/models_4";
-import { DescribeVolumeAttributeResult } from "../models/models_5";
+import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_5";
 import { de_DescribeVolumeAttributeCommand, se_DescribeVolumeAttributeCommand } from "../protocols/Aws_ec2";
 
 /**

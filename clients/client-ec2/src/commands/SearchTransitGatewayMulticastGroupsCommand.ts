@@ -17,7 +17,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   SearchTransitGatewayMulticastGroupsRequest,
   SearchTransitGatewayMulticastGroupsResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_SearchTransitGatewayMulticastGroupsCommand,
   se_SearchTransitGatewayMulticastGroupsCommand,

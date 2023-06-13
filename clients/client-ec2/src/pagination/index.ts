@@ -38,6 +38,7 @@ export * from "./DescribeIamInstanceProfileAssociationsPaginator";
 export * from "./DescribeImagesPaginator";
 export * from "./DescribeImportImageTasksPaginator";
 export * from "./DescribeImportSnapshotTasksPaginator";
+export * from "./DescribeInstanceConnectEndpointsPaginator";
 export * from "./DescribeInstanceCreditSpecificationsPaginator";
 export * from "./DescribeInstanceEventWindowsPaginator";
 export * from "./DescribeInstanceStatusPaginator";

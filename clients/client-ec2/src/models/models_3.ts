@@ -52,6 +52,7 @@ import {
   DestinationFileFormat,
   DhcpOptions,
   DiskImageFormat,
+  Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ExportTask,
   FleetCapacityReservationUsageStrategy,
@@ -74,6 +75,7 @@ import {
   TransportProtocol,
 } from "./models_1";
 import {
+  FailedQueuedPurchaseDeletion,
   FleetStateCode,
   SubnetCidrReservation,
   TransitGateway,
@@ -88,6 +90,122 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
+ */
+export interface SuccessfulQueuedPurchaseDeletion {
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   */
+  ReservedInstancesId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQueuedReservedInstancesResult {
+  /**
+   * <p>Information about the queued purchases that were successfully deleted.</p>
+   */
+  SuccessfulQueuedPurchaseDeletions?: SuccessfulQueuedPurchaseDeletion[];
+
+  /**
+   * <p>Information about the queued purchases that could not be deleted.</p>
+   */
+  FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[];
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteRequest {
+  /**
+   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>The ID of the prefix list for the route.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteTableRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityGroupRequest {
+  /**
+   * <p>The ID of the security group. Required for a nondefault VPC.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the
+   *             security group name or the security group ID. For security groups in a nondefault VPC,
+   *             you must specify the security group ID.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapshotRequest {
+  /**
+   * <p>The ID of the EBS snapshot.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -1355,16 +1473,11 @@ export interface DescribeAddressesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p>
+   *                   <code>allocation-id</code> - The allocation ID for the address.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>association-id</code> - [EC2-VPC] The association ID for the address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>)
-   *               or in a VPC (<code>vpc</code>).</p>
+   *                   <code>association-id</code> - The association ID for the address.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1377,7 +1490,7 @@ export interface DescribeAddressesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p>
+   *                   <code>network-interface-id</code> - The ID of the network interface that the address is associated with, if any.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1385,7 +1498,7 @@ export interface DescribeAddressesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p>
+   *                   <code>private-ip-address</code> - The private IP address associated with the Elastic IP address.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1411,7 +1524,7 @@ export interface DescribeAddressesRequest {
   PublicIps?: string[];
 
   /**
-   * <p>[EC2-VPC] Information about the allocation IDs.</p>
+   * <p>Information about the allocation IDs.</p>
    */
   AllocationIds?: string[];
 
@@ -8108,6 +8221,91 @@ export interface InstanceAttribute {
 /**
  * @public
  */
+export interface DescribeInstanceConnectEndpointsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> |
+   *                     <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance
+   *                     Connect Endpoint was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources
+   *                     that have a tag with a specific value, regardless of tag key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect
+   *                     Endpoint was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>One or more EC2 Instance Connect Endpoint IDs.</p>
+   */
+  InstanceConnectEndpointIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceConnectEndpointsResult {
+  /**
+   * <p>Information about the EC2 Instance Connect Endpoints.</p>
+   */
+  InstanceConnectEndpoints?: Ec2InstanceConnectEndpoint[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeInstanceCreditSpecificationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8977,176 +9175,6 @@ export interface LicenseConfiguration {
    * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
    */
   LicenseConfigurationArn?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceAutoRecoveryState = {
-  default: "default",
-  disabled: "disabled",
-} as const;
-
-/**
- * @public
- */
-export type InstanceAutoRecoveryState = (typeof InstanceAutoRecoveryState)[keyof typeof InstanceAutoRecoveryState];
-
-/**
- * @public
- * <p>The maintenance options for the instance.</p>
- */
-export interface InstanceMaintenanceOptions {
-  /**
-   * <p>Provides information on the current automatic recovery behavior of your
-   *             instance.</p>
-   */
-  AutoRecovery?: InstanceAutoRecoveryState | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceMetadataEndpointState = {
-  disabled: "disabled",
-  enabled: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMetadataEndpointState =
-  (typeof InstanceMetadataEndpointState)[keyof typeof InstanceMetadataEndpointState];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMetadataProtocolState = {
-  disabled: "disabled",
-  enabled: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMetadataProtocolState =
-  (typeof InstanceMetadataProtocolState)[keyof typeof InstanceMetadataProtocolState];
-
-/**
- * @public
- * @enum
- */
-export const HttpTokensState = {
-  optional: "optional",
-  required: "required",
-} as const;
-
-/**
- * @public
- */
-export type HttpTokensState = (typeof HttpTokensState)[keyof typeof HttpTokensState];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMetadataTagsState = {
-  disabled: "disabled",
-  enabled: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMetadataTagsState = (typeof InstanceMetadataTagsState)[keyof typeof InstanceMetadataTagsState];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMetadataOptionsState = {
-  applied: "applied",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMetadataOptionsState =
-  (typeof InstanceMetadataOptionsState)[keyof typeof InstanceMetadataOptionsState];
-
-/**
- * @public
- * <p>The metadata options for the instance.</p>
- */
-export interface InstanceMetadataOptionsResponse {
-  /**
-   * <p>The state of the metadata option changes.</p>
-   *          <p>
-   *             <code>pending</code> - The metadata options are being updated and the instance is not
-   *             ready to process metadata traffic with the new selection.</p>
-   *          <p>
-   *             <code>applied</code> - The metadata options have been successfully applied on the
-   *             instance.</p>
-   */
-  State?: InstanceMetadataOptionsState | string;
-
-  /**
-   * <p>IMDSv2 uses token-backed sessions. Indicates whether the use of HTTP tokens is
-   *                 <code>optional</code> (in other words, indicates whether the use of IMDSv2 is
-   *                 <code>optional</code>) or <code>required</code> (in other words, indicates whether
-   *             the use of IMDSv2 is <code>required</code>).</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
-   *             a session token in your request. If you retrieve the IAM role credentials
-   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
-   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
-   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>optional</code>
-   *          </p>
-   */
-  HttpTokens?: HttpTokensState | string;
-
-  /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel.</p>
-   *          <p>Default: 1</p>
-   *          <p>Possible values: Integers from 1 to 64</p>
-   */
-  HttpPutResponseHopLimit?: number;
-
-  /**
-   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
-   *             disabled.</p>
-   *          <p>If the value is <code>disabled</code>, you cannot access your instance
-   *             metadata.</p>
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
-
-  /**
-   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
-   *             disabled.</p>
-   */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
-
-  /**
-   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
-   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
-   *                 instance tags using the instance metadata</a>.</p>
-   */
-  InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
 
 /**

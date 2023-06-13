@@ -14,10 +14,10 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVerifiedAccessInstancesRequest, DescribeVerifiedAccessInstancesResult } from "../models/models_5";
+import { DescribeInstanceConnectEndpointsRequest, DescribeInstanceConnectEndpointsResult } from "../models/models_3";
 import {
-  de_DescribeVerifiedAccessInstancesCommand,
-  se_DescribeVerifiedAccessInstancesCommand,
+  de_DescribeInstanceConnectEndpointsCommand,
+  se_DescribeInstanceConnectEndpointsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -27,31 +27,29 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeVerifiedAccessInstancesCommand}.
+ * The input for {@link DescribeInstanceConnectEndpointsCommand}.
  */
-export interface DescribeVerifiedAccessInstancesCommandInput extends DescribeVerifiedAccessInstancesRequest {}
+export interface DescribeInstanceConnectEndpointsCommandInput extends DescribeInstanceConnectEndpointsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeVerifiedAccessInstancesCommand}.
+ * The output of {@link DescribeInstanceConnectEndpointsCommand}.
  */
-export interface DescribeVerifiedAccessInstancesCommandOutput
-  extends DescribeVerifiedAccessInstancesResult,
+export interface DescribeInstanceConnectEndpointsCommandOutput
+  extends DescribeInstanceConnectEndpointsResult,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Describes the specified Amazon Web Services Verified Access instances.</p>
+ * <p>Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance Connect Endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeVerifiedAccessInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeVerifiedAccessInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DescribeInstanceConnectEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeInstanceConnectEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = { // DescribeVerifiedAccessInstancesRequest
- *   VerifiedAccessInstanceIds: [ // VerifiedAccessInstanceIdList
- *     "STRING_VALUE",
- *   ],
+ * const input = { // DescribeInstanceConnectEndpointsRequest
+ *   DryRun: true || false,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   Filters: [ // FilterList
@@ -62,26 +60,33 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
+ *   InstanceConnectEndpointIds: [
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new DescribeVerifiedAccessInstancesCommand(input);
+ * const command = new DescribeInstanceConnectEndpointsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeVerifiedAccessInstancesResult
- * //   VerifiedAccessInstances: [ // VerifiedAccessInstanceList
- * //     { // VerifiedAccessInstance
- * //       VerifiedAccessInstanceId: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderCondensedList
- * //         { // VerifiedAccessTrustProviderCondensed
- * //           VerifiedAccessTrustProviderId: "STRING_VALUE",
- * //           Description: "STRING_VALUE",
- * //           TrustProviderType: "user" || "device",
- * //           UserTrustProviderType: "iam-identity-center" || "oidc",
- * //           DeviceTrustProviderType: "jamf" || "crowdstrike",
- * //         },
+ * // { // DescribeInstanceConnectEndpointsResult
+ * //   InstanceConnectEndpoints: [ // InstanceConnectEndpointSet
+ * //     { // Ec2InstanceConnectEndpoint
+ * //       OwnerId: "STRING_VALUE",
+ * //       InstanceConnectEndpointId: "STRING_VALUE",
+ * //       InstanceConnectEndpointArn: "STRING_VALUE",
+ * //       State: "create-in-progress" || "create-complete" || "create-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
+ * //       StateMessage: "STRING_VALUE",
+ * //       DnsName: "STRING_VALUE",
+ * //       FipsDnsName: "STRING_VALUE",
+ * //       NetworkInterfaceIds: [ // NetworkInterfaceIdSet
+ * //         "STRING_VALUE",
  * //       ],
- * //       CreationTime: "STRING_VALUE",
- * //       LastUpdatedTime: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       SubnetId: "STRING_VALUE",
+ * //       PreserveClientIp: true || false,
+ * //       SecurityGroupIds: [ // SecurityGroupIdSet
+ * //         "STRING_VALUE",
+ * //       ],
  * //       Tags: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",
@@ -95,19 +100,19 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  *
  * ```
  *
- * @param DescribeVerifiedAccessInstancesCommandInput - {@link DescribeVerifiedAccessInstancesCommandInput}
- * @returns {@link DescribeVerifiedAccessInstancesCommandOutput}
- * @see {@link DescribeVerifiedAccessInstancesCommandInput} for command's `input` shape.
- * @see {@link DescribeVerifiedAccessInstancesCommandOutput} for command's `response` shape.
+ * @param DescribeInstanceConnectEndpointsCommandInput - {@link DescribeInstanceConnectEndpointsCommandInput}
+ * @returns {@link DescribeInstanceConnectEndpointsCommandOutput}
+ * @see {@link DescribeInstanceConnectEndpointsCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceConnectEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class DescribeVerifiedAccessInstancesCommand extends $Command<
-  DescribeVerifiedAccessInstancesCommandInput,
-  DescribeVerifiedAccessInstancesCommandOutput,
+export class DescribeInstanceConnectEndpointsCommand extends $Command<
+  DescribeInstanceConnectEndpointsCommandInput,
+  DescribeInstanceConnectEndpointsCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -125,7 +130,7 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeVerifiedAccessInstancesCommandInput) {
+  constructor(readonly input: DescribeInstanceConnectEndpointsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -138,17 +143,17 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeVerifiedAccessInstancesCommandInput, DescribeVerifiedAccessInstancesCommandOutput> {
+  ): Handler<DescribeInstanceConnectEndpointsCommandInput, DescribeInstanceConnectEndpointsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeVerifiedAccessInstancesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeInstanceConnectEndpointsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "DescribeVerifiedAccessInstancesCommand";
+    const commandName = "DescribeInstanceConnectEndpointsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -168,10 +173,10 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: DescribeVerifiedAccessInstancesCommandInput,
+    input: DescribeInstanceConnectEndpointsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_DescribeVerifiedAccessInstancesCommand(input, context);
+    return se_DescribeInstanceConnectEndpointsCommand(input, context);
   }
 
   /**
@@ -180,8 +185,8 @@ export class DescribeVerifiedAccessInstancesCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeVerifiedAccessInstancesCommandOutput> {
-    return de_DescribeVerifiedAccessInstancesCommand(output, context);
+  ): Promise<DescribeInstanceConnectEndpointsCommandOutput> {
+    return de_DescribeInstanceConnectEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -341,6 +341,11 @@ import {
 } from "./commands/CreateFpgaImageCommand";
 import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
+  CreateInstanceConnectEndpointCommand,
+  CreateInstanceConnectEndpointCommandInput,
+  CreateInstanceConnectEndpointCommandOutput,
+} from "./commands/CreateInstanceConnectEndpointCommand";
+import {
   CreateInstanceEventWindowCommand,
   CreateInstanceEventWindowCommandInput,
   CreateInstanceEventWindowCommandOutput,
@@ -704,6 +709,11 @@ import {
   DeleteFpgaImageCommandInput,
   DeleteFpgaImageCommandOutput,
 } from "./commands/DeleteFpgaImageCommand";
+import {
+  DeleteInstanceConnectEndpointCommand,
+  DeleteInstanceConnectEndpointCommandInput,
+  DeleteInstanceConnectEndpointCommandOutput,
+} from "./commands/DeleteInstanceConnectEndpointCommand";
 import {
   DeleteInstanceEventWindowCommand,
   DeleteInstanceEventWindowCommandInput,
@@ -1258,6 +1268,11 @@ import {
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
 } from "./commands/DescribeInstanceAttributeCommand";
+import {
+  DescribeInstanceConnectEndpointsCommand,
+  DescribeInstanceConnectEndpointsCommandInput,
+  DescribeInstanceConnectEndpointsCommandOutput,
+} from "./commands/DescribeInstanceConnectEndpointsCommand";
 import {
   DescribeInstanceCreditSpecificationsCommand,
   DescribeInstanceCreditSpecificationsCommandInput,
@@ -2966,6 +2981,7 @@ const commands = {
   CreateFlowLogsCommand,
   CreateFpgaImageCommand,
   CreateImageCommand,
+  CreateInstanceConnectEndpointCommand,
   CreateInstanceEventWindowCommand,
   CreateInstanceExportTaskCommand,
   CreateInternetGatewayCommand,
@@ -3042,6 +3058,7 @@ const commands = {
   DeleteFleetsCommand,
   DeleteFlowLogsCommand,
   DeleteFpgaImageCommand,
+  DeleteInstanceConnectEndpointCommand,
   DeleteInstanceEventWindowCommand,
   DeleteInternetGatewayCommand,
   DeleteIpamCommand,
@@ -3156,6 +3173,7 @@ const commands = {
   DescribeImportImageTasksCommand,
   DescribeImportSnapshotTasksCommand,
   DescribeInstanceAttributeCommand,
+  DescribeInstanceConnectEndpointsCommand,
   DescribeInstanceCreditSpecificationsCommand,
   DescribeInstanceEventNotificationAttributesCommand,
   DescribeInstanceEventWindowsCommand,
@@ -4621,6 +4639,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateInstanceConnectEndpointCommand}
+   */
+  createInstanceConnectEndpoint(
+    args: CreateInstanceConnectEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceConnectEndpointCommandOutput>;
+  createInstanceConnectEndpoint(
+    args: CreateInstanceConnectEndpointCommandInput,
+    cb: (err: any, data?: CreateInstanceConnectEndpointCommandOutput) => void
+  ): void;
+  createInstanceConnectEndpoint(
+    args: CreateInstanceConnectEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceConnectEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateInstanceEventWindowCommand}
    */
   createInstanceEventWindow(
@@ -5838,6 +5873,23 @@ export interface EC2 {
     args: DeleteFpgaImageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFpgaImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInstanceConnectEndpointCommand}
+   */
+  deleteInstanceConnectEndpoint(
+    args: DeleteInstanceConnectEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceConnectEndpointCommandOutput>;
+  deleteInstanceConnectEndpoint(
+    args: DeleteInstanceConnectEndpointCommandInput,
+    cb: (err: any, data?: DeleteInstanceConnectEndpointCommandOutput) => void
+  ): void;
+  deleteInstanceConnectEndpoint(
+    args: DeleteInstanceConnectEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceConnectEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -7710,6 +7762,23 @@ export interface EC2 {
     args: DescribeInstanceAttributeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInstanceAttributeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceConnectEndpointsCommand}
+   */
+  describeInstanceConnectEndpoints(
+    args: DescribeInstanceConnectEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceConnectEndpointsCommandOutput>;
+  describeInstanceConnectEndpoints(
+    args: DescribeInstanceConnectEndpointsCommandInput,
+    cb: (err: any, data?: DescribeInstanceConnectEndpointsCommandOutput) => void
+  ): void;
+  describeInstanceConnectEndpoints(
+    args: DescribeInstanceConnectEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceConnectEndpointsCommandOutput) => void
   ): void;
 
   /**

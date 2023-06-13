@@ -36,7 +36,11 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
 
 /**
  * @public
- * <p>Describes your Elastic IP addresses that are being moved to the EC2-VPC platform, or that are being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.</p>
+ * <note>
+ *             <p>This action is deprecated.</p>
+ *          </note>
+ *          <p>Describes your Elastic IP addresses that are being moved from or being restored to the EC2-Classic platform.
+ *       This request does not return information about any other Elastic IP addresses in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

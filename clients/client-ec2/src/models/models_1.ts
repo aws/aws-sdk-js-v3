@@ -3848,6 +3848,182 @@ export interface CreateImageResult {
 
 /**
  * @public
+ */
+export interface CreateInstanceConnectEndpointRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the subnet in which to create the EC2 Instance Connect Endpoint.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>One or more security groups to associate with the endpoint. If you don't specify a security group,
+   *             the default security group for your VPC will be associated with the endpoint.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>Indicates whether your client's IP address is preserved as the source. The value is <code>true</code> or <code>false</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>true</code>, your client's IP address is used when you connect to a resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>false</code>, the elastic network interface IP address is used when you connect to a resource.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>true</code>
+   *          </p>
+   */
+  PreserveClientIp?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The tags to apply to the EC2 Instance Connect Endpoint during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Ec2InstanceConnectEndpointState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2InstanceConnectEndpointState =
+  (typeof Ec2InstanceConnectEndpointState)[keyof typeof Ec2InstanceConnectEndpointState];
+
+/**
+ * @public
+ * <p>The EC2 Instance Connect Endpoint.</p>
+ */
+export interface Ec2InstanceConnectEndpoint {
+  /**
+   * <p>The ID of the Amazon Web Services account that created the EC2 Instance Connect Endpoint.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The ID of the EC2 Instance Connect Endpoint.</p>
+   */
+  InstanceConnectEndpointId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.</p>
+   */
+  InstanceConnectEndpointArn?: string;
+
+  /**
+   * <p>The current state of the EC2 Instance Connect Endpoint.</p>
+   */
+  State?: Ec2InstanceConnectEndpointState | string;
+
+  /**
+   * <p>The message for the current state of the EC2 Instance Connect Endpoint.
+   *         Can include a failure message.</p>
+   */
+  StateMessage?: string;
+
+  /**
+   * <p>The DNS name of the EC2 Instance Connect Endpoint.</p>
+   */
+  DnsName?: string;
+
+  /**
+   * <p></p>
+   */
+  FipsDnsName?: string;
+
+  /**
+   * <p>The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2
+   *             Instance Connect Endpoint.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The Availability Zone of the EC2 Instance Connect Endpoint.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The date and time that the EC2 Instance Connect Endpoint was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>Indicates whether your client's IP address is preserved as the source. The value is <code>true</code> or <code>false</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>true</code>, your client's IP address is used when you connect to a resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>false</code>, the elastic network interface IP address is used when you connect to a resource.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>true</code>
+   *          </p>
+   */
+  PreserveClientIp?: boolean;
+
+  /**
+   * <p>The security groups associated with the endpoint. If you didn't specify a security group,
+   *             the default security group for your VPC is associated with the endpoint.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The tags assigned to the EC2 Instance Connect Endpoint.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateInstanceConnectEndpointResult {
+  /**
+   * <p>Information about the EC2 Instance Connect Endpoint.</p>
+   */
+  InstanceConnectEndpoint?: Ec2InstanceConnectEndpoint;
+
+  /**
+   * <p>Unique, case-sensitive idempotency token provided by the client in the the request.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
  * <p>The start day and time and the end day and time of the time range, in UTC.</p>
  */
 export interface InstanceEventWindowTimeRangeRequest {
@@ -8970,7 +9146,7 @@ export interface CreateNetworkInterfaceRequest {
 
   /**
    * <p>The type of network interface. The default is <code>interface</code>.</p>
-   *          <p>The only supported values are <code>efa</code> and <code>trunk</code>.</p>
+   *          <p>The only supported values are <code>interface</code>, <code>efa</code>, and <code>trunk</code>.</p>
    */
   InterfaceType?: NetworkInterfaceCreationType | string;
 
@@ -9659,108 +9835,6 @@ export interface CreatePlacementGroupResult {
    */
   PlacementGroup?: PlacementGroup;
 }
-
-/**
- * @public
- */
-export interface CreatePublicIpv4PoolRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-/**
- * @public
- */
-export interface CreatePublicIpv4PoolResult {
-  /**
-   * <p>The ID of the public IPv4 pool.</p>
-   */
-  PoolId?: string;
-}
-
-/**
- * @public
- */
-export interface CreateReplaceRootVolumeTaskRequest {
-  /**
-   * <p>The ID of the instance for which to replace the root volume.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The ID of the snapshot from which to restore the replacement root volume. The
-   *       specified snapshot must be a snapshot that you previously created from the original
-   *       root volume.</p>
-   *          <p>If you want to restore the replacement root volume to the initial launch state,
-   *       or if you want to restore the replacement root volume from an AMI, omit this
-   *       parameter.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-   *       If you do not specify a client token, a randomly generated token is used for the request
-   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to apply to the root volume replacement task.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the
-   *       same product code, billing information, architecture type, and virtualization type as
-   *       that of the instance.</p>
-   *          <p>If you want to restore the replacement volume from a specific snapshot, or if you want
-   *       to restore it to its launch state, omit this parameter.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>Indicates whether to automatically delete the original root volume after the root volume
-   *       replacement task completes. To delete the original root volume, specify <code>true</code>.
-   *       If you choose to keep the original root volume after the replacement task completes, you must
-   *       manually delete it when you no longer need it.</p>
-   */
-  DeleteReplacedRootVolume?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReplaceRootVolumeTaskState = {
-  failed: "failed",
-  failed_detached: "failed-detached",
-  failing: "failing",
-  in_progress: "in-progress",
-  pending: "pending",
-  succeeded: "succeeded",
-} as const;
-
-/**
- * @public
- */
-export type ReplaceRootVolumeTaskState = (typeof ReplaceRootVolumeTaskState)[keyof typeof ReplaceRootVolumeTaskState];
 
 /**
  * @internal

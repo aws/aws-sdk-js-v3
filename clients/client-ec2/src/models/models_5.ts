@@ -2,7 +2,6 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
-  _InstanceType,
   AccessScopeAnalysisFinding,
   AddressTransfer,
   AllowedPrincipal,
@@ -36,12 +35,9 @@ import {
   InstanceRequirementsRequest,
   IpamResourceTag,
   NetworkInsightsAccessScopeContent,
-  Placement,
-  PlatformValues,
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
-  ShutdownBehavior,
   TargetCapacityUnitType,
   VolumeType,
   Vpc,
@@ -64,11 +60,8 @@ import {
   VpnGateway,
 } from "./models_2";
 import {
-  ArchitectureValues,
   AttributeBooleanValue,
   BootModeValues,
-  ConversionTask,
-  ConversionTaskFilterSensitiveLog,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
@@ -76,18 +69,178 @@ import {
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   Filter,
-  ImportImageLicenseConfigurationResponse,
   IpamPoolCidr,
   MetricType,
   PaymentOption,
   PeriodType,
   ProductCode,
-  SnapshotDetail,
-  SnapshotDetailFilterSensitiveLog,
   StatisticType,
   VirtualizationType,
 } from "./models_3";
-import { AnalysisStatus, ArchitectureType } from "./models_4";
+import { AnalysisStatus, ArchitectureType, VerifiedAccessLogs } from "./models_4";
+
+/**
+ * @public
+ * <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
+ */
+export interface VerifiedAccessInstanceLoggingConfiguration {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
+  VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>Details about the logging options.</p>
+   */
+  AccessLogs?: VerifiedAccessLogs;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
+  /**
+   * <p>The current logging configuration for the Verified Access instances.</p>
+   */
+  LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstancesRequest {
+  /**
+   * <p>The IDs of the Verified Access instances.</p>
+   */
+  VerifiedAccessInstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstancesResult {
+  /**
+   * <p>The IDs of the Verified Access instances.</p>
+   */
+  VerifiedAccessInstances?: VerifiedAccessInstance[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessTrustProvidersRequest {
+  /**
+   * <p>The IDs of the Verified Access trust providers.</p>
+   */
+  VerifiedAccessTrustProviderIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessTrustProvidersResult {
+  /**
+   * <p>The IDs of the Verified Access trust providers.</p>
+   */
+  VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeAttributeName = {
+  autoEnableIO: "autoEnableIO",
+  productCodes: "productCodes",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeAttributeName = (typeof VolumeAttributeName)[keyof typeof VolumeAttributeName];
+
+/**
+ * @public
+ */
+export interface DescribeVolumeAttributeRequest {
+  /**
+   * <p>The attribute of the volume. This parameter is required.</p>
+   */
+  Attribute: VolumeAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -2727,12 +2880,12 @@ export interface DisableVpcClassicLinkDnsSupportResult {
  */
 export interface DisassociateAddressRequest {
   /**
-   * <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
+   * <p>The association ID. This parameter is required.</p>
    */
   AssociationId?: string;
 
   /**
-   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+   * <p>Deprecated.</p>
    */
   PublicIp?: string;
 
@@ -7581,263 +7734,18 @@ export interface ImportImageRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface ImportImageResult {
-  /**
-   * <p>The architecture of the virtual machine.</p>
-   */
-  Architecture?: string;
-
-  /**
-   * <p>A description of the import task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether the AMI is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The target hypervisor of the import task.</p>
-   */
-  Hypervisor?: string;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) created by the import task.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The task ID of the import image task.</p>
-   */
-  ImportTaskId?: string;
-
-  /**
-   * <p>The identifier for the symmetric KMS key that was used to create the encrypted AMI.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The license type of the virtual machine.</p>
-   */
-  LicenseType?: string;
-
-  /**
-   * <p>The operating system of the virtual machine.</p>
-   */
-  Platform?: string;
-
-  /**
-   * <p>The progress of the task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>Information about the snapshots.</p>
-   */
-  SnapshotDetails?: SnapshotDetail[];
-
-  /**
-   * <p>A brief status of the task.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A detailed status message of the import task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The ARNs of the license configurations.</p>
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
-
-  /**
-   * <p>Any tags assigned to the import image task.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The usage operation value.</p>
-   */
-  UsageOperation?: string;
-}
-
-/**
- * @public
- * <p>Describes a disk image.</p>
- */
-export interface DiskImageDetail {
-  /**
-   * <p>The size of the disk image, in GiB.</p>
-   */
-  Bytes: number | undefined;
-
-  /**
-   * <p>The disk image format.</p>
-   */
-  Format: DiskImageFormat | string | undefined;
-
-  /**
-   * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
-   *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
-   *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
-   *     Guide</i>.</p>
-   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
-   */
-  ImportManifestUrl: string | undefined;
-}
-
-/**
- * @public
- * <p>Describes an EBS volume.</p>
- */
-export interface VolumeDetail {
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   */
-  Size: number | undefined;
-}
-
-/**
- * @public
- * <p>Describes a disk image.</p>
- */
-export interface DiskImage {
-  /**
-   * <p>A description of the disk image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Information about the disk image.</p>
-   */
-  Image?: DiskImageDetail;
-
-  /**
-   * <p>Information about the volume.</p>
-   */
-  Volume?: VolumeDetail;
-}
-
-/**
- * @public
- * <p>Describes the user data for an instance.</p>
- */
-export interface UserData {
-  /**
-   * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
-   *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
-   */
-  Data?: string;
-}
-
-/**
- * @public
- * <p>Describes the launch specification for VM import.</p>
- */
-export interface ImportInstanceLaunchSpecification {
-  /**
-   * <p>Reserved.</p>
-   */
-  AdditionalInfo?: string;
-
-  /**
-   * <p>The architecture of the instance.</p>
-   */
-  Architecture?: ArchitectureValues | string;
-
-  /**
-   * <p>The security group IDs.</p>
-   */
-  GroupIds?: string[];
-
-  /**
-   * <p>The security group names.</p>
-   */
-  GroupNames?: string[];
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
-   *    operating system command for system shutdown).</p>
-   */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
-
-  /**
-   * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
-   *    VM Import/Export User Guide.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>Indicates whether monitoring is enabled.</p>
-   */
-  Monitoring?: boolean;
-
-  /**
-   * <p>The placement information for the instance.</p>
-   */
-  Placement?: Placement;
-
-  /**
-   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The Base64-encoded user data to make available to the instance.</p>
-   */
-  UserData?: UserData;
-}
-
-/**
- * @public
- */
-export interface ImportInstanceRequest {
-  /**
-   * <p>A description for the instance being imported.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The disk image.</p>
-   */
-  DiskImages?: DiskImage[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The launch specification.</p>
-   */
-  LaunchSpecification?: ImportInstanceLaunchSpecification;
-
-  /**
-   * <p>The instance operating system.</p>
-   */
-  Platform: PlatformValues | string | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportInstanceResult {
-  /**
-   * <p>Information about the conversion task.</p>
-   */
-  ConversionTask?: ConversionTask;
-}
+export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
+  obj: DescribeVerifiedAccessTrustProvidersResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProviders && {
+    VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
+      VerifiedAccessTrustProviderFilterSensitiveLog(item)
+    ),
+  }),
+});
 
 /**
  * @internal
@@ -7887,64 +7795,4 @@ export const ImportImageRequestFilterSensitiveLog = (obj: ImportImageRequest): a
   ...(obj.DiskContainers && {
     DiskContainers: obj.DiskContainers.map((item) => ImageDiskContainerFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any => ({
-  ...obj,
-  ...(obj.SnapshotDetails && {
-    SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
-  ...obj,
-  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DiskImageFilterSensitiveLog = (obj: DiskImage): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportInstanceLaunchSpecificationFilterSensitiveLog = (obj: ImportInstanceLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceRequest): any => ({
-  ...obj,
-  ...(obj.DiskImages && { DiskImages: obj.DiskImages.map((item) => DiskImageFilterSensitiveLog(item)) }),
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceResultFilterSensitiveLog = (obj: ImportInstanceResult): any => ({
-  ...obj,
-  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
 });

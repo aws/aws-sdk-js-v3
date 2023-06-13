@@ -28,9 +28,6 @@ import {
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UserIdGroupPair,
-  VerifiedAccessInstance,
-  VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
   AttributeValue,
@@ -114,13 +111,181 @@ import {
   InstanceBlockDeviceMapping,
   InstanceBootModeValues,
   InstanceLifecycleType,
-  InstanceMaintenanceOptions,
-  InstanceMetadataOptionsResponse,
   LicenseConfiguration,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceAutoRecoveryState = {
+  default: "default",
+  disabled: "disabled",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceAutoRecoveryState = (typeof InstanceAutoRecoveryState)[keyof typeof InstanceAutoRecoveryState];
+
+/**
+ * @public
+ * <p>The maintenance options for the instance.</p>
+ */
+export interface InstanceMaintenanceOptions {
+  /**
+   * <p>Provides information on the current automatic recovery behavior of your
+   *             instance.</p>
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetadataEndpointState = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetadataEndpointState =
+  (typeof InstanceMetadataEndpointState)[keyof typeof InstanceMetadataEndpointState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetadataProtocolState = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetadataProtocolState =
+  (typeof InstanceMetadataProtocolState)[keyof typeof InstanceMetadataProtocolState];
+
+/**
+ * @public
+ * @enum
+ */
+export const HttpTokensState = {
+  optional: "optional",
+  required: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpTokensState = (typeof HttpTokensState)[keyof typeof HttpTokensState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetadataTagsState = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetadataTagsState = (typeof InstanceMetadataTagsState)[keyof typeof InstanceMetadataTagsState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetadataOptionsState = {
+  applied: "applied",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetadataOptionsState =
+  (typeof InstanceMetadataOptionsState)[keyof typeof InstanceMetadataOptionsState];
+
+/**
+ * @public
+ * <p>The metadata options for the instance.</p>
+ */
+export interface InstanceMetadataOptionsResponse {
+  /**
+   * <p>The state of the metadata option changes.</p>
+   *          <p>
+   *             <code>pending</code> - The metadata options are being updated and the instance is not
+   *             ready to process metadata traffic with the new selection.</p>
+   *          <p>
+   *             <code>applied</code> - The metadata options have been successfully applied on the
+   *             instance.</p>
+   */
+  State?: InstanceMetadataOptionsState | string;
+
+  /**
+   * <p>IMDSv2 uses token-backed sessions. Indicates whether the use of HTTP tokens is
+   *                 <code>optional</code> (in other words, indicates whether the use of IMDSv2 is
+   *                 <code>optional</code>) or <code>required</code> (in other words, indicates whether
+   *             the use of IMDSv2 is <code>required</code>).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
+   *             a session token in your request. If you retrieve the IAM role credentials
+   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
+   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
+   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
+   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>optional</code>
+   *          </p>
+   */
+  HttpTokens?: HttpTokensState | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel.</p>
+   *          <p>Default: 1</p>
+   *          <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
+   *             disabled.</p>
+   *          <p>If the value is <code>disabled</code>, you cannot access your instance
+   *             metadata.</p>
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
+   *             disabled.</p>
+   */
+  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+
+  /**
+   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
+   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState | string;
+}
 
 /**
  * @public
@@ -3764,14 +3929,14 @@ export type MoveStatus = (typeof MoveStatus)[keyof typeof MoveStatus];
 
 /**
  * @public
- * <p>Describes the status of a moving Elastic IP address.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <note>
+ *             <p>This action is deprecated.</p>
  *          </note>
+ *          <p>Describes the status of a moving Elastic IP address.</p>
  */
 export interface MovingAddressStatus {
   /**
-   * <p>The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.</p>
+   * <p>The status of the Elastic IP address that's being moved or restored.</p>
    */
   MoveStatus?: MoveStatus | string;
 
@@ -10980,169 +11145,6 @@ export interface VerifiedAccessLogs {
 }
 
 /**
- * @public
- * <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
- */
-export interface VerifiedAccessInstanceLoggingConfiguration {
-  /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
-   */
-  VerifiedAccessInstanceId?: string;
-
-  /**
-   * <p>Details about the logging options.</p>
-   */
-  AccessLogs?: VerifiedAccessLogs;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
-  /**
-   * <p>The current logging configuration for the Verified Access instances.</p>
-   */
-  LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessInstancesRequest {
-  /**
-   * <p>The IDs of the Verified Access instances.</p>
-   */
-  VerifiedAccessInstanceIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessInstancesResult {
-  /**
-   * <p>The IDs of the Verified Access instances.</p>
-   */
-  VerifiedAccessInstances?: VerifiedAccessInstance[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessTrustProvidersRequest {
-  /**
-   * <p>The IDs of the Verified Access trust providers.</p>
-   */
-  VerifiedAccessTrustProviderIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessTrustProvidersResult {
-  /**
-   * <p>The IDs of the Verified Access trust providers.</p>
-   */
-  VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const VolumeAttributeName = {
-  autoEnableIO: "autoEnableIO",
-  productCodes: "productCodes",
-} as const;
-
-/**
- * @public
- */
-export type VolumeAttributeName = (typeof VolumeAttributeName)[keyof typeof VolumeAttributeName];
-
-/**
- * @public
- */
-export interface DescribeVolumeAttributeRequest {
-  /**
-   * <p>The attribute of the volume. This parameter is required.</p>
-   */
-  Attribute: VolumeAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
  * @internal
  */
 export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
@@ -11214,19 +11216,5 @@ export const DescribeSpotInstanceRequestsResultFilterSensitiveLog = (obj: Descri
   ...obj,
   ...(obj.SpotInstanceRequests && {
     SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessTrustProvidersResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProviders && {
-    VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
-      VerifiedAccessTrustProviderFilterSensitiveLog(item)
-    ),
   }),
 });

@@ -28,7 +28,6 @@ import {
   RouteTableAssociationState,
   Tag,
   TagSpecification,
-  TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
@@ -47,6 +46,7 @@ import {
   ClientLoginBannerOptions,
   ConnectionLogOptions,
   CreditSpecificationRequest,
+  DiskImageFormat,
   ElasticGpuSpecification,
   FleetExcessCapacityTerminationPolicy,
   FleetLaunchTemplateConfigRequest,
@@ -64,6 +64,7 @@ import {
   ManagedPrefixList,
   MarketType,
   Placement,
+  PlatformValues,
   RequestIpamResourceTag,
   RuleAction,
   SelfServicePortal,
@@ -110,21 +111,17 @@ import {
   BootModeValues,
   ConversionTask,
   ConversionTaskFilterSensitiveLog,
-  Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
-  HttpTokensState,
   ImdsSupportValues,
+  ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
-  InstanceAutoRecoveryState,
-  InstanceMetadataEndpointState,
-  InstanceMetadataOptionsResponse,
-  InstanceMetadataProtocolState,
-  InstanceMetadataTagsState,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   LaunchPermission,
   PermissionGroup,
+  SnapshotDetail,
+  SnapshotDetailFilterSensitiveLog,
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
   TpmSupportValues,
@@ -132,6 +129,12 @@ import {
 import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
+  HttpTokensState,
+  InstanceAutoRecoveryState,
+  InstanceMetadataEndpointState,
+  InstanceMetadataOptionsResponse,
+  InstanceMetadataProtocolState,
+  InstanceMetadataTagsState,
   InstanceNetworkInterfaceSpecification,
   InstanceStatusEvent,
   LaunchTemplateConfig,
@@ -146,20 +149,276 @@ import {
   SpotInstanceRequest,
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
-  VerifiedAccessInstanceLoggingConfiguration,
 } from "./models_4";
 import {
   ClientData,
-  DiskImageDetail,
-  DiskImageDetailFilterSensitiveLog,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
   UnlimitedSupportedInstanceFamily,
   UserBucket,
-  VolumeDetail,
+  VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface ImportImageResult {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   */
+  Architecture?: string;
+
+  /**
+   * <p>A description of the import task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the AMI is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The target hypervisor of the import task.</p>
+   */
+  Hypervisor?: string;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) created by the import task.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The task ID of the import image task.</p>
+   */
+  ImportTaskId?: string;
+
+  /**
+   * <p>The identifier for the symmetric KMS key that was used to create the encrypted AMI.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The license type of the virtual machine.</p>
+   */
+  LicenseType?: string;
+
+  /**
+   * <p>The operating system of the virtual machine.</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>The progress of the task.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>Information about the snapshots.</p>
+   */
+  SnapshotDetails?: SnapshotDetail[];
+
+  /**
+   * <p>A brief status of the task.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A detailed status message of the import task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The ARNs of the license configurations.</p>
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
+
+  /**
+   * <p>Any tags assigned to the import image task.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The usage operation value.</p>
+   */
+  UsageOperation?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a disk image.</p>
+ */
+export interface DiskImageDetail {
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   */
+  Bytes: number | undefined;
+
+  /**
+   * <p>The disk image format.</p>
+   */
+  Format: DiskImageFormat | string | undefined;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
+   *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
+   *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
+   *     Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   */
+  ImportManifestUrl: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes an EBS volume.</p>
+ */
+export interface VolumeDetail {
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  Size: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes a disk image.</p>
+ */
+export interface DiskImage {
+  /**
+   * <p>A description of the disk image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the disk image.</p>
+   */
+  Image?: DiskImageDetail;
+
+  /**
+   * <p>Information about the volume.</p>
+   */
+  Volume?: VolumeDetail;
+}
+
+/**
+ * @public
+ * <p>Describes the user data for an instance.</p>
+ */
+export interface UserData {
+  /**
+   * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
+   *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
+   */
+  Data?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the launch specification for VM import.</p>
+ */
+export interface ImportInstanceLaunchSpecification {
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>The architecture of the instance.</p>
+   */
+  Architecture?: ArchitectureValues | string;
+
+  /**
+   * <p>The security group IDs.</p>
+   */
+  GroupIds?: string[];
+
+  /**
+   * <p>The security group names.</p>
+   */
+  GroupNames?: string[];
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
+   *    operating system command for system shutdown).</p>
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+
+  /**
+   * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
+   *    VM Import/Export User Guide.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>Indicates whether monitoring is enabled.</p>
+   */
+  Monitoring?: boolean;
+
+  /**
+   * <p>The placement information for the instance.</p>
+   */
+  Placement?: Placement;
+
+  /**
+   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The Base64-encoded user data to make available to the instance.</p>
+   */
+  UserData?: UserData;
+}
+
+/**
+ * @public
+ */
+export interface ImportInstanceRequest {
+  /**
+   * <p>A description for the instance being imported.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The disk image.</p>
+   */
+  DiskImages?: DiskImage[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The launch specification.</p>
+   */
+  LaunchSpecification?: ImportInstanceLaunchSpecification;
+
+  /**
+   * <p>The instance operating system.</p>
+   */
+  Platform: PlatformValues | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportInstanceResult {
+  /**
+   * <p>Information about the conversion task.</p>
+   */
+  ConversionTask?: ConversionTask;
+}
 
 /**
  * @public
@@ -5815,12 +6074,12 @@ export interface RejectVpcPeeringConnectionResult {
  */
 export interface ReleaseAddressRequest {
   /**
-   * <p>[EC2-VPC] The allocation ID. Required for EC2-VPC.</p>
+   * <p>The allocation ID. This parameter is required.</p>
    */
   AllocationId?: string;
 
   /**
-   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+   * <p>Deprecated.</p>
    */
   PublicIp?: string;
 
@@ -8252,332 +8511,64 @@ export interface RunScheduledInstancesResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface SearchLocalGatewayRoutesRequest {
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter.
-   *                For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify <code>supernet-of-match</code>
-   *                as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the route.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The route type.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any => ({
+  ...obj,
+  ...(obj.SnapshotDetails && {
+    SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface SearchLocalGatewayRoutesResult {
-  /**
-   * <p>Information about the routes.</p>
-   */
-  Routes?: LocalGatewayRoute[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
+  ...obj,
+  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface SearchTransitGatewayMulticastGroupsRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>group-ip-address</code> - The IP address of the  transit gateway multicast group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-group-member</code> - The resource is a group member. Valid values are <code>true</code> | <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-group-source</code> - The resource is a group source. Valid values are <code>true</code> | <code>false</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>member-type</code> - The member type. Valid values are <code>igmp</code> | <code>static</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The type of resource. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>source-type</code> - The source type. Valid values are <code>igmp</code> | <code>static</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const DiskImageFilterSensitiveLog = (obj: DiskImage): any => ({
+  ...obj,
+  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const MembershipType = {
-  igmp: "igmp",
-  static: "static",
-} as const;
+export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export type MembershipType = (typeof MembershipType)[keyof typeof MembershipType];
+export const ImportInstanceLaunchSpecificationFilterSensitiveLog = (obj: ImportInstanceLaunchSpecification): any => ({
+  ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
+});
 
 /**
- * @public
- * <p>Describes the  transit gateway multicast group resources.</p>
+ * @internal
  */
-export interface TransitGatewayMulticastGroup {
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The type of resource, for example a VPC attachment.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain group resource.</p>
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>Indicates that the resource is a  transit gateway multicast group member.</p>
-   */
-  GroupMember?: boolean;
-
-  /**
-   * <p>Indicates that the resource is a  transit gateway multicast group member.</p>
-   */
-  GroupSource?: boolean;
-
-  /**
-   * <p>The member type (for example, <code>static</code>).</p>
-   */
-  MemberType?: MembershipType | string;
-
-  /**
-   * <p>The source type.</p>
-   */
-  SourceType?: MembershipType | string;
-}
+export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceRequest): any => ({
+  ...obj,
+  ...(obj.DiskImages && { DiskImages: obj.DiskImages.map((item) => DiskImageFilterSensitiveLog(item)) }),
+  ...(obj.LaunchSpecification && {
+    LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface SearchTransitGatewayMulticastGroupsResult {
-  /**
-   * <p>Information about the  transit gateway multicast group.</p>
-   */
-  MulticastGroups?: TransitGatewayMulticastGroup[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface SearchTransitGatewayRoutesRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.resource-type</code> - The attachment resource type. Valid values
-   *                     are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> |
-   *                         <code>peering</code> | <code>connect</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of route (<code>propagated</code> |
-   *                   <code>static</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of routes to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface SearchTransitGatewayRoutesResult {
-  /**
-   * <p>Information about the routes.</p>
-   */
-  Routes?: TransitGatewayRoute[];
-
-  /**
-   * <p>Indicates whether there are additional routes available.</p>
-   */
-  AdditionalRoutesAvailable?: boolean;
-}
+export const ImportInstanceResultFilterSensitiveLog = (obj: ImportInstanceResult): any => ({
+  ...obj,
+  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
+});
 
 /**
  * @internal

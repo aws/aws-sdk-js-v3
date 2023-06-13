@@ -269,6 +269,10 @@ import { CreateFlowLogsCommandInput, CreateFlowLogsCommandOutput } from "./comma
 import { CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput } from "./commands/CreateFpgaImageCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
+  CreateInstanceConnectEndpointCommandInput,
+  CreateInstanceConnectEndpointCommandOutput,
+} from "./commands/CreateInstanceConnectEndpointCommand";
+import {
   CreateInstanceEventWindowCommandInput,
   CreateInstanceEventWindowCommandOutput,
 } from "./commands/CreateInstanceEventWindowCommand";
@@ -506,6 +510,10 @@ import {
 import { DeleteFleetsCommandInput, DeleteFleetsCommandOutput } from "./commands/DeleteFleetsCommand";
 import { DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput } from "./commands/DeleteFlowLogsCommand";
 import { DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput } from "./commands/DeleteFpgaImageCommand";
+import {
+  DeleteInstanceConnectEndpointCommandInput,
+  DeleteInstanceConnectEndpointCommandOutput,
+} from "./commands/DeleteInstanceConnectEndpointCommand";
 import {
   DeleteInstanceEventWindowCommandInput,
   DeleteInstanceEventWindowCommandOutput,
@@ -887,6 +895,10 @@ import {
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
 } from "./commands/DescribeInstanceAttributeCommand";
+import {
+  DescribeInstanceConnectEndpointsCommandInput,
+  DescribeInstanceConnectEndpointsCommandOutput,
+} from "./commands/DescribeInstanceConnectEndpointsCommand";
 import {
   DescribeInstanceCreditSpecificationsCommandInput,
   DescribeInstanceCreditSpecificationsCommandOutput,
@@ -2133,6 +2145,7 @@ export type ServiceInputTypes =
   | CreateFlowLogsCommandInput
   | CreateFpgaImageCommandInput
   | CreateImageCommandInput
+  | CreateInstanceConnectEndpointCommandInput
   | CreateInstanceEventWindowCommandInput
   | CreateInstanceExportTaskCommandInput
   | CreateInternetGatewayCommandInput
@@ -2209,6 +2222,7 @@ export type ServiceInputTypes =
   | DeleteFleetsCommandInput
   | DeleteFlowLogsCommandInput
   | DeleteFpgaImageCommandInput
+  | DeleteInstanceConnectEndpointCommandInput
   | DeleteInstanceEventWindowCommandInput
   | DeleteInternetGatewayCommandInput
   | DeleteIpamCommandInput
@@ -2323,6 +2337,7 @@ export type ServiceInputTypes =
   | DescribeImportImageTasksCommandInput
   | DescribeImportSnapshotTasksCommandInput
   | DescribeInstanceAttributeCommandInput
+  | DescribeInstanceConnectEndpointsCommandInput
   | DescribeInstanceCreditSpecificationsCommandInput
   | DescribeInstanceEventNotificationAttributesCommandInput
   | DescribeInstanceEventWindowsCommandInput
@@ -2729,6 +2744,7 @@ export type ServiceOutputTypes =
   | CreateFlowLogsCommandOutput
   | CreateFpgaImageCommandOutput
   | CreateImageCommandOutput
+  | CreateInstanceConnectEndpointCommandOutput
   | CreateInstanceEventWindowCommandOutput
   | CreateInstanceExportTaskCommandOutput
   | CreateInternetGatewayCommandOutput
@@ -2805,6 +2821,7 @@ export type ServiceOutputTypes =
   | DeleteFleetsCommandOutput
   | DeleteFlowLogsCommandOutput
   | DeleteFpgaImageCommandOutput
+  | DeleteInstanceConnectEndpointCommandOutput
   | DeleteInstanceEventWindowCommandOutput
   | DeleteInternetGatewayCommandOutput
   | DeleteIpamCommandOutput
@@ -2919,6 +2936,7 @@ export type ServiceOutputTypes =
   | DescribeImportImageTasksCommandOutput
   | DescribeImportSnapshotTasksCommandOutput
   | DescribeInstanceAttributeCommandOutput
+  | DescribeInstanceConnectEndpointsCommandOutput
   | DescribeInstanceCreditSpecificationsCommandOutput
   | DescribeInstanceEventNotificationAttributesCommandOutput
   | DescribeInstanceEventWindowsCommandOutput
