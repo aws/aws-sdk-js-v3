@@ -14893,6 +14893,7 @@ const de_GetBundlesResult = (output: any, context: __SerdeContext): GetBundlesRe
 const de_GetCertificatesResult = (output: any, context: __SerdeContext): GetCertificatesResult => {
   return take(output, {
     certificates: (_: any) => de_CertificateSummaryList(_, context),
+    nextPageToken: __expectString,
   }) as any;
 };
 

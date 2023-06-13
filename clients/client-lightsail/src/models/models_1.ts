@@ -63,7 +63,7 @@ export interface GetCostEstimateRequest {
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *                <p>For example, if you want to use a start time of October 1, 2018, at 8 PM UTC, specify
    *             <code>1538424000</code> as the start time.</p>
    *             </li>
    *          </ul>
@@ -80,7 +80,7 @@ export interface GetCostEstimateRequest {
    *             </li>
    *             <li>
    *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *                <p>For example, if you want to use an end time of October 1, 2018, at 9 PM UTC, specify
    *             <code>1538427600</code> as the end time.</p>
    *             </li>
    *          </ul>

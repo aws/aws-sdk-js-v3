@@ -38,7 +38,7 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  * @public
  * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>
  *          <note>
- *             <p>To get a summary of a certificate, ommit <code>includeCertificateDetails</code> from
+ *             <p>To get a summary of a certificate, omit <code>includeCertificateDetails</code> from
  *         your request. The response will include only the certificate Amazon Resource Name (ARN),
  *         certificate name, domain name, and tags.</p>
  *          </note>
@@ -54,6 +54,7 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  *   ],
  *   includeCertificateDetails: true || false,
  *   certificateName: "STRING_VALUE",
+ *   pageToken: "STRING_VALUE",
  * };
  * const command = new GetCertificatesCommand(input);
  * const response = await client.send(command);
@@ -134,6 +135,7 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  * //       ],
  * //     },
  * //   ],
+ * //   nextPageToken: "STRING_VALUE",
  * // };
  *
  * ```

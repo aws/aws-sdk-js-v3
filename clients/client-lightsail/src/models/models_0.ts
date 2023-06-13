@@ -2659,7 +2659,7 @@ export type CertificateStatus = (typeof CertificateStatus)[keyof typeof Certific
  * @public
  * <p>Describes the full details of an Amazon Lightsail SSL/TLS certificate.</p>
  *          <note>
- *             <p>To get a summary of a certificate, use the <code>GetCertificates</code> action and ommit
+ *             <p>To get a summary of a certificate, use the <code>GetCertificates</code> action and omit
  *           <code>includeCertificateDetails</code> from your request. The response will include only
  *         the certificate Amazon Resource Name (ARN), certificate name, domain name, and tags.</p>
  *          </note>
@@ -8167,6 +8167,12 @@ export interface GetCertificatesRequest {
    *       Region where the request is made.</p>
    */
   certificateName?: string;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetCertificates</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
 }
 
 /**
@@ -8177,6 +8183,11 @@ export interface GetCertificatesResult {
    * <p>An object that describes certificates.</p>
    */
   certificates?: CertificateSummary[];
+
+  /**
+   * <p>If <code>NextPageToken</code> is returned there are more results available. The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+   */
+  nextPageToken?: string;
 }
 
 /**
