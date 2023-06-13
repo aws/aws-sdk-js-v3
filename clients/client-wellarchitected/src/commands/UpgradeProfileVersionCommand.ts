@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetLensReviewInput, GetLensReviewOutput } from "../models/models_0";
-import { de_GetLensReviewCommand, se_GetLensReviewCommand } from "../protocols/Aws_restJson1";
+import { UpgradeProfileVersionInput } from "../models/models_0";
+import { de_UpgradeProfileVersionCommand, se_UpgradeProfileVersionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -24,82 +24,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetLensReviewCommand}.
+ * The input for {@link UpgradeProfileVersionCommand}.
  */
-export interface GetLensReviewCommandInput extends GetLensReviewInput {}
+export interface UpgradeProfileVersionCommandInput extends UpgradeProfileVersionInput {}
 /**
  * @public
  *
- * The output of {@link GetLensReviewCommand}.
+ * The output of {@link UpgradeProfileVersionCommand}.
  */
-export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __MetadataBearer {}
+export interface UpgradeProfileVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Get lens review.</p>
+ * <p>Upgrade a profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpgradeProfileVersionCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, UpgradeProfileVersionCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // GetLensReviewInput
+ * const input = { // UpgradeProfileVersionInput
  *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   MilestoneNumber: Number("int"),
+ *   ProfileArn: "STRING_VALUE", // required
+ *   MilestoneName: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
  * };
- * const command = new GetLensReviewCommand(input);
+ * const command = new UpgradeProfileVersionCommand(input);
  * const response = await client.send(command);
- * // { // GetLensReviewOutput
- * //   WorkloadId: "STRING_VALUE",
- * //   MilestoneNumber: Number("int"),
- * //   LensReview: { // LensReview
- * //     LensAlias: "STRING_VALUE",
- * //     LensArn: "STRING_VALUE",
- * //     LensVersion: "STRING_VALUE",
- * //     LensName: "STRING_VALUE",
- * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
- * //     PillarReviewSummaries: [ // PillarReviewSummaries
- * //       { // PillarReviewSummary
- * //         PillarId: "STRING_VALUE",
- * //         PillarName: "STRING_VALUE",
- * //         Notes: "STRING_VALUE",
- * //         RiskCounts: { // RiskCounts
- * //           "<keys>": Number("int"),
- * //         },
- * //         PrioritizedRiskCounts: {
- * //           "<keys>": Number("int"),
- * //         },
- * //       },
- * //     ],
- * //     UpdatedAt: new Date("TIMESTAMP"),
- * //     Notes: "STRING_VALUE",
- * //     RiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //     NextToken: "STRING_VALUE",
- * //     Profiles: [ // WorkloadProfiles
- * //       { // WorkloadProfile
- * //         ProfileArn: "STRING_VALUE",
- * //         ProfileVersion: "STRING_VALUE",
- * //       },
- * //     ],
- * //     PrioritizedRiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
- * @returns {@link GetLensReviewCommandOutput}
- * @see {@link GetLensReviewCommandInput} for command's `input` shape.
- * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
+ * @param UpgradeProfileVersionCommandInput - {@link UpgradeProfileVersionCommandInput}
+ * @returns {@link UpgradeProfileVersionCommandOutput}
+ * @see {@link UpgradeProfileVersionCommandInput} for command's `input` shape.
+ * @see {@link UpgradeProfileVersionCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -117,9 +83,9 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class GetLensReviewCommand extends $Command<
-  GetLensReviewCommandInput,
-  GetLensReviewCommandOutput,
+export class UpgradeProfileVersionCommand extends $Command<
+  UpgradeProfileVersionCommandInput,
+  UpgradeProfileVersionCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -137,7 +103,7 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetLensReviewCommandInput) {
+  constructor(readonly input: UpgradeProfileVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -150,15 +116,17 @@ export class GetLensReviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetLensReviewCommandInput, GetLensReviewCommandOutput> {
+  ): Handler<UpgradeProfileVersionCommandInput, UpgradeProfileVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetLensReviewCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpgradeProfileVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "GetLensReviewCommand";
+    const commandName = "UpgradeProfileVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +145,15 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetLensReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetLensReviewCommand(input, context);
+  private serialize(input: UpgradeProfileVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpgradeProfileVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewCommandOutput> {
-    return de_GetLensReviewCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradeProfileVersionCommandOutput> {
+    return de_UpgradeProfileVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

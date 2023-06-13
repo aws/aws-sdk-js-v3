@@ -69,6 +69,9 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * //         RiskCounts: { // RiskCounts
  * //           "<keys>": Number("int"),
  * //         },
+ * //         PrioritizedRiskCounts: {
+ * //           "<keys>": Number("int"),
+ * //         },
  * //       },
  * //     ],
  * //     UpdatedAt: new Date("TIMESTAMP"),
@@ -77,6 +80,15 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * //       "<keys>": Number("int"),
  * //     },
  * //     NextToken: "STRING_VALUE",
+ * //     Profiles: [ // WorkloadProfiles
+ * //       { // WorkloadProfile
+ * //         ProfileArn: "STRING_VALUE",
+ * //         ProfileVersion: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PrioritizedRiskCounts: {
+ * //       "<keys>": Number("int"),
+ * //     },
  * //   },
  * // };
  *

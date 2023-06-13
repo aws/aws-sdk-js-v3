@@ -70,6 +70,15 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  * //           "<keys>": Number("int"),
  * //         },
  * //         ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
+ * //         Profiles: [ // WorkloadProfiles
+ * //           { // WorkloadProfile
+ * //             ProfileArn: "STRING_VALUE",
+ * //             ProfileVersion: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         PrioritizedRiskCounts: {
+ * //           "<keys>": Number("int"),
+ * //         },
  * //       },
  * //     },
  * //   ],

@@ -21,9 +21,12 @@ import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import { AssociateLensesCommandInput, AssociateLensesCommandOutput } from "../commands/AssociateLensesCommand";
+import { AssociateProfilesCommandInput, AssociateProfilesCommandOutput } from "../commands/AssociateProfilesCommand";
 import { CreateLensShareCommandInput, CreateLensShareCommandOutput } from "../commands/CreateLensShareCommand";
 import { CreateLensVersionCommandInput, CreateLensVersionCommandOutput } from "../commands/CreateLensVersionCommand";
 import { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "../commands/CreateMilestoneCommand";
+import { CreateProfileCommandInput, CreateProfileCommandOutput } from "../commands/CreateProfileCommand";
+import { CreateProfileShareCommandInput, CreateProfileShareCommandOutput } from "../commands/CreateProfileShareCommand";
 import { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "../commands/CreateWorkloadCommand";
 import {
   CreateWorkloadShareCommandInput,
@@ -31,12 +34,18 @@ import {
 } from "../commands/CreateWorkloadShareCommand";
 import { DeleteLensCommandInput, DeleteLensCommandOutput } from "../commands/DeleteLensCommand";
 import { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "../commands/DeleteLensShareCommand";
+import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
+import { DeleteProfileShareCommandInput, DeleteProfileShareCommandOutput } from "../commands/DeleteProfileShareCommand";
 import { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "../commands/DeleteWorkloadCommand";
 import {
   DeleteWorkloadShareCommandInput,
   DeleteWorkloadShareCommandOutput,
 } from "../commands/DeleteWorkloadShareCommand";
 import { DisassociateLensesCommandInput, DisassociateLensesCommandOutput } from "../commands/DisassociateLensesCommand";
+import {
+  DisassociateProfilesCommandInput,
+  DisassociateProfilesCommandOutput,
+} from "../commands/DisassociateProfilesCommand";
 import { ExportLensCommandInput, ExportLensCommandOutput } from "../commands/ExportLensCommand";
 import { GetAnswerCommandInput, GetAnswerCommandOutput } from "../commands/GetAnswerCommand";
 import {
@@ -54,6 +63,8 @@ import {
   GetLensVersionDifferenceCommandOutput,
 } from "../commands/GetLensVersionDifferenceCommand";
 import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "../commands/GetMilestoneCommand";
+import { GetProfileCommandInput, GetProfileCommandOutput } from "../commands/GetProfileCommand";
+import { GetProfileTemplateCommandInput, GetProfileTemplateCommandOutput } from "../commands/GetProfileTemplateCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "../commands/GetWorkloadCommand";
 import { ImportLensCommandInput, ImportLensCommandOutput } from "../commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "../commands/ListAnswersCommand";
@@ -68,6 +79,12 @@ import { ListLensReviewsCommandInput, ListLensReviewsCommandOutput } from "../co
 import { ListLensSharesCommandInput, ListLensSharesCommandOutput } from "../commands/ListLensSharesCommand";
 import { ListMilestonesCommandInput, ListMilestonesCommandOutput } from "../commands/ListMilestonesCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "../commands/ListNotificationsCommand";
+import {
+  ListProfileNotificationsCommandInput,
+  ListProfileNotificationsCommandOutput,
+} from "../commands/ListProfileNotificationsCommand";
+import { ListProfilesCommandInput, ListProfilesCommandOutput } from "../commands/ListProfilesCommand";
+import { ListProfileSharesCommandInput, ListProfileSharesCommandOutput } from "../commands/ListProfileSharesCommand";
 import {
   ListShareInvitationsCommandInput,
   ListShareInvitationsCommandOutput,
@@ -86,6 +103,7 @@ import {
   UpdateGlobalSettingsCommandOutput,
 } from "../commands/UpdateGlobalSettingsCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "../commands/UpdateLensReviewCommand";
+import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
 import {
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
@@ -96,6 +114,10 @@ import {
   UpdateWorkloadShareCommandOutput,
 } from "../commands/UpdateWorkloadShareCommand";
 import { UpgradeLensReviewCommandInput, UpgradeLensReviewCommandOutput } from "../commands/UpgradeLensReviewCommand";
+import {
+  UpgradeProfileVersionCommandInput,
+  UpgradeProfileVersionCommandOutput,
+} from "../commands/UpgradeProfileVersionCommand";
 import {
   AccessDeniedException,
   CheckDetail,
@@ -110,6 +132,10 @@ import {
   LensSummary,
   Milestone,
   MilestoneSummary,
+  Profile,
+  ProfileQuestionUpdate,
+  ProfileSummary,
+  ProfileTemplate,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -138,6 +164,37 @@ export const se_AssociateLensesCommand = async (
   body = JSON.stringify(
     take(input, {
       LensAliases: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1AssociateProfilesCommand
+ */
+export const se_AssociateProfilesCommand = async (
+  input: AssociateProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/associateProfiles";
+  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ProfileArns: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -249,6 +306,71 @@ export const se_CreateMilestoneCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateProfileCommand
+ */
+export const se_CreateProfileCommand = async (
+  input: CreateProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ProfileDescription: [],
+      ProfileName: [],
+      ProfileQuestions: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateProfileShareCommand
+ */
+export const se_CreateProfileShareCommand = async (
+  input: CreateProfileShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}/shares";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      SharedWith: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateWorkloadCommand
  */
 export const se_CreateWorkloadCommand = async (
@@ -277,6 +399,7 @@ export const se_CreateWorkloadCommand = async (
       NonAwsRegions: (_) => _json(_),
       Notes: [],
       PillarPriorities: (_) => _json(_),
+      ProfileArns: (_) => _json(_),
       ReviewOwner: [],
       Tags: (_) => _json(_),
       WorkloadName: [],
@@ -384,6 +507,62 @@ export const se_DeleteLensShareCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteProfileCommand
+ */
+export const se_DeleteProfileCommand = async (
+  input: DeleteProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  const query: any = map({
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteProfileShareCommand
+ */
+export const se_DeleteProfileShareCommand = async (
+  input: DeleteProfileShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}/shares/{ShareId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  const query: any = map({
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteWorkloadCommand
  */
 export const se_DeleteWorkloadCommand = async (
@@ -458,6 +637,38 @@ export const se_DisassociateLensesCommand = async (
   body = JSON.stringify(
     take(input, {
       LensAliases: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DisassociateProfilesCommand
+ */
+export const se_DisassociateProfilesCommand = async (
+  input: DisassociateProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/disassociateProfiles";
+  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ProfileArns: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -712,6 +923,58 @@ export const se_GetMilestoneCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetProfileCommand
+ */
+export const se_GetProfileCommand = async (
+  input: GetProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  const query: any = map({
+    ProfileVersion: [, input.ProfileVersion!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetProfileTemplateCommand
+ */
+export const se_GetProfileTemplateCommand = async (
+  input: GetProfileTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profileTemplate";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetWorkloadCommand
  */
 export const se_GetWorkloadCommand = async (
@@ -785,6 +1048,7 @@ export const se_ListAnswersCommand = async (
     MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
     NextToken: [, input.NextToken!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    QuestionPriority: [, input.QuestionPriority!],
   });
   let body: any;
   return new __HttpRequest({
@@ -920,6 +1184,7 @@ export const se_ListLensReviewImprovementsCommand = async (
     MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
     NextToken: [, input.NextToken!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    QuestionPriority: [, input.QuestionPriority!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1060,6 +1325,94 @@ export const se_ListNotificationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListProfileNotificationsCommand
+ */
+export const se_ListProfileNotificationsCommand = async (
+  input: ListProfileNotificationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profileNotifications";
+  const query: any = map({
+    WorkloadId: [, input.WorkloadId!],
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListProfilesCommand
+ */
+export const se_ListProfilesCommand = async (
+  input: ListProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profileSummaries";
+  const query: any = map({
+    ProfileNamePrefix: [, input.ProfileNamePrefix!],
+    ProfileOwnerType: [, input.ProfileOwnerType!],
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListProfileSharesCommand
+ */
+export const se_ListProfileSharesCommand = async (
+  input: ListProfileSharesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}/shares";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  const query: any = map({
+    SharedWithPrefix: [, input.SharedWithPrefix!],
+    NextToken: [, input.NextToken!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    Status: [, input.Status!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListShareInvitationsCommand
  */
 export const se_ListShareInvitationsCommand = async (
@@ -1075,6 +1428,7 @@ export const se_ListShareInvitationsCommand = async (
     ShareResourceType: [, input.ShareResourceType!],
     NextToken: [, input.NextToken!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    ProfileNamePrefix: [, input.ProfileNamePrefix!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1337,6 +1691,37 @@ export const se_UpdateLensReviewCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateProfileCommand
+ */
+export const se_UpdateProfileCommand = async (
+  input: UpdateProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ProfileDescription: [],
+      ProfileQuestions: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateShareInvitationCommand
  */
 export const se_UpdateShareInvitationCommand = async (
@@ -1486,6 +1871,40 @@ export const se_UpgradeLensReviewCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpgradeProfileVersionCommand
+ */
+export const se_UpgradeProfileVersionCommand = async (
+  input: UpgradeProfileVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade";
+  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      MilestoneName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * deserializeAws_restJson1AssociateLensesCommand
  */
 export const de_AssociateLensesCommand = async (
@@ -1509,6 +1928,64 @@ const de_AssociateLensesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateLensesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AssociateProfilesCommand
+ */
+export const de_AssociateProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateProfilesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateProfilesCommandError
+ */
+const de_AssociateProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1703,6 +2180,135 @@ const de_CreateMilestoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMilestoneCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wellarchitected#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateProfileCommand
+ */
+export const de_CreateProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProfileArn: __expectString,
+    ProfileVersion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateProfileCommandError
+ */
+const de_CreateProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wellarchitected#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateProfileShareCommand
+ */
+export const de_CreateProfileShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProfileShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateProfileShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProfileArn: __expectString,
+    ShareId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateProfileShareCommandError
+ */
+const de_CreateProfileShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProfileShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1989,6 +2595,122 @@ const de_DeleteLensShareCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteProfileCommand
+ */
+export const de_DeleteProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteProfileCommandError
+ */
+const de_DeleteProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteProfileShareCommand
+ */
+export const de_DeleteProfileShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProfileShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteProfileShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteProfileShareCommandError
+ */
+const de_DeleteProfileShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProfileShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteWorkloadCommand
  */
 export const de_DeleteWorkloadCommand = async (
@@ -2128,6 +2850,64 @@ const de_DisassociateLensesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateLensesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DisassociateProfilesCommand
+ */
+export const de_DisassociateProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateProfilesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateProfilesCommandError
+ */
+const de_DisassociateProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2619,6 +3399,124 @@ const de_GetMilestoneCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMilestoneCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetProfileCommand
+ */
+export const de_GetProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Profile: (_) => de_Profile(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetProfileCommandError
+ */
+const de_GetProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetProfileTemplateCommand
+ */
+export const de_GetProfileTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProfileTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetProfileTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProfileTemplate: (_) => de_ProfileTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetProfileTemplateCommandError
+ */
+const de_GetProfileTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProfileTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3321,6 +4219,180 @@ const de_ListNotificationsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListProfileNotificationsCommand
+ */
+export const de_ListProfileNotificationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProfileNotificationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListProfileNotificationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    NotificationSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProfileNotificationsCommandError
+ */
+const de_ListProfileNotificationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProfileNotificationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListProfilesCommand
+ */
+export const de_ListProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListProfilesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProfileSummaries: (_) => de_ProfileSummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProfilesCommandError
+ */
+const de_ListProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProfilesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListProfileSharesCommand
+ */
+export const de_ListProfileSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProfileSharesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListProfileSharesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProfileShareSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProfileSharesCommandError
+ */
+const de_ListProfileSharesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProfileSharesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListShareInvitationsCommand
  */
 export const de_ListShareInvitationsCommand = async (
@@ -3821,6 +4893,68 @@ const de_UpdateLensReviewCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateProfileCommand
+ */
+export const de_UpdateProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Profile: (_) => de_Profile(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateProfileCommandError
+ */
+const de_UpdateProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateShareInvitationCommand
  */
 export const de_UpdateShareInvitationCommand = async (
@@ -4065,6 +5199,64 @@ const de_UpgradeLensReviewCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpgradeProfileVersionCommand
+ */
+export const de_UpgradeProfileVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpgradeProfileVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpgradeProfileVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpgradeProfileVersionCommandError
+ */
+const de_UpgradeProfileVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpgradeProfileVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -4217,7 +5409,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_PillarNotes omitted.
 
+// se_ProfileArns omitted.
+
+// se_ProfileQuestionUpdate omitted.
+
+// se_ProfileQuestionUpdates omitted.
+
 // se_SelectedChoices omitted.
+
+// se_SelectedProfileChoiceIds omitted.
 
 // se_TagMap omitted.
 
@@ -4234,6 +5434,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_WorkloadNonAwsRegions omitted.
 
 // se_WorkloadPillarPriorities omitted.
+
+// se_WorkloadProfileArns omitted.
 
 // se_WorkloadResourceDefinition omitted.
 
@@ -4386,6 +5588,8 @@ const de_LensReview = (output: any, context: __SerdeContext): LensReview => {
     NextToken: __expectString,
     Notes: __expectString,
     PillarReviewSummaries: _json,
+    PrioritizedRiskCounts: _json,
+    Profiles: _json,
     RiskCounts: _json,
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -4415,6 +5619,8 @@ const de_LensReviewSummary = (output: any, context: __SerdeContext): LensReviewS
     LensName: __expectString,
     LensStatus: __expectString,
     LensVersion: __expectString,
+    PrioritizedRiskCounts: _json,
+    Profiles: _json,
     RiskCounts: _json,
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -4508,6 +5714,85 @@ const de_MilestoneSummary = (output: any, context: __SerdeContext): MilestoneSum
 
 // de_PillarReviewSummary omitted.
 
+/**
+ * deserializeAws_restJson1Profile
+ */
+const de_Profile = (output: any, context: __SerdeContext): Profile => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Owner: __expectString,
+    ProfileArn: __expectString,
+    ProfileDescription: __expectString,
+    ProfileName: __expectString,
+    ProfileQuestions: _json,
+    ProfileVersion: __expectString,
+    ShareInvitationId: __expectString,
+    Tags: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ProfileChoice omitted.
+
+// de_ProfileNotificationSummaries omitted.
+
+// de_ProfileNotificationSummary omitted.
+
+// de_ProfileQuestion omitted.
+
+// de_ProfileQuestionChoices omitted.
+
+// de_ProfileQuestions omitted.
+
+// de_ProfileShareSummaries omitted.
+
+// de_ProfileShareSummary omitted.
+
+/**
+ * deserializeAws_restJson1ProfileSummaries
+ */
+const de_ProfileSummaries = (output: any, context: __SerdeContext): ProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProfileSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ProfileSummary
+ */
+const de_ProfileSummary = (output: any, context: __SerdeContext): ProfileSummary => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Owner: __expectString,
+    ProfileArn: __expectString,
+    ProfileDescription: __expectString,
+    ProfileName: __expectString,
+    ProfileVersion: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ProfileTemplate
+ */
+const de_ProfileTemplate = (output: any, context: __SerdeContext): ProfileTemplate => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TemplateName: __expectString,
+    TemplateQuestions: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ProfileTemplateChoice omitted.
+
+// de_ProfileTemplateQuestion omitted.
+
+// de_ProfileTemplateQuestionChoices omitted.
+
 // de_QuestionDifference omitted.
 
 // de_QuestionDifferences omitted.
@@ -4518,6 +5803,8 @@ const de_MilestoneSummary = (output: any, context: __SerdeContext): MilestoneSum
 
 // de_RiskCounts omitted.
 
+// de_SelectedChoiceIds omitted.
+
 // de_SelectedChoices omitted.
 
 // de_ShareInvitation omitted.
@@ -4527,6 +5814,8 @@ const de_MilestoneSummary = (output: any, context: __SerdeContext): MilestoneSum
 // de_ShareInvitationSummary omitted.
 
 // de_TagMap omitted.
+
+// de_TemplateQuestions omitted.
 
 // de_Urls omitted.
 
@@ -4557,6 +5846,8 @@ const de_Workload = (output: any, context: __SerdeContext): Workload => {
     Notes: __expectString,
     Owner: __expectString,
     PillarPriorities: _json,
+    PrioritizedRiskCounts: _json,
+    Profiles: _json,
     ReviewOwner: __expectString,
     ReviewRestrictionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RiskCounts: _json,
@@ -4582,6 +5873,10 @@ const de_Workload = (output: any, context: __SerdeContext): Workload => {
 // de_WorkloadNonAwsRegions omitted.
 
 // de_WorkloadPillarPriorities omitted.
+
+// de_WorkloadProfile omitted.
+
+// de_WorkloadProfiles omitted.
 
 // de_WorkloadResourceDefinition omitted.
 
@@ -4611,6 +5906,8 @@ const de_WorkloadSummary = (output: any, context: __SerdeContext): WorkloadSumma
     ImprovementStatus: __expectString,
     Lenses: _json,
     Owner: __expectString,
+    PrioritizedRiskCounts: _json,
+    Profiles: _json,
     RiskCounts: _json,
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     WorkloadArn: __expectString,

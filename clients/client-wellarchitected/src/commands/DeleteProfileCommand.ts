@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetLensReviewInput, GetLensReviewOutput } from "../models/models_0";
-import { de_GetLensReviewCommand, se_GetLensReviewCommand } from "../protocols/Aws_restJson1";
+import { DeleteProfileInput } from "../models/models_0";
+import { de_DeleteProfileCommand, se_DeleteProfileCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -24,82 +24,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetLensReviewCommand}.
+ * The input for {@link DeleteProfileCommand}.
  */
-export interface GetLensReviewCommandInput extends GetLensReviewInput {}
+export interface DeleteProfileCommandInput extends DeleteProfileInput {}
 /**
  * @public
  *
- * The output of {@link GetLensReviewCommand}.
+ * The output of {@link DeleteProfileCommand}.
  */
-export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __MetadataBearer {}
+export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Get lens review.</p>
+ * <p>Delete a profile.</p>
+ *          <note>
+ *             <p>
+ *                <b>Disclaimer</b>
+ *             </p>
+ *             <p>By sharing your profile with other Amazon Web Services accounts,
+ *                you acknowledge that Amazon Web Services will make your profile available to those
+ *                other accounts. Those other accounts may continue to access and use your
+ *                shared profile even if you delete the profile
+ *                from your own Amazon Web Services account or terminate
+ *                your Amazon Web Services account.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, DeleteProfileCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, DeleteProfileCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // GetLensReviewInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   MilestoneNumber: Number("int"),
+ * const input = { // DeleteProfileInput
+ *   ProfileArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
  * };
- * const command = new GetLensReviewCommand(input);
+ * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
- * // { // GetLensReviewOutput
- * //   WorkloadId: "STRING_VALUE",
- * //   MilestoneNumber: Number("int"),
- * //   LensReview: { // LensReview
- * //     LensAlias: "STRING_VALUE",
- * //     LensArn: "STRING_VALUE",
- * //     LensVersion: "STRING_VALUE",
- * //     LensName: "STRING_VALUE",
- * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
- * //     PillarReviewSummaries: [ // PillarReviewSummaries
- * //       { // PillarReviewSummary
- * //         PillarId: "STRING_VALUE",
- * //         PillarName: "STRING_VALUE",
- * //         Notes: "STRING_VALUE",
- * //         RiskCounts: { // RiskCounts
- * //           "<keys>": Number("int"),
- * //         },
- * //         PrioritizedRiskCounts: {
- * //           "<keys>": Number("int"),
- * //         },
- * //       },
- * //     ],
- * //     UpdatedAt: new Date("TIMESTAMP"),
- * //     Notes: "STRING_VALUE",
- * //     RiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //     NextToken: "STRING_VALUE",
- * //     Profiles: [ // WorkloadProfiles
- * //       { // WorkloadProfile
- * //         ProfileArn: "STRING_VALUE",
- * //         ProfileVersion: "STRING_VALUE",
- * //       },
- * //     ],
- * //     PrioritizedRiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
- * @returns {@link GetLensReviewCommandOutput}
- * @see {@link GetLensReviewCommandInput} for command's `input` shape.
- * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
+ * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
+ * @returns {@link DeleteProfileCommandOutput}
+ * @see {@link DeleteProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -117,9 +92,9 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class GetLensReviewCommand extends $Command<
-  GetLensReviewCommandInput,
-  GetLensReviewCommandOutput,
+export class DeleteProfileCommand extends $Command<
+  DeleteProfileCommandInput,
+  DeleteProfileCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -137,7 +112,7 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetLensReviewCommandInput) {
+  constructor(readonly input: DeleteProfileCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -150,15 +125,15 @@ export class GetLensReviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetLensReviewCommandInput, GetLensReviewCommandOutput> {
+  ): Handler<DeleteProfileCommandInput, DeleteProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetLensReviewCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteProfileCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "GetLensReviewCommand";
+    const commandName = "DeleteProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +152,15 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetLensReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetLensReviewCommand(input, context);
+  private serialize(input: DeleteProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewCommandOutput> {
-    return de_GetLensReviewCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileCommandOutput> {
+    return de_DeleteProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

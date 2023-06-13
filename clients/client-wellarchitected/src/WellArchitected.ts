@@ -8,6 +8,11 @@ import {
   AssociateLensesCommandOutput,
 } from "./commands/AssociateLensesCommand";
 import {
+  AssociateProfilesCommand,
+  AssociateProfilesCommandInput,
+  AssociateProfilesCommandOutput,
+} from "./commands/AssociateProfilesCommand";
+import {
   CreateLensShareCommand,
   CreateLensShareCommandInput,
   CreateLensShareCommandOutput,
@@ -22,6 +27,16 @@ import {
   CreateMilestoneCommandInput,
   CreateMilestoneCommandOutput,
 } from "./commands/CreateMilestoneCommand";
+import {
+  CreateProfileCommand,
+  CreateProfileCommandInput,
+  CreateProfileCommandOutput,
+} from "./commands/CreateProfileCommand";
+import {
+  CreateProfileShareCommand,
+  CreateProfileShareCommandInput,
+  CreateProfileShareCommandOutput,
+} from "./commands/CreateProfileShareCommand";
 import {
   CreateWorkloadCommand,
   CreateWorkloadCommandInput,
@@ -39,6 +54,16 @@ import {
   DeleteLensShareCommandOutput,
 } from "./commands/DeleteLensShareCommand";
 import {
+  DeleteProfileCommand,
+  DeleteProfileCommandInput,
+  DeleteProfileCommandOutput,
+} from "./commands/DeleteProfileCommand";
+import {
+  DeleteProfileShareCommand,
+  DeleteProfileShareCommandInput,
+  DeleteProfileShareCommandOutput,
+} from "./commands/DeleteProfileShareCommand";
+import {
   DeleteWorkloadCommand,
   DeleteWorkloadCommandInput,
   DeleteWorkloadCommandOutput,
@@ -53,6 +78,11 @@ import {
   DisassociateLensesCommandInput,
   DisassociateLensesCommandOutput,
 } from "./commands/DisassociateLensesCommand";
+import {
+  DisassociateProfilesCommand,
+  DisassociateProfilesCommandInput,
+  DisassociateProfilesCommandOutput,
+} from "./commands/DisassociateProfilesCommand";
 import { ExportLensCommand, ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
 import { GetAnswerCommand, GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
 import {
@@ -81,6 +111,12 @@ import {
   GetMilestoneCommandInput,
   GetMilestoneCommandOutput,
 } from "./commands/GetMilestoneCommand";
+import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import {
+  GetProfileTemplateCommand,
+  GetProfileTemplateCommandInput,
+  GetProfileTemplateCommandOutput,
+} from "./commands/GetProfileTemplateCommand";
 import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import { ImportLensCommand, ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
 import { ListAnswersCommand, ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
@@ -120,6 +156,21 @@ import {
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
 } from "./commands/ListNotificationsCommand";
+import {
+  ListProfileNotificationsCommand,
+  ListProfileNotificationsCommandInput,
+  ListProfileNotificationsCommandOutput,
+} from "./commands/ListProfileNotificationsCommand";
+import {
+  ListProfilesCommand,
+  ListProfilesCommandInput,
+  ListProfilesCommandOutput,
+} from "./commands/ListProfilesCommand";
+import {
+  ListProfileSharesCommand,
+  ListProfileSharesCommandInput,
+  ListProfileSharesCommandOutput,
+} from "./commands/ListProfileSharesCommand";
 import {
   ListShareInvitationsCommand,
   ListShareInvitationsCommandInput,
@@ -162,6 +213,11 @@ import {
   UpdateLensReviewCommandOutput,
 } from "./commands/UpdateLensReviewCommand";
 import {
+  UpdateProfileCommand,
+  UpdateProfileCommandInput,
+  UpdateProfileCommandOutput,
+} from "./commands/UpdateProfileCommand";
+import {
   UpdateShareInvitationCommand,
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
@@ -181,20 +237,31 @@ import {
   UpgradeLensReviewCommandInput,
   UpgradeLensReviewCommandOutput,
 } from "./commands/UpgradeLensReviewCommand";
+import {
+  UpgradeProfileVersionCommand,
+  UpgradeProfileVersionCommandInput,
+  UpgradeProfileVersionCommandOutput,
+} from "./commands/UpgradeProfileVersionCommand";
 import { WellArchitectedClient, WellArchitectedClientConfig } from "./WellArchitectedClient";
 
 const commands = {
   AssociateLensesCommand,
+  AssociateProfilesCommand,
   CreateLensShareCommand,
   CreateLensVersionCommand,
   CreateMilestoneCommand,
+  CreateProfileCommand,
+  CreateProfileShareCommand,
   CreateWorkloadCommand,
   CreateWorkloadShareCommand,
   DeleteLensCommand,
   DeleteLensShareCommand,
+  DeleteProfileCommand,
+  DeleteProfileShareCommand,
   DeleteWorkloadCommand,
   DeleteWorkloadShareCommand,
   DisassociateLensesCommand,
+  DisassociateProfilesCommand,
   ExportLensCommand,
   GetAnswerCommand,
   GetConsolidatedReportCommand,
@@ -203,6 +270,8 @@ const commands = {
   GetLensReviewReportCommand,
   GetLensVersionDifferenceCommand,
   GetMilestoneCommand,
+  GetProfileCommand,
+  GetProfileTemplateCommand,
   GetWorkloadCommand,
   ImportLensCommand,
   ListAnswersCommand,
@@ -214,6 +283,9 @@ const commands = {
   ListLensSharesCommand,
   ListMilestonesCommand,
   ListNotificationsCommand,
+  ListProfileNotificationsCommand,
+  ListProfilesCommand,
+  ListProfileSharesCommand,
   ListShareInvitationsCommand,
   ListTagsForResourceCommand,
   ListWorkloadsCommand,
@@ -223,10 +295,12 @@ const commands = {
   UpdateAnswerCommand,
   UpdateGlobalSettingsCommand,
   UpdateLensReviewCommand,
+  UpdateProfileCommand,
   UpdateShareInvitationCommand,
   UpdateWorkloadCommand,
   UpdateWorkloadShareCommand,
   UpgradeLensReviewCommand,
+  UpgradeProfileVersionCommand,
 };
 
 export interface WellArchitected {
@@ -242,6 +316,23 @@ export interface WellArchitected {
     args: AssociateLensesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateLensesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateProfilesCommand}
+   */
+  associateProfiles(
+    args: AssociateProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateProfilesCommandOutput>;
+  associateProfiles(
+    args: AssociateProfilesCommandInput,
+    cb: (err: any, data?: AssociateProfilesCommandOutput) => void
+  ): void;
+  associateProfiles(
+    args: AssociateProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateProfilesCommandOutput) => void
   ): void;
 
   /**
@@ -287,6 +378,34 @@ export interface WellArchitected {
     args: CreateMilestoneCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateMilestoneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProfileCommand}
+   */
+  createProfile(args: CreateProfileCommandInput, options?: __HttpHandlerOptions): Promise<CreateProfileCommandOutput>;
+  createProfile(args: CreateProfileCommandInput, cb: (err: any, data?: CreateProfileCommandOutput) => void): void;
+  createProfile(
+    args: CreateProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProfileShareCommand}
+   */
+  createProfileShare(
+    args: CreateProfileShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProfileShareCommandOutput>;
+  createProfileShare(
+    args: CreateProfileShareCommandInput,
+    cb: (err: any, data?: CreateProfileShareCommandOutput) => void
+  ): void;
+  createProfileShare(
+    args: CreateProfileShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProfileShareCommandOutput) => void
   ): void;
 
   /**
@@ -346,6 +465,34 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link DeleteProfileCommand}
+   */
+  deleteProfile(args: DeleteProfileCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProfileCommandOutput>;
+  deleteProfile(args: DeleteProfileCommandInput, cb: (err: any, data?: DeleteProfileCommandOutput) => void): void;
+  deleteProfile(
+    args: DeleteProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProfileShareCommand}
+   */
+  deleteProfileShare(
+    args: DeleteProfileShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProfileShareCommandOutput>;
+  deleteProfileShare(
+    args: DeleteProfileShareCommandInput,
+    cb: (err: any, data?: DeleteProfileShareCommandOutput) => void
+  ): void;
+  deleteProfileShare(
+    args: DeleteProfileShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProfileShareCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWorkloadCommand}
    */
   deleteWorkload(
@@ -391,6 +538,23 @@ export interface WellArchitected {
     args: DisassociateLensesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateLensesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateProfilesCommand}
+   */
+  disassociateProfiles(
+    args: DisassociateProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateProfilesCommandOutput>;
+  disassociateProfiles(
+    args: DisassociateProfilesCommandInput,
+    cb: (err: any, data?: DisassociateProfilesCommandOutput) => void
+  ): void;
+  disassociateProfiles(
+    args: DisassociateProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateProfilesCommandOutput) => void
   ): void;
 
   /**
@@ -497,6 +661,34 @@ export interface WellArchitected {
     args: GetMilestoneCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMilestoneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProfileCommand}
+   */
+  getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
+  getProfile(args: GetProfileCommandInput, cb: (err: any, data?: GetProfileCommandOutput) => void): void;
+  getProfile(
+    args: GetProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProfileTemplateCommand}
+   */
+  getProfileTemplate(
+    args: GetProfileTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProfileTemplateCommandOutput>;
+  getProfileTemplate(
+    args: GetProfileTemplateCommandInput,
+    cb: (err: any, data?: GetProfileTemplateCommandOutput) => void
+  ): void;
+  getProfileTemplate(
+    args: GetProfileTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProfileTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -654,6 +846,51 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link ListProfileNotificationsCommand}
+   */
+  listProfileNotifications(
+    args: ListProfileNotificationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfileNotificationsCommandOutput>;
+  listProfileNotifications(
+    args: ListProfileNotificationsCommandInput,
+    cb: (err: any, data?: ListProfileNotificationsCommandOutput) => void
+  ): void;
+  listProfileNotifications(
+    args: ListProfileNotificationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfileNotificationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProfilesCommand}
+   */
+  listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
+  listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
+  listProfiles(
+    args: ListProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProfileSharesCommand}
+   */
+  listProfileShares(
+    args: ListProfileSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfileSharesCommandOutput>;
+  listProfileShares(
+    args: ListProfileSharesCommandInput,
+    cb: (err: any, data?: ListProfileSharesCommandOutput) => void
+  ): void;
+  listProfileShares(
+    args: ListProfileSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfileSharesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListShareInvitationsCommand}
    */
   listShareInvitations(
@@ -783,6 +1020,17 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link UpdateProfileCommand}
+   */
+  updateProfile(args: UpdateProfileCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProfileCommandOutput>;
+  updateProfile(args: UpdateProfileCommandInput, cb: (err: any, data?: UpdateProfileCommandOutput) => void): void;
+  updateProfile(
+    args: UpdateProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateShareInvitationCommand}
    */
   updateShareInvitation(
@@ -845,6 +1093,23 @@ export interface WellArchitected {
     args: UpgradeLensReviewCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradeLensReviewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpgradeProfileVersionCommand}
+   */
+  upgradeProfileVersion(
+    args: UpgradeProfileVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpgradeProfileVersionCommandOutput>;
+  upgradeProfileVersion(
+    args: UpgradeProfileVersionCommandInput,
+    cb: (err: any, data?: UpgradeProfileVersionCommandOutput) => void
+  ): void;
+  upgradeProfileVersion(
+    args: UpgradeProfileVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpgradeProfileVersionCommandOutput) => void
   ): void;
 }
 

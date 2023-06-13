@@ -96,6 +96,15 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * //     Applications: [ // WorkloadApplications
  * //       "STRING_VALUE",
  * //     ],
+ * //     Profiles: [ // WorkloadProfiles
+ * //       { // WorkloadProfile
+ * //         ProfileArn: "STRING_VALUE",
+ * //         ProfileVersion: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PrioritizedRiskCounts: {
+ * //       "<keys>": Number("int"),
+ * //     },
  * //   },
  * // };
  *

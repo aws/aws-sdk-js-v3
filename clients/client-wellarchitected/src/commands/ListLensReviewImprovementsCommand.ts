@@ -50,6 +50,7 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  *   MilestoneNumber: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   QuestionPriority: "PRIORITIZED" || "NONE",
  * };
  * const command = new ListLensReviewImprovementsCommand(input);
  * const response = await client.send(command);

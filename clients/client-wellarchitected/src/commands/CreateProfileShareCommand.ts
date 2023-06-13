@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetLensReviewInput, GetLensReviewOutput } from "../models/models_0";
-import { de_GetLensReviewCommand, se_GetLensReviewCommand } from "../protocols/Aws_restJson1";
+import { CreateProfileShareInput, CreateProfileShareOutput } from "../models/models_0";
+import { de_CreateProfileShareCommand, se_CreateProfileShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -24,88 +24,59 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetLensReviewCommand}.
+ * The input for {@link CreateProfileShareCommand}.
  */
-export interface GetLensReviewCommandInput extends GetLensReviewInput {}
+export interface CreateProfileShareCommandInput extends CreateProfileShareInput {}
 /**
  * @public
  *
- * The output of {@link GetLensReviewCommand}.
+ * The output of {@link CreateProfileShareCommand}.
  */
-export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __MetadataBearer {}
+export interface CreateProfileShareCommandOutput extends CreateProfileShareOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get lens review.</p>
+ * <p>Create a profile share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, CreateProfileShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, CreateProfileShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // GetLensReviewInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   MilestoneNumber: Number("int"),
+ * const input = { // CreateProfileShareInput
+ *   ProfileArn: "STRING_VALUE", // required
+ *   SharedWith: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
  * };
- * const command = new GetLensReviewCommand(input);
+ * const command = new CreateProfileShareCommand(input);
  * const response = await client.send(command);
- * // { // GetLensReviewOutput
- * //   WorkloadId: "STRING_VALUE",
- * //   MilestoneNumber: Number("int"),
- * //   LensReview: { // LensReview
- * //     LensAlias: "STRING_VALUE",
- * //     LensArn: "STRING_VALUE",
- * //     LensVersion: "STRING_VALUE",
- * //     LensName: "STRING_VALUE",
- * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
- * //     PillarReviewSummaries: [ // PillarReviewSummaries
- * //       { // PillarReviewSummary
- * //         PillarId: "STRING_VALUE",
- * //         PillarName: "STRING_VALUE",
- * //         Notes: "STRING_VALUE",
- * //         RiskCounts: { // RiskCounts
- * //           "<keys>": Number("int"),
- * //         },
- * //         PrioritizedRiskCounts: {
- * //           "<keys>": Number("int"),
- * //         },
- * //       },
- * //     ],
- * //     UpdatedAt: new Date("TIMESTAMP"),
- * //     Notes: "STRING_VALUE",
- * //     RiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //     NextToken: "STRING_VALUE",
- * //     Profiles: [ // WorkloadProfiles
- * //       { // WorkloadProfile
- * //         ProfileArn: "STRING_VALUE",
- * //         ProfileVersion: "STRING_VALUE",
- * //       },
- * //     ],
- * //     PrioritizedRiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //   },
+ * // { // CreateProfileShareOutput
+ * //   ShareId: "STRING_VALUE",
+ * //   ProfileArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
- * @returns {@link GetLensReviewCommandOutput}
- * @see {@link GetLensReviewCommandInput} for command's `input` shape.
- * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
+ * @param CreateProfileShareCommandInput - {@link CreateProfileShareCommandInput}
+ * @returns {@link CreateProfileShareCommandOutput}
+ * @see {@link CreateProfileShareCommandInput} for command's `input` shape.
+ * @see {@link CreateProfileShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The user has reached their resource quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
@@ -117,9 +88,9 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class GetLensReviewCommand extends $Command<
-  GetLensReviewCommandInput,
-  GetLensReviewCommandOutput,
+export class CreateProfileShareCommand extends $Command<
+  CreateProfileShareCommandInput,
+  CreateProfileShareCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -137,7 +108,7 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetLensReviewCommandInput) {
+  constructor(readonly input: CreateProfileShareCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -150,15 +121,17 @@ export class GetLensReviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetLensReviewCommandInput, GetLensReviewCommandOutput> {
+  ): Handler<CreateProfileShareCommandInput, CreateProfileShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetLensReviewCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateProfileShareCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "GetLensReviewCommand";
+    const commandName = "CreateProfileShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +150,15 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetLensReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetLensReviewCommand(input, context);
+  private serialize(input: CreateProfileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateProfileShareCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewCommandOutput> {
-    return de_GetLensReviewCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileShareCommandOutput> {
+    return de_CreateProfileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

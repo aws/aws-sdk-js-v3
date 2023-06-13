@@ -331,6 +331,20 @@ export interface ChoiceAnswerSummary {
 
 /**
  * @public
+ * @enum
+ */
+export const QuestionType = {
+  NON_PRIORITIZED: "NON_PRIORITIZED",
+  PRIORITIZED: "PRIORITIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type QuestionType = (typeof QuestionType)[keyof typeof QuestionType];
+
+/**
+ * @public
  * <p>An answer summary of a lens review in a workload.</p>
  */
 export interface AnswerSummary {
@@ -380,6 +394,11 @@ export interface AnswerSummary {
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
   Reason?: AnswerReason | string;
+
+  /**
+   * <p>The type of the question.</p>
+   */
+  QuestionType?: QuestionType | string;
 }
 
 /**
@@ -602,6 +621,21 @@ export class ValidationException extends __BaseException {
     this.Reason = opts.Reason;
     this.Fields = opts.Fields;
   }
+}
+
+/**
+ * @public
+ */
+export interface AssociateProfilesInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>The list of profile ARNs to associate with the workload.</p>
+   */
+  ProfileArns: string[] | undefined;
 }
 
 /**
@@ -969,7 +1003,7 @@ export interface CreateLensShareInput {
   LensAlias: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
    */
   SharedWith: string | undefined;
 
@@ -993,7 +1027,7 @@ export interface CreateLensShareInput {
  */
 export interface CreateLensShareOutput {
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId?: string;
 }
@@ -1149,6 +1183,120 @@ export interface CreateMilestoneOutput {
    *          <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
+}
+
+/**
+ * @public
+ * <p>An update to a profile question.</p>
+ */
+export interface ProfileQuestionUpdate {
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId?: string;
+
+  /**
+   * <p>The selected choices.</p>
+   */
+  SelectedChoiceIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CreateProfileInput {
+  /**
+   * <p>Name of the profile.</p>
+   */
+  ProfileName: string | undefined;
+
+  /**
+   * <p>The profile description.</p>
+   */
+  ProfileDescription: string | undefined;
+
+  /**
+   * <p>The profile questions.</p>
+   */
+  ProfileQuestions: ProfileQuestionUpdate[] | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The tags assigned to the profile.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateProfileOutput {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
+
+  /**
+   * <p>Version of the profile.</p>
+   */
+  ProfileVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateProfileShareInput {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
+   */
+  SharedWith: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateProfileShareOutput {
+  /**
+   * <p>The ID associated with the share.</p>
+   */
+  ShareId?: string;
+
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
 }
 
 /**
@@ -1452,6 +1600,11 @@ export interface CreateWorkloadInput {
    * <p>List of AppRegistry application ARNs associated to the workload.</p>
    */
   Applications?: string[];
+
+  /**
+   * <p>The list of profile ARNs associated with the workload.</p>
+   */
+  ProfileArns?: string[];
 }
 
 /**
@@ -1495,12 +1648,12 @@ export interface CreateWorkloadShareInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
    */
   SharedWith: string | undefined;
 
   /**
-   * <p>Permission granted on a workload share.</p>
+   * <p>Permission granted on a share request.</p>
    */
   PermissionType: PermissionType | string | undefined;
 
@@ -1530,7 +1683,7 @@ export interface CreateWorkloadShareOutput {
   WorkloadId?: string;
 
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId?: string;
 }
@@ -1591,7 +1744,7 @@ export interface DeleteLensInput {
  */
 export interface DeleteLensShareInput {
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId: string | undefined;
 
@@ -1606,6 +1759,59 @@ export interface DeleteLensShareInput {
    *          <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAlias: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProfileInput {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProfileShareInput {
+  /**
+   * <p>The ID associated with the share.</p>
+   */
+  ShareId: string | undefined;
+
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn: string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
@@ -1653,7 +1859,7 @@ export interface DeleteWorkloadInput {
  */
 export interface DeleteWorkloadShareInput {
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId: string | undefined;
 
@@ -1707,6 +1913,21 @@ export interface DisassociateLensesInput {
    *          <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAliases: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateProfilesInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>The list of profile ARNs to disassociate from the workload.</p>
+   */
+  ProfileArns: string[] | undefined;
 }
 
 /**
@@ -2037,6 +2258,27 @@ export interface PillarReviewSummary {
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  PrioritizedRiskCounts?: Record<string, number>;
+}
+
+/**
+ * @public
+ * <p>The profile associated with a workload.</p>
+ */
+export interface WorkloadProfile {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
+
+  /**
+   * <p>The profile version.</p>
+   */
+  ProfileVersion?: string;
 }
 
 /**
@@ -2100,6 +2342,16 @@ export interface LensReview {
    * <p>The token to use to retrieve the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The profiles associated with the workload.</p>
+   */
+  Profiles?: WorkloadProfile[];
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  PrioritizedRiskCounts?: Record<string, number>;
 }
 
 /**
@@ -2644,6 +2896,16 @@ export interface Workload {
    * <p>List of AppRegistry application ARNs associated to the workload.</p>
    */
   Applications?: string[];
+
+  /**
+   * <p>Profile associated with a workload.</p>
+   */
+  Profiles?: WorkloadProfile[];
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  PrioritizedRiskCounts?: Record<string, number>;
 }
 
 /**
@@ -2688,6 +2950,247 @@ export interface GetMilestoneOutput {
    * <p>A milestone return object.</p>
    */
   Milestone?: Milestone;
+}
+
+/**
+ * @public
+ */
+export interface GetProfileInput {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn: string | undefined;
+
+  /**
+   * <p>The profile version.</p>
+   */
+  ProfileVersion?: string;
+}
+
+/**
+ * @public
+ * <p>The profile choice.</p>
+ */
+export interface ProfileChoice {
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
+
+  /**
+   * <p>The title of a choice.</p>
+   */
+  ChoiceTitle?: string;
+
+  /**
+   * <p>The description of a choice.</p>
+   */
+  ChoiceDescription?: string;
+}
+
+/**
+ * @public
+ * <p>A profile question.</p>
+ */
+export interface ProfileQuestion {
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId?: string;
+
+  /**
+   * <p>The title of the question.</p>
+   */
+  QuestionTitle?: string;
+
+  /**
+   * <p>The description of the question.</p>
+   */
+  QuestionDescription?: string;
+
+  /**
+   * <p>The question choices.</p>
+   */
+  QuestionChoices?: ProfileChoice[];
+
+  /**
+   * <p>The selected choices.</p>
+   */
+  SelectedChoiceIds?: string[];
+
+  /**
+   * <p>The minimum number of selected choices.</p>
+   */
+  MinSelectedChoices?: number;
+
+  /**
+   * <p>The maximum number of selected choices.</p>
+   */
+  MaxSelectedChoices?: number;
+}
+
+/**
+ * @public
+ * <p>A profile.</p>
+ */
+export interface Profile {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
+
+  /**
+   * <p>The profile version.</p>
+   */
+  ProfileVersion?: string;
+
+  /**
+   * <p>The profile name.</p>
+   */
+  ProfileName?: string;
+
+  /**
+   * <p>The profile description.</p>
+   */
+  ProfileDescription?: string;
+
+  /**
+   * <p>Profile questions.</p>
+   */
+  ProfileQuestions?: ProfileQuestion[];
+
+  /**
+   * <p>An Amazon Web Services account ID.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>The ID assigned to the share invitation.</p>
+   */
+  ShareInvitationId?: string;
+
+  /**
+   * <p>The tags assigned to the profile.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetProfileOutput {
+  /**
+   * <p>The profile.</p>
+   */
+  Profile?: Profile;
+}
+
+/**
+ * @public
+ */
+export interface GetProfileTemplateInput {}
+
+/**
+ * @public
+ * <p>A profile template choice.</p>
+ */
+export interface ProfileTemplateChoice {
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
+
+  /**
+   * <p>The title of a choice.</p>
+   */
+  ChoiceTitle?: string;
+
+  /**
+   * <p>The description of a choice.</p>
+   */
+  ChoiceDescription?: string;
+}
+
+/**
+ * @public
+ * <p>A profile template question.</p>
+ */
+export interface ProfileTemplateQuestion {
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId?: string;
+
+  /**
+   * <p>The title of the question.</p>
+   */
+  QuestionTitle?: string;
+
+  /**
+   * <p>The description of the question.</p>
+   */
+  QuestionDescription?: string;
+
+  /**
+   * <p>The question choices.</p>
+   */
+  QuestionChoices?: ProfileTemplateChoice[];
+
+  /**
+   * <p>The minimum number of choices selected.</p>
+   */
+  MinSelectedChoices?: number;
+
+  /**
+   * <p>The maximum number of choices selected.</p>
+   */
+  MaxSelectedChoices?: number;
+}
+
+/**
+ * @public
+ * <p>The profile template.</p>
+ */
+export interface ProfileTemplate {
+  /**
+   * <p>The name of the profile template.</p>
+   */
+  TemplateName?: string;
+
+  /**
+   * <p>Profile template questions.</p>
+   */
+  TemplateQuestions?: ProfileTemplateQuestion[];
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetProfileTemplateOutput {
+  /**
+   * <p>The profile template.</p>
+   */
+  ProfileTemplate?: ProfileTemplate;
 }
 
 /**
@@ -2868,6 +3371,16 @@ export interface LensReviewSummary {
    * <p>A map from risk names to the count of how many questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
+
+  /**
+   * <p>The profiles associated with the workload.</p>
+   */
+  Profiles?: WorkloadProfile[];
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  PrioritizedRiskCounts?: Record<string, number>;
 }
 
 /**
@@ -2896,17 +3409,17 @@ export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
  */
 export interface LensShareSummary {
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId?: string;
 
   /**
-   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
    */
   SharedWith?: string;
 
   /**
-   * <p>The status of a workload share.</p>
+   * <p>The status of the share request.</p>
    */
   Status?: ShareStatus | string;
 
@@ -3041,6 +3554,20 @@ export interface LensUpgradeSummary {
 
 /**
  * @public
+ * @enum
+ */
+export const QuestionPriority = {
+  NONE: "NONE",
+  PRIORITIZED: "PRIORITIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type QuestionPriority = (typeof QuestionPriority)[keyof typeof QuestionPriority];
+
+/**
+ * @public
  * <p>Input to list answers.</p>
  */
 export interface ListAnswersInput {
@@ -3082,6 +3609,11 @@ export interface ListAnswersInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The priority of the question.</p>
+   */
+  QuestionPriority?: QuestionPriority | string;
 }
 
 /**
@@ -3330,6 +3862,11 @@ export interface ListLensReviewImprovementsInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The priority of the question.</p>
+   */
+  QuestionPriority?: QuestionPriority | string;
 }
 
 /**
@@ -3462,7 +3999,7 @@ export interface ListLensSharesInput {
   MaxResults?: number;
 
   /**
-   * <p>The status of a workload share.</p>
+   * <p>The status of the share request.</p>
    */
   Status?: ShareStatus | string;
 }
@@ -3549,6 +4086,16 @@ export interface WorkloadSummary {
    * <p>The improvement status for a workload.</p>
    */
   ImprovementStatus?: WorkloadImprovementStatus | string;
+
+  /**
+   * <p>Profile associated with a workload.</p>
+   */
+  Profiles?: WorkloadProfile[];
+
+  /**
+   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   */
+  PrioritizedRiskCounts?: Record<string, number>;
 }
 
 /**
@@ -3667,10 +4214,269 @@ export interface ListNotificationsOutput {
 
 /**
  * @public
+ */
+export interface ListProfileNotificationsInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for this request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileNotificationType = {
+  PROFILE_ANSWERS_UPDATED: "PROFILE_ANSWERS_UPDATED",
+  PROFILE_DELETED: "PROFILE_DELETED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfileNotificationType = (typeof ProfileNotificationType)[keyof typeof ProfileNotificationType];
+
+/**
+ * @public
+ * <p>The profile notification summary.</p>
+ */
+export interface ProfileNotificationSummary {
+  /**
+   * <p>The current profile version.</p>
+   */
+  CurrentProfileVersion?: string;
+
+  /**
+   * <p>The latest profile version.</p>
+   */
+  LatestProfileVersion?: string;
+
+  /**
+   * <p>Type of notification.</p>
+   */
+  Type?: ProfileNotificationType | string;
+
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
+
+  /**
+   * <p>The profile name.</p>
+   */
+  ProfileName?: string;
+
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The name of the workload.</p>
+   *          <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization
+   *             are ignored when checking for uniqueness.</p>
+   */
+  WorkloadName?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListProfileNotificationsOutput {
+  /**
+   * <p>Notification summaries.</p>
+   */
+  NotificationSummaries?: ProfileNotificationSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileOwnerType = {
+  SELF: "SELF",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfileOwnerType = (typeof ProfileOwnerType)[keyof typeof ProfileOwnerType];
+
+/**
+ * @public
+ */
+export interface ListProfilesInput {
+  /**
+   * <p>Prefix for profile name.</p>
+   */
+  ProfileNamePrefix?: string;
+
+  /**
+   * <p>Profile owner type.</p>
+   */
+  ProfileOwnerType?: ProfileOwnerType | string;
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for this request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary of a profile.</p>
+ */
+export interface ProfileSummary {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
+
+  /**
+   * <p>The profile version.</p>
+   */
+  ProfileVersion?: string;
+
+  /**
+   * <p>The profile name.</p>
+   */
+  ProfileName?: string;
+
+  /**
+   * <p>The profile description.</p>
+   */
+  ProfileDescription?: string;
+
+  /**
+   * <p>An Amazon Web Services account ID.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListProfilesOutput {
+  /**
+   * <p>Profile summaries.</p>
+   */
+  ProfileSummaries?: ProfileSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListProfileSharesInput {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the profile is shared.</p>
+   */
+  SharedWithPrefix?: string;
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The status of the share request.</p>
+   */
+  Status?: ShareStatus | string;
+}
+
+/**
+ * @public
+ * <p>Summary of a profile share.</p>
+ */
+export interface ProfileShareSummary {
+  /**
+   * <p>The ID associated with the share.</p>
+   */
+  ShareId?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
+   */
+  SharedWith?: string;
+
+  /**
+   * <p>The status of the share request.</p>
+   */
+  Status?: ShareStatus | string;
+
+  /**
+   * <p>Profile share invitation status message.</p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListProfileSharesOutput {
+  /**
+   * <p>Profile share summaries.</p>
+   */
+  ProfileShareSummaries?: ProfileShareSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ShareResourceType = {
   LENS: "LENS",
+  PROFILE: "PROFILE",
   WORKLOAD: "WORKLOAD",
 } as const;
 
@@ -3709,6 +4515,11 @@ export interface ListShareInvitationsInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Profile name prefix.</p>
+   */
+  ProfileNamePrefix?: string;
 }
 
 /**
@@ -3727,12 +4538,12 @@ export interface ShareInvitationSummary {
   SharedBy?: string;
 
   /**
-   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
    */
   SharedWith?: string;
 
   /**
-   * <p>Permission granted on a workload share.</p>
+   * <p>Permission granted on a share request.</p>
    */
   PermissionType?: PermissionType | string;
 
@@ -3762,6 +4573,16 @@ export interface ShareInvitationSummary {
    * <p>The ARN for the lens.</p>
    */
   LensArn?: string;
+
+  /**
+   * <p>The profile name.</p>
+   */
+  ProfileName?: string;
+
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
 }
 
 /**
@@ -3864,7 +4685,7 @@ export interface ListWorkloadSharesInput {
   MaxResults?: number;
 
   /**
-   * <p>The status of a workload share.</p>
+   * <p>The status of the share request.</p>
    */
   Status?: ShareStatus | string;
 }
@@ -3875,22 +4696,22 @@ export interface ListWorkloadSharesInput {
  */
 export interface WorkloadShareSummary {
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId?: string;
 
   /**
-   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
    */
   SharedWith?: string;
 
   /**
-   * <p>Permission granted on a workload share.</p>
+   * <p>Permission granted on a share request.</p>
    */
   PermissionType?: PermissionType | string;
 
   /**
-   * <p>The status of a workload share.</p>
+   * <p>The status of the share request.</p>
    */
   Status?: ShareStatus | string;
 
@@ -3971,6 +4792,11 @@ export interface ShareInvitation {
    * <p>The ARN for the lens.</p>
    */
   LensArn?: string;
+
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn?: string;
 }
 
 /**
@@ -4178,6 +5004,36 @@ export interface UpdateLensReviewOutput {
    * <p>A lens review of a question.</p>
    */
   LensReview?: LensReview;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProfileInput {
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn: string | undefined;
+
+  /**
+   * <p>The profile description.</p>
+   */
+  ProfileDescription?: string;
+
+  /**
+   * <p>Profile questions.</p>
+   */
+  ProfileQuestions?: ProfileQuestionUpdate[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateProfileOutput {
+  /**
+   * <p>The profile.</p>
+   */
+  Profile?: Profile;
 }
 
 /**
@@ -4461,7 +5317,7 @@ export interface UpdateWorkloadOutput {
  */
 export interface UpdateWorkloadShareInput {
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId: string | undefined;
 
@@ -4471,7 +5327,7 @@ export interface UpdateWorkloadShareInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>Permission granted on a workload share.</p>
+   * <p>Permission granted on a share request.</p>
    */
   PermissionType: PermissionType | string | undefined;
 }
@@ -4482,7 +5338,7 @@ export interface UpdateWorkloadShareInput {
  */
 export interface WorkloadShare {
   /**
-   * <p>The ID associated with the workload share.</p>
+   * <p>The ID associated with the share.</p>
    */
   ShareId?: string;
 
@@ -4492,17 +5348,17 @@ export interface WorkloadShare {
   SharedBy?: string;
 
   /**
-   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload, lens, or profile is shared.</p>
    */
   SharedWith?: string;
 
   /**
-   * <p>Permission granted on a workload share.</p>
+   * <p>Permission granted on a share request.</p>
    */
   PermissionType?: PermissionType | string;
 
   /**
-   * <p>The status of a workload share.</p>
+   * <p>The status of the share request.</p>
    */
   Status?: ShareStatus | string;
 
@@ -4561,6 +5417,41 @@ export interface UpgradeLensReviewInput {
    *          <p>Milestone names must be unique within a workload.</p>
    */
   MilestoneName: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *          </important>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpgradeProfileVersionInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>The profile ARN.</p>
+   */
+  ProfileArn: string | undefined;
+
+  /**
+   * <p>The name of the milestone in a workload.</p>
+   *          <p>Milestone names must be unique within a workload.</p>
+   */
+  MilestoneName?: string;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent

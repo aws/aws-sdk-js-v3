@@ -65,6 +65,15 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
  * //       RiskCounts: { // RiskCounts
  * //         "<keys>": Number("int"),
  * //       },
+ * //       Profiles: [ // WorkloadProfiles
+ * //         { // WorkloadProfile
+ * //           ProfileArn: "STRING_VALUE",
+ * //           ProfileVersion: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PrioritizedRiskCounts: {
+ * //         "<keys>": Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -65,6 +65,15 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * //         "<keys>": Number("int"),
  * //       },
  * //       ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
+ * //       Profiles: [ // WorkloadProfiles
+ * //         { // WorkloadProfile
+ * //           ProfileArn: "STRING_VALUE",
+ * //           ProfileVersion: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PrioritizedRiskCounts: {
+ * //         "<keys>": Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

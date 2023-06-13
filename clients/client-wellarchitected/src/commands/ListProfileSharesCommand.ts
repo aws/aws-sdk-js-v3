@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetLensReviewInput, GetLensReviewOutput } from "../models/models_0";
-import { de_GetLensReviewCommand, se_GetLensReviewCommand } from "../protocols/Aws_restJson1";
+import { ListProfileSharesInput, ListProfileSharesOutput } from "../models/models_0";
+import { de_ListProfileSharesCommand, se_ListProfileSharesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -24,78 +24,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetLensReviewCommand}.
+ * The input for {@link ListProfileSharesCommand}.
  */
-export interface GetLensReviewCommandInput extends GetLensReviewInput {}
+export interface ListProfileSharesCommandInput extends ListProfileSharesInput {}
 /**
  * @public
  *
- * The output of {@link GetLensReviewCommand}.
+ * The output of {@link ListProfileSharesCommand}.
  */
-export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __MetadataBearer {}
+export interface ListProfileSharesCommandOutput extends ListProfileSharesOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get lens review.</p>
+ * <p>List profile shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListProfileSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, ListProfileSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // GetLensReviewInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   MilestoneNumber: Number("int"),
+ * const input = { // ListProfileSharesInput
+ *   ProfileArn: "STRING_VALUE", // required
+ *   SharedWithPrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
  * };
- * const command = new GetLensReviewCommand(input);
+ * const command = new ListProfileSharesCommand(input);
  * const response = await client.send(command);
- * // { // GetLensReviewOutput
- * //   WorkloadId: "STRING_VALUE",
- * //   MilestoneNumber: Number("int"),
- * //   LensReview: { // LensReview
- * //     LensAlias: "STRING_VALUE",
- * //     LensArn: "STRING_VALUE",
- * //     LensVersion: "STRING_VALUE",
- * //     LensName: "STRING_VALUE",
- * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
- * //     PillarReviewSummaries: [ // PillarReviewSummaries
- * //       { // PillarReviewSummary
- * //         PillarId: "STRING_VALUE",
- * //         PillarName: "STRING_VALUE",
- * //         Notes: "STRING_VALUE",
- * //         RiskCounts: { // RiskCounts
- * //           "<keys>": Number("int"),
- * //         },
- * //         PrioritizedRiskCounts: {
- * //           "<keys>": Number("int"),
- * //         },
- * //       },
- * //     ],
- * //     UpdatedAt: new Date("TIMESTAMP"),
- * //     Notes: "STRING_VALUE",
- * //     RiskCounts: {
- * //       "<keys>": Number("int"),
+ * // { // ListProfileSharesOutput
+ * //   ProfileShareSummaries: [ // ProfileShareSummaries
+ * //     { // ProfileShareSummary
+ * //       ShareId: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
  * //     },
- * //     NextToken: "STRING_VALUE",
- * //     Profiles: [ // WorkloadProfiles
- * //       { // WorkloadProfile
- * //         ProfileArn: "STRING_VALUE",
- * //         ProfileVersion: "STRING_VALUE",
- * //       },
- * //     ],
- * //     PrioritizedRiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //   },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
- * @returns {@link GetLensReviewCommandOutput}
- * @see {@link GetLensReviewCommandInput} for command's `input` shape.
- * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
+ * @param ListProfileSharesCommandInput - {@link ListProfileSharesCommandInput}
+ * @returns {@link ListProfileSharesCommandOutput}
+ * @see {@link ListProfileSharesCommandInput} for command's `input` shape.
+ * @see {@link ListProfileSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -117,9 +91,9 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class GetLensReviewCommand extends $Command<
-  GetLensReviewCommandInput,
-  GetLensReviewCommandOutput,
+export class ListProfileSharesCommand extends $Command<
+  ListProfileSharesCommandInput,
+  ListProfileSharesCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -137,7 +111,7 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetLensReviewCommandInput) {
+  constructor(readonly input: ListProfileSharesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -150,15 +124,17 @@ export class GetLensReviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetLensReviewCommandInput, GetLensReviewCommandOutput> {
+  ): Handler<ListProfileSharesCommandInput, ListProfileSharesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetLensReviewCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListProfileSharesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "GetLensReviewCommand";
+    const commandName = "ListProfileSharesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +153,15 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetLensReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetLensReviewCommand(input, context);
+  private serialize(input: ListProfileSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListProfileSharesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewCommandOutput> {
-    return de_GetLensReviewCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileSharesCommandOutput> {
+    return de_ListProfileSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

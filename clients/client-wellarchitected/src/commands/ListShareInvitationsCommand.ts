@@ -46,9 +46,10 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * const input = { // ListShareInvitationsInput
  *   WorkloadNamePrefix: "STRING_VALUE",
  *   LensNamePrefix: "STRING_VALUE",
- *   ShareResourceType: "WORKLOAD" || "LENS",
+ *   ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   ProfileNamePrefix: "STRING_VALUE",
  * };
  * const command = new ListShareInvitationsCommand(input);
  * const response = await client.send(command);
@@ -59,11 +60,13 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * //       SharedBy: "STRING_VALUE",
  * //       SharedWith: "STRING_VALUE",
  * //       PermissionType: "READONLY" || "CONTRIBUTOR",
- * //       ShareResourceType: "WORKLOAD" || "LENS",
+ * //       ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE",
  * //       WorkloadName: "STRING_VALUE",
  * //       WorkloadId: "STRING_VALUE",
  * //       LensName: "STRING_VALUE",
  * //       LensArn: "STRING_VALUE",
+ * //       ProfileName: "STRING_VALUE",
+ * //       ProfileArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

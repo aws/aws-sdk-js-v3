@@ -50,6 +50,7 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  *   MilestoneNumber: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   QuestionPriority: "PRIORITIZED" || "NONE",
  * };
  * const command = new ListAnswersCommand(input);
  * const response = await client.send(command);
@@ -102,6 +103,7 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  * //       IsApplicable: true || false,
  * //       Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
  * //       Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ * //       QuestionType: "PRIORITIZED" || "NON_PRIORITIZED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

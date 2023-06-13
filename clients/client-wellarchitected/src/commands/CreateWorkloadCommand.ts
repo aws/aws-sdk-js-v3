@@ -92,6 +92,9 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *   Applications: [ // WorkloadApplications
  *     "STRING_VALUE",
  *   ],
+ *   ProfileArns: [ // WorkloadProfileArns
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);

@@ -52,9 +52,12 @@ import {
 } from "@smithy/types";
 
 import { AssociateLensesCommandInput, AssociateLensesCommandOutput } from "./commands/AssociateLensesCommand";
+import { AssociateProfilesCommandInput, AssociateProfilesCommandOutput } from "./commands/AssociateProfilesCommand";
 import { CreateLensShareCommandInput, CreateLensShareCommandOutput } from "./commands/CreateLensShareCommand";
 import { CreateLensVersionCommandInput, CreateLensVersionCommandOutput } from "./commands/CreateLensVersionCommand";
 import { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "./commands/CreateMilestoneCommand";
+import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import { CreateProfileShareCommandInput, CreateProfileShareCommandOutput } from "./commands/CreateProfileShareCommand";
 import { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "./commands/CreateWorkloadCommand";
 import {
   CreateWorkloadShareCommandInput,
@@ -62,12 +65,18 @@ import {
 } from "./commands/CreateWorkloadShareCommand";
 import { DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/DeleteLensCommand";
 import { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "./commands/DeleteLensShareCommand";
+import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
+import { DeleteProfileShareCommandInput, DeleteProfileShareCommandOutput } from "./commands/DeleteProfileShareCommand";
 import { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "./commands/DeleteWorkloadCommand";
 import {
   DeleteWorkloadShareCommandInput,
   DeleteWorkloadShareCommandOutput,
 } from "./commands/DeleteWorkloadShareCommand";
 import { DisassociateLensesCommandInput, DisassociateLensesCommandOutput } from "./commands/DisassociateLensesCommand";
+import {
+  DisassociateProfilesCommandInput,
+  DisassociateProfilesCommandOutput,
+} from "./commands/DisassociateProfilesCommand";
 import { ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
 import { GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
 import {
@@ -85,6 +94,8 @@ import {
   GetLensVersionDifferenceCommandOutput,
 } from "./commands/GetLensVersionDifferenceCommand";
 import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "./commands/GetMilestoneCommand";
+import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import { GetProfileTemplateCommandInput, GetProfileTemplateCommandOutput } from "./commands/GetProfileTemplateCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import { ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
@@ -99,6 +110,12 @@ import { ListLensReviewsCommandInput, ListLensReviewsCommandOutput } from "./com
 import { ListLensSharesCommandInput, ListLensSharesCommandOutput } from "./commands/ListLensSharesCommand";
 import { ListMilestonesCommandInput, ListMilestonesCommandOutput } from "./commands/ListMilestonesCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
+import {
+  ListProfileNotificationsCommandInput,
+  ListProfileNotificationsCommandOutput,
+} from "./commands/ListProfileNotificationsCommand";
+import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
+import { ListProfileSharesCommandInput, ListProfileSharesCommandOutput } from "./commands/ListProfileSharesCommand";
 import {
   ListShareInvitationsCommandInput,
   ListShareInvitationsCommandOutput,
@@ -117,6 +134,7 @@ import {
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "./commands/UpdateLensReviewCommand";
+import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import {
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
@@ -127,6 +145,10 @@ import {
   UpdateWorkloadShareCommandOutput,
 } from "./commands/UpdateWorkloadShareCommand";
 import { UpgradeLensReviewCommandInput, UpgradeLensReviewCommandOutput } from "./commands/UpgradeLensReviewCommand";
+import {
+  UpgradeProfileVersionCommandInput,
+  UpgradeProfileVersionCommandOutput,
+} from "./commands/UpgradeProfileVersionCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -142,16 +164,22 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateLensesCommandInput
+  | AssociateProfilesCommandInput
   | CreateLensShareCommandInput
   | CreateLensVersionCommandInput
   | CreateMilestoneCommandInput
+  | CreateProfileCommandInput
+  | CreateProfileShareCommandInput
   | CreateWorkloadCommandInput
   | CreateWorkloadShareCommandInput
   | DeleteLensCommandInput
   | DeleteLensShareCommandInput
+  | DeleteProfileCommandInput
+  | DeleteProfileShareCommandInput
   | DeleteWorkloadCommandInput
   | DeleteWorkloadShareCommandInput
   | DisassociateLensesCommandInput
+  | DisassociateProfilesCommandInput
   | ExportLensCommandInput
   | GetAnswerCommandInput
   | GetConsolidatedReportCommandInput
@@ -160,6 +188,8 @@ export type ServiceInputTypes =
   | GetLensReviewReportCommandInput
   | GetLensVersionDifferenceCommandInput
   | GetMilestoneCommandInput
+  | GetProfileCommandInput
+  | GetProfileTemplateCommandInput
   | GetWorkloadCommandInput
   | ImportLensCommandInput
   | ListAnswersCommandInput
@@ -171,6 +201,9 @@ export type ServiceInputTypes =
   | ListLensesCommandInput
   | ListMilestonesCommandInput
   | ListNotificationsCommandInput
+  | ListProfileNotificationsCommandInput
+  | ListProfileSharesCommandInput
+  | ListProfilesCommandInput
   | ListShareInvitationsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkloadSharesCommandInput
@@ -180,26 +213,34 @@ export type ServiceInputTypes =
   | UpdateAnswerCommandInput
   | UpdateGlobalSettingsCommandInput
   | UpdateLensReviewCommandInput
+  | UpdateProfileCommandInput
   | UpdateShareInvitationCommandInput
   | UpdateWorkloadCommandInput
   | UpdateWorkloadShareCommandInput
-  | UpgradeLensReviewCommandInput;
+  | UpgradeLensReviewCommandInput
+  | UpgradeProfileVersionCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | AssociateLensesCommandOutput
+  | AssociateProfilesCommandOutput
   | CreateLensShareCommandOutput
   | CreateLensVersionCommandOutput
   | CreateMilestoneCommandOutput
+  | CreateProfileCommandOutput
+  | CreateProfileShareCommandOutput
   | CreateWorkloadCommandOutput
   | CreateWorkloadShareCommandOutput
   | DeleteLensCommandOutput
   | DeleteLensShareCommandOutput
+  | DeleteProfileCommandOutput
+  | DeleteProfileShareCommandOutput
   | DeleteWorkloadCommandOutput
   | DeleteWorkloadShareCommandOutput
   | DisassociateLensesCommandOutput
+  | DisassociateProfilesCommandOutput
   | ExportLensCommandOutput
   | GetAnswerCommandOutput
   | GetConsolidatedReportCommandOutput
@@ -208,6 +249,8 @@ export type ServiceOutputTypes =
   | GetLensReviewReportCommandOutput
   | GetLensVersionDifferenceCommandOutput
   | GetMilestoneCommandOutput
+  | GetProfileCommandOutput
+  | GetProfileTemplateCommandOutput
   | GetWorkloadCommandOutput
   | ImportLensCommandOutput
   | ListAnswersCommandOutput
@@ -219,6 +262,9 @@ export type ServiceOutputTypes =
   | ListLensesCommandOutput
   | ListMilestonesCommandOutput
   | ListNotificationsCommandOutput
+  | ListProfileNotificationsCommandOutput
+  | ListProfileSharesCommandOutput
+  | ListProfilesCommandOutput
   | ListShareInvitationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkloadSharesCommandOutput
@@ -228,10 +274,12 @@ export type ServiceOutputTypes =
   | UpdateAnswerCommandOutput
   | UpdateGlobalSettingsCommandOutput
   | UpdateLensReviewCommandOutput
+  | UpdateProfileCommandOutput
   | UpdateShareInvitationCommandOutput
   | UpdateWorkloadCommandOutput
   | UpdateWorkloadShareCommandOutput
-  | UpgradeLensReviewCommandOutput;
+  | UpgradeLensReviewCommandOutput
+  | UpgradeProfileVersionCommandOutput;
 
 /**
  * @public

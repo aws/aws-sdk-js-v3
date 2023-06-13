@@ -127,6 +127,15 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * //     Applications: [ // WorkloadApplications
  * //       "STRING_VALUE",
  * //     ],
+ * //     Profiles: [ // WorkloadProfiles
+ * //       { // WorkloadProfile
+ * //         ProfileArn: "STRING_VALUE",
+ * //         ProfileVersion: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PrioritizedRiskCounts: {
+ * //       "<keys>": Number("int"),
+ * //     },
  * //   },
  * // };
  *

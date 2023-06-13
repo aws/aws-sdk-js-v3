@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetLensReviewInput, GetLensReviewOutput } from "../models/models_0";
-import { de_GetLensReviewCommand, se_GetLensReviewCommand } from "../protocols/Aws_restJson1";
+import { ListProfileNotificationsInput, ListProfileNotificationsOutput } from "../models/models_0";
+import { de_ListProfileNotificationsCommand, se_ListProfileNotificationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -24,78 +24,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetLensReviewCommand}.
+ * The input for {@link ListProfileNotificationsCommand}.
  */
-export interface GetLensReviewCommandInput extends GetLensReviewInput {}
+export interface ListProfileNotificationsCommandInput extends ListProfileNotificationsInput {}
 /**
  * @public
  *
- * The output of {@link GetLensReviewCommand}.
+ * The output of {@link ListProfileNotificationsCommand}.
  */
-export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __MetadataBearer {}
+export interface ListProfileNotificationsCommandOutput extends ListProfileNotificationsOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get lens review.</p>
+ * <p>List profile notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, GetLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, GetLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListProfileNotificationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, ListProfileNotificationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // GetLensReviewInput
- *   WorkloadId: "STRING_VALUE", // required
- *   LensAlias: "STRING_VALUE", // required
- *   MilestoneNumber: Number("int"),
+ * const input = { // ListProfileNotificationsInput
+ *   WorkloadId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new GetLensReviewCommand(input);
+ * const command = new ListProfileNotificationsCommand(input);
  * const response = await client.send(command);
- * // { // GetLensReviewOutput
- * //   WorkloadId: "STRING_VALUE",
- * //   MilestoneNumber: Number("int"),
- * //   LensReview: { // LensReview
- * //     LensAlias: "STRING_VALUE",
- * //     LensArn: "STRING_VALUE",
- * //     LensVersion: "STRING_VALUE",
- * //     LensName: "STRING_VALUE",
- * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
- * //     PillarReviewSummaries: [ // PillarReviewSummaries
- * //       { // PillarReviewSummary
- * //         PillarId: "STRING_VALUE",
- * //         PillarName: "STRING_VALUE",
- * //         Notes: "STRING_VALUE",
- * //         RiskCounts: { // RiskCounts
- * //           "<keys>": Number("int"),
- * //         },
- * //         PrioritizedRiskCounts: {
- * //           "<keys>": Number("int"),
- * //         },
- * //       },
- * //     ],
- * //     UpdatedAt: new Date("TIMESTAMP"),
- * //     Notes: "STRING_VALUE",
- * //     RiskCounts: {
- * //       "<keys>": Number("int"),
+ * // { // ListProfileNotificationsOutput
+ * //   NotificationSummaries: [ // ProfileNotificationSummaries
+ * //     { // ProfileNotificationSummary
+ * //       CurrentProfileVersion: "STRING_VALUE",
+ * //       LatestProfileVersion: "STRING_VALUE",
+ * //       Type: "PROFILE_ANSWERS_UPDATED" || "PROFILE_DELETED",
+ * //       ProfileArn: "STRING_VALUE",
+ * //       ProfileName: "STRING_VALUE",
+ * //       WorkloadId: "STRING_VALUE",
+ * //       WorkloadName: "STRING_VALUE",
  * //     },
- * //     NextToken: "STRING_VALUE",
- * //     Profiles: [ // WorkloadProfiles
- * //       { // WorkloadProfile
- * //         ProfileArn: "STRING_VALUE",
- * //         ProfileVersion: "STRING_VALUE",
- * //       },
- * //     ],
- * //     PrioritizedRiskCounts: {
- * //       "<keys>": Number("int"),
- * //     },
- * //   },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
- * @returns {@link GetLensReviewCommandOutput}
- * @see {@link GetLensReviewCommandInput} for command's `input` shape.
- * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
+ * @param ListProfileNotificationsCommandInput - {@link ListProfileNotificationsCommandInput}
+ * @returns {@link ListProfileNotificationsCommandOutput}
+ * @see {@link ListProfileNotificationsCommandInput} for command's `input` shape.
+ * @see {@link ListProfileNotificationsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -103,9 +78,6 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
@@ -117,9 +89,9 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class GetLensReviewCommand extends $Command<
-  GetLensReviewCommandInput,
-  GetLensReviewCommandOutput,
+export class ListProfileNotificationsCommand extends $Command<
+  ListProfileNotificationsCommandInput,
+  ListProfileNotificationsCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -137,7 +109,7 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetLensReviewCommandInput) {
+  constructor(readonly input: ListProfileNotificationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -150,15 +122,17 @@ export class GetLensReviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetLensReviewCommandInput, GetLensReviewCommandOutput> {
+  ): Handler<ListProfileNotificationsCommandInput, ListProfileNotificationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetLensReviewCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListProfileNotificationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "GetLensReviewCommand";
+    const commandName = "ListProfileNotificationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -177,15 +151,15 @@ export class GetLensReviewCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetLensReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetLensReviewCommand(input, context);
+  private serialize(input: ListProfileNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListProfileNotificationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewCommandOutput> {
-    return de_GetLensReviewCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileNotificationsCommandOutput> {
+    return de_ListProfileNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

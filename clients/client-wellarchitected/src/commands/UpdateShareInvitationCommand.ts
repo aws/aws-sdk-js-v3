@@ -55,10 +55,11 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * // { // UpdateShareInvitationOutput
  * //   ShareInvitation: { // ShareInvitation
  * //     ShareInvitationId: "STRING_VALUE",
- * //     ShareResourceType: "WORKLOAD" || "LENS",
+ * //     ShareResourceType: "WORKLOAD" || "LENS" || "PROFILE",
  * //     WorkloadId: "STRING_VALUE",
  * //     LensAlias: "STRING_VALUE",
  * //     LensArn: "STRING_VALUE",
+ * //     ProfileArn: "STRING_VALUE",
  * //   },
  * // };
  *
