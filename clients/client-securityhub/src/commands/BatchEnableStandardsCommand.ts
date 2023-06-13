@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { BatchEnableStandardsRequest, BatchEnableStandardsResponse } from "../models/models_1";
+import { BatchEnableStandardsRequest, BatchEnableStandardsResponse } from "../models/models_2";
 import { de_BatchEnableStandardsCommand, se_BatchEnableStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 

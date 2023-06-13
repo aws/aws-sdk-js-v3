@@ -266,6 +266,14 @@ AcceptInvitation
 </details>
 <details>
 <summary>
+BatchDeleteAutomationRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchdeleteautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchdeleteautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchdeleteautomationrulescommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchDisableStandards
 </summary>
 
@@ -278,6 +286,14 @@ BatchEnableStandards
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchenablestandardscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchenablestandardscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchenablestandardscommandoutput.html)
+
+</details>
+<details>
+<summary>
+BatchGetAutomationRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchgetautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetautomationrulescommandoutput.html)
 
 </details>
 <details>
@@ -306,6 +322,14 @@ BatchImportFindings
 </details>
 <details>
 <summary>
+BatchUpdateAutomationRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchupdateautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdateautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdateautomationrulescommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchUpdateFindings
 </summary>
 
@@ -326,6 +350,14 @@ CreateActionTarget
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/createactiontargetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createactiontargetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createactiontargetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAutomationRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/createautomationrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createautomationrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createautomationrulecommandoutput.html)
 
 </details>
 <details>
@@ -606,6 +638,14 @@ InviteMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/invitememberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/invitememberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/invitememberscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAutomationRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listautomationrulescommandoutput.html)
 
 </details>
 <details>

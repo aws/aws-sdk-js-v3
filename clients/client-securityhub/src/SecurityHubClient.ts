@@ -57,6 +57,10 @@ import {
 } from "./commands/AcceptAdministratorInvitationCommand";
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
 import {
+  BatchDeleteAutomationRulesCommandInput,
+  BatchDeleteAutomationRulesCommandOutput,
+} from "./commands/BatchDeleteAutomationRulesCommand";
+import {
   BatchDisableStandardsCommandInput,
   BatchDisableStandardsCommandOutput,
 } from "./commands/BatchDisableStandardsCommand";
@@ -64,6 +68,10 @@ import {
   BatchEnableStandardsCommandInput,
   BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand";
+import {
+  BatchGetAutomationRulesCommandInput,
+  BatchGetAutomationRulesCommandOutput,
+} from "./commands/BatchGetAutomationRulesCommand";
 import {
   BatchGetSecurityControlsCommandInput,
   BatchGetSecurityControlsCommandOutput,
@@ -77,6 +85,10 @@ import {
   BatchImportFindingsCommandOutput,
 } from "./commands/BatchImportFindingsCommand";
 import {
+  BatchUpdateAutomationRulesCommandInput,
+  BatchUpdateAutomationRulesCommandOutput,
+} from "./commands/BatchUpdateAutomationRulesCommand";
+import {
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
@@ -85,6 +97,10 @@ import {
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
+import {
+  CreateAutomationRuleCommandInput,
+  CreateAutomationRuleCommandOutput,
+} from "./commands/CreateAutomationRuleCommand";
 import {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
@@ -169,6 +185,10 @@ import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./c
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import {
+  ListAutomationRulesCommandInput,
+  ListAutomationRulesCommandOutput,
+} from "./commands/ListAutomationRulesCommand";
+import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
@@ -231,14 +251,18 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptAdministratorInvitationCommandInput
   | AcceptInvitationCommandInput
+  | BatchDeleteAutomationRulesCommandInput
   | BatchDisableStandardsCommandInput
   | BatchEnableStandardsCommandInput
+  | BatchGetAutomationRulesCommandInput
   | BatchGetSecurityControlsCommandInput
   | BatchGetStandardsControlAssociationsCommandInput
   | BatchImportFindingsCommandInput
+  | BatchUpdateAutomationRulesCommandInput
   | BatchUpdateFindingsCommandInput
   | BatchUpdateStandardsControlAssociationsCommandInput
   | CreateActionTargetCommandInput
+  | CreateAutomationRuleCommandInput
   | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
@@ -274,6 +298,7 @@ export type ServiceInputTypes =
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
   | InviteMembersCommandInput
+  | ListAutomationRulesCommandInput
   | ListEnabledProductsForImportCommandInput
   | ListFindingAggregatorsCommandInput
   | ListInvitationsCommandInput
@@ -298,14 +323,18 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptAdministratorInvitationCommandOutput
   | AcceptInvitationCommandOutput
+  | BatchDeleteAutomationRulesCommandOutput
   | BatchDisableStandardsCommandOutput
   | BatchEnableStandardsCommandOutput
+  | BatchGetAutomationRulesCommandOutput
   | BatchGetSecurityControlsCommandOutput
   | BatchGetStandardsControlAssociationsCommandOutput
   | BatchImportFindingsCommandOutput
+  | BatchUpdateAutomationRulesCommandOutput
   | BatchUpdateFindingsCommandOutput
   | BatchUpdateStandardsControlAssociationsCommandOutput
   | CreateActionTargetCommandOutput
+  | CreateAutomationRuleCommandOutput
   | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
@@ -341,6 +370,7 @@ export type ServiceOutputTypes =
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
   | InviteMembersCommandOutput
+  | ListAutomationRulesCommandOutput
   | ListEnabledProductsForImportCommandOutput
   | ListFindingAggregatorsCommandOutput
   | ListInvitationsCommandOutput

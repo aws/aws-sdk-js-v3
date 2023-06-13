@@ -13,6 +13,11 @@ import {
   AcceptInvitationCommandOutput,
 } from "./commands/AcceptInvitationCommand";
 import {
+  BatchDeleteAutomationRulesCommand,
+  BatchDeleteAutomationRulesCommandInput,
+  BatchDeleteAutomationRulesCommandOutput,
+} from "./commands/BatchDeleteAutomationRulesCommand";
+import {
   BatchDisableStandardsCommand,
   BatchDisableStandardsCommandInput,
   BatchDisableStandardsCommandOutput,
@@ -22,6 +27,11 @@ import {
   BatchEnableStandardsCommandInput,
   BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand";
+import {
+  BatchGetAutomationRulesCommand,
+  BatchGetAutomationRulesCommandInput,
+  BatchGetAutomationRulesCommandOutput,
+} from "./commands/BatchGetAutomationRulesCommand";
 import {
   BatchGetSecurityControlsCommand,
   BatchGetSecurityControlsCommandInput,
@@ -38,6 +48,11 @@ import {
   BatchImportFindingsCommandOutput,
 } from "./commands/BatchImportFindingsCommand";
 import {
+  BatchUpdateAutomationRulesCommand,
+  BatchUpdateAutomationRulesCommandInput,
+  BatchUpdateAutomationRulesCommandOutput,
+} from "./commands/BatchUpdateAutomationRulesCommand";
+import {
   BatchUpdateFindingsCommand,
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
@@ -52,6 +67,11 @@ import {
   CreateActionTargetCommandInput,
   CreateActionTargetCommandOutput,
 } from "./commands/CreateActionTargetCommand";
+import {
+  CreateAutomationRuleCommand,
+  CreateAutomationRuleCommandInput,
+  CreateAutomationRuleCommandOutput,
+} from "./commands/CreateAutomationRuleCommand";
 import {
   CreateFindingAggregatorCommand,
   CreateFindingAggregatorCommandInput,
@@ -212,6 +232,11 @@ import {
   InviteMembersCommandOutput,
 } from "./commands/InviteMembersCommand";
 import {
+  ListAutomationRulesCommand,
+  ListAutomationRulesCommandInput,
+  ListAutomationRulesCommandOutput,
+} from "./commands/ListAutomationRulesCommand";
+import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -293,14 +318,18 @@ import { SecurityHubClient, SecurityHubClientConfig } from "./SecurityHubClient"
 const commands = {
   AcceptAdministratorInvitationCommand,
   AcceptInvitationCommand,
+  BatchDeleteAutomationRulesCommand,
   BatchDisableStandardsCommand,
   BatchEnableStandardsCommand,
+  BatchGetAutomationRulesCommand,
   BatchGetSecurityControlsCommand,
   BatchGetStandardsControlAssociationsCommand,
   BatchImportFindingsCommand,
+  BatchUpdateAutomationRulesCommand,
   BatchUpdateFindingsCommand,
   BatchUpdateStandardsControlAssociationsCommand,
   CreateActionTargetCommand,
+  CreateAutomationRuleCommand,
   CreateFindingAggregatorCommand,
   CreateInsightCommand,
   CreateMembersCommand,
@@ -336,6 +365,7 @@ const commands = {
   GetMasterAccountCommand,
   GetMembersCommand,
   InviteMembersCommand,
+  ListAutomationRulesCommand,
   ListEnabledProductsForImportCommand,
   ListFindingAggregatorsCommand,
   ListInvitationsCommand,
@@ -391,6 +421,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link BatchDeleteAutomationRulesCommand}
+   */
+  batchDeleteAutomationRules(
+    args: BatchDeleteAutomationRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteAutomationRulesCommandOutput>;
+  batchDeleteAutomationRules(
+    args: BatchDeleteAutomationRulesCommandInput,
+    cb: (err: any, data?: BatchDeleteAutomationRulesCommandOutput) => void
+  ): void;
+  batchDeleteAutomationRules(
+    args: BatchDeleteAutomationRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteAutomationRulesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchDisableStandardsCommand}
    */
   batchDisableStandards(
@@ -422,6 +469,23 @@ export interface SecurityHub {
     args: BatchEnableStandardsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchEnableStandardsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetAutomationRulesCommand}
+   */
+  batchGetAutomationRules(
+    args: BatchGetAutomationRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAutomationRulesCommandOutput>;
+  batchGetAutomationRules(
+    args: BatchGetAutomationRulesCommandInput,
+    cb: (err: any, data?: BatchGetAutomationRulesCommandOutput) => void
+  ): void;
+  batchGetAutomationRules(
+    args: BatchGetAutomationRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAutomationRulesCommandOutput) => void
   ): void;
 
   /**
@@ -476,6 +540,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link BatchUpdateAutomationRulesCommand}
+   */
+  batchUpdateAutomationRules(
+    args: BatchUpdateAutomationRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateAutomationRulesCommandOutput>;
+  batchUpdateAutomationRules(
+    args: BatchUpdateAutomationRulesCommandInput,
+    cb: (err: any, data?: BatchUpdateAutomationRulesCommandOutput) => void
+  ): void;
+  batchUpdateAutomationRules(
+    args: BatchUpdateAutomationRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateAutomationRulesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchUpdateFindingsCommand}
    */
   batchUpdateFindings(
@@ -524,6 +605,23 @@ export interface SecurityHub {
     args: CreateActionTargetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateActionTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAutomationRuleCommand}
+   */
+  createAutomationRule(
+    args: CreateAutomationRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutomationRuleCommandOutput>;
+  createAutomationRule(
+    args: CreateAutomationRuleCommandInput,
+    cb: (err: any, data?: CreateAutomationRuleCommandOutput) => void
+  ): void;
+  createAutomationRule(
+    args: CreateAutomationRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutomationRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1065,6 +1163,23 @@ export interface SecurityHub {
     args: InviteMembersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InviteMembersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutomationRulesCommand}
+   */
+  listAutomationRules(
+    args: ListAutomationRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutomationRulesCommandOutput>;
+  listAutomationRules(
+    args: ListAutomationRulesCommandInput,
+    cb: (err: any, data?: ListAutomationRulesCommandOutput) => void
+  ): void;
+  listAutomationRules(
+    args: ListAutomationRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutomationRulesCommandOutput) => void
   ): void;
 
   /**

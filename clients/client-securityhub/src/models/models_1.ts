@@ -44,16 +44,752 @@ import {
   AwsEcsTaskDefinitionDetails,
   AwsEcsTaskDetails,
   AwsEfsAccessPointDetails,
-  AwsEksClusterDetails,
-  AwsElasticBeanstalkEnvironmentDetails,
-  AwsElasticsearchDomainDetails,
-  AwsElbAppCookieStickinessPolicy,
-  AwsElbLbCookieStickinessPolicy,
-  AwsElbLoadBalancerAccessLog,
-  AwsElbLoadBalancerAdditionalAttribute,
-  AwsElbLoadBalancerConnectionDraining,
-  AwsElbLoadBalancerConnectionSettings,
+  AwsEksClusterLoggingDetails,
+  DateFilter,
+  MapFilter,
+  NumberFilter,
+  RelatedFinding,
+  SeverityLabel,
+  StringFilter,
+  VerificationState,
+  WorkflowStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Information about the VPC configuration used by the cluster control plane.</p>
+ */
+export interface AwsEksClusterResourcesVpcConfigDetails {
+  /**
+   * <p>The security groups that are associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Amazon EKS control plane.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The subnets that are associated with the cluster.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>
+   *          Indicates whether the Amazon EKS public API server endpoint is turned on. If the Amazon EKS public API
+   *          server endpoint is turned off, your cluster's Kubernetes API server can only receive requests that originate from within
+   *          the cluster VPC.
+   *       </p>
+   */
+  EndpointPublicAccess?: boolean;
+}
+
+/**
+ * @public
+ * <p>Provides details about an Amazon EKS cluster.</p>
+ */
+export interface AwsEksClusterDetails {
+  /**
+   * <p>The ARN of the cluster.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The certificate authority data for the cluster.</p>
+   */
+  CertificateAuthorityData?: string;
+
+  /**
+   * <p>The status of the cluster. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ClusterStatus?: string;
+
+  /**
+   * <p>The endpoint for the Amazon EKS API server.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The name of the cluster.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The VPC configuration used by the cluster control plane.</p>
+   */
+  ResourcesVpcConfig?: AwsEksClusterResourcesVpcConfigDetails;
+
+  /**
+   * <p>The ARN of the IAM role that provides permissions for the Amazon EKS control plane to make calls to Amazon Web Services API operations on your behalf.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The Amazon EKS server version for the cluster.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The logging configuration for the cluster.</p>
+   */
+  Logging?: AwsEksClusterLoggingDetails;
+}
+
+/**
+ * @public
+ * <p>Contains information about a link to another environment that is in the same group.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
+  /**
+   * <p>The name of the linked environment.</p>
+   */
+  EnvironmentName?: string;
+
+  /**
+   * <p>The name of the environment link.</p>
+   */
+  LinkName?: string;
+}
+
+/**
+ * @public
+ * <p>A configuration option setting for the environment.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentOptionSetting {
+  /**
+   * <p>The type of resource that the configuration option is associated with.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The name of the option.</p>
+   */
+  OptionName?: string;
+
+  /**
+   * <p>The name of the resource.</p>
+   */
+  ResourceName?: string;
+
+  /**
+   * <p>The value of the configuration setting.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the tier of the environment.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentTier {
+  /**
+   * <p>The name of the environment tier. Valid values are <code>WebServer</code> or <code>Worker</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of environment tier. Valid values are <code>Standard</code> or <code>SQS/HTTP</code>.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The version of the environment tier.</p>
+   */
+  Version?: string;
+}
+
+/**
+ * @public
+ * <p>Contains details about an Elastic Beanstalk environment.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentDetails {
+  /**
+   * <p>The name of the application that is associated with the environment.</p>
+   */
+  ApplicationName?: string;
+
+  /**
+   * <p>The URL to the CNAME for this environment.</p>
+   */
+  Cname?: string;
+
+  /**
+   * <p>The creation date for this environment.</p>
+   */
+  DateCreated?: string;
+
+  /**
+   * <p>The date when this environment was last modified.</p>
+   */
+  DateUpdated?: string;
+
+  /**
+   * <p>A description of the environment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.</p>
+   */
+  EndpointUrl?: string;
+
+  /**
+   * <p>The ARN of the environment.</p>
+   */
+  EnvironmentArn?: string;
+
+  /**
+   * <p>The identifier of the environment.</p>
+   */
+  EnvironmentId?: string;
+
+  /**
+   * <p>Links to other environments in the same group.</p>
+   */
+  EnvironmentLinks?: AwsElasticBeanstalkEnvironmentEnvironmentLink[];
+
+  /**
+   * <p>The name of the environment.</p>
+   */
+  EnvironmentName?: string;
+
+  /**
+   * <p>The configuration setting for the environment.</p>
+   */
+  OptionSettings?: AwsElasticBeanstalkEnvironmentOptionSetting[];
+
+  /**
+   * <p>The ARN of the platform version for the environment.</p>
+   */
+  PlatformArn?: string;
+
+  /**
+   * <p>The name of the solution stack that is deployed with the environment.</p>
+   */
+  SolutionStackName?: string;
+
+  /**
+   * <p>The current operational status of the environment. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Aborting</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Launching</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LinkingFrom</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LinkingTo</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Ready</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminating</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>The tier of the environment.</p>
+   */
+  Tier?: AwsElasticBeanstalkEnvironmentTier;
+
+  /**
+   * <p>The application version of the environment.</p>
+   */
+  VersionLabel?: string;
+}
+
+/**
+ * @public
+ * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
+ *          traffic.</p>
+ */
+export interface AwsElasticsearchDomainDomainEndpointOptions {
+  /**
+   * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
+   */
+  EnforceHTTPS?: boolean;
+
+  /**
+   * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
+   *          domain.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Policy-Min-TLS-1-0-2019-07</code>, which supports TLSv1.0 and higher</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Policy-Min-TLS-1-2-2019-07</code>, which only supports TLSv1.2</p>
+   *             </li>
+   *          </ul>
+   */
+  TLSSecurityPolicy?: string;
+}
+
+/**
+ * @public
+ * <p>Configuration options for zone awareness.</p>
+ */
+export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
+  /**
+   * <p>he number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
+   */
+  AvailabilityZoneCount?: number;
+}
+
+/**
+ * @public
+ * <p>details about the configuration of an OpenSearch cluster.</p>
+ */
+export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
+  /**
+   * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   */
+  DedicatedMasterCount?: number;
+
+  /**
+   * <p>Whether to use a dedicated master node for the Elasticsearch domain. A dedicated master node performs cluster management tasks, but doesn't hold data or respond to data upload requests.</p>
+   */
+  DedicatedMasterEnabled?: boolean;
+
+  /**
+   * <p>The hardware configuration of the computer that hosts the dedicated master node. A sample value is <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   */
+  DedicatedMasterType?: string;
+
+  /**
+   * <p>The number of data nodes to use in the Elasticsearch domain.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance type for your data nodes. For example, <code>m3.medium.elasticsearch</code>.</p>
+   *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
+   */
+  ZoneAwarenessConfig?: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails;
+
+  /**
+   * <p>Whether to enable zone awareness for the Elasticsearch domain. When zone awareness is enabled, OpenSearch allocates the cluster's nodes and replica index shards across Availability Zones in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
+   */
+  ZoneAwarenessEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details about the configuration for encryption at rest.</p>
+ */
+export interface AwsElasticsearchDomainEncryptionAtRestOptions {
+  /**
+   * <p>Whether encryption at rest is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</p>
+   */
+  KmsKeyId?: string;
+}
+
+/**
+ * @public
+ * <p>The log configuration.</p>
+ */
+export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
+  /**
+   * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * <p>Whether the log publishing is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>configures the CloudWatch Logs to publish for the
+ *          Elasticsearch domain.</p>
+ */
+export interface AwsElasticsearchDomainLogPublishingOptions {
+  /**
+   * <p>Configures the OpenSearch index logs
+   *          publishing.</p>
+   */
+  IndexSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+
+  /**
+   * <p>Configures the OpenSearch search slow log
+   *          publishing.</p>
+   */
+  SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+
+  /**
+   * <p>The log configuration.</p>
+   */
+  AuditLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+}
+
+/**
+ * @public
+ * <p>Details about the configuration for node-to-node encryption.</p>
+ */
+export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
+  /**
+   * <p>Whether node-to-node encryption is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Information about the state of the domain relative to the latest service software.</p>
+ */
+export interface AwsElasticsearchDomainServiceSoftwareOptions {
+  /**
+   * <p>The epoch time when the deployment window closes for required updates. After this time,
+   *          Amazon OpenSearch Service schedules the software upgrade automatically.</p>
+   */
+  AutomatedUpdateDate?: string;
+
+  /**
+   * <p>Whether a request to update the domain can be canceled.</p>
+   */
+  Cancellable?: boolean;
+
+  /**
+   * <p>The version of the service software that is currently installed on the domain.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>A more detailed description of the service software status.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The most recent version of the service software.</p>
+   */
+  NewVersion?: string;
+
+  /**
+   * <p>Whether a service software update is available for the domain.</p>
+   */
+  UpdateAvailable?: boolean;
+
+  /**
+   * <p>The status of the service software update. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ELIGIBLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_ELIGIBLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_UPDATE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  UpdateStatus?: string;
+}
+
+/**
+ * @public
+ * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
+ *          domain.</p>
+ */
+export interface AwsElasticsearchDomainVPCOptions {
+  /**
+   * <p>The list of Availability Zones associated with the VPC subnets.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The list of security group IDs associated with the VPC endpoints for the domain.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of subnet IDs associated with the VPC endpoints for the domain.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>ID for the VPC.</p>
+   */
+  VPCId?: string;
+}
+
+/**
+ * @public
+ * <p>Information about an Elasticsearch domain.</p>
+ */
+export interface AwsElasticsearchDomainDetails {
+  /**
+   * <p>IAM policy document specifying the access policies for the new Elasticsearch domain.</p>
+   */
+  AccessPolicies?: string;
+
+  /**
+   * <p>Additional options for the domain endpoint.</p>
+   */
+  DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions;
+
+  /**
+   * <p>Unique identifier for an Elasticsearch domain.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>Name of an Elasticsearch domain.</p>
+   *          <p>Domain names are unique across all domains owned by the same account within an Amazon Web Services
+   *          Region.</p>
+   *          <p>Domain names must start with a lowercase letter and must be between 3 and 28
+   *          characters.</p>
+   *          <p>Valid characters are a-z (lowercase only), 0-9, and – (hyphen). </p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
+   *          Elasticsearch domain.</p>
+   *          <p>The endpoint is a service URL. </p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The key-value pair that exists if the Elasticsearch domain uses VPC endpoints.</p>
+   */
+  Endpoints?: Record<string, string>;
+
+  /**
+   * <p>OpenSearch version.</p>
+   */
+  ElasticsearchVersion?: string;
+
+  /**
+   * <p>Information about an OpenSearch cluster configuration.</p>
+   */
+  ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails;
+
+  /**
+   * <p>Details about the configuration for encryption at rest.</p>
+   */
+  EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions;
+
+  /**
+   * <p>Configures the CloudWatch Logs to publish for the Elasticsearch domain.</p>
+   */
+  LogPublishingOptions?: AwsElasticsearchDomainLogPublishingOptions;
+
+  /**
+   * <p>Details about the configuration for node-to-node encryption.</p>
+   */
+  NodeToNodeEncryptionOptions?: AwsElasticsearchDomainNodeToNodeEncryptionOptions;
+
+  /**
+   * <p>Information about the status of a domain relative to the latest service software.</p>
+   */
+  ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions;
+
+  /**
+   * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
+   *          domain.</p>
+   */
+  VPCOptions?: AwsElasticsearchDomainVPCOptions;
+}
+
+/**
+ * @public
+ * <p>Contains information about a stickiness policy that was created using
+ *             <code>CreateAppCookieStickinessPolicy</code>.</p>
+ */
+export interface AwsElbAppCookieStickinessPolicy {
+  /**
+   * <p>The name of the application cookie used for stickiness.</p>
+   */
+  CookieName?: string;
+
+  /**
+   * <p>The mnemonic name for the policy being created. The name must be unique within the set
+   *          of policies for the load balancer.</p>
+   */
+  PolicyName?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about a stickiness policy that was created using
+ *             <code>CreateLBCookieStickinessPolicy</code>.</p>
+ */
+export interface AwsElbLbCookieStickinessPolicy {
+  /**
+   * <p>The amount of time, in seconds, after which the cookie is considered stale. If an
+   *          expiration period is not specified, the stickiness session lasts for the duration of the
+   *          browser session.</p>
+   */
+  CookieExpirationPeriod?: number;
+
+  /**
+   * <p>The name of the policy. The name must be unique within the set of policies for the load
+   *          balancer.</p>
+   */
+  PolicyName?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the access log configuration for the load balancer.</p>
+ */
+export interface AwsElbLoadBalancerAccessLog {
+  /**
+   * <p>The interval in minutes for publishing the access logs.</p>
+   *          <p>You can publish access logs either every 5 minutes or every 60 minutes.</p>
+   */
+  EmitInterval?: number;
+
+  /**
+   * <p>Indicates whether access logs are enabled for the load balancer.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The name of the S3 bucket where the access logs are stored.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>The logical hierarchy that was created for the S3 bucket.</p>
+   *          <p>If a prefix is not provided, the log is placed at the root level of the bucket.</p>
+   */
+  S3BucketPrefix?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about additional attributes for the load balancer.</p>
+ */
+export interface AwsElbLoadBalancerAdditionalAttribute {
+  /**
+   * <p>The name of the attribute.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the attribute.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the connection draining configuration for the load
+ *          balancer.</p>
+ */
+export interface AwsElbLoadBalancerConnectionDraining {
+  /**
+   * <p>Indicates whether connection draining is enabled for the load balancer.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The maximum time, in seconds, to keep the existing connections open before deregistering
+   *          the instances.</p>
+   */
+  Timeout?: number;
+}
+
+/**
+ * @public
+ * <p>Contains connection settings for the load balancer.</p>
+ */
+export interface AwsElbLoadBalancerConnectionSettings {
+  /**
+   * <p>The time, in seconds, that the connection can be idle (no data is sent over the
+   *          connection) before it is closed by the load balancer.</p>
+   */
+  IdleTimeout?: number;
+}
 
 /**
  * @public
@@ -6009,39 +6745,6 @@ export interface Compliance {
 
 /**
  * @public
- * <p>Details about a related finding.</p>
- */
-export interface RelatedFinding {
-  /**
-   * <p>The ARN of the product that generated a related finding.</p>
-   */
-  ProductArn: string | undefined;
-
-  /**
-   * <p>The product-generated identifier for a related finding.</p>
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SeverityLabel = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type SeverityLabel = (typeof SeverityLabel)[keyof typeof SeverityLabel];
-
-/**
- * @public
  * <p>The severity assigned to the finding by the finding provider.</p>
  */
 export interface FindingProviderSeverity {
@@ -9282,22 +9985,6 @@ export interface Threat {
 
 /**
  * @public
- * @enum
- */
-export const VerificationState = {
-  BENIGN_POSITIVE: "BENIGN_POSITIVE",
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  TRUE_POSITIVE: "TRUE_POSITIVE",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type VerificationState = (typeof VerificationState)[keyof typeof VerificationState];
-
-/**
- * @public
  * <p>CVSS scores from the advisory related to the vulnerability.</p>
  */
 export interface Cvss {
@@ -9503,22 +10190,6 @@ export interface Vulnerability {
    */
   FixAvailable?: VulnerabilityFixAvailable | string;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowStatus = {
-  NEW: "NEW",
-  NOTIFIED: "NOTIFIED",
-  RESOLVED: "RESOLVED",
-  SUPPRESSED: "SUPPRESSED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
 
 /**
  * @public
@@ -9854,196 +10525,6 @@ export interface AwsSecurityFinding {
 
 /**
  * @public
- * @enum
- */
-export const StringFilterComparison = {
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-  PREFIX: "PREFIX",
-  PREFIX_NOT_EQUALS: "PREFIX_NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type StringFilterComparison = (typeof StringFilterComparison)[keyof typeof StringFilterComparison];
-
-/**
- * @public
- * <p>A string filter for querying findings.</p>
- */
-export interface StringFilter {
-  /**
-   * <p>The string filter value. Filter values are case sensitive. For example, the product name
-   *          for control-based findings is <code>Security Hub</code>. If you provide <code>security hub</code>
-   *          as the filter text, then there is no match.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The condition to apply to a string value when querying for findings. To search for
-   *          values that contain the filter criteria value, use one of the following comparison
-   *          operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that exactly match the filter value, use
-   *                <code>EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType EQUALS AwsEc2SecurityGroup</code> only
-   *                matches findings that have a resource type of
-   *                <code>AwsEc2SecurityGroup</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that start with the filter value, use
-   *                <code>PREFIX</code>.</p>
-   *                <p>For example, the filter <code>ResourceType PREFIX AwsIam</code> matches findings
-   *                that have a resource type that starts with <code>AwsIam</code>. Findings with a
-   *                resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>, or
-   *                   <code>AwsIamUser</code> would all match.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>EQUALS</code> and <code>PREFIX</code> filters on the same field are joined by
-   *             <code>OR</code>. A finding matches if it matches any one of those filters.</p>
-   *          <p>To search for values that do not contain the filter criteria value, use one of the
-   *          following comparison operators:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To search for values that do not exactly match the filter value, use
-   *                   <code>NOT_EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType NOT_EQUALS AwsIamPolicy</code> matches
-   *                findings that have a resource type other than <code>AwsIamPolicy</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To search for values that do not start with the filter value, use
-   *                   <code>PREFIX_NOT_EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType PREFIX_NOT_EQUALS AwsIam</code> matches
-   *                findings that have a resource type that does not start with <code>AwsIam</code>.
-   *                Findings with a resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>,
-   *                or <code>AwsIamUser</code> would all be excluded from the results.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>NOT_EQUALS</code> and <code>PREFIX_NOT_EQUALS</code> filters on the same field are
-   *          joined by <code>AND</code>. A finding matches only if it matches all of those
-   *          filters.</p>
-   *          <p>For filters on the same field, you cannot provide both an <code>EQUALS</code> filter and
-   *          a <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filter. Combining filters in
-   *          this way always returns an error, even if the provided filter values would return valid
-   *          results.</p>
-   *          <p>You can combine <code>PREFIX</code> filters with <code>NOT_EQUALS</code> or
-   *          <code>PREFIX_NOT_EQUALS</code> filters for the same field. Security Hub first processes the
-   *             <code>PREFIX</code> filters, then the <code>NOT_EQUALS</code> or
-   *             <code>PREFIX_NOT_EQUALS</code> filters.</p>
-   *          <p> For example, for the following filter, Security Hub first identifies findings that have
-   *          resource types that start with either <code>AwsIAM</code> or <code>AwsEc2</code>. It then
-   *          excludes findings that have a resource type of <code>AwsIamPolicy</code> and findings that
-   *          have a resource type of <code>AwsEc2NetworkInterface</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType PREFIX AwsIam</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType PREFIX AwsEc2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType NOT_EQUALS AwsIamPolicy</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType NOT_EQUALS AwsEc2NetworkInterface</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Comparison?: StringFilterComparison | string;
-}
-
-/**
- * @public
- * <p>A number filter for querying findings.</p>
- */
-export interface NumberFilter {
-  /**
-   * <p>The greater-than-equal condition to be applied to a single field when querying for
-   *          findings. </p>
-   */
-  Gte?: number;
-
-  /**
-   * <p>The less-than-equal condition to be applied to a single field when querying for
-   *          findings. </p>
-   */
-  Lte?: number;
-
-  /**
-   * <p>The equal-to condition to be applied to a single field when querying for
-   *          findings.</p>
-   */
-  Eq?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const DateRangeUnit = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type DateRangeUnit = (typeof DateRangeUnit)[keyof typeof DateRangeUnit];
-
-/**
- * @public
- * <p>A date range for the date filter.</p>
- */
-export interface DateRange {
-  /**
-   * <p>A date range value for the date filter.</p>
-   */
-  Value?: number;
-
-  /**
-   * <p>A date range unit for the date filter.</p>
-   */
-  Unit?: DateRangeUnit | string;
-}
-
-/**
- * @public
- * <p>A date filter for querying findings.</p>
- */
-export interface DateFilter {
-  /**
-   * <p>A timestamp that provides the start date for the date filter.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>.
-   *          For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
-   */
-  Start?: string;
-
-  /**
-   * <p>A timestamp that provides the end date for the date filter.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>.
-   *          For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
-   */
-  End?: string;
-
-  /**
-   * <p>A date range for the date filter.</p>
-   */
-  DateRange?: DateRange;
-}
-
-/**
- * @public
  * <p>A keyword filter for querying findings.</p>
  */
 export interface KeywordFilter {
@@ -10062,63 +10543,6 @@ export interface IpFilter {
    * <p>A finding's CIDR value.</p>
    */
   Cidr?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const MapFilterComparison = {
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type MapFilterComparison = (typeof MapFilterComparison)[keyof typeof MapFilterComparison];
-
-/**
- * @public
- * <p>A map filter for querying findings. Each map filter provides the field to check, the
- *          value to look for, and the comparison operator.</p>
- */
-export interface MapFilter {
-  /**
-   * <p>The key of the map filter. For example, for <code>ResourceTags</code>, <code>Key</code>
-   *          identifies the name of the tag. For <code>UserDefinedFields</code>, <code>Key</code> is the
-   *          name of the field.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The value for the key in the map filter. Filter values are case sensitive. For example,
-   *          one of the values for a tag called <code>Department</code> might be <code>Security</code>.
-   *          If you provide <code>security</code> as the filter value, then there is no match.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The condition to apply to the key value when querying for findings with a map
-   *          filter.</p>
-   *          <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For
-   *          example, for the <code>ResourceTags</code> field, the filter <code>Department EQUALS
-   *             Security</code> matches findings that have the value <code>Security</code> for the tag
-   *             <code>Department</code>.</p>
-   *          <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For
-   *          example, for the <code>ResourceTags</code> field, the filter <code>Department NOT_EQUALS
-   *             Finance</code> matches findings that do not have the value <code>Finance</code> for the
-   *          tag <code>Department</code>.</p>
-   *          <p>
-   *             <code>EQUALS</code> filters on the same field are joined by <code>OR</code>. A finding
-   *          matches if it matches any one of those filters.</p>
-   *          <p>
-   *             <code>NOT_EQUALS</code> filters on the same field are joined by <code>AND</code>. A
-   *          finding matches only if it matches all of those filters.</p>
-   *          <p>You cannot have both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> filter
-   *          on the same field.</p>
-   */
-  Comparison?: MapFilterComparison | string;
 }
 
 /**
@@ -10749,175 +11173,4 @@ export interface AwsSecurityFindingFilters {
    *       </p>
    */
   ComplianceAssociatedStandardsId?: StringFilter[];
-}
-
-/**
- * @public
- * <p>Identifies which finding to get the finding history for.</p>
- */
-export interface AwsSecurityFindingIdentifier {
-  /**
-   * <p>The identifier of the finding that was specified by the finding provider.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
-   *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
-   *          a custom integration.</p>
-   */
-  ProductArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchDisableStandardsRequest {
-  /**
-   * <p>The ARNs of the standards subscriptions to disable.</p>
-   */
-  StandardsSubscriptionArns: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const StandardsStatus = {
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  INCOMPLETE: "INCOMPLETE",
-  PENDING: "PENDING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type StandardsStatus = (typeof StandardsStatus)[keyof typeof StandardsStatus];
-
-/**
- * @public
- * @enum
- */
-export const StatusReasonCode = {
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  NO_AVAILABLE_CONFIGURATION_RECORDER: "NO_AVAILABLE_CONFIGURATION_RECORDER",
-} as const;
-
-/**
- * @public
- */
-export type StatusReasonCode = (typeof StatusReasonCode)[keyof typeof StatusReasonCode];
-
-/**
- * @public
- * <p>The reason for the current status of a standard subscription.</p>
- */
-export interface StandardsStatusReason {
-  /**
-   * <p>The reason code that represents the reason for the current status of a standard subscription.</p>
-   */
-  StatusReasonCode: StatusReasonCode | string | undefined;
-}
-
-/**
- * @public
- * <p>A resource that represents your subscription to a supported standard.</p>
- */
-export interface StandardsSubscription {
-  /**
-   * <p>The ARN of a resource that represents your subscription to a supported standard.</p>
-   */
-  StandardsSubscriptionArn: string | undefined;
-
-  /**
-   * <p>The ARN of a standard.</p>
-   */
-  StandardsArn: string | undefined;
-
-  /**
-   * <p>A key-value pair of input for the standard.</p>
-   */
-  StandardsInput: Record<string, string> | undefined;
-
-  /**
-   * <p>The status of the standard subscription.</p>
-   *          <p>The status values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - Standard is in the process of being enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READY</code> - Standard is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INCOMPLETE</code> - Standard could not be enabled completely. Some controls may not be available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - Standard is in the process of being disabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - Standard could not be disabled.</p>
-   *             </li>
-   *          </ul>
-   */
-  StandardsStatus: StandardsStatus | string | undefined;
-
-  /**
-   * <p>The reason for the current status.</p>
-   */
-  StandardsStatusReason?: StandardsStatusReason;
-}
-
-/**
- * @public
- */
-export interface BatchDisableStandardsResponse {
-  /**
-   * <p>The details of the standards subscriptions that were disabled.</p>
-   */
-  StandardsSubscriptions?: StandardsSubscription[];
-}
-
-/**
- * @public
- * <p>The standard that you want to enable.</p>
- */
-export interface StandardsSubscriptionRequest {
-  /**
-   * <p>The ARN of the standard that you want to enable. To view the list of available standards
-   *          and their ARNs, use the <code>DescribeStandards</code> operation.</p>
-   */
-  StandardsArn: string | undefined;
-
-  /**
-   * <p>A key-value pair of input for the standard.</p>
-   */
-  StandardsInput?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface BatchEnableStandardsRequest {
-  /**
-   * <p>The list of standards checks to enable.</p>
-   */
-  StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchEnableStandardsResponse {
-  /**
-   * <p>The details of the standards subscriptions that were enabled.</p>
-   */
-  StandardsSubscriptions?: StandardsSubscription[];
 }
