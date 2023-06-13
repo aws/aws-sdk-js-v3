@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.352.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.351.0...v3.352.0) (2023-06-13)
+
+
+### Features
+
+* **client-lightsail:** This release adds pagination for the Get Certificates API operation. ([5b99671](https://github.com/aws/aws-sdk-js-v3/commit/5b9967101f1da0134472f1903d88a4febb13d177))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

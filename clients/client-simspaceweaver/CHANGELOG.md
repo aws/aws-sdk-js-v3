@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.352.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.351.0...v3.352.0) (2023-06-13)
+
+
+### Features
+
+* **client-simspaceweaver:** This release fixes using aws-us-gov ARNs in API calls and adds documentation for snapshot APIs. ([bf99f16](https://github.com/aws/aws-sdk-js-v3/commit/bf99f161d22594b9af844c4be49db218a00bdc0f))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-simspaceweaver

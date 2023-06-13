@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.352.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.351.0...v3.352.0) (2023-06-13)
+
+
+### Features
+
+* **client-cloudtrail:** This feature allows users to view dashboards for CloudTrail Lake event data stores. ([bd2234a](https://github.com/aws/aws-sdk-js-v3/commit/bd2234a27983e3b2d4c4d8bf70adf9d11f5a42ae))
+* **client-codeguru-security:** Initial release of Amazon CodeGuru Security APIs ([9d51aa1](https://github.com/aws/aws-sdk-js-v3/commit/9d51aa17f62efad1f95e9e7fb4f5fb9ff9c3b70e))
+* **client-drs:** Added APIs to support network replication and recovery using AWS Elastic Disaster Recovery. ([8102bf6](https://github.com/aws/aws-sdk-js-v3/commit/8102bf6e622db8183360e55f0b8c2370601555ab))
+* **client-ec2:** This release introduces a new feature, EC2 Instance Connect Endpoint, that enables you to connect to a resource over TCP, without requiring the resource to have a public IPv4 address. ([c1ce7e1](https://github.com/aws/aws-sdk-js-v3/commit/c1ce7e11bc65d65d8f6f1a3e18878d3589d5abad))
+* **client-lightsail:** This release adds pagination for the Get Certificates API operation. ([5b99671](https://github.com/aws/aws-sdk-js-v3/commit/5b9967101f1da0134472f1903d88a4febb13d177))
+* **client-s3:** Integrate double encryption feature to SDKs. ([55c2691](https://github.com/aws/aws-sdk-js-v3/commit/55c2691c62073d8aae3190d286db93e1d1685b02))
+* **client-securityhub:** Add support for Security Hub Automation Rules ([b511d0c](https://github.com/aws/aws-sdk-js-v3/commit/b511d0cabfab56fe3c864bbfd0849da66550ee11))
+* **client-simspaceweaver:** This release fixes using aws-us-gov ARNs in API calls and adds documentation for snapshot APIs. ([bf99f16](https://github.com/aws/aws-sdk-js-v3/commit/bf99f161d22594b9af844c4be49db218a00bdc0f))
+* **client-verifiedpermissions:** GA release of Amazon Verified Permissions. ([84f48c1](https://github.com/aws/aws-sdk-js-v3/commit/84f48c111774abd43752f73727788df281ffa62e))
+* **client-wafv2:** You can now detect and block fraudulent account creation attempts with the new AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group AWSManagedRulesACFPRuleSet. ([4439cfd](https://github.com/aws/aws-sdk-js-v3/commit/4439cfd98921234453d55040ba0af960d0093523))
+* **client-wellarchitected:** AWS Well-Architected now supports Profiles that help customers prioritize which questions to focus on first by providing a list of prioritized questions that are better aligned with their business goals and outcomes. ([775a51a](https://github.com/aws/aws-sdk-js-v3/commit/775a51a8550acfe2190b1ff9b1a8ead59c51c948))
+* **clients:** update command documentation examples as of 2023-06-13 ([34ef217](https://github.com/aws/aws-sdk-js-v3/commit/34ef21726f4c3fbb9544e0b1c1ba048b6c215edf))
+
+
+
+
+
 # [3.351.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.350.0...v3.351.0) (2023-06-12)
 
 

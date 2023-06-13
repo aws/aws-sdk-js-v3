@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.352.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.351.0...v3.352.0) (2023-06-13)
+
+
+### Features
+
+* **client-cloudtrail:** This feature allows users to view dashboards for CloudTrail Lake event data stores. ([bd2234a](https://github.com/aws/aws-sdk-js-v3/commit/bd2234a27983e3b2d4c4d8bf70adf9d11f5a42ae))
+
+
+
+
+
 # [3.350.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.349.0...v3.350.0) (2023-06-09)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

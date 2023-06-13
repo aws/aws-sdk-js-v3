@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-endpoints",
-  "version": "3.347.0",
+  "version": "3.352.0",
   "description": "Utilities to help with endpoint resolution",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
