@@ -1,4 +1,5 @@
-process.env.CHROME_BIN = require("puppeteer").executablePath();
+// Set up binary for Chromium browser in CHROME_BIN environment variable before running the test
+
 module.exports = function (config) {
   config.set({
     frameworks: ["jasmine", "karma-typescript"],
