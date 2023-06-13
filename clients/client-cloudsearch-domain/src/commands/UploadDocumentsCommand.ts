@@ -29,11 +29,6 @@ import { de_UploadDocumentsCommand, se_UploadDocumentsCommand } from "../protoco
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link UploadDocumentsCommand}.
- */
 export type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "documents"> & {
   /**
    * For *`UploadDocumentsRequest["documents"]`*, see {@link UploadDocumentsRequest.documents}.
@@ -41,7 +36,9 @@ export type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "docu
   documents: UploadDocumentsRequest["documents"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `UploadDocumentsRequest` interface. There are more parameters than `documents` defined in {@link UploadDocumentsRequest}
+ * @public
+ *
+ * The input for {@link UploadDocumentsCommand}.
  */
 export interface UploadDocumentsCommandInput extends UploadDocumentsCommandInputType {}
 /**

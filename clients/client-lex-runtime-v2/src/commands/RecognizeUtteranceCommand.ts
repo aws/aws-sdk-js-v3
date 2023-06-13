@@ -29,11 +29,6 @@ import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../p
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link RecognizeUtteranceCommand}.
- */
 export type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
   /**
    * For *`RecognizeUtteranceRequest["inputStream"]`*, see {@link RecognizeUtteranceRequest.inputStream}.
@@ -41,7 +36,9 @@ export type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest,
   inputStream?: RecognizeUtteranceRequest["inputStream"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `RecognizeUtteranceRequest` interface. There are more parameters than `inputStream` defined in {@link RecognizeUtteranceRequest}
+ * @public
+ *
+ * The input for {@link RecognizeUtteranceCommand}.
  */
 export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
 /**

@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -29,10 +30,16 @@ export { __MetadataBearer, $Command };
 export interface GetCodeBindingSourceCommandInput extends GetCodeBindingSourceRequest {}
 /**
  * @public
+ */
+export type GetCodeBindingSourceCommandOutputType = Omit<GetCodeBindingSourceResponse, "Body"> & {
+  Body?: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link GetCodeBindingSourceCommand}.
  */
-export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceResponse, __MetadataBearer {}
+export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

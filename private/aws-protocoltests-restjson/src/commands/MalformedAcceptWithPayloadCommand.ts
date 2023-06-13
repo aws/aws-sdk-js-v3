@@ -9,6 +9,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -28,10 +29,18 @@ export { __MetadataBearer, $Command };
 export interface MalformedAcceptWithPayloadCommandInput {}
 /**
  * @public
+ */
+export type MalformedAcceptWithPayloadCommandOutputType = Omit<MalformedAcceptWithPayloadOutput, "payload"> & {
+  payload?: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link MalformedAcceptWithPayloadCommand}.
  */
-export interface MalformedAcceptWithPayloadCommandOutput extends MalformedAcceptWithPayloadOutput, __MetadataBearer {}
+export interface MalformedAcceptWithPayloadCommandOutput
+  extends MalformedAcceptWithPayloadCommandOutputType,
+    __MetadataBearer {}
 
 export class MalformedAcceptWithPayloadCommand extends $Command<
   MalformedAcceptWithPayloadCommandInput,

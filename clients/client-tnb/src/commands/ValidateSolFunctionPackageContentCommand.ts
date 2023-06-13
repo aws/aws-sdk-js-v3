@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -26,10 +27,17 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type ValidateSolFunctionPackageContentCommandInputType = Omit<ValidateSolFunctionPackageContentInput, "file"> & {
+  file: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link ValidateSolFunctionPackageContentCommand}.
  */
-export interface ValidateSolFunctionPackageContentCommandInput extends ValidateSolFunctionPackageContentInput {}
+export interface ValidateSolFunctionPackageContentCommandInput
+  extends ValidateSolFunctionPackageContentCommandInputType {}
 /**
  * @public
  *

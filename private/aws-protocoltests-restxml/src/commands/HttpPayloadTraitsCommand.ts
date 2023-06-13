@@ -2,6 +2,7 @@
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -9,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -22,16 +24,28 @@ import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type HttpPayloadTraitsCommandInputType = Omit<HttpPayloadTraitsInputOutput, "blob"> & {
+  blob?: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link HttpPayloadTraitsCommand}.
  */
-export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsInputOutput {}
+export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsCommandInputType {}
+/**
+ * @public
+ */
+export type HttpPayloadTraitsCommandOutputType = Omit<HttpPayloadTraitsInputOutput, "blob"> & {
+  blob?: Uint8ArrayBlobAdapter;
+};
 /**
  * @public
  *
  * The output of {@link HttpPayloadTraitsCommand}.
  */
-export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOutput, __MetadataBearer {}
+export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -29,10 +30,16 @@ export { __MetadataBearer, $Command };
 export interface GetMapGlyphsCommandInput extends GetMapGlyphsRequest {}
 /**
  * @public
+ */
+export type GetMapGlyphsCommandOutputType = Omit<GetMapGlyphsResponse, "Blob"> & {
+  Blob?: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link GetMapGlyphsCommand}.
  */
-export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __MetadataBearer {}
+export interface GetMapGlyphsCommandOutput extends GetMapGlyphsCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

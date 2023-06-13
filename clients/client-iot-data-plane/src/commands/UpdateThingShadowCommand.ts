@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -10,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -23,16 +25,28 @@ import { de_UpdateThingShadowCommand, se_UpdateThingShadowCommand } from "../pro
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type UpdateThingShadowCommandInputType = Omit<UpdateThingShadowRequest, "payload"> & {
+  payload: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link UpdateThingShadowCommand}.
  */
-export interface UpdateThingShadowCommandInput extends UpdateThingShadowRequest {}
+export interface UpdateThingShadowCommandInput extends UpdateThingShadowCommandInputType {}
+/**
+ * @public
+ */
+export type UpdateThingShadowCommandOutputType = Omit<UpdateThingShadowResponse, "payload"> & {
+  payload?: Uint8ArrayBlobAdapter;
+};
 /**
  * @public
  *
  * The output of {@link UpdateThingShadowCommand}.
  */
-export interface UpdateThingShadowCommandOutput extends UpdateThingShadowResponse, __MetadataBearer {}
+export interface UpdateThingShadowCommandOutput extends UpdateThingShadowCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

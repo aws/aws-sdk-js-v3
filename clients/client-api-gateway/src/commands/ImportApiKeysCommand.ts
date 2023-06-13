@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -23,10 +24,16 @@ import { de_ImportApiKeysCommand, se_ImportApiKeysCommand } from "../protocols/A
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type ImportApiKeysCommandInputType = Omit<ImportApiKeysRequest, "body"> & {
+  body: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link ImportApiKeysCommand}.
  */
-export interface ImportApiKeysCommandInput extends ImportApiKeysRequest {}
+export interface ImportApiKeysCommandInput extends ImportApiKeysCommandInputType {}
 /**
  * @public
  *

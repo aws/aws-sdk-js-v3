@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -10,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -28,16 +30,28 @@ import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type InvokeEndpointCommandInputType = Omit<InvokeEndpointInput, "Body"> & {
+  Body: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link InvokeEndpointCommand}.
  */
-export interface InvokeEndpointCommandInput extends InvokeEndpointInput {}
+export interface InvokeEndpointCommandInput extends InvokeEndpointCommandInputType {}
+/**
+ * @public
+ */
+export type InvokeEndpointCommandOutputType = Omit<InvokeEndpointOutput, "Body"> & {
+  Body: Uint8ArrayBlobAdapter;
+};
 /**
  * @public
  *
  * The output of {@link InvokeEndpointCommand}.
  */
-export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __MetadataBearer {}
+export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

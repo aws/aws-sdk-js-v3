@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -26,10 +27,16 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type PutSolFunctionPackageContentCommandInputType = Omit<PutSolFunctionPackageContentInput, "file"> & {
+  file: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link PutSolFunctionPackageContentCommand}.
  */
-export interface PutSolFunctionPackageContentCommandInput extends PutSolFunctionPackageContentInput {}
+export interface PutSolFunctionPackageContentCommandInput extends PutSolFunctionPackageContentCommandInputType {}
 /**
  * @public
  *

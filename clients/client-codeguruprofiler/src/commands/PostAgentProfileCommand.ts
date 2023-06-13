@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -23,10 +24,16 @@ import { de_PostAgentProfileCommand, se_PostAgentProfileCommand } from "../proto
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type PostAgentProfileCommandInputType = Omit<PostAgentProfileRequest, "agentProfile"> & {
+  agentProfile: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link PostAgentProfileCommand}.
  */
-export interface PostAgentProfileCommandInput extends PostAgentProfileRequest {}
+export interface PostAgentProfileCommandInput extends PostAgentProfileCommandInputType {}
 /**
  * @public
  *

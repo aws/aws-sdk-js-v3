@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -29,10 +30,16 @@ export { __MetadataBearer, $Command };
 export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 /**
  * @public
+ */
+export type GetConfigurationCommandOutputType = Omit<Configuration, "Content"> & {
+  Content?: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link GetConfigurationCommand}.
  */
-export interface GetConfigurationCommandOutput extends Configuration, __MetadataBearer {}
+export interface GetConfigurationCommandOutput extends GetConfigurationCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

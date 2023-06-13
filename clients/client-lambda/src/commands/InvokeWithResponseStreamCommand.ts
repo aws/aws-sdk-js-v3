@@ -30,12 +30,15 @@ import { de_InvokeWithResponseStreamCommand, se_InvokeWithResponseStreamCommand 
 export { __MetadataBearer, $Command };
 /**
  * @public
- *
- * The input for {@link InvokeWithResponseStreamCommand}.
  */
 export type InvokeWithResponseStreamCommandInputType = Omit<InvokeWithResponseStreamRequest, "Payload"> & {
   Payload?: BlobTypes;
 };
+/**
+ * @public
+ *
+ * The input for {@link InvokeWithResponseStreamCommand}.
+ */
 export interface InvokeWithResponseStreamCommandInput extends InvokeWithResponseStreamCommandInputType {}
 /**
  * @public

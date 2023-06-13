@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -23,10 +24,16 @@ import { de_PublishCommand, se_PublishCommand } from "../protocols/Aws_restJson1
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type PublishCommandInputType = Omit<PublishRequest, "payload"> & {
+  payload?: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link PublishCommand}.
  */
-export interface PublishCommandInput extends PublishRequest {}
+export interface PublishCommandInput extends PublishCommandInputType {}
 /**
  * @public
  *

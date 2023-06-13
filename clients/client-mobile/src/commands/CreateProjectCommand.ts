@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -23,10 +24,16 @@ import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/A
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type CreateProjectCommandInputType = Omit<CreateProjectRequest, "contents"> & {
+  contents?: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link CreateProjectCommand}.
  */
-export interface CreateProjectCommandInput extends CreateProjectRequest {}
+export interface CreateProjectCommandInput extends CreateProjectCommandInputType {}
 /**
  * @public
  *

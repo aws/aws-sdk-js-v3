@@ -2,6 +2,7 @@
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -9,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -22,16 +24,28 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type TestPayloadBlobCommandInputType = Omit<TestPayloadBlobInputOutput, "data"> & {
+  data?: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link TestPayloadBlobCommand}.
  */
-export interface TestPayloadBlobCommandInput extends TestPayloadBlobInputOutput {}
+export interface TestPayloadBlobCommandInput extends TestPayloadBlobCommandInputType {}
+/**
+ * @public
+ */
+export type TestPayloadBlobCommandOutputType = Omit<TestPayloadBlobInputOutput, "data"> & {
+  data?: Uint8ArrayBlobAdapter;
+};
 /**
  * @public
  *
  * The output of {@link TestPayloadBlobCommand}.
  */
-export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput, __MetadataBearer {}
+export interface TestPayloadBlobCommandOutput extends TestPayloadBlobCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

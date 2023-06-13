@@ -12,6 +12,7 @@ import {
   withBaseException,
 } from "@aws-sdk/smithy-client";
 import { ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter as __Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -1380,11 +1381,14 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
+const collectBody = async (
+  streamBody: any = new Uint8Array(),
+  context: __SerdeContext
+): Promise<__Uint8ArrayBlobAdapter> => {
   if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
+    return __Uint8ArrayBlobAdapter.mutate(streamBody);
   }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
+  return __Uint8ArrayBlobAdapter.mutate(await context.streamCollector(streamBody)) || new __Uint8ArrayBlobAdapter();
 };
 
 // Encode Uint8Array data into string with utf-8.

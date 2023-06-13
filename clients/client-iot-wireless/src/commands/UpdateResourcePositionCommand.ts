@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -23,10 +24,16 @@ import { de_UpdateResourcePositionCommand, se_UpdateResourcePositionCommand } fr
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type UpdateResourcePositionCommandInputType = Omit<UpdateResourcePositionRequest, "GeoJsonPayload"> & {
+  GeoJsonPayload?: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link UpdateResourcePositionCommand}.
  */
-export interface UpdateResourcePositionCommandInput extends UpdateResourcePositionRequest {}
+export interface UpdateResourcePositionCommandInput extends UpdateResourcePositionCommandInputType {}
 /**
  * @public
  *

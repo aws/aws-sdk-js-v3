@@ -19,6 +19,10 @@ import { de_CreateOriginEndpointCommand, se_CreateOriginEndpointCommand } from "
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link CreateOriginEndpointCommand}.
  */

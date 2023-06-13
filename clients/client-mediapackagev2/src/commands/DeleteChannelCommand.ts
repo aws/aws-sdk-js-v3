@@ -19,6 +19,10 @@ import { de_DeleteChannelCommand, se_DeleteChannelCommand } from "../protocols/A
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link DeleteChannelCommand}.
  */

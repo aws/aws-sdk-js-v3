@@ -25,11 +25,6 @@ import { de_NotifyObjectCompleteCommand, se_NotifyObjectCompleteCommand } from "
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link NotifyObjectCompleteCommand}.
- */
 export type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInput, "MetadataBlob"> & {
   /**
    * For *`NotifyObjectCompleteInput["MetadataBlob"]`*, see {@link NotifyObjectCompleteInput.MetadataBlob}.
@@ -37,7 +32,9 @@ export type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInpu
   MetadataBlob?: NotifyObjectCompleteInput["MetadataBlob"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `NotifyObjectCompleteInput` interface. There are more parameters than `MetadataBlob` defined in {@link NotifyObjectCompleteInput}
+ * @public
+ *
+ * The input for {@link NotifyObjectCompleteCommand}.
  */
 export interface NotifyObjectCompleteCommandInput extends NotifyObjectCompleteCommandInputType {}
 /**

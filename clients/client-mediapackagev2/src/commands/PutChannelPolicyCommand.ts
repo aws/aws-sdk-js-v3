@@ -19,6 +19,10 @@ import { de_PutChannelPolicyCommand, se_PutChannelPolicyCommand } from "../proto
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link PutChannelPolicyCommand}.
  */

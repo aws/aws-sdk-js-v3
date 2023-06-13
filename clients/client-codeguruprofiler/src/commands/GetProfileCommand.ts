@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -29,10 +30,16 @@ export { __MetadataBearer, $Command };
 export interface GetProfileCommandInput extends GetProfileRequest {}
 /**
  * @public
+ */
+export type GetProfileCommandOutputType = Omit<GetProfileResponse, "profile"> & {
+  profile: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link GetProfileCommand}.
  */
-export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
+export interface GetProfileCommandOutput extends GetProfileCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

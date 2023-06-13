@@ -21,11 +21,6 @@ import { de_InvokeAsyncCommand, se_InvokeAsyncCommand } from "../protocols/Aws_r
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link InvokeAsyncCommand}.
- */
 export type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
   /**
    * For *`InvokeAsyncRequest["InvokeArgs"]`*, see {@link InvokeAsyncRequest.InvokeArgs}.
@@ -33,7 +28,9 @@ export type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs">
   InvokeArgs: InvokeAsyncRequest["InvokeArgs"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `InvokeAsyncRequest` interface. There are more parameters than `InvokeArgs` defined in {@link InvokeAsyncRequest}
+ * @public
+ *
+ * The input for {@link InvokeAsyncCommand}.
  */
 export interface InvokeAsyncCommandInput extends InvokeAsyncCommandInputType {}
 /**

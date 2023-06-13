@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -32,11 +33,20 @@ export { __MetadataBearer, $Command };
 export interface GetSolFunctionPackageContentCommandInput extends GetSolFunctionPackageContentInput {}
 /**
  * @public
+ */
+export type GetSolFunctionPackageContentCommandOutputType = Omit<
+  GetSolFunctionPackageContentOutput,
+  "packageContent"
+> & {
+  packageContent?: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link GetSolFunctionPackageContentCommand}.
  */
 export interface GetSolFunctionPackageContentCommandOutput
-  extends GetSolFunctionPackageContentOutput,
+  extends GetSolFunctionPackageContentCommandOutputType,
     __MetadataBearer {}
 
 /**

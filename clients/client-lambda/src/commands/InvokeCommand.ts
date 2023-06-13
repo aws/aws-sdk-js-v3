@@ -30,21 +30,27 @@ import { de_InvokeCommand, se_InvokeCommand } from "../protocols/Aws_restJson1";
 export { __MetadataBearer, $Command };
 /**
  * @public
- *
- * The input for {@link InvokeCommand}.
  */
 export type InvokeCommandInputType = Omit<InvocationRequest, "Payload"> & {
   Payload?: BlobTypes;
 };
+/**
+ * @public
+ *
+ * The input for {@link InvokeCommand}.
+ */
 export interface InvokeCommandInput extends InvokeCommandInputType {}
+/**
+ * @public
+ */
+export type InvokeCommandOutputType = Omit<InvocationResponse, "Payload"> & {
+  Payload?: Uint8ArrayBlobAdapter;
+};
 /**
  * @public
  *
  * The output of {@link InvokeCommand}.
  */
-export type InvokeCommandOutputType = Omit<InvocationResponse, "Payload"> & {
-  Payload?: Uint8ArrayBlobAdapter;
-};
 export interface InvokeCommandOutput extends InvokeCommandOutputType, __MetadataBearer {}
 
 /**

@@ -25,11 +25,6 @@ import { de_UploadReadSetPartCommand, se_UploadReadSetPartCommand } from "../pro
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link UploadReadSetPartCommand}.
- */
 export type UploadReadSetPartCommandInputType = Omit<UploadReadSetPartRequest, "payload"> & {
   /**
    * For *`UploadReadSetPartRequest["payload"]`*, see {@link UploadReadSetPartRequest.payload}.
@@ -37,7 +32,9 @@ export type UploadReadSetPartCommandInputType = Omit<UploadReadSetPartRequest, "
   payload: UploadReadSetPartRequest["payload"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `UploadReadSetPartRequest` interface. There are more parameters than `payload` defined in {@link UploadReadSetPartRequest}
+ * @public
+ *
+ * The input for {@link UploadReadSetPartCommand}.
  */
 export interface UploadReadSetPartCommandInput extends UploadReadSetPartCommandInputType {}
 /**

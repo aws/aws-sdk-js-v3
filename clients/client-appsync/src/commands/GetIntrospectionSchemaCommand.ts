@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -29,10 +30,18 @@ export { __MetadataBearer, $Command };
 export interface GetIntrospectionSchemaCommandInput extends GetIntrospectionSchemaRequest {}
 /**
  * @public
+ */
+export type GetIntrospectionSchemaCommandOutputType = Omit<GetIntrospectionSchemaResponse, "schema"> & {
+  schema?: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link GetIntrospectionSchemaCommand}.
  */
-export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSchemaResponse, __MetadataBearer {}
+export interface GetIntrospectionSchemaCommandOutput
+  extends GetIntrospectionSchemaCommandOutputType,
+    __MetadataBearer {}
 
 /**
  * @public

@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -23,10 +24,16 @@ import { de_PutRestApiCommand, se_PutRestApiCommand } from "../protocols/Aws_res
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type PutRestApiCommandInputType = Omit<PutRestApiRequest, "body"> & {
+  body: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link PutRestApiCommand}.
  */
-export interface PutRestApiCommandInput extends PutRestApiRequest {}
+export interface PutRestApiCommandInput extends PutRestApiCommandInputType {}
 /**
  * @public
  *

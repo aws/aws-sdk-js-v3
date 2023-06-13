@@ -2,6 +2,7 @@
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -25,10 +26,16 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type MalformedContentTypeWithPayloadCommandInputType = Omit<MalformedContentTypeWithPayloadInput, "payload"> & {
+  payload?: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link MalformedContentTypeWithPayloadCommand}.
  */
-export interface MalformedContentTypeWithPayloadCommandInput extends MalformedContentTypeWithPayloadInput {}
+export interface MalformedContentTypeWithPayloadCommandInput extends MalformedContentTypeWithPayloadCommandInputType {}
 /**
  * @public
  *

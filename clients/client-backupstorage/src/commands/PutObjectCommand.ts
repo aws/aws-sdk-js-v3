@@ -21,11 +21,6 @@ import { de_PutObjectCommand, se_PutObjectCommand } from "../protocols/Aws_restJ
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link PutObjectCommand}.
- */
 export type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
   /**
    * For *`PutObjectInput["InlineChunk"]`*, see {@link PutObjectInput.InlineChunk}.
@@ -33,7 +28,9 @@ export type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
   InlineChunk?: PutObjectInput["InlineChunk"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `PutObjectInput` interface. There are more parameters than `InlineChunk` defined in {@link PutObjectInput}
+ * @public
+ *
+ * The input for {@link PutObjectCommand}.
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
 /**

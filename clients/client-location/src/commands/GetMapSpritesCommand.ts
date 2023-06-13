@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -33,10 +34,16 @@ export { __MetadataBearer, $Command };
 export interface GetMapSpritesCommandInput extends GetMapSpritesRequest {}
 /**
  * @public
+ */
+export type GetMapSpritesCommandOutputType = Omit<GetMapSpritesResponse, "Blob"> & {
+  Blob?: Uint8ArrayBlobAdapter;
+};
+/**
+ * @public
  *
  * The output of {@link GetMapSpritesCommand}.
  */
-export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __MetadataBearer {}
+export interface GetMapSpritesCommandOutput extends GetMapSpritesCommandOutputType, __MetadataBearer {}
 
 /**
  * @public

@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -23,10 +24,16 @@ import { de_ImportDocumentationPartsCommand, se_ImportDocumentationPartsCommand 
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type ImportDocumentationPartsCommandInputType = Omit<ImportDocumentationPartsRequest, "body"> & {
+  body: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link ImportDocumentationPartsCommand}.
  */
-export interface ImportDocumentationPartsCommandInput extends ImportDocumentationPartsRequest {}
+export interface ImportDocumentationPartsCommandInput extends ImportDocumentationPartsCommandInputType {}
 /**
  * @public
  *

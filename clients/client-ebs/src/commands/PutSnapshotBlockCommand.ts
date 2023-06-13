@@ -25,11 +25,6 @@ import { de_PutSnapshotBlockCommand, se_PutSnapshotBlockCommand } from "../proto
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link PutSnapshotBlockCommand}.
- */
 export type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
   /**
    * For *`PutSnapshotBlockRequest["BlockData"]`*, see {@link PutSnapshotBlockRequest.BlockData}.
@@ -37,7 +32,9 @@ export type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "Bl
   BlockData: PutSnapshotBlockRequest["BlockData"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `PutSnapshotBlockRequest` interface. There are more parameters than `BlockData` defined in {@link PutSnapshotBlockRequest}
+ * @public
+ *
+ * The input for {@link PutSnapshotBlockCommand}.
  */
 export interface PutSnapshotBlockCommandInput extends PutSnapshotBlockCommandInputType {}
 /**

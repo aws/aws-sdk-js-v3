@@ -28,11 +28,6 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link UploadPartCommand}.
- */
 export type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
   /**
    * For *`UploadPartRequest["Body"]`*, see {@link UploadPartRequest.Body}.
@@ -40,7 +35,9 @@ export type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
   Body?: UploadPartRequest["Body"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `UploadPartRequest` interface. There are more parameters than `Body` defined in {@link UploadPartRequest}
+ * @public
+ *
+ * The input for {@link UploadPartCommand}.
  */
 export interface UploadPartCommandInput extends UploadPartCommandInputType {}
 /**

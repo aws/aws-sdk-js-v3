@@ -2,6 +2,7 @@
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -9,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
 } from "@aws-sdk/types";
+import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
@@ -25,17 +27,32 @@ import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type HttpPayloadTraitsWithMediaTypeCommandInputType = Omit<HttpPayloadTraitsWithMediaTypeInputOutput, "blob"> & {
+  blob?: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link HttpPayloadTraitsWithMediaTypeCommand}.
  */
-export interface HttpPayloadTraitsWithMediaTypeCommandInput extends HttpPayloadTraitsWithMediaTypeInputOutput {}
+export interface HttpPayloadTraitsWithMediaTypeCommandInput extends HttpPayloadTraitsWithMediaTypeCommandInputType {}
+/**
+ * @public
+ */
+export type HttpPayloadTraitsWithMediaTypeCommandOutputType = Omit<
+  HttpPayloadTraitsWithMediaTypeInputOutput,
+  "blob"
+> & {
+  blob?: Uint8ArrayBlobAdapter;
+};
 /**
  * @public
  *
  * The output of {@link HttpPayloadTraitsWithMediaTypeCommand}.
  */
 export interface HttpPayloadTraitsWithMediaTypeCommandOutput
-  extends HttpPayloadTraitsWithMediaTypeInputOutput,
+  extends HttpPayloadTraitsWithMediaTypeCommandOutputType,
     __MetadataBearer {}
 
 /**

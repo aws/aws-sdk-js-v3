@@ -21,11 +21,6 @@ import { de_PutObjectCommand, se_PutObjectCommand } from "../protocols/Aws_restJ
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link PutObjectCommand}.
- */
 export type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
   /**
    * For *`PutObjectRequest["Body"]`*, see {@link PutObjectRequest.Body}.
@@ -33,7 +28,9 @@ export type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
   Body: PutObjectRequest["Body"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `PutObjectRequest` interface. There are more parameters than `Body` defined in {@link PutObjectRequest}
+ * @public
+ *
+ * The input for {@link PutObjectCommand}.
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
 /**

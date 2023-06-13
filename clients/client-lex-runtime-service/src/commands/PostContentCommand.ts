@@ -33,11 +33,6 @@ import { de_PostContentCommand, se_PostContentCommand } from "../protocols/Aws_r
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link PostContentCommand}.
- */
 export type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
   /**
    * For *`PostContentRequest["inputStream"]`*, see {@link PostContentRequest.inputStream}.
@@ -45,7 +40,9 @@ export type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"
   inputStream: PostContentRequest["inputStream"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `PostContentRequest` interface. There are more parameters than `inputStream` defined in {@link PostContentRequest}
+ * @public
+ *
+ * The input for {@link PostContentCommand}.
  */
 export interface PostContentCommandInput extends PostContentCommandInputType {}
 /**

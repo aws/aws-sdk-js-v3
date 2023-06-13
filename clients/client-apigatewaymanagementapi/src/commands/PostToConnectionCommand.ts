@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -27,10 +28,16 @@ import { de_PostToConnectionCommand, se_PostToConnectionCommand } from "../proto
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type PostToConnectionCommandInputType = Omit<PostToConnectionRequest, "Data"> & {
+  Data: BlobTypes;
+};
+/**
+ * @public
  *
  * The input for {@link PostToConnectionCommand}.
  */
-export interface PostToConnectionCommandInput extends PostToConnectionRequest {}
+export interface PostToConnectionCommandInput extends PostToConnectionCommandInputType {}
 /**
  * @public
  *
