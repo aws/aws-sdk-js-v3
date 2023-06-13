@@ -152,6 +152,7 @@ import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "../co
 import { UpdateWebACLCommandInput, UpdateWebACLCommandOutput } from "../commands/UpdateWebACLCommand";
 import {
   ActionCondition,
+  AddressField,
   All,
   AllowAction,
   AllQueryArguments,
@@ -159,6 +160,7 @@ import {
   APIKeySummary,
   AssociateWebACLRequest,
   AssociationConfig,
+  AWSManagedRulesACFPRuleSet,
   AWSManagedRulesATPRuleSet,
   AWSManagedRulesBotControlRuleSet,
   BlockAction,
@@ -195,6 +197,7 @@ import {
   DescribeManagedProductsByVendorRequest,
   DescribeManagedRuleGroupRequest,
   DisassociateWebACLRequest,
+  EmailField,
   ExcludedRule,
   FieldToMatch,
   Filter,
@@ -262,6 +265,7 @@ import {
   OrStatement,
   OverrideAction,
   PasswordField,
+  PhoneNumberField,
   PutLoggingConfigurationRequest,
   PutManagedRuleSetVersionsRequest,
   PutPermissionPolicyRequest,
@@ -282,6 +286,7 @@ import {
   ReleaseSummary,
   RequestBodyAssociatedResourceTypeConfig,
   RequestInspection,
+  RequestInspectionACFP,
   ResponseInspection,
   ResponseInspectionBodyContains,
   ResponseInspectionHeader,
@@ -4463,6 +4468,10 @@ const de_WAFUnsupportedAggregateKeyTypeExceptionRes = async (
 
 // se_ActionCondition omitted.
 
+// se_AddressField omitted.
+
+// se_AddressFields omitted.
+
 // se_All omitted.
 
 // se_AllowAction omitted.
@@ -4483,6 +4492,8 @@ const se_AndStatement = (input: AndStatement, context: __SerdeContext): any => {
 // se_AssociateWebACLRequest omitted.
 
 // se_AssociationConfig omitted.
+
+// se_AWSManagedRulesACFPRuleSet omitted.
 
 // se_AWSManagedRulesATPRuleSet omitted.
 
@@ -4613,6 +4624,8 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
 // se_DescribeManagedRuleGroupRequest omitted.
 
 // se_DisassociateWebACLRequest omitted.
+
+// se_EmailField omitted.
 
 // se_ExcludedRule omitted.
 
@@ -4770,6 +4783,10 @@ const se_OrStatement = (input: OrStatement, context: __SerdeContext): any => {
 
 // se_PasswordField omitted.
 
+// se_PhoneNumberField omitted.
+
+// se_PhoneNumberFields omitted.
+
 // se_PutLoggingConfigurationRequest omitted.
 
 // se_PutManagedRuleSetVersionsRequest omitted.
@@ -4826,6 +4843,8 @@ const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContex
 // se_RequestBodyAssociatedResourceTypeConfig omitted.
 
 // se_RequestInspection omitted.
+
+// se_RequestInspectionACFP omitted.
 
 // se_ResponseInspection omitted.
 
@@ -5029,6 +5048,10 @@ const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeCont
 
 // de_ActionCondition omitted.
 
+// de_AddressField omitted.
+
+// de_AddressFields omitted.
+
 // de_All omitted.
 
 // de_AllowAction omitted.
@@ -5071,6 +5094,8 @@ const de_APIKeySummary = (output: any, context: __SerdeContext): APIKeySummary =
 // de_AssociateWebACLResponse omitted.
 
 // de_AssociationConfig omitted.
+
+// de_AWSManagedRulesACFPRuleSet omitted.
 
 // de_AWSManagedRulesATPRuleSet omitted.
 
@@ -5165,6 +5190,8 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 // de_DescribeManagedRuleGroupResponse omitted.
 
 // de_DisassociateWebACLResponse omitted.
+
+// de_EmailField omitted.
 
 // de_ExcludedRule omitted.
 
@@ -5524,6 +5551,10 @@ const de_OrStatement = (output: any, context: __SerdeContext): OrStatement => {
 
 // de_PasswordField omitted.
 
+// de_PhoneNumberField omitted.
+
+// de_PhoneNumberFields omitted.
+
 /**
  * deserializeAws_json1_1PublishedVersions
  */
@@ -5623,6 +5654,8 @@ const de_ReleaseSummary = (output: any, context: __SerdeContext): ReleaseSummary
 // de_RequestBodyAssociatedResourceTypeConfig omitted.
 
 // de_RequestInspection omitted.
+
+// de_RequestInspectionACFP omitted.
 
 // de_ResourceArns omitted.
 

@@ -661,6 +661,70 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                         ],
  *                       },
  *                     },
+ *                     EnableRegexInPath: true || false,
+ *                   },
+ *                   AWSManagedRulesACFPRuleSet: { // AWSManagedRulesACFPRuleSet
+ *                     CreationPath: "STRING_VALUE", // required
+ *                     RegistrationPagePath: "STRING_VALUE", // required
+ *                     RequestInspection: { // RequestInspectionACFP
+ *                       PayloadType: "JSON" || "FORM_ENCODED", // required
+ *                       UsernameField: {
+ *                         Identifier: "STRING_VALUE", // required
+ *                       },
+ *                       PasswordField: {
+ *                         Identifier: "STRING_VALUE", // required
+ *                       },
+ *                       EmailField: { // EmailField
+ *                         Identifier: "STRING_VALUE", // required
+ *                       },
+ *                       PhoneNumberFields: [ // PhoneNumberFields
+ *                         { // PhoneNumberField
+ *                           Identifier: "STRING_VALUE", // required
+ *                         },
+ *                       ],
+ *                       AddressFields: [ // AddressFields
+ *                         { // AddressField
+ *                           Identifier: "STRING_VALUE", // required
+ *                         },
+ *                       ],
+ *                     },
+ *                     ResponseInspection: {
+ *                       StatusCode: {
+ *                         SuccessCodes: [ // required
+ *                           Number("int"),
+ *                         ],
+ *                         FailureCodes: [ // required
+ *                           Number("int"),
+ *                         ],
+ *                       },
+ *                       Header: {
+ *                         Name: "STRING_VALUE", // required
+ *                         SuccessValues: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                         FailureValues: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                       },
+ *                       BodyContains: {
+ *                         SuccessStrings: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                         FailureStrings: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                       },
+ *                       Json: {
+ *                         Identifier: "STRING_VALUE", // required
+ *                         SuccessValues: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                         FailureValues: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                       },
+ *                     },
+ *                     EnableRegexInPath: true || false,
  *                   },
  *                 },
  *               ],
@@ -798,6 +862,66 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                     ],
  *                   },
  *                 },
+ *                 EnableRegexInPath: true || false,
+ *               },
+ *               AWSManagedRulesACFPRuleSet: {
+ *                 CreationPath: "STRING_VALUE", // required
+ *                 RegistrationPagePath: "STRING_VALUE", // required
+ *                 RequestInspection: {
+ *                   PayloadType: "JSON" || "FORM_ENCODED", // required
+ *                   UsernameField: "<UsernameField>",
+ *                   PasswordField: "<PasswordField>",
+ *                   EmailField: {
+ *                     Identifier: "STRING_VALUE", // required
+ *                   },
+ *                   PhoneNumberFields: [
+ *                     {
+ *                       Identifier: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   AddressFields: [
+ *                     {
+ *                       Identifier: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                 },
+ *                 ResponseInspection: {
+ *                   StatusCode: {
+ *                     SuccessCodes: [ // required
+ *                       Number("int"),
+ *                     ],
+ *                     FailureCodes: [ // required
+ *                       Number("int"),
+ *                     ],
+ *                   },
+ *                   Header: {
+ *                     Name: "STRING_VALUE", // required
+ *                     SuccessValues: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     FailureValues: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                   BodyContains: {
+ *                     SuccessStrings: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     FailureStrings: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                   Json: {
+ *                     Identifier: "STRING_VALUE", // required
+ *                     SuccessValues: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     FailureValues: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *                 EnableRegexInPath: true || false,
  *               },
  *             },
  *           ],
