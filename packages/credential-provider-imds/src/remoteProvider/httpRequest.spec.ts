@@ -114,7 +114,7 @@ describe("httpRequest", () => {
     );
     expect(requestSpy.mock.results[0].value.socket).toHaveProperty("destroyed", true);
 
-    await new Promise((resolve) => setTimeout(resolve, timeout * 2));
+    nock.abortPendingRequests();
     scope.done();
   });
 });
