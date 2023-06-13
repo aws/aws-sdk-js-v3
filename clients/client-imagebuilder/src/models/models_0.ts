@@ -646,8 +646,8 @@ export interface Component {
   tags?: Record<string, string>;
 
   /**
-   * <p>Contains the name of the publisher if this is a third-party component. Otherwise, this
-   * 			property is empty.</p>
+   * <p>Contains the name of the publisher if this is a third-party component. Otherwise,
+   * 			this property is empty.</p>
    */
   publisher?: string;
 
@@ -773,14 +773,14 @@ export interface ComponentSummary {
   tags?: Record<string, string>;
 
   /**
-   * <p>Contains the name of the publisher if this is a third-party component. Otherwise, this
-   * 			property is empty.</p>
+   * <p>Contains the name of the publisher if this is a third-party component. Otherwise,
+   * 			this property is empty.</p>
    */
   publisher?: string;
 
   /**
-   * <p>Indicates whether component source is hidden from view in the console, and from
-   * 			component detail results for API, CLI, or SDK operations.</p>
+   * <p>Indicates whether component source is hidden from view in the console,
+   * 			and from component detail results for API, CLI, or SDK operations.</p>
    */
   obfuscate?: boolean;
 }
@@ -3248,8 +3248,8 @@ export interface Image {
   platform?: Platform | string;
 
   /**
-   * <p>Indicates whether Image Builder collects additional information about the image, such as the
-   * 			operating system (OS) version and package list.</p>
+   * <p>Indicates whether Image Builder collects additional information about the image, such as
+   * 			the operating system (OS) version and package list.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
@@ -3265,14 +3265,14 @@ export interface Image {
   state?: ImageState;
 
   /**
-   * <p>For images that distribute an AMI, this is the image recipe that Image Builder used to create
-   * 			the image. For container images, this is empty.</p>
+   * <p>For images that distribute an AMI, this is the image recipe that Image Builder used to
+   * 			create the image. For container images, this is empty.</p>
    */
   imageRecipe?: ImageRecipe;
 
   /**
-   * <p>For container images, this is the container recipe that Image Builder used to create the image.
-   * 			For images that distribute an AMI, this is empty.</p>
+   * <p>For container images, this is the container recipe that Image Builder used to create the
+   * 			image. For images that distribute an AMI, this is empty.</p>
    */
   containerRecipe?: ContainerRecipe;
 
@@ -3467,7 +3467,7 @@ export interface ImagePipeline {
   dateLastRun?: string;
 
   /**
-   * <p>This is no longer supported, and does not return a value.</p>
+   * <p>The next date when the pipeline is scheduled to run.</p>
    */
   dateNextRun?: string;
 
