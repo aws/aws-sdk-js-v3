@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AssociateSourceNetworkStackCommand,
+  AssociateSourceNetworkStackCommandInput,
+  AssociateSourceNetworkStackCommandOutput,
+} from "./commands/AssociateSourceNetworkStackCommand";
+import {
   CreateExtendedSourceServerCommand,
   CreateExtendedSourceServerCommandInput,
   CreateExtendedSourceServerCommandOutput,
@@ -17,6 +22,11 @@ import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
+import {
+  CreateSourceNetworkCommand,
+  CreateSourceNetworkCommandInput,
+  CreateSourceNetworkCommandOutput,
+} from "./commands/CreateSourceNetworkCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommand,
@@ -33,6 +43,11 @@ import {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
 } from "./commands/DeleteReplicationConfigurationTemplateCommand";
+import {
+  DeleteSourceNetworkCommand,
+  DeleteSourceNetworkCommandInput,
+  DeleteSourceNetworkCommandOutput,
+} from "./commands/DeleteSourceNetworkCommand";
 import {
   DeleteSourceServerCommand,
   DeleteSourceServerCommandInput,
@@ -69,6 +84,11 @@ import {
   DescribeReplicationConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeReplicationConfigurationTemplatesCommand";
 import {
+  DescribeSourceNetworksCommand,
+  DescribeSourceNetworksCommandInput,
+  DescribeSourceNetworksCommandOutput,
+} from "./commands/DescribeSourceNetworksCommand";
+import {
   DescribeSourceServersCommand,
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
@@ -83,6 +103,11 @@ import {
   DisconnectSourceServerCommandInput,
   DisconnectSourceServerCommandOutput,
 } from "./commands/DisconnectSourceServerCommand";
+import {
+  ExportSourceNetworkCfnTemplateCommand,
+  ExportSourceNetworkCfnTemplateCommandInput,
+  ExportSourceNetworkCfnTemplateCommandOutput,
+} from "./commands/ExportSourceNetworkCfnTemplateCommand";
 import {
   GetFailbackReplicationConfigurationCommand,
   GetFailbackReplicationConfigurationCommandInput,
@@ -144,6 +169,16 @@ import {
   StartReplicationCommandOutput,
 } from "./commands/StartReplicationCommand";
 import {
+  StartSourceNetworkRecoveryCommand,
+  StartSourceNetworkRecoveryCommandInput,
+  StartSourceNetworkRecoveryCommandOutput,
+} from "./commands/StartSourceNetworkRecoveryCommand";
+import {
+  StartSourceNetworkReplicationCommand,
+  StartSourceNetworkReplicationCommandInput,
+  StartSourceNetworkReplicationCommandOutput,
+} from "./commands/StartSourceNetworkReplicationCommand";
+import {
   StopFailbackCommand,
   StopFailbackCommandInput,
   StopFailbackCommandOutput,
@@ -153,6 +188,11 @@ import {
   StopReplicationCommandInput,
   StopReplicationCommandOutput,
 } from "./commands/StopReplicationCommand";
+import {
+  StopSourceNetworkReplicationCommand,
+  StopSourceNetworkReplicationCommandInput,
+  StopSourceNetworkReplicationCommandOutput,
+} from "./commands/StopSourceNetworkReplicationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateRecoveryInstancesCommand,
@@ -192,13 +232,16 @@ import {
 import { DrsClient, DrsClientConfig } from "./DrsClient";
 
 const commands = {
+  AssociateSourceNetworkStackCommand,
   CreateExtendedSourceServerCommand,
   CreateLaunchConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommand,
+  CreateSourceNetworkCommand,
   DeleteJobCommand,
   DeleteLaunchConfigurationTemplateCommand,
   DeleteRecoveryInstanceCommand,
   DeleteReplicationConfigurationTemplateCommand,
+  DeleteSourceNetworkCommand,
   DeleteSourceServerCommand,
   DescribeJobLogItemsCommand,
   DescribeJobsCommand,
@@ -206,9 +249,11 @@ const commands = {
   DescribeRecoveryInstancesCommand,
   DescribeRecoverySnapshotsCommand,
   DescribeReplicationConfigurationTemplatesCommand,
+  DescribeSourceNetworksCommand,
   DescribeSourceServersCommand,
   DisconnectRecoveryInstanceCommand,
   DisconnectSourceServerCommand,
+  ExportSourceNetworkCfnTemplateCommand,
   GetFailbackReplicationConfigurationCommand,
   GetLaunchConfigurationCommand,
   GetReplicationConfigurationCommand,
@@ -221,8 +266,11 @@ const commands = {
   StartFailbackLaunchCommand,
   StartRecoveryCommand,
   StartReplicationCommand,
+  StartSourceNetworkRecoveryCommand,
+  StartSourceNetworkReplicationCommand,
   StopFailbackCommand,
   StopReplicationCommand,
+  StopSourceNetworkReplicationCommand,
   TagResourceCommand,
   TerminateRecoveryInstancesCommand,
   UntagResourceCommand,
@@ -234,6 +282,23 @@ const commands = {
 };
 
 export interface Drs {
+  /**
+   * @see {@link AssociateSourceNetworkStackCommand}
+   */
+  associateSourceNetworkStack(
+    args: AssociateSourceNetworkStackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSourceNetworkStackCommandOutput>;
+  associateSourceNetworkStack(
+    args: AssociateSourceNetworkStackCommandInput,
+    cb: (err: any, data?: AssociateSourceNetworkStackCommandOutput) => void
+  ): void;
+  associateSourceNetworkStack(
+    args: AssociateSourceNetworkStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSourceNetworkStackCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateExtendedSourceServerCommand}
    */
@@ -283,6 +348,23 @@ export interface Drs {
     args: CreateReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSourceNetworkCommand}
+   */
+  createSourceNetwork(
+    args: CreateSourceNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSourceNetworkCommandOutput>;
+  createSourceNetwork(
+    args: CreateSourceNetworkCommandInput,
+    cb: (err: any, data?: CreateSourceNetworkCommandOutput) => void
+  ): void;
+  createSourceNetwork(
+    args: CreateSourceNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSourceNetworkCommandOutput) => void
   ): void;
 
   /**
@@ -345,6 +427,23 @@ export interface Drs {
     args: DeleteReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSourceNetworkCommand}
+   */
+  deleteSourceNetwork(
+    args: DeleteSourceNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSourceNetworkCommandOutput>;
+  deleteSourceNetwork(
+    args: DeleteSourceNetworkCommandInput,
+    cb: (err: any, data?: DeleteSourceNetworkCommandOutput) => void
+  ): void;
+  deleteSourceNetwork(
+    args: DeleteSourceNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSourceNetworkCommandOutput) => void
   ): void;
 
   /**
@@ -461,6 +560,23 @@ export interface Drs {
   ): void;
 
   /**
+   * @see {@link DescribeSourceNetworksCommand}
+   */
+  describeSourceNetworks(
+    args: DescribeSourceNetworksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSourceNetworksCommandOutput>;
+  describeSourceNetworks(
+    args: DescribeSourceNetworksCommandInput,
+    cb: (err: any, data?: DescribeSourceNetworksCommandOutput) => void
+  ): void;
+  describeSourceNetworks(
+    args: DescribeSourceNetworksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSourceNetworksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSourceServersCommand}
    */
   describeSourceServers(
@@ -509,6 +625,23 @@ export interface Drs {
     args: DisconnectSourceServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisconnectSourceServerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportSourceNetworkCfnTemplateCommand}
+   */
+  exportSourceNetworkCfnTemplate(
+    args: ExportSourceNetworkCfnTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportSourceNetworkCfnTemplateCommandOutput>;
+  exportSourceNetworkCfnTemplate(
+    args: ExportSourceNetworkCfnTemplateCommandInput,
+    cb: (err: any, data?: ExportSourceNetworkCfnTemplateCommandOutput) => void
+  ): void;
+  exportSourceNetworkCfnTemplate(
+    args: ExportSourceNetworkCfnTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportSourceNetworkCfnTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -710,6 +843,40 @@ export interface Drs {
   ): void;
 
   /**
+   * @see {@link StartSourceNetworkRecoveryCommand}
+   */
+  startSourceNetworkRecovery(
+    args: StartSourceNetworkRecoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSourceNetworkRecoveryCommandOutput>;
+  startSourceNetworkRecovery(
+    args: StartSourceNetworkRecoveryCommandInput,
+    cb: (err: any, data?: StartSourceNetworkRecoveryCommandOutput) => void
+  ): void;
+  startSourceNetworkRecovery(
+    args: StartSourceNetworkRecoveryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSourceNetworkRecoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSourceNetworkReplicationCommand}
+   */
+  startSourceNetworkReplication(
+    args: StartSourceNetworkReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSourceNetworkReplicationCommandOutput>;
+  startSourceNetworkReplication(
+    args: StartSourceNetworkReplicationCommandInput,
+    cb: (err: any, data?: StartSourceNetworkReplicationCommandOutput) => void
+  ): void;
+  startSourceNetworkReplication(
+    args: StartSourceNetworkReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSourceNetworkReplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopFailbackCommand}
    */
   stopFailback(args: StopFailbackCommandInput, options?: __HttpHandlerOptions): Promise<StopFailbackCommandOutput>;
@@ -732,6 +899,23 @@ export interface Drs {
     args: StopReplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopSourceNetworkReplicationCommand}
+   */
+  stopSourceNetworkReplication(
+    args: StopSourceNetworkReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSourceNetworkReplicationCommandOutput>;
+  stopSourceNetworkReplication(
+    args: StopSourceNetworkReplicationCommandInput,
+    cb: (err: any, data?: StopSourceNetworkReplicationCommandOutput) => void
+  ): void;
+  stopSourceNetworkReplication(
+    args: StopSourceNetworkReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSourceNetworkReplicationCommandOutput) => void
   ): void;
 
   /**

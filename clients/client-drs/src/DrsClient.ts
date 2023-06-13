@@ -52,6 +52,10 @@ import {
 } from "@smithy/types";
 
 import {
+  AssociateSourceNetworkStackCommandInput,
+  AssociateSourceNetworkStackCommandOutput,
+} from "./commands/AssociateSourceNetworkStackCommand";
+import {
   CreateExtendedSourceServerCommandInput,
   CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
@@ -63,6 +67,10 @@ import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
+import {
+  CreateSourceNetworkCommandInput,
+  CreateSourceNetworkCommandOutput,
+} from "./commands/CreateSourceNetworkCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
@@ -76,6 +84,10 @@ import {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
 } from "./commands/DeleteReplicationConfigurationTemplateCommand";
+import {
+  DeleteSourceNetworkCommandInput,
+  DeleteSourceNetworkCommandOutput,
+} from "./commands/DeleteSourceNetworkCommand";
 import { DeleteSourceServerCommandInput, DeleteSourceServerCommandOutput } from "./commands/DeleteSourceServerCommand";
 import {
   DescribeJobLogItemsCommandInput,
@@ -99,6 +111,10 @@ import {
   DescribeReplicationConfigurationTemplatesCommandOutput,
 } from "./commands/DescribeReplicationConfigurationTemplatesCommand";
 import {
+  DescribeSourceNetworksCommandInput,
+  DescribeSourceNetworksCommandOutput,
+} from "./commands/DescribeSourceNetworksCommand";
+import {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "./commands/DescribeSourceServersCommand";
@@ -110,6 +126,10 @@ import {
   DisconnectSourceServerCommandInput,
   DisconnectSourceServerCommandOutput,
 } from "./commands/DisconnectSourceServerCommand";
+import {
+  ExportSourceNetworkCfnTemplateCommandInput,
+  ExportSourceNetworkCfnTemplateCommandOutput,
+} from "./commands/ExportSourceNetworkCfnTemplateCommand";
 import {
   GetFailbackReplicationConfigurationCommandInput,
   GetFailbackReplicationConfigurationCommandOutput,
@@ -146,8 +166,20 @@ import {
 } from "./commands/StartFailbackLaunchCommand";
 import { StartRecoveryCommandInput, StartRecoveryCommandOutput } from "./commands/StartRecoveryCommand";
 import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
+import {
+  StartSourceNetworkRecoveryCommandInput,
+  StartSourceNetworkRecoveryCommandOutput,
+} from "./commands/StartSourceNetworkRecoveryCommand";
+import {
+  StartSourceNetworkReplicationCommandInput,
+  StartSourceNetworkReplicationCommandOutput,
+} from "./commands/StartSourceNetworkReplicationCommand";
 import { StopFailbackCommandInput, StopFailbackCommandOutput } from "./commands/StopFailbackCommand";
 import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
+import {
+  StopSourceNetworkReplicationCommandInput,
+  StopSourceNetworkReplicationCommandOutput,
+} from "./commands/StopSourceNetworkReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateRecoveryInstancesCommandInput,
@@ -188,13 +220,16 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateSourceNetworkStackCommandInput
   | CreateExtendedSourceServerCommandInput
   | CreateLaunchConfigurationTemplateCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
+  | CreateSourceNetworkCommandInput
   | DeleteJobCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteRecoveryInstanceCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
+  | DeleteSourceNetworkCommandInput
   | DeleteSourceServerCommandInput
   | DescribeJobLogItemsCommandInput
   | DescribeJobsCommandInput
@@ -202,9 +237,11 @@ export type ServiceInputTypes =
   | DescribeRecoveryInstancesCommandInput
   | DescribeRecoverySnapshotsCommandInput
   | DescribeReplicationConfigurationTemplatesCommandInput
+  | DescribeSourceNetworksCommandInput
   | DescribeSourceServersCommandInput
   | DisconnectRecoveryInstanceCommandInput
   | DisconnectSourceServerCommandInput
+  | ExportSourceNetworkCfnTemplateCommandInput
   | GetFailbackReplicationConfigurationCommandInput
   | GetLaunchConfigurationCommandInput
   | GetReplicationConfigurationCommandInput
@@ -217,8 +254,11 @@ export type ServiceInputTypes =
   | StartFailbackLaunchCommandInput
   | StartRecoveryCommandInput
   | StartReplicationCommandInput
+  | StartSourceNetworkRecoveryCommandInput
+  | StartSourceNetworkReplicationCommandInput
   | StopFailbackCommandInput
   | StopReplicationCommandInput
+  | StopSourceNetworkReplicationCommandInput
   | TagResourceCommandInput
   | TerminateRecoveryInstancesCommandInput
   | UntagResourceCommandInput
@@ -232,13 +272,16 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateSourceNetworkStackCommandOutput
   | CreateExtendedSourceServerCommandOutput
   | CreateLaunchConfigurationTemplateCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
+  | CreateSourceNetworkCommandOutput
   | DeleteJobCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteRecoveryInstanceCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
+  | DeleteSourceNetworkCommandOutput
   | DeleteSourceServerCommandOutput
   | DescribeJobLogItemsCommandOutput
   | DescribeJobsCommandOutput
@@ -246,9 +289,11 @@ export type ServiceOutputTypes =
   | DescribeRecoveryInstancesCommandOutput
   | DescribeRecoverySnapshotsCommandOutput
   | DescribeReplicationConfigurationTemplatesCommandOutput
+  | DescribeSourceNetworksCommandOutput
   | DescribeSourceServersCommandOutput
   | DisconnectRecoveryInstanceCommandOutput
   | DisconnectSourceServerCommandOutput
+  | ExportSourceNetworkCfnTemplateCommandOutput
   | GetFailbackReplicationConfigurationCommandOutput
   | GetLaunchConfigurationCommandOutput
   | GetReplicationConfigurationCommandOutput
@@ -261,8 +306,11 @@ export type ServiceOutputTypes =
   | StartFailbackLaunchCommandOutput
   | StartRecoveryCommandOutput
   | StartReplicationCommandOutput
+  | StartSourceNetworkRecoveryCommandOutput
+  | StartSourceNetworkReplicationCommandOutput
   | StopFailbackCommandOutput
   | StopReplicationCommandOutput
+  | StopSourceNetworkReplicationCommandOutput
   | TagResourceCommandOutput
   | TerminateRecoveryInstancesCommandOutput
   | UntagResourceCommandOutput

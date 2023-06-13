@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DrsClient` and
-the commands you need, for example `CreateExtendedSourceServerCommand`:
+the commands you need, for example `AssociateSourceNetworkStackCommand`:
 
 ```js
 // ES5 example
-const { DrsClient, CreateExtendedSourceServerCommand } = require("@aws-sdk/client-drs");
+const { DrsClient, AssociateSourceNetworkStackCommand } = require("@aws-sdk/client-drs");
 ```
 
 ```ts
 // ES6+ example
-import { DrsClient, CreateExtendedSourceServerCommand } from "@aws-sdk/client-drs";
+import { DrsClient, AssociateSourceNetworkStackCommand } from "@aws-sdk/client-drs";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new DrsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateExtendedSourceServerCommand(params);
+const command = new AssociateSourceNetworkStackCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Drs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createExtendedSourceServer(params);
+  const data = await client.associateSourceNetworkStack(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createExtendedSourceServer(params)
+  .associateSourceNetworkStack(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createExtendedSourceServer(params, (err, data) => {
+client.associateSourceNetworkStack(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateSourceNetworkStack
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/associatesourcenetworkstackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/associatesourcenetworkstackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/associatesourcenetworkstackcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateExtendedSourceServer
 </summary>
 
@@ -225,6 +233,14 @@ CreateReplicationConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/createreplicationconfigurationtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/createreplicationconfigurationtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/createreplicationconfigurationtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSourceNetwork
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/createsourcenetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/createsourcenetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/createsourcenetworkcommandoutput.html)
 
 </details>
 <details>
@@ -257,6 +273,14 @@ DeleteReplicationConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/deletereplicationconfigurationtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletereplicationconfigurationtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletereplicationconfigurationtemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSourceNetwork
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/deletesourcenetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletesourcenetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/deletesourcenetworkcommandoutput.html)
 
 </details>
 <details>
@@ -317,6 +341,14 @@ DescribeReplicationConfigurationTemplates
 </details>
 <details>
 <summary>
+DescribeSourceNetworks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/describesourcenetworkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/describesourcenetworkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/describesourcenetworkscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeSourceServers
 </summary>
 
@@ -337,6 +369,14 @@ DisconnectSourceServer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/disconnectsourceservercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/disconnectsourceservercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/disconnectsourceservercommandoutput.html)
+
+</details>
+<details>
+<summary>
+ExportSourceNetworkCfnTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/exportsourcenetworkcfntemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/exportsourcenetworkcfntemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/exportsourcenetworkcfntemplatecommandoutput.html)
 
 </details>
 <details>
@@ -437,6 +477,22 @@ StartReplication
 </details>
 <details>
 <summary>
+StartSourceNetworkRecovery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/startsourcenetworkrecoverycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/startsourcenetworkrecoverycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/startsourcenetworkrecoverycommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartSourceNetworkReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/startsourcenetworkreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/startsourcenetworkreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/startsourcenetworkreplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 StopFailback
 </summary>
 
@@ -449,6 +505,14 @@ StopReplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/stopreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/stopreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/stopreplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopSourceNetworkReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/classes/stopsourcenetworkreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/stopsourcenetworkreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-drs/interfaces/stopsourcenetworkreplicationcommandoutput.html)
 
 </details>
 <details>

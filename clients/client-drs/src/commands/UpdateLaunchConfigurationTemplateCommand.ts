@@ -61,6 +61,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
  *   licensing: { // Licensing
  *     osByol: true || false,
  *   },
+ *   exportBucketArn: "STRING_VALUE",
  * };
  * const command = new UpdateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -78,6 +79,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
  * //     licensing: { // Licensing
  * //       osByol: true || false,
  * //     },
+ * //     exportBucketArn: "STRING_VALUE",
  * //   },
  * // };
  *

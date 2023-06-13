@@ -157,6 +157,7 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  * //     },
  * //     replicationDirection: "STRING_VALUE",
  * //     reversedDirectionSourceServerArn: "STRING_VALUE",
+ * //     sourceNetworkID: "STRING_VALUE",
  * //   },
  * // };
  *

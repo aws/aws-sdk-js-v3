@@ -38,6 +38,228 @@ export interface Account {
 
 /**
  * @public
+ */
+export interface AssociateSourceNetworkStackRequest {
+  /**
+   * <p>The Source Network ID to associate with CloudFormation template.</p>
+   */
+  sourceNetworkID: string | undefined;
+
+  /**
+   * <p>CloudFormation template to associate with a Source Network.</p>
+   */
+  cfnStackName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InitiatedBy = {
+  ASSOCIATE_NETWORK_RECOVERY: "ASSOCIATE_NETWORK_RECOVERY",
+  CREATE_NETWORK_RECOVERY: "CREATE_NETWORK_RECOVERY",
+  DIAGNOSTIC: "DIAGNOSTIC",
+  FAILBACK: "FAILBACK",
+  START_DRILL: "START_DRILL",
+  START_RECOVERY: "START_RECOVERY",
+  TARGET_ACCOUNT: "TARGET_ACCOUNT",
+  TERMINATE_RECOVERY_INSTANCES: "TERMINATE_RECOVERY_INSTANCES",
+  UPDATE_NETWORK_RECOVERY: "UPDATE_NETWORK_RECOVERY",
+} as const;
+
+/**
+ * @public
+ */
+export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  PENDING: "PENDING",
+  TERMINATED: "TERMINATED",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
+
+/**
+ * @public
+ * <p>ID of a resource participating in an asynchronous Job.</p>
+ */
+export type ParticipatingResourceID =
+  | ParticipatingResourceID.SourceNetworkIDMember
+  | ParticipatingResourceID.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ParticipatingResourceID {
+  /**
+   * <p>Source Network ID.</p>
+   */
+  export interface SourceNetworkIDMember {
+    sourceNetworkID: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    sourceNetworkID?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    sourceNetworkID: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ParticipatingResourceID, visitor: Visitor<T>): T => {
+    if (value.sourceNetworkID !== undefined) return visitor.sourceNetworkID(value.sourceNetworkID);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Represents a resource participating in an asynchronous Job.</p>
+ */
+export interface ParticipatingResource {
+  /**
+   * <p>The ID of a participating resource.</p>
+   */
+  participatingResourceID?: ParticipatingResourceID;
+
+  /**
+   * <p>The launch status of a participating resource.</p>
+   */
+  launchStatus?: LaunchStatus | string;
+}
+
+/**
+ * @public
+ * <p>Represents a server participating in an asynchronous Job.</p>
+ */
+export interface ParticipatingServer {
+  /**
+   * <p>The Source Server ID of a participating server.</p>
+   */
+  sourceServerID?: string;
+
+  /**
+   * <p>The Recovery Instance ID of a participating server.</p>
+   */
+  recoveryInstanceID?: string;
+
+  /**
+   * <p>The launch status of a participating server.</p>
+   */
+  launchStatus?: LaunchStatus | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  CREATE_CONVERTED_SNAPSHOT: "CREATE_CONVERTED_SNAPSHOT",
+  LAUNCH: "LAUNCH",
+  TERMINATE: "TERMINATE",
+} as const;
+
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * <p>A job is an asynchronous workflow.</p>
+ */
+export interface Job {
+  /**
+   * <p>The ID of the Job.</p>
+   */
+  jobID: string | undefined;
+
+  /**
+   * <p>The ARN of a Job.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The type of the Job.</p>
+   */
+  type?: JobType | string;
+
+  /**
+   * <p>A string representing who initiated the Job.</p>
+   */
+  initiatedBy?: InitiatedBy | string;
+
+  /**
+   * <p>The date and time of when the Job was created.</p>
+   */
+  creationDateTime?: string;
+
+  /**
+   * <p>The date and time of when the Job ended.</p>
+   */
+  endDateTime?: string;
+
+  /**
+   * <p>The status of the Job.</p>
+   */
+  status?: JobStatus | string;
+
+  /**
+   * <p>A list of servers that the Job is acting upon.</p>
+   */
+  participatingServers?: ParticipatingServer[];
+
+  /**
+   * <p>A list of tags associated with the Job.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>A list of resources that the Job is acting upon.</p>
+   */
+  participatingResources?: ParticipatingResource[];
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceNetworkStackResponse {
+  /**
+   * <p>The Source Network association Job.</p>
+   */
+  job?: Job;
+}
+
+/**
+ * @public
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
 export class ConflictException extends __BaseException {
@@ -67,6 +289,238 @@ export class ConflictException extends __BaseException {
     this.code = opts.code;
     this.resourceId = opts.resourceId;
     this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * @public
+ * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p>The number of seconds after which the request should be safe to retry.</p>
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * @public
+ * <p>The resource for this operation was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The type of the resource.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.code = opts.code;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * @public
+ * <p>The request could not be completed because its exceeded the service quota.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The type of the resource.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>Service code.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>Quota code.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.code = opts.code;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Service code.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>Quota code.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * <p>The number of seconds after which the request should be safe to retry.</p>
+   */
+  retryAfterSeconds?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * @public
+ * <p>The account performing the request has not been initialized.</p>
+ */
+export class UninitializedAccountException extends __BaseException {
+  readonly name: "UninitializedAccountException" = "UninitializedAccountException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UninitializedAccountException, __BaseException>) {
+    super({
+      name: "UninitializedAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UninitializedAccountException.prototype);
+    this.code = opts.code;
+  }
+}
+
+/**
+ * @public
+ * <p>Validate exception field.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>Validate exception field name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Validate exception field message.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * <p>Validation exception reason.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * <p>A list of fields that failed validation.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.code = opts.code;
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
   }
 }
 
@@ -400,23 +854,6 @@ export interface LifeCycleLastLaunchInitiated {
 
 /**
  * @public
- * @enum
- */
-export const LaunchStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  LAUNCHED: "LAUNCHED",
-  PENDING: "PENDING",
-  TERMINATED: "TERMINATED",
-} as const;
-
-/**
- * @public
- */
-export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
-
-/**
- * @public
  * <p>An object containing information regarding the last launch of a Source Server.</p>
  */
 export interface LifeCycleLastLaunch {
@@ -729,6 +1166,11 @@ export interface SourceServer {
    * <p>For EC2-originated Source Servers which have been failed over and then failed back, this value will mean the ARN of the Source Server on the opposite replication direction.</p>
    */
   reversedDirectionSourceServerArn?: string;
+
+  /**
+   * <p>ID of the Source Network which is protecting this Source Server's network.</p>
+   */
+  sourceNetworkID?: string;
 }
 
 /**
@@ -739,238 +1181,6 @@ export interface CreateExtendedSourceServerResponse {
    * <p>Created extended source server.</p>
    */
   sourceServer?: SourceServer;
-}
-
-/**
- * @public
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The number of seconds after which the request should be safe to retry.</p>
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * @public
- * <p>The resource for this operation was not found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The type of the resource.</p>
-   */
-  resourceType?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.code = opts.code;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * <p>The request could not be completed because its exceeded the service quota.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The type of the resource.</p>
-   */
-  resourceType?: string;
-
-  /**
-   * <p>Service code.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>Quota code.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.code = opts.code;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * @public
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Service code.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>Quota code.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * <p>The number of seconds after which the request should be safe to retry.</p>
-   */
-  retryAfterSeconds?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * @public
- * <p>The account performing the request has not been initialized.</p>
- */
-export class UninitializedAccountException extends __BaseException {
-  readonly name: "UninitializedAccountException" = "UninitializedAccountException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UninitializedAccountException, __BaseException>) {
-    super({
-      name: "UninitializedAccountException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UninitializedAccountException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * @public
- * <p>Validate exception field.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>Validate exception field name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Validate exception field message.</p>
-   */
-  message?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * <p>The input fails to satisfy the constraints specified by the AWS service.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * <p>Validation exception reason.</p>
-   */
-  reason?: ValidationExceptionReason | string;
-
-  /**
-   * <p>A list of fields that failed validation.</p>
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.code = opts.code;
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -1046,6 +1256,11 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * <p>Licensing.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * <p>S3 bucket ARN to export Source Network templates.</p>
+   */
+  exportBucketArn?: string;
 }
 
 /**
@@ -1092,6 +1307,11 @@ export interface LaunchConfigurationTemplate {
    * <p>Licensing.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * <p>S3 bucket ARN to export Source Network templates.</p>
+   */
+  exportBucketArn?: string;
 }
 
 /**
@@ -1143,6 +1363,7 @@ export type ReplicationConfigurationDefaultLargeStagingDiskType =
 export const ReplicationConfigurationEbsEncryption = {
   CUSTOM: "CUSTOM",
   DEFAULT: "DEFAULT",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -1370,6 +1591,41 @@ export interface ReplicationConfigurationTemplate {
 /**
  * @public
  */
+export interface CreateSourceNetworkRequest {
+  /**
+   * <p>Which VPC ID to protect.</p>
+   */
+  vpcID: string | undefined;
+
+  /**
+   * <p>Account containing the VPC to protect.</p>
+   */
+  originAccountID: string | undefined;
+
+  /**
+   * <p>Region containing the VPC to protect.</p>
+   */
+  originRegion: string | undefined;
+
+  /**
+   * <p>A set of tags to be associated with the Source Network resource.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateSourceNetworkResponse {
+  /**
+   * <p>ID of the created Source Network.</p>
+   */
+  sourceNetworkID?: string;
+}
+
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the Job to be deleted.</p>
@@ -1425,6 +1681,21 @@ export interface DeleteReplicationConfigurationTemplateResponse {}
 /**
  * @public
  */
+export interface DeleteSourceNetworkRequest {
+  /**
+   * <p>ID of the Source Network to delete.</p>
+   */
+  sourceNetworkID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSourceNetworkResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteSourceServerRequest {
   /**
    * <p>The ID of the Source Server to be deleted.</p>
@@ -1468,15 +1739,25 @@ export const JobLogEvent = {
   CONVERSION_END: "CONVERSION_END",
   CONVERSION_FAIL: "CONVERSION_FAIL",
   CONVERSION_START: "CONVERSION_START",
+  DEPLOY_NETWORK_CONFIGURATION_END: "DEPLOY_NETWORK_CONFIGURATION_END",
+  DEPLOY_NETWORK_CONFIGURATION_FAILED: "DEPLOY_NETWORK_CONFIGURATION_FAILED",
+  DEPLOY_NETWORK_CONFIGURATION_START: "DEPLOY_NETWORK_CONFIGURATION_START",
   JOB_CANCEL: "JOB_CANCEL",
   JOB_END: "JOB_END",
   JOB_START: "JOB_START",
   LAUNCH_FAILED: "LAUNCH_FAILED",
   LAUNCH_START: "LAUNCH_START",
+  NETWORK_RECOVERY_FAIL: "NETWORK_RECOVERY_FAIL",
   SERVER_SKIPPED: "SERVER_SKIPPED",
   SNAPSHOT_END: "SNAPSHOT_END",
   SNAPSHOT_FAIL: "SNAPSHOT_FAIL",
   SNAPSHOT_START: "SNAPSHOT_START",
+  UPDATE_LAUNCH_TEMPLATE_END: "UPDATE_LAUNCH_TEMPLATE_END",
+  UPDATE_LAUNCH_TEMPLATE_FAILED: "UPDATE_LAUNCH_TEMPLATE_FAILED",
+  UPDATE_LAUNCH_TEMPLATE_START: "UPDATE_LAUNCH_TEMPLATE_START",
+  UPDATE_NETWORK_CONFIGURATION_END: "UPDATE_NETWORK_CONFIGURATION_END",
+  UPDATE_NETWORK_CONFIGURATION_FAILED: "UPDATE_NETWORK_CONFIGURATION_FAILED",
+  UPDATE_NETWORK_CONFIGURATION_START: "UPDATE_NETWORK_CONFIGURATION_START",
   USING_PREVIOUS_SNAPSHOT: "USING_PREVIOUS_SNAPSHOT",
   USING_PREVIOUS_SNAPSHOT_FAILED: "USING_PREVIOUS_SNAPSHOT_FAILED",
 } as const;
@@ -1485,6 +1766,66 @@ export const JobLogEvent = {
  * @public
  */
 export type JobLogEvent = (typeof JobLogEvent)[keyof typeof JobLogEvent];
+
+/**
+ * @public
+ * <p>Properties of Source Network related to a job event.</p>
+ */
+export interface SourceNetworkData {
+  /**
+   * <p>Source Network ID.</p>
+   */
+  sourceNetworkID?: string;
+
+  /**
+   * <p>VPC ID protected by the Source Network.</p>
+   */
+  sourceVpc?: string;
+
+  /**
+   * <p>ID of the recovered VPC following Source Network recovery.</p>
+   */
+  targetVpc?: string;
+
+  /**
+   * <p>CloudFormation stack name that was deployed for recovering the Source Network.</p>
+   */
+  stackName?: string;
+}
+
+/**
+ * @public
+ * <p>Properties of resource related to a job event.</p>
+ */
+export type EventResourceData = EventResourceData.SourceNetworkDataMember | EventResourceData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EventResourceData {
+  /**
+   * <p>Source Network properties.</p>
+   */
+  export interface SourceNetworkDataMember {
+    sourceNetworkData: SourceNetworkData;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    sourceNetworkData?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    sourceNetworkData: (value: SourceNetworkData) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EventResourceData, visitor: Visitor<T>): T => {
+    if (value.sourceNetworkData !== undefined) return visitor.sourceNetworkData(value.sourceNetworkData);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * @public
@@ -1515,6 +1856,11 @@ export interface JobLogEventData {
    * <p>Properties of a conversion job</p>
    */
   conversionProperties?: ConversionProperties;
+
+  /**
+   * <p>Properties of resource related to a job event.</p>
+   */
+  eventResourceData?: EventResourceData;
 }
 
 /**
@@ -1592,126 +1938,6 @@ export interface DescribeJobsRequest {
    * <p>The token of the next Job to retrieve.</p>
    */
   nextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const InitiatedBy = {
-  DIAGNOSTIC: "DIAGNOSTIC",
-  FAILBACK: "FAILBACK",
-  START_DRILL: "START_DRILL",
-  START_RECOVERY: "START_RECOVERY",
-  TARGET_ACCOUNT: "TARGET_ACCOUNT",
-  TERMINATE_RECOVERY_INSTANCES: "TERMINATE_RECOVERY_INSTANCES",
-} as const;
-
-/**
- * @public
- */
-export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
-
-/**
- * @public
- * <p>Represents a server participating in an asynchronous Job.</p>
- */
-export interface ParticipatingServer {
-  /**
-   * <p>The Source Server ID of a participating server.</p>
-   */
-  sourceServerID?: string;
-
-  /**
-   * <p>The Recovery Instance ID of a participating server.</p>
-   */
-  recoveryInstanceID?: string;
-
-  /**
-   * <p>The launch status of a participating server.</p>
-   */
-  launchStatus?: LaunchStatus | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  COMPLETED: "COMPLETED",
-  PENDING: "PENDING",
-  STARTED: "STARTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
- * @public
- * @enum
- */
-export const JobType = {
-  CREATE_CONVERTED_SNAPSHOT: "CREATE_CONVERTED_SNAPSHOT",
-  LAUNCH: "LAUNCH",
-  TERMINATE: "TERMINATE",
-} as const;
-
-/**
- * @public
- */
-export type JobType = (typeof JobType)[keyof typeof JobType];
-
-/**
- * @public
- * <p>A job is an asynchronous workflow.</p>
- */
-export interface Job {
-  /**
-   * <p>The ID of the Job.</p>
-   */
-  jobID: string | undefined;
-
-  /**
-   * <p>The ARN of a Job.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The type of the Job.</p>
-   */
-  type?: JobType | string;
-
-  /**
-   * <p>A string representing who initiated the Job.</p>
-   */
-  initiatedBy?: InitiatedBy | string;
-
-  /**
-   * <p>The date and time of when the Job was created.</p>
-   */
-  creationDateTime?: string;
-
-  /**
-   * <p>The date and time of when the Job ended.</p>
-   */
-  endDateTime?: string;
-
-  /**
-   * <p>The status of the Job.</p>
-   */
-  status?: JobStatus | string;
-
-  /**
-   * <p>A list of servers that the Job is acting upon.</p>
-   */
-  participatingServers?: ParticipatingServer[];
-
-  /**
-   * <p>A list of tags associated with the Job.</p>
-   */
-  tags?: Record<string, string>;
 }
 
 /**
@@ -2447,6 +2673,183 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
 
 /**
  * @public
+ * <p>A set of filters by which to return Source Networks.</p>
+ */
+export interface DescribeSourceNetworksRequestFilters {
+  /**
+   * <p>An array of Source Network IDs that should be returned. An empty array means all Source Networks.</p>
+   */
+  sourceNetworkIDs?: string[];
+
+  /**
+   * <p>Filter Source Networks by account ID containing the protected VPCs.</p>
+   */
+  originAccountID?: string;
+
+  /**
+   * <p>Filter Source Networks by the region containing the protected VPCs.</p>
+   */
+  originRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSourceNetworksRequest {
+  /**
+   * <p>A set of filters by which to return Source Networks.</p>
+   */
+  filters?: DescribeSourceNetworksRequestFilters;
+
+  /**
+   * <p>Maximum number of Source Networks to retrieve.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token of the next Source Networks to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryResult = {
+  ASSOCIATE_FAIL: "ASSOCIATE_FAIL",
+  ASSOCIATE_SUCCESS: "ASSOCIATE_SUCCESS",
+  FAIL: "FAIL",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RecoveryResult = (typeof RecoveryResult)[keyof typeof RecoveryResult];
+
+/**
+ * @public
+ * <p>An object representing the Source Network recovery Lifecycle.</p>
+ */
+export interface RecoveryLifeCycle {
+  /**
+   * <p>The date and time the last Source Network recovery was initiated.</p>
+   */
+  apiCallDateTime?: Date;
+
+  /**
+   * <p>The ID of the Job that was used to last recover the Source Network.</p>
+   */
+  jobID?: string;
+
+  /**
+   * <p>The status of the last recovery status of this Source Network.</p>
+   */
+  lastRecoveryResult?: RecoveryResult | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationStatus = {
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  PROTECTED: "PROTECTED",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];
+
+/**
+ * @public
+ * <p>The ARN of the Source Network.</p>
+ */
+export interface SourceNetwork {
+  /**
+   * <p>Source Network ID.</p>
+   */
+  sourceNetworkID?: string;
+
+  /**
+   * <p>VPC ID protected by the Source Network.</p>
+   */
+  sourceVpcID?: string;
+
+  /**
+   * <p>The ARN of the Source Network.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>A list of tags associated with the Source Network.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Status of Source Network Replication. Possible values:
+   *             (a) STOPPED - Source Network is not replicating.
+   *             (b) IN_PROGRESS - Source Network is being replicated.
+   *             (c) PROTECTED - Source Network was replicated successfully and is being synchronized for changes.
+   *             (d) ERROR - Source Network replication has failed</p>
+   */
+  replicationStatus?: ReplicationStatus | string;
+
+  /**
+   * <p>Error details in case Source Network replication status is ERROR.</p>
+   */
+  replicationStatusDetails?: string;
+
+  /**
+   * <p>CloudFormation stack name that was deployed for recovering the Source Network.</p>
+   */
+  cfnStackName?: string;
+
+  /**
+   * <p>Region containing the VPC protected by the Source Network.</p>
+   */
+  sourceRegion?: string;
+
+  /**
+   * <p>Account ID containing the VPC protected by the Source Network.</p>
+   */
+  sourceAccountID?: string;
+
+  /**
+   * <p>An object containing information regarding the last recovery of the Source Network.</p>
+   */
+  lastRecovery?: RecoveryLifeCycle;
+
+  /**
+   * <p>ID of the recovered VPC following Source Network recovery.</p>
+   */
+  launchedVpcID?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSourceNetworksResponse {
+  /**
+   * <p>An array of Source Networks.</p>
+   */
+  items?: SourceNetwork[];
+
+  /**
+   * <p>The token of the next Source Networks to retrieve.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>A set of filters by which to return Source Servers.</p>
  */
 export interface DescribeSourceServersRequestFilters {
@@ -2564,6 +2967,11 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * <p>Licensing.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * <p>S3 bucket ARN to export Source Network templates.</p>
+   */
+  exportBucketArn?: string;
 }
 
 /**
@@ -2900,6 +3308,112 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
    */
   autoReplicateNewDisks?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ExportSourceNetworkCfnTemplateRequest {
+  /**
+   * <p>The Source Network ID to export its CloudFormation template to an S3 bucket.</p>
+   */
+  sourceNetworkID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportSourceNetworkCfnTemplateResponse {
+  /**
+   * <p>S3 bucket URL where the Source Network CloudFormation template was exported to.</p>
+   */
+  s3DestinationUrl?: string;
+}
+
+/**
+ * @public
+ * <p>An object representing the Source Network to recover.</p>
+ */
+export interface StartSourceNetworkRecoveryRequestNetworkEntry {
+  /**
+   * <p>The ID of the Source Network you want to recover.</p>
+   */
+  sourceNetworkID: string | undefined;
+
+  /**
+   * <p>CloudFormation stack name to be used for recovering the network.</p>
+   */
+  cfnStackName?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartSourceNetworkRecoveryRequest {
+  /**
+   * <p>The Source Networks that we want to start a Recovery Job for.</p>
+   */
+  sourceNetworks: StartSourceNetworkRecoveryRequestNetworkEntry[] | undefined;
+
+  /**
+   * <p>Don't update existing CloudFormation Stack, recover the network using a new stack.</p>
+   */
+  deployAsNew?: boolean;
+
+  /**
+   * <p>The tags to be associated with the Source Network recovery Job.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface StartSourceNetworkRecoveryResponse {
+  /**
+   * <p>The Source Network recovery Job.</p>
+   */
+  job?: Job;
+}
+
+/**
+ * @public
+ */
+export interface StartSourceNetworkReplicationRequest {
+  /**
+   * <p>ID of the Source Network to replicate.</p>
+   */
+  sourceNetworkID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSourceNetworkReplicationResponse {
+  /**
+   * <p>Source Network which was requested for replication.</p>
+   */
+  sourceNetwork?: SourceNetwork;
+}
+
+/**
+ * @public
+ */
+export interface StopSourceNetworkReplicationRequest {
+  /**
+   * <p>ID of the Source Network to stop replication.</p>
+   */
+  sourceNetworkID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopSourceNetworkReplicationResponse {
+  /**
+   * <p>Source Network which was requested to stop replication.</p>
+   */
+  sourceNetwork?: SourceNetwork;
 }
 
 /**
@@ -3372,6 +3886,33 @@ export interface UntagResourceRequest {
 /**
  * @internal
  */
+export const AssociateSourceNetworkStackRequestFilterSensitiveLog = (obj: AssociateSourceNetworkStackRequest): any => ({
+  ...obj,
+  ...(obj.cfnStackName && { cfnStackName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.participatingResources && { participatingResources: obj.participatingResources.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateSourceNetworkStackResponseFilterSensitiveLog = (
+  obj: AssociateSourceNetworkStackResponse
+): any => ({
+  ...obj,
+  ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
+});
+
+/**
+ * @internal
+ */
 export const CreateExtendedSourceServerRequestFilterSensitiveLog = (obj: CreateExtendedSourceServerRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -3446,7 +3987,7 @@ export const ReplicationConfigurationTemplateFilterSensitiveLog = (obj: Replicat
 /**
  * @internal
  */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
+export const CreateSourceNetworkRequestFilterSensitiveLog = (obj: CreateSourceNetworkRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
@@ -3493,6 +4034,24 @@ export const DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog
 ): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => ReplicationConfigurationTemplateFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SourceNetworkFilterSensitiveLog = (obj: SourceNetwork): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.replicationStatusDetails && { replicationStatusDetails: SENSITIVE_STRING }),
+  ...(obj.cfnStackName && { cfnStackName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeSourceNetworksResponseFilterSensitiveLog = (obj: DescribeSourceNetworksResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => SourceNetworkFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3573,6 +4132,57 @@ export const UpdateReplicationConfigurationTemplateRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartSourceNetworkRecoveryRequestNetworkEntryFilterSensitiveLog = (
+  obj: StartSourceNetworkRecoveryRequestNetworkEntry
+): any => ({
+  ...obj,
+  ...(obj.cfnStackName && { cfnStackName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartSourceNetworkRecoveryRequestFilterSensitiveLog = (obj: StartSourceNetworkRecoveryRequest): any => ({
+  ...obj,
+  ...(obj.sourceNetworks && {
+    sourceNetworks: obj.sourceNetworks.map((item) =>
+      StartSourceNetworkRecoveryRequestNetworkEntryFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartSourceNetworkRecoveryResponseFilterSensitiveLog = (obj: StartSourceNetworkRecoveryResponse): any => ({
+  ...obj,
+  ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
+});
+
+/**
+ * @internal
+ */
+export const StartSourceNetworkReplicationResponseFilterSensitiveLog = (
+  obj: StartSourceNetworkReplicationResponse
+): any => ({
+  ...obj,
+  ...(obj.sourceNetwork && { sourceNetwork: SourceNetworkFilterSensitiveLog(obj.sourceNetwork) }),
+});
+
+/**
+ * @internal
+ */
+export const StopSourceNetworkReplicationResponseFilterSensitiveLog = (
+  obj: StopSourceNetworkReplicationResponse
+): any => ({
+  ...obj,
+  ...(obj.sourceNetwork && { sourceNetwork: SourceNetworkFilterSensitiveLog(obj.sourceNetwork) }),
 });
 
 /**

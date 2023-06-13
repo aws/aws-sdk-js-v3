@@ -15,12 +15,14 @@ import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
-  StartRecoveryRequest,
-  StartRecoveryRequestFilterSensitiveLog,
-  StartRecoveryResponse,
-  StartRecoveryResponseFilterSensitiveLog,
+  StartSourceNetworkReplicationRequest,
+  StartSourceNetworkReplicationResponse,
+  StartSourceNetworkReplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_StartRecoveryCommand, se_StartRecoveryCommand } from "../protocols/Aws_restJson1";
+import {
+  de_StartSourceNetworkReplicationCommand,
+  se_StartSourceNetworkReplicationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,75 +31,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartRecoveryCommand}.
+ * The input for {@link StartSourceNetworkReplicationCommand}.
  */
-export interface StartRecoveryCommandInput extends StartRecoveryRequest {}
+export interface StartSourceNetworkReplicationCommandInput extends StartSourceNetworkReplicationRequest {}
 /**
  * @public
  *
- * The output of {@link StartRecoveryCommand}.
+ * The output of {@link StartSourceNetworkReplicationCommand}.
  */
-export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __MetadataBearer {}
+export interface StartSourceNetworkReplicationCommandOutput
+  extends StartSourceNetworkReplicationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot.</p>
+ * <p>Starts replication for a Source Network. This action would make the Source Network protected.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, StartRecoveryCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, StartRecoveryCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, StartSourceNetworkReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
+ * // const { DrsClient, StartSourceNetworkReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = { // StartRecoveryRequest
- *   sourceServers: [ // StartRecoveryRequestSourceServers // required
- *     { // StartRecoveryRequestSourceServer
- *       sourceServerID: "STRING_VALUE", // required
- *       recoverySnapshotID: "STRING_VALUE",
- *     },
- *   ],
- *   isDrill: true || false,
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // StartSourceNetworkReplicationRequest
+ *   sourceNetworkID: "STRING_VALUE", // required
  * };
- * const command = new StartRecoveryCommand(input);
+ * const command = new StartSourceNetworkReplicationCommand(input);
  * const response = await client.send(command);
- * // { // StartRecoveryResponse
- * //   job: { // Job
- * //     jobID: "STRING_VALUE", // required
+ * // { // StartSourceNetworkReplicationResponse
+ * //   sourceNetwork: { // SourceNetwork
+ * //     sourceNetworkID: "STRING_VALUE",
+ * //     sourceVpcID: "STRING_VALUE",
  * //     arn: "STRING_VALUE",
- * //     type: "STRING_VALUE",
- * //     initiatedBy: "STRING_VALUE",
- * //     creationDateTime: "STRING_VALUE",
- * //     endDateTime: "STRING_VALUE",
- * //     status: "STRING_VALUE",
- * //     participatingServers: [ // ParticipatingServers
- * //       { // ParticipatingServer
- * //         sourceServerID: "STRING_VALUE",
- * //         recoveryInstanceID: "STRING_VALUE",
- * //         launchStatus: "STRING_VALUE",
- * //       },
- * //     ],
  * //     tags: { // TagsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     participatingResources: [ // ParticipatingResources
- * //       { // ParticipatingResource
- * //         participatingResourceID: { // ParticipatingResourceID Union: only one key present
- * //           sourceNetworkID: "STRING_VALUE",
- * //         },
- * //         launchStatus: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     replicationStatus: "STRING_VALUE",
+ * //     replicationStatusDetails: "STRING_VALUE",
+ * //     cfnStackName: "STRING_VALUE",
+ * //     sourceRegion: "STRING_VALUE",
+ * //     sourceAccountID: "STRING_VALUE",
+ * //     lastRecovery: { // RecoveryLifeCycle
+ * //       apiCallDateTime: new Date("TIMESTAMP"),
+ * //       jobID: "STRING_VALUE",
+ * //       lastRecoveryResult: "STRING_VALUE",
+ * //     },
+ * //     launchedVpcID: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param StartRecoveryCommandInput - {@link StartRecoveryCommandInput}
- * @returns {@link StartRecoveryCommandOutput}
- * @see {@link StartRecoveryCommandInput} for command's `input` shape.
- * @see {@link StartRecoveryCommandOutput} for command's `response` shape.
+ * @param StartSourceNetworkReplicationCommandInput - {@link StartSourceNetworkReplicationCommandInput}
+ * @returns {@link StartSourceNetworkReplicationCommandOutput}
+ * @see {@link StartSourceNetworkReplicationCommandInput} for command's `input` shape.
+ * @see {@link StartSourceNetworkReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -106,8 +93,8 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because its exceeded the service quota.</p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource for this operation was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -119,9 +106,9 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
-export class StartRecoveryCommand extends $Command<
-  StartRecoveryCommandInput,
-  StartRecoveryCommandOutput,
+export class StartSourceNetworkReplicationCommand extends $Command<
+  StartSourceNetworkReplicationCommandInput,
+  StartSourceNetworkReplicationCommandOutput,
   DrsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -139,7 +126,7 @@ export class StartRecoveryCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartRecoveryCommandInput) {
+  constructor(readonly input: StartSourceNetworkReplicationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -152,21 +139,23 @@ export class StartRecoveryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DrsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartRecoveryCommandInput, StartRecoveryCommandOutput> {
+  ): Handler<StartSourceNetworkReplicationCommandInput, StartSourceNetworkReplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StartRecoveryCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartSourceNetworkReplicationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DrsClient";
-    const commandName = "StartRecoveryCommand";
+    const commandName = "StartSourceNetworkReplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRecoveryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: StartSourceNetworkReplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,15 +168,18 @@ export class StartRecoveryCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartRecoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartRecoveryCommand(input, context);
+  private serialize(input: StartSourceNetworkReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartSourceNetworkReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecoveryCommandOutput> {
-    return de_StartRecoveryCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<StartSourceNetworkReplicationCommandOutput> {
+    return de_StartSourceNetworkReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

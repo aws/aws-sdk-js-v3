@@ -153,6 +153,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //     },
  * //     replicationDirection: "STRING_VALUE",
  * //     reversedDirectionSourceServerArn: "STRING_VALUE",
+ * //     sourceNetworkID: "STRING_VALUE",
  * //   },
  * // };
  *

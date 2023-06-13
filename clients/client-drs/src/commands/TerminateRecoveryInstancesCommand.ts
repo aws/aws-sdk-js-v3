@@ -73,6 +73,14 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * //     tags: { // TagsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     participatingResources: [ // ParticipatingResources
+ * //       { // ParticipatingResource
+ * //         participatingResourceID: { // ParticipatingResourceID Union: only one key present
+ * //           sourceNetworkID: "STRING_VALUE",
+ * //         },
+ * //         launchStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

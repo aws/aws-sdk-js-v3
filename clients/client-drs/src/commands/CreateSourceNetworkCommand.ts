@@ -15,12 +15,11 @@ import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
-  StartRecoveryRequest,
-  StartRecoveryRequestFilterSensitiveLog,
-  StartRecoveryResponse,
-  StartRecoveryResponseFilterSensitiveLog,
+  CreateSourceNetworkRequest,
+  CreateSourceNetworkRequestFilterSensitiveLog,
+  CreateSourceNetworkResponse,
 } from "../models/models_0";
-import { de_StartRecoveryCommand, se_StartRecoveryCommand } from "../protocols/Aws_restJson1";
+import { de_CreateSourceNetworkCommand, se_CreateSourceNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,75 +28,45 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartRecoveryCommand}.
+ * The input for {@link CreateSourceNetworkCommand}.
  */
-export interface StartRecoveryCommandInput extends StartRecoveryRequest {}
+export interface CreateSourceNetworkCommandInput extends CreateSourceNetworkRequest {}
 /**
  * @public
  *
- * The output of {@link StartRecoveryCommand}.
+ * The output of {@link CreateSourceNetworkCommand}.
  */
-export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __MetadataBearer {}
+export interface CreateSourceNetworkCommandOutput extends CreateSourceNetworkResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot.</p>
+ * <p>Create a new Source Network resource for a provided VPC ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, StartRecoveryCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, StartRecoveryCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, CreateSourceNetworkCommand } from "@aws-sdk/client-drs"; // ES Modules import
+ * // const { DrsClient, CreateSourceNetworkCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = { // StartRecoveryRequest
- *   sourceServers: [ // StartRecoveryRequestSourceServers // required
- *     { // StartRecoveryRequestSourceServer
- *       sourceServerID: "STRING_VALUE", // required
- *       recoverySnapshotID: "STRING_VALUE",
- *     },
- *   ],
- *   isDrill: true || false,
+ * const input = { // CreateSourceNetworkRequest
+ *   vpcID: "STRING_VALUE", // required
+ *   originAccountID: "STRING_VALUE", // required
+ *   originRegion: "STRING_VALUE", // required
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
- * const command = new StartRecoveryCommand(input);
+ * const command = new CreateSourceNetworkCommand(input);
  * const response = await client.send(command);
- * // { // StartRecoveryResponse
- * //   job: { // Job
- * //     jobID: "STRING_VALUE", // required
- * //     arn: "STRING_VALUE",
- * //     type: "STRING_VALUE",
- * //     initiatedBy: "STRING_VALUE",
- * //     creationDateTime: "STRING_VALUE",
- * //     endDateTime: "STRING_VALUE",
- * //     status: "STRING_VALUE",
- * //     participatingServers: [ // ParticipatingServers
- * //       { // ParticipatingServer
- * //         sourceServerID: "STRING_VALUE",
- * //         recoveryInstanceID: "STRING_VALUE",
- * //         launchStatus: "STRING_VALUE",
- * //       },
- * //     ],
- * //     tags: { // TagsMap
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     participatingResources: [ // ParticipatingResources
- * //       { // ParticipatingResource
- * //         participatingResourceID: { // ParticipatingResourceID Union: only one key present
- * //           sourceNetworkID: "STRING_VALUE",
- * //         },
- * //         launchStatus: "STRING_VALUE",
- * //       },
- * //     ],
- * //   },
+ * // { // CreateSourceNetworkResponse
+ * //   sourceNetworkID: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StartRecoveryCommandInput - {@link StartRecoveryCommandInput}
- * @returns {@link StartRecoveryCommandOutput}
- * @see {@link StartRecoveryCommandInput} for command's `input` shape.
- * @see {@link StartRecoveryCommandOutput} for command's `response` shape.
+ * @param CreateSourceNetworkCommandInput - {@link CreateSourceNetworkCommandInput}
+ * @returns {@link CreateSourceNetworkCommandOutput}
+ * @see {@link CreateSourceNetworkCommandInput} for command's `input` shape.
+ * @see {@link CreateSourceNetworkCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -105,6 +74,9 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource for this operation was not found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request could not be completed because its exceeded the service quota.</p>
@@ -115,13 +87,16 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ *
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
-export class StartRecoveryCommand extends $Command<
-  StartRecoveryCommandInput,
-  StartRecoveryCommandOutput,
+export class CreateSourceNetworkCommand extends $Command<
+  CreateSourceNetworkCommandInput,
+  CreateSourceNetworkCommandOutput,
   DrsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -139,7 +114,7 @@ export class StartRecoveryCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartRecoveryCommandInput) {
+  constructor(readonly input: CreateSourceNetworkCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -152,21 +127,23 @@ export class StartRecoveryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DrsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartRecoveryCommandInput, StartRecoveryCommandOutput> {
+  ): Handler<CreateSourceNetworkCommandInput, CreateSourceNetworkCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StartRecoveryCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateSourceNetworkCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DrsClient";
-    const commandName = "StartRecoveryCommand";
+    const commandName = "CreateSourceNetworkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRecoveryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateSourceNetworkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,15 +156,15 @@ export class StartRecoveryCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartRecoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartRecoveryCommand(input, context);
+  private serialize(input: CreateSourceNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateSourceNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecoveryCommandOutput> {
-    return de_StartRecoveryCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSourceNetworkCommandOutput> {
+    return de_CreateSourceNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

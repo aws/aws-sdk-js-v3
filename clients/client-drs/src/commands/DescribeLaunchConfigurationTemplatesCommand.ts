@@ -76,6 +76,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * //       licensing: { // Licensing
  * //         osByol: true || false,
  * //       },
+ * //       exportBucketArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

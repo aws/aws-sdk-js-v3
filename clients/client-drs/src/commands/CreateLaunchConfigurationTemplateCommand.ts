@@ -64,6 +64,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput
  *   licensing: { // Licensing
  *     osByol: true || false,
  *   },
+ *   exportBucketArn: "STRING_VALUE",
  * };
  * const command = new CreateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -81,6 +82,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput
  * //     licensing: { // Licensing
  * //       osByol: true || false,
  * //     },
+ * //     exportBucketArn: "STRING_VALUE",
  * //   },
  * // };
  *

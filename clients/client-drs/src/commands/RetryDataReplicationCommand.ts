@@ -152,6 +152,7 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * //   },
  * //   replicationDirection: "STRING_VALUE",
  * //   reversedDirectionSourceServerArn: "STRING_VALUE",
+ * //   sourceNetworkID: "STRING_VALUE",
  * // };
  *
  * ```

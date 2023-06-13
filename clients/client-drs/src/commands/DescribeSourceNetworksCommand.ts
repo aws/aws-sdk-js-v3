@@ -14,8 +14,12 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { DescribeJobLogItemsRequest, DescribeJobLogItemsResponse } from "../models/models_0";
-import { de_DescribeJobLogItemsCommand, se_DescribeJobLogItemsCommand } from "../protocols/Aws_restJson1";
+import {
+  DescribeSourceNetworksRequest,
+  DescribeSourceNetworksResponse,
+  DescribeSourceNetworksResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_DescribeSourceNetworksCommand, se_DescribeSourceNetworksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,64 +28,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeJobLogItemsCommand}.
+ * The input for {@link DescribeSourceNetworksCommand}.
  */
-export interface DescribeJobLogItemsCommandInput extends DescribeJobLogItemsRequest {}
+export interface DescribeSourceNetworksCommandInput extends DescribeSourceNetworksRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeJobLogItemsCommand}.
+ * The output of {@link DescribeSourceNetworksCommand}.
  */
-export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsResponse, __MetadataBearer {}
+export interface DescribeSourceNetworksCommandOutput extends DescribeSourceNetworksResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves a detailed Job log with pagination.</p>
+ * <p>Lists all Source Networks or multiple Source Networks filtered by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, DescribeSourceNetworksCommand } from "@aws-sdk/client-drs"; // ES Modules import
+ * // const { DrsClient, DescribeSourceNetworksCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = { // DescribeJobLogItemsRequest
- *   jobID: "STRING_VALUE", // required
+ * const input = { // DescribeSourceNetworksRequest
+ *   filters: { // DescribeSourceNetworksRequestFilters
+ *     sourceNetworkIDs: [ // DescribeSourceNetworksRequestFiltersIDs
+ *       "STRING_VALUE",
+ *     ],
+ *     originAccountID: "STRING_VALUE",
+ *     originRegion: "STRING_VALUE",
+ *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
- * const command = new DescribeJobLogItemsCommand(input);
+ * const command = new DescribeSourceNetworksCommand(input);
  * const response = await client.send(command);
- * // { // DescribeJobLogItemsResponse
- * //   items: [ // JobLogs
- * //     { // JobLog
- * //       logDateTime: "STRING_VALUE",
- * //       event: "STRING_VALUE",
- * //       eventData: { // JobLogEventData
- * //         sourceServerID: "STRING_VALUE",
- * //         conversionServerID: "STRING_VALUE",
- * //         targetInstanceID: "STRING_VALUE",
- * //         rawError: "STRING_VALUE",
- * //         conversionProperties: { // ConversionProperties
- * //           volumeToConversionMap: { // VolumeToConversionMap
- * //             "<keys>": { // ConversionMap
- * //               "<keys>": "STRING_VALUE",
- * //             },
- * //           },
- * //           rootVolumeName: "STRING_VALUE",
- * //           forceUefi: true || false,
- * //           dataTimestamp: "STRING_VALUE",
- * //           volumeToVolumeSize: { // VolumeToSizeMap
- * //             "<keys>": Number("long"),
- * //           },
- * //         },
- * //         eventResourceData: { // EventResourceData Union: only one key present
- * //           sourceNetworkData: { // SourceNetworkData
- * //             sourceNetworkID: "STRING_VALUE",
- * //             sourceVpc: "STRING_VALUE",
- * //             targetVpc: "STRING_VALUE",
- * //             stackName: "STRING_VALUE",
- * //           },
- * //         },
+ * // { // DescribeSourceNetworksResponse
+ * //   items: [ // SourceNetworksList
+ * //     { // SourceNetwork
+ * //       sourceNetworkID: "STRING_VALUE",
+ * //       sourceVpcID: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       replicationStatus: "STRING_VALUE",
+ * //       replicationStatusDetails: "STRING_VALUE",
+ * //       cfnStackName: "STRING_VALUE",
+ * //       sourceRegion: "STRING_VALUE",
+ * //       sourceAccountID: "STRING_VALUE",
+ * //       lastRecovery: { // RecoveryLifeCycle
+ * //         apiCallDateTime: new Date("TIMESTAMP"),
+ * //         jobID: "STRING_VALUE",
+ * //         lastRecoveryResult: "STRING_VALUE",
+ * //       },
+ * //       launchedVpcID: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -89,10 +87,10 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  *
  * ```
  *
- * @param DescribeJobLogItemsCommandInput - {@link DescribeJobLogItemsCommandInput}
- * @returns {@link DescribeJobLogItemsCommandOutput}
- * @see {@link DescribeJobLogItemsCommandInput} for command's `input` shape.
- * @see {@link DescribeJobLogItemsCommandOutput} for command's `response` shape.
+ * @param DescribeSourceNetworksCommandInput - {@link DescribeSourceNetworksCommandInput}
+ * @returns {@link DescribeSourceNetworksCommandOutput}
+ * @see {@link DescribeSourceNetworksCommandInput} for command's `input` shape.
+ * @see {@link DescribeSourceNetworksCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -111,9 +109,9 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
-export class DescribeJobLogItemsCommand extends $Command<
-  DescribeJobLogItemsCommandInput,
-  DescribeJobLogItemsCommandOutput,
+export class DescribeSourceNetworksCommand extends $Command<
+  DescribeSourceNetworksCommandInput,
+  DescribeSourceNetworksCommandOutput,
   DrsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -131,7 +129,7 @@ export class DescribeJobLogItemsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeJobLogItemsCommandInput) {
+  constructor(readonly input: DescribeSourceNetworksCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -144,23 +142,23 @@ export class DescribeJobLogItemsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DrsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeJobLogItemsCommandInput, DescribeJobLogItemsCommandOutput> {
+  ): Handler<DescribeSourceNetworksCommandInput, DescribeSourceNetworksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeJobLogItemsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeSourceNetworksCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DrsClient";
-    const commandName = "DescribeJobLogItemsCommand";
+    const commandName = "DescribeSourceNetworksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeSourceNetworksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,15 +171,15 @@ export class DescribeJobLogItemsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeJobLogItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeJobLogItemsCommand(input, context);
+  private serialize(input: DescribeSourceNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeSourceNetworksCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobLogItemsCommandOutput> {
-    return de_DescribeJobLogItemsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceNetworksCommandOutput> {
+    return de_DescribeSourceNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

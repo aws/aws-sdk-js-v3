@@ -153,6 +153,7 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * //     },
  * //     replicationDirection: "STRING_VALUE",
  * //     reversedDirectionSourceServerArn: "STRING_VALUE",
+ * //     sourceNetworkID: "STRING_VALUE",
  * //   },
  * // };
  *

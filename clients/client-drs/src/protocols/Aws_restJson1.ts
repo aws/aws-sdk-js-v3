@@ -9,6 +9,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   strictParseLong as __strictParseLong,
   take,
@@ -18,6 +19,10 @@ import { ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 
+import {
+  AssociateSourceNetworkStackCommandInput,
+  AssociateSourceNetworkStackCommandOutput,
+} from "../commands/AssociateSourceNetworkStackCommand";
 import {
   CreateExtendedSourceServerCommandInput,
   CreateExtendedSourceServerCommandOutput,
@@ -30,6 +35,10 @@ import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "../commands/CreateReplicationConfigurationTemplateCommand";
+import {
+  CreateSourceNetworkCommandInput,
+  CreateSourceNetworkCommandOutput,
+} from "../commands/CreateSourceNetworkCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
@@ -43,6 +52,10 @@ import {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
 } from "../commands/DeleteReplicationConfigurationTemplateCommand";
+import {
+  DeleteSourceNetworkCommandInput,
+  DeleteSourceNetworkCommandOutput,
+} from "../commands/DeleteSourceNetworkCommand";
 import { DeleteSourceServerCommandInput, DeleteSourceServerCommandOutput } from "../commands/DeleteSourceServerCommand";
 import {
   DescribeJobLogItemsCommandInput,
@@ -66,6 +79,10 @@ import {
   DescribeReplicationConfigurationTemplatesCommandOutput,
 } from "../commands/DescribeReplicationConfigurationTemplatesCommand";
 import {
+  DescribeSourceNetworksCommandInput,
+  DescribeSourceNetworksCommandOutput,
+} from "../commands/DescribeSourceNetworksCommand";
+import {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "../commands/DescribeSourceServersCommand";
@@ -77,6 +94,10 @@ import {
   DisconnectSourceServerCommandInput,
   DisconnectSourceServerCommandOutput,
 } from "../commands/DisconnectSourceServerCommand";
+import {
+  ExportSourceNetworkCfnTemplateCommandInput,
+  ExportSourceNetworkCfnTemplateCommandOutput,
+} from "../commands/ExportSourceNetworkCfnTemplateCommand";
 import {
   GetFailbackReplicationConfigurationCommandInput,
   GetFailbackReplicationConfigurationCommandOutput,
@@ -113,8 +134,20 @@ import {
 } from "../commands/StartFailbackLaunchCommand";
 import { StartRecoveryCommandInput, StartRecoveryCommandOutput } from "../commands/StartRecoveryCommand";
 import { StartReplicationCommandInput, StartReplicationCommandOutput } from "../commands/StartReplicationCommand";
+import {
+  StartSourceNetworkRecoveryCommandInput,
+  StartSourceNetworkRecoveryCommandOutput,
+} from "../commands/StartSourceNetworkRecoveryCommand";
+import {
+  StartSourceNetworkReplicationCommandInput,
+  StartSourceNetworkReplicationCommandOutput,
+} from "../commands/StartSourceNetworkReplicationCommand";
 import { StopFailbackCommandInput, StopFailbackCommandOutput } from "../commands/StopFailbackCommand";
 import { StopReplicationCommandInput, StopReplicationCommandOutput } from "../commands/StopReplicationCommand";
+import {
+  StopSourceNetworkReplicationCommandInput,
+  StopSourceNetworkReplicationCommandOutput,
+} from "../commands/StopSourceNetworkReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TerminateRecoveryInstancesCommandInput,
@@ -148,18 +181,53 @@ import {
   DescribeJobsRequestFilters,
   DescribeRecoveryInstancesRequestFilters,
   DescribeRecoverySnapshotsRequestFilters,
+  DescribeSourceNetworksRequestFilters,
   DescribeSourceServersRequestFilters,
   InternalServerException,
   Licensing,
   PITPolicyRule,
+  RecoveryLifeCycle,
   ReplicationConfigurationReplicatedDisk,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SourceNetwork,
   StartRecoveryRequestSourceServer,
+  StartSourceNetworkRecoveryRequestNetworkEntry,
   ThrottlingException,
   UninitializedAccountException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1AssociateSourceNetworkStackCommand
+ */
+export const se_AssociateSourceNetworkStackCommand = async (
+  input: AssociateSourceNetworkStackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AssociateSourceNetworkStack";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      cfnStackName: [],
+      sourceNetworkID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1CreateExtendedSourceServerCommand
@@ -210,6 +278,7 @@ export const se_CreateLaunchConfigurationTemplateCommand = async (
     take(input, {
       copyPrivateIp: [],
       copyTags: [],
+      exportBucketArn: [],
       launchDisposition: [],
       licensing: (_) => _json(_),
       tags: (_) => _json(_),
@@ -258,6 +327,38 @@ export const se_CreateReplicationConfigurationTemplateCommand = async (
       stagingAreaTags: (_) => _json(_),
       tags: (_) => _json(_),
       useDedicatedReplicationServer: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateSourceNetworkCommand
+ */
+export const se_CreateSourceNetworkCommand = async (
+  input: CreateSourceNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateSourceNetwork";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      originAccountID: [],
+      originRegion: [],
+      tags: (_) => _json(_),
+      vpcID: [],
     })
   );
   return new __HttpRequest({
@@ -377,6 +478,35 @@ export const se_DeleteReplicationConfigurationTemplateCommand = async (
   body = JSON.stringify(
     take(input, {
       replicationConfigurationTemplateID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteSourceNetworkCommand
+ */
+export const se_DeleteSourceNetworkCommand = async (
+  input: DeleteSourceNetworkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteSourceNetwork";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sourceNetworkID: [],
     })
   );
   return new __HttpRequest({
@@ -613,6 +743,38 @@ export const se_DescribeReplicationConfigurationTemplatesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeSourceNetworksCommand
+ */
+export const se_DescribeSourceNetworksCommand = async (
+  input: DescribeSourceNetworksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeSourceNetworks";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeSourceServersCommand
  */
 export const se_DescribeSourceServersCommand = async (
@@ -690,6 +852,36 @@ export const se_DisconnectSourceServerCommand = async (
   body = JSON.stringify(
     take(input, {
       sourceServerID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ExportSourceNetworkCfnTemplateCommand
+ */
+export const se_ExportSourceNetworkCfnTemplateCommand = async (
+  input: ExportSourceNetworkCfnTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ExportSourceNetworkCfnTemplate";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sourceNetworkID: [],
     })
   );
   return new __HttpRequest({
@@ -1049,6 +1241,68 @@ export const se_StartReplicationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartSourceNetworkRecoveryCommand
+ */
+export const se_StartSourceNetworkRecoveryCommand = async (
+  input: StartSourceNetworkRecoveryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartSourceNetworkRecovery";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      deployAsNew: [],
+      sourceNetworks: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartSourceNetworkReplicationCommand
+ */
+export const se_StartSourceNetworkReplicationCommand = async (
+  input: StartSourceNetworkReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartSourceNetworkReplication";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sourceNetworkID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StopFailbackCommand
  */
 export const se_StopFailbackCommand = async (
@@ -1093,6 +1347,36 @@ export const se_StopReplicationCommand = async (
   body = JSON.stringify(
     take(input, {
       sourceServerID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StopSourceNetworkReplicationCommand
+ */
+export const se_StopSourceNetworkReplicationCommand = async (
+  input: StopSourceNetworkReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StopSourceNetworkReplication";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sourceNetworkID: [],
     })
   );
   return new __HttpRequest({
@@ -1283,6 +1567,7 @@ export const se_UpdateLaunchConfigurationTemplateCommand = async (
     take(input, {
       copyPrivateIp: [],
       copyTags: [],
+      exportBucketArn: [],
       launchConfigurationTemplateID: [],
       launchDisposition: [],
       licensing: (_) => _json(_),
@@ -1389,6 +1674,71 @@ export const se_UpdateReplicationConfigurationTemplateCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+/**
+ * deserializeAws_restJson1AssociateSourceNetworkStackCommand
+ */
+export const de_AssociateSourceNetworkStackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceNetworkStackCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_AssociateSourceNetworkStackCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    job: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateSourceNetworkStackCommandError
+ */
+const de_AssociateSourceNetworkStackCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceNetworkStackCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.drs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1574,6 +1924,71 @@ const de_CreateReplicationConfigurationTemplateCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.drs#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.drs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateSourceNetworkCommand
+ */
+export const de_CreateSourceNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSourceNetworkCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateSourceNetworkCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceNetworkID: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateSourceNetworkCommandError
+ */
+const de_CreateSourceNetworkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSourceNetworkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.drs#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -1785,6 +2200,61 @@ const de_DeleteReplicationConfigurationTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReplicationConfigurationTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteSourceNetworkCommand
+ */
+export const de_DeleteSourceNetworkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSourceNetworkCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteSourceNetworkCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteSourceNetworkCommandError
+ */
+const de_DeleteSourceNetworkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSourceNetworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2223,6 +2693,63 @@ const de_DescribeReplicationConfigurationTemplatesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeSourceNetworksCommand
+ */
+export const de_DescribeSourceNetworksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSourceNetworksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeSourceNetworksCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_SourceNetworksList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeSourceNetworksCommandError
+ */
+const de_DescribeSourceNetworksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSourceNetworksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeSourceServersCommand
  */
 export const de_DescribeSourceServersCommand = async (
@@ -2360,6 +2887,7 @@ export const de_DisconnectSourceServerCommand = async (
     replicationDirection: __expectString,
     reversedDirectionSourceServerArn: __expectString,
     sourceCloudProperties: _json,
+    sourceNetworkID: __expectString,
     sourceProperties: _json,
     sourceServerID: __expectString,
     stagingArea: _json,
@@ -2397,6 +2925,68 @@ const de_DisconnectSourceServerCommandError = async (
     case "UninitializedAccountException":
     case "com.amazonaws.drs#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ExportSourceNetworkCfnTemplateCommand
+ */
+export const de_ExportSourceNetworkCfnTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportSourceNetworkCfnTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ExportSourceNetworkCfnTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    s3DestinationUrl: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ExportSourceNetworkCfnTemplateCommandError
+ */
+const de_ExportSourceNetworkCfnTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportSourceNetworkCfnTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2858,6 +3448,7 @@ export const de_RetryDataReplicationCommand = async (
     replicationDirection: __expectString,
     reversedDirectionSourceServerArn: __expectString,
     sourceCloudProperties: _json,
+    sourceNetworkID: __expectString,
     sourceProperties: _json,
     sourceServerID: __expectString,
     stagingArea: _json,
@@ -3151,6 +3742,127 @@ const de_StartReplicationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartSourceNetworkRecoveryCommand
+ */
+export const de_StartSourceNetworkRecoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSourceNetworkRecoveryCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_StartSourceNetworkRecoveryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    job: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartSourceNetworkRecoveryCommandError
+ */
+const de_StartSourceNetworkRecoveryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSourceNetworkRecoveryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.drs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartSourceNetworkReplicationCommand
+ */
+export const de_StartSourceNetworkReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSourceNetworkReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartSourceNetworkReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceNetwork: (_) => de_SourceNetwork(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartSourceNetworkReplicationCommandError
+ */
+const de_StartSourceNetworkReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSourceNetworkReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StopFailbackCommand
  */
 export const de_StopFailbackCommand = async (
@@ -3251,6 +3963,68 @@ const de_StopReplicationCommandError = async (
     case "UninitializedAccountException":
     case "com.amazonaws.drs#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopSourceNetworkReplicationCommand
+ */
+export const de_StopSourceNetworkReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSourceNetworkReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopSourceNetworkReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sourceNetwork: (_) => de_SourceNetwork(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopSourceNetworkReplicationCommandError
+ */
+const de_StopSourceNetworkReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSourceNetworkReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.drs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.drs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.drs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.drs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.drs#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.drs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3962,6 +4736,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeRecoverySnapshotsRequestFilters omitted.
 
+// se_DescribeSourceNetworksRequestFilters omitted.
+
+// se_DescribeSourceNetworksRequestFiltersIDs omitted.
+
 // se_DescribeSourceServersRequestFilters omitted.
 
 // se_DescribeSourceServersRequestFiltersIDs omitted.
@@ -3993,6 +4771,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_StartRecoveryRequestSourceServer omitted.
 
 // se_StartRecoveryRequestSourceServers omitted.
+
+// se_StartSourceNetworkRecoveryRequestNetworkEntries omitted.
+
+// se_StartSourceNetworkRecoveryRequestNetworkEntry omitted.
 
 // se_TagsMap omitted.
 
@@ -4030,6 +4812,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_EbsSnapshotsList omitted.
 
+// de_EventResourceData omitted.
+
 // de_IdentificationHints omitted.
 
 // de_IPsList omitted.
@@ -4061,6 +4845,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_NetworkInterfaces omitted.
 
 // de_OS omitted.
+
+// de_ParticipatingResource omitted.
+
+// de_ParticipatingResourceID omitted.
+
+// de_ParticipatingResources omitted.
 
 // de_ParticipatingServer omitted.
 
@@ -4094,6 +4884,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_RecoveryInstanceProperties omitted.
 
+/**
+ * deserializeAws_restJson1RecoveryLifeCycle
+ */
+const de_RecoveryLifeCycle = (output: any, context: __SerdeContext): RecoveryLifeCycle => {
+  return take(output, {
+    apiCallDateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    jobID: __expectString,
+    lastRecoveryResult: __expectString,
+  }) as any;
+};
+
 // de_RecoverySnapshot omitted.
 
 // de_RecoverySnapshotsList omitted.
@@ -4109,6 +4910,39 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ReplicationServersSecurityGroupsIDs omitted.
 
 // de_SourceCloudProperties omitted.
+
+/**
+ * deserializeAws_restJson1SourceNetwork
+ */
+const de_SourceNetwork = (output: any, context: __SerdeContext): SourceNetwork => {
+  return take(output, {
+    arn: __expectString,
+    cfnStackName: __expectString,
+    lastRecovery: (_: any) => de_RecoveryLifeCycle(_, context),
+    launchedVpcID: __expectString,
+    replicationStatus: __expectString,
+    replicationStatusDetails: __expectString,
+    sourceAccountID: __expectString,
+    sourceNetworkID: __expectString,
+    sourceRegion: __expectString,
+    sourceVpcID: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+// de_SourceNetworkData omitted.
+
+/**
+ * deserializeAws_restJson1SourceNetworksList
+ */
+const de_SourceNetworksList = (output: any, context: __SerdeContext): SourceNetwork[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SourceNetwork(entry, context);
+    });
+  return retVal;
+};
 
 // de_SourceProperties omitted.
 

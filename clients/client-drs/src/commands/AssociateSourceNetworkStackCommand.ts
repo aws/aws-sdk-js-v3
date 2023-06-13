@@ -15,12 +15,15 @@ import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
-  StartRecoveryRequest,
-  StartRecoveryRequestFilterSensitiveLog,
-  StartRecoveryResponse,
-  StartRecoveryResponseFilterSensitiveLog,
+  AssociateSourceNetworkStackRequest,
+  AssociateSourceNetworkStackRequestFilterSensitiveLog,
+  AssociateSourceNetworkStackResponse,
+  AssociateSourceNetworkStackResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_StartRecoveryCommand, se_StartRecoveryCommand } from "../protocols/Aws_restJson1";
+import {
+  de_AssociateSourceNetworkStackCommand,
+  se_AssociateSourceNetworkStackCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -29,40 +32,34 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartRecoveryCommand}.
+ * The input for {@link AssociateSourceNetworkStackCommand}.
  */
-export interface StartRecoveryCommandInput extends StartRecoveryRequest {}
+export interface AssociateSourceNetworkStackCommandInput extends AssociateSourceNetworkStackRequest {}
 /**
  * @public
  *
- * The output of {@link StartRecoveryCommand}.
+ * The output of {@link AssociateSourceNetworkStackCommand}.
  */
-export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __MetadataBearer {}
+export interface AssociateSourceNetworkStackCommandOutput
+  extends AssociateSourceNetworkStackResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot.</p>
+ * <p>Associate a Source Network to an existing CloudFormation Stack and modify launch templates to use this network. Can be used for reverting to previously deployed CloudFormation stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DrsClient, StartRecoveryCommand } from "@aws-sdk/client-drs"; // ES Modules import
- * // const { DrsClient, StartRecoveryCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * import { DrsClient, AssociateSourceNetworkStackCommand } from "@aws-sdk/client-drs"; // ES Modules import
+ * // const { DrsClient, AssociateSourceNetworkStackCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = { // StartRecoveryRequest
- *   sourceServers: [ // StartRecoveryRequestSourceServers // required
- *     { // StartRecoveryRequestSourceServer
- *       sourceServerID: "STRING_VALUE", // required
- *       recoverySnapshotID: "STRING_VALUE",
- *     },
- *   ],
- *   isDrill: true || false,
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // AssociateSourceNetworkStackRequest
+ *   sourceNetworkID: "STRING_VALUE", // required
+ *   cfnStackName: "STRING_VALUE", // required
  * };
- * const command = new StartRecoveryCommand(input);
+ * const command = new AssociateSourceNetworkStackCommand(input);
  * const response = await client.send(command);
- * // { // StartRecoveryResponse
+ * // { // AssociateSourceNetworkStackResponse
  * //   job: { // Job
  * //     jobID: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE",
@@ -94,10 +91,10 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  *
  * ```
  *
- * @param StartRecoveryCommandInput - {@link StartRecoveryCommandInput}
- * @returns {@link StartRecoveryCommandOutput}
- * @see {@link StartRecoveryCommandInput} for command's `input` shape.
- * @see {@link StartRecoveryCommandOutput} for command's `response` shape.
+ * @param AssociateSourceNetworkStackCommandInput - {@link AssociateSourceNetworkStackCommandInput}
+ * @returns {@link AssociateSourceNetworkStackCommandOutput}
+ * @see {@link AssociateSourceNetworkStackCommandInput} for command's `input` shape.
+ * @see {@link AssociateSourceNetworkStackCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -105,6 +102,9 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource for this operation was not found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request could not be completed because its exceeded the service quota.</p>
@@ -115,13 +115,16 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ *
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
-export class StartRecoveryCommand extends $Command<
-  StartRecoveryCommandInput,
-  StartRecoveryCommandOutput,
+export class AssociateSourceNetworkStackCommand extends $Command<
+  AssociateSourceNetworkStackCommandInput,
+  AssociateSourceNetworkStackCommandOutput,
   DrsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -139,7 +142,7 @@ export class StartRecoveryCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartRecoveryCommandInput) {
+  constructor(readonly input: AssociateSourceNetworkStackCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -152,21 +155,23 @@ export class StartRecoveryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DrsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartRecoveryCommandInput, StartRecoveryCommandOutput> {
+  ): Handler<AssociateSourceNetworkStackCommandInput, AssociateSourceNetworkStackCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StartRecoveryCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateSourceNetworkStackCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DrsClient";
-    const commandName = "StartRecoveryCommand";
+    const commandName = "AssociateSourceNetworkStackCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRecoveryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSourceNetworkStackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSourceNetworkStackResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,15 +184,18 @@ export class StartRecoveryCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartRecoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartRecoveryCommand(input, context);
+  private serialize(input: AssociateSourceNetworkStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_AssociateSourceNetworkStackCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecoveryCommandOutput> {
-    return de_StartRecoveryCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<AssociateSourceNetworkStackCommandOutput> {
+    return de_AssociateSourceNetworkStackCommand(output, context);
   }
 
   // Start section: command_body_extra
