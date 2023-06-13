@@ -146,6 +146,7 @@ export interface CreateSnapshotInput {
 
   /**
    * <p>The Amazon S3 bucket and optional folder (object key prefix) where SimSpace Weaver creates the snapshot file.</p>
+   *          <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p>
    */
   Destination: S3Destination | undefined;
 }
@@ -1007,6 +1008,7 @@ export interface StartSimulationInput {
    *                <i>Amazon Simple Storage Service User Guide</i>
    *             </a>.</p>
    *          <p>Provide a <code>SnapshotS3Location</code> to start your simulation from a snapshot.</p>
+   *          <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p>
    *          <p>If you provide a <code>SnapshotS3Location</code> then you can't provide a <code>SchemaS3Location</code>.</p>
    */
   SnapshotS3Location?: S3Location;
