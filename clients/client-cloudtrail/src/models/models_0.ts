@@ -704,6 +704,11 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::CodeWhisperer::Profile</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::Cognito::IdentityPool</code>
    *                      </p>
    *                   </li>
@@ -715,6 +720,11 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::EC2::Snapshot</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::EMRWAL::Workspace</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -827,6 +837,16 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When resources.type equals <code>AWS::CodeWhisperer::Profile</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:codewhisperer:<region>:<account_ID>:profile/<profile_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When resources.type equals <code>AWS::Cognito::IdentityPool</code>, and the operator is
    *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
    *                following format:</p>
@@ -854,6 +874,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:ec2:<region>::snapshot/<snapshot_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::EMRWAL::Workspace</code>, and the
+   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
+   *                the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:emrwal:<region>::workspace/<workspace_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -2174,7 +2204,7 @@ export interface CreateTrailResponse {
   /**
    * @deprecated
    *
-   * <p>This field is no longer in use. Use SnsTopicARN.</p>
+   * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    */
   SnsTopicName?: string;
 
@@ -2857,7 +2887,14 @@ export interface DescribeQueryRequest {
   /**
    * <p>The query ID.</p>
    */
-  QueryId: string | undefined;
+  QueryId?: string;
+
+  /**
+   * <p>
+   *          The alias that identifies a query template.
+   *       </p>
+   */
+  QueryAlias?: string;
 }
 
 /**
@@ -3033,7 +3070,7 @@ export interface Trail {
   /**
    * @deprecated
    *
-   * <p>This field is no longer in use. Use SnsTopicARN.</p>
+   * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    */
   SnsTopicName?: string;
 
@@ -3431,11 +3468,16 @@ export interface DataResource {
    *          <p>The following resource types are also available through <i>advanced</i>
    *          event selectors. Basic event selector resource types are valid in advanced event selectors,
    *          but advanced event selector resource types are not valid in basic event selectors. For more
-   *          information, see <a>AdvancedFieldSelector$Field</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>AWS::CloudTrail::Channel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::CodeWhisperer::Profile</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3451,6 +3493,11 @@ export interface DataResource {
    *             <li>
    *                <p>
    *                   <code>AWS::EC2::Snapshot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::EMRWAL::Workspace</code>
    *                </p>
    *             </li>
    *             <li>
@@ -5810,12 +5857,26 @@ export interface StartQueryRequest {
   /**
    * <p>The SQL code of your query.</p>
    */
-  QueryStatement: string | undefined;
+  QueryStatement?: string;
 
   /**
    * <p> The URI for the S3 bucket where CloudTrail delivers the query results. </p>
    */
   DeliveryS3Uri?: string;
+
+  /**
+   * <p>
+   *          The alias that identifies a query template.
+   *       </p>
+   */
+  QueryAlias?: string;
+
+  /**
+   * <p>
+   *          The query parameters for the specified <code>QueryAlias</code>.
+   *       </p>
+   */
+  QueryParameters?: string[];
 }
 
 /**
@@ -6292,7 +6353,7 @@ export interface UpdateTrailResponse {
   /**
    * @deprecated
    *
-   * <p>This field is no longer in use. Use <a>UpdateTrailResponse$SnsTopicARN</a>.</p>
+   * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    */
   SnsTopicName?: string;
 

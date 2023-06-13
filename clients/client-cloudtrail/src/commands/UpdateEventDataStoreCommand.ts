@@ -43,7 +43,8 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *          2557. By default, <code>TerminationProtection</code> is enabled.</p>
  *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
  *          includes or excludes management and data events in your event data store. For more
- *          information about <code>AdvancedEventSelectors</code>, see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>. </p>
+ *          information about <code>AdvancedEventSelectors</code>, see
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.</p>
  *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
  *             <code>AdvancedEventSelectors</code> includes events of that type in your event data store.</p>
  * @example
@@ -138,6 +139,9 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *
  * @throws {@link CloudTrailAccessNotEnabledException} (client fault)
  *  <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
+ *
+ * @throws {@link EventDataStoreAlreadyExistsException} (client fault)
+ *  <p>An event data store with that name already exists.</p>
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
  *  <p>The specified event data store ARN is not valid or does not map to an event data store

@@ -37,8 +37,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
 /**
  * @public
  * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
- *          returned by the <code>StartQuery</code> operation, and an ARN for
- *             <code>EventDataStore</code>.</p>
+ *          returned by the <code>StartQuery</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

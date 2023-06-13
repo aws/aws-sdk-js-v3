@@ -36,10 +36,13 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
 
 /**
  * @public
- * <p>Starts a CloudTrail Lake query. The required <code>QueryStatement</code>
- *          parameter provides your SQL query, enclosed in single quotation marks. Use the optional
+ * <p>Starts a CloudTrail Lake query. Use the <code>QueryStatement</code>
+ *          parameter to provide your SQL query, enclosed in single quotation marks. Use the optional
  *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
  *          bucket.</p>
+ *          <p>
+ *             <code>StartQuery</code> requires you specify either the <code>QueryStatement</code> parameter, or a <code>QueryAlias</code> and any <code>QueryParameters</code>. In the current release,
+ *          the <code>QueryAlias</code> and <code>QueryParameters</code> parameters are used only for the queries that populate the CloudTrail Lake dashboards.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,8 +50,12 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * // const { CloudTrailClient, StartQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const input = { // StartQueryRequest
- *   QueryStatement: "STRING_VALUE", // required
+ *   QueryStatement: "STRING_VALUE",
  *   DeliveryS3Uri: "STRING_VALUE",
+ *   QueryAlias: "STRING_VALUE",
+ *   QueryParameters: [ // QueryParameters
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);

@@ -3984,6 +3984,9 @@ const de_UpdateEventDataStoreCommandError = async (
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
+    case "EventDataStoreAlreadyExistsException":
+    case "com.amazonaws.cloudtrail#EventDataStoreAlreadyExistsException":
+      throw await de_EventDataStoreAlreadyExistsExceptionRes(parsedOutput, context);
     case "EventDataStoreHasOngoingImportException":
     case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
       throw await de_EventDataStoreHasOngoingImportExceptionRes(parsedOutput, context);
@@ -5575,6 +5578,8 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
 // se_PutInsightSelectorsRequest omitted.
 
 // se_PutResourcePolicyRequest omitted.
+
+// se_QueryParameters omitted.
 
 // se_RegisterOrganizationDelegatedAdminRequest omitted.
 
