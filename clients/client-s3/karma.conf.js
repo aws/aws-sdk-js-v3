@@ -5,6 +5,7 @@ module.exports = function (config) {
     basePath: "",
     frameworks: ["mocha", "chai", "webpack"],
     files: ["test/e2e/**/*.ispec.ts"],
+    processKillTimeout: 5000,
     preprocessors: {
       "test/e2e/**/*.ispec.ts": ["webpack", "sourcemap", "credentials", "env"],
     },
