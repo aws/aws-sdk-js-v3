@@ -19,7 +19,13 @@ describe("chain", () => {
       resolveStatic(expectedOutput),
     ];
 
-    await expect(chain(...providers)()).resolves.toBe(expectedOutput);
+    try {
+      const result = await chain(...providers)();
+      expect(result).toBe(expectedOutput);
+    } catch (error) {
+      throw error;
+    }
+
     expect(providers[0]).toHaveBeenCalledTimes(1);
     expect(providers[1]).toHaveBeenCalledTimes(1);
     expect(providers[2]).toHaveBeenCalledTimes(1);
@@ -33,7 +39,13 @@ describe("chain", () => {
       rejectWithProviderError("This provider should not be invoked"),
     ];
 
-    await expect(chain(...providers)()).resolves.toBe(expectedOutput);
+    try {
+      const result = await chain(...providers)();
+      expect(result).toBe(expectedOutput);
+    } catch (error) {
+      throw error;
+    }
+
     expect(providers[0]).toHaveBeenCalledTimes(1);
     expect(providers[1]).toHaveBeenCalledTimes(1);
     expect(providers[2]).not.toHaveBeenCalled();
@@ -47,7 +59,13 @@ describe("chain", () => {
       rejectWithProviderError(expectedErrorMsg),
     ];
 
-    await expect(chain(...providers)()).rejects.toMatchObject(new Error(expectedErrorMsg));
+    try {
+      await chain(...providers)();
+      throw new Error("Should not get here");
+    } catch (error) {
+      expect(error).toEqual(new ProviderError(expectedErrorMsg));
+    }
+
     expect(providers[0]).toHaveBeenCalledTimes(1);
     expect(providers[1]).toHaveBeenCalledTimes(1);
     expect(providers[2]).toHaveBeenCalledTimes(1);
@@ -57,27 +75,44 @@ describe("chain", () => {
     const expectedErrorMsg = "Unrelated failure";
     const providers = [rejectWithProviderError("Move along"), rejectWithError(expectedErrorMsg), resolveStatic("foo")];
 
-    await expect(chain(...providers)()).rejects.toMatchObject(new Error(expectedErrorMsg));
+    try {
+      await chain(...providers)();
+      throw new Error("Should not get here");
+    } catch (error) {
+      expect(error).toEqual(new Error(expectedErrorMsg));
+    }
+
     expect(providers[0]).toHaveBeenCalledTimes(1);
     expect(providers[1]).toHaveBeenCalledTimes(1);
     expect(providers[2]).not.toHaveBeenCalled();
   });
 
   it("should halt if ProviderError explicitly requests it", async () => {
-    const expectedErrorMsg = "ProviderError with tryNextLink set to false";
+    const expectedError = new ProviderError("ProviderError with tryNextLink set to false", false);
     const providers = [
       rejectWithProviderError("Move along"),
-      jest.fn().mockRejectedValue(new ProviderError(expectedErrorMsg, false)),
+      jest.fn().mockRejectedValue(expectedError),
       resolveStatic("foo"),
     ];
 
-    await expect(chain(...providers)()).rejects.toMatchObject(new Error(expectedErrorMsg));
+    try {
+      await chain(...providers)();
+      throw new Error("Should not get here");
+    } catch (error) {
+      expect(error).toEqual(expectedError);
+    }
+
     expect(providers[0]).toHaveBeenCalledTimes(1);
     expect(providers[1]).toHaveBeenCalledTimes(1);
     expect(providers[2]).not.toHaveBeenCalled();
   });
 
   it("should reject chains with no links", async () => {
-    await expect(chain()()).rejects.toMatchObject(new Error("No providers in chain"));
+    try {
+      await chain()();
+      throw new Error("Should not get here");
+    } catch (error) {
+      expect(error).toEqual(new Error("No providers in chain"));
+    }
   });
 });
