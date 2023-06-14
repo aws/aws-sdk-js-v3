@@ -1,3 +1,6 @@
+// Set up following binaries before running the test:
+// CHROME_BIN: path to Chromium browser
+// FIREFOX_BIN: path to Firefox browser
 const webpack = require("webpack");
 
 module.exports = function (config) {
