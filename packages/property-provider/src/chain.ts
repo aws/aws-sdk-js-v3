@@ -16,8 +16,11 @@ import { ProviderError } from "./ProviderError";
 export const chain =
   <T>(...providers: Array<Provider<T>>): Provider<T> =>
   async () => {
-    let lastProviderError: Error | undefined;
+    if (providers.length === 0) {
+      throw new ProviderError("No providers in chain");
+    }
 
+    let lastProviderError: Error | undefined;
     for (const provider of providers) {
       try {
         const credentials = await provider();
@@ -30,10 +33,5 @@ export const chain =
         throw err;
       }
     }
-
-    if (lastProviderError) {
-      throw lastProviderError;
-    }
-
-    throw new ProviderError("No providers in chain");
+    throw lastProviderError;
   };
