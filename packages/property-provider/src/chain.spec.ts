@@ -2,6 +2,7 @@ import { chain } from "./chain";
 import { ProviderError } from "./ProviderError";
 
 const resolveStatic = (staticValue: unknown) => () => Promise.resolve(staticValue);
+const rejectWithProviderError = (errorMsg: string) => () => Promise.reject(new ProviderError(errorMsg));
 
 describe("chain", () => {
   it("should distill many credential providers into one", async () => {
@@ -12,8 +13,8 @@ describe("chain", () => {
 
   it("should return the resolved value of the first successful promise", async () => {
     const provider = chain(
-      () => Promise.reject(new ProviderError("Move along")),
-      () => Promise.reject(new ProviderError("Nothing to see here")),
+      rejectWithProviderError("Move along"),
+      rejectWithProviderError("Nothing to see here"),
       resolveStatic("foo")
     );
 
@@ -35,7 +36,7 @@ describe("chain", () => {
 
   it("should halt if an unrecognized error is encountered", async () => {
     const provider = chain(
-      () => Promise.reject(new ProviderError("Move along")),
+      rejectWithProviderError("Move along"),
       () => Promise.reject(new Error("Unrelated failure")),
       resolveStatic("foo")
     );
