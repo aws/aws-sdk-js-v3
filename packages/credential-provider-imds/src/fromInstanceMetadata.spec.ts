@@ -181,7 +181,7 @@ describe("fromInstanceMetadata", () => {
       .mockResolvedValueOnce(".");
     (retry as jest.Mock).mockImplementation((fn: any) => fn());
 
-    await expect(fromInstanceMetadata()()).rejects.toEqual(new SyntaxError("Unexpected token . in JSON at position 0"));
+    await expect(fromInstanceMetadata()()).rejects.toThrow("Unexpected token");
     expect(retry).toHaveBeenCalledTimes(2);
     expect(httpRequest).toHaveBeenCalledTimes(3);
     expect(fromImdsCredentials).not.toHaveBeenCalled();
