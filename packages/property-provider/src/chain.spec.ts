@@ -51,24 +51,23 @@ describe("chain", () => {
     expect(providers[2]).not.toHaveBeenCalled();
   });
 
-  it("should throw if no provider resolves", async () => {
+  describe("should throw if no provider resolves", () => {
     const expectedErrorMsg = "Last provider failed";
-    const providers = [
-      rejectWithProviderError("Move along"),
-      rejectWithProviderError("Nothing to see here"),
-      rejectWithProviderError(expectedErrorMsg),
-    ];
 
-    try {
-      await chain(...providers)();
-      throw new Error("Should not get here");
-    } catch (error) {
-      expect(error).toEqual(new ProviderError(expectedErrorMsg));
-    }
-
-    expect(providers[0]).toHaveBeenCalledTimes(1);
-    expect(providers[1]).toHaveBeenCalledTimes(1);
-    expect(providers[2]).toHaveBeenCalledTimes(1);
+    it.each([
+      [ProviderError, rejectWithProviderError(expectedErrorMsg)],
+      [Error, rejectWithError(expectedErrorMsg)],
+    ])("case %p", async (errorType, errorProviderMockFn) => {
+      const firstProviderWhichRejects = rejectWithProviderError("Move along");
+      try {
+        await chain(firstProviderWhichRejects, errorProviderMockFn)();
+        throw new Error("Should not get here");
+      } catch (error) {
+        expect(error).toEqual(new errorType(expectedErrorMsg));
+      }
+      expect(firstProviderWhichRejects).toHaveBeenCalledTimes(1);
+      expect(errorProviderMockFn).toHaveBeenCalledTimes(1);
+    });
   });
 
   it("should halt if an unrecognized error is encountered", async () => {
