@@ -39,6 +39,20 @@ describe("chain", () => {
     expect(providers[2]).not.toHaveBeenCalled();
   });
 
+  it("should throw if no provider resolves", async () => {
+    const expectedErrorMsg = "Last provider failed";
+    const providers = [
+      rejectWithProviderError("Move along"),
+      rejectWithProviderError("Nothing to see here"),
+      rejectWithProviderError(expectedErrorMsg),
+    ];
+
+    await expect(chain(...providers)()).rejects.toMatchObject(new Error(expectedErrorMsg));
+    expect(providers[0]).toHaveBeenCalledTimes(1);
+    expect(providers[1]).toHaveBeenCalledTimes(1);
+    expect(providers[2]).toHaveBeenCalledTimes(1);
+  });
+
   it("should halt if an unrecognized error is encountered", async () => {
     const expectedErrorMsg = "Unrelated failure";
     const providers = [rejectWithProviderError("Move along"), rejectWithError(expectedErrorMsg), resolveStatic("foo")];
