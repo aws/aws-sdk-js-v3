@@ -1,10 +1,11 @@
 import { chain } from "./chain";
-import { fromStatic } from "./fromStatic";
 import { ProviderError } from "./ProviderError";
+
+const resolveStatic = (staticValue: unknown) => () => Promise.resolve(staticValue);
 
 describe("chain", () => {
   it("should distill many credential providers into one", async () => {
-    const provider = chain(fromStatic("foo"), fromStatic("bar"));
+    const provider = chain(resolveStatic("foo"), resolveStatic("bar"));
 
     expect(typeof (await provider())).toBe("string");
   });
@@ -13,7 +14,7 @@ describe("chain", () => {
     const provider = chain(
       () => Promise.reject(new ProviderError("Move along")),
       () => Promise.reject(new ProviderError("Nothing to see here")),
-      fromStatic("foo")
+      resolveStatic("foo")
     );
 
     expect(await provider()).toBe("foo");
@@ -36,7 +37,7 @@ describe("chain", () => {
     const provider = chain(
       () => Promise.reject(new ProviderError("Move along")),
       () => Promise.reject(new Error("Unrelated failure")),
-      fromStatic("foo")
+      resolveStatic("foo")
     );
 
     await expect(provider()).rejects.toMatchObject(new Error("Unrelated failure"));
