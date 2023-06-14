@@ -528,3 +528,7 @@ In v3, the similar utility class is available in [`@aws-sdk/rds-signer` package]
 In v2, you can generate a signed URL to the speech synthesized by AWS Polly service with [`AWS.Polly.Presigner` class](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Polly/Presigner.html).
 
 In v3, the similar utility function is available in [`@aws-sdk/polly-request-presigner` package](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_polly_request_presigner.html)
+
+## DynamoDB Accelerator (DAX)
+
+In v3, only control plane operations are supported. There is no current support for CRUD operations.
