@@ -49,6 +49,20 @@ describe("chain", () => {
     expect(providers[2]).not.toHaveBeenCalled();
   });
 
+  it("should halt if ProviderError explicitly requests it", async () => {
+    const expectedErrorMsg = "ProviderError with tryNextLink set to false";
+    const providers = [
+      rejectWithProviderError("Move along"),
+      jest.fn().mockRejectedValue(new ProviderError(expectedErrorMsg, false)),
+      resolveStatic("foo"),
+    ];
+
+    await expect(chain(...providers)()).rejects.toMatchObject(new Error(expectedErrorMsg));
+    expect(providers[0]).toHaveBeenCalledTimes(1);
+    expect(providers[1]).toHaveBeenCalledTimes(1);
+    expect(providers[2]).not.toHaveBeenCalled();
+  });
+
   it("should reject chains with no links", async () => {
     await expect(chain()()).rejects.toMatchObject(new Error("No providers in chain"));
   });
