@@ -11,12 +11,12 @@ describe(mergeConfigFiles.name, () => {
     };
 
     expect(mergeConfigFiles(mockConfigFile, mockCredentialsFile)).toMatchInlineSnapshot(`
-      Object {
-        "profileName1": Object {
+      {
+        "profileName1": {
           "configKey": "configValue1",
           "credsKey": "configValue1",
         },
-        "profileName2": Object {
+        "profileName2": {
           "credsKey": "credsValue1",
         },
       }
