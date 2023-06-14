@@ -1,47 +1,52 @@
 import { chain } from "./chain";
 import { ProviderError } from "./ProviderError";
 
-const resolveStatic = (staticValue: unknown) => () => Promise.resolve(staticValue);
-const rejectWithProviderError = (errorMsg: string) => () => Promise.reject(new ProviderError(errorMsg));
+const resolveStatic = (staticValue: unknown) => jest.fn().mockResolvedValue(staticValue);
+const rejectWithError = (errorMsg: string) => jest.fn().mockRejectedValue(new Error(errorMsg));
+const rejectWithProviderError = (errorMsg: string) => jest.fn().mockRejectedValue(new ProviderError(errorMsg));
 
 describe("chain", () => {
   it("should distill many credential providers into one", async () => {
     const provider = chain(resolveStatic("foo"), resolveStatic("bar"));
-
     expect(typeof (await provider())).toBe("string");
   });
 
   it("should return the resolved value of the first successful promise", async () => {
-    const provider = chain(
+    const expectedOutput = "foo";
+    const providers = [
       rejectWithProviderError("Move along"),
       rejectWithProviderError("Nothing to see here"),
-      resolveStatic("foo")
-    );
+      resolveStatic(expectedOutput),
+    ];
 
-    expect(await provider()).toBe("foo");
+    await expect(chain(...providers)()).resolves.toBe(expectedOutput);
+    expect(providers[0]).toHaveBeenCalledTimes(1);
+    expect(providers[1]).toHaveBeenCalledTimes(1);
+    expect(providers[2]).toHaveBeenCalledTimes(1);
   });
 
   it("should not invoke subsequent providers once one resolves", async () => {
+    const expectedOutput = "foo";
     const providers = [
-      jest.fn().mockRejectedValue(new ProviderError("Move along")),
-      jest.fn().mockResolvedValue("foo"),
-      jest.fn(() => fail("This provider should not be invoked")),
+      rejectWithProviderError("Move along"),
+      resolveStatic(expectedOutput),
+      rejectWithProviderError("This provider should not be invoked"),
     ];
 
-    expect(await chain(...providers)()).toBe("foo");
-    expect(providers[0].mock.calls.length).toBe(1);
-    expect(providers[1].mock.calls.length).toBe(1);
-    expect(providers[2].mock.calls.length).toBe(0);
+    await expect(chain(...providers)()).resolves.toBe(expectedOutput);
+    expect(providers[0]).toHaveBeenCalledTimes(1);
+    expect(providers[1]).toHaveBeenCalledTimes(1);
+    expect(providers[2]).not.toHaveBeenCalled();
   });
 
   it("should halt if an unrecognized error is encountered", async () => {
-    const provider = chain(
-      rejectWithProviderError("Move along"),
-      () => Promise.reject(new Error("Unrelated failure")),
-      resolveStatic("foo")
-    );
+    const expectedErrorMsg = "Unrelated failure";
+    const providers = [rejectWithProviderError("Move along"), rejectWithError(expectedErrorMsg), resolveStatic("foo")];
 
-    await expect(provider()).rejects.toMatchObject(new Error("Unrelated failure"));
+    await expect(chain(...providers)()).rejects.toMatchObject(new Error(expectedErrorMsg));
+    expect(providers[0]).toHaveBeenCalledTimes(1);
+    expect(providers[1]).toHaveBeenCalledTimes(1);
+    expect(providers[2]).not.toHaveBeenCalled();
   });
 
   it("should reject chains with no links", async () => {
