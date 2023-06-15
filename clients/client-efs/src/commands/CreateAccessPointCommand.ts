@@ -45,11 +45,17 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  *         points</a>.</p>
  *          <note>
  *             <p>If multiple requests to create access points on the same file system are sent in quick
- *         succession, and the file system is near the limit of 1000 access points, you may experience
+ *         succession, and the file system is near the limit of 1,000 access points, you may experience
  *         a throttling response for these requests. This is to ensure that the file system does not
  *         exceed the stated access point limit.</p>
  *          </note>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>
+ *          <p>Access points can be tagged on creation. If tags are specified in the creation action, IAM
+ *       performs additional authorization on the <code>elasticfilesystem:TagResource</code> action to
+ *       verify if users have permissions to create tags. Therefore, you must grant explicit
+ *       permissions to use the <code>elasticfilesystem:TagResource</code> action. For more
+ *       information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html">Granting
+ *         permissions to tag resources during creation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
