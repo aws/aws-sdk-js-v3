@@ -1,4 +1,4 @@
-import { transformFromObject, transformFromString, transformToString } from "./transforms";
+import { transformFromString, transformToString } from "./transforms";
 
 /**
  * Adapter for conversions of the native Uint8Array type.
@@ -9,12 +9,10 @@ export class Uint8ArrayBlobAdapter extends Uint8Array {
    * @param source - such as a string or Stream.
    * @returns a new Uint8ArrayBlobAdapter extending Uint8Array.
    */
-  public static from(source: unknown): Uint8ArrayBlobAdapter {
+  public static fromString(source: string, encoding = "utf-8"): Uint8ArrayBlobAdapter {
     switch (typeof source) {
       case "string":
-        return transformFromString(source as string);
-      case "object":
-        return transformFromObject(source as object);
+        return transformFromString(source, encoding);
       default:
         throw new Error(`Unsupported conversion from ${typeof source} to Uint8ArrayBlobAdapter.`);
     }

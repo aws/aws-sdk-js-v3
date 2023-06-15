@@ -1,8 +1,8 @@
-import { BlobAdapter } from "./BlobAdapter";
+import { Uint8ArrayBlobAdapter } from "./Uint8ArrayBlobAdapter";
 
-describe(BlobAdapter.name, () => {
+describe(Uint8ArrayBlobAdapter.name, () => {
   it("extends Uint8Array", () => {
-    const blobby = new BlobAdapter(5);
+    const blobby = new Uint8ArrayBlobAdapter(5);
 
     blobby[-1] = 8;
     blobby[0] = 8;
@@ -26,6 +26,7 @@ describe(BlobAdapter.name, () => {
   });
 
   it("should transform to string synchronously", () => {
-    throw new Error("NYI");
+    const blob = Uint8ArrayBlobAdapter.fromString("test-123");
+    expect(blob.transformToString()).toEqual("test-123");
   });
 });
