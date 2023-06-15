@@ -170,7 +170,7 @@ final class AwsProtocolUtils {
                         // Parser would be moved to runtime config in https://github.com/aws/aws-sdk-js-v3/issues/3979
                         writer.write("const parser = new XMLParser({ attributeNamePrefix: '', htmlEntities: true, "
                             + "ignoreAttributes: false, ignoreDeclaration: true, parseTagValue: false, "
-                            + "trimValues: false, tagValueProcessor: (_, val) => "
+                            + "trimValues: false, tagValueProcessor: (_: any, val: any) => "
                             + "(val.trim() === '' && val.includes('\\n')) ? '': undefined });");
                         writer.write("parser.addEntity('#xD', '\\r');");
                         writer.write("parser.addEntity('#10', '\\n');");
