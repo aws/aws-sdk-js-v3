@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/property-provider",
-  "version": "3.347.0",
+  "version": "3.353.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

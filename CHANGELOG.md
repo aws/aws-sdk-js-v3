@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.353.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.352.0...v3.353.0) (2023-06-15)
+
+
+### Bug Fixes
+
+* **property-provider:** avoid generating default rejected promise when chaining ([#4843](https://github.com/aws/aws-sdk-js-v3/issues/4843)) ([ecc9b5f](https://github.com/aws/aws-sdk-js-v3/commit/ecc9b5fdb287b832ebf08198c880910c89bb366b))
+* **util-dynamodb:** reorder marshall function overload signatures ([#4829](https://github.com/aws/aws-sdk-js-v3/issues/4829)) ([cb4a0e3](https://github.com/aws/aws-sdk-js-v3/commit/cb4a0e30c3dda0a7911c96b0a57e9db0c64a5066))
+
+
+### Features
+
+* **client-auditmanager:** This release introduces 2 Audit Manager features: CSV exports and new manual evidence options. You can now export your evidence finder results in CSV format. In addition, you can now add manual evidence to a control by entering free-form text or uploading a file from your browser. ([2c78764](https://github.com/aws/aws-sdk-js-v3/commit/2c78764401519bd1a9d83b8587f7d54aa4d387fa))
+* **client-location:** Amazon Location Service adds categories to places, including filtering on those categories in searches. Also, you can now add metadata properties to your geofences. ([a7c47ab](https://github.com/aws/aws-sdk-js-v3/commit/a7c47aba905b31b1b05a3b2949e82f9384f9202d))
+* **clients:** update client endpoints as of 2023-06-15 ([f6dd6a7](https://github.com/aws/aws-sdk-js-v3/commit/f6dd6a74801d93c941df98dacb997b26075f90ad))
+
+
+
+
+
 # [3.352.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.351.0...v3.352.0) (2023-06-13)
 
 

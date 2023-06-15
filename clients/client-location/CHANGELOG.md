@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.353.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.352.0...v3.353.0) (2023-06-15)
+
+
+### Features
+
+* **client-location:** Amazon Location Service adds categories to places, including filtering on those categories in searches. Also, you can now add metadata properties to your geofences. ([a7c47ab](https://github.com/aws/aws-sdk-js-v3/commit/a7c47aba905b31b1b05a3b2949e82f9384f9202d))
+
+
+
+
+
 # [3.352.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.351.0...v3.352.0) (2023-06-13)
 
 **Note:** Version bump only for package @aws-sdk/client-location

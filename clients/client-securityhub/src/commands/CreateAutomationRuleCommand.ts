@@ -260,6 +260,75 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @example To create an automation rule
+ * ```javascript
+ * // The following example creates an automation rule.
+ * const input = {
+ *   "Actions": [
+ *     {
+ *       "FindingFieldsUpdate": {
+ *         "Note": {
+ *           "Text": "This is a critical S3 bucket, please look into this ASAP",
+ *           "UpdatedBy": "test-user"
+ *         },
+ *         "Severity": {
+ *           "Label": "CRITICAL"
+ *         }
+ *       },
+ *       "Type": "FINDING_FIELDS_UPDATE"
+ *     }
+ *   ],
+ *   "Criteria": {
+ *     "ComplianceStatus": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "FAILED"
+ *       }
+ *     ],
+ *     "ProductName": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "Security Hub"
+ *       }
+ *     ],
+ *     "RecordState": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "ACTIVE"
+ *       }
+ *     ],
+ *     "ResourceId": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "arn:aws:s3:::examplebucket/developers/design_info.doc"
+ *       }
+ *     ],
+ *     "WorkflowStatus": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "NEW"
+ *       }
+ *     ]
+ *   },
+ *   "Description": "Elevate finding severity to Critical for important resources",
+ *   "IsTerminal": false,
+ *   "RuleName": "Elevate severity for important resources",
+ *   "RuleOrder": 1,
+ *   "RuleStatus": "ENABLED",
+ *   "Tags": {
+ *     "important-resources-rule": "s3-bucket"
+ *   }
+ * };
+ * const command = new CreateAutomationRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * }
+ * *\/
+ * // example id: to-create-an-automation-rule-1684768393507
+ * ```
+ *
  */
 export class CreateAutomationRuleCommand extends $Command<
   CreateAutomationRuleCommandInput,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.353.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.352.0...v3.353.0) (2023-06-15)
+
+
+### Features
+
+* **client-auditmanager:** This release introduces 2 Audit Manager features: CSV exports and new manual evidence options. You can now export your evidence finder results in CSV format. In addition, you can now add manual evidence to a control by entering free-form text or uploading a file from your browser. ([2c78764](https://github.com/aws/aws-sdk-js-v3/commit/2c78764401519bd1a9d83b8587f7d54aa4d387fa))
+
+
+
+
+
 # [3.352.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.351.0...v3.352.0) (2023-06-13)
 
 **Note:** Version bump only for package @aws-sdk/client-auditmanager

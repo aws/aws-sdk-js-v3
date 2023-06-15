@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.353.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.352.0...v3.353.0) (2023-06-15)
+
+
+### Bug Fixes
+
+* **property-provider:** avoid generating default rejected promise when chaining ([#4843](https://github.com/aws/aws-sdk-js-v3/issues/4843)) ([ecc9b5f](https://github.com/aws/aws-sdk-js-v3/commit/ecc9b5fdb287b832ebf08198c880910c89bb366b))
+
+
+
+
+
 # [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
 
 **Note:** Version bump only for package @aws-sdk/property-provider
