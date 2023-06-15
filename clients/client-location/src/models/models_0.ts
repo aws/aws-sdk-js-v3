@@ -1076,6 +1076,12 @@ export interface BatchPutGeofenceRequestEntry {
    *          </note>
    */
   Geometry: GeofenceGeometry | undefined;
+
+  /**
+   * <p>Specifies additional user-defined properties to store with the Geofence. An array
+   *             of key-value pairs.</p>
+   */
+  GeofenceProperties?: Record<string, string>;
 }
 
 /**
@@ -1162,7 +1168,7 @@ export interface BatchUpdateDevicePositionRequest {
   TrackerName: string | undefined;
 
   /**
-   * <p>Contains the position update details for each device.</p>
+   * <p>Contains the position update details for each device, up to 10 devices.</p>
    */
   Updates: DevicePositionUpdate[] | undefined;
 }
@@ -3686,6 +3692,12 @@ export interface GetGeofenceResponse {
    *          </p>
    */
   UpdateTime: Date | undefined;
+
+  /**
+   * <p>Contains additional user-defined properties stored with the geofence. An array of
+   *             key-value pairs.</p>
+   */
+  GeofenceProperties?: Record<string, string>;
 }
 
 /**
@@ -3851,6 +3863,12 @@ export interface ListGeofenceResponseEntry {
    *          </p>
    */
   UpdateTime: Date | undefined;
+
+  /**
+   * <p>Contains additional user-defined properties stored with the geofence. An array of
+   *             key-value pairs.</p>
+   */
+  GeofenceProperties?: Record<string, string>;
 }
 
 /**
@@ -3892,6 +3910,12 @@ export interface PutGeofenceRequest {
    *          </note>
    */
   Geometry: GeofenceGeometry | undefined;
+
+  /**
+   * <p>Specifies additional user-defined properties to store with the Geofence. An array
+   *             of key-value pairs.</p>
+   */
+  GeofenceProperties?: Record<string, string>;
 }
 
 /**
@@ -4546,13 +4570,16 @@ export interface Place {
 
   /**
    * <p>The time zone in which the <code>Place</code> is located. Returned only when using
-   *             HERE as the selected partner.</p>
+   *             HERE or Grab as the selected partner.</p>
    */
   TimeZone?: TimeZone;
 
   /**
    * <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,
    *                 <code>Apartment</code>.</p>
+   *          <note>
+   *             <p>Returned only for a place index that uses Esri as a data provider.</p>
+   *          </note>
    */
   UnitType?: string;
 
@@ -4560,11 +4587,25 @@ export interface Place {
    * <p>For addresses with multiple units, the unit identifier. Can include numbers and
    *             letters, for example <code>3B</code> or <code>Unit 123</code>.</p>
    *          <note>
-   *             <p>Returned only for a place index that uses Esri as a data provider. Is not returned
-   *                 for <code>SearchPlaceIndexForPosition</code>.</p>
+   *             <p>Returned only for a place index that uses Esri or Grab as a data provider. Is
+   *                 not returned for <code>SearchPlaceIndexForPosition</code>.</p>
    *          </note>
    */
   UnitNumber?: string;
+
+  /**
+   * <p>The Amazon Location categories that describe this Place.</p>
+   *          <p>For more information about using categories, including a list of Amazon Location
+   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
+   *                 Guide</i>.</p>
+   */
+  Categories?: string[];
+
+  /**
+   * <p>Categories from the data provider that describe the Place that are not mapped
+   *             to any Amazon Location categories.</p>
+   */
+  SupplementalCategories?: string[];
 }
 
 /**
@@ -5348,6 +5389,16 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *             that the provider does support.</p>
    */
   Language?: string;
+
+  /**
+   * <p>A list of one or more Amazon Location categories to filter the returned places. If you
+   *             include more than one category, the results will include results that match
+   *             <i>any</i> of the categories listed.</p>
+   *          <p>For more information about using categories, including a list of Amazon Location
+   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
+   *                     Guide</i>.</p>
+   */
+  FilterCategories?: string[];
 }
 
 /**
@@ -5362,8 +5413,11 @@ export interface SearchForSuggestionsResult {
   Text: string | undefined;
 
   /**
-   * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
-   *             operation to find the place again later.</p>
+   * <p>The unique identifier of the Place. You can use this with the <code>GetPlace</code>
+   *             operation to find the place again later, or to get full information for the Place.</p>
+   *          <p>The <code>GetPlace</code> request must use the same <code>PlaceIndex</code>
+   *             resource as the <code>SearchPlaceIndexForSuggestions</code> that generated the Place
+   *             ID.</p>
    *          <note>
    *             <p>For <code>SearchPlaceIndexForSuggestions</code> operations, the
    *                     <code>PlaceId</code> is returned by place indexes that use Esri, Grab, or HERE
@@ -5371,6 +5425,20 @@ export interface SearchForSuggestionsResult {
    *          </note>
    */
   PlaceId?: string;
+
+  /**
+   * <p>The Amazon Location categories that describe the Place.</p>
+   *          <p>For more information about using categories, including a list of Amazon Location
+   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
+   *                     Guide</i>.</p>
+   */
+  Categories?: string[];
+
+  /**
+   * <p>Categories from the data provider that describe the Place that are not mapped
+   *             to any Amazon Location categories.</p>
+   */
+  SupplementalCategories?: string[];
 }
 
 /**
@@ -5435,6 +5503,11 @@ export interface SearchPlaceIndexForSuggestionsSummary {
    *             language tag, for example, <code>en</code> for English.</p>
    */
   Language?: string;
+
+  /**
+   * <p>The optional category filter specified in the request.</p>
+   */
+  FilterCategories?: string[];
 }
 
 /**
@@ -5541,6 +5614,16 @@ export interface SearchPlaceIndexForTextRequest {
    *             that the provider does support.</p>
    */
   Language?: string;
+
+  /**
+   * <p>A list of one or more Amazon Location categories to filter the returned places. If you
+   *             include more than one category, the results will include results that match
+   *             <i>any</i> of the categories listed.</p>
+   *          <p>For more information about using categories, including a list of Amazon Location
+   *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
+   *                     Guide</i>.</p>
+   */
+  FilterCategories?: string[];
 }
 
 /**
@@ -5654,6 +5737,11 @@ export interface SearchPlaceIndexForTextSummary {
    *             language tag, for example, <code>en</code> for English.</p>
    */
   Language?: string;
+
+  /**
+   * <p>The optional category filter specified in the request.</p>
+   */
+  FilterCategories?: string[];
 }
 
 /**
@@ -5956,6 +6044,7 @@ export const GeofenceGeometryFilterSensitiveLog = (obj: GeofenceGeometry): any =
 export const BatchPutGeofenceRequestEntryFilterSensitiveLog = (obj: BatchPutGeofenceRequestEntry): any => ({
   ...obj,
   ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+  ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
 });
 
 /**
@@ -6053,6 +6142,7 @@ export const CalculateRouteMatrixResponseFilterSensitiveLog = (obj: CalculateRou
 export const GetGeofenceResponseFilterSensitiveLog = (obj: GetGeofenceResponse): any => ({
   ...obj,
   ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+  ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
 });
 
 /**
@@ -6061,6 +6151,7 @@ export const GetGeofenceResponseFilterSensitiveLog = (obj: GetGeofenceResponse):
 export const ListGeofenceResponseEntryFilterSensitiveLog = (obj: ListGeofenceResponseEntry): any => ({
   ...obj,
   ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+  ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
 });
 
 /**
@@ -6077,6 +6168,7 @@ export const ListGeofencesResponseFilterSensitiveLog = (obj: ListGeofencesRespon
 export const PutGeofenceRequestFilterSensitiveLog = (obj: PutGeofenceRequest): any => ({
   ...obj,
   ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+  ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
 });
 
 /**

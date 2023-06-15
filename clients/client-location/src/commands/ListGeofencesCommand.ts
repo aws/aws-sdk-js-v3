@@ -76,6 +76,9 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * //       Status: "STRING_VALUE", // required
  * //       CreateTime: new Date("TIMESTAMP"), // required
  * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //       GeofenceProperties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

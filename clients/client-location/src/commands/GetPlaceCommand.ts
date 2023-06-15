@@ -89,6 +89,12 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //     },
  * //     UnitType: "STRING_VALUE",
  * //     UnitNumber: "STRING_VALUE",
+ * //     Categories: [ // PlaceCategoryList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SupplementalCategories: [ // PlaceSupplementalCategoryList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

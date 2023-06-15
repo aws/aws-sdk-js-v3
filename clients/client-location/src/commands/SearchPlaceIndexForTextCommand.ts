@@ -71,6 +71,9 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  *   ],
  *   MaxResults: Number("int"),
  *   Language: "STRING_VALUE",
+ *   FilterCategories: [ // FilterPlaceCategoryList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new SearchPlaceIndexForTextCommand(input);
  * const response = await client.send(command);
@@ -92,6 +95,9 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * //     ],
  * //     DataSource: "STRING_VALUE", // required
  * //     Language: "STRING_VALUE",
+ * //     FilterCategories: [ // FilterPlaceCategoryList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Results: [ // SearchForTextResultList // required
  * //     { // SearchForTextResult
@@ -117,6 +123,12 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * //         },
  * //         UnitType: "STRING_VALUE",
  * //         UnitNumber: "STRING_VALUE",
+ * //         Categories: [ // PlaceCategoryList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SupplementalCategories: [ // PlaceSupplementalCategoryList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       Distance: Number("double"),
  * //       Relevance: Number("double"),

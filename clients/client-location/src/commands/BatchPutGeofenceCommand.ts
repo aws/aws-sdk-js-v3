@@ -68,6 +68,9 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  *           Radius: Number("double"), // required
  *         },
  *       },
+ *       GeofenceProperties: { // PropertyMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };

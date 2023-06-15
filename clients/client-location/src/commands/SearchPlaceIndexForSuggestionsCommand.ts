@@ -78,6 +78,9 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  *   ],
  *   MaxResults: Number("int"),
  *   Language: "STRING_VALUE",
+ *   FilterCategories: [ // FilterPlaceCategoryList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new SearchPlaceIndexForSuggestionsCommand(input);
  * const response = await client.send(command);
@@ -96,11 +99,20 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * //     MaxResults: Number("int"),
  * //     DataSource: "STRING_VALUE", // required
  * //     Language: "STRING_VALUE",
+ * //     FilterCategories: [ // FilterPlaceCategoryList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Results: [ // SearchForSuggestionsResultList // required
  * //     { // SearchForSuggestionsResult
  * //       Text: "STRING_VALUE", // required
  * //       PlaceId: "STRING_VALUE",
+ * //       Categories: [ // PlaceCategoryList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupplementalCategories: [ // PlaceSupplementalCategoryList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

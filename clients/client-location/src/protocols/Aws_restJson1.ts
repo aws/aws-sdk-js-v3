@@ -2009,6 +2009,7 @@ export const se_PutGeofenceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      GeofenceProperties: (_) => _json(_),
       Geometry: (_) => se_GeofenceGeometry(_, context),
     })
   );
@@ -2091,6 +2092,7 @@ export const se_SearchPlaceIndexForSuggestionsCommand = async (
     take(input, {
       BiasPosition: (_) => se_Position(_, context),
       FilterBBox: (_) => se_BoundingBox(_, context),
+      FilterCategories: (_) => _json(_),
       FilterCountries: (_) => _json(_),
       Language: [],
       MaxResults: [],
@@ -2135,6 +2137,7 @@ export const se_SearchPlaceIndexForTextCommand = async (
     take(input, {
       BiasPosition: (_) => se_Position(_, context),
       FilterBBox: (_) => se_BoundingBox(_, context),
+      FilterCategories: (_) => _json(_),
       FilterCountries: (_) => _json(_),
       Language: [],
       MaxResults: [],
@@ -4341,6 +4344,7 @@ export const de_GetGeofenceCommand = async (
   const doc = take(data, {
     CreateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     GeofenceId: __expectString,
+    GeofenceProperties: _json,
     Geometry: (_) => de_GeofenceGeometry(_, context),
     Status: __expectString,
     UpdateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -6122,6 +6126,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_BatchPutGeofenceRequestEntry = (input: BatchPutGeofenceRequestEntry, context: __SerdeContext): any => {
   return take(input, {
     GeofenceId: [],
+    GeofenceProperties: _json,
     Geometry: (_) => se_GeofenceGeometry(_, context),
   });
 };
@@ -6201,6 +6206,8 @@ const se_DevicePositionUpdateList = (input: DevicePositionUpdate[], context: __S
       return se_DevicePositionUpdate(entry, context);
     });
 };
+
+// se_FilterPlaceCategoryList omitted.
 
 // se_GeoArnList omitted.
 
@@ -6475,6 +6482,8 @@ const de_DevicePositionList = (output: any, context: __SerdeContext): DevicePosi
   return retVal;
 };
 
+// de_FilterPlaceCategoryList omitted.
+
 // de_GeoArnList omitted.
 
 /**
@@ -6628,6 +6637,7 @@ const de_ListGeofenceResponseEntry = (output: any, context: __SerdeContext): Lis
   return take(output, {
     CreateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     GeofenceId: __expectString,
+    GeofenceProperties: _json,
     Geometry: (_: any) => de_GeofenceGeometry(_, context),
     Status: __expectString,
     UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -6793,6 +6803,7 @@ const de_ListTrackersResponseEntryList = (output: any, context: __SerdeContext):
 const de_Place = (output: any, context: __SerdeContext): Place => {
   return take(output, {
     AddressNumber: __expectString,
+    Categories: _json,
     Country: __expectString,
     Geometry: (_: any) => de_PlaceGeometry(_, context),
     Interpolated: __expectBoolean,
@@ -6803,11 +6814,14 @@ const de_Place = (output: any, context: __SerdeContext): Place => {
     Region: __expectString,
     Street: __expectString,
     SubRegion: __expectString,
+    SupplementalCategories: _json,
     TimeZone: _json,
     UnitNumber: __expectString,
     UnitType: __expectString,
   }) as any;
 };
+
+// de_PlaceCategoryList omitted.
 
 /**
  * deserializeAws_restJson1PlaceGeometry
@@ -6817,6 +6831,8 @@ const de_PlaceGeometry = (output: any, context: __SerdeContext): PlaceGeometry =
     Point: (_: any) => de_Position(_, context),
   }) as any;
 };
+
+// de_PlaceSupplementalCategoryList omitted.
 
 /**
  * deserializeAws_restJson1Position
@@ -6969,6 +6985,7 @@ const de_SearchPlaceIndexForSuggestionsSummary = (
     BiasPosition: (_: any) => de_Position(_, context),
     DataSource: __expectString,
     FilterBBox: (_: any) => de_BoundingBox(_, context),
+    FilterCategories: _json,
     FilterCountries: _json,
     Language: __expectString,
     MaxResults: __expectInt32,
@@ -6984,6 +7001,7 @@ const de_SearchPlaceIndexForTextSummary = (output: any, context: __SerdeContext)
     BiasPosition: (_: any) => de_Position(_, context),
     DataSource: __expectString,
     FilterBBox: (_: any) => de_BoundingBox(_, context),
+    FilterCategories: _json,
     FilterCountries: _json,
     Language: __expectString,
     MaxResults: __expectInt32,

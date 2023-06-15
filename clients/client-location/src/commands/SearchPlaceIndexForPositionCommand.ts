@@ -97,6 +97,12 @@ export interface SearchPlaceIndexForPositionCommandOutput
  * //         },
  * //         UnitType: "STRING_VALUE",
  * //         UnitNumber: "STRING_VALUE",
+ * //         Categories: [ // PlaceCategoryList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SupplementalCategories: [ // PlaceSupplementalCategoryList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       Distance: Number("double"), // required
  * //       PlaceId: "STRING_VALUE",

@@ -62,6 +62,9 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  *       Radius: Number("double"), // required
  *     },
  *   },
+ *   GeofenceProperties: { // PropertyMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new PutGeofenceCommand(input);
  * const response = await client.send(command);
