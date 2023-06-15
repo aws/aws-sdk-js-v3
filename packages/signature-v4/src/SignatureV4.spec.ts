@@ -830,7 +830,7 @@ describe("SignatureV4", () => {
     const mockDate = new Date();
 
     beforeEach(() => {
-      dateSpy = jest.spyOn(global, "Date").mockImplementation(() => mockDate as unknown as string);
+      dateSpy = jest.spyOn(global, "Date").mockImplementation(() => mockDate);
     });
 
     afterEach(() => {
