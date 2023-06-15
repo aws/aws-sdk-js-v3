@@ -572,7 +572,7 @@ export interface AwsApiCallAction {
  */
 export interface DnsRequestAction {
   /**
-   * <p>The domain information for the API request.</p>
+   * <p>The domain information for the DNS query.</p>
    */
   Domain?: string;
 

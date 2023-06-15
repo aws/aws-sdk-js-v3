@@ -39,12 +39,18 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * <p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account
  *       IDs. This step is a prerequisite for managing the associated member accounts either by
  *       invitation or through an organization.</p>
- *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
- *       action will enable GuardDuty in the added member accounts, with the exception of the
- *       organization delegated administrator account, which must enable GuardDuty prior to being added
- *       as a member.</p>
- *          <p>If you are adding accounts by invitation, use this action after GuardDuty has bee enabled in
- *       potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.</p>
+ *          <p>As a delegated administrator, using <code>CreateMembers</code> will enable GuardDuty in
+ *       the added member accounts, with the exception of the
+ *       organization delegated administrator account. A delegated administrator must enable GuardDuty
+ *       prior to being added as a member.</p>
+ *          <p>If you are adding accounts by invitation, before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>, use
+ *       <code>CreateMembers</code> after GuardDuty has been enabled in potential member accounts.</p>
+ *          <p>If you disassociate a member from a GuardDuty
+ *       delegated administrator, the member account details
+ *       obtained from this API, including the associated email addresses, will be retained.
+ *       This is done so that the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a> API without the need to invoke the CreateMembers API again. To
+ *       remove the details associated with a member account, the delegated administrator must invoke the
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
