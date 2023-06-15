@@ -182,13 +182,12 @@ export class Upload extends EventEmitter {
     });
   }
 
-  private async __createMultipartUpload(): Promise<void> {
+  private async __createMultipartUpload(): Promise<CreateMultipartUploadCommandOutput> {
     if (!this.createMultiPartPromise) {
       const createCommandParams = { ...this.params, Body: undefined };
       this.createMultiPartPromise = this.client.send(new CreateMultipartUploadCommand(createCommandParams));
     }
-    const createMultipartUploadResult = await this.createMultiPartPromise;
-    this.uploadId = createMultipartUploadResult.UploadId;
+    return this.createMultiPartPromise;
   }
 
   private async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
@@ -210,7 +209,8 @@ export class Upload extends EventEmitter {
         }
 
         if (!this.uploadId) {
-          await this.__createMultipartUpload();
+          const { UploadId } = await this.__createMultipartUpload();
+          this.uploadId = UploadId;
           if (this.abortController.signal.aborted) {
             return;
           }
