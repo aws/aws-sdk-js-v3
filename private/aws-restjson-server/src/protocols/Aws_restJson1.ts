@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   _json,
+  collectBody,
   dateToUtcString as __dateToUtcString,
   expectBoolean as __expectBoolean,
   expectByte as __expectByte,
@@ -32,7 +33,6 @@ import {
 } from "@aws-sdk/smithy-client";
 import { DocumentType as __DocumentType, ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
-import { Uint8ArrayBlobAdapter as __Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import {
   acceptMatches as __acceptMatches,
   NotAcceptableException as __NotAcceptableException,
@@ -8143,17 +8143,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = async (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<__Uint8ArrayBlobAdapter> => {
-  if (streamBody instanceof Uint8Array) {
-    return __Uint8ArrayBlobAdapter.mutate(streamBody);
-  }
-  return __Uint8ArrayBlobAdapter.mutate(await context.streamCollector(streamBody)) || new __Uint8ArrayBlobAdapter();
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>

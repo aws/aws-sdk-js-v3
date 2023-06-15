@@ -23,6 +23,8 @@
   "dependencies": {
     "@aws-sdk/middleware-stack": "*",
     "@aws-sdk/types": "*",
+    "@aws-sdk/util-stream": "*",
+    "@smithy/types": "^1.0.0",
     "tslib": "^2.5.0"
   },
   "engines": {

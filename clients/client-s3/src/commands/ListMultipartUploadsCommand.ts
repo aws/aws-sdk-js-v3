@@ -148,51 +148,6 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To list in-progress multipart uploads on a bucket
- * ```javascript
- * // The following example lists in-progress multipart uploads on a specific bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new ListMultipartUploadsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Uploads": [
- *     {
- *       "Initiated": "2014-05-01T05:40:58.000Z",
- *       "Initiator": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "Key": "JavaFile",
- *       "Owner": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "StorageClass": "STANDARD",
- *       "UploadId": "examplelUa.CInXklLQtSMJITdUnoZ1Y5GACB5UckOtspm5zbDMCkPF_qkfZzMiFZ6dksmcnqxJyIBvQMG9X9Q--"
- *     },
- *     {
- *       "Initiated": "2014-05-01T05:41:27.000Z",
- *       "Initiator": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "Key": "JavaFile",
- *       "Owner": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "StorageClass": "STANDARD",
- *       "UploadId": "examplelo91lv1iwvWpvCiJWugw2xXLPAD7Z8cJyX9.WiIRgNrdG6Ldsn.9FtS63TCl1Uf5faTB.1U5Ckcbmdw--"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-in-progress-multipart-uploads-on-a-bucket-1481852775260
- * ```
- *
  * @example List next set of multipart uploads when previous result is truncated
  * ```javascript
  * // The following example specifies the upload-id-marker and key-marker from previous truncated response to retrieve next setup of multipart uploads.
@@ -246,6 +201,51 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * }
  * *\/
  * // example id: list-next-set-of-multipart-uploads-when-previous-result-is-truncated-1482428106748
+ * ```
+ *
+ * @example To list in-progress multipart uploads on a bucket
+ * ```javascript
+ * // The following example lists in-progress multipart uploads on a specific bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new ListMultipartUploadsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Uploads": [
+ *     {
+ *       "Initiated": "2014-05-01T05:40:58.000Z",
+ *       "Initiator": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "Key": "JavaFile",
+ *       "Owner": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "StorageClass": "STANDARD",
+ *       "UploadId": "examplelUa.CInXklLQtSMJITdUnoZ1Y5GACB5UckOtspm5zbDMCkPF_qkfZzMiFZ6dksmcnqxJyIBvQMG9X9Q--"
+ *     },
+ *     {
+ *       "Initiated": "2014-05-01T05:41:27.000Z",
+ *       "Initiator": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "Key": "JavaFile",
+ *       "Owner": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "StorageClass": "STANDARD",
+ *       "UploadId": "examplelo91lv1iwvWpvCiJWugw2xXLPAD7Z8cJyX9.WiIRgNrdG6Ldsn.9FtS63TCl1Uf5faTB.1U5Ckcbmdw--"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-in-progress-multipart-uploads-on-a-bucket-1481852775260
  * ```
  *
  */

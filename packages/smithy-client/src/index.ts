@@ -1,5 +1,6 @@
 export * from "./NoOpLogger";
 export * from "./client";
+export * from "./collect-stream-body";
 export * from "./command";
 export * from "./constants";
 export * from "./create-aggregated-client";

@@ -2,7 +2,7 @@ import { Uint8ArrayBlobAdapter } from "./Uint8ArrayBlobAdapter";
 
 describe(Uint8ArrayBlobAdapter.name, () => {
   it("extends Uint8Array", () => {
-    const blobby = new Uint8ArrayBlobAdapter(5);
+    const blobby = Uint8ArrayBlobAdapter.mutate(new Uint8Array(5));
 
     blobby[-1] = 8;
     blobby[0] = 8;

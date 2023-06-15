@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  collectBody,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
@@ -13,7 +14,6 @@ import {
   withBaseException,
 } from "@aws-sdk/smithy-client";
 import { HeaderBag as __HeaderBag, ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
-import { Uint8ArrayBlobAdapter as __Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 import { XMLParser } from "fast-xml-parser";
@@ -13298,17 +13298,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   cfId: output.headers["x-amz-cf-id"],
 });
 
-// Collect low-level response body stream to Uint8Array.
-const collectBody = async (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<__Uint8ArrayBlobAdapter> => {
-  if (streamBody instanceof Uint8Array) {
-    return __Uint8ArrayBlobAdapter.mutate(streamBody);
-  }
-  return __Uint8ArrayBlobAdapter.mutate(await context.streamCollector(streamBody)) || new __Uint8ArrayBlobAdapter();
-};
-
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
@@ -13352,7 +13341,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreDeclaration: true,
         parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
+        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
       parser.addEntity("#xD", "\r");
       parser.addEntity("#10", "\n");

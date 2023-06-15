@@ -119,6 +119,20 @@ const partitionHash: PartitionHash = {
       },
     ],
   },
+  "aws-iso-f": {
+    regions: [],
+    regionRegex: "^us\\-isof\\-\\w+\\-\\d+$",
+    variants: [
+      {
+        hostname: "jsonprotocol.{region}.csp.hci.ic.gov",
+        tags: [],
+      },
+      {
+        hostname: "jsonprotocol-fips.{region}.csp.hci.ic.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
