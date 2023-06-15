@@ -36,7 +36,7 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
 
 /**
  * @public
- * <p> Returns a list of changelogs from Audit Manager. </p>
+ * <p> Gets a list of changelogs from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

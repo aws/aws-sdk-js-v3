@@ -36,7 +36,7 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
 
 /**
  * @public
- * <p> Returns the registration status of an account in Audit Manager. </p>
+ * <p> Gets the registration status of an account in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

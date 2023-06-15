@@ -36,7 +36,7 @@ export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __Metadat
 
 /**
  * @public
- * <p> Returns evidence from Audit Manager. </p>
+ * <p> Gets information about a specified evidence item.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

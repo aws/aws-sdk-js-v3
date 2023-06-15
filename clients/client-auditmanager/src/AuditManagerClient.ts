@@ -126,6 +126,10 @@ import {
   GetEvidenceByEvidenceFolderCommandOutput,
 } from "./commands/GetEvidenceByEvidenceFolderCommand";
 import { GetEvidenceCommandInput, GetEvidenceCommandOutput } from "./commands/GetEvidenceCommand";
+import {
+  GetEvidenceFileUploadUrlCommandInput,
+  GetEvidenceFileUploadUrlCommandOutput,
+} from "./commands/GetEvidenceFileUploadUrlCommand";
 import { GetEvidenceFolderCommandInput, GetEvidenceFolderCommandOutput } from "./commands/GetEvidenceFolderCommand";
 import {
   GetEvidenceFoldersByAssessmentCommandInput,
@@ -264,6 +268,7 @@ export type ServiceInputTypes =
   | GetDelegationsCommandInput
   | GetEvidenceByEvidenceFolderCommandInput
   | GetEvidenceCommandInput
+  | GetEvidenceFileUploadUrlCommandInput
   | GetEvidenceFolderCommandInput
   | GetEvidenceFoldersByAssessmentCommandInput
   | GetEvidenceFoldersByAssessmentControlCommandInput
@@ -330,6 +335,7 @@ export type ServiceOutputTypes =
   | GetDelegationsCommandOutput
   | GetEvidenceByEvidenceFolderCommandOutput
   | GetEvidenceCommandOutput
+  | GetEvidenceFileUploadUrlCommandOutput
   | GetEvidenceFolderCommandOutput
   | GetEvidenceFoldersByAssessmentCommandOutput
   | GetEvidenceFoldersByAssessmentControlCommandOutput

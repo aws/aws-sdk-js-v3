@@ -456,6 +456,14 @@ GetEvidenceByEvidenceFolder
 </details>
 <details>
 <summary>
+GetEvidenceFileUploadUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/classes/getevidencefileuploadurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefileuploadurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auditmanager/interfaces/getevidencefileuploadurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetEvidenceFolder
 </summary>
 

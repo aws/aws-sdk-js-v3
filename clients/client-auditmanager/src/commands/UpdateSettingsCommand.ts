@@ -60,6 +60,10 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  *   deregistrationPolicy: { // DeregistrationPolicy
  *     deleteResources: "ALL" || "DEFAULT",
  *   },
+ *   defaultExportDestination: { // DefaultExportDestination
+ *     destinationType: "S3",
+ *     destination: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
@@ -86,6 +90,10 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * //     },
  * //     deregistrationPolicy: { // DeregistrationPolicy
  * //       deleteResources: "ALL" || "DEFAULT",
+ * //     },
+ * //     defaultExportDestination: { // DefaultExportDestination
+ * //       destinationType: "S3",
+ * //       destination: "STRING_VALUE",
  * //     },
  * //   },
  * // };

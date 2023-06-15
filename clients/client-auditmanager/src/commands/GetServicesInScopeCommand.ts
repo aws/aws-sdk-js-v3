@@ -36,8 +36,8 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
 
 /**
  * @public
- * <p>Returns a list of all of the Amazon Web Services that you can choose to include
- *          in your assessment. When you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html">create an assessment</a>, specify which of these services you want to include to
+ * <p>Gets a list of all of the Amazon Web Services that you can choose to include in
+ *          your assessment. When you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html">create an assessment</a>, specify which of these services you want to include to
  *          narrow the assessment's <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html">scope</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

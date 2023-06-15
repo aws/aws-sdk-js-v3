@@ -452,7 +452,7 @@ export interface AssessmentReportsDestination {
   destinationType?: AssessmentReportDestinationType | string;
 
   /**
-   * <p> The destination of the assessment report. </p>
+   * <p> The destination bucket where Audit Manager stores assessment reports. </p>
    */
   destination?: string;
 }
@@ -1428,13 +1428,28 @@ export interface BatchDisassociateAssessmentReportEvidenceResponse {
 
 /**
  * @public
- * <p> Evidence that's uploaded to Audit Manager manually. </p>
+ * <p> Evidence that's manually added to a control in Audit Manager.
+ *             <code>manualEvidence</code> can be one of the following: <code>evidenceFileName</code>,
+ *             <code>s3ResourcePath</code>, or <code>textResponse</code>.</p>
  */
 export interface ManualEvidence {
   /**
-   * <p> The Amazon S3 URL that points to a manual evidence object. </p>
+   * <p>The S3 URL of the object that's imported as manual evidence. </p>
    */
   s3ResourcePath?: string;
+
+  /**
+   * <p>The plain text response that's entered and saved as manual evidence.</p>
+   */
+  textResponse?: string;
+
+  /**
+   * <p>The name of the file that's uploaded as manual evidence. This name is populated using
+   *          the <code>evidenceFileName</code> value from the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidenceFileUploadUrl.html">
+   *                <code>GetEvidenceFileUploadUrl</code>
+   *             </a> API response.</p>
+   */
+  evidenceFileName?: string;
 }
 
 /**
@@ -1495,6 +1510,26 @@ export interface BatchImportEvidenceToAssessmentControlResponse {
    *          returned. </p>
    */
   errors?: BatchImportEvidenceToAssessmentControlError[];
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
@@ -1653,7 +1688,9 @@ export type SourceFrequency = (typeof SourceFrequency)[keyof typeof SourceFreque
  * @enum
  */
 export const KeywordInputType = {
+  INPUT_TEXT: "INPUT_TEXT",
   SELECT_FROM_LIST: "SELECT_FROM_LIST",
+  UPLOAD_FILE: "UPLOAD_FILE",
 } as const;
 
 /**
@@ -1663,20 +1700,23 @@ export type KeywordInputType = (typeof KeywordInputType)[keyof typeof KeywordInp
 
 /**
  * @public
- * <p> The keyword to search for in CloudTrail logs, Config rules,
- *             Security Hub checks, and Amazon Web Services API names. </p>
+ * <p>A keyword that relates to the control data source.</p>
+ *          <p>For manual evidence, this keyword indicates if the manual evidence is a file or
+ *          text.</p>
+ *          <p>For automated evidence, this keyword identifies a specific CloudTrail event,
+ *             Config rule, Security Hub control, or Amazon Web Services API name. </p>
  *          <p> To learn more about the supported keywords that you can use when mapping a control data
  *          source, see the following pages in the <i>Audit Manager User
  *             Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Config rules supported by Audit Manager</a>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Config rules supported by Audit Manager</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Security Hub controls supported by Audit Manager</a>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Security Hub controls supported by Audit Manager</a>
  *                </p>
  *             </li>
  *             <li>
@@ -1695,6 +1735,35 @@ export type KeywordInputType = (typeof KeywordInputType)[keyof typeof KeywordInp
 export interface SourceKeyword {
   /**
    * <p> The input method for the keyword. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SELECT_FROM_LIST</code> is used when mapping a data source for automated
+   *                evidence.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>When <code>keywordInputType</code> is <code>SELECT_FROM_LIST</code>, a
+   *                      keyword must be selected to collect automated evidence. For example, this
+   *                      keyword can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPLOAD_FILE</code> and <code>INPUT_TEXT</code> are only used when mapping a
+   *                data source for manual evidence.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>When <code>keywordInputType</code> is <code>UPLOAD_FILE</code>, a file must
+   *                      be uploaded as manual evidence.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>When <code>keywordInputType</code> is <code>INPUT_TEXT</code>, text must be
+   *                      entered as manual evidence.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
   keywordInputType?: KeywordInputType | string;
 
@@ -1707,7 +1776,12 @@ export interface SourceKeyword {
    *          <ul>
    *             <li>
    *                <p>For <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">managed rules</a>, you can use the rule identifier as the
-   *                   <code>keywordValue</code>. You can find the rule identifier from the <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">list of Config managed rules</a>.</p>
+   *                   <code>keywordValue</code>. You can find the rule identifier from the <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">list of Config managed rules</a>. For some
+   *                rules, the rule identifier is different from the rule name. For example, the rule
+   *                name <code>restricted-ssh</code> has the following rule identifier:
+   *                   <code>INCOMING_SSH_DISABLED</code>. Make sure to use the rule identifier, not the
+   *                rule name. </p>
+   *                <p>Keyword example for managed rules:</p>
    *                <ul>
    *                   <li>
    *                      <p>Managed rule name: <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html">s3-bucket-acl-prohibited</a>
@@ -1721,7 +1795,8 @@ export interface SourceKeyword {
    *             <li>
    *                <p>For <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">custom rules</a>, you form the <code>keywordValue</code>
    *                by adding the <code>Custom_</code> prefix to the rule name. This prefix distinguishes
-   *                the rule from a managed rule.</p>
+   *                the custom rule from a managed rule. </p>
+   *                <p>Keyword example for custom rules:</p>
    *                <ul>
    *                   <li>
    *                      <p>Custom rule name: my-custom-config-rule</p>
@@ -1734,8 +1809,8 @@ export interface SourceKeyword {
    *             <li>
    *                <p>For <a href="https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html">service-linked rules</a>, you form the
    *                   <code>keywordValue</code> by adding the <code>Custom_</code> prefix to the rule
-   *                name. In addition, you remove the suffix ID that appears at the end of the rule
-   *                name.</p>
+   *                name. In addition, you remove the suffix ID that appears at the end of the rule name. </p>
+   *                <p>Keyword examples for service-linked rules:</p>
    *                <ul>
    *                   <li>
    *                      <p>Service-linked rule name:
@@ -1756,6 +1831,49 @@ export interface SourceKeyword {
    *                </ul>
    *             </li>
    *          </ul>
+   *          <important>
+   *             <p>The <code>keywordValue</code> is case sensitive. If you enter a value incorrectly, Audit Manager might not recognize the data source mapping. As a result, you might not
+   *          successfully collect evidence from that data source as intended. </p>
+   *             <p>Keep in mind the following requirements, depending on the data source type that
+   *             you're using. </p>
+   *             <ol>
+   *                <li>
+   *                   <p>For Config: </p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>For managed rules, make sure that the <code>keywordValue</code> is the rule identifier in
+   *                      <code>ALL_CAPS_WITH_UNDERSCORES</code>. For example,
+   *                      <code>CLOUDWATCH_LOG_GROUP_ENCRYPTED</code>. For accuracy, we recommend
+   *                      that you reference the list of <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">supported Config managed rules</a>.</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>For custom rules, make sure that the <code>keywordValue</code> has the <code>Custom_</code>
+   *                      prefix followed by the custom rule name. The format of the custom rule name
+   *                      itself may vary. For accuracy, we recommend that you visit the <a href="https://console.aws.amazon.com/config/">Config console</a> to
+   *                      verify your custom rule name.</p>
+   *                      </li>
+   *                   </ul>
+   *                </li>
+   *                <li>
+   *                   <p>For Security Hub: The format varies for Security Hub control names.
+   *                   For accuracy, we recommend that you reference the list of <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">supported
+   *                      Security Hub controls</a>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For Amazon Web Services API calls: Make sure that the <code>keywordValue</code>
+   *                   is written as <code>serviceprefix_ActionName</code>. For example,
+   *                   <code>iam_ListGroups</code>. For accuracy, we recommend that you reference the
+   *                   list of <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html">supported
+   *                      API calls</a>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For CloudTrail: Make sure that the <code>keywordValue</code> is written
+   *                   as <code>serviceprefix_ActionName</code>. For example,
+   *                   <code>cloudtrail_StartLogging</code>. For accuracy, we recommend that you
+   *                   review the Amazon Web Service prefix and action names in the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Service Authorization Reference</a>.</p>
+   *                </li>
+   *             </ol>
+   *          </important>
    */
   keywordValue?: string;
 }
@@ -1824,20 +1942,23 @@ export interface ControlMappingSource {
   sourceType?: SourceType | string;
 
   /**
-   * <p> The keyword to search for in CloudTrail logs, Config rules,
-   *             Security Hub checks, and Amazon Web Services API names. </p>
+   * <p>A keyword that relates to the control data source.</p>
+   *          <p>For manual evidence, this keyword indicates if the manual evidence is a file or
+   *          text.</p>
+   *          <p>For automated evidence, this keyword identifies a specific CloudTrail event,
+   *             Config rule, Security Hub control, or Amazon Web Services API name. </p>
    *          <p> To learn more about the supported keywords that you can use when mapping a control data
    *          source, see the following pages in the <i>Audit Manager User
    *             Guide</i>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Config rules supported by Audit Manager</a>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Config rules supported by Audit Manager</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Security Hub controls supported by Audit Manager</a>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Security Hub controls supported by Audit Manager</a>
    *                </p>
    *             </li>
    *             <li>
@@ -1856,7 +1977,7 @@ export interface ControlMappingSource {
   sourceKeyword?: SourceKeyword;
 
   /**
-   * <p> The frequency of evidence collection for the control mapping source. </p>
+   * <p>Specifies how often evidence is collected from the control mapping source. </p>
    */
   sourceFrequency?: SourceFrequency | string;
 
@@ -1896,7 +2017,7 @@ export interface Control {
   id?: string;
 
   /**
-   * <p> The type of control, such as a custom control or a standard control. </p>
+   * <p> Specifies whether the control is a standard control or a custom control.</p>
    */
   type?: ControlType | string;
 
@@ -2007,13 +2128,12 @@ export interface Framework {
   name?: string;
 
   /**
-   * <p> The framework type, such as a custom framework or a standard framework. </p>
+   * <p> Specifies whether the framework is a standard framework or a custom framework.</p>
    */
   type?: FrameworkType | string;
 
   /**
-   * <p> The compliance type that the new custom framework supports, such as CIS or HIPAA.
-   *       </p>
+   * <p> The compliance type that the framework supports, such as CIS or HIPAA. </p>
    */
   complianceType?: string;
 
@@ -2028,7 +2148,7 @@ export interface Framework {
   logo?: string;
 
   /**
-   * <p> The sources that Audit Manager collects evidence from for the control. </p>
+   * <p> The control data sources where Audit Manager collects evidence from.</p>
    */
   controlSources?: string;
 
@@ -2148,20 +2268,23 @@ export interface CreateControlMappingSource {
   sourceType?: SourceType | string;
 
   /**
-   * <p> The keyword to search for in CloudTrail logs, Config rules,
-   *             Security Hub checks, and Amazon Web Services API names. </p>
+   * <p>A keyword that relates to the control data source.</p>
+   *          <p>For manual evidence, this keyword indicates if the manual evidence is a file or
+   *          text.</p>
+   *          <p>For automated evidence, this keyword identifies a specific CloudTrail event,
+   *             Config rule, Security Hub control, or Amazon Web Services API name. </p>
    *          <p> To learn more about the supported keywords that you can use when mapping a control data
    *          source, see the following pages in the <i>Audit Manager User
    *             Guide</i>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Config rules supported by Audit Manager</a>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Config rules supported by Audit Manager</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Security Hub controls supported by Audit Manager</a>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Security Hub controls supported by Audit Manager</a>
    *                </p>
    *             </li>
    *             <li>
@@ -2180,7 +2303,7 @@ export interface CreateControlMappingSource {
   sourceKeyword?: SourceKeyword;
 
   /**
-   * <p> The frequency of evidence collection for the control mapping source. </p>
+   * <p>Specifies how often evidence is collected from the control mapping source. </p>
    */
   sourceFrequency?: SourceFrequency | string;
 
@@ -2604,7 +2727,7 @@ export interface GetControlRequest {
  */
 export interface GetControlResponse {
   /**
-   * <p> The name of the control that the <code>GetControl</code> API returned. </p>
+   * <p> The details of the control that the <code>GetControl</code> API returned. </p>
    */
   control?: Control;
 }
@@ -2908,6 +3031,33 @@ export interface GetEvidenceByEvidenceFolderResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetEvidenceFileUploadUrlRequest {
+  /**
+   * <p>The file that you want to upload. For a list of supported file formats, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported file types for manual evidence</a> in the <i>Audit Manager
+   *             User Guide</i>.</p>
+   */
+  fileName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEvidenceFileUploadUrlResponse {
+  /**
+   * <p>The name of the uploaded manual evidence file that the presigned URL was generated
+   *          for.</p>
+   */
+  evidenceFileName?: string;
+
+  /**
+   * <p>The presigned URL that was generated.</p>
+   */
+  uploadUrl?: string;
 }
 
 /**
@@ -3290,6 +3440,7 @@ export interface GetServicesInScopeResponse {
 export const SettingAttribute = {
   ALL: "ALL",
   DEFAULT_ASSESSMENT_REPORTS_DESTINATION: "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
+  DEFAULT_EXPORT_DESTINATION: "DEFAULT_EXPORT_DESTINATION",
   DEFAULT_PROCESS_OWNERS: "DEFAULT_PROCESS_OWNERS",
   DEREGISTRATION_POLICY: "DEREGISTRATION_POLICY",
   EVIDENCE_FINDER_ENABLEMENT: "EVIDENCE_FINDER_ENABLEMENT",
@@ -3310,6 +3461,35 @@ export interface GetSettingsRequest {
    * <p> The list of setting attribute enum values. </p>
    */
   attribute: SettingAttribute | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportDestinationType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportDestinationType = (typeof ExportDestinationType)[keyof typeof ExportDestinationType];
+
+/**
+ * @public
+ * <p>The default s3 bucket where Audit Manager saves the files that you export from evidence finder.</p>
+ */
+export interface DefaultExportDestination {
+  /**
+   * <p>The destination type, such as Amazon S3.</p>
+   */
+  destinationType?: ExportDestinationType | string;
+
+  /**
+   * <p>The destination bucket where Audit Manager stores exported files.</p>
+   */
+  destination?: string;
 }
 
 /**
@@ -3488,7 +3668,7 @@ export interface Settings {
   snsTopic?: string;
 
   /**
-   * <p> The default storage destination for assessment reports. </p>
+   * <p>The default S3 destination bucket for storing assessment reports.</p>
    */
   defaultAssessmentReportsDestination?: AssessmentReportsDestination;
 
@@ -3512,6 +3692,11 @@ export interface Settings {
    *       use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
    */
   deregistrationPolicy?: DeregistrationPolicy;
+
+  /**
+   * <p>The default S3 destination bucket for storing evidence finder exports.</p>
+   */
+  defaultExportDestination?: DefaultExportDestination;
 }
 
 /**
@@ -3660,7 +3845,8 @@ export interface ListAssessmentFrameworksRequest {
  */
 export interface ListAssessmentFrameworksResponse {
   /**
-   * <p> The list of metadata objects for the framework. </p>
+   * <p> A list of metadata that the <code>ListAssessmentFrameworks</code> API returns for each
+   *          framework.</p>
    */
   frameworkMetadataList?: AssessmentFrameworkMetadata[];
 
@@ -3762,7 +3948,8 @@ export interface ListAssessmentsRequest {
  */
 export interface ListAssessmentsResponse {
   /**
-   * <p> The metadata that's associated with the assessment. </p>
+   * <p>The metadata that the <code>ListAssessments</code> API returns for each
+   *          assessment.</p>
    */
   assessmentMetadata?: AssessmentMetadataItem[];
 
@@ -4007,8 +4194,8 @@ export interface ControlMetadata {
  */
 export interface ListControlsResponse {
   /**
-   * <p> The list of control metadata objects that the <code>ListControls</code> API returned.
-   *       </p>
+   * <p> A list of metadata that the <code>ListControls</code> API returns for each
+   *          control.</p>
    */
   controlMetadataList?: ControlMetadata[];
 
@@ -4174,26 +4361,6 @@ export interface RegisterAccountResponse {
    * <p> The status of the account registration request. </p>
    */
   status?: AccountStatus | string;
-}
-
-/**
- * @public
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
 }
 
 /**
@@ -4617,7 +4784,7 @@ export interface UpdateSettingsRequest {
   snsTopic?: string;
 
   /**
-   * <p> The default storage destination for assessment reports. </p>
+   * <p> The default S3 destination bucket for storing assessment reports. </p>
    */
   defaultAssessmentReportsDestination?: AssessmentReportsDestination;
 
@@ -4648,6 +4815,11 @@ export interface UpdateSettingsRequest {
    *          use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
    */
   deregistrationPolicy?: DeregistrationPolicy;
+
+  /**
+   * <p> The default S3 destination bucket for storing evidence finder exports. </p>
+   */
+  defaultExportDestination?: DefaultExportDestination;
 }
 
 /**

@@ -36,7 +36,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
 
 /**
  * @public
- * <p>Returns an assessment from Audit Manager. </p>
+ * <p>Gets information about a specified assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

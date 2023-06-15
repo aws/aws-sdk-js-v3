@@ -36,7 +36,7 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
 
 /**
  * @public
- * <p> Returns the settings for the specified Amazon Web Services account. </p>
+ * <p> Gets the settings for a specified Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,7 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  * // const { AuditManagerClient, GetSettingsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // GetSettingsRequest
- *   attribute: "ALL" || "IS_AWS_ORG_ENABLED" || "SNS_TOPIC" || "DEFAULT_ASSESSMENT_REPORTS_DESTINATION" || "DEFAULT_PROCESS_OWNERS" || "EVIDENCE_FINDER_ENABLEMENT" || "DEREGISTRATION_POLICY", // required
+ *   attribute: "ALL" || "IS_AWS_ORG_ENABLED" || "SNS_TOPIC" || "DEFAULT_ASSESSMENT_REPORTS_DESTINATION" || "DEFAULT_PROCESS_OWNERS" || "EVIDENCE_FINDER_ENABLEMENT" || "DEREGISTRATION_POLICY" || "DEFAULT_EXPORT_DESTINATION", // required
  * };
  * const command = new GetSettingsCommand(input);
  * const response = await client.send(command);
@@ -71,6 +71,10 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  * //     },
  * //     deregistrationPolicy: { // DeregistrationPolicy
  * //       deleteResources: "ALL" || "DEFAULT",
+ * //     },
+ * //     defaultExportDestination: { // DefaultExportDestination
+ * //       destinationType: "S3",
+ * //       destination: "STRING_VALUE",
  * //     },
  * //   },
  * // };

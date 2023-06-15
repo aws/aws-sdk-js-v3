@@ -36,8 +36,7 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
 
 /**
  * @public
- * <p> Returns an evidence folder from the specified assessment in Audit Manager.
- *       </p>
+ * <p> Gets an evidence folder from a specified assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -26,6 +26,7 @@ export * from "./GetControlCommand";
 export * from "./GetDelegationsCommand";
 export * from "./GetEvidenceByEvidenceFolderCommand";
 export * from "./GetEvidenceCommand";
+export * from "./GetEvidenceFileUploadUrlCommand";
 export * from "./GetEvidenceFolderCommand";
 export * from "./GetEvidenceFoldersByAssessmentCommand";
 export * from "./GetEvidenceFoldersByAssessmentControlCommand";

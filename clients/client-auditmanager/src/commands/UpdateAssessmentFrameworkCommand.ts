@@ -95,7 +95,7 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  * //                 sourceSetUpOption: "System_Controls_Mapping" || "Procedural_Controls_Mapping",
  * //                 sourceType: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL",
  * //                 sourceKeyword: { // SourceKeyword
- * //                   keywordInputType: "SELECT_FROM_LIST",
+ * //                   keywordInputType: "SELECT_FROM_LIST" || "UPLOAD_FILE" || "INPUT_TEXT",
  * //                   keywordValue: "STRING_VALUE",
  * //                 },
  * //                 sourceFrequency: "DAILY" || "WEEKLY" || "MONTHLY",

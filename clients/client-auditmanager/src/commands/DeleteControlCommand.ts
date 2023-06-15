@@ -37,6 +37,12 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
 /**
  * @public
  * <p> Deletes a custom control in Audit Manager. </p>
+ *          <important>
+ *             <p>When you invoke this operation, the custom control is deleted from any frameworks or
+ *             assessments that it’s currently part of. As a result, Audit Manager will stop
+ *             collecting evidence for that custom control in all of your assessments. This includes
+ *             assessments that you previously created before you deleted the custom control.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

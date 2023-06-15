@@ -41,7 +41,7 @@ export interface GetOrganizationAdminAccountCommandOutput
 
 /**
  * @public
- * <p> Returns the name of the delegated Amazon Web Services administrator account for the
+ * <p> Gets the name of the delegated Amazon Web Services administrator account for a specified
  *          organization. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
