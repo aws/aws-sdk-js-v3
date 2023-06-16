@@ -689,6 +689,7 @@ export const InstanceStorageResourceType = {
   MEDIA_STREAMS: "MEDIA_STREAMS",
   REAL_TIME_CONTACT_ANALYSIS_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
   SCHEDULED_REPORTS: "SCHEDULED_REPORTS",
+  SCREEN_RECORDINGS: "SCREEN_RECORDINGS",
 } as const;
 
 /**
@@ -4830,6 +4831,11 @@ export interface Instance {
    * <p>Whether outbound calls are enabled.</p>
    */
   OutboundCallsEnabled?: boolean;
+
+  /**
+   * <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+   */
+  InstanceAccessUrl?: string;
 }
 
 /**

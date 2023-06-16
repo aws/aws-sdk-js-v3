@@ -2525,6 +2525,11 @@ export interface InstanceSummary {
    * <p>Whether outbound calls are enabled.</p>
    */
   OutboundCallsEnabled?: boolean;
+
+  /**
+   * <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+   */
+  InstanceAccessUrl?: string;
 }
 
 /**

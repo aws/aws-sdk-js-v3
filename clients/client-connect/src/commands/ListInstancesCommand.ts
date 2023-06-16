@@ -68,6 +68,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * //       InstanceStatus: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED",
  * //       InboundCallsEnabled: true || false,
  * //       OutboundCallsEnabled: true || false,
+ * //       InstanceAccessUrl: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

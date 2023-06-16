@@ -71,6 +71,7 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * //     },
  * //     InboundCallsEnabled: true || false,
  * //     OutboundCallsEnabled: true || false,
+ * //     InstanceAccessUrl: "STRING_VALUE",
  * //   },
  * // };
  *
