@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4",
-  "version": "3.347.0",
+  "version": "3.354.0",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.354.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.353.0...v3.354.0) (2023-06-16)
+
+
+### Features
+
+* **client-account:** Improve pagination support for ListRegions ([2d43063](https://github.com/aws/aws-sdk-js-v3/commit/2d4306333c7bbfd3fe56d5cde3d453f2eb3105e0))
+* **client-application-discovery-service:** Add Amazon EC2 instance recommendations export ([9df6e88](https://github.com/aws/aws-sdk-js-v3/commit/9df6e881148cbdbb4e4db3a739a077d4628714bd))
+* **client-connect:** Updates the *InstanceStorageConfig APIs to support a new ResourceType: SCREEN_RECORDINGS to enable screen recording and specify the storage configurations for publishing the recordings. Also updates DescribeInstance and ListInstances APIs to include InstanceAccessUrl attribute in the API response. ([fa804c5](https://github.com/aws/aws-sdk-js-v3/commit/fa804c54c951a8ae8548e5a0cee444835d7411d7))
+* **client-s3:** This release adds SDK support for request-payer request header and request-charged response header in the "GetBucketAccelerateConfiguration", "ListMultipartUploads", "ListObjects", "ListObjectsV2" and "ListObjectVersions" S3 APIs. ([20bc94f](https://github.com/aws/aws-sdk-js-v3/commit/20bc94f4279763389a78a5817e592d5e0c35c2aa))
+
+
+
+
+
 # [3.353.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.352.0...v3.353.0) (2023-06-15)
 
 
