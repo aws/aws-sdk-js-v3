@@ -97,6 +97,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *   Prefix: "STRING_VALUE",
  *   UploadIdMarker: "STRING_VALUE",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: "requester",
  * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
@@ -133,6 +134,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * //     },
  * //   ],
  * //   EncodingType: "url",
+ * //   RequestCharged: "requester",
  * // };
  *
  * ```

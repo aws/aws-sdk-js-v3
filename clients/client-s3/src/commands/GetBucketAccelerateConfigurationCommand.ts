@@ -75,11 +75,13 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  * const input = { // GetBucketAccelerateConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: "requester",
  * };
  * const command = new GetBucketAccelerateConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // GetBucketAccelerateConfigurationOutput
  * //   Status: "Enabled" || "Suspended",
+ * //   RequestCharged: "requester",
  * // };
  *
  * ```

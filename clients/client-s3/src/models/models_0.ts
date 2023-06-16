@@ -424,7 +424,7 @@ export interface CompleteMultipartUploadOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -435,14 +435,14 @@ export interface CompleteMultipartUploadOutput {
   VersionId?: string;
 
   /**
-   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for the object.</p>
+   * <p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key
+   *          that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
    * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
-   *          with Amazon Web Services KMS (SSE-KMS).</p>
+   *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -689,7 +689,7 @@ export interface CopyObjectOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -707,8 +707,8 @@ export interface CopyObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for the object.</p>
+   * <p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key
+   *          that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -721,7 +721,7 @@ export interface CopyObjectOutput {
 
   /**
    * <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption
-   *          with Amazon Web Services KMS (SSE-KMS).</p>
+   *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -999,7 +999,7 @@ export interface CopyObjectRequest {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -1043,10 +1043,10 @@ export interface CopyObjectRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>Specifies the Amazon Web Services KMS key ID to use for object encryption. All GET and PUT requests
-   *          for an object protected by Amazon Web Services KMS will fail if not made via SSL or using SigV4. For
-   *          information about configuring using any of the officially supported Amazon Web Services SDKs and Amazon Web Services
-   *          CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the
+   * <p>Specifies the KMS key ID to use for object encryption. All GET and PUT requests for an
+   *          object protected by KMS will fail if they're not made via SSL or using SigV4. For
+   *          information about configuring any of the officially supported Amazon Web Services SDKs and Amazon Web Services CLI, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the
    *             Signature Version in Request Authentication</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
    */
@@ -1061,8 +1061,9 @@ export interface CopyObjectRequest {
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
-   *          server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code>
-   *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. </p>
+   *          server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to
+   *             <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with
+   *          SSE-KMS. </p>
    *          <p>Specifying this header with a COPY action doesn’t affect bucket-level settings for S3
    *          Bucket Key.</p>
    */
@@ -1396,7 +1397,7 @@ export interface CreateMultipartUploadOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -1414,8 +1415,8 @@ export interface CreateMultipartUploadOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for the object.</p>
+   * <p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key
+   *          that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
@@ -1428,7 +1429,7 @@ export interface CreateMultipartUploadOutput {
 
   /**
    * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
-   *          with Amazon Web Services KMS (SSE-KMS).</p>
+   *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -1532,7 +1533,7 @@ export interface CreateMultipartUploadRequest {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -1575,9 +1576,9 @@ export interface CreateMultipartUploadRequest {
 
   /**
    * <p>Specifies the ID of the symmetric encryption customer managed key to use for object encryption.
-   *          All GET and PUT requests for an object protected by Amazon Web Services KMS will fail if not made via SSL
-   *          or using SigV4. For information about configuring using any of the officially supported
-   *          Amazon Web Services SDKs and Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the Signature Version in Request Authentication</a>
+   *          All GET and PUT requests for an object protected by KMS will fail if they're not made via
+   *          SSL or using SigV4. For information about configuring any of the officially supported Amazon Web Services
+   *          SDKs and Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the Signature Version in Request Authentication</a>
    *          in the <i>Amazon S3 User Guide</i>.</p>
    */
   SSEKMSKeyId?: string;
@@ -1591,8 +1592,9 @@ export interface CreateMultipartUploadRequest {
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
-   *          server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code>
-   *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
+   *          server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to
+   *             <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with
+   *          SSE-KMS.</p>
    *          <p>Specifying this header with an object action doesn’t affect bucket-level settings for S3
    *          Bucket Key.</p>
    */
@@ -3923,7 +3925,7 @@ export interface ObjectIdentifier {
  */
 export interface Delete {
   /**
-   * <p>The objects to delete.</p>
+   * <p>The object to delete.</p>
    */
   Objects: ObjectIdentifier[] | undefined;
 
@@ -4060,6 +4062,12 @@ export interface GetBucketAccelerateConfigurationOutput {
    * <p>The accelerate configuration of the bucket.</p>
    */
   Status?: BucketAccelerateStatus | string;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
 }
 
 /**
@@ -4077,6 +4085,14 @@ export interface GetBucketAccelerateConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
 }
 
 /**
@@ -4724,8 +4740,8 @@ export interface GetBucketIntelligentTieringConfigurationRequest {
  */
 export interface SSEKMS {
   /**
-   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption
-   *          customer managed key to use for encrypting inventory reports.</p>
+   * <p>Specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key to use for
+   *          encrypting inventory reports.</p>
    */
   KeyId: string | undefined;
 }
@@ -7127,7 +7143,7 @@ export interface GetObjectOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -7150,14 +7166,14 @@ export interface GetObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for the object.</p>
+   * <p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key
+   *          that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with Amazon Web Services
-   *          KMS (SSE-KMS).</p>
+   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with
+   *          Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -8368,7 +8384,7 @@ export interface HeadObjectOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -8391,14 +8407,14 @@ export interface HeadObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for the object.</p>
+   * <p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key
+   *          that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with Amazon Web Services
-   *          KMS (SSE-KMS).</p>
+   * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with
+   *          Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -9003,6 +9019,12 @@ export interface ListMultipartUploadsOutput {
    *             <code>NextKeyMarker</code>, <code>Key</code>.</p>
    */
   EncodingType?: EncodingType | string;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
 }
 
 /**
@@ -9077,6 +9099,14 @@ export interface ListMultipartUploadsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
 }
 
 /**
@@ -9237,6 +9267,12 @@ export interface ListObjectsOutput {
    * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
    */
   EncodingType?: EncodingType | string;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
 }
 
 /**
@@ -9414,6 +9450,12 @@ export interface ListObjectsV2Output {
    * <p>If StartAfter was sent with the request, it is included in the response.</p>
    */
   StartAfter?: string;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
 }
 
 /**
@@ -9666,6 +9708,12 @@ export interface ListObjectVersionsOutput {
    *             <code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
    */
   EncodingType?: EncodingType | string;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
 }
 
 /**
@@ -9729,6 +9777,14 @@ export interface ListObjectVersionsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
 }
 
 /**
@@ -10168,9 +10224,10 @@ export interface PutBucketCorsRequest {
 export interface PutBucketEncryptionRequest {
   /**
    * <p>Specifies default encryption for a bucket using server-side encryption with different
-   *          key options. By default, all buckets have a default encryption configuration that
-   *          uses server-side encryption with Amazon S3 managed keys (SSE-S3). You can optionally configure default encryption for a bucket by using server-side
-   *          encryption with an Amazon Web Services KMS key (SSE-KMS) or a customer-provided key (SSE-C). For information about the bucket default
+   *          key options. By default, all buckets have a default encryption configuration that uses
+   *          server-side encryption with Amazon S3 managed keys (SSE-S3). You can optionally configure
+   *          default encryption for a bucket by using server-side encryption with an Amazon Web Services KMS key
+   *          (SSE-KMS) or a customer-provided key (SSE-C). For information about the bucket default
    *          encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default Encryption</a>
    *          in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
@@ -10838,7 +10895,7 @@ export interface PutObjectOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -10861,9 +10918,9 @@ export interface PutObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If <code>x-amz-server-side-encryption</code> is has a valid value of
-   *             <code>aws:kms</code>, this header specifies the ID of the Amazon Web Services Key Management Service
-   *          (Amazon Web Services KMS) symmetric encryption customer managed key that was used for the object. </p>
+   * <p>If <code>x-amz-server-side-encryption</code> has a valid value of <code>aws:kms</code>
+   *          or <code>aws:kms:dsse</code>, this header specifies the ID of the Key Management Service (KMS)
+   *          symmetric encryption customer managed key that was used for the object. </p>
    */
   SSEKMSKeyId?: string;
 
@@ -10878,7 +10935,7 @@ export interface PutObjectOutput {
 
   /**
    * <p>Indicates whether the uploaded object uses an S3 Bucket Key for server-side encryption
-   *          with Amazon Web Services KMS (SSE-KMS).</p>
+   *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -11044,7 +11101,7 @@ export interface PutObjectRequest {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -11099,13 +11156,14 @@ export interface PutObjectRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If <code>x-amz-server-side-encryption</code> has a valid value of <code>aws:kms</code>,
-   *          this header specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for the object. If you specify
-   *             <code>x-amz-server-side-encryption:aws:kms</code>, but do not provide<code>
-   *             x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services managed key to
-   *          protect the data. If the KMS key does not exist in the same account issuing the command,
-   *          you must use the full ARN and not just the ID. </p>
+   * <p>If <code>x-amz-server-side-encryption</code> has a valid value of <code>aws:kms</code>
+   *          or <code>aws:kms:dsse</code>, this header specifies the ID of the Key Management Service (KMS)
+   *          symmetric encryption customer managed key that was used for the object. If you specify
+   *             <code>x-amz-server-side-encryption:aws:kms</code> or
+   *             <code>x-amz-server-side-encryption:aws:kms:dsse</code>, but do not provide<code>
+   *             x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services managed key
+   *             (<code>aws/s3</code>) to protect the data. If the KMS key does not exist in the same
+   *          account that's issuing the command, you must use the full ARN and not just the ID. </p>
    */
   SSEKMSKeyId?: string;
 
@@ -11120,8 +11178,9 @@ export interface PutObjectRequest {
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
-   *          server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code>
-   *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
+   *          server-side encryption using Key Management Service (KMS) keys (SSE-KMS). Setting this header to
+   *             <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with
+   *          SSE-KMS.</p>
    *          <p>Specifying this header with a PUT action doesn’t affect bucket-level settings for S3
    *          Bucket Key.</p>
    */

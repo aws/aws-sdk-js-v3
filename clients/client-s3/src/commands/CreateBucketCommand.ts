@@ -52,134 +52,63 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *             bucket</a>.</p>
  *          <note>
  *             <p>If you send your create bucket request to the <code>s3.amazonaws.com</code> endpoint,
- *             the request goes to the us-east-1 Region. Accordingly, the signature calculations in
- *             Signature Version 4 must use us-east-1 as the Region, even if the location constraint in
+ *             the request goes to the <code>us-east-1</code> Region. Accordingly, the signature calculations in
+ *             Signature Version 4 must use <code>us-east-1</code> as the Region, even if the location constraint in
  *             the request specifies another Region where the bucket is to be created. If you create a
  *             bucket in a Region other than US East (N. Virginia), your application must be able to
  *             handle 307 redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual hosting of
  *             buckets</a>.</p>
  *          </note>
  *          <dl>
- *             <dt>Access control lists (ACLs)</dt>
- *             <dd>
- *                <p>When creating a bucket using this operation, you can optionally configure the bucket ACL
- *                   to specify the accounts or groups that should be granted specific permissions on the
- *                   bucket.</p>
- *                <important>
- *                   <p>If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and
- *                      specifies a bucket ACL that provides access to an external Amazon Web Services account, your request
- *                      fails with a <code>400</code> error and returns the
- *                      <code>InvalidBucketAclWithObjectOwnership</code> error code. For more information,
- *                      see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
- *                         ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
- *                </important>
- *                <p>There are two ways to grant the appropriate permissions using the request
- *                   headers.</p>
- *                <ul>
- *                   <li>
- *                      <p>Specify a canned ACL using the <code>x-amz-acl</code> request header. Amazon S3
- *                         supports a set of predefined ACLs, known as <i>canned ACLs</i>. Each
- *                         canned ACL has a predefined set of grantees and permissions. For more information,
- *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
- *                   </li>
- *                   <li>
- *                      <p>Specify access permissions explicitly using the <code>x-amz-grant-read</code>,
- *                         <code>x-amz-grant-write</code>, <code>x-amz-grant-read-acp</code>,
- *                         <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
- *                         headers. These headers map to the set of permissions Amazon S3 supports in an ACL. For
- *                         more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access control list (ACL)
- *                            overview</a>.</p>
- *                      <p>You specify each grantee as a type=value pair, where the type is one of the
- *                         following:</p>
- *                      <ul>
- *                         <li>
- *                            <p>
- *                               <code>id</code> – if the value specified is the canonical user ID of an
- *                               Amazon Web Services account</p>
- *                         </li>
- *                         <li>
- *                            <p>
- *                               <code>uri</code> – if you are granting permissions to a predefined
- *                               group</p>
- *                         </li>
- *                         <li>
- *                            <p>
- *                               <code>emailAddress</code> – if the value specified is the email address of
- *                               an Amazon Web Services account</p>
- *                            <note>
- *                               <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p>
- *                               <ul>
- *                                  <li>
- *                                     <p>US East (N. Virginia)</p>
- *                                  </li>
- *                                  <li>
- *                                     <p>US West (N. California)</p>
- *                                  </li>
- *                                  <li>
- *                                     <p> US West (Oregon)</p>
- *                                  </li>
- *                                  <li>
- *                                     <p> Asia Pacific (Singapore)</p>
- *                                  </li>
- *                                  <li>
- *                                     <p>Asia Pacific (Sydney)</p>
- *                                  </li>
- *                                  <li>
- *                                     <p>Asia Pacific (Tokyo)</p>
- *                                  </li>
- *                                  <li>
- *                                     <p>Europe (Ireland)</p>
- *                                  </li>
- *                                  <li>
- *                                     <p>South America (São Paulo)</p>
- *                                  </li>
- *                               </ul>
- *                               <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
- *                            </note>
- *                         </li>
- *                      </ul>
- *                      <p>For example, the following <code>x-amz-grant-read</code> header grants the Amazon Web Services accounts identified by account IDs permissions to read object data and its metadata:</p>
- *                      <p>
- *                         <code>x-amz-grant-read: id="11112222333", id="444455556666" </code>
- *                      </p>
- *                   </li>
- *                </ul>
- *                <note>
- *                   <p>You can use either a canned ACL or specify access permissions explicitly. You cannot
- *                      do both.</p>
- *                </note>
- *             </dd>
  *             <dt>Permissions</dt>
  *             <dd>
  *                <p>In addition to <code>s3:CreateBucket</code>, the following permissions are required when
- *                   your CreateBucket includes specific headers:</p>
+ *                   your <code>CreateBucket</code> request includes specific headers:</p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>ACLs</b> - If your <code>CreateBucket</code> request
- *                         specifies ACL permissions and the ACL is public-read, public-read-write,
+ *                         <b>Access control lists (ACLs)</b> - If your <code>CreateBucket</code> request
+ *                         specifies access control list (ACL) permissions and the ACL is public-read, public-read-write,
  *                         authenticated-read, or if you specify access permissions explicitly through any other
  *                         ACL, both <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code> permissions
- *                         are needed. If the ACL the <code>CreateBucket</code> request is private or doesn't
+ *                         are needed. If the ACL for the <code>CreateBucket</code> request is private or if the request doesn't
  *                         specify any ACLs, only <code>s3:CreateBucket</code> permission is needed. </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Object Lock</b> - If
- *                         <code>ObjectLockEnabledForBucket</code> is set to true in your
- *                         <code>CreateBucket</code> request,
- *                         <code>s3:PutBucketObjectLockConfiguration</code> and
- *                         <code>s3:PutBucketVersioning</code> permissions are required.</p>
+ *                         <b>Object Lock</b> - If <code>ObjectLockEnabledForBucket</code> is set to true in your
+ *                          <code>CreateBucket</code> request,
+ *                          <code>s3:PutBucketObjectLockConfiguration</code> and
+ *                          <code>s3:PutBucketVersioning</code> permissions are required.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>S3 Object Ownership</b> - If your CreateBucket
- *                         request includes the <code>x-amz-object-ownership</code> header,
- *                         <code>s3:PutBucketOwnershipControls</code> permission is required.</p>
+ *                         <b>S3 Object Ownership</b> - If your <code>CreateBucket</code> request includes the <code>x-amz-object-ownership</code> header, then the
+ *                         <code>s3:PutBucketOwnershipControls</code> permission is required. By default, <code>ObjectOwnership</code> is set to <code>BucketOWnerEnforced</code> and ACLs are disabled. We recommend keeping
+ *                      ACLs disabled, except in uncommon use cases where you must control access for each object individually. If you want to change the <code>ObjectOwnership</code> setting, you can use the
+ *                      <code>x-amz-object-ownership</code> header in your <code>CreateBucket</code> request to set the <code>ObjectOwnership</code> setting of your choice.
+ *                         For more information about S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
+ *                            ownership </a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>S3 Block Public Access</b> - If your specific use case requires granting public access to your S3 resources, you can disable Block Public Access. You can create a new bucket with Block Public Access enabled, then separately call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html">
+ *                            <code>DeletePublicAccessBlock</code>
+ *                         </a> API. To use this operation, you must have the
+ *                         <code>s3:PutBucketPublicAccessBlock</code> permission. By default, all Block
+ *                         Public Access settings are enabled for new buckets. To avoid inadvertent exposure of
+ *                         your resources, we recommend keeping the S3 Block Public Access settings enabled. For more information about S3 Block Public Access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Blocking public
+ *                            access to your Amazon S3 storage </a> in the <i>Amazon S3 User Guide</i>. </p>
  *                   </li>
  *                </ul>
  *             </dd>
  *          </dl>
+ *          <important>
+ *             <p> If your <code>CreateBucket</code> request sets <code>BucketOwnerEnforced</code> for Amazon S3 Object Ownership
+ *          and specifies a bucket ACL that provides access to an external Amazon Web Services account, your request fails with a <code>400</code> error and returns the <code>InvalidBucketAcLWithObjectOwnership</code> error code. For more information,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-ownership-existing-bucket.html">Setting Object
+ *             Ownership on an existing bucket </a> in the <i>Amazon S3 User Guide</i>. </p>
+ *          </important>
  *          <p>The following operations are related to <code>CreateBucket</code>:</p>
  *          <ul>
  *             <li>
@@ -240,22 +169,6 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To create a bucket
- * ```javascript
- * // The following example creates a bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new CreateBucketCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Location": "/examplebucket"
- * }
- * *\/
- * // example id: to-create-a-bucket--1472851826060
- * ```
- *
  * @example To create a bucket in a specific region
  * ```javascript
  * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.
@@ -273,6 +186,22 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * }
  * *\/
  * // example id: to-create-a-bucket-in-a-specific-region-1483399072992
+ * ```
+ *
+ * @example To create a bucket
+ * ```javascript
+ * // The following example creates a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new CreateBucketCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Location": "/examplebucket"
+ * }
+ * *\/
+ * // example id: to-create-a-bucket--1472851826060
  * ```
  *
  */

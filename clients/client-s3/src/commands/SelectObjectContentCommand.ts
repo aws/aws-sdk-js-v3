@@ -119,10 +119,15 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *                         you cannot specify the range of bytes of an object to return. </p>
  *                   </li>
  *                   <li>
- *                      <p>GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You cannot specify
- *                         the GLACIER, DEEP_ARCHIVE, or <code>REDUCED_REDUNDANCY</code> storage classes. For
- *                         more information, about storage classes see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro">Storage
- *                            Classes</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>The <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, and <code>REDUCED_REDUNDANCY</code> storage classes, or the <code>ARCHIVE_ACCESS</code> and
+ *                         <code>DEEP_ARCHIVE_ACCESS</code> access tiers of
+ *                         the <code>INTELLIGENT_TIERING</code> storage class: You cannot query objects in
+ *                         the <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, or <code>REDUCED_REDUNDANCY</code> storage classes, nor objects in the
+ *                         <code>ARCHIVE_ACCESS</code> or
+ *                         <code>DEEP_ARCHIVE_ACCESS</code> access tiers of
+ *                         the <code>INTELLIGENT_TIERING</code> storage class. For
+ *                         more information about storage classes, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">Using Amazon S3 storage
+ *                            classes</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                </ul>
  *             </dd>

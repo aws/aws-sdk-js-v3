@@ -55,7 +55,7 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *          <dl>
  *             <dt>Grantee Values</dt>
  *             <dd>
- *                <p>You can specify the person (grantee) to whom you're assigning access rights (using
+ *                <p>You can specify the person (grantee) to whom you're assigning access rights (by using
  *                   request elements) in the following ways:</p>
  *                <ul>
  *                   <li>
@@ -65,7 +65,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *                         xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
  *                         </Grantee></code>
  *                      </p>
- *                      <p>DisplayName is optional and ignored in the request.</p>
+ *                      <p>
+ *                         <code>DisplayName</code> is optional and ignored in the request.</p>
  *                   </li>
  *                   <li>
  *                      <p>By Email address:</p>
@@ -73,8 +74,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *                         <code> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  *                         xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress></Grantee></code>
  *                      </p>
- *                      <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object
- *                         acl request, appears as the CanonicalUser.</p>
+ *                      <p>The grantee is resolved to the <code>CanonicalUser</code> and, in a response to a <code>GETObjectAcl</code>
+ *                          request, appears as the CanonicalUser.</p>
  *                   </li>
  *                   <li>
  *                      <p>By URI:</p>
@@ -86,8 +87,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *                </ul>
  *             </dd>
  *          </dl>
- *          <p>To enable logging, you use LoggingEnabled and its children request elements. To disable
- *          logging, you use an empty BucketLoggingStatus request element:</p>
+ *          <p>To enable logging, you use <code>LoggingEnabled</code> and its children request elements. To disable
+ *          logging, you use an empty <code>BucketLoggingStatus</code> request element:</p>
  *          <p>
  *             <code><BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01"
  *             /></code>

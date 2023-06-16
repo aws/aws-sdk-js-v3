@@ -70,7 +70,7 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  *             </li>
  *          </ul>
  *          <p>
- *             <code>GetBucketLifecycle</code> has the following special error:</p>
+ *             <code>PutBucketMetricsConfiguration</code> has the following special error:</p>
  *          <ul>
  *             <li>
  *                <p>Error code: <code>TooManyConfigurations</code>

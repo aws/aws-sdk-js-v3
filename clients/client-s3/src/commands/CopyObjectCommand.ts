@@ -85,8 +85,8 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          <dl>
  *             <dt>Metadata</dt>
  *             <dd>
- *                <p>When copying an object, you can preserve all metadata (default) or specify new metadata.
- *                   However, the ACL is not preserved and is set to private for the user making the request. To
+ *                <p>When copying an object, you can preserve all metadata (the default) or specify new metadata.
+ *                   However, the access control list (ACL) is not preserved and is set to private for the user making the request. To
  *                   override the default ACL setting, specify a new ACL when generating a copy request. For
  *                   more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. </p>
  *                <p>To specify whether you want the object metadata copied from the source object or
@@ -167,40 +167,43 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             <dt>Server-side encryption</dt>
  *             <dd>
  *                <p>Amazon S3 automatically encrypts all new objects that are copied to an S3 bucket. When
- *                   copying an object, if you don't specify encryption information in your copy request, the
- *                   encryption setting of the target object is set to the default encryption configuration of
- *                   the destination bucket. By default, all buckets have a base level of encryption
- *                   configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). If the
- *                   destination bucket has a default encryption configuration that uses server-side encryption
- *                   with an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key (SSE-C),
- *                   Amazon S3 uses the corresponding KMS key, or a customer-provided key to encrypt the target
+ *                   copying an object, if you don't specify encryption information in your copy
+ *                   request, the encryption setting of the target object is set to the default
+ *                   encryption configuration of the destination bucket. By default, all buckets have a
+ *                   base level of encryption configuration that uses server-side encryption with Amazon S3
+ *                   managed keys (SSE-S3). If the destination bucket has a default encryption
+ *                   configuration that uses server-side encryption with Key Management Service (KMS) keys
+ *                   (SSE-KMS), dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or
+ *                   server-side encryption with customer-provided encryption keys (SSE-C), Amazon S3 uses
+ *                   the corresponding KMS key, or a customer-provided key to encrypt the target
  *                   object copy.</p>
- *                <p>When you perform a CopyObject operation, if you want to use a different type
+ *                <p>When you perform a <code>CopyObject</code> operation, if you want to use a different type
  *                   of encryption setting for the target object, you can use other appropriate
  *                   encryption-related headers to encrypt the target object with a KMS key, an Amazon S3 managed
  *                   key, or a customer-provided key. With server-side encryption, Amazon S3 encrypts your data as it
- *                   writes it to disks in its data centers and decrypts the data when you access it. If the
+ *                   writes your data to disks in its data centers and decrypts the data when you access it. If the
  *                   encryption setting in your request is different from the default encryption configuration
  *                   of the destination bucket, the encryption setting in your request takes precedence. If the
  *                   source object for the copy is stored in Amazon S3 using SSE-C, you must provide the necessary
  *                   encryption information in your request so that Amazon S3 can decrypt the object for copying. For
  *                   more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using Server-Side
  *                      Encryption</a>.</p>
- *                <p>If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object. For
- *                   more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                <p>If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the
+ *                   object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the
+ *                      <i>Amazon S3 User Guide</i>.</p>
  *             </dd>
  *             <dt>Access Control List (ACL)-Specific Request
- *                Headers</dt>
+ *               Headers</dt>
  *             <dd>
  *                <p>When copying an object, you can optionally use headers to grant ACL-based permissions.
  *                   By default, all objects are private. Only the owner has full access control. When adding a
  *                   new object, you can grant permissions to individual Amazon Web Services accounts or to predefined groups
- *                   defined by Amazon S3. These permissions are then added to the ACL on the object. For more
+ *                   that are defined by Amazon S3. These permissions are then added to the ACL on the object. For more
  *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
  *                         API</a>. </p>
  *                <p>If the bucket that you're copying objects to uses the bucket owner enforced setting for
  *                   S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that use
- *                   this setting only accept PUT requests that don't specify an ACL or PUT requests that
+ *                   this setting only accept <code>PUT</code> requests that don't specify an ACL or <code>PUT</code> requests that
  *                   specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
  *                   canned ACL or an equivalent form of this ACL expressed in the XML format.</p>
  *                <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
@@ -213,24 +216,24 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             <dt>Checksums</dt>
  *             <dd>
  *                <p>When copying an object, if it has a checksum, that checksum will be copied to the new
- *                   object by default. When you copy the object over, you may optionally specify a different
+ *                   object by default. When you copy the object over, you can optionally specify a different
  *                   checksum algorithm to use with the <code>x-amz-checksum-algorithm</code> header.</p>
  *             </dd>
  *             <dt>Storage Class Options</dt>
  *             <dd>
  *                <p>You can use the <code>CopyObject</code> action to change the storage class of an object
- *                   that is already stored in Amazon S3 using the <code>StorageClass</code> parameter. For more
+ *                   that is already stored in Amazon S3 by using the <code>StorageClass</code> parameter. For more
  *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
  *                   <i>Amazon S3 User Guide</i>.</p>
  *                <p>If the source object's storage class is GLACIER, you must restore a copy of
- *                   this object before you can use it as a source object for the copy operation. For
- *                   more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. For
- *                   more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying
- *                   Objects</a>.</p>
+ *                  this object before you can use it as a source object for the copy operation. For
+ *                  more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. For
+ *                  more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying
+ *                     Objects</a>.</p>
  *             </dd>
  *             <dt>Versioning</dt>
  *             <dd>
- *                <p>By default, <code>x-amz-copy-source</code> identifies the current version of an object
+ *                <p>By default, <code>x-amz-copy-source</code> header identifies the current version of an object
  *                   to copy. If the current version is a delete marker, Amazon S3 behaves as if the object was
  *                   deleted. To copy a different version, use the <code>versionId</code> subresource.</p>
  *                <p>If you enable versioning on the target bucket, Amazon S3 generates a unique version ID for

@@ -40,9 +40,9 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
 
 /**
  * @public
- * <p>Returns the default encryption configuration for an Amazon S3 bucket. By default, all buckets have a default encryption configuration that
- *          uses server-side encryption with Amazon S3 managed keys (SSE-S3). For information
- *          about the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket
+ * <p>Returns the default encryption configuration for an Amazon S3 bucket. By default, all buckets
+ *          have a default encryption configuration that uses server-side encryption with Amazon S3 managed
+ *          keys (SSE-S3). For information about the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket
  *             Default Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:GetEncryptionConfiguration</code> action. The bucket owner has this permission

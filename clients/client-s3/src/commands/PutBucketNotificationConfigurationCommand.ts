@@ -69,7 +69,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *             General Reference</i>.</p>
  *          <p>By default, only the bucket owner can configure notifications on a bucket. However,
  *          bucket owners can use a bucket policy to grant permission to other users to set this
- *          configuration with <code>s3:PutBucketNotification</code> permission.</p>
+ *          configuration with the required <code>s3:PutBucketNotification</code> permission.</p>
  *          <note>
  *             <p>The PUT notification is an atomic operation. For example, suppose your notification
  *             configuration includes SNS topic, SQS queue, and Lambda function configurations. When

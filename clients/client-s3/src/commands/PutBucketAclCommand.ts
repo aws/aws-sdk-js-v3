@@ -68,7 +68,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You can set access permissions using one of the following methods:</p>
+ *                <p>You can set access permissions by using one of the following methods:</p>
  *                <ul>
  *                   <li>
  *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. Amazon S3 supports

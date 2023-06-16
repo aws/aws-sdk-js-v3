@@ -285,7 +285,7 @@ export interface Encryption {
   /**
    * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of
    *          the symmetric encryption customer managed key to use for encryption of job results. Amazon S3 only
-   *          supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service
+   *          supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in KMS</a> in the <i>Amazon Web Services Key Management Service
    *             Developer Guide</i>.</p>
    */
   KMSKeyId?: string;
@@ -1129,7 +1129,7 @@ export interface SelectObjectContentRequest {
 export interface UploadPartOutput {
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -1184,14 +1184,14 @@ export interface UploadPartOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key was used for the object.</p>
+   * <p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key
+   *          was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
    * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
-   *          with Amazon Web Services KMS (SSE-KMS).</p>
+   *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -1396,7 +1396,7 @@ export interface UploadPartCopyOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, <code>aws:kms</code>).</p>
+   *             <code>AES256</code>, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -1414,14 +1414,14 @@ export interface UploadPartCopyOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for the object.</p>
+   * <p>If present, specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key
+   *          that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
    * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
-   *          with Amazon Web Services KMS (SSE-KMS).</p>
+   *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 

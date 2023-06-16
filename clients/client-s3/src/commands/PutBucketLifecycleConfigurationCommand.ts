@@ -61,11 +61,11 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                   of the following:</p>
  *                <ul>
  *                   <li>
- *                      <p>Filter identifying a subset of objects to which the rule applies. The filter can
+ *                      <p>A filter identifying a subset of objects to which the rule applies. The filter can
  *                         be based on a key name prefix, object tags, or a combination of both.</p>
  *                   </li>
  *                   <li>
- *                      <p>Status whether the rule is in effect.</p>
+ *                      <p>A status indicating whether the rule is in effect.</p>
  *                   </li>
  *                   <li>
  *                      <p>One or more lifecycle transition and expiration actions that you want Amazon S3 to
@@ -87,7 +87,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                   resource owner can optionally grant access permissions to others by writing an access
  *                   policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
  *                   permission.</p>
- *                <p>You can also explicitly deny permissions. Explicit deny also supersedes any other
+ *                <p>You can also explicitly deny permissions. An explicit deny also supersedes any other
  *                   permissions. If you want to block users or accounts from removing or deleting objects from
  *                   your bucket, you must deny them permissions for the following actions:</p>
  *                <ul>

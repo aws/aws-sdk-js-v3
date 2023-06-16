@@ -120,6 +120,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //     },
  * //   ],
  * //   EncodingType: "url",
+ * //   RequestCharged: "requester",
  * // };
  *
  * ```

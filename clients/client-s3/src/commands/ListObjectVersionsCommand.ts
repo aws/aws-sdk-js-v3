@@ -87,6 +87,7 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *   Prefix: "STRING_VALUE",
  *   VersionIdMarker: "STRING_VALUE",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: "requester",
  * };
  * const command = new ListObjectVersionsCommand(input);
  * const response = await client.send(command);
@@ -136,6 +137,7 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * //     },
  * //   ],
  * //   EncodingType: "url",
+ * //   RequestCharged: "requester",
  * // };
  *
  * ```

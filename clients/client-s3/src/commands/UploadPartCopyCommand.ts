@@ -270,29 +270,6 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To upload a part by copying data from an existing object as data source
- * ```javascript
- * // The following example uploads a part of a multipart upload by copying data from an existing object as data source.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "CopySource": "/bucketname/sourceobjectkey",
- *   "Key": "examplelargeobject",
- *   "PartNumber": "1",
- *   "UploadId": "exampleuoh_10OhKhT7YukE9bjzTPRiuaCotmZM_pFngJFir9OZNrSr5cWa3cq3LZSUsfjI4FI7PkP91We7Nrw--"
- * };
- * const command = new UploadPartCopyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CopyPartResult": {
- *     "ETag": "\"b0c6f0e7e054ab8fa2536a2677f8734d\"",
- *     "LastModified": "2016-12-29T21:24:43.000Z"
- *   }
- * }
- * *\/
- * // example id: to-upload-a-part-by-copying-data-from-an-existing-object-as-data-source-1483046746348
- * ```
- *
  * @example To upload a part by copying byte range from an existing object as data source
  * ```javascript
  * // The following example uploads a part of a multipart upload by copying a specified byte range from an existing object as data source.
@@ -315,6 +292,29 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * }
  * *\/
  * // example id: to-upload-a-part-by-copying-byte-range-from-an-existing-object-as-data-source-1483048068594
+ * ```
+ *
+ * @example To upload a part by copying data from an existing object as data source
+ * ```javascript
+ * // The following example uploads a part of a multipart upload by copying data from an existing object as data source.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "CopySource": "/bucketname/sourceobjectkey",
+ *   "Key": "examplelargeobject",
+ *   "PartNumber": "1",
+ *   "UploadId": "exampleuoh_10OhKhT7YukE9bjzTPRiuaCotmZM_pFngJFir9OZNrSr5cWa3cq3LZSUsfjI4FI7PkP91We7Nrw--"
+ * };
+ * const command = new UploadPartCopyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CopyPartResult": {
+ *     "ETag": "\"b0c6f0e7e054ab8fa2536a2677f8734d\"",
+ *     "LastModified": "2016-12-29T21:24:43.000Z"
+ *   }
+ * }
+ * *\/
+ * // example id: to-upload-a-part-by-copying-data-from-an-existing-object-as-data-source-1483046746348
  * ```
  *
  */

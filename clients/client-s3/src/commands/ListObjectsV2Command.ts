@@ -125,6 +125,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * //   ContinuationToken: "STRING_VALUE",
  * //   NextContinuationToken: "STRING_VALUE",
  * //   StartAfter: "STRING_VALUE",
+ * //   RequestCharged: "requester",
  * // };
  *
  * ```

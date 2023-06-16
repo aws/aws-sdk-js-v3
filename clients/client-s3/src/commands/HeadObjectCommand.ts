@@ -42,8 +42,8 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
 
 /**
  * @public
- * <p>The HEAD action retrieves metadata from an object without returning the object itself.
- *          This action is useful if you're only interested in an object's metadata. To use HEAD, you
+ * <p>The <code>HEAD</code> action retrieves metadata from an object without returning the object itself.
+ *          This action is useful if you're only interested in an object's metadata. To use <code>HEAD</code>, you
  *          must have READ access to the object.</p>
  *          <p>A <code>HEAD</code> request has the same options as a <code>GET</code> action on an
  *          object. The response is identical to the <code>GET</code> response except that there is no
@@ -56,13 +56,19 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *          metadata from the object, you must use the following headers:</p>
  *          <ul>
  *             <li>
- *                <p>x-amz-server-side-encryption-customer-algorithm</p>
+ *                <p>
+ *                   <code>x-amz-server-side-encryption-customer-algorithm</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>x-amz-server-side-encryption-customer-key</p>
+ *                <p>
+ *                   <code>x-amz-server-side-encryption-customer-key</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>x-amz-server-side-encryption-customer-key-MD5</p>
+ *                <p>
+ *                   <code>x-amz-server-side-encryption-customer-key-MD5</code>
+ *                </p>
  *             </li>
  *          </ul>
  *          <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
@@ -71,10 +77,11 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *             <ul>
  *                <li>
  *                   <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>,
- *                   should not be sent for GET requests if your object uses server-side encryption
- *                   with KMS keys (SSE-KMS) or server-side encryption with Amazon S3–managed encryption
- *                   keys (SSE-S3). If your object does use these types of keys, you’ll get an HTTP 400
- *                   BadRequest error.</p>
+ *                   should not be sent for <code>GET</code> requests if your object uses server-side
+ *                   encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side
+ *                   encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with Amazon S3
+ *                   managed encryption keys (SSE-S3). If your object does use these types of keys,
+ *                   you’ll get an HTTP 400 Bad Request error.</p>
  *                </li>
  *                <li>
  *                   <p> The last modified property in this case is the creation date of the
@@ -128,16 +135,16 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *             <dd>
  *                <p>You need the relevant read object (or version) permission for this operation. For more
  *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, resources, and condition keys for Amazon S3</a>.
- *                   If the object you request does not exist, the error Amazon S3 returns depends
+ *                   If the object you request doesn't exist, the error that Amazon S3 returns depends
  *                   on whether you also have the s3:ListBucket permission.</p>
  *                <ul>
  *                   <li>
  *                      <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
- *                         an HTTP status code 404 ("no such key") error.</p>
+ *                         an HTTP status code 404 error.</p>
  *                   </li>
  *                   <li>
  *                      <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an HTTP
- *                         status code 403 ("access denied") error.</p>
+ *                         status code 403 error.</p>
  *                   </li>
  *                </ul>
  *             </dd>

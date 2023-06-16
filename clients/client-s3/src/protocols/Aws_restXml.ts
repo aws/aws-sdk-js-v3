@@ -1241,6 +1241,7 @@ export const se_GetBucketAccelerateConfigurationCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    "x-amz-request-payer": input.RequestPayer!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2361,6 +2362,7 @@ export const se_ListMultipartUploadsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    "x-amz-request-payer": input.RequestPayer!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2467,6 +2469,7 @@ export const se_ListObjectVersionsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    "x-amz-request-payer": input.RequestPayer!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -4917,6 +4920,7 @@ export const de_GetBucketAccelerateConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    RequestCharged: [, output.headers["x-amz-request-charged"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Status"] !== undefined) {
@@ -6634,6 +6638,7 @@ export const de_ListMultipartUploadsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    RequestCharged: [, output.headers["x-amz-request-charged"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Bucket"] !== undefined) {
@@ -6711,6 +6716,7 @@ export const de_ListObjectsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    RequestCharged: [, output.headers["x-amz-request-charged"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CommonPrefixes === "") {
@@ -6788,6 +6794,7 @@ export const de_ListObjectsV2Command = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    RequestCharged: [, output.headers["x-amz-request-charged"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CommonPrefixes === "") {
@@ -6871,6 +6878,7 @@ export const de_ListObjectVersionsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    RequestCharged: [, output.headers["x-amz-request-charged"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CommonPrefixes === "") {
@@ -12942,7 +12950,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreDeclaration: true,
         parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
+        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
       parser.addEntity("#xD", "\r");
       parser.addEntity("#10", "\n");
