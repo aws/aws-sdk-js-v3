@@ -5,20 +5,20 @@ import { ApplicationDiscoveryServiceServiceException as __BaseException } from "
 
 /**
  * @public
- * <p>Information about agents or connectors that were instructed to start collecting data.
- *       Information includes the agent/connector ID, a description of the operation, and whether the
- *       agent/connector configuration was updated.</p>
+ * <p>Information about agents that were instructed to start collecting data.
+ *       Information includes the agent ID, a description of the operation, and whether the
+ *       agent configuration was updated.</p>
  */
 export interface AgentConfigurationStatus {
   /**
-   * <p>The agent/connector ID.</p>
+   * <p>The agent ID.</p>
    */
   agentId?: string;
 
   /**
    * <p>Information about the status of the <code>StartDataCollection</code> and
    *         <code>StopDataCollection</code> operations. The system has recorded the data collection
-   *       operation. The agent/connector receives this command the next time it polls for a new command.
+   *       operation. The agent receives this command the next time it polls for a new command.
    *     </p>
    */
   operationSucceeded?: boolean;
@@ -31,16 +31,16 @@ export interface AgentConfigurationStatus {
 
 /**
  * @public
- * <p>Network details about the host where the agent/connector resides.</p>
+ * <p>Network details about the host where the agent/collector resides.</p>
  */
 export interface AgentNetworkInfo {
   /**
-   * <p>The IP address for the host where the agent/connector resides.</p>
+   * <p>The IP address for the host where the agent/collector resides.</p>
    */
   ipAddress?: string;
 
   /**
-   * <p>The MAC address for the host where the agent/connector resides.</p>
+   * <p>The MAC address for the host where the agent/collector resides.</p>
    */
   macAddress?: string;
 }
@@ -65,25 +65,25 @@ export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
  * @public
- * <p>Information about agents or connectors associated with the user’s Amazon Web Services account.
- *       Information includes agent or connector IDs, IP addresses, media access control (MAC)
- *       addresses, agent or connector health, hostname where the agent or connector resides, and agent
+ * <p>Information about agents associated with the user’s Amazon Web Services account.
+ *       Information includes agent IDs, IP addresses, media access control (MAC)
+ *       addresses, agent or collector status, hostname where the agent resides, and agent
  *       version for each agent.</p>
  */
 export interface AgentInfo {
   /**
-   * <p>The agent or connector ID.</p>
+   * <p>The agent or collector ID.</p>
    */
   agentId?: string;
 
   /**
-   * <p>The name of the host where the agent or connector resides. The host can be a server or
+   * <p>The name of the host where the agent or collector resides. The host can be a server or
    *       virtual machine.</p>
    */
   hostName?: string;
 
   /**
-   * <p>Network details about the host where the agent or connector resides.</p>
+   * <p>Network details about the host where the agent or collector resides.</p>
    */
   agentNetworkInfoList?: AgentNetworkInfo[];
 
@@ -93,22 +93,22 @@ export interface AgentInfo {
   connectorId?: string;
 
   /**
-   * <p>The agent or connector version.</p>
+   * <p>The agent or collector version.</p>
    */
   version?: string;
 
   /**
-   * <p>The health of the agent or connector.</p>
+   * <p>The health of the agent.</p>
    */
   health?: AgentStatus | string;
 
   /**
-   * <p>Time since agent or connector health was reported.</p>
+   * <p>Time since agent health was reported.</p>
    */
   lastHealthPingTime?: string;
 
   /**
-   * <p>Status of the collection process for an agent or connector.</p>
+   * <p>Status of the collection process for an agent.</p>
    */
   collectionStatus?: string;
 
@@ -145,8 +145,8 @@ export interface AssociateConfigurationItemsToApplicationResponse {}
 
 /**
  * @public
- * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *       policy associated with this account.</p>
+ * <p>The user does not have permission to perform the action. Check the IAM
+ *       policy associated with this user.</p>
  */
 export class AuthorizationErrorException extends __BaseException {
   readonly name: "AuthorizationErrorException" = "AuthorizationErrorException";
@@ -166,7 +166,7 @@ export class AuthorizationErrorException extends __BaseException {
 
 /**
  * @public
- * <p>The home region is not set. Set the home region to continue.</p>
+ * <p>The home Region is not set. Set the home Region to continue.</p>
  */
 export class HomeRegionNotSetException extends __BaseException {
   readonly name: "HomeRegionNotSetException" = "HomeRegionNotSetException";
@@ -470,9 +470,8 @@ export interface Filter {
  */
 export interface DescribeAgentsRequest {
   /**
-   * <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
-   *       the system returns information about all agents/Connectors associated with your Amazon Web Services user
-   *       account.</p>
+   * <p>The agent or the collector IDs for which you want information. If you specify no IDs,
+   *       the system returns information about all agents/collectors associated with your user.</p>
    */
   agentIds?: string[];
 
@@ -486,7 +485,7 @@ export interface DescribeAgentsRequest {
   filters?: Filter[];
 
   /**
-   * <p>The total number of agents/Connectors to return in a single page of output. The maximum
+   * <p>The total number of agents/collectors to return in a single page of output. The maximum
    *       value is 100.</p>
    */
   maxResults?: number;
@@ -505,10 +504,10 @@ export interface DescribeAgentsRequest {
  */
 export interface DescribeAgentsResponse {
   /**
-   * <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
-   *       user account if you did not specify an agent/Connector ID. The output includes agent/Connector
-   *       IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name
-   *       where the agent/Connector resides, and the version number of each agent/Connector.</p>
+   * <p>Lists agents or the collector by ID or lists all agents/collectors associated with your
+   *       user, if you did not specify an agent/collector ID. The output includes agent/collector
+   *       IDs, IP addresses, media access control (MAC) addresses, agent/collector health, host name
+   *       where the agent/collector resides, and the version number of each agent/collector.</p>
    */
   agentsInfo?: AgentInfo[];
 
@@ -653,13 +652,12 @@ export interface ContinuousExportDescription {
    *             </li>
    *             <li>
    *                <p>FIREHOSE_ROLE_MISSING - The Data Exploration feature is in an error state because
-   *           your IAM User is missing the AWSApplicationDiscoveryServiceFirehose role. Turn on Data
-   *           Exploration in Amazon Athena and try again. For more information, see <a href="http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html#setting-up-user-policy">Step 3: Provide Application Discovery Service Access to Non-Administrator Users by
-   *             Attaching Policies</a> in the Application Discovery Service User Guide.</p>
+   *           your user is missing the Amazon Web ServicesApplicationDiscoveryServiceFirehose role. Turn on Data
+   *           Exploration in Amazon Athena and try again. For more information, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-create-firehose-role">Creating the Amazon Web ServicesApplicationDiscoveryServiceFirehose Role</a> in the Application Discovery Service User Guide.</p>
    *             </li>
    *             <li>
    *                <p>FIREHOSE_STREAM_DOES_NOT_EXIST - The Data Exploration feature is in an error state
-   *           because your IAM User is missing one or more of the Kinesis data delivery
+   *           because your user is missing one or more of the Kinesis data delivery
    *           streams.</p>
    *             </li>
    *             <li>
@@ -677,23 +675,23 @@ export interface ContinuousExportDescription {
    *                   <li>
    *                      <p>If you don’t want to use the Lake Formation permission model, you can change
    *               the default Data Catalog settings to use only Amazon Web Services Identity and Access Management
-   *               (IAM) access control for new databases. For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#setup-change-cat-settings">Change Data Catalog Settings</a> in the <i>Lake Formation
-   *                   Developer Guide</i>.</p>
+   *               (IAM) access control for new databases. For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#setup-change-cat-settings">Change Data Catalog Settings</a> in the <i>Lake Formation Developer
+   *                 Guide</i>.</p>
    *                   </li>
    *                   <li>
    *                      <p>You can give the service-linked IAM roles
    *               AWSServiceRoleForApplicationDiscoveryServiceContinuousExport and
    *               AWSApplicationDiscoveryServiceFirehose the required Lake Formation permissions. For
    *               more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/granting-database-permissions.html">
-   *                 Granting Database Permissions</a> in the <i>Lake Formation
-   *                   Developer Guide</i>. </p>
+   *                 Granting Database Permissions</a> in the <i>Lake Formation Developer
+   *                 Guide</i>. </p>
    *                      <ol>
    *                         <li>
    *                            <p>AWSServiceRoleForApplicationDiscoveryServiceContinuousExport - Grant
    *                   database creator permissions, which gives the role database creation ability and
    *                   implicit permissions for any created tables. For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html">
-   *                     Implicit Lake Formation Permissions </a> in the <i>Lake
-   *                       Formation Developer Guide</i>.</p>
+   *                     Implicit Lake Formation Permissions </a> in the <i>Lake Formation
+   *                     Developer Guide</i>.</p>
    *                         </li>
    *                         <li>
    *                            <p>AWSApplicationDiscoveryServiceFirehose - Grant describe permissions for all
@@ -705,13 +703,12 @@ export interface ContinuousExportDescription {
    *             </li>
    *             <li>
    *                <p>S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3 buckets. Reduce the
-   *           number of S3 buckets or request a limit increase and try again. For more
-   *           information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
-   *             Restrictions and Limitations</a> in the Amazon Simple Storage Service Developer
-   *           Guide.</p>
+   *           number of S3 buckets or request a limit increase and try again. For more information, see
+   *             <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket Restrictions and Limitations</a> in the Amazon Simple Storage Service
+   *           Developer Guide.</p>
    *             </li>
    *             <li>
-   *                <p>S3_NOT_SIGNED_UP - Your account is not signed up for the Amazon S3 service. You
+   *                <p>S3_NOT_SIGNED_UP - Your account is not signed up for the  Amazon S3 service. You
    *           must sign up before you can use Amazon S3. You can sign up at the following URL: <a href="https://aws.amazon.com/s3">https://aws.amazon.com/s3</a>.</p>
    *             </li>
    *          </ul>
@@ -1315,14 +1312,43 @@ export interface GetDiscoverySummaryRequest {}
 
 /**
  * @public
+ * <p>The inventory data for installed Agentless Collector collectors. </p>
  */
 export interface CustomerAgentlessCollectorInfo {
+  /**
+   * <p>The number of active Agentless Collector collectors. </p>
+   */
   activeAgentlessCollectors: number | undefined;
+
+  /**
+   * <p>The number of healthy Agentless Collector collectors. </p>
+   */
   healthyAgentlessCollectors: number | undefined;
+
+  /**
+   * <p>The number of deny-listed Agentless Collector collectors. </p>
+   */
   denyListedAgentlessCollectors: number | undefined;
+
+  /**
+   * <p>The number of Agentless Collector collectors with <code>SHUTDOWN</code> status.
+   *     </p>
+   */
   shutdownAgentlessCollectors: number | undefined;
+
+  /**
+   * <p> The number of unhealthy Agentless Collector collectors. </p>
+   */
   unhealthyAgentlessCollectors: number | undefined;
+
+  /**
+   * <p> The total number of Agentless Collector collectors. </p>
+   */
   totalAgentlessCollectors: number | undefined;
+
+  /**
+   * <p> The number of unknown Agentless Collector collectors. </p>
+   */
   unknownAgentlessCollectors: number | undefined;
 }
 
@@ -1410,57 +1436,41 @@ export interface CustomerConnectorInfo {
 
 /**
  * @public
- * <p>
- *       The inventory data for installed Migration Evaluator collectors.
- *     </p>
+ * <p> The inventory data for installed Migration Evaluator collectors. </p>
  */
 export interface CustomerMeCollectorInfo {
   /**
-   * <p>
-   *       The number of active Migration Evaluator collectors.
-   *     </p>
+   * <p> The number of active Migration Evaluator collectors. </p>
    */
   activeMeCollectors: number | undefined;
 
   /**
-   * <p>
-   *       The number of healthy Migration Evaluator collectors.
-   *     </p>
+   * <p> The number of healthy Migration Evaluator collectors. </p>
    */
   healthyMeCollectors: number | undefined;
 
   /**
-   * <p>
-   *       The number of deny-listed Migration Evaluator collectors.
-   *     </p>
+   * <p> The number of deny-listed Migration Evaluator collectors. </p>
    */
   denyListedMeCollectors: number | undefined;
 
   /**
-   * <p>
-   *       The number of Migration Evaluator collectors with <code>SHUTDOWN</code> status.
-   *     </p>
+   * <p> The number of Migration Evaluator collectors with <code>SHUTDOWN</code> status. </p>
    */
   shutdownMeCollectors: number | undefined;
 
   /**
-   * <p>
-   *       The number of unhealthy Migration Evaluator collectors.
-   *     </p>
+   * <p> The number of unhealthy Migration Evaluator collectors. </p>
    */
   unhealthyMeCollectors: number | undefined;
 
   /**
-   * <p>
-   *       The total number of Migration Evaluator collectors.
-   *     </p>
+   * <p> The total number of Migration Evaluator collectors. </p>
    */
   totalMeCollectors: number | undefined;
 
   /**
-   * <p>
-   *       The number of unknown Migration Evaluator collectors.
-   *     </p>
+   * <p> The number of unknown Migration Evaluator collectors. </p>
    */
   unknownMeCollectors: number | undefined;
 }
@@ -1500,12 +1510,13 @@ export interface GetDiscoverySummaryResponse {
   connectorSummary?: CustomerConnectorInfo;
 
   /**
-   * <p>
-   *       Details about Migration Evaluator collectors, including collector status and health.
-   *     </p>
+   * <p> Details about Migration Evaluator collectors, including collector status and health. </p>
    */
   meCollectorSummary?: CustomerMeCollectorInfo;
 
+  /**
+   * <p> Details about Agentless Collector collectors, including status. </p>
+   */
   agentlessCollectorSummary?: CustomerAgentlessCollectorInfo;
 }
 
@@ -1782,13 +1793,13 @@ export interface StartContinuousExportResponse {
  */
 export interface StartDataCollectionByAgentIdsRequest {
   /**
-   * <p>The IDs of the agents or connectors from which to start collecting data. If you send a
-   *       request to an agent/connector ID that you do not have permission to contact, according to your
-   *       Amazon Web Services account, the service does not throw an exception. Instead, it returns the error in the
-   *         <i>Description</i> field. If you send a request to multiple agents/connectors
-   *       and you do not have permission to contact some of those agents/connectors, the system does not
-   *       throw an exception. Instead, the system shows <code>Failed</code> in the
-   *         <i>Description</i> field.</p>
+   * <p>The IDs of the agents from which to start collecting data. If you send a request to an
+   *       agent ID that you do not have permission to contact, according to your Amazon Web Services account, the
+   *       service does not throw an exception. Instead, it returns the error in the
+   *         <i>Description</i> field. If you send a request to multiple agents and you do
+   *       not have permission to contact some of those agents, the system does not throw an exception.
+   *       Instead, the system shows <code>Failed</code> in the <i>Description</i>
+   *       field.</p>
    */
   agentIds: string[] | undefined;
 }
@@ -1798,9 +1809,9 @@ export interface StartDataCollectionByAgentIdsRequest {
  */
 export interface StartDataCollectionByAgentIdsResponse {
   /**
-   * <p>Information about agents or the connector that were instructed to start collecting
-   *       data. Information includes the agent/connector ID, a description of the operation performed,
-   *       and whether the agent/connector configuration was updated.</p>
+   * <p>Information about agents that were instructed to start collecting data. Information
+   *       includes the agent ID, a description of the operation performed, and whether the agent
+   *       configuration was updated.</p>
    */
   agentsConfigurationStatus?: AgentConfigurationStatus[];
 }
@@ -1811,13 +1822,227 @@ export interface StartDataCollectionByAgentIdsResponse {
  */
 export const ExportDataFormat = {
   CSV: "CSV",
-  GRAPHML: "GRAPHML",
 } as const;
 
 /**
  * @public
  */
 export type ExportDataFormat = (typeof ExportDataFormat)[keyof typeof ExportDataFormat];
+
+/**
+ * @public
+ * <p>
+ *       Specifies the performance metrics to use for the server that is used for recommendations.
+ *     </p>
+ */
+export interface UsageMetricBasis {
+  /**
+   * <p>
+   *       A utilization metric that is used by the recommendations.
+   *     </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *       Specifies the percentage of the specified utilization metric that is used by the recommendations.
+   *     </p>
+   */
+  percentageAdjust?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferingClass = {
+  CONVERTIBLE: "CONVERTIBLE",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferingClass = (typeof OfferingClass)[keyof typeof OfferingClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const PurchasingOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+} as const;
+
+/**
+ * @public
+ */
+export type PurchasingOption = (typeof PurchasingOption)[keyof typeof PurchasingOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const TermLength = {
+  ONE_YEAR: "ONE_YEAR",
+  THREE_YEAR: "THREE_YEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type TermLength = (typeof TermLength)[keyof typeof TermLength];
+
+/**
+ * @public
+ * <p>
+ *       Used to provide Reserved Instance preferences for the recommendation.
+ *     </p>
+ */
+export interface ReservedInstanceOptions {
+  /**
+   * <p>
+   *       The payment plan to use for your Reserved Instance.
+   *     </p>
+   */
+  purchasingOption: PurchasingOption | string | undefined;
+
+  /**
+   * <p>
+   *     The flexibility to change the instance types needed for your Reserved Instance.
+   *     </p>
+   */
+  offeringClass: OfferingClass | string | undefined;
+
+  /**
+   * <p>
+   *       The preferred duration of the Reserved Instance term.
+   *     </p>
+   */
+  termLength: TermLength | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Tenancy = {
+  DEDICATED: "DEDICATED",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
+
+/**
+ * @public
+ * <p>
+ *       Indicates that the exported data must include EC2 instance type matches for on-premises servers
+ *       that are discovered through Amazon Web Services Application Discovery Service.
+ *     </p>
+ */
+export interface Ec2RecommendationsExportPreferences {
+  /**
+   * <p>
+   *       If set to true, the export
+   *       <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestSyntax">preferences</a>
+   *       is set to <code>Ec2RecommendationsExportPreferences</code>.
+   *     </p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>
+   *       The recommended EC2 instance type that matches the CPU usage metric of server performance data.
+   *     </p>
+   */
+  cpuPerformanceMetricBasis?: UsageMetricBasis;
+
+  /**
+   * <p>
+   *       The recommended EC2 instance type that matches the Memory usage metric of server performance data.
+   *     </p>
+   */
+  ramPerformanceMetricBasis?: UsageMetricBasis;
+
+  /**
+   * <p>
+   *       The target tenancy to use for your recommended EC2 instances.
+   *     </p>
+   */
+  tenancy?: Tenancy | string;
+
+  /**
+   * <p>
+   *       An array of instance types to exclude from recommendations.
+   *     </p>
+   */
+  excludedInstanceTypes?: string[];
+
+  /**
+   * <p>
+   *       The target Amazon Web Services Region for the recommendations.
+   *       You can use any of the Region codes available for the chosen service,
+   *       as listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Amazon Web Services service endpoints</a> in the <i>Amazon Web Services General Reference</i>.
+   *     </p>
+   */
+  preferredRegion?: string;
+
+  /**
+   * <p>
+   *       The contract type for a reserved instance.
+   *       If blank, we assume an On-Demand instance is preferred.
+   *     </p>
+   */
+  reservedInstanceOptions?: ReservedInstanceOptions;
+}
+
+/**
+ * @public
+ * <p>
+ *       Indicates the type of data that is being exported. Only one
+ *       <code>ExportPreferences</code> can be enabled for a
+ *       <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html">StartExportTask</a> action.
+ *     </p>
+ */
+export type ExportPreferences =
+  | ExportPreferences.Ec2RecommendationsPreferencesMember
+  | ExportPreferences.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExportPreferences {
+  /**
+   * <p>
+   *       If enabled, exported data includes EC2 instance type matches for on-premises servers
+   *       discovered through Amazon Web Services Application Discovery Service.
+   *     </p>
+   */
+  export interface Ec2RecommendationsPreferencesMember {
+    ec2RecommendationsPreferences: Ec2RecommendationsExportPreferences;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    ec2RecommendationsPreferences?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ec2RecommendationsPreferences: (value: Ec2RecommendationsExportPreferences) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ExportPreferences, visitor: Visitor<T>): T => {
+    if (value.ec2RecommendationsPreferences !== undefined)
+      return visitor.ec2RecommendationsPreferences(value.ec2RecommendationsPreferences);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * @public
@@ -1838,8 +2063,8 @@ export interface StartExportTaskRequest {
    *       Discovery Agent for which data is exported. The <code>agentId</code> can be found in the
    *       results of the <code>DescribeAgents</code> API or CLI. If no filter is present,
    *         <code>startTime</code> and <code>endTime</code> are ignored and exported data includes both
-   *       Agentless Discovery Connector data and summary data from Application Discovery agents.
-   *     </p>
+   *       Amazon Web Services Application Discovery Service Agentless Collector collectors data and summary data from Application Discovery
+   *       Agent agents. </p>
    */
   filters?: ExportFilter[];
 
@@ -1856,6 +2081,14 @@ export interface StartExportTaskRequest {
    *       collected by the agent.</p>
    */
   endTime?: Date;
+
+  /**
+   * <p>
+   *       Indicates the type of data that needs to be exported. Only one
+   *       <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_ExportPreferences.html">ExportPreferences</a> can be enabled at any time.
+   *     </p>
+   */
+  preferences?: ExportPreferences;
 }
 
 /**
@@ -1942,7 +2175,7 @@ export interface StopContinuousExportResponse {
  */
 export interface StopDataCollectionByAgentIdsRequest {
   /**
-   * <p>The IDs of the agents or connectors from which to stop collecting data.</p>
+   * <p>The IDs of the agents from which to stop collecting data.</p>
    */
   agentIds: string[] | undefined;
 }
@@ -1952,9 +2185,9 @@ export interface StopDataCollectionByAgentIdsRequest {
  */
 export interface StopDataCollectionByAgentIdsResponse {
   /**
-   * <p>Information about the agents or connector that were instructed to stop collecting data.
-   *       Information includes the agent/connector ID, a description of the operation performed, and
-   *       whether the agent/connector configuration was updated.</p>
+   * <p>Information about the agents that were instructed to stop collecting data. Information
+   *       includes the agent ID, a description of the operation performed, and whether the agent
+   *       configuration was updated.</p>
    */
   agentsConfigurationStatus?: AgentConfigurationStatus[];
 }

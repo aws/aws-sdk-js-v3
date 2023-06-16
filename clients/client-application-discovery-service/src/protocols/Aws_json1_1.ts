@@ -8,6 +8,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@aws-sdk/smithy-client";
@@ -111,9 +112,11 @@ import {
   DescribeTagsRequest,
   DescribeTagsResponse,
   DisassociateConfigurationItemsFromApplicationRequest,
+  Ec2RecommendationsExportPreferences,
   ExportDataFormat,
   ExportFilter,
   ExportInfo,
+  ExportPreferences,
   Filter,
   GetDiscoverySummaryRequest,
   HomeRegionNotSetException,
@@ -125,6 +128,7 @@ import {
   ListServerNeighborsRequest,
   OperationNotPermittedException,
   OrderByElement,
+  ReservedInstanceOptions,
   ResourceInUseException,
   ResourceNotFoundException,
   ServerInternalErrorException,
@@ -140,6 +144,7 @@ import {
   Tag,
   TagFilter,
   UpdateApplicationRequest,
+  UsageMetricBasis,
 } from "../models/models_0";
 
 /**
@@ -2146,6 +2151,26 @@ const de_ServerInternalErrorExceptionRes = async (
 
 // se_DisassociateConfigurationItemsFromApplicationRequest omitted.
 
+/**
+ * serializeAws_json1_1Ec2RecommendationsExportPreferences
+ */
+const se_Ec2RecommendationsExportPreferences = (
+  input: Ec2RecommendationsExportPreferences,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    cpuPerformanceMetricBasis: (_) => se_UsageMetricBasis(_, context),
+    enabled: [],
+    excludedInstanceTypes: _json,
+    preferredRegion: [],
+    ramPerformanceMetricBasis: (_) => se_UsageMetricBasis(_, context),
+    reservedInstanceOptions: _json,
+    tenancy: [],
+  });
+};
+
+// se_ExcludedInstanceTypes omitted.
+
 // se_ExportDataFormats omitted.
 
 // se_ExportFilter omitted.
@@ -2153,6 +2178,18 @@ const de_ServerInternalErrorExceptionRes = async (
 // se_ExportFilters omitted.
 
 // se_ExportIds omitted.
+
+/**
+ * serializeAws_json1_1ExportPreferences
+ */
+const se_ExportPreferences = (input: ExportPreferences, context: __SerdeContext): any => {
+  return ExportPreferences.visit(input, {
+    ec2RecommendationsPreferences: (value) => ({
+      ec2RecommendationsPreferences: se_Ec2RecommendationsExportPreferences(value, context),
+    }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 // se_Filter omitted.
 
@@ -2174,6 +2211,8 @@ const de_ServerInternalErrorExceptionRes = async (
 
 // se_OrderByList omitted.
 
+// se_ReservedInstanceOptions omitted.
+
 // se_StartContinuousExportRequest omitted.
 
 // se_StartDataCollectionByAgentIdsRequest omitted.
@@ -2186,6 +2225,7 @@ const se_StartExportTaskRequest = (input: StartExportTaskRequest, context: __Ser
     endTime: (_) => Math.round(_.getTime() / 1000),
     exportDataFormat: _json,
     filters: _json,
+    preferences: (_) => se_ExportPreferences(_, context),
     startTime: (_) => Math.round(_.getTime() / 1000),
   });
 };
@@ -2216,6 +2256,16 @@ const se_StartImportTaskRequest = (input: StartImportTaskRequest, context: __Ser
 // se_ToDeleteIdentifierList omitted.
 
 // se_UpdateApplicationRequest omitted.
+
+/**
+ * serializeAws_json1_1UsageMetricBasis
+ */
+const se_UsageMetricBasis = (input: UsageMetricBasis, context: __SerdeContext): any => {
+  return take(input, {
+    name: [],
+    percentageAdjust: __serializeFloat,
+  });
+};
 
 // de_AgentConfigurationStatus omitted.
 

@@ -41,10 +41,11 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
 /**
  * @public
  * <p>Starts an import task, which allows you to import details of your on-premises environment
- *       directly into Amazon Web Services Migration Hub without having to use the Application Discovery Service (ADS)
- *       tools such as the Discovery Connector or Discovery Agent. This gives you the option to perform
- *       migration assessment and planning directly from your imported data, including the ability to
- *       group your devices as applications and track their migration status.</p>
+ *       directly into Amazon Web Services Migration Hub without having to use the Amazon Web Services Application Discovery
+ *       Service (Application Discovery Service) tools such as the Amazon Web Services Application Discovery Service Agentless Collector
+ *       or Application Discovery Agent. This gives you the option to
+ *       perform migration assessment and planning directly from your imported data, including the
+ *       ability to group your devices as applications and track their migration status.</p>
  *          <p>To start an import request, do this:</p>
  *          <ol>
  *             <li>
@@ -59,8 +60,8 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  *           Your import file must be in the CSV format.</p>
  *             </li>
  *             <li>
- *                <p>Use the console or the <code>StartImportTask</code> command with the Amazon Web Services CLI or one of
- *           the Amazon Web Services SDKs to import the records from your file.</p>
+ *                <p>Use the console or the <code>StartImportTask</code> command with the Amazon Web Services CLI or one
+ *           of the Amazon Web Services SDKs to import the records from your file.</p>
  *             </li>
  *          </ol>
  *          <p>For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html">Migration Hub
@@ -112,11 +113,11 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *       policy associated with this account.</p>
+ *  <p>The user does not have permission to perform the action. Check the IAM
+ *       policy associated with this user.</p>
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home region is not set. Set the home region to continue.</p>
+ *  <p>The home Region is not set. Set the home Region to continue.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>

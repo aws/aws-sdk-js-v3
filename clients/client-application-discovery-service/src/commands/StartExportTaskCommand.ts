@@ -40,15 +40,28 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
 
 /**
  * @public
- * <p> Begins the export of discovered data to an S3 bucket.</p>
- *          <p> If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of
+ * <p>Begins the export of a discovered data report to an Amazon S3 bucket managed by Amazon Web Services.</p>
+ *          <note>
+ *             <p>Exports might provide an estimate of fees and savings based on certain information
+ *       that you provide. Fee estimates do not include any taxes that might apply.
+ *       Your actual fees and savings depend on a variety of factors, including your actual usage of Amazon Web Services
+ *       services, which might vary from the estimates provided in this report.</p>
+ *          </note>
+ *          <p>If you do not specify <code>preferences</code> or <code>agentIds</code> in the filter, a
+ *       summary of all servers, applications, tags, and performance is generated. This data is an
+ *       aggregation of all server data collected through on-premises tooling, file import, application
+ *       grouping and applying tags.</p>
+ *          <p>If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of
  *       detailed data collected by the identified Application Discovery Agent, including network,
  *       process, and performance details. A time range for exported agent data may be set by using
  *         <code>startTime</code> and <code>endTime</code>. Export of detailed agent data is limited to
- *       five concurrently running exports. </p>
- *          <p> If you do not include an <code>agentIds</code> filter, summary data is exported that
- *       includes both Amazon Web Services Agentless Discovery Connector data and summary data from Amazon Web Services Discovery
- *       Agents. Export of summary data is limited to two exports per day. </p>
+ *       five concurrently running exports.
+ *       Export of detailed agent data is limited to two exports per day.</p>
+ *          <p>If you enable <code>ec2RecommendationsPreferences</code> in <code>preferences</code>
+ *       , an
+ *       Amazon EC2 instance matching the characteristics of each server in Application Discovery Service is generated.
+ *       Changing the attributes of the <code>ec2RecommendationsPreferences</code> changes the
+ *       criteria of the recommendation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,7 +70,7 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // StartExportTaskRequest
  *   exportDataFormat: [ // ExportDataFormats
- *     "CSV" || "GRAPHML",
+ *     "CSV",
  *   ],
  *   filters: [ // ExportFilters
  *     { // ExportFilter
@@ -70,6 +83,29 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  *   ],
  *   startTime: new Date("TIMESTAMP"),
  *   endTime: new Date("TIMESTAMP"),
+ *   preferences: { // ExportPreferences Union: only one key present
+ *     ec2RecommendationsPreferences: { // Ec2RecommendationsExportPreferences
+ *       enabled: true || false,
+ *       cpuPerformanceMetricBasis: { // UsageMetricBasis
+ *         name: "STRING_VALUE",
+ *         percentageAdjust: Number("double"),
+ *       },
+ *       ramPerformanceMetricBasis: {
+ *         name: "STRING_VALUE",
+ *         percentageAdjust: Number("double"),
+ *       },
+ *       tenancy: "DEDICATED" || "SHARED",
+ *       excludedInstanceTypes: [ // ExcludedInstanceTypes
+ *         "STRING_VALUE",
+ *       ],
+ *       preferredRegion: "STRING_VALUE",
+ *       reservedInstanceOptions: { // ReservedInstanceOptions
+ *         purchasingOption: "ALL_UPFRONT" || "PARTIAL_UPFRONT" || "NO_UPFRONT", // required
+ *         offeringClass: "STANDARD" || "CONVERTIBLE", // required
+ *         termLength: "ONE_YEAR" || "THREE_YEAR", // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
@@ -86,11 +122,11 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *       policy associated with this account.</p>
+ *  <p>The user does not have permission to perform the action. Check the IAM
+ *       policy associated with this user.</p>
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home region is not set. Set the home region to continue.</p>
+ *  <p>The home Region is not set. Set the home Region to continue.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>

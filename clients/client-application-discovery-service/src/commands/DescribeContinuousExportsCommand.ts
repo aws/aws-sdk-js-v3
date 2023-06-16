@@ -41,7 +41,7 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
 /**
  * @public
  * <p>Lists exports as specified by ID. All continuous exports associated with your user
- *       account can be listed if you call <code>DescribeContinuousExports</code> as is without passing
+ *       can be listed if you call <code>DescribeContinuousExports</code> as is without passing
  *       any parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,11 +85,11 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *       policy associated with this account.</p>
+ *  <p>The user does not have permission to perform the action. Check the IAM
+ *       policy associated with this user.</p>
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home region is not set. Set the home region to continue.</p>
+ *  <p>The home Region is not set. Set the home Region to continue.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
