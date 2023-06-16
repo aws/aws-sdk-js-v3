@@ -18592,7 +18592,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreDeclaration: true,
         parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
+        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
       parser.addEntity("#xD", "\r");
       parser.addEntity("#10", "\n");

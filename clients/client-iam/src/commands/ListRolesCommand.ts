@@ -41,7 +41,19 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  *                 roles</a>.</p>
  *          <note>
  *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a role, see <a>GetRole</a>.</p>
+ *    attributes for the resource. This operation does not return the following attributes, even though they are an attribute of the returned object:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>PermissionsBoundary</p>
+ *                </li>
+ *                <li>
+ *                   <p>RoleLastUsed</p>
+ *                </li>
+ *                <li>
+ *                   <p>Tags</p>
+ *                </li>
+ *             </ul>
+ *             <p>To view all of the information for a role, see <a>GetRole</a>.</p>
  *          </note>
  *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
