@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.355.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.354.0...v3.355.0) (2023-06-19)
+
+
+### Features
+
+* **client-cloudformation:** Specify desired CloudFormation behavior in the event of ChangeSet execution failure using the CreateChangeSet OnStackFailure parameter ([a02f0d7](https://github.com/aws/aws-sdk-js-v3/commit/a02f0d73ff119167c248964e1984ee42277c2cdd))
+* **client-ec2:** API changes to AWS Verified Access to include data from trust providers in logs ([880a917](https://github.com/aws/aws-sdk-js-v3/commit/880a91710f54e50a0ef2e9415a11b69b72c526c3))
+* **client-glue:** This release adds support for creating cross region table/database resource links ([30be6be](https://github.com/aws/aws-sdk-js-v3/commit/30be6be0a30f7ef70e096618b11ecf1adfb2f60c))
+* **client-pricing:** This release updates the PriceListArn regex pattern. ([947c8ba](https://github.com/aws/aws-sdk-js-v3/commit/947c8ba8dddbb3374199f0285b0a42f548abb62d))
+* **client-route-53-domains:** Update MaxItems upper bound to 1000 for ListPricesRequest ([6a09bc4](https://github.com/aws/aws-sdk-js-v3/commit/6a09bc4a59b65b319cdb08c18c1de602f4b6d263))
+* **client-sagemaker:** Amazon Sagemaker Autopilot releases CreateAutoMLJobV2 and DescribeAutoMLJobV2 for Autopilot customers with ImageClassification, TextClassification and Tabular problem type config support. ([cf5df1e](https://github.com/aws/aws-sdk-js-v3/commit/cf5df1e61305c3e32cf1c79e228842753628abfb))
+
+
+
+
+
 # [3.354.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.353.0...v3.354.0) (2023-06-16)
 
 
