@@ -2283,6 +2283,8 @@ export interface CreateServiceRequest {
    * <p>Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For
    * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging your Amazon ECS
    * 				resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *          <p>When you use Amazon ECS managed tags, you need to set the <code>propagateTags</code>
+   * 			request parameter.</p>
    */
   enableECSManagedTags?: boolean;
 
@@ -2290,6 +2292,7 @@ export interface CreateServiceRequest {
    * <p>Specifies whether to propagate the tags from the task definition to the task. If no
    * 			value is specified, the tags aren't propagated. Tags can only be propagated to the task
    * 			during task creation. To add tags to a task after task creation, use the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">TagResource</a> API action.</p>
+   *          <p>The default is <code>NONE</code>.</p>
    */
   propagateTags?: PropagateTags | string;
 
