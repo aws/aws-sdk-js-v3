@@ -37,12 +37,12 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
 /**
  * @public
  * <p>This operation updates the specified domain contact's privacy setting. When privacy
- * 			protection is enabled, contact information such as email address is replaced either with
- * 			contact information for Amazon Registrar (for .com, .net, and .org domains) or with
- * 			contact information for our registrar associate, Gandi.</p>
+ * 			protection is enabled, your contact information is replaced with contact information for
+ * 			the registrar or with the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain
+ * 			name> owner."</p>
  *          <note>
- *             <p>You must specify the same privacy setting for the administrative, registrant, and
- * 				technical contacts.</p>
+ *             <p>While some domains may allow different privacy settings per contact, we recommend
+ * 				specifying the same privacy setting for all contacts.</p>
  *          </note>
  *          <p>This operation affects only the contact information for the specified contact type
  * 			(administrative, registrant, or technical). If the request succeeds, Amazon Route 53

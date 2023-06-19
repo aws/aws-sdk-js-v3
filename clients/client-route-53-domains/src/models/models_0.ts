@@ -1539,40 +1539,6 @@ export interface ExtraParam {
    *                   </li>
    *                </ul>
    *             </dd>
-   *             <dt>.fr</dt>
-   *             <dd>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>BIRTH_CITY</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>BIRTH_COUNTRY</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>BIRTH_DATE_IN_YYYY_MM_DD</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>BIRTH_DEPARTMENT</code>: Specify the INSEE code that
-   * 								corresponds with the department where the contact was born. If the
-   * 								contact was born somewhere other than France or its overseas
-   * 								departments, specify <code>99</code>. For more information,
-   * 								including a list of departments and the corresponding INSEE numbers,
-   * 								see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Departments_of_France">Departments of France</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>BRAND_NUMBER</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
    *             <dt>.it</dt>
    *             <dd>
    *                <ul>
@@ -3395,13 +3361,12 @@ export interface TransferDomainRequest {
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
-   * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
-   * 			information that you entered for the admin contact.</p>
+   * 				<code>true</code>, WHOIS ("who is") queries return contact information for the
+   * 			registrar, the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain name>
+   * 			owner.".</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
-   * 				technical contacts.</p>
+   *             <p>While some domains may allow different privacy settings per contact, we recommend
+   * 				specifying the same privacy setting for all contacts.</p>
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
@@ -3515,7 +3480,7 @@ export interface UpdateDomainContactRequest {
   TechContact?: ContactDetail;
 
   /**
-   * <p> Customer's consent for the owner change request. </p>
+   * <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
    */
   Consent?: Consent;
 }

@@ -40,10 +40,8 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
 
 /**
  * @public
- * <p>This operation registers a domain. Domains are registered either by Amazon Registrar
- * 			(for .com, .net, and .org domains) or by our registrar associate, Gandi (for all other
- * 			domains). For some top-level domains (TLDs), this operation requires extra
- * 			parameters.</p>
+ * <p>This operation registers a domain. For some top-level domains (TLDs), this operation
+ * 			requires extra parameters.</p>
  *          <p>When you register a domain, Amazon Route 53 does the following:</p>
  *          <ul>
  *             <li>
@@ -57,14 +55,14 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  * 					to renew the registration.</p>
  *             </li>
  *             <li>
- *                <p>Optionally enables privacy protection, so WHOIS queries return contact
- * 					information either for Amazon Registrar (for .com, .net, and .org domains) or
- * 					for our registrar associate, Gandi (for all other TLDs). If you don't enable
- * 					privacy protection, WHOIS queries return the information that you entered for
- * 					the administrative, registrant, and technical contacts.</p>
+ *                <p>Optionally enables privacy protection, so WHOIS queries return contact for the registrar
+ * 					or the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain name> owner."
+ * 					If you don't enable privacy protection, WHOIS queries return the information
+ * 					that you entered for the administrative, registrant, and technical
+ * 					contacts.</p>
  *                <note>
- *                   <p>You must specify the same privacy setting for the administrative,
- * 						registrant, and technical contacts.</p>
+ *                   <p>While some domains may allow different privacy settings per contact, we recommend
+ * 						specifying the same privacy setting for all contacts.</p>
  *                </note>
  *             </li>
  *             <li>
