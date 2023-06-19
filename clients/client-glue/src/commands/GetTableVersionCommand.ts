@@ -139,6 +139,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //         CatalogId: "STRING_VALUE",
  * //         DatabaseName: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
+ * //         Region: "STRING_VALUE",
  * //       },
  * //       CatalogId: "STRING_VALUE",
  * //       VersionId: "STRING_VALUE",

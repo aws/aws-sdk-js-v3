@@ -74,6 +74,7 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  * //       TargetDatabase: { // DatabaseIdentifier
  * //         CatalogId: "STRING_VALUE",
  * //         DatabaseName: "STRING_VALUE",
+ * //         Region: "STRING_VALUE",
  * //       },
  * //       CatalogId: "STRING_VALUE",
  * //       FederatedDatabase: { // FederatedDatabase

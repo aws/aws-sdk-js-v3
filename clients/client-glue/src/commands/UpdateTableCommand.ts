@@ -127,6 +127,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *       Name: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
  *     },
  *   },
  *   SkipArchive: true || false,

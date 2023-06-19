@@ -65,6 +65,7 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  *     TargetDatabase: { // DatabaseIdentifier
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
  *     },
  *     FederatedDatabase: { // FederatedDatabase
  *       Identifier: "STRING_VALUE",

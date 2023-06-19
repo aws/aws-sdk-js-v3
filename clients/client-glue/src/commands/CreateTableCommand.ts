@@ -127,6 +127,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *       Name: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
  *     },
  *   },
  *   PartitionIndexes: [ // PartitionIndexList

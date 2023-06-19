@@ -1019,6 +1019,11 @@ export interface TableIdentifier {
    * <p>The name of the target table.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Region of the target table.</p>
+   */
+  Region?: string;
 }
 
 /**

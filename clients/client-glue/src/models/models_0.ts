@@ -7636,6 +7636,11 @@ export interface DatabaseIdentifier {
    * <p>The name of the catalog database.</p>
    */
   DatabaseName?: string;
+
+  /**
+   * <p>Region of the target database.</p>
+   */
+  Region?: string;
 }
 
 /**
