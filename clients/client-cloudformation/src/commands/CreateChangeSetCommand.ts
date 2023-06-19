@@ -110,6 +110,7 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  *     },
  *   ],
  *   IncludeNestedStacks: true || false,
+ *   OnStackFailure: "DO_NOTHING" || "ROLLBACK" || "DELETE",
  * };
  * const command = new CreateChangeSetCommand(input);
  * const response = await client.send(command);

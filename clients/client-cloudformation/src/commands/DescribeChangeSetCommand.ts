@@ -128,6 +128,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * //   IncludeNestedStacks: true || false,
  * //   ParentChangeSetId: "STRING_VALUE",
  * //   RootChangeSetId: "STRING_VALUE",
+ * //   OnStackFailure: "DO_NOTHING" || "ROLLBACK" || "DELETE",
  * // };
  *
  * ```
