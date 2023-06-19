@@ -69,6 +69,8 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  *       Enabled: true || false, // required
  *       DeliveryStream: "STRING_VALUE",
  *     },
+ *     LogVersion: "STRING_VALUE",
+ *     IncludeTrustContext: true || false,
  *   },
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",
@@ -105,6 +107,8 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * //         },
  * //         DeliveryStream: "STRING_VALUE",
  * //       },
+ * //       LogVersion: "STRING_VALUE",
+ * //       IncludeTrustContext: true || false,
  * //     },
  * //   },
  * // };

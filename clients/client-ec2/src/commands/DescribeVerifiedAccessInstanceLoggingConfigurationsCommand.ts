@@ -99,6 +99,8 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
  * //           },
  * //           DeliveryStream: "STRING_VALUE",
  * //         },
+ * //         LogVersion: "STRING_VALUE",
+ * //         IncludeTrustContext: true || false,
  * //       },
  * //     },
  * //   ],

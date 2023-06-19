@@ -11125,7 +11125,7 @@ export interface VerifiedAccessLogS3Destination {
 
 /**
  * @public
- * <p>Describes the destinations for Verified Access logs.</p>
+ * <p>Describes the options for Verified Access logs.</p>
  */
 export interface VerifiedAccessLogs {
   /**
@@ -11142,6 +11142,20 @@ export interface VerifiedAccessLogs {
    * <p>Kinesis logging destination.</p>
    */
   KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestination;
+
+  /**
+   * <p>
+   *          Describes current setting for the logging version.
+   *       </p>
+   */
+  LogVersion?: string;
+
+  /**
+   * <p>
+   * 		   Describes current setting for including trust data into the logs.
+   * 	   </p>
+   */
+  IncludeTrustContext?: boolean;
 }
 
 /**

@@ -3998,7 +3998,7 @@ export interface VerifiedAccessLogS3DestinationOptions {
 
 /**
  * @public
- * <p>Describes the destinations for Verified Access logs.</p>
+ * <p>Options for Verified Access logs.</p>
  */
 export interface VerifiedAccessLogOptions {
   /**
@@ -4015,6 +4015,22 @@ export interface VerifiedAccessLogOptions {
    * <p>Sends Verified Access logs to Kinesis.</p>
    */
   KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestinationOptions;
+
+  /**
+   * <p>
+   * 		   The logging version to use.
+   * 	   </p>
+   *          <p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code>
+   *          </p>
+   */
+  LogVersion?: string;
+
+  /**
+   * <p>
+   * 		   Include trust data sent by trust providers into the logs.
+   * 	   </p>
+   */
+  IncludeTrustContext?: boolean;
 }
 
 /**

@@ -64853,6 +64853,12 @@ const se_VerifiedAccessLogOptions = (input: VerifiedAccessLogOptions, context: _
       entries[loc] = value;
     });
   }
+  if (input.LogVersion != null) {
+    entries["LogVersion"] = input.LogVersion;
+  }
+  if (input.IncludeTrustContext != null) {
+    entries["IncludeTrustContext"] = input.IncludeTrustContext;
+  }
   return entries;
 };
 
@@ -92229,6 +92235,12 @@ const de_VerifiedAccessLogs = (output: any, context: __SerdeContext): VerifiedAc
       context
     );
   }
+  if (output["logVersion"] !== undefined) {
+    contents.LogVersion = __expectString(output["logVersion"]);
+  }
+  if (output["includeTrustContext"] !== undefined) {
+    contents.IncludeTrustContext = __parseBoolean(output["includeTrustContext"]);
+  }
   return contents;
 };
 
@@ -93523,7 +93535,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreDeclaration: true,
         parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (_, val) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
+        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
       parser.addEntity("#xD", "\r");
       parser.addEntity("#10", "\n");
