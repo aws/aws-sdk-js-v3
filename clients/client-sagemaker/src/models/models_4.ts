@@ -56,7 +56,131 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
-import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+import {
+  InferenceExperimentStopDesiredState,
+  ModelVariantAction,
+  NestedFilters,
+  ProfilerConfigForUpdate,
+  ResourceConfigForUpdate,
+  SearchSortOrder,
+} from "./models_3";
+
+/**
+ * @public
+ */
+export interface StopCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job to stop.</p>
+   */
+  CompilationJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to stop.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to stop.</p>
+   */
+  StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job to stop.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to stop.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *            Array of key-value pairs, with names of variants mapped to actions. The possible actions are the following:
+   *        </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Promote</code> - Promote the shadow variant to a production variant</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Remove</code> - Delete the variant</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Retain</code> - Keep the variant as it is</p>
+   *             </li>
+   *          </ul>
+   */
+  ModelVariantActions: Record<string, ModelVariantAction | string> | undefined;
+
+  /**
+   * <p>
+   *            An array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy
+   *            after the inference experiment stops. Each <code>ModelVariantConfig</code> describes the infrastructure
+   *            configuration for deploying the corresponding variant.
+   *        </p>
+   */
+  DesiredModelVariants?: ModelVariantConfig[];
+
+  /**
+   * <p>
+   *            The desired state of the experiment after stopping. The possible states are the following:
+   *        </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Completed</code>: The experiment completed successfully</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Cancelled</code>: The experiment was canceled</p>
+   *             </li>
+   *          </ul>
+   */
+  DesiredState?: InferenceExperimentStopDesiredState | string;
+
+  /**
+   * <p>The reason for stopping the experiment.</p>
+   */
+  Reason?: string;
+}
+
+/**
+ * @public
+ */
+export interface StopInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the stopped inference experiment.</p>
+   */
+  InferenceExperimentArn: string | undefined;
+}
 
 /**
  * @public

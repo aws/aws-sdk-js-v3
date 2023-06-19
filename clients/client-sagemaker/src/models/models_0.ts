@@ -4735,8 +4735,9 @@ export interface AutoMLCandidate {
 
   /**
    * <p>The mapping of all supported processing unit (CPU, GPU, etc...) to inference container
-   *          definitions for the candidate. This field is populated for the V2 API only (for example,
-   *          for jobs created by calling <code>CreateAutoMLJobV2</code>).</p>
+   *          definitions for the candidate. This field is populated for the AutoML jobs V2 (for example,
+   *          for jobs created by calling <code>CreateAutoMLJobV2</code>) related to image or text
+   *          classification problem types only.</p>
    */
   InferenceContainerDefinitions?: Record<string, AutoMLContainerDefinition[]>;
 }
@@ -4958,15 +4959,14 @@ export interface AutoMLChannel {
 
   /**
    * <p>If specified, this column name indicates which column of the dataset should be treated
-   *          as sample weights for use by the objective metric during the training, evaluation, and
-   *          the selection of the best model. This column
-   *          is not considered as a predictive feature. For more information on Autopilot metrics,
-   *          see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">Metrics and validation</a>.</p>
-   *          <p>Sample weights should be numeric, non-negative, with larger values
-   *          indicating which rows are more important than others. Data points that have invalid or no
-   *          weight value are excluded.</p>
-   *          <p>Support for sample weights
-   *          is available in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">Ensembling</a>
+   *          as sample weights for use by the objective metric during the training, evaluation, and the
+   *          selection of the best model. This column is not considered as a predictive feature. For
+   *          more information on Autopilot metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">Metrics and
+   *             validation</a>.</p>
+   *          <p>Sample weights should be numeric, non-negative, with larger values indicating which rows
+   *          are more important than others. Data points that have invalid or no weight value are
+   *          excluded.</p>
+   *          <p>Support for sample weights is available in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">Ensembling</a>
    *          mode only.</p>
    */
   SampleWeightAttributeName?: string;
@@ -4976,11 +4976,9 @@ export interface AutoMLChannel {
  * @public
  * <p>This structure specifies how to split the data into train and validation
  *          datasets.</p>
- *          <p>If you are using the V1 API (for example <code>CreateAutoMLJob</code>) or the V2 API for
- *          Natural Language Processing problems (for example <code>CreateAutoMLJobV2</code> with a
- *             <code>TextClassificationJobConfig</code> problem type), the validation and training
- *          datasets must contain the same headers. Also, for V1 API jobs, the validation dataset must
- *          be less than 2 GB in size.</p>
+ *          <p>The validation and training datasets must contain the same headers. For jobs created by
+ *          calling <code>CreateAutoMLJob</code>, the validation dataset must be less than 2 GB in
+ *          size.</p>
  */
 export interface AutoMLDataSplitConfig {
   /**
@@ -5010,9 +5008,7 @@ export interface AutoMLJobArtifacts {
 /**
  * @public
  * <p>A channel is a named input source that training algorithms can consume. This channel is
- *          used for the non tabular training data of an AutoML job using the V2 API. For tabular
- *          training data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLChannel.html"> AutoMLChannel</a>. For
- *          more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html"> Channel</a>.</p>
+ *          used for AutoML jobs V2 (jobs created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>).</p>
  */
 export interface AutoMLJobChannel {
   /**
@@ -5028,27 +5024,33 @@ export interface AutoMLJobChannel {
    *          content types for different problems:</p>
    *          <ul>
    *             <li>
-   *                <p>ImageClassification: <code>image/png</code>, <code>image/jpeg</code>, or
+   *                <p>For Tabular problem types: <code>text/csv;header=present</code> or
+   *                   <code>x-application/vnd.amazon+parquet</code>. The default value is
+   *                   <code>text/csv;header=present</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ImageClassification: <code>image/png</code>, <code>image/jpeg</code>, or
    *                   <code>image/*</code>. The default value is <code>image/*</code>.</p>
    *             </li>
    *             <li>
-   *                <p>TextClassification: <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>.
-   *                The default value is <code>text/csv;header=present</code>.</p>
+   *                <p>For TextClassification: <code>text/csv;header=present</code> or
+   *                   <code>x-application/vnd.amazon+parquet</code>. The default value is
+   *                   <code>text/csv;header=present</code>.</p>
    *             </li>
    *          </ul>
    */
   ContentType?: string;
 
   /**
-   * <p>The allowed compression types depend on the input format. We allow the compression type
-   *             <code>Gzip</code> for <code>S3Prefix</code> inputs only. For all other inputs, the
-   *          compression type should be <code>None</code>. If no compression type is provided, we
-   *          default to <code>None</code>.</p>
+   * <p>The allowed compression types depend on the input format and problem type. We allow the
+   *          compression type <code>Gzip</code> for <code>S3Prefix</code> inputs on tabular data only.
+   *          For all other inputs, the compression type should be <code>None</code>. If no compression
+   *          type is provided, we default to <code>None</code>.</p>
    */
   CompressionType?: CompressionType | string;
 
   /**
-   * <p>The data source for an AutoML channel.</p>
+   * <p>The data source for an AutoML channel (Required).</p>
    */
   DataSource?: AutoMLDataSource;
 }
@@ -5061,7 +5063,7 @@ export interface AutoMLJobChannel {
 export interface AutoMLJobCompletionCriteria {
   /**
    * <p>The maximum number of times a training job is allowed to run.</p>
-   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+   *          <p>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
    *          value is 1.</p>
    */
   MaxCandidates?: number;
@@ -5071,7 +5073,7 @@ export interface AutoMLJobCompletionCriteria {
    *          tuning is allowed to run as part of a hyperparameter tuning job. For more information, see
    *          the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
    *          used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a> action.</p>
-   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field
+   *          <p>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), this field
    *          controls the runtime of the job candidate.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
@@ -5181,12 +5183,12 @@ export interface AutoMLJobConfig {
    *          combines several base models to produce an optimal predictive model. It then uses a
    *          stacking ensemble method to combine predictions from contributing members. A multi-stack
    *          ensemble model can provide better performance over a single model by combining the
-   *          predictive capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
+   *          predictive capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>ENSEMBLING</code> mode.</p>
    *          <p>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to train
    *          the best version of a model. HPO automatically selects an algorithm for the type of problem
    *          you want to solve. Then HPO finds the best hyperparameters according to your objective
-   *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
+   *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    */
   Mode?: AutoMLMode | string;
@@ -5194,9 +5196,7 @@ export interface AutoMLJobConfig {
 
 /**
  * @public
- * <p>Specifies a metric to minimize or maximize as the objective of a job. V2 API jobs (for
- *          example jobs created by calling <code>CreateAutoMLJobV2</code>), support
- *             <code>Accuracy</code> only.</p>
+ * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
  */
 export interface AutoMLJobObjective {
   /**
@@ -5210,16 +5210,22 @@ export interface AutoMLJobObjective {
    *          use:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>MSE</code>: for regression.</p>
+   *                <p>For tabular problem types:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Regression: <code>MSE</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Binary classification: <code>F1</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Multiclass classification: <code>Accuracy</code>.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>F1</code>: for binary classification</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Accuracy</code>: for multiclass classification.</p>
+   *                <p>For image or text classification problem types: <code>Accuracy</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -5365,7 +5371,7 @@ export interface AutoMLOutputDataConfig {
 /**
  * @public
  * <p>Stores the configuration information for the image classification problem of an AutoML
- *          job using the V2 API.</p>
+ *          job V2.</p>
  */
 export interface ImageClassificationJobConfig {
   /**
@@ -5377,8 +5383,163 @@ export interface ImageClassificationJobConfig {
 
 /**
  * @public
+ * <p>Stores the configuration information for how model candidates are generated using an
+ *          AutoML job V2.</p>
+ */
+export interface CandidateGenerationConfig {
+  /**
+   * <p>Stores the configuration information for the selection of algorithms used to train model
+   *          candidates on tabular data.</p>
+   *          <p>The list of available algorithms to choose from depends on the training mode set in
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html">
+   *                <code>TabularJobConfig.Mode</code>
+   *             </a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training
+   *                mode.</p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
+   *                attribute must be set and one only.</p>
+   *                <p>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
+   *                empty, <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
+   *                given training mode.</p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>AlgorithmsConfig</code> is not provided,
+   *                   <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
+   *                given training mode.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *             AutoMLAlgorithmConfig</a>.</p>
+   *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
+   */
+  AlgorithmsConfig?: AutoMLAlgorithmConfig[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProblemType = {
+  BINARY_CLASSIFICATION: "BinaryClassification",
+  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
+  REGRESSION: "Regression",
+} as const;
+
+/**
+ * @public
+ */
+export type ProblemType = (typeof ProblemType)[keyof typeof ProblemType];
+
+/**
+ * @public
+ * <p>The collection of settings used by an AutoML job V2 for the <code>TABULAR</code> problem
+ *          type.</p>
+ */
+export interface TabularJobConfig {
+  /**
+   * <p>The configuration information of how model candidates are generated.</p>
+   */
+  CandidateGenerationConfig?: CandidateGenerationConfig;
+
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+
+  /**
+   * <p>A URL to the Amazon S3 data source containing selected features from the input data source to
+   *          run an Autopilot job V2. You can input <code>FeatureAttributeNames</code> (optional) in JSON
+   *          format as shown below: </p>
+   *          <p>
+   *             <code>\{ "FeatureAttributeNames":["col1", "col2", ...] \}</code>.</p>
+   *          <p>You can also specify the data type of the feature (optional) in the format shown
+   *          below:</p>
+   *          <p>
+   *             <code>\{ "FeatureDataTypes":\{"col1":"numeric", "col2":"categorical" ... \} \}</code>
+   *          </p>
+   *          <note>
+   *             <p>These column keys may not include the target column.</p>
+   *          </note>
+   *          <p>In ensembling mode, Autopilot only supports the following data types: <code>numeric</code>,
+   *             <code>categorical</code>, <code>text</code>, and <code>datetime</code>. In HPO mode,
+   *          Autopilot can support <code>numeric</code>, <code>categorical</code>, <code>text</code>,
+   *             <code>datetime</code>, and <code>sequence</code>.</p>
+   *          <p>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
+   *             <code>col2</code>,..) should be a subset of the column names in the input data. </p>
+   *          <p>If both <code>FeatureDataTypes</code> and <code>FeatureAttributeNames</code> are
+   *          provided, then the column keys should be a subset of the column names provided in
+   *             <code>FeatureAttributeNames</code>. </p>
+   *          <p>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in
+   *             <code>["col1", "col2", ...]</code> are case sensitive and should be a list of strings
+   *          containing unique values that are a subset of the column names in the input data. The list
+   *          of columns provided must not include the target column.</p>
+   */
+  FeatureSpecificationS3Uri?: string;
+
+  /**
+   * <p>The method that Autopilot uses to train the data. You can either specify the mode manually
+   *          or let Autopilot choose for you based on the dataset size by selecting <code>AUTO</code>. In
+   *             <code>AUTO</code> mode, Autopilot chooses <code>ENSEMBLING</code> for datasets smaller than
+   *          100 MB, and <code>HYPERPARAMETER_TUNING</code> for larger ones.</p>
+   *          <p>The <code>ENSEMBLING</code> mode uses a multi-stack ensemble model to predict
+   *          classification and regression tasks directly from your dataset. This machine learning mode
+   *          combines several base models to produce an optimal predictive model. It then uses a
+   *          stacking ensemble method to combine predictions from contributing members. A multi-stack
+   *          ensemble model can provide better performance over a single model by combining the
+   *          predictive capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot algorithm support</a> for a list of algorithms supported by
+   *             <code>ENSEMBLING</code> mode.</p>
+   *          <p>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to train
+   *          the best version of a model. HPO automatically selects an algorithm for the type of problem
+   *          you want to solve. Then HPO finds the best hyperparameters according to your objective
+   *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Autopilot algorithm support</a> for a list of algorithms supported by
+   *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
+   */
+  Mode?: AutoMLMode | string;
+
+  /**
+   * <p>Generates possible candidates without training the models. A model candidate is a
+   *          combination of data preprocessors, algorithms, and algorithm parameter settings.</p>
+   */
+  GenerateCandidateDefinitionsOnly?: boolean;
+
+  /**
+   * <p>The type of supervised learning problem available for the model candidates of the AutoML
+   *          job V2. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
+   *             Amazon SageMaker Autopilot problem types</a>.</p>
+   */
+  ProblemType?: ProblemType | string;
+
+  /**
+   * <p>The name of the target variable in supervised learning, usually represented by
+   *          'y'.</p>
+   */
+  TargetAttributeName: string | undefined;
+
+  /**
+   * <p>If specified, this column name indicates which column of the dataset should be treated
+   *          as sample weights for use by the objective metric during the training, evaluation, and the
+   *          selection of the best model. This column is not considered as a predictive feature. For
+   *          more information on Autopilot metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">Metrics and
+   *             validation</a>.</p>
+   *          <p>Sample weights should be numeric, non-negative, with larger values indicating which rows
+   *          are more important than others. Data points that have invalid or no weight value are
+   *          excluded.</p>
+   *          <p>Support for sample weights is available in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">Ensembling</a>
+   *          mode only.</p>
+   */
+  SampleWeightAttributeName?: string;
+}
+
+/**
+ * @public
  * <p>Stores the configuration information for the text classification problem of an AutoML job
- *          using the V2 API.</p>
+ *          V2.</p>
  */
 export interface TextClassificationJobConfig {
   /**
@@ -5389,24 +5550,25 @@ export interface TextClassificationJobConfig {
 
   /**
    * <p>The name of the column used to provide the sentences to be classified. It should not be
-   *          the same as the target column.</p>
+   *          the same as the target column (Required).</p>
    */
   ContentColumn?: string;
 
   /**
    * <p>The name of the column used to provide the class labels. It should not be same as the
-   *          content column.</p>
+   *          content column (Required).</p>
    */
   TargetLabelColumn?: string;
 }
 
 /**
  * @public
- * <p>A collection of settings specific to the problem type used to configure an AutoML job
- *          using the V2 API. There must be one and only one config of the following type.</p>
+ * <p>A collection of settings specific to the problem type used to configure an AutoML job V2.
+ *          There must be one and only one config of the following type.</p>
  */
 export type AutoMLProblemTypeConfig =
   | AutoMLProblemTypeConfig.ImageClassificationJobConfigMember
+  | AutoMLProblemTypeConfig.TabularJobConfigMember
   | AutoMLProblemTypeConfig.TextClassificationJobConfigMember
   | AutoMLProblemTypeConfig.$UnknownMember;
 
@@ -5415,34 +5577,49 @@ export type AutoMLProblemTypeConfig =
  */
 export namespace AutoMLProblemTypeConfig {
   /**
-   * <p>Settings used to configure an AutoML job using the V2 API for the image classification
-   *          problem type.</p>
+   * <p>Settings used to configure an AutoML job V2 for the image classification problem
+   *          type.</p>
    */
   export interface ImageClassificationJobConfigMember {
     ImageClassificationJobConfig: ImageClassificationJobConfig;
     TextClassificationJobConfig?: never;
+    TabularJobConfig?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Settings used to configure an AutoML job using the V2 API for the text classification
-   *          problem type.</p>
+   * <p>Settings used to configure an AutoML job V2 for the text classification problem
+   *          type.</p>
    */
   export interface TextClassificationJobConfigMember {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig: TextClassificationJobConfig;
+    TabularJobConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings used to configure an AutoML job V2 for a tabular problem type (regression,
+   *          classification).</p>
+   */
+  export interface TabularJobConfigMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig?: never;
+    TabularJobConfig: TabularJobConfig;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig?: never;
+    TabularJobConfig?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     ImageClassificationJobConfig: (value: ImageClassificationJobConfig) => T;
     TextClassificationJobConfig: (value: TextClassificationJobConfig) => T;
+    TabularJobConfig: (value: TabularJobConfig) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -5451,8 +5628,98 @@ export namespace AutoMLProblemTypeConfig {
       return visitor.ImageClassificationJobConfig(value.ImageClassificationJobConfig);
     if (value.TextClassificationJobConfig !== undefined)
       return visitor.TextClassificationJobConfig(value.TextClassificationJobConfig);
+    if (value.TabularJobConfig !== undefined) return visitor.TabularJobConfig(value.TabularJobConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLProblemTypeConfigName = {
+  IMAGE_CLASSIFICATION: "ImageClassification",
+  TABULAR: "Tabular",
+  TEXT_CLASSIFICATION: "TextClassification",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLProblemTypeConfigName =
+  (typeof AutoMLProblemTypeConfigName)[keyof typeof AutoMLProblemTypeConfigName];
+
+/**
+ * @public
+ * <p>The resolved attributes specific to the <code>TABULAR</code> problem type.</p>
+ */
+export interface TabularResolvedAttributes {
+  /**
+   * <p>The type of supervised learning problem available for the model candidates of the AutoML
+   *          job V2 (Binary Classification, Multiclass Classification, Regression). For more
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
+   *             Amazon SageMaker Autopilot problem types</a>.</p>
+   */
+  ProblemType?: ProblemType | string;
+}
+
+/**
+ * @public
+ * <p>The resolved attributes specific to the problem type of an AutoML job V2.</p>
+ */
+export type AutoMLProblemTypeResolvedAttributes =
+  | AutoMLProblemTypeResolvedAttributes.TabularResolvedAttributesMember
+  | AutoMLProblemTypeResolvedAttributes.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AutoMLProblemTypeResolvedAttributes {
+  /**
+   * <p>Defines the resolved attributes for the <code>TABULAR</code> problem type.</p>
+   */
+  export interface TabularResolvedAttributesMember {
+    TabularResolvedAttributes: TabularResolvedAttributes;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    TabularResolvedAttributes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    TabularResolvedAttributes: (value: TabularResolvedAttributes) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AutoMLProblemTypeResolvedAttributes, visitor: Visitor<T>): T => {
+    if (value.TabularResolvedAttributes !== undefined)
+      return visitor.TabularResolvedAttributes(value.TabularResolvedAttributes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>The resolved attributes used to configure an AutoML job V2.</p>
+ */
+export interface AutoMLResolvedAttributes {
+  /**
+   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+
+  /**
+   * <p>Defines the resolved attributes specific to a problem type.</p>
+   */
+  AutoMLProblemTypeResolvedAttributes?: AutoMLProblemTypeResolvedAttributes;
 }
 
 /**
@@ -8253,21 +8520,6 @@ export interface ModelDeployConfig {
 
 /**
  * @public
- * @enum
- */
-export const ProblemType = {
-  BINARY_CLASSIFICATION: "BinaryClassification",
-  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
-  REGRESSION: "Regression",
-} as const;
-
-/**
- * @public
- */
-export type ProblemType = (typeof ProblemType)[keyof typeof ProblemType];
-
-/**
- * @public
  */
 export interface CreateAutoMLJobRequest {
   /**
@@ -8298,9 +8550,8 @@ export interface CreateAutoMLJobRequest {
   ProblemType?: ProblemType | string;
 
   /**
-   * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
-   *          provide an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a> and Autopilot infers whether to minimize or maximize
-   *          it. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. If not specified,
+   *          the default objective metric depends on the problem type. See <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a> for the default values.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -8361,12 +8612,15 @@ export interface CreateAutoMLJobV2Request {
    *          formats depend on the problem type:</p>
    *          <ul>
    *             <li>
-   *                <p>ImageClassification: S3Prefix, <code>ManifestFile</code>,
-   *                   <code>AugmentedManifestFile</code>
-   *                </p>
+   *                <p>For Tabular problem types: <code>S3Prefix</code>,
+   *                <code>ManifestFile</code>.</p>
    *             </li>
    *             <li>
-   *                <p>TextClassification: S3Prefix</p>
+   *                <p>For ImageClassification: <code>S3Prefix</code>, <code>ManifestFile</code>,
+   *                   <code>AugmentedManifestFile</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For TextClassification: <code>S3Prefix</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -8380,6 +8634,12 @@ export interface CreateAutoMLJobV2Request {
 
   /**
    * <p>Defines the configuration settings of one of the supported problem types.</p>
+   *          <note>
+   *             <p>For tabular problem types, you must either specify the type of supervised learning
+   *             problem in <code>AutoMLProblemTypeConfig</code>
+   *                (<code>TabularJobConfig.ProblemType</code>) and provide the
+   *                <code>AutoMLJobObjective</code>, or none at all.</p>
+   *          </note>
    */
   AutoMLProblemTypeConfig: AutoMLProblemTypeConfig | undefined;
 
@@ -8402,7 +8662,15 @@ export interface CreateAutoMLJobV2Request {
   SecurityConfig?: AutoMLSecurityConfig;
 
   /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. If not specified,
+   *          the default objective metric depends on the problem type. For the list of default values
+   *          per problem type, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a>.</p>
+   *          <note>
+   *             <p>For tabular problem types, you must either provide the
+   *                <code>AutoMLJobObjective</code> and indicate the type of supervised learning problem
+   *             in <code>AutoMLProblemTypeConfig</code> (<code>TabularJobConfig.ProblemType</code>), or
+   *             none.</p>
+   *          </note>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -8415,11 +8683,9 @@ export interface CreateAutoMLJobV2Request {
   /**
    * <p>This structure specifies how to split the data into train and validation
    *          datasets.</p>
-   *          <p>If you are using the V1 API (for example <code>CreateAutoMLJob</code>) or the V2 API for
-   *          Natural Language Processing problems (for example <code>CreateAutoMLJobV2</code> with a
-   *             <code>TextClassificationJobConfig</code> problem type), the validation and training
-   *          datasets must contain the same headers. Also, for V1 API jobs, the validation dataset must
-   *          be less than 2 GB in size.</p>
+   *          <p>The validation and training datasets must contain the same headers. For jobs created by
+   *          calling <code>CreateAutoMLJob</code>, the validation dataset must be less than 2 GB in
+   *          size.</p>
    */
   DataSplitConfig?: AutoMLDataSplitConfig;
 }
@@ -8947,6 +9213,10 @@ export interface OutputConfig {
    *             your model on after the compilation has completed. Alternatively, you can specify OS,
    *             architecture, and accelerator using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html">TargetPlatform</a> fields. It can be
    *             used instead of <code>TargetPlatform</code>.</p>
+   *          <note>
+   *             <p>Currently <code>ml_trn1</code> is available only in US East (N. Virginia) Region,
+   *                 and <code>ml_inf2</code> is available only in US East (Ohio) Region.</p>
+   *          </note>
    */
   TargetDevice?: TargetDevice | string;
 
@@ -10384,108 +10654,4 @@ export interface CreateDomainResponse {
    * <p>The URL to the created domain.</p>
    */
   Url?: string;
-}
-
-/**
- * @public
- * <p>Contains information about the configuration of a model in a deployment.</p>
- */
-export interface EdgeDeploymentModelConfig {
-  /**
-   * <p>The name the device application uses to reference this model.</p>
-   */
-  ModelHandle: string | undefined;
-
-  /**
-   * <p>The edge packaging job associated with this deployment.</p>
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FailureHandlingPolicy = {
-  DoNothing: "DO_NOTHING",
-  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof FailureHandlingPolicy];
-
-/**
- * @public
- * <p>Contains information about the configuration of a deployment.</p>
- */
-export interface EdgeDeploymentConfig {
-  /**
-   * <p>Toggle that determines whether to rollback to previous configuration if the current deployment fails.
-   *       By default this is turned on. You may turn this off if you want to investigate the errors yourself.</p>
-   */
-  FailureHandlingPolicy: FailureHandlingPolicy | string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DeviceSubsetType = {
-  NameContains: "NAMECONTAINS",
-  Percentage: "PERCENTAGE",
-  Selection: "SELECTION",
-} as const;
-
-/**
- * @public
- */
-export type DeviceSubsetType = (typeof DeviceSubsetType)[keyof typeof DeviceSubsetType];
-
-/**
- * @public
- * <p>Contains information about the configurations of selected devices.</p>
- */
-export interface DeviceSelectionConfig {
-  /**
-   * <p>Type of device subsets to deploy to the current stage.</p>
-   */
-  DeviceSubsetType: DeviceSubsetType | string | undefined;
-
-  /**
-   * <p>Percentage of devices in the fleet to deploy to the current stage.</p>
-   */
-  Percentage?: number;
-
-  /**
-   * <p>List of devices chosen to deploy.</p>
-   */
-  DeviceNames?: string[];
-
-  /**
-   * <p>A filter to select devices with names containing this name.</p>
-   */
-  DeviceNameContains?: string;
-}
-
-/**
- * @public
- * <p>Contains information about a stage in an edge deployment plan.</p>
- */
-export interface DeploymentStage {
-  /**
-   * <p>The name of the stage.</p>
-   */
-  StageName: string | undefined;
-
-  /**
-   * <p>Configuration of the devices in the stage.</p>
-   */
-  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
-
-  /**
-   * <p>Configuration of the deployment details.</p>
-   */
-  DeploymentConfig?: EdgeDeploymentConfig;
 }

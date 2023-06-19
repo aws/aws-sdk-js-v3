@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_1";
+import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_2";
 import {
   de_DeleteNotebookInstanceLifecycleConfigCommand,
   se_DeleteNotebookInstanceLifecycleConfigCommand,

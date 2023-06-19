@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { StopHyperParameterTuningJobRequest } from "../models/models_3";
+import { StopHyperParameterTuningJobRequest } from "../models/models_4";
 import { de_StopHyperParameterTuningJobCommand, se_StopHyperParameterTuningJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

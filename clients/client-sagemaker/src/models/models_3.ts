@@ -70,7 +70,6 @@ import {
   ModelClientConfig,
   ModelMetrics,
   ModelPackageValidationSpecification,
-  ModelVariantConfig,
   MonitoringScheduleConfig,
   MonitoringType,
   NetworkConfig,
@@ -132,12 +131,8 @@ import {
   HyperParameterTuningJobSortByOptions,
   HyperParameterTuningJobStatus,
   HyperParameterTuningJobSummary,
-  Image,
-  ImageSortBy,
-  ImageSortOrder,
-  ImageVersion,
-  ImageVersionSortBy,
-  ImageVersionSortOrder,
+  ImageStatus,
+  ImageVersionStatus,
   InferenceExperimentStatus,
   InferenceMetrics,
   LabelCounters,
@@ -177,6 +172,154 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>A SageMaker image. A SageMaker image represents a set of container images that are derived from
+ *         a common base container image. Each of these container images is represented by a SageMaker
+ *         <code>ImageVersion</code>.</p>
+ */
+export interface Image {
+  /**
+   * <p>When the image was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The description of the image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the image as displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The ARN of the image.</p>
+   */
+  ImageArn: string | undefined;
+
+  /**
+   * <p>The name of the image.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The status of the image.</p>
+   */
+  ImageStatus: ImageStatus | string | undefined;
+
+  /**
+   * <p>When the image was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  IMAGE_NAME: "IMAGE_NAME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSortBy = (typeof ImageSortBy)[keyof typeof ImageSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSortOrder = (typeof ImageSortOrder)[keyof typeof ImageSortOrder];
+
+/**
+ * @public
+ * <p>A version of a SageMaker <code>Image</code>. A version represents an existing container
+ *         image.</p>
+ */
+export interface ImageVersion {
+  /**
+   * <p>When the version was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>When a create or delete operation fails, the reason for the failure.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The ARN of the image the version is based on.</p>
+   */
+  ImageArn: string | undefined;
+
+  /**
+   * <p>The ARN of the version.</p>
+   */
+  ImageVersionArn: string | undefined;
+
+  /**
+   * <p>The status of the version.</p>
+   */
+  ImageVersionStatus: ImageVersionStatus | string | undefined;
+
+  /**
+   * <p>When the version was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The version number.</p>
+   */
+  Version: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageVersionSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  VERSION: "VERSION",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageVersionSortBy = (typeof ImageVersionSortBy)[keyof typeof ImageVersionSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageVersionSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageVersionSortOrder = (typeof ImageVersionSortOrder)[keyof typeof ImageVersionSortOrder];
 
 /**
  * @public
@@ -9843,123 +9986,6 @@ export interface StopAutoMLJobRequest {
    * <p>The name of the object you are requesting.</p>
    */
   AutoMLJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopCompilationJobRequest {
-  /**
-   * <p>The name of the model compilation job to stop.</p>
-   */
-  CompilationJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEdgeDeploymentStageRequest {
-  /**
-   * <p>The name of the edge deployment plan to stop.</p>
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>The name of the stage to stop.</p>
-   */
-  StageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopHyperParameterTuningJobRequest {
-  /**
-   * <p>The name of the tuning job to stop.</p>
-   */
-  HyperParameterTuningJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment to stop.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>
-   *            Array of key-value pairs, with names of variants mapped to actions. The possible actions are the following:
-   *        </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Promote</code> - Promote the shadow variant to a production variant</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Remove</code> - Delete the variant</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Retain</code> - Keep the variant as it is</p>
-   *             </li>
-   *          </ul>
-   */
-  ModelVariantActions: Record<string, ModelVariantAction | string> | undefined;
-
-  /**
-   * <p>
-   *            An array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy
-   *            after the inference experiment stops. Each <code>ModelVariantConfig</code> describes the infrastructure
-   *            configuration for deploying the corresponding variant.
-   *        </p>
-   */
-  DesiredModelVariants?: ModelVariantConfig[];
-
-  /**
-   * <p>
-   *            The desired state of the experiment after stopping. The possible states are the following:
-   *        </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Completed</code>: The experiment completed successfully</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Cancelled</code>: The experiment was canceled</p>
-   *             </li>
-   *          </ul>
-   */
-  DesiredState?: InferenceExperimentStopDesiredState | string;
-
-  /**
-   * <p>The reason for stopping the experiment.</p>
-   */
-  Reason?: string;
-}
-
-/**
- * @public
- */
-export interface StopInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the stopped inference experiment.</p>
-   */
-  InferenceExperimentArn: string | undefined;
 }
 
 /**

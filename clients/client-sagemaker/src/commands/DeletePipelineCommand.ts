@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_1";
+import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_2";
 import { de_DeletePipelineCommand, se_DeletePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

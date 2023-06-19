@@ -833,6 +833,7 @@ import {
   BestObjectiveNotImproving,
   Bias,
   BlueGreenUpdatePolicy,
+  CandidateGenerationConfig,
   CandidateProperties,
   CanvasAppSettings,
   CapacitySize,
@@ -884,11 +885,7 @@ import {
   DataQualityJobInput,
   DataSource,
   DefaultSpaceSettings,
-  DeploymentStage,
-  DeviceSelectionConfig,
   DomainSettings,
-  EdgeDeploymentConfig,
-  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
   FileSystemConfig,
@@ -948,6 +945,7 @@ import {
   SharingSettings,
   ShuffleConfig,
   StoppingCondition,
+  TabularJobConfig,
   Tag,
   TargetPlatform,
   TensorBoardAppSettings,
@@ -1050,17 +1048,16 @@ import {
   DeleteModelPackageGroupInput,
   DeleteModelPackageGroupPolicyInput,
   DeleteModelPackageInput,
-  DeleteModelQualityJobDefinitionRequest,
-  DeleteMonitoringScheduleRequest,
-  DeleteNotebookInstanceInput,
-  DeleteNotebookInstanceLifecycleConfigInput,
-  DeletePipelineRequest,
   DeploymentConfig,
+  DeploymentStage,
+  DeviceSelectionConfig,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
   DriftCheckModelDataQuality,
   DriftCheckModelQuality,
+  EdgeDeploymentConfig,
+  EdgeDeploymentModelConfig,
   EndpointInfo,
   EndpointInputConfiguration,
   EnvironmentParameterRanges,
@@ -1189,6 +1186,11 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteModelQualityJobDefinitionRequest,
+  DeleteMonitoringScheduleRequest,
+  DeleteNotebookInstanceInput,
+  DeleteNotebookInstanceLifecycleConfigInput,
+  DeletePipelineRequest,
   DeleteProjectInput,
   DeleteSpaceRequest,
   DeleteStudioLifecycleConfigRequest,
@@ -1356,8 +1358,6 @@ import {
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
-  Image,
-  ImageVersion,
   InferenceRecommendation,
   MetricData,
   MonitoringExecutionSummary,
@@ -1380,6 +1380,8 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  Image,
+  ImageVersion,
   ImportHubContentRequest,
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
@@ -1580,11 +1582,6 @@ import {
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
   StopAutoMLJobRequest,
-  StopCompilationJobRequest,
-  StopEdgeDeploymentStageRequest,
-  StopEdgePackagingJobRequest,
-  StopHyperParameterTuningJobRequest,
-  StopInferenceExperimentRequest,
   StudioLifecycleConfigDetails,
   TrainingJob,
   TrainingJobSummary,
@@ -1602,6 +1599,11 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopCompilationJobRequest,
+  StopEdgeDeploymentStageRequest,
+  StopEdgePackagingJobRequest,
+  StopHyperParameterTuningJobRequest,
+  StopInferenceExperimentRequest,
   StopInferenceRecommendationsJobRequest,
   StopLabelingJobRequest,
   StopMonitoringScheduleRequest,
@@ -19160,6 +19162,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_BlueGreenUpdatePolicy omitted.
 
+// se_CandidateGenerationConfig omitted.
+
 // se_CanvasAppSettings omitted.
 
 // se_CapacitySize omitted.
@@ -21763,6 +21767,8 @@ const se_StopPipelineExecutionRequest = (input: StopPipelineExecutionRequest, co
 
 // se_SuggestionQuery omitted.
 
+// se_TabularJobConfig omitted.
+
 // se_Tag omitted.
 
 // se_TagKeyList omitted.
@@ -22341,6 +22347,10 @@ const de_AutoMLJobSummary = (output: any, context: __SerdeContext): AutoMLJobSum
 
 // de_AutoMLProblemTypeConfig omitted.
 
+// de_AutoMLProblemTypeResolvedAttributes omitted.
+
+// de_AutoMLResolvedAttributes omitted.
+
 // de_AutoMLS3DataSource omitted.
 
 // de_AutoMLSecurityConfig omitted.
@@ -22418,6 +22428,8 @@ const de_BatchTransformInput = (output: any, context: __SerdeContext): BatchTran
 // de_CallbackStepMetadata omitted.
 
 // de_CandidateArtifactLocations omitted.
+
+// de_CandidateGenerationConfig omitted.
 
 /**
  * deserializeAws_json1_1CandidateProperties
@@ -22984,12 +22996,14 @@ const de_DescribeAutoMLJobResponse = (output: any, context: __SerdeContext): Des
 const de_DescribeAutoMLJobV2Response = (output: any, context: __SerdeContext): DescribeAutoMLJobV2Response => {
   return take(output, {
     AutoMLJobArn: __expectString,
+    AutoMLJobArtifacts: _json,
     AutoMLJobInputDataConfig: _json,
     AutoMLJobName: __expectString,
     AutoMLJobObjective: _json,
     AutoMLJobSecondaryStatus: __expectString,
     AutoMLJobStatus: __expectString,
     AutoMLProblemTypeConfig: (_: any) => _json(__expectUnion(_)),
+    AutoMLProblemTypeConfigName: __expectString,
     BestCandidate: (_: any) => de_AutoMLCandidate(_, context),
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataSplitConfig: (_: any) => de_AutoMLDataSplitConfig(_, context),
@@ -23000,6 +23014,7 @@ const de_DescribeAutoMLJobV2Response = (output: any, context: __SerdeContext): D
     ModelDeployResult: _json,
     OutputDataConfig: _json,
     PartialFailureReasons: _json,
+    ResolvedAttributes: _json,
     RoleArn: __expectString,
     SecurityConfig: _json,
   }) as any;
@@ -27628,6 +27643,10 @@ const de_StudioLifecycleConfigsList = (output: any, context: __SerdeContext): St
 // de_SubscribedWorkteam omitted.
 
 // de_SubscribedWorkteams omitted.
+
+// de_TabularJobConfig omitted.
+
+// de_TabularResolvedAttributes omitted.
 
 // de_Tag omitted.
 

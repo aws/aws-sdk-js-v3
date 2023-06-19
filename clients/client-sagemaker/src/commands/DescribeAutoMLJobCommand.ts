@@ -36,7 +36,7 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
 
 /**
  * @public
- * <p>Returns information about an Amazon SageMaker AutoML job.</p>
+ * <p>Returns information about an AutoML job created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

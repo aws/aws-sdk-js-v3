@@ -36,11 +36,7 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
 
 /**
  * @public
- * <p>Returns information about an Amazon SageMaker AutoML V2 job.</p>
- *          <note>
- *             <p>This API action is callable through SageMaker Canvas only. Calling it directly from the CLI
- *             or an SDK results in an error.</p>
- *          </note>
+ * <p>Returns information about an AutoML job V2 created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,6 +88,28 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * //       },
  * //       ContentColumn: "STRING_VALUE",
  * //       TargetLabelColumn: "STRING_VALUE",
+ * //     },
+ * //     TabularJobConfig: { // TabularJobConfig
+ * //       CandidateGenerationConfig: { // CandidateGenerationConfig
+ * //         AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
+ * //           { // AutoMLAlgorithmConfig
+ * //             AutoMLAlgorithms: [ // AutoMLAlgorithms // required
+ * //               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       CompletionCriteria: {
+ * //         MaxCandidates: Number("int"),
+ * //         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ * //         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ * //       },
+ * //       FeatureSpecificationS3Uri: "STRING_VALUE",
+ * //       Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
+ * //       GenerateCandidateDefinitionsOnly: true || false,
+ * //       ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ * //       TargetAttributeName: "STRING_VALUE", // required
+ * //       SampleWeightAttributeName: "STRING_VALUE",
  * //     },
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"), // required
@@ -183,6 +201,26 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * //       ],
  * //     },
  * //   },
+ * //   AutoMLJobArtifacts: { // AutoMLJobArtifacts
+ * //     CandidateDefinitionNotebookLocation: "STRING_VALUE",
+ * //     DataExplorationNotebookLocation: "STRING_VALUE",
+ * //   },
+ * //   ResolvedAttributes: { // AutoMLResolvedAttributes
+ * //     AutoMLJobObjective: {
+ * //       MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ * //     },
+ * //     CompletionCriteria: {
+ * //       MaxCandidates: Number("int"),
+ * //       MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ * //       MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ * //     },
+ * //     AutoMLProblemTypeResolvedAttributes: { // AutoMLProblemTypeResolvedAttributes Union: only one key present
+ * //       TabularResolvedAttributes: { // TabularResolvedAttributes
+ * //         ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ * //       },
+ * //     },
+ * //   },
+ * //   AutoMLProblemTypeConfigName: "ImageClassification" || "TextClassification" || "Tabular",
  * // };
  *
  * ```

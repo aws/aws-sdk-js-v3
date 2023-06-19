@@ -32,6 +32,8 @@ import {
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
   AutoMLProblemTypeConfig,
+  AutoMLProblemTypeConfigName,
+  AutoMLResolvedAttributes,
   AutoMLSecurityConfig,
   Autotune,
   BatchDataCaptureConfig,
@@ -46,10 +48,7 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DefaultSpaceSettings,
-  DeviceSelectionConfig,
   DomainSettings,
-  EdgeDeploymentConfig,
-  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
@@ -93,8 +92,11 @@ import {
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeploymentConfig,
+  DeviceSelectionConfig,
   DirectInternetAccess,
   DriftCheckBaselines,
+  EdgeDeploymentConfig,
+  EdgeDeploymentModelConfig,
   EndpointInfo,
   ExperimentConfig,
   ExplainerConfig,
@@ -176,6 +178,72 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteModelQualityJobDefinitionRequest {
+  /**
+   * <p>The name of the model quality monitoring job definition to delete.</p>
+   */
+  JobDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMonitoringScheduleRequest {
+  /**
+   * <p>The name of the monitoring schedule to delete.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNotebookInstanceInput {
+  /**
+   * <p>The name of the SageMaker notebook instance to delete.</p>
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNotebookInstanceLifecycleConfigInput {
+  /**
+   * <p>The name of the lifecycle configuration to delete.</p>
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePipelineRequest {
+  /**
+   * <p>The name of the pipeline to delete.</p>
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeletePipelineResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline to delete.</p>
+   */
+  PipelineArn?: string;
+}
 
 /**
  * @public
@@ -898,9 +966,7 @@ export interface ModelDeployResult {
  */
 export interface ResolvedAttributes {
   /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job. V2 API jobs (for
-   *          example jobs created by calling <code>CreateAutoMLJobV2</code>), support
-   *             <code>Accuracy</code> only.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -1018,7 +1084,7 @@ export interface DescribeAutoMLJobResponse {
   /**
    * <p>Contains <code>ProblemType</code>, <code>AutoMLJobObjective</code>, and
    *             <code>CompletionCriteria</code>. If you do not provide these values, they are
-   *          auto-inferred. If you do provide them, the values used are the ones you provide.</p>
+   *          inferred.</p>
    */
   ResolvedAttributes?: ResolvedAttributes;
 
@@ -1039,7 +1105,7 @@ export interface DescribeAutoMLJobResponse {
  */
 export interface DescribeAutoMLJobV2Request {
   /**
-   * <p>Requests information about an AutoML V2 job using its unique name.</p>
+   * <p>Requests information about an AutoML job V2 using its unique name.</p>
    */
   AutoMLJobName: string | undefined;
 }
@@ -1049,12 +1115,12 @@ export interface DescribeAutoMLJobV2Request {
  */
 export interface DescribeAutoMLJobV2Response {
   /**
-   * <p>Returns the name of the AutoML V2 job.</p>
+   * <p>Returns the name of the AutoML job V2.</p>
    */
   AutoMLJobName: string | undefined;
 
   /**
-   * <p>Returns the Amazon Resource Name (ARN) of the AutoML V2 job.</p>
+   * <p>Returns the Amazon Resource Name (ARN) of the AutoML job V2.</p>
    */
   AutoMLJobArn: string | undefined;
 
@@ -1080,17 +1146,17 @@ export interface DescribeAutoMLJobV2Response {
   AutoMLJobObjective?: AutoMLJobObjective;
 
   /**
-   * <p>Returns the configuration settings of the problem type set for the AutoML V2 job.</p>
+   * <p>Returns the configuration settings of the problem type set for the AutoML job V2.</p>
    */
   AutoMLProblemTypeConfig?: AutoMLProblemTypeConfig;
 
   /**
-   * <p>Returns the creation time of the AutoML V2 job.</p>
+   * <p>Returns the creation time of the AutoML job V2.</p>
    */
   CreationTime: Date | undefined;
 
   /**
-   * <p>Returns the end time of the AutoML V2 job.</p>
+   * <p>Returns the end time of the AutoML job V2.</p>
    */
   EndTime?: Date;
 
@@ -1100,12 +1166,12 @@ export interface DescribeAutoMLJobV2Response {
   LastModifiedTime: Date | undefined;
 
   /**
-   * <p>Returns the reason for the failure of the AutoML V2 job, when applicable.</p>
+   * <p>Returns the reason for the failure of the AutoML job V2, when applicable.</p>
    */
   FailureReason?: string;
 
   /**
-   * <p>Returns a list of reasons for partial failures within an AutoML V2 job.</p>
+   * <p>Returns a list of reasons for partial failures within an AutoML job V2.</p>
    */
   PartialFailureReasons?: AutoMLPartialFailureReason[];
 
@@ -1116,12 +1182,12 @@ export interface DescribeAutoMLJobV2Response {
   BestCandidate?: AutoMLCandidate;
 
   /**
-   * <p>Returns the status of the AutoML V2 job.</p>
+   * <p>Returns the status of the AutoML job V2.</p>
    */
   AutoMLJobStatus: AutoMLJobStatus | string | undefined;
 
   /**
-   * <p>Returns the secondary status of the AutoML V2 job.</p>
+   * <p>Returns the secondary status of the AutoML job V2.</p>
    */
   AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
 
@@ -1146,6 +1212,21 @@ export interface DescribeAutoMLJobV2Response {
    * <p>Returns the security configuration for traffic encryption or Amazon VPC settings.</p>
    */
   SecurityConfig?: AutoMLSecurityConfig;
+
+  /**
+   * <p>The artifacts that are generated during an AutoML job.</p>
+   */
+  AutoMLJobArtifacts?: AutoMLJobArtifacts;
+
+  /**
+   * <p>Returns the resolved attributes used by the AutoML job V2.</p>
+   */
+  ResolvedAttributes?: AutoMLResolvedAttributes;
+
+  /**
+   * <p>Returns the name of the problem type configuration set for the AutoML job V2.</p>
+   */
+  AutoMLProblemTypeConfigName?: AutoMLProblemTypeConfigName | string;
 }
 
 /**
@@ -10317,154 +10398,6 @@ export interface HyperParameterTuningJobSummary {
    */
   ResourceLimits?: ResourceLimits;
 }
-
-/**
- * @public
- * <p>A SageMaker image. A SageMaker image represents a set of container images that are derived from
- *         a common base container image. Each of these container images is represented by a SageMaker
- *         <code>ImageVersion</code>.</p>
- */
-export interface Image {
-  /**
-   * <p>When the image was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The description of the image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the image as displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The ARN of the image.</p>
-   */
-  ImageArn: string | undefined;
-
-  /**
-   * <p>The name of the image.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The status of the image.</p>
-   */
-  ImageStatus: ImageStatus | string | undefined;
-
-  /**
-   * <p>When the image was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageSortBy = {
-  CREATION_TIME: "CREATION_TIME",
-  IMAGE_NAME: "IMAGE_NAME",
-  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
-} as const;
-
-/**
- * @public
- */
-export type ImageSortBy = (typeof ImageSortBy)[keyof typeof ImageSortBy];
-
-/**
- * @public
- * @enum
- */
-export const ImageSortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type ImageSortOrder = (typeof ImageSortOrder)[keyof typeof ImageSortOrder];
-
-/**
- * @public
- * <p>A version of a SageMaker <code>Image</code>. A version represents an existing container
- *         image.</p>
- */
-export interface ImageVersion {
-  /**
-   * <p>When the version was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>When a create or delete operation fails, the reason for the failure.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The ARN of the image the version is based on.</p>
-   */
-  ImageArn: string | undefined;
-
-  /**
-   * <p>The ARN of the version.</p>
-   */
-  ImageVersionArn: string | undefined;
-
-  /**
-   * <p>The status of the version.</p>
-   */
-  ImageVersionStatus: ImageVersionStatus | string | undefined;
-
-  /**
-   * <p>When the version was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The version number.</p>
-   */
-  Version: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageVersionSortBy = {
-  CREATION_TIME: "CREATION_TIME",
-  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
-  VERSION: "VERSION",
-} as const;
-
-/**
- * @public
- */
-export type ImageVersionSortBy = (typeof ImageVersionSortBy)[keyof typeof ImageVersionSortBy];
-
-/**
- * @public
- * @enum
- */
-export const ImageVersionSortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type ImageVersionSortOrder = (typeof ImageVersionSortOrder)[keyof typeof ImageVersionSortOrder];
 
 /**
  * @internal

@@ -35,8 +35,6 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
-  DeploymentStage,
-  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
   HyperParameterScalingType,
@@ -72,6 +70,110 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Contains information about the configuration of a model in a deployment.</p>
+ */
+export interface EdgeDeploymentModelConfig {
+  /**
+   * <p>The name the device application uses to reference this model.</p>
+   */
+  ModelHandle: string | undefined;
+
+  /**
+   * <p>The edge packaging job associated with this deployment.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FailureHandlingPolicy = {
+  DoNothing: "DO_NOTHING",
+  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof FailureHandlingPolicy];
+
+/**
+ * @public
+ * <p>Contains information about the configuration of a deployment.</p>
+ */
+export interface EdgeDeploymentConfig {
+  /**
+   * <p>Toggle that determines whether to rollback to previous configuration if the current deployment fails.
+   *       By default this is turned on. You may turn this off if you want to investigate the errors yourself.</p>
+   */
+  FailureHandlingPolicy: FailureHandlingPolicy | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceSubsetType = {
+  NameContains: "NAMECONTAINS",
+  Percentage: "PERCENTAGE",
+  Selection: "SELECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceSubsetType = (typeof DeviceSubsetType)[keyof typeof DeviceSubsetType];
+
+/**
+ * @public
+ * <p>Contains information about the configurations of selected devices.</p>
+ */
+export interface DeviceSelectionConfig {
+  /**
+   * <p>Type of device subsets to deploy to the current stage.</p>
+   */
+  DeviceSubsetType: DeviceSubsetType | string | undefined;
+
+  /**
+   * <p>Percentage of devices in the fleet to deploy to the current stage.</p>
+   */
+  Percentage?: number;
+
+  /**
+   * <p>List of devices chosen to deploy.</p>
+   */
+  DeviceNames?: string[];
+
+  /**
+   * <p>A filter to select devices with names containing this name.</p>
+   */
+  DeviceNameContains?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about a stage in an edge deployment plan.</p>
+ */
+export interface DeploymentStage {
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>Configuration of the devices in the stage.</p>
+   */
+  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
+
+  /**
+   * <p>Configuration of the deployment details.</p>
+   */
+  DeploymentConfig?: EdgeDeploymentConfig;
+}
 
 /**
  * @public
@@ -10414,72 +10516,6 @@ export interface DeleteModelPackageGroupPolicyInput {
    * <p>The name of the model group for which to delete the policy.</p>
    */
   ModelPackageGroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteModelQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the model quality monitoring job definition to delete.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule to delete.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNotebookInstanceInput {
-  /**
-   * <p>The name of the SageMaker notebook instance to delete.</p>
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration to delete.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePipelineRequest {
-  /**
-   * <p>The name of the pipeline to delete.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
-   */
-  ClientRequestToken?: string;
-}
-
-/**
- * @public
- */
-export interface DeletePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline to delete.</p>
-   */
-  PipelineArn?: string;
 }
 
 /**
