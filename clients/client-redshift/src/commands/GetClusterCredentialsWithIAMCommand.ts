@@ -55,8 +55,9 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * const client = new RedshiftClient(config);
  * const input = { // GetClusterCredentialsWithIAMMessage
  *   DbName: "STRING_VALUE",
- *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE",
  *   DurationSeconds: Number("int"),
+ *   CustomDomainName: "STRING_VALUE",
  * };
  * const command = new GetClusterCredentialsWithIAMCommand(input);
  * const response = await client.send(command);

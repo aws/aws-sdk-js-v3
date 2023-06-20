@@ -84,6 +84,11 @@ import {
   CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand";
 import {
+  CreateCustomDomainAssociationCommand,
+  CreateCustomDomainAssociationCommandInput,
+  CreateCustomDomainAssociationCommandOutput,
+} from "./commands/CreateCustomDomainAssociationCommand";
+import {
   CreateEndpointAccessCommand,
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
@@ -159,6 +164,11 @@ import {
   DeleteClusterSubnetGroupCommandInput,
   DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand";
+import {
+  DeleteCustomDomainAssociationCommand,
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
+} from "./commands/DeleteCustomDomainAssociationCommand";
 import {
   DeleteEndpointAccessCommand,
   DeleteEndpointAccessCommandInput,
@@ -260,6 +270,11 @@ import {
   DescribeClusterVersionsCommandInput,
   DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
+import {
+  DescribeCustomDomainAssociationsCommand,
+  DescribeCustomDomainAssociationsCommandInput,
+  DescribeCustomDomainAssociationsCommandOutput,
+} from "./commands/DescribeCustomDomainAssociationsCommand";
 import {
   DescribeDataSharesCommand,
   DescribeDataSharesCommandInput,
@@ -486,6 +501,11 @@ import {
   ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand";
 import {
+  ModifyCustomDomainAssociationCommand,
+  ModifyCustomDomainAssociationCommandInput,
+  ModifyCustomDomainAssociationCommandOutput,
+} from "./commands/ModifyCustomDomainAssociationCommand";
+import {
   ModifyEndpointAccessCommand,
   ModifyEndpointAccessCommandInput,
   ModifyEndpointAccessCommandOutput,
@@ -605,6 +625,7 @@ const commands = {
   CreateClusterSecurityGroupCommand,
   CreateClusterSnapshotCommand,
   CreateClusterSubnetGroupCommand,
+  CreateCustomDomainAssociationCommand,
   CreateEndpointAccessCommand,
   CreateEventSubscriptionCommand,
   CreateHsmClientCertificateCommand,
@@ -621,6 +642,7 @@ const commands = {
   DeleteClusterSecurityGroupCommand,
   DeleteClusterSnapshotCommand,
   DeleteClusterSubnetGroupCommand,
+  DeleteCustomDomainAssociationCommand,
   DeleteEndpointAccessCommand,
   DeleteEventSubscriptionCommand,
   DeleteHsmClientCertificateCommand,
@@ -642,6 +664,7 @@ const commands = {
   DescribeClusterSubnetGroupsCommand,
   DescribeClusterTracksCommand,
   DescribeClusterVersionsCommand,
+  DescribeCustomDomainAssociationsCommand,
   DescribeDataSharesCommand,
   DescribeDataSharesForConsumerCommand,
   DescribeDataSharesForProducerCommand,
@@ -687,6 +710,7 @@ const commands = {
   ModifyClusterSnapshotCommand,
   ModifyClusterSnapshotScheduleCommand,
   ModifyClusterSubnetGroupCommand,
+  ModifyCustomDomainAssociationCommand,
   ModifyEndpointAccessCommand,
   ModifyEventSubscriptionCommand,
   ModifyScheduledActionCommand,
@@ -982,6 +1006,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link CreateCustomDomainAssociationCommand}
+   */
+  createCustomDomainAssociation(
+    args: CreateCustomDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomDomainAssociationCommandOutput>;
+  createCustomDomainAssociation(
+    args: CreateCustomDomainAssociationCommandInput,
+    cb: (err: any, data?: CreateCustomDomainAssociationCommandOutput) => void
+  ): void;
+  createCustomDomainAssociation(
+    args: CreateCustomDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomDomainAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEndpointAccessCommand}
    */
   createEndpointAccess(
@@ -1239,6 +1280,23 @@ export interface Redshift {
     args: DeleteClusterSubnetGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterSubnetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCustomDomainAssociationCommand}
+   */
+  deleteCustomDomainAssociation(
+    args: DeleteCustomDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomDomainAssociationCommandOutput>;
+  deleteCustomDomainAssociation(
+    args: DeleteCustomDomainAssociationCommandInput,
+    cb: (err: any, data?: DeleteCustomDomainAssociationCommandOutput) => void
+  ): void;
+  deleteCustomDomainAssociation(
+    args: DeleteCustomDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomDomainAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -1584,6 +1642,23 @@ export interface Redshift {
     args: DescribeClusterVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeClusterVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCustomDomainAssociationsCommand}
+   */
+  describeCustomDomainAssociations(
+    args: DescribeCustomDomainAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCustomDomainAssociationsCommandOutput>;
+  describeCustomDomainAssociations(
+    args: DescribeCustomDomainAssociationsCommandInput,
+    cb: (err: any, data?: DescribeCustomDomainAssociationsCommandOutput) => void
+  ): void;
+  describeCustomDomainAssociations(
+    args: DescribeCustomDomainAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCustomDomainAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -2319,6 +2394,23 @@ export interface Redshift {
     args: ModifyClusterSubnetGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyClusterSubnetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyCustomDomainAssociationCommand}
+   */
+  modifyCustomDomainAssociation(
+    args: ModifyCustomDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCustomDomainAssociationCommandOutput>;
+  modifyCustomDomainAssociation(
+    args: ModifyCustomDomainAssociationCommandInput,
+    cb: (err: any, data?: ModifyCustomDomainAssociationCommandOutput) => void
+  ): void;
+  modifyCustomDomainAssociation(
+    args: ModifyCustomDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCustomDomainAssociationCommandOutput) => void
   ): void;
 
   /**

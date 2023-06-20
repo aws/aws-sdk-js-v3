@@ -16,9 +16,10 @@ export * from "./DescribeClusterVersionsPaginator";
 
 export * from "./DescribeClustersPaginator";
 
-export * from "./DescribeDataSharesForConsumerPaginator";
+export * from "./DescribeCustomDomainAssociationsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeDataSharesForConsumerPaginator";
 export * from "./DescribeDataSharesForProducerPaginator";
 export * from "./DescribeDataSharesPaginator";
 export * from "./DescribeDefaultClusterParametersPaginator";

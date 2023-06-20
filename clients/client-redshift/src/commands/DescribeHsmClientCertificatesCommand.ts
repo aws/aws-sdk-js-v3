@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DescribeHsmClientCertificatesMessage, HsmClientCertificateMessage } from "../models/models_0";
+import { DescribeHsmClientCertificatesMessage, HsmClientCertificateMessage } from "../models/models_1";
 import {
   de_DescribeHsmClientCertificatesCommand,
   se_DescribeHsmClientCertificatesCommand,

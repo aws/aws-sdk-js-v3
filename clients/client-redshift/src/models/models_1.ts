@@ -9,7 +9,9 @@ import {
   Cluster,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
+  EventCategoriesMap,
   EventSubscription,
+  HsmClientCertificate,
   HsmConfiguration,
   Parameter,
   RecurringCharge,
@@ -27,6 +29,356 @@ import {
   UsageLimitFeatureType,
 } from "./models_0";
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface EventCategoriesMessage {
+  /**
+   * <p>A list of event categories descriptions.</p>
+   */
+  EventCategoriesMapList?: EventCategoriesMap[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  cluster: "cluster",
+  cluster_parameter_group: "cluster-parameter-group",
+  cluster_security_group: "cluster-security-group",
+  cluster_snapshot: "cluster-snapshot",
+  scheduled_action: "scheduled-action",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeEventsMessage {
+  /**
+   * <p>The identifier of the event source for which events will be returned. If this
+   *             parameter is not specified, then all sources are included in the response.</p>
+   *          <p>Constraints:</p>
+   *          <p>If <i>SourceIdentifier</i> is supplied,
+   *                 <i>SourceType</i> must also be provided.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specify a cluster identifier when <i>SourceType</i> is
+   *                         <code>cluster</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify a cluster security group name when <i>SourceType</i>
+   *                     is <code>cluster-security-group</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify a cluster parameter group name when <i>SourceType</i>
+   *                     is <code>cluster-parameter-group</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify a cluster snapshot identifier when <i>SourceType</i>
+   *                     is <code>cluster-snapshot</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceIdentifier?: string;
+
+  /**
+   * <p>The event source to retrieve events for. If no value is specified, all events are
+   *             returned.</p>
+   *          <p>Constraints:</p>
+   *          <p>If <i>SourceType</i> is supplied,
+   *                 <i>SourceIdentifier</i> must also be provided.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specify <code>cluster</code> when <i>SourceIdentifier</i> is
+   *                     a cluster identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>cluster-security-group</code> when
+   *                         <i>SourceIdentifier</i> is a cluster security group
+   *                     name.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>cluster-parameter-group</code> when
+   *                         <i>SourceIdentifier</i> is a cluster parameter group
+   *                     name.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>cluster-snapshot</code> when
+   *                         <i>SourceIdentifier</i> is a cluster snapshot
+   *                     identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceType?: SourceType | string;
+
+  /**
+   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
+   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: <code>2009-07-08T18:00Z</code>
+   *          </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
+   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: <code>2009-07-08T18:00Z</code>
+   *          </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The number of minutes prior to the time of the request for which to retrieve
+   *             events. For example, if the request is sent at 18:00 and you specify a duration of 60,
+   *             then only events which have occurred after 17:00 will be returned.</p>
+   *          <p>Default: <code>60</code>
+   *          </p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeEvents</a> request exceed the value
+   *             specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code>
+   *             field of the response. You can retrieve the next set of response records by providing
+   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
+   *         </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>Describes an event.</p>
+ */
+export interface Event {
+  /**
+   * <p>The identifier for the source of the event.</p>
+   */
+  SourceIdentifier?: string;
+
+  /**
+   * <p>The source type for this event.</p>
+   */
+  SourceType?: SourceType | string;
+
+  /**
+   * <p>The text of this event.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>A list of the event categories.</p>
+   *          <p>Values: Configuration, Management, Monitoring, Security, Pending</p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p>The severity of the event.</p>
+   *          <p>Values: ERROR, INFO</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>The date and time of the event.</p>
+   */
+  Date?: Date;
+
+  /**
+   * <p>The identifier of the event.</p>
+   */
+  EventId?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface EventsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of <code>Event</code> instances. </p>
+   */
+  Events?: Event[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeEventSubscriptionsMessage {
+  /**
+   * <p>The name of the Amazon Redshift event notification subscription to be
+   *             described.</p>
+   */
+  SubscriptionName?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a DescribeEventSubscriptions request exceed the value
+   *             specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code>
+   *             field of the response. You can retrieve the next set of response records by providing
+   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching event notification
+   *             subscriptions that are associated with the specified key or keys. For example, suppose
+   *             that you have subscriptions that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the subscriptions that have either or both of these
+   *             tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>A tag value or values for which you want to return all matching event notification
+   *             subscriptions that are associated with the specified tag value or values. For example,
+   *             suppose that you have subscriptions that are tagged with values called
+   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
+   *             the request, Amazon Redshift returns a response with the subscriptions that have either or
+   *             both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface EventSubscriptionsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of event subscriptions.</p>
+   */
+  EventSubscriptionsList?: EventSubscription[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeHsmClientCertificatesMessage {
+  /**
+   * <p>The identifier of a specific HSM client certificate for which you want information.
+   *             If no identifier is specified, information is returned for all HSM client certificates
+   *             owned by your Amazon Web Services account.</p>
+   */
+  HsmClientCertificateIdentifier?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeHsmClientCertificates</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching HSM client certificates
+   *             that are associated with the specified key or keys. For example, suppose that you have
+   *             HSM client certificates that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the HSM client certificates that have either or both
+   *             of these tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>A tag value or values for which you want to return all matching HSM client
+   *             certificates that are associated with the specified tag value or values. For example,
+   *             suppose that you have HSM client certificates that are tagged with values called
+   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
+   *             the request, Amazon Redshift returns a response with the HSM client certificates that have
+   *             either or both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface HsmClientCertificateMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
+   *             clusters to store and retrieve database encryption keys in an HSM.</p>
+   */
+  HsmClientCertificates?: HsmClientCertificate[];
+}
 
 /**
  * @public
@@ -1876,7 +2228,7 @@ export interface GetClusterCredentialsMessage {
    * <p>The unique identifier of the cluster that contains the database for which you are
    *             requesting credentials. This parameter is case sensitive.</p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The number of seconds until the returned temporary password expires.</p>
@@ -1918,6 +2270,11 @@ export interface GetClusterCredentialsMessage {
    *          </ul>
    */
   DbGroups?: string[];
+
+  /**
+   * <p>The custom domain name for the cluster credentials.</p>
+   */
+  CustomDomainName?: string;
 }
 
 /**
@@ -1935,13 +2292,18 @@ export interface GetClusterCredentialsWithIAMMessage {
    * <p>The unique identifier of the cluster that contains the database for which you are
    *             requesting credentials. </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The number of seconds until the returned temporary password expires.</p>
    *          <p>Range: 900-3600. Default: 900.</p>
    */
   DurationSeconds?: number;
+
+  /**
+   * <p>The custom domain name for the IAM message cluster credentials.</p>
+   */
+  CustomDomainName?: string;
 }
 
 /**
@@ -2282,7 +2644,7 @@ export interface ModifyClusterMessage {
    *                 <code>PendingModifiedValues</code> element of the operation response. </p>
    *          <note>
    *             <p>Operations never return the password, so this operation provides a way to
-   *                 regain access to the admin user for a cluster if the password is
+   *                 regain access to the admin user account for a cluster if the password is
    *                 lost.</p>
    *          </note>
    *          <p>Default: Uses existing setting.</p>
@@ -2777,6 +3139,51 @@ export class SubnetAlreadyInUse extends __BaseException {
 /**
  * @public
  */
+export interface ModifyCustomDomainAssociationMessage {
+  /**
+   * <p>The custom domain name for a changed custom domain association.</p>
+   */
+  CustomDomainName?: string;
+
+  /**
+   * <p>The certificate Amazon Resource Name (ARN) for the changed custom domain association.</p>
+   */
+  CustomDomainCertificateArn?: string;
+
+  /**
+   * <p>The identifier of the cluster to change a custom domain association for.</p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCustomDomainAssociationResult {
+  /**
+   * <p>The custom domain name associated with the result for the changed custom domain association.</p>
+   */
+  CustomDomainName?: string;
+
+  /**
+   * <p>The certificate Amazon Resource Name (ARN) associated with the result for the changed custom domain association.</p>
+   */
+  CustomDomainCertificateArn?: string;
+
+  /**
+   * <p>The identifier of the cluster associated with the result for the changed custom domain association.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The certificate expiration time associated with the result for the changed custom domain association.</p>
+   */
+  CustomDomainCertExpiryTime?: string;
+}
+
+/**
+ * @public
+ */
 export interface ModifyEndpointAccessMessage {
   /**
    * <p>The endpoint to be modified.</p>
@@ -3208,7 +3615,7 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>The name of the cluster the source snapshot was created from. This parameter is
-   *             required if your IAM user or role has a policy containing a snapshot resource element that
+   *             required if your IAM user has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
@@ -3618,7 +4025,7 @@ export interface RevokeSnapshotAccessMessage {
 
   /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
-   *             required if your IAM user or role has a policy containing a snapshot resource element that
+   *             required if your IAM user has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;

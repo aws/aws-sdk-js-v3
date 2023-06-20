@@ -108,6 +108,10 @@ import {
   CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand";
 import {
+  CreateCustomDomainAssociationCommandInput,
+  CreateCustomDomainAssociationCommandOutput,
+} from "./commands/CreateCustomDomainAssociationCommand";
+import {
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
@@ -162,6 +166,10 @@ import {
   DeleteClusterSubnetGroupCommandInput,
   DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand";
+import {
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
+} from "./commands/DeleteCustomDomainAssociationCommand";
 import {
   DeleteEndpointAccessCommandInput,
   DeleteEndpointAccessCommandOutput,
@@ -234,6 +242,10 @@ import {
   DescribeClusterVersionsCommandInput,
   DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
+import {
+  DescribeCustomDomainAssociationsCommandInput,
+  DescribeCustomDomainAssociationsCommandOutput,
+} from "./commands/DescribeCustomDomainAssociationsCommand";
 import { DescribeDataSharesCommandInput, DescribeDataSharesCommandOutput } from "./commands/DescribeDataSharesCommand";
 import {
   DescribeDataSharesForConsumerCommandInput,
@@ -385,6 +397,10 @@ import {
   ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand";
 import {
+  ModifyCustomDomainAssociationCommandInput,
+  ModifyCustomDomainAssociationCommandOutput,
+} from "./commands/ModifyCustomDomainAssociationCommand";
+import {
   ModifyEndpointAccessCommandInput,
   ModifyEndpointAccessCommandOutput,
 } from "./commands/ModifyEndpointAccessCommand";
@@ -477,6 +493,7 @@ export type ServiceInputTypes =
   | CreateClusterSecurityGroupCommandInput
   | CreateClusterSnapshotCommandInput
   | CreateClusterSubnetGroupCommandInput
+  | CreateCustomDomainAssociationCommandInput
   | CreateEndpointAccessCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateHsmClientCertificateCommandInput
@@ -493,6 +510,7 @@ export type ServiceInputTypes =
   | DeleteClusterSecurityGroupCommandInput
   | DeleteClusterSnapshotCommandInput
   | DeleteClusterSubnetGroupCommandInput
+  | DeleteCustomDomainAssociationCommandInput
   | DeleteEndpointAccessCommandInput
   | DeleteEventSubscriptionCommandInput
   | DeleteHsmClientCertificateCommandInput
@@ -514,6 +532,7 @@ export type ServiceInputTypes =
   | DescribeClusterTracksCommandInput
   | DescribeClusterVersionsCommandInput
   | DescribeClustersCommandInput
+  | DescribeCustomDomainAssociationsCommandInput
   | DescribeDataSharesCommandInput
   | DescribeDataSharesForConsumerCommandInput
   | DescribeDataSharesForProducerCommandInput
@@ -559,6 +578,7 @@ export type ServiceInputTypes =
   | ModifyClusterSnapshotCommandInput
   | ModifyClusterSnapshotScheduleCommandInput
   | ModifyClusterSubnetGroupCommandInput
+  | ModifyCustomDomainAssociationCommandInput
   | ModifyEndpointAccessCommandInput
   | ModifyEventSubscriptionCommandInput
   | ModifyScheduledActionCommandInput
@@ -601,6 +621,7 @@ export type ServiceOutputTypes =
   | CreateClusterSecurityGroupCommandOutput
   | CreateClusterSnapshotCommandOutput
   | CreateClusterSubnetGroupCommandOutput
+  | CreateCustomDomainAssociationCommandOutput
   | CreateEndpointAccessCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateHsmClientCertificateCommandOutput
@@ -617,6 +638,7 @@ export type ServiceOutputTypes =
   | DeleteClusterSecurityGroupCommandOutput
   | DeleteClusterSnapshotCommandOutput
   | DeleteClusterSubnetGroupCommandOutput
+  | DeleteCustomDomainAssociationCommandOutput
   | DeleteEndpointAccessCommandOutput
   | DeleteEventSubscriptionCommandOutput
   | DeleteHsmClientCertificateCommandOutput
@@ -638,6 +660,7 @@ export type ServiceOutputTypes =
   | DescribeClusterTracksCommandOutput
   | DescribeClusterVersionsCommandOutput
   | DescribeClustersCommandOutput
+  | DescribeCustomDomainAssociationsCommandOutput
   | DescribeDataSharesCommandOutput
   | DescribeDataSharesForConsumerCommandOutput
   | DescribeDataSharesForProducerCommandOutput
@@ -683,6 +706,7 @@ export type ServiceOutputTypes =
   | ModifyClusterSnapshotCommandOutput
   | ModifyClusterSnapshotScheduleCommandOutput
   | ModifyClusterSubnetGroupCommandOutput
+  | ModifyCustomDomainAssociationCommandOutput
   | ModifyEndpointAccessCommandOutput
   | ModifyEventSubscriptionCommandOutput
   | ModifyScheduledActionCommandOutput

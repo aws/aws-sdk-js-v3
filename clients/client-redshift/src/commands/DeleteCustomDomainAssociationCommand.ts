@@ -13,9 +13,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DescribeEventCategoriesMessage } from "../models/models_0";
-import { EventCategoriesMessage } from "../models/models_1";
-import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } from "../protocols/Aws_query";
+import { DeleteCustomDomainAssociationMessage } from "../models/models_0";
+import {
+  de_DeleteCustomDomainAssociationCommand,
+  se_DeleteCustomDomainAssociationCommand,
+} from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -25,65 +27,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeEventCategoriesCommand}.
+ * The input for {@link DeleteCustomDomainAssociationCommand}.
  */
-export interface DescribeEventCategoriesCommandInput extends DescribeEventCategoriesMessage {}
+export interface DeleteCustomDomainAssociationCommandInput extends DeleteCustomDomainAssociationMessage {}
 /**
  * @public
  *
- * The output of {@link DescribeEventCategoriesCommand}.
+ * The output of {@link DeleteCustomDomainAssociationCommand}.
  */
-export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
+export interface DeleteCustomDomainAssociationCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Displays a list of event categories for all event source types, or for a specified
- *             source type. For a list of the event categories and source types, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift Event
- *                 Notifications</a>.</p>
+ * <p>Contains information about deleting a custom domain association for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
- * // const { RedshiftClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * import { RedshiftClient, DeleteCustomDomainAssociationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DeleteCustomDomainAssociationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = { // DescribeEventCategoriesMessage
- *   SourceType: "STRING_VALUE",
+ * const input = { // DeleteCustomDomainAssociationMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
  * };
- * const command = new DescribeEventCategoriesCommand(input);
+ * const command = new DeleteCustomDomainAssociationCommand(input);
  * const response = await client.send(command);
- * // { // EventCategoriesMessage
- * //   EventCategoriesMapList: [ // EventCategoriesMapList
- * //     { // EventCategoriesMap
- * //       SourceType: "STRING_VALUE",
- * //       Events: [ // EventInfoMapList
- * //         { // EventInfoMap
- * //           EventId: "STRING_VALUE",
- * //           EventCategories: [ // EventCategoriesList
- * //             "STRING_VALUE",
- * //           ],
- * //           EventDescription: "STRING_VALUE",
- * //           Severity: "STRING_VALUE",
- * //         },
- * //       ],
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
- * @returns {@link DescribeEventCategoriesCommandOutput}
- * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
- * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
+ * @param DeleteCustomDomainAssociationCommandInput - {@link DeleteCustomDomainAssociationCommandInput}
+ * @returns {@link DeleteCustomDomainAssociationCommandOutput}
+ * @see {@link DeleteCustomDomainAssociationCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link CustomCnameAssociationFault} (client fault)
+ *  <p>An error occurred when an attempt was made to change the custom domain association.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
  *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
-export class DescribeEventCategoriesCommand extends $Command<
-  DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput,
+export class DeleteCustomDomainAssociationCommand extends $Command<
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
   RedshiftClientResolvedConfig
 > {
   // Start section: command_properties
@@ -101,7 +95,7 @@ export class DescribeEventCategoriesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeEventCategoriesCommandInput) {
+  constructor(readonly input: DeleteCustomDomainAssociationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -114,17 +108,17 @@ export class DescribeEventCategoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeEventCategoriesCommandInput, DescribeEventCategoriesCommandOutput> {
+  ): Handler<DeleteCustomDomainAssociationCommandInput, DeleteCustomDomainAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeEventCategoriesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteCustomDomainAssociationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftClient";
-    const commandName = "DescribeEventCategoriesCommand";
+    const commandName = "DeleteCustomDomainAssociationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -143,15 +137,18 @@ export class DescribeEventCategoriesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeEventCategoriesCommand(input, context);
+  private serialize(input: DeleteCustomDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteCustomDomainAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
-    return de_DescribeEventCategoriesCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteCustomDomainAssociationCommandOutput> {
+    return de_DeleteCustomDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

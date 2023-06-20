@@ -67,12 +67,13 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * const input = { // GetClusterCredentialsMessage
  *   DbUser: "STRING_VALUE", // required
  *   DbName: "STRING_VALUE",
- *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE",
  *   DurationSeconds: Number("int"),
  *   AutoCreate: true || false,
  *   DbGroups: [ // DbGroupList
  *     "STRING_VALUE",
  *   ],
+ *   CustomDomainName: "STRING_VALUE",
  * };
  * const command = new GetClusterCredentialsCommand(input);
  * const response = await client.send(command);

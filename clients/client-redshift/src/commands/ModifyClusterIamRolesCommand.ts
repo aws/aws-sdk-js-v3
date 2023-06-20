@@ -230,6 +230,9 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * //       TargetReservedNodeType: "STRING_VALUE",
  * //       TargetReservedNodeCount: Number("int"),
  * //     },
+ * //     CustomDomainName: "STRING_VALUE",
+ * //     CustomDomainCertificateArn: "STRING_VALUE",
+ * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

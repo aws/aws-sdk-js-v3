@@ -255,6 +255,9 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //       TargetReservedNodeType: "STRING_VALUE",
  * //       TargetReservedNodeCount: Number("int"),
  * //     },
+ * //     CustomDomainName: "STRING_VALUE",
+ * //     CustomDomainCertificateArn: "STRING_VALUE",
+ * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
@@ -279,6 +282,9 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
  *  <p>The cluster security group name does not refer to an existing cluster security
  *             group.</p>
+ *
+ * @throws {@link CustomCnameAssociationFault} (client fault)
+ *  <p>An error occurred when an attempt was made to change the custom domain association.</p>
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
  *  <p>The request cannot be completed because a dependent service is throttling requests
@@ -330,6 +336,9 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
  *
  * @throws {@link UnsupportedOptionFault} (client fault)
  *  <p>A request option was specified that is not supported.</p>
