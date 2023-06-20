@@ -9,7 +9,6 @@ import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { Md5 } from "@aws-sdk/md5-js";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
-import { sdkStreamMixin } from "@aws-sdk/util-stream-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
@@ -36,7 +35,6 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     md5: config?.md5 ?? Md5,
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
-    sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
