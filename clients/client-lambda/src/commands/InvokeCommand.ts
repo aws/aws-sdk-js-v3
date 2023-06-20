@@ -161,6 +161,9 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not
  *       found. Check the function's KMS key settings.</p>
  *
+ * @throws {@link RecursiveInvocationException} (client fault)
+ *  <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+ *
  * @throws {@link RequestTooLargeException} (client fault)
  *  <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
  *       quotas</a>.</p>

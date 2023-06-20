@@ -270,6 +270,7 @@ import {
   PolicyLengthExceededException,
   PreconditionFailedException,
   ProvisionedConcurrencyConfigNotFoundException,
+  RecursiveInvocationException,
   RequestTooLargeException,
   ResourceConflictException,
   ResourceInUseException,
@@ -4867,6 +4868,9 @@ const de_InvokeCommandError = async (output: __HttpResponse, context: __SerdeCon
     case "KMSNotFoundException":
     case "com.amazonaws.lambda#KMSNotFoundException":
       throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
+    case "RecursiveInvocationException":
+    case "com.amazonaws.lambda#RecursiveInvocationException":
+      throw await de_RecursiveInvocationExceptionRes(parsedOutput, context);
     case "RequestTooLargeException":
     case "com.amazonaws.lambda#RequestTooLargeException":
       throw await de_RequestTooLargeExceptionRes(parsedOutput, context);
@@ -5058,6 +5062,9 @@ const de_InvokeWithResponseStreamCommandError = async (
     case "KMSNotFoundException":
     case "com.amazonaws.lambda#KMSNotFoundException":
       throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
+    case "RecursiveInvocationException":
+    case "com.amazonaws.lambda#RecursiveInvocationException":
+      throw await de_RecursiveInvocationExceptionRes(parsedOutput, context);
     case "RequestTooLargeException":
     case "com.amazonaws.lambda#RequestTooLargeException":
       throw await de_RequestTooLargeExceptionRes(parsedOutput, context);
@@ -7532,6 +7539,27 @@ const de_ProvisionedConcurrencyConfigNotFoundExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new ProvisionedConcurrencyConfigNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1RecursiveInvocationExceptionRes
+ */
+const de_RecursiveInvocationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RecursiveInvocationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new RecursiveInvocationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

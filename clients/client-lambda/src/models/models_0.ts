@@ -4154,6 +4154,37 @@ export class KMSNotFoundException extends __BaseException {
 
 /**
  * @public
+ * <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+ */
+export class RecursiveInvocationException extends __BaseException {
+  readonly name: "RecursiveInvocationException" = "RecursiveInvocationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The exception type.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The exception message.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RecursiveInvocationException, __BaseException>) {
+    super({
+      name: "RecursiveInvocationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RecursiveInvocationException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
  *       quotas</a>.</p>
  */
