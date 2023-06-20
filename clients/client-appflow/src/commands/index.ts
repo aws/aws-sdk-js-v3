@@ -15,6 +15,7 @@ export * from "./ListConnectorsCommand";
 export * from "./ListFlowsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./RegisterConnectorCommand";
+export * from "./ResetConnectorMetadataCacheCommand";
 export * from "./StartFlowCommand";
 export * from "./StopFlowCommand";
 export * from "./TagResourceCommand";

@@ -62,6 +62,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { RegisterConnectorCommandInput, RegisterConnectorCommandOutput } from "../commands/RegisterConnectorCommand";
+import {
+  ResetConnectorMetadataCacheCommandInput,
+  ResetConnectorMetadataCacheCommandOutput,
+} from "../commands/ResetConnectorMetadataCacheCommand";
 import { StartFlowCommandInput, StartFlowCommandOutput } from "../commands/StartFlowCommand";
 import { StopFlowCommandInput, StopFlowCommandOutput } from "../commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -699,6 +703,40 @@ export const se_RegisterConnectorCommand = async (
       connectorProvisioningConfig: (_) => _json(_),
       connectorProvisioningType: [],
       description: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ResetConnectorMetadataCacheCommand
+ */
+export const se_ResetConnectorMetadataCacheCommand = async (
+  input: ResetConnectorMetadataCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reset-connector-metadata-cache";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      apiVersion: [],
+      connectorEntityName: [],
+      connectorProfileName: [],
+      connectorType: [],
+      entitiesPath: [],
     })
   );
   return new __HttpRequest({
@@ -1855,6 +1893,58 @@ const de_RegisterConnectorCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.appflow#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.appflow#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ResetConnectorMetadataCacheCommand
+ */
+export const de_ResetConnectorMetadataCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetConnectorMetadataCacheCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ResetConnectorMetadataCacheCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResetConnectorMetadataCacheCommandError
+ */
+const de_ResetConnectorMetadataCacheCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetConnectorMetadataCacheCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.appflow#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appflow#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.appflow#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);

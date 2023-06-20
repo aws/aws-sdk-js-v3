@@ -91,6 +91,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { RegisterConnectorCommandInput, RegisterConnectorCommandOutput } from "./commands/RegisterConnectorCommand";
+import {
+  ResetConnectorMetadataCacheCommandInput,
+  ResetConnectorMetadataCacheCommandOutput,
+} from "./commands/ResetConnectorMetadataCacheCommand";
 import { StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
 import { StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -138,6 +142,7 @@ export type ServiceInputTypes =
   | ListFlowsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterConnectorCommandInput
+  | ResetConnectorMetadataCacheCommandInput
   | StartFlowCommandInput
   | StopFlowCommandInput
   | TagResourceCommandInput
@@ -167,6 +172,7 @@ export type ServiceOutputTypes =
   | ListFlowsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterConnectorCommandOutput
+  | ResetConnectorMetadataCacheCommandOutput
   | StartFlowCommandOutput
   | StopFlowCommandOutput
   | TagResourceCommandOutput

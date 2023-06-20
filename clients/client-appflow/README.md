@@ -367,6 +367,14 @@ RegisterConnector
 </details>
 <details>
 <summary>
+ResetConnectorMetadataCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appflow/classes/resetconnectormetadatacachecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appflow/interfaces/resetconnectormetadatacachecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appflow/interfaces/resetconnectormetadatacachecommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartFlow
 </summary>
 
