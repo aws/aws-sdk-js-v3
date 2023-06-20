@@ -34,6 +34,7 @@ export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 export type GetConfigurationCommandOutputType = Omit<Configuration, "Content"> & {
   Content?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

@@ -37,6 +37,7 @@ export interface GetSolFunctionPackageDescriptorCommandInput extends GetSolFunct
 export type GetSolFunctionPackageDescriptorCommandOutputType = Omit<GetSolFunctionPackageDescriptorOutput, "vnfd"> & {
   vnfd?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

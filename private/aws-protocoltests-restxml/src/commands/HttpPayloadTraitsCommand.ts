@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type HttpPayloadTraitsCommandInputType = Omit<HttpPayloadTraitsInputOutput, "blob"> & {
   blob?: BlobTypes;
 };
+
 /**
  * @public
  *
@@ -40,6 +41,7 @@ export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsCommandI
 export type HttpPayloadTraitsCommandOutputType = Omit<HttpPayloadTraitsInputOutput, "blob"> & {
   blob?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

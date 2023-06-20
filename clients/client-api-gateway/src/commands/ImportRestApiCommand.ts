@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type ImportRestApiCommandInputType = Omit<ImportRestApiRequest, "body"> & {
   body: BlobTypes;
 };
+
 /**
  * @public
  *

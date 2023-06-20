@@ -40,6 +40,7 @@ export type GetSolFunctionPackageContentCommandOutputType = Omit<
 > & {
   packageContent?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

@@ -34,6 +34,7 @@ export { __MetadataBearer, $Command };
 export type InvokeCommandInputType = Omit<InvocationRequest, "Payload"> & {
   Payload?: BlobTypes;
 };
+
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export interface InvokeCommandInput extends InvokeCommandInputType {}
 export type InvokeCommandOutputType = Omit<InvocationResponse, "Payload"> & {
   Payload?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type PostAgentProfileCommandInputType = Omit<PostAgentProfileRequest, "agentProfile"> & {
   agentProfile: BlobTypes;
 };
+
 /**
  * @public
  *

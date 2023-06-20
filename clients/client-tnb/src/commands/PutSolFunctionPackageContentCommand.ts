@@ -31,6 +31,7 @@ export { __MetadataBearer, $Command };
 export type PutSolFunctionPackageContentCommandInputType = Omit<PutSolFunctionPackageContentInput, "file"> & {
   file: BlobTypes;
 };
+
 /**
  * @public
  *

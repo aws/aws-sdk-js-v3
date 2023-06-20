@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type ImportDocumentationPartsCommandInputType = Omit<ImportDocumentationPartsRequest, "body"> & {
   body: BlobTypes;
 };
+
 /**
  * @public
  *

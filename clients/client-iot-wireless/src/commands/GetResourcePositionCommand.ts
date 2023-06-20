@@ -34,6 +34,7 @@ export interface GetResourcePositionCommandInput extends GetResourcePositionRequ
 export type GetResourcePositionCommandOutputType = Omit<GetResourcePositionResponse, "GeoJsonPayload"> & {
   GeoJsonPayload?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

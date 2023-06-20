@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type PutRestApiCommandInputType = Omit<PutRestApiRequest, "body"> & {
   body: BlobTypes;
 };
+
 /**
  * @public
  *

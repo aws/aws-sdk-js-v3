@@ -34,6 +34,7 @@ export interface GetCodeBindingSourceCommandInput extends GetCodeBindingSourceRe
 export type GetCodeBindingSourceCommandOutputType = Omit<GetCodeBindingSourceResponse, "Body"> & {
   Body?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

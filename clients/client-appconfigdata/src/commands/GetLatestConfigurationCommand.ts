@@ -38,6 +38,7 @@ export interface GetLatestConfigurationCommandInput extends GetLatestConfigurati
 export type GetLatestConfigurationCommandOutputType = Omit<GetLatestConfigurationResponse, "Configuration"> & {
   Configuration?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

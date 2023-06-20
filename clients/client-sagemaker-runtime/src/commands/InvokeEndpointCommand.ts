@@ -34,6 +34,7 @@ export { __MetadataBearer, $Command };
 export type InvokeEndpointCommandInputType = Omit<InvokeEndpointInput, "Body"> & {
   Body: BlobTypes;
 };
+
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export interface InvokeEndpointCommandInput extends InvokeEndpointCommandInputTy
 export type InvokeEndpointCommandOutputType = Omit<InvokeEndpointOutput, "Body"> & {
   Body: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

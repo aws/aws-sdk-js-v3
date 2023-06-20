@@ -41,6 +41,7 @@ export interface GetHostedConfigurationVersionCommandInput extends GetHostedConf
 export type GetHostedConfigurationVersionCommandOutputType = Omit<HostedConfigurationVersion, "Content"> & {
   Content?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

@@ -38,6 +38,7 @@ export interface GetMapSpritesCommandInput extends GetMapSpritesRequest {}
 export type GetMapSpritesCommandOutputType = Omit<GetMapSpritesResponse, "Blob"> & {
   Blob?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

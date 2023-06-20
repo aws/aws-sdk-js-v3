@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type UpdateProjectCommandInputType = Omit<UpdateProjectRequest, "contents"> & {
   contents?: BlobTypes;
 };
+
 /**
  * @public
  *

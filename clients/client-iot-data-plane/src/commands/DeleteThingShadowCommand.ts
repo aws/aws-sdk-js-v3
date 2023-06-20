@@ -34,6 +34,7 @@ export interface DeleteThingShadowCommandInput extends DeleteThingShadowRequest 
 export type DeleteThingShadowCommandOutputType = Omit<DeleteThingShadowResponse, "payload"> & {
   payload: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

@@ -34,6 +34,7 @@ export interface GetMapTileCommandInput extends GetMapTileRequest {}
 export type GetMapTileCommandOutputType = Omit<GetMapTileResponse, "Blob"> & {
   Blob?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

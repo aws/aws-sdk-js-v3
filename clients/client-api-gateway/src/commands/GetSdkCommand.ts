@@ -34,6 +34,7 @@ export interface GetSdkCommandInput extends GetSdkRequest {}
 export type GetSdkCommandOutputType = Omit<SdkResponse, "body"> & {
   body?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

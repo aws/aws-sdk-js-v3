@@ -34,6 +34,7 @@ export interface GetProfileCommandInput extends GetProfileRequest {}
 export type GetProfileCommandOutputType = Omit<GetProfileResponse, "profile"> & {
   profile: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

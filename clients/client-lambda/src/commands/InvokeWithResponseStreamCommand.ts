@@ -34,6 +34,7 @@ export { __MetadataBearer, $Command };
 export type InvokeWithResponseStreamCommandInputType = Omit<InvokeWithResponseStreamRequest, "Payload"> & {
   Payload?: BlobTypes;
 };
+
 /**
  * @public
  *

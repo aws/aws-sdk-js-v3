@@ -475,7 +475,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;

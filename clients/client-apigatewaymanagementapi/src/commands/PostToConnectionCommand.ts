@@ -32,6 +32,7 @@ export { __MetadataBearer, $Command };
 export type PostToConnectionCommandInputType = Omit<PostToConnectionRequest, "Data"> & {
   Data: BlobTypes;
 };
+
 /**
  * @public
  *

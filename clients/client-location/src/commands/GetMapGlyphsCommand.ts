@@ -34,6 +34,7 @@ export interface GetMapGlyphsCommandInput extends GetMapGlyphsRequest {}
 export type GetMapGlyphsCommandOutputType = Omit<GetMapGlyphsResponse, "Blob"> & {
   Blob?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

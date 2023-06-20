@@ -29,6 +29,7 @@ export { __MetadataBearer, $Command };
 export type UpdateThingShadowCommandInputType = Omit<UpdateThingShadowRequest, "payload"> & {
   payload: BlobTypes;
 };
+
 /**
  * @public
  *
@@ -41,6 +42,7 @@ export interface UpdateThingShadowCommandInput extends UpdateThingShadowCommandI
 export type UpdateThingShadowCommandOutputType = Omit<UpdateThingShadowResponse, "payload"> & {
   payload?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

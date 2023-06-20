@@ -37,6 +37,7 @@ export interface GetSolNetworkPackageContentCommandInput extends GetSolNetworkPa
 export type GetSolNetworkPackageContentCommandOutputType = Omit<GetSolNetworkPackageContentOutput, "nsdContent"> & {
   nsdContent?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

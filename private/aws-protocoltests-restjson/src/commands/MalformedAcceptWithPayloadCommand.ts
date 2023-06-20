@@ -33,6 +33,7 @@ export interface MalformedAcceptWithPayloadCommandInput {}
 export type MalformedAcceptWithPayloadCommandOutputType = Omit<MalformedAcceptWithPayloadOutput, "payload"> & {
   payload?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

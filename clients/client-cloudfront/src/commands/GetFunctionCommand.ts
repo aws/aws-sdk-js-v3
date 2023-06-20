@@ -34,6 +34,7 @@ export interface GetFunctionCommandInput extends GetFunctionRequest {}
 export type GetFunctionCommandOutputType = Omit<GetFunctionResult, "FunctionCode"> & {
   FunctionCode?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

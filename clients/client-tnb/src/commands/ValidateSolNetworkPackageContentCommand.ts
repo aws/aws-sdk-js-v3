@@ -31,6 +31,7 @@ export { __MetadataBearer, $Command };
 export type ValidateSolNetworkPackageContentCommandInputType = Omit<ValidateSolNetworkPackageContentInput, "file"> & {
   file: BlobTypes;
 };
+
 /**
  * @public
  *

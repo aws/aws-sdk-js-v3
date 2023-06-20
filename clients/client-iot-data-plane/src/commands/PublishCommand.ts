@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type PublishCommandInputType = Omit<PublishRequest, "payload"> & {
   payload?: BlobTypes;
 };
+
 /**
  * @public
  *

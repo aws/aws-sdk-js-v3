@@ -30,6 +30,7 @@ export { __MetadataBearer, $Command };
 export type MalformedContentTypeWithPayloadCommandInputType = Omit<MalformedContentTypeWithPayloadInput, "payload"> & {
   payload?: BlobTypes;
 };
+
 /**
  * @public
  *

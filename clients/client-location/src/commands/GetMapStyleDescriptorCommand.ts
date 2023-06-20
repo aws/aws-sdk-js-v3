@@ -38,6 +38,7 @@ export interface GetMapStyleDescriptorCommandInput extends GetMapStyleDescriptor
 export type GetMapStyleDescriptorCommandOutputType = Omit<GetMapStyleDescriptorResponse, "Blob"> & {
   Blob?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

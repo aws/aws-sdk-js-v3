@@ -34,6 +34,7 @@ export interface ExportApiCommandInput extends ExportApiRequest {}
 export type ExportApiCommandOutputType = Omit<ExportApiResponse, "body"> & {
   body?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

@@ -34,6 +34,7 @@ export interface GetPositionEstimateCommandInput extends GetPositionEstimateRequ
 export type GetPositionEstimateCommandOutputType = Omit<GetPositionEstimateResponse, "GeoJsonPayload"> & {
   GeoJsonPayload?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

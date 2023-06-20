@@ -37,6 +37,7 @@ export interface GetSolNetworkPackageDescriptorCommandInput extends GetSolNetwor
 export type GetSolNetworkPackageDescriptorCommandOutputType = Omit<GetSolNetworkPackageDescriptorOutput, "nsd"> & {
   nsd?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

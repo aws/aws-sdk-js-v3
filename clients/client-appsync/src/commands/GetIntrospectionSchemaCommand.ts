@@ -34,6 +34,7 @@ export interface GetIntrospectionSchemaCommandInput extends GetIntrospectionSche
 export type GetIntrospectionSchemaCommandOutputType = Omit<GetIntrospectionSchemaResponse, "schema"> & {
   schema?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

@@ -34,6 +34,7 @@ export interface GetExportCommandInput extends GetExportRequest {}
 export type GetExportCommandOutputType = Omit<ExportResponse, "body"> & {
   body?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

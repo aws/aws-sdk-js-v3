@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type TestPayloadBlobCommandInputType = Omit<TestPayloadBlobInputOutput, "data"> & {
   data?: BlobTypes;
 };
+
 /**
  * @public
  *
@@ -40,6 +41,7 @@ export interface TestPayloadBlobCommandInput extends TestPayloadBlobCommandInput
 export type TestPayloadBlobCommandOutputType = Omit<TestPayloadBlobInputOutput, "data"> & {
   data?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

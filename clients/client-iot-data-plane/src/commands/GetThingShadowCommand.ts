@@ -34,6 +34,7 @@ export interface GetThingShadowCommandInput extends GetThingShadowRequest {}
 export type GetThingShadowCommandOutputType = Omit<GetThingShadowResponse, "payload"> & {
   payload?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

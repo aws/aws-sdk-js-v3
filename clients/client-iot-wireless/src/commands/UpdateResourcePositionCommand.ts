@@ -28,6 +28,7 @@ export { __MetadataBearer, $Command };
 export type UpdateResourcePositionCommandInputType = Omit<UpdateResourcePositionRequest, "GeoJsonPayload"> & {
   GeoJsonPayload?: BlobTypes;
 };
+
 /**
  * @public
  *

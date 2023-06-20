@@ -40,6 +40,7 @@ export type CreateHostedConfigurationVersionCommandInputType = Omit<
 > & {
   Content: BlobTypes;
 };
+
 /**
  * @public
  *
@@ -53,6 +54,7 @@ export interface CreateHostedConfigurationVersionCommandInput
 export type CreateHostedConfigurationVersionCommandOutputType = Omit<HostedConfigurationVersion, "Content"> & {
   Content?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *

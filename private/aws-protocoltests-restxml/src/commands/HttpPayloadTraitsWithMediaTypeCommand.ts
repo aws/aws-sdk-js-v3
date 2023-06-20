@@ -31,6 +31,7 @@ export { __MetadataBearer, $Command };
 export type HttpPayloadTraitsWithMediaTypeCommandInputType = Omit<HttpPayloadTraitsWithMediaTypeInputOutput, "blob"> & {
   blob?: BlobTypes;
 };
+
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export type HttpPayloadTraitsWithMediaTypeCommandOutputType = Omit<
 > & {
   blob?: Uint8ArrayBlobAdapter;
 };
+
 /**
  * @public
  *
