@@ -7756,3 +7756,62 @@ export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
 });
+
+/**
+ * @internal
+ */
+export const VpnTunnelOptionsSpecificationFilterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
+  ...obj,
+  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VpnConnectionOptionsSpecificationFilterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
+  ...obj,
+  ...(obj.TunnelOptions && {
+    TunnelOptions: obj.TunnelOptions.map((item) => VpnTunnelOptionsSpecificationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVpnConnectionRequestFilterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
+  ...obj,
+  ...(obj.Options && { Options: VpnConnectionOptionsSpecificationFilterSensitiveLog(obj.Options) }),
+});
+
+/**
+ * @internal
+ */
+export const TunnelOptionFilterSensitiveLog = (obj: TunnelOption): any => ({
+  ...obj,
+  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VpnConnectionOptionsFilterSensitiveLog = (obj: VpnConnectionOptions): any => ({
+  ...obj,
+  ...(obj.TunnelOptions && { TunnelOptions: obj.TunnelOptions.map((item) => TunnelOptionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const VpnConnectionFilterSensitiveLog = (obj: VpnConnection): any => ({
+  ...obj,
+  ...(obj.CustomerGatewayConfiguration && { CustomerGatewayConfiguration: SENSITIVE_STRING }),
+  ...(obj.Options && { Options: VpnConnectionOptionsFilterSensitiveLog(obj.Options) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVpnConnectionResultFilterSensitiveLog = (obj: CreateVpnConnectionResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});

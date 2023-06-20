@@ -111,6 +111,7 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * //       MemberOfServiceLinkedResourceGroup: true || false,
  * //       OutpostArn: "STRING_VALUE",
  * //       HostMaintenance: "on" || "off",
+ * //       AssetId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

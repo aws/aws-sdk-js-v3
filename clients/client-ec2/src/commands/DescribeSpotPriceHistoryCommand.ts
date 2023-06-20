@@ -99,14 +99,14 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  * ```javascript
  * // This example returns the Spot Price history for m1.xlarge, Linux/UNIX (Amazon VPC) instances for a particular day in January.
  * const input = {
- *   "EndTime": "2014-01-06T08:09:10",
+ *   "EndTime": "2014-01-06T08:09:10.05Z",
  *   "InstanceTypes": [
  *     "m1.xlarge"
  *   ],
  *   "ProductDescriptions": [
  *     "Linux/UNIX (Amazon VPC)"
  *   ],
- *   "StartTime": "2014-01-06T07:08:09"
+ *   "StartTime": "2014-01-06T07:08:09.05Z"
  * };
  * const command = new DescribeSpotPriceHistoryCommand(input);
  * const response = await client.send(command);

@@ -2874,10 +2874,14 @@ export interface AllocateHostsRequest {
   InstanceFamily?: string;
 
   /**
-   * <p>The number of Dedicated Hosts to allocate to your account with these
-   *             parameters.</p>
+   * <p>The number of Dedicated Hosts to allocate to your account with these parameters. If you are
+   *             allocating the Dedicated Hosts on an Outpost, and you specify <b>AssetIds</b>,
+   *             you can omit this parameter. In this case, Amazon EC2 allocates a Dedicated Host on each
+   *             specified hardware asset. If you specify both <b>AssetIds</b> and
+   *             <b>Quantity</b>, then the value that you specify for
+   *             <b>Quantity</b> must be equal to the number of asset IDs specified.</p>
    */
-  Quantity: number | undefined;
+  Quantity?: number;
 
   /**
    * <p>The tags to apply to the Dedicated Host during creation.</p>
@@ -2895,7 +2899,9 @@ export interface AllocateHostsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
-   *             the Dedicated Host.</p>
+   *             the Dedicated Host. If you specify <b>OutpostArn</b>, you can
+   *             optionally specify <b>AssetIds</b>.</p>
+   *          <p>If you are allocating the Dedicated Host in a Region, omit this parameter.</p>
    */
   OutpostArn?: string;
 
@@ -2905,6 +2911,27 @@ export interface AllocateHostsRequest {
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   HostMaintenance?: HostMaintenance | string;
+
+  /**
+   * <p>The IDs of the Outpost hardware assets on which to allocate the Dedicated Hosts. Targeting
+   *             specific hardware assets on an Outpost can help to minimize latency between your workloads.
+   *             This parameter is supported only if you specify <b>OutpostArn</b>.
+   *             If you are allocating the Dedicated Hosts in a Region, omit this parameter.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify this parameter, you can omit <b>Quantity</b>.
+   *                     In this case, Amazon EC2 allocates a Dedicated Host on each specified hardware
+   *                     asset.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify both <b>AssetIds</b> and
+   *                     <b>Quantity</b>, then the value for
+   *                     <b>Quantity</b> must be equal to the number of asset IDs
+   *                     specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  AssetIds?: string[];
 }
 
 /**

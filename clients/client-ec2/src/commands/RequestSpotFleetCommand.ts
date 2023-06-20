@@ -446,7 +446,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *
  * @example To request a Spot fleet in the Availability Zone with the lowest price
  * ```javascript
- * // This example creates a Spot fleet request with two launch specifications that differ only by Availability Zone. The Spot fleet launches the instances in the specified Availability Zone with the lowest price. If your account supports EC2-VPC only, Amazon EC2 launches the Spot instances in the default subnet of the Availability Zone. If your account supports EC2-Classic, Amazon EC2 launches the instances in EC2-Classic in the Availability Zone.
+ * // This example creates a Spot fleet request with two launch specifications that differ only by Availability Zone. The Spot fleet launches the instances in the specified Availability Zone with the lowest price. If your account supports EC2-VPC only, Amazon EC2 launches the Spot instances in the default subnet of the Availability Zone.
  * const input = {
  *   "SpotFleetRequestConfig": {
  *     "IamFleetRole": "arn:aws:iam::123456789012:role/my-spot-fleet-role",

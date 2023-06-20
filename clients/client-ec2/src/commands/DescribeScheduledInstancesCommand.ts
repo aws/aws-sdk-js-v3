@@ -107,49 +107,6 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @example To describe your Scheduled Instances
- * ```javascript
- * // This example describes the specified Scheduled Instance.
- * const input = {
- *   "ScheduledInstanceIds": [
- *     "sci-1234-1234-1234-1234-123456789012"
- *   ]
- * };
- * const command = new DescribeScheduledInstancesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ScheduledInstanceSet": [
- *     {
- *       "AvailabilityZone": "us-west-2b",
- *       "CreateDate": "2016-01-25T21:43:38.612Z",
- *       "HourlyPrice": "0.095",
- *       "InstanceCount": 1,
- *       "InstanceType": "c4.large",
- *       "NetworkPlatform": "EC2-VPC",
- *       "NextSlotStartTime": "2016-01-31T09:00:00Z",
- *       "Platform": "Linux/UNIX",
- *       "Recurrence": {
- *         "Frequency": "Weekly",
- *         "Interval": 1,
- *         "OccurrenceDaySet": [
- *           1
- *         ],
- *         "OccurrenceRelativeToEnd": false,
- *         "OccurrenceUnit": ""
- *       },
- *       "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012",
- *       "SlotDurationInHours": 32,
- *       "TermEndDate": "2017-01-31T09:00:00Z",
- *       "TermStartDate": "2016-01-31T09:00:00Z",
- *       "TotalScheduledInstanceHours": 1696
- *     }
- *   ]
- * }
- * *\/
- * // example id: ec2-describe-scheduled-instances-1
- * ```
- *
  */
 export class DescribeScheduledInstancesCommand extends $Command<
   DescribeScheduledInstancesCommandInput,

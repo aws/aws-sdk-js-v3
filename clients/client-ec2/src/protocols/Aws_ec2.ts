@@ -38081,6 +38081,16 @@ const se_AllocateHostsRequest = (input: AllocateHostsRequest, context: __SerdeCo
   if (input.HostMaintenance != null) {
     entries["HostMaintenance"] = input.HostMaintenance;
   }
+  if (input.AssetIds != null) {
+    const memberEntries = se_AssetIdList(input.AssetIds, context);
+    if (input.AssetIds?.length === 0) {
+      entries.AssetId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AssetId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -38231,6 +38241,22 @@ const se_ArnList = (input: string[], context: __SerdeContext): any => {
       continue;
     }
     entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2AssetIdList
+ */
+const se_AssetIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -77800,6 +77826,9 @@ const de_Host = (output: any, context: __SerdeContext): Host => {
   }
   if (output["hostMaintenance"] !== undefined) {
     contents.HostMaintenance = __expectString(output["hostMaintenance"]);
+  }
+  if (output["assetId"] !== undefined) {
+    contents.AssetId = __expectString(output["assetId"]);
   }
   return contents;
 };

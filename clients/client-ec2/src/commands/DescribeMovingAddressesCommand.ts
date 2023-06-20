@@ -96,7 +96,7 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * {
  *   "MovingAddressStatuses": [
  *     {
- *       "MoveStatus": "MovingToVpc",
+ *       "MoveStatus": "movingToVpc",
  *       "PublicIp": "198.51.100.0"
  *     }
  *   ]

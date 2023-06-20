@@ -57,6 +57,7 @@ import {
   Volume,
   VpcEndpoint,
   VpnConnection,
+  VpnConnectionFilterSensitiveLog,
   VpnGateway,
 } from "./models_2";
 import {
@@ -7744,6 +7745,16 @@ export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
     VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
       VerifiedAccessTrustProviderFilterSensitiveLog(item)
     ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpnConnectionsResultFilterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnections && {
+    VpnConnections: obj.VpnConnections.map((item) => VpnConnectionFilterSensitiveLog(item)),
   }),
 });
 

@@ -14,7 +14,11 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVpnConnectionRequest, ModifyVpnConnectionResult } from "../models/models_6";
+import {
+  ModifyVpnConnectionRequest,
+  ModifyVpnConnectionResult,
+  ModifyVpnConnectionResultFilterSensitiveLog,
+} from "../models/models_6";
 import { de_ModifyVpnConnectionCommand, se_ModifyVpnConnectionCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -257,7 +261,7 @@ export class ModifyVpnConnectionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ModifyVpnConnectionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -115,7 +115,7 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  *     {
  *       "Attachments": [
  *         {
- *           "State": "available",
+ *           "State": "attached",
  *           "VpcId": "vpc-a01106c2"
  *         }
  *       ],

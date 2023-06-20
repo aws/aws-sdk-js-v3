@@ -6770,6 +6770,11 @@ export interface Host {
    *             Host.</p>
    */
   HostMaintenance?: HostMaintenance | string;
+
+  /**
+   * <p>The ID of the Outpost hardware asset on which the Dedicated Host is allocated.</p>
+   */
+  AssetId?: string;
 }
 
 /**
@@ -9055,7 +9060,8 @@ export interface CpuOptions {
   ThreadsPerCore?: number;
 
   /**
-   * <p>Indicates whether the instance is enabled for AMD SEV-SNP.</p>
+   * <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
   AmdSevSnp?: AmdSevSnpSpecification | string;
 }

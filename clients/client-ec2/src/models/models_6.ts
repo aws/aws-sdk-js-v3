@@ -102,6 +102,7 @@ import {
   VerifiedAccessEndpointProtocol,
   VerifiedAccessGroup,
   VpnConnection,
+  VpnConnectionFilterSensitiveLog,
   VpnEcmpSupportValue,
   VpnTunnelLogOptionsSpecification,
 } from "./models_2";
@@ -2282,10 +2283,11 @@ export interface ModifyInstancePlacementRequest {
   /**
    * <p>The tenancy for the instance.</p>
    *          <note>
-   *             <p>For T3 instances, you can't change the tenancy from <code>dedicated</code> to
-   *                     <code>host</code>, or from <code>host</code> to <code>dedicated</code>.
-   *                 Attempting to make one of these unsupported tenancy changes results in the
-   *                     <code>InvalidTenancy</code> error code.</p>
+   *             <p>For T3 instances, you must launch the instance on a Dedicated Host to use a
+   *                 tenancy of <code>host</code>. You can't change the tenancy from
+   *                 <code>host</code> to <code>dedicated</code> or <code>default</code>.
+   *                 Attempting to make one of these unsupported tenancy changes results in an
+   *                 <code>InvalidRequest</code> error code.</p>
    *          </note>
    */
   Tenancy?: HostTenancy | string;
@@ -2297,7 +2299,8 @@ export interface ModifyInstancePlacementRequest {
   PartitionNumber?: number;
 
   /**
-   * <p>The ARN of the host resource group in which to place the instance.</p>
+   * <p>The ARN of the host resource group in which to place the instance. The instance must
+   *             have a tenancy of <code>host</code> to specify this parameter.</p>
    */
   HostResourceGroupArn?: string;
 
@@ -7548,7 +7551,8 @@ export interface CpuOptionsRequest {
 
   /**
    * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
-   *             with M6a, R6a, and C6a instance types only.</p>
+   *             with M6a, R6a, and C6a instance types only. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
   AmdSevSnp?: AmdSevSnpSpecification | string;
 }
@@ -7841,6 +7845,10 @@ export interface RunInstancesRequest {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>When you change your EBS-backed instance type, instance restart or replacement behavior depends on the
+   *     		instance type compatibility between the old and new types. An instance that's backed by an instance store volume
+   *     		is always replaced. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html">Change the instance type</a> in the
+   *     		<i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: <code>m1.small</code>
    *          </p>
    */
@@ -8658,6 +8666,56 @@ export const ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   ...(obj.VerifiedAccessTrustProvider && {
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnConnectionResultFilterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnConnectionOptionsResultFilterSensitiveLog = (obj: ModifyVpnConnectionOptionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelCertificateResultFilterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsSpecificationFilterSensitiveLog = (
+  obj: ModifyVpnTunnelOptionsSpecification
+): any => ({
+  ...obj,
+  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
+  ...obj,
+  ...(obj.TunnelOptions && { TunnelOptions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
 });
 
 /**

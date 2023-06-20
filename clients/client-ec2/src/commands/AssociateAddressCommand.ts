@@ -86,9 +86,9 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @example To associate an Elastic IP address in EC2-VPC
+ * @example To associate an Elastic IP address
  * ```javascript
- * // This example associates the specified Elastic IP address with the specified instance in a VPC.
+ * // This example associates the specified Elastic IP address with the specified instance.
  * const input = {
  *   "AllocationId": "eipalloc-64d5890a",
  *   "InstanceId": "i-0b263919b6498b123"
@@ -118,18 +118,6 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * }
  * *\/
  * // example id: ec2-associate-address-2
- * ```
- *
- * @example To associate an Elastic IP address in EC2-Classic
- * ```javascript
- * // This example associates an Elastic IP address with an instance in EC2-Classic.
- * const input = {
- *   "InstanceId": "i-07ffe74c7330ebf53",
- *   "PublicIp": "198.51.100.0"
- * };
- * const command = new AssociateAddressCommand(input);
- * await client.send(command);
- * // example id: ec2-associate-address-3
  * ```
  *
  */

@@ -68,23 +68,6 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @example To restore an address to EC2-Classic
- * ```javascript
- * // This example restores the specified Elastic IP address to the EC2-Classic platform.
- * const input = {
- *   "PublicIp": "198.51.100.0"
- * };
- * const command = new RestoreAddressToClassicCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "PublicIp": "198.51.100.0",
- *   "Status": "MoveInProgress"
- * }
- * *\/
- * // example id: ec2-restore-address-to-classic-1
- * ```
- *
  */
 export class RestoreAddressToClassicCommand extends $Command<
   RestoreAddressToClassicCommandInput,
