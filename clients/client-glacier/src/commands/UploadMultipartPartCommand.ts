@@ -25,11 +25,6 @@ import { de_UploadMultipartPartCommand, se_UploadMultipartPartCommand } from "..
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link UploadMultipartPartCommand}.
- */
 export type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
   /**
    * For *`UploadMultipartPartInput["body"]`*, see {@link UploadMultipartPartInput.body}.
@@ -37,7 +32,9 @@ export type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput,
   body?: UploadMultipartPartInput["body"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `UploadMultipartPartInput` interface. There are more parameters than `body` defined in {@link UploadMultipartPartInput}
+ * @public
+ *
+ * The input for {@link UploadMultipartPartCommand}.
  */
 export interface UploadMultipartPartCommandInput extends UploadMultipartPartCommandInputType {}
 /**

@@ -21,11 +21,6 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link WriteGetObjectResponseCommand}.
- */
 export type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
   /**
    * For *`WriteGetObjectResponseRequest["Body"]`*, see {@link WriteGetObjectResponseRequest.Body}.
@@ -33,7 +28,9 @@ export type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponse
   Body?: WriteGetObjectResponseRequest["Body"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `WriteGetObjectResponseRequest` interface. There are more parameters than `Body` defined in {@link WriteGetObjectResponseRequest}
+ * @public
+ *
+ * The input for {@link WriteGetObjectResponseCommand}.
  */
 export interface WriteGetObjectResponseCommandInput extends WriteGetObjectResponseCommandInputType {}
 /**

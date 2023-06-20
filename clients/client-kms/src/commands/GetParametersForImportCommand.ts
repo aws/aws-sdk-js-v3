@@ -182,27 +182,6 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @example To retrieve the public key and import token for a KMS key
- * ```javascript
- * // The following example retrieves the public key and import token for the specified KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "WrappingAlgorithm": "RSAES_OAEP_SHA_1",
- *   "WrappingKeySpec": "RSA_2048"
- * };
- * const command = new GetParametersForImportCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ImportToken": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "ParametersValidTo": "2016-12-01T14:52:17-08:00",
- *   "PublicKey": "<binary data>"
- * }
- * *\/
- * // example id: to-retrieve-the-public-key-and-import-token-for-a-cmk-1480626483211
- * ```
- *
  * @example To download the public key and import token for a symmetric encryption KMS key
  * ```javascript
  * // The following example downloads a public key and import token to import symmetric encryption key material. It uses the default wrapping key spec and the RSAES_OAEP_SHA_256 wrapping algorithm.

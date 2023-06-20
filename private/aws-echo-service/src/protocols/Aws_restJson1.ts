@@ -11,6 +11,7 @@ import {
   expectString as __expectString,
   resolvedPath as __resolvedPath,
   _json,
+  collectBody,
   map,
   take,
   withBaseException,
@@ -176,14 +177,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>

@@ -3,6 +3,7 @@ import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middl
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  BlobTypes,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   FinalizeHandlerArguments,
   Handler,
@@ -29,10 +30,17 @@ import { de_InvokeWithResponseStreamCommand, se_InvokeWithResponseStreamCommand 
 export { __MetadataBearer, $Command };
 /**
  * @public
+ */
+export type InvokeWithResponseStreamCommandInputType = Omit<InvokeWithResponseStreamRequest, "Payload"> & {
+  Payload?: BlobTypes;
+};
+
+/**
+ * @public
  *
  * The input for {@link InvokeWithResponseStreamCommand}.
  */
-export interface InvokeWithResponseStreamCommandInput extends InvokeWithResponseStreamRequest {}
+export interface InvokeWithResponseStreamCommandInput extends InvokeWithResponseStreamCommandInputType {}
 /**
  * @public
  *

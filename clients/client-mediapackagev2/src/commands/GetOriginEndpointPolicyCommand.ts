@@ -19,6 +19,10 @@ import { de_GetOriginEndpointPolicyCommand, se_GetOriginEndpointPolicyCommand } 
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetOriginEndpointPolicyCommand}.
  */

@@ -581,7 +581,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *
  * @example To create a KMS key for imported key material
  * ```javascript
- * // This example creates a KMS key with no key material. When the operation is complete, you can import your own key material into the KMS key. To create this KMS key, set the Origin parameter to EXTERNAL.
+ * // This example creates a symmetric KMS key with no key material. When the operation is complete, you can import your own key material into the KMS key. To create this KMS key, set the Origin parameter to EXTERNAL.
  * const input = {
  *   "Origin": "EXTERNAL"
  * };

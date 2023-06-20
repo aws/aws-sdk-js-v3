@@ -25,11 +25,6 @@ import { de_DetectAnomaliesCommand, se_DetectAnomaliesCommand } from "../protoco
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link DetectAnomaliesCommand}.
- */
 export type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
   /**
    * For *`DetectAnomaliesRequest["Body"]`*, see {@link DetectAnomaliesRequest.Body}.
@@ -37,7 +32,9 @@ export type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body
   Body: DetectAnomaliesRequest["Body"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `DetectAnomaliesRequest` interface. There are more parameters than `Body` defined in {@link DetectAnomaliesRequest}
+ * @public
+ *
+ * The input for {@link DetectAnomaliesCommand}.
  */
 export interface DetectAnomaliesCommandInput extends DetectAnomaliesCommandInputType {}
 /**

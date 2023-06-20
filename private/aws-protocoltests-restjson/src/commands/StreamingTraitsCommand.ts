@@ -23,11 +23,6 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link StreamingTraitsCommand}.
- */
 export type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> & {
   /**
    * For *`StreamingTraitsInputOutput["blob"]`*, see {@link StreamingTraitsInputOutput.blob}.
@@ -35,7 +30,9 @@ export type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "
   blob?: StreamingTraitsInputOutput["blob"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `StreamingTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsInputOutput}
+ * @public
+ *
+ * The input for {@link StreamingTraitsCommand}.
  */
 export interface StreamingTraitsCommandInput extends StreamingTraitsCommandInputType {}
 /**

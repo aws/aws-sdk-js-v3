@@ -19,6 +19,10 @@ import { de_GetChannelCommand, se_GetChannelCommand } from "../protocols/Aws_res
 
 /**
  * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
  *
  * The input for {@link GetChannelCommand}.
  */

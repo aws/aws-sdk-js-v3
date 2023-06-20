@@ -1,5 +1,6 @@
 export * from "./abort";
 export * from "./auth";
+export * from "./blob/blob-types";
 export * from "./checksum";
 export * from "./client";
 export * from "./command";

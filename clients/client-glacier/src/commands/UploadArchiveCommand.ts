@@ -21,11 +21,6 @@ import { de_UploadArchiveCommand, se_UploadArchiveCommand } from "../protocols/A
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link UploadArchiveCommand}.
- */
 export type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
   /**
    * For *`UploadArchiveInput["body"]`*, see {@link UploadArchiveInput.body}.
@@ -33,7 +28,9 @@ export type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
   body?: UploadArchiveInput["body"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `UploadArchiveInput` interface. There are more parameters than `body` defined in {@link UploadArchiveInput}
+ * @public
+ *
+ * The input for {@link UploadArchiveCommand}.
  */
 export interface UploadArchiveCommandInput extends UploadArchiveCommandInputType {}
 /**

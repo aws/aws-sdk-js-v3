@@ -21,11 +21,6 @@ import { de_PutChunkCommand, se_PutChunkCommand } from "../protocols/Aws_restJso
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link PutChunkCommand}.
- */
 export type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
   /**
    * For *`PutChunkInput["Data"]`*, see {@link PutChunkInput.Data}.
@@ -33,7 +28,9 @@ export type PutChunkCommandInputType = Omit<PutChunkInput, "Data"> & {
   Data: PutChunkInput["Data"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `PutChunkInput` interface. There are more parameters than `Data` defined in {@link PutChunkInput}
+ * @public
+ *
+ * The input for {@link PutChunkCommand}.
  */
 export interface PutChunkCommandInput extends PutChunkCommandInputType {}
 /**

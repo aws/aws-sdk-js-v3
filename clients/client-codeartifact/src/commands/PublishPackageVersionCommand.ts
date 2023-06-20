@@ -25,11 +25,6 @@ import { de_PublishPackageVersionCommand, se_PublishPackageVersionCommand } from
  * @public
  */
 export { __MetadataBearer, $Command };
-/**
- * @public
- *
- * The input for {@link PublishPackageVersionCommand}.
- */
 export type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, "assetContent"> & {
   /**
    * For *`PublishPackageVersionRequest["assetContent"]`*, see {@link PublishPackageVersionRequest.assetContent}.
@@ -37,7 +32,9 @@ export type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRe
   assetContent: PublishPackageVersionRequest["assetContent"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `PublishPackageVersionRequest` interface. There are more parameters than `assetContent` defined in {@link PublishPackageVersionRequest}
+ * @public
+ *
+ * The input for {@link PublishPackageVersionCommand}.
  */
 export interface PublishPackageVersionCommandInput extends PublishPackageVersionCommandInputType {}
 /**
