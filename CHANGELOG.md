@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.356.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.355.0...v3.356.0) (2023-06-20)
+
+
+### Features
+
+* **client-appflow:** This release adds new API to reset connector metadata cache ([d0594b9](https://github.com/aws/aws-sdk-js-v3/commit/d0594b9dafa5e5efdd06ea5ec14165c3e99d8acc))
+* **client-config-service:** Updated ResourceType enum with new resource types onboarded by AWS Config in May 2023. ([832ca5b](https://github.com/aws/aws-sdk-js-v3/commit/832ca5b1ce11c2a7326245079136da4cc606f65f))
+* **client-ec2:** Adds support for targeting Dedicated Host allocations by assetIds in AWS Outposts ([fa71f14](https://github.com/aws/aws-sdk-js-v3/commit/fa71f14130ba8705d77f2276e5edebe97f17b258))
+* **client-lambda:** This release adds RecursiveInvocationException to the Invoke API and InvokeWithResponseStream API. ([bef0216](https://github.com/aws/aws-sdk-js-v3/commit/bef0216ca974cc4c20a867dd7e5ffa57b631b5fd))
+* **client-redshift:** Added support for custom domain names for Redshift Provisioned clusters. This feature enables customers to create a custom domain name and use ACM to generate fully secure connections to it. ([10d157f](https://github.com/aws/aws-sdk-js-v3/commit/10d157f67692d4ba34f0c954cbcfdeed3478ca2a))
+* **clients:** update client endpoints as of 2023-06-20 ([2902f7b](https://github.com/aws/aws-sdk-js-v3/commit/2902f7b9479ca30680a8bf8fc915f99b8ef4965c))
+
+
+
+
+
 # [3.355.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.354.0...v3.355.0) (2023-06-19)
 
 

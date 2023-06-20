@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.356.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.355.0...v3.356.0) (2023-06-20)
+
+
+### Features
+
+* **client-appflow:** This release adds new API to reset connector metadata cache ([d0594b9](https://github.com/aws/aws-sdk-js-v3/commit/d0594b9dafa5e5efdd06ea5ec14165c3e99d8acc))
+
+
+
+
+
 # [3.354.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.353.0...v3.354.0) (2023-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-appflow

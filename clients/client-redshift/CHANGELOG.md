@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.356.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.355.0...v3.356.0) (2023-06-20)
+
+
+### Features
+
+* **client-redshift:** Added support for custom domain names for Redshift Provisioned clusters. This feature enables customers to create a custom domain name and use ACM to generate fully secure connections to it. ([10d157f](https://github.com/aws/aws-sdk-js-v3/commit/10d157f67692d4ba34f0c954cbcfdeed3478ca2a))
+
+
+
+
+
 # [3.354.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.353.0...v3.354.0) (2023-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift

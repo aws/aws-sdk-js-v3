@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.356.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.355.0...v3.356.0) (2023-06-20)
+
+
+### Features
+
+* **client-ec2:** Adds support for targeting Dedicated Host allocations by assetIds in AWS Outposts ([fa71f14](https://github.com/aws/aws-sdk-js-v3/commit/fa71f14130ba8705d77f2276e5edebe97f17b258))
+
+
+
+
+
 # [3.355.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.354.0...v3.355.0) (2023-06-19)
 
 
