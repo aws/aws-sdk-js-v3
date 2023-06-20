@@ -22,7 +22,7 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
 import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
-import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@aws-sdk/util-stream-node";
+import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@aws-sdk/util-stream";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
