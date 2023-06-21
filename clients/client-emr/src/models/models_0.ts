@@ -300,10 +300,9 @@ export interface SpotProvisioningSpecification {
   BlockDurationMinutes?: number;
 
   /**
-   * <p>Specifies one of the following strategies to launch Spot Instance fleets: <code>price-capacity-optimized</code>, <code>capacity-optimized</code>, <code>lowest-price</code>, or  <code>diversified</code>. For more information on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *          <note>
-   *             <p>When you launch a Spot Instance fleet with the old console, it automatically launches with the <code>capacity-optimized</code> strategy. You can't change the allocation strategy from the old console.</p>
-   *          </note>
+   * <p> Specifies the strategy to use in launching Spot Instance fleets. Currently, the only
+   *          option is capacity-optimized (the default), which launches instances from Spot Instance
+   *          pools with optimal capacity for the number of instances that are launching. </p>
    */
   AllocationStrategy?: SpotProvisioningAllocationStrategy | string;
 }
@@ -4721,6 +4720,115 @@ export interface ListStudioSessionMappingsOutput {
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSupportedInstanceTypesInput {
+  /**
+   * <p>The Amazon EMR release label determines the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html">versions of open-source
+   *             application packages</a> that Amazon EMR has installed on the cluster.
+   *          Release labels are in the format <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release number such as <code>emr-6.10.0</code>. For more information about Amazon EMR releases and their included application versions and features, see the
+   *                <i>
+   *                <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html">Amazon EMR Release
+   *                Guide</a>
+   *             </i>.</p>
+   */
+  ReleaseLabel: string | undefined;
+
+  /**
+   * <p>The pagination token that marks the next set of results to retrieve.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>An instance type that the specified Amazon EMR release supports.</p>
+ */
+export interface SupportedInstanceType {
+  /**
+   * <p>The <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 instance
+   *             type</a>, for example <code>m5.xlarge</code>, of the
+   *             <code>SupportedInstanceType</code>.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The amount of memory that is available to Amazon EMR from the <code>SupportedInstanceType</code>. The kernel and hypervisor
+   *          software consume some memory, so this value might be lower than the overall memory for the
+   *          instance type.</p>
+   */
+  MemoryGB?: number;
+
+  /**
+   * <p>
+   *             <code>StorageGB</code> represents the storage capacity of the
+   *             <code>SupportedInstanceType</code>. This value is <code>0</code> for Amazon EBS-only instance types.</p>
+   */
+  StorageGB?: number;
+
+  /**
+   * <p>The number of vCPUs available for the <code>SupportedInstanceType</code>.</p>
+   */
+  VCPU?: number;
+
+  /**
+   * <p>Indicates whether the <code>SupportedInstanceType</code> only supports 64-bit
+   *          architecture.</p>
+   */
+  Is64BitsOnly?: boolean;
+
+  /**
+   * <p>The Amazon EC2 family and generation for the
+   *          <code>SupportedInstanceType</code>.</p>
+   */
+  InstanceFamilyId?: string;
+
+  /**
+   * <p>Indicates whether the <code>SupportedInstanceType</code> supports Amazon EBS
+   *          optimization.</p>
+   */
+  EbsOptimizedAvailable?: boolean;
+
+  /**
+   * <p>Indicates whether the <code>SupportedInstanceType</code> uses Amazon EBS
+   *          optimization by default.</p>
+   */
+  EbsOptimizedByDefault?: boolean;
+
+  /**
+   * <p>Number of disks for the <code>SupportedInstanceType</code>. This value is <code>0</code>
+   *          for Amazon EBS-only instance types.</p>
+   */
+  NumberOfDisks?: number;
+
+  /**
+   * <p>Indicates whether the <code>SupportedInstanceType</code> only supports Amazon EBS.</p>
+   */
+  EbsStorageOnly?: boolean;
+
+  /**
+   * <p>The CPU architecture, for example <code>X86_64</code> or <code>AARCH64</code>.</p>
+   */
+  Architecture?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSupportedInstanceTypesOutput {
+  /**
+   * <p>The list of instance types that the release specified in
+   *             <code>ListSupportedInstanceTypesInput$ReleaseLabel</code> supports, filtered by Amazon Web Services Region.</p>
+   */
+  SupportedInstanceTypes?: SupportedInstanceType[];
+
+  /**
+   * <p>The pagination token that marks the next set of results to retrieve.</p>
    */
   Marker?: string;
 }

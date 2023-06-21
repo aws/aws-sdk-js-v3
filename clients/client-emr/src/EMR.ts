@@ -157,6 +157,11 @@ import {
   ListStudioSessionMappingsCommandOutput,
 } from "./commands/ListStudioSessionMappingsCommand";
 import {
+  ListSupportedInstanceTypesCommand,
+  ListSupportedInstanceTypesCommandInput,
+  ListSupportedInstanceTypesCommandOutput,
+} from "./commands/ListSupportedInstanceTypesCommand";
+import {
   ModifyClusterCommand,
   ModifyClusterCommandInput,
   ModifyClusterCommandOutput,
@@ -280,6 +285,7 @@ const commands = {
   ListStepsCommand,
   ListStudiosCommand,
   ListStudioSessionMappingsCommand,
+  ListSupportedInstanceTypesCommand,
   ModifyClusterCommand,
   ModifyInstanceFleetCommand,
   ModifyInstanceGroupsCommand,
@@ -815,6 +821,23 @@ export interface EMR {
     args: ListStudioSessionMappingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStudioSessionMappingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSupportedInstanceTypesCommand}
+   */
+  listSupportedInstanceTypes(
+    args: ListSupportedInstanceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSupportedInstanceTypesCommandOutput>;
+  listSupportedInstanceTypes(
+    args: ListSupportedInstanceTypesCommandInput,
+    cb: (err: any, data?: ListSupportedInstanceTypesCommandOutput) => void
+  ): void;
+  listSupportedInstanceTypes(
+    args: ListSupportedInstanceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSupportedInstanceTypesCommandOutput) => void
   ): void;
 
   /**

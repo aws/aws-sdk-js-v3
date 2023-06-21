@@ -33,6 +33,7 @@ export * from "./ListSecurityConfigurationsCommand";
 export * from "./ListStepsCommand";
 export * from "./ListStudioSessionMappingsCommand";
 export * from "./ListStudiosCommand";
+export * from "./ListSupportedInstanceTypesCommand";
 export * from "./ModifyClusterCommand";
 export * from "./ModifyInstanceFleetCommand";
 export * from "./ModifyInstanceGroupsCommand";

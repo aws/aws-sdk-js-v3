@@ -133,6 +133,10 @@ import {
   ListStudioSessionMappingsCommandInput,
   ListStudioSessionMappingsCommandOutput,
 } from "./commands/ListStudioSessionMappingsCommand";
+import {
+  ListSupportedInstanceTypesCommandInput,
+  ListSupportedInstanceTypesCommandOutput,
+} from "./commands/ListSupportedInstanceTypesCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
 import {
   ModifyInstanceFleetCommandInput,
@@ -242,6 +246,7 @@ export type ServiceInputTypes =
   | ListStepsCommandInput
   | ListStudioSessionMappingsCommandInput
   | ListStudiosCommandInput
+  | ListSupportedInstanceTypesCommandInput
   | ModifyClusterCommandInput
   | ModifyInstanceFleetCommandInput
   | ModifyInstanceGroupsCommandInput
@@ -300,6 +305,7 @@ export type ServiceOutputTypes =
   | ListStepsCommandOutput
   | ListStudioSessionMappingsCommandOutput
   | ListStudiosCommandOutput
+  | ListSupportedInstanceTypesCommandOutput
   | ModifyClusterCommandOutput
   | ModifyInstanceFleetCommandOutput
   | ModifyInstanceGroupsCommandOutput

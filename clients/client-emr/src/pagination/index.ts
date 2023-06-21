@@ -11,3 +11,4 @@ export * from "./ListSecurityConfigurationsPaginator";
 export * from "./ListStepsPaginator";
 export * from "./ListStudioSessionMappingsPaginator";
 export * from "./ListStudiosPaginator";
+export * from "./ListSupportedInstanceTypesPaginator";

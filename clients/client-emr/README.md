@@ -479,6 +479,14 @@ ListStudioSessionMappings
 </details>
 <details>
 <summary>
+ListSupportedInstanceTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-emr/classes/listsupportedinstancetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-emr/interfaces/listsupportedinstancetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-emr/interfaces/listsupportedinstancetypescommandoutput.html)
+
+</details>
+<details>
+<summary>
 ModifyCluster
 </summary>
 
