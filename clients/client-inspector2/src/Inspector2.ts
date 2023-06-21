@@ -13,6 +13,11 @@ import {
   BatchGetAccountStatusCommandOutput,
 } from "./commands/BatchGetAccountStatusCommand";
 import {
+  BatchGetCodeSnippetCommand,
+  BatchGetCodeSnippetCommandInput,
+  BatchGetCodeSnippetCommandOutput,
+} from "./commands/BatchGetCodeSnippetCommand";
+import {
   BatchGetFreeTrialInfoCommand,
   BatchGetFreeTrialInfoCommandInput,
   BatchGetFreeTrialInfoCommandOutput,
@@ -33,6 +38,11 @@ import {
   CancelFindingsReportCommandOutput,
 } from "./commands/CancelFindingsReportCommand";
 import {
+  CancelSbomExportCommand,
+  CancelSbomExportCommandInput,
+  CancelSbomExportCommandOutput,
+} from "./commands/CancelSbomExportCommand";
+import {
   CreateFilterCommand,
   CreateFilterCommandInput,
   CreateFilterCommandOutput,
@@ -42,6 +52,11 @@ import {
   CreateFindingsReportCommandInput,
   CreateFindingsReportCommandOutput,
 } from "./commands/CreateFindingsReportCommand";
+import {
+  CreateSbomExportCommand,
+  CreateSbomExportCommandInput,
+  CreateSbomExportCommandOutput,
+} from "./commands/CreateSbomExportCommand";
 import {
   DeleteFilterCommand,
   DeleteFilterCommandInput,
@@ -85,11 +100,21 @@ import {
   GetEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/GetEc2DeepInspectionConfigurationCommand";
 import {
+  GetEncryptionKeyCommand,
+  GetEncryptionKeyCommandInput,
+  GetEncryptionKeyCommandOutput,
+} from "./commands/GetEncryptionKeyCommand";
+import {
   GetFindingsReportStatusCommand,
   GetFindingsReportStatusCommandInput,
   GetFindingsReportStatusCommandOutput,
 } from "./commands/GetFindingsReportStatusCommand";
 import { GetMemberCommand, GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import {
+  GetSbomExportCommand,
+  GetSbomExportCommandInput,
+  GetSbomExportCommandOutput,
+} from "./commands/GetSbomExportCommand";
 import {
   ListAccountPermissionsCommand,
   ListAccountPermissionsCommandInput,
@@ -133,6 +158,11 @@ import {
   ListUsageTotalsCommandOutput,
 } from "./commands/ListUsageTotalsCommand";
 import {
+  ResetEncryptionKeyCommand,
+  ResetEncryptionKeyCommandInput,
+  ResetEncryptionKeyCommandOutput,
+} from "./commands/ResetEncryptionKeyCommand";
+import {
   SearchVulnerabilitiesCommand,
   SearchVulnerabilitiesCommandInput,
   SearchVulnerabilitiesCommandOutput,
@@ -154,6 +184,11 @@ import {
   UpdateEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/UpdateEc2DeepInspectionConfigurationCommand";
 import {
+  UpdateEncryptionKeyCommand,
+  UpdateEncryptionKeyCommandInput,
+  UpdateEncryptionKeyCommandOutput,
+} from "./commands/UpdateEncryptionKeyCommand";
+import {
   UpdateFilterCommand,
   UpdateFilterCommandInput,
   UpdateFilterCommandOutput,
@@ -173,12 +208,15 @@ import { Inspector2Client, Inspector2ClientConfig } from "./Inspector2Client";
 const commands = {
   AssociateMemberCommand,
   BatchGetAccountStatusCommand,
+  BatchGetCodeSnippetCommand,
   BatchGetFreeTrialInfoCommand,
   BatchGetMemberEc2DeepInspectionStatusCommand,
   BatchUpdateMemberEc2DeepInspectionStatusCommand,
   CancelFindingsReportCommand,
+  CancelSbomExportCommand,
   CreateFilterCommand,
   CreateFindingsReportCommand,
+  CreateSbomExportCommand,
   DeleteFilterCommand,
   DescribeOrganizationConfigurationCommand,
   DisableCommand,
@@ -189,8 +227,10 @@ const commands = {
   GetConfigurationCommand,
   GetDelegatedAdminAccountCommand,
   GetEc2DeepInspectionConfigurationCommand,
+  GetEncryptionKeyCommand,
   GetFindingsReportStatusCommand,
   GetMemberCommand,
+  GetSbomExportCommand,
   ListAccountPermissionsCommand,
   ListCoverageCommand,
   ListCoverageStatisticsCommand,
@@ -201,11 +241,13 @@ const commands = {
   ListMembersCommand,
   ListTagsForResourceCommand,
   ListUsageTotalsCommand,
+  ResetEncryptionKeyCommand,
   SearchVulnerabilitiesCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConfigurationCommand,
   UpdateEc2DeepInspectionConfigurationCommand,
+  UpdateEncryptionKeyCommand,
   UpdateFilterCommand,
   UpdateOrganizationConfigurationCommand,
   UpdateOrgEc2DeepInspectionConfigurationCommand,
@@ -241,6 +283,23 @@ export interface Inspector2 {
     args: BatchGetAccountStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetAccountStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCodeSnippetCommand}
+   */
+  batchGetCodeSnippet(
+    args: BatchGetCodeSnippetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCodeSnippetCommandOutput>;
+  batchGetCodeSnippet(
+    args: BatchGetCodeSnippetCommandInput,
+    cb: (err: any, data?: BatchGetCodeSnippetCommandOutput) => void
+  ): void;
+  batchGetCodeSnippet(
+    args: BatchGetCodeSnippetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCodeSnippetCommandOutput) => void
   ): void;
 
   /**
@@ -312,6 +371,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link CancelSbomExportCommand}
+   */
+  cancelSbomExport(
+    args: CancelSbomExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelSbomExportCommandOutput>;
+  cancelSbomExport(
+    args: CancelSbomExportCommandInput,
+    cb: (err: any, data?: CancelSbomExportCommandOutput) => void
+  ): void;
+  cancelSbomExport(
+    args: CancelSbomExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelSbomExportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFilterCommand}
    */
   createFilter(args: CreateFilterCommandInput, options?: __HttpHandlerOptions): Promise<CreateFilterCommandOutput>;
@@ -337,6 +413,23 @@ export interface Inspector2 {
     args: CreateFindingsReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateFindingsReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSbomExportCommand}
+   */
+  createSbomExport(
+    args: CreateSbomExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSbomExportCommandOutput>;
+  createSbomExport(
+    args: CreateSbomExportCommandInput,
+    cb: (err: any, data?: CreateSbomExportCommandOutput) => void
+  ): void;
+  createSbomExport(
+    args: CreateSbomExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSbomExportCommandOutput) => void
   ): void;
 
   /**
@@ -492,6 +585,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link GetEncryptionKeyCommand}
+   */
+  getEncryptionKey(
+    args: GetEncryptionKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEncryptionKeyCommandOutput>;
+  getEncryptionKey(
+    args: GetEncryptionKeyCommandInput,
+    cb: (err: any, data?: GetEncryptionKeyCommandOutput) => void
+  ): void;
+  getEncryptionKey(
+    args: GetEncryptionKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEncryptionKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFindingsReportStatusCommand}
    */
   getFindingsReportStatus(
@@ -517,6 +627,17 @@ export interface Inspector2 {
     args: GetMemberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMemberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSbomExportCommand}
+   */
+  getSbomExport(args: GetSbomExportCommandInput, options?: __HttpHandlerOptions): Promise<GetSbomExportCommandOutput>;
+  getSbomExport(args: GetSbomExportCommandInput, cb: (err: any, data?: GetSbomExportCommandOutput) => void): void;
+  getSbomExport(
+    args: GetSbomExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSbomExportCommandOutput) => void
   ): void;
 
   /**
@@ -663,6 +784,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link ResetEncryptionKeyCommand}
+   */
+  resetEncryptionKey(
+    args: ResetEncryptionKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetEncryptionKeyCommandOutput>;
+  resetEncryptionKey(
+    args: ResetEncryptionKeyCommandInput,
+    cb: (err: any, data?: ResetEncryptionKeyCommandOutput) => void
+  ): void;
+  resetEncryptionKey(
+    args: ResetEncryptionKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetEncryptionKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchVulnerabilitiesCommand}
    */
   searchVulnerabilities(
@@ -733,6 +871,23 @@ export interface Inspector2 {
     args: UpdateEc2DeepInspectionConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEc2DeepInspectionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEncryptionKeyCommand}
+   */
+  updateEncryptionKey(
+    args: UpdateEncryptionKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEncryptionKeyCommandOutput>;
+  updateEncryptionKey(
+    args: UpdateEncryptionKeyCommandInput,
+    cb: (err: any, data?: UpdateEncryptionKeyCommandOutput) => void
+  ): void;
+  updateEncryptionKey(
+    args: UpdateEncryptionKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEncryptionKeyCommandOutput) => void
   ): void;
 
   /**

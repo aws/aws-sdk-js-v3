@@ -59,6 +59,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * //     ec2: true || false, // required
  * //     ecr: true || false, // required
  * //     lambda: true || false,
+ * //     lambdaCode: true || false,
  * //   },
  * //   maxAccountLimitReached: true || false,
  * // };

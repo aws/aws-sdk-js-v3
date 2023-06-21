@@ -222,6 +222,14 @@ BatchGetAccountStatus
 </details>
 <details>
 <summary>
+BatchGetCodeSnippet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/batchgetcodesnippetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/batchgetcodesnippetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/batchgetcodesnippetcommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchGetFreeTrialInfo
 </summary>
 
@@ -254,6 +262,14 @@ CancelFindingsReport
 </details>
 <details>
 <summary>
+CancelSbomExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/cancelsbomexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/cancelsbomexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/cancelsbomexportcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateFilter
 </summary>
 
@@ -266,6 +282,14 @@ CreateFindingsReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/createfindingsreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/createfindingsreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/createfindingsreportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSbomExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/createsbomexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/createsbomexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/createsbomexportcommandoutput.html)
 
 </details>
 <details>
@@ -350,6 +374,14 @@ GetEc2DeepInspectionConfiguration
 </details>
 <details>
 <summary>
+GetEncryptionKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/getencryptionkeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/getencryptionkeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/getencryptionkeycommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetFindingsReportStatus
 </summary>
 
@@ -362,6 +394,14 @@ GetMember
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/getmembercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/getmembercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/getmembercommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSbomExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/getsbomexportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/getsbomexportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/getsbomexportcommandoutput.html)
 
 </details>
 <details>
@@ -446,6 +486,14 @@ ListUsageTotals
 </details>
 <details>
 <summary>
+ResetEncryptionKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/resetencryptionkeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/resetencryptionkeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/resetencryptionkeycommandoutput.html)
+
+</details>
+<details>
+<summary>
 SearchVulnerabilities
 </summary>
 
@@ -482,6 +530,14 @@ UpdateEc2DeepInspectionConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/updateec2deepinspectionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/updateec2deepinspectionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/updateec2deepinspectionconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateEncryptionKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/updateencryptionkeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/updateencryptionkeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/updateencryptionkeycommandoutput.html)
 
 </details>
 <details>

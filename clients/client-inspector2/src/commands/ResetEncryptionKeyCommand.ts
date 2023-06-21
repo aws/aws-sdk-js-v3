@@ -14,11 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_0";
-import {
-  de_UpdateOrganizationConfigurationCommand,
-  se_UpdateOrganizationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { ResetEncryptionKeyRequest, ResetEncryptionKeyResponse } from "../models/models_0";
+import { de_ResetEncryptionKeyCommand, se_ResetEncryptionKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -27,52 +24,39 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateOrganizationConfigurationCommand}.
+ * The input for {@link ResetEncryptionKeyCommand}.
  */
-export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
+export interface ResetEncryptionKeyCommandInput extends ResetEncryptionKeyRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateOrganizationConfigurationCommand}.
+ * The output of {@link ResetEncryptionKeyCommand}.
  */
-export interface UpdateOrganizationConfigurationCommandOutput
-  extends UpdateOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface ResetEncryptionKeyCommandOutput extends ResetEncryptionKeyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the configurations for your Amazon Inspector organization.</p>
+ * <p>Resets an encryption key. After the key is reset your resources will be encrypted by an Amazon Web Services owned key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, ResetEncryptionKeyCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
+ * // const { Inspector2Client, ResetEncryptionKeyCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = { // UpdateOrganizationConfigurationRequest
- *   autoEnable: { // AutoEnable
- *     ec2: true || false, // required
- *     ecr: true || false, // required
- *     lambda: true || false,
- *     lambdaCode: true || false,
- *   },
+ * const input = { // ResetEncryptionKeyRequest
+ *   scanType: "STRING_VALUE", // required
+ *   resourceType: "STRING_VALUE", // required
  * };
- * const command = new UpdateOrganizationConfigurationCommand(input);
+ * const command = new ResetEncryptionKeyCommand(input);
  * const response = await client.send(command);
- * // { // UpdateOrganizationConfigurationResponse
- * //   autoEnable: { // AutoEnable
- * //     ec2: true || false, // required
- * //     ecr: true || false, // required
- * //     lambda: true || false,
- * //     lambdaCode: true || false,
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
- * @returns {@link UpdateOrganizationConfigurationCommandOutput}
- * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
- * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @param ResetEncryptionKeyCommandInput - {@link ResetEncryptionKeyCommandInput}
+ * @returns {@link ResetEncryptionKeyCommandOutput}
+ * @see {@link ResetEncryptionKeyCommandInput} for command's `input` shape.
+ * @see {@link ResetEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -80,6 +64,9 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
@@ -92,9 +79,9 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class UpdateOrganizationConfigurationCommand extends $Command<
-  UpdateOrganizationConfigurationCommandInput,
-  UpdateOrganizationConfigurationCommandOutput,
+export class ResetEncryptionKeyCommand extends $Command<
+  ResetEncryptionKeyCommandInput,
+  ResetEncryptionKeyCommandOutput,
   Inspector2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -112,7 +99,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateOrganizationConfigurationCommandInput) {
+  constructor(readonly input: ResetEncryptionKeyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -125,17 +112,17 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Inspector2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateOrganizationConfigurationCommandInput, UpdateOrganizationConfigurationCommandOutput> {
+  ): Handler<ResetEncryptionKeyCommandInput, ResetEncryptionKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateOrganizationConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ResetEncryptionKeyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Inspector2Client";
-    const commandName = "UpdateOrganizationConfigurationCommand";
+    const commandName = "ResetEncryptionKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -154,21 +141,15 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: UpdateOrganizationConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_UpdateOrganizationConfigurationCommand(input, context);
+  private serialize(input: ResetEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ResetEncryptionKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateOrganizationConfigurationCommandOutput> {
-    return de_UpdateOrganizationConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetEncryptionKeyCommandOutput> {
+    return de_ResetEncryptionKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

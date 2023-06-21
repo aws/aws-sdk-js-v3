@@ -60,6 +60,12 @@ export interface ResourceStatus {
    * <p>The status of Amazon Inspector scanning for AWS Lambda function.</p>
    */
   lambda?: Status | string;
+
+  /**
+   * <p>The status of Amazon Inspector scanning for custom application code for Amazon Web Services Lambda functions.
+   *       </p>
+   */
+  lambdaCode?: Status | string;
 }
 
 /**
@@ -88,6 +94,7 @@ export interface Account {
  * @enum
  */
 export const AggregationFindingType = {
+  CODE_VULNERABILITY: "CODE_VULNERABILITY",
   NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
   PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
 } as const;
@@ -276,6 +283,11 @@ export interface ResourceState {
    * <p>An object that described the state of Amazon Inspector scans for an account.</p>
    */
   lambda?: State;
+
+  /**
+   * <p>An object that described the state of Amazon Inspector scans for an account.</p>
+   */
+  lambdaCode?: State;
 }
 
 /**
@@ -813,6 +825,11 @@ export interface TitleAggregation {
    * <p>The value to sort results by.</p>
    */
   sortBy?: TitleSortBy | string;
+
+  /**
+   * <p>The type of finding to aggregate on.</p>
+   */
+  findingType?: AggregationFindingType | string;
 }
 
 /**
@@ -1890,6 +1907,13 @@ export interface AutoEnable {
    *       </p>
    */
   lambda?: boolean;
+
+  /**
+   * <p>Represents whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization.
+   *
+   *       </p>
+   */
+  lambdaCode?: boolean;
 }
 
 /**
@@ -2015,6 +2039,7 @@ export type PackageType = (typeof PackageType)[keyof typeof PackageType];
 export const Runtime = {
   GO_1_X: "GO_1_X",
   JAVA_11: "JAVA_11",
+  JAVA_17: "JAVA_17",
   JAVA_8: "JAVA_8",
   JAVA_8_AL2: "JAVA_8_AL2",
   NODEJS: "NODEJS",
@@ -2022,6 +2047,7 @@ export const Runtime = {
   NODEJS_14_X: "NODEJS_14_X",
   NODEJS_16_X: "NODEJS_16_X",
   NODEJS_18_X: "NODEJS_18_X",
+  PYTHON_3_10: "PYTHON_3_10",
   PYTHON_3_7: "PYTHON_3_7",
   PYTHON_3_8: "PYTHON_3_8",
   PYTHON_3_9: "PYTHON_3_9",
@@ -2212,6 +2238,131 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
+export interface BatchGetCodeSnippetRequest {
+  /**
+   * <p>An array of finding ARNs for the findings you want to retrieve code snippets from.</p>
+   */
+  findingArns: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information on the lines of code associated with a code snippet.</p>
+ */
+export interface CodeLine {
+  /**
+   * <p>The content of a line of code</p>
+   */
+  content: string | undefined;
+
+  /**
+   * <p>The line number that a section of code is located at.</p>
+   */
+  lineNumber: number | undefined;
+}
+
+/**
+ * @public
+ * <p>A suggested fix for a vulnerability in your Lambda function code.</p>
+ */
+export interface SuggestedFix {
+  /**
+   * <p>The fix's description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The fix's code.</p>
+   */
+  code?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information on a code snippet retrieved by Amazon Inspector from a code vulnerability finding.</p>
+ */
+export interface CodeSnippetResult {
+  /**
+   * <p>The ARN of a finding that the code snippet is associated with.</p>
+   */
+  findingArn?: string;
+
+  /**
+   * <p>The line number of the first line of a code snippet.</p>
+   */
+  startLine?: number;
+
+  /**
+   * <p>The line number of the last line of a code snippet.</p>
+   */
+  endLine?: number;
+
+  /**
+   * <p>Contains information on the retrieved code snippet.</p>
+   */
+  codeSnippet?: CodeLine[];
+
+  /**
+   * <p>Details of a suggested code fix.</p>
+   */
+  suggestedFixes?: SuggestedFix[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CodeSnippetErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CODE_SNIPPET_NOT_FOUND: "CODE_SNIPPET_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_INPUT: "INVALID_INPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeSnippetErrorCode = (typeof CodeSnippetErrorCode)[keyof typeof CodeSnippetErrorCode];
+
+/**
+ * @public
+ * <p>Contains information about any errors encountered while trying to retrieve a code snippet.</p>
+ */
+export interface CodeSnippetError {
+  /**
+   * <p>The ARN of the finding that a code snippet couldn't be retrieved for.</p>
+   */
+  findingArn: string | undefined;
+
+  /**
+   * <p>The error code for the error that prevented a code snippet from being retrieved.</p>
+   */
+  errorCode: CodeSnippetErrorCode | string | undefined;
+
+  /**
+   * <p>The error message received when Amazon Inspector failed to retrieve a code snippet.</p>
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCodeSnippetResponse {
+  /**
+   * <p>The retrieved code snippets associated with the provided finding ARNs.</p>
+   */
+  codeSnippetResults?: CodeSnippetResult[];
+
+  /**
+   * <p>Any errors Amazon Inspector encountered while trying to retrieve the requested code snippets.</p>
+   */
+  errors?: CodeSnippetError[];
+}
+
+/**
+ * @public
+ */
 export interface BatchGetFreeTrialInfoRequest {
   /**
    * <p>The account IDs to get free trial status for.</p>
@@ -2241,6 +2392,7 @@ export const FreeTrialType = {
   EC2: "EC2",
   ECR: "ECR",
   LAMBDA: "LAMBDA",
+  LAMBDA_CODE: "LAMBDA_CODE",
 } as const;
 
 /**
@@ -2495,6 +2647,26 @@ export interface CancelFindingsReportResponse {
 
 /**
  * @public
+ */
+export interface CancelSbomExportRequest {
+  /**
+   * <p>The report ID of the SBOM export to cancel.</p>
+   */
+  reportId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelSbomExportResponse {
+  /**
+   * <p>The report ID of the canceled SBOM export.</p>
+   */
+  reportId?: string;
+}
+
+/**
+ * @public
  * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
  */
 export interface CisaData {
@@ -2512,6 +2684,79 @@ export interface CisaData {
    * <p>The remediation action recommended by CISA for this vulnerability.</p>
    */
   action?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information on where a code vulnerability is located in your Lambda function.</p>
+ */
+export interface CodeFilePath {
+  /**
+   * <p>The name of the file the code vulnerability was found in.</p>
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The file path to the code that a vulnerability was found in.</p>
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>The line number of the first line of code that a vulnerability was found in.</p>
+   */
+  startLine: number | undefined;
+
+  /**
+   * <p>The line number of the last line of code that a vulnerability was found in.</p>
+   */
+  endLine: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information on the code vulnerability identified in your Lambda function.</p>
+ */
+export interface CodeVulnerabilityDetails {
+  /**
+   * <p>Contains information on where the code vulnerability is located in your code.</p>
+   */
+  filePath: CodeFilePath | undefined;
+
+  /**
+   * <p>The detector tag associated with the vulnerability. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
+   */
+  detectorTags?: string[];
+
+  /**
+   * <p>A URL containing supporting documentation about the code vulnerability detected.</p>
+   */
+  referenceUrls?: string[];
+
+  /**
+   * <p>The identifier for a rule that was used to detect the code vulnerability.</p>
+   */
+  ruleId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda layer that the code vulnerability was detected in.</p>
+   */
+  sourceLambdaLayerArn?: string;
+
+  /**
+   * <p>The ID for the Amazon CodeGuru detector associated with the finding. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">Amazon CodeGuru
+   *          Detector Library</a>.</p>
+   */
+  detectorId: string | undefined;
+
+  /**
+   * <p>The name of the detector used to identify the code vulnerability. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">CodeGuru Detector Library</a>.</p>
+   */
+  detectorName: string | undefined;
+
+  /**
+   * <p>The Common Weakness Enumeration (CWE) item associated with the detected vulnerability.</p>
+   */
+  cwes: string[] | undefined;
 }
 
 /**
@@ -2947,6 +3192,7 @@ export interface ScanStatus {
  * @enum
  */
 export const ScanType = {
+  CODE: "CODE",
   NETWORK: "NETWORK",
   PACKAGE: "PACKAGE",
 } as const;
@@ -3296,6 +3542,26 @@ export interface FilterCriteria {
    * <p>Filters the list of AWS Lambda findings by the availability of exploits.</p>
    */
   exploitAvailable?: StringFilter[];
+
+  /**
+   * <p>The name of the detector used to identify a code vulnerability in a Lambda function used to filter findings.</p>
+   */
+  codeVulnerabilityDetectorName?: StringFilter[];
+
+  /**
+   * <p>The detector type tag associated with the vulnerability used to filter findings. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
+   */
+  codeVulnerabilityDetectorTags?: StringFilter[];
+
+  /**
+   * <p>The file path to the file in a Lambda function that contains a code vulnerability used to filter findings.</p>
+   */
+  codeVulnerabilityFilePath?: StringFilter[];
+
+  /**
+   * <p>The EPSS score used to filter findings.</p>
+   */
+  epssScore?: NumberFilter[];
 }
 
 /**
@@ -3433,6 +3699,160 @@ export interface CreateFindingsReportRequest {
 export interface CreateFindingsReportResponse {
   /**
    * <p>The ID of the report.</p>
+   */
+  reportId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SbomReportFormat = {
+  CYCLONEDX_1_4: "CYCLONEDX_1_4",
+  SPDX_2_3: "SPDX_2_3",
+} as const;
+
+/**
+ * @public
+ */
+export type SbomReportFormat = (typeof SbomReportFormat)[keyof typeof SbomReportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStringComparison = (typeof ResourceStringComparison)[keyof typeof ResourceStringComparison];
+
+/**
+ * @public
+ * <p>A resource string filter for a software bill of materials report.</p>
+ */
+export interface ResourceStringFilter {
+  /**
+   * <p>The filter's comparison.</p>
+   */
+  comparison: ResourceStringComparison | string | undefined;
+
+  /**
+   * <p>The filter's value.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceMapComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceMapComparison = (typeof ResourceMapComparison)[keyof typeof ResourceMapComparison];
+
+/**
+ * @public
+ * <p>A resource map filter for a software bill of material report.</p>
+ */
+export interface ResourceMapFilter {
+  /**
+   * <p>The filter's comparison.</p>
+   */
+  comparison: ResourceMapComparison | string | undefined;
+
+  /**
+   * <p>The filter's key.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The filter's value.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>The resource filter criteria for a Software bill of materials (SBOM) report.</p>
+ */
+export interface ResourceFilterCriteria {
+  /**
+   * <p>The account IDs used as resource filter criteria.</p>
+   */
+  accountId?: ResourceStringFilter[];
+
+  /**
+   * <p>The resource IDs used as resource filter criteria.</p>
+   */
+  resourceId?: ResourceStringFilter[];
+
+  /**
+   * <p>The resource types used as resource filter criteria.</p>
+   */
+  resourceType?: ResourceStringFilter[];
+
+  /**
+   * <p>The ECR repository names used as resource filter criteria.</p>
+   */
+  ecrRepositoryName?: ResourceStringFilter[];
+
+  /**
+   * <p>The AWS Lambda function name used as resource filter criteria.</p>
+   */
+  lambdaFunctionName?: ResourceStringFilter[];
+
+  /**
+   * <p>The ECR image tags used as resource filter criteria.</p>
+   */
+  ecrImageTags?: ResourceStringFilter[];
+
+  /**
+   * <p>The EC2 instance tags used as resource filter criteria.</p>
+   */
+  ec2InstanceTags?: ResourceMapFilter[];
+
+  /**
+   * <p>The AWS Lambda function tags used as resource filter criteria.</p>
+   */
+  lambdaFunctionTags?: ResourceMapFilter[];
+}
+
+/**
+ * @public
+ */
+export interface CreateSbomExportRequest {
+  /**
+   * <p>The resource filter criteria for the software bill of materials (SBOM) report.</p>
+   */
+  resourceFilterCriteria?: ResourceFilterCriteria;
+
+  /**
+   * <p>The output format for the software bill of materials (SBOM) report.</p>
+   */
+  reportFormat: SbomReportFormat | string | undefined;
+
+  /**
+   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
+   */
+  s3Destination: Destination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSbomExportResponse {
+  /**
+   * <p>The report ID for the software bill of materials (SBOM) report.</p>
    */
   reportId?: string;
 }
@@ -3678,6 +4098,7 @@ export const ResourceScanType = {
   EC2: "EC2",
   ECR: "ECR",
   LAMBDA: "LAMBDA",
+  LAMBDA_CODE: "LAMBDA_CODE",
 } as const;
 
 /**
@@ -3899,6 +4320,17 @@ export interface EnableDelegatedAdminAccountResponse {
 export interface Epss {
   /**
    * <p>The Exploit Prediction Scoring System (EPSS) score.</p>
+   */
+  score?: number;
+}
+
+/**
+ * @public
+ * <p>Details about the Exploit Prediction Scoring System (EPSS) score for a finding.</p>
+ */
+export interface EpssDetails {
+  /**
+   * <p>The EPSS score.</p>
    */
   score?: number;
 }
@@ -4404,6 +4836,7 @@ export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
  * @enum
  */
 export const FindingType = {
+  CODE_VULNERABILITY: "CODE_VULNERABILITY",
   NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
   PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
 } as const;
@@ -4512,6 +4945,16 @@ export interface Finding {
    * <p>The details of an exploit available for a finding discovered in your environment.</p>
    */
   exploitabilityDetails?: ExploitabilityDetails;
+
+  /**
+   * <p>Details about the code vulnerability identified in a Lambda function used to filter findings.</p>
+   */
+  codeVulnerabilityDetails?: CodeVulnerabilityDetails;
+
+  /**
+   * <p>The finding's EPSS score.</p>
+   */
+  epss?: EpssDetails;
 }
 
 /**
@@ -4572,6 +5015,31 @@ export interface GetEc2DeepInspectionConfigurationResponse {
    * <p>An error message explaining why Amazon Inspector deep inspection configurations could not be retrieved for your account.</p>
    */
   errorMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetEncryptionKeyRequest {
+  /**
+   * <p>The scan type the key encrypts.</p>
+   */
+  scanType: ScanType | string | undefined;
+
+  /**
+   * <p>The resource type the key encrypts.</p>
+   */
+  resourceType: ResourceType | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEncryptionKeyResponse {
+  /**
+   * <p>A kms key ID.</p>
+   */
+  kmsKeyId: string | undefined;
 }
 
 /**
@@ -4681,6 +5149,56 @@ export interface GetMemberResponse {
    * <p>Details of the retrieved member account.</p>
    */
   member?: Member;
+}
+
+/**
+ * @public
+ */
+export interface GetSbomExportRequest {
+  /**
+   * <p>The report ID of the SBOM export to get details for.</p>
+   */
+  reportId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSbomExportResponse {
+  /**
+   * <p>The report ID of the software bill of materials (SBOM) report.</p>
+   */
+  reportId?: string;
+
+  /**
+   * <p>The format of the software bill of materials (SBOM) report.</p>
+   */
+  format?: SbomReportFormat | string;
+
+  /**
+   * <p>The status of the software bill of materials (SBOM) report.</p>
+   */
+  status?: ExternalReportStatus | string;
+
+  /**
+   * <p>An error code.</p>
+   */
+  errorCode?: ReportingErrorCode | string;
+
+  /**
+   * <p>An error message.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
+   */
+  s3Destination?: Destination;
+
+  /**
+   * <p>Contains details about the resource filter criteria used for the software bill of materials (SBOM) report.</p>
+   */
+  filterCriteria?: ResourceFilterCriteria;
 }
 
 /**
@@ -5008,6 +5526,7 @@ export const SortField = {
   ECR_IMAGE_PUSHED_AT: "ECR_IMAGE_PUSHED_AT",
   ECR_IMAGE_REGISTRY: "ECR_IMAGE_REGISTRY",
   ECR_IMAGE_REPOSITORY_NAME: "ECR_IMAGE_REPOSITORY_NAME",
+  EPSS_SCORE: "EPSS_SCORE",
   FINDING_STATUS: "FINDING_STATUS",
   FINDING_TYPE: "FINDING_TYPE",
   FIRST_OBSERVED_AT: "FIRST_OBSERVED_AT",
@@ -5179,6 +5698,7 @@ export const UsageType = {
   EC2_INSTANCE_HOURS: "EC2_INSTANCE_HOURS",
   ECR_INITIAL_SCAN: "ECR_INITIAL_SCAN",
   ECR_RESCAN: "ECR_RESCAN",
+  LAMBDA_FUNCTION_CODE_HOURS: "LAMBDA_FUNCTION_CODE_HOURS",
   LAMBDA_FUNCTION_HOURS: "LAMBDA_FUNCTION_HOURS",
 } as const;
 
@@ -5243,6 +5763,26 @@ export interface ListUsageTotalsResponse {
    */
   totals?: UsageTotal[];
 }
+
+/**
+ * @public
+ */
+export interface ResetEncryptionKeyRequest {
+  /**
+   * <p>The scan type the key encrypts.</p>
+   */
+  scanType: ScanType | string | undefined;
+
+  /**
+   * <p>The resource type the key encrypts.</p>
+   */
+  resourceType: ResourceType | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetEncryptionKeyResponse {}
 
 /**
  * @public
@@ -5373,7 +5913,7 @@ export interface Vulnerability {
   detectionPlatforms?: string[];
 
   /**
-   * <p>An object that contains the Exploit Prediction Scoring System (EPSS) score.</p>
+   * <p>An object that contains the Exploit Prediction Scoring System (EPSS) score for a vulnerability.</p>
    */
   epss?: Epss;
 }
@@ -5487,6 +6027,31 @@ export interface UpdateEc2DeepInspectionConfigurationResponse {
    */
   errorMessage?: string;
 }
+
+/**
+ * @public
+ */
+export interface UpdateEncryptionKeyRequest {
+  /**
+   * <p>A KMS key ID for the encryption key.</p>
+   */
+  kmsKeyId: string | undefined;
+
+  /**
+   * <p>The scan type for the encryption key.</p>
+   */
+  scanType: ScanType | string | undefined;
+
+  /**
+   * <p>The resource type for the encryption key.</p>
+   */
+  resourceType: ResourceType | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEncryptionKeyResponse {}
 
 /**
  * @public

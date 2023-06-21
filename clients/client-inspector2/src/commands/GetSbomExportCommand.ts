@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { DisableRequest, DisableResponse } from "../models/models_0";
-import { de_DisableCommand, se_DisableCommand } from "../protocols/Aws_restJson1";
+import { GetSbomExportRequest, GetSbomExportResponse } from "../models/models_0";
+import { de_GetSbomExportCommand, se_GetSbomExportCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,71 +24,96 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DisableCommand}.
+ * The input for {@link GetSbomExportCommand}.
  */
-export interface DisableCommandInput extends DisableRequest {}
+export interface GetSbomExportCommandInput extends GetSbomExportRequest {}
 /**
  * @public
  *
- * The output of {@link DisableCommand}.
+ * The output of {@link GetSbomExportCommand}.
  */
-export interface DisableCommandOutput extends DisableResponse, __MetadataBearer {}
+export interface GetSbomExportCommandOutput extends GetSbomExportResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Disables Amazon Inspector scans for one or more Amazon Web Services accounts. Disabling all scan types in an account
- *          disables the Amazon Inspector service.</p>
+ * <p>Gets details of a software bill of materials (SBOM) report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, DisableCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, DisableCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, GetSbomExportCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
+ * // const { Inspector2Client, GetSbomExportCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = { // DisableRequest
- *   accountIds: [ // AccountIdSet
- *     "STRING_VALUE",
- *   ],
- *   resourceTypes: [ // DisableResourceTypeList
- *     "STRING_VALUE",
- *   ],
+ * const input = { // GetSbomExportRequest
+ *   reportId: "STRING_VALUE", // required
  * };
- * const command = new DisableCommand(input);
+ * const command = new GetSbomExportCommand(input);
  * const response = await client.send(command);
- * // { // DisableResponse
- * //   accounts: [ // AccountList // required
- * //     { // Account
- * //       accountId: "STRING_VALUE", // required
- * //       status: "STRING_VALUE", // required
- * //       resourceStatus: { // ResourceStatus
- * //         ec2: "STRING_VALUE", // required
- * //         ecr: "STRING_VALUE", // required
- * //         lambda: "STRING_VALUE",
- * //         lambdaCode: "STRING_VALUE",
+ * // { // GetSbomExportResponse
+ * //   reportId: "STRING_VALUE",
+ * //   format: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   errorCode: "STRING_VALUE",
+ * //   errorMessage: "STRING_VALUE",
+ * //   s3Destination: { // Destination
+ * //     bucketName: "STRING_VALUE", // required
+ * //     keyPrefix: "STRING_VALUE",
+ * //     kmsKeyArn: "STRING_VALUE", // required
+ * //   },
+ * //   filterCriteria: { // ResourceFilterCriteria
+ * //     accountId: [ // ResourceStringFilterList
+ * //       { // ResourceStringFilter
+ * //         comparison: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
  * //       },
- * //     },
- * //   ],
- * //   failedAccounts: [ // FailedAccountList
- * //     { // FailedAccount
- * //       accountId: "STRING_VALUE", // required
- * //       status: "STRING_VALUE",
- * //       resourceStatus: {
- * //         ec2: "STRING_VALUE", // required
- * //         ecr: "STRING_VALUE", // required
- * //         lambda: "STRING_VALUE",
- * //         lambdaCode: "STRING_VALUE",
+ * //     ],
+ * //     resourceId: [
+ * //       {
+ * //         comparison: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
  * //       },
- * //       errorCode: "STRING_VALUE", // required
- * //       errorMessage: "STRING_VALUE", // required
- * //     },
- * //   ],
+ * //     ],
+ * //     resourceType: [
+ * //       {
+ * //         comparison: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     ecrRepositoryName: [
+ * //       {
+ * //         comparison: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     lambdaFunctionName: [
+ * //       {
+ * //         comparison: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     ecrImageTags: "<ResourceStringFilterList>",
+ * //     ec2InstanceTags: [ // ResourceMapFilterList
+ * //       { // ResourceMapFilter
+ * //         comparison: "STRING_VALUE", // required
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     lambdaFunctionTags: [
+ * //       {
+ * //         comparison: "STRING_VALUE", // required
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
  * // };
  *
  * ```
  *
- * @param DisableCommandInput - {@link DisableCommandInput}
- * @returns {@link DisableCommandOutput}
- * @see {@link DisableCommandInput} for command's `input` shape.
- * @see {@link DisableCommandOutput} for command's `response` shape.
+ * @param GetSbomExportCommandInput - {@link GetSbomExportCommandInput}
+ * @returns {@link GetSbomExportCommandOutput}
+ * @see {@link GetSbomExportCommandInput} for command's `input` shape.
+ * @see {@link GetSbomExportCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -111,9 +136,9 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class DisableCommand extends $Command<
-  DisableCommandInput,
-  DisableCommandOutput,
+export class GetSbomExportCommand extends $Command<
+  GetSbomExportCommandInput,
+  GetSbomExportCommandOutput,
   Inspector2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -131,7 +156,7 @@ export class DisableCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DisableCommandInput) {
+  constructor(readonly input: GetSbomExportCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -144,15 +169,15 @@ export class DisableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Inspector2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisableCommandInput, DisableCommandOutput> {
+  ): Handler<GetSbomExportCommandInput, GetSbomExportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DisableCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetSbomExportCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Inspector2Client";
-    const commandName = "DisableCommand";
+    const commandName = "GetSbomExportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -171,15 +196,15 @@ export class DisableCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DisableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DisableCommand(input, context);
+  private serialize(input: GetSbomExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetSbomExportCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableCommandOutput> {
-    return de_DisableCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSbomExportCommandOutput> {
+    return de_GetSbomExportCommand(output, context);
   }
 
   // Start section: command_body_extra

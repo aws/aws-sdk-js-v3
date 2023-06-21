@@ -75,6 +75,11 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * //           errorCode: "STRING_VALUE", // required
  * //           errorMessage: "STRING_VALUE", // required
  * //         },
+ * //         lambdaCode: {
+ * //           status: "STRING_VALUE", // required
+ * //           errorCode: "STRING_VALUE", // required
+ * //           errorMessage: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -86,6 +91,7 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * //         ec2: "STRING_VALUE", // required
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
+ * //         lambdaCode: "STRING_VALUE",
  * //       },
  * //       errorCode: "STRING_VALUE", // required
  * //       errorMessage: "STRING_VALUE", // required

@@ -164,6 +164,15 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  *     ],
  *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  *     exploitAvailable: "<StringFilterList>",
+ *     codeVulnerabilityDetectorName: "<StringFilterList>",
+ *     codeVulnerabilityDetectorTags: "<StringFilterList>",
+ *     codeVulnerabilityFilePath: "<StringFilterList>",
+ *     epssScore: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
  *   },
  *   name: "STRING_VALUE",
  *   filterArn: "STRING_VALUE", // required

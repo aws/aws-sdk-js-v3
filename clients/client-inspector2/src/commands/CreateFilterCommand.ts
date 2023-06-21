@@ -164,6 +164,15 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *     ],
  *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  *     exploitAvailable: "<StringFilterList>",
+ *     codeVulnerabilityDetectorName: "<StringFilterList>",
+ *     codeVulnerabilityDetectorTags: "<StringFilterList>",
+ *     codeVulnerabilityFilePath: "<StringFilterList>",
+ *     epssScore: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
  *   },
  *   name: "STRING_VALUE", // required
  *   tags: { // TagMap

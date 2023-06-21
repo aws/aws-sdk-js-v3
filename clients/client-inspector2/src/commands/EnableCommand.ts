@@ -63,6 +63,7 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * //         ec2: "STRING_VALUE", // required
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
+ * //         lambdaCode: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -74,6 +75,7 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * //         ec2: "STRING_VALUE", // required
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
+ * //         lambdaCode: "STRING_VALUE",
  * //       },
  * //       errorCode: "STRING_VALUE", // required
  * //       errorMessage: "STRING_VALUE", // required

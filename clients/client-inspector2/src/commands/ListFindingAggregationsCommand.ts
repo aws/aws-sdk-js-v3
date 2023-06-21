@@ -137,6 +137,7 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *       resourceType: "STRING_VALUE",
  *       sortOrder: "STRING_VALUE",
  *       sortBy: "STRING_VALUE",
+ *       findingType: "STRING_VALUE",
  *     },
  *     lambdaLayerAggregation: { // LambdaLayerAggregation
  *       functionNames: "<StringFilterList>",

@@ -177,6 +177,15 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * //         ],
  * //         lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  * //         exploitAvailable: "<StringFilterList>",
+ * //         codeVulnerabilityDetectorName: "<StringFilterList>",
+ * //         codeVulnerabilityDetectorTags: "<StringFilterList>",
+ * //         codeVulnerabilityFilePath: "<StringFilterList>",
+ * //         epssScore: [
+ * //           {
+ * //             upperInclusive: Number("double"),
+ * //             lowerInclusive: Number("double"),
+ * //           },
+ * //         ],
  * //       },
  * //       action: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required

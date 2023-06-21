@@ -164,6 +164,15 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *     ],
  *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  *     exploitAvailable: "<StringFilterList>",
+ *     codeVulnerabilityDetectorName: "<StringFilterList>",
+ *     codeVulnerabilityDetectorTags: "<StringFilterList>",
+ *     codeVulnerabilityFilePath: "<StringFilterList>",
+ *     epssScore: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
  *   },
  *   sortCriteria: { // SortCriteria
  *     field: "STRING_VALUE", // required
@@ -329,6 +338,30 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //       exploitAvailable: "STRING_VALUE",
  * //       exploitabilityDetails: { // ExploitabilityDetails
  * //         lastKnownExploitAt: new Date("TIMESTAMP"),
+ * //       },
+ * //       codeVulnerabilityDetails: { // CodeVulnerabilityDetails
+ * //         filePath: { // CodeFilePath
+ * //           fileName: "STRING_VALUE", // required
+ * //           filePath: "STRING_VALUE", // required
+ * //           startLine: Number("int"), // required
+ * //           endLine: Number("int"), // required
+ * //         },
+ * //         detectorTags: [ // DetectorTagList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         referenceUrls: [ // ReferenceUrls
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ruleId: "STRING_VALUE",
+ * //         sourceLambdaLayerArn: "STRING_VALUE",
+ * //         detectorId: "STRING_VALUE", // required
+ * //         detectorName: "STRING_VALUE", // required
+ * //         cwes: [ // CweList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       epss: { // EpssDetails
+ * //         score: Number("double"),
  * //       },
  * //     },
  * //   ],

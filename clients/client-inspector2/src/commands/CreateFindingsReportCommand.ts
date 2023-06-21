@@ -162,6 +162,15 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *     ],
  *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  *     exploitAvailable: "<StringFilterList>",
+ *     codeVulnerabilityDetectorName: "<StringFilterList>",
+ *     codeVulnerabilityDetectorTags: "<StringFilterList>",
+ *     codeVulnerabilityFilePath: "<StringFilterList>",
+ *     epssScore: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
  *   },
  *   reportFormat: "STRING_VALUE", // required
  *   s3Destination: { // Destination

@@ -57,6 +57,10 @@ import {
   BatchGetAccountStatusCommandOutput,
 } from "./commands/BatchGetAccountStatusCommand";
 import {
+  BatchGetCodeSnippetCommandInput,
+  BatchGetCodeSnippetCommandOutput,
+} from "./commands/BatchGetCodeSnippetCommand";
+import {
   BatchGetFreeTrialInfoCommandInput,
   BatchGetFreeTrialInfoCommandOutput,
 } from "./commands/BatchGetFreeTrialInfoCommand";
@@ -72,11 +76,13 @@ import {
   CancelFindingsReportCommandInput,
   CancelFindingsReportCommandOutput,
 } from "./commands/CancelFindingsReportCommand";
+import { CancelSbomExportCommandInput, CancelSbomExportCommandOutput } from "./commands/CancelSbomExportCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import {
   CreateFindingsReportCommandInput,
   CreateFindingsReportCommandOutput,
 } from "./commands/CreateFindingsReportCommand";
+import { CreateSbomExportCommandInput, CreateSbomExportCommandOutput } from "./commands/CreateSbomExportCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import {
   DescribeOrganizationConfigurationCommandInput,
@@ -102,11 +108,13 @@ import {
   GetEc2DeepInspectionConfigurationCommandInput,
   GetEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/GetEc2DeepInspectionConfigurationCommand";
+import { GetEncryptionKeyCommandInput, GetEncryptionKeyCommandOutput } from "./commands/GetEncryptionKeyCommand";
 import {
   GetFindingsReportStatusCommandInput,
   GetFindingsReportStatusCommandOutput,
 } from "./commands/GetFindingsReportStatusCommand";
 import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import { GetSbomExportCommandInput, GetSbomExportCommandOutput } from "./commands/GetSbomExportCommand";
 import {
   ListAccountPermissionsCommandInput,
   ListAccountPermissionsCommandOutput,
@@ -132,6 +140,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUsageTotalsCommandInput, ListUsageTotalsCommandOutput } from "./commands/ListUsageTotalsCommand";
+import { ResetEncryptionKeyCommandInput, ResetEncryptionKeyCommandOutput } from "./commands/ResetEncryptionKeyCommand";
 import {
   SearchVulnerabilitiesCommandInput,
   SearchVulnerabilitiesCommandOutput,
@@ -146,6 +155,10 @@ import {
   UpdateEc2DeepInspectionConfigurationCommandInput,
   UpdateEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/UpdateEc2DeepInspectionConfigurationCommand";
+import {
+  UpdateEncryptionKeyCommandInput,
+  UpdateEncryptionKeyCommandOutput,
+} from "./commands/UpdateEncryptionKeyCommand";
 import { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
@@ -171,12 +184,15 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateMemberCommandInput
   | BatchGetAccountStatusCommandInput
+  | BatchGetCodeSnippetCommandInput
   | BatchGetFreeTrialInfoCommandInput
   | BatchGetMemberEc2DeepInspectionStatusCommandInput
   | BatchUpdateMemberEc2DeepInspectionStatusCommandInput
   | CancelFindingsReportCommandInput
+  | CancelSbomExportCommandInput
   | CreateFilterCommandInput
   | CreateFindingsReportCommandInput
+  | CreateSbomExportCommandInput
   | DeleteFilterCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DisableCommandInput
@@ -187,8 +203,10 @@ export type ServiceInputTypes =
   | GetConfigurationCommandInput
   | GetDelegatedAdminAccountCommandInput
   | GetEc2DeepInspectionConfigurationCommandInput
+  | GetEncryptionKeyCommandInput
   | GetFindingsReportStatusCommandInput
   | GetMemberCommandInput
+  | GetSbomExportCommandInput
   | ListAccountPermissionsCommandInput
   | ListCoverageCommandInput
   | ListCoverageStatisticsCommandInput
@@ -199,11 +217,13 @@ export type ServiceInputTypes =
   | ListMembersCommandInput
   | ListTagsForResourceCommandInput
   | ListUsageTotalsCommandInput
+  | ResetEncryptionKeyCommandInput
   | SearchVulnerabilitiesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConfigurationCommandInput
   | UpdateEc2DeepInspectionConfigurationCommandInput
+  | UpdateEncryptionKeyCommandInput
   | UpdateFilterCommandInput
   | UpdateOrgEc2DeepInspectionConfigurationCommandInput
   | UpdateOrganizationConfigurationCommandInput;
@@ -214,12 +234,15 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateMemberCommandOutput
   | BatchGetAccountStatusCommandOutput
+  | BatchGetCodeSnippetCommandOutput
   | BatchGetFreeTrialInfoCommandOutput
   | BatchGetMemberEc2DeepInspectionStatusCommandOutput
   | BatchUpdateMemberEc2DeepInspectionStatusCommandOutput
   | CancelFindingsReportCommandOutput
+  | CancelSbomExportCommandOutput
   | CreateFilterCommandOutput
   | CreateFindingsReportCommandOutput
+  | CreateSbomExportCommandOutput
   | DeleteFilterCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DisableCommandOutput
@@ -230,8 +253,10 @@ export type ServiceOutputTypes =
   | GetConfigurationCommandOutput
   | GetDelegatedAdminAccountCommandOutput
   | GetEc2DeepInspectionConfigurationCommandOutput
+  | GetEncryptionKeyCommandOutput
   | GetFindingsReportStatusCommandOutput
   | GetMemberCommandOutput
+  | GetSbomExportCommandOutput
   | ListAccountPermissionsCommandOutput
   | ListCoverageCommandOutput
   | ListCoverageStatisticsCommandOutput
@@ -242,11 +267,13 @@ export type ServiceOutputTypes =
   | ListMembersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsageTotalsCommandOutput
+  | ResetEncryptionKeyCommandOutput
   | SearchVulnerabilitiesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConfigurationCommandOutput
   | UpdateEc2DeepInspectionConfigurationCommandOutput
+  | UpdateEncryptionKeyCommandOutput
   | UpdateFilterCommandOutput
   | UpdateOrgEc2DeepInspectionConfigurationCommandOutput
   | UpdateOrganizationConfigurationCommandOutput;

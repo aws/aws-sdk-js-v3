@@ -176,6 +176,15 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  * //     ],
  * //     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  * //     exploitAvailable: "<StringFilterList>",
+ * //     codeVulnerabilityDetectorName: "<StringFilterList>",
+ * //     codeVulnerabilityDetectorTags: "<StringFilterList>",
+ * //     codeVulnerabilityFilePath: "<StringFilterList>",
+ * //     epssScore: [
+ * //       {
+ * //         upperInclusive: Number("double"),
+ * //         lowerInclusive: Number("double"),
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
