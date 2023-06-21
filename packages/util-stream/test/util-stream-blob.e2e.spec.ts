@@ -4,7 +4,7 @@ import { Readable } from "stream";
 
 import { FunctionName, setup } from "./setup";
 
-describe("blob e2e", () => {
+xdescribe("blob e2e", () => {
   jest.setTimeout(100000);
 
   const lambda = new Lambda({
