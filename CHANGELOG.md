@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
+
+
+### Features
+
+* **client-emr:** This release introduces a new Amazon EMR EPI called ListSupportedInstanceTypes that returns a list of all instance types supported by a given EMR release. ([9875d03](https://github.com/aws/aws-sdk-js-v3/commit/9875d036a19a90d3c404114f15e219178e27917e))
+* **client-inspector2:** This release adds support for Software Bill of Materials (SBOM) export and the general availability of code scanning for AWS Lambda functions. ([d57a444](https://github.com/aws/aws-sdk-js-v3/commit/d57a444dfb376bc9a9d1418bb2fefdbd479fd227))
+* **client-mediaconvert:** This release introduces the bandwidth reduction filter for the HEVC encoder, increases the limits of outputs per job, and updates support for the Nagra SDK to version 1.14.7. ([dd88e3f](https://github.com/aws/aws-sdk-js-v3/commit/dd88e3f4f2386fb2d62c6fbc242689cc96c799e8))
+* **client-mq:** The Cross Region Disaster Recovery feature allows to replicate a brokers state from one region to another in order to provide customers with multi-region resiliency in the event of a regional outage. ([983be32](https://github.com/aws/aws-sdk-js-v3/commit/983be322573c3555ec192c5a1b77bc1eea529574))
+* **client-sagemaker:** This release provides support in SageMaker for output files in training jobs to be uploaded without compression and enable customer to deploy uncompressed model from S3 to real-time inference Endpoints. In addition, ml.trn1n.32xlarge is added to supported instance type list in training job. ([f0ede90](https://github.com/aws/aws-sdk-js-v3/commit/f0ede901f3220f3679acbb9f1aeb231e1f045bad))
+* **client-transfer:** This release adds a new parameter StructuredLogDestinations to CreateServer, UpdateServer APIs. ([8f0033b](https://github.com/aws/aws-sdk-js-v3/commit/8f0033bb9e0dc24e8842525925de07aad4208da0))
+* **clients:** automatic blob type conversions ([#4836](https://github.com/aws/aws-sdk-js-v3/issues/4836)) ([60ec921](https://github.com/aws/aws-sdk-js-v3/commit/60ec921c879ae8363f32ebbe9e1ecd6062df1081))
+
+
+
+
+
 # [3.356.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.355.0...v3.356.0) (2023-06-20)
 
 

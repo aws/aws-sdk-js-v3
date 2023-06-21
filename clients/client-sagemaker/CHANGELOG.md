@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
+
+
+### Features
+
+* **client-sagemaker:** This release provides support in SageMaker for output files in training jobs to be uploaded without compression and enable customer to deploy uncompressed model from S3 to real-time inference Endpoints. In addition, ml.trn1n.32xlarge is added to supported instance type list in training job. ([f0ede90](https://github.com/aws/aws-sdk-js-v3/commit/f0ede901f3220f3679acbb9f1aeb231e1f045bad))
+* **clients:** automatic blob type conversions ([#4836](https://github.com/aws/aws-sdk-js-v3/issues/4836)) ([60ec921](https://github.com/aws/aws-sdk-js-v3/commit/60ec921c879ae8363f32ebbe9e1ecd6062df1081))
+
+
+
+
+
 # [3.355.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.354.0...v3.355.0) (2023-06-19)
 
 

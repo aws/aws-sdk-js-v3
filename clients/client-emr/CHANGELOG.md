@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
+
+
+### Features
+
+* **client-emr:** This release introduces a new Amazon EMR EPI called ListSupportedInstanceTypes that returns a list of all instance types supported by a given EMR release. ([9875d03](https://github.com/aws/aws-sdk-js-v3/commit/9875d036a19a90d3c404114f15e219178e27917e))
+* **clients:** automatic blob type conversions ([#4836](https://github.com/aws/aws-sdk-js-v3/issues/4836)) ([60ec921](https://github.com/aws/aws-sdk-js-v3/commit/60ec921c879ae8363f32ebbe9e1ecd6062df1081))
+
+
+
+
+
 # [3.354.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.353.0...v3.354.0) (2023-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

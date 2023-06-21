@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
+
+
+### Features
+
+* **client-mediaconvert:** This release introduces the bandwidth reduction filter for the HEVC encoder, increases the limits of outputs per job, and updates support for the Nagra SDK to version 1.14.7. ([dd88e3f](https://github.com/aws/aws-sdk-js-v3/commit/dd88e3f4f2386fb2d62c6fbc242689cc96c799e8))
+* **clients:** automatic blob type conversions ([#4836](https://github.com/aws/aws-sdk-js-v3/issues/4836)) ([60ec921](https://github.com/aws/aws-sdk-js-v3/commit/60ec921c879ae8363f32ebbe9e1ecd6062df1081))
+
+
+
+
+
 # [3.354.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.353.0...v3.354.0) (2023-06-16)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert
