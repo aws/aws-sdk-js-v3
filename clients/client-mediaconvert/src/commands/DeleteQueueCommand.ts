@@ -14,7 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_1";
+import { DeleteQueueRequest } from "../models/models_1";
+import { DeleteQueueResponse } from "../models/models_2";
 import { de_DeleteQueueCommand, se_DeleteQueueCommand } from "../protocols/Aws_restJson1";
 
 /**

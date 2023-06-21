@@ -3382,7 +3382,7 @@ export interface CaptionSourceSettings {
 
 /**
  * @public
- * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
+ * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 100 captions selectors per input.
  */
 export interface CaptionSelector {
   /**
@@ -3919,7 +3919,7 @@ export interface Input {
   AudioSelectors?: Record<string, AudioSelector>;
 
   /**
-   * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
+   * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 100 captions selectors per input.
    */
   CaptionSelectors?: Record<string, CaptionSelector>;
 
@@ -4045,7 +4045,7 @@ export interface InputTemplate {
   AudioSelectors?: Record<string, AudioSelector>;
 
   /**
-   * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
+   * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 100 captions selectors per input.
    */
   CaptionSelectors?: Record<string, CaptionSelector>;
 
@@ -6058,6 +6058,21 @@ export type HlsProgramDateTime = (typeof HlsProgramDateTime)[keyof typeof HlsPro
  * @public
  * @enum
  */
+export const HlsProgressiveWriteHlsManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsProgressiveWriteHlsManifest =
+  (typeof HlsProgressiveWriteHlsManifest)[keyof typeof HlsProgressiveWriteHlsManifest];
+
+/**
+ * @public
+ * @enum
+ */
 export const HlsSegmentControl = {
   SEGMENTED_FILES: "SEGMENTED_FILES",
   SINGLE_FILE: "SINGLE_FILE",
@@ -6240,6 +6255,11 @@ export interface HlsGroupSettings {
    * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
    */
   ProgramDateTimePeriod?: number;
+
+  /**
+   * Specify whether MediaConvert generates HLS manifests while your job is running or when your job is complete. To generate HLS manifests while your job is running: Choose Enabled. Use if you want to play back your content as soon as it's available. MediaConvert writes the parent and child manifests after the first three media segments are written to your destination S3 bucket. It then writes new updated manifests after each additional segment is written. The parent manifest includes the latest BANDWIDTH and AVERAGE-BANDWIDTH attributes, and child manifests include the latest available media segment. When your job completes, the final child playlists include an EXT-X-ENDLIST tag. To generate HLS manifests only when your job completes: Choose Disabled.
+   */
+  ProgressiveWriteHlsManifest?: HlsProgressiveWriteHlsManifest | string;
 
   /**
    * When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
@@ -6715,14 +6735,3 @@ export const F4vMoovPlacement = {
  * @public
  */
 export type F4vMoovPlacement = (typeof F4vMoovPlacement)[keyof typeof F4vMoovPlacement];
-
-/**
- * @public
- * Settings for F4v container
- */
-export interface F4vSettings {
-  /**
-   * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-   */
-  MoovPlacement?: F4vMoovPlacement | string;
-}

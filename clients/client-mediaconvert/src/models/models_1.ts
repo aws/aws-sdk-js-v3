@@ -16,7 +16,7 @@ import {
   ContainerType,
   EsamSettings,
   ExtendedDataServices,
-  F4vSettings,
+  F4vMoovPlacement,
   Hdr10Metadata,
   HopDestination,
   Id3Insertion,
@@ -34,6 +34,17 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * Settings for F4v container
+ */
+export interface F4vSettings {
+  /**
+   * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
+   */
+  MoovPlacement?: F4vMoovPlacement | string;
+}
 
 /**
  * @public
@@ -2867,6 +2878,11 @@ export interface H265Settings {
    * Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer Function (EOTF).
    */
   AlternateTransferFunctionSei?: H265AlternateTransferFunctionSei | string;
+
+  /**
+   * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+   */
+  BandwidthReductionFilter?: BandwidthReductionFilter;
 
   /**
    * Specify the average bitrate in bits per second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000.
@@ -6770,8 +6786,3 @@ export interface DeleteQueueRequest {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteQueueResponse {}

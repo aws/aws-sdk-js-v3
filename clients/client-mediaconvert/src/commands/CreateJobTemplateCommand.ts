@@ -558,6 +558,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *             OutputSelection: "MANIFESTS_AND_SEGMENTS" || "SEGMENTS_ONLY",
  *             ProgramDateTime: "INCLUDE" || "EXCLUDE",
  *             ProgramDateTimePeriod: Number("int"),
+ *             ProgressiveWriteHlsManifest: "ENABLED" || "DISABLED",
  *             SegmentControl: "SINGLE_FILE" || "SEGMENTED_FILES",
  *             SegmentLength: Number("int"),
  *             SegmentLengthControl: "EXACT" || "GOP_MULTIPLE",
@@ -1089,6 +1090,10 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                 H265Settings: { // H265Settings
  *                   AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX" || "AUTO",
  *                   AlternateTransferFunctionSei: "DISABLED" || "ENABLED",
+ *                   BandwidthReductionFilter: {
+ *                     Sharpening: "LOW" || "MEDIUM" || "HIGH" || "OFF",
+ *                     Strength: "LOW" || "MEDIUM" || "HIGH" || "AUTO" || "OFF",
+ *                   },
  *                   Bitrate: Number("int"),
  *                   CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2" || "LEVEL_6" || "LEVEL_6_1" || "LEVEL_6_2",
  *                   CodecProfile: "MAIN_MAIN" || "MAIN_HIGH" || "MAIN10_MAIN" || "MAIN10_HIGH" || "MAIN_422_8BIT_MAIN" || "MAIN_422_8BIT_HIGH" || "MAIN_422_10BIT_MAIN" || "MAIN_422_10BIT_HIGH",
@@ -1934,6 +1939,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //               OutputSelection: "MANIFESTS_AND_SEGMENTS" || "SEGMENTS_ONLY",
  * //               ProgramDateTime: "INCLUDE" || "EXCLUDE",
  * //               ProgramDateTimePeriod: Number("int"),
+ * //               ProgressiveWriteHlsManifest: "ENABLED" || "DISABLED",
  * //               SegmentControl: "SINGLE_FILE" || "SEGMENTED_FILES",
  * //               SegmentLength: Number("int"),
  * //               SegmentLengthControl: "EXACT" || "GOP_MULTIPLE",
@@ -2465,6 +2471,10 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                   H265Settings: { // H265Settings
  * //                     AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX" || "AUTO",
  * //                     AlternateTransferFunctionSei: "DISABLED" || "ENABLED",
+ * //                     BandwidthReductionFilter: {
+ * //                       Sharpening: "LOW" || "MEDIUM" || "HIGH" || "OFF",
+ * //                       Strength: "LOW" || "MEDIUM" || "HIGH" || "AUTO" || "OFF",
+ * //                     },
  * //                     Bitrate: Number("int"),
  * //                     CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2" || "LEVEL_6" || "LEVEL_6_1" || "LEVEL_6_2",
  * //                     CodecProfile: "MAIN_MAIN" || "MAIN_HIGH" || "MAIN10_MAIN" || "MAIN10_HIGH" || "MAIN_422_8BIT_MAIN" || "MAIN_422_8BIT_HIGH" || "MAIN_422_10BIT_MAIN" || "MAIN_422_10BIT_HIGH",

@@ -15,6 +15,11 @@ import {
 
 /**
  * @public
+ */
+export interface DeleteQueueResponse {}
+
+/**
+ * @public
  * @enum
  */
 export const DescribeEndpointsMode = {
