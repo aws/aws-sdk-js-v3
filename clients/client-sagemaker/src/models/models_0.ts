@@ -1293,6 +1293,20 @@ export interface Channel {
 
 /**
  * @public
+ * @enum
+ */
+export const OutputCompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputCompressionType = (typeof OutputCompressionType)[keyof typeof OutputCompressionType];
+
+/**
+ * @public
  * <p>Provides information about how to store model training results (model
  *             artifacts).</p>
  */
@@ -1351,6 +1365,11 @@ export interface OutputDataConfig {
    *             example, <code>s3://bucket-name/key-name-prefix</code>. </p>
    */
   S3OutputPath: string | undefined;
+
+  /**
+   * <p>The model output compression type. Select <code>None</code> to output an uncompressed model, recommended for large model outputs. Defaults to gzip.</p>
+   */
+  CompressionType?: OutputCompressionType | string;
 }
 
 /**
@@ -1405,6 +1424,7 @@ export const TrainingInstanceType = {
   ML_P3_2XLARGE: "ml.p3.2xlarge",
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
 } as const;
@@ -5512,6 +5532,10 @@ export interface TabularJobConfig {
    * <p>The type of supervised learning problem available for the model candidates of the AutoML
    *          job V2. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
    *             Amazon SageMaker Autopilot problem types</a>.</p>
+   *          <note>
+   *             <p>You must either specify the type of supervised learning problem in
+   *                <code>ProblemType</code> and provide the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLJobObjective">AutoMLJobObjective</a> metric, or none at all.</p>
+   *          </note>
    */
   ProblemType?: ProblemType | string;
 
@@ -7623,6 +7647,139 @@ export type ContainerMode = (typeof ContainerMode)[keyof typeof ContainerMode];
  * @public
  * @enum
  */
+export const ModelCompressionType = {
+  Gzip: "Gzip",
+  None: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof ModelCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ModelDataType = {
+  S3Object: "S3Object",
+  S3Prefix: "S3Prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ModelDataType = (typeof S3ModelDataType)[keyof typeof S3ModelDataType];
+
+/**
+ * @public
+ * <p>Specifies the S3 location of ML model data to deploy.</p>
+ */
+export interface S3ModelDataSource {
+  /**
+   * <p>Specifies the S3 path of ML model data to deploy.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>Specifies the type of ML model data to deploy.</p>
+   *          <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name prefix.
+   *             SageMaker uses all objects that match the specified key name prefix as part of the ML model
+   *             data to deploy. A valid key name prefix identified by <code>S3Uri</code> always ends
+   *             with a forward slash (/).</p>
+   *          <p>If you choose S3Object, S3Uri identifies an object that is the ML model data to
+   *             deploy.</p>
+   */
+  S3DataType: S3ModelDataType | string | undefined;
+
+  /**
+   * <p>Specifies how the ML model data is prepared.</p>
+   *          <p>If you choose <code>Gzip</code> and choose <code>S3Object</code> as the value of
+   *             <code>S3DataType</code>, <code>S3Uri</code> identifies an object that is a
+   *             gzip-compressed TAR archive. SageMaker will attempt to decompress and untar the object
+   *             during model deployment.</p>
+   *          <p>If you choose <code>None</code> and chooose <code>S3Object</code> as the value of
+   *             <code>S3DataType</code>, <code>S3Uri</code> identifies an object that represents an
+   *             uncompressed ML model to deploy.</p>
+   *          <p>If you choose None and choose <code>S3Prefix</code> as the value of
+   *             <code>S3DataType</code>, <code>S3Uri</code> identifies a key name prefix, under which
+   *             all objects represents the uncompressed ML model to deploy.</p>
+   *          <p>If you choose None, then SageMaker will follow rules below when creating model data files
+   *             under /opt/ml/model directory for use by your inference code:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you choose <code>S3Object</code> as the value of <code>S3DataType</code>,
+   *                     then SageMaker will split the key of the S3 object referenced by <code>S3Uri</code> by
+   *                     slash (/), and use the last part as the filename of the file holding the content
+   *                     of the S3 object.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you choose <code>S3Prefix</code> as the value of <code>S3DataType</code>,
+   *                     then for each S3 object under the key name pefix referenced by <code>S3Uri</code>,
+   *                     SageMaker will trim its key by the prefix, and use the remainder as the path
+   *                     (relative to <code>/opt/ml/model</code>) of the file holding the content of the
+   *                     S3 object. SageMaker will split the remainder by slash (/), using intermediate parts as
+   *                     directory names and the last part as filename of the file holding the content of
+   *                     the S3 object.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use any of the following as file names or directory names:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>An empty or blank string</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A string which contains null bytes</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A string longer than 255 bytes</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A single dot (<code>.</code>)</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A double dot (<code>..</code>)</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Ambiguous file names will result in model deployment failure. For example,
+   *                     if your uncompressed ML model consists of two S3 objects
+   *                     <code>s3://mybucket/model/weights</code> and <code>s3://mybucket/model/weights/part1</code>
+   *                     and you specify <code>s3://mybucket/model/</code> as the value of <code>S3Uri</code> and
+   *                     <code>S3Prefix</code> as the value of S3DataType, then it will result in name clash between
+   *                     <code>/opt/ml/model/weights</code> (a regular file) and <code>/opt/ml/model/weights/</code>
+   *                     (a directory).</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not organize the model artifacts in
+   *                     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html">S3 console using folders</a>.
+   *                     When you create a folder in S3 console, S3 creates a 0-byte object with a key set to the
+   *                     folder name you provide. They key of the 0-byte object ends with a slash (/) which violates
+   *                     SageMaker restrictions on model artifact file names, leading to model deployment failure.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  CompressionType: ModelCompressionType | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the location of ML model data to deploy. If specified, you must specify
+ *             one and only one of the available data sources.</p>
+ */
+export interface ModelDataSource {
+  /**
+   * <p>Specifies the S3 location of ML model data to deploy.</p>
+   */
+  S3DataSource: S3ModelDataSource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ModelCacheSetting = {
   DISABLED: "Disabled",
   ENABLED: "Enabled",
@@ -7751,6 +7908,16 @@ export interface ContainerDefinition {
    * <p>Specifies additional configuration for multi-model endpoints.</p>
    */
   MultiModelConfig?: MultiModelConfig;
+
+  /**
+   * <p>Specifies the location of ML model data to deploy.</p>
+   *          <note>
+   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjuction with
+   *                 SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
+   *                 Marketplace.</p>
+   *          </note>
+   */
+  ModelDataSource?: ModelDataSource;
 }
 
 /**
@@ -8608,8 +8775,8 @@ export interface CreateAutoMLJobV2Request {
 
   /**
    * <p>An array of channel objects describing the input data and their location. Each channel
-   *          is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> supported by <code>CreateAutoMLJob</code>. The supported
-   *          formats depend on the problem type:</p>
+   *          is a named input source. Similar to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> attribute in the <code>CreateAutoMLJob</code> input parameters.
+   *          The supported formats depend on the problem type:</p>
    *          <ul>
    *             <li>
    *                <p>For Tabular problem types: <code>S3Prefix</code>,
@@ -8634,12 +8801,6 @@ export interface CreateAutoMLJobV2Request {
 
   /**
    * <p>Defines the configuration settings of one of the supported problem types.</p>
-   *          <note>
-   *             <p>For tabular problem types, you must either specify the type of supervised learning
-   *             problem in <code>AutoMLProblemTypeConfig</code>
-   *                (<code>TabularJobConfig.ProblemType</code>) and provide the
-   *                <code>AutoMLJobObjective</code>, or none at all.</p>
-   *          </note>
    */
   AutoMLProblemTypeConfig: AutoMLProblemTypeConfig | undefined;
 
@@ -8666,10 +8827,10 @@ export interface CreateAutoMLJobV2Request {
    *          the default objective metric depends on the problem type. For the list of default values
    *          per problem type, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective</a>.</p>
    *          <note>
-   *             <p>For tabular problem types, you must either provide the
+   *             <p>For tabular problem types, you must either provide both the
    *                <code>AutoMLJobObjective</code> and indicate the type of supervised learning problem
    *             in <code>AutoMLProblemTypeConfig</code> (<code>TabularJobConfig.ProblemType</code>), or
-   *             none.</p>
+   *             none at all.</p>
    *          </note>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
@@ -10476,182 +10637,4 @@ export interface UserSettings {
    * <p>The Canvas app settings.</p>
    */
   CanvasAppSettings?: CanvasAppSettings;
-}
-
-/**
- * @public
- * @enum
- */
-export const ExecutionRoleIdentityConfig = {
-  DISABLED: "DISABLED",
-  USER_PROFILE_NAME: "USER_PROFILE_NAME",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionRoleIdentityConfig =
-  (typeof ExecutionRoleIdentityConfig)[keyof typeof ExecutionRoleIdentityConfig];
-
-/**
- * @public
- * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
- *             app.</p>
- */
-export interface RStudioServerProDomainSettings {
-  /**
-   * <p>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level
-   *             app.</p>
-   */
-  DomainExecutionRoleArn: string | undefined;
-
-  /**
-   * <p>A URL pointing to an RStudio Connect server.</p>
-   */
-  RStudioConnectUrl?: string;
-
-  /**
-   * <p>A URL pointing to an RStudio Package Manager server.</p>
-   */
-  RStudioPackageManagerUrl?: string;
-
-  /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
-   */
-  DefaultResourceSpec?: ResourceSpec;
-}
-
-/**
- * @public
- * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These
- *             settings are specified through the <code>CreateDomain</code> API call.</p>
- */
-export interface DomainSettings {
-  /**
-   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
-   *             communication between Domain-level apps and user apps.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
-   *             app.</p>
-   */
-  RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
-
-  /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
-   */
-  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
-}
-
-/**
- * @public
- */
-export interface CreateDomainRequest {
-  /**
-   * <p>A name for the domain.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The mode of authentication that members use to access the domain.</p>
-   */
-  AuthMode: AuthMode | string | undefined;
-
-  /**
-   * <p>The default settings to use to create a user profile when <code>UserSettings</code> isn't specified
-   *          in the call to the <code>CreateUserProfile</code> API.</p>
-   *          <p>
-   *             <code>SecurityGroups</code> is aggregated when specified in both calls. For all other
-   *          settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
-   *          take precedence over those specified in <code>CreateDomain</code>.</p>
-   */
-  DefaultUserSettings: UserSettings | undefined;
-
-  /**
-   * <p>The VPC subnets that Studio uses for communication.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Tags to associated with the Domain. Each tag consists of a key and an optional value.
-   *          Tag keys must be unique per resource. Tags are searchable using the
-   *          <code>Search</code> API.</p>
-   *          <p>Tags that you specify for the Domain are also added to all Apps that the
-   *           Domain launches.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Specifies the VPC used for non-EFS traffic. The default value is
-   *         <code>PublicInternetOnly</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
-   *             Amazon SageMaker, which allows direct internet access</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</p>
-   *             </li>
-   *          </ul>
-   */
-  AppNetworkAccessType?: AppNetworkAccessType | string;
-
-  /**
-   * @deprecated
-   *
-   * <p>Use <code>KmsKeyId</code>.</p>
-   */
-  HomeEfsFileSystemKmsKeyId?: string;
-
-  /**
-   * <p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an Amazon Web Services managed
-   *          key by default. For more control, specify a customer managed key.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The entity that creates and manages the required security groups for inter-app
-   *             communication in <code>VPCOnly</code> mode. Required when
-   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided. If setting up the domain for use with RStudio, this value must be set to
-   *                 <code>Service</code>.</p>
-   */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
-
-  /**
-   * <p>A collection of <code>Domain</code> settings.</p>
-   */
-  DomainSettings?: DomainSettings;
-
-  /**
-   * <p>The default settings used to create a space.</p>
-   */
-  DefaultSpaceSettings?: DefaultSpaceSettings;
-}
-
-/**
- * @public
- */
-export interface CreateDomainResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created domain.</p>
-   */
-  DomainArn?: string;
-
-  /**
-   * <p>The URL to the created domain.</p>
-   */
-  Url?: string;
 }

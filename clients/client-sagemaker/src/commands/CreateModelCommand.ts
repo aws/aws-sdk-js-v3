@@ -83,6 +83,13 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *     MultiModelConfig: { // MultiModelConfig
  *       ModelCacheSetting: "Enabled" || "Disabled",
  *     },
+ *     ModelDataSource: { // ModelDataSource
+ *       S3DataSource: { // S3ModelDataSource
+ *         S3Uri: "STRING_VALUE", // required
+ *         S3DataType: "S3Prefix" || "S3Object", // required
+ *         CompressionType: "None" || "Gzip", // required
+ *       },
+ *     },
  *   },
  *   Containers: [ // ContainerDefinitionList
  *     {
@@ -103,6 +110,13 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *       InferenceSpecificationName: "STRING_VALUE",
  *       MultiModelConfig: {
  *         ModelCacheSetting: "Enabled" || "Disabled",
+ *       },
+ *       ModelDataSource: {
+ *         S3DataSource: {
+ *           S3Uri: "STRING_VALUE", // required
+ *           S3DataType: "S3Prefix" || "S3Object", // required
+ *           CompressionType: "None" || "Gzip", // required
+ *         },
  *       },
  *     },
  *   ],

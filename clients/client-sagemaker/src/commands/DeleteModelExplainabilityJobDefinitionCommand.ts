@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DeleteModelExplainabilityJobDefinitionRequest } from "../models/models_1";
+import { DeleteModelExplainabilityJobDefinitionRequest } from "../models/models_2";
 import {
   de_DeleteModelExplainabilityJobDefinitionCommand,
   se_DeleteModelExplainabilityJobDefinitionCommand,

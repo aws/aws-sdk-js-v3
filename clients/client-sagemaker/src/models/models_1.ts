@@ -5,11 +5,14 @@ import {
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AnnotationConsolidationConfig,
+  AppNetworkAccessType,
+  AppSecurityGroupManagement,
   AppSpecification,
   AppType,
   ArtifactSource,
   AsyncInferenceConfig,
   AthenaDatasetDefinition,
+  AuthMode,
   AutoParameter,
   AutoRollbackConfig,
   Autotune,
@@ -35,6 +38,7 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
+  DefaultSpaceSettings,
   EdgeOutputConfig,
   EndpointInput,
   HyperParameterScalingType,
@@ -59,6 +63,7 @@ import {
   ProcessingS3UploadMode,
   ProductionVariantInstanceType,
   ResourceConfig,
+  ResourceSpec,
   StoppingCondition,
   Tag,
   TrainingInputMode,
@@ -70,6 +75,184 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionRoleIdentityConfig = {
+  DISABLED: "DISABLED",
+  USER_PROFILE_NAME: "USER_PROFILE_NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionRoleIdentityConfig =
+  (typeof ExecutionRoleIdentityConfig)[keyof typeof ExecutionRoleIdentityConfig];
+
+/**
+ * @public
+ * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
+ *             app.</p>
+ */
+export interface RStudioServerProDomainSettings {
+  /**
+   * <p>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level
+   *             app.</p>
+   */
+  DomainExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>A URL pointing to an RStudio Connect server.</p>
+   */
+  RStudioConnectUrl?: string;
+
+  /**
+   * <p>A URL pointing to an RStudio Package Manager server.</p>
+   */
+  RStudioPackageManagerUrl?: string;
+
+  /**
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *      the version runs on.</p>
+   */
+  DefaultResourceSpec?: ResourceSpec;
+}
+
+/**
+ * @public
+ * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These
+ *             settings are specified through the <code>CreateDomain</code> API call.</p>
+ */
+export interface DomainSettings {
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
+   *             communication between Domain-level apps and user apps.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
+   *             app.</p>
+   */
+  RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
+
+  /**
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
+   */
+  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDomainRequest {
+  /**
+   * <p>A name for the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The mode of authentication that members use to access the domain.</p>
+   */
+  AuthMode: AuthMode | string | undefined;
+
+  /**
+   * <p>The default settings to use to create a user profile when <code>UserSettings</code> isn't specified
+   *          in the call to the <code>CreateUserProfile</code> API.</p>
+   *          <p>
+   *             <code>SecurityGroups</code> is aggregated when specified in both calls. For all other
+   *          settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
+   *          take precedence over those specified in <code>CreateDomain</code>.</p>
+   */
+  DefaultUserSettings: UserSettings | undefined;
+
+  /**
+   * <p>The VPC subnets that Studio uses for communication.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Tags to associated with the Domain. Each tag consists of a key and an optional value.
+   *          Tag keys must be unique per resource. Tags are searchable using the
+   *          <code>Search</code> API.</p>
+   *          <p>Tags that you specify for the Domain are also added to all Apps that the
+   *           Domain launches.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Specifies the VPC used for non-EFS traffic. The default value is
+   *         <code>PublicInternetOnly</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
+   *             Amazon SageMaker, which allows direct internet access</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</p>
+   *             </li>
+   *          </ul>
+   */
+  AppNetworkAccessType?: AppNetworkAccessType | string;
+
+  /**
+   * @deprecated
+   *
+   * <p>Use <code>KmsKeyId</code>.</p>
+   */
+  HomeEfsFileSystemKmsKeyId?: string;
+
+  /**
+   * <p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an Amazon Web Services managed
+   *          key by default. For more control, specify a customer managed key.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app
+   *             communication in <code>VPCOnly</code> mode. Required when
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *             provided. If setting up the domain for use with RStudio, this value must be set to
+   *                 <code>Service</code>.</p>
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+
+  /**
+   * <p>A collection of <code>Domain</code> settings.</p>
+   */
+  DomainSettings?: DomainSettings;
+
+  /**
+   * <p>The default settings used to create a space.</p>
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings;
+}
+
+/**
+ * @public
+ */
+export interface CreateDomainResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created domain.</p>
+   */
+  DomainArn?: string;
+
+  /**
+   * <p>The URL to the created domain.</p>
+   */
+  Url?: string;
+}
 
 /**
  * @public
@@ -10464,58 +10647,6 @@ export interface DeleteModelBiasJobDefinitionRequest {
    * <p>The name of the model bias job definition to delete.</p>
    */
   JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteModelCardRequest {
-  /**
-   * <p>The name of the model card to delete.</p>
-   */
-  ModelCardName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteModelExplainabilityJobDefinitionRequest {
-  /**
-   * <p>The name of the model explainability job definition to delete.</p>
-   */
-  JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteModelPackageInput {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package to delete.</p>
-   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid
-   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
-   */
-  ModelPackageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteModelPackageGroupInput {
-  /**
-   * <p>The name of the model group to delete.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteModelPackageGroupPolicyInput {
-  /**
-   * <p>The name of the model group for which to delete the policy.</p>
-   */
-  ModelPackageGroupName: string | undefined;
 }
 
 /**

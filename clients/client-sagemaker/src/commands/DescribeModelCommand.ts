@@ -70,6 +70,13 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //     MultiModelConfig: { // MultiModelConfig
  * //       ModelCacheSetting: "Enabled" || "Disabled",
  * //     },
+ * //     ModelDataSource: { // ModelDataSource
+ * //       S3DataSource: { // S3ModelDataSource
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         S3DataType: "S3Prefix" || "S3Object", // required
+ * //         CompressionType: "None" || "Gzip", // required
+ * //       },
+ * //     },
  * //   },
  * //   Containers: [ // ContainerDefinitionList
  * //     {
@@ -90,6 +97,13 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //       InferenceSpecificationName: "STRING_VALUE",
  * //       MultiModelConfig: {
  * //         ModelCacheSetting: "Enabled" || "Disabled",
+ * //       },
+ * //       ModelDataSource: {
+ * //         S3DataSource: {
+ * //           S3Uri: "STRING_VALUE", // required
+ * //           S3DataType: "S3Prefix" || "S3Object", // required
+ * //           CompressionType: "None" || "Gzip", // required
+ * //         },
  * //       },
  * //     },
  * //   ],

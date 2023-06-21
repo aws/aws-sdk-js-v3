@@ -61,6 +61,10 @@ import {
   DriftCheckBaselines,
   ExperimentConfig,
   HubContentType,
+  HyperParameterTrainingJobDefinition,
+  HyperParameterTuningJobConfig,
+  HyperParameterTuningJobStrategyType,
+  HyperParameterTuningJobWarmStartConfig,
   InferenceExecutionConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
@@ -79,6 +83,7 @@ import {
   ProcessingResources,
   ProcessingStoppingCondition,
   RecommendationJobType,
+  ResourceLimits,
   RetryStrategy,
   ServiceCatalogProvisioningDetails,
   SourceAlgorithmSpecification,
@@ -124,13 +129,10 @@ import {
   HubContentInfo,
   HubContentSortBy,
   HubInfo,
-  HubSortBy,
-  HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
-  HyperParameterTuningJobSearchEntity,
-  HyperParameterTuningJobSortByOptions,
+  HyperParameterTuningJobCompletionDetails,
+  HyperParameterTuningJobConsumedResources,
   HyperParameterTuningJobStatus,
-  HyperParameterTuningJobSummary,
   ImageStatus,
   ImageVersionStatus,
   InferenceExperimentStatus,
@@ -146,6 +148,7 @@ import {
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   NotebookInstanceStatus,
+  ObjectiveStatusCounters,
   OfflineStoreStatusValue,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
@@ -162,6 +165,7 @@ import {
   SpaceStatus,
   SubscribedWorkteam,
   TrainingJobStatus,
+  TrainingJobStatusCounters,
   TransformJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -172,6 +176,244 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const HubSortBy = {
+  ACCOUNT_ID_OWNER: "AccountIdOwner",
+  CREATION_TIME: "CreationTime",
+  HUB_NAME: "HubName",
+  HUB_STATUS: "HubStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type HubSortBy = (typeof HubSortBy)[keyof typeof HubSortBy];
+
+/**
+ * @public
+ * <p>Container for human task user interface information.</p>
+ */
+export interface HumanTaskUiSummary {
+  /**
+   * <p>The name of the human task user interface.</p>
+   */
+  HumanTaskUiName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>A timestamp when SageMaker created the human task user interface.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+/**
+ * @public
+ * <p>An entity returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a> API
+ *             containing the properties of a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobSearchEntity {
+  /**
+   * <p>The name of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobArn?: string;
+
+  /**
+   * <p>Configures a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobConfig?: HyperParameterTuningJobConfig;
+
+  /**
+   * <p>Defines
+   *             the training jobs launched by a hyperparameter tuning job.</p>
+   */
+  TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
+
+  /**
+   * <p>The job definitions included in a hyperparameter tuning job.</p>
+   */
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
+
+  /**
+   * <p>The status of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus | string;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that a hyperparameter tuning job ended.</p>
+   */
+  HyperParameterTuningEndTime?: Date;
+
+  /**
+   * <p>The time that a hyperparameter tuning job was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
+   *             status.</p>
+   */
+  TrainingJobStatusCounters?: TrainingJobStatusCounters;
+
+  /**
+   * <p>Specifies the number of training jobs that this hyperparameter tuning job launched,
+   *             categorized by the status of their objective metric. The objective metric status shows
+   *             whether the
+   *             final
+   *             objective metric for the training job has been evaluated by the
+   *             tuning job and used in the hyperparameter tuning process.</p>
+   */
+  ObjectiveStatusCounters?: ObjectiveStatusCounters;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   */
+  BestTrainingJob?: HyperParameterTrainingJobSummary;
+
+  /**
+   * <p>The container for the summary information about a training job.</p>
+   */
+  OverallBestTrainingJob?: HyperParameterTrainingJobSummary;
+
+  /**
+   * <p>Specifies the configuration for a hyperparameter tuning job that uses one or more
+   *             previous hyperparameter tuning jobs as a starting point. The results of previous tuning
+   *             jobs are used to inform which combinations of hyperparameters to search over in the new
+   *             tuning job.</p>
+   *          <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+   *             the objective metric, and the training job that performs the best is compared to the
+   *             best training jobs from the parent tuning jobs. From these, the training job that
+   *             performs the best as measured by the objective metric is returned as the overall best
+   *             training job.</p>
+   *          <note>
+   *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
+   *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
+   *                 job.</p>
+   *          </note>
+   */
+  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
+
+  /**
+   * <p>The error that was created when a hyperparameter tuning job failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Information about either a current or completed hyperparameter tuning job.</p>
+   */
+  TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
+
+  /**
+   * <p>The total amount of resources consumed by a hyperparameter tuning job.</p>
+   */
+  ConsumedResources?: HyperParameterTuningJobConsumedResources;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HyperParameterTuningJobSortByOptions = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterTuningJobSortByOptions =
+  (typeof HyperParameterTuningJobSortByOptions)[keyof typeof HyperParameterTuningJobSortByOptions];
+
+/**
+ * @public
+ * <p>Provides summary information about a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobSummary {
+  /**
+   * <p>The name of the tuning job.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>The
+   *             Amazon
+   *             Resource Name (ARN) of the tuning job.</p>
+   */
+  HyperParameterTuningJobArn: string | undefined;
+
+  /**
+   * <p>The status of the
+   *             tuning
+   *             job.</p>
+   */
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
+
+  /**
+   * <p>Specifies the search strategy hyperparameter tuning uses to choose which
+   *             hyperparameters to
+   *             evaluate
+   *             at each iteration.</p>
+   */
+  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+
+  /**
+   * <p>The date and time that the tuning job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the tuning job ended.</p>
+   */
+  HyperParameterTuningEndTime?: Date;
+
+  /**
+   * <p>The date and time that the tuning job was
+   *             modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the numbers of training
+   *             jobs, categorized by status, that this tuning job launched.</p>
+   */
+  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the numbers of training jobs,
+   *             categorized by objective metric status, that this tuning job launched.</p>
+   */
+  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a>
+   *             object that specifies the maximum number of training jobs and parallel training jobs
+   *             allowed for this tuning job.</p>
+   */
+  ResourceLimits?: ResourceLimits;
+}
 
 /**
  * @public
@@ -9904,88 +10146,6 @@ export interface StartInferenceExperimentResponse {
    * <p>The ARN of the started inference experiment to start.</p>
    */
   InferenceExperimentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMonitoringScheduleRequest {
-  /**
-   * <p>The name of the schedule to start.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance to start.</p>
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartPipelineExecutionRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   */
-  PipelineExecutionDisplayName?: string;
-
-  /**
-   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
-   */
-  PipelineParameters?: Parameter[];
-
-  /**
-   * <p>The description of the pipeline execution.</p>
-   */
-  PipelineExecutionDescription?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than once.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>This configuration, if specified, overrides the parallelism configuration
-   *             of the parent pipeline for this specific run.</p>
-   */
-  ParallelismConfiguration?: ParallelismConfiguration;
-
-  /**
-   * <p>The selective execution configuration applied to the pipeline run.</p>
-   */
-  SelectiveExecutionConfig?: SelectiveExecutionConfig;
-}
-
-/**
- * @public
- */
-export interface StartPipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-}
-
-/**
- * @public
- */
-export interface StopAutoMLJobRequest {
-  /**
-   * <p>The name of the object you are requesting.</p>
-   */
-  AutoMLJobName: string | undefined;
 }
 
 /**

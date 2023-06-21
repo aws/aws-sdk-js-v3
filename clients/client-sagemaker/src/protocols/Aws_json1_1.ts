@@ -879,14 +879,12 @@ import {
   CreateContextRequest,
   CreateDataQualityJobDefinitionRequest,
   CreateDeviceFleetRequest,
-  CreateDomainRequest,
   CustomImage,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
   DefaultSpaceSettings,
-  DomainSettings,
   EdgeOutputConfig,
   EndpointInput,
   FileSystemConfig,
@@ -909,6 +907,7 @@ import {
   MetricDatum,
   MetricDefinition,
   MetricsSource,
+  ModelDataSource,
   ModelDeployConfig,
   ModelInput,
   ModelPackageContainerDefinition,
@@ -941,8 +940,8 @@ import {
   ResourceSpec,
   RSessionAppSettings,
   RStudioServerProAppSettings,
-  RStudioServerProDomainSettings,
   S3DataSource,
+  S3ModelDataSource,
   SharingSettings,
   ShuffleConfig,
   StoppingCondition,
@@ -970,6 +969,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateDomainRequest,
   CreateEdgeDeploymentPlanRequest,
   CreateEdgeDeploymentStageRequest,
   CreateEdgePackagingJobRequest,
@@ -1043,15 +1043,11 @@ import {
   DeleteImageVersionRequest,
   DeleteInferenceExperimentRequest,
   DeleteModelBiasJobDefinitionRequest,
-  DeleteModelCardRequest,
-  DeleteModelExplainabilityJobDefinitionRequest,
   DeleteModelInput,
-  DeleteModelPackageGroupInput,
-  DeleteModelPackageGroupPolicyInput,
-  DeleteModelPackageInput,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
+  DomainSettings,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1166,6 +1162,7 @@ import {
   ResourceLimits,
   RetentionPolicy,
   RetryStrategy,
+  RStudioServerProDomainSettings,
   S3StorageConfig,
   ScheduleConfig,
   ServiceCatalogProvisioningDetails,
@@ -1187,6 +1184,11 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteModelCardRequest,
+  DeleteModelExplainabilityJobDefinitionRequest,
+  DeleteModelPackageGroupInput,
+  DeleteModelPackageGroupPolicyInput,
+  DeleteModelPackageInput,
   DeleteModelQualityJobDefinitionRequest,
   DeleteMonitoringScheduleRequest,
   DeleteNotebookInstanceInput,
@@ -1354,11 +1356,8 @@ import {
   GitConfigForUpdate,
   HubContentInfo,
   HubInfo,
-  HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
-  HyperParameterTuningJobSearchEntity,
-  HyperParameterTuningJobSummary,
   InferenceRecommendation,
   MetricData,
   MonitoringExecutionSummary,
@@ -1381,6 +1380,9 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  HumanTaskUiSummary,
+  HyperParameterTuningJobSearchEntity,
+  HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
   ImportHubContentRequest,
@@ -1579,10 +1581,6 @@ import {
   SpaceDetails,
   StartEdgeDeploymentStageRequest,
   StartInferenceExperimentRequest,
-  StartMonitoringScheduleRequest,
-  StartNotebookInstanceInput,
-  StartPipelineExecutionRequest,
-  StopAutoMLJobRequest,
   StudioLifecycleConfigDetails,
   TrainingJob,
   TrainingJobSummary,
@@ -1600,6 +1598,10 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StartMonitoringScheduleRequest,
+  StartNotebookInstanceInput,
+  StartPipelineExecutionRequest,
+  StopAutoMLJobRequest,
   StopCompilationJobRequest,
   StopEdgeDeploymentStageRequest,
   StopEdgePackagingJobRequest,
@@ -21187,6 +21189,8 @@ const se_ModelBiasJobInput = (input: ModelBiasJobInput, context: __SerdeContext)
 
 // se_ModelDataQuality omitted.
 
+// se_ModelDataSource omitted.
+
 // se_ModelDeployConfig omitted.
 
 // se_ModelExplainabilityAppSpecification omitted.
@@ -21599,6 +21603,8 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
 // se_RuleParameters omitted.
 
 // se_S3DataSource omitted.
+
+// se_S3ModelDataSource omitted.
 
 // se_S3StorageConfig omitted.
 
@@ -26316,6 +26322,8 @@ const de_ModelDashboardMonitoringSchedules = (
 
 // de_ModelDataQuality omitted.
 
+// de_ModelDataSource omitted.
+
 // de_ModelDeployConfig omitted.
 
 // de_ModelDeployResult omitted.
@@ -27465,6 +27473,8 @@ const de_RecommendationMetrics = (output: any, context: __SerdeContext): Recomme
 // de_RuleParameters omitted.
 
 // de_S3DataSource omitted.
+
+// de_S3ModelDataSource omitted.
 
 // de_S3StorageConfig omitted.
 

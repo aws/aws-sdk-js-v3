@@ -53,6 +53,7 @@ import {
   Filter,
   GitConfigForUpdate,
   ResourceType,
+  SelectiveExecutionConfig,
   Workforce,
   Workteam,
 } from "./models_2";
@@ -60,10 +61,93 @@ import {
   InferenceExperimentStopDesiredState,
   ModelVariantAction,
   NestedFilters,
+  Parameter,
   ProfilerConfigForUpdate,
   ResourceConfigForUpdate,
   SearchSortOrder,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface StartMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to start.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to start.</p>
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartPipelineExecutionRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   */
+  PipelineExecutionDisplayName?: string;
+
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   */
+  PipelineParameters?: Parameter[];
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   */
+  PipelineExecutionDescription?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration
+   *             of the parent pipeline for this specific run.</p>
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig;
+}
+
+/**
+ * @public
+ */
+export interface StartPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface StopAutoMLJobRequest {
+  /**
+   * <p>The name of the object you are requesting.</p>
+   */
+  AutoMLJobName: string | undefined;
+}
 
 /**
  * @public
@@ -523,7 +607,8 @@ export interface UpdateDomainRequest {
    *             communication in <code>VPCOnly</code> mode. Required when
    *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
    *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided. If setting up the domain for use with RStudio, this value must be set to <code>Service</code>.</p>
+   *             provided. If setting up the domain for use with RStudio, this value must be set to
+   *                 <code>Service</code>.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
 }
