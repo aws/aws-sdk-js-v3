@@ -36,7 +36,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 
 /**
  * @public
- * <p>Creates an ActiveMQ user.</p>
+ * <p>Creates an ActiveMQ user.</p> <important><p>Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker usernames are not intended to be used for private or sensitive data.</p></important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +51,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   ],
  *   Password: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
+ *   ReplicationUser: true || false,
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);

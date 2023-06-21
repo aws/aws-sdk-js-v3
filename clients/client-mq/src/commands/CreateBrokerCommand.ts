@@ -36,7 +36,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
 
 /**
  * @public
- * <p>Creates a broker. Note: This API is asynchronous.</p> <p>To create a broker, you must either use the AmazonMQFullAccess IAM policy or include the following EC2 permissions in your IAM policy.</p> <ul><li><p>ec2:CreateNetworkInterface</p> <p>This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.</p></li> <li><p>ec2:CreateNetworkInterfacePermission</p> <p>This permission is required to attach the ENI to the broker instance.</p></li> <li><p>ec2:DeleteNetworkInterface</p></li> <li><p>ec2:DeleteNetworkInterfacePermission</p></li> <li><p>ec2:DetachNetworkInterface</p></li> <li><p>ec2:DescribeInternetGateways</p></li> <li><p>ec2:DescribeNetworkInterfaces</p></li> <li><p>ec2:DescribeNetworkInterfacePermissions</p></li> <li><p>ec2:DescribeRouteTables</p></li> <li><p>ec2:DescribeSecurityGroups</p></li> <li><p>ec2:DescribeSubnets</p></li> <li><p>ec2:DescribeVpcs</p></li></ul> <p>For more information, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user">Create an IAM User and Get Your AWS Credentials</a> and <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface">Never Modify or Delete the Amazon MQ Elastic Network Interface</a> in the <i>Amazon MQ Developer Guide</i>.</p>
+ * <p>Creates a broker. Note: This API is asynchronous.</p> <p>To create a broker, you must either use the AmazonMQFullAccess IAM policy or include the following EC2 permissions in your IAM policy.</p> <ul><li><p>ec2:CreateNetworkInterface</p> <p>This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.</p></li> <li><p>ec2:CreateNetworkInterfacePermission</p> <p>This permission is required to attach the ENI to the broker instance.</p></li> <li><p>ec2:DeleteNetworkInterface</p></li> <li><p>ec2:DeleteNetworkInterfacePermission</p></li> <li><p>ec2:DetachNetworkInterface</p></li> <li><p>ec2:DescribeInternetGateways</p></li> <li><p>ec2:DescribeNetworkInterfaces</p></li> <li><p>ec2:DescribeNetworkInterfacePermissions</p></li> <li><p>ec2:DescribeRouteTables</p></li> <li><p>ec2:DescribeSecurityGroups</p></li> <li><p>ec2:DescribeSubnets</p></li> <li><p>ec2:DescribeVpcs</p></li></ul> <p>For more information, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user">Create an IAM User and Get Your Amazon Web Services Credentials</a> and <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface">Never Modify or Delete the Amazon MQ Elastic Network Interface</a> in the <i>Amazon MQ Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * // const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // CreateBrokerRequest
- *   AuthenticationStrategy: "STRING_VALUE",
+ *   AuthenticationStrategy: "SIMPLE" || "LDAP",
  *   AutoMinorVersionUpgrade: true || false, // required
  *   BrokerName: "STRING_VALUE", // required
  *   Configuration: { // ConfigurationId
@@ -52,12 +52,12 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *     Revision: Number("int"),
  *   },
  *   CreatorRequestId: "STRING_VALUE",
- *   DeploymentMode: "STRING_VALUE", // required
+ *   DeploymentMode: "SINGLE_INSTANCE" || "ACTIVE_STANDBY_MULTI_AZ" || "CLUSTER_MULTI_AZ", // required
  *   EncryptionOptions: { // EncryptionOptions
  *     KmsKeyId: "STRING_VALUE",
  *     UseAwsOwnedKey: true || false, // required
  *   },
- *   EngineType: "STRING_VALUE", // required
+ *   EngineType: "ACTIVEMQ" || "RABBITMQ", // required
  *   EngineVersion: "STRING_VALUE", // required
  *   HostInstanceType: "STRING_VALUE", // required
  *   LdapServerMetadata: { // LdapServerMetadataInput
@@ -80,7 +80,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *     General: true || false,
  *   },
  *   MaintenanceWindowStartTime: { // WeeklyStartTime
- *     DayOfWeek: "STRING_VALUE", // required
+ *     DayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
  *     TimeOfDay: "STRING_VALUE", // required
  *     TimeZone: "STRING_VALUE",
  *   },
@@ -88,7 +88,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *   SecurityGroups: [
  *     "STRING_VALUE",
  *   ],
- *   StorageType: "STRING_VALUE",
+ *   StorageType: "EBS" || "EFS",
  *   SubnetIds: [
  *     "STRING_VALUE",
  *   ],
@@ -101,8 +101,11 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *       Groups: "<__listOf__string>",
  *       Password: "STRING_VALUE", // required
  *       Username: "STRING_VALUE", // required
+ *       ReplicationUser: true || false,
  *     },
  *   ],
+ *   DataReplicationMode: "NONE" || "CRDR",
+ *   DataReplicationPrimaryBrokerArn: "STRING_VALUE",
  * };
  * const command = new CreateBrokerCommand(input);
  * const response = await client.send(command);

@@ -349,6 +349,14 @@ ListUsers
 </details>
 <details>
 <summary>
+Promote
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mq/classes/promotecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mq/interfaces/promotecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mq/interfaces/promotecommandoutput.html)
+
+</details>
+<details>
+<summary>
 RebootBroker
 </summary>
 

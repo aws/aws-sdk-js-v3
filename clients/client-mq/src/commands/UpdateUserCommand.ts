@@ -51,6 +51,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *   ],
  *   Password: "STRING_VALUE",
  *   Username: "STRING_VALUE", // required
+ *   ReplicationUser: true || false,
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);

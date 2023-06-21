@@ -64,7 +64,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * //     { // SanitizationWarning
  * //       AttributeName: "STRING_VALUE",
  * //       ElementName: "STRING_VALUE",
- * //       Reason: "STRING_VALUE", // required
+ * //       Reason: "DISALLOWED_ELEMENT_REMOVED" || "DISALLOWED_ATTRIBUTE_REMOVED" || "INVALID_ATTRIBUTE_VALUE_REMOVED", // required
  * //     },
  * //   ],
  * // };

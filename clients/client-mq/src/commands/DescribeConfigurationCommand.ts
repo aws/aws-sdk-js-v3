@@ -50,10 +50,10 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * const response = await client.send(command);
  * // { // DescribeConfigurationResponse
  * //   Arn: "STRING_VALUE",
- * //   AuthenticationStrategy: "STRING_VALUE",
+ * //   AuthenticationStrategy: "SIMPLE" || "LDAP",
  * //   Created: new Date("TIMESTAMP"),
  * //   Description: "STRING_VALUE",
- * //   EngineType: "STRING_VALUE",
+ * //   EngineType: "ACTIVEMQ" || "RABBITMQ",
  * //   EngineVersion: "STRING_VALUE",
  * //   Id: "STRING_VALUE",
  * //   LatestRevision: { // ConfigurationRevision

@@ -53,7 +53,7 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * // { // DescribeBrokerEngineTypesResponse
  * //   BrokerEngineTypes: [ // __listOfBrokerEngineType
  * //     { // BrokerEngineType
- * //       EngineType: "STRING_VALUE",
+ * //       EngineType: "ACTIVEMQ" || "RABBITMQ",
  * //       EngineVersions: [ // __listOfEngineVersion
  * //         { // EngineVersion
  * //           Name: "STRING_VALUE",

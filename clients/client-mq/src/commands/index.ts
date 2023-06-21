@@ -17,6 +17,7 @@ export * from "./ListConfigurationRevisionsCommand";
 export * from "./ListConfigurationsCommand";
 export * from "./ListTagsCommand";
 export * from "./ListUsersCommand";
+export * from "./PromoteCommand";
 export * from "./RebootBrokerCommand";
 export * from "./UpdateBrokerCommand";
 export * from "./UpdateConfigurationCommand";

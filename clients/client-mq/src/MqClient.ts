@@ -87,6 +87,7 @@ import {
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { PromoteCommandInput, PromoteCommandOutput } from "./commands/PromoteCommand";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
 import { UpdateBrokerCommandInput, UpdateBrokerCommandOutput } from "./commands/UpdateBrokerCommand";
 import {
@@ -126,6 +127,7 @@ export type ServiceInputTypes =
   | ListConfigurationsCommandInput
   | ListTagsCommandInput
   | ListUsersCommandInput
+  | PromoteCommandInput
   | RebootBrokerCommandInput
   | UpdateBrokerCommandInput
   | UpdateConfigurationCommandInput
@@ -153,6 +155,7 @@ export type ServiceOutputTypes =
   | ListConfigurationsCommandOutput
   | ListTagsCommandOutput
   | ListUsersCommandOutput
+  | PromoteCommandOutput
   | RebootBrokerCommandOutput
   | UpdateBrokerCommandOutput
   | UpdateConfigurationCommandOutput

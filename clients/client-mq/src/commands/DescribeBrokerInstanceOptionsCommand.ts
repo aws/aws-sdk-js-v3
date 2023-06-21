@@ -65,11 +65,11 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
  * //           Name: "STRING_VALUE",
  * //         },
  * //       ],
- * //       EngineType: "STRING_VALUE",
+ * //       EngineType: "ACTIVEMQ" || "RABBITMQ",
  * //       HostInstanceType: "STRING_VALUE",
- * //       StorageType: "STRING_VALUE",
+ * //       StorageType: "EBS" || "EFS",
  * //       SupportedDeploymentModes: [ // __listOfDeploymentMode
- * //         "STRING_VALUE",
+ * //         "SINGLE_INSTANCE" || "ACTIVE_STANDBY_MULTI_AZ" || "CLUSTER_MULTI_AZ",
  * //       ],
  * //       SupportedEngineVersions: [ // __listOf__string
  * //         "STRING_VALUE",

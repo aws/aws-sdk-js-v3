@@ -5,16 +5,16 @@ import { MqServiceException as __BaseException } from "./MqServiceException";
 
 /**
  * @public
- * <p>The action required to resolve a broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state.</p>
+ * <p>Action required for a broker.</p>
  */
 export interface ActionRequired {
   /**
-   * <p>The code you can use to resolve your broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state. You can find instructions by choosing the link for your code from the list of action required codes in <a href="https://docs.aws.amazon.com//latest/developer-guide/troubleshooting-action-required-codes.html">Amazon MQ action required codes</a>. Each code references a topic with detailed information, instructions, and recommendations for how to resolve the issue and prevent future occurrences.</p>
+   * <p>The code you can use to find instructions on the action required to resolve your broker issue.</p>
    */
   ActionRequiredCode?: string;
 
   /**
-   * <p>Information about the action required to resolve your broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state.</p>
+   * <p>Information about the action required to resolve your broker issue.</p>
    */
   ActionRequiredInfo?: string;
 }
@@ -167,6 +167,7 @@ export const BrokerState = {
   CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
   DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
   REBOOT_IN_PROGRESS: "REBOOT_IN_PROGRESS",
+  REPLICA: "REPLICA",
   RUNNING: "RUNNING",
 } as const;
 
@@ -191,7 +192,7 @@ export interface BrokerSummary {
   BrokerId?: string;
 
   /**
-   * <p>The broker's name. This value is unique in your AWS account, 1-50 characters long, and containing only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p>
+   * <p>The broker's name. This value is unique in your Amazon Web Services account, 1-50 characters long, and containing only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p>
    */
   BrokerName?: string;
 
@@ -314,7 +315,7 @@ export interface Configuration {
 
 /**
  * @public
- * <p>A list of information about the configuration.</p> <important><p>Does not apply to RabbitMQ brokers.</p></important>
+ * <p>A list of information about the configuration.</p>
  */
 export interface ConfigurationId {
   /**
@@ -345,28 +346,28 @@ export type SanitizationWarningReason = (typeof SanitizationWarningReason)[keyof
 
 /**
  * @public
- * <p>Returns information about the XML element or attribute that was sanitized in the configuration.</p>
+ * <p>Returns information about the configuration element or attribute that was sanitized in the configuration.</p>
  */
 export interface SanitizationWarning {
   /**
-   * <p>The name of the XML attribute that has been sanitized.</p>
+   * <p>The name of the configuration attribute that has been sanitized.</p>
    */
   AttributeName?: string;
 
   /**
-   * <p>The name of the XML element that has been sanitized.</p>
+   * <p>The name of the configuration element that has been sanitized.</p>
    */
   ElementName?: string;
 
   /**
-   * <p>Required. The reason for which the XML elements or attributes were sanitized.</p>
+   * <p>The reason for which the configuration elements or attributes were sanitized.</p>
    */
   Reason: SanitizationWarningReason | string | undefined;
 }
 
 /**
  * @public
- * <p>A user associated with the broker. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
+ * <p>A user associated with the broker. For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
  */
 export interface User {
   /**
@@ -385,9 +386,14 @@ export interface User {
   Password: string | undefined;
 
   /**
-   * <p>important><title>Amazon MQ for ActiveMQ</title> <para>For ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>/important> <important><title>Amazon MQ for RabbitMQ</title> <p>For RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.</p></important></para>
+   * <p>The username of the broker user. The following restrictions apply to broker usernames:</p> <ul><li><p>For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p></li> <li><p>para>For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.</p></para></li></ul> <important><p>Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker usernames are not intended to be used for private or sensitive data.</p></important>
    */
   Username: string | undefined;
+
+  /**
+   * <p>Defines if this user is intended for CRDR replication purposes.</p>
+   */
+  ReplicationUser?: boolean;
 }
 
 /**
@@ -506,16 +512,30 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
- * <important><p>Does not apply to RabbitMQ brokers.</p></important> <p>Encryption options for the broker.</p>
+ * @enum
+ */
+export const DataReplicationMode = {
+  CRDR: "CRDR",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplicationMode = (typeof DataReplicationMode)[keyof typeof DataReplicationMode];
+
+/**
+ * @public
+ * <p>Encryption options for the broker.</p>
  */
 export interface EncryptionOptions {
   /**
-   * <p>The customer master key (CMK) to use for the AWS Key Management Service (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.</p>
+   * <p>The customer master key (CMK) to use for the A KMS (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>Enables the use of an AWS owned CMK using AWS Key Management Service (KMS). Set to true by default, if no value is provided, for example, for RabbitMQ brokers.</p>
+   * <p>Enables the use of an Amazon Web Services owned CMK using KMS (KMS). Set to true by default, if no value is provided, for example, for RabbitMQ brokers.</p>
    */
   UseAwsOwnedKey: boolean | undefined;
 }
@@ -526,7 +546,7 @@ export interface EncryptionOptions {
  */
 export interface LdapServerMetadataInput {
   /**
-   * <p>Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.</p>
+   * <p>Specifies the location of the LDAP server such as Directory Service for Microsoft Active Directory. Optional failover server.</p>
    */
   Hosts: string[] | undefined;
 
@@ -658,7 +678,7 @@ export interface CreateBrokerRequest {
   AutoMinorVersionUpgrade: boolean | undefined;
 
   /**
-   * <p>Required. The broker's name. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p>
+   * <p>Required. The broker's name. This value must be unique in your Amazon Web Services account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p> <important><p>Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker names are not intended to be used for private or sensitive data.</p></important>
    */
   BrokerName: string | undefined;
 
@@ -668,7 +688,7 @@ export interface CreateBrokerRequest {
   Configuration?: ConfigurationId;
 
   /**
-   * <p>The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.</p>
+   * <p>The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action.</p> <note><p>We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.</p></note>
    */
   CreatorRequestId?: string;
 
@@ -678,7 +698,7 @@ export interface CreateBrokerRequest {
   DeploymentMode: DeploymentMode | string | undefined;
 
   /**
-   * <p>Encryption options for the broker. Does not apply to RabbitMQ brokers.</p>
+   * <p>Encryption options for the broker.</p>
    */
   EncryptionOptions?: EncryptionOptions;
 
@@ -728,7 +748,7 @@ export interface CreateBrokerRequest {
   StorageType?: BrokerStorageType | string;
 
   /**
-   * <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.</p> <important><p>If you specify subnets in a <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">shared VPC</a> for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account. Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your AWS account.</p></important>
+   * <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.</p> <important><p>If you specify subnets in a <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">shared VPC</a> for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your Amazon Web Services account. Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your Amazon Web Services account.</p></important>
    */
   SubnetIds?: string[];
 
@@ -738,9 +758,19 @@ export interface CreateBrokerRequest {
   Tags?: Record<string, string>;
 
   /**
-   * <p>Required. The list of broker users (persons or applications) who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p> <important><title>Amazon MQ for RabbitMQ</title> <p>When you create an Amazon MQ for RabbitMQ broker, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p></important>
+   * <p>The list of broker users (persons or applications) who can access queues and topics. For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
    */
   Users: User[] | undefined;
+
+  /**
+   * <p>Defines whether this broker is a part of a data replication pair.</p>
+   */
+  DataReplicationMode?: DataReplicationMode | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when dataReplicationMode is set to CRDR.</p>
+   */
+  DataReplicationPrimaryBrokerArn?: string;
 }
 
 /**
@@ -993,12 +1023,49 @@ export interface CreateUserRequest {
    * <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    */
   Username: string | undefined;
+
+  /**
+   * <p>Defines if this user is intended for CRDR replication purposes.</p>
+   */
+  ReplicationUser?: boolean;
 }
 
 /**
  * @public
  */
 export interface CreateUserResponse {}
+
+/**
+ * @public
+ * <p>Specifies a broker in a data replication pair.</p>
+ */
+export interface DataReplicationCounterpart {
+  /**
+   * <p>Required. The unique broker id generated by Amazon MQ.</p>
+   */
+  BrokerId: string | undefined;
+
+  /**
+   * <p>Required. The region of the broker.</p>
+   */
+  Region: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The replication details of the data replication-enabled broker. Only returned if dataReplicationMode or pendingDataReplicationMode is set to CRDR.</p>
+ */
+export interface DataReplicationMetadataOutput {
+  /**
+   * <p>Describes the replica/primary broker. Only returned if this broker is currently set as a primary or replica in the broker's dataReplicationRole property.</p>
+   */
+  DataReplicationCounterpart?: DataReplicationCounterpart;
+
+  /**
+   * <p>Defines the role of this broker in a data replication pair. When a replica broker is promoted to primary, this role is interchanged.</p>
+   */
+  DataReplicationRole: string | undefined;
+}
 
 /**
  * @public
@@ -1071,7 +1138,7 @@ export interface DescribeBrokerRequest {
  */
 export interface LdapServerMetadataOutput {
   /**
-   * <p>Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.</p>
+   * <p>Specifies the location of the LDAP server such as Directory Service for Microsoft Active Directory. Optional failover server.</p>
    */
   Hosts: string[] | undefined;
 
@@ -1177,7 +1244,7 @@ export interface LogsSummary {
  */
 export interface DescribeBrokerResponse {
   /**
-   * <p>A list of actions required for a broker.</p>
+   * <p>Actions required for a broker.</p>
    */
   ActionsRequired?: ActionRequired[];
 
@@ -1207,7 +1274,7 @@ export interface DescribeBrokerResponse {
   BrokerInstances?: BrokerInstance[];
 
   /**
-   * <p>The broker's name. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p>
+   * <p>The broker's name. This value must be unique in your Amazon Web Services account account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p>
    */
   BrokerName?: string;
 
@@ -1232,7 +1299,7 @@ export interface DescribeBrokerResponse {
   DeploymentMode?: DeploymentMode | string;
 
   /**
-   * <p>Encryption options for the broker. Does not apply to RabbitMQ brokers.</p>
+   * <p>Encryption options for the broker.</p>
    */
   EncryptionOptions?: EncryptionOptions;
 
@@ -1320,6 +1387,26 @@ export interface DescribeBrokerResponse {
    * <p>The list of all broker usernames for the specified broker.</p>
    */
   Users?: UserSummary[];
+
+  /**
+   * <p>The replication details of the data replication-enabled broker. Only returned if dataReplicationMode is set to CRDR.</p>
+   */
+  DataReplicationMetadata?: DataReplicationMetadataOutput;
+
+  /**
+   * <p>Describes whether this broker is a part of a data replication pair.</p>
+   */
+  DataReplicationMode?: DataReplicationMode | string;
+
+  /**
+   * <p>The pending replication details of the data replication-enabled broker. Only returned if pendingDataReplicationMode is set to CRDR.</p>
+   */
+  PendingDataReplicationMetadata?: DataReplicationMetadataOutput;
+
+  /**
+   * <p>Describes whether this broker will be a part of a data replication pair after reboot.</p>
+   */
+  PendingDataReplicationMode?: DataReplicationMode | string;
 }
 
 /**
@@ -1507,7 +1594,7 @@ export interface DescribeConfigurationRevisionResponse {
   Created?: Date;
 
   /**
-   * <p>Required. The base64-encoded XML configuration.</p>
+   * <p>Amazon MQ for ActiveMQ: the base64-encoded XML configuration. Amazon MQ for RabbitMQ: base64-encoded Cuttlefish.</p>
    */
   Data?: string;
 
@@ -1581,6 +1668,11 @@ export interface DescribeUserResponse {
    * <p>Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    */
   Username?: string;
+
+  /**
+   * <p>Describes whether the user is intended for data replication</p>
+   */
+  ReplicationUser?: boolean;
 }
 
 /**
@@ -1760,6 +1852,46 @@ export interface ListUsersResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const PromoteMode = {
+  FAILOVER: "FAILOVER",
+  SWITCHOVER: "SWITCHOVER",
+} as const;
+
+/**
+ * @public
+ */
+export type PromoteMode = (typeof PromoteMode)[keyof typeof PromoteMode];
+
+/**
+ * @public
+ * <p>Promotes a data replication replica broker to the primary broker role.</p>
+ */
+export interface PromoteRequest {
+  /**
+   * <p>The unique ID that Amazon MQ generates for the broker.</p>
+   */
+  BrokerId: string | undefined;
+
+  /**
+   * <p>The Promote mode requested. Note: Valid values for the parameter are SWITCHOVER, FAILOVER.</p>
+   */
+  Mode: PromoteMode | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PromoteResponse {
+  /**
+   * <p>The unique ID that Amazon MQ generates for the broker.</p>
+   */
+  BrokerId?: string;
+}
+
+/**
+ * @public
  */
 export interface RebootBrokerRequest {
   /**
@@ -1827,6 +1959,11 @@ export interface UpdateBrokerRequest {
    * <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
    */
   SecurityGroups?: string[];
+
+  /**
+   * <p>Defines whether this broker is a part of a data replication pair.</p>
+   */
+  DataReplicationMode?: DataReplicationMode | string;
 }
 
 /**
@@ -1882,6 +2019,26 @@ export interface UpdateBrokerResponse {
    * <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
    */
   SecurityGroups?: string[];
+
+  /**
+   * <p>The replication details of the data replication-enabled broker. Only returned if dataReplicationMode is set to CRDR.</p>
+   */
+  DataReplicationMetadata?: DataReplicationMetadataOutput;
+
+  /**
+   * <p>Describes whether this broker is a part of a data replication pair.</p>
+   */
+  DataReplicationMode?: DataReplicationMode | string;
+
+  /**
+   * <p>The pending replication details of the data replication-enabled broker. Only returned if pendingDataReplicationMode is set to CRDR.</p>
+   */
+  PendingDataReplicationMetadata?: DataReplicationMetadataOutput;
+
+  /**
+   * <p>Describes whether this broker will be a part of a data replication pair after reboot.</p>
+   */
+  PendingDataReplicationMode?: DataReplicationMode | string;
 }
 
 /**
@@ -1895,7 +2052,7 @@ export interface UpdateConfigurationRequest {
   ConfigurationId: string | undefined;
 
   /**
-   * <p>Required. The base64-encoded XML configuration.</p>
+   * <p>Amazon MQ for Active MQ: The base64-encoded XML configuration. Amazon MQ for RabbitMQ: the base64-encoded Cuttlefish configuration.</p>
    */
   Data: string | undefined;
 
@@ -1910,7 +2067,7 @@ export interface UpdateConfigurationRequest {
  */
 export interface UpdateConfigurationResponse {
   /**
-   * <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
   Arn?: string;
 
@@ -1920,7 +2077,7 @@ export interface UpdateConfigurationResponse {
   Created?: Date;
 
   /**
-   * <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
+   * <p>The unique ID that Amazon MQ generates for the configuration.</p>
    */
   Id?: string;
 
@@ -1930,12 +2087,12 @@ export interface UpdateConfigurationResponse {
   LatestRevision?: ConfigurationRevision;
 
   /**
-   * <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
+   * <p>The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
    */
   Name?: string;
 
   /**
-   * <p>The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.</p>
+   * <p>The list of the first 20 warnings about the configuration elements or attributes that were sanitized.</p>
    */
   Warnings?: SanitizationWarning[];
 }
@@ -1969,6 +2126,11 @@ export interface UpdateUserRequest {
    * <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    */
   Username: string | undefined;
+
+  /**
+   * <p>Defines whether the user is intended for data replication.</p>
+   */
+  ReplicationUser?: boolean;
 }
 
 /**

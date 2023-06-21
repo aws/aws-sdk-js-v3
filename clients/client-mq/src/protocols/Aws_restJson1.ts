@@ -56,6 +56,7 @@ import {
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "../commands/ListConfigurationsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { PromoteCommandInput, PromoteCommandOutput } from "../commands/PromoteCommand";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "../commands/RebootBrokerCommand";
 import { UpdateBrokerCommandInput, UpdateBrokerCommandOutput } from "../commands/UpdateBrokerCommand";
 import {
@@ -76,6 +77,8 @@ import {
   ConfigurationRevision,
   Configurations,
   ConflictException,
+  DataReplicationCounterpart,
+  DataReplicationMetadataOutput,
   EncryptionOptions,
   EngineVersion,
   ForbiddenException,
@@ -115,6 +118,8 @@ export const se_CreateBrokerCommand = async (
       brokerName: [, , `BrokerName`],
       configuration: [, (_) => se_ConfigurationId(_, context), `Configuration`],
       creatorRequestId: [true, (_) => _ ?? generateIdempotencyToken(), `CreatorRequestId`],
+      dataReplicationMode: [, , `DataReplicationMode`],
+      dataReplicationPrimaryBrokerArn: [, , `DataReplicationPrimaryBrokerArn`],
       deploymentMode: [, , `DeploymentMode`],
       encryptionOptions: [, (_) => se_EncryptionOptions(_, context), `EncryptionOptions`],
       engineType: [, , `EngineType`],
@@ -226,6 +231,7 @@ export const se_CreateUserCommand = async (
       consoleAccess: [, , `ConsoleAccess`],
       groups: [, (_) => _json(_), `Groups`],
       password: [, , `Password`],
+      replicationUser: [, , `ReplicationUser`],
     })
   );
   return new __HttpRequest({
@@ -640,6 +646,37 @@ export const se_ListUsersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PromoteCommand
+ */
+export const se_PromoteCommand = async (
+  input: PromoteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/brokers/{BrokerId}/promote";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BrokerId", () => input.BrokerId!, "{BrokerId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      mode: [, , `Mode`],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1RebootBrokerCommand
  */
 export const se_RebootBrokerCommand = async (
@@ -682,6 +719,7 @@ export const se_UpdateBrokerCommand = async (
       authenticationStrategy: [, , `AuthenticationStrategy`],
       autoMinorVersionUpgrade: [, , `AutoMinorVersionUpgrade`],
       configuration: [, (_) => se_ConfigurationId(_, context), `Configuration`],
+      dataReplicationMode: [, , `DataReplicationMode`],
       engineVersion: [, , `EngineVersion`],
       hostInstanceType: [, , `HostInstanceType`],
       ldapServerMetadata: [, (_) => se_LdapServerMetadataInput(_, context), `LdapServerMetadata`],
@@ -761,6 +799,7 @@ export const se_UpdateUserCommand = async (
       consoleAccess: [, , `ConsoleAccess`],
       groups: [, (_) => _json(_), `Groups`],
       password: [, , `Password`],
+      replicationUser: [, , `ReplicationUser`],
     })
   );
   return new __HttpRequest({
@@ -1187,6 +1226,8 @@ export const de_DescribeBrokerCommand = async (
     BrokerState: [, __expectString, `brokerState`],
     Configurations: [, (_) => de_Configurations(_, context), `configurations`],
     Created: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    DataReplicationMetadata: [, (_) => de_DataReplicationMetadataOutput(_, context), `dataReplicationMetadata`],
+    DataReplicationMode: [, __expectString, `dataReplicationMode`],
     DeploymentMode: [, __expectString, `deploymentMode`],
     EncryptionOptions: [, (_) => de_EncryptionOptions(_, context), `encryptionOptions`],
     EngineType: [, __expectString, `engineType`],
@@ -1196,6 +1237,12 @@ export const de_DescribeBrokerCommand = async (
     Logs: [, (_) => de_LogsSummary(_, context), `logs`],
     MaintenanceWindowStartTime: [, (_) => de_WeeklyStartTime(_, context), `maintenanceWindowStartTime`],
     PendingAuthenticationStrategy: [, __expectString, `pendingAuthenticationStrategy`],
+    PendingDataReplicationMetadata: [
+      ,
+      (_) => de_DataReplicationMetadataOutput(_, context),
+      `pendingDataReplicationMetadata`,
+    ],
+    PendingDataReplicationMode: [, __expectString, `pendingDataReplicationMode`],
     PendingEngineVersion: [, __expectString, `pendingEngineVersion`],
     PendingHostInstanceType: [, __expectString, `pendingHostInstanceType`],
     PendingLdapServerMetadata: [, (_) => de_LdapServerMetadataOutput(_, context), `pendingLdapServerMetadata`],
@@ -1499,6 +1546,7 @@ export const de_DescribeUserCommand = async (
     ConsoleAccess: [, __expectBoolean, `consoleAccess`],
     Groups: [, _json, `groups`],
     Pending: [, (_) => de_UserPendingChanges(_, context), `pending`],
+    ReplicationUser: [, __expectBoolean, `replicationUser`],
     Username: [, __expectString, `username`],
   });
   Object.assign(contents, doc);
@@ -1824,6 +1872,62 @@ const de_ListUsersCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1PromoteCommand
+ */
+export const de_PromoteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PromoteCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PromoteCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BrokerId: [, __expectString, `brokerId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PromoteCommandError
+ */
+const de_PromoteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PromoteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mq#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mq#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mq#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mq#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1RebootBrokerCommand
  */
 export const de_RebootBrokerCommand = async (
@@ -1894,11 +1998,19 @@ export const de_UpdateBrokerCommand = async (
     AutoMinorVersionUpgrade: [, __expectBoolean, `autoMinorVersionUpgrade`],
     BrokerId: [, __expectString, `brokerId`],
     Configuration: [, (_) => de_ConfigurationId(_, context), `configuration`],
+    DataReplicationMetadata: [, (_) => de_DataReplicationMetadataOutput(_, context), `dataReplicationMetadata`],
+    DataReplicationMode: [, __expectString, `dataReplicationMode`],
     EngineVersion: [, __expectString, `engineVersion`],
     HostInstanceType: [, __expectString, `hostInstanceType`],
     LdapServerMetadata: [, (_) => de_LdapServerMetadataOutput(_, context), `ldapServerMetadata`],
     Logs: [, (_) => de_Logs(_, context), `logs`],
     MaintenanceWindowStartTime: [, (_) => de_WeeklyStartTime(_, context), `maintenanceWindowStartTime`],
+    PendingDataReplicationMetadata: [
+      ,
+      (_) => de_DataReplicationMetadataOutput(_, context),
+      `pendingDataReplicationMetadata`,
+    ],
+    PendingDataReplicationMode: [, __expectString, `pendingDataReplicationMode`],
     SecurityGroups: [, _json, `securityGroups`],
   });
   Object.assign(contents, doc);
@@ -2249,6 +2361,7 @@ const se_User = (input: User, context: __SerdeContext): any => {
     consoleAccess: [, , `ConsoleAccess`],
     groups: [, _json, `Groups`],
     password: [, , `Password`],
+    replicationUser: [, , `ReplicationUser`],
     username: [, , `Username`],
   });
 };
@@ -2531,6 +2644,26 @@ const de_Configurations = (output: any, context: __SerdeContext): Configurations
     Current: [, (_: any) => de_ConfigurationId(_, context), `current`],
     History: [, (_: any) => de___listOfConfigurationId(_, context), `history`],
     Pending: [, (_: any) => de_ConfigurationId(_, context), `pending`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataReplicationCounterpart
+ */
+const de_DataReplicationCounterpart = (output: any, context: __SerdeContext): DataReplicationCounterpart => {
+  return take(output, {
+    BrokerId: [, __expectString, `brokerId`],
+    Region: [, __expectString, `region`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataReplicationMetadataOutput
+ */
+const de_DataReplicationMetadataOutput = (output: any, context: __SerdeContext): DataReplicationMetadataOutput => {
+  return take(output, {
+    DataReplicationCounterpart: [, (_: any) => de_DataReplicationCounterpart(_, context), `dataReplicationCounterpart`],
+    DataReplicationRole: [, __expectString, `dataReplicationRole`],
   }) as any;
 };
 

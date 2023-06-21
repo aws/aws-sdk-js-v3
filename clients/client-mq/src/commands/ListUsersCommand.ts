@@ -56,7 +56,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //   NextToken: "STRING_VALUE",
  * //   Users: [ // __listOfUserSummary
  * //     { // UserSummary
- * //       PendingChange: "STRING_VALUE",
+ * //       PendingChange: "CREATE" || "UPDATE" || "DELETE",
  * //       Username: "STRING_VALUE", // required
  * //     },
  * //   ],

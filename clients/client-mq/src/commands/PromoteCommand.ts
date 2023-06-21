@@ -13,9 +13,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
+import { PromoteRequest, PromoteResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws_restJson1";
+import { de_PromoteCommand, se_PromoteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,54 +24,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeUserCommand}.
+ * The input for {@link PromoteCommand}.
  */
-export interface DescribeUserCommandInput extends DescribeUserRequest {}
+export interface PromoteCommandInput extends PromoteRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUserCommand}.
+ * The output of {@link PromoteCommand}.
  */
-export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
+export interface PromoteCommandOutput extends PromoteResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about an ActiveMQ user.</p>
+ * <p>Promotes a data replication replica broker to the primary broker role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MqClient, DescribeUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
- * // const { MqClient, DescribeUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * import { MqClient, PromoteCommand } from "@aws-sdk/client-mq"; // ES Modules import
+ * // const { MqClient, PromoteCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = { // DescribeUserRequest
+ * const input = { // PromoteRequest
  *   BrokerId: "STRING_VALUE", // required
- *   Username: "STRING_VALUE", // required
+ *   Mode: "SWITCHOVER" || "FAILOVER", // required
  * };
- * const command = new DescribeUserCommand(input);
+ * const command = new PromoteCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUserResponse
+ * // { // PromoteResponse
  * //   BrokerId: "STRING_VALUE",
- * //   ConsoleAccess: true || false,
- * //   Groups: [ // __listOf__string
- * //     "STRING_VALUE",
- * //   ],
- * //   Pending: { // UserPendingChanges
- * //     ConsoleAccess: true || false,
- * //     Groups: [
- * //       "STRING_VALUE",
- * //     ],
- * //     PendingChange: "CREATE" || "UPDATE" || "DELETE", // required
- * //   },
- * //   Username: "STRING_VALUE",
- * //   ReplicationUser: true || false,
  * // };
  *
  * ```
  *
- * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
- * @returns {@link DescribeUserCommandOutput}
- * @see {@link DescribeUserCommandInput} for command's `input` shape.
- * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @param PromoteCommandInput - {@link PromoteCommandInput}
+ * @returns {@link PromoteCommandOutput}
+ * @see {@link PromoteCommandInput} for command's `input` shape.
+ * @see {@link PromoteCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -90,11 +77,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
-export class DescribeUserCommand extends $Command<
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput,
-  MqClientResolvedConfig
-> {
+export class PromoteCommand extends $Command<PromoteCommandInput, PromoteCommandOutput, MqClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -110,7 +93,7 @@ export class DescribeUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeUserCommandInput) {
+  constructor(readonly input: PromoteCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -123,15 +106,15 @@ export class DescribeUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeUserCommandInput, DescribeUserCommandOutput> {
+  ): Handler<PromoteCommandInput, PromoteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PromoteCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MqClient";
-    const commandName = "DescribeUserCommand";
+    const commandName = "PromoteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,15 +133,15 @@ export class DescribeUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeUserCommand(input, context);
+  private serialize(input: PromoteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PromoteCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
-    return de_DescribeUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PromoteCommandOutput> {
+    return de_PromoteCommand(output, context);
   }
 
   // Start section: command_body_extra

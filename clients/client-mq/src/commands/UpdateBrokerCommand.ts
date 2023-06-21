@@ -44,7 +44,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * // const { MqClient, UpdateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const input = { // UpdateBrokerRequest
- *   AuthenticationStrategy: "STRING_VALUE",
+ *   AuthenticationStrategy: "SIMPLE" || "LDAP",
  *   AutoMinorVersionUpgrade: true || false,
  *   BrokerId: "STRING_VALUE", // required
  *   Configuration: { // ConfigurationId
@@ -73,18 +73,19 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *     General: true || false,
  *   },
  *   MaintenanceWindowStartTime: { // WeeklyStartTime
- *     DayOfWeek: "STRING_VALUE", // required
+ *     DayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
  *     TimeOfDay: "STRING_VALUE", // required
  *     TimeZone: "STRING_VALUE",
  *   },
  *   SecurityGroups: [
  *     "STRING_VALUE",
  *   ],
+ *   DataReplicationMode: "NONE" || "CRDR",
  * };
  * const command = new UpdateBrokerCommand(input);
  * const response = await client.send(command);
  * // { // UpdateBrokerResponse
- * //   AuthenticationStrategy: "STRING_VALUE",
+ * //   AuthenticationStrategy: "SIMPLE" || "LDAP",
  * //   AutoMinorVersionUpgrade: true || false,
  * //   BrokerId: "STRING_VALUE",
  * //   Configuration: { // ConfigurationId
@@ -112,13 +113,29 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * //     General: true || false,
  * //   },
  * //   MaintenanceWindowStartTime: { // WeeklyStartTime
- * //     DayOfWeek: "STRING_VALUE", // required
+ * //     DayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
  * //     TimeOfDay: "STRING_VALUE", // required
  * //     TimeZone: "STRING_VALUE",
  * //   },
  * //   SecurityGroups: [
  * //     "STRING_VALUE",
  * //   ],
+ * //   DataReplicationMetadata: { // DataReplicationMetadataOutput
+ * //     DataReplicationCounterpart: { // DataReplicationCounterpart
+ * //       BrokerId: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE", // required
+ * //     },
+ * //     DataReplicationRole: "STRING_VALUE", // required
+ * //   },
+ * //   DataReplicationMode: "NONE" || "CRDR",
+ * //   PendingDataReplicationMetadata: {
+ * //     DataReplicationCounterpart: {
+ * //       BrokerId: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE", // required
+ * //     },
+ * //     DataReplicationRole: "STRING_VALUE", // required
+ * //   },
+ * //   PendingDataReplicationMode: "NONE" || "CRDR",
  * // };
  *
  * ```

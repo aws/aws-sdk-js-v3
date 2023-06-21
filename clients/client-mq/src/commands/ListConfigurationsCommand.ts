@@ -53,10 +53,10 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * //   Configurations: [ // __listOfConfiguration
  * //     { // Configuration
  * //       Arn: "STRING_VALUE", // required
- * //       AuthenticationStrategy: "STRING_VALUE", // required
+ * //       AuthenticationStrategy: "SIMPLE" || "LDAP", // required
  * //       Created: new Date("TIMESTAMP"), // required
  * //       Description: "STRING_VALUE", // required
- * //       EngineType: "STRING_VALUE", // required
+ * //       EngineType: "ACTIVEMQ" || "RABBITMQ", // required
  * //       EngineVersion: "STRING_VALUE", // required
  * //       Id: "STRING_VALUE", // required
  * //       LatestRevision: { // ConfigurationRevision

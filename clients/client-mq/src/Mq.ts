@@ -64,6 +64,7 @@ import {
 } from "./commands/ListConfigurationsCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { PromoteCommand, PromoteCommandInput, PromoteCommandOutput } from "./commands/PromoteCommand";
 import {
   RebootBrokerCommand,
   RebootBrokerCommandInput,
@@ -101,6 +102,7 @@ const commands = {
   ListConfigurationsCommand,
   ListTagsCommand,
   ListUsersCommand,
+  PromoteCommand,
   RebootBrokerCommand,
   UpdateBrokerCommand,
   UpdateConfigurationCommand,
@@ -349,6 +351,17 @@ export interface Mq {
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PromoteCommand}
+   */
+  promote(args: PromoteCommandInput, options?: __HttpHandlerOptions): Promise<PromoteCommandOutput>;
+  promote(args: PromoteCommandInput, cb: (err: any, data?: PromoteCommandOutput) => void): void;
+  promote(
+    args: PromoteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PromoteCommandOutput) => void
   ): void;
 
   /**

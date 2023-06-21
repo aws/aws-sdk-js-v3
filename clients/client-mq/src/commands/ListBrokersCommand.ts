@@ -55,10 +55,10 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * //       BrokerArn: "STRING_VALUE",
  * //       BrokerId: "STRING_VALUE",
  * //       BrokerName: "STRING_VALUE",
- * //       BrokerState: "STRING_VALUE",
+ * //       BrokerState: "CREATION_IN_PROGRESS" || "CREATION_FAILED" || "DELETION_IN_PROGRESS" || "RUNNING" || "REBOOT_IN_PROGRESS" || "CRITICAL_ACTION_REQUIRED" || "REPLICA",
  * //       Created: new Date("TIMESTAMP"),
- * //       DeploymentMode: "STRING_VALUE", // required
- * //       EngineType: "STRING_VALUE", // required
+ * //       DeploymentMode: "SINGLE_INSTANCE" || "ACTIVE_STANDBY_MULTI_AZ" || "CLUSTER_MULTI_AZ", // required
+ * //       EngineType: "ACTIVEMQ" || "RABBITMQ", // required
  * //       HostInstanceType: "STRING_VALUE",
  * //     },
  * //   ],
