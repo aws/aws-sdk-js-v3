@@ -100,6 +100,9 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *       },
  *     ],
  *   },
+ *   StructuredLogDestinations: [ // StructuredLogDestinations
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);

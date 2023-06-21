@@ -4532,6 +4532,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_StopServerRequest omitted.
 
+// se_StructuredLogDestinations omitted.
+
 // se_SubnetIds omitted.
 
 // se_Tag omitted.
@@ -4954,6 +4956,8 @@ const de_SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] 
 };
 
 // de_StartFileTransferResponse omitted.
+
+// de_StructuredLogDestinations omitted.
 
 // de_SubnetIds omitted.
 

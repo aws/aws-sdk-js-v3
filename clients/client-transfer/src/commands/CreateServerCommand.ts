@@ -107,6 +107,9 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *       },
  *     ],
  *   },
+ *   StructuredLogDestinations: [ // StructuredLogDestinations
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);

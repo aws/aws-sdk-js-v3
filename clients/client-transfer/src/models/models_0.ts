@@ -1537,6 +1537,22 @@ export interface CreateServerRequest {
    *     while the file is still being uploaded.</p>
    */
   WorkflowDetails?: WorkflowDetails;
+
+  /**
+   * <p>Specifies the log groups to which your server logs are sent.</p>
+   *          <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>
+   *          <p>
+   *             <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>
+   *          </p>
+   *          <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>
+   *          </p>
+   *          <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty
+   *         value for this parameter in an <code>update-server</code> call. For example:</p>
+   *          <p>
+   *             <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>
+   *          </p>
+   */
+  StructuredLogDestinations?: string[];
 }
 
 /**
@@ -3320,6 +3336,22 @@ export interface DescribedServer {
    *     while the file is still being uploaded.</p>
    */
   WorkflowDetails?: WorkflowDetails;
+
+  /**
+   * <p>Specifies the log groups to which your server logs are sent.</p>
+   *          <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>
+   *          <p>
+   *             <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>
+   *          </p>
+   *          <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>
+   *          </p>
+   *          <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty
+   *         value for this parameter in an <code>update-server</code> call. For example:</p>
+   *          <p>
+   *             <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>
+   *          </p>
+   */
+  StructuredLogDestinations?: string[];
 }
 
 /**
@@ -5489,6 +5521,22 @@ export interface UpdateServerRequest {
    *          </p>
    */
   WorkflowDetails?: WorkflowDetails;
+
+  /**
+   * <p>Specifies the log groups to which your server logs are sent.</p>
+   *          <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>
+   *          <p>
+   *             <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>
+   *          </p>
+   *          <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>
+   *          </p>
+   *          <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty
+   *         value for this parameter in an <code>update-server</code> call. For example:</p>
+   *          <p>
+   *             <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>
+   *          </p>
+   */
+  StructuredLogDestinations?: string[];
 }
 
 /**

@@ -118,6 +118,9 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * //         },
  * //       ],
  * //     },
+ * //     StructuredLogDestinations: [ // StructuredLogDestinations
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
