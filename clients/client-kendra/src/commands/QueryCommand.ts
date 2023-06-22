@@ -36,27 +36,30 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Searches an active index. Use this API to search your documents using query. The
- *             <code>Query</code> API enables to do faceted search and to filter results based on
- *          document attributes.</p>
- *          <p>It also enables you to provide user context that Amazon Kendra uses to enforce
- *          document access control in the search results.</p>
- *          <p>Amazon Kendra searches your index for text content and question and answer (FAQ)
- *          content. By default the response contains three types of results.</p>
+ * <p>Searches an index given an input query.</p>
+ *          <p>You can configure boosting or relevance tuning at the query level to override boosting
+ *          at the index level, filter based on document fields/attributes and faceted search, and
+ *          filter based on the user or their group access to documents. You can also include certain
+ *          fields in the response that might provide useful additional information.</p>
+ *          <p>A query response contains three types of results.</p>
  *          <ul>
  *             <li>
- *                <p>Relevant passages</p>
+ *                <p>Relevant suggested answers. The answers can be either a text excerpt or table
+ *                excerpt. The answer can be highlighted in the excerpt.</p>
  *             </li>
  *             <li>
- *                <p>Matching FAQs</p>
+ *                <p>Matching FAQs or questions-answer from your FAQ file.</p>
  *             </li>
  *             <li>
- *                <p>Relevant documents</p>
+ *                <p>Relevant documents. This result type includes an excerpt of the document with
+ *                the document title. The searched terms can be highlighted in the excerpt.</p>
  *             </li>
  *          </ul>
  *          <p>You can specify that the query return only one type of result using the
- *             <code>QueryResultTypeFilter</code> parameter.</p>
- *          <p>Each query returns the 100 most relevant results. </p>
+ *          <code>QueryResultTypeFilter</code> parameter. Each query returns the 100
+ *          most relevant results. If you filter result type to only question-answers,
+ *          a maximum of four results are returned. If you filter result type to only
+ *          answers, a maximum of three results are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

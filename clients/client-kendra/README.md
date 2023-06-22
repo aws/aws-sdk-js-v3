@@ -621,6 +621,14 @@ Query
 </details>
 <details>
 <summary>
+Retrieve
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/classes/retrievecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/retrievecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kendra/interfaces/retrievecommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartDataSourceSyncJob
 </summary>
 

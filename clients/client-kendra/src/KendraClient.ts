@@ -187,6 +187,7 @@ import {
   PutPrincipalMappingCommandOutput,
 } from "./commands/PutPrincipalMappingCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
 import {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
@@ -284,6 +285,7 @@ export type ServiceInputTypes =
   | ListThesauriCommandInput
   | PutPrincipalMappingCommandInput
   | QueryCommandInput
+  | RetrieveCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
   | SubmitFeedbackCommandInput
@@ -354,6 +356,7 @@ export type ServiceOutputTypes =
   | ListThesauriCommandOutput
   | PutPrincipalMappingCommandOutput
   | QueryCommandOutput
+  | RetrieveCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput
   | SubmitFeedbackCommandOutput

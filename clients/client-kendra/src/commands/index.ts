@@ -51,6 +51,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ListThesauriCommand";
 export * from "./PutPrincipalMappingCommand";
 export * from "./QueryCommand";
+export * from "./RetrieveCommand";
 export * from "./StartDataSourceSyncJobCommand";
 export * from "./StopDataSourceSyncJobCommand";
 export * from "./SubmitFeedbackCommand";

@@ -160,6 +160,7 @@ import {
   PutPrincipalMappingCommandOutput,
 } from "../commands/PutPrincipalMappingCommand";
 import { QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
+import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/RetrieveCommand";
 import {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
@@ -397,6 +398,9 @@ import {
   QueryResultItem,
   RelevanceFeedback,
   ResourceInUseException,
+  RetrieveRequest,
+  RetrieveResult,
+  RetrieveResultItem,
   StartDataSourceSyncJobRequest,
   StopDataSourceSyncJobRequest,
   SubmitFeedbackRequest,
@@ -1082,6 +1086,19 @@ export const se_QueryCommand = async (input: QueryCommandInput, context: __Serde
   const headers: __HeaderBag = sharedHeaders("Query");
   let body: any;
   body = JSON.stringify(se_QueryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1RetrieveCommand
+ */
+export const se_RetrieveCommand = async (
+  input: RetrieveCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("Retrieve");
+  let body: any;
+  body = JSON.stringify(se_RetrieveRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4355,6 +4372,70 @@ const de_QueryCommandError = async (output: __HttpResponse, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_json1_1RetrieveCommand
+ */
+export const de_RetrieveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RetrieveCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RetrieveCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RetrieveResult(data, context);
+  const response: RetrieveCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RetrieveCommandError
+ */
+const de_RetrieveCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RetrieveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.kendra#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartDataSourceSyncJobCommand
  */
 export const de_StartDataSourceSyncJobCommand = async (
@@ -6031,6 +6112,22 @@ const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
 
 // se_RepositoryNames omitted.
 
+/**
+ * serializeAws_json1_1RetrieveRequest
+ */
+const se_RetrieveRequest = (input: RetrieveRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeFilter: (_) => se_AttributeFilter(_, context),
+    DocumentRelevanceOverrideConfigurations: _json,
+    IndexId: [],
+    PageNumber: [],
+    PageSize: [],
+    QueryText: [],
+    RequestedDocumentAttributes: _json,
+    UserContext: _json,
+  });
+};
+
 // se_S3DataSourceConfiguration omitted.
 
 // se_S3Path omitted.
@@ -7260,6 +7357,42 @@ const de_QuerySuggestionsBlockListSummaryItems = (
 // de_ResourceNotFoundException omitted.
 
 // de_ResourceUnavailableException omitted.
+
+/**
+ * deserializeAws_json1_1RetrieveResult
+ */
+const de_RetrieveResult = (output: any, context: __SerdeContext): RetrieveResult => {
+  return take(output, {
+    QueryId: __expectString,
+    ResultItems: (_: any) => de_RetrieveResultItemList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RetrieveResultItem
+ */
+const de_RetrieveResultItem = (output: any, context: __SerdeContext): RetrieveResultItem => {
+  return take(output, {
+    Content: __expectString,
+    DocumentAttributes: (_: any) => de_DocumentAttributeList(_, context),
+    DocumentId: __expectString,
+    DocumentTitle: __expectString,
+    DocumentURI: __expectString,
+    Id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RetrieveResultItemList
+ */
+const de_RetrieveResultItemList = (output: any, context: __SerdeContext): RetrieveResultItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RetrieveResultItem(entry, context);
+    });
+  return retVal;
+};
 
 // de_S3DataSourceConfiguration omitted.
 

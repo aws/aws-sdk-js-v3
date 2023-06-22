@@ -248,9 +248,9 @@ export interface DataSourceVpcConfiguration {
  * <p>Provides the configuration information to connect to Alfresco as your data
  *             source.</p>
  *          <note>
- *             <p>Alfresco data source connector is currently in preview mode. Basic authentication
- *                 is currently supported. If you would like to use Alfresco connector in production,
- *                 contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+ *             <p>Support for <code>AlfrescoConfiguration</code> ended May 2023.
+ *                 We recommend migrating to or using the Alfresco data source template
+ *                 schema / <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> API.</p>
  *          </note>
  */
 export interface AlfrescoConfiguration {
@@ -1542,6 +1542,9 @@ export interface Document {
 
   /**
    * <p>The file type of the document in the <code>Blob</code> field.</p>
+   *          <p>If you want to index snippets or subsets of HTML documents instead of the entirety
+   *             of the HTML documents, you must add the <code>HTML</code> start and closing tags
+   *             (<code><HTML>content</HTML></code>) around the content.</p>
    */
   ContentType?: ContentType | string;
 
@@ -3700,24 +3703,20 @@ export interface ServiceNowKnowledgeArticleConfiguration {
   CrawlAttachments?: boolean;
 
   /**
-   * <p>A list of regular expression patterns to include certain attachments of knowledge
-   *             articles in your ServiceNow. Item that match the patterns are included in the index.
-   *             Items that don't match the patterns are excluded from the index. If an item matches both
-   *             an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item
+   * <p>A list of regular expression patterns applied to include knowledge article
+   *             attachments. Attachments that match the patterns are included in the index. Items that
+   *             don't match the patterns are excluded from the index. If an item matches both an
+   *             inclusion and exclusion pattern, the exclusion pattern takes precedence and the item
    *             isn't included in the index.</p>
-   *          <p>The regex is applied to the field specified in the
-   *             <code>PatternTargetField</code>.</p>
    */
   IncludeAttachmentFilePatterns?: string[];
 
   /**
-   * <p>A list of regular expression patterns to exclude certain attachments of knowledge
-   *             articles in your ServiceNow. Item that match the patterns are excluded from the index.
-   *             Items that don't match the patterns are included in the index. If an item matches both
-   *             an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item
-   *             isn't included in the index.</p>
-   *          <p>The regex is applied to the field specified in the
-   *             <code>PatternTargetField</code>.</p>
+   * <p>A list of regular expression patterns applied to exclude certain knowledge article
+   *             attachments. Attachments that match the patterns are excluded from the index. Items that
+   *             don't match the patterns are included in the index. If an item matches both an inclusion
+   *             and exclusion pattern, the exclusion pattern takes precedence and the item isn't
+   *             included in the index.</p>
    */
   ExcludeAttachmentFilePatterns?: string[];
 
@@ -4211,19 +4210,19 @@ export interface SeedUrlConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>HOST_ONLY</code> – crawl only the website host names. For
+   *                   <code>HOST_ONLY</code>—crawl only the website host names. For
    *                     example, if the seed URL is "abc.example.com", then only URLs with host name
    *                     "abc.example.com" are crawled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUBDOMAINS</code> – crawl the website host names with subdomains.
+   *                   <code>SUBDOMAINS</code>—crawl the website host names with subdomains.
    *                     For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and
    *                     "b.abc.example.com" are also crawled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EVERYTHING</code> – crawl the website host names with subdomains
+   *                   <code>EVERYTHING</code>—crawl the website host names with subdomains
    *                     and other domains that the web pages link to.</p>
    *             </li>
    *          </ul>
@@ -4306,12 +4305,8 @@ export interface WebCrawlerConfiguration {
   Urls: Urls | undefined;
 
   /**
-   * <p>Specifies the number of levels in a website that you want to crawl.</p>
-   *          <p>The first level begins from the website seed or starting point URL. For example, if a
-   *             website has three levels—index level (the seed in this example), sections level, and
-   *             subsections level—and you are only interested in crawling information up to the
-   *             sections level (levels 0-1), you can set your depth to 1.</p>
-   *          <p>The default crawl depth is set to 2.</p>
+   * <p>The 'depth' or number of levels from the seed level to crawl. For example, the seed
+   *             URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.</p>
    */
   CrawlDepth?: number;
 
@@ -4546,7 +4541,12 @@ export interface DataSourceConfiguration {
   GitHubConfiguration?: GitHubConfiguration;
 
   /**
+   * @deprecated
+   *
    * <p>Provides the configuration information to connect to Alfresco as your data source.</p>
+   *          <p>Support for <code>AlfrescoConfiguration</code> ended May 2023.
+   *       We recommend migrating to or using the Alfresco data source template
+   *       schema / <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> API.</p>
    */
   AlfrescoConfiguration?: AlfrescoConfiguration;
 
@@ -4884,8 +4884,9 @@ export interface CreateFaqRequest {
    * <p>The format of the FAQ input file. You can choose between a basic CSV format, a CSV
    *             format that includes customs attributes in a header, and a JSON format that includes
    *             custom attributes.</p>
-   *          <p>The format must match the format of the file stored in the S3 bucket identified in the
-   *                 <code>S3Path</code> parameter.</p>
+   *          <p>The default format is CSV.</p>
+   *          <p>The format must match the format of the file stored in the S3 bucket identified in
+   *             the <code>S3Path</code> parameter.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding questions and
    *             answers</a>.</p>
    */
@@ -8792,11 +8793,11 @@ export type ScoreConfidence = (typeof ScoreConfidence)[keyof typeof ScoreConfide
 /**
  * @public
  * <p>Provides a relative ranking that indicates how confident Amazon Kendra is that the
- *          response matches the query.</p>
+ *          response is relevant to the query.</p>
  */
 export interface ScoreAttributes {
   /**
-   * <p>A relative ranking for how well the response matches the query.</p>
+   * <p>A relative ranking for how relevant the response is to the query.</p>
    */
   ScoreConfidence?: ScoreConfidence | string;
 }

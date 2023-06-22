@@ -66,7 +66,7 @@ export interface QueryResultItem {
   Format?: QueryResultFormat | string;
 
   /**
-   * <p>One or more additional attributes associated with the query result.</p>
+   * <p>One or more additional fields/attributes associated with the query result.</p>
    */
   AdditionalAttributes?: AdditionalResultAttribute[];
 
@@ -93,28 +93,27 @@ export interface QueryResultItem {
   DocumentURI?: string;
 
   /**
-   * <p>An array of document attributes assigned to a document in the search results. For
-   *          example, the document author (<code>_author</code>) or the source URI
-   *             (<code>_source_uri</code>) of the document.</p>
+   * <p>An array of document fields/attributes assigned to a document in the search results.
+   *          For example, the document author (<code>_author</code>) or the source URI
+   *          (<code>_source_uri</code>) of the document.</p>
    */
   DocumentAttributes?: DocumentAttribute[];
 
   /**
-   * <p>Indicates the confidence that Amazon Kendra has that a result matches the query
-   *          that you provided. Each result is placed into a bin that indicates the confidence,
-   *             <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code> and <code>LOW</code>. You
-   *          can use the score to determine if a response meets the confidence needed for your
+   * <p>Indicates the confidence level of Amazon Kendra providing a relevant result for
+   *          the query. Each result is placed into a bin that indicates the confidence,
+   *             <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code> and <code>LOW</code>.
+   *          You can use the score to determine if a response meets the confidence needed for your
    *          application.</p>
    *          <p>The field is only set to <code>LOW</code> when the <code>Type</code> field is set to
-   *             <code>DOCUMENT</code> and Amazon Kendra is not confident that the result matches
-   *          the query.</p>
+   *             <code>DOCUMENT</code> and Amazon Kendra is not confident that the result is
+   *          relevant to the query.</p>
    */
   ScoreAttributes?: ScoreAttributes;
 
   /**
    * <p>A token that identifies a particular result from a particular query. Use this token to
-   *          provide click-through feedback for the result. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html">Submitting feedback
-   *          </a>.</p>
+   *          provide click-through feedback for the result. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html">Submitting feedback</a>.</p>
    */
   FeedbackToken?: string;
 
@@ -195,6 +194,60 @@ export interface Warning {
    * <p>The code used to show the type of warning for the query.</p>
    */
   Code?: WarningCode | string;
+}
+
+/**
+ * @public
+ * <p>A single retrieved relevant passage result.</p>
+ */
+export interface RetrieveResultItem {
+  /**
+   * <p>The identifier of the relevant passage result.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The identifier of the document.</p>
+   */
+  DocumentId?: string;
+
+  /**
+   * <p>The title of the document.</p>
+   */
+  DocumentTitle?: string;
+
+  /**
+   * <p>The contents of the relevant passage.</p>
+   */
+  Content?: string;
+
+  /**
+   * <p>The URI of the original location of the document.</p>
+   */
+  DocumentURI?: string;
+
+  /**
+   * <p>An array of document fields/attributes assigned to a document in the
+   *             search results. For example, the document author (<code>_author</code>)
+   *             or the source URI (<code>_source_uri</code>) of the document.</p>
+   */
+  DocumentAttributes?: DocumentAttribute[];
+}
+
+/**
+ * @public
+ */
+export interface RetrieveResult {
+  /**
+   * <p>The identifier of query used for the search. You also use <code>QueryId</code> to
+   *             identify the search when using the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html">Submitfeedback</a> API.</p>
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The results of the retrieved relevant passages for the search.</p>
+   */
+  ResultItems?: RetrieveResultItem[];
 }
 
 /**
@@ -983,8 +1036,8 @@ export interface AttributeFilter {
  */
 export interface QueryResult {
   /**
-   * <p>The identifier for the search. You use <code>QueryId</code> to identify the
-   *          search when using the feedback API.</p>
+   * <p>The identifier for the search. You also use <code>QueryId</code> to identify the
+   *          search when using the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html">SubmitFeedback</a> API.</p>
    */
   QueryId?: string;
 
@@ -995,14 +1048,14 @@ export interface QueryResult {
 
   /**
    * <p>Contains the facet results. A <code>FacetResult</code> contains the counts for each
-   *          attribute key that was specified in the <code>Facets</code> input parameter.</p>
+   *          field/attribute key that was specified in the <code>Facets</code> input parameter.</p>
    */
   FacetResults?: FacetResult[];
 
   /**
-   * <p>The total number of items found by the search; however, you can only retrieve up to 100
-   *          items. For example, if the search found 192 items, you can only retrieve the first 100 of
-   *          the items.</p>
+   * <p>The total number of items found by the search. However, you can only retrieve up to
+   *          100 items. For example, if the search found 192 items, you can only retrieve the first
+   *          100 of the items.</p>
    */
   TotalNumberOfResults?: number;
 
@@ -1063,6 +1116,72 @@ export interface AttributeSuggestionsGetConfig {
 /**
  * @public
  */
+export interface RetrieveRequest {
+  /**
+   * <p>The identifier of the index to retrieve relevant passages for the
+   *             search.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The input query text to retrieve relevant passages for the search.
+   *             Amazon Kendra truncates queries at 30 token words, which excludes
+   *             punctuation and stop words. Truncation still applies if you use Boolean
+   *             or more advanced, complex queries.</p>
+   */
+  QueryText: string | undefined;
+
+  /**
+   * <p>Filters search results by document fields/attributes. You can only provide
+   *             one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>,
+   *             and <code>OrAllFilters</code> parameters contain a list of other filters.</p>
+   *          <p>The <code>AttributeFilter</code> parameter means you can create a set of
+   *             filtering rules that a document must satisfy to be included in the query results.</p>
+   */
+  AttributeFilter?: AttributeFilter;
+
+  /**
+   * <p>A list of document fields/attributes to include in the response. You can limit
+   *             the response to include certain document fields. By default, all document
+   *             fields are included in the response.</p>
+   */
+  RequestedDocumentAttributes?: string[];
+
+  /**
+   * <p>Overrides relevance tuning configurations of fields/attributes set at the index
+   *             level.</p>
+   *          <p>If you use this API to override the relevance tuning configured at the index level,
+   *             but there is no relevance tuning configured at the index level, then
+   *             Amazon Kendra does not apply any relevance tuning.</p>
+   *          <p>If there is relevance tuning configured for fields at the index level, and you use
+   *             this API to override only some of these fields, then for the fields you did not
+   *             override, the importance is set to 1.</p>
+   */
+  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[];
+
+  /**
+   * <p>Retrieved relevant passages are returned in pages the size of the
+   *             <code>PageSize</code> parameter. By default, Amazon Kendra returns the first page
+   *             of results. Use this parameter to get result pages after the first one.</p>
+   */
+  PageNumber?: number;
+
+  /**
+   * <p>Sets the number of retrieved relevant passages that are returned in each page of
+   *             results. The default page size is 10. The maximum number of results returned is 100.
+   *             If you ask for more than 100 results, only 100 are returned.</p>
+   */
+  PageSize?: number;
+
+  /**
+   * <p>The user context token or user and group information.</p>
+   */
+  UserContext?: UserContext;
+}
+
+/**
+ * @public
+ */
 export interface GetQuerySuggestionsRequest {
   /**
    * <p>The identifier of the index you want to get query suggestions from.</p>
@@ -1111,8 +1230,7 @@ export interface GetQuerySuggestionsRequest {
  */
 export interface QueryRequest {
   /**
-   * <p>The identifier of the index to search. The identifier is returned in the response
-   *          from the <code>CreateIndex</code> API.</p>
+   * <p>The identifier of the index for the search.</p>
    */
   IndexId: string | undefined;
 
@@ -1124,51 +1242,48 @@ export interface QueryRequest {
   QueryText?: string;
 
   /**
-   * <p>Enables filtered searches based on document attributes. You can only provide one
-   *          attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and
-   *             <code>OrAllFilters</code> parameters contain a list of other filters.</p>
-   *          <p>The <code>AttributeFilter</code> parameter enables you to create a set of filtering
-   *          rules that a document must satisfy to be included in the query results.</p>
+   * <p>Filters search results by document fields/attributes. You can only provide
+   *          one attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>,
+   *          and <code>OrAllFilters</code> parameters contain a list of other filters.</p>
+   *          <p>The <code>AttributeFilter</code> parameter means you can create a set of
+   *          filtering rules that a document must satisfy to be included in the query results.</p>
    */
   AttributeFilter?: AttributeFilter;
 
   /**
-   * <p>An array of documents attributes. Amazon Kendra returns a count for each attribute
-   *          key specified. This helps your users narrow their search.</p>
+   * <p>An array of documents fields/attributes for faceted search. Amazon Kendra returns a
+   *          count for each field key specified. This helps your users narrow their search.</p>
    */
   Facets?: Facet[];
 
   /**
-   * <p>An array of document attributes to include in the response. You can limit the response
-   *          to include certain document attributes. By default all document attributes are included in
-   *          the response.</p>
+   * <p>An array of document fields/attributes to include in the response. You can limit the
+   *          response to include certain document fields. By default, all document attributes are
+   *          included in the response.</p>
    */
   RequestedDocumentAttributes?: string[];
 
   /**
-   * <p>Sets the type of query. Only results for the specified query type are returned.</p>
+   * <p>Sets the type of query result or response. Only results for the specified type are
+   *          returned.</p>
    */
   QueryResultTypeFilter?: QueryResultType | string;
 
   /**
-   * <p>Overrides relevance tuning configurations of fields or attributes set at the index
-   *          level.</p>
-   *          <p>If you use this API to override the relevance tuning configured at the index level, but
-   *          there is no relevance tuning configured at the index level, then Amazon Kendra does
-   *          not apply any relevance tuning.</p>
-   *          <p>If there is relevance tuning configured at the index level, but you do not use this API
-   *          to override any relevance tuning in the index, then Amazon Kendra uses the relevance
-   *          tuning that is configured at the index level.</p>
-   *          <p>If there is relevance tuning configured for fields at the index level, but you use this
-   *          API to override only some of these fields, then for the fields you did not override, the
-   *          importance is set to 1.</p>
+   * <p>Overrides relevance tuning configurations of fields/attributes set at the index level.</p>
+   *          <p>If you use this API to override the relevance tuning configured at the index level, but there
+   *          is no relevance tuning configured at the index level, then Amazon Kendra does not apply any
+   *          relevance tuning.</p>
+   *          <p>If there is relevance tuning configured for fields at the index level, and you use this API to
+   *          override only some of these fields, then for the fields you did not override, the importance is
+   *          set to 1.</p>
    */
   DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[];
 
   /**
-   * <p>Query results are returned in pages the size of the <code>PageSize</code> parameter. By
-   *          default, Amazon Kendra returns the first page of results. Use this parameter to get
-   *          result pages after the first one.</p>
+   * <p>Query results are returned in pages the size of the <code>PageSize</code> parameter.
+   *          By default, Amazon Kendra returns the first page of results. Use this parameter to
+   *          get result pages after the first one.</p>
    */
   PageNumber?: number;
 
@@ -1185,7 +1300,7 @@ export interface QueryRequest {
    *          results should be sorted in ascending or descending order. In the case of ties in sorting
    *          the results, the results are sorted by relevance.</p>
    *          <p>If you don't provide sorting configuration, the results are sorted by the relevance that
-   *             Amazon Kendra determines for the result.</p>
+   *          Amazon Kendra determines for the result.</p>
    */
   SortingConfiguration?: SortingConfiguration;
 
