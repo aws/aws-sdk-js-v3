@@ -21,7 +21,7 @@
     "p-map": "^5.5.0",
     "rollup": "latest",
     "rollup-plugin-terser": "^7.0.2",
-    "semver": "^7.3.7",
+    "semver": "^7.5.2",
     "webpack": "latest"
   },
   "author": "",
