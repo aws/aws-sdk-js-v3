@@ -65,8 +65,7 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
- *       supported.</p>
+ *  <p>Could not find the referenced resource.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>

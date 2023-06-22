@@ -52,12 +52,28 @@ import {
 } from "@smithy/types";
 
 import { CreateActivityCommandInput, CreateActivityCommandOutput } from "./commands/CreateActivityCommand";
+import {
+  CreateStateMachineAliasCommandInput,
+  CreateStateMachineAliasCommandOutput,
+} from "./commands/CreateStateMachineAliasCommand";
 import { CreateStateMachineCommandInput, CreateStateMachineCommandOutput } from "./commands/CreateStateMachineCommand";
 import { DeleteActivityCommandInput, DeleteActivityCommandOutput } from "./commands/DeleteActivityCommand";
+import {
+  DeleteStateMachineAliasCommandInput,
+  DeleteStateMachineAliasCommandOutput,
+} from "./commands/DeleteStateMachineAliasCommand";
 import { DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput } from "./commands/DeleteStateMachineCommand";
+import {
+  DeleteStateMachineVersionCommandInput,
+  DeleteStateMachineVersionCommandOutput,
+} from "./commands/DeleteStateMachineVersionCommand";
 import { DescribeActivityCommandInput, DescribeActivityCommandOutput } from "./commands/DescribeActivityCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
 import { DescribeMapRunCommandInput, DescribeMapRunCommandOutput } from "./commands/DescribeMapRunCommand";
+import {
+  DescribeStateMachineAliasCommandInput,
+  DescribeStateMachineAliasCommandOutput,
+} from "./commands/DescribeStateMachineAliasCommand";
 import {
   DescribeStateMachineCommandInput,
   DescribeStateMachineCommandOutput,
@@ -74,11 +90,23 @@ import {
 import { ListActivitiesCommandInput, ListActivitiesCommandOutput } from "./commands/ListActivitiesCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
 import { ListMapRunsCommandInput, ListMapRunsCommandOutput } from "./commands/ListMapRunsCommand";
+import {
+  ListStateMachineAliasesCommandInput,
+  ListStateMachineAliasesCommandOutput,
+} from "./commands/ListStateMachineAliasesCommand";
 import { ListStateMachinesCommandInput, ListStateMachinesCommandOutput } from "./commands/ListStateMachinesCommand";
+import {
+  ListStateMachineVersionsCommandInput,
+  ListStateMachineVersionsCommandOutput,
+} from "./commands/ListStateMachineVersionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PublishStateMachineVersionCommandInput,
+  PublishStateMachineVersionCommandOutput,
+} from "./commands/PublishStateMachineVersionCommand";
 import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "./commands/SendTaskFailureCommand";
 import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "./commands/SendTaskHeartbeatCommand";
 import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "./commands/SendTaskSuccessCommand";
@@ -88,6 +116,10 @@ import { StopExecutionCommandInput, StopExecutionCommandOutput } from "./command
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "./commands/UpdateMapRunCommand";
+import {
+  UpdateStateMachineAliasCommandInput,
+  UpdateStateMachineAliasCommandOutput,
+} from "./commands/UpdateStateMachineAliasCommand";
 import { UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput } from "./commands/UpdateStateMachineCommand";
 import {
   ClientInputEndpointParameters,
@@ -104,12 +136,16 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateActivityCommandInput
+  | CreateStateMachineAliasCommandInput
   | CreateStateMachineCommandInput
   | DeleteActivityCommandInput
+  | DeleteStateMachineAliasCommandInput
   | DeleteStateMachineCommandInput
+  | DeleteStateMachineVersionCommandInput
   | DescribeActivityCommandInput
   | DescribeExecutionCommandInput
   | DescribeMapRunCommandInput
+  | DescribeStateMachineAliasCommandInput
   | DescribeStateMachineCommandInput
   | DescribeStateMachineForExecutionCommandInput
   | GetActivityTaskCommandInput
@@ -117,8 +153,11 @@ export type ServiceInputTypes =
   | ListActivitiesCommandInput
   | ListExecutionsCommandInput
   | ListMapRunsCommandInput
+  | ListStateMachineAliasesCommandInput
+  | ListStateMachineVersionsCommandInput
   | ListStateMachinesCommandInput
   | ListTagsForResourceCommandInput
+  | PublishStateMachineVersionCommandInput
   | SendTaskFailureCommandInput
   | SendTaskHeartbeatCommandInput
   | SendTaskSuccessCommandInput
@@ -128,6 +167,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMapRunCommandInput
+  | UpdateStateMachineAliasCommandInput
   | UpdateStateMachineCommandInput;
 
 /**
@@ -135,12 +175,16 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateActivityCommandOutput
+  | CreateStateMachineAliasCommandOutput
   | CreateStateMachineCommandOutput
   | DeleteActivityCommandOutput
+  | DeleteStateMachineAliasCommandOutput
   | DeleteStateMachineCommandOutput
+  | DeleteStateMachineVersionCommandOutput
   | DescribeActivityCommandOutput
   | DescribeExecutionCommandOutput
   | DescribeMapRunCommandOutput
+  | DescribeStateMachineAliasCommandOutput
   | DescribeStateMachineCommandOutput
   | DescribeStateMachineForExecutionCommandOutput
   | GetActivityTaskCommandOutput
@@ -148,8 +192,11 @@ export type ServiceOutputTypes =
   | ListActivitiesCommandOutput
   | ListExecutionsCommandOutput
   | ListMapRunsCommandOutput
+  | ListStateMachineAliasesCommandOutput
+  | ListStateMachineVersionsCommandOutput
   | ListStateMachinesCommandOutput
   | ListTagsForResourceCommandOutput
+  | PublishStateMachineVersionCommandOutput
   | SendTaskFailureCommandOutput
   | SendTaskHeartbeatCommandOutput
   | SendTaskSuccessCommandOutput
@@ -159,6 +206,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMapRunCommandOutput
+  | UpdateStateMachineAliasCommandOutput
   | UpdateStateMachineCommandOutput;
 
 /**

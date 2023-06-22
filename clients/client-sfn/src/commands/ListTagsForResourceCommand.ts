@@ -70,8 +70,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
- *       supported.</p>
+ *  <p>Could not find the referenced resource.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>

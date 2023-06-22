@@ -355,6 +355,27 @@ export class TooManyTags extends __BaseException {
 
 /**
  * @public
+ * <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
+ *          <p>HTTP Status Code: 409</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface CloudWatchLogsLogGroup {
@@ -516,6 +537,16 @@ export interface CreateStateMachineInput {
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
+
+  /**
+   * <p>Set to <code>true</code> to publish the first version of the state machine during creation. The default is <code>false</code>.</p>
+   */
+  publish?: boolean;
+
+  /**
+   * <p>Sets description about the state machine version. You can only set the description if the <code>publish</code> parameter is set to <code>true</code>. Otherwise, if you set <code>versionDescription</code>, but <code>publish</code> to <code>false</code>, this API action throws <code>ValidationException</code>.</p>
+   */
+  versionDescription?: string;
 }
 
 /**
@@ -531,6 +562,11 @@ export interface CreateStateMachineOutput {
    * <p>The date the state machine is created.</p>
    */
   creationDate: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the created state machine version. If you do not set the <code>publish</code> parameter to <code>true</code>, this field returns null value.</p>
+   */
+  stateMachineVersionArn?: string;
 }
 
 /**
@@ -698,41 +734,12 @@ export class StateMachineTypeNotSupported extends __BaseException {
 
 /**
  * @public
- */
-export interface DeleteActivityInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the activity to delete.</p>
-   */
-  activityArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteActivityOutput {}
-
-/**
- * @public
- */
-export interface DeleteStateMachineInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the state machine to delete.</p>
-   */
-  stateMachineArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteStateMachineOutput {}
-
-/**
- * @public
  * @enum
  */
 export const ValidationExceptionReason = {
   API_DOES_NOT_SUPPORT_LABELED_ARNS: "API_DOES_NOT_SUPPORT_LABELED_ARNS",
   CANNOT_UPDATE_COMPLETED_MAP_RUN: "CANNOT_UPDATE_COMPLETED_MAP_RUN",
+  INVALID_ROUTING_CONFIGURATION: "INVALID_ROUTING_CONFIGURATION",
   MISSING_REQUIRED_PARAMETER: "MISSING_REQUIRED_PARAMETER",
 } as const;
 
@@ -766,6 +773,170 @@ export class ValidationException extends __BaseException {
     this.reason = opts.reason;
   }
 }
+
+/**
+ * @public
+ * <p>Contains details about the routing configuration of a state machine alias. In a routing
+ *       configuration, you define an array of objects that specify up to two state machine versions.
+ *       You also specify the percentage of traffic to be routed to each version.</p>
+ */
+export interface RoutingConfigurationListItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.</p>
+   *          <p>If you specify the ARN of a second version, it must belong to the same state machine as the first version.</p>
+   */
+  stateMachineVersionArn: string | undefined;
+
+  /**
+   * <p>The percentage of traffic you want to route to the second state machine
+   *       version. The sum of the weights in the routing
+   *       configuration must be equal to 100.</p>
+   */
+  weight: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStateMachineAliasInput {
+  /**
+   * <p>A description for the state machine alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the state machine alias.</p>
+   *          <p>To avoid conflict with version ARNs, don't use an integer in the name of the alias.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The routing configuration of a state machine alias. The routing configuration shifts
+   *       execution traffic between two state machine versions. <code>routingConfiguration</code>
+   *       contains an array of <code>RoutingConfig</code> objects that specify up to two state machine
+   *       versions. Step Functions then randomly choses which version to run an execution with based
+   *       on the weight assigned to each <code>RoutingConfig</code>.</p>
+   */
+  routingConfiguration: RoutingConfigurationListItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStateMachineAliasOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the created state machine alias.</p>
+   */
+  stateMachineAliasArn: string | undefined;
+
+  /**
+   * <p>The date the state machine alias was created.</p>
+   */
+  creationDate: Date | undefined;
+}
+
+/**
+ * @public
+ * <p>Could not find the referenced resource.</p>
+ */
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
+  resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
+/**
+ * @public
+ * <p>The request would cause a service quota to be exceeded.</p>
+ *          <p>HTTP Status Code: 402</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteActivityInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the activity to delete.</p>
+   */
+  activityArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteActivityOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteStateMachineInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine to delete.</p>
+   */
+  stateMachineArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStateMachineOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteStateMachineAliasInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine alias to delete.</p>
+   */
+  stateMachineAliasArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStateMachineAliasOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteStateMachineVersionInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine version to delete.</p>
+   */
+  stateMachineVersionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStateMachineVersionOutput {}
 
 /**
  * @public
@@ -910,7 +1081,7 @@ export interface DescribeExecutionOutput {
   startDate: Date | undefined;
 
   /**
-   * <p>If the execution has already ended, the date the execution stopped.</p>
+   * <p>If the execution ended, the date the execution stopped.</p>
    */
   stopDate?: Date;
 
@@ -957,6 +1128,20 @@ export interface DescribeExecutionOutput {
    * <p>The cause string if the state machine execution failed.</p>
    */
   cause?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine version associated with the execution. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
+   *          <p>If you start an execution from a <code>StartExecution</code> request without specifying a
+   *       state machine version or alias ARN, Step Functions returns a null value.</p>
+   */
+  stateMachineVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine alias associated with the execution. The alias ARN is a combination of state machine ARN and the alias name separated by a colon (:). For example, <code>stateMachineARN:PROD</code>.</p>
+   *          <p>If you start an execution from a <code>StartExecution</code> request with a
+   *       state machine version ARN, this field will be null.</p>
+   */
+  stateMachineAliasArn?: string;
 }
 
 /**
@@ -1154,33 +1339,11 @@ export interface DescribeMapRunOutput {
 
 /**
  * @public
- * <p>Could not find the referenced resource. Only state machine and activity ARNs are
- *       supported.</p>
- */
-export class ResourceNotFound extends __BaseException {
-  readonly name: "ResourceNotFound" = "ResourceNotFound";
-  readonly $fault: "client" = "client";
-  resourceName?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
-    super({
-      name: "ResourceNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFound.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * @public
  */
 export interface DescribeStateMachineInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the state machine to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the state machine for which you want the information.</p>
+   *          <p>If you specify a state machine version ARN, this API returns details about that version. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
    */
   stateMachineArn: string | undefined;
 }
@@ -1205,6 +1368,7 @@ export type StateMachineStatus = (typeof StateMachineStatus)[keyof typeof StateM
 export interface DescribeStateMachineOutput {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the state machine.</p>
+   *          <p>If you specified a state machine version ARN in your request, the API returns the version ARN. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
    */
   stateMachineArn: string | undefined;
 
@@ -1259,6 +1423,7 @@ export interface DescribeStateMachineOutput {
 
   /**
    * <p>The date the state machine is created.</p>
+   *          <p>For a state machine version, <code>creationDate</code> is the date the version was created.</p>
    */
   creationDate: Date | undefined;
 
@@ -1277,6 +1442,19 @@ export interface DescribeStateMachineOutput {
    * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.</p>
    */
   label?: string;
+
+  /**
+   * <p>The revision identifier for the state machine.</p>
+   *          <p>Use the <code>revisionId</code> parameter to compare between versions of a state machine
+   *       configuration used for executions without performing a diff of the properties, such as
+   *         <code>definition</code> and <code>roleArn</code>.</p>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>The description of the state machine version.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -1297,6 +1475,52 @@ export class StateMachineDoesNotExist extends __BaseException {
     });
     Object.setPrototypeOf(this, StateMachineDoesNotExist.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface DescribeStateMachineAliasInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
+   */
+  stateMachineAliasArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStateMachineAliasOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
+   */
+  stateMachineAliasArn?: string;
+
+  /**
+   * <p>The name of the state machine alias.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A description of the alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The routing configuration of the alias.</p>
+   */
+  routingConfiguration?: RoutingConfigurationListItem[];
+
+  /**
+   * <p>The date the state machine alias was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The date the state machine alias was last updated.</p>
+   *          <p>For a newly created state machine, this is the same as the creation date.</p>
+   */
+  updateDate?: Date;
 }
 
 /**
@@ -1359,6 +1583,12 @@ export interface DescribeStateMachineForExecutionOutput {
    * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This ﬁeld is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
    */
   label?: string;
+
+  /**
+   * <p>The revision identifier for the state machine. The first revision ID when you create the state machine is null.</p>
+   *          <p>Use the state machine <code>revisionId</code> parameter to compare the revision of a state machine with the configuration of the state machine used for executions without performing a diff of the properties, such as <code>definition</code> and <code>roleArn</code>.</p>
+   */
+  revisionId?: string;
 }
 
 /**
@@ -1481,6 +1711,16 @@ export interface ExecutionStartedEventDetails {
    * <p>The Amazon Resource Name (ARN) of the IAM role used for executing Lambda tasks.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a state machine alias used for starting the state machine execution.</p>
+   */
+  stateMachineAliasArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a state machine version used for starting the state machine execution.</p>
+   */
+  stateMachineVersionArn?: string;
 }
 
 /**
@@ -2319,6 +2559,7 @@ export interface ListExecutionsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>
    *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
+   *          <p>You can also return a list of executions associated with a specific <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>, by specifying an alias ARN or a version ARN in the <code>stateMachineArn</code> parameter.</p>
    */
   stateMachineArn?: string;
 
@@ -2359,7 +2600,7 @@ export interface ExecutionListItem {
   executionArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the executed state machine.</p>
+   * <p>The Amazon Resource Name (ARN) of the state machine that ran the execution.</p>
    */
   stateMachineArn: string | undefined;
 
@@ -2414,6 +2655,19 @@ export interface ExecutionListItem {
    * <p>The total number of items processed in a child workflow execution. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>itemCount</code> field isn't returned.</p>
    */
   itemCount?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine version associated with the execution.</p>
+   *          <p>If the state machine execution was started with an unqualified ARN, it returns null.</p>
+   *          <p>If the execution was started using a <code>stateMachineAliasArn</code>, both the <code>stateMachineAliasArn</code> and <code>stateMachineVersionArn</code> parameters contain the respective values.</p>
+   */
+  stateMachineVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine alias used to start an execution.</p>
+   *          <p>If the state machine execution was started with an unqualified ARN or a version ARN, it returns null.</p>
+   */
+  stateMachineAliasArn?: string;
 }
 
 /**
@@ -2505,6 +2759,62 @@ export interface ListMapRunsOutput {
 /**
  * @public
  */
+export interface ListStateMachineAliasesInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine for which you want to list aliases.</p>
+   *          <p>If you specify a state machine version ARN, this API returns a list of aliases for that version.</p>
+   */
+  stateMachineArn: string | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
+   *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
+   *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Contains details about a specific state machine alias.</p>
+ */
+export interface StateMachineAliasListItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a state machine alias. The alias ARN is a combination of state machine ARN and the alias name separated by a colon (:). For example, <code>stateMachineARN:PROD</code>.</p>
+   */
+  stateMachineAliasArn: string | undefined;
+
+  /**
+   * <p>The creation date of a state machine alias.</p>
+   */
+  creationDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStateMachineAliasesOutput {
+  /**
+   * <p>Aliases for the state machine.</p>
+   */
+  stateMachineAliases: StateMachineAliasListItem[] | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListStateMachinesInput {
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -2583,6 +2893,61 @@ export interface ListStateMachinesOutput {
 /**
  * @public
  */
+export interface ListStateMachineVersionsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine.</p>
+   */
+  stateMachineArn: string | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
+   *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
+   *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Contains details about a specific state machine version.</p>
+ */
+export interface StateMachineVersionListItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a state machine version. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
+   */
+  stateMachineVersionArn: string | undefined;
+
+  /**
+   * <p>The creation date of a state machine version.</p>
+   */
+  creationDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStateMachineVersionsOutput {
+  /**
+   * <p>Versions for the state machine.</p>
+   */
+  stateMachineVersions: StateMachineVersionListItem[] | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
@@ -2598,6 +2963,50 @@ export interface ListTagsForResourceOutput {
    * <p>An array of tags associated with the resource.</p>
    */
   tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface PublishStateMachineVersionInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine.</p>
+   */
+  stateMachineArn: string | undefined;
+
+  /**
+   * <p>Only publish the state machine version if the current state machine's revision ID matches the specified ID.</p>
+   *          <p>Use this option to avoid publishing a version if the state machine changed since you last
+   *       updated it. If the specified revision ID doesn't match the state machine's current revision
+   *       ID, the API returns <code>ConflictException</code>.</p>
+   *          <note>
+   *             <p>To specify an initial revision ID for a state machine with no revision ID assigned,
+   *         specify the string <code>INITIAL</code> for the <code>revisionId</code> parameter. For
+   *         example, you can specify a <code>revisionID</code> of <code>INITIAL</code> when you create a
+   *         state machine using the <a>CreateStateMachine</a> API action.</p>
+   *          </note>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>An optional description of the state machine version.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface PublishStateMachineVersionOutput {
+  /**
+   * <p>The date the version was created.</p>
+   */
+  creationDate: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) (ARN) that identifies the state machine version.</p>
+   */
+  stateMachineVersionArn: string | undefined;
 }
 
 /**
@@ -2796,11 +3205,41 @@ export class InvalidExecutionInput extends __BaseException {
 export interface StartExecutionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to execute.</p>
+   *          <p>The <code>stateMachineArn</code> parameter accepts one of the following inputs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>An unqualified state machine ARN</b> – Refers to a state machine ARN that isn't qualified with a version or alias ARN. The following is an example of an unqualified state machine ARN.</p>
+   *                <p>
+   *                   <code>arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine></code>
+   *                </p>
+   *                <p>Step Functions doesn't associate state machine executions that you start with an unqualified ARN with a version. This is true even if that version uses the same revision that the execution used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>A state machine version ARN</b> – Refers to a version ARN, which is a combination of state machine ARN and the version number separated by a colon (:). The following is an example of the ARN for version 10. </p>
+   *                <p>
+   *                   <code>arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine>:10</code>
+   *                </p>
+   *                <p>Step Functions doesn't associate executions that you start with a version ARN with any aliases that point to that version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>A state machine alias ARN</b> – Refers to an alias ARN, which is a combination of state machine ARN and the alias name separated by a colon (:). The following is an example of the ARN for an alias named <code>PROD</code>.</p>
+   *                <p>
+   *                   <code>arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD></code>
+   *                </p>
+   *                <p>Step Functions associates executions
+   *           that you start with an alias ARN with that alias and the state machine version used for
+   *           that execution.</p>
+   *             </li>
+   *          </ul>
    */
   stateMachineArn: string | undefined;
 
   /**
-   * <p>The name of the execution. This name must be unique for your Amazon Web Services account, region, and state machine for 90 days. For more information,
+   * <p>Optional name of the execution.
+   *       This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
    *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>A name must <i>not</i> contain:</p>
@@ -3152,7 +3591,7 @@ export interface UpdateStateMachineInput {
   roleArn?: string;
 
   /**
-   * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
+   * <p>Use the <code>LoggingConfiguration</code> data type to set CloudWatch Logs
    *       options.</p>
    */
   loggingConfiguration?: LoggingConfiguration;
@@ -3161,6 +3600,19 @@ export interface UpdateStateMachineInput {
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
+
+  /**
+   * <p>Specifies whether the state machine version is published. The default is
+   *         <code>false</code>. To publish a version after updating the state machine, set
+   *         <code>publish</code> to <code>true</code>.</p>
+   */
+  publish?: boolean;
+
+  /**
+   * <p>An optional description of the state machine version to publish.</p>
+   *          <p>You can only specify the <code>versionDescription</code> parameter if you've set <code>publish</code> to <code>true</code>.</p>
+   */
+  versionDescription?: string;
 }
 
 /**
@@ -3169,6 +3621,48 @@ export interface UpdateStateMachineInput {
 export interface UpdateStateMachineOutput {
   /**
    * <p>The date and time the state machine was updated.</p>
+   */
+  updateDate: Date | undefined;
+
+  /**
+   * <p>The revision identifier for the updated state machine.</p>
+   */
+  revisionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the published state machine version.</p>
+   *          <p>If the <code>publish</code> parameter isn't set to <code>true</code>, this field returns null.</p>
+   */
+  stateMachineVersionArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStateMachineAliasInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
+   */
+  stateMachineAliasArn: string | undefined;
+
+  /**
+   * <p>A description of the state machine alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The routing configuration of the state machine alias.</p>
+   *          <p>An array of <code>RoutingConfig</code> objects that specifies up to two state machine versions that the alias starts executions for.</p>
+   */
+  routingConfiguration?: RoutingConfigurationListItem[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateStateMachineAliasOutput {
+  /**
+   * <p>The date and time the state machine alias was updated.</p>
    */
   updateDate: Date | undefined;
 }
@@ -3222,6 +3716,15 @@ export const ActivityTimedOutEventDetailsFilterSensitiveLog = (obj: ActivityTime
 export const CreateStateMachineInputFilterSensitiveLog = (obj: CreateStateMachineInput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.versionDescription && { versionDescription: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStateMachineAliasInputFilterSensitiveLog = (obj: CreateStateMachineAliasInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
 });
 
 /**
@@ -3241,6 +3744,15 @@ export const DescribeExecutionOutputFilterSensitiveLog = (obj: DescribeExecution
 export const DescribeStateMachineOutputFilterSensitiveLog = (obj: DescribeStateMachineOutput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeStateMachineAliasOutputFilterSensitiveLog = (obj: DescribeStateMachineAliasOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
 });
 
 /**
@@ -3561,6 +4073,14 @@ export const GetExecutionHistoryOutputFilterSensitiveLog = (obj: GetExecutionHis
 /**
  * @internal
  */
+export const PublishStateMachineVersionInputFilterSensitiveLog = (obj: PublishStateMachineVersionInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const SendTaskFailureInputFilterSensitiveLog = (obj: SendTaskFailureInput): any => ({
   ...obj,
   ...(obj.error && { error: SENSITIVE_STRING }),
@@ -3617,4 +4137,13 @@ export const StopExecutionInputFilterSensitiveLog = (obj: StopExecutionInput): a
 export const UpdateStateMachineInputFilterSensitiveLog = (obj: UpdateStateMachineInput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.versionDescription && { versionDescription: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStateMachineAliasInputFilterSensitiveLog = (obj: UpdateStateMachineAliasInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
 });

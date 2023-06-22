@@ -163,6 +163,8 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //           truncated: true || false,
  * //         },
  * //         roleArn: "STRING_VALUE",
+ * //         stateMachineAliasArn: "STRING_VALUE",
+ * //         stateMachineVersionArn: "STRING_VALUE",
  * //       },
  * //       executionSucceededEventDetails: { // ExecutionSucceededEventDetails
  * //         output: "STRING_VALUE",

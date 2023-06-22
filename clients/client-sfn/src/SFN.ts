@@ -8,6 +8,11 @@ import {
   CreateActivityCommandOutput,
 } from "./commands/CreateActivityCommand";
 import {
+  CreateStateMachineAliasCommand,
+  CreateStateMachineAliasCommandInput,
+  CreateStateMachineAliasCommandOutput,
+} from "./commands/CreateStateMachineAliasCommand";
+import {
   CreateStateMachineCommand,
   CreateStateMachineCommandInput,
   CreateStateMachineCommandOutput,
@@ -18,10 +23,20 @@ import {
   DeleteActivityCommandOutput,
 } from "./commands/DeleteActivityCommand";
 import {
+  DeleteStateMachineAliasCommand,
+  DeleteStateMachineAliasCommandInput,
+  DeleteStateMachineAliasCommandOutput,
+} from "./commands/DeleteStateMachineAliasCommand";
+import {
   DeleteStateMachineCommand,
   DeleteStateMachineCommandInput,
   DeleteStateMachineCommandOutput,
 } from "./commands/DeleteStateMachineCommand";
+import {
+  DeleteStateMachineVersionCommand,
+  DeleteStateMachineVersionCommandInput,
+  DeleteStateMachineVersionCommandOutput,
+} from "./commands/DeleteStateMachineVersionCommand";
 import {
   DescribeActivityCommand,
   DescribeActivityCommandInput,
@@ -37,6 +52,11 @@ import {
   DescribeMapRunCommandInput,
   DescribeMapRunCommandOutput,
 } from "./commands/DescribeMapRunCommand";
+import {
+  DescribeStateMachineAliasCommand,
+  DescribeStateMachineAliasCommandInput,
+  DescribeStateMachineAliasCommandOutput,
+} from "./commands/DescribeStateMachineAliasCommand";
 import {
   DescribeStateMachineCommand,
   DescribeStateMachineCommandInput,
@@ -69,15 +89,30 @@ import {
 } from "./commands/ListExecutionsCommand";
 import { ListMapRunsCommand, ListMapRunsCommandInput, ListMapRunsCommandOutput } from "./commands/ListMapRunsCommand";
 import {
+  ListStateMachineAliasesCommand,
+  ListStateMachineAliasesCommandInput,
+  ListStateMachineAliasesCommandOutput,
+} from "./commands/ListStateMachineAliasesCommand";
+import {
   ListStateMachinesCommand,
   ListStateMachinesCommandInput,
   ListStateMachinesCommandOutput,
 } from "./commands/ListStateMachinesCommand";
 import {
+  ListStateMachineVersionsCommand,
+  ListStateMachineVersionsCommandInput,
+  ListStateMachineVersionsCommandOutput,
+} from "./commands/ListStateMachineVersionsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PublishStateMachineVersionCommand,
+  PublishStateMachineVersionCommandInput,
+  PublishStateMachineVersionCommandOutput,
+} from "./commands/PublishStateMachineVersionCommand";
 import {
   SendTaskFailureCommand,
   SendTaskFailureCommandInput,
@@ -120,6 +155,11 @@ import {
   UpdateMapRunCommandOutput,
 } from "./commands/UpdateMapRunCommand";
 import {
+  UpdateStateMachineAliasCommand,
+  UpdateStateMachineAliasCommandInput,
+  UpdateStateMachineAliasCommandOutput,
+} from "./commands/UpdateStateMachineAliasCommand";
+import {
   UpdateStateMachineCommand,
   UpdateStateMachineCommandInput,
   UpdateStateMachineCommandOutput,
@@ -129,20 +169,27 @@ import { SFNClient, SFNClientConfig } from "./SFNClient";
 const commands = {
   CreateActivityCommand,
   CreateStateMachineCommand,
+  CreateStateMachineAliasCommand,
   DeleteActivityCommand,
   DeleteStateMachineCommand,
+  DeleteStateMachineAliasCommand,
+  DeleteStateMachineVersionCommand,
   DescribeActivityCommand,
   DescribeExecutionCommand,
   DescribeMapRunCommand,
   DescribeStateMachineCommand,
+  DescribeStateMachineAliasCommand,
   DescribeStateMachineForExecutionCommand,
   GetActivityTaskCommand,
   GetExecutionHistoryCommand,
   ListActivitiesCommand,
   ListExecutionsCommand,
   ListMapRunsCommand,
+  ListStateMachineAliasesCommand,
   ListStateMachinesCommand,
+  ListStateMachineVersionsCommand,
   ListTagsForResourceCommand,
+  PublishStateMachineVersionCommand,
   SendTaskFailureCommand,
   SendTaskHeartbeatCommand,
   SendTaskSuccessCommand,
@@ -153,6 +200,7 @@ const commands = {
   UntagResourceCommand,
   UpdateMapRunCommand,
   UpdateStateMachineCommand,
+  UpdateStateMachineAliasCommand,
 };
 
 export interface SFN {
@@ -188,6 +236,23 @@ export interface SFN {
   ): void;
 
   /**
+   * @see {@link CreateStateMachineAliasCommand}
+   */
+  createStateMachineAlias(
+    args: CreateStateMachineAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStateMachineAliasCommandOutput>;
+  createStateMachineAlias(
+    args: CreateStateMachineAliasCommandInput,
+    cb: (err: any, data?: CreateStateMachineAliasCommandOutput) => void
+  ): void;
+  createStateMachineAlias(
+    args: CreateStateMachineAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStateMachineAliasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteActivityCommand}
    */
   deleteActivity(
@@ -216,6 +281,40 @@ export interface SFN {
     args: DeleteStateMachineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteStateMachineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStateMachineAliasCommand}
+   */
+  deleteStateMachineAlias(
+    args: DeleteStateMachineAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStateMachineAliasCommandOutput>;
+  deleteStateMachineAlias(
+    args: DeleteStateMachineAliasCommandInput,
+    cb: (err: any, data?: DeleteStateMachineAliasCommandOutput) => void
+  ): void;
+  deleteStateMachineAlias(
+    args: DeleteStateMachineAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStateMachineAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStateMachineVersionCommand}
+   */
+  deleteStateMachineVersion(
+    args: DeleteStateMachineVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStateMachineVersionCommandOutput>;
+  deleteStateMachineVersion(
+    args: DeleteStateMachineVersionCommandInput,
+    cb: (err: any, data?: DeleteStateMachineVersionCommandOutput) => void
+  ): void;
+  deleteStateMachineVersion(
+    args: DeleteStateMachineVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStateMachineVersionCommandOutput) => void
   ): void;
 
   /**
@@ -281,6 +380,23 @@ export interface SFN {
     args: DescribeStateMachineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeStateMachineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeStateMachineAliasCommand}
+   */
+  describeStateMachineAlias(
+    args: DescribeStateMachineAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStateMachineAliasCommandOutput>;
+  describeStateMachineAlias(
+    args: DescribeStateMachineAliasCommandInput,
+    cb: (err: any, data?: DescribeStateMachineAliasCommandOutput) => void
+  ): void;
+  describeStateMachineAlias(
+    args: DescribeStateMachineAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStateMachineAliasCommandOutput) => void
   ): void;
 
   /**
@@ -371,6 +487,23 @@ export interface SFN {
   ): void;
 
   /**
+   * @see {@link ListStateMachineAliasesCommand}
+   */
+  listStateMachineAliases(
+    args: ListStateMachineAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStateMachineAliasesCommandOutput>;
+  listStateMachineAliases(
+    args: ListStateMachineAliasesCommandInput,
+    cb: (err: any, data?: ListStateMachineAliasesCommandOutput) => void
+  ): void;
+  listStateMachineAliases(
+    args: ListStateMachineAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStateMachineAliasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListStateMachinesCommand}
    */
   listStateMachines(
@@ -388,6 +521,23 @@ export interface SFN {
   ): void;
 
   /**
+   * @see {@link ListStateMachineVersionsCommand}
+   */
+  listStateMachineVersions(
+    args: ListStateMachineVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStateMachineVersionsCommandOutput>;
+  listStateMachineVersions(
+    args: ListStateMachineVersionsCommandInput,
+    cb: (err: any, data?: ListStateMachineVersionsCommandOutput) => void
+  ): void;
+  listStateMachineVersions(
+    args: ListStateMachineVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStateMachineVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -402,6 +552,23 @@ export interface SFN {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PublishStateMachineVersionCommand}
+   */
+  publishStateMachineVersion(
+    args: PublishStateMachineVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishStateMachineVersionCommandOutput>;
+  publishStateMachineVersion(
+    args: PublishStateMachineVersionCommandInput,
+    cb: (err: any, data?: PublishStateMachineVersionCommandOutput) => void
+  ): void;
+  publishStateMachineVersion(
+    args: PublishStateMachineVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishStateMachineVersionCommandOutput) => void
   ): void;
 
   /**
@@ -539,6 +706,23 @@ export interface SFN {
     args: UpdateStateMachineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStateMachineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateStateMachineAliasCommand}
+   */
+  updateStateMachineAlias(
+    args: UpdateStateMachineAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStateMachineAliasCommandOutput>;
+  updateStateMachineAlias(
+    args: UpdateStateMachineAliasCommandInput,
+    cb: (err: any, data?: UpdateStateMachineAliasCommandOutput) => void
+  ): void;
+  updateStateMachineAlias(
+    args: UpdateStateMachineAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStateMachineAliasCommandOutput) => void
   ): void;
 }
 

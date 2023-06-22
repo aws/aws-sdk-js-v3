@@ -13,8 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { ListExecutionsInput, ListExecutionsOutput } from "../models/models_0";
-import { de_ListExecutionsCommand, se_ListExecutionsCommand } from "../protocols/Aws_json1_0";
+import { ListStateMachineAliasesInput, ListStateMachineAliasesOutput } from "../models/models_0";
+import { de_ListStateMachineAliasesCommand, se_ListStateMachineAliasesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -24,56 +24,65 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListExecutionsCommand}.
+ * The input for {@link ListStateMachineAliasesCommand}.
  */
-export interface ListExecutionsCommandInput extends ListExecutionsInput {}
+export interface ListStateMachineAliasesCommandInput extends ListStateMachineAliasesInput {}
 /**
  * @public
  *
- * The output of {@link ListExecutionsCommand}.
+ * The output of {@link ListStateMachineAliasesCommand}.
  */
-export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
+export interface ListStateMachineAliasesCommandOutput extends ListStateMachineAliasesOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN.</p>
- *          <p>You can also provide a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> ARN or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a> ARN to list the executions associated with a specific alias or version.</p>
- *          <p>Results are
- *       sorted by time, with the most recent execution first.</p>
+ * <p>Lists <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">aliases</a> for a specified state machine ARN. Results are sorted by time, with the most recently created aliases listed first. </p>
+ *          <p>To list aliases that reference a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>, you can specify the version ARN in the <code>stateMachineArn</code> parameter.</p>
  *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
  *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
- *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStateMachineAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeStateMachineAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateStateMachineAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteStateMachineAlias</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, ListExecutionsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, ListExecutionsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, ListStateMachineAliasesCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, ListStateMachineAliasesCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = { // ListExecutionsInput
- *   stateMachineArn: "STRING_VALUE",
- *   statusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED",
- *   maxResults: Number("int"),
+ * const input = { // ListStateMachineAliasesInput
+ *   stateMachineArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
- *   mapRunArn: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new ListExecutionsCommand(input);
+ * const command = new ListStateMachineAliasesCommand(input);
  * const response = await client.send(command);
- * // { // ListExecutionsOutput
- * //   executions: [ // ExecutionList // required
- * //     { // ExecutionListItem
- * //       executionArn: "STRING_VALUE", // required
- * //       stateMachineArn: "STRING_VALUE", // required
- * //       name: "STRING_VALUE", // required
- * //       status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED", // required
- * //       startDate: new Date("TIMESTAMP"), // required
- * //       stopDate: new Date("TIMESTAMP"),
- * //       mapRunArn: "STRING_VALUE",
- * //       itemCount: Number("int"),
- * //       stateMachineVersionArn: "STRING_VALUE",
- * //       stateMachineAliasArn: "STRING_VALUE",
+ * // { // ListStateMachineAliasesOutput
+ * //   stateMachineAliases: [ // StateMachineAliasList // required
+ * //     { // StateMachineAliasListItem
+ * //       stateMachineAliasArn: "STRING_VALUE", // required
+ * //       creationDate: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -81,10 +90,10 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  *
  * ```
  *
- * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
- * @returns {@link ListExecutionsCommandOutput}
- * @see {@link ListExecutionsCommandInput} for command's `input` shape.
- * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
+ * @param ListStateMachineAliasesCommandInput - {@link ListStateMachineAliasesCommandInput}
+ * @returns {@link ListStateMachineAliasesCommandOutput}
+ * @see {@link ListStateMachineAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListStateMachineAliasesCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
@@ -96,22 +105,19 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Could not find the referenced resource.</p>
  *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
  * @throws {@link StateMachineDoesNotExist} (client fault)
  *  <p>The specified state machine does not exist.</p>
- *
- * @throws {@link StateMachineTypeNotSupported} (client fault)
- *  <p></p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
-export class ListExecutionsCommand extends $Command<
-  ListExecutionsCommandInput,
-  ListExecutionsCommandOutput,
+export class ListStateMachineAliasesCommand extends $Command<
+  ListStateMachineAliasesCommandInput,
+  ListStateMachineAliasesCommandOutput,
   SFNClientResolvedConfig
 > {
   // Start section: command_properties
@@ -129,7 +135,7 @@ export class ListExecutionsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListExecutionsCommandInput) {
+  constructor(readonly input: ListStateMachineAliasesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -142,17 +148,17 @@ export class ListExecutionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListExecutionsCommandInput, ListExecutionsCommandOutput> {
+  ): Handler<ListStateMachineAliasesCommandInput, ListStateMachineAliasesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListExecutionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListStateMachineAliasesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SFNClient";
-    const commandName = "ListExecutionsCommand";
+    const commandName = "ListStateMachineAliasesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -171,15 +177,15 @@ export class ListExecutionsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListExecutionsCommand(input, context);
+  private serialize(input: ListStateMachineAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListStateMachineAliasesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutionsCommandOutput> {
-    return de_ListExecutionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStateMachineAliasesCommandOutput> {
+    return de_ListStateMachineAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

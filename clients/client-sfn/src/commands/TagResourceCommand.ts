@@ -73,8 +73,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
- *       supported.</p>
+ *  <p>Could not find the referenced resource.</p>
  *
  * @throws {@link TooManyTags} (client fault)
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the

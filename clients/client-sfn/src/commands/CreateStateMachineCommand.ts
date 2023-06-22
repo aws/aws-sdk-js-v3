@@ -46,6 +46,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *       and so on. State machines are specified using a JSON-based, structured language. For more
  *       information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
  *         Language</a> in the Step Functions User Guide.</p>
+ *          <p>If you set the <code>publish</code> parameter of this API action to <code>true</code>, it
+ *       publishes version <code>1</code> as the first revision of the state machine.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
  *          </note>
@@ -54,8 +56,8 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *                <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a
  *         duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency
  *         check is based on the state machine <code>name</code>, <code>definition</code>,
- *           <code>type</code>, <code>LoggingConfiguration</code> and
- *         <code>TracingConfiguration</code>. If a following request has a different
+ *           <code>type</code>, <code>LoggingConfiguration</code>, and
+ *         <code>TracingConfiguration</code>. The check is also based on the <code>publish</code> and <code>versionDescription</code> parameters. If a following request has a different
  *           <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and treat
  *         it as an idempotent request of the previous. In this case, <code>roleArn</code> and
  *           <code>tags</code> will not be updated, even if they are different.</p>
@@ -91,12 +93,15 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *   tracingConfiguration: { // TracingConfiguration
  *     enabled: true || false,
  *   },
+ *   publish: true || false,
+ *   versionDescription: "STRING_VALUE",
  * };
  * const command = new CreateStateMachineCommand(input);
  * const response = await client.send(command);
  * // { // CreateStateMachineOutput
  * //   stateMachineArn: "STRING_VALUE", // required
  * //   creationDate: new Date("TIMESTAMP"), // required
+ * //   stateMachineVersionArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -106,6 +111,10 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @see {@link CreateStateMachineCommandInput} for command's `input` shape.
  * @see {@link CreateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
+ *          <p>HTTP Status Code: 409</p>
  *
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
@@ -140,6 +149,9 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @throws {@link TooManyTags} (client fault)
  *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       Step Functions Developer Guide.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>

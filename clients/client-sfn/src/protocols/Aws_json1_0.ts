@@ -23,12 +23,28 @@ import {
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { CreateActivityCommandInput, CreateActivityCommandOutput } from "../commands/CreateActivityCommand";
+import {
+  CreateStateMachineAliasCommandInput,
+  CreateStateMachineAliasCommandOutput,
+} from "../commands/CreateStateMachineAliasCommand";
 import { CreateStateMachineCommandInput, CreateStateMachineCommandOutput } from "../commands/CreateStateMachineCommand";
 import { DeleteActivityCommandInput, DeleteActivityCommandOutput } from "../commands/DeleteActivityCommand";
+import {
+  DeleteStateMachineAliasCommandInput,
+  DeleteStateMachineAliasCommandOutput,
+} from "../commands/DeleteStateMachineAliasCommand";
 import { DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput } from "../commands/DeleteStateMachineCommand";
+import {
+  DeleteStateMachineVersionCommandInput,
+  DeleteStateMachineVersionCommandOutput,
+} from "../commands/DeleteStateMachineVersionCommand";
 import { DescribeActivityCommandInput, DescribeActivityCommandOutput } from "../commands/DescribeActivityCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "../commands/DescribeExecutionCommand";
 import { DescribeMapRunCommandInput, DescribeMapRunCommandOutput } from "../commands/DescribeMapRunCommand";
+import {
+  DescribeStateMachineAliasCommandInput,
+  DescribeStateMachineAliasCommandOutput,
+} from "../commands/DescribeStateMachineAliasCommand";
 import {
   DescribeStateMachineCommandInput,
   DescribeStateMachineCommandOutput,
@@ -45,11 +61,23 @@ import {
 import { ListActivitiesCommandInput, ListActivitiesCommandOutput } from "../commands/ListActivitiesCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "../commands/ListExecutionsCommand";
 import { ListMapRunsCommandInput, ListMapRunsCommandOutput } from "../commands/ListMapRunsCommand";
+import {
+  ListStateMachineAliasesCommandInput,
+  ListStateMachineAliasesCommandOutput,
+} from "../commands/ListStateMachineAliasesCommand";
 import { ListStateMachinesCommandInput, ListStateMachinesCommandOutput } from "../commands/ListStateMachinesCommand";
+import {
+  ListStateMachineVersionsCommandInput,
+  ListStateMachineVersionsCommandOutput,
+} from "../commands/ListStateMachineVersionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  PublishStateMachineVersionCommandInput,
+  PublishStateMachineVersionCommandOutput,
+} from "../commands/PublishStateMachineVersionCommand";
 import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "../commands/SendTaskFailureCommand";
 import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "../commands/SendTaskHeartbeatCommand";
 import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "../commands/SendTaskSuccessCommand";
@@ -59,6 +87,10 @@ import { StopExecutionCommandInput, StopExecutionCommandOutput } from "../comman
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "../commands/UpdateMapRunCommand";
+import {
+  UpdateStateMachineAliasCommandInput,
+  UpdateStateMachineAliasCommandOutput,
+} from "../commands/UpdateStateMachineAliasCommand";
 import { UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput } from "../commands/UpdateStateMachineCommand";
 import {
   ActivityDoesNotExist,
@@ -66,18 +98,25 @@ import {
   ActivityListItem,
   ActivityWorkerLimitExceeded,
   CloudWatchLogsLogGroup,
+  ConflictException,
   CreateActivityInput,
   CreateActivityOutput,
+  CreateStateMachineAliasInput,
+  CreateStateMachineAliasOutput,
   CreateStateMachineInput,
   CreateStateMachineOutput,
   DeleteActivityInput,
+  DeleteStateMachineAliasInput,
   DeleteStateMachineInput,
+  DeleteStateMachineVersionInput,
   DescribeActivityInput,
   DescribeActivityOutput,
   DescribeExecutionInput,
   DescribeExecutionOutput,
   DescribeMapRunInput,
   DescribeMapRunOutput,
+  DescribeStateMachineAliasInput,
+  DescribeStateMachineAliasOutput,
   DescribeStateMachineForExecutionInput,
   DescribeStateMachineForExecutionOutput,
   DescribeStateMachineInput,
@@ -104,27 +143,37 @@ import {
   ListExecutionsOutput,
   ListMapRunsInput,
   ListMapRunsOutput,
+  ListStateMachineAliasesInput,
+  ListStateMachineAliasesOutput,
   ListStateMachinesInput,
   ListStateMachinesOutput,
+  ListStateMachineVersionsInput,
+  ListStateMachineVersionsOutput,
   ListTagsForResourceInput,
   LogDestination,
   LoggingConfiguration,
   MapRunListItem,
   MissingRequiredParameter,
+  PublishStateMachineVersionInput,
+  PublishStateMachineVersionOutput,
   ResourceNotFound,
+  RoutingConfigurationListItem,
   SendTaskFailureInput,
   SendTaskHeartbeatInput,
   SendTaskSuccessInput,
+  ServiceQuotaExceededException,
   StartExecutionInput,
   StartExecutionOutput,
   StartSyncExecutionInput,
   StartSyncExecutionOutput,
+  StateMachineAliasListItem,
   StateMachineAlreadyExists,
   StateMachineDeleting,
   StateMachineDoesNotExist,
   StateMachineLimitExceeded,
   StateMachineListItem,
   StateMachineTypeNotSupported,
+  StateMachineVersionListItem,
   StopExecutionInput,
   StopExecutionOutput,
   Tag,
@@ -135,6 +184,8 @@ import {
   TracingConfiguration,
   UntagResourceInput,
   UpdateMapRunInput,
+  UpdateStateMachineAliasInput,
+  UpdateStateMachineAliasOutput,
   UpdateStateMachineInput,
   UpdateStateMachineOutput,
   ValidationException,
@@ -168,6 +219,19 @@ export const se_CreateStateMachineCommand = async (
 };
 
 /**
+ * serializeAws_json1_0CreateStateMachineAliasCommand
+ */
+export const se_CreateStateMachineAliasCommand = async (
+  input: CreateStateMachineAliasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateStateMachineAlias");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteActivityCommand
  */
 export const se_DeleteActivityCommand = async (
@@ -188,6 +252,32 @@ export const se_DeleteStateMachineCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteStateMachine");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteStateMachineAliasCommand
+ */
+export const se_DeleteStateMachineAliasCommand = async (
+  input: DeleteStateMachineAliasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteStateMachineAlias");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteStateMachineVersionCommand
+ */
+export const se_DeleteStateMachineVersionCommand = async (
+  input: DeleteStateMachineVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteStateMachineVersion");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -240,6 +330,19 @@ export const se_DescribeStateMachineCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeStateMachine");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeStateMachineAliasCommand
+ */
+export const se_DescribeStateMachineAliasCommand = async (
+  input: DescribeStateMachineAliasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeStateMachineAlias");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -324,6 +427,19 @@ export const se_ListMapRunsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListStateMachineAliasesCommand
+ */
+export const se_ListStateMachineAliasesCommand = async (
+  input: ListStateMachineAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListStateMachineAliases");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListStateMachinesCommand
  */
 export const se_ListStateMachinesCommand = async (
@@ -337,6 +453,19 @@ export const se_ListStateMachinesCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListStateMachineVersionsCommand
+ */
+export const se_ListStateMachineVersionsCommand = async (
+  input: ListStateMachineVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListStateMachineVersions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -344,6 +473,19 @@ export const se_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0PublishStateMachineVersionCommand
+ */
+export const se_PublishStateMachineVersionCommand = async (
+  input: PublishStateMachineVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PublishStateMachineVersion");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -487,6 +629,19 @@ export const se_UpdateStateMachineCommand = async (
 };
 
 /**
+ * serializeAws_json1_0UpdateStateMachineAliasCommand
+ */
+export const se_UpdateStateMachineAliasCommand = async (
+  input: UpdateStateMachineAliasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateStateMachineAlias");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * deserializeAws_json1_0CreateActivityCommand
  */
 export const de_CreateActivityCommand = async (
@@ -571,6 +726,9 @@ const de_CreateStateMachineCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sfn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
       throw await de_InvalidArnRes(parsedOutput, context);
@@ -601,6 +759,73 @@ const de_CreateStateMachineCommandError = async (
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
       throw await de_TooManyTagsRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateStateMachineAliasCommand
+ */
+export const de_CreateStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateStateMachineAliasCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateStateMachineAliasOutput(data, context);
+  const response: CreateStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateStateMachineAliasCommandError
+ */
+const de_CreateStateMachineAliasCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStateMachineAliasCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sfn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "InvalidName":
+    case "com.amazonaws.sfn#InvalidName":
+      throw await de_InvalidNameRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.sfn#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "StateMachineDeleting":
+    case "com.amazonaws.sfn#StateMachineDeleting":
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -690,6 +915,113 @@ const de_DeleteStateMachineCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateMachineAliasCommand
+ */
+export const de_DeleteStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteStateMachineAliasCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateMachineAliasCommandError
+ */
+const de_DeleteStateMachineAliasCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateMachineAliasCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sfn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateMachineVersionCommand
+ */
+export const de_DeleteStateMachineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateMachineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteStateMachineVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteStateMachineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateMachineVersionCommandError
+ */
+const de_DeleteStateMachineVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateMachineVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sfn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
       throw await de_InvalidArnRes(parsedOutput, context);
@@ -892,6 +1224,58 @@ const de_DescribeStateMachineCommandError = async (
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
       throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeStateMachineAliasCommand
+ */
+export const de_DescribeStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeStateMachineAliasCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStateMachineAliasOutput(data, context);
+  const response: DescribeStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeStateMachineAliasCommandError
+ */
+const de_DescribeStateMachineAliasCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStateMachineAliasCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1215,6 +1599,64 @@ const de_ListMapRunsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0ListStateMachineAliasesCommand
+ */
+export const de_ListStateMachineAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateMachineAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListStateMachineAliasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStateMachineAliasesOutput(data, context);
+  const response: ListStateMachineAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListStateMachineAliasesCommandError
+ */
+const de_ListStateMachineAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateMachineAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "InvalidToken":
+    case "com.amazonaws.sfn#InvalidToken":
+      throw await de_InvalidTokenRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    case "StateMachineDeleting":
+    case "com.amazonaws.sfn#StateMachineDeleting":
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
+    case "StateMachineDoesNotExist":
+    case "com.amazonaws.sfn#StateMachineDoesNotExist":
+      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0ListStateMachinesCommand
  */
 export const de_ListStateMachinesCommand = async (
@@ -1250,6 +1692,58 @@ const de_ListStateMachinesCommandError = async (
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
       throw await de_InvalidTokenRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ListStateMachineVersionsCommand
+ */
+export const de_ListStateMachineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateMachineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListStateMachineVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStateMachineVersionsOutput(data, context);
+  const response: ListStateMachineVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListStateMachineVersionsCommandError
+ */
+const de_ListStateMachineVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateMachineVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "InvalidToken":
+    case "com.amazonaws.sfn#InvalidToken":
+      throw await de_InvalidTokenRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1299,6 +1793,67 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0PublishStateMachineVersionCommand
+ */
+export const de_PublishStateMachineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishStateMachineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PublishStateMachineVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PublishStateMachineVersionOutput(data, context);
+  const response: PublishStateMachineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PublishStateMachineVersionCommandError
+ */
+const de_PublishStateMachineVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishStateMachineVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sfn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.sfn#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "StateMachineDeleting":
+    case "com.amazonaws.sfn#StateMachineDeleting":
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
+    case "StateMachineDoesNotExist":
+    case "com.amazonaws.sfn#StateMachineDoesNotExist":
+      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1834,6 +2389,9 @@ const de_UpdateStateMachineCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sfn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
       throw await de_InvalidArnRes(parsedOutput, context);
@@ -1849,12 +2407,70 @@ const de_UpdateStateMachineCommandError = async (
     case "MissingRequiredParameter":
     case "com.amazonaws.sfn#MissingRequiredParameter":
       throw await de_MissingRequiredParameterRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.sfn#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
       throw await de_StateMachineDeletingRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
       throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0UpdateStateMachineAliasCommand
+ */
+export const de_UpdateStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateStateMachineAliasCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateStateMachineAliasOutput(data, context);
+  const response: UpdateStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateStateMachineAliasCommandError
+ */
+const de_UpdateStateMachineAliasCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStateMachineAliasCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sfn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sfn#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1910,6 +2526,19 @@ const de_ActivityWorkerLimitExceededRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ActivityWorkerLimitExceeded({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2107,6 +2736,22 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_0StateMachineAlreadyExistsRes
  */
 const de_StateMachineAlreadyExistsRes = async (
@@ -2242,17 +2887,25 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateActivityInput omitted.
 
+// se_CreateStateMachineAliasInput omitted.
+
 // se_CreateStateMachineInput omitted.
 
 // se_DeleteActivityInput omitted.
 
+// se_DeleteStateMachineAliasInput omitted.
+
 // se_DeleteStateMachineInput omitted.
+
+// se_DeleteStateMachineVersionInput omitted.
 
 // se_DescribeActivityInput omitted.
 
 // se_DescribeExecutionInput omitted.
 
 // se_DescribeMapRunInput omitted.
+
+// se_DescribeStateMachineAliasInput omitted.
 
 // se_DescribeStateMachineForExecutionInput omitted.
 
@@ -2268,7 +2921,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ListMapRunsInput omitted.
 
+// se_ListStateMachineAliasesInput omitted.
+
 // se_ListStateMachinesInput omitted.
+
+// se_ListStateMachineVersionsInput omitted.
 
 // se_ListTagsForResourceInput omitted.
 
@@ -2277,6 +2934,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_LogDestinationList omitted.
 
 // se_LoggingConfiguration omitted.
+
+// se_PublishStateMachineVersionInput omitted.
+
+// se_RoutingConfigurationList omitted.
+
+// se_RoutingConfigurationListItem omitted.
 
 // se_SendTaskFailureInput omitted.
 
@@ -2313,6 +2976,8 @@ const se_UpdateMapRunInput = (input: UpdateMapRunInput, context: __SerdeContext)
     toleratedFailurePercentage: __serializeFloat,
   });
 };
+
+// se_UpdateStateMachineAliasInput omitted.
 
 // se_UpdateStateMachineInput omitted.
 
@@ -2363,6 +3028,8 @@ const de_ActivityListItem = (output: any, context: __SerdeContext): ActivityList
 
 // de_CloudWatchLogsLogGroup omitted.
 
+// de_ConflictException omitted.
+
 /**
  * deserializeAws_json1_0CreateActivityOutput
  */
@@ -2374,18 +3041,33 @@ const de_CreateActivityOutput = (output: any, context: __SerdeContext): CreateAc
 };
 
 /**
+ * deserializeAws_json1_0CreateStateMachineAliasOutput
+ */
+const de_CreateStateMachineAliasOutput = (output: any, context: __SerdeContext): CreateStateMachineAliasOutput => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stateMachineAliasArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0CreateStateMachineOutput
  */
 const de_CreateStateMachineOutput = (output: any, context: __SerdeContext): CreateStateMachineOutput => {
   return take(output, {
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     stateMachineArn: __expectString,
+    stateMachineVersionArn: __expectString,
   }) as any;
 };
 
 // de_DeleteActivityOutput omitted.
 
+// de_DeleteStateMachineAliasOutput omitted.
+
 // de_DeleteStateMachineOutput omitted.
+
+// de_DeleteStateMachineVersionOutput omitted.
 
 /**
  * deserializeAws_json1_0DescribeActivityOutput
@@ -2413,7 +3095,9 @@ const de_DescribeExecutionOutput = (output: any, context: __SerdeContext): Descr
     output: __expectString,
     outputDetails: _json,
     startDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stateMachineAliasArn: __expectString,
     stateMachineArn: __expectString,
+    stateMachineVersionArn: __expectString,
     status: __expectString,
     stopDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     traceHeader: __expectString,
@@ -2439,6 +3123,20 @@ const de_DescribeMapRunOutput = (output: any, context: __SerdeContext): Describe
 };
 
 /**
+ * deserializeAws_json1_0DescribeStateMachineAliasOutput
+ */
+const de_DescribeStateMachineAliasOutput = (output: any, context: __SerdeContext): DescribeStateMachineAliasOutput => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    name: __expectString,
+    routingConfiguration: _json,
+    stateMachineAliasArn: __expectString,
+    updateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0DescribeStateMachineForExecutionOutput
  */
 const de_DescribeStateMachineForExecutionOutput = (
@@ -2451,6 +3149,7 @@ const de_DescribeStateMachineForExecutionOutput = (
     loggingConfiguration: _json,
     mapRunArn: __expectString,
     name: __expectString,
+    revisionId: __expectString,
     roleArn: __expectString,
     stateMachineArn: __expectString,
     tracingConfiguration: _json,
@@ -2465,9 +3164,11 @@ const de_DescribeStateMachineOutput = (output: any, context: __SerdeContext): De
   return take(output, {
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     definition: __expectString,
+    description: __expectString,
     label: __expectString,
     loggingConfiguration: _json,
     name: __expectString,
+    revisionId: __expectString,
     roleArn: __expectString,
     stateMachineArn: __expectString,
     status: __expectString,
@@ -2508,7 +3209,9 @@ const de_ExecutionListItem = (output: any, context: __SerdeContext): ExecutionLi
     mapRunArn: __expectString,
     name: __expectString,
     startDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stateMachineAliasArn: __expectString,
     stateMachineArn: __expectString,
+    stateMachineVersionArn: __expectString,
     status: __expectString,
     stopDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -2651,12 +3354,32 @@ const de_ListMapRunsOutput = (output: any, context: __SerdeContext): ListMapRuns
 };
 
 /**
+ * deserializeAws_json1_0ListStateMachineAliasesOutput
+ */
+const de_ListStateMachineAliasesOutput = (output: any, context: __SerdeContext): ListStateMachineAliasesOutput => {
+  return take(output, {
+    nextToken: __expectString,
+    stateMachineAliases: (_: any) => de_StateMachineAliasList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0ListStateMachinesOutput
  */
 const de_ListStateMachinesOutput = (output: any, context: __SerdeContext): ListStateMachinesOutput => {
   return take(output, {
     nextToken: __expectString,
     stateMachines: (_: any) => de_StateMachineList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ListStateMachineVersionsOutput
+ */
+const de_ListStateMachineVersionsOutput = (output: any, context: __SerdeContext): ListStateMachineVersionsOutput => {
+  return take(output, {
+    nextToken: __expectString,
+    stateMachineVersions: (_: any) => de_StateMachineVersionList(_, context),
   }) as any;
 };
 
@@ -2707,13 +3430,32 @@ const de_MapRunListItem = (output: any, context: __SerdeContext): MapRunListItem
 
 // de_MissingRequiredParameter omitted.
 
+/**
+ * deserializeAws_json1_0PublishStateMachineVersionOutput
+ */
+const de_PublishStateMachineVersionOutput = (
+  output: any,
+  context: __SerdeContext
+): PublishStateMachineVersionOutput => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stateMachineVersionArn: __expectString,
+  }) as any;
+};
+
 // de_ResourceNotFound omitted.
+
+// de_RoutingConfigurationList omitted.
+
+// de_RoutingConfigurationListItem omitted.
 
 // de_SendTaskFailureOutput omitted.
 
 // de_SendTaskHeartbeatOutput omitted.
 
 // de_SendTaskSuccessOutput omitted.
+
+// de_ServiceQuotaExceededException omitted.
 
 /**
  * deserializeAws_json1_0StartExecutionOutput
@@ -2751,6 +3493,28 @@ const de_StartSyncExecutionOutput = (output: any, context: __SerdeContext): Star
 
 // de_StateExitedEventDetails omitted.
 
+/**
+ * deserializeAws_json1_0StateMachineAliasList
+ */
+const de_StateMachineAliasList = (output: any, context: __SerdeContext): StateMachineAliasListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StateMachineAliasListItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0StateMachineAliasListItem
+ */
+const de_StateMachineAliasListItem = (output: any, context: __SerdeContext): StateMachineAliasListItem => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stateMachineAliasArn: __expectString,
+  }) as any;
+};
+
 // de_StateMachineAlreadyExists omitted.
 
 // de_StateMachineDeleting omitted.
@@ -2784,6 +3548,28 @@ const de_StateMachineListItem = (output: any, context: __SerdeContext): StateMac
 };
 
 // de_StateMachineTypeNotSupported omitted.
+
+/**
+ * deserializeAws_json1_0StateMachineVersionList
+ */
+const de_StateMachineVersionList = (output: any, context: __SerdeContext): StateMachineVersionListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StateMachineVersionListItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0StateMachineVersionListItem
+ */
+const de_StateMachineVersionListItem = (output: any, context: __SerdeContext): StateMachineVersionListItem => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    stateMachineVersionArn: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0StopExecutionOutput
@@ -2831,10 +3617,21 @@ const de_StopExecutionOutput = (output: any, context: __SerdeContext): StopExecu
 // de_UpdateMapRunOutput omitted.
 
 /**
+ * deserializeAws_json1_0UpdateStateMachineAliasOutput
+ */
+const de_UpdateStateMachineAliasOutput = (output: any, context: __SerdeContext): UpdateStateMachineAliasOutput => {
+  return take(output, {
+    updateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0UpdateStateMachineOutput
  */
 const de_UpdateStateMachineOutput = (output: any, context: __SerdeContext): UpdateStateMachineOutput => {
   return take(output, {
+    revisionId: __expectString,
+    stateMachineVersionArn: __expectString,
     updateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
