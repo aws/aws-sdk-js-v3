@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.358.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.357.0...v3.358.0) (2023-06-22)
+
+
+### Features
+
+* **client-chime-sdk-identity:** AppInstanceBots can be configured to be invoked or not using the Target or the CHIME.mentions attribute for ChannelMessages ([b77d985](https://github.com/aws/aws-sdk-js-v3/commit/b77d9856ee36291b084f88b8470c13a86cc85d57))
+* **client-chime-sdk-messaging:** ChannelMessages can be made visible to sender and intended recipient rather than all channel members with the target attribute. For example, a user can send messages to a bot and receive messages back in a group channel without other members seeing them. ([a9169d3](https://github.com/aws/aws-sdk-js-v3/commit/a9169d356b7103793f5577049ef24e901646b8b4))
+* **client-kendra:** Introducing Amazon Kendra Retrieve API that can be used to retrieve relevant passages or text excerpts given an input query. ([151720c](https://github.com/aws/aws-sdk-js-v3/commit/151720c0a0841f1e9fd128dc63c2cc4c9ae5fffc))
+* **client-sfn:** Adds support for Versions and Aliases. Adds 8 operations: PublishStateMachineVersion, DeleteStateMachineVersion, ListStateMachineVersions, CreateStateMachineAlias, DescribeStateMachineAlias, UpdateStateMachineAlias, DeleteStateMachineAlias, ListStateMachineAliases ([71c4f39](https://github.com/aws/aws-sdk-js-v3/commit/71c4f39e7ec9eff783a05959db2459b053d9bef6))
+
+
+
+
+
 # [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
 
 
