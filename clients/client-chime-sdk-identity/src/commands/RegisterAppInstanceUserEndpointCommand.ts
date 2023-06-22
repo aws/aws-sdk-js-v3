@@ -18,7 +18,6 @@ import {
   RegisterAppInstanceUserEndpointRequest,
   RegisterAppInstanceUserEndpointRequestFilterSensitiveLog,
   RegisterAppInstanceUserEndpointResponse,
-  RegisterAppInstanceUserEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_RegisterAppInstanceUserEndpointCommand,
@@ -158,7 +157,7 @@ export class RegisterAppInstanceUserEndpointCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RegisterAppInstanceUserEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterAppInstanceUserEndpointResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

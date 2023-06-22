@@ -101,6 +101,83 @@ export interface AppInstanceAdminSummary {
  * @public
  * @enum
  */
+export const StandardMessages = {
+  ALL: "ALL",
+  AUTO: "AUTO",
+  MENTIONS: "MENTIONS",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type StandardMessages = (typeof StandardMessages)[keyof typeof StandardMessages];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetedMessages = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetedMessages = (typeof TargetedMessages)[keyof typeof TargetedMessages];
+
+/**
+ * @public
+ * <p>Specifies the type of message that triggers a bot.</p>
+ */
+export interface InvokedBy {
+  /**
+   * <p>Sets standard messages as the bot trigger. For standard messages:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: The bot processes all standard messages.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO</code>: The bot responds to ALL messages when the channel has one other non-hidden member, and responds to MENTIONS when the
+   *             channel has more than one other non-hidden member.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MENTIONS</code>: The bot processes all standard messages that have a message attribute with <code>CHIME.mentions</code> and a
+   *             value of the bot ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: The bot processes no standard messages.</p>
+   *             </li>
+   *          </ul>
+   */
+  StandardMessages: StandardMessages | string | undefined;
+
+  /**
+   * <p>Sets targeted messages as the bot trigger. For targeted messages:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: The bot processes all <code>TargetedMessages</code> sent to it. The bot then responds with a targeted message back to the sender.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: The bot processes no targeted messages.</p>
+   *             </li>
+   *          </ul>
+   */
+  TargetedMessages: TargetedMessages | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const RespondsTo = {
   STANDARD_MESSAGES: "STANDARD_MESSAGES",
 } as const;
@@ -116,9 +193,18 @@ export type RespondsTo = (typeof RespondsTo)[keyof typeof RespondsTo];
  */
 export interface LexConfiguration {
   /**
-   * <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
+   * <important>
+   *             <p>
+   *                <b>Deprecated</b>. Use <code>InvokedBy</code> instead.</p>
+   *          </important>
+   *          <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
    */
-  RespondsTo: RespondsTo | string | undefined;
+  RespondsTo?: RespondsTo | string;
+
+  /**
+   * <p>Specifies the type of message that triggers a bot.</p>
+   */
+  InvokedBy?: InvokedBy;
 
   /**
    * <p>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format:
@@ -1586,6 +1672,11 @@ export interface UpdateAppInstanceBotRequest {
    * <p>The metadata of the <code>AppInstanceBot</code>.</p>
    */
   Metadata: string | undefined;
+
+  /**
+   * <p>The configuration for the bot update.</p>
+   */
+  Configuration?: Configuration;
 }
 
 /**
@@ -1752,8 +1843,6 @@ export const EndpointAttributesFilterSensitiveLog = (obj: EndpointAttributes): a
  */
 export const AppInstanceUserEndpointFilterSensitiveLog = (obj: AppInstanceUserEndpoint): any => ({
   ...obj,
-  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.EndpointAttributes && { EndpointAttributes: EndpointAttributesFilterSensitiveLog(obj.EndpointAttributes) }),
 });
@@ -1763,8 +1852,6 @@ export const AppInstanceUserEndpointFilterSensitiveLog = (obj: AppInstanceUserEn
  */
 export const AppInstanceUserEndpointSummaryFilterSensitiveLog = (obj: AppInstanceUserEndpointSummary): any => ({
   ...obj,
-  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
@@ -1828,17 +1915,6 @@ export const CreateAppInstanceUserRequestFilterSensitiveLog = (obj: CreateAppIns
 /**
  * @internal
  */
-export const DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
-  obj: DeregisterAppInstanceUserEndpointRequest
-): any => ({
-  ...obj,
-  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const DescribeAppInstanceResponseFilterSensitiveLog = (obj: DescribeAppInstanceResponse): any => ({
   ...obj,
   ...(obj.AppInstance && { AppInstance: AppInstanceFilterSensitiveLog(obj.AppInstance) }),
@@ -1866,17 +1942,6 @@ export const DescribeAppInstanceBotResponseFilterSensitiveLog = (obj: DescribeAp
 export const DescribeAppInstanceUserResponseFilterSensitiveLog = (obj: DescribeAppInstanceUserResponse): any => ({
   ...obj,
   ...(obj.AppInstanceUser && { AppInstanceUser: AppInstanceUserFilterSensitiveLog(obj.AppInstanceUser) }),
-});
-
-/**
- * @internal
- */
-export const DescribeAppInstanceUserEndpointRequestFilterSensitiveLog = (
-  obj: DescribeAppInstanceUserEndpointRequest
-): any => ({
-  ...obj,
-  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
 });
 
 /**
@@ -2014,17 +2079,6 @@ export const RegisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const RegisterAppInstanceUserEndpointResponseFilterSensitiveLog = (
-  obj: RegisterAppInstanceUserEndpointResponse
-): any => ({
-  ...obj,
-  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
@@ -2072,18 +2126,5 @@ export const UpdateAppInstanceUserEndpointRequestFilterSensitiveLog = (
   obj: UpdateAppInstanceUserEndpointRequest
 ): any => ({
   ...obj,
-  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAppInstanceUserEndpointResponseFilterSensitiveLog = (
-  obj: UpdateAppInstanceUserEndpointResponse
-): any => ({
-  ...obj,
-  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
 });

@@ -61,7 +61,11 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  *   ],
  *   Configuration: { // Configuration
  *     Lex: { // LexConfiguration
- *       RespondsTo: "STANDARD_MESSAGES", // required
+ *       RespondsTo: "STANDARD_MESSAGES",
+ *       InvokedBy: { // InvokedBy
+ *         StandardMessages: "AUTO" || "ALL" || "MENTIONS" || "NONE", // required
+ *         TargetedMessages: "ALL" || "NONE", // required
+ *       },
  *       LexBotAliasArn: "STRING_VALUE", // required
  *       LocaleId: "STRING_VALUE", // required
  *       WelcomeIntent: "STRING_VALUE",

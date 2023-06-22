@@ -14,10 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import {
-  DeregisterAppInstanceUserEndpointRequest,
-  DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterAppInstanceUserEndpointRequest } from "../models/models_0";
 import {
   de_DeregisterAppInstanceUserEndpointCommand,
   se_DeregisterAppInstanceUserEndpointCommand,
@@ -135,7 +132,7 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

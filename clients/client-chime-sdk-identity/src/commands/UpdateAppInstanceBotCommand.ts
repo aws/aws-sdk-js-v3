@@ -51,6 +51,18 @@ export interface UpdateAppInstanceBotCommandOutput extends UpdateAppInstanceBotR
  *   AppInstanceBotArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Metadata: "STRING_VALUE", // required
+ *   Configuration: { // Configuration
+ *     Lex: { // LexConfiguration
+ *       RespondsTo: "STANDARD_MESSAGES",
+ *       InvokedBy: { // InvokedBy
+ *         StandardMessages: "AUTO" || "ALL" || "MENTIONS" || "NONE", // required
+ *         TargetedMessages: "ALL" || "NONE", // required
+ *       },
+ *       LexBotAliasArn: "STRING_VALUE", // required
+ *       LocaleId: "STRING_VALUE", // required
+ *       WelcomeIntent: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateAppInstanceBotCommand(input);
  * const response = await client.send(command);

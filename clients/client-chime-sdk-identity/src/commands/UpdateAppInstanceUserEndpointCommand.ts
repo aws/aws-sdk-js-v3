@@ -18,7 +18,6 @@ import {
   UpdateAppInstanceUserEndpointRequest,
   UpdateAppInstanceUserEndpointRequestFilterSensitiveLog,
   UpdateAppInstanceUserEndpointResponse,
-  UpdateAppInstanceUserEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_UpdateAppInstanceUserEndpointCommand,
@@ -149,7 +148,7 @@ export class UpdateAppInstanceUserEndpointCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAppInstanceUserEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppInstanceUserEndpointResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

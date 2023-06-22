@@ -16,7 +16,6 @@ import { SerdeContext as __SerdeContext } from "@smithy/types";
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import {
   DescribeAppInstanceUserEndpointRequest,
-  DescribeAppInstanceUserEndpointRequestFilterSensitiveLog,
   DescribeAppInstanceUserEndpointResponse,
   DescribeAppInstanceUserEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -158,7 +157,7 @@ export class DescribeAppInstanceUserEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppInstanceUserEndpointRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppInstanceUserEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

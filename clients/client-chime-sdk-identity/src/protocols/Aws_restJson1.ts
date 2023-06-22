@@ -136,6 +136,7 @@ import {
   EndpointAttributes,
   ExpirationSettings,
   ForbiddenException,
+  InvokedBy,
   LexConfiguration,
   NotFoundException,
   ResourceLimitExceededException,
@@ -1084,6 +1085,7 @@ export const se_UpdateAppInstanceBotCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Configuration: (_) => _json(_),
       Metadata: [],
       Name: [],
     })
@@ -3297,6 +3299,8 @@ const de_UnauthorizedClientExceptionRes = async (
 
 // se_ExpirationSettings omitted.
 
+// se_InvokedBy omitted.
+
 // se_LexConfiguration omitted.
 
 // se_Tag omitted.
@@ -3408,6 +3412,8 @@ const de_AppInstanceUserEndpoint = (output: any, context: __SerdeContext): AppIn
 // de_ExpirationSettings omitted.
 
 // de_Identity omitted.
+
+// de_InvokedBy omitted.
 
 // de_LexConfiguration omitted.
 
