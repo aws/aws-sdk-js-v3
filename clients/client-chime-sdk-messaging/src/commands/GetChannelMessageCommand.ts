@@ -93,6 +93,11 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * //     },
  * //     SubChannelId: "STRING_VALUE",
  * //     ContentType: "STRING_VALUE",
+ * //     Target: [ // TargetList
+ * //       { // Target
+ * //         MemberArn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

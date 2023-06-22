@@ -200,6 +200,7 @@ import {
   ServiceUnavailableException,
   StreamingConfiguration,
   Tag,
+  Target,
   ThrottledClientException,
   UnauthorizedClientException,
 } from "../models/models_0";
@@ -1641,6 +1642,7 @@ export const se_SendChannelMessageCommand = async (
       Persistence: [],
       PushNotification: (_) => _json(_),
       SubChannelId: [],
+      Target: (_) => _json(_),
       Type: [],
     })
   );
@@ -5346,6 +5348,10 @@ const de_UnauthorizedClientExceptionRes = async (
 
 // se_TagList omitted.
 
+// se_Target omitted.
+
+// se_TargetList omitted.
+
 /**
  * deserializeAws_restJson1AppInstanceUserMembershipSummary
  */
@@ -5491,6 +5497,7 @@ const de_ChannelMessage = (output: any, context: __SerdeContext): ChannelMessage
     Sender: _json,
     Status: _json,
     SubChannelId: __expectString,
+    Target: _json,
     Type: __expectString,
   }) as any;
 };
@@ -5513,6 +5520,7 @@ const de_ChannelMessageSummary = (output: any, context: __SerdeContext): Channel
     Redacted: __expectBoolean,
     Sender: _json,
     Status: _json,
+    Target: _json,
     Type: __expectString,
   }) as any;
 };
@@ -5635,6 +5643,10 @@ const de_ChannelSummaryList = (output: any, context: __SerdeContext): ChannelSum
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_Target omitted.
+
+// de_TargetList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

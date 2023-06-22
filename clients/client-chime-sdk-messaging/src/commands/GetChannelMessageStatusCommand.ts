@@ -58,7 +58,7 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  *             </dd>
  *             <dt>DENIED</dt>
  *             <dd>
- *                <p>Messasge denied by the processor</p>
+ *                <p>Message denied by the processor</p>
  *             </dd>
  *          </dl>
  *          <note>

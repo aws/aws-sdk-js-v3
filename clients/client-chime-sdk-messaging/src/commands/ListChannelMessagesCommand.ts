@@ -103,6 +103,11 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * //         },
  * //       },
  * //       ContentType: "STRING_VALUE",
+ * //       Target: [ // TargetList
+ * //         { // Target
+ * //           MemberArn: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   SubChannelId: "STRING_VALUE",

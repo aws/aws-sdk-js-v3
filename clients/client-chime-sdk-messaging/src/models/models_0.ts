@@ -827,7 +827,9 @@ export interface ChannelMessageCallback {
   MessageId: string | undefined;
 
   /**
-   * <p>The message content.</p>
+   * <p>The message content. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   Content?: string;
 
@@ -842,7 +844,9 @@ export interface ChannelMessageCallback {
   PushNotification?: PushNotificationConfiguration;
 
   /**
-   * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>
+   * <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
@@ -852,7 +856,10 @@ export interface ChannelMessageCallback {
   SubChannelId?: string;
 
   /**
-   * <p>The content type of the call-back message.</p>
+   * <p>The content type of the call-back message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and
+   *          <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   ContentType?: string;
 }
@@ -990,7 +997,7 @@ export interface ChannelSummary {
   Metadata?: string;
 
   /**
-   * <p>The time at which the last persistent message in a channel was sent.</p>
+   * <p>The time at which the last persistent message visible to the caller in a channel was sent.</p>
    */
   LastMessageTimestamp?: Date;
 }
@@ -1093,9 +1100,21 @@ export interface ChannelMessageStatusStructure {
   Value?: ChannelMessageStatus | string;
 
   /**
-   * <p>Contains more details about the messasge status.</p>
+   * <p>Contains more details about the message status.</p>
    */
   Detail?: string;
+}
+
+/**
+ * @public
+ * <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages.
+ *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+ */
+export interface Target {
+  /**
+   * <p>The ARN of the target channel member.</p>
+   */
+  MemberArn?: string;
 }
 
 /**
@@ -1128,7 +1147,9 @@ export interface ChannelMessage {
   MessageId?: string;
 
   /**
-   * <p>The message content.</p>
+   * <p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   Content?: string;
 
@@ -1178,7 +1199,9 @@ export interface ChannelMessage {
   Status?: ChannelMessageStatusStructure;
 
   /**
-   * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
+   * <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
@@ -1188,9 +1211,18 @@ export interface ChannelMessage {
   SubChannelId?: string;
 
   /**
-   * <p>The content type of the channel message.</p>
+   * <p>The content type of the channel message. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and
+   *          <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The target of a message, a sender, a user, or a bot.  Only the target and the sender can view targeted messages.
+   *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+   */
+  Target?: Target[];
 }
 
 /**
@@ -1204,7 +1236,9 @@ export interface ChannelMessageSummary {
   MessageId?: string;
 
   /**
-   * <p>The content of the message.</p>
+   * <p>The content of the channel message. For Amazon Lex V2 bot responses, this field holds a list of messages originating from the bot. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   Content?: string;
 
@@ -1250,14 +1284,25 @@ export interface ChannelMessageSummary {
   Status?: ChannelMessageStatusStructure;
 
   /**
-   * <p>The message attribues listed in a the summary of a channel message.</p>
+   * <p>The attributes for the channel message. For Amazon Lex V2 bot responses, the attributes are mapped to specific fields from the bot. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
-   * <p>The content type of the channel messsage listed in the summary.</p>
+   * <p>The content type of the channel message listed in the summary. For Amazon Lex V2 bot responses, the content type is <code>application/amz-chime-lex-msgs</code> for success responses and
+   *          <code>application/amz-chime-lex-error</code> for failure responses. For more information, refer to
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html">Processing responses from an AppInstanceBot</a> in the
+   *          <i>Amazon Chime SDK Messaging Developer Guide</i>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The target of a message, a sender, a user, or a bot. Only the target and the sender can view targeted messages.
+   *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.</p>
+   */
+  Target?: Target[];
 }
 
 /**
@@ -2925,12 +2970,17 @@ export interface SendChannelMessageRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The content of the message.</p>
+   * <p>The content of the channel message.</p>
    */
   Content: string | undefined;
 
   /**
    * <p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>
+   *          <p>
+   *             <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary,
+   *          and you can use it in a variety of ways, such as containing a link to an attachment.</p>
+   *          <p>
+   *             <code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p>
    */
   Type: ChannelMessageType | string | undefined;
 
@@ -2974,6 +3024,13 @@ export interface SendChannelMessageRequest {
    * <p>The content type of the channel message.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The target of a message. Must be a member of the channel, such as another user, a bot, or the sender. Only the target and the sender can view targeted messages.
+   *          Only users who can see targeted messages can take actions on them. However, administrators can delete targeted messages that they can’t see.
+   *       </p>
+   */
+  Target?: Target[];
 }
 
 /**
@@ -3117,7 +3174,7 @@ export interface UpdateChannelMessageRequest {
   MessageId: string | undefined;
 
   /**
-   * <p>The content of the message being updated.</p>
+   * <p>The content of the channel message. </p>
    */
   Content: string | undefined;
 
