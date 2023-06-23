@@ -41,6 +41,11 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
 /**
  * @public
  * <p>Creates a policy store. A policy store is a container for policy resources.</p>
+ *          <note>
+ *             <p>Although <a href="https://docs.cedarpolicy.com/schema.html#namespace">Cedar
+ *                     supports multiple namespaces</a>, Verified Permissions currently supports only one
+ *                 namespace per policy store.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

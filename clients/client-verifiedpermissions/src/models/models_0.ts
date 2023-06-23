@@ -77,7 +77,7 @@ export interface EntityIdentifier {
  *             as an identity provider for Verified Permissions.</p>
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
  *             used as a parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a>.</p>
- *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
+ *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
  *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
  *          </p>
  */
@@ -86,7 +86,7 @@ export interface CognitoUserPoolConfiguration {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"UserPoolArn":
-   *                 "cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
+   *                 "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
    *          </p>
    */
   userPoolArn: string | undefined;
@@ -123,7 +123,7 @@ export namespace Configuration {
    *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
    *             and one or more application client IDs.</p>
    *          <p>Example:
-   *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
+   *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
    *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
    *          </p>
    */
@@ -2838,8 +2838,12 @@ export interface IsAuthorizedInput {
   context?: ContextDefinition;
 
   /**
-   * <p>Specifies the list of entities and their associated attributes that Verified Permissions can examine
-   *             when evaluating the policies.</p>
+   * <p>Specifies the list of resources and principals and their associated attributes that
+   *             Verified Permissions can examine when evaluating the policies. </p>
+   *          <note>
+   *             <p>You can include only principal and resource entities in this parameter; you can't
+   *                 include actions. You must specify actions in the schema.</p>
+   *          </note>
    */
   entities?: EntitiesDefinition;
 }
@@ -2889,8 +2893,12 @@ export interface IsAuthorizedWithTokenInput {
   context?: ContextDefinition;
 
   /**
-   * <p>Specifies the list of entities and their associated attributes that Verified Permissions can examine
-   *             when evaluating the policies.</p>
+   * <p>Specifies the list of resources and principals and their associated attributes that
+   *             Verified Permissions can examine when evaluating the policies. </p>
+   *          <note>
+   *             <p>You can include only principal and resource entities in this parameter; you can't
+   *                 include actions. You must specify actions in the schema.</p>
+   *          </note>
    */
   entities?: EntitiesDefinition;
 }
