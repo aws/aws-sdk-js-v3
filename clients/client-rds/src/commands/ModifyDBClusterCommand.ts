@@ -36,7 +36,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
 
 /**
  * @public
- * <p>Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
+ * <p>Modifies the settings of an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
  *            You can change one or more settings by specifying these parameters and the new values in the
  *            request.</p>
  *          <p>For more information on Amazon Aurora DB clusters, see

@@ -36,7 +36,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
 
 /**
  * @public
- * <p>Returns information about provisioned RDS instances. This API supports pagination.</p>
+ * <p>Describes provisioned RDS instances. This API supports pagination.</p>
  *          <note>
  *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
  *          </note>

@@ -3660,34 +3660,38 @@ export interface CloudwatchLogsExportConfiguration {
 export interface ModifyDBClusterMessage {
   /**
    * <p>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints: This identifier must match the identifier of an existing DB
-   *             cluster.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing DB cluster.</p>
+   *             </li>
+   *          </ul>
    */
   DBClusterIdentifier: string | undefined;
 
   /**
    * <p>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>The first character must be a letter</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>my-cluster2</code>
    *          </p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   NewDBClusterIdentifier?: string;
 
   /**
-   * <p>A value that indicates whether the modifications in this request and any pending modifications are
+   * <p>Specifies whether the modifications in this request and any pending modifications are
    *             asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code> setting
    *             for the DB cluster. If this parameter is disabled, changes to the DB cluster are applied during the next
    *             maintenance window.</p>
@@ -3695,61 +3699,65 @@ export interface ModifyDBClusterMessage {
    *             modifications, such as turning on deletion protection and changing the master password, are applied
    *             immediately—regardless of when you choose to apply them.</p>
    *          <p>By default, this parameter is disabled.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   ApplyImmediately?: boolean;
 
   /**
-   * <p>The number of days for which automated backups are retained. Specify a minimum value of 1.</p>
-   *          <p>Default: 1</p>
+   * <p>The number of days for which automated backups are retained. Specify a minimum value of <code>1</code>.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Default: <code>1</code>
+   *          </p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must be a value from 1 to 35</p>
+   *                <p>Must be a value from 1 to 35.</p>
    *             </li>
    *          </ul>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   BackupRetentionPeriod?: number;
 
   /**
    * <p>The name of the DB cluster parameter group to use for the DB cluster.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DBClusterParameterGroupName?: string;
 
   /**
-   * <p>A list of VPC security groups that the DB cluster will belong to.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The port number on which the DB cluster accepts connections.</p>
-   *          <p>Constraints: Value must be <code>1150-65535</code>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>Valid Values: <code>1150-65535</code>
    *          </p>
    *          <p>Default: The same port as the original DB cluster.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
    */
   Port?: number;
 
   /**
-   * <p>The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
+   * <p>The new password for the master database user.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
    *                <p>Must contain from 8 to 41 characters.</p>
    *             </li>
    *             <li>
+   *                <p>Can contain any printable ASCII character except "/", """, or "@".</p>
+   *             </li>
+   *             <li>
    *                <p>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
    *             </li>
    *          </ul>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   MasterUserPassword?: string;
 
   /**
-   * <p>A value that indicates that the DB cluster should be associated with the specified option group.</p>
+   * <p>The option group to associate the DB cluster with.</p>
    *          <p>DB clusters are associated with a default option group that can't be modified.</p>
    */
   OptionGroupName?: string;
@@ -3763,6 +3771,7 @@ export interface ModifyDBClusterMessage {
    *             To view the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
    *                 Backup window</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -3778,73 +3787,86 @@ export interface ModifyDBClusterMessage {
    *                <p>Must be at least 30 minutes.</p>
    *             </li>
    *          </ul>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   PreferredBackupWindow?: string;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p>
-   *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *          </p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>The default is a 30-minute window selected at random from an
    *             8-hour block of time for each Amazon Web Services Region, occurring on a random day of the
    *             week. To see the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
    *                 Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
-   *          <p>Constraints: Minimum 30-minute window.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Days must be one of <code>Mon | Tue | Wed | Thu | Fri | Sat | Sun</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be in Universal Coordinated Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be at least 30 minutes.</p>
+   *             </li>
+   *          </ul>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
+   * <p>Specifies whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping isn't
    *             enabled.</p>
    *          <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
    *                 IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
    * <p>The target backtrack window, in seconds. To disable backtracking, set this value to
-   *             0.</p>
-   *          <p>Default: 0</p>
+   *             <code>0</code>.</p>
+   *          <p>Valid for Cluster Type: Aurora MySQL DB clusters only</p>
+   *          <p>Default: <code>0</code>
+   *          </p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
    *                <p>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</p>
    *             </li>
    *          </ul>
-   *          <p>Valid for: Aurora MySQL DB clusters only</p>
    */
   BacktrackWindow?: number;
 
   /**
-   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster. The values
-   *             in the list depend on the DB engine being used.</p>
-   *          <p>
-   *             <b>RDS for MySQL</b>
-   *          </p>
-   *          <p>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
-   *          <p>
-   *             <b>RDS for PostgreSQL</b>
-   *          </p>
-   *          <p>Possible values are <code>postgresql</code> and <code>upgrade</code>.</p>
-   *          <p>
-   *             <b>Aurora MySQL</b>
-   *          </p>
-   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
-   *          <p>
-   *             <b>Aurora PostgreSQL</b>
-   *          </p>
-   *          <p>Possible value is <code>postgresql</code>.</p>
+   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>The following values are valid for each DB engine:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Aurora MySQL - <code>audit | error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Aurora PostgreSQL - <code>postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - <code>error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">
    *                 Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
@@ -3872,16 +3894,21 @@ export interface ModifyDBClusterMessage {
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   EngineVersion?: string;
 
   /**
-   * <p>A value that indicates whether major version upgrades are allowed.</p>
-   *          <p>Constraints: You must allow major version upgrades when specifying a value for the
+   * <p>Specifies whether major version upgrades are allowed.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must allow major version upgrades when specifying a value for the
    *                 <code>EngineVersion</code> parameter that is a different major version than the DB
    *             cluster's current version.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *             </li>
+   *          </ul>
    */
   AllowMajorVersionUpgrade?: boolean;
 
@@ -3892,6 +3919,7 @@ export interface ModifyDBClusterMessage {
    *           cluster isn't rebooted automatically. Also, parameter changes are applied immediately rather than
    *              during the next maintenance window.</p>
    *          </note>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    *          <p>Default: The existing name setting</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3903,7 +3931,6 @@ export interface ModifyDBClusterMessage {
    *               <code>AllowMajorVersionUpgrade</code> parameter for a major version upgrade only.</p>
    *             </li>
    *          </ul>
-   *          <p>Valid for: Aurora DB clusters only</p>
    */
   DBInstanceParameterGroupName?: string;
 
@@ -3913,82 +3940,104 @@ export interface ModifyDBClusterMessage {
    *           The domain must be created prior to this operation.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos Authentication</a>
    *             in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   Domain?: string;
 
   /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   DomainIAMRoleName?: string;
 
   /**
    * <p>The scaling properties of the DB cluster. You can only modify scaling properties for DB clusters in <code>serverless</code> DB engine mode.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   ScalingConfiguration?: ScalingConfiguration;
 
   /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   * <p>Specifies whether the DB cluster has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
    *             deletion protection isn't enabled.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   DeletionProtection?: boolean;
 
   /**
-   * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless v1 DB cluster. By default, the HTTP endpoint
+   * <p>Specifies whether to enable the HTTP endpoint for an Aurora Serverless v1 DB cluster. By default, the HTTP endpoint
    *             is disabled.</p>
    *          <p>When enabled, the HTTP endpoint provides a connectionless web service API for running
    *             SQL queries on the Aurora Serverless v1 DB cluster. You can also query your database
    *             from inside the RDS console with the query editor.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora Serverless v1</a> in the
    *             <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   EnableHttpEndpoint?: boolean;
 
   /**
-   * <p>A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
+   * <p>Specifies whether to copy all tags from the DB cluster to snapshots of the DB cluster.
    *             The default is not to copy them.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>A value that indicates whether to enable this DB cluster to forward write operations to the primary cluster of an
-   *       Aurora global database (<a>GlobalCluster</a>). By default, write operations are not allowed on Aurora DB clusters that
+   * <p>Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster
+   *       (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that
    *       are secondary clusters in an Aurora global database.</p>
    *          <p>You can set this value only on Aurora DB clusters that are members of an Aurora global database. With this parameter
-   *       enabled, a secondary cluster can forward writes to the current primary cluster and the resulting changes are replicated back to
-   *       this cluster. For the primary DB cluster of an Aurora global database, this value is used immediately if the primary is
-   *       demoted by the <a>FailoverGlobalCluster</a> API operation, but it does nothing until then.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *       enabled, a secondary cluster can forward writes to the current primary cluster, and the resulting changes are replicated back to
+   *       this cluster. For the primary DB cluster of an Aurora global database, this value is used immediately if the
+   *         primary is demoted by a global cluster API operation, but it does nothing until then.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   EnableGlobalWriteForwarding?: boolean;
 
   /**
-   * <p>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6gd.xlarge.
+   * <p>The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example <code>db.m6gd.xlarge</code>.
    *             Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>
    *          <p>For the full list of DB instance classes and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">
    *         DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
    */
   DBClusterInstanceClass?: string;
 
   /**
    * <p>The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
    */
   AllocatedStorage?: number;
 
   /**
-   * <p>Specifies the storage type to be associated with the DB cluster.</p>
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type">Storage configurations for Amazon Aurora DB clusters</a>. For information on storage types for Multi-AZ DB
+   *             clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings">Settings for creating Multi-AZ DB clusters</a>.</p>
    *          <p>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter is required.</p>
-   *          <p>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
-   *          <p>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Aurora DB clusters - <code>aurora | aurora-iopt1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Multi-AZ DB clusters - <code>io1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Aurora DB clusters - <code>aurora</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Multi-AZ DB clusters - <code>io1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   StorageType?: string;
 
@@ -3998,26 +4047,33 @@ export interface ModifyDBClusterMessage {
    *          <p>For information about valid IOPS values, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB cluster.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a multiple between .5 and 50 of the storage amount for the DB cluster.</p>
+   *             </li>
+   *          </ul>
    */
   Iops?: number;
 
   /**
-   * <p>A value that indicates whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
+   * <p>Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
    *             By default, minor engine upgrades are applied automatically.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster.
-   *             To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
+   *             To turn off collecting Enhanced Monitoring metrics, specify <code>0</code>.</p>
    *          <p>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
-   *             to a value other than 0.</p>
-   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
+   *             to a value other than <code>0</code>.</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid Values: <code>0 | 1 | 5 | 10 | 15 | 30 | 60</code>
    *          </p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Default: <code>0</code>
+   *          </p>
    */
   MonitoringInterval?: number;
 
@@ -4027,16 +4083,16 @@ export interface ModifyDBClusterMessage {
    *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
    *                 create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code> value.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than <code>0</code>, supply a <code>MonitoringRoleArn</code> value.</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
    */
   MonitoringRoleArn?: string;
 
   /**
-   * <p>A value that indicates whether to turn on Performance Insights for the DB cluster.</p>
+   * <p>Specifies whether to turn on Performance Insights for the DB cluster.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
    *             Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
    */
   EnablePerformanceInsights?: boolean;
 
@@ -4046,41 +4102,33 @@ export interface ModifyDBClusterMessage {
    *          <p>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
    *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
    *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   * <p>The number of days to retain Performance Insights data.</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
-   *                <p>7</p>
+   *                <p>
+   *                   <code>7</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23.
+   *                 Examples: <code>93</code> (3 months * 31), <code>341</code> (11 months * 31), <code>589</code> (19 months * 31)</p>
    *             </li>
    *             <li>
-   *                <p>731</p>
+   *                <p>
+   *                   <code>731</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *          <p>For example, the following values are valid:</p>
-   *          <ul>
-   *             <li>
-   *                <p>93 (3 months * 31)</p>
-   *             </li>
-   *             <li>
-   *                <p>341 (11 months * 31)</p>
-   *             </li>
-   *             <li>
-   *                <p>589 (19 months * 31)</p>
-   *             </li>
-   *             <li>
-   *                <p>731</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>Default: <code>7</code> days</p>
+   *          <p>If you specify a retention period that isn't valid, such as <code>94</code>,  Amazon RDS issues an error.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
 
@@ -4093,19 +4141,6 @@ export interface ModifyDBClusterMessage {
 
   /**
    * <p>The network type of the DB cluster.</p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>IPV4</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DUAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB cluster.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
    *             protocols (<code>DUAL</code>).</p>
@@ -4113,12 +4148,14 @@ export interface ModifyDBClusterMessage {
    *             Working with a DB instance in a VPC</a> in the
    *             <i>Amazon Aurora User Guide.</i>
    *          </p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>Valid Values: <code>IPV4 | DUAL</code>
+   *          </p>
    */
   NetworkType?: string;
 
   /**
-   * <p>A value that indicates whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
    *          <p>If the DB cluster doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn
    *             on this management. In this case, you can't specify <code>MasterUserPassword</code>.</p>
    *          <p>If the DB cluster already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the
@@ -4129,12 +4166,12 @@ export interface ModifyDBClusterMessage {
    *             in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
    *             in the <i>Amazon Aurora User Guide.</i>
    *          </p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   ManageMasterUserPassword?: boolean;
 
   /**
-   * <p>A value that indicates whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
+   * <p>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
    *             master user password.</p>
    *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
    *             Manager for the DB cluster. The secret value contains the updated password.</p>
@@ -4142,13 +4179,13 @@ export interface ModifyDBClusterMessage {
    *             in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
    *             in the <i>Amazon Aurora User Guide.</i>
    *          </p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
    *                <p>You must apply the change immediately when rotating the master user password.</p>
    *             </li>
    *          </ul>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   RotateMasterUserPassword?: boolean;
 
@@ -4176,7 +4213,7 @@ export interface ModifyDBClusterMessage {
    *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
    *             has a different default KMS key for each Amazon Web Services Region.</p>
-   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   MasterUserSecretKmsKeyId?: string;
 
@@ -4187,16 +4224,21 @@ export interface ModifyDBClusterMessage {
    *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
    *             CreateDBCluster</a>.</p>
-   *          <p>Valid for: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   EngineMode?: string;
 
   /**
-   * <p>A value that indicates whether engine mode changes from <code>serverless</code> to <code>provisioned</code>
+   * <p>Specifies whether engine mode changes from <code>serverless</code> to <code>provisioned</code>
    *             are allowed.</p>
-   *          <p>Constraints: You must allow engine mode changes when specifying a different value for the <code>EngineMode</code> parameter
+   *          <p>Valid for Cluster Type: Aurora Serverless v1 DB clusters only</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must allow engine mode changes when specifying a different value for the <code>EngineMode</code> parameter
    *             from the DB cluster's current engine mode.</p>
-   *          <p>Valid for: Aurora Serverless v1 DB clusters only</p>
+   *             </li>
+   *          </ul>
    */
   AllowEngineModeChange?: boolean;
 }
@@ -4432,11 +4474,11 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
  */
 export interface ModifyDBInstanceMessage {
   /**
-   * <p>The DB instance identifier. This value is stored as a lowercase string.</p>
+   * <p>The identifier of DB instance to modify. This value is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must match the identifier of an existing DBInstance.</p>
+   *                <p>Must match the identifier of an existing DB instance.</p>
    *             </li>
    *          </ul>
    */
@@ -4444,7 +4486,7 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The new amount of storage in gibibytes (GiB) to allocate for the DB instance.</p>
-   *          <p>For MariaDB, MySQL, Oracle, and PostgreSQL,
+   *          <p>For RDS for MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL,
    *           the value supplied must be at least 10% greater than the current value.
    *           Values that are not at least 10% greater than the existing value are rounded up
    *           so that they are 10% greater than the current value.</p>
@@ -4454,7 +4496,7 @@ export interface ModifyDBInstanceMessage {
   AllocatedStorage?: number;
 
   /**
-   * <p>The new compute and memory capacity of the DB instance, for example db.m4.large. Not all DB instance classes are available in all
+   * <p>The new compute and memory capacity of the DB instance, for example <code>db.m4.large</code>. Not all DB instance classes are available in all
    *             Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the
    *                 <i>Amazon RDS User Guide</i> or
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora
@@ -4479,8 +4521,13 @@ export interface ModifyDBInstanceMessage {
    *          <p>Changing the subnet group causes an outage during the change.
    *         The change is applied during the next maintenance window,
    *         unless you enable <code>ApplyImmediately</code>.</p>
-   *          <p>This parameter doesn't apply to RDS Custom.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *          <p>This parameter doesn't apply to RDS Custom DB instances.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match existing DB subnet group.</p>
+   *             </li>
+   *          </ul>
    *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
@@ -4489,36 +4536,40 @@ export interface ModifyDBInstanceMessage {
   /**
    * <p>A list of DB security groups to authorize on this DB instance. Changing this setting doesn't
    *           result in an outage and the change is asynchronously applied as soon as possible.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>If supplied, must match existing DBSecurityGroups.</p>
+   *                <p>If supplied, must match existing DB security groups.</p>
    *             </li>
    *          </ul>
    */
   DBSecurityGroups?: string[];
 
   /**
-   * <p>A list of Amazon EC2 VPC security groups to authorize on this DB instance. This change is
+   * <p>A list of Amazon EC2 VPC security groups to associate with this DB instance. This change is
    *           asynchronously applied as soon as possible.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The associated list of EC2 VPC security groups is managed by
-   *           the DB cluster. For more information, see <code>ModifyDBCluster</code>.</p>
+   *          <p>This setting doesn't apply to the following DB instances:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Aurora (The associated list of EC2 VPC security groups is managed by
+   *           the DB cluster. For more information, see <code>ModifyDBCluster</code>.)</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS Custom</p>
+   *             </li>
+   *          </ul>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>If supplied, must match existing VpcSecurityGroupIds.</p>
+   *                <p>If supplied, must match existing VPC security group IDs.</p>
    *             </li>
    *          </ul>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
-   * <p>A value that indicates whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible,
+   * <p>Specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible,
    *           regardless of the <code>PreferredMaintenanceWindow</code> setting for the DB instance. By default, this parameter is disabled.</p>
    *          <p>If this parameter is disabled, changes to the DB instance are applied during the next maintenance window. Some parameter changes can cause an outage
    *         and are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in
@@ -4529,45 +4580,54 @@ export interface ModifyDBInstanceMessage {
   ApplyImmediately?: boolean;
 
   /**
-   * <p>The new password for the master user. The password can include any printable ASCII
-   *           character except "/", """, or "@".</p>
+   * <p>The new password for the master user.</p>
    *          <p>Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
    *         Between the time of the request and the completion of the request,
    *         the <code>MasterUserPassword</code> element exists in the
    *           <code>PendingModifiedValues</code> element of the operation response.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The password for the master user is managed by the DB cluster. For
-   *             more information, see <code>ModifyDBCluster</code>.</p>
-   *          <p>Default: Uses existing setting</p>
-   *          <p>Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   *          <p>
-   *             <b>Microsoft SQL Server</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
-   *          <p>
-   *             <b>MySQL</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 30 characters.</p>
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
    *          <note>
    *             <p>Amazon RDS API operations never return the password,
    *               so this action provides a way to regain access to a primary instance user if the password is lost.
    *               This includes restoring privileges that might have been accidentally revoked.</p>
    *          </note>
+   *          <p>This setting doesn't apply to the following DB instances:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Aurora (The password for the master user is managed by the DB cluster. For
+   *             more information, see <code>ModifyDBCluster</code>.)</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS Custom</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Uses existing setting</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can include any printable ASCII character except "/", """, or "@".</p>
+   *             </li>
+   *          </ul>
+   *          <p>Length Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>RDS for MariaDB - Must contain from 8 to 41 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - Must contain from 8 to 41 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Oracle - Must contain from 8 to 30 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - Must contain from 8 to 128 characters.</p>
+   *             </li>
+   *          </ul>
    */
   MasterUserPassword?: string;
 
@@ -4579,9 +4639,14 @@ export interface ModifyDBInstanceMessage {
    *           parameter changes aren't applied during the next maintenance window. However, if you modify
    *           dynamic parameters in the newly associated DB parameter group, these changes are applied
    *           immediately without a reboot.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    *          <p>Default: Uses existing setting</p>
-   *          <p>Constraints: The DB parameter group must be in the same DB parameter group family as the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the same DB parameter group family as the DB instance.</p>
+   *             </li>
+   *          </ul>
    */
   DBParameterGroupName?: string;
 
@@ -4593,25 +4658,20 @@ export interface ModifyDBInstanceMessage {
    *          <p>These changes are applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is enabled
    *             for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously
    *             applied as soon as possible.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The retention period for automated backups is managed by the DB
+   *          <p>This setting doesn't apply to Amazon Aurora DB instances. The retention period for automated backups is managed by the DB
    *             cluster. For more information, see <code>ModifyDBCluster</code>.</p>
    *          <p>Default: Uses existing setting</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>It must be a value from 0 to 35. It can't be set to 0 if the DB instance is a source to
-   *               read replicas. It can't be set to 0 for an RDS Custom for Oracle DB instance.</p>
+   *                <p>Must be a value from 0 to 35.</p>
    *             </li>
    *             <li>
-   *                <p>It can be specified for a MySQL read replica only if the source is running MySQL 5.6 or
-   *                     later.</p>
+   *                <p>Can't be set to 0 if the DB instance is a source to
+   *               read replicas.</p>
    *             </li>
    *             <li>
-   *                <p>It can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
-   *                     9.3.5.</p>
+   *                <p>Can't be set to 0 for an RDS Custom for Oracle DB instance.</p>
    *             </li>
    *          </ul>
    */
@@ -4622,55 +4682,66 @@ export interface ModifyDBInstanceMessage {
    *         if automated backups are enabled,
    *         as determined by the <code>BackupRetentionPeriod</code> parameter.
    *         Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-   *         The default is a 30-minute window selected at random from an
-   *         8-hour block of time for each Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. The daily time range for creating automated backups is managed by
-   *             the DB cluster. For more information, see <code>ModifyDBCluster</code>.</p>
+   *           The default is a 30-minute window selected at random from an
+   *           8-hour block of time for each Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>This setting doesn't apply to Amazon Aurora DB instances. The daily time range for creating automated backups is managed by
+   *           the DB cluster. For more information, see <code>ModifyDBCluster</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must be in the format hh24:mi-hh24:mi</p>
+   *                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Must be in Universal Time Coordinated (UTC)</p>
+   *                <p>Must be in Universal Coordinated Time (UTC).</p>
    *             </li>
    *             <li>
-   *                <p>Must not conflict with the preferred maintenance window</p>
+   *                <p>Must not conflict with the preferred maintenance window.</p>
    *             </li>
    *             <li>
-   *                <p>Must be at least 30 minutes</p>
+   *                <p>Must be at least 30 minutes.</p>
    *             </li>
    *          </ul>
    */
   PreferredBackupWindow?: string;
 
   /**
-   * <p>The weekly time range (in UTC) during which system maintenance can occur, which
+   * <p>The weekly time range during which system maintenance can occur, which
    *             might result in an outage. Changing this parameter doesn't result in an outage, except
    *             in the following situation, and the change is asynchronously applied as soon as
    *             possible. If there are pending actions that cause a reboot, and the maintenance window
-   *             is changed to include the current time, then changing this parameter will cause a reboot
-   *             of the DB instance. If moving this window to the current time, there must be at least 30
+   *             is changed to include the current time, then changing this parameter causes a reboot
+   *             of the DB instance. If you change this window to the current time, there must be at least 30
    *             minutes between the current time and end of the window to ensure pending changes are
    *             applied.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
    *          <p>Default: Uses existing setting</p>
-   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
-   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *          <p>Constraints: Must be at least 30 minutes</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the format <code>ddd:hh24:mi-ddd:hh24:mi</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The day values must be <code>mon | tue | wed | thu | fri | sat | sun</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>Must be in Universal Coordinated Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not conflict with the preferred backup window.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be at least 30 minutes.</p>
+   *             </li>
+   *          </ul>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment. Changing this parameter doesn't result
+   * <p>Specifies whether the DB instance is a Multi-AZ deployment. Changing this parameter doesn't result
    *           in an outage. The change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
    *           parameter is enabled for this request.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   MultiAZ?: boolean;
 
@@ -4683,12 +4754,12 @@ export interface ModifyDBInstanceMessage {
    *             new DB parameter group in the DB parameter group family for the new engine version must
    *             be specified. The new DB parameter group can be the default for that DB parameter group
    *             family.</p>
-   *          <p>If you specify only a major version, Amazon RDS will update the DB instance to the
+   *          <p>If you specify only a major version, Amazon RDS updates the DB instance to the
    *           default minor version if the current minor version is lower.
    *           For information about valid engine versions, see <code>CreateDBInstance</code>,
    *           or call <code>DescribeDBEngineVersions</code>.</p>
    *          <p>If the instance that you're modifying is acting as a read replica, the engine version
-   *             that you specify must be the same or later than the version that the source DB instance
+   *             that you specify must be the same or higher than the version that the source DB instance
    *             or cluster is running.</p>
    *          <p>In RDS Custom for Oracle, this parameter is supported for read replicas only if they are in the
    *           <code>PATCH_DB_FAILURE</code> lifecycle.</p>
@@ -4696,16 +4767,21 @@ export interface ModifyDBInstanceMessage {
   EngineVersion?: string;
 
   /**
-   * <p>A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't
+   * <p>Specifies whether major version upgrades are allowed. Changing this parameter doesn't
    *           result in an outage and the change is asynchronously applied as soon as possible.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   *          <p>Constraints: Major version upgrades must be allowed when specifying a value
-   *           for the EngineVersion parameter that is a different major version than the DB instance's current version.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Major version upgrades must be allowed when specifying a value
+   *           for the <code>EngineVersion</code> parameter that's a different major version than the DB instance's current version.</p>
+   *             </li>
+   *          </ul>
    */
   AllowMajorVersionUpgrade?: boolean;
 
   /**
-   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance
+   * <p>Specifies whether minor version upgrades are applied automatically to the DB instance
    *           during the maintenance window. An outage occurs when all the following conditions are met:</p>
    *          <ul>
    *             <li>
@@ -4718,19 +4794,38 @@ export interface ModifyDBInstanceMessage {
    *                <p>RDS has enabled automatic patching for the engine version.</p>
    *             </li>
    *          </ul>
-   *          <p>If any of the preceding conditions isn't met, RDS applies the change as soon as possible and
+   *          <p>If any of the preceding conditions isn't met, Amazon RDS applies the change as soon as possible and
    *       doesn't cause an outage.</p>
-   *          <p>For an RDS Custom DB instance, set <code>AutoMinorVersionUpgrade</code>
-   *           to <code>false</code>. Otherwise, the operation returns an error.</p>
+   *          <p>For an RDS Custom DB instance, don't enable this setting. Otherwise, the operation returns an error.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>The license model for the DB instance.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   *          <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
-   *             <code>general-public-license</code>
-   *          </p>
+   *          <p>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>RDS for MariaDB - <code>general-public-license</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Microsoft SQL Server - <code>license-included</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - <code>general-public-license</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Oracle - <code>bring-your-own-license | license-included</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - <code>postgresql-license</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   LicenseModel?: string;
 
@@ -4752,15 +4847,19 @@ export interface ModifyDBInstanceMessage {
    *             instance are suspended. No other Amazon RDS operations can take place for the instance,
    *             including modifying the instance, rebooting the instance, deleting the instance,
    *             creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
-   *          <p>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL,
-   *           the value supplied must be at least 10% greater than the current value.
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RDS for MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL - The value supplied must be at least 10% greater than the current value.
    *           Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value.</p>
+   *             </li>
+   *          </ul>
    *          <p>Default: Uses existing setting</p>
    */
   Iops?: number;
 
   /**
-   * <p>A value that indicates the DB instance should be associated with the specified option group.</p>
+   * <p>The option group to associate the DB instance with.</p>
    *          <p>Changing this parameter doesn't result in an outage, with one exception. If the parameter change results
    *           in an option group that enables OEM, it can cause a brief period, lasting less than a second, during which
    *           new connections are rejected but existing connections aren't interrupted.</p>
@@ -4769,15 +4868,15 @@ export interface ModifyDBInstanceMessage {
    *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed
    *           from an option group, and that option group can't be removed from a DB instance after
    *           it is associated with a DB instance.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   OptionGroupName?: string;
 
   /**
-   * <p>The new DB instance identifier for the DB instance when renaming a DB instance. When you change the DB instance
+   * <p>The new identifier for the DB instance when renaming a DB instance. When you change the DB instance
    *           identifier, an instance reboot occurs immediately if you enable <code>ApplyImmediately</code>, or will occur
-   *           during the next maintenance window if you disable Apply Immediately. This value is stored as a lowercase string.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *           during the next maintenance window if you disable <code>ApplyImmediately</code>. This value is stored as a lowercase string.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4796,7 +4895,7 @@ export interface ModifyDBInstanceMessage {
   NewDBInstanceIdentifier?: string;
 
   /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
+   * <p>The storage type to associate with the DB instance.</p>
    *          <p>If you specify Provisioned IOPS (<code>io1</code>),
    *           you must also include a value for the <code>Iops</code> parameter.</p>
    *          <p>If you choose to migrate your DB instance from using standard storage to using
@@ -4810,29 +4909,28 @@ export interface ModifyDBInstanceMessage {
    *             instance are suspended. No other Amazon RDS operations can take place for the instance,
    *             including modifying the instance, rebooting the instance, deleting the instance,
    *             creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
-   *          <p>Valid values: <code>gp2 | gp3 | io1 | standard</code>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | standard</code>
    *          </p>
-   *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter
-   *           is specified, otherwise <code>gp2</code>
-   *          </p>
+   *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter
+   *           is specified. Otherwise, <code>gp2</code>.</p>
    */
   StorageType?: string;
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   TdeCredentialArn?: string;
 
   /**
    * <p>The password for the given ARN from the key store in order to access the device.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   TdeCredentialPassword?: string;
 
   /**
-   * <p>Specifies the CA certificate identifier to use for the DB instance’s server certificate.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   * <p>The CA certificate identifier to use for the DB instance6's server certificate.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
    *             instance</a> in the <i>Amazon RDS User Guide</i> and
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
@@ -4848,27 +4946,27 @@ export interface ModifyDBInstanceMessage {
    *           Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *           Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   Domain?: string;
 
   /**
-   * <p>A value that indicates whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
+   * <p>Specifies whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags aren't copied.</p>
+   *          <p>This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this
    *           value for an Aurora DB instance has no effect on the DB cluster setting. For more
    *           information, see <code>ModifyDBCluster</code>.</p>
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-   *           for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0, which is the default.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, set <code>MonitoringInterval</code> to a value other than 0.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for
+   *           the DB instance. To disable collection of Enhanced Monitoring metrics, specify <code>0</code>.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, set <code>MonitoringInterval</code>
+   *         to a value other than <code>0</code>.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>Valid Values: <code>0 | 1 | 5 | 10 | 15 | 30 | 60</code>
+   *          </p>
+   *          <p>Default: <code>0</code>
    *          </p>
    */
   MonitoringInterval?: number;
@@ -4879,56 +4977,49 @@ export interface ModifyDBInstanceMessage {
    *           specified for options in the option group for the DB instance.</p>
    *          <p>If you change the <code>DBPortNumber</code> value, your database restarts regardless of
    *           the value of the <code>ApplyImmediately</code> parameter.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   *          <p>
-   *             <b>MySQL</b>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>Valid Values: <code>1150-65535</code>
    *          </p>
-   *          <p>Default: <code>3306</code>
-   *          </p>
-   *          <p>Valid values: <code>1150-65535</code>
-   *          </p>
-   *          <p>
-   *             <b>MariaDB</b>
-   *          </p>
-   *          <p>Default: <code>3306</code>
-   *          </p>
-   *          <p>Valid values: <code>1150-65535</code>
-   *          </p>
-   *          <p>
-   *             <b>PostgreSQL</b>
-   *          </p>
-   *          <p>Default: <code>5432</code>
-   *          </p>
-   *          <p>Valid values: <code>1150-65535</code>
-   *          </p>
-   *          <p>Type: Integer</p>
-   *          <p>
-   *             <b>Oracle</b>
-   *          </p>
-   *          <p>Default: <code>1521</code>
-   *          </p>
-   *          <p>Valid values: <code>1150-65535</code>
-   *          </p>
-   *          <p>
-   *             <b>SQL Server</b>
-   *          </p>
-   *          <p>Default: <code>1433</code>
-   *          </p>
-   *          <p>Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
-   *                 <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, and
+   *          <p>Default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Aurora - <code>3306</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MariaDB - <code>3306</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Microsoft SQL Server - <code>1433</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - <code>3306</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for Oracle - <code>1521</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - <code>5432</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RDS for Microsoft SQL Server, the value can't be <code>1234</code>, <code>1434</code>,
+   *                 <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, or
    *                 <code>49152-49156</code>.</p>
-   *          <p>
-   *             <b>Amazon Aurora</b>
-   *          </p>
-   *          <p>Default: <code>3306</code>
-   *          </p>
-   *          <p>Valid values: <code>1150-65535</code>
-   *          </p>
+   *             </li>
+   *          </ul>
    */
   DBPortNumber?: number;
 
   /**
-   * <p>A value that indicates whether the DB instance is publicly accessible.</p>
+   * <p>Specifies whether the DB instance is publicly accessible.</p>
    *          <p>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
    *           resolves to the private IP address from within the DB cluster's virtual private cloud
    *           (VPC). It resolves to the public IP address from outside of the DB cluster's VPC. Access
@@ -4950,31 +5041,33 @@ export interface ModifyDBInstanceMessage {
    *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
    *           create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than <code>0</code>, supply a <code>MonitoringRoleArn</code>
    *           value.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   MonitoringRoleArn?: string;
 
   /**
    * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   DomainIAMRoleName?: string;
 
   /**
-   * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
-   *       after a failure of the existing primary instance. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
+   * <p>The order of priority in which an Aurora Replica is promoted to the primary instance
+   *           after a failure of the existing primary instance. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Aurora.Managing.FaultTolerance">
    *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   *          <p>Default: 1</p>
-   *          <p>Valid Values: 0 - 15</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>Default: <code>1</code>
+   *          </p>
+   *          <p>Valid Values: <code>0 - 15</code>
+   *          </p>
    */
   PromotionTier?: number;
 
   /**
-   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access Management
+   * <p>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
    *             (IAM) accounts to database accounts. By default, mapping isn't enabled.</p>
    *          <p>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts to database accounts is managed by the DB
    *           cluster.</p>
@@ -4982,86 +5075,78 @@ export interface ModifyDBInstanceMessage {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
    *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
-   * <p>A value that indicates whether to enable Performance Insights for the DB instance.</p>
+   * <p>Specifies whether to enable Performance Insights for the DB instance.</p>
    *          <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   EnablePerformanceInsights?: boolean;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
    *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
-   *          <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
+   *          <p>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
    *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
    *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The number of days to retain Performance Insights data. The default is 7 days. The following values are valid:</p>
+   * <p>The number of days to retain Performance Insights data.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
-   *                <p>7</p>
+   *                <p>
+   *                   <code>7</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23</p>
+   *                   <i>month</i> * 31, where <i>month</i> is a number of months from 1-23.
+   *                 Examples: <code>93</code> (3 months * 31), <code>341</code> (11 months * 31), <code>589</code> (19 months * 31)</p>
    *             </li>
    *             <li>
-   *                <p>731</p>
+   *                <p>
+   *                   <code>731</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *          <p>For example, the following values are valid:</p>
-   *          <ul>
-   *             <li>
-   *                <p>93 (3 months * 31)</p>
-   *             </li>
-   *             <li>
-   *                <p>341 (11 months * 31)</p>
-   *             </li>
-   *             <li>
-   *                <p>589 (19 months * 31)</p>
-   *             </li>
-   *             <li>
-   *                <p>731</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify a retention period such as 94, which isn't a valid value, RDS issues an error.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>Default: <code>7</code> days</p>
+   *          <p>If you specify a retention period that isn't valid, such as <code>94</code>,  Amazon RDS returns an error.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
 
   /**
-   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a
+   * <p>The log types to be enabled for export to CloudWatch Logs for a
    *             specific DB instance.</p>
    *          <p>A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB instance
    *             immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
 
   /**
-   * <p>A value that indicates whether the DB instance class of the DB instance uses its default
+   * <p>Specifies whether the DB instance class of the DB instance uses its default
    *             processor features.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   UseDefaultProcessorFeatures?: boolean;
 
   /**
-   * <p>A value that indicates whether the DB instance has deletion protection enabled.
+   * <p>Specifies whether the DB instance has deletion protection enabled.
    *             The database can't be deleted when deletion protection is enabled. By default,
    *             deletion protection isn't enabled. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
@@ -5075,12 +5160,12 @@ export interface ModifyDBInstanceMessage {
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   MaxAllocatedStorage?: number;
 
   /**
-   * <p>A value that indicates whether the DB instance is restarted when you rotate your
+   * <p>Specifies whether the DB instance is restarted when you rotate your
    *             SSL/TLS certificate.</p>
    *          <p>By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate
    *             is not updated until the DB instance is restarted.</p>
@@ -5102,7 +5187,7 @@ export interface ModifyDBInstanceMessage {
    *                         Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   CertificateRotationRestart?: boolean;
 
@@ -5117,12 +5202,12 @@ export interface ModifyDBInstanceMessage {
    *             accept user connections, a mounted replica can't serve a read-only workload.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with Oracle Read Replicas for Amazon RDS</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   ReplicaMode?: ReplicaMode | string;
 
   /**
-   * <p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p>
+   * <p>Specifies whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p>
    *          <p>A <i>CoIP</i> provides local or external connectivity to resources in
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
@@ -5136,12 +5221,12 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   AwsBackupRecoveryPointArn?: string;
 
   /**
-   * <p>The automation mode of the RDS Custom DB instance: <code>full</code> or <code>all paused</code>.
+   * <p>The automation mode of the RDS Custom DB instance.
    *             If <code>full</code>, the DB instance automates monitoring and instance recovery. If
    *             <code>all paused</code>, the instance pauses automation for the duration set by
    *             <code>ResumeFullAutomationModeMinutes</code>.</p>
@@ -5150,25 +5235,23 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes
-   *             full automation. The minimum value is <code>60</code> (default). The maximum value is <code>1,440</code>.</p>
+   *             full automation.</p>
+   *          <p>Default: <code>60</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be at least 60.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be no more than 1,440.</p>
+   *             </li>
+   *          </ul>
    */
   ResumeFullAutomationModeMinutes?: number;
 
   /**
    * <p>The network type of the DB instance.</p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>IPV4</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DUAL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
    *             protocols (<code>DUAL</code>).</p>
@@ -5176,23 +5259,25 @@ export interface ModifyDBInstanceMessage {
    *             Working with a DB instance in a VPC</a> in the
    *             <i>Amazon RDS User Guide.</i>
    *          </p>
+   *          <p>Valid Values: <code>IPV4 | DUAL</code>
+   *          </p>
    */
   NetworkType?: string;
 
   /**
-   * <p>Specifies the storage throughput value for the DB instance.</p>
+   * <p>The storage throughput value for the DB instance.</p>
    *          <p>This setting applies only to the <code>gp3</code> storage type.</p>
-   *          <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
+   *          <p>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</p>
    */
   StorageThroughput?: number;
 
   /**
-   * <p>A value that indicates whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   * <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
    *          <p>If the DB instance doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn
    *             on this management. In this case, you can't specify <code>MasterUserPassword</code>.</p>
    *          <p>If the DB instance already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the
    *             master user password is not managed with Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>.
-   *             In this case, RDS deletes the secret and uses the new password for the master user specified by
+   *             In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by
    *             <code>MasterUserPassword</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
    *             in the <i>Amazon RDS User Guide.</i>
@@ -5208,7 +5293,7 @@ export interface ModifyDBInstanceMessage {
   ManageMasterUserPassword?: boolean;
 
   /**
-   * <p>A value that indicates whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
+   * <p>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
    *             master user password.</p>
    *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
    *             Manager for the DB cluster. The secret value contains the updated password.</p>
@@ -5561,6 +5646,16 @@ export interface ModifyDBSnapshotMessage {
    *             <b>Oracle</b>
    *          </p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>19.0.0.0.ru-2022-01.rur-2022-01.r1</code> (supported for 12.2.0.1 DB
+   *                     snapshots)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>19.0.0.0.ru-2022-07.rur-2022-07.r1</code> (supported for 12.1.0.2 DB
+   *                     snapshots)</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>12.1.0.2.v8</code>  (supported for 12.1.0.1 DB snapshots)</p>
