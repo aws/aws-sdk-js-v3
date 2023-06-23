@@ -161,8 +161,8 @@ final class AwsProtocolUtils {
         // Include an XML body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
-        writer.addDependency(AwsDependency.XML_PARSER);
-        writer.addImport("XMLParser", null, "fast-xml-parser");
+        writer.addDependency(TypeScriptDependency.EXTERNAL_INTERFACES);
+        writer.addImport("XMLParser", null, TypeScriptDependency.EXTERNAL_INTERFACES);
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {

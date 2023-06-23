@@ -25,13 +25,13 @@ import {
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { XMLParser } from "@smithy/external-interfaces";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@smithy/protocol-http";
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
-import { XMLParser } from "fast-xml-parser";
 
 import {
   AbortMultipartUploadCommandInput,
