@@ -144,6 +144,7 @@ import {
   InsightStatus,
   InsightTimeRange,
   InternalServerException,
+  KMSServerSideEncryptionIntegrationConfig,
   ListAnomaliesForInsightFilters,
   ListEventsFilters,
   ListInsightsAnyStatusFilter,
@@ -3133,6 +3134,8 @@ const se_EventTimeRange = (input: EventTimeRange, context: __SerdeContext): any 
 
 // se_InsightStatuses omitted.
 
+// se_KMSServerSideEncryptionIntegrationConfig omitted.
+
 // se_ListAnomaliesForInsightFilters omitted.
 
 /**
@@ -3441,6 +3444,8 @@ const de_InsightTimeRange = (output: any, context: __SerdeContext): InsightTimeR
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_KMSServerSideEncryptionIntegration omitted.
 
 /**
  * deserializeAws_restJson1LogAnomalyClass

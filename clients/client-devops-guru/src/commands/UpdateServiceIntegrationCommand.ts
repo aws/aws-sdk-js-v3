@@ -53,6 +53,11 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  *     LogsAnomalyDetection: { // LogsAnomalyDetectionIntegrationConfig
  *       OptInStatus: "ENABLED" || "DISABLED",
  *     },
+ *     KMSServerSideEncryption: { // KMSServerSideEncryptionIntegrationConfig
+ *       KMSKeyId: "STRING_VALUE",
+ *       OptInStatus: "ENABLED" || "DISABLED",
+ *       Type: "CUSTOMER_MANAGED_KEY" || "AWS_OWNED_KMS_KEY",
+ *     },
  *   },
  * };
  * const command = new UpdateServiceIntegrationCommand(input);

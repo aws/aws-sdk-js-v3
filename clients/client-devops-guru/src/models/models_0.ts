@@ -127,10 +127,9 @@ export interface NotificationFilterConfig {
  * @public
  * <p> Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
- * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
+ * 				to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
  * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
- * 				for cross account Amazon SNS topics</a>.</p>
- *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
+ * 				for Amazon SNS topics</a>.</p>
  *          <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
  * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
  * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
@@ -153,10 +152,9 @@ export interface NotificationChannelConfig {
    * <p> Information about a notification channel configured in DevOps Guru to send notifications
    * 			when insights are created. </p>
    *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
-   * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
+   * 				to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
    * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
-   * 				for cross account Amazon SNS topics</a>.</p>
-   *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
+   * 				for Amazon SNS topics</a>.</p>
    *          <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
    * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
    * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
@@ -2481,6 +2479,60 @@ export type OptInStatus = (typeof OptInStatus)[keyof typeof OptInStatus];
 
 /**
  * @public
+ * @enum
+ */
+export const ServerSideEncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerSideEncryptionType = (typeof ServerSideEncryptionType)[keyof typeof ServerSideEncryptionType];
+
+/**
+ * @public
+ * <p>
+ * 			Information about the KMS encryption used with DevOps Guru.
+ * 		</p>
+ */
+export interface KMSServerSideEncryptionIntegration {
+  /**
+   * <p>
+   * 			Describes the specified KMS key.
+   * 		</p>
+   *          <p>To specify a KMS key, use its key ID, key ARN,
+   * 			alias name, or alias ARN. When using an alias name,
+   * 			prefix it with "alias/". If you specify a predefined Amazon Web Services alias
+   * 			(an Amazon Web Services alias with no key ID), Amazon Web Services KMS associates the alias with an
+   * 			Amazon Web Services managed key and returns its KeyId and Arn in the response.
+   * 			To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>For example: </p>
+   *          <p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
+   *          <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+   *          <p>Alias name: alias/ExampleAlias</p>
+   *          <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * <p>
+   * 			Specifies if DevOps Guru is enabled for customer managed keys.
+   * 		</p>
+   */
+  OptInStatus?: OptInStatus | string;
+
+  /**
+   * <p>
+   * 			The type of KMS key used. Customer managed keys are the KMS keys that you create. Amazon Web Services owned keys are keys that are owned and managed by DevOps Guru.
+   * 		</p>
+   */
+  Type?: ServerSideEncryptionType | string;
+}
+
+/**
+ * @public
  * <p>
  * 			Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
  * 		</p>
@@ -2523,6 +2575,13 @@ export interface ServiceIntegrationConfig {
    * 		</p>
    */
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegration;
+
+  /**
+   * <p>
+   * 			Information about whether DevOps Guru is configured to encrypt server-side data using KMS.
+   * 		</p>
+   */
+  KMSServerSideEncryption?: KMSServerSideEncryptionIntegration;
 }
 
 /**
@@ -3924,10 +3983,9 @@ export interface ListNotificationChannelsRequest {
  * 			you when DevOps Guru creates an insight. The one
  *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
- * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
+ * 				to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
  * 				For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
- * 				for cross account Amazon SNS topics</a>.</p>
- *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.</p>
+ * 				for Amazon SNS topics</a>.</p>
  *          <p>If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management Service customer-managed key (CMK), then you must add permissions
  * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
  * 				Amazon Web Services KMS–encrypted Amazon SNS topics</a>.</p>
@@ -4744,6 +4802,45 @@ export interface UpdateResourceCollectionResponse {}
 /**
  * @public
  * <p>
+ * 			Information about whether DevOps Guru is configured to encrypt server-side data using KMS.
+ * 		</p>
+ */
+export interface KMSServerSideEncryptionIntegrationConfig {
+  /**
+   * <p>
+   * 				Describes the specified KMS key.</p>
+   *          <p>To specify a KMS key, use its key ID, key ARN,
+   * 				alias name, or alias ARN. When using an alias name,
+   * 				prefix it with "alias/". If you specify a predefined Amazon Web Services alias
+   * 				(an Amazon Web Services alias with no key ID), Amazon Web Services KMS associates the alias with an
+   * 				Amazon Web Services managed key and returns its KeyId and Arn in the response.
+   * 				To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>For example: </p>
+   *          <p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
+   *          <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+   *          <p>Alias name: alias/ExampleAlias</p>
+   *          <p>Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * <p>
+   * 			Specifies if DevOps Guru is enabled for KMS integration.
+   * 		</p>
+   */
+  OptInStatus?: OptInStatus | string;
+
+  /**
+   * <p>
+   * 			The type of KMS key used. Customer managed keys are the KMS keys that you create. Amazon Web Services owned keys are keys that are owned and managed by DevOps Guru.
+   * 		</p>
+   */
+  Type?: ServerSideEncryptionType | string;
+}
+
+/**
+ * @public
+ * <p>
  * 			Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection. You can use this to update the configuration.
  * 		</p>
  */
@@ -4785,6 +4882,13 @@ export interface UpdateServiceIntegrationConfig {
    * 		</p>
    */
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegrationConfig;
+
+  /**
+   * <p>
+   * 			Information about whether DevOps Guru is configured to encrypt server-side data using KMS.
+   * 		</p>
+   */
+  KMSServerSideEncryption?: KMSServerSideEncryptionIntegrationConfig;
 }
 
 /**

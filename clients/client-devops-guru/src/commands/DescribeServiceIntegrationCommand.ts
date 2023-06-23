@@ -56,6 +56,11 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  * //     LogsAnomalyDetection: { // LogsAnomalyDetectionIntegration
  * //       OptInStatus: "ENABLED" || "DISABLED",
  * //     },
+ * //     KMSServerSideEncryption: { // KMSServerSideEncryptionIntegration
+ * //       KMSKeyId: "STRING_VALUE",
+ * //       OptInStatus: "ENABLED" || "DISABLED",
+ * //       Type: "CUSTOMER_MANAGED_KEY" || "AWS_OWNED_KMS_KEY",
+ * //     },
  * //   },
  * // };
  *
