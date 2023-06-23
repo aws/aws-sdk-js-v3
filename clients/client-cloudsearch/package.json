@@ -54,7 +54,7 @@
     "@aws-sdk/util-utf8": "*",
     "@smithy/protocol-http": "^1.0.1",
     "@smithy/types": "^1.0.0",
-    "fast-xml-parser": "4.2.4",
+    "fast-xml-parser": "4.2.5",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
