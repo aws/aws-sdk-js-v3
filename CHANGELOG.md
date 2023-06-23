@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.359.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.358.0...v3.359.0) (2023-06-23)
+
+
+### Features
+
+* **client-devops-guru:** This release adds support for encryption via customer managed keys. ([8973478](https://github.com/aws/aws-sdk-js-v3/commit/8973478646dc64499325e67967b55efbda1fd3e8))
+
+
+
+
+
 # [3.358.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.357.0...v3.358.0) (2023-06-22)
 
 
