@@ -566,7 +566,7 @@ export interface LustreFileSystemConfiguration {
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
    *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
-   *             maximum of 90 days. The default is <code>0</code>.</p>
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -721,7 +721,7 @@ export interface OntapFileSystemConfiguration {
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
    *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
-   *             maximum of 90 days. The default is <code>0</code>.</p>
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -838,7 +838,7 @@ export interface OpenZFSFileSystemConfiguration {
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
    *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
-   *             maximum of 90 days. The default is <code>0</code>.</p>
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -4324,7 +4324,7 @@ export interface CreateFileSystemLustreConfiguration {
 
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
-   *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
+   *             <code>0</code> disables automatic backups. You can retain automatic backups for a
    *             maximum of 90 days. The default is <code>0</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
@@ -4398,7 +4398,7 @@ export interface CreateFileSystemOntapConfiguration {
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
    *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
-   *             maximum of 90 days. The default is <code>0</code>.</p>
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -4562,7 +4562,7 @@ export interface CreateFileSystemOpenZFSConfiguration {
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
    *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
-   *             maximum of 90 days. The default is <code>0</code>.</p>
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -4603,11 +4603,11 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *                <p>
    *                   <code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities of 64 - 4,096 MBps.
    *                 <code>Single_AZ_1</code> is available in all Amazon Web Services Regions where Amazon FSx
-   *                 for OpenZFS is available, except US West (Oregon).</p>
+   *                 for OpenZFS is available.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160 - 10,240 MBps
+   *                   <code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160 - 10,240 MB/s
    *                 using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only in the US East (N. Virginia), US East (Ohio),
    *                 US West (Oregon), and Europe (Ireland) Amazon Web Services Regions.</p>
    *             </li>
@@ -4888,9 +4888,9 @@ export interface CreateFileSystemWindowsConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>The number of days to retain automatic backups. The default is to retain backups for 7
-   *             days. Setting this value to 0 disables the creation of automatic backups. The maximum
-   *             retention period for backups is 90 days.</p>
+   * <p>The number of days to retain automatic backups. Setting this property to
+   *             <code>0</code> disables automatic backups. You can retain automatic backups for a
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -7884,7 +7884,7 @@ export interface UpdateFileSystemLustreConfiguration {
 
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
-   *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
+   *             <code>0</code> disables automatic backups. You can retain automatic backups for a
    *             maximum of 90 days. The default is <code>0</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
@@ -7970,7 +7970,7 @@ export interface UpdateFileSystemOntapConfiguration {
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
    *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
-   *             maximum of 90 days. The default is <code>0</code>.</p>
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -8042,7 +8042,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
   /**
    * <p>The number of days to retain automatic backups. Setting this property to
    *                 <code>0</code> disables automatic backups. You can retain automatic backups for a
-   *             maximum of 90 days. The default is <code>0</code>.</p>
+   *             maximum of 90 days. The default is <code>30</code>.</p>
    */
   AutomaticBackupRetentionDays?: number;
 
@@ -8172,8 +8172,9 @@ export interface UpdateFileSystemWindowsConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>The number of days to retain automatic daily backups. Setting this to zero (0) disables automatic daily
-   *             backups. You can retain automatic daily backups for a maximum of 90 days. For more information, see
+   * <p>The number of days to retain automatic backups. Setting this property to
+   *             <code>0</code> disables automatic backups. You can retain automatic backups for a
+   *             maximum of 90 days. The default is <code>30</code>. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#automatic-backups">Working with Automatic Daily Backups</a>.</p>
    */
   AutomaticBackupRetentionDays?: number;
