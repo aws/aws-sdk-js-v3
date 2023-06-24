@@ -189,7 +189,7 @@ export class NodeHttpHandler implements HttpHandler {
         });
       }
 
-      writeRequestBodyPromise = writeRequestBody(req, request, this.config.requestTimeout);
+      writeRequestBodyPromise = writeRequestBody(req, request, this.config.requestTimeout).catch(_reject);
     });
   }
 }

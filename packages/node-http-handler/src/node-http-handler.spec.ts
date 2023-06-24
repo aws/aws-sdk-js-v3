@@ -573,6 +573,24 @@ describe("NodeHttpHandler", () => {
       expect(spy.mock.calls.length).toBe(0);
     });
 
+    it(`won't throw uncatchable error in writeRequestBody`, async () => {
+      const nodeHttpHandler = new NodeHttpHandler();
+
+      await expect(
+        nodeHttpHandler.handle(
+          new HttpRequest({
+            hostname: "localhost",
+            method: "GET",
+            port: (mockHttpsServer.address() as AddressInfo).port,
+            protocol: "https:",
+            path: "/",
+            headers: {},
+            body: {},
+          })
+        )
+      ).rejects.toHaveProperty("name", "TypeError");
+    });
+
     it("will destroy the request when aborted", async () => {
       const mockResponse = {
         statusCode: 200,
