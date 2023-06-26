@@ -1,8 +1,8 @@
 import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient } from "@aws-sdk/client-sso";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getSSOTokenFromFile, SSOToken } from "@aws-sdk/shared-ini-file-loader";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getSSOTokenFromFile, SSOToken } from "@smithy/shared-ini-file-loader";
+import { AwsCredentialIdentity } from "@smithy/types";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
 

@@ -1,4 +1,4 @@
-import { Provider } from "@aws-sdk/types";
+import { Provider } from "@smithy/types";
 
 export interface LocationConstraintInputConfig {}
 

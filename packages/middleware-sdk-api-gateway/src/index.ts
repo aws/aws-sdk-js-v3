@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,7 +7,7 @@ import {
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>

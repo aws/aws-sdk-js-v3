@@ -1,4 +1,4 @@
-import { Profile } from "@aws-sdk/types";
+import { Profile } from "@smithy/types";
 
 import { SsoProfile } from "./types";
 

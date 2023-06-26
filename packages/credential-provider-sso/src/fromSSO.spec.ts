@@ -1,13 +1,13 @@
 import { SSOClient } from "@aws-sdk/client-sso";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getProfileName, parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
 
 import { fromSSO } from "./fromSSO";
 import { isSsoProfile } from "./isSsoProfile";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./isSsoProfile");
 jest.mock("./resolveSSOCredentials");
 jest.mock("./validateSsoProfile");

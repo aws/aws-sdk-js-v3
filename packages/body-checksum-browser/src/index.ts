@@ -1,8 +1,8 @@
-import { blobReader } from "@aws-sdk/chunked-blob-reader";
 import { TreeHash } from "@aws-sdk/sha256-tree-hash";
-import { ChecksumConstructor, Decoder, HashConstructor, HttpRequest } from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
-import { toUint8Array } from "@aws-sdk/util-utf8";
+import { blobReader } from "@smithy/chunked-blob-reader";
+import { ChecksumConstructor, Decoder, HashConstructor, HttpRequest } from "@smithy/types";
+import { toHex } from "@smithy/util-hex-encoding";
+import { toUint8Array } from "@smithy/util-utf8";
 
 const MiB = 1024 * 1024;
 

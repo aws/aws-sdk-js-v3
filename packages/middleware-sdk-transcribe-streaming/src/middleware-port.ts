@@ -1,11 +1,11 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
   BuildMiddleware,
   RelativeMiddlewareOptions,
   RequestHandler,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 /**
  * Middleware that generates WebSocket URL to TranscribeStreaming service

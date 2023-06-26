@@ -1,10 +1,10 @@
-import { memoize } from "@aws-sdk/property-provider";
-import { normalizeProvider } from "@aws-sdk/util-middleware";
+import { memoize } from "@smithy/property-provider";
+import { normalizeProvider } from "@smithy/util-middleware";
 
 import { normalizeTokenProvider } from "./normalizeTokenProvider";
 
-jest.mock("@aws-sdk/property-provider");
-jest.mock("@aws-sdk/util-middleware");
+jest.mock("@smithy/property-provider");
+jest.mock("@smithy/util-middleware");
 
 const ONE_SECOND_IN_MS = 1000;
 const ONE_HOUR_IN_MS = 3600 * ONE_SECOND_IN_MS;

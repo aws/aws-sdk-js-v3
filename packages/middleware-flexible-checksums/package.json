@@ -23,10 +23,11 @@
   "dependencies": {
     "@aws-crypto/crc32": "3.0.0",
     "@aws-crypto/crc32c": "3.0.0",
-    "@aws-sdk/is-array-buffer": "*",
-    "@aws-sdk/protocol-http": "*",
+    "@smithy/is-array-buffer": "^1.0.1",
+    "@smithy/protocol-http": "^1.1.0",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-utf8": "*",
+    "@smithy/types": "^1.1.0",
+    "@smithy/util-utf8": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

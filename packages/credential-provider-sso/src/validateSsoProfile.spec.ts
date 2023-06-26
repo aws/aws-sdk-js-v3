@@ -1,4 +1,4 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { validateSsoProfile } from "./validateSsoProfile";
 

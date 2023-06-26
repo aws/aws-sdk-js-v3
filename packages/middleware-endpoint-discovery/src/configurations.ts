@@ -1,4 +1,4 @@
-import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
+import { LoadedConfigSelectors } from "@smithy/node-config-provider";
 
 const ENV_ENDPOINT_DISCOVERY = ["AWS_ENABLE_ENDPOINT_DISCOVERY", "AWS_ENDPOINT_DISCOVERY_ENABLED"];
 const CONFIG_ENDPOINT_DISCOVERY = "endpoint_discovery_enabled";

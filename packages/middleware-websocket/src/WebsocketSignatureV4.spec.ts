@@ -1,10 +1,10 @@
 // TODO: remove this file as duplicated to @aws-sdk/middleware-websocket
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { RequestPresigningArguments, RequestSigningArguments } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { RequestPresigningArguments, RequestSigningArguments } from "@smithy/types";
 
 import { WebsocketSignatureV4 } from "./WebsocketSignatureV4";
 
-jest.mock("@aws-sdk/protocol-http");
+jest.mock("@smithy/protocol-http");
 
 describe("WebsocketSignatureV4", () => {
   const mockPresignedRequest = { req: "mockPresignedRequest" };

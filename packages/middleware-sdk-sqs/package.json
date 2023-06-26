@@ -22,8 +22,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-hex-encoding": "*",
-    "@aws-sdk/util-utf8": "*",
+    "@smithy/types": "^1.1.0",
+    "@smithy/util-hex-encoding": "^1.0.1",
+    "@smithy/util-utf8": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "engines": {

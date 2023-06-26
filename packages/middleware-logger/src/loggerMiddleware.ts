@@ -7,7 +7,7 @@ import {
   InitializeHandlerOutput,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 export const loggerMiddleware =
   () =>

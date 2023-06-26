@@ -1,5 +1,5 @@
 import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { CognitoIdentityCredentialProvider, fromCognitoIdentity } from "./fromCognitoIdentity";
@@ -9,7 +9,7 @@ import { Storage } from "./Storage";
 
 /**
  * @internal
- * 
+ *
  * Retrieves or generates a unique identifier using Amazon Cognito's `GetId`
  * operation, then generates temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.

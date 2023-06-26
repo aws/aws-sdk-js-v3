@@ -1,6 +1,6 @@
 import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
-import { getProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/shared-ini-file-loader";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
@@ -40,7 +40,7 @@ export interface FromIniInit extends SourceProfileInit {
 
 /**
  * @internal
- * 
+ *
  * Creates a credential provider that will read from ini files and supports
  * role assumption and multi-factor authentication.
  */

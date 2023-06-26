@@ -1,8 +1,8 @@
-import { Profile } from "@aws-sdk/types";
+import { Profile } from "@smithy/types";
 
 /**
  * @internal
- * 
+ *
  * Cached SSO token retrieved from SSO login flow.
  */
 export interface SSOToken {

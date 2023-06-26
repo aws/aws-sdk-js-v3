@@ -5,7 +5,7 @@ import {
   EventStreamPayloadHandlerProvider,
   MessageSigner,
   Provider,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 

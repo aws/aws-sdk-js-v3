@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { FinalizeRequestMiddleware, RelativeMiddlewareOptions } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { FinalizeRequestMiddleware, RelativeMiddlewareOptions } from "@smithy/types";
 
 import { EventStreamResolvedConfig } from "./eventStreamConfiguration";
 

@@ -1,14 +1,14 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { formatUrl } from "@aws-sdk/util-format-url";
 import {
   EndpointParameterInstructionsSupplier,
   getEndpointFromInstructions,
   toEndpointV1,
-} from "@aws-sdk/middleware-endpoint";
-import { createScope, getSigningKey } from "@aws-sdk/signature-v4";
-import { ChecksumConstructor, HashConstructor, SourceData } from "@aws-sdk/types";
-import { formatUrl } from "@aws-sdk/util-format-url";
-import { toHex } from "@aws-sdk/util-hex-encoding";
-import { toUint8Array } from "@aws-sdk/util-utf8";
+} from "@smithy/middleware-endpoint";
+import { createScope, getSigningKey } from "@smithy/signature-v4";
+import { ChecksumConstructor, HashConstructor, SourceData } from "@smithy/types";
+import { toHex } from "@smithy/util-hex-encoding";
+import { toUint8Array } from "@smithy/util-utf8";
 
 import {
   ALGORITHM_IDENTIFIER,

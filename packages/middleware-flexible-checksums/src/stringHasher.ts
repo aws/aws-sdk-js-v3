@@ -1,5 +1,5 @@
-import { ChecksumConstructor, HashConstructor } from "@aws-sdk/types";
-import { toUint8Array } from "@aws-sdk/util-utf8";
+import { ChecksumConstructor, HashConstructor } from "@smithy/types";
+import { toUint8Array } from "@smithy/util-utf8";
 
 /**
  * A function that, given a hash constructor and a string, calculates the hash of the string.

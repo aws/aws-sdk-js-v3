@@ -5,7 +5,7 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 export function accountIdDefaultMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>

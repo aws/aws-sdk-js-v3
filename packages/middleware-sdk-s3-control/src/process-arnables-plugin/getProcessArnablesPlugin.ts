@@ -1,4 +1,4 @@
-import { Pluggable } from "@aws-sdk/types";
+import { Pluggable } from "@smithy/types";
 
 import { S3ControlResolvedConfig } from "../configurations";
 import { parseOutpostArnablesMiddleaware, parseOutpostArnablesMiddleawareOptions } from "./parse-outpost-arnables";

@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { EndpointV2 } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { EndpointV2 } from "@smithy/types";
 
 import { credentials, MockSha256, region } from "./fixture";
 import { copySnapshotPresignedUrlMiddleware } from "./index";

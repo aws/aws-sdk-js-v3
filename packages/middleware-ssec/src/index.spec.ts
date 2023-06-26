@@ -1,4 +1,4 @@
-import { ChecksumConstructor } from "@aws-sdk/types";
+import { ChecksumConstructor } from "@smithy/types";
 
 import { ssecMiddleware } from "./";
 

@@ -1,5 +1,5 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { AwsCredentialIdentity, ParsedIniData } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 import { exec } from "child_process";
 import { promisify } from "util";
 

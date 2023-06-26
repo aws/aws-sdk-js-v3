@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import {
   AuthScheme,
   FinalizeHandler,
@@ -8,7 +8,7 @@ import {
   HandlerExecutionContext,
   Pluggable,
   RelativeMiddlewareOptions,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";

@@ -1,5 +1,5 @@
-import { AbortSignal } from "@aws-sdk/abort-controller";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { AbortSignal } from "@smithy/abort-controller";
+import { HttpRequest } from "@smithy/protocol-http";
 
 import { XhrHttpHandler } from "./xhr-http-handler";
 

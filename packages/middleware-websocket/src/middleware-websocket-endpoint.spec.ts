@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerArguments, RequestHandler } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { BuildHandlerArguments, RequestHandler } from "@smithy/types";
 
 import { websocketEndpointMiddleware } from "./middleware-websocket-endpoint";
 

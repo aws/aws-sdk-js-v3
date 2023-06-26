@@ -1,5 +1,5 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * @internal

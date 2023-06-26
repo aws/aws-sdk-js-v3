@@ -1,21 +1,14 @@
 /**
  * @jest-environment jsdom
  */
-import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
-import {
-  Decoder,
-  Encoder,
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  HttpRequest,
-  MessageSigner,
-} from "@aws-sdk/types";
+import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
 import { ReadableStream, TransformStream } from "web-streams-polyfill";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 import { getEventSigningTransformStream } from "./get-event-signing-stream";
 jest.mock("./get-event-signing-stream");
-jest.mock("@aws-sdk/eventstream-codec");
+jest.mock("@smithy/eventstream-codec");
 
 describe(EventStreamPayloadHandler.name, () => {
   const mockSigner: MessageSigner = {

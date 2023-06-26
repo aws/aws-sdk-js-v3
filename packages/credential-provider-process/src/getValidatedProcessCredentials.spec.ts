@@ -1,4 +1,4 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@smithy/types";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";

@@ -1,5 +1,5 @@
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { AwsCredentialIdentity, Profile } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 

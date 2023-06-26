@@ -1,4 +1,4 @@
-import { HeaderBag } from "@aws-sdk/types";
+import { HeaderBag } from "@smithy/types";
 
 import { hasHeader } from "./hasHeader";
 

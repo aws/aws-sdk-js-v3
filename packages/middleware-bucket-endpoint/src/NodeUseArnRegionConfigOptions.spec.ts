@@ -1,4 +1,4 @@
-import { booleanSelector, SelectorType } from "@aws-sdk/util-config-provider";
+import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
 
 import {
   NODE_USE_ARN_REGION_CONFIG_OPTIONS,
@@ -6,7 +6,7 @@ import {
   NODE_USE_ARN_REGION_INI_NAME,
 } from "./NodeUseArnRegionConfigOptions";
 
-jest.mock("@aws-sdk/util-config-provider");
+jest.mock("@smithy/util-config-provider");
 
 describe("NODE_USE_ARN_REGION_CONFIG_OPTIONS", () => {
   afterEach(() => {

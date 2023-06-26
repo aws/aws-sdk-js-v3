@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 
 import { throw200ExceptionsMiddleware } from "./throw-200-exceptions";
 

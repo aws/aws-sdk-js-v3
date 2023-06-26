@@ -19,14 +19,15 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/protocol-http": "*",
-    "@aws-sdk/querystring-builder": "*",
+    "@smithy/protocol-http": "^1.1.0",
+    "@smithy/querystring-builder": "^1.0.1",
     "@aws-sdk/types": "*",
+    "@smithy/types": "^1.1.0",
     "events": "3.3.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "*",
+    "@smithy/abort-controller": "^1.0.1",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

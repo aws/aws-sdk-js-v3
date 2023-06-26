@@ -1,12 +1,12 @@
-import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { FetchHttpHandler } from "@smithy/fetch-http-handler";
+import { HttpRequest } from "@smithy/protocol-http";
 import WS from "jest-websocket-mock";
 import { WebSocket } from "mock-socket";
 import { PassThrough } from "stream";
 
 import { WebSocketFetchHandler } from "./websocket-fetch-handler";
 
-jest.mock("@aws-sdk/fetch-http-handler");
+jest.mock("@smithy/fetch-http-handler");
 
 describe(WebSocketFetchHandler.name, () => {
   const mockHostname = "localhost:6789";

@@ -1,11 +1,11 @@
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";

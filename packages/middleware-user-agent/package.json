@@ -21,9 +21,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "*",
-    "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
+    "@aws-sdk/types": "*",
+    "@smithy/protocol-http": "^1.1.0",
+    "@smithy/types": "^1.1.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

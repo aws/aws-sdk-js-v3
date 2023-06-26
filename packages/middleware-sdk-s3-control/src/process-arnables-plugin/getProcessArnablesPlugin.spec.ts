@@ -1,6 +1,6 @@
-import { constructStack } from "@aws-sdk/middleware-stack";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { Provider, RegionInfo } from "@aws-sdk/types";
+import { constructStack } from "@smithy/middleware-stack";
+import { HttpRequest } from "@smithy/protocol-http";
+import { Provider, RegionInfo } from "@smithy/types";
 
 import { S3ControlResolvedConfig } from "../configurations";
 import { getProcessArnablesPlugin } from "./getProcessArnablesPlugin";

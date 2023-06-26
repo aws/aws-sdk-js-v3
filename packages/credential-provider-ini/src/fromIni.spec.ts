@@ -1,10 +1,10 @@
-import { getProfileName, parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import { AwsCredentialIdentity } from "@smithy/types";
 
 import { fromIni } from "./fromIni";
 import { resolveProfileData } from "./resolveProfileData";
 
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./resolveProfileData");
 
 describe(fromIni.name, () => {

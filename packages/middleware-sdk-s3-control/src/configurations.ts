@@ -1,4 +1,4 @@
-import { Provider, RegionInfoProvider } from "@aws-sdk/types";
+import { Provider, RegionInfoProvider } from "@smithy/types";
 export { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
 
 export interface S3ControlInputConfig {

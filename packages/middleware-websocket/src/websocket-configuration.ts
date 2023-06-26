@@ -1,5 +1,5 @@
-import { SignatureV4 as BaseSignatureV4 } from "@aws-sdk/signature-v4";
-import { AuthScheme, Provider, RequestHandler, RequestSigner } from "@aws-sdk/types";
+import { SignatureV4 as BaseSignatureV4 } from "@smithy/signature-v4";
+import { AuthScheme, Provider, RequestHandler, RequestSigner } from "@smithy/types";
 
 import { WebsocketSignatureV4 } from "./WebsocketSignatureV4";
 

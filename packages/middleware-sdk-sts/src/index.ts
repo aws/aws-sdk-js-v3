@@ -6,7 +6,7 @@ import {
   HashConstructor,
   Provider,
   RegionInfoProvider,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 export interface StsAuthInputConfig extends AwsAuthInputConfig {}
 

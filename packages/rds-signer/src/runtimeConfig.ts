@@ -1,7 +1,7 @@
-import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@aws-sdk/config-resolver";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { Hash } from "@aws-sdk/hash-node";
-import { loadConfig } from "@aws-sdk/node-config-provider";
+import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/config-resolver";
+import { Hash } from "@smithy/hash-node";
+import { loadConfig } from "@smithy/node-config-provider";
 
 import { SignerConfig } from "./Signer";
 

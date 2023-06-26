@@ -1,6 +1,6 @@
 import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentity, Provider } from "@smithy/types";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { resolveLogins } from "./resolveLogins";
@@ -22,7 +22,7 @@ export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredenti
 
 /**
  * @internal
- * 
+ *
  * Retrieves temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
  *

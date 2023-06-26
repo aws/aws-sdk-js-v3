@@ -1,6 +1,5 @@
-import { chain, memoize, TokenProviderError } from "@aws-sdk/property-provider";
-import { ENV_PROFILE, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 import { TokenIdentityProvider } from "@aws-sdk/types";
+import { chain, memoize, TokenProviderError } from "@smithy/property-provider";
 
 import { fromSso, FromSsoInit } from "./fromSso";
 

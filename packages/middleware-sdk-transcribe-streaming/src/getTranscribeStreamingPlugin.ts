@@ -1,4 +1,4 @@
-import { Pluggable, RequestHandler } from "@aws-sdk/types";
+import { Pluggable, RequestHandler } from "@smithy/types";
 
 import {
   injectResponseValuesMiddleware,

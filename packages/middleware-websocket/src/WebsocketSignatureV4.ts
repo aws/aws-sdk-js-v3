@@ -1,12 +1,12 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { SignatureV4 as BaseSignatureV4 } from "@aws-sdk/signature-v4";
+import { HttpRequest } from "@smithy/protocol-http";
+import { SignatureV4 as BaseSignatureV4 } from "@smithy/signature-v4";
 import {
   HttpRequest as IHttpRequest,
   RequestPresigner,
   RequestPresigningArguments,
   RequestSigner,
   RequestSigningArguments,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { isWebSocketRequest } from "./utils";
 

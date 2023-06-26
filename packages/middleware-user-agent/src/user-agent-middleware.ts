@@ -1,4 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   AbsoluteLocation,
   BuildHandler,
@@ -9,8 +10,7 @@ import {
   MetadataBearer,
   Pluggable,
   UserAgentPair,
-} from "@aws-sdk/types";
-import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
+} from "@smithy/types";
 
 import { UserAgentResolvedConfig } from "./configurations";
 import {

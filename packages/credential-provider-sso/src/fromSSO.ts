@@ -1,12 +1,7 @@
 import { SSOClient } from "@aws-sdk/client-sso";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import {
-  getProfileName,
-  loadSsoSessionData,
-  parseKnownFiles,
-  SourceProfileInit,
-} from "@aws-sdk/shared-ini-file-loader";
-import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { isSsoProfile } from "./isSsoProfile";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
@@ -52,7 +47,7 @@ export interface FromSSOInit extends SourceProfileInit {
 
 /**
  * @internal
- * 
+ *
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  *

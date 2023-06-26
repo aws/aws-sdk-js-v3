@@ -1,11 +1,11 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
   BuildMiddleware,
   RelativeMiddlewareOptions,
   RequestHandler,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 /**
  * Middleware that modify the request to from http to WebSocket

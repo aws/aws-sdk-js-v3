@@ -1,5 +1,5 @@
-import { memoize } from "@aws-sdk/property-provider";
-import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
+import { memoize } from "@smithy/property-provider";
+import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import {
   AuthScheme,
   AwsCredentialIdentity,
@@ -11,8 +11,8 @@ import {
   RegionInfo,
   RegionInfoProvider,
   RequestSigner,
-} from "@aws-sdk/types";
-import { normalizeProvider } from "@aws-sdk/util-middleware";
+} from "@smithy/types";
+import { normalizeProvider } from "@smithy/util-middleware";
 
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;

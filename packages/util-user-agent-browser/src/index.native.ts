@@ -1,4 +1,4 @@
-import { Provider, UserAgent } from "@aws-sdk/types";
+import { Provider, UserAgent } from "@smithy/types";
 
 import { DefaultUserAgentOptions } from "./configurations";
 

@@ -7,7 +7,7 @@ import {
   SerializeHandlerArguments,
   SerializeHandlerOutput,
   SerializeMiddleware,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { deduplicateHostPrefix } from "./deduplicateHostPrefix";
 

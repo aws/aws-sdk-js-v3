@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerOptions, BuildMiddleware, Provider } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { BuildHandlerOptions, BuildMiddleware, Provider } from "@smithy/types";
 
 import { CONTEXT_ACCOUNT_ID, CONTEXT_ARN_REGION, CONTEXT_OUTPOST_ID } from "../constants";
 import { getOutpostEndpoint } from "./getOutpostEndpoint";

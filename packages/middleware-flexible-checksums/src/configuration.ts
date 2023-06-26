@@ -5,7 +5,7 @@ import {
   GetAwsChunkedEncodingStream,
   HashConstructor,
   StreamHasher,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 export interface PreviouslyResolved {
   /**

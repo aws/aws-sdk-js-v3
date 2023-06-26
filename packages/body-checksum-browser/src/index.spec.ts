@@ -1,6 +1,6 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { fromUtf8 } from "@aws-sdk/util-utf8";
+import { HttpRequest } from "@smithy/protocol-http";
+import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "stream";
 
 import { bodyChecksumGenerator } from ".";

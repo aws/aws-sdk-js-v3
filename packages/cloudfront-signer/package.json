@@ -21,7 +21,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/url-parser": "*"
+    "@smithy/url-parser": "^1.0.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

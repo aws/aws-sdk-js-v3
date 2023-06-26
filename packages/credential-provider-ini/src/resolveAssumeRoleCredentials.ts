@@ -1,6 +1,6 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getProfileName } from "@aws-sdk/shared-ini-file-loader";
-import { ParsedIniData, Profile } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getProfileName } from "@smithy/shared-ini-file-loader";
+import { ParsedIniData, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
@@ -8,7 +8,7 @@ import { resolveProfileData } from "./resolveProfileData";
 
 /**
  * @internal
- * 
+ *
  * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
  * TODO update the above to link to V3 docs
  */

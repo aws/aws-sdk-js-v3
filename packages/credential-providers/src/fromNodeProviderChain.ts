@@ -1,6 +1,6 @@
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity, STSClientConfig } from "@aws-sdk/client-sts";
 import { defaultProvider, DefaultProviderInit } from "@aws-sdk/credential-provider-node";
-import { AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
 export interface fromNodeProviderChainInit extends DefaultProviderInit {
   clientConfig?: STSClientConfig;

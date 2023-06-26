@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerArguments } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { BuildHandlerArguments } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
@@ -12,7 +12,7 @@ import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFuncti
 import { stringHasher } from "./stringHasher";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
-jest.mock("@aws-sdk/protocol-http");
+jest.mock("@smithy/protocol-http");
 jest.mock("./getChecksumAlgorithmForRequest");
 jest.mock("./getChecksumLocationName");
 jest.mock("./hasHeader");

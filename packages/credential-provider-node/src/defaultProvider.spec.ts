@@ -3,20 +3,20 @@ import { fromIni } from "@aws-sdk/credential-provider-ini";
 import { fromProcess } from "@aws-sdk/credential-provider-process";
 import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { chain, CredentialsProviderError, memoize } from "@aws-sdk/property-provider";
-import { ENV_PROFILE, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
+import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
+import { ENV_PROFILE, loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
 
 import { defaultProvider } from "./defaultProvider";
 import { remoteProvider } from "./remoteProvider";
 
 jest.mock("@aws-sdk/credential-provider-env");
-jest.mock("@aws-sdk/credential-provider-imds");
+jest.mock("@smithy/credential-provider-imds");
 jest.mock("@aws-sdk/credential-provider-ini");
 jest.mock("@aws-sdk/credential-provider-process");
 jest.mock("@aws-sdk/credential-provider-sso");
 jest.mock("@aws-sdk/credential-provider-web-identity");
-jest.mock("@aws-sdk/property-provider");
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/property-provider");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./remoteProvider");
 
 describe(defaultProvider.name, () => {

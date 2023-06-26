@@ -1,4 +1,4 @@
-import { HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";

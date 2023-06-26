@@ -1,4 +1,4 @@
-import { parseQueryString } from "@aws-sdk/querystring-parser";
+import { parseQueryString } from "@smithy/querystring-parser";
 import {
   getCanonicalQuery,
   getPayloadHash,
@@ -6,7 +6,7 @@ import {
   prepareRequest,
   SignatureV4CryptoInit,
   SignatureV4Init,
-} from "@aws-sdk/signature-v4";
+} from "@smithy/signature-v4";
 import {
   AwsCredentialIdentity,
   HttpRequest,
@@ -16,8 +16,8 @@ import {
   RequestPresigningArguments,
   RequestSigner,
   RequestSigningArguments,
-} from "@aws-sdk/types";
-import { normalizeProvider } from "@aws-sdk/util-middleware";
+} from "@smithy/types";
+import { normalizeProvider } from "@smithy/util-middleware";
 import { auth as crtAuth, http as crtHttp, io as crtIO } from "aws-crt";
 
 import { MAX_PRESIGNED_TTL, SHA256_HEADER } from "./constants";

@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 
 import { hostHeaderMiddleware } from "./index";
 describe("hostHeaderMiddleware", () => {

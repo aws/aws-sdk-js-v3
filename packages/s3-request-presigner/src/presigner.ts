@@ -1,6 +1,6 @@
 import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "@aws-sdk/signature-v4-multi-region";
-import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
-import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
+import { RequestPresigner, RequestPresigningArguments } from "@smithy/types";
+import { HttpRequest as IHttpRequest } from "@smithy/types";
 
 import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
 

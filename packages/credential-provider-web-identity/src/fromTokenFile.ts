@@ -1,5 +1,5 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentityProvider } from "@smithy/types";
 import { readFileSync } from "fs";
 
 import { fromWebToken, FromWebTokenInit } from "./fromWebToken";

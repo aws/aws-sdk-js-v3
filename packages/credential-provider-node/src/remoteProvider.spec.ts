@@ -3,12 +3,12 @@ import {
   ENV_CMDS_RELATIVE_URI,
   fromContainerMetadata,
   fromInstanceMetadata,
-} from "@aws-sdk/credential-provider-imds";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
+} from "@smithy/credential-provider-imds";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { ENV_IMDS_DISABLED, remoteProvider } from "./remoteProvider";
 
-jest.mock("@aws-sdk/credential-provider-imds");
+jest.mock("@smithy/credential-provider-imds");
 
 describe(remoteProvider.name, () => {
   const ORIGINAL_ENV = process.env;

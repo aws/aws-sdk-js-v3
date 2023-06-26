@@ -1,5 +1,5 @@
 import { SQS } from "@aws-sdk/client-sqs";
-import { HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
 import crypto from "crypto";
 import { Readable } from "stream";
 

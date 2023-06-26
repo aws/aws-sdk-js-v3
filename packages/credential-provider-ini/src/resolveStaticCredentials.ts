@@ -1,4 +1,4 @@
-import { AwsCredentialIdentity, Profile } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Profile } from "@smithy/types";
 
 /**
  * @internal

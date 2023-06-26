@@ -1,5 +1,5 @@
-import { TokenProviderError } from "@aws-sdk/property-provider";
 import { TokenIdentity } from "@aws-sdk/types";
+import { TokenProviderError } from "@smithy/property-provider";
 
 import { REFRESH_MESSAGE } from "./constants";
 
