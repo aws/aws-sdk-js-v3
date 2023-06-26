@@ -201,6 +201,7 @@ import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroup
 import { GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput } from "./commands/GetGroupPolicyCommand";
 import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "./commands/GetInstanceProfileCommand";
 import { GetLoginProfileCommandInput, GetLoginProfileCommandOutput } from "./commands/GetLoginProfileCommand";
+import { GetMFADeviceCommandInput, GetMFADeviceCommandOutput } from "./commands/GetMFADeviceCommand";
 import {
   GetOpenIDConnectProviderCommandInput,
   GetOpenIDConnectProviderCommandOutput,
@@ -511,6 +512,7 @@ export type ServiceInputTypes =
   | GetGroupPolicyCommandInput
   | GetInstanceProfileCommandInput
   | GetLoginProfileCommandInput
+  | GetMFADeviceCommandInput
   | GetOpenIDConnectProviderCommandInput
   | GetOrganizationsAccessReportCommandInput
   | GetPolicyCommandInput
@@ -674,6 +676,7 @@ export type ServiceOutputTypes =
   | GetGroupPolicyCommandOutput
   | GetInstanceProfileCommandOutput
   | GetLoginProfileCommandOutput
+  | GetMFADeviceCommandOutput
   | GetOpenIDConnectProviderCommandOutput
   | GetOrganizationsAccessReportCommandOutput
   | GetPolicyCommandOutput

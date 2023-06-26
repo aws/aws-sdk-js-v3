@@ -39,8 +39,12 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             user.</p>
  *          <p>An IAM user can also have a managed policy attached to it. To attach a managed
- *             policy to a user, use <a>AttachUserPolicy</a>. To create a new managed
- *             policy, use <a>CreatePolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+ *             policy to a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html">
+ *                <code>AttachUserPolicy</code>
+ *             </a>. To create a new managed policy, use
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">
+ *                <code>CreatePolicy</code>
+ *             </a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
  *                 policies and inline policies</a> in the
  *             <i>IAM User Guide</i>.</p>
  *          <p>For information about the maximum number of inline policies that you can embed in a

@@ -14,8 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagMFADeviceRequest } from "../models/models_1";
-import { de_UntagMFADeviceCommand, se_UntagMFADeviceCommand } from "../protocols/Aws_query";
+import { GetMFADeviceRequest, GetMFADeviceResponse } from "../models/models_0";
+import { de_GetMFADeviceCommand, se_GetMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -24,52 +24,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UntagMFADeviceCommand}.
+ * The input for {@link GetMFADeviceCommand}.
  */
-export interface UntagMFADeviceCommandInput extends UntagMFADeviceRequest {}
+export interface GetMFADeviceCommandInput extends GetMFADeviceRequest {}
 /**
  * @public
  *
- * The output of {@link UntagMFADeviceCommand}.
+ * The output of {@link GetMFADeviceCommand}.
  */
-export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
+export interface GetMFADeviceCommandOutput extends GetMFADeviceResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Removes the specified tags from the IAM virtual multi-factor authentication (MFA)
- *       device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
- *       <i>IAM User Guide</i>.</p>
+ * <p>Retrieves information about an MFA device for a specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IAMClient, UntagMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
- * // const { IAMClient, UntagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * import { IAMClient, GetMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = { // UntagMFADeviceRequest
+ * const input = { // GetMFADeviceRequest
  *   SerialNumber: "STRING_VALUE", // required
- *   TagKeys: [ // tagKeyListType // required
- *     "STRING_VALUE",
- *   ],
+ *   UserName: "STRING_VALUE",
  * };
- * const command = new UntagMFADeviceCommand(input);
+ * const command = new GetMFADeviceCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetMFADeviceResponse
+ * //   UserName: "STRING_VALUE",
+ * //   SerialNumber: "STRING_VALUE", // required
+ * //   EnableDate: new Date("TIMESTAMP"),
+ * //   Certifications: { // CertificationMapType
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param UntagMFADeviceCommandInput - {@link UntagMFADeviceCommandInput}
- * @returns {@link UntagMFADeviceCommandOutput}
- * @see {@link UntagMFADeviceCommandInput} for command's `input` shape.
- * @see {@link UntagMFADeviceCommandOutput} for command's `response` shape.
+ * @param GetMFADeviceCommandInput - {@link GetMFADeviceCommandInput}
+ * @returns {@link GetMFADeviceCommandOutput}
+ * @see {@link GetMFADeviceCommandInput} for command's `input` shape.
+ * @see {@link GetMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
- *
- * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
- *
- * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
@@ -83,9 +78,9 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
-export class UntagMFADeviceCommand extends $Command<
-  UntagMFADeviceCommandInput,
-  UntagMFADeviceCommandOutput,
+export class GetMFADeviceCommand extends $Command<
+  GetMFADeviceCommandInput,
+  GetMFADeviceCommandOutput,
   IAMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -103,7 +98,7 @@ export class UntagMFADeviceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UntagMFADeviceCommandInput) {
+  constructor(readonly input: GetMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -116,17 +111,15 @@ export class UntagMFADeviceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagMFADeviceCommandInput, UntagMFADeviceCommandOutput> {
+  ): Handler<GetMFADeviceCommandInput, GetMFADeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UntagMFADeviceCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetMFADeviceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IAMClient";
-    const commandName = "UntagMFADeviceCommand";
+    const commandName = "GetMFADeviceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -145,15 +138,15 @@ export class UntagMFADeviceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UntagMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UntagMFADeviceCommand(input, context);
+  private serialize(input: GetMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetMFADeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagMFADeviceCommandOutput> {
-    return de_UntagMFADeviceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMFADeviceCommandOutput> {
+    return de_GetMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

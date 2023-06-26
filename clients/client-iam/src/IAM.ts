@@ -290,6 +290,11 @@ import {
   GetLoginProfileCommandOutput,
 } from "./commands/GetLoginProfileCommand";
 import {
+  GetMFADeviceCommand,
+  GetMFADeviceCommandInput,
+  GetMFADeviceCommandOutput,
+} from "./commands/GetMFADeviceCommand";
+import {
   GetOpenIDConnectProviderCommand,
   GetOpenIDConnectProviderCommandInput,
   GetOpenIDConnectProviderCommandOutput,
@@ -770,6 +775,7 @@ const commands = {
   GetGroupPolicyCommand,
   GetInstanceProfileCommand,
   GetLoginProfileCommand,
+  GetMFADeviceCommand,
   GetOpenIDConnectProviderCommand,
   GetOrganizationsAccessReportCommand,
   GetPolicyCommand,
@@ -1862,6 +1868,17 @@ export interface IAM {
     args: GetLoginProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLoginProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMFADeviceCommand}
+   */
+  getMFADevice(args: GetMFADeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetMFADeviceCommandOutput>;
+  getMFADevice(args: GetMFADeviceCommandInput, cb: (err: any, data?: GetMFADeviceCommandOutput) => void): void;
+  getMFADevice(
+    args: GetMFADeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMFADeviceCommandOutput) => void
   ): void;
 
   /**

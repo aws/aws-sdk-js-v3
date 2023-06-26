@@ -14,7 +14,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagOpenIDConnectProviderRequest } from "../models/models_0";
+import { UntagOpenIDConnectProviderRequest } from "../models/models_1";
 import { de_UntagOpenIDConnectProviderCommand, se_UntagOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**

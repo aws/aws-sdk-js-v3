@@ -3560,6 +3560,49 @@ export interface GetLoginProfileResponse {
 /**
  * @public
  */
+export interface GetMFADeviceRequest {
+  /**
+   * <p>Serial number that uniquely identifies the MFA device. For this API, we only accept
+   *             FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>The friendly name identifying the user.</p>
+   */
+  UserName?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetMFADeviceResponse {
+  /**
+   * <p>The friendly name identifying the user.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>Serial number that uniquely identifies the MFA device. For this API, we only accept
+   *             FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>The date that a specified user's MFA device was first enabled.</p>
+   */
+  EnableDate?: Date;
+
+  /**
+   * <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels
+   *             obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
+   */
+  Certifications?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface GetOpenIDConnectProviderRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get
@@ -8367,43 +8410,6 @@ export interface UntagInstanceProfileRequest {
   /**
    * <p>A list of key names as a simple array of strings. The tags with matching keys are
    *       removed from the specified instance profile.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagMFADeviceRequest {
-  /**
-   * <p>The unique identifier for the IAM virtual MFA device from which you want to remove
-   *       tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  SerialNumber: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified instance profile.</p>
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagOpenIDConnectProviderRequest {
-  /**
-   * <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  OpenIDConnectProviderArn: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified OIDC provider.</p>
    */
   TagKeys: string[] | undefined;
 }

@@ -714,6 +714,14 @@ GetLoginProfile
 </details>
 <details>
 <summary>
+GetMFADevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iam/classes/getmfadevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iam/interfaces/getmfadevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iam/interfaces/getmfadevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetOpenIDConnectProvider
 </summary>
 
