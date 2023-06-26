@@ -1303,6 +1303,14 @@ SearchQuickConnects
 </details>
 <details>
 <summary>
+SearchResourceTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/searchresourcetagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/searchresourcetagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/searchresourcetagscommandoutput.html)
+
+</details>
+<details>
+<summary>
 SearchRoutingProfiles
 </summary>
 

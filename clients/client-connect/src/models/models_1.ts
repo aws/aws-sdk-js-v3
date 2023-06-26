@@ -17,7 +17,6 @@ import {
   ContactState,
   CurrentMetric,
   DirectoryType,
-  Evaluation,
   EvaluationAnswerData,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
@@ -4437,6 +4436,130 @@ export interface SearchQuickConnectsResponse {
 
 /**
  * @public
+ * <p>Maximum number (1000) of tags have been returned with current request. Consider
+ *    changing request parameters to get more tags.</p>
+ */
+export class MaximumResultReturnedException extends __BaseException {
+  readonly name: "MaximumResultReturnedException" = "MaximumResultReturnedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaximumResultReturnedException, __BaseException>) {
+    super({
+      name: "MaximumResultReturnedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumResultReturnedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The search criteria to be used to return tags.</p>
+ */
+export interface TagSearchCondition {
+  /**
+   * <p>The tag key used in the tag search condition.</p>
+   */
+  tagKey?: string;
+
+  /**
+   * <p>The tag value used in the tag search condition.</p>
+   */
+  tagValue?: string;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the tag key in tag search condition.</p>
+   */
+  tagKeyComparisonType?: StringComparisonType | string;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the tag value in tag search condition.</p>
+   */
+  tagValueComparisonType?: StringComparisonType | string;
+}
+
+/**
+ * @public
+ * <p>The search criteria to be used to search tags.</p>
+ */
+export interface ResourceTagsSearchCriteria {
+  /**
+   * <p>The search criteria to be used to return tags.</p>
+   */
+  TagSearchCondition?: TagSearchCondition;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourceTagsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon
+   *    Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The list of resource types to be used to search tags from. If not provided or if any empty list
+   *    is provided, this API will search from all supported resource types.</p>
+   */
+  ResourceTypes?: string[];
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the
+   *    next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The search criteria to be used to return tags.</p>
+   */
+  SearchCriteria?: ResourceTagsSearchCriteria;
+}
+
+/**
+ * @public
+ * <p>A tag set contains tag key and tag value.</p>
+ */
+export interface TagSet {
+  /**
+   * <p>The tag key in the tagSet.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The tag value in the tagSet.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourceTagsResponse {
+  /**
+   * <p>A list of tags used in the Amazon Connect instance.</p>
+   */
+  Tags?: TagSet[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * <p>Filters to be applied to search results.</p>
  */
 export interface RoutingProfileSearchFilter {
@@ -7323,192 +7446,6 @@ export interface QueueSearchCriteria {
    * <p>The type of queue.</p>
    */
   QueueTypeCondition?: SearchableQueueType | string;
-}
-
-/**
- * @public
- * <p>The search criteria to be used to return quick connects.</p>
- */
-export interface QuickConnectSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   */
-  OrConditions?: QuickConnectSearchCriteria[];
-
-  /**
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   */
-  AndConditions?: QuickConnectSearchCriteria[];
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *     <code>description</code>, and <code>resourceID</code>.</p>
-   *          </note>
-   */
-  StringCondition?: StringCondition;
-}
-
-/**
- * @public
- * <p>The search criteria to be used to return routing profiles.</p>
- *          <note>
- *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
- *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
- *     outside of this range will throw invalid results. </p>
- *          </note>
- */
-export interface RoutingProfileSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   */
-  OrConditions?: RoutingProfileSearchCriteria[];
-
-  /**
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   */
-  AndConditions?: RoutingProfileSearchCriteria[];
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *     <code>description</code>, and <code>resourceID</code>.</p>
-   *          </note>
-   */
-  StringCondition?: StringCondition;
-}
-
-/**
- * @public
- * <p>The search criteria to be used to return security profiles.</p>
- *          <note>
- *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and
- *     maximum of 25 characters. Any queries with character lengths outside of this range will throw
- *     invalid results.</p>
- *          </note>
- */
-export interface SecurityProfileSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   */
-  OrConditions?: SecurityProfileSearchCriteria[];
-
-  /**
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   */
-  AndConditions?: SecurityProfileSearchCriteria[];
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition. </p>
-   */
-  StringCondition?: StringCondition;
-}
-
-/**
- * @public
- */
-export interface UpdateEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form to update.</p>
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * <p>A flag indicating whether the operation must create a new version.</p>
-   */
-  CreateNewVersion?: boolean;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- * <p>The search criteria to be used to return users.</p>
- *          <note>
- *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
- *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
- *     outside of this range will throw invalid results.  </p>
- *          </note>
- */
-export interface UserSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code>
-   *    condition.</p>
-   */
-  OrConditions?: UserSearchCriteria[];
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.
-   *   </p>
-   */
-  AndConditions?: UserSearchCriteria[];
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *    <code>description</code>, and <code>resourceID</code>.</p>
-   *          </note>
-   */
-  StringCondition?: StringCondition;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
-   */
-  HierarchyGroupCondition?: HierarchyGroupCondition;
-}
-
-/**
- * @public
- */
-export interface DescribeContactEvaluationResponse {
-  /**
-   * <p>Information about the evaluation form completed for a specific contact.</p>
-   */
-  Evaluation: Evaluation | undefined;
-
-  /**
-   * <p>Information about the evaluation form.</p>
-   */
-  EvaluationForm: EvaluationFormContent | undefined;
 }
 
 /**

@@ -412,6 +412,7 @@ import {
   SearchQuickConnectsCommandInput,
   SearchQuickConnectsCommandOutput,
 } from "./commands/SearchQuickConnectsCommand";
+import { SearchResourceTagsCommandInput, SearchResourceTagsCommandOutput } from "./commands/SearchResourceTagsCommand";
 import {
   SearchRoutingProfilesCommandInput,
   SearchRoutingProfilesCommandOutput,
@@ -742,6 +743,7 @@ export type ServiceInputTypes =
   | SearchPromptsCommandInput
   | SearchQueuesCommandInput
   | SearchQuickConnectsCommandInput
+  | SearchResourceTagsCommandInput
   | SearchRoutingProfilesCommandInput
   | SearchSecurityProfilesCommandInput
   | SearchUsersCommandInput
@@ -940,6 +942,7 @@ export type ServiceOutputTypes =
   | SearchPromptsCommandOutput
   | SearchQueuesCommandOutput
   | SearchQuickConnectsCommandOutput
+  | SearchResourceTagsCommandOutput
   | SearchRoutingProfilesCommandOutput
   | SearchSecurityProfilesCommandOutput
   | SearchUsersCommandOutput

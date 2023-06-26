@@ -14,7 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateEvaluationFormRequest, UpdateEvaluationFormResponse } from "../models/models_1";
+import { UpdateEvaluationFormResponse } from "../models/models_1";
+import { UpdateEvaluationFormRequest } from "../models/models_2";
 import { de_UpdateEvaluationFormCommand, se_UpdateEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**

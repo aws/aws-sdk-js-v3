@@ -639,6 +639,11 @@ import {
   SearchQuickConnectsCommandOutput,
 } from "./commands/SearchQuickConnectsCommand";
 import {
+  SearchResourceTagsCommand,
+  SearchResourceTagsCommandInput,
+  SearchResourceTagsCommandOutput,
+} from "./commands/SearchResourceTagsCommand";
+import {
   SearchRoutingProfilesCommand,
   SearchRoutingProfilesCommandInput,
   SearchRoutingProfilesCommandOutput,
@@ -1046,6 +1051,7 @@ const commands = {
   SearchPromptsCommand,
   SearchQueuesCommand,
   SearchQuickConnectsCommand,
+  SearchResourceTagsCommand,
   SearchRoutingProfilesCommand,
   SearchSecurityProfilesCommand,
   SearchUsersCommand,
@@ -3233,6 +3239,23 @@ export interface Connect {
     args: SearchQuickConnectsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchQuickConnectsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchResourceTagsCommand}
+   */
+  searchResourceTags(
+    args: SearchResourceTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchResourceTagsCommandOutput>;
+  searchResourceTags(
+    args: SearchResourceTagsCommandInput,
+    cb: (err: any, data?: SearchResourceTagsCommandOutput) => void
+  ): void;
+  searchResourceTags(
+    args: SearchResourceTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchResourceTagsCommandOutput) => void
   ): void;
 
   /**

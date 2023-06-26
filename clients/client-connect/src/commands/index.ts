@@ -135,6 +135,7 @@ export * from "./SearchHoursOfOperationsCommand";
 export * from "./SearchPromptsCommand";
 export * from "./SearchQueuesCommand";
 export * from "./SearchQuickConnectsCommand";
+export * from "./SearchResourceTagsCommand";
 export * from "./SearchRoutingProfilesCommand";
 export * from "./SearchSecurityProfilesCommand";
 export * from "./SearchUsersCommand";

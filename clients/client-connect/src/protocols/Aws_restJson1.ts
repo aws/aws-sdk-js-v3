@@ -386,6 +386,7 @@ import {
   SearchQuickConnectsCommandInput,
   SearchQuickConnectsCommandOutput,
 } from "../commands/SearchQuickConnectsCommand";
+import { SearchResourceTagsCommandInput, SearchResourceTagsCommandOutput } from "../commands/SearchResourceTagsCommand";
 import {
   SearchRoutingProfilesCommandInput,
   SearchRoutingProfilesCommandOutput,
@@ -690,6 +691,7 @@ import {
   HoursOfOperationSearchCriteria,
   HoursOfOperationSearchFilter,
   InstanceSummary,
+  MaximumResultReturnedException,
   MetricDataV2,
   MetricFilterV2,
   MetricResultV2,
@@ -703,16 +705,15 @@ import {
   PromptSearchFilter,
   QueueSearchCriteria,
   QueueSearchFilter,
-  QuickConnectSearchCriteria,
   QuickConnectSearchFilter,
-  RoutingProfileSearchCriteria,
+  ResourceTagsSearchCriteria,
   RoutingProfileSearchFilter,
   RuleSummary,
   SecurityKey,
-  SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
   StringCondition,
   TagCondition,
+  TagSearchCondition,
   TaskTemplateMetadata,
   TelephonyConfig,
   Threshold,
@@ -721,11 +722,16 @@ import {
   UserData,
   UserDataFilters,
   UserNotFoundException,
-  UserSearchCriteria,
   UserSearchFilter,
   VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_1";
+import {
+  QuickConnectSearchCriteria,
+  RoutingProfileSearchCriteria,
+  SecurityProfileSearchCriteria,
+  UserSearchCriteria,
+} from "../models/models_2";
 
 /**
  * serializeAws_restJson1ActivateEvaluationFormCommand
@@ -5113,6 +5119,39 @@ export const se_SearchQuickConnectsCommand = async (
       NextToken: [],
       SearchCriteria: (_) => se_QuickConnectSearchCriteria(_, context),
       SearchFilter: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SearchResourceTagsCommand
+ */
+export const se_SearchResourceTagsCommand = async (
+  input: SearchResourceTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-resource-tags";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      ResourceTypes: (_) => _json(_),
+      SearchCriteria: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -15297,6 +15336,69 @@ const de_SearchQuickConnectsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchResourceTagsCommand
+ */
+export const de_SearchResourceTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchResourceTagsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchResourceTagsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchResourceTagsCommandError
+ */
+const de_SearchResourceTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchResourceTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "MaximumResultReturnedException":
+    case "com.amazonaws.connect#MaximumResultReturnedException":
+      throw await de_MaximumResultReturnedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1SearchRoutingProfilesCommand
  */
 export const de_SearchRoutingProfilesCommand = async (
@@ -18823,6 +18925,26 @@ const de_LimitExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1MaximumResultReturnedExceptionRes
+ */
+const de_MaximumResultReturnedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MaximumResultReturnedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new MaximumResultReturnedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1OutboundContactNotPermittedExceptionRes
  */
 const de_OutboundContactNotPermittedExceptionRes = async (
@@ -19399,6 +19521,10 @@ const se_QuickConnectSearchCriteria = (input: QuickConnectSearchCriteria, contex
 
 // se_RequiredTaskTemplateFields omitted.
 
+// se_ResourceTagsSearchCriteria omitted.
+
+// se_ResourceTypeList omitted.
+
 // se_RoutingProfileQueueConfig omitted.
 
 // se_RoutingProfileQueueConfigList omitted.
@@ -19489,6 +19615,8 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 // se_TagOrConditionList omitted.
 
 // se_TagRestrictedResourceList omitted.
+
+// se_TagSearchCondition omitted.
 
 // se_TaskActionDefinition omitted.
 
@@ -20520,6 +20648,10 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
 // de_TagMap omitted.
 
 // de_TagRestrictedResourceList omitted.
+
+// de_TagSet omitted.
+
+// de_TagsList omitted.
 
 // de_TaskActionDefinition omitted.
 

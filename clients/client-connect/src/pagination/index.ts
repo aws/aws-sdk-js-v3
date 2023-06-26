@@ -46,6 +46,7 @@ export * from "./SearchHoursOfOperationsPaginator";
 export * from "./SearchPromptsPaginator";
 export * from "./SearchQueuesPaginator";
 export * from "./SearchQuickConnectsPaginator";
+export * from "./SearchResourceTagsPaginator";
 export * from "./SearchRoutingProfilesPaginator";
 export * from "./SearchSecurityProfilesPaginator";
 export * from "./SearchUsersPaginator";
