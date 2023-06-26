@@ -268,6 +268,7 @@ import {
 import { VerifyOTPMessageCommandInput, VerifyOTPMessageCommandOutput } from "../commands/VerifyOTPMessageCommand";
 import {
   __EndpointTypesElement,
+  __TimezoneEstimationMethodsElement,
   Activity,
   AddressConfiguration,
   ADMChannelRequest,
@@ -12868,6 +12869,8 @@ const se_JourneySchedule = (input: JourneySchedule, context: __SerdeContext): an
 
 // se_ListOf__string omitted.
 
+// se_ListOf__TimezoneEstimationMethodsElement omitted.
+
 // se_ListOfClosedDaysRules omitted.
 
 /**
@@ -13360,6 +13363,7 @@ const se_WriteJourneyRequest = (input: WriteJourneyRequest, context: __SerdeCont
     StartActivity: [],
     StartCondition: (_) => se_StartCondition(_, context),
     State: [],
+    TimezoneEstimationMethods: _json,
     WaitForQuietTime: [],
   });
 };
@@ -13881,6 +13885,7 @@ const de_JourneyResponse = (output: any, context: __SerdeContext): JourneyRespon
     StartActivity: __expectString,
     StartCondition: (_: any) => de_StartCondition(_, context),
     State: __expectString,
+    TimezoneEstimationMethods: _json,
     WaitForQuietTime: __expectBoolean,
     tags: [, _json, `tags`],
   }) as any;
@@ -13920,6 +13925,8 @@ const de_JourneysResponse = (output: any, context: __SerdeContext): JourneysResp
 // de_ListOf__EndpointTypesElement omitted.
 
 // de_ListOf__string omitted.
+
+// de_ListOf__TimezoneEstimationMethodsElement omitted.
 
 // de_ListOfActivityResponse omitted.
 

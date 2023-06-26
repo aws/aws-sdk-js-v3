@@ -22,6 +22,7 @@ import {
   CampaignHook,
   CampaignLimits,
   CampaignResponse,
+  CampaignsResponse,
   ChannelsResponse,
   DefaultPushNotificationTemplate,
   DeliveryStatus,
@@ -64,6 +65,16 @@ import {
   WriteJourneyRequest,
   WriteSegmentRequest,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetCampaignVersionsResponse {
+  /**
+   * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
+   */
+  CampaignsResponse: CampaignsResponse | undefined;
+}
 
 /**
  * @public

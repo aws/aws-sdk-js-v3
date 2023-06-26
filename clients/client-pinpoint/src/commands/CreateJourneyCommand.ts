@@ -417,6 +417,9 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *         },
  *       ],
  *     },
+ *     TimezoneEstimationMethods: [ // ListOf__TimezoneEstimationMethodsElement
+ *       "PHONE_NUMBER" || "POSTAL_CODE",
+ *     ],
  *   },
  * };
  * const command = new CreateJourneyCommand(input);
@@ -799,6 +802,9 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     TimezoneEstimationMethods: [ // ListOf__TimezoneEstimationMethodsElement
+ * //       "PHONE_NUMBER" || "POSTAL_CODE",
+ * //     ],
  * //   },
  * // };
  *

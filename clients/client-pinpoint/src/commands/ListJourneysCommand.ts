@@ -430,6 +430,9 @@ export interface ListJourneysCommandOutput extends ListJourneysResponse, __Metad
  * //             },
  * //           ],
  * //         },
+ * //         TimezoneEstimationMethods: [ // ListOf__TimezoneEstimationMethodsElement
+ * //           "PHONE_NUMBER" || "POSTAL_CODE",
+ * //         ],
  * //       },
  * //     ],
  * //     NextToken: "STRING_VALUE",

@@ -427,6 +427,9 @@ export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     TimezoneEstimationMethods: [ // ListOf__TimezoneEstimationMethodsElement
+ * //       "PHONE_NUMBER" || "POSTAL_CODE",
+ * //     ],
  * //   },
  * // };
  *

@@ -430,6 +430,9 @@ export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateRespo
  * //         },
  * //       ],
  * //     },
+ * //     TimezoneEstimationMethods: [ // ListOf__TimezoneEstimationMethodsElement
+ * //       "PHONE_NUMBER" || "POSTAL_CODE",
+ * //     ],
  * //   },
  * // };
  *

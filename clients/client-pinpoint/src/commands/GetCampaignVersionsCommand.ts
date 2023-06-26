@@ -13,7 +13,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { GetCampaignVersionsRequest, GetCampaignVersionsResponse } from "../models/models_0";
+import { GetCampaignVersionsRequest } from "../models/models_0";
+import { GetCampaignVersionsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { de_GetCampaignVersionsCommand, se_GetCampaignVersionsCommand } from "../protocols/Aws_restJson1";
 

@@ -427,6 +427,9 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
  * //         },
  * //       ],
  * //     },
+ * //     TimezoneEstimationMethods: [ // ListOf__TimezoneEstimationMethodsElement
+ * //       "PHONE_NUMBER" || "POSTAL_CODE",
+ * //     ],
  * //   },
  * // };
  *
