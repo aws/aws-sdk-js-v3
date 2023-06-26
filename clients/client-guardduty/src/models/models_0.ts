@@ -4145,6 +4145,12 @@ export interface KubernetesUserDetails {
    * <p>The groups that include the user who called the Kubernetes API.</p>
    */
   Groups?: string[];
+
+  /**
+   * <p>Entity that assumes the IAM role
+   *       when Kubernetes RBAC permissions are assigned to that role.</p>
+   */
+  SessionName?: string[];
 }
 
 /**

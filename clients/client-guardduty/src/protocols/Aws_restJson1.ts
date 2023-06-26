@@ -7287,6 +7287,7 @@ const de_KubernetesDetails = (output: any, context: __SerdeContext): KubernetesD
 const de_KubernetesUserDetails = (output: any, context: __SerdeContext): KubernetesUserDetails => {
   return take(output, {
     Groups: [, _json, `groups`],
+    SessionName: [, _json, `sessionName`],
     Uid: [, __expectString, `uid`],
     Username: [, __expectString, `username`],
   }) as any;
@@ -8309,6 +8310,8 @@ const de_ServiceAdditionalInfo = (output: any, context: __SerdeContext): Service
     Value: [, __expectString, `value`],
   }) as any;
 };
+
+// de_SessionNameList omitted.
 
 // de_SourceIps omitted.
 

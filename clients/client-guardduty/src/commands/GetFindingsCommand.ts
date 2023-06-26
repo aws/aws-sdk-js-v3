@@ -196,6 +196,9 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             Groups: [ // Groups
  * //               "STRING_VALUE",
  * //             ],
+ * //             SessionName: [ // SessionNameList
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           KubernetesWorkloadDetails: { // KubernetesWorkloadDetails
  * //             Name: "STRING_VALUE",
