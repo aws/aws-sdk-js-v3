@@ -1,4 +1,3 @@
-import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
 import {
   AbortMultipartUploadCommandOutput,
   CompletedPart,
@@ -13,14 +12,15 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { AbortController, AbortSignal } from "@smithy/abort-controller";
 import {
   EndpointParameterInstructionsSupplier,
   getEndpointFromInstructions,
   toEndpointV1,
-} from "@aws-sdk/middleware-endpoint";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
-import { Endpoint } from "@aws-sdk/types";
+} from "@smithy/middleware-endpoint";
+import { HttpRequest } from "@smithy/protocol-http";
+import { extendedEncodeURIComponent } from "@smithy/smithy-client";
+import { Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";

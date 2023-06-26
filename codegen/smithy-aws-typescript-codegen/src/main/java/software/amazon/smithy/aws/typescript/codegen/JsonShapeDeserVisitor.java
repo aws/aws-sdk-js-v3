@@ -181,7 +181,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Prepare the document contents structure.
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-        writer.addImport("take", null, "@aws-sdk/smithy-client");
+        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.openBlock("return take(output, {", "}) as any;", () -> {
             // Set all the members to undefined to meet type constraints.
             members.forEach((memberName, memberShape) -> {

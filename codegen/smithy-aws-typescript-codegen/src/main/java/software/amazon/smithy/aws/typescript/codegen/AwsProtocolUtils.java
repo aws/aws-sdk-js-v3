@@ -123,7 +123,7 @@ final class AwsProtocolUtils {
 
     static void generateJsonParseBodyWithQueryHeader(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-        writer.addImport("HeaderBag", "__HeaderBag", "@aws-sdk/types");
+        writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
         writer.write(IoUtils.readUtf8Resource(
                 AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
     }
@@ -160,7 +160,7 @@ final class AwsProtocolUtils {
 
         // Include an XML body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
-        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
+        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.addDependency(AwsDependency.XML_PARSER);
         writer.addImport("XMLParser", null, "fast-xml-parser");
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
@@ -223,7 +223,8 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Write a single function to handle combining a map in to a valid query string.
-        writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent", "@aws-sdk/smithy-client");
+        writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent",
+            TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.openBlock("const buildFormUrlencodedString = (formEntries: Record<string, string>): "
                 + "string => Object.entries(formEntries).map(", ").join(\"&\");",
                 () -> writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "

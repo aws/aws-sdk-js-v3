@@ -52,8 +52,8 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        writer.addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.SMITHY_TYPES);
         writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
                 + "`x-amz-user-agent` header\n@internal");
         writer.write("defaultUserAgentProvider?: Provider<__UserAgent>;\n");

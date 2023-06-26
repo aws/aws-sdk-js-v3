@@ -30,6 +30,7 @@ import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
@@ -87,7 +88,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
-        writer.addImport("take", null, "@aws-sdk/smithy-client");
+        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
     }
 
@@ -149,7 +150,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     private void serializeDocumentBody(GenerationContext context, List<HttpBinding> documentBindings) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
-        writer.addImport("take", null, "@aws-sdk/smithy-client");
+        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.openBlock("body = JSON.stringify(take(input, {", "}));", () -> {
             for (HttpBinding binding : documentBindings) {
                 MemberShape memberShape = binding.getMember();
@@ -303,7 +304,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
-        writer.addImport("take", null, "@aws-sdk/smithy-client");
+        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
 
         writer.openBlock("const doc = take(data, {", "});", () -> {
             for (HttpBinding binding : documentBindings) {

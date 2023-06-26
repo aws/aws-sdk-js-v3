@@ -1,7 +1,7 @@
 import { HeadObjectCommand, S3, S3Client, S3ServiceException } from "@aws-sdk/client-s3";
-import { HttpResponse } from "@aws-sdk/protocol-http";
-import { RequestHandlerOutput } from "@aws-sdk/types";
-import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@aws-sdk/util-retry";
+import { HttpResponse } from "@smithy/protocol-http";
+import { RequestHandlerOutput } from "@smithy/types";
+import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import { Readable } from "stream";
 
 class MockRequestHandler {

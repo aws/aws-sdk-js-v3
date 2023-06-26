@@ -1,5 +1,5 @@
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { Client, HttpHandlerOptions, RequestHandler, RequestHandlerOutput } from "@aws-sdk/types";
+import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { Client, HttpHandlerOptions, RequestHandler, RequestHandlerOutput } from "@smithy/types";
 
 /**
  * Instructs {@link TestHttpHandler} how to match the handled request and the expected request.

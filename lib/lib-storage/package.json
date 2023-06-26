@@ -25,21 +25,20 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-endpoint": "*",
-    "@aws-sdk/smithy-client": "*",
+    "@smithy/middleware-endpoint": "^1.0.1",
+    "@smithy/smithy-client": "^1.0.3",
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",
     "tslib": "^2.5.0"
   },
   "peerDependencies": {
-    "@aws-sdk/abort-controller": "^3.0.0",
     "@aws-sdk/client-s3": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "*",
     "@aws-sdk/client-s3": "*",
-    "@aws-sdk/types": "*",
+    "@smithy/abort-controller": "^1.0.1",
+    "@smithy/types": "^1.1.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.11.2",
     "concurrently": "7.0.0",
