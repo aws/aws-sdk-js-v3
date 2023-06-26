@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
+
+
+### Features
+
+* **client-iam:** Support for a new API "GetMFADevice" to present MFA device metadata such as device certifications ([46a6009](https://github.com/aws/aws-sdk-js-v3/commit/46a60093fce06a5f3f4ac8658e20fa20d2f91521))
+
+
+
+
+
 # [3.359.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.358.0...v3.359.0) (2023-06-23)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

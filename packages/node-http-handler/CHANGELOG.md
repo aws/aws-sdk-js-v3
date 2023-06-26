@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
+
+
+### Bug Fixes
+
+* **node-http-handler:** rejoin on error in writeRequestBody ([#4880](https://github.com/aws/aws-sdk-js-v3/issues/4880)) ([6c8730a](https://github.com/aws/aws-sdk-js-v3/commit/6c8730a9646e324cc2c01b6e86df974a9f39fc64))
+
+
+
+
+
 # [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
 
 **Note:** Version bump only for package @aws-sdk/node-http-handler

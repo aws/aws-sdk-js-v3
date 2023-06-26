@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
+
+
+### Bug Fixes
+
+* **node-http-handler:** rejoin on error in writeRequestBody ([#4880](https://github.com/aws/aws-sdk-js-v3/issues/4880)) ([6c8730a](https://github.com/aws/aws-sdk-js-v3/commit/6c8730a9646e324cc2c01b6e86df974a9f39fc64))
+
+
+### Features
+
+* **client-connect:** This release provides a way to search for existing tags within an instance. Before tagging a resource, ensure consistency by searching for pre-existing key:value pairs. ([fff346b](https://github.com/aws/aws-sdk-js-v3/commit/fff346b4a0cd08303fdc991b5b8a84cd290cafd2))
+* **client-glue:** Timestamp Starting Position For Kinesis and Kafka Data Sources in a Glue Streaming Job ([b441cef](https://github.com/aws/aws-sdk-js-v3/commit/b441cefc3b9a0bf46087cc5499e8449455003451))
+* **client-guardduty:** Add support for user.extra.sessionName in Kubernetes Audit Logs Findings. ([bdf8f40](https://github.com/aws/aws-sdk-js-v3/commit/bdf8f40bf8cee08557940583fc59657765913cde))
+* **client-iam:** Support for a new API "GetMFADevice" to present MFA device metadata such as device certifications ([46a6009](https://github.com/aws/aws-sdk-js-v3/commit/46a60093fce06a5f3f4ac8658e20fa20d2f91521))
+* **client-pinpoint:** Added time zone estimation support for journeys ([cd5ca74](https://github.com/aws/aws-sdk-js-v3/commit/cd5ca74b53210ced2254546a90157aaceed942d0))
+
+
+
+
+
 # [3.359.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.358.0...v3.359.0) (2023-06-23)
 
 
