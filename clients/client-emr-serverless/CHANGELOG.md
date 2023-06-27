@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.361.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.360.0...v3.361.0) (2023-06-27)
+
+
+### Features
+
+* **client-emr-serverless:** This release adds support to update the release label of an EMR Serverless application to upgrade it to a different version of Amazon EMR via UpdateApplication API. ([5661064](https://github.com/aws/aws-sdk-js-v3/commit/566106420644d36f08151b5f9f1a8d73bb01086b))
+
+
+
+
+
 # [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

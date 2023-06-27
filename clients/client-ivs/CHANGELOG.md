@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.361.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.360.0...v3.361.0) (2023-06-27)
+
+
+### Features
+
+* **client-ivs:** IVS customers can now revoke the viewer session associated with an auth token, to prevent and stop playback using that token. ([5e12ed4](https://github.com/aws/aws-sdk-js-v3/commit/5e12ed4aa524d6ecfde6821a8226e9882c4e3564))
+
+
+
+
+
 # [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.361.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.360.0...v3.361.0) (2023-06-27)
+
+
+### Features
+
+* **client-macie2:** This release adds support for configuring new classification jobs to use the set of managed data identifiers that we recommend for jobs. For the managed data identifier selection type (managedDataIdentifierSelector), specify RECOMMENDED. ([5410b90](https://github.com/aws/aws-sdk-js-v3/commit/5410b9001ef77c41dfc96e10504f8aac8c1e8030))
+
+
+
+
+
 # [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
 
 **Note:** Version bump only for package @aws-sdk/client-macie2

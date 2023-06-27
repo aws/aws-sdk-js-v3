@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.361.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.360.0...v3.361.0) (2023-06-27)
+
+
+### Features
+
+* **client-sagemaker:** Introducing TTL for online store records in feature groups. ([9e6d60d](https://github.com/aws/aws-sdk-js-v3/commit/9e6d60d0d26333dc6f4b01c65b1607793d4bfcbd))
+
+
+
+
+
 # [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.361.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.360.0...v3.361.0) (2023-06-27)
+
+
+### Features
+
+* **client-privatenetworks:** This release allows Private5G customers to choose different commitment plans (60-days, 1-year, 3-years) when placing new orders, enables automatic renewal option for 1-year and 3-years commitments. It also allows customers to update the commitment plan of an existing radio unit. ([c0eca18](https://github.com/aws/aws-sdk-js-v3/commit/c0eca1870e50b241c5357cd53f80b51898ee99f0))
+
+
+
+
+
 # [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
 
 **Note:** Version bump only for package @aws-sdk/client-privatenetworks
