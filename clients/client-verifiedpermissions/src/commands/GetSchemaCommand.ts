@@ -125,7 +125,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="docs.cedarpolicy.comsyntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -135,7 +135,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="docs.cedarpolicy.comsyntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>

@@ -14,7 +14,7 @@
  *             control (ABAC) authorization models.</p>
  *          <p>For more information about configuring, administering, and using Amazon Verified Permissions in your
  *             applications, see the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/">Amazon Verified Permissions User Guide</a>.</p>
- *          <p>For more information about the Cedar policy language, see the <a href="docs.cedarpolicy.com">Cedar Policy Language Guide</a>.</p>
+ *          <p>For more information about the Cedar policy language, see the <a href="https://docs.cedarpolicy.com/">Cedar Policy Language Guide</a>.</p>
  *          <important>
  *             <p>When you write Cedar policies that reference principals, resources and actions,
  *                 you can define the unique identifiers used for each of those elements. We strongly
