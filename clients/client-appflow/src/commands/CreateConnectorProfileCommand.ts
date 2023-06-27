@@ -127,6 +127,7 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  *             "STRING_VALUE",
  *           ],
  *         },
+ *         disableSSO: true || false,
  *       },
  *       CustomConnector: { // CustomConnectorProfileProperties
  *         profileProperties: { // ProfilePropertiesMap

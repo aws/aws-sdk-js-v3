@@ -136,6 +136,7 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           disableSSO: true || false,
  * //         },
  * //         CustomConnector: { // CustomConnectorProfileProperties
  * //           profileProperties: { // ProfilePropertiesMap
