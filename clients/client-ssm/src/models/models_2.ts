@@ -1131,7 +1131,8 @@ export interface UpdateOpsItemRequest {
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands that use these keys, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-manually-create-OpsItems.html">Creating OpsItems
+   *     manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   OperationalData?: Record<string, OpsItemDataValue>;
 
@@ -1160,7 +1161,7 @@ export interface UpdateOpsItemRequest {
 
   /**
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Status?: OpsItemStatus | string;
 
@@ -1550,7 +1551,10 @@ export interface UpdateServiceSettingRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>Permissions to update the <code>/ssm/managed-instance/default-ec2-instance-management-role</code> setting should only be provided to administrators. Implement least privilege access when allowing individuals to configure or modify the Default Host Management Configuration.</p>
+   *             <p>Permissions to update the
+   *      <code>/ssm/managed-instance/default-ec2-instance-management-role</code> setting should only be
+   *     provided to administrators. Implement least privilege access when allowing individuals to
+   *     configure or modify the Default Host Management Configuration.</p>
    *          </note>
    */
   SettingId: string | undefined;

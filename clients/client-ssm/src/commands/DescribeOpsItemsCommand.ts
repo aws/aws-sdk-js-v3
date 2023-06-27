@@ -36,8 +36,8 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
 
 /**
  * @public
- * <p>Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
- *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ * <p>Query a set of OpsItems. You must have permission in Identity and Access Management (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set up OpsCenter</a> in the
+ *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the

@@ -155,7 +155,7 @@ export interface AddTagsToResourceRequest {
    *     <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or
    *     <code>/aws/ssm/MyGroup/appmanager</code>.</p>
    *          <p>For the <code>Document</code> and <code>Parameter</code> values, use the name of the
-   *    resource.</p>
+   *    resource. If you're tagging a shared document, you must use the full ARN of the document.</p>
    *          <p>
    *             <code>ManagedInstance</code>: <code>mi-012345abcde</code>
    *          </p>
@@ -442,8 +442,7 @@ export class OpsItemInvalidParameterException extends __BaseException {
 
 /**
  * @public
- * <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
- *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
+ * <p>The request caused OpsItems to exceed one or more quotas.</p>
  */
 export class OpsItemLimitExceededException extends __BaseException {
   readonly name: "OpsItemLimitExceededException" = "OpsItemLimitExceededException";
@@ -2903,7 +2902,8 @@ export interface CreateOpsItemRequest {
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands that use these keys, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-manually-create-OpsItems.html">Creating OpsItems
+   *     manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   OperationalData?: Record<string, OpsItemDataValue>;
 
@@ -2940,8 +2940,7 @@ export interface CreateOpsItemRequest {
   Title: string | undefined;
 
   /**
-   * <p>Optional metadata that you assign to a resource. You can restrict access to OpsItems by
-   *    using an inline IAM policy that specifies tags. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions">Getting started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * <p>Optional metadata that you assign to a resource.</p>
    *          <p>Tags use a key-value pair. For example:</p>
    *          <p>
    *             <code>Key=Department,Value=Finance</code>
@@ -2991,9 +2990,8 @@ export interface CreateOpsItemRequest {
 
   /**
    * <p>The target Amazon Web Services account where you want to create an OpsItem. To make this call, your account
-   *    must be configured to work with OpsItems across accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html">Setting
-   *     up OpsCenter to work with OpsItems across accounts</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    must be configured to work with OpsItems across accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set up
+   *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   AccountId?: string;
 }
@@ -6749,14 +6747,16 @@ export interface DescribeInstanceInformationRequest {
 
   /**
    * <p>One or more filters. Use a filter to return a more specific list of managed nodes. You can
-   *    filter based on tags applied to your managed nodes. Use this <code>Filters</code> data type
-   *    instead of <code>InstanceInformationFilterList</code>, which is deprecated.</p>
+   *    filter based on tags applied to your managed nodes. Tag filters can't be combined with other
+   *    filter types. Use this <code>Filters</code> data type instead of
+   *     <code>InstanceInformationFilterList</code>, which is deprecated.</p>
    */
   Filters?: InstanceInformationStringFilter[];
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results. </p>
+   *    can specify in a subsequent call to get the next set of results. The default value is 10 items.
+   *   </p>
    */
   MaxResults?: number;
 
@@ -6889,8 +6889,7 @@ export interface InstanceInformation {
    * <p>The Identity and Access Management (IAM) role assigned to the on-premises Systems Manager
    *    managed node. This call doesn't return the IAM role for Amazon Elastic Compute Cloud
    *     (Amazon EC2) instances. To retrieve the IAM role for an EC2 instance, use
-   *    the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html">describe-instances</a> in
-   *    the <i>Amazon Web Services CLI Command Reference</i>.</p>
+   *    the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>Amazon Web Services CLI Command Reference</i>.</p>
    */
   IamRole?: string;
 
@@ -6912,8 +6911,7 @@ export interface InstanceInformation {
    *    explained in <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html">Install SSM Agent for a
    *     hybrid environment (Linux)</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a
    *     hybrid environment (Windows)</a>. To retrieve the <code>Name</code> tag of an EC2 instance,
-   *    use the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html">describe-instances</a> in
-   *    the <i>Amazon Web Services CLI Command Reference</i>.</p>
+   *    use the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>Amazon Web Services CLI Command Reference</i>.</p>
    */
   Name?: string;
 

@@ -36,8 +36,8 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
 
 /**
  * @public
- * <p>Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
- *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ * <p>Edit or change an OpsItem. You must have permission in Identity and Access Management (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set up OpsCenter</a> in the
+ *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
  *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the
@@ -109,8 +109,7 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  *    again.</p>
  *
  * @throws {@link OpsItemLimitExceededException} (client fault)
- *  <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
- *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
+ *  <p>The request caused OpsItems to exceed one or more quotas.</p>
  *
  * @throws {@link OpsItemNotFoundException} (client fault)
  *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
