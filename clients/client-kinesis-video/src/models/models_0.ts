@@ -446,7 +446,7 @@ export interface CreateStreamInput {
    * <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video
    *             Streams to use to encrypt stream data.</p>
    *          <p>If no key ID is specified, the default, Kinesis Video-managed key
-   *                 (<code>aws/kinesisvideo</code>) is used.</p>
+   *             (<code>Amazon Web Services/kinesisvideo</code>) is used.</p>
    *          <p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
    */
   KmsKeyId?: string;
@@ -526,25 +526,22 @@ export class InvalidDeviceException extends __BaseException {
 /**
  * @public
  */
-export interface DeleteSignalingChannelInput {
+export interface DeleteEdgeConfigurationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
-   *             delete.</p>
+   * <p>The name of the stream from which to delete the edge configuration. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    */
-  ChannelARN: string | undefined;
+  StreamName?: string;
 
   /**
-   * <p>The current version of the signaling channel that you want to delete. You can obtain
-   *             the current version by invoking the <code>DescribeSignalingChannel</code> or
-   *                 <code>ListSignalingChannels</code> API operations.</p>
+   * <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    */
-  CurrentVersion?: string;
+  StreamARN?: string;
 }
 
 /**
  * @public
  */
-export interface DeleteSignalingChannelOutput {}
+export interface DeleteEdgeConfigurationOutput {}
 
 /**
  * @public
@@ -567,6 +564,52 @@ export class ResourceNotFoundException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @public
+ * <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
+ *          that you specified. </p>
+ */
+export class StreamEdgeConfigurationNotFoundException extends __BaseException {
+  readonly name: "StreamEdgeConfigurationNotFoundException" = "StreamEdgeConfigurationNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StreamEdgeConfigurationNotFoundException, __BaseException>) {
+    super({
+      name: "StreamEdgeConfigurationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StreamEdgeConfigurationNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteSignalingChannelInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
+   *             delete.</p>
+   */
+  ChannelARN: string | undefined;
+
+  /**
+   * <p>The current version of the signaling channel that you want to delete. You can obtain
+   *             the current version by invoking the <code>DescribeSignalingChannel</code> or
+   *                 <code>ListSignalingChannels</code> API operations.</p>
+   */
+  CurrentVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSignalingChannelOutput {}
 
 /**
  * @public
@@ -694,7 +737,7 @@ export interface DeletionConfig {
    *             <code>MaxLocalMediaSizeInMB</code>, has been reached.
    *         </p>
    *          <p>Since the default value is set to <code>true</code>, configure the uploader schedule such
-   *             that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
+   *             that the media files are not being deleted before they are initially uploaded to the  Amazon Web Services cloud.</p>
    */
   DeleteAfterUpload?: boolean;
 }
@@ -720,6 +763,104 @@ export interface DescribeEdgeConfigurationInput {
  * @public
  * @enum
  */
+export const RecorderStatus = {
+  SUCCESS: "SUCCESS",
+  SYSTEM_ERROR: "SYSTEM_ERROR",
+  USER_ERROR: "USER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type RecorderStatus = (typeof RecorderStatus)[keyof typeof RecorderStatus];
+
+/**
+ * @public
+ * <p>The latest status of a stream's edge recording job.</p>
+ */
+export interface LastRecorderStatus {
+  /**
+   * <p>A description of a recorder job’s latest status.</p>
+   */
+  JobStatusDetails?: string;
+
+  /**
+   * <p>The timestamp at which the recorder job was last executed and media stored to local disk.</p>
+   */
+  LastCollectedTime?: Date;
+
+  /**
+   * <p>The timestamp at which the recorder status was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The status of the latest recorder job.</p>
+   */
+  RecorderStatus?: RecorderStatus | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UploaderStatus = {
+  SUCCESS: "SUCCESS",
+  SYSTEM_ERROR: "SYSTEM_ERROR",
+  USER_ERROR: "USER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type UploaderStatus = (typeof UploaderStatus)[keyof typeof UploaderStatus];
+
+/**
+ * @public
+ * <p>The latest status of a stream’s edge to cloud uploader job.</p>
+ */
+export interface LastUploaderStatus {
+  /**
+   * <p>A description of an uploader job’s latest status.</p>
+   */
+  JobStatusDetails?: string;
+
+  /**
+   * <p>The timestamp at which the uploader job was last executed and media collected to the cloud.</p>
+   */
+  LastCollectedTime?: Date;
+
+  /**
+   * <p>The timestamp at which the uploader status was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The status of the latest uploader job.</p>
+   */
+  UploaderStatus?: UploaderStatus | string;
+}
+
+/**
+ * @public
+ * <p>An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.</p>
+ */
+export interface EdgeAgentStatus {
+  /**
+   * <p>The latest status of a stream’s edge recording job.</p>
+   */
+  LastRecorderStatus?: LastRecorderStatus;
+
+  /**
+   * <p>The latest status of a stream’s edge to cloud uploader job.</p>
+   */
+  LastUploaderStatus?: LastUploaderStatus;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const MediaUriType = {
   FILE_URI: "FILE_URI",
   RTSP_URI: "RTSP_URI",
@@ -738,7 +879,7 @@ export type MediaUriType = (typeof MediaUriType)[keyof typeof MediaUriType];
  */
 export interface MediaSourceConfig {
   /**
-   * <p>The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>
+   * <p>The Amazon Web Services Secrets Manager ARN for the username and password of the camera, or a local media file location.</p>
    */
   MediaUriSecretArn: string | undefined;
 
@@ -757,8 +898,10 @@ export interface MediaSourceConfig {
  * <p>This API enables you to specify the duration that the camera,
  *             or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the
  *             <code>DurationInMinutes</code> attributes. </p>
- *          <p>If the <code>ScheduleExpression</code> is not provided,
+ *          <p>If the <code>ScheduleConfig</code> is not provided in the <code>RecorderConfig</code>,
  *                 then the Edge Agent will always be set to recording mode.</p>
+ *          <p>If the <code>ScheduleConfig</code> is not provided in the <code>UploaderConfig</code>,
+ *             then the Edge Agent will upload at regular intervals (every 1 hour).</p>
  */
 export interface ScheduleConfig {
   /**
@@ -805,17 +948,17 @@ export interface RecorderConfig {
 /**
  * @public
  * <p>The configuration that consists of the <code>ScheduleExpression</code>
- *             and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera,
- *             or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code>
- *             is not provided, then the Edge Agent will always be in upload mode.
+ *             and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera,
+ *             or local media file, onto the Edge Agent. If the <code>ScheduleConfig</code>
+ *             is not provided in the <code>UploaderConfig</code>, then the Edge Agent will upload at regular intervals (every 1 hour).
  *         </p>
  */
 export interface UploaderConfig {
   /**
    * <p>The configuration that consists of the <code>ScheduleExpression</code> and the
-   *             <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or
-   *             local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided,
-   *             then the Edge Agent will always be in recording mode.</p>
+   *             <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or
+   *             local media file, onto the Edge Agent. If the <code>ScheduleConfig</code> is not provided in this <code>UploaderConfig</code>,
+   *             then the Edge Agent will upload at regular intervals (every 1 hour).</p>
    */
   ScheduleConfig: ScheduleConfig | undefined;
 }
@@ -859,6 +1002,7 @@ export const SyncStatus = {
   ACKNOWLEDGED: "ACKNOWLEDGED",
   DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
+  DELETING_ACKNOWLEDGED: "DELETING_ACKNOWLEDGED",
   IN_SYNC: "IN_SYNC",
   SYNCING: "SYNCING",
   SYNC_FAILED: "SYNC_FAILED",
@@ -909,29 +1053,11 @@ export interface DescribeEdgeConfigurationOutput {
    *             on an IoT Hub Device setup at your premise.</p>
    */
   EdgeConfig?: EdgeConfig;
-}
 
-/**
- * @public
- * <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
- *          that you specified. </p>
- */
-export class StreamEdgeConfigurationNotFoundException extends __BaseException {
-  readonly name: "StreamEdgeConfigurationNotFoundException" = "StreamEdgeConfigurationNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
   /**
-   * @internal
+   * <p>An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.</p>
    */
-  constructor(opts: __ExceptionOptionType<StreamEdgeConfigurationNotFoundException, __BaseException>) {
-    super({
-      name: "StreamEdgeConfigurationNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StreamEdgeConfigurationNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
+  EdgeAgentStatus?: EdgeAgentStatus;
 }
 
 /**
@@ -960,7 +1086,7 @@ export interface ImageGenerationDestinationConfig {
   Uri: string | undefined;
 
   /**
-   * <p>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
+   * <p>The Amazon Web Services Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
    */
   DestinationRegion: string | undefined;
 }
@@ -1420,6 +1546,7 @@ export interface GetSignalingChannelEndpointInput {
  * @public
  * <p>An object that describes the endpoint of the signaling channel returned by the
  *                 <code>GetSignalingChannelEndpoint</code> API.</p>
+ *          <p>The media server endpoint will correspond to the <code>WEBRTC</code> Protocol.</p>
  */
 export interface ResourceEndpointListItem {
   /**
@@ -1465,6 +1592,85 @@ export class InvalidResourceFormatException extends __BaseException {
     Object.setPrototypeOf(this, InvalidResourceFormatException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface ListEdgeAgentConfigurationsInput {
+  /**
+   * <p>The "Internet of Things (IoT) Thing" Arn of the edge agent.</p>
+   */
+  HubDeviceArn: string | undefined;
+
+  /**
+   * <p>The maximum number of edge configurations to return in the response. The default is 5.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If you specify this parameter, when the result of a <code>ListEdgeAgentConfigurations</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of edge configurations, provide this token in your next request.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A description of a single stream's edge configuration.</p>
+ */
+export interface ListEdgeAgentConfigurationsEdgeConfig {
+  /**
+   * <p>The name of the stream.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The timestamp when the stream first created the edge config.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The timestamp when the stream last updated the edge config.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The current sync status of the stream's edge configuration.</p>
+   */
+  SyncStatus?: SyncStatus | string;
+
+  /**
+   * <p>A description of the generated failure status.</p>
+   */
+  FailedStatusDetails?: string;
+
+  /**
+   * <p>A description of the stream's edge configuration that will be used to sync
+   *             with the Edge Agent IoT Greengrass component. The Edge Agent component will run
+   *             on an IoT Hub Device setup at your premise.</p>
+   */
+  EdgeConfig?: EdgeConfig;
+}
+
+/**
+ * @public
+ */
+export interface ListEdgeAgentConfigurationsOutput {
+  /**
+   * <p>A description of a single stream's edge configuration.</p>
+   */
+  EdgeConfigs?: ListEdgeAgentConfigurationsEdgeConfig[];
+
+  /**
+   * <p>If the response is truncated, the call returns this element with a given token. To get the next batch of edge configurations, use this token in your next request.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -2054,6 +2260,26 @@ export const EdgeConfigFilterSensitiveLog = (obj: EdgeConfig): any => ({
 export const DescribeEdgeConfigurationOutputFilterSensitiveLog = (obj: DescribeEdgeConfigurationOutput): any => ({
   ...obj,
   ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const ListEdgeAgentConfigurationsEdgeConfigFilterSensitiveLog = (
+  obj: ListEdgeAgentConfigurationsEdgeConfig
+): any => ({
+  ...obj,
+  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const ListEdgeAgentConfigurationsOutputFilterSensitiveLog = (obj: ListEdgeAgentConfigurationsOutput): any => ({
+  ...obj,
+  ...(obj.EdgeConfigs && {
+    EdgeConfigs: obj.EdgeConfigs.map((item) => ListEdgeAgentConfigurationsEdgeConfigFilterSensitiveLog(item)),
+  }),
 });
 
 /**

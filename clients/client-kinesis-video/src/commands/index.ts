@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./CreateSignalingChannelCommand";
 export * from "./CreateStreamCommand";
+export * from "./DeleteEdgeConfigurationCommand";
 export * from "./DeleteSignalingChannelCommand";
 export * from "./DeleteStreamCommand";
 export * from "./DescribeEdgeConfigurationCommand";
@@ -12,6 +13,7 @@ export * from "./DescribeSignalingChannelCommand";
 export * from "./DescribeStreamCommand";
 export * from "./GetDataEndpointCommand";
 export * from "./GetSignalingChannelEndpointCommand";
+export * from "./ListEdgeAgentConfigurationsCommand";
 export * from "./ListSignalingChannelsCommand";
 export * from "./ListStreamsCommand";
 export * from "./ListTagsForResourceCommand";

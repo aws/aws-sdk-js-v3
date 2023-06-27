@@ -14,14 +14,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  DescribeMappedResourceConfigurationInput,
-  DescribeMappedResourceConfigurationOutput,
-} from "../models/models_0";
-import {
-  de_DescribeMappedResourceConfigurationCommand,
-  se_DescribeMappedResourceConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEdgeConfigurationInput, DeleteEdgeConfigurationOutput } from "../models/models_0";
+import { de_DeleteEdgeConfigurationCommand, se_DeleteEdgeConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -30,52 +24,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeMappedResourceConfigurationCommand}.
+ * The input for {@link DeleteEdgeConfigurationCommand}.
  */
-export interface DescribeMappedResourceConfigurationCommandInput extends DescribeMappedResourceConfigurationInput {}
+export interface DeleteEdgeConfigurationCommandInput extends DeleteEdgeConfigurationInput {}
 /**
  * @public
  *
- * The output of {@link DescribeMappedResourceConfigurationCommand}.
+ * The output of {@link DeleteEdgeConfigurationCommand}.
  */
-export interface DescribeMappedResourceConfigurationCommandOutput
-  extends DescribeMappedResourceConfigurationOutput,
-    __MetadataBearer {}
+export interface DeleteEdgeConfigurationCommandOutput extends DeleteEdgeConfigurationOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns the most current information about the stream. The <code>streamName</code>
- *             or <code>streamARN</code> should be provided in the input.</p>
+ * <p>An asynchronous API that deletes a stream’s existing edge configuration, as well as the corresponding media from the Edge Agent.</p>
+ *          <p>When you invoke this API, the sync status is set to <code>DELETING</code>. A deletion process starts, in which active edge jobs are stopped and all media is deleted from the edge device. The time to delete varies, depending on the total amount of stored media. If the deletion process fails, the sync status changes to <code>DELETE_FAILED</code>. You will need to re-try the deletion.</p>
+ *          <p>When the deletion process has completed successfully, the edge configuration is no longer accessible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DeleteEdgeConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, DeleteEdgeConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = { // DescribeMappedResourceConfigurationInput
+ * const input = { // DeleteEdgeConfigurationInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  * };
- * const command = new DescribeMappedResourceConfigurationCommand(input);
+ * const command = new DeleteEdgeConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // DescribeMappedResourceConfigurationOutput
- * //   MappedResourceConfigurationList: [ // MappedResourceConfigurationList
- * //     { // MappedResourceConfigurationListItem
- * //       Type: "STRING_VALUE",
- * //       ARN: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribeMappedResourceConfigurationCommandInput - {@link DescribeMappedResourceConfigurationCommandInput}
- * @returns {@link DescribeMappedResourceConfigurationCommandOutput}
- * @see {@link DescribeMappedResourceConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeMappedResourceConfigurationCommandOutput} for command's `response` shape.
+ * @param DeleteEdgeConfigurationCommandInput - {@link DeleteEdgeConfigurationCommandInput}
+ * @returns {@link DeleteEdgeConfigurationCommandOutput}
+ * @see {@link DeleteEdgeConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteEdgeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,13 +74,17 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link StreamEdgeConfigurationNotFoundException} (client fault)
+ *  <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
+ *          that you specified. </p>
+ *
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
-export class DescribeMappedResourceConfigurationCommand extends $Command<
-  DescribeMappedResourceConfigurationCommandInput,
-  DescribeMappedResourceConfigurationCommandOutput,
+export class DeleteEdgeConfigurationCommand extends $Command<
+  DeleteEdgeConfigurationCommandInput,
+  DeleteEdgeConfigurationCommandOutput,
   KinesisVideoClientResolvedConfig
 > {
   // Start section: command_properties
@@ -115,7 +102,7 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeMappedResourceConfigurationCommandInput) {
+  constructor(readonly input: DeleteEdgeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -128,17 +115,17 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeMappedResourceConfigurationCommandInput, DescribeMappedResourceConfigurationCommandOutput> {
+  ): Handler<DeleteEdgeConfigurationCommandInput, DeleteEdgeConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeMappedResourceConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteEdgeConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KinesisVideoClient";
-    const commandName = "DescribeMappedResourceConfigurationCommand";
+    const commandName = "DeleteEdgeConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -157,21 +144,15 @@ export class DescribeMappedResourceConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: DescribeMappedResourceConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DescribeMappedResourceConfigurationCommand(input, context);
+  private serialize(input: DeleteEdgeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteEdgeConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeMappedResourceConfigurationCommandOutput> {
-    return de_DescribeMappedResourceConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEdgeConfigurationCommandOutput> {
+    return de_DeleteEdgeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

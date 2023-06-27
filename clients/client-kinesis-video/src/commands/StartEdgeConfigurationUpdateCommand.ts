@@ -102,7 +102,7 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * //   StreamARN: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastUpdatedTime: new Date("TIMESTAMP"),
- * //   SyncStatus: "SYNCING" || "ACKNOWLEDGED" || "IN_SYNC" || "SYNC_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //   SyncStatus: "SYNCING" || "ACKNOWLEDGED" || "IN_SYNC" || "SYNC_FAILED" || "DELETING" || "DELETE_FAILED" || "DELETING_ACKNOWLEDGED",
  * //   FailedStatusDetails: "STRING_VALUE",
  * //   EdgeConfig: { // EdgeConfig
  * //     HubDeviceArn: "STRING_VALUE", // required

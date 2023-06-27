@@ -57,6 +57,10 @@ import {
 } from "./commands/CreateSignalingChannelCommand";
 import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
 import {
+  DeleteEdgeConfigurationCommandInput,
+  DeleteEdgeConfigurationCommandOutput,
+} from "./commands/DeleteEdgeConfigurationCommand";
+import {
   DeleteSignalingChannelCommandInput,
   DeleteSignalingChannelCommandOutput,
 } from "./commands/DeleteSignalingChannelCommand";
@@ -91,6 +95,10 @@ import {
   GetSignalingChannelEndpointCommandInput,
   GetSignalingChannelEndpointCommandOutput,
 } from "./commands/GetSignalingChannelEndpointCommand";
+import {
+  ListEdgeAgentConfigurationsCommandInput,
+  ListEdgeAgentConfigurationsCommandOutput,
+} from "./commands/ListEdgeAgentConfigurationsCommand";
 import {
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput,
@@ -146,6 +154,7 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateSignalingChannelCommandInput
   | CreateStreamCommandInput
+  | DeleteEdgeConfigurationCommandInput
   | DeleteSignalingChannelCommandInput
   | DeleteStreamCommandInput
   | DescribeEdgeConfigurationCommandInput
@@ -157,6 +166,7 @@ export type ServiceInputTypes =
   | DescribeStreamCommandInput
   | GetDataEndpointCommandInput
   | GetSignalingChannelEndpointCommandInput
+  | ListEdgeAgentConfigurationsCommandInput
   | ListSignalingChannelsCommandInput
   | ListStreamsCommandInput
   | ListTagsForResourceCommandInput
@@ -179,6 +189,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateSignalingChannelCommandOutput
   | CreateStreamCommandOutput
+  | DeleteEdgeConfigurationCommandOutput
   | DeleteSignalingChannelCommandOutput
   | DeleteStreamCommandOutput
   | DescribeEdgeConfigurationCommandOutput
@@ -190,6 +201,7 @@ export type ServiceOutputTypes =
   | DescribeStreamCommandOutput
   | GetDataEndpointCommandOutput
   | GetSignalingChannelEndpointCommandOutput
+  | ListEdgeAgentConfigurationsCommandOutput
   | ListSignalingChannelsCommandOutput
   | ListStreamsCommandOutput
   | ListTagsForResourceCommandOutput
