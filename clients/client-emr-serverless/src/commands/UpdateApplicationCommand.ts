@@ -88,6 +88,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       },
  *     },
  *   },
+ *   releaseLabel: "STRING_VALUE",
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

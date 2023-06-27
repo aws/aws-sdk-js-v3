@@ -173,7 +173,7 @@ export interface WorkerTypeSpecification {
 
 /**
  * @public
- * <p>Information about an application. EMR Serverless uses applications to run jobs.</p>
+ * <p>Information about an application. Amazon EMR Serverless uses applications to run jobs.</p>
  */
 export interface Application {
   /**
@@ -192,7 +192,7 @@ export interface Application {
   arn: string | undefined;
 
   /**
-   * <p>The EMR release associated with the application.</p>
+   * <p>The Amazon EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -291,7 +291,7 @@ export interface ApplicationSummary {
   arn: string | undefined;
 
   /**
-   * <p>The EMR release associated with the application.</p>
+   * <p>The Amazon EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -354,7 +354,7 @@ export class ConflictException extends __BaseException {
 export interface ImageConfigurationInput {
   /**
    * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a
-   *          new application. If you leave this field blank in an update, Amazon EMR will remove the
+   *          new application. If you leave this field blank in an update, Amazon EMR  will remove the
    *          image configuration.</p>
    */
   imageUri?: string;
@@ -381,7 +381,7 @@ export interface CreateApplicationRequest {
   name?: string;
 
   /**
-   * <p>The EMR release associated with the application.</p>
+   * <p>The Amazon EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
@@ -721,6 +721,11 @@ export interface UpdateApplicationRequest {
    *          types.</p>
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
+
+  /**
+   * <p>The Amazon EMR release label for the application. You can change the release label to use a different release of Amazon EMR.</p>
+   */
+  releaseLabel?: string;
 }
 
 /**
@@ -1103,7 +1108,7 @@ export interface JobRunSummary {
   stateDetails: string | undefined;
 
   /**
-   * <p>The EMR release associated with the application your job is running on.</p>
+   * <p>The Amazon EMR release associated with the application your job is running on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -1155,7 +1160,7 @@ export interface StartJobRunResponse {
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          Currently, the supported resources are Amazon EMR  Serverless applications and job
    *          runs.</p>
    */
   resourceArn: string | undefined;
@@ -1177,7 +1182,7 @@ export interface ListTagsForResourceResponse {
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          Currently, the supported resources are Amazon EMR  Serverless applications and job
    *          runs.</p>
    */
   resourceArn: string | undefined;
@@ -1199,7 +1204,7 @@ export interface TagResourceResponse {}
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-   *          Currently, the supported resources are Amazon EMR Serverless applications and job
+   *          Currently, the supported resources are Amazon EMR  Serverless applications and job
    *          runs.</p>
    */
   resourceArn: string | undefined;
@@ -1258,7 +1263,7 @@ export interface ConfigurationOverrides {
 /**
  * @public
  * <p>Information about a job run. A job run is a unit of work, such as a Spark JAR, Hive
- *          query, or SparkSQL query, that you submit to an EMR Serverless application.</p>
+ *          query, or SparkSQL query, that you submit to an Amazon EMR Serverless application.</p>
  */
 export interface JobRun {
   /**
@@ -1312,7 +1317,7 @@ export interface JobRun {
   stateDetails: string | undefined;
 
   /**
-   * <p>The EMR release associated with the application your job is running on.</p>
+   * <p>The Amazon EMR release associated with the application your job is running on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -1356,7 +1361,7 @@ export interface JobRun {
   executionTimeoutMinutes?: number;
 
   /**
-   * <p>The aggregate vCPU, memory, and storage that AWS has billed for the job run. The billed
+   * <p>The aggregate vCPU, memory, and storage that Amazon Web Services has billed for the job run. The billed
    *          resources include a 1-minute minimum usage for workers, plus additional storage over 20 GB
    *          per worker. Note that billed resources do not include usage for idle pre-initialized
    *          workers.</p>

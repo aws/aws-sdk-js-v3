@@ -571,6 +571,7 @@ export const se_UpdateApplicationCommand = async (
       initialCapacity: (_) => _json(_),
       maximumCapacity: (_) => _json(_),
       networkConfiguration: (_) => _json(_),
+      releaseLabel: [],
       workerTypeSpecifications: (_) => _json(_),
     })
   );
