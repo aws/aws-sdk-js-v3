@@ -55,6 +55,7 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  *   FeatureNames: [ // FeatureNames
  *     "STRING_VALUE",
  *   ],
+ *   ExpirationTimeResponse: "Enabled" || "Disabled",
  * };
  * const command = new GetRecordCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,7 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * //       ValueAsString: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   ExpiresAt: "STRING_VALUE",
  * // };
  *
  * ```

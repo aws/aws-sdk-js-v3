@@ -59,6 +59,7 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  *       ],
  *     },
  *   ],
+ *   ExpirationTimeResponse: "Enabled" || "Disabled",
  * };
  * const command = new BatchGetRecordCommand(input);
  * const response = await client.send(command);
@@ -73,6 +74,7 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * //           ValueAsString: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       ExpiresAt: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Errors: [ // BatchGetRecordErrors // required

@@ -62,6 +62,10 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  *   TargetStores: [ // TargetStores
  *     "OnlineStore" || "OfflineStore",
  *   ],
+ *   TtlDuration: { // TtlDuration
+ *     Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks", // required
+ *     Value: Number("int"), // required
+ *   },
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
