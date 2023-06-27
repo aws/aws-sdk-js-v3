@@ -57,7 +57,7 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  *   managedDataIdentifierIds: [
  *     "STRING_VALUE",
  *   ],
- *   managedDataIdentifierSelector: "ALL" || "EXCLUDE" || "INCLUDE" || "NONE",
+ *   managedDataIdentifierSelector: "ALL" || "EXCLUDE" || "INCLUDE" || "NONE" || "RECOMMENDED",
  *   name: "STRING_VALUE", // required
  *   s3JobDefinition: { // S3JobDefinition
  *     bucketCriteria: { // S3BucketCriteriaForJob
