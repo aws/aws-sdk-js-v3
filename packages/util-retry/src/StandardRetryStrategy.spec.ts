@@ -22,7 +22,7 @@ describe(StandardRetryStrategy.name, () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks;
+    jest.clearAllMocks();
   });
 
   it("sets maxAttemptsProvider as a class member variable", () => {
@@ -65,6 +65,22 @@ describe(StandardRetryStrategy.name, () => {
       expect(getRetryCount).toHaveBeenCalledTimes(3);
     });
 
+    it("disables any retries when maxAttempts is 1", async () => {
+      const mockRetryToken = {
+        getRetryCount: () => 0,
+        getRetryTokenCount: (errorInfo: any) => 1,
+      };
+      (createDefaultRetryToken as jest.Mock).mockReturnValue(mockRetryToken);
+      const retryStrategy = new StandardRetryStrategy(1);
+      const token = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
+      try {
+        await retryStrategy.refreshRetryTokenForRetry(token, errorInfo);
+        fail(`expected ${noRetryTokenAvailableError}`);
+      } catch (error) {
+        expect(error).toStrictEqual(noRetryTokenAvailableError);
+      }
+    });
+
     it("throws when attempts exceeds maxAttempts", async () => {
       const mockRetryToken = {
         getRetryCount: () => 2,
@@ -75,6 +91,7 @@ describe(StandardRetryStrategy.name, () => {
       const token = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
       try {
         await retryStrategy.refreshRetryTokenForRetry(token, errorInfo);
+        fail(`expected ${noRetryTokenAvailableError}`);
       } catch (error) {
         expect(error).toStrictEqual(noRetryTokenAvailableError);
       }
@@ -90,22 +107,7 @@ describe(StandardRetryStrategy.name, () => {
       const token = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
       try {
         await retryStrategy.refreshRetryTokenForRetry(token, errorInfo);
-      } catch (error) {
-        expect(error).toStrictEqual(noRetryTokenAvailableError);
-      }
-    });
-
-    it("throws when no tokens are available", async () => {
-      const mockRetryToken = {
-        getRetryCount: () => 0,
-        getRetryTokenCount: (errorInfo: any) => 1,
-        hasRetryTokens: (errorType: RetryErrorType) => false,
-      };
-      (createDefaultRetryToken as jest.Mock).mockReturnValue(mockRetryToken);
-      const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
-      const token = await retryStrategy.acquireInitialRetryToken(retryTokenScope);
-      try {
-        await retryStrategy.refreshRetryTokenForRetry(token, errorInfo);
+        fail(`expected ${noRetryTokenAvailableError}`);
       } catch (error) {
         expect(error).toStrictEqual(noRetryTokenAvailableError);
       }
@@ -125,6 +127,7 @@ describe(StandardRetryStrategy.name, () => {
       } as RetryErrorInfo;
       try {
         await retryStrategy.refreshRetryTokenForRetry(token, errorInfo);
+        fail(`expected ${noRetryTokenAvailableError}`);
       } catch (error) {
         expect(error).toStrictEqual(noRetryTokenAvailableError);
       }

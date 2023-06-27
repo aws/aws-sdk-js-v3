@@ -86,7 +86,7 @@ export class StandardRetryStrategy implements RetryStrategyV2 {
   }
 
   private shouldRetry(tokenToRenew: StandardRetryToken, errorInfo: RetryErrorInfo, maxAttempts: number): boolean {
-    const attempts = tokenToRenew.getRetryCount();
+    const attempts = tokenToRenew.getRetryCount() + 1;
 
     return (
       attempts < maxAttempts &&

@@ -5,13 +5,13 @@ describe(ConfiguredRetryStrategy.name, () => {
     const strategy = new ConfiguredRetryStrategy(5, (attempt) => attempt * 1000);
 
     const token = await strategy.acquireInitialRetryToken("");
-    token.getRetryCount = () => 4;
+    token.getRetryCount = () => 3;
 
     const retryToken = await strategy.refreshRetryTokenForRetry(token, {
       errorType: "TRANSIENT",
     });
 
-    expect(retryToken.getRetryCount()).toBe(5);
-    expect(retryToken.getRetryDelay()).toBe(5000);
+    expect(retryToken.getRetryCount()).toBe(4);
+    expect(retryToken.getRetryDelay()).toBe(4000);
   });
 });
