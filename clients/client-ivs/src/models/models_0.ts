@@ -307,6 +307,102 @@ export interface BatchGetStreamKeyResponse {
 
 /**
  * @public
+ * <p>A viewer session to revoke in the call to <a>BatchStartViewerSessionRevocation</a>.</p>
+ */
+export interface BatchStartViewerSessionRevocationViewerSession {
+  /**
+   * <p>The ARN of the channel associated with the viewer session to revoke.</p>
+   */
+  channelArn: string | undefined;
+
+  /**
+   * <p>The ID of the viewer associated with the viewer session to revoke. Do not use this field
+   *       for personally identifying, confidential, or sensitive information.</p>
+   */
+  viewerId: string | undefined;
+
+  /**
+   * <p>An optional filter on which versions of the viewer session to revoke. All versions less
+   *       than or equal to the specified version will be revoked. Default: 0.</p>
+   */
+  viewerSessionVersionsLessThanOrEqualTo?: number;
+}
+
+/**
+ * @public
+ */
+export interface BatchStartViewerSessionRevocationRequest {
+  /**
+   * <p>Array of viewer sessions, one per channel-ARN and viewer-ID pair.</p>
+   */
+  viewerSessions: BatchStartViewerSessionRevocationViewerSession[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Error for a request in the batch for BatchStartViewerSessionRevocation. Each error is
+ *       related to a specific channel-ARN and viewer-ID pair.</p>
+ */
+export interface BatchStartViewerSessionRevocationError {
+  /**
+   * <p>Channel ARN.</p>
+   */
+  channelArn: string | undefined;
+
+  /**
+   * <p>The ID of the viewer session to revoke.</p>
+   */
+  viewerId: string | undefined;
+
+  /**
+   * <p>Error code.</p>
+   */
+  code?: string;
+
+  /**
+   * <p>Error message, determined by the application.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchStartViewerSessionRevocationResponse {
+  /**
+   * <p>Each error object is related to a specific <code>channelArn</code> and
+   *         <code>viewerId</code> pair in the request.</p>
+   */
+  errors?: BatchStartViewerSessionRevocationError[];
+}
+
+/**
+ * @public
+ * <p/>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+   */
+  exceptionMessage?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.exceptionMessage = opts.exceptionMessage;
+  }
+}
+
+/**
+ * @public
  */
 export interface CreateChannelRequest {
   /**
@@ -506,31 +602,6 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
-
-/**
- * @public
- * <p/>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
-   */
-  exceptionMessage?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
     this.exceptionMessage = opts.exceptionMessage;
   }
 }
@@ -1855,6 +1926,33 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
+export interface StartViewerSessionRevocationRequest {
+  /**
+   * <p>The ARN of the channel associated with the viewer session to revoke.</p>
+   */
+  channelArn: string | undefined;
+
+  /**
+   * <p>The ID of the viewer associated with the viewer session to revoke. Do not use this field
+   *       for personally identifying, confidential, or sensitive information.</p>
+   */
+  viewerId: string | undefined;
+
+  /**
+   * <p>An optional filter on which versions of the viewer session to revoke. All versions less
+   *       than or equal to the specified version will be revoked. Default: 0.</p>
+   */
+  viewerSessionVersionsLessThanOrEqualTo?: number;
+}
+
+/**
+ * @public
+ */
+export interface StartViewerSessionRevocationResponse {}
+
+/**
+ * @public
+ */
 export interface StopStreamRequest {
   /**
    * <p>ARN of the channel for which the stream is to be stopped.</p>
@@ -2042,9 +2140,10 @@ export interface UpdateChannelRequest {
   insecureIngest?: boolean;
 
   /**
-   * <p>Optional transcode preset for the channel. This is selectable only for <code>ADVANCED_HD</code> and
-   *       <code>ADVANCED_SD</code> channel types. For those channel types, the default <code>preset</code> is
-   *       <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
+   * <p>Optional transcode preset for the channel. This is selectable only for
+   *         <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel
+   *       types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other
+   *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
   preset?: TranscodePreset | string;

@@ -13,6 +13,11 @@ import {
   BatchGetStreamKeyCommandOutput,
 } from "./commands/BatchGetStreamKeyCommand";
 import {
+  BatchStartViewerSessionRevocationCommand,
+  BatchStartViewerSessionRevocationCommandInput,
+  BatchStartViewerSessionRevocationCommandOutput,
+} from "./commands/BatchStartViewerSessionRevocationCommand";
+import {
   CreateChannelCommand,
   CreateChannelCommandInput,
   CreateChannelCommandOutput,
@@ -106,6 +111,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutMetadataCommand, PutMetadataCommandInput, PutMetadataCommandOutput } from "./commands/PutMetadataCommand";
+import {
+  StartViewerSessionRevocationCommand,
+  StartViewerSessionRevocationCommandInput,
+  StartViewerSessionRevocationCommandOutput,
+} from "./commands/StartViewerSessionRevocationCommand";
 import { StopStreamCommand, StopStreamCommandInput, StopStreamCommandOutput } from "./commands/StopStreamCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
@@ -123,6 +133,7 @@ import { IvsClient, IvsClientConfig } from "./IvsClient";
 const commands = {
   BatchGetChannelCommand,
   BatchGetStreamKeyCommand,
+  BatchStartViewerSessionRevocationCommand,
   CreateChannelCommand,
   CreateRecordingConfigurationCommand,
   CreateStreamKeyCommand,
@@ -145,6 +156,7 @@ const commands = {
   ListStreamSessionsCommand,
   ListTagsForResourceCommand,
   PutMetadataCommand,
+  StartViewerSessionRevocationCommand,
   StopStreamCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -181,6 +193,23 @@ export interface Ivs {
     args: BatchGetStreamKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetStreamKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchStartViewerSessionRevocationCommand}
+   */
+  batchStartViewerSessionRevocation(
+    args: BatchStartViewerSessionRevocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchStartViewerSessionRevocationCommandOutput>;
+  batchStartViewerSessionRevocation(
+    args: BatchStartViewerSessionRevocationCommandInput,
+    cb: (err: any, data?: BatchStartViewerSessionRevocationCommandOutput) => void
+  ): void;
+  batchStartViewerSessionRevocation(
+    args: BatchStartViewerSessionRevocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchStartViewerSessionRevocationCommandOutput) => void
   ): void;
 
   /**
@@ -501,6 +530,23 @@ export interface Ivs {
   ): void;
 
   /**
+   * @see {@link StartViewerSessionRevocationCommand}
+   */
+  startViewerSessionRevocation(
+    args: StartViewerSessionRevocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartViewerSessionRevocationCommandOutput>;
+  startViewerSessionRevocation(
+    args: StartViewerSessionRevocationCommandInput,
+    cb: (err: any, data?: StartViewerSessionRevocationCommandOutput) => void
+  ): void;
+  startViewerSessionRevocation(
+    args: StartViewerSessionRevocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartViewerSessionRevocationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopStreamCommand}
    */
   stopStream(args: StopStreamCommandInput, options?: __HttpHandlerOptions): Promise<StopStreamCommandOutput>;
@@ -797,7 +843,7 @@ export interface Ivs {
  *             </li>
  *          </ul>
  *          <p>
- *             <b>PlaybackKeyPair Endpoints</b>
+ *             <b>Private Channel Endpoints</b>
  *          </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the
  *         <i>Amazon IVS User Guide</i>.</p>
@@ -827,6 +873,18 @@ export interface Ivs {
  *                   <a>DeletePlaybackKeyPair</a> — Deletes a specified authorization key
  *           pair. This invalidates future viewer tokens generated using the key pair’s
  *             <code>privateKey</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartViewerSessionRevocation</a> — Starts the process of revoking
+ *           the viewer session associated with a specified channel ARN and viewer ID. Optionally, you
+ *           can provide a version to revoke viewer sessions less than and including that
+ *           version.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>BatchStartViewerSessionRevocation</a> — Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer ID pairs
+ *           simultaneously.</p>
  *             </li>
  *          </ul>
  *          <p>

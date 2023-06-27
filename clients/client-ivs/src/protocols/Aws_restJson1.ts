@@ -21,6 +21,10 @@ import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/
 
 import { BatchGetChannelCommandInput, BatchGetChannelCommandOutput } from "../commands/BatchGetChannelCommand";
 import { BatchGetStreamKeyCommandInput, BatchGetStreamKeyCommandOutput } from "../commands/BatchGetStreamKeyCommand";
+import {
+  BatchStartViewerSessionRevocationCommandInput,
+  BatchStartViewerSessionRevocationCommandOutput,
+} from "../commands/BatchStartViewerSessionRevocationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import {
   CreateRecordingConfigurationCommandInput,
@@ -67,6 +71,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutMetadataCommandInput, PutMetadataCommandOutput } from "../commands/PutMetadataCommand";
+import {
+  StartViewerSessionRevocationCommandInput,
+  StartViewerSessionRevocationCommandOutput,
+} from "../commands/StartViewerSessionRevocationCommand";
 import { StopStreamCommandInput, StopStreamCommandOutput } from "../commands/StopStreamCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -75,6 +83,7 @@ import { IvsServiceException as __BaseException } from "../models/IvsServiceExce
 import {
   _Stream,
   AccessDeniedException,
+  BatchStartViewerSessionRevocationViewerSession,
   ChannelNotBroadcasting,
   ConflictException,
   DestinationConfiguration,
@@ -139,6 +148,36 @@ export const se_BatchGetStreamKeyCommand = async (
   body = JSON.stringify(
     take(input, {
       arns: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchStartViewerSessionRevocationCommand
+ */
+export const se_BatchStartViewerSessionRevocationCommand = async (
+  input: BatchStartViewerSessionRevocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchStartViewerSessionRevocation";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      viewerSessions: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -816,6 +855,38 @@ export const se_PutMetadataCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartViewerSessionRevocationCommand
+ */
+export const se_StartViewerSessionRevocationCommand = async (
+  input: StartViewerSessionRevocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartViewerSessionRevocation";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+      viewerId: [],
+      viewerSessionVersionsLessThanOrEqualTo: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StopStreamCommand
  */
 export const se_StopStreamCommand = async (
@@ -1022,6 +1093,53 @@ const de_BatchGetStreamKeyCommandError = async (
     parsedBody,
     errorCode,
   });
+};
+
+/**
+ * deserializeAws_restJson1BatchStartViewerSessionRevocationCommand
+ */
+export const de_BatchStartViewerSessionRevocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchStartViewerSessionRevocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchStartViewerSessionRevocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchStartViewerSessionRevocationCommandError
+ */
+const de_BatchStartViewerSessionRevocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchStartViewerSessionRevocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -2229,6 +2347,58 @@ const de_PutMetadataCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartViewerSessionRevocationCommand
+ */
+export const de_StartViewerSessionRevocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartViewerSessionRevocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartViewerSessionRevocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartViewerSessionRevocationCommandError
+ */
+const de_StartViewerSessionRevocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartViewerSessionRevocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ivs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ivs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StopStreamCommand
  */
 export const de_StopStreamCommand = async (
@@ -2626,6 +2796,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_BatchStartViewerSessionRevocationViewerSession omitted.
+
+// se_BatchStartViewerSessionRevocationViewerSessionList omitted.
+
 // se_ChannelArnList omitted.
 
 // se_DestinationConfiguration omitted.
@@ -2645,6 +2819,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_BatchError omitted.
 
 // de_BatchErrors omitted.
+
+// de_BatchStartViewerSessionRevocationError omitted.
+
+// de_BatchStartViewerSessionRevocationErrors omitted.
 
 // de_Channel omitted.
 

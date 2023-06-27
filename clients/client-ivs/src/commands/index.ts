@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./BatchGetChannelCommand";
 export * from "./BatchGetStreamKeyCommand";
+export * from "./BatchStartViewerSessionRevocationCommand";
 export * from "./CreateChannelCommand";
 export * from "./CreateRecordingConfigurationCommand";
 export * from "./CreateStreamKeyCommand";
@@ -23,6 +24,7 @@ export * from "./ListStreamSessionsCommand";
 export * from "./ListStreamsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutMetadataCommand";
+export * from "./StartViewerSessionRevocationCommand";
 export * from "./StopStreamCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
