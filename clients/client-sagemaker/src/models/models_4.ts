@@ -61,11 +61,47 @@ import {
   InferenceExperimentStopDesiredState,
   ModelVariantAction,
   NestedFilters,
+  OnlineStoreConfigUpdate,
   Parameter,
   ProfilerConfigForUpdate,
   ResourceConfigForUpdate,
   SearchSortOrder,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface StartEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to start.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to start.</p>
+   */
+  StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to start.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the started inference experiment to start.</p>
+   */
+  InferenceExperimentArn: string | undefined;
+}
 
 /**
  * @public
@@ -800,6 +836,11 @@ export interface UpdateFeatureGroupRequest {
    *          made a valid request for Feature Store to update the feature group.</p>
    */
   FeatureAdditions?: FeatureDefinition[];
+
+  /**
+   * <p>Updates the feature group online store configuration.</p>
+   */
+  OnlineStoreConfig?: OnlineStoreConfigUpdate;
 }
 
 /**

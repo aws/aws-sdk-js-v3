@@ -7687,8 +7687,8 @@ export interface S3ModelDataSource {
    *             SageMaker uses all objects that match the specified key name prefix as part of the ML model
    *             data to deploy. A valid key name prefix identified by <code>S3Uri</code> always ends
    *             with a forward slash (/).</p>
-   *          <p>If you choose S3Object, S3Uri identifies an object that is the ML model data to
-   *             deploy.</p>
+   *          <p>If you choose <code>S3Object</code>, <code>S3Uri</code> identifies an object that is
+   *             the ML model data to deploy.</p>
    */
   S3DataType: S3ModelDataType | string | undefined;
 
@@ -7747,9 +7747,9 @@ export interface S3ModelDataSource {
    *                     if your uncompressed ML model consists of two S3 objects
    *                     <code>s3://mybucket/model/weights</code> and <code>s3://mybucket/model/weights/part1</code>
    *                     and you specify <code>s3://mybucket/model/</code> as the value of <code>S3Uri</code> and
-   *                     <code>S3Prefix</code> as the value of S3DataType, then it will result in name clash between
-   *                     <code>/opt/ml/model/weights</code> (a regular file) and <code>/opt/ml/model/weights/</code>
-   *                     (a directory).</p>
+   *                     <code>S3Prefix</code> as the value of <code>S3DataType</code>, then it will result in name
+   *                     clash between <code>/opt/ml/model/weights</code> (a regular file) and
+   *                     <code>/opt/ml/model/weights/</code> (a directory).</p>
    *             </li>
    *             <li>
    *                <p>Do not organize the model artifacts in
@@ -7912,7 +7912,7 @@ export interface ContainerDefinition {
   /**
    * <p>Specifies the location of ML model data to deploy.</p>
    *          <note>
-   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjuction with
+   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjunction with
    *                 SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
    *                 Marketplace.</p>
    *          </note>

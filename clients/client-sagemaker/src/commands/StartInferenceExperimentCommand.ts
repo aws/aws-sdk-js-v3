@@ -13,7 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { StartInferenceExperimentRequest, StartInferenceExperimentResponse } from "../models/models_3";
+import { StartInferenceExperimentRequest, StartInferenceExperimentResponse } from "../models/models_4";
 import { de_StartInferenceExperimentCommand, se_StartInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

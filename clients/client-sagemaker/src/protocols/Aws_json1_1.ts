@@ -1042,8 +1042,6 @@ import {
   DeleteImageRequest,
   DeleteImageVersionRequest,
   DeleteInferenceExperimentRequest,
-  DeleteModelBiasJobDefinitionRequest,
-  DeleteModelInput,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1177,6 +1175,7 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  TtlDuration,
   TuningJobCompletionCriteria,
   UiConfig,
   UiTemplate,
@@ -1184,8 +1183,10 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteModelBiasJobDefinitionRequest,
   DeleteModelCardRequest,
   DeleteModelExplainabilityJobDefinitionRequest,
+  DeleteModelInput,
   DeleteModelPackageGroupInput,
   DeleteModelPackageGroupPolicyInput,
   DeleteModelPackageInput,
@@ -1355,7 +1356,6 @@ import {
   GetSearchSuggestionsRequest,
   GitConfigForUpdate,
   HubContentInfo,
-  HubInfo,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   InferenceRecommendation,
@@ -1380,6 +1380,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  HubInfo,
   HumanTaskUiSummary,
   HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
@@ -1554,6 +1555,7 @@ import {
   NestedFilters,
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
+  OnlineStoreConfigUpdate,
   Parameter,
   Pipeline,
   PipelineExecution,
@@ -1579,8 +1581,6 @@ import {
   SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepSuccessRequest,
   SpaceDetails,
-  StartEdgeDeploymentStageRequest,
-  StartInferenceExperimentRequest,
   StudioLifecycleConfigDetails,
   TrainingJob,
   TrainingJobSummary,
@@ -1598,6 +1598,8 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StartEdgeDeploymentStageRequest,
+  StartInferenceExperimentRequest,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
@@ -21378,6 +21380,8 @@ const se_MonitoringScheduleConfig = (input: MonitoringScheduleConfig, context: _
 
 // se_OnlineStoreConfig omitted.
 
+// se_OnlineStoreConfigUpdate omitted.
+
 // se_OnlineStoreSecurityConfig omitted.
 
 // se_OutputConfig omitted.
@@ -21862,6 +21866,8 @@ const se_TrialComponentParameterValue = (input: TrialComponentParameterValue, co
 };
 
 // se_TrialComponentStatus omitted.
+
+// se_TtlDuration omitted.
 
 /**
  * serializeAws_json1_1TuningJobCompletionCriteria
@@ -28060,6 +28066,8 @@ const de_TrialSummary = (output: any, context: __SerdeContext): TrialSummary => 
     TrialSource: _json,
   }) as any;
 };
+
+// de_TtlDuration omitted.
 
 /**
  * deserializeAws_json1_1TuningJobCompletionCriteria

@@ -92,6 +92,7 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  TtlDuration,
   UiTemplate,
 } from "./models_1";
 import {
@@ -127,8 +128,7 @@ import {
   Filter,
   FlowDefinitionSummary,
   HubContentInfo,
-  HubContentSortBy,
-  HubInfo,
+  HubStatus,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
@@ -176,6 +176,67 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const HubContentSortBy = {
+  CREATION_TIME: "CreationTime",
+  HUB_CONTENT_NAME: "HubContentName",
+  HUB_CONTENT_STATUS: "HubContentStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentSortBy = (typeof HubContentSortBy)[keyof typeof HubContentSortBy];
+
+/**
+ * @public
+ * <p>Information about a hub.</p>
+ */
+export interface HubInfo {
+  /**
+   * <p>The name of the hub.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub.</p>
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   */
+  HubDisplayName?: string;
+
+  /**
+   * <p>A description of the hub.</p>
+   */
+  HubDescription?: string;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   */
+  HubSearchKeywords?: string[];
+
+  /**
+   * <p>The status of the hub.</p>
+   */
+  HubStatus: HubStatus | string | undefined;
+
+  /**
+   * <p>The date and time that the hub was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the hub was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+}
 
 /**
  * @public
@@ -8591,6 +8652,19 @@ export interface NestedFilters {
 
 /**
  * @public
+ * <p>Updates the feature group online store configuration.</p>
+ */
+export interface OnlineStoreConfigUpdate {
+  /**
+   * <p>Time to live duration, where the record is hard deleted after the expiration time is
+   *          reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
+   *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+   */
+  TtlDuration?: TtlDuration;
+}
+
+/**
+ * @public
  * <p>The trial that a trial component is associated with and the experiment the trial is part
  *       of. A component might not be associated with a trial. A component can be associated with
  *       multiple trials.</p>
@@ -10111,41 +10185,6 @@ export interface SendPipelineExecutionStepSuccessResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    */
   PipelineExecutionArn?: string;
-}
-
-/**
- * @public
- */
-export interface StartEdgeDeploymentStageRequest {
-  /**
-   * <p>The name of the edge deployment plan to start.</p>
-   */
-  EdgeDeploymentPlanName: string | undefined;
-
-  /**
-   * <p>The name of the stage to start.</p>
-   */
-  StageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment to start.</p>
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the started inference experiment to start.</p>
-   */
-  InferenceExperimentArn: string | undefined;
 }
 
 /**

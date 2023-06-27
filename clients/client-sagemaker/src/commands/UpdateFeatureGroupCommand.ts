@@ -51,6 +51,12 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  *       FeatureType: "Integral" || "Fractional" || "String",
  *     },
  *   ],
+ *   OnlineStoreConfig: { // OnlineStoreConfigUpdate
+ *     TtlDuration: { // TtlDuration
+ *       Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks",
+ *       Value: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new UpdateFeatureGroupCommand(input);
  * const response = await client.send(command);

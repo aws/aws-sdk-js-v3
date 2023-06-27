@@ -180,6 +180,26 @@ import {
 /**
  * @public
  */
+export interface DeleteModelInput {
+  /**
+   * <p>The name of the model to delete.</p>
+   */
+  ModelName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteModelBiasJobDefinitionRequest {
+  /**
+   * <p>The name of the model bias job definition to delete.</p>
+   */
+  JobDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteModelCardRequest {
   /**
    * <p>The name of the model card to delete.</p>
@@ -10148,67 +10168,6 @@ export interface HubContentInfo {
    * <p>The date and time that the hub content was created.</p>
    */
   CreationTime: Date | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HubContentSortBy = {
-  CREATION_TIME: "CreationTime",
-  HUB_CONTENT_NAME: "HubContentName",
-  HUB_CONTENT_STATUS: "HubContentStatus",
-} as const;
-
-/**
- * @public
- */
-export type HubContentSortBy = (typeof HubContentSortBy)[keyof typeof HubContentSortBy];
-
-/**
- * @public
- * <p>Information about a hub.</p>
- */
-export interface HubInfo {
-  /**
-   * <p>The name of the hub.</p>
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub.</p>
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The display name of the hub.</p>
-   */
-  HubDisplayName?: string;
-
-  /**
-   * <p>A description of the hub.</p>
-   */
-  HubDescription?: string;
-
-  /**
-   * <p>The searchable keywords for the hub.</p>
-   */
-  HubSearchKeywords?: string[];
-
-  /**
-   * <p>The status of the hub.</p>
-   */
-  HubStatus: HubStatus | string | undefined;
-
-  /**
-   * <p>The date and time that the hub was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the hub was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
 }
 
 /**

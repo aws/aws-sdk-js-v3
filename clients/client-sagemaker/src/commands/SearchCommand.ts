@@ -1333,6 +1333,10 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             KmsKeyId: "STRING_VALUE",
  * //           },
  * //           EnableOnlineStore: true || false,
+ * //           TtlDuration: { // TtlDuration
+ * //             Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks",
+ * //             Value: Number("int"),
+ * //           },
  * //         },
  * //         OfflineStoreConfig: { // OfflineStoreConfig
  * //           S3StorageConfig: { // S3StorageConfig
