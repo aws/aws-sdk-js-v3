@@ -36,9 +36,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * @public
- * <p>
- *             Adds tags to the specified resource.
- *         </p>
+ * <p> Adds tags to the specified resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,9 +71,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The resource was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *             The request was denied due to request throttling.
- *         </p>
+ *  <p> The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>

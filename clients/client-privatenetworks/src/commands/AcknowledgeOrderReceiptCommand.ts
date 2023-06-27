@@ -66,6 +66,7 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * //       street1: "STRING_VALUE", // required
  * //       street2: "STRING_VALUE",
  * //       street3: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
  * //     },
  * //     networkArn: "STRING_VALUE",
  * //     networkSiteArn: "STRING_VALUE",
@@ -76,6 +77,16 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * //     ],
  * //     acknowledgmentStatus: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
+ * //     orderedResources: [ // OrderedResourceDefinitions
+ * //       { // OrderedResourceDefinition
+ * //         type: "STRING_VALUE", // required
+ * //         count: Number("int"), // required
+ * //         commitmentConfiguration: { // CommitmentConfiguration
+ * //           commitmentLength: "STRING_VALUE", // required
+ * //           automaticRenewal: true || false, // required
+ * //         },
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

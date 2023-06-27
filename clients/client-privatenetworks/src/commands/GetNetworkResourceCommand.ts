@@ -92,10 +92,19 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * //         street1: "STRING_VALUE", // required
  * //         street2: "STRING_VALUE",
  * //         street3: "STRING_VALUE",
+ * //         emailAddress: "STRING_VALUE",
  * //       },
  * //       returnReason: "STRING_VALUE",
  * //       replacementOrderArn: "STRING_VALUE",
  * //       shippingLabel: "STRING_VALUE",
+ * //     },
+ * //     commitmentInformation: { // CommitmentInformation
+ * //       commitmentConfiguration: { // CommitmentConfiguration
+ * //         commitmentLength: "STRING_VALUE", // required
+ * //         automaticRenewal: true || false, // required
+ * //       },
+ * //       startAt: new Date("TIMESTAMP"),
+ * //       expiresOn: new Date("TIMESTAMP"),
  * //     },
  * //   },
  * //   tags: { // TagMap

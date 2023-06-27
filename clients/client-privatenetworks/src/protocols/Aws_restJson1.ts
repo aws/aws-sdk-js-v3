@@ -82,6 +82,8 @@ import {
 import {
   AccessDeniedException,
   Address,
+  CommitmentConfiguration,
+  CommitmentInformation,
   DeviceIdentifier,
   InternalServerException,
   LimitExceededException,
@@ -176,6 +178,7 @@ export const se_ActivateNetworkSiteCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [],
+      commitmentConfiguration: (_) => _json(_),
       networkSiteArn: [],
       shippingAddress: (_) => _json(_),
     })
@@ -751,6 +754,7 @@ export const se_StartNetworkResourceUpdateCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      commitmentConfiguration: (_) => _json(_),
       networkResourceArn: [],
       returnReason: [],
       shippingAddress: (_) => _json(_),
@@ -2413,6 +2417,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Address omitted.
 
+// se_CommitmentConfiguration omitted.
+
 // se_DeviceIdentifierFilters omitted.
 
 // se_DeviceIdentifierFilterValues omitted.
@@ -2459,6 +2465,19 @@ const se_Position = (input: Position, context: __SerdeContext): any => {
 // se_TagMap omitted.
 
 // de_Address omitted.
+
+// de_CommitmentConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1CommitmentInformation
+ */
+const de_CommitmentInformation = (output: any, context: __SerdeContext): CommitmentInformation => {
+  return take(output, {
+    commitmentConfiguration: _json,
+    expiresOn: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    startAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1DeviceIdentifier
@@ -2525,6 +2544,7 @@ const de_NetworkList = (output: any, context: __SerdeContext): Network[] => {
 const de_NetworkResource = (output: any, context: __SerdeContext): NetworkResource => {
   return take(output, {
     attributes: _json,
+    commitmentInformation: (_: any) => de_CommitmentInformation(_, context),
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     health: __expectString,
@@ -2602,10 +2622,15 @@ const de_Order = (output: any, context: __SerdeContext): Order => {
     networkArn: __expectString,
     networkSiteArn: __expectString,
     orderArn: __expectString,
+    orderedResources: _json,
     shippingAddress: _json,
     trackingInformation: _json,
   }) as any;
 };
+
+// de_OrderedResourceDefinition omitted.
+
+// de_OrderedResourceDefinitions omitted.
 
 /**
  * deserializeAws_restJson1OrderList

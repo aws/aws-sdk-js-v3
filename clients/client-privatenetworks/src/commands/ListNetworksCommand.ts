@@ -36,8 +36,8 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
 
 /**
  * @public
- * <p>Lists networks. Add filters to your request to return a more
- *             specific list of results. Use filters to match the status of the network.</p>
+ * <p>Lists networks. Add filters to your request to return a more specific list of results.
+ *             Use filters to match the status of the network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

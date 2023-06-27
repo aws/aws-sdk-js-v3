@@ -36,9 +36,9 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
 
 /**
  * @public
- * <p>Lists orders.  Add filters to your request to return a more
- *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of the network site or
- *             the status of the order.</p>
+ * <p>Lists orders. Add filters to your request to return a more specific list of results.
+ *             Use filters to match the Amazon Resource Name (ARN) of the network site or the status of
+ *             the order.</p>
  *          <p>If you specify multiple filters, filters are joined with an OR, and the request
  * returns results that match all of the specified filters.</p>
  * @example
@@ -74,6 +74,7 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  * //         street1: "STRING_VALUE", // required
  * //         street2: "STRING_VALUE",
  * //         street3: "STRING_VALUE",
+ * //         emailAddress: "STRING_VALUE",
  * //       },
  * //       networkArn: "STRING_VALUE",
  * //       networkSiteArn: "STRING_VALUE",
@@ -84,6 +85,16 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  * //       ],
  * //       acknowledgmentStatus: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
+ * //       orderedResources: [ // OrderedResourceDefinitions
+ * //         { // OrderedResourceDefinition
+ * //           type: "STRING_VALUE", // required
+ * //           count: Number("int"), // required
+ * //           commitmentConfiguration: { // CommitmentConfiguration
+ * //             commitmentLength: "STRING_VALUE", // required
+ * //             automaticRenewal: true || false, // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

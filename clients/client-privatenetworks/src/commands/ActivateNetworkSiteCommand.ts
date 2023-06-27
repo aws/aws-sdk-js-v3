@@ -60,8 +60,13 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  *     street1: "STRING_VALUE", // required
  *     street2: "STRING_VALUE",
  *     street3: "STRING_VALUE",
+ *     emailAddress: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
+ *   commitmentConfiguration: { // CommitmentConfiguration
+ *     commitmentLength: "STRING_VALUE", // required
+ *     automaticRenewal: true || false, // required
+ *   },
  * };
  * const command = new ActivateNetworkSiteCommand(input);
  * const response = await client.send(command);

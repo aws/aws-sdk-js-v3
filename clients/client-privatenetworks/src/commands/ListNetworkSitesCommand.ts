@@ -36,8 +36,8 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
 
 /**
  * @public
- * <p>Lists network sites. Add filters to your request to return a more
- *             specific list of results. Use filters to match the status of the network site.</p>
+ * <p>Lists network sites. Add filters to your request to return a more specific list of
+ *             results. Use filters to match the status of the network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

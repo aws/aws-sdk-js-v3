@@ -37,9 +37,8 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
 /**
  * @public
  * <p>Deletes the specified network. You must delete network sites before you delete the
- *             network. For more information, see
- *             <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html">DeleteNetworkSite</a> in the
- *             <i>API Reference for Amazon Web Services Private 5G</i>.</p>
+ *             network. For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html">DeleteNetworkSite</a> in the <i>API Reference for Amazon Web Services Private
+ *                 5G</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

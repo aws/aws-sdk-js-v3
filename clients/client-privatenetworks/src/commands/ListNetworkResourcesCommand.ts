@@ -40,9 +40,9 @@ export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesR
 
 /**
  * @public
- * <p>Lists network resources.  Add filters to your request to return a more
- *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order or
- *             the status of network resources.</p>
+ * <p>Lists network resources. Add filters to your request to return a more specific list of
+ *             results. Use filters to match the Amazon Resource Name (ARN) of an order or the status
+ *             of network resources.</p>
  *          <p>If you specify multiple filters, filters are joined with an OR, and the request
  * returns results that match all of the specified filters.</p>
  * @example
@@ -104,10 +104,19 @@ export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesR
  * //           street1: "STRING_VALUE", // required
  * //           street2: "STRING_VALUE",
  * //           street3: "STRING_VALUE",
+ * //           emailAddress: "STRING_VALUE",
  * //         },
  * //         returnReason: "STRING_VALUE",
  * //         replacementOrderArn: "STRING_VALUE",
  * //         shippingLabel: "STRING_VALUE",
+ * //       },
+ * //       commitmentInformation: { // CommitmentInformation
+ * //         commitmentConfiguration: { // CommitmentConfiguration
+ * //           commitmentLength: "STRING_VALUE", // required
+ * //           automaticRenewal: true || false, // required
+ * //         },
+ * //         startAt: new Date("TIMESTAMP"),
+ * //         expiresOn: new Date("TIMESTAMP"),
  * //       },
  * //     },
  * //   ],
