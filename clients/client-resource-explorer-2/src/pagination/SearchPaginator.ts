@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import { ResourceExplorer2Client } from "../ResourceExplorer2Client";

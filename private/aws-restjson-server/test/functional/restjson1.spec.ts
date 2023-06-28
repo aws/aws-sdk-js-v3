@@ -1,8 +1,4 @@
 // smithy-typescript generated code
-import { streamCollector as __streamCollector } from "@aws-sdk/node-http-handler";
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
-import { toUtf8 as __utf8Encoder } from "@aws-sdk/util-utf8";
 import {
   httpbinding,
   OperationSerializer as __OperationSerializer,
@@ -10,7 +6,11 @@ import {
   ServiceException as __ServiceException,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
+import { streamCollector as __streamCollector } from "@smithy/node-http-handler";
+import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Encoder as __Encoder } from "@smithy/types";
+import { HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
 import { Readable } from "stream";
 
 import { ComplexError, InvalidGreeting } from "../../src/models/models_0";

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListBridgesCommand, ListBridgesCommandInput, ListBridgesCommandOutput } from "../commands/ListBridgesCommand";
 import { MediaConnectClient } from "../MediaConnectClient";

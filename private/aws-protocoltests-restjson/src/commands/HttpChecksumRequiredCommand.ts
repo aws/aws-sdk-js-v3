@@ -1,7 +1,8 @@
 // smithy-typescript generated code
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,9 +10,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-} from "@aws-sdk/types";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import { SerdeContext as __SerdeContext } from "@smithy/types";
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
 
 import { HttpChecksumRequiredInputOutput } from "../models/models_0";
 import { de_HttpChecksumRequiredCommand, se_HttpChecksumRequiredCommand } from "../protocols/Aws_restJson1";

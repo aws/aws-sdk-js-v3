@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
 import { QuickSightClient } from "../QuickSightClient";

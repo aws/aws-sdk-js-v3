@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
 import { DetectiveClient } from "../DetectiveClient";

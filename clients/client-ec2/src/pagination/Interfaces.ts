@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { PaginationConfiguration } from "@aws-sdk/types";
+import { PaginationConfiguration } from "@smithy/types";
 
 import { EC2Client } from "../EC2Client";
 

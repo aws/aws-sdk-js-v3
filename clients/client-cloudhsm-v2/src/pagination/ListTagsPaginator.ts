@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { CloudHSMV2Client } from "../CloudHSMV2Client";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";

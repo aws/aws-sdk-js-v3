@@ -2,7 +2,7 @@
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 
 import { TextractServiceException as __BaseException } from "./TextractServiceException";
 

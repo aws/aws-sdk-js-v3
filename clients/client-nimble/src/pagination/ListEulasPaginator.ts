@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListEulasCommand, ListEulasCommandInput, ListEulasCommandOutput } from "../commands/ListEulasCommand";
 import { NimbleClient } from "../NimbleClient";

@@ -1,6 +1,6 @@
 // @ts-nocheck
 // generated code, do not edit
-import { RuleSetObject } from "@aws-sdk/util-endpoints";
+import { RuleSetObject } from "@smithy/types";
 
 /* This file is compressed. Log this object
    or see "smithy.rules#endpointRuleSet"

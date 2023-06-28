@@ -3,18 +3,18 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
-import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@aws-sdk/config-resolver";
-import { FetchHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
-import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
-import { invalidProvider } from "@aws-sdk/invalid-dependency";
-import { Md5 } from "@aws-sdk/md5-js";
-import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
+import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
+import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
+import { blobHasher as streamHasher } from "@smithy/hash-blob-browser";
+import { invalidProvider } from "@smithy/invalid-dependency";
+import { Md5 } from "@smithy/md5-js";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { S3ControlClientConfig } from "./S3ControlClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
-import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
-import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-browser";
+import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
 
 /**
  * @internal

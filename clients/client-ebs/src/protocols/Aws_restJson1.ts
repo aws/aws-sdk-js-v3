@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
@@ -16,13 +17,13 @@ import {
   strictParseInt32 as __strictParseInt32,
   take,
   withBaseException,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
+  Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
-} from "@aws-sdk/types";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CompleteSnapshotCommandInput, CompleteSnapshotCommandOutput } from "../commands/CompleteSnapshotCommand";

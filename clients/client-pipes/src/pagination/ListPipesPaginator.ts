@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListPipesCommand, ListPipesCommandInput, ListPipesCommandOutput } from "../commands/ListPipesCommand";
 import { PipesClient } from "../PipesClient";

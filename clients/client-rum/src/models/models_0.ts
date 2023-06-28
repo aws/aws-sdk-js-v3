@@ -2,7 +2,7 @@
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 
 import { RUMServiceException as __BaseException } from "./RUMServiceException";
 

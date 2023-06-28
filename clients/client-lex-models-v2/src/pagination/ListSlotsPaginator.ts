@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListSlotsCommand, ListSlotsCommandInput, ListSlotsCommandOutput } from "../commands/ListSlotsCommand";
 import { LexModelsV2Client } from "../LexModelsV2Client";

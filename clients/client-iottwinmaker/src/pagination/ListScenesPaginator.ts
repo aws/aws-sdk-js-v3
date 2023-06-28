@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListScenesCommand, ListScenesCommandInput, ListScenesCommandOutput } from "../commands/ListScenesCommand";
 import { IoTTwinMakerClient } from "../IoTTwinMakerClient";

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListLensesCommand, ListLensesCommandInput, ListLensesCommandOutput } from "../commands/ListLensesCommand";
 import { WellArchitectedClient } from "../WellArchitectedClient";

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListLabelsCommand, ListLabelsCommandInput, ListLabelsCommandOutput } from "../commands/ListLabelsCommand";
 import { LookoutEquipmentClient } from "../LookoutEquipmentClient";

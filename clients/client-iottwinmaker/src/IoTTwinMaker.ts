@@ -1,6 +1,6 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@aws-sdk/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchPutPropertyValuesCommand,

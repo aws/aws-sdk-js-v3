@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import { GetFunctionCommand, GetFunctionCommandInput } from "../commands/GetFunctionCommand";
 import { LambdaClient } from "../LambdaClient";

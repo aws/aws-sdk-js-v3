@@ -1,6 +1,6 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { DocumentType as __DocumentType } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { DocumentType as __DocumentType } from "@smithy/types";
 
 import { TnbServiceException as __BaseException } from "./TnbServiceException";
 

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
@@ -10,10 +11,12 @@ import {
   map,
   take,
   withBaseException,
-} from "@aws-sdk/smithy-client";
-import { ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
+} from "@smithy/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "../commands/CancelChangeSetCommand";

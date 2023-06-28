@@ -2,8 +2,8 @@
 import { EchoServiceClient, EchoServiceClientConfig } from "./EchoServiceClient";
 import { EchoCommand, EchoCommandInput, EchoCommandOutput } from "./commands/EchoCommand";
 import { LengthCommand, LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";
-import { createAggregatedClient } from "@aws-sdk/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 const commands = {
   EchoCommand,
