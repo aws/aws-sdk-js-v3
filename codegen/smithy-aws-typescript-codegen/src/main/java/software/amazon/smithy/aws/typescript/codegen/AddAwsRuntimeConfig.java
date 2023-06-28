@@ -84,7 +84,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             TypeScriptWriter writer
     ) {
         if (isAwsService(settings, model)) {
-            writer.writeDocs("Unique service identifier.\n@internal")
+            ServiceShape service = settings.getService(model);
+            String sdkId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId)
+                    .orElse("");
+            writer.writeDocs(String.format("Unique service identifier.%n@internal%n@default \"%s\"", sdkId))
                     .write("serviceId?: string;\n");
             writer.writeDocs("Enables IPv6/IPv4 dualstack endpoint.")
                     .write("useDualstackEndpoint?: boolean | __Provider<boolean>;\n");

@@ -99,11 +99,11 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             writer.addImport("EndpointV2", "__EndpointV2", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         } else {
             writer.addImport(
-                "RegionInfoProvider", null, TypeScriptDependency.AWS_SDK_TYPES.packageName
+                "RegionInfoProvider", "__RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName
             );
             writer.writeDocs("Fetch related hostname, signing name or signing region with given region.\n"
                 + "@internal");
-            writer.write("regionInfoProvider?: RegionInfoProvider;\n");
+            writer.write("regionInfoProvider?: __RegionInfoProvider;\n");
         }
     }
 
