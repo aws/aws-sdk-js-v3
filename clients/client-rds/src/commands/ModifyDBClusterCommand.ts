@@ -213,6 +213,11 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //         Status: "STRING_VALUE",
  * //         FQDN: "STRING_VALUE",
  * //         IAMRoleName: "STRING_VALUE",
+ * //         OU: "STRING_VALUE",
+ * //         AuthSecretArn: "STRING_VALUE",
+ * //         DnsIps: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //     TagList: [ // TagList

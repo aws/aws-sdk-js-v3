@@ -213,6 +213,11 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //         Status: "STRING_VALUE",
  * //         FQDN: "STRING_VALUE",
  * //         IAMRoleName: "STRING_VALUE",
+ * //         OU: "STRING_VALUE",
+ * //         AuthSecretArn: "STRING_VALUE",
+ * //         DnsIps: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //     CopyTagsToSnapshot: true || false,

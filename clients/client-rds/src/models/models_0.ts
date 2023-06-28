@@ -4646,7 +4646,7 @@ export interface DomainMembership {
   Status?: string;
 
   /**
-   * <p>The fully qualified domain name of the Active Directory Domain.</p>
+   * <p>The fully qualified domain name (FQDN) of the Active Directory Domain.</p>
    */
   FQDN?: string;
 
@@ -4654,6 +4654,21 @@ export interface DomainMembership {
    * <p>The name of the IAM role to be used when making API calls to the Directory Service.</p>
    */
   IAMRoleName?: string;
+
+  /**
+   * <p>The Active Directory organizational unit for your DB instance to join.</p>
+   */
+  OU?: string;
+
+  /**
+   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   */
+  AuthSecretArn?: string;
+
+  /**
+   * <p>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</p>
+   */
+  DnsIps?: string[];
 }
 
 /**
@@ -6862,6 +6877,55 @@ export interface CreateDBInstanceMessage {
   Domain?: string;
 
   /**
+   * <p>Specifies the fully qualified domain name of an Active Directory domain.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Cannot be greater than 64 characters.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code>
+   *          </p>
+   */
+  DomainFqdn?: string;
+
+  /**
+   * <p>The Active Directory organizational unit for your DB instance to join.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the distinguished name format.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be greater than 64 characters.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
+   *          </p>
+   */
+  DomainOu?: string;
+
+  /**
+   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   *          <p>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code>
+   *          </p>
+   */
+  DomainAuthSecretArn?: string;
+
+  /**
+   * <p>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Two IP addresses must be provided.  If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>123.124.125.126,234.235.236.237</code>
+   *          </p>
+   */
+  DomainDnsIps?: string[];
+
+  /**
    * <p>Spcifies whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
    *          <p>This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this
    *           value for an Aurora DB instance has no effect on the DB cluster setting.</p>
@@ -8758,6 +8822,55 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   DomainIAMRoleName?: string;
+
+  /**
+   * <p>Specifies the fully qualified domain name of an Active Directory domain.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Cannot be greater than 64 characters.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code>
+   *          </p>
+   */
+  DomainFqdn?: string;
+
+  /**
+   * <p>The Active Directory organizational unit for your DB instance to join.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the distinguished name format.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be greater than 64 characters.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
+   *          </p>
+   */
+  DomainOu?: string;
+
+  /**
+   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   *          <p>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code>
+   *          </p>
+   */
+  DomainAuthSecretArn?: string;
+
+  /**
+   * <p>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Two IP addresses must be provided.  If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>123.124.125.126,234.235.236.237</code>
+   *          </p>
+   */
+  DomainDnsIps?: string[];
 
   /**
    * <p>The open mode of the replica database: mounted or read-only.</p>

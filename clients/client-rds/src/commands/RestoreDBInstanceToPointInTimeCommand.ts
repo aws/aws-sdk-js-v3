@@ -89,6 +89,12 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   ],
  *   Domain: "STRING_VALUE",
  *   DomainIAMRoleName: "STRING_VALUE",
+ *   DomainFqdn: "STRING_VALUE",
+ *   DomainOu: "STRING_VALUE",
+ *   DomainAuthSecretArn: "STRING_VALUE",
+ *   DomainDnsIps: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
  *   EnableIAMDatabaseAuthentication: true || false,
  *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
@@ -254,6 +260,11 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //         Status: "STRING_VALUE",
  * //         FQDN: "STRING_VALUE",
  * //         IAMRoleName: "STRING_VALUE",
+ * //         OU: "STRING_VALUE",
+ * //         AuthSecretArn: "STRING_VALUE",
+ * //         DnsIps: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     ],
  * //     CopyTagsToSnapshot: true || false,
