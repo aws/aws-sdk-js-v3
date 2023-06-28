@@ -67,6 +67,10 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *     },
  *   },
  *   TrafficPercentageToMonitor: Number("int"),
+ *   HealthEventsConfig: { // HealthEventsConfig
+ *     AvailabilityScoreThreshold: Number("double"),
+ *     PerformanceScoreThreshold: Number("double"),
+ *   },
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);

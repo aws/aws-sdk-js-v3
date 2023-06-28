@@ -66,6 +66,10 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *     },
  *   },
  *   TrafficPercentageToMonitor: Number("int"),
+ *   HealthEventsConfig: { // HealthEventsConfig
+ *     AvailabilityScoreThreshold: Number("double"),
+ *     PerformanceScoreThreshold: Number("double"),
+ *   },
  * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);

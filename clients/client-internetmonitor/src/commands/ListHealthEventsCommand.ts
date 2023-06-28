@@ -117,6 +117,7 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * //       Status: "STRING_VALUE", // required
  * //       PercentOfTotalTrafficImpacted: Number("double"),
  * //       ImpactType: "STRING_VALUE", // required
+ * //       HealthScoreThreshold: Number("double"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

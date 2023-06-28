@@ -111,6 +111,7 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * //   Status: "STRING_VALUE", // required
  * //   PercentOfTotalTrafficImpacted: Number("double"),
  * //   ImpactType: "STRING_VALUE", // required
+ * //   HealthScoreThreshold: Number("double"),
  * // };
  *
  * ```

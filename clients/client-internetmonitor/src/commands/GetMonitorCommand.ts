@@ -72,6 +72,10 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * //     },
  * //   },
  * //   TrafficPercentageToMonitor: Number("int"),
+ * //   HealthEventsConfig: { // HealthEventsConfig
+ * //     AvailabilityScoreThreshold: Number("double"),
+ * //     PerformanceScoreThreshold: Number("double"),
+ * //   },
  * // };
  *
  * ```
