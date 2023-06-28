@@ -1,6 +1,6 @@
 /// <reference types="mocha" />
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@aws-sdk/types";
+import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@smithy/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { PassThrough, Readable } from "stream";

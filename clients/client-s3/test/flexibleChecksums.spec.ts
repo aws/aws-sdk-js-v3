@@ -1,7 +1,7 @@
 /// <reference types="mocha" />
 import { ChecksumAlgorithm } from "@aws-sdk/middleware-flexible-checksums";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildMiddleware } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { BuildMiddleware } from "@smithy/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { Readable } from "stream";

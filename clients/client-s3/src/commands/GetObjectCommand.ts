@@ -1,9 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -13,10 +14,9 @@ import {
   MiddlewareStack,
   SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
+  SerdeContext as __SerdeContext,
   WithSdkStreamMixin as __WithSdkStreamMixin,
-} from "@aws-sdk/types";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import { SerdeContext as __SerdeContext } from "@smithy/types";
+} from "@smithy/types";
 
 import {
   GetObjectOutput,
