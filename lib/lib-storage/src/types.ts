@@ -1,5 +1,5 @@
-import { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
 import { AbortController } from "@aws-sdk/abort-controller";
+import { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
 
 export interface Progress {
   loaded?: number;
@@ -31,9 +31,9 @@ export interface Configuration {
   partSize: number;
 
   /**
-   * Default: false
-   * Whether to abort the multipart upload if an error occurs. Set to true if you want to handle failures manually. If set to false (default)
-   * the upload will drop parts that have failed.
+   * Default: true
+   * Whether to abort the multipart upload if an error occurs (default.) Set to true if you want to handle failures manually (or retry if using a retry strategy). If set to false
+   * the upload will silently drop parts that have failed.
    */
   leavePartsOnError: boolean;
 

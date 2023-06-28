@@ -44,7 +44,7 @@ export class Upload extends EventEmitter {
   // Defaults.
   private queueSize = 4;
   private partSize = MIN_PART_SIZE;
-  private leavePartsOnError = false;
+  private leavePartsOnError = true;
   private tags: Tag[] = [];
 
   private client: S3Client;
