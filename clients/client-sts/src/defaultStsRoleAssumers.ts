@@ -1,7 +1,8 @@
 // smithy-typescript generated code
 // Please do not touch this file. It's generated from template in:
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultStsRoleAssumers.ts
-import { Credentials, Provider } from "@aws-sdk/types";
+import { Credentials } from "@aws-sdk/types";
+import { Provider } from "@smithy/types";
 
 import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import {
