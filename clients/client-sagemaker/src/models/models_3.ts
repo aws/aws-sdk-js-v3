@@ -7972,6 +7972,12 @@ export interface ModelCard {
    * <p>The risk rating of the model. Different organizations might have different criteria for model card risk ratings. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-risk-rating.html">Risk ratings</a>.</p>
    */
   RiskRating?: string;
+
+  /**
+   * <p>The model package group that contains the model package. Only relevant for model cards created for model packages in the Amazon SageMaker Model Registry.
+   *       </p>
+   */
+  ModelPackageGroupName?: string;
 }
 
 /**

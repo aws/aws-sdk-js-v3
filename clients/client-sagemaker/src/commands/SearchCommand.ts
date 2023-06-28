@@ -1976,6 +1976,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         Tags: "<TagList>",
  * //         ModelId: "STRING_VALUE",
  * //         RiskRating: "STRING_VALUE",
+ * //         ModelPackageGroupName: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

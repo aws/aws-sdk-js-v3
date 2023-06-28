@@ -8110,7 +8110,8 @@ export interface CreatePipelineRequest {
   PipelineDisplayName?: string;
 
   /**
-   * <p>The JSON pipeline definition of the pipeline.</p>
+   * <p>The <a href="https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/">JSON
+   *          pipeline definition</a> of the pipeline.</p>
    */
   PipelineDefinition?: string;
 

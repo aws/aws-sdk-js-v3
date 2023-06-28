@@ -26135,6 +26135,7 @@ const de_ModelCard = (output: any, context: __SerdeContext): ModelCard => {
     ModelCardStatus: __expectString,
     ModelCardVersion: __expectInt32,
     ModelId: __expectString,
+    ModelPackageGroupName: __expectString,
     RiskRating: __expectString,
     SecurityConfig: _json,
     Tags: _json,
