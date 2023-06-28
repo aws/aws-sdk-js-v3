@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.362.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.361.0...v3.362.0) (2023-06-28)
+
+
+### Bug Fixes
+
+* **util-retry:** correct attempts count on StandardRetryStrategy ([#4891](https://github.com/aws/aws-sdk-js-v3/issues/4891)) ([63c3e60](https://github.com/aws/aws-sdk-js-v3/commit/63c3e60c019a3a129f784908d304ece99b7da9d7))
+
+
+
+
+
 # [3.360.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.359.0...v3.360.0) (2023-06-26)
 
 **Note:** Version bump only for package @aws-sdk/aws-client-retry-test

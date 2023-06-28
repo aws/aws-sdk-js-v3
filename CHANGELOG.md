@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.362.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.361.0...v3.362.0) (2023-06-28)
+
+
+### Bug Fixes
+
+* **util-retry:** correct attempts count on StandardRetryStrategy ([#4891](https://github.com/aws/aws-sdk-js-v3/issues/4891)) ([63c3e60](https://github.com/aws/aws-sdk-js-v3/commit/63c3e60c019a3a129f784908d304ece99b7da9d7))
+
+
+### Features
+
+* **client-internetmonitor:** This release adds a new feature for Amazon CloudWatch Internet Monitor that enables customers to set custom thresholds, for performance and availability drops, for triggering when to create a health event. ([fb478aa](https://github.com/aws/aws-sdk-js-v3/commit/fb478aaea8c100d368782847b047074471909aba))
+* **client-kinesis-analytics-v2:** Support for new runtime environment in Kinesis Data Analytics Studio: Zeppelin-0.10, Apache Flink-1.15 ([bb74957](https://github.com/aws/aws-sdk-js-v3/commit/bb74957c962e40e67590fddd208edfad8406b848))
+* **client-lambda:** Surface ResourceConflictException in DeleteEventSourceMapping ([9aafa26](https://github.com/aws/aws-sdk-js-v3/commit/9aafa26074ecfc2629b8476555ad565efd57501c))
+* **client-omics:** Add Common Workflow Language (CWL) as a supported language for Omics workflows ([3cb41fa](https://github.com/aws/aws-sdk-js-v3/commit/3cb41fa75d0918d6a4e5921a54327d967f2a00c5))
+* **client-rds:** Amazon Relational Database Service (RDS) now supports joining a RDS for SQL Server instance to a self-managed Active Directory. ([a3ee38f](https://github.com/aws/aws-sdk-js-v3/commit/a3ee38fa1b07050237de742743e48048e73668fe))
+* **client-s3:** The S3 LISTObjects, ListObjectsV2 and ListObjectVersions API now supports a new optional header x-amz-optional-object-attributes. If header contains RestoreStatus as the value, then S3 will include Glacier restore status i.e. isRestoreInProgress and RestoreExpiryDate in List response. ([5457785](https://github.com/aws/aws-sdk-js-v3/commit/54577854eb24a30cdee4099f03c7b26f247f3dc0))
+* **client-sagemaker:** This release adds support for Model Cards Model Registry integration. ([75339d2](https://github.com/aws/aws-sdk-js-v3/commit/75339d289ed4aede2aa3e4d325eab3327769d89c))
+
+
+
+
+
 # [3.361.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.360.0...v3.361.0) (2023-06-27)
 
 
