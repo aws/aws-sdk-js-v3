@@ -3388,6 +3388,9 @@ const de_DeleteEventSourceMappingCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.lambda#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lambda#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);

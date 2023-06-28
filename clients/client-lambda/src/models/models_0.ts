@@ -1051,15 +1051,15 @@ export interface CreateEventSourceMappingRequest {
   ParallelizationFactor?: number;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon
-   *       DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for
-   *       Amazon Kinesis streams and Amazon DocumentDB.</p>
+   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis and
+   *       Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for
+   *       Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
   /**
    * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
-   *       reading.</p>
+   *       reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
    */
   StartingPositionTimestamp?: Date;
 
@@ -1145,14 +1145,15 @@ export interface EventSourceMappingConfiguration {
   UUID?: string;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis
-   *       streams and Amazon DocumentDB.</p>
+   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis and
+   *       Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for
+   *       Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
   /**
    * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
-   *       reading.</p>
+   *       reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
    */
   StartingPositionTimestamp?: Date;
 
@@ -1551,11 +1552,8 @@ export type SnapStartApplyOn = (typeof SnapStartApplyOn)[keyof typeof SnapStartA
 
 /**
  * @public
- * <p>The function's Lambda SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
+ * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a> setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a
  *       snapshot of the initialized execution environment when you publish a function version.</p>
- *          <p>SnapStart is supported with the <code>java11</code> runtime. For more information, see
- *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda
- *         SnapStart</a>.</p>
  */
 export interface SnapStart {
   /**

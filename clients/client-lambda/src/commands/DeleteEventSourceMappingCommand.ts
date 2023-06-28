@@ -132,6 +132,9 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One of the parameters in the request is not valid.</p>
  *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The operation conflicts with the resource's availability. For example, you tried to update an event source
  *       mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
