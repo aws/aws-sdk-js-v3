@@ -64,7 +64,7 @@ export interface AbortMultipartUploadRequest {
    * <p>The bucket name to which the upload was taking place. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -363,7 +363,7 @@ export interface CompleteMultipartUploadOutput {
    *          ARN or access point alias if used.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket?: string;
 
@@ -523,7 +523,7 @@ export interface CompleteMultipartUploadRequest {
    * <p>Name of the bucket to which the multipart upload was initiated.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -859,7 +859,7 @@ export interface CopyObjectRequest {
    * <p>The name of the destination bucket.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -1381,7 +1381,7 @@ export interface CreateMultipartUploadOutput {
    *          access point ARN or access point alias if used.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Bucket?: string;
 
@@ -1459,7 +1459,7 @@ export interface CreateMultipartUploadRequest {
    * <p>The name of the bucket to which to initiate the upload</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -1908,7 +1908,7 @@ export interface DeleteObjectRequest {
    * <p>The bucket name of the bucket containing the object. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -3944,7 +3944,7 @@ export interface DeleteObjectsRequest {
    * <p>The bucket name containing the objects to delete. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -4014,7 +4014,7 @@ export interface DeleteObjectTaggingRequest {
    * <p>The bucket name containing the objects from which to remove the tags. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -7246,7 +7246,7 @@ export interface GetObjectRequest {
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -7683,7 +7683,7 @@ export interface GetObjectAttributesRequest {
    * <p>The name of the bucket that contains the object.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -7744,7 +7744,7 @@ export interface GetObjectAttributesRequest {
   ExpectedBucketOwner?: string;
 
   /**
-   * <p>An XML header that specifies the fields at the root level that you want returned in the
+   * <p>Specifies the fields at the root level that you want returned in the
    *          response. Fields that you do not specify are not returned.</p>
    */
   ObjectAttributes: (ObjectAttributes | string)[] | undefined;
@@ -8021,7 +8021,7 @@ export interface GetObjectTaggingRequest {
    * <p>The bucket name containing the object for which to get the tagging information. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -8193,7 +8193,7 @@ export interface HeadBucketRequest {
    *          For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
    *             Error Codes</a>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -8511,7 +8511,7 @@ export interface HeadObjectRequest {
    * <p>The name of the bucket containing the object.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -8652,8 +8652,8 @@ export interface ListBucketAnalyticsConfigurationsRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>The ContinuationToken that represents a placeholder from where this request should
-   *          begin.</p>
+   * <p>The <code>ContinuationToken</code> that represents a placeholder from where this request
+   *          should begin.</p>
    */
   ContinuationToken?: string;
 
@@ -8754,8 +8754,9 @@ export interface ListBucketInventoryConfigurationsRequest {
 
   /**
    * <p>The marker used to continue an inventory configuration listing that has been truncated.
-   *          Use the NextContinuationToken from a previously truncated list response to continue the
-   *          listing. The continuation token is an opaque value that Amazon S3 understands.</p>
+   *          Use the <code>NextContinuationToken</code> from a previously truncated list response to
+   *          continue the listing. The continuation token is an opaque value that Amazon S3
+   *          understands.</p>
    */
   ContinuationToken?: string;
 
@@ -8809,8 +8810,8 @@ export interface ListBucketMetricsConfigurationsRequest {
 
   /**
    * <p>The marker that is used to continue a metrics configuration listing that has been
-   *          truncated. Use the NextContinuationToken from a previously truncated list response to
-   *          continue the listing. The continuation token is an opaque value that Amazon S3
+   *          truncated. Use the <code>NextContinuationToken</code> from a previously truncated list
+   *          response to continue the listing. The continuation token is an opaque value that Amazon S3
    *          understands.</p>
    */
   ContinuationToken?: string;
@@ -9011,8 +9012,8 @@ export interface ListMultipartUploadsOutput {
 
   /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
-   *          <p>If you specify <code>encoding-type</code> request parameter, Amazon S3 includes this element
-   *          in the response, and returns encoded key name values in the following response
+   *          <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this
+   *          element in the response, and returns encoded key name values in the following response
    *          elements:</p>
    *          <p>
    *             <code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>,
@@ -9035,7 +9036,7 @@ export interface ListMultipartUploadsRequest {
    * <p>The name of the bucket to which the multipart upload was initiated. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -9054,7 +9055,7 @@ export interface ListMultipartUploadsRequest {
 
   /**
    * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding
-   *          method to use. An object key may contain any Unicode character; however, XML 1.0 parser
+   *          method to use. An object key can contain any Unicode character; however, the XML 1.0 parser
    *          cannot parse some characters, such as characters with an ASCII value from 0 to 10. For
    *          characters that are not supported in XML 1.0, you can add this parameter to request that
    *          Amazon S3 encode the keys in the response.</p>
@@ -9062,8 +9063,8 @@ export interface ListMultipartUploadsRequest {
   EncodingType?: EncodingType | string;
 
   /**
-   * <p>Together with upload-id-marker, this parameter specifies the multipart upload after
-   *          which listing should begin.</p>
+   * <p>Together with <code>upload-id-marker</code>, this parameter specifies the multipart
+   *          upload after which listing should begin.</p>
    *          <p>If <code>upload-id-marker</code> is not specified, only the keys lexicographically
    *          greater than the specified <code>key-marker</code> will be included in the list.</p>
    *          <p>If <code>upload-id-marker</code> is specified, any multipart uploads for a key equal to
@@ -9082,7 +9083,8 @@ export interface ListMultipartUploadsRequest {
   /**
    * <p>Lists in-progress uploads only for those keys that begin with the specified prefix. You
    *          can use prefixes to separate a bucket into different grouping of keys. (You can think of
-   *          using prefix to make groups in the same way you'd use a folder in a file system.)</p>
+   *          using <code>prefix</code> to make groups in the same way that you'd use a folder in a file
+   *          system.)</p>
    */
   Prefix?: string;
 
@@ -9107,6 +9109,38 @@ export interface ListMultipartUploadsRequest {
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
+}
+
+/**
+ * @public
+ * <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored
+ *          before they can be retrieved. For more information about these storage classes and how to work with
+ *          archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">
+ *             Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface RestoreStatus {
+  /**
+   * <p>Specifies whether the object is currently being restored. If the object restoration is
+   *          in progress, the header returns the value <code>TRUE</code>. For example:</p>
+   *          <p>
+   *             <code>x-amz-optional-object-attributes: IsRestoreInProgress="true"</code>
+   *          </p>
+   *          <p>If the object restoration has completed, the header returns the value <code>FALSE</code>. For example:</p>
+   *          <p>
+   *             <code>x-amz-optional-object-attributes: IsRestoreInProgress="false", RestoreExpiryDate="2012-12-21T00:00:00.000Z"</code>
+   *          </p>
+   *          <p>If the object hasn't been restored, there is no header response.</p>
+   */
+  IsRestoreInProgress?: boolean;
+
+  /**
+   * <p>Indicates when the restored copy will expire. This value is populated only if the object
+   *          has already been restored. For example:</p>
+   *          <p>
+   *             <code>x-amz-optional-object-attributes: IsRestoreInProgress="false", RestoreExpiryDate="2012-12-21T00:00:00.000Z"</code>
+   *          </p>
+   */
+  RestoreExpiryDate?: Date;
 }
 
 /**
@@ -9192,6 +9226,14 @@ export interface _Object {
    * <p>The owner of the object</p>
    */
   Owner?: Owner;
+
+  /**
+   * <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored
+   *          before they can be retrieved. For more information about these storage classes and how to work with
+   *          archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">
+   *             Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  RestoreStatus?: RestoreStatus;
 }
 
 /**
@@ -9211,12 +9253,17 @@ export interface ListObjectsOutput {
   Marker?: string;
 
   /**
-   * <p>When response is truncated (the IsTruncated element value in the response is true), you
-   *          can use the key name in this field as marker in the subsequent request to get next set of
-   *          objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if
-   *          you have delimiter request parameter specified. If response does not include the NextMarker
-   *          and it is truncated, you can use the value of the last Key in the response as the marker in
-   *          the subsequent request to get the next set of object keys.</p>
+   * <p>When the response is truncated (the <code>IsTruncated</code> element value in the
+   *          response is <code>true</code>), you can use the key name in this field as the
+   *             <code>marker</code> parameter in the subsequent request to get the next set of objects.
+   *          Amazon S3 lists objects in alphabetical order. </p>
+   *          <note>
+   *             <p>This element is returned only if you have the <code>delimiter</code> request
+   *             parameter specified. If the response does not include the <code>NextMarker</code>
+   *             element and it is truncated, you can use the value of the last <code>Key</code> element
+   *             in the response as the <code>marker</code> parameter in the subsequent request to get
+   *             the next set of object keys.</p>
+   *          </note>
    */
   NextMarker?: string;
 
@@ -9252,14 +9299,19 @@ export interface ListObjectsOutput {
   /**
    * <p>All of the keys (up to 1,000) rolled up in a common prefix count as a single return when
    *          calculating the number of returns. </p>
-   *          <p>A response can contain CommonPrefixes only if you specify a delimiter.</p>
-   *          <p>CommonPrefixes contains all (if there are any) keys between Prefix and the next
-   *          occurrence of the string specified by the delimiter.</p>
-   *          <p> CommonPrefixes lists keys that act like subdirectories in the directory specified by
-   *          Prefix.</p>
-   *          <p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in
-   *          notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a
-   *          common prefix count as a single return when calculating the number of returns.</p>
+   *          <p>A response can contain <code>CommonPrefixes</code> only if you specify a
+   *          delimiter.</p>
+   *          <p>
+   *             <code>CommonPrefixes</code> contains all (if there are any) keys between
+   *             <code>Prefix</code> and the next occurrence of the string specified by the
+   *          delimiter.</p>
+   *          <p>
+   *             <code>CommonPrefixes</code> lists keys that act like subdirectories in the directory
+   *          specified by <code>Prefix</code>.</p>
+   *          <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash
+   *             (<code>/</code>), as in <code>notes/summer/july</code>, the common prefix is
+   *             <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a
+   *          single return when calculating the number of returns.</p>
    */
   CommonPrefixes?: CommonPrefix[];
 
@@ -9277,26 +9329,39 @@ export interface ListObjectsOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const OptionalObjectAttributes = {
+  RESTORE_STATUS: "RestoreStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type OptionalObjectAttributes = (typeof OptionalObjectAttributes)[keyof typeof OptionalObjectAttributes];
+
+/**
+ * @public
  */
 export interface ListObjectsRequest {
   /**
    * <p>The name of the bucket containing the objects.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>A delimiter is a character you use to group keys.</p>
+   * <p>A delimiter is a character that you use to group keys.</p>
    */
   Delimiter?: string;
 
   /**
    * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding
-   *          method to use. An object key may contain any Unicode character; however, XML 1.0 parser
+   *          method to use. An object key can contain any Unicode character; however, the XML 1.0 parser
    *          cannot parse some characters, such as characters with an ASCII value from 0 to 10. For
    *          characters that are not supported in XML 1.0, you can add this parameter to request that
    *          Amazon S3 encode the keys in the response.</p>
@@ -9310,9 +9375,8 @@ export interface ListObjectsRequest {
   Marker?: string;
 
   /**
-   * <p>Sets the maximum number of keys returned in the response. By default the action returns
-   *          up to 1,000 key names. The response might contain fewer keys but will never contain more.
-   *       </p>
+   * <p>Sets the maximum number of keys returned in the response. By default, the action returns
+   *          up to 1,000 key names. The response might contain fewer keys but will never contain more. </p>
    */
   MaxKeys?: number;
 
@@ -9331,6 +9395,12 @@ export interface ListObjectsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Specifies the optional fields that you want returned in the response.
+   *          Fields that you do not specify are not returned.</p>
+   */
+  OptionalObjectAttributes?: (OptionalObjectAttributes | string)[];
 }
 
 /**
@@ -9358,9 +9428,9 @@ export class NoSuchBucket extends __BaseException {
  */
 export interface ListObjectsV2Output {
   /**
-   * <p>Set to false if all of the results were returned. Set to true if more keys are available
-   *          to return. If the number of results exceeds that specified by MaxKeys, all of the results
-   *          might not be returned.</p>
+   * <p>Set to <code>false</code> if all of the results were returned. Set to <code>true</code>
+   *          if more keys are available to return. If the number of results exceeds that specified by
+   *             <code>MaxKeys</code>, all of the results might not be returned.</p>
    */
   IsTruncated?: boolean;
 
@@ -9373,7 +9443,7 @@ export interface ListObjectsV2Output {
    * <p>The bucket name.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Name?: string;
 
@@ -9383,15 +9453,16 @@ export interface ListObjectsV2Output {
   Prefix?: string;
 
   /**
-   * <p>Causes keys that contain the same string between the prefix and the first occurrence of
-   *          the delimiter to be rolled up into a single result element in the CommonPrefixes
-   *          collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up
-   *          result counts as only one return against the <code>MaxKeys</code> value.</p>
+   * <p>Causes keys that contain the same string between the <code>prefix</code> and the first
+   *          occurrence of the delimiter to be rolled up into a single result element in the
+   *             <code>CommonPrefixes</code> collection. These rolled-up keys are not returned elsewhere
+   *          in the response. Each rolled-up result counts as only one return against the
+   *             <code>MaxKeys</code> value.</p>
    */
   Delimiter?: string;
 
   /**
-   * <p>Sets the maximum number of keys returned in the response. By default the action returns
+   * <p>Sets the maximum number of keys returned in the response. By default, the action returns
    *          up to 1,000 key names. The response might contain fewer keys but will never contain
    *          more.</p>
    */
@@ -9418,22 +9489,26 @@ export interface ListObjectsV2Output {
 
   /**
    * <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
-   *          <p>If you specify the encoding-type request parameter, Amazon S3 includes this element in the
-   *          response, and returns encoded key name values in the following response elements:</p>
+   *          <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this
+   *          element in the response, and returns encoded key name values in the following response
+   *          elements:</p>
    *          <p>
    *             <code>Delimiter, Prefix, Key,</code> and <code>StartAfter</code>.</p>
    */
   EncodingType?: EncodingType | string;
 
   /**
-   * <p>KeyCount is the number of keys returned with this request. KeyCount will always be less
-   *          than or equal to the <code>MaxKeys</code> field. Say you ask for 50 keys, your result will
-   *          include 50 keys or fewer.</p>
+   * <p>
+   *             <code>KeyCount</code> is the number of keys returned with this request.
+   *             <code>KeyCount</code> will always be less than or equal to the <code>MaxKeys</code>
+   *          field. For example, if you ask for 50 keys, your result will include 50 keys or
+   *          fewer.</p>
    */
   KeyCount?: number;
 
   /**
-   * <p> If ContinuationToken was sent with the request, it is included in the response.</p>
+   * <p> If <code>ContinuationToken</code> was sent with the request, it is included in the
+   *          response.</p>
    */
   ContinuationToken?: string;
 
@@ -9466,14 +9541,14 @@ export interface ListObjectsV2Request {
    * <p>Bucket name to list. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>A delimiter is a character you use to group keys.</p>
+   * <p>A delimiter is a character that you use to group keys.</p>
    */
   Delimiter?: string;
 
@@ -9483,7 +9558,7 @@ export interface ListObjectsV2Request {
   EncodingType?: EncodingType | string;
 
   /**
-   * <p>Sets the maximum number of keys returned in the response. By default the action returns
+   * <p>Sets the maximum number of keys returned in the response. By default, the action returns
    *          up to 1,000 key names. The response might contain fewer keys but will never contain
    *          more.</p>
    */
@@ -9495,14 +9570,17 @@ export interface ListObjectsV2Request {
   Prefix?: string;
 
   /**
-   * <p>ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a
-   *          token. ContinuationToken is obfuscated and is not a real key.</p>
+   * <p>
+   *             <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on
+   *          this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real
+   *          key.</p>
    */
   ContinuationToken?: string;
 
   /**
-   * <p>The owner field is not present in listV2 by default, if you want to return owner field
-   *          with each key in the result then set the fetch owner field to true.</p>
+   * <p>The owner field is not present in <code>ListObjectsV2</code> by default. If you want to
+   *          return the owner field with each key in the result, then set the <code>FetchOwner</code>
+   *          field to <code>true</code>.</p>
    */
   FetchOwner?: boolean;
 
@@ -9523,6 +9601,12 @@ export interface ListObjectsV2Request {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Specifies the optional fields that you want returned in the response.
+   *          Fields that you do not specify are not returned.</p>
+   */
+  OptionalObjectAttributes?: (OptionalObjectAttributes | string)[];
 }
 
 /**
@@ -9620,6 +9704,14 @@ export interface ObjectVersion {
    * <p>Specifies the owner of the object.</p>
    */
   Owner?: Owner;
+
+  /**
+   * <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored
+   *          before they can be retrieved. For more information about these storage classes and how to work with
+   *          archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">
+   *             Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  RestoreStatus?: RestoreStatus;
 }
 
 /**
@@ -9628,9 +9720,9 @@ export interface ObjectVersion {
 export interface ListObjectVersionsOutput {
   /**
    * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
-   *          criteria. If your results were truncated, you can make a follow-up paginated request using
-   *          the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in
-   *          another request to return the rest of the results.</p>
+   *          criteria. If your results were truncated, you can make a follow-up paginated request by
+   *          using the <code>NextKeyMarker</code> and <code>NextVersionIdMarker</code> response
+   *          parameters as a starting place in another request to return the rest of the results.</p>
    */
   IsTruncated?: boolean;
 
@@ -9655,8 +9747,8 @@ export interface ListObjectVersionsOutput {
   /**
    * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
    *             <code>NextVersionIdMarker</code> specifies the first object version not returned that
-   *          satisfies the search criteria. Use this value for the version-id-marker request parameter
-   *          in a subsequent request.</p>
+   *          satisfies the search criteria. Use this value for the <code>version-id-marker</code>
+   *          request parameter in a subsequent request.</p>
    */
   NextVersionIdMarker?: string;
 
@@ -9684,8 +9776,9 @@ export interface ListObjectVersionsOutput {
    * <p>The delimiter grouping the included keys. A delimiter is a character that you specify to
    *          group keys. All keys that contain the same string between the prefix and the first
    *          occurrence of the delimiter are grouped under a single result element in
-   *             <code>CommonPrefixes</code>. These groups are counted as one result against the max-keys
-   *          limitation. These keys are not returned elsewhere in the response.</p>
+   *             <code>CommonPrefixes</code>. These groups are counted as one result against the
+   *             <code>max-keys</code> limitation. These keys are not returned elsewhere in the
+   *          response.</p>
    */
   Delimiter?: string;
 
@@ -9702,8 +9795,9 @@ export interface ListObjectVersionsOutput {
 
   /**
    * <p> Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
-   *          <p>If you specify encoding-type request parameter, Amazon S3 includes this element in the
-   *          response, and returns encoded key name values in the following response elements:</p>
+   *          <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this
+   *          element in the response, and returns encoded key name values in the following response
+   *          elements:</p>
    *          <p>
    *             <code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
    */
@@ -9730,15 +9824,15 @@ export interface ListObjectVersionsRequest {
   /**
    * <p>A delimiter is a character that you specify to group keys. All keys that contain the
    *          same string between the <code>prefix</code> and the first occurrence of the delimiter are
-   *          grouped under a single result element in CommonPrefixes. These groups are counted as one
-   *          result against the max-keys limitation. These keys are not returned elsewhere in the
-   *          response.</p>
+   *          grouped under a single result element in <code>CommonPrefixes</code>. These groups are
+   *          counted as one result against the <code>max-keys</code> limitation. These keys are not
+   *          returned elsewhere in the response.</p>
    */
   Delimiter?: string;
 
   /**
    * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding
-   *          method to use. An object key may contain any Unicode character; however, XML 1.0 parser
+   *          method to use. An object key can contain any Unicode character; however, the XML 1.0 parser
    *          cannot parse some characters, such as characters with an ASCII value from 0 to 10. For
    *          characters that are not supported in XML 1.0, you can add this parameter to request that
    *          Amazon S3 encode the keys in the response.</p>
@@ -9751,20 +9845,21 @@ export interface ListObjectVersionsRequest {
   KeyMarker?: string;
 
   /**
-   * <p>Sets the maximum number of keys returned in the response. By default the action returns
+   * <p>Sets the maximum number of keys returned in the response. By default, the action returns
    *          up to 1,000 key names. The response might contain fewer keys but will never contain more.
-   *          If additional keys satisfy the search criteria, but were not returned because max-keys was
-   *          exceeded, the response contains <isTruncated>true</isTruncated>. To return the
-   *          additional keys, see key-marker and version-id-marker.</p>
+   *          If additional keys satisfy the search criteria, but were not returned because
+   *             <code>max-keys</code> was exceeded, the response contains
+   *             <code><isTruncated>true</isTruncated></code>. To return the additional keys,
+   *          see <code>key-marker</code> and <code>version-id-marker</code>.</p>
    */
   MaxKeys?: number;
 
   /**
    * <p>Use this parameter to select only those keys that begin with the specified prefix. You
    *          can use prefixes to separate a bucket into different groupings of keys. (You can think of
-   *          using prefix to make groups in the same way you'd use a folder in a file system.) You can
-   *          use prefix with delimiter to roll up numerous objects into a single result under
-   *          CommonPrefixes. </p>
+   *          using <code>prefix</code> to make groups in the same way that you'd use a folder in a file
+   *          system.) You can use <code>prefix</code> with <code>delimiter</code> to roll up numerous
+   *          objects into a single result under <code>CommonPrefixes</code>. </p>
    */
   Prefix?: string;
 
@@ -9785,6 +9880,12 @@ export interface ListObjectVersionsRequest {
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
+
+  /**
+   * <p>Specifies the optional fields that you want returned in the response.
+   *          Fields that you do not specify are not returned.</p>
+   */
+  OptionalObjectAttributes?: (OptionalObjectAttributes | string)[];
 }
 
 /**
@@ -9892,7 +9993,7 @@ export interface ListPartsOutput {
 
   /**
    * <p>When a list is truncated, this element specifies the last part in the list, as well as
-   *          the value to use for the part-number-marker request parameter in a subsequent
+   *          the value to use for the <code>part-number-marker</code> request parameter in a subsequent
    *          request.</p>
    */
   NextPartNumberMarker?: string;
@@ -9956,7 +10057,7 @@ export interface ListPartsRequest {
    * <p>The name of the bucket to which the parts are being uploaded. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -10966,7 +11067,7 @@ export interface PutObjectRequest {
    * <p>The bucket name to which the PUT action was initiated. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -11314,7 +11415,7 @@ export interface PutObjectAclRequest {
    * <p>Key for which the PUT action was initiated.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Key: string | undefined;
 
@@ -11383,69 +11484,6 @@ export interface PutObjectLegalHoldRequest {
    * <p>The version ID of the object that you want to place a legal hold on.</p>
    */
   VersionId?: string;
-
-  /**
-   * <p>The MD5 hash for the request body.</p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   */
-  ContentMD5?: string;
-
-  /**
-   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
-   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter.</p>
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   */
-  ExpectedBucketOwner?: string;
-}
-
-/**
- * @public
- */
-export interface PutObjectLockConfigurationOutput {
-  /**
-   * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
-   */
-  RequestCharged?: RequestCharged | string;
-}
-
-/**
- * @public
- */
-export interface PutObjectLockConfigurationRequest {
-  /**
-   * <p>The bucket whose Object Lock configuration you want to create or replace.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The Object Lock configuration that you want to apply to the specified bucket.</p>
-   */
-  ObjectLockConfiguration?: ObjectLockConfiguration;
-
-  /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
-   */
-  RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>A token to allow Object Lock to be enabled for an existing bucket.</p>
-   */
-  Token?: string;
 
   /**
    * <p>The MD5 hash for the request body.</p>

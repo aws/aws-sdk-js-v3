@@ -381,6 +381,7 @@ import {
   ReplicationTime,
   ReplicationTimeValue,
   RequestPaymentConfiguration,
+  RestoreStatus,
   RoutingRule,
   S3KeyFilter,
   ServerSideEncryptionByDefault,
@@ -2400,6 +2401,10 @@ export const se_ListObjectsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    "x-amz-optional-object-attributes": [
+      () => isSerializableHeaderValue(input.OptionalObjectAttributes),
+      () => (input.OptionalObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2434,6 +2439,10 @@ export const se_ListObjectsV2Command = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    "x-amz-optional-object-attributes": [
+      () => isSerializableHeaderValue(input.OptionalObjectAttributes),
+      () => (input.OptionalObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -2471,6 +2480,10 @@ export const se_ListObjectVersionsCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-request-payer": input.RequestPayer!,
+    "x-amz-optional-object-attributes": [
+      () => isSerializableHeaderValue(input.OptionalObjectAttributes),
+      () => (input.OptionalObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -12099,6 +12112,9 @@ const de__Object = (output: any, context: __SerdeContext): _Object => {
   if (output["Owner"] !== undefined) {
     contents.Owner = de_Owner(output["Owner"], context);
   }
+  if (output["RestoreStatus"] !== undefined) {
+    contents.RestoreStatus = de_RestoreStatus(output["RestoreStatus"], context);
+  }
   return contents;
 };
 
@@ -12222,6 +12238,9 @@ const de_ObjectVersion = (output: any, context: __SerdeContext): ObjectVersion =
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = de_Owner(output["Owner"], context);
+  }
+  if (output["RestoreStatus"] !== undefined) {
+    contents.RestoreStatus = de_RestoreStatus(output["RestoreStatus"], context);
   }
   return contents;
 };
@@ -12592,6 +12611,20 @@ const de_ReplicationTimeValue = (output: any, context: __SerdeContext): Replicat
   const contents: any = {};
   if (output["Minutes"] !== undefined) {
     contents.Minutes = __strictParseInt32(output["Minutes"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlRestoreStatus
+ */
+const de_RestoreStatus = (output: any, context: __SerdeContext): RestoreStatus => {
+  const contents: any = {};
+  if (output["IsRestoreInProgress"] !== undefined) {
+    contents.IsRestoreInProgress = __parseBoolean(output["IsRestoreInProgress"]);
+  }
+  if (output["RestoreExpiryDate"] !== undefined) {
+    contents.RestoreExpiryDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RestoreExpiryDate"]));
   }
   return contents;
 };

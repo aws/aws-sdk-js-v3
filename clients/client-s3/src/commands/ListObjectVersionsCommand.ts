@@ -40,12 +40,13 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *          parameters as selection criteria to return metadata about a subset of all the object
  *          versions.</p>
  *          <important>
- *             <p> To use this operation, you must have permissions to perform the
+ *             <p> To use this operation, you must have permission to perform the
  *                <code>s3:ListBucketVersions</code> action. Be aware of the name difference. </p>
  *          </important>
  *          <note>
- *             <p> A 200 OK response can contain valid or invalid XML. Make sure to design your
- *             application to parse the contents of the response and handle it appropriately.</p>
+ *             <p> A <code>200 OK</code> response can contain valid or invalid XML. Make sure to design
+ *             your application to parse the contents of the response and handle it
+ *             appropriately.</p>
  *          </note>
  *          <p>To use this operation, you must have READ access to the bucket.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
@@ -88,6 +89,9 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *   VersionIdMarker: "STRING_VALUE",
  *   ExpectedBucketOwner: "STRING_VALUE",
  *   RequestPayer: "requester",
+ *   OptionalObjectAttributes: [ // OptionalObjectAttributesList
+ *     "RestoreStatus",
+ *   ],
  * };
  * const command = new ListObjectVersionsCommand(input);
  * const response = await client.send(command);
@@ -112,6 +116,10 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",
+ * //       },
+ * //       RestoreStatus: { // RestoreStatus
+ * //         IsRestoreInProgress: true || false,
+ * //         RestoreExpiryDate: new Date("TIMESTAMP"),
  * //       },
  * //     },
  * //   ],

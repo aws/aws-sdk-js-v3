@@ -87,6 +87,9 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  *   Prefix: "STRING_VALUE",
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   OptionalObjectAttributes: [ // OptionalObjectAttributesList
+ *     "RestoreStatus",
+ *   ],
  * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
@@ -107,6 +110,10 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",
+ * //       },
+ * //       RestoreStatus: { // RestoreStatus
+ * //         IsRestoreInProgress: true || false,
+ * //         RestoreExpiryDate: new Date("TIMESTAMP"),
  * //       },
  * //     },
  * //   ],

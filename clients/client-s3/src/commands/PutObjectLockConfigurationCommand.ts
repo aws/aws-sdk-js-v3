@@ -14,7 +14,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { SerdeContext as __SerdeContext } from "@smithy/types";
 
-import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_0";
+import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_1";
 import { de_PutObjectLockConfigurationCommand, se_PutObjectLockConfigurationCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
