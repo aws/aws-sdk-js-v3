@@ -39,7 +39,7 @@ export const THROTTLING_ERROR_CODES = [
 /**
  * Error codes that indicate transient issues
  */
-export const TRANSIENT_ERROR_CODES = ["AbortError", "TimeoutError", "RequestTimeout", "RequestTimeoutException"];
+export const TRANSIENT_ERROR_CODES = ["TimeoutError", "RequestTimeout", "RequestTimeoutException"];
 
 /**
  * Error codes that indicate transient issues
