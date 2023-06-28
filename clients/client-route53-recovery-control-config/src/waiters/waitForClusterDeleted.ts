@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import { DescribeClusterCommand, DescribeClusterCommandInput } from "../commands/DescribeClusterCommand";
 import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";

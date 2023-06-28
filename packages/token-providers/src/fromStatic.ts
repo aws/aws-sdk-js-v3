@@ -1,5 +1,5 @@
-import { TokenProviderError } from "@aws-sdk/property-provider";
 import { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
+import { TokenProviderError } from "@smithy/property-provider";
 
 export interface FromStaticInit {
   token?: TokenIdentity;

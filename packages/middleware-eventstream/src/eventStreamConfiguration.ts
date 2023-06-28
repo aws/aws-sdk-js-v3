@@ -4,7 +4,7 @@ import {
   EventSigner,
   EventStreamPayloadHandler,
   EventStreamPayloadHandlerProvider,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 export interface EventStreamInputConfig {}
 

@@ -4,7 +4,7 @@ const mockV4 = jest.fn().mockReturnValue({
   presign: mockPresign,
   sign: mockV4Sign,
 });
-jest.mock("@aws-sdk/signature-v4", () => ({
+jest.mock("@smithy/signature-v4", () => ({
   SignatureV4: mockV4,
 }));
 
@@ -14,7 +14,7 @@ jest.mock("@aws-sdk/util-format-url", () => ({
   formatUrl: (url: any) => url,
 }));
 
-import { RequestPresigningArguments } from "@aws-sdk/types";
+import { RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrls";
 

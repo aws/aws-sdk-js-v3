@@ -1,5 +1,5 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * @internal
@@ -20,7 +20,7 @@ export const ENV_EXPIRATION = "AWS_CREDENTIAL_EXPIRATION";
 
 /**
  * @internal
- * 
+ *
  * Source AWS credentials from known environment variables. If either the
  * `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` environment variable is not
  * set in this process, the provider will return a rejected promise.

@@ -1,4 +1,4 @@
-import { SourceData } from "@aws-sdk/types";
+import { SourceData } from "@smithy/types";
 
 export class MockSha256 {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

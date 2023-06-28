@@ -1,4 +1,4 @@
-import { parseUrl } from "@aws-sdk/url-parser";
+import { parseUrl } from "@smithy/url-parser";
 import { createSign, createVerify } from "crypto";
 import { mkdtempSync, rmdirSync, writeFileSync } from "fs";
 import { tmpdir } from "os";

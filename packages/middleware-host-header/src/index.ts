@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { AbsoluteLocation, BuildHandlerOptions, BuildMiddleware, Pluggable, RequestHandler } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { AbsoluteLocation, BuildHandlerOptions, BuildMiddleware, Pluggable, RequestHandler } from "@smithy/types";
 
 export interface HostHeaderInputConfig {}
 interface PreviouslyResolved {

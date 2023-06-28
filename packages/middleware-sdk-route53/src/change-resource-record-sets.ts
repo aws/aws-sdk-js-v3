@@ -6,7 +6,7 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IDENTIFIER_PREFIX_PATTERN } from "./constants";
 

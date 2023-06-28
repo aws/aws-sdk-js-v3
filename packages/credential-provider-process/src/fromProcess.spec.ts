@@ -1,10 +1,10 @@
-import { getProfileName, parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import { AwsCredentialIdentity } from "@smithy/types";
 
 import { fromProcess } from "./fromProcess";
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./resolveProcessCredentials");
 
 describe(fromProcess.name, () => {

@@ -3,14 +3,14 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
-import { FetchHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
-import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
+import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { EchoServiceClientConfig } from "./EchoServiceClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
-import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
-import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-browser";
+import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
 
 /**
  * @internal

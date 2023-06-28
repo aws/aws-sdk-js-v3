@@ -1,11 +1,11 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getProfileName } from "@aws-sdk/shared-ini-file-loader";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getProfileName } from "@smithy/shared-ini-file-loader";
 
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
 import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./resolveCredentialSource");
 jest.mock("./resolveProfileData");
 

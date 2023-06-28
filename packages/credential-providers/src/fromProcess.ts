@@ -1,5 +1,5 @@
 import { fromProcess as _fromProcess, FromProcessInit as _FromProcessInit } from "@aws-sdk/credential-provider-process";
-import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export interface FromProcessInit extends _FromProcessInit {}
 

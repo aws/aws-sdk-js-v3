@@ -4,7 +4,7 @@ import {
   InitializeHandlerOptions,
   InitializeMiddleware,
   RequestHandler,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 import { v4 } from "uuid";
 
 type WithSession = {

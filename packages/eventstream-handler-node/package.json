@@ -20,12 +20,13 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-codec": "*",
+    "@smithy/eventstream-codec": "^1.0.1",
     "@aws-sdk/types": "*",
+    "@smithy/types": "^1.1.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@aws-sdk/util-utf8": "*",
+    "@smithy/util-utf8": "^1.0.1",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.14.31",
     "concurrently": "7.0.0",

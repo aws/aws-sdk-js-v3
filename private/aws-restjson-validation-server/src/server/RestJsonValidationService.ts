@@ -1,7 +1,4 @@
 // smithy-typescript generated code
-import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 import {
   generateValidationMessage as __generateValidationMessage,
   generateValidationSummary as __generateValidationSummary,
@@ -22,7 +19,10 @@ import {
   ValidationCustomizer as __ValidationCustomizer,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
+import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { fromBase64, toBase64 } from "@smithy/util-base64";
+import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { serializeFrameworkException } from "../protocols/Aws_restJson1";
 import { MalformedEnum, MalformedEnumSerializer, MalformedEnumServerInput } from "./operations/MalformedEnum";

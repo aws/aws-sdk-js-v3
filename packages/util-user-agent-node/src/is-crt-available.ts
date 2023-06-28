@@ -1,4 +1,4 @@
-import { UserAgentPair } from "@aws-sdk/types";
+import { UserAgentPair } from "@smithy/types";
 
 /**
  * @internal

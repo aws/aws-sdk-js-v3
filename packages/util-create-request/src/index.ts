@@ -1,5 +1,5 @@
-import { Client, Command } from "@aws-sdk/smithy-client";
-import { BuildMiddleware, HttpRequest, MetadataBearer } from "@aws-sdk/types";
+import { Client, Command } from "@smithy/smithy-client";
+import { BuildMiddleware, HttpRequest, MetadataBearer } from "@smithy/types";
 
 export async function createRequest<
   InputTypesUnion extends object,

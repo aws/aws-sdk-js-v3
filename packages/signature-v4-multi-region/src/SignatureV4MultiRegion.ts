@@ -1,12 +1,12 @@
-import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import type { CrtSignerV4, CrtSignerV4Init } from "@aws-sdk/signature-v4-crt";
+import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import {
   HttpRequest,
   RequestPresigner,
   RequestPresigningArguments,
   RequestSigner,
   RequestSigningArguments,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 /**
  * @internal

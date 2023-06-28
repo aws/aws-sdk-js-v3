@@ -1,9 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
-import { Message, MessageHeaders, SignedMessage } from "@aws-sdk/types";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
+import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { Message, MessageHeaders, SignedMessage } from "@smithy/types";
+import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { TransformStream } from "web-streams-polyfill";
 
 import { getEventSigningTransformStream } from "./get-event-signing-stream";

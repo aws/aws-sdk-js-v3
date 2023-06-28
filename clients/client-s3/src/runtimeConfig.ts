@@ -3,29 +3,29 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
+import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { readableStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
+import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
+import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
+import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
-} from "@aws-sdk/config-resolver";
-import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
-import { Hash } from "@aws-sdk/hash-node";
-import { readableStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
-import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
-import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
-import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
-import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
-import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
-import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
-import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
+} from "@smithy/config-resolver";
+import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-node";
+import { Hash } from "@smithy/hash-node";
+import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
+import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
+import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { calculateBodyLength } from "@smithy/util-body-length-node";
+import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { S3ClientConfig } from "./S3Client";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
-import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
-import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
-import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
+import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
+import { emitWarningIfUnsupportedVersion } from "@smithy/smithy-client";
 
 /**
  * @internal

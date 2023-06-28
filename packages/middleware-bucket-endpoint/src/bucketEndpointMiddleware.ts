@@ -1,4 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -8,8 +9,7 @@ import {
   MetadataBearer,
   Pluggable,
   RelativeMiddlewareOptions,
-} from "@aws-sdk/types";
-import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
+} from "@smithy/types";
 
 import { bucketHostname } from "./bucketHostname";
 import { BucketEndpointResolvedConfig } from "./configurations";

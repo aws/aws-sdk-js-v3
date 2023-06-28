@@ -1,8 +1,8 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 
 import { tokenMiddleware } from "./tokenMiddleware";
 
-jest.mock("@aws-sdk/protocol-http");
+jest.mock("@smithy/protocol-http");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
 

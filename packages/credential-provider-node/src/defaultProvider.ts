@@ -1,12 +1,12 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
-import { RemoteProviderInit } from "@aws-sdk/credential-provider-imds";
 import { fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
 import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
 import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
-import { chain, CredentialsProviderError, memoize } from "@aws-sdk/property-provider";
-import { ENV_PROFILE } from "@aws-sdk/shared-ini-file-loader";
-import { AwsCredentialIdentity, MemoizedProvider } from "@aws-sdk/types";
+import { RemoteProviderInit } from "@smithy/credential-provider-imds";
+import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
+import { ENV_PROFILE } from "@smithy/shared-ini-file-loader";
+import { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";
 

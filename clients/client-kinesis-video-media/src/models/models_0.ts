@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 import { Readable } from "stream";
 
 import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisVideoMediaServiceException";

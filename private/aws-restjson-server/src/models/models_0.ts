@@ -1,10 +1,5 @@
 // smithy-typescript generated code
 import {
-  ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
-} from "@aws-sdk/smithy-client";
-import { DocumentType as __DocumentType } from "@aws-sdk/types";
-import {
   CompositeCollectionValidator as __CompositeCollectionValidator,
   CompositeMapValidator as __CompositeMapValidator,
   CompositeStructureValidator as __CompositeStructureValidator,
@@ -18,6 +13,11 @@ import {
   UniqueItemsValidator as __UniqueItemsValidator,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@smithy/smithy-client";
+import { DocumentType as __DocumentType } from "@smithy/types";
 import { Readable } from "stream";
 
 /**

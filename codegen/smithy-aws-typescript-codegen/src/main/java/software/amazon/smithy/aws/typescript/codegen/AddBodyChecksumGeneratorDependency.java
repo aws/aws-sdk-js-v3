@@ -24,6 +24,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -48,7 +49,7 @@ public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration
         if (!needsBodyChecksumGeneratorDep(settings.getService(model))) {
             return;
         }
-        writer.addImport("HttpRequest", "__HttpRequest", "@aws-sdk/types");
+        writer.addImport("HttpRequest", "__HttpRequest", TypeScriptDependency.SMITHY_TYPES);
         writer.writeDocs("Function that returns body checksums.\n"
                         + "@internal");
         writer.write("bodyChecksumGenerator?: (request: __HttpRequest, "

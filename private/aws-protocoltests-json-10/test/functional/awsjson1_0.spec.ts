@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Encoder as __Encoder } from "@smithy/types";
+import { HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
 
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";

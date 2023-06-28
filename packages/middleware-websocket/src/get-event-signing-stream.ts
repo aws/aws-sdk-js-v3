@@ -1,6 +1,6 @@
-import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
-import { MessageHeaders, MessageSigner } from "@aws-sdk/types";
-import { fromHex } from "@aws-sdk/util-hex-encoding";
+import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { MessageHeaders, MessageSigner } from "@smithy/types";
+import { fromHex } from "@smithy/util-hex-encoding";
 
 /**
  * Get a transform stream that signs the eventstream

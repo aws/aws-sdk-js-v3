@@ -1,11 +1,11 @@
 import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/client-sso";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getSSOTokenFromFile } from "@aws-sdk/shared-ini-file-loader";
 import * as tokenProviders from "@aws-sdk/token-providers";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { getSSOTokenFromFile } from "@smithy/shared-ini-file-loader";
 
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("@aws-sdk/client-sso");
 jest.mock("@aws-sdk/token-providers", () => {
   return {

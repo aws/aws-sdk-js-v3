@@ -25,6 +25,7 @@ import software.amazon.smithy.model.knowledge.PaginatedIndex;
 import software.amazon.smithy.model.knowledge.PaginationInfo;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -91,7 +92,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
             Paths.get(".", DocumentClientUtils.CLIENT_FULL_NAME).toString());
 
         // Import Pagination types
-        writer.addImport("Paginator", "Paginator", "@aws-sdk/types");
+        writer.addImport("Paginator", "Paginator", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport(paginationType, paginationType,
             Paths.get(".", getInterfaceFilelocation().replace(".ts", "")).toString());
 
@@ -115,7 +116,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
     }
 
     static void generateServicePaginationInterfaces(TypeScriptWriter writer) {
-        writer.addImport("PaginationConfiguration", "PaginationConfiguration", "@aws-sdk/types");
+        writer.addImport("PaginationConfiguration", "PaginationConfiguration", TypeScriptDependency.SMITHY_TYPES);
 
         writer.addImport(
             DocumentClientUtils.CLIENT_NAME,

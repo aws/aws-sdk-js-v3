@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
-import { NoOpLogger } from "@aws-sdk/smithy-client";
-import { parseUrl } from "@aws-sdk/url-parser";
-import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
+import { NoOpLogger } from "@smithy/smithy-client";
+import { parseUrl } from "@smithy/url-parser";
+import { fromBase64, toBase64 } from "@smithy/util-base64";
+import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { EventBridgeClientConfig } from "./EventBridgeClient";

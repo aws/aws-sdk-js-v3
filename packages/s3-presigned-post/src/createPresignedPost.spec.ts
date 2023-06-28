@@ -1,5 +1,5 @@
 import { defaultEndpointResolver } from "@aws-sdk/client-s3/src/endpoint/endpointResolver";
-import { HttpRequest, SourceData } from "@aws-sdk/types";
+import { HttpRequest, SourceData } from "@smithy/types";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -11,13 +11,13 @@ import {
 
 const mockCreateScope = jest.fn().mockReturnValue("mock_credential_scope");
 const mockGetSigningKey = jest.fn().mockReturnValue(Buffer.from("mock_signing_key"));
-jest.mock("@aws-sdk/signature-v4", () => ({
+jest.mock("@smithy/signature-v4", () => ({
   createScope: mockCreateScope,
   getSigningKey: mockGetSigningKey,
 }));
 
 const mockHexEncoder = jest.fn().mockReturnValue("mock_hex_encoded");
-jest.mock("@aws-sdk/util-hex-encoding", () => ({
+jest.mock("@smithy/util-hex-encoding", () => ({
   toHex: mockHexEncoder,
 }));
 

@@ -1,11 +1,11 @@
-import { chain, memoize, TokenProviderError } from "@aws-sdk/property-provider";
-import { ENV_PROFILE, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
+import { chain, memoize, TokenProviderError } from "@smithy/property-provider";
+import { loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
 
 import { fromSso } from "./fromSso";
 import { nodeProvider } from "./nodeProvider";
 
-jest.mock("@aws-sdk/property-provider");
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/property-provider");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./fromSso");
 
 describe(nodeProvider.name, () => {

@@ -1,4 +1,4 @@
-import { getSSOTokenFilepath, SSOToken } from "@aws-sdk/shared-ini-file-loader";
+import { getSSOTokenFilepath, SSOToken } from "@smithy/shared-ini-file-loader";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises as fsPromises } from "fs";
 

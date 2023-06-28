@@ -1,8 +1,8 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { buildQueryString } from "@smithy/querystring-builder";
 import { Encoder as __Encoder } from "@smithy/types";
+import { HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { decodeHTML } from "entities";
 import { XMLParser } from "fast-xml-parser";
 import { Readable } from "stream";

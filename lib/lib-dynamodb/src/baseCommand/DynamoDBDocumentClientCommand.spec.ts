@@ -1,4 +1,4 @@
-import { Handler, MiddlewareStack } from "@aws-sdk/types";
+import { Handler, MiddlewareStack } from "@smithy/types";
 
 import { KeyNode } from "../commands/utils";
 import { DynamoDBDocumentClientCommand } from "./DynamoDBDocumentClientCommand";

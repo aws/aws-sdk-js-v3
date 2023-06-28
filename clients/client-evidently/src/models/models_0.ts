@@ -2,7 +2,7 @@
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 
 import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
 

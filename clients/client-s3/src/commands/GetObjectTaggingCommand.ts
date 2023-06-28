@@ -1,7 +1,8 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,9 +10,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-} from "@aws-sdk/types";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import { SerdeContext as __SerdeContext } from "@smithy/types";
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
 
 import { GetObjectTaggingOutput, GetObjectTaggingRequest } from "../models/models_0";
 import { de_GetObjectTaggingCommand, se_GetObjectTaggingCommand } from "../protocols/Aws_restXml";
@@ -101,6 +101,30 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @example To retrieve tag set of a specific object version
+ * ```javascript
+ * // The following example retrieves tag set of an object. The request specifies object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * };
+ * const command = new GetObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagSet": [
+ *     {
+ *       "Key": "Key1",
+ *       "Value": "Value1"
+ *     }
+ *   ],
+ *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ * }
+ * *\/
+ * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
+ * ```
+ *
  * @example To retrieve tag set of an object
  * ```javascript
  * // The following example retrieves tag set of an object.
@@ -126,30 +150,6 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * }
  * *\/
  * // example id: to-retrieve-tag-set-of-an-object-1481833847896
- * ```
- *
- * @example To retrieve tag set of a specific object version
- * ```javascript
- * // The following example retrieves tag set of an object. The request specifies object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * };
- * const command = new GetObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagSet": [
- *     {
- *       "Key": "Key1",
- *       "Value": "Value1"
- *     }
- *   ],
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * }
- * *\/
- * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
  * ```
  *
  */

@@ -3,7 +3,7 @@ import {
   fromTokenFile as _fromTokenFile,
   FromTokenFileInit as _FromTokenFileInit,
 } from "@aws-sdk/credential-provider-web-identity";
-import { AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
 export interface FromTokenFileInit extends _FromTokenFileInit {
   clientConfig?: STSClientConfig;

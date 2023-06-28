@@ -1,4 +1,4 @@
-import { BuildHandlerOptions, Pluggable } from "@aws-sdk/types";
+import { BuildHandlerOptions, Pluggable } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";

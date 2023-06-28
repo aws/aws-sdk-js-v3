@@ -1,4 +1,4 @@
-import { Pluggable } from "@aws-sdk/types";
+import { Pluggable } from "@smithy/types";
 
 import {
   DefaultCredentialProvider,

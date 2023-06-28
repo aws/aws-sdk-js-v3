@@ -1,4 +1,4 @@
-import { Provider, UserAgent } from "@aws-sdk/types";
+import { Provider, UserAgent } from "@smithy/types";
 export interface UserAgentInputConfig {
   /**
    * The custom user agent header that would be appended to default one

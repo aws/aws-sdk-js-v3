@@ -1,9 +1,9 @@
 import { streamReader } from "@aws-sdk/chunked-stream-reader-node";
-import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
 import { TreeHash } from "@aws-sdk/sha256-tree-hash";
-import { ChecksumConstructor, Decoder, HashConstructor, HttpRequest } from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
-import { toUint8Array } from "@aws-sdk/util-utf8";
+import { isArrayBuffer } from "@smithy/is-array-buffer";
+import { ChecksumConstructor, Decoder, HashConstructor, HttpRequest } from "@smithy/types";
+import { toHex } from "@smithy/util-hex-encoding";
+import { toUint8Array } from "@smithy/util-utf8";
 import { createReadStream } from "fs";
 
 /**

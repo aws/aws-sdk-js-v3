@@ -3,19 +3,19 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
-import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@aws-sdk/config-resolver";
-import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
-import { FetchHttpHandler as HttpRequestHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
-import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { WebSocketFetchHandler as WebSocketRequestHandler } from "@aws-sdk/middleware-websocket";
-import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
+import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
+import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-browser";
+import { FetchHttpHandler as HttpRequestHandler, streamCollector } from "@smithy/fetch-http-handler";
+import { invalidProvider } from "@smithy/invalid-dependency";
+import { calculateBodyLength } from "@smithy/util-body-length-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
-import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
-import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-browser";
+import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
+import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-browser";
 
 /**
  * @internal

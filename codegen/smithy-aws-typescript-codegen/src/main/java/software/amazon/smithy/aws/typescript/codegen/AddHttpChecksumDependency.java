@@ -58,17 +58,17 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         }
 
         writer.addImport("Readable", "Readable", "stream");
-        writer.addImport("StreamHasher", "__StreamHasher", "@aws-sdk/types");
+        writer.addImport("StreamHasher", "__StreamHasher", TypeScriptDependency.SMITHY_TYPES);
         writer.writeDocs("A function that, given a hash constructor and a stream, calculates the \n"
                 + "hash of the streamed value.\n"
                 + "@internal");
         writer.write("streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;\n");
 
-        writer.addImport("Hash", "__Hash", "@aws-sdk/types");
-        writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
+        writer.addImport("Hash", "__Hash", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("HashConstructor", "__HashConstructor", TypeScriptDependency.SMITHY_TYPES);
 
-        writer.addImport("Checksum", "__Checksum", "@aws-sdk/types");
-        writer.addImport("ChecksumConstructor", "__ChecksumConstructor", "@aws-sdk/types");
+        writer.addImport("Checksum", "__Checksum", TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport("ChecksumConstructor", "__ChecksumConstructor", TypeScriptDependency.SMITHY_TYPES);
 
         writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
                 + "that computes MD5 hashes.\n"
@@ -80,7 +80,8 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                 + "@internal");
         writer.write("sha1?: __ChecksumConstructor | __HashConstructor;\n");
 
-        writer.addImport("GetAwsChunkedEncodingStream", "GetAwsChunkedEncodingStream", "@aws-sdk/types");
+        writer.addImport("GetAwsChunkedEncodingStream", "GetAwsChunkedEncodingStream",
+                TypeScriptDependency.AWS_SDK_TYPES);
         writer.writeDocs("A function that returns Readable Stream which follows aws-chunked encoding stream.\n"
                 + "@internal");
         writer.write("getAwsChunkedEncodingStream?: GetAwsChunkedEncodingStream;\n");

@@ -1,5 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { NoOpLogger } from "@aws-sdk/smithy-client";
+import { NoOpLogger } from "@smithy/smithy-client";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

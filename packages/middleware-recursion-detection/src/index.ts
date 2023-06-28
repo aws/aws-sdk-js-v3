@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   AbsoluteLocation,
   BuildHandler,
@@ -8,7 +8,7 @@ import {
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";

@@ -1,4 +1,5 @@
-import { Credentials, Provider } from "@aws-sdk/types";
+import { Credentials } from "@aws-sdk/types";
+import { Provider } from "@smithy/types";
 
 import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import {

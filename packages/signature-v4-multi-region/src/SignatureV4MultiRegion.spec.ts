@@ -1,11 +1,11 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 
-jest.mock("@aws-sdk/signature-v4");
+jest.mock("@smithy/signature-v4");
 
 jest.mock("@aws-sdk/signature-v4-crt");
 
-import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
+import { SignatureV4 } from "@smithy/signature-v4";
 
 import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "./SignatureV4MultiRegion";
 

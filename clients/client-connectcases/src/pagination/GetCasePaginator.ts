@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { GetCaseCommand, GetCaseCommandInput, GetCaseCommandOutput } from "../commands/GetCaseCommand";
 import { ConnectCasesClient } from "../ConnectCasesClient";

@@ -11,7 +11,7 @@ import {
   MetadataBearer,
   Pluggable,
   SourceData,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 interface PreviouslyResolved {
   base64Encoder: Encoder;
   md5: ChecksumConstructor | HashConstructor;

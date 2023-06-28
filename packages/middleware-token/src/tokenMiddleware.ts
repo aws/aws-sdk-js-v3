@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -8,7 +8,7 @@ import {
   HttpAuthDefinition,
   HttpAuthLocation,
   RelativeMiddlewareOptions,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { TokenResolvedConfig } from "./configurations";
 

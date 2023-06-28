@@ -4,9 +4,9 @@ import {
   fromContainerMetadata,
   fromInstanceMetadata,
   RemoteProviderInit,
-} from "@aws-sdk/credential-provider-imds";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
+} from "@smithy/credential-provider-imds";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 

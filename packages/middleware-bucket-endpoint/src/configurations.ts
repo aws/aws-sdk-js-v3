@@ -1,4 +1,4 @@
-import { Provider, RegionInfoProvider } from "@aws-sdk/types";
+import { Provider, RegionInfoProvider } from "@smithy/types";
 
 export interface BucketEndpointInputConfig {
   /**

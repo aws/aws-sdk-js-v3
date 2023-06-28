@@ -1,4 +1,4 @@
-import { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Provider } from "@smithy/types";
 
 /**
  * Generate key to index the endpoints in the cache

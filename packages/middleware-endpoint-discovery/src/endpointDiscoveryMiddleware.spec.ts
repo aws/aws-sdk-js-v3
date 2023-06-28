@@ -1,6 +1,6 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerArguments, MiddlewareStack } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { BuildHandlerArguments, MiddlewareStack } from "@smithy/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { getCacheKey } from "./getCacheKey";
@@ -8,7 +8,7 @@ import { updateDiscoveredEndpointInCache } from "./updateDiscoveredEndpointInCac
 
 jest.mock("./updateDiscoveredEndpointInCache");
 jest.mock("./getCacheKey");
-jest.mock("@aws-sdk/protocol-http");
+jest.mock("@smithy/protocol-http");
 
 describe(endpointDiscoveryMiddleware.name, () => {
   const cacheKey = "cacheKey";

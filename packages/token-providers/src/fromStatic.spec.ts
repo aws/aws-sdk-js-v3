@@ -1,4 +1,4 @@
-import { TokenProviderError } from "@aws-sdk/property-provider";
+import { TokenProviderError } from "@smithy/property-provider";
 
 import { fromStatic } from "./fromStatic";
 

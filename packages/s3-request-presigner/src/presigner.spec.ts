@@ -1,5 +1,5 @@
-import { Hash } from "@aws-sdk/hash-node";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { Hash } from "@smithy/hash-node";
+import { HttpRequest } from "@smithy/protocol-http";
 
 import {
   ALGORITHM_IDENTIFIER,

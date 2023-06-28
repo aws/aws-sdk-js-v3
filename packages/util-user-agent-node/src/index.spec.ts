@@ -17,11 +17,11 @@ jest.mock("./is-crt-available", () => ({
 import { isCrtAvailable } from "./is-crt-available";
 
 const mockAppIdLoader = jest.fn().mockResolvedValue(undefined);
-jest.mock("@aws-sdk/node-config-provider", () => ({
+jest.mock("@smithy/node-config-provider", () => ({
   loadConfig: () => mockAppIdLoader,
 }));
 
-import { UserAgent } from "@aws-sdk/types";
+import { UserAgent } from "@smithy/types";
 
 import { defaultUserAgent } from ".";
 

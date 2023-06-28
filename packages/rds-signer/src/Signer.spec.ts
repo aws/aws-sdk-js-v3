@@ -1,13 +1,13 @@
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { loadConfig } from "@aws-sdk/node-config-provider";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { formatUrl } from "@aws-sdk/util-format-url";
+import { loadConfig } from "@smithy/node-config-provider";
+import { HttpRequest } from "@smithy/protocol-http";
+import { SignatureV4 } from "@smithy/signature-v4";
 
 import { Signer, SignerConfig } from "./Signer";
 
 const mockPresign = jest.fn();
-jest.mock("@aws-sdk/signature-v4", () => {
+jest.mock("@smithy/signature-v4", () => {
   return {
     SignatureV4: jest.fn().mockImplementation(() => {
       return { presign: mockPresign };
@@ -15,8 +15,8 @@ jest.mock("@aws-sdk/signature-v4", () => {
   };
 });
 
-jest.mock("@aws-sdk/node-config-provider");
-jest.mock("@aws-sdk/config-resolver");
+jest.mock("@smithy/node-config-provider");
+jest.mock("@smithy/config-resolver");
 jest.mock("@aws-sdk/credential-providers");
 jest.mock("@aws-sdk/util-format-url");
 

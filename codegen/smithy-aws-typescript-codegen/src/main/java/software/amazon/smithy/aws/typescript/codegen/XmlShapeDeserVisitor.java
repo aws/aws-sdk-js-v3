@@ -35,6 +35,7 @@ import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
@@ -96,7 +97,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         }
 
         TypeScriptWriter writer = context.getWriter();
-        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", "@aws-sdk/smithy-client");
+        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", TypeScriptDependency.AWS_SMITHY_CLIENT);
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
         // Update the target element if we target another level of collection.
@@ -237,7 +238,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         }
 
         TypeScriptWriter writer = context.getWriter();
-        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", "@aws-sdk/smithy-client");
+        writer.addImport("getArrayIfSingleItem", "__getArrayIfSingleItem", TypeScriptDependency.AWS_SMITHY_CLIENT);
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
         return String.format("__getArrayIfSingleItem(%s)", dataSource);

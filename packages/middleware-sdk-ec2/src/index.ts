@@ -1,7 +1,8 @@
-import { getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
+import { formatUrl } from "@aws-sdk/util-format-url";
+import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-endpoint";
+import { HttpRequest } from "@smithy/protocol-http";
+import { SignatureV4 } from "@smithy/signature-v4";
+import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import {
   AwsCredentialIdentity,
   ChecksumConstructor,
@@ -19,8 +20,7 @@ import {
   SerializeHandlerOptions,
   SerializeHandlerOutput,
   SerializeMiddleware,
-} from "@aws-sdk/types";
-import { formatUrl } from "@aws-sdk/util-format-url";
+} from "@smithy/types";
 
 interface PreviouslyResolved {
   credentials: MemoizedProvider<AwsCredentialIdentity>;

@@ -1,11 +1,11 @@
-import { getSSOTokenFilepath } from "@aws-sdk/shared-ini-file-loader";
+import { getSSOTokenFilepath } from "@smithy/shared-ini-file-loader";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises } from "fs";
 
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 
 jest.mock("fs", () => ({ promises: { writeFile: jest.fn() } }));
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/shared-ini-file-loader");
 
 describe(writeSSOTokenToFile.name, () => {
   const mockSsoStartUrl = "mock_sso_start_url";

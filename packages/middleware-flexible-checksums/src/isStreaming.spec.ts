@@ -1,8 +1,8 @@
-import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
+import { isArrayBuffer } from "@smithy/is-array-buffer";
 
 import { isStreaming } from "./isStreaming";
 
-jest.mock("@aws-sdk/is-array-buffer");
+jest.mock("@smithy/is-array-buffer");
 
 describe(isStreaming.name, () => {
   beforeEach(() => {

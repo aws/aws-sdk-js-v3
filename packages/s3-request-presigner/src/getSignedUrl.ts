@@ -1,8 +1,8 @@
-import { EndpointParameterInstructionsSupplier, getEndpointFromInstructions } from "@aws-sdk/middleware-endpoint";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { Client, Command } from "@aws-sdk/smithy-client";
-import { BuildMiddleware, EndpointV2, MetadataBearer, RequestPresigningArguments } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
+import { EndpointParameterInstructionsSupplier, getEndpointFromInstructions } from "@smithy/middleware-endpoint";
+import { HttpRequest } from "@smithy/protocol-http";
+import { Client, Command } from "@smithy/smithy-client";
+import { BuildMiddleware, EndpointV2, MetadataBearer, RequestPresigningArguments } from "@smithy/types";
 
 import { S3RequestPresigner } from "./presigner";
 

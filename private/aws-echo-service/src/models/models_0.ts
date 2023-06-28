@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { EchoServiceServiceException as __BaseException } from "./EchoServiceServiceException";
 
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 /**
  * @public

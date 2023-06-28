@@ -3,7 +3,7 @@ import {
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeMiddleware,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 type WithSession = {
   SessionId?: string;

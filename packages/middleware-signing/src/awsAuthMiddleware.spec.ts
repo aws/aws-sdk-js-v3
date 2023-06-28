@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { RequestSigner } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { RequestSigner } from "@smithy/types";
 
 import { awsAuthMiddleware } from "./awsAuthMiddleware";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";

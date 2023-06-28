@@ -122,7 +122,7 @@ public final class AddS3Config implements TypeScriptIntegration {
         writer.writeDocs(
                 "Whether to override the request region with the region inferred from requested resource's ARN."
                     + " Defaults to false.")
-            .addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName)
+            .addImport("Provider", "Provider", TypeScriptDependency.SMITHY_TYPES)
             .write("useArnRegion?: boolean | Provider<boolean>;");
     }
 

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListGamesCommand, ListGamesCommandInput, ListGamesCommandOutput } from "../commands/ListGamesCommand";
 import { GameSparksClient } from "../GameSparksClient";

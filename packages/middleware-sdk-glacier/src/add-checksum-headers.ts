@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -6,7 +6,7 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PreviouslyResolved } from "./configurations";
 

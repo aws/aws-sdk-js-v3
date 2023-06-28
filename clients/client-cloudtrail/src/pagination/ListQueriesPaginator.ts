@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { CloudTrailClient } from "../CloudTrailClient";
 import { ListQueriesCommand, ListQueriesCommandInput, ListQueriesCommandOutput } from "../commands/ListQueriesCommand";

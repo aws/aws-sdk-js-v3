@@ -20,6 +20,7 @@ import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -38,7 +39,7 @@ final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
      */
     JsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
-        context.getWriter().addImport("_json", null, "@aws-sdk/smithy-client");
+        context.getWriter().addImport("_json", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
         this.serdeElisionEnabled = !context.getSettings().generateServerSdk();
     }
 

@@ -1,7 +1,7 @@
 // Please do not touch this file. It's generated from template in:
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.spec.ts
-import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { HttpResponse } from "@aws-sdk/protocol-http";
+import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
+import { HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "stream";
 
 import type { AssumeRoleCommandInput } from "../src/commands/AssumeRoleCommand";
@@ -14,7 +14,7 @@ const mockHandle = jest.fn().mockResolvedValue({
     body: Readable.from([""]),
   }),
 });
-jest.mock("@aws-sdk/node-http-handler", () => ({
+jest.mock("@smithy/node-http-handler", () => ({
   NodeHttpHandler: jest.fn().mockImplementation(() => ({
     destroy: () => {},
     handle: mockHandle,

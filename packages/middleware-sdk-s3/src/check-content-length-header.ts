@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -8,7 +8,7 @@ import {
   HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 const CONTENT_LENGTH_HEADER = "content-length";
 

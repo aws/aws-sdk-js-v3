@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { invalidFunction } from "@aws-sdk/invalid-dependency";
+import { invalidFunction } from "@smithy/invalid-dependency";
 
 import { RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";

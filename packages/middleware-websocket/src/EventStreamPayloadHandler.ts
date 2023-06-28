@@ -1,4 +1,4 @@
-import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
+import { EventStreamCodec } from "@smithy/eventstream-codec";
 import {
   Decoder,
   Encoder,
@@ -11,7 +11,7 @@ import {
   MessageSigner,
   MetadataBearer,
   Provider,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { getEventSigningTransformStream } from "./get-event-signing-stream";
 

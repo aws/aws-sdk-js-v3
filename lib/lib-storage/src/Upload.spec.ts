@@ -65,8 +65,8 @@ jest.mock("@aws-sdk/client-s3", () => ({
   PutObjectCommand: putObjectMock,
 }));
 
-import { AbortController } from "@aws-sdk/abort-controller";
 import { CompleteMultipartUploadCommandOutput, S3, S3Client } from "@aws-sdk/client-s3";
+import { AbortController } from "@smithy/abort-controller";
 import { createHash } from "crypto";
 
 import { Progress, Upload } from "./index";

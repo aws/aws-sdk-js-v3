@@ -1,6 +1,7 @@
-import { toEndpointV1 } from "@aws-sdk/middleware-endpoint";
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { formatUrl } from "@aws-sdk/util-format-url";
+import { toEndpointV1 } from "@smithy/middleware-endpoint";
+import { HttpRequest } from "@smithy/protocol-http";
+import { SignatureV4 } from "@smithy/signature-v4";
 import {
   AwsCredentialIdentity,
   ChecksumConstructor,
@@ -17,8 +18,7 @@ import {
   Provider,
   RelativeMiddlewareOptions,
   SerializeHandlerOptions,
-} from "@aws-sdk/types";
-import { formatUrl } from "@aws-sdk/util-format-url";
+} from "@smithy/types";
 
 const regARN = /arn:[\w+=/,.@-]+:[\w+=/,.@-]+:([\w+=/,.@-]*)?:[0-9]+:[\w+=/,.@-]+(:[\w+=/,.@-]+)?(:[\w+=/,.@-]+)?/;
 

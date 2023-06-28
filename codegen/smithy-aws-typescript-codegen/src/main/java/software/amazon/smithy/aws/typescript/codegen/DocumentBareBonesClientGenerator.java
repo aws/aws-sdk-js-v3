@@ -27,6 +27,7 @@ import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -70,7 +71,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         // Add required imports.
         writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
         writer.addImport(configType, configType, "@aws-sdk/client-dynamodb");
-        writer.addImport("Client", "__Client", "@aws-sdk/smithy-client");
+        writer.addImport("Client", "__Client", TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.writeDocs("@public");
         writer.write("export { __Client };");
         generateInputOutputImports(serviceInputTypes, serviceOutputTypes);

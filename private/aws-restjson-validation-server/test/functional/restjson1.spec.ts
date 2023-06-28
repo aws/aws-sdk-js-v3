@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
-import { toUtf8 as __utf8Encoder } from "@aws-sdk/util-utf8";
+import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
 import { Readable } from "stream";
 
 import { getRestJsonValidationServiceHandler } from "../../src/server";

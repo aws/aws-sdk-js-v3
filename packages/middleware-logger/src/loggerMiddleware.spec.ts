@@ -1,4 +1,4 @@
-import { HandlerExecutionContext, Logger, MiddlewareStack } from "@aws-sdk/types";
+import { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
 

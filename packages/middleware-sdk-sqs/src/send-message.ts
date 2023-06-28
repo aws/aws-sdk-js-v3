@@ -6,9 +6,9 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
-import { toUint8Array } from "@aws-sdk/util-utf8";
+} from "@smithy/types";
+import { toHex } from "@smithy/util-hex-encoding";
+import { toUint8Array } from "@smithy/util-utf8";
 
 import { PreviouslyResolved } from "./configurations";
 

@@ -34,6 +34,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -107,7 +108,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             "DynamoDBDocumentClientCommand",
             "./baseCommand/DynamoDBDocumentClientCommand"
         );
-        writer.addImport("Command", "$Command", "@aws-sdk/smithy-client");
+        writer.addImport("Command", "$Command", TypeScriptDependency.AWS_SMITHY_CLIENT);
 
         writer.writeDocs("@public");
         writer.write("export { DynamoDBDocumentClientCommand, $$Command };");
@@ -182,8 +183,8 @@ final class DocumentClientCommandGenerator implements Runnable {
         String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
         writer.addImport(serviceInputTypes, serviceInputTypes, servicePath);
         writer.addImport(serviceOutputTypes, serviceOutputTypes, servicePath);
-        writer.addImport(handler, handler, "@aws-sdk/types");
-        writer.addImport(middlewareStack, middlewareStack, "@aws-sdk/types");
+        writer.addImport(handler, handler, TypeScriptDependency.SMITHY_TYPES);
+        writer.addImport(middlewareStack, middlewareStack, TypeScriptDependency.SMITHY_TYPES);
 
         writer.write("resolveMiddleware(")
                 .indent()

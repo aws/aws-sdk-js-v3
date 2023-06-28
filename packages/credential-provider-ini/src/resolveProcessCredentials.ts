@@ -1,5 +1,6 @@
 import { fromProcess } from "@aws-sdk/credential-provider-process";
-import { Credentials, Profile } from "@aws-sdk/types";
+import { Credentials } from "@aws-sdk/types";
+import { Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 

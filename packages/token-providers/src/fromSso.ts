@@ -1,4 +1,5 @@
-import { TokenProviderError } from "@aws-sdk/property-provider";
+import { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
+import { TokenProviderError } from "@smithy/property-provider";
 import {
   getProfileName,
   getSSOTokenFromFile,
@@ -6,8 +7,7 @@ import {
   parseKnownFiles,
   SourceProfileInit,
   SSOToken,
-} from "@aws-sdk/shared-ini-file-loader";
-import { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
+} from "@smithy/shared-ini-file-loader";
 
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
 import { getNewSsoOidcToken } from "./getNewSsoOidcToken";

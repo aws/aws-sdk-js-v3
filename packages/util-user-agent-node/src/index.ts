@@ -1,5 +1,5 @@
-import { loadConfig } from "@aws-sdk/node-config-provider";
-import { Provider, UserAgent } from "@aws-sdk/types";
+import { loadConfig } from "@smithy/node-config-provider";
+import { Provider, UserAgent } from "@smithy/types";
 import { platform, release } from "os";
 import { env, versions } from "process";
 

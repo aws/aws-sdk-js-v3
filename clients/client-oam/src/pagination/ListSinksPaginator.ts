@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListSinksCommand, ListSinksCommandInput, ListSinksCommandOutput } from "../commands/ListSinksCommand";
 import { OAMClient } from "../OAMClient";

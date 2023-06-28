@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { HttpAuthLocation, MiddlewareStack } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { HttpAuthLocation, MiddlewareStack } from "@smithy/types";
 
 import { apiKeyMiddleware, getApiKeyPlugin } from "./index";
 

@@ -1,6 +1,6 @@
 import { SSOClient, SSOClientConfig } from "@aws-sdk/client-sso";
 import { fromSSO as _fromSSO, FromSSOInit as _FromSSOInit } from "@aws-sdk/credential-provider-sso";
-import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export interface FromSSOInit extends Omit<_FromSSOInit, "client"> {
   clientConfig?: SSOClientConfig;

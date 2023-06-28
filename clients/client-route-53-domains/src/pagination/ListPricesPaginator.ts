@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Paginator } from "@aws-sdk/types";
+import { Paginator } from "@smithy/types";
 
 import { ListPricesCommand, ListPricesCommandInput, ListPricesCommandOutput } from "../commands/ListPricesCommand";
 import { Route53DomainsClient } from "../Route53DomainsClient";

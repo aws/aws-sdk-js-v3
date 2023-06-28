@@ -1,5 +1,5 @@
-import { Provider } from "@aws-sdk/types";
-import { normalizeProvider } from "@aws-sdk/util-middleware";
+import { Provider } from "@smithy/types";
+import { normalizeProvider } from "@smithy/util-middleware";
 
 export interface ApiKeyInputConfig {
   /**

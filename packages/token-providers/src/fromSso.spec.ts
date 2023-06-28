@@ -1,10 +1,10 @@
-import { TokenProviderError } from "@aws-sdk/property-provider";
+import { TokenProviderError } from "@smithy/property-provider";
 import {
   getProfileName,
   getSSOTokenFromFile,
   loadSsoSessionData,
   parseKnownFiles,
-} from "@aws-sdk/shared-ini-file-loader";
+} from "@smithy/shared-ini-file-loader";
 
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
 import { fromSso } from "./fromSso";
@@ -13,7 +13,7 @@ import { validateTokenExpiry } from "./validateTokenExpiry";
 import { validateTokenKey } from "./validateTokenKey";
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 
-jest.mock("@aws-sdk/shared-ini-file-loader");
+jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./getNewSsoOidcToken");
 jest.mock("./validateTokenExpiry");
 jest.mock("./validateTokenKey");

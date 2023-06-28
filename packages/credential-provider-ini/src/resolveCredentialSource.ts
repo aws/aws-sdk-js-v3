@@ -1,11 +1,11 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
-import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { fromContainerMetadata, fromInstanceMetadata } from "@smithy/credential-provider-imds";
+import { CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * @internal
- * 
+ *
  * Resolve the `credential_source` entry from the profile, and return the
  * credential providers respectively. No memoization is needed for the
  * credential source providers because memoization should be added outside the

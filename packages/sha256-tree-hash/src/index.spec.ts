@@ -1,6 +1,6 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { toHex } from "@aws-sdk/util-hex-encoding";
-import { fromUtf8 } from "@aws-sdk/util-utf8";
+import { toHex } from "@smithy/util-hex-encoding";
+import { fromUtf8 } from "@smithy/util-utf8";
 
 import { TreeHash } from "./index";
 
