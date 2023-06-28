@@ -2014,6 +2014,7 @@ export interface CreateVariantStoreResponse {
  * @enum
  */
 export const WorkflowEngine = {
+  CWL: "CWL",
   NEXTFLOW: "NEXTFLOW",
   WDL: "WDL",
 } as const;
