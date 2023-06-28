@@ -3066,6 +3066,7 @@ export const RuntimeEnvironment = {
   SQL_1_0: "SQL-1_0",
   ZEPPELIN_FLINK_1_0: "ZEPPELIN-FLINK-1_0",
   ZEPPELIN_FLINK_2_0: "ZEPPELIN-FLINK-2_0",
+  ZEPPELIN_FLINK_3_0: "ZEPPELIN-FLINK-3_0",
 } as const;
 
 /**
