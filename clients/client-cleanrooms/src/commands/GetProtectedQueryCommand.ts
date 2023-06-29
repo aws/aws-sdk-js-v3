@@ -60,7 +60,7 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //     membershipArn: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     sqlParameters: { // ProtectedQuerySQLParameters
- * //       queryString: "STRING_VALUE", // required
+ * //       queryString: "STRING_VALUE",
  * //     },
  * //     status: "STRING_VALUE", // required
  * //     resultConfiguration: { // ProtectedQueryResultConfiguration

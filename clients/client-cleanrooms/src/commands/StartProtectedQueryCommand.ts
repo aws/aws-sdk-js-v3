@@ -41,7 +41,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
 
 /**
  * @public
- * <p>Creates a protected query that is started by AWS Clean Rooms.</p>
+ * <p>Creates a protected query that is started by Clean Rooms .</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,7 +52,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  *   type: "STRING_VALUE", // required
  *   membershipIdentifier: "STRING_VALUE", // required
  *   sqlParameters: { // ProtectedQuerySQLParameters
- *     queryString: "STRING_VALUE", // required
+ *     queryString: "STRING_VALUE",
  *   },
  *   resultConfiguration: { // ProtectedQueryResultConfiguration
  *     outputConfiguration: { // ProtectedQueryOutputConfiguration Union: only one key present
@@ -73,7 +73,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //     membershipArn: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     sqlParameters: { // ProtectedQuerySQLParameters
- * //       queryString: "STRING_VALUE", // required
+ * //       queryString: "STRING_VALUE",
  * //     },
  * //     status: "STRING_VALUE", // required
  * //     resultConfiguration: { // ProtectedQueryResultConfiguration

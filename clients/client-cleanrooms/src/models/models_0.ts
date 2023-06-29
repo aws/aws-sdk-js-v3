@@ -130,6 +130,20 @@ export type AnalysisMethod = (typeof AnalysisMethod)[keyof typeof AnalysisMethod
  * @public
  * @enum
  */
+export const JoinOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinOperator = (typeof JoinOperator)[keyof typeof JoinOperator];
+
+/**
+ * @public
+ * @enum
+ */
 export const JoinRequiredOption = {
   QUERY_RUNNER: "QUERY_RUNNER",
 } as const;
@@ -166,7 +180,7 @@ export type ScalarFunctions = (typeof ScalarFunctions)[keyof typeof ScalarFuncti
 
 /**
  * @public
- * <p>Enables query structure and specified queries that product aggregate statistics.</p>
+ * <p>Enables query structure and specified queries that produce aggregate statistics.</p>
  */
 export interface AnalysisRuleAggregation {
   /**
@@ -182,9 +196,15 @@ export interface AnalysisRuleAggregation {
 
   /**
    * <p>Control that requires member who runs query to do a join with their configured table
-   *          and/or other configured table in query</p>
+   *          and/or other configured table in query.</p>
    */
   joinRequired?: JoinRequiredOption | string;
+
+  /**
+   * <p>Which logical operators (if any) are to be used in an INNER JOIN match condition.
+   *          Default is <code>AND</code>.</p>
+   */
+  allowedJoinOperators?: (JoinOperator | string)[];
 
   /**
    * <p>The columns that query runners are allowed to select, group by, or filter by.</p>
@@ -208,9 +228,15 @@ export interface AnalysisRuleAggregation {
  */
 export interface AnalysisRuleList {
   /**
-   * <p>Columns that can be used to join a configured table with the table of the member who can query and another members' configured tables.</p>
+   * <p>Columns that can be used to join a configured table with the table of the member who can query and other members' configured tables.</p>
    */
   joinColumns: string[] | undefined;
+
+  /**
+   * <p>Which logical operators (if any) are to be used in an INNER JOIN match condition.
+   *          Default is <code>AND</code>.</p>
+   */
+  allowedJoinOperators?: (JoinOperator | string)[];
 
   /**
    * <p>Columns that can be listed in the output.</p>
@@ -391,7 +417,7 @@ export interface BatchGetSchemaError {
 
 /**
  * @public
- * <p>A column within a schema relation, derived from the underlying AWS Glue table.</p>
+ * <p>A column within a schema relation, derived from the underlying Glue table.</p>
  */
 export interface Column {
   /**
@@ -446,7 +472,7 @@ export interface Schema {
   analysisMethod?: AnalysisMethod | string;
 
   /**
-   * <p>The unique account ID for the AWS account that owns the schema.</p>
+   * <p>The unique account ID for the Amazon Web Services account that owns the schema.</p>
    */
   creatorAccountId: string | undefined;
 
@@ -699,7 +725,7 @@ export interface DataEncryptionMetadata {
  */
 export interface MemberSpecification {
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports AWS Account ID.</p>
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   accountId: string | undefined;
 
@@ -820,7 +846,7 @@ export interface Collaboration {
   description?: string;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports AWS account ID.</p>
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   creatorAccountId: string | undefined;
 
@@ -1130,7 +1156,7 @@ export interface CollaborationSummary {
   name: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports AWS Account ID.</p>
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   creatorAccountId: string | undefined;
 
@@ -1206,7 +1232,7 @@ export interface ListMembersInput {
  */
 export interface MemberSummary {
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports AWS Account ID.</p>
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   accountId: string | undefined;
 
@@ -1303,7 +1329,7 @@ export interface SchemaSummary {
   type: SchemaType | string | undefined;
 
   /**
-   * <p>The unique account ID for the AWS account that owns the schema.</p>
+   * <p>The unique account ID for the Amazon Web Services account that owns the schema.</p>
    */
   creatorAccountId: string | undefined;
 
@@ -1664,24 +1690,23 @@ export interface UpdateConfiguredTableAssociationOutput {
 
 /**
  * @public
- * <p>A reference to a table within an AWS Glue data catalog.</p>
+ * <p>A reference to a table within an Glue data catalog.</p>
  */
 export interface GlueTableReference {
   /**
-   * <p>The name of the AWS Glue table.</p>
+   * <p>The name of the Glue table.</p>
    */
   tableName: string | undefined;
 
   /**
-   * <p>The name of the database the AWS Glue table belongs to.</p>
+   * <p>The name of the database the Glue table belongs to.</p>
    */
   databaseName: string | undefined;
 }
 
 /**
  * @public
- * <p>A pointer to the dataset that underlies this table. Currently, this can only be an AWS
- *          Glue table.</p>
+ * <p>A pointer to the dataset that underlies this table. Currently, this can only be an Glue table.</p>
  */
 export type TableReference = TableReference.GlueMember | TableReference.$UnknownMember;
 
@@ -1690,7 +1715,7 @@ export type TableReference = TableReference.GlueMember | TableReference.$Unknown
  */
 export namespace TableReference {
   /**
-   * <p>If present, a reference to the AWS Glue table referred to by this table
+   * <p>If present, a reference to the Glue table referred to by this table
    *          reference.</p>
    */
   export interface GlueMember {
@@ -1729,7 +1754,7 @@ export interface CreateConfiguredTableInput {
   description?: string;
 
   /**
-   * <p>A reference to the AWS Glue table being configured.</p>
+   * <p>A reference to the Glue table being configured.</p>
    */
   tableReference: TableReference | undefined;
 
@@ -1793,7 +1818,7 @@ export interface ConfiguredTable {
   description?: string;
 
   /**
-   * <p>The AWS Glue table that this configured table represents.</p>
+   * <p>The Glue table that this configured table represents.</p>
    */
   tableReference: TableReference | undefined;
 
@@ -1818,7 +1843,7 @@ export interface ConfiguredTable {
   analysisMethod: AnalysisMethod | string | undefined;
 
   /**
-   * <p>The columns within the underlying AWS Glue table that can be utilized within
+   * <p>The columns within the underlying Glue table that can be utilized within
    *          collaborations.</p>
    */
   allowedColumns: string[] | undefined;
@@ -2300,7 +2325,7 @@ export interface Membership {
   collaborationId: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports AWS account ID.</p>
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   collaborationCreatorAccountId: string | undefined;
 
@@ -2563,7 +2588,7 @@ export interface ProtectedQuerySQLParameters {
   /**
    * <p>The query string to be submitted.</p>
    */
-  queryString: string | undefined;
+  queryString?: string;
 }
 
 /**
@@ -2598,7 +2623,7 @@ export type ProtectedQueryStatus = (typeof ProtectedQueryStatus)[keyof typeof Pr
 
 /**
  * @public
- * <p>The parameters for an AWS Clean Rooms protected query.</p>
+ * <p>The parameters for an Clean Rooms  protected query.</p>
  */
 export interface ProtectedQuery {
   /**
@@ -2708,7 +2733,7 @@ export interface MembershipSummary {
   collaborationId: string | undefined;
 
   /**
-   * <p>The identifier of the AWS principal that created the collaboration. Currently only supports AWS account ID.</p>
+   * <p>The identifier of the Amazon Web Services principal that created the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   collaborationCreatorAccountId: string | undefined;
 

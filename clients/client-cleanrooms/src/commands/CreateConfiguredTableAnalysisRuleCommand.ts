@@ -58,6 +58,9 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  *         joinColumns: [ // AnalysisRuleColumnList // required
  *           "STRING_VALUE",
  *         ],
+ *         allowedJoinOperators: [ // JoinOperatorsList
+ *           "STRING_VALUE",
+ *         ],
  *         listColumns: [ // required
  *           "STRING_VALUE",
  *         ],
@@ -75,6 +78,9 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  *           "STRING_VALUE",
  *         ],
  *         joinRequired: "STRING_VALUE",
+ *         allowedJoinOperators: [
+ *           "STRING_VALUE",
+ *         ],
  *         dimensionColumns: [ // required
  *           "STRING_VALUE",
  *         ],
@@ -104,6 +110,9 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * //           joinColumns: [ // AnalysisRuleColumnList // required
  * //             "STRING_VALUE",
  * //           ],
+ * //           allowedJoinOperators: [ // JoinOperatorsList
+ * //             "STRING_VALUE",
+ * //           ],
  * //           listColumns: [ // required
  * //             "STRING_VALUE",
  * //           ],
@@ -121,6 +130,9 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * //             "STRING_VALUE",
  * //           ],
  * //           joinRequired: "STRING_VALUE",
+ * //           allowedJoinOperators: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //           dimensionColumns: [ // required
  * //             "STRING_VALUE",
  * //           ],

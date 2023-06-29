@@ -52,7 +52,7 @@
           "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id"],
           "maxAge": 86400
         },
-        "smithy.api#documentation": "<p>Welcome to the <i>AWS Clean Rooms API Reference</i>.</p>\n         <p>AWS Clean Rooms is an AWS service that helps multiple parties to join their data\n         together in a secure collaboration workspace. In the collaboration, members who can query\n         and receive results can get insights into the collective datasets without either party getting\n         access to the other party's raw data.</p>\n         <p>To learn more about AWS Clean Rooms concepts, procedures, and best practices, see the\n            <a href=\"https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html\">AWS Clean\n            Rooms User Guide</a>.</p>",
+        "smithy.api#documentation": "<p>Welcome to the <i>Clean Rooms API Reference</i>.</p>\n         <p>Clean Rooms  is an Amazon Web Services service that helps multiple parties to join their data\n         together in a secure collaboration workspace. In the collaboration, members who can query\n         and receive results can get insights into the collective datasets without either party getting\n         access to the other party's raw data.</p>\n         <p>To learn more about Clean Rooms  concepts, procedures, and best practices, see the\n         <a href=\"https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html\">Clean Rooms User Guide</a>.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -419,9 +419,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-gov-east-1",
-                "UseFIPS": true
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -432,9 +432,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-gov-east-1",
-                "UseFIPS": true
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -445,9 +445,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-gov-east-1",
-                "UseFIPS": false
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -458,9 +458,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-gov-east-1",
-                "UseFIPS": false
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -471,9 +471,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "cn-north-1",
-                "UseFIPS": true
+                "Region": "cn-north-1"
               }
             },
             {
@@ -484,9 +484,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "cn-north-1",
-                "UseFIPS": true
+                "Region": "cn-north-1"
               }
             },
             {
@@ -497,9 +497,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "cn-north-1",
-                "UseFIPS": false
+                "Region": "cn-north-1"
               }
             },
             {
@@ -510,9 +510,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "cn-north-1",
-                "UseFIPS": false
+                "Region": "cn-north-1"
               }
             },
             {
@@ -521,9 +521,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-iso-east-1",
-                "UseFIPS": true
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -534,9 +534,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-iso-east-1",
-                "UseFIPS": true
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -545,9 +545,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-iso-east-1",
-                "UseFIPS": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -558,9 +558,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-iso-east-1",
-                "UseFIPS": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -571,9 +571,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-east-1",
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -584,9 +584,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-east-1",
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -597,9 +597,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-east-1",
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -610,9 +610,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-east-1",
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -621,9 +621,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-isob-east-1",
-                "UseFIPS": true
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -634,9 +634,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-isob-east-1",
-                "UseFIPS": true
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -645,9 +645,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-isob-east-1",
-                "UseFIPS": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -658,9 +658,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-isob-east-1",
-                "UseFIPS": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -671,9 +671,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": false,
                 "Region": "us-east-1",
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -683,9 +683,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "UseDualStack": false,
                 "Region": "us-east-1",
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -695,9 +695,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "UseDualStack": true,
                 "Region": "us-east-1",
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -955,7 +955,13 @@
         "joinRequired": {
           "target": "com.amazonaws.cleanrooms#JoinRequiredOption",
           "traits": {
-            "smithy.api#documentation": "<p>Control that requires member who runs query to do a join with their configured table\n         and/or other configured table in query</p>"
+            "smithy.api#documentation": "<p>Control that requires member who runs query to do a join with their configured table\n         and/or other configured table in query.</p>"
+          }
+        },
+        "allowedJoinOperators": {
+          "target": "com.amazonaws.cleanrooms#JoinOperatorsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Which logical operators (if any) are to be used in an INNER JOIN match condition.\n         Default is <code>AND</code>.</p>"
           }
         },
         "dimensionColumns": {
@@ -981,7 +987,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Enables query structure and specified queries that product aggregate statistics.</p>"
+        "smithy.api#documentation": "<p>Enables query structure and specified queries that produce aggregate statistics.</p>"
       }
     },
     "com.amazonaws.cleanrooms#AnalysisRuleColumnList": {
@@ -1012,11 +1018,17 @@
         "joinColumns": {
           "target": "com.amazonaws.cleanrooms#AnalysisRuleColumnList",
           "traits": {
-            "smithy.api#documentation": "<p>Columns that can be used to join a configured table with the table of the member who can query and another members' configured tables.</p>",
+            "smithy.api#documentation": "<p>Columns that can be used to join a configured table with the table of the member who can query and other members' configured tables.</p>",
             "smithy.api#length": {
               "min": 1
             },
             "smithy.api#required": {}
+          }
+        },
+        "allowedJoinOperators": {
+          "target": "com.amazonaws.cleanrooms#JoinOperatorsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Which logical operators (if any) are to be used in an INNER JOIN match condition.\n         Default is <code>AND</code>.</p>"
           }
         },
         "listColumns": {
@@ -1247,7 +1259,7 @@
         "creatorAccountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports AWS account ID.</p>",
+            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1444,7 +1456,7 @@
         "creatorAccountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports AWS Account ID.</p>",
+            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1518,7 +1530,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A column within a schema relation, derived from the underlying AWS Glue table.</p>"
+        "smithy.api#documentation": "<p>A column within a schema relation, derived from the underlying Glue table.</p>"
       }
     },
     "com.amazonaws.cleanrooms#ColumnList": {
@@ -1579,7 +1591,7 @@
         "tableReference": {
           "target": "com.amazonaws.cleanrooms#TableReference",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Glue table that this configured table represents.</p>",
+            "smithy.api#documentation": "<p>The Glue table that this configured table represents.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1614,7 +1626,7 @@
         "allowedColumns": {
           "target": "com.amazonaws.cleanrooms#AllowedColumnList",
           "traits": {
-            "smithy.api#documentation": "<p>The columns within the underlying AWS Glue table that can be utilized within\n         collaborations.</p>",
+            "smithy.api#documentation": "<p>The columns within the underlying Glue table that can be utilized within\n         collaborations.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2474,7 +2486,7 @@
         "tableReference": {
           "target": "com.amazonaws.cleanrooms#TableReference",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to the AWS Glue table being configured.</p>",
+            "smithy.api#documentation": "<p>A reference to the Glue table being configured.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3560,7 +3572,16 @@
         }
       }
     },
-    "com.amazonaws.cleanrooms#GlueResourceName": {
+    "com.amazonaws.cleanrooms#GlueDatabaseName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 128
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9_](([a-zA-Z0-9_]+-)*([a-zA-Z0-9_]+))?$"
+      }
+    },
+    "com.amazonaws.cleanrooms#GlueTableName": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
@@ -3573,22 +3594,22 @@
       "type": "structure",
       "members": {
         "tableName": {
-          "target": "com.amazonaws.cleanrooms#GlueResourceName",
+          "target": "com.amazonaws.cleanrooms#GlueTableName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the AWS Glue table.</p>",
+            "smithy.api#documentation": "<p>The name of the Glue table.</p>",
             "smithy.api#required": {}
           }
         },
         "databaseName": {
-          "target": "com.amazonaws.cleanrooms#GlueResourceName",
+          "target": "com.amazonaws.cleanrooms#GlueDatabaseName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the database the AWS Glue table belongs to.</p>",
+            "smithy.api#documentation": "<p>The name of the database the Glue table belongs to.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A reference to a table within an AWS Glue data catalog.</p>"
+        "smithy.api#documentation": "<p>A reference to a table within an Glue data catalog.</p>"
       }
     },
     "com.amazonaws.cleanrooms#InternalServerException": {
@@ -3602,6 +3623,32 @@
         "smithy.api#documentation": "<p>Unexpected error during processing of request.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.cleanrooms#JoinOperator": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "name": "OR",
+            "value": "OR"
+          },
+          {
+            "name": "AND",
+            "value": "AND"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.cleanrooms#JoinOperatorsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cleanrooms#JoinOperator"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 2
+        }
       }
     },
     "com.amazonaws.cleanrooms#JoinRequiredOption": {
@@ -4317,7 +4364,7 @@
         "accountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports AWS Account ID.</p>",
+            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4369,7 +4416,7 @@
         "accountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports AWS Account ID.</p>",
+            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>",
             "smithy.api#required": {},
             "smithy.api#resourceIdentifier": "AccountId"
           }
@@ -4467,7 +4514,7 @@
         "collaborationCreatorAccountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports AWS account ID.</p>",
+            "smithy.api#documentation": "<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4660,7 +4707,7 @@
         "collaborationCreatorAccountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the AWS principal that created the collaboration. Currently only supports AWS account ID.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Web Services principal that created the collaboration. Currently only supports Amazon Web Services account ID.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4798,7 +4845,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The parameters for an AWS Clean Rooms protected query.</p>"
+        "smithy.api#documentation": "<p>The parameters for an Clean Rooms  protected query.</p>"
       }
     },
     "com.amazonaws.cleanrooms#ProtectedQueryError": {
@@ -4948,8 +4995,7 @@
             "smithy.api#documentation": "<p>The query string to be submitted.</p>",
             "smithy.api#length": {
               "max": 15000
-            },
-            "smithy.api#required": {}
+            }
           }
         }
       },
@@ -5244,7 +5290,7 @@
         "creatorAccountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The unique account ID for the AWS account that owns the schema.</p>",
+            "smithy.api#documentation": "<p>The unique account ID for the Amazon Web Services account that owns the schema.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5333,7 +5379,7 @@
         "creatorAccountId": {
           "target": "com.amazonaws.cleanrooms#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The unique account ID for the AWS account that owns the schema.</p>",
+            "smithy.api#documentation": "<p>The unique account ID for the Amazon Web Services account that owns the schema.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5461,7 +5507,7 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to start protected queries",
-        "smithy.api#documentation": "<p>Creates a protected query that is started by AWS Clean Rooms.</p>",
+        "smithy.api#documentation": "<p>Creates a protected query that is started by Clean Rooms .</p>",
         "smithy.api#http": {
           "code": 200,
           "method": "POST",
@@ -5552,12 +5598,12 @@
         "glue": {
           "target": "com.amazonaws.cleanrooms#GlueTableReference",
           "traits": {
-            "smithy.api#documentation": "<p>If present, a reference to the AWS Glue table referred to by this table\n         reference.</p>"
+            "smithy.api#documentation": "<p>If present, a reference to the Glue table referred to by this table\n         reference.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A pointer to the dataset that underlies this table. Currently, this can only be an AWS\n         Glue table.</p>"
+        "smithy.api#documentation": "<p>A pointer to the dataset that underlies this table. Currently, this can only be an Glue table.</p>"
       }
     },
     "com.amazonaws.cleanrooms#TagKey": {
@@ -5566,8 +5612,7 @@
         "smithy.api#length": {
           "min": 1,
           "max": 128
-        },
-        "smithy.api#pattern": "^(?!aws:).{1,128}$"
+        }
       }
     },
     "com.amazonaws.cleanrooms#TagKeys": {
