@@ -48,9 +48,9 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *          <p>To claim a game server, identify a game server group. You can also specify a game
  *             server ID, although this approach bypasses Amazon GameLift FleetIQ placement optimization. Optionally,
  *             include game data to pass to the game server at the start of a game session, such as a
- *             game map or player information. Filter options may be included to further restrict how a
+ *             game map or player information. Add filter options to further restrict how a
  *             game server is chosen, such as only allowing game servers on <code>ACTIVE</code> instances
- *             to be claimed.</p>
+ *                 to be claimed.</p>
  *          <p>When a game server is successfully claimed, connection information is returned. A
  *             claimed game server's utilization status remains <code>AVAILABLE</code> while the claim
  *             status is set to <code>CLAIMED</code> for up to 60 seconds. This time period gives the
@@ -69,7 +69,7 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  *             </li>
  *             <li>
  *                <p>If the game server is running on an instance in <code>DRAINING</code> status and
- *                 provided filter option does not allow placing on <code>DRAINING</code> instances.</p>
+ *                 the provided filter option does not allow placing on <code>DRAINING</code> instances.</p>
  *             </li>
  *          </ul>
  *          <p>

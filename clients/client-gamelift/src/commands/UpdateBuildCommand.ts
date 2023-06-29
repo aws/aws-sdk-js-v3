@@ -70,7 +70,7 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  * //     Version: "STRING_VALUE",
  * //     Status: "INITIALIZED" || "READY" || "FAILED",
  * //     SizeOnDisk: Number("long"),
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     ServerSdkVersion: "STRING_VALUE",
  * //   },

@@ -86,7 +86,7 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * //     FleetId: "STRING_VALUE",
  * //     InstanceId: "STRING_VALUE",
  * //     IpAddress: "STRING_VALUE",
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
  * //     Credentials: { // InstanceCredentials
  * //       UserName: "STRING_VALUE",
  * //       Secret: "STRING_VALUE",

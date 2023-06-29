@@ -162,7 +162,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //       "STRING_VALUE",
  * //     ],
  * //     NewGameSessionProtectionPolicy: "NoProtection" || "FullProtection",
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
  * //     ResourceCreationLimitPolicy: { // ResourceCreationLimitPolicy
  * //       NewGameSessionsPerCreator: Number("int"),
  * //       PolicyPeriodInMinutes: Number("int"),

@@ -342,6 +342,7 @@ export type BalancingStrategy = (typeof BalancingStrategy)[keyof typeof Balancin
 export const OperatingSystem = {
   AMAZON_LINUX: "AMAZON_LINUX",
   AMAZON_LINUX_2: "AMAZON_LINUX_2",
+  AMAZON_LINUX_2023: "AMAZON_LINUX_2023",
   WINDOWS_2012: "WINDOWS_2012",
   WINDOWS_2016: "WINDOWS_2016",
 } as const;
@@ -3333,7 +3334,7 @@ export interface CreateMatchmakingConfigurationInput {
 
   /**
    * <p>The number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies
-   *             a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match. This parameter is not used if <code>FlexMatchMode</code> is set to
+   *             a match for a single 10-person team, and the additional player count is set to 2, 10 players will be selected for the match and 2 more player slots will be open for future players. This parameter is not used if <code>FlexMatchMode</code> is set to
    *                 <code>STANDALONE</code>.</p>
    */
   AdditionalPlayerCount?: number;
@@ -3468,7 +3469,7 @@ export interface MatchmakingConfiguration {
 
   /**
    * <p>The number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies
-   *             a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match. This parameter is not used when <code>FlexMatchMode</code> is set to
+   *             a match for a single 10-person team, and the additional player count is set to 2, 10 players will be selected for the match and 2 more player slots will be open for future players. This parameter is not used when <code>FlexMatchMode</code> is set to
    *                 <code>STANDALONE</code>.</p>
    */
   AdditionalPlayerCount?: number;
