@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-presigned-post",
-  "version": "3.362.0",
+  "version": "3.363.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -23,11 +23,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/client-s3": "*",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-format-url": "*",
     "@smithy/middleware-endpoint": "^1.0.1",
     "@smithy/signature-v4": "^1.0.1",
-    "@aws-sdk/types": "*",
     "@smithy/types": "^1.1.0",
-    "@aws-sdk/util-format-url": "*",
     "@smithy/util-hex-encoding": "^1.0.1",
     "@smithy/util-utf8": "^1.0.1",
     "tslib": "^2.5.0"

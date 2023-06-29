@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/rds-signer",
-  "version": "3.362.0",
+  "version": "3.363.0",
   "description": "RDS utility for generating a password that can be used for IAM authentication to an RDS DB.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -27,14 +27,14 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "3.0.0",
     "@aws-crypto/sha256-js": "3.0.0",
-    "@smithy/config-resolver": "^1.0.1",
     "@aws-sdk/credential-providers": "*",
+    "@aws-sdk/util-format-url": "*",
+    "@smithy/config-resolver": "^1.0.1",
     "@smithy/hash-node": "^1.0.1",
     "@smithy/invalid-dependency": "^1.0.1",
     "@smithy/node-config-provider": "^1.0.1",
     "@smithy/protocol-http": "^1.1.0",
     "@smithy/signature-v4": "^1.0.1",
-    "@aws-sdk/util-format-url": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

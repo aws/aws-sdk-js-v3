@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.357.0",
+  "version": "3.363.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -21,12 +21,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-format-url": "*",
     "@smithy/eventstream-serde-browser": "^1.0.1",
     "@smithy/protocol-http": "^1.1.0",
     "@smithy/signature-v4": "^1.0.1",
-    "@aws-sdk/types": "*",
     "@smithy/types": "^1.1.0",
-    "@aws-sdk/util-format-url": "*",
     "tslib": "^2.5.0",
     "uuid": "^8.3.2"
   },

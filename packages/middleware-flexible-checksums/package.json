@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-flexible-checksums",
-  "version": "3.357.0",
+  "version": "3.363.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -23,9 +23,9 @@
   "dependencies": {
     "@aws-crypto/crc32": "3.0.0",
     "@aws-crypto/crc32c": "3.0.0",
+    "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^1.0.1",
     "@smithy/protocol-http": "^1.1.0",
-    "@aws-sdk/types": "*",
     "@smithy/types": "^1.1.0",
     "@smithy/util-utf8": "^1.0.1",
     "tslib": "^2.5.0"

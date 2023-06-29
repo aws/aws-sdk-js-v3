@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-rds",
-  "version": "3.357.0",
+  "version": "3.363.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -21,12 +21,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-format-url": "*",
     "@smithy/middleware-endpoint": "^1.0.1",
     "@smithy/protocol-http": "^1.1.0",
     "@smithy/signature-v4": "^1.0.1",
-    "@aws-sdk/types": "*",
     "@smithy/types": "^1.1.0",
-    "@aws-sdk/util-format-url": "*",
     "tslib": "^2.5.0"
   },
   "engines": {

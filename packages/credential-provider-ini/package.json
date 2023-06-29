@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-ini",
-  "version": "3.362.0",
+  "version": "3.363.0",
   "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -25,13 +25,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/credential-provider-env": "*",
-    "@smithy/credential-provider-imds": "^1.0.1",
     "@aws-sdk/credential-provider-process": "*",
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
+    "@aws-sdk/types": "*",
+    "@smithy/credential-provider-imds": "^1.0.1",
     "@smithy/property-provider": "^1.0.1",
     "@smithy/shared-ini-file-loader": "^1.0.1",
-    "@aws-sdk/types": "*",
     "@smithy/types": "^1.1.0",
     "tslib": "^2.5.0"
   },

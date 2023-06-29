@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.362.0",
+  "version": "3.363.0",
   "description": "A collection of token providers",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -27,9 +27,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/client-sso-oidc": "*",
+    "@aws-sdk/types": "*",
     "@smithy/property-provider": "^1.0.1",
     "@smithy/shared-ini-file-loader": "^1.0.1",
-    "@aws-sdk/types": "*",
     "@smithy/types": "^1.1.0",
     "tslib": "^2.5.0"
   },

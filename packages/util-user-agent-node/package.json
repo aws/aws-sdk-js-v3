@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-user-agent-node",
-  "version": "3.357.0",
+  "version": "3.363.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -20,8 +20,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/node-config-provider": "^1.0.1",
     "@aws-sdk/types": "*",
+    "@smithy/node-config-provider": "^1.0.1",
     "@smithy/types": "^1.1.0",
     "tslib": "^2.5.0"
   },

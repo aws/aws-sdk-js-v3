@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
+
+
+### Features
+
+* **client-appstream:** This release introduces app block builder, allowing customers to provision a resource to package applications into an app block ([8c61b34](https://github.com/aws/aws-sdk-js-v3/commit/8c61b346a3f1f6194f1cef161b629b9f8b65c10e))
+* **client-chime:** The Amazon Chime SDK APIs in the Chime namespace are no longer supported.  Customers should use APIs in the dedicated Amazon Chime SDK namespaces: ChimeSDKIdentity, ChimeSDKMediaPipelines, ChimeSDKMeetings, ChimeSDKMessaging, and ChimeSDKVoice. ([a6ff65f](https://github.com/aws/aws-sdk-js-v3/commit/a6ff65faa545c01bb2e173f5b9d38dc8bd31a097))
+* **client-cleanrooms:** This release adds support for the OR operator in RSQL join match conditions and the ability to control which operators (AND, OR) are allowed in a join match condition. ([03a2f9a](https://github.com/aws/aws-sdk-js-v3/commit/03a2f9ac9f14423c2660de675fedc8d708e3eab3))
+* **client-dynamodb:** This release adds ReturnValuesOnConditionCheckFailure parameter to PutItem, UpdateItem, DeleteItem, ExecuteStatement, BatchExecuteStatement and ExecuteTransaction APIs. When set to ALL_OLD,  API returns a copy of the item as it was when a conditional write failed ([cef0845](https://github.com/aws/aws-sdk-js-v3/commit/cef0845a77f2a941f7294de1a61f58159693f944))
+* **client-gamelift:** Amazon GameLift now supports game builds that use the Amazon Linux 2023 (AL2023) operating system. ([ce985ba](https://github.com/aws/aws-sdk-js-v3/commit/ce985baa035dbd66d60c799b10c3e77abe33b10b))
+* **client-glue:** This release adds support for AWS Glue Crawler with Iceberg Tables, allowing Crawlers to discover Iceberg Tables in S3 and register them in Glue Data Catalog for query engines to query against. ([2a11fd8](https://github.com/aws/aws-sdk-js-v3/commit/2a11fd8ae47cbc51fc87a5d019099528266f0f0c))
+* **client-sagemaker:** Adding support for timeseries forecasting in the CreateAutoMLJobV2 API. ([1c2f6f0](https://github.com/aws/aws-sdk-js-v3/commit/1c2f6f07c99c638dd0683f15b47478157e046f14))
+* **clients:** use migrated [@smithy](https://github.com/smithy) packages ([#4873](https://github.com/aws/aws-sdk-js-v3/issues/4873)) ([d036e2e](https://github.com/aws/aws-sdk-js-v3/commit/d036e2e43cd33cfd497871f97dde907c3078b2fd))
+
+
+
+
+
 # [3.362.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.361.0...v3.362.0) (2023-06-28)
 
 
