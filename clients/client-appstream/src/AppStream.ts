@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AppStreamClient, AppStreamClientConfig } from "./AppStreamClient";
 import {
+  AssociateAppBlockBuilderAppBlockCommand,
+  AssociateAppBlockBuilderAppBlockCommandInput,
+  AssociateAppBlockBuilderAppBlockCommandOutput,
+} from "./commands/AssociateAppBlockBuilderAppBlockCommand";
+import {
   AssociateApplicationFleetCommand,
   AssociateApplicationFleetCommandInput,
   AssociateApplicationFleetCommandOutput,
@@ -29,6 +34,16 @@ import {
   BatchDisassociateUserStackCommandOutput,
 } from "./commands/BatchDisassociateUserStackCommand";
 import { CopyImageCommand, CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import {
+  CreateAppBlockBuilderCommand,
+  CreateAppBlockBuilderCommandInput,
+  CreateAppBlockBuilderCommandOutput,
+} from "./commands/CreateAppBlockBuilderCommand";
+import {
+  CreateAppBlockBuilderStreamingURLCommand,
+  CreateAppBlockBuilderStreamingURLCommandInput,
+  CreateAppBlockBuilderStreamingURLCommandOutput,
+} from "./commands/CreateAppBlockBuilderStreamingURLCommand";
 import {
   CreateAppBlockCommand,
   CreateAppBlockCommandInput,
@@ -78,6 +93,11 @@ import {
 } from "./commands/CreateUsageReportSubscriptionCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  DeleteAppBlockBuilderCommand,
+  DeleteAppBlockBuilderCommandInput,
+  DeleteAppBlockBuilderCommandOutput,
+} from "./commands/DeleteAppBlockBuilderCommand";
+import {
   DeleteAppBlockCommand,
   DeleteAppBlockCommandInput,
   DeleteAppBlockCommandOutput,
@@ -116,6 +136,16 @@ import {
   DeleteUsageReportSubscriptionCommandOutput,
 } from "./commands/DeleteUsageReportSubscriptionCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeAppBlockBuilderAppBlockAssociationsCommand,
+  DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+  DescribeAppBlockBuilderAppBlockAssociationsCommandOutput,
+} from "./commands/DescribeAppBlockBuilderAppBlockAssociationsCommand";
+import {
+  DescribeAppBlockBuildersCommand,
+  DescribeAppBlockBuildersCommandInput,
+  DescribeAppBlockBuildersCommandOutput,
+} from "./commands/DescribeAppBlockBuildersCommand";
 import {
   DescribeAppBlocksCommand,
   DescribeAppBlocksCommandInput,
@@ -188,6 +218,11 @@ import {
 } from "./commands/DescribeUserStackAssociationsCommand";
 import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
+  DisassociateAppBlockBuilderAppBlockCommand,
+  DisassociateAppBlockBuilderAppBlockCommandInput,
+  DisassociateAppBlockBuilderAppBlockCommandOutput,
+} from "./commands/DisassociateAppBlockBuilderAppBlockCommand";
+import {
   DisassociateApplicationFleetCommand,
   DisassociateApplicationFleetCommandInput,
   DisassociateApplicationFleetCommandOutput,
@@ -228,12 +263,22 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartAppBlockBuilderCommand,
+  StartAppBlockBuilderCommandInput,
+  StartAppBlockBuilderCommandOutput,
+} from "./commands/StartAppBlockBuilderCommand";
 import { StartFleetCommand, StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand";
 import {
   StartImageBuilderCommand,
   StartImageBuilderCommandInput,
   StartImageBuilderCommandOutput,
 } from "./commands/StartImageBuilderCommand";
+import {
+  StopAppBlockBuilderCommand,
+  StopAppBlockBuilderCommandInput,
+  StopAppBlockBuilderCommandOutput,
+} from "./commands/StopAppBlockBuilderCommand";
 import { StopFleetCommand, StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFleetCommand";
 import {
   StopImageBuilderCommand,
@@ -246,6 +291,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAppBlockBuilderCommand,
+  UpdateAppBlockBuilderCommandInput,
+  UpdateAppBlockBuilderCommandOutput,
+} from "./commands/UpdateAppBlockBuilderCommand";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
@@ -270,6 +320,7 @@ import {
 import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 
 const commands = {
+  AssociateAppBlockBuilderAppBlockCommand,
   AssociateApplicationFleetCommand,
   AssociateApplicationToEntitlementCommand,
   AssociateFleetCommand,
@@ -277,6 +328,8 @@ const commands = {
   BatchDisassociateUserStackCommand,
   CopyImageCommand,
   CreateAppBlockCommand,
+  CreateAppBlockBuilderCommand,
+  CreateAppBlockBuilderStreamingURLCommand,
   CreateApplicationCommand,
   CreateDirectoryConfigCommand,
   CreateEntitlementCommand,
@@ -289,6 +342,7 @@ const commands = {
   CreateUsageReportSubscriptionCommand,
   CreateUserCommand,
   DeleteAppBlockCommand,
+  DeleteAppBlockBuilderCommand,
   DeleteApplicationCommand,
   DeleteDirectoryConfigCommand,
   DeleteEntitlementCommand,
@@ -299,6 +353,8 @@ const commands = {
   DeleteStackCommand,
   DeleteUsageReportSubscriptionCommand,
   DeleteUserCommand,
+  DescribeAppBlockBuilderAppBlockAssociationsCommand,
+  DescribeAppBlockBuildersCommand,
   DescribeAppBlocksCommand,
   DescribeApplicationFleetAssociationsCommand,
   DescribeApplicationsCommand,
@@ -314,6 +370,7 @@ const commands = {
   DescribeUsersCommand,
   DescribeUserStackAssociationsCommand,
   DisableUserCommand,
+  DisassociateAppBlockBuilderAppBlockCommand,
   DisassociateApplicationFleetCommand,
   DisassociateApplicationFromEntitlementCommand,
   DisassociateFleetCommand,
@@ -323,12 +380,15 @@ const commands = {
   ListAssociatedStacksCommand,
   ListEntitledApplicationsCommand,
   ListTagsForResourceCommand,
+  StartAppBlockBuilderCommand,
   StartFleetCommand,
   StartImageBuilderCommand,
+  StopAppBlockBuilderCommand,
   StopFleetCommand,
   StopImageBuilderCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAppBlockBuilderCommand,
   UpdateApplicationCommand,
   UpdateDirectoryConfigCommand,
   UpdateEntitlementCommand,
@@ -338,6 +398,23 @@ const commands = {
 };
 
 export interface AppStream {
+  /**
+   * @see {@link AssociateAppBlockBuilderAppBlockCommand}
+   */
+  associateAppBlockBuilderAppBlock(
+    args: AssociateAppBlockBuilderAppBlockCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAppBlockBuilderAppBlockCommandOutput>;
+  associateAppBlockBuilderAppBlock(
+    args: AssociateAppBlockBuilderAppBlockCommandInput,
+    cb: (err: any, data?: AssociateAppBlockBuilderAppBlockCommandOutput) => void
+  ): void;
+  associateAppBlockBuilderAppBlock(
+    args: AssociateAppBlockBuilderAppBlockCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAppBlockBuilderAppBlockCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateApplicationFleetCommand}
    */
@@ -443,6 +520,40 @@ export interface AppStream {
     args: CreateAppBlockCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAppBlockCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAppBlockBuilderCommand}
+   */
+  createAppBlockBuilder(
+    args: CreateAppBlockBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppBlockBuilderCommandOutput>;
+  createAppBlockBuilder(
+    args: CreateAppBlockBuilderCommandInput,
+    cb: (err: any, data?: CreateAppBlockBuilderCommandOutput) => void
+  ): void;
+  createAppBlockBuilder(
+    args: CreateAppBlockBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppBlockBuilderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAppBlockBuilderStreamingURLCommand}
+   */
+  createAppBlockBuilderStreamingURL(
+    args: CreateAppBlockBuilderStreamingURLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppBlockBuilderStreamingURLCommandOutput>;
+  createAppBlockBuilderStreamingURL(
+    args: CreateAppBlockBuilderStreamingURLCommandInput,
+    cb: (err: any, data?: CreateAppBlockBuilderStreamingURLCommandOutput) => void
+  ): void;
+  createAppBlockBuilderStreamingURL(
+    args: CreateAppBlockBuilderStreamingURLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppBlockBuilderStreamingURLCommandOutput) => void
   ): void;
 
   /**
@@ -629,6 +740,23 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link DeleteAppBlockBuilderCommand}
+   */
+  deleteAppBlockBuilder(
+    args: DeleteAppBlockBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppBlockBuilderCommandOutput>;
+  deleteAppBlockBuilder(
+    args: DeleteAppBlockBuilderCommandInput,
+    cb: (err: any, data?: DeleteAppBlockBuilderCommandOutput) => void
+  ): void;
+  deleteAppBlockBuilder(
+    args: DeleteAppBlockBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppBlockBuilderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteApplicationCommand}
    */
   deleteApplication(
@@ -772,6 +900,40 @@ export interface AppStream {
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppBlockBuilderAppBlockAssociationsCommand}
+   */
+  describeAppBlockBuilderAppBlockAssociations(
+    args: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput>;
+  describeAppBlockBuilderAppBlockAssociations(
+    args: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+    cb: (err: any, data?: DescribeAppBlockBuilderAppBlockAssociationsCommandOutput) => void
+  ): void;
+  describeAppBlockBuilderAppBlockAssociations(
+    args: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppBlockBuilderAppBlockAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppBlockBuildersCommand}
+   */
+  describeAppBlockBuilders(
+    args: DescribeAppBlockBuildersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppBlockBuildersCommandOutput>;
+  describeAppBlockBuilders(
+    args: DescribeAppBlockBuildersCommandInput,
+    cb: (err: any, data?: DescribeAppBlockBuildersCommandOutput) => void
+  ): void;
+  describeAppBlockBuilders(
+    args: DescribeAppBlockBuildersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppBlockBuildersCommandOutput) => void
   ): void;
 
   /**
@@ -1009,6 +1171,23 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link DisassociateAppBlockBuilderAppBlockCommand}
+   */
+  disassociateAppBlockBuilderAppBlock(
+    args: DisassociateAppBlockBuilderAppBlockCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateAppBlockBuilderAppBlockCommandOutput>;
+  disassociateAppBlockBuilderAppBlock(
+    args: DisassociateAppBlockBuilderAppBlockCommandInput,
+    cb: (err: any, data?: DisassociateAppBlockBuilderAppBlockCommandOutput) => void
+  ): void;
+  disassociateAppBlockBuilderAppBlock(
+    args: DisassociateAppBlockBuilderAppBlockCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateAppBlockBuilderAppBlockCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateApplicationFleetCommand}
    */
   disassociateApplicationFleet(
@@ -1150,6 +1329,23 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link StartAppBlockBuilderCommand}
+   */
+  startAppBlockBuilder(
+    args: StartAppBlockBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAppBlockBuilderCommandOutput>;
+  startAppBlockBuilder(
+    args: StartAppBlockBuilderCommandInput,
+    cb: (err: any, data?: StartAppBlockBuilderCommandOutput) => void
+  ): void;
+  startAppBlockBuilder(
+    args: StartAppBlockBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAppBlockBuilderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartFleetCommand}
    */
   startFleet(args: StartFleetCommandInput, options?: __HttpHandlerOptions): Promise<StartFleetCommandOutput>;
@@ -1175,6 +1371,23 @@ export interface AppStream {
     args: StartImageBuilderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartImageBuilderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopAppBlockBuilderCommand}
+   */
+  stopAppBlockBuilder(
+    args: StopAppBlockBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAppBlockBuilderCommandOutput>;
+  stopAppBlockBuilder(
+    args: StopAppBlockBuilderCommandInput,
+    cb: (err: any, data?: StopAppBlockBuilderCommandOutput) => void
+  ): void;
+  stopAppBlockBuilder(
+    args: StopAppBlockBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAppBlockBuilderCommandOutput) => void
   ): void;
 
   /**
@@ -1225,6 +1438,23 @@ export interface AppStream {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAppBlockBuilderCommand}
+   */
+  updateAppBlockBuilder(
+    args: UpdateAppBlockBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppBlockBuilderCommandOutput>;
+  updateAppBlockBuilder(
+    args: UpdateAppBlockBuilderCommandInput,
+    cb: (err: any, data?: UpdateAppBlockBuilderCommandOutput) => void
+  ): void;
+  updateAppBlockBuilder(
+    args: UpdateAppBlockBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppBlockBuilderCommandOutput) => void
   ): void;
 
   /**

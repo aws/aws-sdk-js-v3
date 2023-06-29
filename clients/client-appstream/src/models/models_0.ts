@@ -53,6 +53,36 @@ export type Action = (typeof Action)[keyof typeof Action];
 
 /**
  * @public
+ * <p>The error details.</p>
+ */
+export interface ErrorDetails {
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PackagingType = {
+  APPSTREAM2: "APPSTREAM2",
+  CUSTOM: "CUSTOM",
+} as const;
+
+/**
+ * @public
+ */
+export type PackagingType = (typeof PackagingType)[keyof typeof PackagingType];
+
+/**
+ * @public
  * <p>Describes the S3 location.</p>
  */
 export interface S3Location {
@@ -63,8 +93,31 @@ export interface S3Location {
 
   /**
    * <p>The S3 key of the S3 object.</p>
+   *          <p>This is required when used for the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>IconS3Location (Actions: CreateApplication and UpdateApplication)</p>
+   *             </li>
+   *             <li>
+   *                <p>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</p>
+   *             </li>
+   *             <li>
+   *                <p>ScriptDetails (Actions: CreateAppBlock)</p>
+   *             </li>
+   *             <li>
+   *                <p>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType (Actions:
+   *                     CreateAppBlock)</p>
+   *             </li>
+   *             <li>
+   *                <p>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType, and
+   *                     using an existing application package (VHD file). In this case,
+   *                         <code>S3Key</code> refers to the VHD file. If a new application package is
+   *                     required, then <code>S3Key</code> is not required. (Actions:
+   *                     CreateAppBlock)</p>
+   *             </li>
+   *          </ul>
    */
-  S3Key: string | undefined;
+  S3Key?: string;
 }
 
 /**
@@ -92,6 +145,20 @@ export interface ScriptDetails {
    */
   TimeoutInSeconds: number | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AppBlockState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type AppBlockState = (typeof AppBlockState)[keyof typeof AppBlockState];
 
 /**
  * @public
@@ -131,14 +198,288 @@ export interface AppBlock {
 
   /**
    * <p>The setup script details of the app block.</p>
+   *          <p>This only applies to app blocks with PackagingType <code>CUSTOM</code>.</p>
    */
-  SetupScriptDetails: ScriptDetails | undefined;
+  SetupScriptDetails?: ScriptDetails;
 
   /**
    * <p>The created time of the app block.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>The post setup script details of the app block.</p>
+   *          <p>This only applies to app blocks with PackagingType <code>APPSTREAM2</code>.</p>
+   */
+  PostSetupScriptDetails?: ScriptDetails;
+
+  /**
+   * <p>The packaging type of the app block.</p>
+   */
+  PackagingType?: PackagingType | string;
+
+  /**
+   * <p>The state of the app block.</p>
+   *          <p>An app block with AppStream 2.0 packaging will be in the <code>INACTIVE</code> state
+   *             if no application package (VHD) is assigned to it. After an application package (VHD) is
+   *             created by an app block builder for an app block, it becomes <code>ACTIVE</code>. </p>
+   *          <p>Custom app blocks are always in the <code>ACTIVE</code> state and no action is required to use them.</p>
+   */
+  State?: AppBlockState | string;
+
+  /**
+   * <p>The errors of the app block.</p>
+   */
+  AppBlockErrors?: ErrorDetails[];
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetErrorCode = {
+  DOMAIN_JOIN_ERROR_ACCESS_DENIED: "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED: "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND: "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_INVALID_PARAMETER: "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+  DOMAIN_JOIN_ERROR_LOGON_FAILURE: "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+  DOMAIN_JOIN_ERROR_MORE_DATA: "DOMAIN_JOIN_ERROR_MORE_DATA",
+  DOMAIN_JOIN_ERROR_NOT_SUPPORTED: "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN: "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR: "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
+  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME: "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED: "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED: "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+  FLEET_INSTANCE_PROVISIONING_FAILURE: "FLEET_INSTANCE_PROVISIONING_FAILURE",
+  FLEET_STOPPED: "FLEET_STOPPED",
+  IAM_SERVICE_ROLE_IS_MISSING: "IAM_SERVICE_ROLE_IS_MISSING",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+  IGW_NOT_ATTACHED: "IGW_NOT_ATTACHED",
+  IMAGE_NOT_FOUND: "IMAGE_NOT_FOUND",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_SUBNET_CONFIGURATION: "INVALID_SUBNET_CONFIGURATION",
+  MACHINE_ROLE_IS_MISSING: "MACHINE_ROLE_IS_MISSING",
+  NETWORK_INTERFACE_LIMIT_EXCEEDED: "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+  SECURITY_GROUPS_NOT_FOUND: "SECURITY_GROUPS_NOT_FOUND",
+  STS_DISABLED_IN_REGION: "STS_DISABLED_IN_REGION",
+  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES: "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetErrorCode = (typeof FleetErrorCode)[keyof typeof FleetErrorCode];
+
+/**
+ * @public
+ * <p>Describes a resource error.</p>
+ */
+export interface ResourceError {
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: FleetErrorCode | string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The time the error occurred.</p>
+   */
+  ErrorTimestamp?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AppBlockBuilderPlatformType = {
+  WINDOWS_SERVER_2019: "WINDOWS_SERVER_2019",
+} as const;
+
+/**
+ * @public
+ */
+export type AppBlockBuilderPlatformType =
+  (typeof AppBlockBuilderPlatformType)[keyof typeof AppBlockBuilderPlatformType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppBlockBuilderState = {
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type AppBlockBuilderState = (typeof AppBlockBuilderState)[keyof typeof AppBlockBuilderState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppBlockBuilderStateChangeReasonCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type AppBlockBuilderStateChangeReasonCode =
+  (typeof AppBlockBuilderStateChangeReasonCode)[keyof typeof AppBlockBuilderStateChangeReasonCode];
+
+/**
+ * @public
+ * <p>Describes the reason why the last app block builder state change occurred.</p>
+ */
+export interface AppBlockBuilderStateChangeReason {
+  /**
+   * <p>The state change reason code.</p>
+   */
+  Code?: AppBlockBuilderStateChangeReasonCode | string;
+
+  /**
+   * <p>The state change reason message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>Describes VPC configuration information for fleets and image builders.</p>
+ */
+export interface VpcConfig {
+  /**
+   * <p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>The identifiers of the security groups for the fleet or image builder.</p>
+   */
+  SecurityGroupIds?: string[];
+}
+
+/**
+ * @public
+ * <p>Describes an app block builder.</p>
+ */
+export interface AppBlockBuilder {
+  /**
+   * <p>The ARN of the app block builder.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The display name of the app block builder.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the app block builder.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The platform of the app block builder.</p>
+   *          <p>
+   *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
+   */
+  Platform: AppBlockBuilderPlatformType | string | undefined;
+
+  /**
+   * <p>The instance type of the app block builder.</p>
+   */
+  InstanceType: string | undefined;
+
+  /**
+   * <p>Indicates whether default internet access is enabled for the app block builder.</p>
+   */
+  EnableDefaultInternetAccess?: boolean;
+
+  /**
+   * <p>The ARN of the IAM role that is applied to the app block builder.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The VPC configuration for the app block builder.</p>
+   */
+  VpcConfig: VpcConfig | undefined;
+
+  /**
+   * <p>The state of the app block builder.</p>
+   */
+  State: AppBlockBuilderState | string | undefined;
+
+  /**
+   * <p>The creation time of the app block builder.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The app block builder errors.</p>
+   */
+  AppBlockBuilderErrors?: ResourceError[];
+
+  /**
+   * <p>The state change reason.</p>
+   */
+  StateChangeReason?: AppBlockBuilderStateChangeReason;
+
+  /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+}
+
+/**
+ * @public
+ * <p>Describes an association between an app block builder and app block.</p>
+ */
+export interface AppBlockBuilderAppBlockAssociation {
+  /**
+   * <p>The ARN of the app block.</p>
+   */
+  AppBlockArn: string | undefined;
+
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  AppBlockBuilderName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AppBlockBuilderAttribute = {
+  ACCESS_ENDPOINTS: "ACCESS_ENDPOINTS",
+  IAM_ROLE_ARN: "IAM_ROLE_ARN",
+  VPC_CONFIGURATION_SECURITY_GROUP_IDS: "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
+} as const;
+
+/**
+ * @public
+ */
+export type AppBlockBuilderAttribute = (typeof AppBlockBuilderAttribute)[keyof typeof AppBlockBuilderAttribute];
 
 /**
  * @public
@@ -322,28 +663,26 @@ export type AppVisibility = (typeof AppVisibility)[keyof typeof AppVisibility];
 /**
  * @public
  */
-export interface AssociateApplicationFleetRequest {
+export interface AssociateAppBlockBuilderAppBlockRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * <p>The ARN of the app block.</p>
    */
-  FleetName: string | undefined;
+  AppBlockArn: string | undefined;
 
   /**
-   * <p>The ARN of the application.</p>
+   * <p>The name of the app block builder.</p>
    */
-  ApplicationArn: string | undefined;
+  AppBlockBuilderName: string | undefined;
 }
 
 /**
  * @public
  */
-export interface AssociateApplicationFleetResult {
+export interface AssociateAppBlockBuilderAppBlockResult {
   /**
-   * <p>If fleet name is specified, this returns the list of applications that are associated
-   *             to it. If application ARN is specified, this returns the list of fleets to which it is
-   *             associated.</p>
+   * <p>The list of app block builders associated with app blocks.</p>
    */
-  ApplicationFleetAssociation?: ApplicationFleetAssociation;
+  AppBlockBuilderAppBlockAssociation?: AppBlockBuilderAppBlockAssociation;
 }
 
 /**
@@ -469,6 +808,33 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface AssociateApplicationFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  FleetName: string | undefined;
+
+  /**
+   * <p>The ARN of the application.</p>
+   */
+  ApplicationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateApplicationFleetResult {
+  /**
+   * <p>If fleet name is specified, this returns the list of applications that are associated
+   *             to it. If application ARN is specified, this returns the list of fleets to which it is
+   *             associated.</p>
+   */
+  ApplicationFleetAssociation?: ApplicationFleetAssociation;
 }
 
 /**
@@ -899,14 +1265,26 @@ export interface CreateAppBlockRequest {
   SourceS3Location: S3Location | undefined;
 
   /**
-   * <p>The setup script details of the app block.</p>
+   * <p>The setup script details of the app block. This must be provided for the
+   *                 <code>CUSTOM</code> PackagingType.</p>
    */
-  SetupScriptDetails: ScriptDetails | undefined;
+  SetupScriptDetails?: ScriptDetails;
 
   /**
    * <p>The tags assigned to the app block.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The post setup script details of the app block. This can only be provided for the
+   *                 <code>APPSTREAM2</code> PackagingType.</p>
+   */
+  PostSetupScriptDetails?: ScriptDetails;
+
+  /**
+   * <p>The packaging type of the app block.</p>
+   */
+  PackagingType?: PackagingType | string;
 }
 
 /**
@@ -917,6 +1295,185 @@ export interface CreateAppBlockResult {
    * <p>The app block.</p>
    */
   AppBlock?: AppBlock;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppBlockBuilderRequest {
+  /**
+   * <p>The unique name for the app block builder.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the app block builder.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The display name of the app block builder.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The tags to associate with the app block builder. A tag is a key-value pair, and the
+   *             value is optional. For example, Environment=Test. If you do not specify a value,
+   *             Environment=. </p>
+   *          <p>If you do not specify a value, the value is set to an empty string.</p>
+   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *          <p>_ . : / = + \ - @</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The platform of the app block builder.</p>
+   *          <p>
+   *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
+   */
+  Platform: AppBlockBuilderPlatformType | string | undefined;
+
+  /**
+   * <p>The instance type to use when launching the app block builder. The following instance
+   *             types are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.medium</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.2xlarge</p>
+   *             </li>
+   *          </ul>
+   */
+  InstanceType: string | undefined;
+
+  /**
+   * <p>The VPC configuration for the app block builder.</p>
+   *          <p>App block builders require that you specify at least two subnets in different availability
+   *             zones.</p>
+   */
+  VpcConfig: VpcConfig | undefined;
+
+  /**
+   * <p>Enables or disables default internet access for the app block builder.</p>
+   */
+  EnableDefaultInternetAccess?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
+   *             assume a role, the app block builder calls the AWS Security Token Service (STS)
+   *                 <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+   *             operation creates a new session with temporary credentials. AppStream 2.0 retrieves the
+   *             temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+}
+
+/**
+ * @public
+ */
+export interface CreateAppBlockBuilderResult {
+  /**
+   * <p>Describes an app block builder.</p>
+   */
+  AppBlockBuilder?: AppBlockBuilder;
+}
+
+/**
+ * @public
+ * <p>The specified role is invalid.</p>
+ */
+export class InvalidRoleException extends __BaseException {
+  readonly name: "InvalidRoleException" = "InvalidRoleException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRoleException, __BaseException>) {
+    super({
+      name: "InvalidRoleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRoleException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+ */
+export class RequestLimitExceededException extends __BaseException {
+  readonly name: "RequestLimitExceededException" = "RequestLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestLimitExceededException, __BaseException>) {
+    super({
+      name: "RequestLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAppBlockBuilderStreamingURLRequest {
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  AppBlockBuilderName: string | undefined;
+
+  /**
+   * <p>The time that the streaming URL will be valid, in seconds.
+   *             Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
+   */
+  Validity?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppBlockBuilderStreamingURLResult {
+  /**
+   * <p>The URL to start the streaming session.</p>
+   */
+  StreamingURL?: string;
+
+  /**
+   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
+   */
+  Expires?: Date;
 }
 
 /**
@@ -1083,31 +1640,6 @@ export interface CreateDirectoryConfigResult {
    * <p>Information about the directory configuration.</p>
    */
   DirectoryConfig?: DirectoryConfig;
-}
-
-/**
- * @public
- * <p>The specified role is invalid.</p>
- */
-export class InvalidRoleException extends __BaseException {
-  readonly name: "InvalidRoleException" = "InvalidRoleException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message in the exception.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRoleException, __BaseException>) {
-    super({
-      name: "InvalidRoleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRoleException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1311,22 +1843,6 @@ export const StreamView = {
  * @public
  */
 export type StreamView = (typeof StreamView)[keyof typeof StreamView];
-
-/**
- * @public
- * <p>Describes VPC configuration information for fleets and image builders.</p>
- */
-export interface VpcConfig {
-  /**
-   * <p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>The identifiers of the security groups for the fleet or image builder.</p>
-   */
-  SecurityGroupIds?: string[];
-}
 
 /**
  * @public
@@ -1598,48 +2114,6 @@ export interface CreateFleetRequest {
    */
   SessionScriptS3Location?: S3Location;
 }
-
-/**
- * @public
- * @enum
- */
-export const FleetErrorCode = {
-  DOMAIN_JOIN_ERROR_ACCESS_DENIED: "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
-  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED: "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
-  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND: "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
-  DOMAIN_JOIN_ERROR_INVALID_PARAMETER: "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
-  DOMAIN_JOIN_ERROR_LOGON_FAILURE: "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
-  DOMAIN_JOIN_ERROR_MORE_DATA: "DOMAIN_JOIN_ERROR_MORE_DATA",
-  DOMAIN_JOIN_ERROR_NOT_SUPPORTED: "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
-  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN: "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
-  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR: "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
-  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME: "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
-  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED: "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
-  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED: "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
-  FLEET_INSTANCE_PROVISIONING_FAILURE: "FLEET_INSTANCE_PROVISIONING_FAILURE",
-  FLEET_STOPPED: "FLEET_STOPPED",
-  IAM_SERVICE_ROLE_IS_MISSING: "IAM_SERVICE_ROLE_IS_MISSING",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
-  IGW_NOT_ATTACHED: "IGW_NOT_ATTACHED",
-  IMAGE_NOT_FOUND: "IMAGE_NOT_FOUND",
-  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
-  INVALID_SUBNET_CONFIGURATION: "INVALID_SUBNET_CONFIGURATION",
-  MACHINE_ROLE_IS_MISSING: "MACHINE_ROLE_IS_MISSING",
-  NETWORK_INTERFACE_LIMIT_EXCEEDED: "NETWORK_INTERFACE_LIMIT_EXCEEDED",
-  SECURITY_GROUPS_NOT_FOUND: "SECURITY_GROUPS_NOT_FOUND",
-  STS_DISABLED_IN_REGION: "STS_DISABLED_IN_REGION",
-  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES: "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
-  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type FleetErrorCode = (typeof FleetErrorCode)[keyof typeof FleetErrorCode];
 
 /**
  * @public
@@ -1942,31 +2416,6 @@ export interface CreateFleetResult {
 
 /**
  * @public
- * <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
- */
-export class RequestLimitExceededException extends __BaseException {
-  readonly name: "RequestLimitExceededException" = "RequestLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message in the exception.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestLimitExceededException, __BaseException>) {
-    super({
-      name: "RequestLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
  */
 export interface CreateImageBuilderRequest {
   /**
@@ -2139,27 +2588,6 @@ export interface CreateImageBuilderRequest {
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
-}
-
-/**
- * @public
- * <p>Describes a resource error.</p>
- */
-export interface ResourceError {
-  /**
-   * <p>The error code.</p>
-   */
-  ErrorCode?: FleetErrorCode | string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The time the error occurred.</p>
-   */
-  ErrorTimestamp?: Date;
 }
 
 /**
@@ -3163,6 +3591,21 @@ export class ResourceInUseException extends __BaseException {
 /**
  * @public
  */
+export interface DeleteAppBlockBuilderRequest {
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAppBlockBuilderResult {}
+
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -3332,6 +3775,85 @@ export interface DeleteUserRequest {
  * @public
  */
 export interface DeleteUserResult {}
+
+/**
+ * @public
+ */
+export interface DescribeAppBlockBuilderAppBlockAssociationsRequest {
+  /**
+   * <p>The ARN of the app block.</p>
+   */
+  AppBlockArn?: string;
+
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  AppBlockBuilderName?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppBlockBuilderAppBlockAssociationsResult {
+  /**
+   * <p>This list of app block builders associated with app blocks.</p>
+   */
+  AppBlockBuilderAppBlockAssociations?: AppBlockBuilderAppBlockAssociation[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppBlockBuildersRequest {
+  /**
+   * <p>The names of the app block builders.</p>
+   */
+  Names?: string[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of each page of results. The maximum value is 25.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppBlockBuildersResult {
+  /**
+   * <p>The list that describes one or more app block builders.</p>
+   */
+  AppBlockBuilders?: AppBlockBuilder[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -4132,6 +4654,26 @@ export interface DisableUserResult {}
 /**
  * @public
  */
+export interface DisassociateAppBlockBuilderAppBlockRequest {
+  /**
+   * <p>The ARN of the app block.</p>
+   */
+  AppBlockArn: string | undefined;
+
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  AppBlockBuilderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAppBlockBuilderAppBlockResult {}
+
+/**
+ * @public
+ */
 export interface DisassociateApplicationFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -4384,6 +4926,26 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface StartAppBlockBuilderRequest {
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAppBlockBuilderResult {
+  /**
+   * <p>Describes an app block builder.</p>
+   */
+  AppBlockBuilder?: AppBlockBuilder;
+}
+
+/**
+ * @public
+ */
 export interface StartFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -4419,6 +4981,26 @@ export interface StartImageBuilderResult {
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
+}
+
+/**
+ * @public
+ */
+export interface StopAppBlockBuilderRequest {
+  /**
+   * <p>The name of the app block builder.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAppBlockBuilderResult {
+  /**
+   * <p>Describes an app block builder.</p>
+   */
+  AppBlockBuilder?: AppBlockBuilder;
 }
 
 /**
@@ -4498,6 +5080,98 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAppBlockBuilderRequest {
+  /**
+   * <p>The unique name for the app block builder.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the app block builder.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The display name of the app block builder.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The platform of the app block builder.</p>
+   *          <p>
+   *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
+   */
+  Platform?: PlatformType | string;
+
+  /**
+   * <p>The instance type to use when launching the app block builder. The following instance
+   *                 types are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.medium</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.standard.2xlarge</p>
+   *             </li>
+   *          </ul>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The VPC configuration for the app block builder.</p>
+   *          <p>App block builders require that you specify at least two subnets in different availability
+   *             zones.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Enables or disables default internet access for the app block builder.</p>
+   */
+  EnableDefaultInternetAccess?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
+   *             assume a role, the app block builder calls the AWS Security Token Service (STS)
+   *             <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+   *             operation creates a new session with temporary credentials. AppStream 2.0 retrieves the
+   *             temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>The attributes to delete from the app block builder.</p>
+   */
+  AttributesToDelete?: (AppBlockBuilderAttribute | string)[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppBlockBuilderResult {
+  /**
+   * <p>Describes an app block builder.</p>
+   */
+  AppBlockBuilder?: AppBlockBuilder;
+}
 
 /**
  * @public
@@ -4801,7 +5475,7 @@ export interface UpdateFleetRequest {
 
   /**
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *          <p>Specify a value between 600 and 360000.</p>
+   *          <p>Specify a value between 600 and 432000.</p>
    */
   MaxUserDurationInSeconds?: number;
 

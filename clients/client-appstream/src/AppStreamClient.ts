@@ -50,6 +50,10 @@ import {
 } from "@smithy/types";
 
 import {
+  AssociateAppBlockBuilderAppBlockCommandInput,
+  AssociateAppBlockBuilderAppBlockCommandOutput,
+} from "./commands/AssociateAppBlockBuilderAppBlockCommand";
+import {
   AssociateApplicationFleetCommandInput,
   AssociateApplicationFleetCommandOutput,
 } from "./commands/AssociateApplicationFleetCommand";
@@ -67,6 +71,14 @@ import {
   BatchDisassociateUserStackCommandOutput,
 } from "./commands/BatchDisassociateUserStackCommand";
 import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import {
+  CreateAppBlockBuilderCommandInput,
+  CreateAppBlockBuilderCommandOutput,
+} from "./commands/CreateAppBlockBuilderCommand";
+import {
+  CreateAppBlockBuilderStreamingURLCommandInput,
+  CreateAppBlockBuilderStreamingURLCommandOutput,
+} from "./commands/CreateAppBlockBuilderStreamingURLCommand";
 import { CreateAppBlockCommandInput, CreateAppBlockCommandOutput } from "./commands/CreateAppBlockCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
@@ -88,6 +100,10 @@ import {
   CreateUsageReportSubscriptionCommandOutput,
 } from "./commands/CreateUsageReportSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import {
+  DeleteAppBlockBuilderCommandInput,
+  DeleteAppBlockBuilderCommandOutput,
+} from "./commands/DeleteAppBlockBuilderCommand";
 import { DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput } from "./commands/DeleteAppBlockCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
@@ -108,6 +124,14 @@ import {
   DeleteUsageReportSubscriptionCommandOutput,
 } from "./commands/DeleteUsageReportSubscriptionCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+  DescribeAppBlockBuilderAppBlockAssociationsCommandOutput,
+} from "./commands/DescribeAppBlockBuilderAppBlockAssociationsCommand";
+import {
+  DescribeAppBlockBuildersCommandInput,
+  DescribeAppBlockBuildersCommandOutput,
+} from "./commands/DescribeAppBlockBuildersCommand";
 import { DescribeAppBlocksCommandInput, DescribeAppBlocksCommandOutput } from "./commands/DescribeAppBlocksCommand";
 import {
   DescribeApplicationFleetAssociationsCommandInput,
@@ -148,6 +172,10 @@ import {
 } from "./commands/DescribeUserStackAssociationsCommand";
 import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
+  DisassociateAppBlockBuilderAppBlockCommandInput,
+  DisassociateAppBlockBuilderAppBlockCommandOutput,
+} from "./commands/DisassociateAppBlockBuilderAppBlockCommand";
+import {
   DisassociateApplicationFleetCommandInput,
   DisassociateApplicationFleetCommandOutput,
 } from "./commands/DisassociateApplicationFleetCommand";
@@ -174,12 +202,24 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartAppBlockBuilderCommandInput,
+  StartAppBlockBuilderCommandOutput,
+} from "./commands/StartAppBlockBuilderCommand";
 import { StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand";
 import { StartImageBuilderCommandInput, StartImageBuilderCommandOutput } from "./commands/StartImageBuilderCommand";
+import {
+  StopAppBlockBuilderCommandInput,
+  StopAppBlockBuilderCommandOutput,
+} from "./commands/StopAppBlockBuilderCommand";
 import { StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFleetCommand";
 import { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "./commands/StopImageBuilderCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAppBlockBuilderCommandInput,
+  UpdateAppBlockBuilderCommandOutput,
+} from "./commands/UpdateAppBlockBuilderCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateDirectoryConfigCommandInput,
@@ -206,12 +246,15 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateAppBlockBuilderAppBlockCommandInput
   | AssociateApplicationFleetCommandInput
   | AssociateApplicationToEntitlementCommandInput
   | AssociateFleetCommandInput
   | BatchAssociateUserStackCommandInput
   | BatchDisassociateUserStackCommandInput
   | CopyImageCommandInput
+  | CreateAppBlockBuilderCommandInput
+  | CreateAppBlockBuilderStreamingURLCommandInput
   | CreateAppBlockCommandInput
   | CreateApplicationCommandInput
   | CreateDirectoryConfigCommandInput
@@ -224,6 +267,7 @@ export type ServiceInputTypes =
   | CreateUpdatedImageCommandInput
   | CreateUsageReportSubscriptionCommandInput
   | CreateUserCommandInput
+  | DeleteAppBlockBuilderCommandInput
   | DeleteAppBlockCommandInput
   | DeleteApplicationCommandInput
   | DeleteDirectoryConfigCommandInput
@@ -235,6 +279,8 @@ export type ServiceInputTypes =
   | DeleteStackCommandInput
   | DeleteUsageReportSubscriptionCommandInput
   | DeleteUserCommandInput
+  | DescribeAppBlockBuilderAppBlockAssociationsCommandInput
+  | DescribeAppBlockBuildersCommandInput
   | DescribeAppBlocksCommandInput
   | DescribeApplicationFleetAssociationsCommandInput
   | DescribeApplicationsCommandInput
@@ -250,6 +296,7 @@ export type ServiceInputTypes =
   | DescribeUserStackAssociationsCommandInput
   | DescribeUsersCommandInput
   | DisableUserCommandInput
+  | DisassociateAppBlockBuilderAppBlockCommandInput
   | DisassociateApplicationFleetCommandInput
   | DisassociateApplicationFromEntitlementCommandInput
   | DisassociateFleetCommandInput
@@ -259,12 +306,15 @@ export type ServiceInputTypes =
   | ListAssociatedStacksCommandInput
   | ListEntitledApplicationsCommandInput
   | ListTagsForResourceCommandInput
+  | StartAppBlockBuilderCommandInput
   | StartFleetCommandInput
   | StartImageBuilderCommandInput
+  | StopAppBlockBuilderCommandInput
   | StopFleetCommandInput
   | StopImageBuilderCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAppBlockBuilderCommandInput
   | UpdateApplicationCommandInput
   | UpdateDirectoryConfigCommandInput
   | UpdateEntitlementCommandInput
@@ -276,12 +326,15 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateAppBlockBuilderAppBlockCommandOutput
   | AssociateApplicationFleetCommandOutput
   | AssociateApplicationToEntitlementCommandOutput
   | AssociateFleetCommandOutput
   | BatchAssociateUserStackCommandOutput
   | BatchDisassociateUserStackCommandOutput
   | CopyImageCommandOutput
+  | CreateAppBlockBuilderCommandOutput
+  | CreateAppBlockBuilderStreamingURLCommandOutput
   | CreateAppBlockCommandOutput
   | CreateApplicationCommandOutput
   | CreateDirectoryConfigCommandOutput
@@ -294,6 +347,7 @@ export type ServiceOutputTypes =
   | CreateUpdatedImageCommandOutput
   | CreateUsageReportSubscriptionCommandOutput
   | CreateUserCommandOutput
+  | DeleteAppBlockBuilderCommandOutput
   | DeleteAppBlockCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteDirectoryConfigCommandOutput
@@ -305,6 +359,8 @@ export type ServiceOutputTypes =
   | DeleteStackCommandOutput
   | DeleteUsageReportSubscriptionCommandOutput
   | DeleteUserCommandOutput
+  | DescribeAppBlockBuilderAppBlockAssociationsCommandOutput
+  | DescribeAppBlockBuildersCommandOutput
   | DescribeAppBlocksCommandOutput
   | DescribeApplicationFleetAssociationsCommandOutput
   | DescribeApplicationsCommandOutput
@@ -320,6 +376,7 @@ export type ServiceOutputTypes =
   | DescribeUserStackAssociationsCommandOutput
   | DescribeUsersCommandOutput
   | DisableUserCommandOutput
+  | DisassociateAppBlockBuilderAppBlockCommandOutput
   | DisassociateApplicationFleetCommandOutput
   | DisassociateApplicationFromEntitlementCommandOutput
   | DisassociateFleetCommandOutput
@@ -329,12 +386,15 @@ export type ServiceOutputTypes =
   | ListAssociatedStacksCommandOutput
   | ListEntitledApplicationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartAppBlockBuilderCommandOutput
   | StartFleetCommandOutput
   | StartImageBuilderCommandOutput
+  | StopAppBlockBuilderCommandOutput
   | StopFleetCommandOutput
   | StopImageBuilderCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAppBlockBuilderCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateDirectoryConfigCommandOutput
   | UpdateEntitlementCommandOutput

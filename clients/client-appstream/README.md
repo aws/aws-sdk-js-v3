@@ -41,16 +41,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppStreamClient` and
-the commands you need, for example `AssociateApplicationFleetCommand`:
+the commands you need, for example `AssociateAppBlockBuilderAppBlockCommand`:
 
 ```js
 // ES5 example
-const { AppStreamClient, AssociateApplicationFleetCommand } = require("@aws-sdk/client-appstream");
+const { AppStreamClient, AssociateAppBlockBuilderAppBlockCommand } = require("@aws-sdk/client-appstream");
 ```
 
 ```ts
 // ES6+ example
-import { AppStreamClient, AssociateApplicationFleetCommand } from "@aws-sdk/client-appstream";
+import { AppStreamClient, AssociateAppBlockBuilderAppBlockCommand } from "@aws-sdk/client-appstream";
 ```
 
 ### Usage
@@ -69,7 +69,7 @@ const client = new AppStreamClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateApplicationFleetCommand(params);
+const command = new AssociateAppBlockBuilderAppBlockCommand(params);
 ```
 
 #### Async/await
@@ -148,7 +148,7 @@ const client = new AWS.AppStream({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateApplicationFleet(params);
+  const data = await client.associateAppBlockBuilderAppBlock(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -156,7 +156,7 @@ try {
 
 // Promises.
 client
-  .associateApplicationFleet(params)
+  .associateAppBlockBuilderAppBlock(params)
   .then((data) => {
     // process data.
   })
@@ -165,7 +165,7 @@ client
   });
 
 // callbacks.
-client.associateApplicationFleet(params, (err, data) => {
+client.associateAppBlockBuilderAppBlock(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -223,6 +223,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateAppBlockBuilderAppBlock
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/associateappblockbuilderappblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/associateappblockbuilderappblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/associateappblockbuilderappblockcommandoutput.html)
+
+</details>
+<details>
+<summary>
 AssociateApplicationFleet
 </summary>
 
@@ -275,6 +283,22 @@ CreateAppBlock
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/createappblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/createappblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/createappblockcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAppBlockBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/createappblockbuildercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/createappblockbuildercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/createappblockbuildercommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAppBlockBuilderStreamingURL
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/createappblockbuilderstreamingurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/createappblockbuilderstreamingurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/createappblockbuilderstreamingurlcommandoutput.html)
 
 </details>
 <details>
@@ -375,6 +399,14 @@ DeleteAppBlock
 </details>
 <details>
 <summary>
+DeleteAppBlockBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/deleteappblockbuildercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/deleteappblockbuildercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/deleteappblockbuildercommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteApplication
 </summary>
 
@@ -451,6 +483,22 @@ DeleteUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/deleteusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/deleteusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/deleteusercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAppBlockBuilderAppBlockAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/describeappblockbuilderappblockassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/describeappblockbuilderappblockassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/describeappblockbuilderappblockassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAppBlockBuilders
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/describeappblockbuilderscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/describeappblockbuilderscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/describeappblockbuilderscommandoutput.html)
 
 </details>
 <details>
@@ -575,6 +623,14 @@ DisableUser
 </details>
 <details>
 <summary>
+DisassociateAppBlockBuilderAppBlock
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/disassociateappblockbuilderappblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/disassociateappblockbuilderappblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/disassociateappblockbuilderappblockcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DisassociateApplicationFleet
 </summary>
 
@@ -647,6 +703,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+StartAppBlockBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/startappblockbuildercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/startappblockbuildercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/startappblockbuildercommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartFleet
 </summary>
 
@@ -659,6 +723,14 @@ StartImageBuilder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/startimagebuildercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/startimagebuildercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/startimagebuildercommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopAppBlockBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/stopappblockbuildercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/stopappblockbuildercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/stopappblockbuildercommandoutput.html)
 
 </details>
 <details>
@@ -691,6 +763,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAppBlockBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/classes/updateappblockbuildercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/updateappblockbuildercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appstream/interfaces/updateappblockbuildercommandoutput.html)
 
 </details>
 <details>

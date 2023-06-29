@@ -101,7 +101,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //       ],
  * //       SessionScriptS3Location: { // S3Location
  * //         S3Bucket: "STRING_VALUE", // required
- * //         S3Key: "STRING_VALUE", // required
+ * //         S3Key: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

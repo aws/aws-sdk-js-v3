@@ -1,3 +1,7 @@
+export * from "./DescribeAppBlockBuilderAppBlockAssociationsPaginator";
+
+export * from "./DescribeAppBlockBuildersPaginator";
+
 export * from "./DescribeImagePermissionsPaginator";
 
 export * from "./DescribeImagesPaginator";

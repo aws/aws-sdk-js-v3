@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateFleetRequest, CreateFleetResult } from "../models/models_0";
-import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_json1_1";
+import { StartAppBlockBuilderRequest, StartAppBlockBuilderResult } from "../models/models_0";
+import { de_StartAppBlockBuilderCommand, se_StartAppBlockBuilderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -24,88 +24,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateFleetCommand}.
+ * The input for {@link StartAppBlockBuilderCommand}.
  */
-export interface CreateFleetCommandInput extends CreateFleetRequest {}
+export interface StartAppBlockBuilderCommandInput extends StartAppBlockBuilderRequest {}
 /**
  * @public
  *
- * The output of {@link CreateFleetCommand}.
+ * The output of {@link StartAppBlockBuilderCommand}.
  */
-export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
+export interface StartAppBlockBuilderCommandOutput extends StartAppBlockBuilderResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
+ * <p>Starts an app block builder.</p>
+ *          <p>An app block builder can only be started when it's associated with an app
+ *             block.</p>
+ *          <p>Starting an app block builder starts a new instance, which is equivalent to an elastic
+ *             fleet instance with application builder assistance functionality.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, CreateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, CreateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, StartAppBlockBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, StartAppBlockBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = { // CreateFleetRequest
+ * const input = { // StartAppBlockBuilderRequest
  *   Name: "STRING_VALUE", // required
- *   ImageName: "STRING_VALUE",
- *   ImageArn: "STRING_VALUE",
- *   InstanceType: "STRING_VALUE", // required
- *   FleetType: "ALWAYS_ON" || "ON_DEMAND" || "ELASTIC",
- *   ComputeCapacity: { // ComputeCapacity
- *     DesiredInstances: Number("int"), // required
- *   },
- *   VpcConfig: { // VpcConfig
- *     SubnetIds: [ // SubnetIdList
- *       "STRING_VALUE",
- *     ],
- *     SecurityGroupIds: [ // SecurityGroupIdList
- *       "STRING_VALUE",
- *     ],
- *   },
- *   MaxUserDurationInSeconds: Number("int"),
- *   DisconnectTimeoutInSeconds: Number("int"),
- *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   EnableDefaultInternetAccess: true || false,
- *   DomainJoinInfo: { // DomainJoinInfo
- *     DirectoryName: "STRING_VALUE",
- *     OrganizationalUnitDistinguishedName: "STRING_VALUE",
- *   },
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   IdleDisconnectTimeoutInSeconds: Number("int"),
- *   IamRoleArn: "STRING_VALUE",
- *   StreamView: "APP" || "DESKTOP",
- *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
- *   MaxConcurrentSessions: Number("int"),
- *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
- *     "STRING_VALUE",
- *   ],
- *   SessionScriptS3Location: { // S3Location
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE",
- *   },
  * };
- * const command = new CreateFleetCommand(input);
+ * const command = new StartAppBlockBuilderCommand(input);
  * const response = await client.send(command);
- * // { // CreateFleetResult
- * //   Fleet: { // Fleet
+ * // { // StartAppBlockBuilderResult
+ * //   AppBlockBuilder: { // AppBlockBuilder
  * //     Arn: "STRING_VALUE", // required
  * //     Name: "STRING_VALUE", // required
  * //     DisplayName: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     ImageName: "STRING_VALUE",
- * //     ImageArn: "STRING_VALUE",
+ * //     Platform: "WINDOWS_SERVER_2019", // required
  * //     InstanceType: "STRING_VALUE", // required
- * //     FleetType: "ALWAYS_ON" || "ON_DEMAND" || "ELASTIC",
- * //     ComputeCapacityStatus: { // ComputeCapacityStatus
- * //       Desired: Number("int"), // required
- * //       Running: Number("int"),
- * //       InUse: Number("int"),
- * //       Available: Number("int"),
- * //     },
- * //     MaxUserDurationInSeconds: Number("int"),
- * //     DisconnectTimeoutInSeconds: Number("int"),
- * //     State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED", // required
+ * //     EnableDefaultInternetAccess: true || false,
+ * //     IamRoleArn: "STRING_VALUE",
  * //     VpcConfig: { // VpcConfig
  * //       SubnetIds: [ // SubnetIdList
  * //         "STRING_VALUE",
@@ -114,55 +70,41 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED", // required
  * //     CreatedTime: new Date("TIMESTAMP"),
- * //     FleetErrors: [ // FleetErrors
- * //       { // FleetError
+ * //     AppBlockBuilderErrors: [ // ResourceErrors
+ * //       { // ResourceError
  * //         ErrorCode: "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION" || "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION" || "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION" || "NETWORK_INTERFACE_LIMIT_EXCEEDED" || "INTERNAL_SERVICE_ERROR" || "IAM_SERVICE_ROLE_IS_MISSING" || "MACHINE_ROLE_IS_MISSING" || "STS_DISABLED_IN_REGION" || "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES" || "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION" || "SUBNET_NOT_FOUND" || "IMAGE_NOT_FOUND" || "INVALID_SUBNET_CONFIGURATION" || "SECURITY_GROUPS_NOT_FOUND" || "IGW_NOT_ATTACHED" || "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION" || "FLEET_STOPPED" || "FLEET_INSTANCE_PROVISIONING_FAILURE" || "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND" || "DOMAIN_JOIN_ERROR_ACCESS_DENIED" || "DOMAIN_JOIN_ERROR_LOGON_FAILURE" || "DOMAIN_JOIN_ERROR_INVALID_PARAMETER" || "DOMAIN_JOIN_ERROR_MORE_DATA" || "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN" || "DOMAIN_JOIN_ERROR_NOT_SUPPORTED" || "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME" || "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED" || "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED" || "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED" || "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
  * //         ErrorMessage: "STRING_VALUE",
+ * //         ErrorTimestamp: new Date("TIMESTAMP"),
  * //       },
  * //     ],
- * //     EnableDefaultInternetAccess: true || false,
- * //     DomainJoinInfo: { // DomainJoinInfo
- * //       DirectoryName: "STRING_VALUE",
- * //       OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ * //     StateChangeReason: { // AppBlockBuilderStateChangeReason
+ * //       Code: "INTERNAL_ERROR",
+ * //       Message: "STRING_VALUE",
  * //     },
- * //     IdleDisconnectTimeoutInSeconds: Number("int"),
- * //     IamRoleArn: "STRING_VALUE",
- * //     StreamView: "APP" || "DESKTOP",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
- * //     MaxConcurrentSessions: Number("int"),
- * //     UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
- * //       "STRING_VALUE",
+ * //     AccessEndpoints: [ // AccessEndpointList
+ * //       { // AccessEndpoint
+ * //         EndpointType: "STREAMING", // required
+ * //         VpceId: "STRING_VALUE",
+ * //       },
  * //     ],
- * //     SessionScriptS3Location: { // S3Location
- * //       S3Bucket: "STRING_VALUE", // required
- * //       S3Key: "STRING_VALUE",
- * //     },
  * //   },
  * // };
  *
  * ```
  *
- * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
- * @returns {@link CreateFleetCommandOutput}
- * @see {@link CreateFleetCommandInput} for command's `input` shape.
- * @see {@link CreateFleetCommandOutput} for command's `response` shape.
+ * @param StartAppBlockBuilderCommandInput - {@link StartAppBlockBuilderCommandInput}
+ * @returns {@link StartAppBlockBuilderCommandOutput}
+ * @see {@link StartAppBlockBuilderCommandInput} for command's `input` shape.
+ * @see {@link StartAppBlockBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>An API error occurred. Wait a few minutes and try again.</p>
  *
- * @throws {@link IncompatibleImageException} (client fault)
- *  <p>The image can't be updated because it's not compatible for updates.</p>
- *
  * @throws {@link InvalidAccountStatusException} (client fault)
  *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
- *
- * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
- *
- * @throws {@link InvalidRoleException} (client fault)
- *  <p>The specified role is invalid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The requested limit exceeds the permitted limit for an account.</p>
@@ -172,9 +114,6 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *
  * @throws {@link RequestLimitExceededException} (client fault)
  *  <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
- *
- * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
  *
  * @throws {@link ResourceNotAvailableException} (client fault)
  *  <p>The specified resource exists and is not in use, but isn't available.</p>
@@ -186,9 +125,9 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
-export class CreateFleetCommand extends $Command<
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput,
+export class StartAppBlockBuilderCommand extends $Command<
+  StartAppBlockBuilderCommandInput,
+  StartAppBlockBuilderCommandOutput,
   AppStreamClientResolvedConfig
 > {
   // Start section: command_properties
@@ -206,7 +145,7 @@ export class CreateFleetCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateFleetCommandInput) {
+  constructor(readonly input: StartAppBlockBuilderCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -219,15 +158,17 @@ export class CreateFleetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateFleetCommandInput, CreateFleetCommandOutput> {
+  ): Handler<StartAppBlockBuilderCommandInput, StartAppBlockBuilderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateFleetCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartAppBlockBuilderCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppStreamClient";
-    const commandName = "CreateFleetCommand";
+    const commandName = "StartAppBlockBuilderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -246,15 +187,15 @@ export class CreateFleetCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateFleetCommand(input, context);
+  private serialize(input: StartAppBlockBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartAppBlockBuilderCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetCommandOutput> {
-    return de_CreateFleetCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppBlockBuilderCommandOutput> {
+    return de_StartAppBlockBuilderCommand(output, context);
   }
 
   // Start section: command_body_extra

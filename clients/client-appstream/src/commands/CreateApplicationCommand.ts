@@ -55,7 +55,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  *   Description: "STRING_VALUE",
  *   IconS3Location: { // S3Location
  *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
  *   },
  *   LaunchPath: "STRING_VALUE", // required
  *   WorkingDirectory: "STRING_VALUE",
@@ -90,7 +90,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * //     AppBlockArn: "STRING_VALUE",
  * //     IconS3Location: { // S3Location
  * //       S3Bucket: "STRING_VALUE", // required
- * //       S3Key: "STRING_VALUE", // required
+ * //       S3Key: "STRING_VALUE",
  * //     },
  * //     Platforms: [ // Platforms
  * //       "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",

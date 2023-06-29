@@ -55,12 +55,12 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  *   DisplayName: "STRING_VALUE",
  *   SourceS3Location: { // S3Location
  *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
  *   },
  *   SetupScriptDetails: { // ScriptDetails
  *     ScriptS3Location: {
  *       S3Bucket: "STRING_VALUE", // required
- *       S3Key: "STRING_VALUE", // required
+ *       S3Key: "STRING_VALUE",
  *     },
  *     ExecutablePath: "STRING_VALUE", // required
  *     ExecutableParameters: "STRING_VALUE",
@@ -69,6 +69,16 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   PostSetupScriptDetails: {
+ *     ScriptS3Location: {
+ *       S3Bucket: "STRING_VALUE", // required
+ *       S3Key: "STRING_VALUE",
+ *     },
+ *     ExecutablePath: "STRING_VALUE", // required
+ *     ExecutableParameters: "STRING_VALUE",
+ *     TimeoutInSeconds: Number("int"), // required
+ *   },
+ *   PackagingType: "CUSTOM" || "APPSTREAM2",
  * };
  * const command = new CreateAppBlockCommand(input);
  * const response = await client.send(command);
@@ -80,18 +90,35 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * //     DisplayName: "STRING_VALUE",
  * //     SourceS3Location: { // S3Location
  * //       S3Bucket: "STRING_VALUE", // required
- * //       S3Key: "STRING_VALUE", // required
+ * //       S3Key: "STRING_VALUE",
  * //     },
  * //     SetupScriptDetails: { // ScriptDetails
  * //       ScriptS3Location: {
  * //         S3Bucket: "STRING_VALUE", // required
- * //         S3Key: "STRING_VALUE", // required
+ * //         S3Key: "STRING_VALUE",
  * //       },
  * //       ExecutablePath: "STRING_VALUE", // required
  * //       ExecutableParameters: "STRING_VALUE",
  * //       TimeoutInSeconds: Number("int"), // required
  * //     },
  * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     PostSetupScriptDetails: {
+ * //       ScriptS3Location: {
+ * //         S3Bucket: "STRING_VALUE", // required
+ * //         S3Key: "STRING_VALUE",
+ * //       },
+ * //       ExecutablePath: "STRING_VALUE", // required
+ * //       ExecutableParameters: "STRING_VALUE",
+ * //       TimeoutInSeconds: Number("int"), // required
+ * //     },
+ * //     PackagingType: "CUSTOM" || "APPSTREAM2",
+ * //     State: "INACTIVE" || "ACTIVE",
+ * //     AppBlockErrors: [ // ErrorDetailsList
+ * //       { // ErrorDetails
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

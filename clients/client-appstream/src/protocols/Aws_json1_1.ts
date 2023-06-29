@@ -21,6 +21,10 @@ import {
 } from "@smithy/types";
 
 import {
+  AssociateAppBlockBuilderAppBlockCommandInput,
+  AssociateAppBlockBuilderAppBlockCommandOutput,
+} from "../commands/AssociateAppBlockBuilderAppBlockCommand";
+import {
   AssociateApplicationFleetCommandInput,
   AssociateApplicationFleetCommandOutput,
 } from "../commands/AssociateApplicationFleetCommand";
@@ -38,6 +42,14 @@ import {
   BatchDisassociateUserStackCommandOutput,
 } from "../commands/BatchDisassociateUserStackCommand";
 import { CopyImageCommandInput, CopyImageCommandOutput } from "../commands/CopyImageCommand";
+import {
+  CreateAppBlockBuilderCommandInput,
+  CreateAppBlockBuilderCommandOutput,
+} from "../commands/CreateAppBlockBuilderCommand";
+import {
+  CreateAppBlockBuilderStreamingURLCommandInput,
+  CreateAppBlockBuilderStreamingURLCommandOutput,
+} from "../commands/CreateAppBlockBuilderStreamingURLCommand";
 import { CreateAppBlockCommandInput, CreateAppBlockCommandOutput } from "../commands/CreateAppBlockCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import {
@@ -59,6 +71,10 @@ import {
   CreateUsageReportSubscriptionCommandOutput,
 } from "../commands/CreateUsageReportSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
+import {
+  DeleteAppBlockBuilderCommandInput,
+  DeleteAppBlockBuilderCommandOutput,
+} from "../commands/DeleteAppBlockBuilderCommand";
 import { DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput } from "../commands/DeleteAppBlockCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import {
@@ -79,6 +95,14 @@ import {
   DeleteUsageReportSubscriptionCommandOutput,
 } from "../commands/DeleteUsageReportSubscriptionCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import {
+  DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+  DescribeAppBlockBuilderAppBlockAssociationsCommandOutput,
+} from "../commands/DescribeAppBlockBuilderAppBlockAssociationsCommand";
+import {
+  DescribeAppBlockBuildersCommandInput,
+  DescribeAppBlockBuildersCommandOutput,
+} from "../commands/DescribeAppBlockBuildersCommand";
 import { DescribeAppBlocksCommandInput, DescribeAppBlocksCommandOutput } from "../commands/DescribeAppBlocksCommand";
 import {
   DescribeApplicationFleetAssociationsCommandInput,
@@ -119,6 +143,10 @@ import {
 } from "../commands/DescribeUserStackAssociationsCommand";
 import { DisableUserCommandInput, DisableUserCommandOutput } from "../commands/DisableUserCommand";
 import {
+  DisassociateAppBlockBuilderAppBlockCommandInput,
+  DisassociateAppBlockBuilderAppBlockCommandOutput,
+} from "../commands/DisassociateAppBlockBuilderAppBlockCommand";
+import {
   DisassociateApplicationFleetCommandInput,
   DisassociateApplicationFleetCommandOutput,
 } from "../commands/DisassociateApplicationFleetCommand";
@@ -145,12 +173,24 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  StartAppBlockBuilderCommandInput,
+  StartAppBlockBuilderCommandOutput,
+} from "../commands/StartAppBlockBuilderCommand";
 import { StartFleetCommandInput, StartFleetCommandOutput } from "../commands/StartFleetCommand";
 import { StartImageBuilderCommandInput, StartImageBuilderCommandOutput } from "../commands/StartImageBuilderCommand";
+import {
+  StopAppBlockBuilderCommandInput,
+  StopAppBlockBuilderCommandOutput,
+} from "../commands/StopAppBlockBuilderCommand";
 import { StopFleetCommandInput, StopFleetCommandOutput } from "../commands/StopFleetCommand";
 import { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "../commands/StopImageBuilderCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAppBlockBuilderCommandInput,
+  UpdateAppBlockBuilderCommandOutput,
+} from "../commands/UpdateAppBlockBuilderCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
   UpdateDirectoryConfigCommandInput,
@@ -167,9 +207,12 @@ import { AppStreamServiceException as __BaseException } from "../models/AppStrea
 import {
   AccessEndpoint,
   AppBlock,
+  AppBlockBuilder,
+  AppBlockBuilderAttribute,
   Application,
   ApplicationAttribute,
   ApplicationSettings,
+  AssociateAppBlockBuilderAppBlockRequest,
   AssociateApplicationFleetRequest,
   AssociateApplicationToEntitlementRequest,
   AssociateFleetRequest,
@@ -179,6 +222,10 @@ import {
   ComputeCapacity,
   ConcurrentModificationException,
   CopyImageRequest,
+  CreateAppBlockBuilderRequest,
+  CreateAppBlockBuilderResult,
+  CreateAppBlockBuilderStreamingURLRequest,
+  CreateAppBlockBuilderStreamingURLResult,
   CreateAppBlockRequest,
   CreateAppBlockResult,
   CreateApplicationRequest,
@@ -201,6 +248,7 @@ import {
   CreateUpdatedImageResult,
   CreateUsageReportSubscriptionRequest,
   CreateUserRequest,
+  DeleteAppBlockBuilderRequest,
   DeleteAppBlockRequest,
   DeleteApplicationRequest,
   DeleteDirectoryConfigRequest,
@@ -214,6 +262,9 @@ import {
   DeleteStackRequest,
   DeleteUsageReportSubscriptionRequest,
   DeleteUserRequest,
+  DescribeAppBlockBuilderAppBlockAssociationsRequest,
+  DescribeAppBlockBuildersRequest,
+  DescribeAppBlockBuildersResult,
   DescribeAppBlocksRequest,
   DescribeAppBlocksResult,
   DescribeApplicationFleetAssociationsRequest,
@@ -241,6 +292,7 @@ import {
   DescribeUserStackAssociationsRequest,
   DirectoryConfig,
   DisableUserRequest,
+  DisassociateAppBlockBuilderAppBlockRequest,
   DisassociateApplicationFleetRequest,
   DisassociateApplicationFromEntitlementRequest,
   DisassociateFleetRequest,
@@ -279,9 +331,13 @@ import {
   Session,
   Stack,
   StackAttribute,
+  StartAppBlockBuilderRequest,
+  StartAppBlockBuilderResult,
   StartFleetRequest,
   StartImageBuilderRequest,
   StartImageBuilderResult,
+  StopAppBlockBuilderRequest,
+  StopAppBlockBuilderResult,
   StopFleetRequest,
   StopImageBuilderRequest,
   StopImageBuilderResult,
@@ -289,6 +345,8 @@ import {
   StreamingExperienceSettings,
   TagResourceRequest,
   UntagResourceRequest,
+  UpdateAppBlockBuilderRequest,
+  UpdateAppBlockBuilderResult,
   UpdateApplicationRequest,
   UpdateApplicationResult,
   UpdateDirectoryConfigRequest,
@@ -306,6 +364,19 @@ import {
   UserStackAssociation,
   VpcConfig,
 } from "../models/models_0";
+
+/**
+ * serializeAws_json1_1AssociateAppBlockBuilderAppBlockCommand
+ */
+export const se_AssociateAppBlockBuilderAppBlockCommand = async (
+  input: AssociateAppBlockBuilderAppBlockCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateAppBlockBuilderAppBlock");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_1AssociateApplicationFleetCommand
@@ -393,6 +464,32 @@ export const se_CreateAppBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAppBlock");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateAppBlockBuilderCommand
+ */
+export const se_CreateAppBlockBuilderCommand = async (
+  input: CreateAppBlockBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAppBlockBuilder");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateAppBlockBuilderStreamingURLCommand
+ */
+export const se_CreateAppBlockBuilderStreamingURLCommand = async (
+  input: CreateAppBlockBuilderStreamingURLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAppBlockBuilderStreamingURL");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -555,6 +652,19 @@ export const se_DeleteAppBlockCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteAppBlockBuilderCommand
+ */
+export const se_DeleteAppBlockBuilderCommand = async (
+  input: DeleteAppBlockBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteAppBlockBuilder");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteApplicationCommand
  */
 export const se_DeleteApplicationCommand = async (
@@ -679,6 +789,32 @@ export const se_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteUser");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeAppBlockBuilderAppBlockAssociationsCommand
+ */
+export const se_DescribeAppBlockBuilderAppBlockAssociationsCommand = async (
+  input: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeAppBlockBuilderAppBlockAssociations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeAppBlockBuildersCommand
+ */
+export const se_DescribeAppBlockBuildersCommand = async (
+  input: DescribeAppBlockBuildersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeAppBlockBuilders");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -880,6 +1016,19 @@ export const se_DisableUserCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DisassociateAppBlockBuilderAppBlockCommand
+ */
+export const se_DisassociateAppBlockBuilderAppBlockCommand = async (
+  input: DisassociateAppBlockBuilderAppBlockCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateAppBlockBuilderAppBlock");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DisassociateApplicationFleetCommand
  */
 export const se_DisassociateApplicationFleetCommand = async (
@@ -997,6 +1146,19 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartAppBlockBuilderCommand
+ */
+export const se_StartAppBlockBuilderCommand = async (
+  input: StartAppBlockBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartAppBlockBuilder");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartFleetCommand
  */
 export const se_StartFleetCommand = async (
@@ -1017,6 +1179,19 @@ export const se_StartImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartImageBuilder");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopAppBlockBuilderCommand
+ */
+export const se_StopAppBlockBuilderCommand = async (
+  input: StopAppBlockBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopAppBlockBuilder");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1069,6 +1244,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateAppBlockBuilderCommand
+ */
+export const se_UpdateAppBlockBuilderCommand = async (
+  input: UpdateAppBlockBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateAppBlockBuilder");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1150,6 +1338,64 @@ export const se_UpdateStackCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1AssociateAppBlockBuilderAppBlockCommand
+ */
+export const de_AssociateAppBlockBuilderAppBlockCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAppBlockBuilderAppBlockCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_AssociateAppBlockBuilderAppBlockCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateAppBlockBuilderAppBlockCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AssociateAppBlockBuilderAppBlockCommandError
+ */
+const de_AssociateAppBlockBuilderAppBlockCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAppBlockBuilderAppBlockCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1530,6 +1776,128 @@ const de_CreateAppBlockCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateAppBlockBuilderCommand
+ */
+export const de_CreateAppBlockBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppBlockBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateAppBlockBuilderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateAppBlockBuilderResult(data, context);
+  const response: CreateAppBlockBuilderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAppBlockBuilderCommandError
+ */
+const de_CreateAppBlockBuilderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppBlockBuilderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateAppBlockBuilderStreamingURLCommand
+ */
+export const de_CreateAppBlockBuilderStreamingURLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppBlockBuilderStreamingURLCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateAppBlockBuilderStreamingURLCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateAppBlockBuilderStreamingURLResult(data, context);
+  const response: CreateAppBlockBuilderStreamingURLCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAppBlockBuilderStreamingURLCommandError
+ */
+const de_CreateAppBlockBuilderStreamingURLCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppBlockBuilderStreamingURLCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2261,6 +2629,61 @@ const de_DeleteAppBlockCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteAppBlockBuilderCommand
+ */
+export const de_DeleteAppBlockBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppBlockBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteAppBlockBuilderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAppBlockBuilderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAppBlockBuilderCommandError
+ */
+const de_DeleteAppBlockBuilderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppBlockBuilderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -2764,6 +3187,104 @@ const de_DeleteUserCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeAppBlockBuilderAppBlockAssociationsCommand
+ */
+export const de_DescribeAppBlockBuilderAppBlockAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeAppBlockBuilderAppBlockAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeAppBlockBuilderAppBlockAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAppBlockBuilderAppBlockAssociationsCommandError
+ */
+const de_DescribeAppBlockBuilderAppBlockAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeAppBlockBuildersCommand
+ */
+export const de_DescribeAppBlockBuildersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppBlockBuildersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeAppBlockBuildersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAppBlockBuildersResult(data, context);
+  const response: DescribeAppBlockBuildersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAppBlockBuildersCommandError
+ */
+const de_DescribeAppBlockBuildersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppBlockBuildersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -3498,6 +4019,61 @@ const de_DisableUserCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DisassociateAppBlockBuilderAppBlockCommand
+ */
+export const de_DisassociateAppBlockBuilderAppBlockCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAppBlockBuilderAppBlockCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisassociateAppBlockBuilderAppBlockCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateAppBlockBuilderAppBlockCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateAppBlockBuilderAppBlockCommandError
+ */
+const de_DisassociateAppBlockBuilderAppBlockCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAppBlockBuilderAppBlockCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DisassociateApplicationFleetCommand
  */
 export const de_DisassociateApplicationFleetCommand = async (
@@ -3924,6 +4500,70 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1StartAppBlockBuilderCommand
+ */
+export const de_StartAppBlockBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAppBlockBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartAppBlockBuilderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartAppBlockBuilderResult(data, context);
+  const response: StartAppBlockBuilderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartAppBlockBuilderCommandError
+ */
+const de_StartAppBlockBuilderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAppBlockBuilderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartFleetCommand
  */
 export const de_StartFleetCommand = async (
@@ -4035,6 +4675,58 @@ const de_StartImageBuilderCommandError = async (
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StopAppBlockBuilderCommand
+ */
+export const de_StopAppBlockBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopAppBlockBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StopAppBlockBuilderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopAppBlockBuilderResult(data, context);
+  const response: StopAppBlockBuilderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopAppBlockBuilderCommandError
+ */
+const de_StopAppBlockBuilderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopAppBlockBuilderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -4234,6 +4926,79 @@ const de_UntagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateAppBlockBuilderCommand
+ */
+export const de_UpdateAppBlockBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppBlockBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateAppBlockBuilderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateAppBlockBuilderResult(data, context);
+  const response: UpdateAppBlockBuilderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAppBlockBuilderCommandError
+ */
+const de_UpdateAppBlockBuilderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppBlockBuilderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -4838,11 +5603,15 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_AccessEndpointList omitted.
 
+// se_AppBlockBuilderAttributes omitted.
+
 // se_ApplicationAttributes omitted.
 
 // se_ApplicationSettings omitted.
 
 // se_ArnList omitted.
+
+// se_AssociateAppBlockBuilderAppBlockRequest omitted.
 
 // se_AssociateApplicationFleetRequest omitted.
 
@@ -4861,6 +5630,10 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_ComputeCapacity omitted.
 
 // se_CopyImageRequest omitted.
+
+// se_CreateAppBlockBuilderRequest omitted.
+
+// se_CreateAppBlockBuilderStreamingURLRequest omitted.
 
 // se_CreateAppBlockRequest omitted.
 
@@ -4886,6 +5659,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_CreateUserRequest omitted.
 
+// se_DeleteAppBlockBuilderRequest omitted.
+
 // se_DeleteAppBlockRequest omitted.
 
 // se_DeleteApplicationRequest omitted.
@@ -4907,6 +5682,10 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_DeleteUsageReportSubscriptionRequest omitted.
 
 // se_DeleteUserRequest omitted.
+
+// se_DescribeAppBlockBuilderAppBlockAssociationsRequest omitted.
+
+// se_DescribeAppBlockBuildersRequest omitted.
 
 // se_DescribeAppBlocksRequest omitted.
 
@@ -4939,6 +5718,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_DirectoryNameList omitted.
 
 // se_DisableUserRequest omitted.
+
+// se_DisassociateAppBlockBuilderAppBlockRequest omitted.
 
 // se_DisassociateApplicationFleetRequest omitted.
 
@@ -4986,9 +5767,13 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_StackAttributes omitted.
 
+// se_StartAppBlockBuilderRequest omitted.
+
 // se_StartFleetRequest omitted.
 
 // se_StartImageBuilderRequest omitted.
+
+// se_StopAppBlockBuilderRequest omitted.
 
 // se_StopFleetRequest omitted.
 
@@ -5011,6 +5796,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_Tags omitted.
 
 // se_UntagResourceRequest omitted.
+
+// se_UpdateAppBlockBuilderRequest omitted.
 
 // se_UpdateApplicationRequest omitted.
 
@@ -5045,15 +5832,59 @@ const de_ResourceNotFoundExceptionRes = async (
  */
 const de_AppBlock = (output: any, context: __SerdeContext): AppBlock => {
   return take(output, {
+    AppBlockErrors: _json,
     Arn: __expectString,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     DisplayName: __expectString,
     Name: __expectString,
+    PackagingType: __expectString,
+    PostSetupScriptDetails: _json,
     SetupScriptDetails: _json,
     SourceS3Location: _json,
+    State: __expectString,
   }) as any;
 };
+
+/**
+ * deserializeAws_json1_1AppBlockBuilder
+ */
+const de_AppBlockBuilder = (output: any, context: __SerdeContext): AppBlockBuilder => {
+  return take(output, {
+    AccessEndpoints: _json,
+    AppBlockBuilderErrors: (_: any) => de_ResourceErrors(_, context),
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DisplayName: __expectString,
+    EnableDefaultInternetAccess: __expectBoolean,
+    IamRoleArn: __expectString,
+    InstanceType: __expectString,
+    Name: __expectString,
+    Platform: __expectString,
+    State: __expectString,
+    StateChangeReason: _json,
+    VpcConfig: _json,
+  }) as any;
+};
+
+// de_AppBlockBuilderAppBlockAssociation omitted.
+
+// de_AppBlockBuilderAppBlockAssociationsList omitted.
+
+/**
+ * deserializeAws_json1_1AppBlockBuilderList
+ */
+const de_AppBlockBuilderList = (output: any, context: __SerdeContext): AppBlockBuilder[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AppBlockBuilder(entry, context);
+    });
+  return retVal;
+};
+
+// de_AppBlockBuilderStateChangeReason omitted.
 
 /**
  * deserializeAws_json1_1AppBlocks
@@ -5108,6 +5939,8 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 
 // de_ApplicationSettingsResponse omitted.
 
+// de_AssociateAppBlockBuilderAppBlockResult omitted.
+
 // de_AssociateApplicationFleetResult omitted.
 
 // de_AssociateApplicationToEntitlementResult omitted.
@@ -5125,6 +5958,28 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 // de_ConcurrentModificationException omitted.
 
 // de_CopyImageResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateAppBlockBuilderResult
+ */
+const de_CreateAppBlockBuilderResult = (output: any, context: __SerdeContext): CreateAppBlockBuilderResult => {
+  return take(output, {
+    AppBlockBuilder: (_: any) => de_AppBlockBuilder(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateAppBlockBuilderStreamingURLResult
+ */
+const de_CreateAppBlockBuilderStreamingURLResult = (
+  output: any,
+  context: __SerdeContext
+): CreateAppBlockBuilderStreamingURLResult => {
+  return take(output, {
+    Expires: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamingURL: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1CreateAppBlockResult
@@ -5226,6 +6081,8 @@ const de_CreateUpdatedImageResult = (output: any, context: __SerdeContext): Crea
 
 // de_CreateUserResult omitted.
 
+// de_DeleteAppBlockBuilderResult omitted.
+
 // de_DeleteAppBlockResult omitted.
 
 // de_DeleteApplicationResult omitted.
@@ -5261,6 +6118,18 @@ const de_DeleteImageResult = (output: any, context: __SerdeContext): DeleteImage
 // de_DeleteUsageReportSubscriptionResult omitted.
 
 // de_DeleteUserResult omitted.
+
+// de_DescribeAppBlockBuilderAppBlockAssociationsResult omitted.
+
+/**
+ * deserializeAws_json1_1DescribeAppBlockBuildersResult
+ */
+const de_DescribeAppBlockBuildersResult = (output: any, context: __SerdeContext): DescribeAppBlockBuildersResult => {
+  return take(output, {
+    AppBlockBuilders: (_: any) => de_AppBlockBuilderList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeAppBlocksResult
@@ -5408,6 +6277,8 @@ const de_DirectoryConfigList = (output: any, context: __SerdeContext): Directory
 
 // de_DisableUserResult omitted.
 
+// de_DisassociateAppBlockBuilderAppBlockResult omitted.
+
 // de_DisassociateApplicationFleetResult omitted.
 
 // de_DisassociateApplicationFromEntitlementResult omitted.
@@ -5460,6 +6331,10 @@ const de_EntitlementList = (output: any, context: __SerdeContext): Entitlement[]
 };
 
 // de_EntitlementNotFoundException omitted.
+
+// de_ErrorDetails omitted.
+
+// de_ErrorDetailsList omitted.
 
 // de_ExpireSessionResult omitted.
 
@@ -5737,6 +6612,15 @@ const de_StackList = (output: any, context: __SerdeContext): Stack[] => {
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1StartAppBlockBuilderResult
+ */
+const de_StartAppBlockBuilderResult = (output: any, context: __SerdeContext): StartAppBlockBuilderResult => {
+  return take(output, {
+    AppBlockBuilder: (_: any) => de_AppBlockBuilder(_, context),
+  }) as any;
+};
+
 // de_StartFleetResult omitted.
 
 /**
@@ -5745,6 +6629,15 @@ const de_StackList = (output: any, context: __SerdeContext): Stack[] => {
 const de_StartImageBuilderResult = (output: any, context: __SerdeContext): StartImageBuilderResult => {
   return take(output, {
     ImageBuilder: (_: any) => de_ImageBuilder(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StopAppBlockBuilderResult
+ */
+const de_StopAppBlockBuilderResult = (output: any, context: __SerdeContext): StopAppBlockBuilderResult => {
+  return take(output, {
+    AppBlockBuilder: (_: any) => de_AppBlockBuilder(_, context),
   }) as any;
 };
 
@@ -5774,6 +6667,15 @@ const de_StopImageBuilderResult = (output: any, context: __SerdeContext): StopIm
 // de_Tags omitted.
 
 // de_UntagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateAppBlockBuilderResult
+ */
+const de_UpdateAppBlockBuilderResult = (output: any, context: __SerdeContext): UpdateAppBlockBuilderResult => {
+  return take(output, {
+    AppBlockBuilder: (_: any) => de_AppBlockBuilder(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1UpdateApplicationResult

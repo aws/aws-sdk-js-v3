@@ -90,7 +90,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * //         AppBlockArn: "STRING_VALUE",
  * //         IconS3Location: { // S3Location
  * //           S3Bucket: "STRING_VALUE", // required
- * //           S3Key: "STRING_VALUE", // required
+ * //           S3Key: "STRING_VALUE",
  * //         },
  * //         Platforms: [ // Platforms
  * //           "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",

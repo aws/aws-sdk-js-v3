@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { UpdateApplicationRequest, UpdateApplicationResult } from "../models/models_0";
-import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_json1_1";
+import { DeleteAppBlockBuilderRequest, DeleteAppBlockBuilderResult } from "../models/models_0";
+import { de_DeleteAppBlockBuilderCommand, se_DeleteAppBlockBuilderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -24,78 +24,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateApplicationCommand}.
+ * The input for {@link DeleteAppBlockBuilderCommand}.
  */
-export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+export interface DeleteAppBlockBuilderCommandInput extends DeleteAppBlockBuilderRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateApplicationCommand}.
+ * The output of {@link DeleteAppBlockBuilderCommand}.
  */
-export interface UpdateApplicationCommandOutput extends UpdateApplicationResult, __MetadataBearer {}
+export interface DeleteAppBlockBuilderCommandOutput extends DeleteAppBlockBuilderResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the specified application.</p>
+ * <p>Deletes an app block builder.</p>
+ *          <p>An app block builder can only be deleted when it has no association with an app
+ *             block.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, UpdateApplicationCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, UpdateApplicationCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, DeleteAppBlockBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, DeleteAppBlockBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = { // UpdateApplicationRequest
+ * const input = { // DeleteAppBlockBuilderRequest
  *   Name: "STRING_VALUE", // required
- *   DisplayName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   IconS3Location: { // S3Location
- *     S3Bucket: "STRING_VALUE", // required
- *     S3Key: "STRING_VALUE",
- *   },
- *   LaunchPath: "STRING_VALUE",
- *   WorkingDirectory: "STRING_VALUE",
- *   LaunchParameters: "STRING_VALUE",
- *   AppBlockArn: "STRING_VALUE",
- *   AttributesToDelete: [ // ApplicationAttributes
- *     "LAUNCH_PARAMETERS" || "WORKING_DIRECTORY",
- *   ],
  * };
- * const command = new UpdateApplicationCommand(input);
+ * const command = new DeleteAppBlockBuilderCommand(input);
  * const response = await client.send(command);
- * // { // UpdateApplicationResult
- * //   Application: { // Application
- * //     Name: "STRING_VALUE",
- * //     DisplayName: "STRING_VALUE",
- * //     IconURL: "STRING_VALUE",
- * //     LaunchPath: "STRING_VALUE",
- * //     LaunchParameters: "STRING_VALUE",
- * //     Enabled: true || false,
- * //     Metadata: { // Metadata
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     WorkingDirectory: "STRING_VALUE",
- * //     Description: "STRING_VALUE",
- * //     Arn: "STRING_VALUE",
- * //     AppBlockArn: "STRING_VALUE",
- * //     IconS3Location: { // S3Location
- * //       S3Bucket: "STRING_VALUE", // required
- * //       S3Key: "STRING_VALUE",
- * //     },
- * //     Platforms: [ // Platforms
- * //       "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
- * //     ],
- * //     InstanceFamilies: [ // StringList
- * //       "STRING_VALUE",
- * //     ],
- * //     CreatedTime: new Date("TIMESTAMP"),
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
- * @returns {@link UpdateApplicationCommandOutput}
- * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
- * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
+ * @param DeleteAppBlockBuilderCommandInput - {@link DeleteAppBlockBuilderCommandInput}
+ * @returns {@link DeleteAppBlockBuilderCommandOutput}
+ * @see {@link DeleteAppBlockBuilderCommandInput} for command's `input` shape.
+ * @see {@link DeleteAppBlockBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
@@ -104,6 +66,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
@@ -111,9 +76,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
-export class UpdateApplicationCommand extends $Command<
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
+export class DeleteAppBlockBuilderCommand extends $Command<
+  DeleteAppBlockBuilderCommandInput,
+  DeleteAppBlockBuilderCommandOutput,
   AppStreamClientResolvedConfig
 > {
   // Start section: command_properties
@@ -131,7 +96,7 @@ export class UpdateApplicationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateApplicationCommandInput) {
+  constructor(readonly input: DeleteAppBlockBuilderCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -144,17 +109,17 @@ export class UpdateApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateApplicationCommandInput, UpdateApplicationCommandOutput> {
+  ): Handler<DeleteAppBlockBuilderCommandInput, DeleteAppBlockBuilderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateApplicationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteAppBlockBuilderCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppStreamClient";
-    const commandName = "UpdateApplicationCommand";
+    const commandName = "DeleteAppBlockBuilderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -173,15 +138,15 @@ export class UpdateApplicationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateApplicationCommand(input, context);
+  private serialize(input: DeleteAppBlockBuilderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteAppBlockBuilderCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
-    return de_UpdateApplicationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppBlockBuilderCommandOutput> {
+    return de_DeleteAppBlockBuilderCommand(output, context);
   }
 
   // Start section: command_body_extra
