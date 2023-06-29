@@ -1,12 +1,21 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>The Amazon Chime application programming interface (API) is designed so administrators can
+ * <important>
+ *             <p>
+ *                <b>Most of these APIs are no longer supported and will not be updated.</b> We recommend using the latest versions in the
+ *                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/welcome.html">Amazon Chime SDK API reference</a>, in the Amazon Chime SDK.</p>
+ *             <p>Using the latest versions requires migrating to dedicated namespaces. For more information, refer to
+ *                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *                 <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          </important>
+ *          <p>The Amazon Chime application programming interface (API) is designed so administrators can
  *             perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice
  *             Connectors. This guide provides detailed information about the Amazon Chime API,
  *             including operations, types, inputs and outputs, and error codes.</p>
  *          <p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to make API calls for Amazon Chime. We recommend using an AWS SDK or the
- *             AWS CLI. The page for each API action contains a <i>See Also</i> section that includes links to information about using the action with a language-specific AWS SDK or the AWS CLI.</p>
+ *             AWS CLI. The page for each API action contains a <i>See Also</i> section that includes links to information about using the action with a language-specific
+ *             AWS SDK or the AWS CLI.</p>
  *          <dl>
  *             <dt>Using an AWS SDK</dt>
  *             <dd>

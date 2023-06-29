@@ -43,11 +43,9 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  *         Managing Your Amazon Chime Accounts
  *     </a> in the account types, in the <i>Amazon Chime Administration Guide</i>.
  * </p>
- *          <p>
- * Previously suspended users who are unsuspended using this action are returned to
+ *          <p>Previously suspended users who are unsuspended using this action are returned to
  * <code>Registered</code>
- * status. Users who are not previously suspended are ignored.
- * </p>
+ * status. Users who are not previously suspended are ignored.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

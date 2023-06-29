@@ -40,8 +40,17 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and
  * <code>Name</code> for that user.</p>
+ *          <important>
+ *             <p>
+ *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.html">CreateAppInstanceUser</a>, in the Amazon Chime SDK.</p>
+ *             <p>Using the latest version requires migrating to a dedicated namespace. For more information, refer to
+ *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *             <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

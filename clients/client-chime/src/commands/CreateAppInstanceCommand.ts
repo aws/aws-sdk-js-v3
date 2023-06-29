@@ -40,8 +40,17 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account. Only SDK messaging customers use this API.
  * <code>CreateAppInstance</code> supports idempotency behavior as described in the AWS API Standard.</p>
+ *          <important>
+ *             <p>
+ *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html">CreateAppInstance</a>, in the Amazon Chime SDK.</p>
+ *             <p>Using the latest version requires migrating to a dedicated namespace. For more information, refer to
+ *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *             <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

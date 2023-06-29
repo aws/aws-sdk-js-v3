@@ -41,6 +41,8 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>
  * Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
  * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
@@ -52,6 +54,13 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * <i>Amazon Chime SDK Developer Guide</i>
  * .
  * </p>
+ *          <important>
+ *             <p>
+ *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html">CreateMeetingWithAttendees</a>, in the Amazon Chime SDK.</p>
+ *             <p>Using the latest version requires migrating to a dedicated namespace. For more information, refer to
+ *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *             <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

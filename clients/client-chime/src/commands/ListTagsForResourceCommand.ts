@@ -41,7 +41,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * @public
- * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
+ * @deprecated
+ *
+ * <p>Lists the tags applied to an Amazon Chime SDK meeting and messaging resources.</p>
+ *          <important>
+ *             <p>
+ *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the applicable latest version in the Amazon Chime SDK.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>For meetings: <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html">ListTagsForResource</a>.</p>
+ *                </li>
+ *                <li>
+ *                   <p>For messaging: <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListTagsForResource.html">ListTagsForResource</a>.</p>
+ *                </li>
+ *             </ul>
+ *             <p>Using the latest version requires migrating to a dedicated namespace. For more information, refer to
+ *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *             <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

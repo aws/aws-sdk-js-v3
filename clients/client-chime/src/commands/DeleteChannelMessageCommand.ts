@@ -36,6 +36,8 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
  *          inaccessible immediately. A background process deletes any revisions created by
  *             <code>UpdateChannelMessage</code>.</p>
@@ -44,6 +46,13 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
  *             the header.</p>
  *          </note>
+ *          <important>
+ *             <p>
+ *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.html">DeleteChannelMessage</a>, in the Amazon Chime SDK.</p>
+ *             <p>Using the latest version requires migrating to a dedicated namespace. For more information, refer to
+ *                <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *                <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

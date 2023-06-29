@@ -2683,16 +2683,30 @@ export interface MediaPlacement {
 
   /**
    * <p>The screen data URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is is no longer supported and no longer used by the Amazon Chime SDK.</b>
+   *             </p>
+   *          </important>
    */
   ScreenDataUrl?: string;
 
   /**
    * <p>The screen sharing URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is is no longer supported and no longer used by the Amazon Chime SDK.</b>.</p>
+   *          </important>
    */
   ScreenSharingUrl?: string;
 
   /**
    * <p>The screen viewing URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is is no longer supported and no longer used by the Amazon Chime SDK.</b>
+   *             </p>
+   *          </important>
    */
   ScreenViewingUrl?: string;
 
@@ -2703,6 +2717,11 @@ export interface MediaPlacement {
 
   /**
    * <p>The turn control URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is is no longer supported and no longer used by the Amazon Chime SDK.</b>
+   *             </p>
+   *          </important>
    */
   TurnControlUrl?: string;
 

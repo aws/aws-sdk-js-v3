@@ -44,12 +44,11 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  *                 <code>Team</code> account users, invite them to the <code>Team</code> account again.
  *             You can use the <a>InviteUsers</a> action to do so.</p>
  *          <p>Users suspended from an <code>EnterpriseLWA</code> account are immediately signed out of
- *             Amazon Chime and can no longer sign in. To remove the suspension from suspended <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.</p>
+ *             Amazon Chime and can no longer sign in. To remove the suspension from suspended <code>EnterpriseLWA</code> account users, use the
+ *     <a>BatchUnsuspendUser</a> action.</p>
  *          <p>
  * To sign out users without suspending them, use the
- * <a>LogoutUser</a>
- * action.
- * </p>
+ * <a>LogoutUser</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,6 +36,8 @@ export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTran
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
  *             Using Amazon Chime SDK live transcription
  *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
@@ -43,9 +45,17 @@ export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTran
  *             For more information on each parameter and which combinations are valid, refer to the
  *             <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html">StartStreamTranscription</a> API in the
  *             <i>Amazon Transcribe Developer Guide</i>.</p>
- *          <important>
+ *          <note>
  *             <p>Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon Transcribe is subject to the
- *             <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, including the terms specific to the AWS Machine Learning and Artificial Intelligence Services.</p>
+ *             <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, including the terms specific to the AWS Machine Learning and Artificial
+ *             Intelligence Services.</p>
+ *          </note>
+ *          <important>
+ *             <p>
+ *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html">StartMeetingTranscription</a>, in the Amazon Chime SDK.</p>
+ *             <p>Using the latest version requires migrating to a dedicated namespace. For more information, refer to
+ *                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
+ *                 <i>Amazon Chime SDK Developer Guide</i>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

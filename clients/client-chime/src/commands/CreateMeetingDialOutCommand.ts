@@ -44,6 +44,11 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  *     switched telephone network (PSTN) and join them into a Chime meeting. Also ensures that the From number belongs to the customer.</p>
  *          <p>To play welcome audio or implement an interactive voice response (IVR), use the
  * <code>CreateSipMediaApplicationCall</code> action with the corresponding SIP media application ID.</p>
+ *          <important>
+ *             <p>
+ *                <b>This API is is not available in a dedicated namespace.</b>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

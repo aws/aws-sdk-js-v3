@@ -36,7 +36,12 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Untags the specified tags from the specified Amazon Chime SDK attendee.</p>
+ *          <important>
+ *             <p>UntagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

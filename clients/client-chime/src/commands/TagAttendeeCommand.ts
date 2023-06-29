@@ -36,7 +36,12 @@ export interface TagAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Applies the specified tags to the specified Amazon Chime SDK attendee.</p>
+ * @deprecated
+ *
+ * <p>Applies the specified tags to the specified Amazon Chime attendee.</p>
+ *          <important>
+ *             <p>TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
