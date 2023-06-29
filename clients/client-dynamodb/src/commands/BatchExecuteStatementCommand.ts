@@ -105,6 +105,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *         },
  *       ],
  *       ConsistentRead: true || false,
+ *       ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  *     },
  *   ],
  *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
@@ -117,52 +118,55 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * //       Error: { // BatchStatementError
  * //         Code: "ConditionalCheckFailed" || "ItemCollectionSizeLimitExceeded" || "RequestLimitExceeded" || "ValidationError" || "ProvisionedThroughputExceeded" || "TransactionConflict" || "ThrottlingError" || "InternalServerError" || "ResourceNotFound" || "AccessDenied" || "DuplicateItem",
  * //         Message: "STRING_VALUE",
+ * //         Item: { // AttributeMap
+ * //           "<keys>": { // AttributeValue Union: only one key present
+ * //             S: "STRING_VALUE",
+ * //             N: "STRING_VALUE",
+ * //             B: "BLOB_VALUE",
+ * //             SS: [ // StringSetAttributeValue
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             NS: [ // NumberSetAttributeValue
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             BS: [ // BinarySetAttributeValue
+ * //               "BLOB_VALUE",
+ * //             ],
+ * //             M: { // MapAttributeValue
+ * //               "<keys>": {//  Union: only one key present
+ * //                 S: "STRING_VALUE",
+ * //                 N: "STRING_VALUE",
+ * //                 B: "BLOB_VALUE",
+ * //                 SS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 NS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 BS: [
+ * //                   "BLOB_VALUE",
+ * //                 ],
+ * //                 M: {
+ * //                   "<keys>": "<AttributeValue>",
+ * //                 },
+ * //                 L: [ // ListAttributeValue
+ * //                   "<AttributeValue>",
+ * //                 ],
+ * //                 NULL: true || false,
+ * //                 BOOL: true || false,
+ * //               },
+ * //             },
+ * //             L: [
+ * //               "<AttributeValue>",
+ * //             ],
+ * //             NULL: true || false,
+ * //             BOOL: true || false,
+ * //           },
+ * //         },
  * //       },
  * //       TableName: "STRING_VALUE",
- * //       Item: { // AttributeMap
- * //         "<keys>": { // AttributeValue Union: only one key present
- * //           S: "STRING_VALUE",
- * //           N: "STRING_VALUE",
- * //           B: "BLOB_VALUE",
- * //           SS: [ // StringSetAttributeValue
- * //             "STRING_VALUE",
- * //           ],
- * //           NS: [ // NumberSetAttributeValue
- * //             "STRING_VALUE",
- * //           ],
- * //           BS: [ // BinarySetAttributeValue
- * //             "BLOB_VALUE",
- * //           ],
- * //           M: { // MapAttributeValue
- * //             "<keys>": {//  Union: only one key present
- * //               S: "STRING_VALUE",
- * //               N: "STRING_VALUE",
- * //               B: "BLOB_VALUE",
- * //               SS: [
- * //                 "STRING_VALUE",
- * //               ],
- * //               NS: [
- * //                 "STRING_VALUE",
- * //               ],
- * //               BS: [
- * //                 "BLOB_VALUE",
- * //               ],
- * //               M: {
- * //                 "<keys>": "<AttributeValue>",
- * //               },
- * //               L: [ // ListAttributeValue
- * //                 "<AttributeValue>",
- * //               ],
- * //               NULL: true || false,
- * //               BOOL: true || false,
- * //             },
- * //           },
- * //           L: [
- * //             "<AttributeValue>",
- * //           ],
- * //           NULL: true || false,
- * //           BOOL: true || false,
- * //         },
+ * //       Item: {
+ * //         "<keys>": "<AttributeValue>",
  * //       },
  * //     },
  * //   ],

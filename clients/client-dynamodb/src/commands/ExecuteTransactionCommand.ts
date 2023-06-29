@@ -99,6 +99,7 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *           BOOL: true || false,
  *         },
  *       ],
+ *       ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  *     },
  *   ],
  *   ClientRequestToken: "STRING_VALUE",

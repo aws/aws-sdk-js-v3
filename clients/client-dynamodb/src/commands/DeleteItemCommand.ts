@@ -121,6 +121,7 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
  *     "<keys>": "<AttributeValue>",
  *   },
+ *   ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  * };
  * const command = new DeleteItemCommand(input);
  * const response = await client.send(command);

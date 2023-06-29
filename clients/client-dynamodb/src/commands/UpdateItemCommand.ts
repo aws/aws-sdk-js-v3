@@ -124,6 +124,7 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
  *     "<keys>": "<AttributeValue>",
  *   },
+ *   ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  * };
  * const command = new UpdateItemCommand(input);
  * const response = await client.send(command);

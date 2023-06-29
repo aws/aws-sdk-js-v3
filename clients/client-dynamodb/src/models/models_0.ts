@@ -1061,6 +1061,21 @@ export type ReturnConsumedCapacity = (typeof ReturnConsumedCapacity)[keyof typeo
 
 /**
  * @public
+ * @enum
+ */
+export const ReturnValuesOnConditionCheckFailure = {
+  ALL_OLD: "ALL_OLD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReturnValuesOnConditionCheckFailure =
+  (typeof ReturnValuesOnConditionCheckFailure)[keyof typeof ReturnValuesOnConditionCheckFailure];
+
+/**
+ * @public
  * <p>Represents the amount of provisioned throughput capacity consumed on a table or an
  *             index.</p>
  */
@@ -1151,22 +1166,6 @@ export const BatchStatementErrorCodeEnum = {
  */
 export type BatchStatementErrorCodeEnum =
   (typeof BatchStatementErrorCodeEnum)[keyof typeof BatchStatementErrorCodeEnum];
-
-/**
- * @public
- * <p> An error associated with a statement in a PartiQL batch that was run. </p>
- */
-export interface BatchStatementError {
-  /**
-   * <p> The error code associated with the failed PartiQL batch statement. </p>
-   */
-  Code?: BatchStatementErrorCodeEnum | string;
-
-  /**
-   * <p> The error message associated with the PartiQL batch response. </p>
-   */
-  Message?: string;
-}
 
 /**
  * @public
@@ -1376,26 +1375,6 @@ export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof Compar
 
 /**
  * @public
- * <p>A condition specified in the operation could not be evaluated.</p>
- */
-export class ConditionalCheckFailedException extends __BaseException {
-  readonly name: "ConditionalCheckFailedException" = "ConditionalCheckFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConditionalCheckFailedException, __BaseException>) {
-    super({
-      name: "ConditionalCheckFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConditionalCheckFailedException.prototype);
-  }
-}
-
-/**
- * @public
  * @enum
  */
 export const ConditionalOperator = {
@@ -1407,21 +1386,6 @@ export const ConditionalOperator = {
  * @public
  */
 export type ConditionalOperator = (typeof ConditionalOperator)[keyof typeof ConditionalOperator];
-
-/**
- * @public
- * @enum
- */
-export const ReturnValuesOnConditionCheckFailure = {
-  ALL_OLD: "ALL_OLD",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ReturnValuesOnConditionCheckFailure =
-  (typeof ReturnValuesOnConditionCheckFailure)[keyof typeof ReturnValuesOnConditionCheckFailure];
 
 /**
  * @public
@@ -6679,6 +6643,27 @@ export interface AttributeValueUpdate {
 
 /**
  * @public
+ * <p> An error associated with a statement in a PartiQL batch that was run. </p>
+ */
+export interface BatchStatementError {
+  /**
+   * <p> The error code associated with the failed PartiQL batch statement. </p>
+   */
+  Code?: BatchStatementErrorCodeEnum | string;
+
+  /**
+   * <p> The error message associated with the PartiQL batch response. </p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
+   */
+  Item?: Record<string, AttributeValue>;
+}
+
+/**
+ * @public
  * <p> A PartiQL batch statement request. </p>
  */
 export interface BatchStatementRequest {
@@ -6696,27 +6681,15 @@ export interface BatchStatementRequest {
    * <p> The read consistency of the PartiQL batch request. </p>
    */
   ConsistentRead?: boolean;
-}
-
-/**
- * @public
- * <p> A PartiQL batch statement response.. </p>
- */
-export interface BatchStatementResponse {
-  /**
-   * <p> The error associated with a failed PartiQL batch statement. </p>
-   */
-  Error?: BatchStatementError;
 
   /**
-   * <p> The table name associated with a failed PartiQL batch statement. </p>
+   * <p>An optional parameter that returns the item attributes for a PartiQL batch request
+   *             operation that failed a condition check.</p>
+   *          <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
    */
-  TableName?: string;
-
-  /**
-   * <p> A DynamoDB item associated with a BatchStatementResponse </p>
-   */
-  Item?: Record<string, AttributeValue>;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -6973,6 +6946,32 @@ export interface Condition {
 
 /**
  * @public
+ * <p>A condition specified in the operation could not be evaluated.</p>
+ */
+export class ConditionalCheckFailedException extends __BaseException {
+  readonly name: "ConditionalCheckFailedException" = "ConditionalCheckFailedException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
+   */
+  Item?: Record<string, AttributeValue>;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConditionalCheckFailedException, __BaseException>) {
+    super({
+      name: "ConditionalCheckFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConditionalCheckFailedException.prototype);
+    this.Item = opts.Item;
+  }
+}
+
+/**
+ * @public
  * <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
  */
 export interface DeleteRequest {
@@ -7050,6 +7049,15 @@ export interface ExecuteStatementInput {
    *             operation to continue the operation. </p>
    */
   Limit?: number;
+
+  /**
+   * <p>An optional parameter that returns the item attributes for an
+   *                 <code>ExecuteStatement</code> operation that failed a condition check.</p>
+   *          <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
+   */
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -7287,6 +7295,15 @@ export interface ParameterizedStatement {
    * <p> The parameter values. </p>
    */
   Parameters?: AttributeValue[];
+
+  /**
+   * <p>An optional parameter that returns the item attributes for a PartiQL
+   *             <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+   *          <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
+   */
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -7451,22 +7468,6 @@ export interface BatchExecuteStatementInput {
    *          </ul>
    */
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
-}
-
-/**
- * @public
- */
-export interface BatchExecuteStatementOutput {
-  /**
-   * <p>The response to each PartiQL statement in the batch.</p>
-   */
-  Responses?: BatchStatementResponse[];
-
-  /**
-   * <p>The capacity units consumed by the entire operation. The values of the list are
-   *             ordered according to the ordering of the statements.</p>
-   */
-  ConsumedCapacity?: ConsumedCapacity[];
 }
 
 /**
@@ -8426,6 +8427,27 @@ export interface Update {
 
 /**
  * @public
+ * <p> A PartiQL batch statement response.. </p>
+ */
+export interface BatchStatementResponse {
+  /**
+   * <p> The error associated with a failed PartiQL batch statement. </p>
+   */
+  Error?: BatchStatementError;
+
+  /**
+   * <p> The table name associated with a failed PartiQL batch statement. </p>
+   */
+  TableName?: string;
+
+  /**
+   * <p> A DynamoDB item associated with a BatchStatementResponse </p>
+   */
+  Item?: Record<string, AttributeValue>;
+}
+
+/**
+ * @public
  * <p>Represents the output of a <code>DeleteItem</code> operation.</p>
  */
 export interface DeleteItemOutput {
@@ -8747,6 +8769,22 @@ export interface WriteRequest {
    * <p>A request to perform a <code>DeleteItem</code> operation.</p>
    */
   DeleteRequest?: DeleteRequest;
+}
+
+/**
+ * @public
+ */
+export interface BatchExecuteStatementOutput {
+  /**
+   * <p>The response to each PartiQL statement in the batch.</p>
+   */
+  Responses?: BatchStatementResponse[];
+
+  /**
+   * <p>The capacity units consumed by the entire operation. The values of the list are
+   *             ordered according to the ordering of the statements.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity[];
 }
 
 /**
@@ -9410,6 +9448,15 @@ export interface DeleteItemInput {
    *                 Guide</i>.</p>
    */
   ExpressionAttributeValues?: Record<string, AttributeValue>;
+
+  /**
+   * <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code>
+   *             operation that failed a condition check.</p>
+   *          <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
+   */
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -9627,6 +9674,15 @@ export interface PutItemInput {
    *                 Guide</i>.</p>
    */
   ExpressionAttributeValues?: Record<string, AttributeValue>;
+
+  /**
+   * <p>An optional parameter that returns the item attributes for a <code>PutItem</code>
+   *             operation that failed a condition check.</p>
+   *          <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
+   */
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -10457,6 +10513,15 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    */
   ExpressionAttributeValues?: Record<string, AttributeValue>;
+
+  /**
+   * <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a
+   *             condition check.</p>
+   *          <p>There is no additional cost associated with requesting a return value aside from the
+   *             small network and processing overhead of receiving a larger response. No read capacity
+   *             units are consumed.</p>
+   */
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**

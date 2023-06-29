@@ -106,6 +106,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *   NextToken: "STRING_VALUE",
  *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
  *   Limit: Number("int"),
+ *   ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);

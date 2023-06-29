@@ -3,6 +3,7 @@ import {
   BatchExecuteStatementCommand as __BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput as __BatchExecuteStatementCommandInput,
   BatchExecuteStatementCommandOutput as __BatchExecuteStatementCommandOutput,
+  BatchStatementError,
   BatchStatementRequest,
   BatchStatementResponse,
 } from "@aws-sdk/client-dynamodb";
@@ -33,7 +34,10 @@ export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementComm
  * @public
  */
 export type BatchExecuteStatementCommandOutput = Omit<__BatchExecuteStatementCommandOutput, "Responses"> & {
-  Responses?: (Omit<BatchStatementResponse, "Item"> & {
+  Responses?: (Omit<BatchStatementResponse, "Error" | "Item"> & {
+    Error?: Omit<BatchStatementError, "Item"> & {
+      Item?: Record<string, NativeAttributeValue>;
+    };
     Item?: Record<string, NativeAttributeValue>;
   })[];
 };
@@ -55,7 +59,9 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   DynamoDBDocumentClientResolvedConfig
 > {
   protected readonly inputKeyNodes = [{ key: "Statements", children: [{ key: "Parameters" }] }];
-  protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
+  protected readonly outputKeyNodes = [
+    { key: "Responses", children: [{ key: "Error", children: [{ key: "Item" }] }, { key: "Item" }] },
+  ];
 
   protected readonly clientCommand: __BatchExecuteStatementCommand;
   public readonly middlewareStack: MiddlewareStack<
