@@ -127,7 +127,7 @@ import {
   FeatureMetadata,
   Filter,
   FlowDefinitionSummary,
-  HubContentInfo,
+  HubContentStatus,
   HubStatus,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
@@ -157,6 +157,7 @@ import {
   ProjectStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
+  ResourceType,
   ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
@@ -164,6 +165,7 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SpaceStatus,
   SubscribedWorkteam,
+  SuggestionQuery,
   TrainingJobStatus,
   TrainingJobStatusCounters,
   TransformJobStatus,
@@ -176,6 +178,119 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface GetSearchSuggestionsRequest {
+  /**
+   * <p>The name of the SageMaker resource to search for.</p>
+   */
+  Resource: ResourceType | string | undefined;
+
+  /**
+   * <p>Limits the property names that are included in the response.</p>
+   */
+  SuggestionQuery?: SuggestionQuery;
+}
+
+/**
+ * @public
+ * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies
+ *       a value in the <code>PropertyNameQuery</code> field.</p>
+ */
+export interface PropertyNameSuggestion {
+  /**
+   * <p>A suggested property name based on what you entered in the search textbox in the SageMaker
+   *       console.</p>
+   */
+  PropertyName?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSearchSuggestionsResponse {
+  /**
+   * <p>A list of property names for a <code>Resource</code> that match a
+   *       <code>SuggestionQuery</code>.</p>
+   */
+  PropertyNameSuggestions?: PropertyNameSuggestion[];
+}
+
+/**
+ * @public
+ * <p>Specifies configuration details for a Git repository when the repository is
+ *             updated.</p>
+ */
+export interface GitConfigForUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+   *             contains the credentials used to access the git repository. The secret must have a
+   *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
+   *          <p>
+   *             <code>\{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>\}</code>
+   *          </p>
+   */
+  SecretArn?: string;
+}
+
+/**
+ * @public
+ * <p>Information about hub content.</p>
+ */
+export interface HubContentInfo {
+  /**
+   * <p>The name of the hub content.</p>
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
+   */
+  HubContentArn: string | undefined;
+
+  /**
+   * <p>The version of the hub content.</p>
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The type of hub content.</p>
+   */
+  HubContentType: HubContentType | string | undefined;
+
+  /**
+   * <p>The version of the hub content document schema.</p>
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   */
+  HubContentDisplayName?: string;
+
+  /**
+   * <p>A description of the hub content.</p>
+   */
+  HubContentDescription?: string;
+
+  /**
+   * <p>The searchable keywords for the hub content.</p>
+   */
+  HubContentSearchKeywords?: string[];
+
+  /**
+   * <p>The status of the hub content.</p>
+   */
+  HubContentStatus: HubContentStatus | string | undefined;
+
+  /**
+   * <p>The date and time that the hub content was created.</p>
+   */
+  CreationTime: Date | undefined;
+}
 
 /**
  * @public
@@ -10115,85 +10230,6 @@ export interface SearchRecord {
 }
 
 /**
- * @public
- */
-export interface SearchResponse {
-  /**
-   * <p>A list of <code>SearchRecord</code> objects.</p>
-   */
-  Results?: SearchRecord[];
-
-  /**
-   * <p>If the result of the previous <code>Search</code> request was truncated, the response
-   *       includes a NextToken. To retrieve the next set of results, use the token in the next
-   *       request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepFailureRequest {
-  /**
-   * <p>The pipeline generated token from the Amazon SQS queue.</p>
-   */
-  CallbackToken: string | undefined;
-
-  /**
-   * <p>A message describing why the step failed.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
-   */
-  ClientRequestToken?: string;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepFailureResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepSuccessRequest {
-  /**
-   * <p>The pipeline generated token from the Amazon SQS queue.</p>
-   */
-  CallbackToken: string | undefined;
-
-  /**
-   * <p>A list of the output parameters of the callback step.</p>
-   */
-  OutputParameters?: OutputParameter[];
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than one time.</p>
-   */
-  ClientRequestToken?: string;
-}
-
-/**
- * @public
- */
-export interface SendPipelineExecutionStepSuccessResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-}
-
-/**
  * @internal
  */
 export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
@@ -10208,12 +10244,4 @@ export const SearchRecordFilterSensitiveLog = (obj: SearchRecord): any => ({
   ...obj,
   ...(obj.TrialComponent && { TrialComponent: obj.TrialComponent }),
   ...(obj.ModelCard && { ModelCard: ModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const SearchResponseFilterSensitiveLog = (obj: SearchResponse): any => ({
-  ...obj,
-  ...(obj.Results && { Results: obj.Results.map((item) => SearchRecordFilterSensitiveLog(item)) }),
 });

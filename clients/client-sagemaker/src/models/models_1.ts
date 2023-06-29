@@ -23,6 +23,7 @@ import {
   BestObjectiveNotImproving,
   Bias,
   BlueGreenUpdatePolicy,
+  CanvasAppSettings,
   CaptureContentTypeHeader,
   CaptureOption,
   CaptureStatus,
@@ -64,6 +65,9 @@ import {
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
+  RSessionAppSettings,
+  RStudioServerProAccessStatus,
+  RStudioServerProUserGroup,
   StoppingCondition,
   Tag,
   TrainingInputMode,
@@ -72,9 +76,145 @@ import {
   TransformJobDefinition,
   TransformOutput,
   TransformResources,
-  UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A collection of settings that configure user interaction with the
+ *                 <code>RStudioServerPro</code> app.</p>
+ */
+export interface RStudioServerProAppSettings {
+  /**
+   * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code>
+   *             app.</p>
+   */
+  AccessStatus?: RStudioServerProAccessStatus | string;
+
+  /**
+   * <p>The level of permissions that the user has within the <code>RStudioServerPro</code>
+   *             app. This value defaults to `User`. The `Admin` value allows the user access to the
+   *             RStudio Administrative Dashboard.</p>
+   */
+  UserGroup?: RStudioServerProUserGroup | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookOutputOption = {
+  Allowed: "Allowed",
+  Disabled: "Disabled",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookOutputOption = (typeof NotebookOutputOption)[keyof typeof NotebookOutputOption];
+
+/**
+ * @public
+ * <p>Specifies options for sharing SageMaker Studio notebooks. These settings are
+ *     specified as part of <code>DefaultUserSettings</code> when the <code>CreateDomain</code>
+ *     API is called, and as part of <code>UserSettings</code> when the <code>CreateUserProfile</code>
+ *     API is called. When <code>SharingSettings</code> is not specified, notebook sharing
+ *     isn't allowed.</p>
+ */
+export interface SharingSettings {
+  /**
+   * <p>Whether to include the notebook cell output when sharing the notebook. The default
+   *          is <code>Disabled</code>.</p>
+   */
+  NotebookOutputOption?: NotebookOutputOption | string;
+
+  /**
+   * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon S3 bucket used
+   *          to store the shared notebook snapshots.</p>
+   */
+  S3OutputPath?: string;
+
+  /**
+   * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon Web Services Key Management Service (KMS)
+   *          encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.</p>
+   */
+  S3KmsKeyId?: string;
+}
+
+/**
+ * @public
+ * <p>The TensorBoard app settings.</p>
+ */
+export interface TensorBoardAppSettings {
+  /**
+   * <p>The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
+   */
+  DefaultResourceSpec?: ResourceSpec;
+}
+
+/**
+ * @public
+ * <p>A collection of settings that apply to users of Amazon SageMaker Studio. These settings are
+ *       specified when the <code>CreateUserProfile</code> API is called, and as <code>DefaultUserSettings</code>
+ *       when the <code>CreateDomain</code> API is called.</p>
+ *          <p>
+ *             <code>SecurityGroups</code> is aggregated when specified in both calls. For all other
+ *      settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
+ *      take precedence over those specified in <code>CreateDomain</code>.</p>
+ */
+export interface UserSettings {
+  /**
+   * <p>The execution role for the user.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
+   *          <p>Optional when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
+   *          <code>PublicInternetOnly</code>.</p>
+   *          <p>Required when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
+   *           <code>VpcOnly</code>, unless specified as part of the <code>DefaultUserSettings</code> for the domain.</p>
+   *          <p>Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the
+   *          number of security groups that you can specify is one less than the maximum number shown.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>Specifies options for sharing SageMaker Studio notebooks.</p>
+   */
+  SharingSettings?: SharingSettings;
+
+  /**
+   * <p>The Jupyter server's app settings.</p>
+   */
+  JupyterServerAppSettings?: JupyterServerAppSettings;
+
+  /**
+   * <p>The kernel gateway app settings.</p>
+   */
+  KernelGatewayAppSettings?: KernelGatewayAppSettings;
+
+  /**
+   * <p>The TensorBoard app settings.</p>
+   */
+  TensorBoardAppSettings?: TensorBoardAppSettings;
+
+  /**
+   * <p>A collection of settings that configure user interaction with the
+   *                 <code>RStudioServerPro</code> app.</p>
+   */
+  RStudioServerProAppSettings?: RStudioServerProAppSettings;
+
+  /**
+   * <p>A collection of settings that configure the <code>RSessionGateway</code> app.</p>
+   */
+  RSessionAppSettings?: RSessionAppSettings;
+
+  /**
+   * <p>The Canvas app settings.</p>
+   */
+  CanvasAppSettings?: CanvasAppSettings;
+}
 
 /**
  * @public
@@ -10622,56 +10762,6 @@ export interface DeleteImageRequest {
    * <p>The name of the image to delete.</p>
    */
   ImageName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteImageResponse {}
-
-/**
- * @public
- */
-export interface DeleteImageVersionRequest {
-  /**
-   * <p>The name of the image to delete.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The version to delete.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>The alias of the image to delete.</p>
-   */
-  Alias?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteImageVersionResponse {}
-
-/**
- * @public
- */
-export interface DeleteInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment you want to delete.</p>
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the deleted inference experiment.</p>
-   */
-  InferenceExperimentArn: string | undefined;
 }
 
 /**

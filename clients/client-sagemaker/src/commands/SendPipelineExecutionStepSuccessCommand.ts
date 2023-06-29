@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse } from "../models/models_3";
+import { SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse } from "../models/models_4";
 import {
   de_SendPipelineExecutionStepSuccessCommand,
   se_SendPipelineExecutionStepSuccessCommand,

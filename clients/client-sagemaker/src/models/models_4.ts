@@ -10,8 +10,8 @@ import {
   EdgeOutputConfig,
   KernelGatewayImageConfig,
   ModelApprovalStatus,
+  OutputParameter,
   Tag,
-  UserSettings,
 } from "./models_0";
 import {
   _InstanceType,
@@ -42,6 +42,7 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  UserSettings,
   VendorGuidance,
   WorkforceVpcConfigRequest,
 } from "./models_1";
@@ -51,13 +52,13 @@ import {
   DomainSettingsForUpdate,
   FeatureParameter,
   Filter,
-  GitConfigForUpdate,
   ResourceType,
   SelectiveExecutionConfig,
   Workforce,
   Workteam,
 } from "./models_2";
 import {
+  GitConfigForUpdate,
   InferenceExperimentStopDesiredState,
   ModelVariantAction,
   NestedFilters,
@@ -65,8 +66,89 @@ import {
   Parameter,
   ProfilerConfigForUpdate,
   ResourceConfigForUpdate,
+  SearchRecord,
+  SearchRecordFilterSensitiveLog,
   SearchSortOrder,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface SearchResponse {
+  /**
+   * <p>A list of <code>SearchRecord</code> objects.</p>
+   */
+  Results?: SearchRecord[];
+
+  /**
+   * <p>If the result of the previous <code>Search</code> request was truncated, the response
+   *       includes a NextToken. To retrieve the next set of results, use the token in the next
+   *       request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepFailureRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A message describing why the step failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepFailureResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepSuccessRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A list of the output parameters of the callback step.</p>
+   */
+  OutputParameters?: OutputParameter[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepSuccessResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
 
 /**
  * @public
@@ -1988,6 +2070,14 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const SearchResponseFilterSensitiveLog = (obj: SearchResponse): any => ({
+  ...obj,
+  ...(obj.Results && { Results: obj.Results.map((item) => SearchRecordFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

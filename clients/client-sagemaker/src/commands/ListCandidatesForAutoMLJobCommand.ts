@@ -60,9 +60,9 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  * //       CandidateName: "STRING_VALUE", // required
  * //       FinalAutoMLJobObjectiveMetric: { // FinalAutoMLJobObjectiveMetric
  * //         Type: "Maximize" || "Minimize",
- * //         MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ * //         MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  * //         Value: Number("float"), // required
- * //         StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro",
+ * //         StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
  * //       },
  * //       ObjectiveStatus: "Succeeded" || "Pending" || "Failed", // required
  * //       CandidateSteps: [ // CandidateSteps // required
@@ -90,13 +90,14 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  * //         CandidateArtifactLocations: { // CandidateArtifactLocations
  * //           Explainability: "STRING_VALUE", // required
  * //           ModelInsights: "STRING_VALUE",
+ * //           BacktestResults: "STRING_VALUE",
  * //         },
  * //         CandidateMetrics: [ // MetricDataList
  * //           { // MetricDatum
- * //             MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro",
+ * //             MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
  * //             Value: Number("float"),
  * //             Set: "Train" || "Validation" || "Test",
- * //             StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "LogLoss" || "InferenceLatency",
+ * //             StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "LogLoss" || "InferenceLatency" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
  * //           },
  * //         ],
  * //       },

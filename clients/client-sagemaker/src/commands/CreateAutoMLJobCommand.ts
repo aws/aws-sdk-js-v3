@@ -76,7 +76,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *   },
  *   ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
  *   AutoMLJobObjective: { // AutoMLJobObjective
- *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  *   },
  *   AutoMLJobConfig: { // AutoMLJobConfig
  *     CompletionCriteria: { // AutoMLJobCompletionCriteria

@@ -604,6 +604,24 @@ export interface AgentVersion {
 
 /**
  * @public
+ * @enum
+ */
+export const AggregationTransformationValue = {
+  Avg: "avg",
+  First: "first",
+  Max: "max",
+  Min: "min",
+  Sum: "sum",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationTransformationValue =
+  (typeof AggregationTransformationValue)[keyof typeof AggregationTransformationValue];
+
+/**
+ * @public
  * <p>An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.</p>
  */
 export interface Alarm {
@@ -4425,6 +4443,12 @@ export interface CandidateArtifactLocations {
    * <p>The Amazon S3 prefix to the model insight artifacts generated for the AutoML candidate.</p>
    */
   ModelInsights?: string;
+
+  /**
+   * <p>The Amazon S3 prefix to the accuracy metrics and the inference results observed over the
+   *          testing window. Available only for the time-series forecasting problem type.</p>
+   */
+  BacktestResults?: string;
 }
 
 /**
@@ -4434,10 +4458,13 @@ export interface CandidateArtifactLocations {
 export const AutoMLMetricEnum = {
   ACCURACY: "Accuracy",
   AUC: "AUC",
+  AVERAGE_WEIGHTED_QUANTILE_LOSS: "AverageWeightedQuantileLoss",
   BALANCED_ACCURACY: "BalancedAccuracy",
   F1: "F1",
   F1_MACRO: "F1macro",
   MAE: "MAE",
+  MAPE: "MAPE",
+  MASE: "MASE",
   MSE: "MSE",
   PRECISION: "Precision",
   PRECISION_MACRO: "PrecisionMacro",
@@ -4445,6 +4472,7 @@ export const AutoMLMetricEnum = {
   RECALL: "Recall",
   RECALL_MACRO: "RecallMacro",
   RMSE: "RMSE",
+  WAPE: "WAPE",
 } as const;
 
 /**
@@ -4474,12 +4502,15 @@ export type MetricSetSource = (typeof MetricSetSource)[keyof typeof MetricSetSou
 export const AutoMLMetricExtendedEnum = {
   ACCURACY: "Accuracy",
   AUC: "AUC",
+  AVERAGE_WEIGHTED_QUANTILE_LOSS: "AverageWeightedQuantileLoss",
   BALANCED_ACCURACY: "BalancedAccuracy",
   F1: "F1",
   F1_MACRO: "F1macro",
   INFERENCE_LATENCY: "InferenceLatency",
   LogLoss: "LogLoss",
   MAE: "MAE",
+  MAPE: "MAPE",
+  MASE: "MASE",
   MSE: "MSE",
   PRECISION: "Precision",
   PRECISION_MACRO: "PrecisionMacro",
@@ -4487,6 +4518,7 @@ export const AutoMLMetricExtendedEnum = {
   RECALL: "Recall",
   RECALL_MACRO: "RecallMacro",
   RMSE: "RMSE",
+  WAPE: "WAPE",
 } as const;
 
 /**
@@ -5036,6 +5068,10 @@ export interface AutoMLJobChannel {
    *          default value is <code>training</code>. Channels for <code>training</code> and
    *             <code>validation</code> must share the same <code>ContentType</code>
    *          </p>
+   *          <note>
+   *             <p>The type of channel defaults to <code>training</code> for the time-series forecasting
+   *             problem type.</p>
+   *          </note>
    */
   ChannelType?: AutoMLChannelType | string;
 
@@ -5044,16 +5080,21 @@ export interface AutoMLJobChannel {
    *          content types for different problems:</p>
    *          <ul>
    *             <li>
-   *                <p>For Tabular problem types: <code>text/csv;header=present</code> or
+   *                <p>For tabular problem types: <code>text/csv;header=present</code> or
    *                   <code>x-application/vnd.amazon+parquet</code>. The default value is
    *                   <code>text/csv;header=present</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For ImageClassification: <code>image/png</code>, <code>image/jpeg</code>, or
+   *                <p>For image classification: <code>image/png</code>, <code>image/jpeg</code>, or
    *                   <code>image/*</code>. The default value is <code>image/*</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For TextClassification: <code>text/csv;header=present</code> or
+   *                <p>For text classification: <code>text/csv;header=present</code> or
+   *                   <code>x-application/vnd.amazon+parquet</code>. The default value is
+   *                   <code>text/csv;header=present</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For time-series forecasting: <code>text/csv;header=present</code> or
    *                   <code>x-application/vnd.amazon+parquet</code>. The default value is
    *                   <code>text/csv;header=present</code>.</p>
    *             </li>
@@ -5083,8 +5124,8 @@ export interface AutoMLJobChannel {
 export interface AutoMLJobCompletionCriteria {
   /**
    * <p>The maximum number of times a training job is allowed to run.</p>
-   *          <p>For job V2s (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
-   *          value is 1.</p>
+   *          <p>For text and image classification, as well as time-series forecasting problem types, the
+   *          supported value is 1. For tabular problem types, the maximum value is 750.</p>
    */
   MaxCandidates?: number;
 
@@ -5247,6 +5288,11 @@ export interface AutoMLJobObjective {
    *                <p>For image or text classification problem types: <code>Accuracy</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For time-series forecasting problem types:
+   *                   <code>AverageWeightedQuantileLoss</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   MetricName: AutoMLMetricEnum | string | undefined;
@@ -5271,6 +5317,7 @@ export const AutoMLJobSecondaryStatus = {
   MODEL_DEPLOYMENT_ERROR: "ModelDeploymentError",
   MODEL_INSIGHTS_ERROR: "ModelInsightsError",
   MODEL_TUNING: "ModelTuning",
+  PRE_TRAINING: "PreTraining",
   STARTING: "Starting",
   STOPPED: "Stopped",
   STOPPING: "Stopping",
@@ -5587,6 +5634,221 @@ export interface TextClassificationJobConfig {
 
 /**
  * @public
+ * <p>The collection of components that defines the time-series.</p>
+ */
+export interface TimeSeriesConfig {
+  /**
+   * <p>The name of the column representing the target variable that you want to predict for
+   *          each item in your dataset. The data type of the target variable must be numerical.</p>
+   */
+  TargetAttributeName: string | undefined;
+
+  /**
+   * <p>The name of the column indicating a point in time at which the target value of a given
+   *          item is recorded.</p>
+   */
+  TimestampAttributeName: string | undefined;
+
+  /**
+   * <p>The name of the column that represents the set of item identifiers for which you want to
+   *          predict the target value.</p>
+   */
+  ItemIdentifierAttributeName: string | undefined;
+
+  /**
+   * <p>A set of columns names that can be grouped with the item identifier column to create a
+   *          composite key for which a target value is predicted.</p>
+   */
+  GroupingAttributeNames?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FillingType = {
+  Backfill: "backfill",
+  BackfillValue: "backfill_value",
+  Frontfill: "frontfill",
+  FrontfillValue: "frontfill_value",
+  Futurefill: "futurefill",
+  FuturefillValue: "futurefill_value",
+  Middlefill: "middlefill",
+  MiddlefillValue: "middlefill_value",
+} as const;
+
+/**
+ * @public
+ */
+export type FillingType = (typeof FillingType)[keyof typeof FillingType];
+
+/**
+ * @public
+ * <p>Transformations allowed on the dataset. Supported transformations are
+ *             <code>Filling</code> and <code>Aggregation</code>. <code>Filling</code> specifies how to
+ *          add values to missing values in the dataset. <code>Aggregation</code> defines how to
+ *          aggregate data that does not align with forecast frequency.</p>
+ */
+export interface TimeSeriesTransformations {
+  /**
+   * <p>A key value pair defining the filling method for a column, where the key is the column
+   *          name and the value is an object which defines the filling logic. You can specify multiple
+   *          filling methods for a single column.</p>
+   *          <p>The supported filling methods and their corresponding options are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>frontfill</code>: <code>none</code> (Supported only for target
+   *                column)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>middlefill</code>: <code>zero</code>, <code>value</code>,
+   *                   <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>backfill</code>: <code>zero</code>, <code>value</code>, <code>median</code>,
+   *                   <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>futurefill</code>: <code>zero</code>, <code>value</code>,
+   *                   <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To set a filling method to a specific value, set the fill parameter to the chosen
+   *          filling method value (for example <code>"backfill" : "value"</code>), and define the
+   *          filling value in an additional parameter prefixed with "_value". For example, to set
+   *             <code>backfill</code> to a value of <code>2</code>, you must include two parameters:
+   *             <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>.</p>
+   */
+  Filling?: Record<string, Record<string, string>>;
+
+  /**
+   * <p>A key value pair defining the aggregation method for a column, where the key is the
+   *          column name and the value is the aggregation method.</p>
+   *          <p>The supported aggregation methods are <code>sum</code> (default), <code>avg</code>,
+   *             <code>first</code>, <code>min</code>, <code>max</code>.</p>
+   *          <note>
+   *             <p>Aggregation is only supported for the target column.</p>
+   *          </note>
+   */
+  Aggregation?: Record<string, AggregationTransformationValue | string>;
+}
+
+/**
+ * @public
+ * <p>The collection of settings used by an AutoML job V2 for the time-series forecasting
+ *          problem type.</p>
+ *          <note>
+ *             <p>The <code>TimeSeriesForecastingJobConfig</code> problem type is only available in
+ *             private beta. Contact Amazon Web Services Support or your account manager to learn more
+ *             about access privileges.</p>
+ *          </note>
+ */
+export interface TimeSeriesForecastingJobConfig {
+  /**
+   * <p>A URL to the Amazon S3 data source containing additional selected features that complement
+   *          the target, itemID, timestamp, and grouped columns set in <code>TimeSeriesConfig</code>.
+   *          When not provided, the AutoML job V2 includes all the columns from the original dataset
+   *          that are not already declared in <code>TimeSeriesConfig</code>. If provided, the AutoML job
+   *          V2 only considers these additional columns as a complement to the ones declared in
+   *             <code>TimeSeriesConfig</code>.</p>
+   *          <p> You can input <code>FeatureAttributeNames</code> (optional) in JSON format as shown
+   *          below: </p>
+   *          <p>
+   *             <code>\{ "FeatureAttributeNames":["col1", "col2", ...] \}</code>.</p>
+   *          <p>You can also specify the data type of the feature (optional) in the format shown
+   *          below:</p>
+   *          <p>
+   *             <code>\{ "FeatureDataTypes":\{"col1":"numeric", "col2":"categorical" ... \} \}</code>
+   *          </p>
+   *          <p>Autopilot supports the following data types: <code>numeric</code>, <code>categorical</code>,
+   *             <code>text</code>, and <code>datetime</code>.</p>
+   *          <note>
+   *             <p>These column keys must not include any column set in
+   *             <code>TimeSeriesConfig</code>.</p>
+   *          </note>
+   *          <p>When not provided, the AutoML job V2 includes all the columns from the original dataset
+   *          that are not already declared in <code>TimeSeriesConfig</code>. If provided, the AutoML job
+   *          V2 only considers these additional columns as a complement to the ones declared in
+   *             <code>TimeSeriesConfig</code>.</p>
+   *          <p>Autopilot supports the following data types: <code>numeric</code>, <code>categorical</code>,
+   *             <code>text</code>, and <code>datetime</code>.</p>
+   */
+  FeatureSpecificationS3Uri?: string;
+
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+
+  /**
+   * <p>The frequency of predictions in a forecast.</p>
+   *          <p>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H
+   *          (Hour), and min (Minute). For example, <code>1D</code> indicates every day and
+   *             <code>15min</code> indicates every 15 minutes. The value of a frequency must not overlap
+   *          with the next larger frequency. For example, you must use a frequency of <code>1H</code>
+   *          instead of <code>60min</code>.</p>
+   *          <p>The valid values for each frequency are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Minute - 1-59</p>
+   *             </li>
+   *             <li>
+   *                <p>Hour - 1-23</p>
+   *             </li>
+   *             <li>
+   *                <p>Day - 1-6</p>
+   *             </li>
+   *             <li>
+   *                <p>Week - 1-4</p>
+   *             </li>
+   *             <li>
+   *                <p>Month - 1-11</p>
+   *             </li>
+   *             <li>
+   *                <p>Year - 1</p>
+   *             </li>
+   *          </ul>
+   */
+  ForecastFrequency: string | undefined;
+
+  /**
+   * <p>The number of time-steps that the model predicts. The forecast horizon is also called
+   *          the prediction length. The maximum forecast horizon is the lesser of 500 time-steps or 1/4
+   *          of the time-steps in the dataset.</p>
+   */
+  ForecastHorizon: number | undefined;
+
+  /**
+   * <p>The quantiles used to train the model for forecasts at a specified quantile. You can
+   *          specify quantiles from <code>0.01</code> (p1) to <code>0.99</code> (p99), by increments of
+   *          0.01 or higher. Up to five forecast quantiles can be specified. When
+   *             <code>ForecastQuantiles</code> is not provided, the AutoML job uses the quantiles
+   *             p10, p50, and p90 as default.</p>
+   */
+  ForecastQuantiles?: string[];
+
+  /**
+   * <p>The transformations modifying specific attributes of the time-series, such as filling
+   *          strategies for missing values.</p>
+   */
+  Transformations?: TimeSeriesTransformations;
+
+  /**
+   * <p>The collection of components that defines the time-series.</p>
+   */
+  TimeSeriesConfig: TimeSeriesConfig | undefined;
+}
+
+/**
+ * @public
  * <p>A collection of settings specific to the problem type used to configure an AutoML job V2.
  *          There must be one and only one config of the following type.</p>
  */
@@ -5594,6 +5856,7 @@ export type AutoMLProblemTypeConfig =
   | AutoMLProblemTypeConfig.ImageClassificationJobConfigMember
   | AutoMLProblemTypeConfig.TabularJobConfigMember
   | AutoMLProblemTypeConfig.TextClassificationJobConfigMember
+  | AutoMLProblemTypeConfig.TimeSeriesForecastingJobConfigMember
   | AutoMLProblemTypeConfig.$UnknownMember;
 
 /**
@@ -5608,6 +5871,7 @@ export namespace AutoMLProblemTypeConfig {
     ImageClassificationJobConfig: ImageClassificationJobConfig;
     TextClassificationJobConfig?: never;
     TabularJobConfig?: never;
+    TimeSeriesForecastingJobConfig?: never;
     $unknown?: never;
   }
 
@@ -5619,6 +5883,7 @@ export namespace AutoMLProblemTypeConfig {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig: TextClassificationJobConfig;
     TabularJobConfig?: never;
+    TimeSeriesForecastingJobConfig?: never;
     $unknown?: never;
   }
 
@@ -5630,6 +5895,19 @@ export namespace AutoMLProblemTypeConfig {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig?: never;
     TabularJobConfig: TabularJobConfig;
+    TimeSeriesForecastingJobConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings used to configure an AutoML job V2 for a time-series forecasting problem
+   *          type.</p>
+   */
+  export interface TimeSeriesForecastingJobConfigMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig?: never;
+    TabularJobConfig?: never;
+    TimeSeriesForecastingJobConfig: TimeSeriesForecastingJobConfig;
     $unknown?: never;
   }
 
@@ -5637,6 +5915,7 @@ export namespace AutoMLProblemTypeConfig {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig?: never;
     TabularJobConfig?: never;
+    TimeSeriesForecastingJobConfig?: never;
     $unknown: [string, any];
   }
 
@@ -5644,6 +5923,7 @@ export namespace AutoMLProblemTypeConfig {
     ImageClassificationJobConfig: (value: ImageClassificationJobConfig) => T;
     TextClassificationJobConfig: (value: TextClassificationJobConfig) => T;
     TabularJobConfig: (value: TabularJobConfig) => T;
+    TimeSeriesForecastingJobConfig: (value: TimeSeriesForecastingJobConfig) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -5653,6 +5933,8 @@ export namespace AutoMLProblemTypeConfig {
     if (value.TextClassificationJobConfig !== undefined)
       return visitor.TextClassificationJobConfig(value.TextClassificationJobConfig);
     if (value.TabularJobConfig !== undefined) return visitor.TabularJobConfig(value.TabularJobConfig);
+    if (value.TimeSeriesForecastingJobConfig !== undefined)
+      return visitor.TimeSeriesForecastingJobConfig(value.TimeSeriesForecastingJobConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5665,6 +5947,7 @@ export const AutoMLProblemTypeConfigName = {
   IMAGE_CLASSIFICATION: "ImageClassification",
   TABULAR: "Tabular",
   TEXT_CLASSIFICATION: "TextClassification",
+  TIMESERIES_FORECASTING: "TimeSeriesForecasting",
 } as const;
 
 /**
@@ -8779,15 +9062,18 @@ export interface CreateAutoMLJobV2Request {
    *          The supported formats depend on the problem type:</p>
    *          <ul>
    *             <li>
-   *                <p>For Tabular problem types: <code>S3Prefix</code>,
+   *                <p>For tabular problem types: <code>S3Prefix</code>,
    *                <code>ManifestFile</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For ImageClassification: <code>S3Prefix</code>, <code>ManifestFile</code>,
+   *                <p>For image classification: <code>S3Prefix</code>, <code>ManifestFile</code>,
    *                   <code>AugmentedManifestFile</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For TextClassification: <code>S3Prefix</code>.</p>
+   *                <p>For text classification: <code>S3Prefix</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For time-series forecasting: <code>S3Prefix</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -8847,6 +9133,10 @@ export interface CreateAutoMLJobV2Request {
    *          <p>The validation and training datasets must contain the same headers. For jobs created by
    *          calling <code>CreateAutoMLJob</code>, the validation dataset must be less than 2 GB in
    *          size.</p>
+   *          <note>
+   *             <p>This attribute must not be set for the time-series forecasting problem type, as Autopilot
+   *             automatically splits the input dataset into training and validation sets.</p>
+   *          </note>
    */
   DataSplitConfig?: AutoMLDataSplitConfig;
 }
@@ -10501,140 +10791,3 @@ export const RStudioServerProUserGroup = {
  * @public
  */
 export type RStudioServerProUserGroup = (typeof RStudioServerProUserGroup)[keyof typeof RStudioServerProUserGroup];
-
-/**
- * @public
- * <p>A collection of settings that configure user interaction with the
- *                 <code>RStudioServerPro</code> app.</p>
- */
-export interface RStudioServerProAppSettings {
-  /**
-   * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code>
-   *             app.</p>
-   */
-  AccessStatus?: RStudioServerProAccessStatus | string;
-
-  /**
-   * <p>The level of permissions that the user has within the <code>RStudioServerPro</code>
-   *             app. This value defaults to `User`. The `Admin` value allows the user access to the
-   *             RStudio Administrative Dashboard.</p>
-   */
-  UserGroup?: RStudioServerProUserGroup | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const NotebookOutputOption = {
-  Allowed: "Allowed",
-  Disabled: "Disabled",
-} as const;
-
-/**
- * @public
- */
-export type NotebookOutputOption = (typeof NotebookOutputOption)[keyof typeof NotebookOutputOption];
-
-/**
- * @public
- * <p>Specifies options for sharing SageMaker Studio notebooks. These settings are
- *     specified as part of <code>DefaultUserSettings</code> when the <code>CreateDomain</code>
- *     API is called, and as part of <code>UserSettings</code> when the <code>CreateUserProfile</code>
- *     API is called. When <code>SharingSettings</code> is not specified, notebook sharing
- *     isn't allowed.</p>
- */
-export interface SharingSettings {
-  /**
-   * <p>Whether to include the notebook cell output when sharing the notebook. The default
-   *          is <code>Disabled</code>.</p>
-   */
-  NotebookOutputOption?: NotebookOutputOption | string;
-
-  /**
-   * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon S3 bucket used
-   *          to store the shared notebook snapshots.</p>
-   */
-  S3OutputPath?: string;
-
-  /**
-   * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon Web Services Key Management Service (KMS)
-   *          encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.</p>
-   */
-  S3KmsKeyId?: string;
-}
-
-/**
- * @public
- * <p>The TensorBoard app settings.</p>
- */
-export interface TensorBoardAppSettings {
-  /**
-   * <p>The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
-   */
-  DefaultResourceSpec?: ResourceSpec;
-}
-
-/**
- * @public
- * <p>A collection of settings that apply to users of Amazon SageMaker Studio. These settings are
- *       specified when the <code>CreateUserProfile</code> API is called, and as <code>DefaultUserSettings</code>
- *       when the <code>CreateDomain</code> API is called.</p>
- *          <p>
- *             <code>SecurityGroups</code> is aggregated when specified in both calls. For all other
- *      settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
- *      take precedence over those specified in <code>CreateDomain</code>.</p>
- */
-export interface UserSettings {
-  /**
-   * <p>The execution role for the user.</p>
-   */
-  ExecutionRole?: string;
-
-  /**
-   * <p>The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</p>
-   *          <p>Optional when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
-   *          <code>PublicInternetOnly</code>.</p>
-   *          <p>Required when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
-   *           <code>VpcOnly</code>, unless specified as part of the <code>DefaultUserSettings</code> for the domain.</p>
-   *          <p>Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the
-   *          number of security groups that you can specify is one less than the maximum number shown.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>Specifies options for sharing SageMaker Studio notebooks.</p>
-   */
-  SharingSettings?: SharingSettings;
-
-  /**
-   * <p>The Jupyter server's app settings.</p>
-   */
-  JupyterServerAppSettings?: JupyterServerAppSettings;
-
-  /**
-   * <p>The kernel gateway app settings.</p>
-   */
-  KernelGatewayAppSettings?: KernelGatewayAppSettings;
-
-  /**
-   * <p>The TensorBoard app settings.</p>
-   */
-  TensorBoardAppSettings?: TensorBoardAppSettings;
-
-  /**
-   * <p>A collection of settings that configure user interaction with the
-   *                 <code>RStudioServerPro</code> app.</p>
-   */
-  RStudioServerProAppSettings?: RStudioServerProAppSettings;
-
-  /**
-   * <p>A collection of settings that configure the <code>RSessionGateway</code> app.</p>
-   */
-  RSessionAppSettings?: RSessionAppSettings;
-
-  /**
-   * <p>The Canvas app settings.</p>
-   */
-  CanvasAppSettings?: CanvasAppSettings;
-}

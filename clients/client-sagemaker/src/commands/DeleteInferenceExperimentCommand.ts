@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteInferenceExperimentRequest, DeleteInferenceExperimentResponse } from "../models/models_1";
+import { DeleteInferenceExperimentRequest, DeleteInferenceExperimentResponse } from "../models/models_2";
 import { de_DeleteInferenceExperimentCommand, se_DeleteInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

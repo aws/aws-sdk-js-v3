@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_2";
+import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_3";
 import { de_GetSearchSuggestionsCommand, se_GetSearchSuggestionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
