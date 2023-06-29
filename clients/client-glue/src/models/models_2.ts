@@ -106,9 +106,11 @@ import {
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   JobBookmarkEntry,
+  PrincipalType,
   RegistryId,
   RegistryStatus,
   ResourceShareType,
+  ResourceUri,
   SchemaStatus,
   SchemaVersionNumber,
   SchemaVersionStatus,
@@ -118,9 +120,55 @@ import {
   TableInput,
   TransformFilterCriteria,
   TransformSortCriteria,
-  UserDefinedFunction,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Represents the equivalent of a Hive user-defined function
+ *       (<code>UDF</code>) definition.</p>
+ */
+export interface UserDefinedFunction {
+  /**
+   * <p>The name of the function.</p>
+   */
+  FunctionName?: string;
+
+  /**
+   * <p>The name of the catalog database that contains the function.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>The Java class that contains the function code.</p>
+   */
+  ClassName?: string;
+
+  /**
+   * <p>The owner of the function.</p>
+   */
+  OwnerName?: string;
+
+  /**
+   * <p>The owner type.</p>
+   */
+  OwnerType?: PrincipalType | string;
+
+  /**
+   * <p>The time at which the function was created.</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The resource URIs for the function.</p>
+   */
+  ResourceUris?: ResourceUri[];
+
+  /**
+   * <p>The ID of the Data Catalog in which the function resides.</p>
+   */
+  CatalogId?: string;
+}
 
 /**
  * @public

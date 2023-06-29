@@ -561,6 +561,7 @@ import {
   GlueTable,
   GovernedCatalogSource,
   GovernedCatalogTarget,
+  IcebergTarget,
   IdempotentParameterMismatchException,
   IllegalSessionStateException,
   InternalServiceException,
@@ -650,7 +651,6 @@ import {
   StorageDescriptor,
   StreamingDataPreviewOptions,
   TransformConfigParameter,
-  TransformEncryption,
   TransformParameters,
   Union,
   UpsertRedshiftTargetOptions,
@@ -863,10 +863,10 @@ import {
   TaskRun,
   TaskRunFilterCriteria,
   TaskRunSortCriteria,
+  TransformEncryption,
   TransformFilterCriteria,
   TransformSortCriteria,
   UnfilteredPartition,
-  UserDefinedFunction,
   UserDefinedFunctionInput,
   XMLClassifier,
 } from "../models/models_1";
@@ -999,6 +999,7 @@ import {
   UpdateUserDefinedFunctionRequest,
   UpdateWorkflowRequest,
   UpdateXMLClassifierRequest,
+  UserDefinedFunction,
   VersionMismatchException,
 } from "../models/models_2";
 
@@ -15959,6 +15960,7 @@ const se_CrawlerTargets = (input: CrawlerTargets, context: __SerdeContext): any 
     CatalogTargets: _json,
     DeltaTargets: _json,
     DynamoDBTargets: (_) => se_DynamoDBTargetList(_, context),
+    IcebergTargets: _json,
     JdbcTargets: _json,
     MongoDBTargets: _json,
     S3Targets: _json,
@@ -16653,6 +16655,10 @@ const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): 
 // se_GovernedCatalogSource omitted.
 
 // se_GovernedCatalogTarget omitted.
+
+// se_IcebergTarget omitted.
+
+// se_IcebergTargetList omitted.
 
 // se_ImportCatalogToGlueRequest omitted.
 
@@ -18199,6 +18205,7 @@ const de_CrawlerTargets = (output: any, context: __SerdeContext): CrawlerTargets
     CatalogTargets: _json,
     DeltaTargets: _json,
     DynamoDBTargets: (_: any) => de_DynamoDBTargetList(_, context),
+    IcebergTargets: _json,
     JdbcTargets: _json,
     MongoDBTargets: _json,
     S3Targets: _json,
@@ -19552,6 +19559,10 @@ const de_GrokClassifier = (output: any, context: __SerdeContext): GrokClassifier
     Version: __expectLong,
   }) as any;
 };
+
+// de_IcebergTarget omitted.
+
+// de_IcebergTargetList omitted.
 
 // de_IdempotentParameterMismatchException omitted.
 

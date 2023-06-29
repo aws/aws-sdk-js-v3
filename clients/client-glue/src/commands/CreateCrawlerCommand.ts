@@ -110,6 +110,18 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  *         CreateNativeDeltaTable: true || false,
  *       },
  *     ],
+ *     IcebergTargets: [ // IcebergTargetList
+ *       { // IcebergTarget
+ *         Paths: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ConnectionName: "STRING_VALUE",
+ *         Exclusions: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MaximumTraversalDepth: Number("int"),
+ *       },
+ *     ],
  *   },
  *   Schedule: "STRING_VALUE",
  *   Classifiers: [ // ClassifierNameList

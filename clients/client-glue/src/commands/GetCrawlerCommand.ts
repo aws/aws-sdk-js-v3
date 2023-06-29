@@ -112,6 +112,18 @@ export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataB
  * //           CreateNativeDeltaTable: true || false,
  * //         },
  * //       ],
+ * //       IcebergTargets: [ // IcebergTargetList
+ * //         { // IcebergTarget
+ * //           Paths: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ConnectionName: "STRING_VALUE",
+ * //           Exclusions: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           MaximumTraversalDepth: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //     DatabaseName: "STRING_VALUE",
  * //     Description: "STRING_VALUE",

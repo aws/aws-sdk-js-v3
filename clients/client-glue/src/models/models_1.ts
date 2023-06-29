@@ -22,6 +22,7 @@ import {
   FederatedDatabase,
   GlueTable,
   JobRun,
+  MLUserDataEncryption,
   Partition,
   PartitionInput,
   PartitionValueList,
@@ -31,13 +32,29 @@ import {
   SchemaId,
   StorageDescriptor,
   TaskStatusType,
-  TransformEncryption,
   TransformParameters,
   TransformType,
   Trigger,
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+ *          <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
+ */
+export interface TransformEncryption {
+  /**
+   * <p>An <code>MLUserDataEncryption</code> object containing the encryption mode and customer-provided KMS key ID.</p>
+   */
+  MlUserDataEncryption?: MLUserDataEncryption;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   */
+  TaskRunSecurityConfigurationName?: string;
+}
 
 /**
  * @public
@@ -7214,51 +7231,4 @@ export interface GetUserDefinedFunctionRequest {
    * <p>The name of the function.</p>
    */
   FunctionName: string | undefined;
-}
-
-/**
- * @public
- * <p>Represents the equivalent of a Hive user-defined function
- *       (<code>UDF</code>) definition.</p>
- */
-export interface UserDefinedFunction {
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName?: string;
-
-  /**
-   * <p>The name of the catalog database that contains the function.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>The Java class that contains the function code.</p>
-   */
-  ClassName?: string;
-
-  /**
-   * <p>The owner of the function.</p>
-   */
-  OwnerName?: string;
-
-  /**
-   * <p>The owner type.</p>
-   */
-  OwnerType?: PrincipalType | string;
-
-  /**
-   * <p>The time at which the function was created.</p>
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>The resource URIs for the function.</p>
-   */
-  ResourceUris?: ResourceUri[];
-
-  /**
-   * <p>The ID of the Data Catalog in which the function resides.</p>
-   */
-  CatalogId?: string;
 }

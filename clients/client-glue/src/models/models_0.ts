@@ -1660,6 +1660,33 @@ export interface DynamoDBTarget {
 
 /**
  * @public
+ * <p>Specifies an Apache Iceberg data source where Iceberg tables are stored in Amazon S3.</p>
+ */
+export interface IcebergTarget {
+  /**
+   * <p>One or more Amazon S3 paths that contains Iceberg metadata folders as <code>s3://bucket/prefix</code>.</p>
+   */
+  Paths?: string[];
+
+  /**
+   * <p>The name of the connection to use to connect to the Iceberg target.</p>
+   */
+  ConnectionName?: string;
+
+  /**
+   * <p>A list of glob patterns used to exclude from the crawl.
+   *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
+   */
+  Exclusions?: string[];
+
+  /**
+   * <p>The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.</p>
+   */
+  MaximumTraversalDepth?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const JdbcMetadataEntry = {
@@ -1793,6 +1820,11 @@ export interface CrawlerTargets {
    * <p>Specifies Delta data store targets.</p>
    */
   DeltaTargets?: DeltaTarget[];
+
+  /**
+   * <p>Specifies Apache Iceberg data store targets.</p>
+   */
+  IcebergTargets?: IcebergTarget[];
 }
 
 /**
@@ -8198,21 +8230,4 @@ export interface MLUserDataEncryption {
    * <p>The ID for the customer-provided KMS key.</p>
    */
   KmsKeyId?: string;
-}
-
-/**
- * @public
- * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
- *          <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
- */
-export interface TransformEncryption {
-  /**
-   * <p>An <code>MLUserDataEncryption</code> object containing the encryption mode and customer-provided KMS key ID.</p>
-   */
-  MlUserDataEncryption?: MLUserDataEncryption;
-
-  /**
-   * <p>The name of the security configuration.</p>
-   */
-  TaskRunSecurityConfigurationName?: string;
 }
