@@ -57,7 +57,10 @@ tasks.register("set-aws-sdk-versions") {
                 var packageJson = Node.parse(packageJsonFile.readText()).expectObjectNode()
                 var packageName = packageJson.expectStringMember("name").getValue()
                 var packageVersion = packageJson.expectStringMember("version").getValue()
-                versionsFile.appendText("$packageName=$packageVersion\n")
+                var isPrivate = packageJson.getBooleanMemberOrDefault("private", false)
+                if (!isPrivate) {
+                    versionsFile.appendText("$packageName=$packageVersion\n")
+                }
             }
         }
     }
