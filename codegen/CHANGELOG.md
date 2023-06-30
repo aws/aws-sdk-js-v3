@@ -1,5 +1,12 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.16.0 (2023-06-30)
+
+### Features
+
+* Updated code generator to use @smithy scoped npm packages ([#4873](https://github.com/aws/aws-sdk-js-v3/pull/4873))
+* Updated code generator to use runtime-agnostic util-stream package ([#4861](https://github.com/aws/aws-sdk-js-v3/pull/4861))
+
 ## 0.15.0 (2023-05-10)
 
 ### Features
