@@ -228,6 +228,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
+ *       credentialSpecs: "<StringList>",
  *     },
  *   ],
  *   volumes: [ // VolumeList
@@ -478,6 +479,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //         },
+ * //         credentialSpecs: "<StringList>",
  * //       },
  * //     ],
  * //     family: "STRING_VALUE",

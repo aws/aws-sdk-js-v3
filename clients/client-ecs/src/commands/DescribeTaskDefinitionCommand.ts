@@ -224,6 +224,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //         },
+ * //         credentialSpecs: "<StringList>",
  * //       },
  * //     ],
  * //     family: "STRING_VALUE",

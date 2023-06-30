@@ -231,6 +231,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //               "<keys>": "STRING_VALUE",
  * //             },
  * //           },
+ * //           credentialSpecs: "<StringList>",
  * //         },
  * //       ],
  * //       family: "STRING_VALUE",

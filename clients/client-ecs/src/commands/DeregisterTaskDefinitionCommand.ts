@@ -231,6 +231,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //         },
+ * //         credentialSpecs: "<StringList>",
  * //       },
  * //     ],
  * //     family: "STRING_VALUE",

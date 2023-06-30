@@ -3893,6 +3893,8 @@ export interface FirelensConfiguration {
  *          </note>
  *          <p>You can view the health status of both individual containers and a task with the
  * 			DescribeTasks API operation or when viewing the task details in the console.</p>
+ *          <p>The health check is designed to make sure that your containers survive
+ * 			agent restarts, upgrades, or temporary unavailability.</p>
  *          <p>The following describes the possible <code>healthStatus</code> values for a
  * 			container:</p>
  *          <ul>
@@ -3939,6 +3941,14 @@ export interface FirelensConfiguration {
  * 			replace it.</p>
  *          <p>The following are notes about container health check support:</p>
  *          <ul>
+ *             <li>
+ *                <p>When the Amazon ECS agent cannot connect to the Amazon ECS service,  the
+ * 					service reports the container as <code>UNHEALTHY</code>. </p>
+ *             </li>
+ *             <li>
+ *                <p>The health check statuses are the "last heard from" response from the Amazon ECS agent. There
+ * 					are no assumptions made about the status of the container health checks.</p>
+ *             </li>
  *             <li>
  *                <p>Container health checks require version 1.17.0 or greater of the Amazon ECS
  * 					container agent. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the
@@ -5305,6 +5315,24 @@ export interface ContainerDefinition {
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   firelensConfiguration?: FirelensConfiguration;
+
+  /**
+   * <p>A list of ARNs in SSM or Amazon S3 to a credential spec
+   * 			(<code>credspec</code>code>) file that configures a container for Active Directory
+   * 			authentication. This parameter is only used with domainless authentication.</p>
+   *          <p>The format for each ARN is
+   * 					<code>credentialspecdomainless:MyARN</code>. Replace
+   * 				<code>MyARN</code> with the ARN in SSM or Amazon S3.</p>
+   *          <p>The <code>credspec</code> must provide a ARN in Secrets Manager for a secret
+   * 			containing the username, password, and the domain to connect to. For better security,
+   * 			the instance isn't joined to the domain for domainless authentication. Other
+   * 			applications on the instance can't use the domainless credentials. You can use this
+   * 			parameter to run tasks on the same instance, even it the tasks need to join different
+   * 			domains. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using gMSAs for Windows
+   * 				Containers</a> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html">Using gMSAs for Linux
+   * 				Containers</a>.</p>
+   */
+  credentialSpecs?: string[];
 }
 
 /**
