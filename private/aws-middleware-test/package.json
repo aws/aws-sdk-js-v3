@@ -1,11 +1,11 @@
 {
-  "name": "@aws-sdk/aws-client-retry-test",
-  "description": "Integration test suite for middleware-retry",
-  "version": "3.363.0",
+  "name": "@aws-sdk/aws-middleware-test",
+  "description": "Integration test suite for AWS middleware",
+  "version": "3.0.0",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build": "exit 0",
+    "build:cjs": "exit 0",
+    "build:es": "exit 0",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
@@ -17,15 +17,17 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
+    "@aws-sdk/client-accessanalyzer": "*",
+    "@aws-sdk/client-ec2": "*",
+    "@aws-sdk/client-lambda": "*",
     "@aws-sdk/client-s3": "*",
-    "@aws-sdk/util-retry": "*",
-    "@smithy/protocol-http": "*",
-    "@smithy/types": "*",
+    "@aws-sdk/client-s3-control": "*",
+    "@aws-sdk/client-sagemaker": "*",
+    "@aws-sdk/client-sagemaker-runtime": "*",
+    "@aws-sdk/client-xray": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@smithy/protocol-http": "^1.1.0",
-    "@smithy/types": "^1.1.0",
     "@tsconfig/node14": "1.0.3",
     "@types/node": "^12.7.5",
     "concurrently": "7.0.0",
@@ -60,6 +62,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "private/aws-client-retry-test"
+    "directory": "private/aws-middleware-test"
   }
 }
