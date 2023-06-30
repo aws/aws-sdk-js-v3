@@ -870,7 +870,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           DestinationS3Uri: "STRING_VALUE", // required
  * //           KmsKeyId: "STRING_VALUE", // required
  * //         },
- * //         EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed", // required
+ * //         EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed" || "UpdateRollbackFailed", // required
  * //         FailureReason: "STRING_VALUE",
  * //         CreationTime: new Date("TIMESTAMP"), // required
  * //         LastModifiedTime: new Date("TIMESTAMP"), // required
@@ -1772,7 +1772,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             EndpointArn: "STRING_VALUE", // required
  * //             CreationTime: new Date("TIMESTAMP"), // required
  * //             LastModifiedTime: new Date("TIMESTAMP"), // required
- * //             EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed", // required
+ * //             EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed" || "UpdateRollbackFailed", // required
  * //           },
  * //         ],
  * //         LastBatchTransformJob: {

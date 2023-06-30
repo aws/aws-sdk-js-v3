@@ -68,7 +68,7 @@ export interface DescribeInferenceExperimentCommandOutput
  * //   EndpointMetadata: { // EndpointMetadata
  * //     EndpointName: "STRING_VALUE", // required
  * //     EndpointConfigName: "STRING_VALUE",
- * //     EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed",
+ * //     EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed" || "UpdateRollbackFailed",
  * //     FailureReason: "STRING_VALUE",
  * //   },
  * //   ModelVariants: [ // ModelVariantConfigSummaryList // required

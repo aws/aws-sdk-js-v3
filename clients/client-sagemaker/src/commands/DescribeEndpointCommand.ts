@@ -92,7 +92,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //     DestinationS3Uri: "STRING_VALUE", // required
  * //     KmsKeyId: "STRING_VALUE", // required
  * //   },
- * //   EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed", // required
+ * //   EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed" || "UpdateRollbackFailed", // required
  * //   FailureReason: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   LastModifiedTime: new Date("TIMESTAMP"), // required
@@ -119,6 +119,18 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           AlarmName: "STRING_VALUE",
  * //         },
  * //       ],
+ * //     },
+ * //     RollingUpdatePolicy: { // RollingUpdatePolicy
+ * //       MaximumBatchSize: {
+ * //         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ * //         Value: Number("int"), // required
+ * //       },
+ * //       WaitIntervalInSeconds: Number("int"), // required
+ * //       MaximumExecutionTimeoutInSeconds: Number("int"),
+ * //       RollbackMaximumBatchSize: {
+ * //         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ * //         Value: Number("int"), // required
+ * //       },
  * //     },
  * //   },
  * //   AsyncInferenceConfig: { // AsyncInferenceConfig

@@ -50,6 +50,10 @@ import {
   DesiredWeightAndCapacity,
   Device,
   DomainSettingsForUpdate,
+  Endpoint,
+  Experiment,
+  FeatureGroup,
+  FeatureMetadata,
   FeatureParameter,
   Filter,
   ResourceType,
@@ -59,17 +63,111 @@ import {
 } from "./models_2";
 import {
   GitConfigForUpdate,
+  HyperParameterTuningJobSearchEntity,
   InferenceExperimentStopDesiredState,
+  ModelCard,
+  ModelCardFilterSensitiveLog,
+  ModelDashboardModel,
+  ModelPackage,
+  ModelPackageGroup,
   ModelVariantAction,
   NestedFilters,
   OnlineStoreConfigUpdate,
   Parameter,
+  Pipeline,
+  PipelineExecution,
   ProfilerConfigForUpdate,
+  Project,
   ResourceConfigForUpdate,
-  SearchRecord,
-  SearchRecordFilterSensitiveLog,
   SearchSortOrder,
+  TrainingJob,
+  Trial,
+  TrialComponent,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>A single resource returned as part of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API response.</p>
+ */
+export interface SearchRecord {
+  /**
+   * <p>The properties of a training job.</p>
+   */
+  TrainingJob?: TrainingJob;
+
+  /**
+   * <p>The properties of an experiment.</p>
+   */
+  Experiment?: Experiment;
+
+  /**
+   * <p>The properties of a trial.</p>
+   */
+  Trial?: Trial;
+
+  /**
+   * <p>The properties of a trial component.</p>
+   */
+  TrialComponent?: TrialComponent;
+
+  /**
+   * <p>A hosted endpoint for real-time inference.</p>
+   */
+  Endpoint?: Endpoint;
+
+  /**
+   * <p>A versioned model that can be deployed for SageMaker inference.</p>
+   */
+  ModelPackage?: ModelPackage;
+
+  /**
+   * <p>A group of versioned models in the model registry.</p>
+   */
+  ModelPackageGroup?: ModelPackageGroup;
+
+  /**
+   * <p>A SageMaker Model Building Pipeline instance.</p>
+   */
+  Pipeline?: Pipeline;
+
+  /**
+   * <p>An execution of a pipeline.</p>
+   */
+  PipelineExecution?: PipelineExecution;
+
+  /**
+   * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group.
+   *          A Feature Group can be visualized as a table which has rows,
+   *          with a unique identifier for each row where each column in the table is a feature.
+   *          In principle, a Feature Group is composed of features and values per features.</p>
+   */
+  FeatureGroup?: FeatureGroup;
+
+  /**
+   * <p>The properties of a project.</p>
+   */
+  Project?: Project;
+
+  /**
+   * <p>The feature metadata used to search through the features.</p>
+   */
+  FeatureMetadata?: FeatureMetadata;
+
+  /**
+   * <p>The properties of a hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJob?: HyperParameterTuningJobSearchEntity;
+
+  /**
+   * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
+   */
+  Model?: ModelDashboardModel;
+
+  /**
+   * <p>An Amazon SageMaker Model Card that documents details about a machine learning model.</p>
+   */
+  ModelCard?: ModelCard;
+}
 
 /**
  * @public
@@ -2070,6 +2168,15 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const SearchRecordFilterSensitiveLog = (obj: SearchRecord): any => ({
+  ...obj,
+  ...(obj.TrialComponent && { TrialComponent: obj.TrialComponent }),
+  ...(obj.ModelCard && { ModelCard: ModelCardFilterSensitiveLog(obj.ModelCard) }),
+});
 
 /**
  * @internal

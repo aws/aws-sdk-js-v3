@@ -1043,7 +1043,6 @@ import {
   DeleteHubContentRequest,
   DeleteHubRequest,
   DeleteHumanTaskUiRequest,
-  DeleteImageRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1162,6 +1161,7 @@ import {
   ResourceLimits,
   RetentionPolicy,
   RetryStrategy,
+  RollingUpdatePolicy,
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
   S3StorageConfig,
@@ -1189,6 +1189,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteImageRequest,
   DeleteImageVersionRequest,
   DeleteInferenceExperimentRequest,
   DeleteModelBiasJobDefinitionRequest,
@@ -1379,7 +1380,6 @@ import {
   SecondaryStatusTransition,
   SelectedStep,
   SelectiveExecutionConfig,
-  SuggestionQuery,
   TrialComponentMetricSummary,
   Workforce,
   Workteam,
@@ -1584,9 +1584,9 @@ import {
   RenderUiTemplateRequest,
   ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
-  SearchRecord,
   SpaceDetails,
   StudioLifecycleConfigDetails,
+  SuggestionQuery,
   TrainingJob,
   TrainingJobSummary,
   TransformJob,
@@ -1601,6 +1601,7 @@ import {
 } from "../models/models_3";
 import {
   SearchExpression,
+  SearchRecord,
   SearchRequest,
   SearchResponse,
   SendPipelineExecutionStepFailureRequest,
@@ -21614,6 +21615,8 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
 
 // se_RetryStrategy omitted.
 
+// se_RollingUpdatePolicy omitted.
+
 // se_RSessionAppSettings omitted.
 
 // se_RStudioServerProAppSettings omitted.
@@ -27504,6 +27507,8 @@ const de_RecommendationMetrics = (output: any, context: __SerdeContext): Recomme
 // de_RetryPipelineExecutionResponse omitted.
 
 // de_RetryStrategy omitted.
+
+// de_RollingUpdatePolicy omitted.
 
 // de_RSessionAppSettings omitted.
 

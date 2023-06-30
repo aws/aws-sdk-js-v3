@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteImageRequest } from "../models/models_1";
-import { DeleteImageResponse } from "../models/models_2";
+import { DeleteImageRequest, DeleteImageResponse } from "../models/models_2";
 import { de_DeleteImageCommand, se_DeleteImageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

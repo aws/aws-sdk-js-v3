@@ -53,7 +53,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
  *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
- *   StatusEquals: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed",
+ *   StatusEquals: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed" || "UpdateRollbackFailed",
  * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
@@ -64,7 +64,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  * //       EndpointArn: "STRING_VALUE", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required
- * //       EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed", // required
+ * //       EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed" || "UpdateRollbackFailed", // required
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

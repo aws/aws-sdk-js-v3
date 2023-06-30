@@ -24,6 +24,7 @@ import {
   Bias,
   BlueGreenUpdatePolicy,
   CanvasAppSettings,
+  CapacitySize,
   CaptureContentTypeHeader,
   CaptureOption,
   CaptureStatus,
@@ -600,6 +601,37 @@ export interface CreateEdgePackagingJobRequest {
 
 /**
  * @public
+ * <p>Specifies a rolling deployment strategy for updating a SageMaker endpoint.</p>
+ */
+export interface RollingUpdatePolicy {
+  /**
+   * <p>Batch size for each rolling step to provision capacity and turn on traffic on the new
+   *             endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between
+   *             5% to 50% of the variant's total instance count.</p>
+   */
+  MaximumBatchSize: CapacitySize | undefined;
+
+  /**
+   * <p>The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet.</p>
+   */
+  WaitIntervalInSeconds: number | undefined;
+
+  /**
+   * <p>The time limit for the total deployment. Exceeding this limit causes a timeout.</p>
+   */
+  MaximumExecutionTimeoutInSeconds?: number;
+
+  /**
+   * <p>Batch size for rollback to the old endpoint fleet. Each rolling step to provision
+   *             capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new
+   *             endpoint fleet. If this field is absent, the default value will be set to 100% of total
+   *             capacity which means to bring up the whole capacity of the old fleet at once during rollback.</p>
+   */
+  RollbackMaximumBatchSize?: CapacitySize;
+}
+
+/**
+ * @public
  * <p>The deployment configuration for an endpoint, which contains the desired deployment
  *             strategy and rollback configurations.</p>
  */
@@ -612,13 +644,18 @@ export interface DeploymentConfig {
    *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
    *             by default.</p>
    */
-  BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
+  BlueGreenUpdatePolicy?: BlueGreenUpdatePolicy;
 
   /**
    * <p>Automatic rollback configuration for handling endpoint deployment failures and
    *             recovery.</p>
    */
   AutoRollbackConfiguration?: AutoRollbackConfig;
+
+  /**
+   * <p>Specifies a rolling deployment strategy for updating a SageMaker endpoint.</p>
+   */
+  RollingUpdatePolicy?: RollingUpdatePolicy;
 }
 
 /**
@@ -10753,16 +10790,6 @@ export interface DeleteHumanTaskUiRequest {
  * @public
  */
 export interface DeleteHumanTaskUiResponse {}
-
-/**
- * @public
- */
-export interface DeleteImageRequest {
-  /**
-   * <p>The name of the image to delete.</p>
-   */
-  ImageName: string | undefined;
-}
 
 /**
  * @internal

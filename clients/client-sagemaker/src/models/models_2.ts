@@ -180,6 +180,16 @@ import {
 /**
  * @public
  */
+export interface DeleteImageRequest {
+  /**
+   * <p>The name of the image to delete.</p>
+   */
+  ImageName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteImageResponse {}
 
 /**
@@ -2256,6 +2266,7 @@ export const EndpointStatus = {
   OUT_OF_SERVICE: "OutOfService",
   ROLLING_BACK: "RollingBack",
   SYSTEM_UPDATING: "SystemUpdating",
+  UPDATE_ROLLBACK_FAILED: "UpdateRollbackFailed",
   UPDATING: "Updating",
 } as const;
 
@@ -10092,19 +10103,6 @@ export interface PropertyNameQuery {
    * <p>Text that begins a property's name.</p>
    */
   PropertyNameHint: string | undefined;
-}
-
-/**
- * @public
- * <p>Specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html">GetSearchSuggestions</a> request.
- *       Limits the property names that are included in the response.</p>
- */
-export interface SuggestionQuery {
-  /**
-   * <p>Defines a property name hint. Only property
-   *       names that begin with the specified hint are included in the response.</p>
-   */
-  PropertyNameQuery?: PropertyNameQuery;
 }
 
 /**

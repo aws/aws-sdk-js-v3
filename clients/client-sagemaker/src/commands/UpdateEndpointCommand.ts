@@ -92,6 +92,18 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *         },
  *       ],
  *     },
+ *     RollingUpdatePolicy: { // RollingUpdatePolicy
+ *       MaximumBatchSize: {
+ *         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *       WaitIntervalInSeconds: Number("int"), // required
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *       RollbackMaximumBatchSize: {
+ *         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *     },
  *   },
  *   RetainDeploymentConfig: true || false,
  * };

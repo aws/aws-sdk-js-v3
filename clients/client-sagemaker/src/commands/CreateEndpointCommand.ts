@@ -147,6 +147,18 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *         },
  *       ],
  *     },
+ *     RollingUpdatePolicy: { // RollingUpdatePolicy
+ *       MaximumBatchSize: {
+ *         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *       WaitIntervalInSeconds: Number("int"), // required
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *       RollbackMaximumBatchSize: {
+ *         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
