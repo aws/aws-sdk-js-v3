@@ -63,6 +63,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //       SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
  * //       MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
  * //       MdnResponse: "SYNC" || "NONE",
+ * //       BasicAuthSecretId: "STRING_VALUE",
  * //     },
  * //     AccessRole: "STRING_VALUE",
  * //     LoggingRole: "STRING_VALUE",

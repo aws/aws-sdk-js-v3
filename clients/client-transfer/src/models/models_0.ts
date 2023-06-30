@@ -181,6 +181,35 @@ export interface As2ConnectorConfig {
    *          </ul>
    */
   MdnResponse?: MdnResponse | string;
+
+  /**
+   * <p>Provides Basic authentication support to the AS2 Connectors API. To use Basic authentication,
+   *       you must provide the name or Amazon Resource Name (ARN) of a secret in Secrets Manager.</p>
+   *          <p>The default value for this parameter is <code>null</code>, which indicates that Basic authentication is not enabled for the connector.</p>
+   *          <p>If the connector should use Basic authentication, the secret needs to be in the following format:</p>
+   *          <p>
+   *             <code>\{
+   *       "Username": "user-name",
+   *       "Password": "user-password"
+   *       \}</code>
+   *          </p>
+   *          <p>Replace <code>user-name</code> and <code>user-password</code> with the credentials for the actual user that is being authenticated.</p>
+   *          <p>Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You are storing these credentials in Secrets Manager, <i>not passing them directly</i> into this API.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are using the API, SDKs, or CloudFormation to configure your connector, then you must create the secret before you can enable Basic authentication.
+   *           However, if you are using the Amazon Web Services management console, you can have the system create the secret for you.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you have previously enabled Basic authentication for a connector, you can disable it by using the <code>UpdateConnector</code> API call. For example, if you are using the CLI, you can run the following command to remove Basic authentication:</p>
+   *          <p>
+   *             <code>update-connector --connector-id my-connector-id --as2-config 'BasicAuthSecretId=""'</code>
+   *          </p>
+   */
+  BasicAuthSecretId?: string;
 }
 
 /**
@@ -758,6 +787,10 @@ export interface CreateAgreementRequest {
    *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
    *       access to the parent directory of the files that you intend to send with
    *         <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
    */
   AccessRole: string | undefined;
 
@@ -832,6 +865,10 @@ export interface CreateConnectorRequest {
    *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
    *       access to the parent directory of the files that you intend to send with
    *         <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
    */
   AccessRole: string | undefined;
 
@@ -2446,6 +2483,10 @@ export interface DescribedAgreement {
    *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
    *       access to the parent directory of the files that you intend to send with
    *         <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
    */
   AccessRole?: string;
 
@@ -2612,6 +2653,10 @@ export interface DescribedConnector {
    *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
    *       access to the parent directory of the files that you intend to send with
    *         <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
    */
   AccessRole?: string;
 
@@ -5130,6 +5175,10 @@ export interface UpdateAgreementRequest {
    *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
    *       access to the parent directory of the files that you intend to send with
    *         <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
    */
   AccessRole?: string;
 }
@@ -5209,6 +5258,10 @@ export interface UpdateConnectorRequest {
    *         <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
    *       access to the parent directory of the files that you intend to send with
    *         <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
    */
   AccessRole?: string;
 
