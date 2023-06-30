@@ -1174,7 +1174,7 @@ export interface MxfSettings {
   AfdSignaling?: MxfAfdSignaling | string;
 
   /**
-   * Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
+   * Specify the MXF profile, also called shim, for this output. To automatically select a profile according to your output video codec and resolution, leave blank. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
    */
   Profile?: MxfProfile | string;
 
@@ -4715,7 +4715,7 @@ export interface VideoCodecSettings {
   AvcIntraSettings?: AvcIntraSettings;
 
   /**
-   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec. To passthrough the video stream of your input JPEG2000, VC-3, AVC-INTRA or Apple ProRes  video without any video encoding: Choose Passthrough. If you have multiple input videos, note that they must have identical encoding attributes. When you choose Passthrough, your output container must be MXF or QuickTime MOV.
+   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec. To passthrough the video stream of your input JPEG2000, VC-3, AVC-INTRA or Apple ProRes video without any video encoding: Choose Passthrough. If you have multiple input videos, note that they must have identical encoding attributes. When you choose Passthrough, your output container must be MXF or QuickTime MOV.
    */
   Codec?: VideoCodec | string;
 
@@ -5398,7 +5398,7 @@ export interface VideoPreprocessor {
   DolbyVision?: DolbyVision;
 
   /**
-   * Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.
+   * Enable HDR10+ analysis and metadata injection. Compatible with HEVC only.
    */
   Hdr10Plus?: Hdr10Plus;
 
