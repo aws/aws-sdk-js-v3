@@ -1440,7 +1440,7 @@ export const de_DeleteRecordingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecordingConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_DeleteRecordingConfigurationCommandError(output, context);
   }
   const contents: any = map({
@@ -2301,7 +2301,7 @@ export const de_PutMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMetadataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_PutMetadataCommandError(output, context);
   }
   const contents: any = map({
