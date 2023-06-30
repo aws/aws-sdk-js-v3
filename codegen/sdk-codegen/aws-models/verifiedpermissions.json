@@ -65,7 +65,7 @@
         "boolean": {
           "target": "com.amazonaws.verifiedpermissions#BooleanAttribute",
           "traits": {
-            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#boolean\">Boolean</a>\n            type.</p>\n         <p>Example: <code>{\"boolean\": true}</code>\n         </p>"
+            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#boolean\">Boolean</a> type.</p>\n         <p>Example: <code>{\"boolean\": true}</code>\n         </p>"
           }
         },
         "entityIdentifier": {
@@ -77,25 +77,25 @@
         "long": {
           "target": "com.amazonaws.verifiedpermissions#LongAttribute",
           "traits": {
-            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#long\">Long</a>\n            type.</p>\n         <p>Example: <code>{\"long\": 0}</code>\n         </p>"
+            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#long\">Long</a> type.</p>\n         <p>Example: <code>{\"long\": 0}</code>\n         </p>"
           }
         },
         "string": {
           "target": "com.amazonaws.verifiedpermissions#StringAttribute",
           "traits": {
-            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#string\">String</a>\n            type.</p>\n         <p>Example: <code>{\"string\": \"abc\"}</code>\n         </p>"
+            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#string\">String</a> type.</p>\n         <p>Example: <code>{\"string\": \"abc\"}</code>\n         </p>"
           }
         },
         "set": {
           "target": "com.amazonaws.verifiedpermissions#SetAttribute",
           "traits": {
-            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#set\">Set</a>\n            type.</p>\n         <p>Example: <code>{\"set\": [ {} ] }</code>\n         </p>"
+            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#set\">Set</a> type.</p>\n         <p>Example: <code>{\"set\": [ {} ] }</code>\n         </p>"
           }
         },
         "record": {
           "target": "com.amazonaws.verifiedpermissions#RecordAttribute",
           "traits": {
-            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#record\">Record</a>\n            type.</p>\n         <p>Example: <code>{\"record\": { \"keyName\": {} } }</code>\n         </p>"
+            "smithy.api#documentation": "<p>An attribute value of <a href=\"https://docs.cedarpolicy.com/syntax-datatypes.html#record\">Record</a> type.</p>\n         <p>Example: <code>{\"record\": { \"keyName\": {} } }</code>\n         </p>"
           }
         }
       },
@@ -242,7 +242,7 @@
         "clientToken": {
           "target": "com.amazonaws.verifiedpermissions#IdempotencyToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_Id\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
+            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -335,7 +335,7 @@
         "clientToken": {
           "target": "com.amazonaws.verifiedpermissions#IdempotencyToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_Id\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
+            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -438,7 +438,7 @@
         "clientToken": {
           "target": "com.amazonaws.verifiedpermissions#IdempotencyToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_Id\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
+            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -518,7 +518,7 @@
         "clientToken": {
           "target": "com.amazonaws.verifiedpermissions#IdempotencyToken",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_Id\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
+            "smithy.api#documentation": "<p>Specifies a unique, case-sensitive ID that you provide to\n             ensure the idempotency of the request. This lets you safely retry the request without\n             accidentally performing the same operation a second time. Passing the same value to a\n             later call to an operation requires that you also pass the same value for all other \n             parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of \n             value.</a>.</p>\n         <p>If you don't provide this value, then Amazon Web Services generates a random one for\n             you.</p>\n         <p>If you retry the operation with the same <code>ClientToken</code>, but with \n             different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>\n             error.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -963,7 +963,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains a description of an evaluation error.</p>\n         <p>This data type is used as a request parameter in the <a href=\"https://docs.aws.amazon.com/amazon-verified-permissions/latest/APIReference/API_IsAuthorized.html\">IsAuthorized</a> and <a href=\"https://docs.aws.amazon.com/amazon-verified-permissions/latest/APIReference/API_IsAuthorizedWithToken.html\">IsAuthorizedWithToken</a> operations.</p>"
+        "smithy.api#documentation": "<p>Contains a description of an evaluation error.</p>\n         <p>This data type is used as a request parameter in the <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html\">IsAuthorized</a> and <a href=\"https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html\">IsAuthorizedWithToken</a> operations.</p>"
       }
     },
     "com.amazonaws.verifiedpermissions#EvaluationErrorList": {
@@ -4019,8 +4019,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -4032,8 +4032,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -4045,8 +4045,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -4058,8 +4058,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -4071,8 +4071,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -4084,8 +4084,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -4097,8 +4097,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -4110,8 +4110,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -4121,8 +4121,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4134,8 +4134,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4145,8 +4145,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4158,8 +4158,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -4171,8 +4171,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -4184,8 +4184,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -4197,8 +4197,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -4210,8 +4210,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -4221,8 +4221,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4234,8 +4234,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4245,8 +4245,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-isob-east-1",
-                "UseDualStack": true
+                "UseDualStack": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4258,8 +4258,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-isob-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -4271,8 +4271,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -4283,8 +4283,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -4295,8 +4295,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
