@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.364.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.363.0...v3.364.0) (2023-06-30)
+
+
+### Features
+
+* **client-ivs:** Corrects the HTTP response code in the generated docs for PutMetadata and DeleteRecordingConfiguration APIs. ([769af88](https://github.com/aws/aws-sdk-js-v3/commit/769af884fcbc80e0aa06934a2c5fb13638f01f48))
+
+
+
+
+
 # [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
 
 

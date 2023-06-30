@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.364.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.363.0...v3.364.0) (2023-06-30)
+
+
+### Bug Fixes
+
+* **codegen:** remove deprecated packages from sdkVersions.properties ([#4898](https://github.com/aws/aws-sdk-js-v3/issues/4898)) ([d7299d5](https://github.com/aws/aws-sdk-js-v3/commit/d7299d5a44f4396cbdbc3cfb2207640f8625fdd1))
+* **service-error-classification:** remove AbortError from transient errors ([#4895](https://github.com/aws/aws-sdk-js-v3/issues/4895)) ([a812fc8](https://github.com/aws/aws-sdk-js-v3/commit/a812fc84ab807503bf1e381e3c58d9b932853903))
+
+
+### Features
+
+* **client-amp:** AWS SDK service model  generation tool version upgrade. ([28dce7f](https://github.com/aws/aws-sdk-js-v3/commit/28dce7ff35c227480887d3f5605f6164abe764a4))
+* **client-ecs:** Added new field  "credentialspecs" to the ecs task definition to support gMSA of windows/linux in both domainless and domain-joined mode ([c8b9b67](https://github.com/aws/aws-sdk-js-v3/commit/c8b9b67cbb686398606aa1fb9966cc707787035b))
+* **client-ivs:** Corrects the HTTP response code in the generated docs for PutMetadata and DeleteRecordingConfiguration APIs. ([769af88](https://github.com/aws/aws-sdk-js-v3/commit/769af884fcbc80e0aa06934a2c5fb13638f01f48))
+* **client-sagemaker:** This release adds support for rolling deployment in SageMaker Inference. ([83d2ff0](https://github.com/aws/aws-sdk-js-v3/commit/83d2ff0897ae0bc07d3000f82580b7e4bd94b94d))
+* **client-transfer:** Add outbound Basic authentication support to AS2 connectors ([c8d90ed](https://github.com/aws/aws-sdk-js-v3/commit/c8d90ed796278f13b200b4c77627382a8808db11))
+
+
+
+
+
 # [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
 
 

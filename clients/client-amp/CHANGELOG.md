@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.364.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.363.0...v3.364.0) (2023-06-30)
+
+
+### Features
+
+* **client-amp:** AWS SDK service model  generation tool version upgrade. ([28dce7f](https://github.com/aws/aws-sdk-js-v3/commit/28dce7ff35c227480887d3f5605f6164abe764a4))
+
+
+
+
+
 # [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
 
 
