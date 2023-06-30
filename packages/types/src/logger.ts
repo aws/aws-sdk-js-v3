@@ -1,3 +1,6 @@
+import { Logger } from "@smithy/types";
+export { Logger } from "@smithy/types";
+
 /**
  * @public
  *
@@ -18,18 +21,4 @@ export type LogLevel = "all" | "trace" | "debug" | "log" | "info" | "warn" | "er
 export interface LoggerOptions {
   logger?: Logger;
   logLevel?: LogLevel;
-}
-
-/**
- * @public
- *
- * Represents a logger object that is available in HandlerExecutionContext
- * throughout the middleware stack.
- */
-export interface Logger {
-  trace?: (...content: any[]) => void;
-  debug: (...content: any[]) => void;
-  info: (...content: any[]) => void;
-  warn: (...content: any[]) => void;
-  error: (...content: any[]) => void;
 }
