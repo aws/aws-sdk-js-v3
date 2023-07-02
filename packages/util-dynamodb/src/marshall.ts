@@ -35,11 +35,11 @@ export function marshall(data: string, options?: marshallOptions): AttributeValu
 export function marshall(data: number, options?: marshallOptions): AttributeValue.NMember;
 export function marshall(data: null, options?: marshallOptions): AttributeValue.NULLMember;
 export function marshall(data: boolean, options?: marshallOptions): AttributeValue.BOOLMember;
-export function marshall<L extends NativeAttributeValue[]>(data: L, options?: marshallOptions): AttributeValue[];
-export function marshall<M extends { [K in keyof M]: NativeAttributeValue }>(
+export function marshall<M extends { [K in keyof M]: NativeAttributeValue } & Record<keyof any, unknown>>(
   data: M,
   options?: marshallOptions
 ): Record<string, AttributeValue>;
+export function marshall<L extends NativeAttributeValue[]>(data: L, options?: marshallOptions): AttributeValue[];
 export function marshall(data: NativeAttributeBinary, options?: marshallOptions): AttributeValue.BMember;
 export function marshall(data: unknown, options?: marshallOptions): AttributeValue.$UnknownMember;
 export function marshall(data: unknown, options?: marshallOptions) {
