@@ -66,6 +66,10 @@ import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/Json
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
@@ -85,6 +89,7 @@ export type ServiceInputTypes =
   | JsonUnionsCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
+  | PutWithContentEncodingCommandInput
   | SimpleScalarPropertiesCommandInput;
 
 /**
@@ -99,6 +104,7 @@ export type ServiceOutputTypes =
   | JsonUnionsCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput
+  | PutWithContentEncodingCommandOutput
   | SimpleScalarPropertiesCommandOutput;
 
 /**

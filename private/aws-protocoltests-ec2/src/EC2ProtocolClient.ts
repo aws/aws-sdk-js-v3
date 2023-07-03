@@ -71,6 +71,10 @@ import {
 import { NestedStructuresCommandInput, NestedStructuresCommandOutput } from "./commands/NestedStructuresCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
@@ -108,6 +112,7 @@ export type ServiceInputTypes =
   | IgnoresWrappingXmlNameCommandInput
   | NestedStructuresCommandInput
   | NoInputAndOutputCommandInput
+  | PutWithContentEncodingCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
   | QueryListsCommandInput
   | QueryTimestampsCommandInput
@@ -137,6 +142,7 @@ export type ServiceOutputTypes =
   | IgnoresWrappingXmlNameCommandOutput
   | NestedStructuresCommandOutput
   | NoInputAndOutputCommandOutput
+  | PutWithContentEncodingCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
   | QueryListsCommandOutput
   | QueryTimestampsCommandOutput

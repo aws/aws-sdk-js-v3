@@ -84,6 +84,10 @@ import {
   PutAndGetInlineDocumentsCommandOutput,
 } from "./commands/PutAndGetInlineDocumentsCommand";
 import {
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
@@ -108,6 +112,7 @@ export type ServiceInputTypes =
   | NullOperationCommandInput
   | OperationWithOptionalInputOutputCommandInput
   | PutAndGetInlineDocumentsCommandInput
+  | PutWithContentEncodingCommandInput
   | SimpleScalarPropertiesCommandInput;
 
 /**
@@ -127,6 +132,7 @@ export type ServiceOutputTypes =
   | NullOperationCommandOutput
   | OperationWithOptionalInputOutputCommandOutput
   | PutAndGetInlineDocumentsCommandOutput
+  | PutWithContentEncodingCommandOutput
   | SimpleScalarPropertiesCommandOutput;
 
 /**

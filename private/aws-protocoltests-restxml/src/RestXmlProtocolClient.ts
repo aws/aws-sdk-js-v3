@@ -153,6 +153,10 @@ import {
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import {
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
@@ -231,6 +235,7 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersClientCommandInput
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
+  | PutWithContentEncodingCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
   | QueryParamsAsStringListMapCommandInput
   | QueryPrecedenceCommandInput
@@ -292,6 +297,7 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersClientCommandOutput
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
+  | PutWithContentEncodingCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
   | QueryParamsAsStringListMapCommandOutput
   | QueryPrecedenceCommandOutput

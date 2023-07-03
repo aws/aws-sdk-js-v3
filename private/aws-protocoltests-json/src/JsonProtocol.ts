@@ -60,6 +60,11 @@ import {
   PutAndGetInlineDocumentsCommandOutput,
 } from "./commands/PutAndGetInlineDocumentsCommand";
 import {
+  PutWithContentEncodingCommand,
+  PutWithContentEncodingCommandInput,
+  PutWithContentEncodingCommandOutput,
+} from "./commands/PutWithContentEncodingCommand";
+import {
   SimpleScalarPropertiesCommand,
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
@@ -80,6 +85,7 @@ const commands = {
   NullOperationCommand,
   OperationWithOptionalInputOutputCommand,
   PutAndGetInlineDocumentsCommand,
+  PutWithContentEncodingCommand,
   SimpleScalarPropertiesCommand,
 };
 
@@ -279,6 +285,23 @@ export interface JsonProtocol {
     args: PutAndGetInlineDocumentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAndGetInlineDocumentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutWithContentEncodingCommand}
+   */
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWithContentEncodingCommandOutput>;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
+  ): void;
+  putWithContentEncoding(
+    args: PutWithContentEncodingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
   /**

@@ -276,6 +276,10 @@ import {
   PostUnionWithJsonNameServerOutput,
 } from "../server/operations/PostUnionWithJsonName";
 import {
+  PutWithContentEncodingServerInput,
+  PutWithContentEncodingServerOutput,
+} from "../server/operations/PutWithContentEncoding";
+import {
   QueryIdempotencyTokenAutoFillServerInput,
   QueryIdempotencyTokenAutoFillServerOutput,
 } from "../server/operations/QueryIdempotencyTokenAutoFill";
@@ -3083,6 +3087,37 @@ export const deserializePostUnionWithJsonNameRequest = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     value: (_) => de_UnionWithJsonName(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+export const deserializePutWithContentEncodingRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    encoding: [, output.headers["content-encoding"]],
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    data: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6398,6 +6433,40 @@ export const serializePostUnionWithJsonNameResponse = async (
       value: (_) => se_UnionWithJsonName(_, context),
     })
   );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializePutWithContentEncodingResponse = async (
+  input: PutWithContentEncodingServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {});
+  let body: any;
   if (
     body &&
     Object.keys(headers)

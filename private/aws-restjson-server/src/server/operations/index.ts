@@ -75,6 +75,7 @@ export * from "./OmitsNullSerializesEmptyString";
 export * from "./OmitsSerializingEmptyLists";
 export * from "./PostPlayerAction";
 export * from "./PostUnionWithJsonName";
+export * from "./PutWithContentEncoding";
 export * from "./QueryIdempotencyTokenAutoFill";
 export * from "./QueryParamsAsStringListMap";
 export * from "./QueryPrecedence";

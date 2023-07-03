@@ -43,6 +43,7 @@ import {
   FooUnion,
   GreetingStruct,
   IntegerEnum,
+  MissingKeyStructure,
   PatternUnion,
   PatternUnionOverride,
   RecursiveUnionOne,
@@ -460,6 +461,7 @@ export const deserializeMalformedUniqueItemsRequest = async (
     shortList: (_) => de_ShortSet(_, context),
     stringList: (_) => de_StringSet(_, context),
     structureList: (_) => de_StructureSet(_, context),
+    structureListWithNoKey: (_) => de_StructureSetWithNoKey(_, context),
     timestampList: (_) => de_TimestampSet(_, context),
     unionList: (_) => de_UnionSet(_, context),
   });
@@ -1146,6 +1148,15 @@ const de_LengthMap = (output: any, context: __SerdeContext): Record<string, stri
 };
 
 /**
+ * deserializeAws_restJson1MissingKeyStructure
+ */
+const de_MissingKeyStructure = (output: any, context: __SerdeContext): MissingKeyStructure => {
+  return take(output, {
+    hi: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1PatternList
  */
 const de_PatternList = (output: any, context: __SerdeContext): string[] => {
@@ -1255,6 +1266,21 @@ const de_RecursiveUnionTwo = (output: any, context: __SerdeContext): RecursiveUn
     };
   }
   return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1StructureSetWithNoKey
+ */
+const de_StructureSetWithNoKey = (output: any, context: __SerdeContext): MissingKeyStructure[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      throw new TypeError(
+        'All elements of the non-sparse list "aws.protocoltests.restjson.validation#StructureSetWithNoKey" must be non-null.'
+      );
+    }
+    return de_MissingKeyStructure(entry, context);
+  });
+  return retVal;
 };
 
 /**

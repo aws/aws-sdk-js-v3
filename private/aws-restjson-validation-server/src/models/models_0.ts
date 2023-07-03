@@ -156,13 +156,13 @@ export namespace EnumUnion {
         switch (member) {
           case "first": {
             memberValidators["first"] = new __CompositeValidator<string>([
-              new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def"]),
+              new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def", "jkl"]),
             ]);
             break;
           }
           case "second": {
             memberValidators["second"] = new __CompositeValidator<string>([
-              new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def"]),
+              new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def", "jkl"]),
             ]);
             break;
           }
@@ -207,7 +207,7 @@ export namespace MalformedEnumInput {
         switch (member) {
           case "string": {
             memberValidators["string"] = new __CompositeValidator<string>([
-              new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def"]),
+              new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def", "jkl"]),
             ]);
             break;
           }
@@ -220,15 +220,21 @@ export namespace MalformedEnumInput {
           case "list": {
             memberValidators["list"] = new __CompositeCollectionValidator<string>(
               new __NoOpValidator(),
-              new __CompositeValidator<string>([new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def", "jkl"]),
+              ])
             );
             break;
           }
           case "map": {
             memberValidators["map"] = new __CompositeMapValidator<EnumString | string>(
               new __NoOpValidator(),
-              new __CompositeValidator<string>([new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def"])]),
-              new __CompositeValidator<string>([new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def", "jkl"]),
+              ]),
+              new __CompositeValidator<string>([
+                new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def", "jkl"]),
+              ])
             );
             break;
           }
@@ -1115,6 +1121,38 @@ export namespace MalformedRequiredInput {
 /**
  * @public
  */
+export interface MissingKeyStructure {
+  hi: string | undefined;
+}
+
+export namespace MissingKeyStructure {
+  const memberValidators: {
+    hi?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: MissingKeyStructure, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "hi": {
+            memberValidators["hi"] = new __CompositeValidator<string>([new __RequiredValidator()]);
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("hi").validate(obj.hi, `${path}/hi`)];
+  };
+}
+
+/**
+ * @public
+ */
 export type FooUnion = FooUnion.IntegerMember | FooUnion.StringMember | FooUnion.$UnknownMember;
 
 /**
@@ -1201,6 +1239,7 @@ export interface MalformedUniqueItemsInput {
   intEnumList?: (IntegerEnum | number)[];
   listList?: string[][];
   structureList?: GreetingStruct[];
+  structureListWithNoKey?: MissingKeyStructure[];
   unionList?: FooUnion[];
 }
 
@@ -1220,6 +1259,7 @@ export namespace MalformedUniqueItemsInput {
     intEnumList?: __MultiConstraintValidator<Iterable<number>>;
     listList?: __MultiConstraintValidator<Iterable<string[]>>;
     structureList?: __MultiConstraintValidator<Iterable<GreetingStruct>>;
+    structureListWithNoKey?: __MultiConstraintValidator<Iterable<MissingKeyStructure>>;
     unionList?: __MultiConstraintValidator<Iterable<FooUnion>>;
   } = {};
   /**
@@ -1331,6 +1371,16 @@ export namespace MalformedUniqueItemsInput {
             );
             break;
           }
+          case "structureListWithNoKey": {
+            memberValidators["structureListWithNoKey"] = new __CompositeCollectionValidator<MissingKeyStructure>(
+              new __CompositeValidator<MissingKeyStructure[]>([new __UniqueItemsValidator()]),
+              new __CompositeStructureValidator<MissingKeyStructure>(
+                new __NoOpValidator(),
+                MissingKeyStructure.validate
+              )
+            );
+            break;
+          }
           case "unionList": {
             memberValidators["unionList"] = new __CompositeCollectionValidator<FooUnion>(
               new __CompositeValidator<FooUnion[]>([new __UniqueItemsValidator()]),
@@ -1357,6 +1407,10 @@ export namespace MalformedUniqueItemsInput {
       ...getMemberValidator("intEnumList").validate(obj.intEnumList, `${path}/intEnumList`),
       ...getMemberValidator("listList").validate(obj.listList, `${path}/listList`),
       ...getMemberValidator("structureList").validate(obj.structureList, `${path}/structureList`),
+      ...getMemberValidator("structureListWithNoKey").validate(
+        obj.structureListWithNoKey,
+        `${path}/structureListWithNoKey`
+      ),
       ...getMemberValidator("unionList").validate(obj.unionList, `${path}/unionList`),
     ];
   };
