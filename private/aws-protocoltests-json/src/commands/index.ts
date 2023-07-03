@@ -12,4 +12,5 @@ export * from "./KitchenSinkOperationCommand";
 export * from "./NullOperationCommand";
 export * from "./OperationWithOptionalInputOutputCommand";
 export * from "./PutAndGetInlineDocumentsCommand";
+export * from "./PutWithContentEncodingCommand";
 export * from "./SimpleScalarPropertiesCommand";

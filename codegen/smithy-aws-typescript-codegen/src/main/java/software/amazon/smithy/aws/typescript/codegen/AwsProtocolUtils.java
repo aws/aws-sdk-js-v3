@@ -364,6 +364,13 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        // TODO: Remove when requestCompression has been implemented.
+        if (testCase.getId().startsWith("SDKAppliedContentEncoding_")
+            || testCase.getId().startsWith("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_")
+            || testCase.getId().startsWith("SDKAppendedGzipAfterProvidedEncoding_")) {
+            return true;
+        }
+
         // TODO: remove when there's a decision on separator to use
         // https://github.com/awslabs/smithy/issues/1014
         if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {

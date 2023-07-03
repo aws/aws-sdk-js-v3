@@ -34,6 +34,7 @@ export * from "./NoInputAndOutputCommand";
 export * from "./NullAndEmptyHeadersClientCommand";
 export * from "./NullAndEmptyHeadersServerCommand";
 export * from "./OmitsNullSerializesEmptyStringCommand";
+export * from "./PutWithContentEncodingCommand";
 export * from "./QueryIdempotencyTokenAutoFillCommand";
 export * from "./QueryParamsAsStringListMapCommand";
 export * from "./QueryPrecedenceCommand";
