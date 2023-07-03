@@ -226,6 +226,10 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //         ephemeralStorage: { // EphemeralStorage
  * //           sizeInGiB: Number("int"), // required
  * //         },
+ * //         runtimePlatform: { // RuntimePlatform
+ * //           operatingSystemFamily: "STRING_VALUE",
+ * //           cpuArchitecture: "STRING_VALUE",
+ * //         },
  * //       },
  * //       nodeDetails: { // NodeDetails
  * //         nodeIndex: Number("int"),
@@ -332,6 +336,10 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //               },
  * //               ephemeralStorage: {
  * //                 sizeInGiB: Number("int"), // required
+ * //               },
+ * //               runtimePlatform: {
+ * //                 operatingSystemFamily: "STRING_VALUE",
+ * //                 cpuArchitecture: "STRING_VALUE",
  * //               },
  * //             },
  * //           },

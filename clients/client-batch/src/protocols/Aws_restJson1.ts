@@ -136,6 +136,7 @@ import {
   PlatformCapability,
   ResourceRequirement,
   RetryStrategy,
+  RuntimePlatform,
   SchedulingPolicyDetail,
   Secret,
   ServerException,
@@ -2276,6 +2277,8 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_RetryStrategy omitted.
 
+// se_RuntimePlatform omitted.
+
 // se_Secret omitted.
 
 // se_SecretList omitted.
@@ -2503,6 +2506,8 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 // de_ResourceRequirements omitted.
 
 // de_RetryStrategy omitted.
+
+// de_RuntimePlatform omitted.
 
 /**
  * deserializeAws_restJson1SchedulingPolicyDetail

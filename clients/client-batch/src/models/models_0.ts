@@ -468,8 +468,11 @@ export interface ComputeResource {
   allocationStrategy?: CRAllocationStrategy | string;
 
   /**
-   * <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if the compute
-   *    environment is <code>DISABLED</code>).</p>
+   * <p>The minimum number of
+   *     vCPUs that
+   *    a
+   *    compute
+   *    environment should maintain (even if the compute environment is <code>DISABLED</code>).</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -477,7 +480,10 @@ export interface ComputeResource {
   minvCpus?: number;
 
   /**
-   * <p>The maximum number of Amazon EC2 vCPUs that a compute environment can reach.</p>
+   * <p>The maximum number of
+   *    vCPUs that a
+   *    compute environment can
+   *    support.</p>
    *          <note>
    *             <p>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
    *     allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy
@@ -490,8 +496,10 @@ export interface ComputeResource {
   maxvCpus: number | undefined;
 
   /**
-   * <p>The desired number of Amazon EC2 vCPUS in the compute environment. Batch modifies this value
-   *    between the minimum and maximum values based on job queue demand.</p>
+   * <p>The desired number of
+   *     vCPUS in the
+   *    compute environment. Batch modifies this value between the minimum and maximum values based on
+   *    job queue demand.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -2006,6 +2014,52 @@ export interface ResourceRequirement {
 
 /**
  * @public
+ * <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
+ */
+export interface RuntimePlatform {
+  /**
+   * <p>The operating system for the compute environment.
+   *    Valid values are:
+   *     <code>LINUX</code> (default), <code>WINDOWS_SERVER_2019_CORE</code>,
+   *     <code>WINDOWS_SERVER_2019_FULL</code>, <code>WINDOWS_SERVER_2022_CORE</code>, and
+   *     <code>WINDOWS_SERVER_2022_FULL</code>.</p>
+   *          <note>
+   *             <p>The following parameters can’t be set for Windows containers: <code>linuxParameters</code>,
+   *      <code>privileged</code>, <code>user</code>, <code>ulimits</code>,
+   *      <code>readonlyRootFilesystem</code>,
+   *     and <code>efsVolumeConfiguration</code>.</p>
+   *          </note>
+   *          <note>
+   *             <p>The Batch Scheduler checks before registering a task definition with Fargate. If the job
+   *     requires a Windows container and the first compute environment is <code>LINUX</code>, the
+   *     compute environment is skipped and the next is checked until a Windows-based compute environment
+   *     is found.</p>
+   *          </note>
+   *          <note>
+   *             <p>Fargate Spot is not supported for Windows-based containers on Fargate. A job
+   *     queue will be blocked if a Fargate Windows job is submitted to a job queue with only Fargate
+   *     Spot compute environments.
+   *     However, you can attach both <code>FARGATE</code> and <code>FARGATE_SPOT</code>
+   *   compute environments to the same job
+   *     queue.</p>
+   *          </note>
+   */
+  operatingSystemFamily?: string;
+
+  /**
+   * <p>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are <code>X86_64</code> and
+   *   <code> ARM64</code>.</p>
+   *          <note>
+   *             <p>This parameter must be set to
+   *     <code>X86_64</code>
+   *     for Windows containers.</p>
+   *          </note>
+   */
+  cpuArchitecture?: string;
+}
+
+/**
+ * @public
  * <p>The <code>ulimit</code> settings to pass to the container.</p>
  *          <note>
  *             <p>This object isn't applicable to jobs that are running on Fargate resources.</p>
@@ -2424,6 +2478,11 @@ export interface ContainerProperties {
    *    Fargate.</p>
    */
   ephemeralStorage?: EphemeralStorage;
+
+  /**
+   * <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
+   */
+  runtimePlatform?: RuntimePlatform;
 }
 
 /**
@@ -3535,6 +3594,11 @@ export interface ContainerDetail {
    *    Fargate.</p>
    */
   ephemeralStorage?: EphemeralStorage;
+
+  /**
+   * <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
+   */
+  runtimePlatform?: RuntimePlatform;
 }
 
 /**
@@ -4526,6 +4590,8 @@ export interface RegisterJobDefinitionResponse {
 /**
  * @public
  * <p>The overrides that should be sent to a container.</p>
+ *          <p>For information about using Batch overrides when you connect event sources to targets, see
+ *    <a href="https://docs.aws.amazon.com/eventbridge/latest/pipes-reference/API_BatchContainerOverrides.html">BatchContainerOverrides</a>.</p>
  */
 export interface ContainerOverrides {
   /**
@@ -4563,6 +4629,9 @@ export interface ContainerOverrides {
   /**
    * <p>The command to send to the container that overrides the default command from the Docker
    *    image or the job definition.</p>
+   *          <note>
+   *             <p>This parameter can't contain an empty string.</p>
+   *          </note>
    */
   command?: string[];
 
@@ -4740,8 +4809,11 @@ export interface SubmitJobRequest {
   jobQueue: string | undefined;
 
   /**
-   * <p>The share identifier for the job. If the job queue doesn't have a scheduling policy, then this parameter must
-   *    not be specified. If the job queue has a scheduling policy, then this parameter must be specified.</p>
+   * <p>The share identifier for the job. Don't specify this parameter if the job queue doesn't
+   *       have a scheduling policy. If the job queue has a scheduling policy, then this parameter must
+   *       be specified.</p>
+   *          <p>This string is limited to 255 alphanumeric characters, and can be followed by an asterisk
+   *       (*).</p>
    */
   shareIdentifier?: string;
 
@@ -4957,8 +5029,9 @@ export type CRUpdateAllocationStrategy = (typeof CRUpdateAllocationStrategy)[key
  */
 export interface ComputeResourceUpdate {
   /**
-   * <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if the compute
-   *    environment is <code>DISABLED</code>).</p>
+   * <p>The minimum number of
+   *    vCPUs that
+   *    an environment should maintain (even if the compute environment is <code>DISABLED</code>).</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -4979,8 +5052,10 @@ export interface ComputeResourceUpdate {
   maxvCpus?: number;
 
   /**
-   * <p>The desired number of Amazon EC2 vCPUS in the compute environment. Batch modifies this value
-   *    between the minimum and maximum values based on job queue demand.</p>
+   * <p>The desired number of
+   *    vCPUS in the
+   *    compute environment. Batch modifies this value between the minimum and maximum values based on
+   *    job queue demand.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>

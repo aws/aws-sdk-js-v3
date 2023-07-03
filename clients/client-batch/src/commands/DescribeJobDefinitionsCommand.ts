@@ -186,6 +186,10 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //         ephemeralStorage: { // EphemeralStorage
  * //           sizeInGiB: Number("int"), // required
  * //         },
+ * //         runtimePlatform: { // RuntimePlatform
+ * //           operatingSystemFamily: "STRING_VALUE",
+ * //           cpuArchitecture: "STRING_VALUE",
+ * //         },
  * //       },
  * //       timeout: { // JobTimeout
  * //         attemptDurationSeconds: Number("int"),
@@ -291,6 +295,10 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //               },
  * //               ephemeralStorage: {
  * //                 sizeInGiB: Number("int"), // required
+ * //               },
+ * //               runtimePlatform: {
+ * //                 operatingSystemFamily: "STRING_VALUE",
+ * //                 cpuArchitecture: "STRING_VALUE",
  * //               },
  * //             },
  * //           },

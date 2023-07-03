@@ -158,6 +158,10 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *     ephemeralStorage: { // EphemeralStorage
  *       sizeInGiB: Number("int"), // required
  *     },
+ *     runtimePlatform: { // RuntimePlatform
+ *       operatingSystemFamily: "STRING_VALUE",
+ *       cpuArchitecture: "STRING_VALUE",
+ *     },
  *   },
  *   nodeProperties: { // NodeProperties
  *     numNodes: Number("int"), // required
@@ -260,6 +264,10 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *           },
  *           ephemeralStorage: {
  *             sizeInGiB: Number("int"), // required
+ *           },
+ *           runtimePlatform: {
+ *             operatingSystemFamily: "STRING_VALUE",
+ *             cpuArchitecture: "STRING_VALUE",
  *           },
  *         },
  *       },
