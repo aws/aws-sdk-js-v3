@@ -6,7 +6,7 @@
   "hideGenerator": true,
   "skipErrorChecking": true,
   "excludeInternal": true,
-  "plugin": ["@aws-sdk/core-theme-documentation-generator", "@aws-sdk/service-client-documentation-generator"],
+  "plugin": ["@aws-sdk/core-theme-documentation-generator", "@smithy/service-client-documentation-generator"],
   "theme": "sdk",
   "categorizeByGroup": true,
   "categoryOrder": ["Clients", "Commands", "Paginators", "Waiters"],
