@@ -17,9 +17,11 @@ yargs(process.argv.slice(2))
   .alias("h", "help").argv;
 
 const workspaces = getWorkspaces(process.cwd());
-const tasks = workspaces.map(({ workspacesDir, workspaceName }) => async () => {
-  await downlevelWorkspace(workspacesDir, workspaceName);
-});
+const tasks = workspaces
+  .filter(({ workspacesDir }) => workspacesDir !== "private")
+  .map(({ workspacesDir, workspaceName }) => async () => {
+    await downlevelWorkspace(workspacesDir, workspaceName);
+  });
 
 parallelLimit(tasks, cpus().length, function (err) {
   if (err) {
