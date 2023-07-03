@@ -31,16 +31,16 @@ export interface marshallOptions {
 export function marshall(data: Set<string>, options?: marshallOptions): AttributeValue.SSMember;
 export function marshall(data: Set<number>, options?: marshallOptions): AttributeValue.NSMember;
 export function marshall(data: Set<NativeAttributeBinary>, options?: marshallOptions): AttributeValue.BSMember;
-export function marshall(data: string, options?: marshallOptions): AttributeValue.SMember;
-export function marshall(data: number, options?: marshallOptions): AttributeValue.NMember;
-export function marshall(data: null, options?: marshallOptions): AttributeValue.NULLMember;
-export function marshall(data: boolean, options?: marshallOptions): AttributeValue.BOOLMember;
-export function marshall<L extends NativeAttributeValue[]>(data: L, options?: marshallOptions): AttributeValue[];
 export function marshall<M extends { [K in keyof M]: NativeAttributeValue }>(
   data: M,
   options?: marshallOptions
 ): Record<string, AttributeValue>;
+export function marshall<L extends NativeAttributeValue[]>(data: L, options?: marshallOptions): AttributeValue[];
+export function marshall(data: string, options?: marshallOptions): AttributeValue.SMember;
+export function marshall(data: number, options?: marshallOptions): AttributeValue.NMember;
 export function marshall(data: NativeAttributeBinary, options?: marshallOptions): AttributeValue.BMember;
+export function marshall(data: null, options?: marshallOptions): AttributeValue.NULLMember;
+export function marshall(data: boolean, options?: marshallOptions): AttributeValue.BOOLMember;
 export function marshall(data: unknown, options?: marshallOptions): AttributeValue.$UnknownMember;
 export function marshall(data: unknown, options?: marshallOptions) {
   const attributeValue: AttributeValue = convertToAttr(data, options);
