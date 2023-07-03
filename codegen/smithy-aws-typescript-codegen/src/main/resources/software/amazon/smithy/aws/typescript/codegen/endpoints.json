@@ -2187,6 +2187,14 @@
               "deprecated": true,
               "hostname": "athena-fips.us-west-2.amazonaws.com"
             },
+            "me-central-1": {
+              "variants": [
+                {
+                  "hostname": "athena.me-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "me-south-1": {
               "variants": [
                 {
@@ -2406,9 +2414,32 @@
         },
         "backupstorage": {
           "endpoints": {
+            "af-south-1": {},
+            "ap-east-1": {},
+            "ap-northeast-1": {},
+            "ap-northeast-2": {},
+            "ap-northeast-3": {},
+            "ap-south-1": {},
+            "ap-south-2": {},
+            "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "ap-southeast-3": {},
+            "ap-southeast-4": {},
+            "ca-central-1": {},
+            "eu-central-1": {},
+            "eu-central-2": {},
+            "eu-north-1": {},
+            "eu-south-1": {},
+            "eu-south-2": {},
             "eu-west-1": {},
+            "eu-west-2": {},
+            "eu-west-3": {},
+            "me-central-1": {},
+            "me-south-1": {},
+            "sa-east-1": {},
             "us-east-1": {},
             "us-east-2": {},
+            "us-west-1": {},
             "us-west-2": {}
           }
         },
@@ -15867,25 +15898,6 @@
                 }
               ]
             },
-            "servicediscovery": {
-              "credentialScope": {
-                "region": "ca-central-1"
-              },
-              "deprecated": true,
-              "variants": [
-                {
-                  "hostname": "servicediscovery-fips.ca-central-1.amazonaws.com",
-                  "tags": ["fips"]
-                }
-              ]
-            },
-            "servicediscovery-fips": {
-              "credentialScope": {
-                "region": "ca-central-1"
-              },
-              "deprecated": true,
-              "hostname": "servicediscovery-fips.ca-central-1.amazonaws.com"
-            },
             "us-east-1": {
               "variants": [
                 {
@@ -16845,6 +16857,82 @@
             }
           }
         },
+        "ssm-contacts": {
+          "endpoints": {
+            "ap-northeast-1": {},
+            "ap-northeast-2": {},
+            "ap-south-1": {},
+            "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "ca-central-1": {},
+            "eu-central-1": {},
+            "eu-north-1": {},
+            "eu-west-1": {},
+            "eu-west-2": {},
+            "eu-west-3": {},
+            "fips-us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "deprecated": true,
+              "hostname": "ssm-contacts-fips.us-east-1.amazonaws.com"
+            },
+            "fips-us-east-2": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "deprecated": true,
+              "hostname": "ssm-contacts-fips.us-east-2.amazonaws.com"
+            },
+            "fips-us-west-1": {
+              "credentialScope": {
+                "region": "us-west-1"
+              },
+              "deprecated": true,
+              "hostname": "ssm-contacts-fips.us-west-1.amazonaws.com"
+            },
+            "fips-us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "deprecated": true,
+              "hostname": "ssm-contacts-fips.us-west-2.amazonaws.com"
+            },
+            "sa-east-1": {},
+            "us-east-1": {
+              "variants": [
+                {
+                  "hostname": "ssm-contacts-fips.us-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-east-2": {
+              "variants": [
+                {
+                  "hostname": "ssm-contacts-fips.us-east-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-1": {
+              "variants": [
+                {
+                  "hostname": "ssm-contacts-fips.us-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-2": {
+              "variants": [
+                {
+                  "hostname": "ssm-contacts-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            }
+          }
+        },
         "ssm-incidents": {
           "endpoints": {
             "ap-northeast-1": {},
@@ -17110,13 +17198,6 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
-            "fips": {
-              "credentialScope": {
-                "region": "ca-central-1"
-              },
-              "deprecated": true,
-              "hostname": "storagegateway-fips.ca-central-1.amazonaws.com"
-            },
             "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
@@ -19681,6 +19762,12 @@
             "cn-northwest-1": {}
           }
         },
+        "backupstorage": {
+          "endpoints": {
+            "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
         "batch": {
           "endpoints": {
             "cn-north-1": {},
@@ -21422,6 +21509,12 @@
           }
         },
         "backup-gateway": {
+          "endpoints": {
+            "us-gov-east-1": {},
+            "us-gov-west-1": {}
+          }
+        },
+        "backupstorage": {
           "endpoints": {
             "us-gov-east-1": {},
             "us-gov-west-1": {}
