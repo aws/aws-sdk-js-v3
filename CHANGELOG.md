@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.365.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.364.0...v3.365.0) (2023-07-03)
+
+
+### Bug Fixes
+
+* **aws-middleware-test:** add tsconfig files from aws-client-api-test ([#4911](https://github.com/aws/aws-sdk-js-v3/issues/4911)) ([acb7753](https://github.com/aws/aws-sdk-js-v3/commit/acb7753655d2d0dec6383d79fe4b34cc65ffd5e8))
+* **aws-middleware-test:** skip all build steps ([#4917](https://github.com/aws/aws-sdk-js-v3/issues/4917)) ([b97df31](https://github.com/aws/aws-sdk-js-v3/commit/b97df31b8f02ee73e94feaccf5b0baec5c028bae))
+* **scripts:** skip downleveling of packages in private folder ([#4914](https://github.com/aws/aws-sdk-js-v3/issues/4914)) ([93a194f](https://github.com/aws/aws-sdk-js-v3/commit/93a194f0bc1f3f4c89abb6bf9a5b3d557330835e))
+* **util-dynamodb:** revert reorder of marshall function overload signatures ([#4909](https://github.com/aws/aws-sdk-js-v3/issues/4909)) ([e136ef5](https://github.com/aws/aws-sdk-js-v3/commit/e136ef523bea85d9c002ab50d9294ad56f642f31))
+
+
+### Features
+
+* **client-batch:** This feature allows customers to use AWS Batch with Linux with ARM64 CPU Architecture and X86_64 CPU Architecture with Windows OS on Fargate Platform. ([40de6f0](https://github.com/aws/aws-sdk-js-v3/commit/40de6f01dac541443cccc000003ef88880a3062e))
+* **client-sagemaker:** SageMaker Inference Recommender now accepts new fields SupportedEndpointType and ServerlessConfiguration to support serverless endpoints. ([7994c9d](https://github.com/aws/aws-sdk-js-v3/commit/7994c9d86ffe413039289edbe3fc7e3113d56526))
+* **clients:** update client endpoints as of 2023-07-03 ([ad6e856](https://github.com/aws/aws-sdk-js-v3/commit/ad6e856b8a909d4462fcbaeed0c54d7e6f83a32d))
+* **codegen:** bump codegen version to 0.16.0 ([#4899](https://github.com/aws/aws-sdk-js-v3/issues/4899)) ([07b4e99](https://github.com/aws/aws-sdk-js-v3/commit/07b4e99c3d803620737ec6c43bad0820f328f8c6))
+
+
+
+
+
 # [3.364.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.363.0...v3.364.0) (2023-06-30)
 
 

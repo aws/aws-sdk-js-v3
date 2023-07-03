@@ -45,7 +45,7 @@
 |@aws-sdk/credential-provider-web-identity|3.357.0|28.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-providers|3.362.0|80.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/fetch-http-handler|3.353.0|27.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/lib-dynamodb|3.362.0|155.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/lib-dynamodb|3.363.0|155.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/lib-storage|3.362.0|53.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/node-http-handler|3.357.0|70.9 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.362.0|23.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
