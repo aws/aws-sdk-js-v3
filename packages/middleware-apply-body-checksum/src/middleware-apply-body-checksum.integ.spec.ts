@@ -1,6 +1,6 @@
 import { S3Control } from "@aws-sdk/client-s3-control";
 
-import { requireRequestsFrom } from "../../aws-util-test/src";
+import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-apply-body-checksum", () => {
   describe(S3Control.name, () => {

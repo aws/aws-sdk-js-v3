@@ -17,10 +17,7 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/client-s3": "*",
-    "@aws-sdk/util-retry": "*",
-    "@smithy/protocol-http": "*",
-    "@smithy/types": "*",
+    "@aws-sdk/client-xray": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -60,6 +57,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "private/aws-client-retry-test"
+    "directory": "private/aws-client-api-test"
   }
 }

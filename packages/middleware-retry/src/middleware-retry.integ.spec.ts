@@ -1,6 +1,6 @@
 import { Lambda } from "@aws-sdk/client-lambda";
 
-import { requireRequestsFrom } from "../../aws-util-test/src";
+import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-retry", () => {
   describe(Lambda.name, () => {

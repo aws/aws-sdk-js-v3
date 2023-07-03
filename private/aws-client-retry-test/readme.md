@@ -1,4 +1,4 @@
-# @aws-sdk/aws-client-retry-test
+# @aws-sdk/aws-client-api-test
 
 This is not a runtime or published package.
 
