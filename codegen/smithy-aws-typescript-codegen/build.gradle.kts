@@ -42,7 +42,7 @@ dependencies {
     api("software.amazon.smithy:smithy-protocol-test-traits:$smithyVersion")
     api("software.amazon.smithy:smithy-model:$smithyVersion")
     api("software.amazon.smithy:smithy-rules-engine:$smithyVersion")
-    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.16.0")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.17.0")
 }
 
 tasks.register("set-aws-sdk-versions") {
