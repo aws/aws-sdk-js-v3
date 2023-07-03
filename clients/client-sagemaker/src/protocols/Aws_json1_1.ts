@@ -1374,7 +1374,6 @@ import {
   ProductionVariantStatus,
   ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
-  PropertyNameQuery,
   RecommendationMetrics,
   RStudioServerProDomainSettingsForUpdate,
   SecondaryStatusTransition,
@@ -1575,6 +1574,7 @@ import {
   ProfilerConfigForUpdate,
   Project,
   ProjectSummary,
+  PropertyNameQuery,
   PutModelPackageGroupPolicyInput,
   QueryFilters,
   QueryLineageRequest,
@@ -1592,7 +1592,6 @@ import {
   TransformJob,
   TransformJobSummary,
   Trial,
-  TrialComponent,
   TrialComponentSimpleSummary,
   TrialComponentSourceDetail,
   TrialComponentSummary,
@@ -1626,6 +1625,7 @@ import {
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
+  TrialComponent,
   UpdateActionRequest,
   UpdateAppImageConfigRequest,
   UpdateArtifactRequest,
@@ -27473,6 +27473,7 @@ const de_RecommendationMetrics = (output: any, context: __SerdeContext): Recomme
     MaxInvocations: __expectInt32,
     MemoryUtilization: __limitedParseFloat32,
     ModelLatency: __expectInt32,
+    ModelSetupTime: __expectInt32,
   }) as any;
 };
 

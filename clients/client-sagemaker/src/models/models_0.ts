@@ -5902,6 +5902,11 @@ export namespace AutoMLProblemTypeConfig {
   /**
    * <p>Settings used to configure an AutoML job V2 for a time-series forecasting problem
    *          type.</p>
+   *          <note>
+   *             <p>The <code>TimeSeriesForecastingJobConfig</code> problem type is only available in
+   *             private beta. Contact Amazon Web Services Support or your account manager to learn more
+   *             about access privileges.</p>
+   *          </note>
    */
   export interface TimeSeriesForecastingJobConfigMember {
     ImageClassificationJobConfig?: never;

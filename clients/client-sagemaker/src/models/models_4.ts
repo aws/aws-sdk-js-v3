@@ -9,9 +9,11 @@ import {
   DefaultSpaceSettings,
   EdgeOutputConfig,
   KernelGatewayImageConfig,
+  MetadataProperties,
   ModelApprovalStatus,
   OutputParameter,
   Tag,
+  UserContext,
 } from "./models_0";
 import {
   _InstanceType,
@@ -58,6 +60,8 @@ import {
   Filter,
   ResourceType,
   SelectiveExecutionConfig,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
   Workforce,
   Workteam,
 } from "./models_2";
@@ -74,6 +78,7 @@ import {
   NestedFilters,
   OnlineStoreConfigUpdate,
   Parameter,
+  Parent,
   Pipeline,
   PipelineExecution,
   ProfilerConfigForUpdate,
@@ -82,8 +87,123 @@ import {
   SearchSortOrder,
   TrainingJob,
   Trial,
-  TrialComponent,
+  TrialComponentSourceDetail,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>The properties of a trial component as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
+ *       API.</p>
+ */
+export interface TrialComponent {
+  /**
+   * <p>The name of the trial component.</p>
+   */
+  TrialComponentName?: string;
+
+  /**
+   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified,
+   *         <code>TrialComponentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   */
+  TrialComponentArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) and job type of the source of the component.</p>
+   */
+  Source?: TrialComponentSource;
+
+  /**
+   * <p>The status of the trial component.</p>
+   */
+  Status?: TrialComponentStatus;
+
+  /**
+   * <p>When the component started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>When the component ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>When the component was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Who created the trial component.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>When the component was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The hyperparameters of the component.</p>
+   */
+  Parameters?: Record<string, TrialComponentParameterValue>;
+
+  /**
+   * <p>The input artifacts of the component.</p>
+   */
+  InputArtifacts?: Record<string, TrialComponentArtifact>;
+
+  /**
+   * <p>The output artifacts of the component.</p>
+   */
+  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+
+  /**
+   * <p>The metrics for the component.</p>
+   */
+  Metrics?: TrialComponentMetricSummary[];
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>Details of the source of the component.</p>
+   */
+  SourceDetail?: TrialComponentSourceDetail;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * <p>The list of tags that are associated with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>An array of the parents of the component. A parent is a trial the component is associated
+   *       with and the experiment the trial is part of. A component might not have any parents.</p>
+   */
+  Parents?: Parent[];
+
+  /**
+   * <p>The name of the experiment run.</p>
+   */
+  RunName?: string;
+}
 
 /**
  * @public

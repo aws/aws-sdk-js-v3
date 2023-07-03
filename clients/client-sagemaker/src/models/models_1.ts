@@ -605,9 +605,10 @@ export interface CreateEdgePackagingJobRequest {
  */
 export interface RollingUpdatePolicy {
   /**
-   * <p>Batch size for each rolling step to provision capacity and turn on traffic on the new
-   *             endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between
-   *             5% to 50% of the variant's total instance count.</p>
+   * <p>Specifies the type and size of the endpoint capacity to activate for a blue/green deployment, a rolling deployment, or a rollback strategy.
+   *         You can specify your batches as either instance count or the overall percentage or your fleet.</p>
+   *          <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> to 100%, then SageMaker
+   *         uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
    */
   MaximumBatchSize: CapacitySize | undefined;
 
@@ -622,10 +623,10 @@ export interface RollingUpdatePolicy {
   MaximumExecutionTimeoutInSeconds?: number;
 
   /**
-   * <p>Batch size for rollback to the old endpoint fleet. Each rolling step to provision
-   *             capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new
-   *             endpoint fleet. If this field is absent, the default value will be set to 100% of total
-   *             capacity which means to bring up the whole capacity of the old fleet at once during rollback.</p>
+   * <p>Specifies the type and size of the endpoint capacity to activate for a blue/green deployment, a rolling deployment, or a rollback strategy.
+   *         You can specify your batches as either instance count or the overall percentage or your fleet.</p>
+   *          <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> to 100%, then SageMaker
+   *         uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
    */
   RollbackMaximumBatchSize?: CapacitySize;
 }
@@ -867,6 +868,11 @@ export interface ProductionVariantServerlessConfig {
   /**
    * <p>The amount of provisioned concurrency to allocate for the serverless endpoint.
    *    Should be less than or equal to <code>MaxConcurrency</code>.</p>
+   *          <note>
+   *             <p>This field is not supported for serverless endpoint recommendations for Inference Recommender jobs.
+   *    For more information about creating an Inference Recommender job, see
+   *    <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html">CreateInferenceRecommendationsJobs</a>.</p>
+   *          </note>
    */
   ProvisionedConcurrency?: number;
 }
@@ -3988,6 +3994,21 @@ export interface RecommendationJobPayloadConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const RecommendationJobSupportedEndpointType = {
+  REALTIME: "RealTime",
+  SERVERLESS: "Serverless",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationJobSupportedEndpointType =
+  (typeof RecommendationJobSupportedEndpointType)[keyof typeof RecommendationJobSupportedEndpointType];
+
+/**
+ * @public
  * <p>Specifies mandatory fields for running an Inference Recommender job directly in the
  *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html">CreateInferenceRecommendationsJob</a>
  *          API. The fields specified in <code>ContainerConfig</code> override the corresponding fields in the model package. Use
@@ -4047,6 +4068,13 @@ export interface RecommendationJobContainerConfig {
    *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig">DataInputConfig</a>.</p>
    */
   DataInputConfig?: string;
+
+  /**
+   * <p>The endpoint type to receive recommendations for. By default this is null, and the results of
+   *          the inference recommendation job return a combined list of both real-time and serverless benchmarks.
+   *          By specifying a value for this field, you can receive a longer list of benchmarks for the desired endpoint type.</p>
+   */
+  SupportedEndpointType?: RecommendationJobSupportedEndpointType | string;
 }
 
 /**
@@ -4068,7 +4096,7 @@ export interface EndpointInputConfiguration {
   /**
    * <p>The instance types to use for the load test.</p>
    */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
+  InstanceType?: ProductionVariantInstanceType | string;
 
   /**
    * <p>The inference specification name in the model package version.</p>
@@ -4079,6 +4107,11 @@ export interface EndpointInputConfiguration {
    * <p> The parameter you want to benchmark against.</p>
    */
   EnvironmentParameterRanges?: EnvironmentParameterRanges;
+
+  /**
+   * <p>Specifies the serverless configuration for an endpoint variant.</p>
+   */
+  ServerlessConfig?: ProductionVariantServerlessConfig;
 }
 
 /**
@@ -10785,11 +10818,6 @@ export interface DeleteHumanTaskUiRequest {
    */
   HumanTaskUiName: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteHumanTaskUiResponse {}
 
 /**
  * @internal

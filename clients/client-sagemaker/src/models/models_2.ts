@@ -180,6 +180,11 @@ import {
 /**
  * @public
  */
+export interface DeleteHumanTaskUiResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteImageRequest {
   /**
    * <p>The name of the image to delete.</p>
@@ -4430,12 +4435,17 @@ export interface EndpointOutputConfiguration {
   /**
    * <p>The instance type recommended by Amazon SageMaker Inference Recommender.</p>
    */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
+  InstanceType?: ProductionVariantInstanceType | string;
 
   /**
    * <p>The number of instances recommended to launch initially.</p>
    */
-  InitialInstanceCount: number | undefined;
+  InitialInstanceCount?: number;
+
+  /**
+   * <p>Specifies the serverless configuration for an endpoint variant.</p>
+   */
+  ServerlessConfig?: ProductionVariantServerlessConfig;
 }
 
 /**
@@ -4476,6 +4486,15 @@ export interface RecommendationMetrics {
    *             <code>NaN</code> indicates that the value is not available.</p>
    */
   MemoryUtilization?: number;
+
+  /**
+   * <p>The time it takes to launch new compute resources for a serverless endpoint.
+   *          The time can vary depending on the model size, how long it takes to download the
+   *          model, and the start-up time of the container.</p>
+   *          <p>
+   *             <code>NaN</code> indicates that the value is not available.</p>
+   */
+  ModelSetupTime?: number;
 }
 
 /**
@@ -10092,18 +10111,6 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * <p>Part of the <code>SuggestionQuery</code> type. Specifies a hint for retrieving property
- *       names that begin with the specified text.</p>
- */
-export interface PropertyNameQuery {
-  /**
-   * <p>Text that begins a property's name.</p>
-   */
-  PropertyNameHint: string | undefined;
-}
 
 /**
  * @internal
