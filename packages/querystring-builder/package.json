@@ -20,8 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "*",
-    "@aws-sdk/util-uri-escape": "*",
+    "@smithy/querystring-builder": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "engines": {

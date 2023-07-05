@@ -1,8 +1,1 @@
-/**
- * @internal
- */
-export * from "./EventStreamMarshaller";
-/**
- * @internal
- */
-export * from "./provider";
+export * from "@smithy/eventstream-serde-universal";

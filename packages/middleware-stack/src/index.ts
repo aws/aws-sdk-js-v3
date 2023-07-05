@@ -1,1 +1,1 @@
-export * from "./MiddlewareStack";
+export * from "@smithy/middleware-stack";

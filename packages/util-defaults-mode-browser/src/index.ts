@@ -1,4 +1,1 @@
-/**
- * @internal
- */
-export * from "./resolveDefaultsModeConfig";
+export * from "@smithy/util-defaults-mode-browser";

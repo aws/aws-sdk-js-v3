@@ -11,7 +11,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest --coverage"
+    "test": "exit 0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -23,10 +23,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/abort-controller": "*",
-    "@aws-sdk/protocol-http": "*",
-    "@aws-sdk/querystring-builder": "*",
-    "@aws-sdk/types": "*",
+    "@smithy/node-http-handler": "^1.0.2",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

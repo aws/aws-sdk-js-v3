@@ -1,8 +1,1 @@
-/**
- * @internal
- */
-export * from "./fileStreamHasher";
-/**
- * @internal
- */
-export * from "./readableStreamHasher";
+export * from "@smithy/hash-stream-node";

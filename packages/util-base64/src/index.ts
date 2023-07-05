@@ -1,2 +1,1 @@
-export * from "./fromBase64";
-export * from "./toBase64";
+export * from "@smithy/util-base64";

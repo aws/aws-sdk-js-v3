@@ -14,7 +14,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest --coverage"
+    "test": "exit 0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -22,13 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-codec": "*",
-    "@aws-sdk/is-array-buffer": "*",
-    "@aws-sdk/types": "*",
-    "@aws-sdk/util-hex-encoding": "*",
-    "@aws-sdk/util-middleware": "*",
-    "@aws-sdk/util-uri-escape": "*",
-    "@aws-sdk/util-utf8": "*",
+    "@smithy/signature-v4": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

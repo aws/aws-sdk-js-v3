@@ -10,7 +10,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --passWithNoTests"
+    "test": "exit 0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -22,6 +22,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
+    "@smithy/util-config-provider": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

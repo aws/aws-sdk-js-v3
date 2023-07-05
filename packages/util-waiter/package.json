@@ -3,8 +3,7 @@
   "version": "3.370.0",
   "description": "Shared utilities for client waiters for the AWS SDK",
   "dependencies": {
-    "@aws-sdk/abort-controller": "*",
-    "@aws-sdk/types": "*",
+    "@smithy/util-waiter": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "scripts": {
@@ -15,7 +14,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "exit 0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",

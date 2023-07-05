@@ -1,1 +1,1 @@
-export * from "./booleanSelector";
+export * from "@smithy/util-config-provider";

@@ -1,3 +1,1 @@
-export * from "./deserializerMiddleware";
-export * from "./serdePlugin";
-export * from "./serializerMiddleware";
+export * from "@smithy/middleware-serde";

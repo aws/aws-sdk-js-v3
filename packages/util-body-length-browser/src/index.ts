@@ -1,4 +1,1 @@
-/**
- * @internal
- */
-export * from "./calculateBodyLength";
+export * from "@smithy/util-body-length-browser";

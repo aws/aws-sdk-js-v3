@@ -9,7 +9,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "exit 0"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -19,6 +19,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "dependencies": {
+    "@smithy/service-error-classification": "^1.0.2"
+  },
   "devDependencies": {
     "@aws-sdk/types": "*",
     "@tsconfig/recommended": "1.0.1",

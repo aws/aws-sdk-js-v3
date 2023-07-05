@@ -1,8 +1,1 @@
-/**
- * @internal
- */
-export * from "./getAwsChunkedEncodingStream";
-/**
- * @internal
- */
-export * from "./sdk-stream-mixin";
+export * from "@smithy/util-stream-browser";

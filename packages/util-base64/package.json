@@ -12,7 +12,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "exit 0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -20,7 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-buffer-from": "*",
+    "@smithy/util-base64": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

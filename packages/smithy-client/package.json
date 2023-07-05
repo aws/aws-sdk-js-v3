@@ -10,7 +10,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest --passWithNoTests"
+    "test": "exit 0"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -21,10 +21,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-stack": "*",
-    "@aws-sdk/types": "*",
-    "@aws-sdk/util-stream": "*",
-    "@smithy/types": "^1.1.0",
+    "@smithy/smithy-client": "^1.0.3",
     "tslib": "^2.5.0"
   },
   "engines": {
