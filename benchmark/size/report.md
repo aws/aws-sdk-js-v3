@@ -24,7 +24,7 @@
 |@aws-sdk/client-glue|3.362.0|4.1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-iam|3.362.0|3.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kinesis|3.362.0|741.6 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-kms|3.362.0|1.6 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-kms|3.363.0|1.6 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-lambda|3.362.0|1.6 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-opsworks|3.362.0|1.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-pinpoint|3.362.0|2.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -37,7 +37,7 @@
 |@aws-sdk/client-xray|3.362.0|685.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-provider-cognito-identity|3.362.0|36.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-provider-env|3.357.0|17.3 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-imds|3.354.0|50.4 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-imds|3.357.0|50.4 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-ini|3.362.0|37 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-node|3.362.0|26.6 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-process|3.357.0|21.9 KB|N/A|N/A|N/A|

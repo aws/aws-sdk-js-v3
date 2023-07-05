@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.366.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.365.0...v3.366.0) (2023-07-05)
+
+
+### Bug Fixes
+
+* **packages:** re-export from @smithy/property-provider ([#4925](https://github.com/aws/aws-sdk-js-v3/issues/4925)) ([0708f87](https://github.com/aws/aws-sdk-js-v3/commit/0708f875ede37d21cc8315b0a600faf1e0a4abd7))
+
+
+
+
+
 # [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
 
 **Note:** Version bump only for package @aws-sdk/property-provider

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.366.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.365.0...v3.366.0) (2023-07-05)
+
+
+### Features
+
+* **client-mgn:** This release introduces the Global view feature and new Replication state APIs. ([89f0f5c](https://github.com/aws/aws-sdk-js-v3/commit/89f0f5c7fca2f85983ba6ee62189f74648370dd0))
+
+
+
+
+
 # [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
 
 

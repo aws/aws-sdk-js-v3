@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.366.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.365.0...v3.366.0) (2023-07-05)
+
+
+### Bug Fixes
+
+* **packages:** re-export from @smithy/property-provider ([#4925](https://github.com/aws/aws-sdk-js-v3/issues/4925)) ([0708f87](https://github.com/aws/aws-sdk-js-v3/commit/0708f875ede37d21cc8315b0a600faf1e0a4abd7))
+
+
+### Features
+
+* **client-kms:** Added Dry Run Feature to cryptographic and cross-account mutating KMS APIs (14 in all). This feature allows users to test their permissions and parameters before making the actual API call. ([4bdf266](https://github.com/aws/aws-sdk-js-v3/commit/4bdf26645db6985dc561d57bb8bcc59b06e7d460))
+* **client-mgn:** This release introduces the Global view feature and new Replication state APIs. ([89f0f5c](https://github.com/aws/aws-sdk-js-v3/commit/89f0f5c7fca2f85983ba6ee62189f74648370dd0))
+
+
+
+
+
 # [3.365.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.364.0...v3.365.0) (2023-07-03)
 
 
