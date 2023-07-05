@@ -76,11 +76,14 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             the type of key material in the KMS key. Then, use the <code>KeyUsage</code> parameter
  *             to determine whether the KMS key will be used to encrypt and decrypt or sign and verify.
  *             You can't change these properties after the KMS key is created.</p>
- *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an SM2 key pair (China Regions only). The private key in an asymmetric
- *             KMS key never leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to download the public key
- *             so it can be used outside of KMS. KMS keys with RSA or SM2 key pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
- *             KMS keys with ECC key pairs can be used only to sign and verify messages.
- *             For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an
+ *             SM2 key pair (China Regions only). The private key in an asymmetric KMS key never leaves
+ *             KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to
+ *             download the public key so it can be used outside of KMS. KMS keys with RSA or SM2 key
+ *             pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
+ *             KMS keys with ECC key pairs can be used only to sign and verify messages. For
+ *             information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the
+ *             <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
  *             </dd>
  *             <dt>HMAC KMS key</dt>
@@ -117,8 +120,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                <p>To import your own key material into a KMS key, begin by creating a KMS key with no
  *             key material. To do this, use the <code>Origin</code> parameter of
  *               <code>CreateKey</code> with a value of <code>EXTERNAL</code>. Next, use <a>GetParametersForImport</a> operation to get a public key and import token. Use
- *             the wrapping public key to encrypt your key material. Then, use <a>ImportKeyMaterial</a> with your import token to import the key material. For step-by-step instructions, see
- *               <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>
+ *             the wrapping public key to encrypt your key material. Then, use <a>ImportKeyMaterial</a> with your import token to import the key material. For
+ *             step-by-step instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>
  *                      <i>Key Management Service Developer Guide</i>
  *                   </i>.</p>
  *                <p>You can import key material into KMS keys of all supported KMS key types: symmetric
@@ -160,9 +163,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *               <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The CloudHSM
  *             cluster that is associated with the custom key store must have at least two active HSMs
  *             in different Availability Zones in the Amazon Web Services Region.</p>
- *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key store</a>, use the <code>Origin</code> parameter
- *             with a value of <code>EXTERNAL_KEY_STORE</code> and an <code>XksKeyId</code> parameter
- *             that identifies an existing external key.</p>
+ *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key store</a>, use the
+ *               <code>Origin</code> parameter with a value of <code>EXTERNAL_KEY_STORE</code> and an
+ *               <code>XksKeyId</code> parameter that identifies an existing external key.</p>
  *                <note>
  *                   <p>Some external key managers provide a simpler method for creating a KMS key in an
  *               external key store. For details, see your external key manager documentation.</p>
@@ -393,9 +396,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *       and decryption.</p>
  *
  * @throws {@link XksKeyNotFoundException} (client fault)
- *  <p>The request was rejected because the external key store proxy could not find the external key. This
- *       exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't identify a
- *       key in the external key manager associated with the external key proxy.</p>
+ *  <p>The request was rejected because the external key store proxy could not find the external
+ *       key. This exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't
+ *       identify a key in the external key manager associated with the external key proxy.</p>
  *          <p>Verify that the <code>XksKeyId</code> represents an existing key in the external key
  *       manager. Use the key identifier that the external key store proxy uses to identify the key.
  *       For details, see the documentation provided with your external key store proxy or key

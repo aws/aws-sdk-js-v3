@@ -44,8 +44,9 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *       KMS key in a custom key store for a cryptographic operation, the cryptographic operation is
  *       actually performed in your key store using your keys. KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>
  *       backed by an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">CloudHSM cluster</a>
- *       and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key stores</a> backed by an external key store proxy and
- *       external key manager outside of Amazon Web Services.</p>
+ *       and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key
+ *         stores</a> backed by an external key store proxy and external key manager outside of
+ *       Amazon Web Services.</p>
  *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * key store that you own and manage.</p>
@@ -81,9 +82,9 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *             <p>Some external key managers provide a simpler method for creating an external key store.
  *         For details, see your external key manager documentation.</p>
  *             <p>When creating an external key store in the KMS console, you can upload a JSON-based
- *         proxy configuration file with the desired values. You cannot use a proxy configuration
- *         with the <code>CreateCustomKeyStore</code> operation. However, you can use the values in
- *         the file to help you determine the correct values for the <code>CreateCustomKeyStore</code>
+ *         proxy configuration file with the desired values. You cannot use a proxy configuration with
+ *         the <code>CreateCustomKeyStore</code> operation. However, you can use the values in the file
+ *         to help you determine the correct values for the <code>CreateCustomKeyStore</code>
  *         parameters.</p>
  *          </note>
  *          <p>When the operation completes successfully, it returns the ID of the new custom key store.
@@ -266,8 +267,9 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @throws {@link XksProxyUriUnreachableException} (client fault)
  *  <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
  *       reachable before you create the external key store or update its settings.</p>
- *          <p>This exception is also thrown when the external key store proxy response to a <code>GetHealthStatus</code>
- *       request indicates that all external key manager instances are unavailable.</p>
+ *          <p>This exception is also thrown when the external key store proxy response to a
+ *         <code>GetHealthStatus</code> request indicates that all external key manager instances are
+ *       unavailable.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceInUseException} (client fault)
  *  <p>The request was rejected because the specified Amazon VPC endpoint service is already
@@ -277,7 +279,8 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @throws {@link XksProxyVpcEndpointServiceInvalidConfigurationException} (client fault)
  *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
  *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
+ *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceNotFoundException} (client fault)

@@ -121,8 +121,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: Yes.
- *       To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Encrypt</a> (key policy)</p>
@@ -162,6 +161,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *     "STRING_VALUE",
  *   ],
  *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ *   DryRun: true || false,
  * };
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
@@ -185,6 +185,11 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *
  * @throws {@link DisabledException} (client fault)
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>
@@ -232,7 +237,9 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

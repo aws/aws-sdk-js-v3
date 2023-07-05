@@ -96,7 +96,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter to provide the
  *       attestation document for the enclave. Instead of the plaintext data, the response includes the
  *       plaintext data encrypted with the public key from the attestation document
- *       (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
+ *         (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -150,6 +150,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
  *     AttestationDocument: "BLOB_VALUE",
  *   },
+ *   DryRun: true || false,
  * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);
@@ -174,6 +175,11 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *
  * @throws {@link DisabledException} (client fault)
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
  *
  * @throws {@link IncorrectKeyException} (client fault)
  *  <p>The request was rejected because the specified KMS key cannot decrypt the data. The
@@ -235,7 +241,9 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

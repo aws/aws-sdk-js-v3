@@ -92,6 +92,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *   GrantToken: "STRING_VALUE",
  *   KeyId: "STRING_VALUE",
  *   GrantId: "STRING_VALUE",
+ *   DryRun: true || false,
  * };
  * const command = new RetireGrantCommand(input);
  * const response = await client.send(command);
@@ -108,6 +109,11 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link DependencyTimeoutException} (server fault)
  *  <p>The system timed out while trying to fulfill the request. You can retry the
  *       request.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
  *
  * @throws {@link InvalidArnException} (client fault)
  *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
@@ -137,7 +143,9 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

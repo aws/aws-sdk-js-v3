@@ -53,8 +53,7 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *          <p>Each time you import key material into KMS, you can determine whether
  *         (<code>ExpirationModel</code>) and when (<code>ValidTo</code>) the key material expires. To
  *       change the expiration of your key material, you must import it again, either by calling
- *       <code>ImportKeyMaterial</code> or using the <a href="kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-import-key-material-console">import features</a> of the
- *       KMS console.</p>
+ *         <code>ImportKeyMaterial</code> or using the <a href="kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-import-key-material-console">import features</a> of the KMS console.</p>
  *          <p>Before calling <code>ImportKeyMaterial</code>:</p>
  *          <ul>
  *             <li>
@@ -210,7 +209,9 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

@@ -153,6 +153,7 @@ import {
   DisableKeyRequest,
   DisableKeyRotationRequest,
   DisconnectCustomKeyStoreRequest,
+  DryRunOperationException,
   EnableKeyRequest,
   EnableKeyRotationRequest,
   EncryptRequest,
@@ -1200,6 +1201,9 @@ const de_CreateGrantCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
       throw await de_InvalidArnExceptionRes(parsedOutput, context);
@@ -1349,6 +1353,9 @@ const de_DecryptCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "IncorrectKeyException":
     case "com.amazonaws.kms#IncorrectKeyException":
       throw await de_IncorrectKeyExceptionRes(parsedOutput, context);
@@ -1981,6 +1988,9 @@ const de_EncryptCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -2048,6 +2058,9 @@ const de_GenerateDataKeyCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -2115,6 +2128,9 @@ const de_GenerateDataKeyPairCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -2185,6 +2201,9 @@ const de_GenerateDataKeyPairWithoutPlaintextCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -2255,6 +2274,9 @@ const de_GenerateDataKeyWithoutPlaintextCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -2319,6 +2341,9 @@ const de_GenerateMacCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -3179,6 +3204,9 @@ const de_ReEncryptCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "IncorrectKeyException":
     case "com.amazonaws.kms#IncorrectKeyException":
       throw await de_IncorrectKeyExceptionRes(parsedOutput, context);
@@ -3319,6 +3347,9 @@ const de_RetireGrantCommandError = async (
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
       throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
       throw await de_InvalidArnExceptionRes(parsedOutput, context);
@@ -3380,6 +3411,9 @@ const de_RevokeGrantCommandError = async (
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
       throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
       throw await de_InvalidArnExceptionRes(parsedOutput, context);
@@ -3496,6 +3530,9 @@ const de_SignCommandError = async (output: __HttpResponse, context: __SerdeConte
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -3935,6 +3972,9 @@ const de_VerifyCommandError = async (output: __HttpResponse, context: __SerdeCon
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -4002,6 +4042,9 @@ const de_VerifyMacCommandError = async (
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
       throw await de_DisabledExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.kms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
       throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
@@ -4216,6 +4259,22 @@ const de_DisabledExceptionRes = async (parsedOutput: any, context: __SerdeContex
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new DisabledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1DryRunOperationExceptionRes
+ */
+const de_DryRunOperationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DryRunOperationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new DryRunOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4775,6 +4834,7 @@ const de_XksProxyVpcEndpointServiceNotFoundExceptionRes = async (
 const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any => {
   return take(input, {
     CiphertextBlob: context.base64Encoder,
+    DryRun: [],
     EncryptionAlgorithm: [],
     EncryptionContext: _json,
     GrantTokens: _json,
@@ -4810,6 +4870,7 @@ const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any 
  */
 const se_EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any => {
   return take(input, {
+    DryRun: [],
     EncryptionAlgorithm: [],
     EncryptionContext: _json,
     GrantTokens: _json,
@@ -4823,6 +4884,7 @@ const se_EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any 
  */
 const se_GenerateDataKeyPairRequest = (input: GenerateDataKeyPairRequest, context: __SerdeContext): any => {
   return take(input, {
+    DryRun: [],
     EncryptionContext: _json,
     GrantTokens: _json,
     KeyId: [],
@@ -4838,6 +4900,7 @@ const se_GenerateDataKeyPairRequest = (input: GenerateDataKeyPairRequest, contex
  */
 const se_GenerateDataKeyRequest = (input: GenerateDataKeyRequest, context: __SerdeContext): any => {
   return take(input, {
+    DryRun: [],
     EncryptionContext: _json,
     GrantTokens: _json,
     KeyId: [],
@@ -4854,6 +4917,7 @@ const se_GenerateDataKeyRequest = (input: GenerateDataKeyRequest, context: __Ser
  */
 const se_GenerateMacRequest = (input: GenerateMacRequest, context: __SerdeContext): any => {
   return take(input, {
+    DryRun: [],
     GrantTokens: _json,
     KeyId: [],
     MacAlgorithm: [],
@@ -4932,6 +4996,7 @@ const se_ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): 
     DestinationEncryptionAlgorithm: [],
     DestinationEncryptionContext: _json,
     DestinationKeyId: [],
+    DryRun: [],
     GrantTokens: _json,
     SourceEncryptionAlgorithm: [],
     SourceEncryptionContext: _json,
@@ -4952,6 +5017,7 @@ const se_ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): 
  */
 const se_SignRequest = (input: SignRequest, context: __SerdeContext): any => {
   return take(input, {
+    DryRun: [],
     GrantTokens: _json,
     KeyId: [],
     Message: context.base64Encoder,
@@ -4983,6 +5049,7 @@ const se_SignRequest = (input: SignRequest, context: __SerdeContext): any => {
  */
 const se_VerifyMacRequest = (input: VerifyMacRequest, context: __SerdeContext): any => {
   return take(input, {
+    DryRun: [],
     GrantTokens: _json,
     KeyId: [],
     Mac: context.base64Encoder,
@@ -4996,6 +5063,7 @@ const se_VerifyMacRequest = (input: VerifyMacRequest, context: __SerdeContext): 
  */
 const se_VerifyRequest = (input: VerifyRequest, context: __SerdeContext): any => {
   return take(input, {
+    DryRun: [],
     GrantTokens: _json,
     KeyId: [],
     Message: context.base64Encoder,
@@ -5137,6 +5205,8 @@ const de_DescribeKeyResponse = (output: any, context: __SerdeContext): DescribeK
 // de_DisabledException omitted.
 
 // de_DisconnectCustomKeyStoreResponse omitted.
+
+// de_DryRunOperationException omitted.
 
 // de_EncryptionAlgorithmSpecList omitted.
 

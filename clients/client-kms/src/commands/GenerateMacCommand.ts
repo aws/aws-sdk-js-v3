@@ -36,8 +36,9 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
 
 /**
  * @public
- * <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS key and a MAC algorithm that the key supports.
- *       HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry standards defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
+ * <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS
+ *       key and a MAC algorithm that the key supports. HMAC KMS keys and the HMAC algorithms that
+ *       KMS uses conform to industry standards defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
  *          <p>You can use value that GenerateMac returns in the <a>VerifyMac</a> operation to
  *       demonstrate that the original message has not changed. Also, because a secret key is used to
  *       create the hash, you can verify that the party that generated the hash has the required secret
@@ -77,6 +78,7 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
+ *   DryRun: true || false,
  * };
  * const command = new GenerateMacCommand(input);
  * const response = await client.send(command);
@@ -96,6 +98,11 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  *
  * @throws {@link DisabledException} (client fault)
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>
@@ -143,7 +150,9 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

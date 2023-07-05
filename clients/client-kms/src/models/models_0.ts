@@ -185,7 +185,9 @@ export class KMSInternalException extends __BaseException {
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  */
@@ -763,8 +765,8 @@ export interface CreateCustomKeyStoreRequest {
    *       communicate with your external key store proxy (XKS proxy). This parameter is required when
    *       the value of <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code> and the value
    *       of <code>XksProxyConnectivity</code> is <code>VPC_ENDPOINT_SERVICE</code>.</p>
-   *          <p>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill all requirements</a> for use with an external key
-   *       store. </p>
+   *          <p>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill all
+   *         requirements</a> for use with an external key store. </p>
    *          <p>
    *             <b>Uniqueness requirements:</b>
    *          </p>
@@ -801,7 +803,8 @@ export interface CreateCustomKeyStoreRequest {
    *          <p>If the external key store proxy uses a public endpoint, specify
    *         <code>PUBLIC_ENDPOINT</code>. If the external key store proxy uses a Amazon VPC
    *       endpoint service for communication with KMS, specify <code>VPC_ENDPOINT_SERVICE</code>. For
-   *       help making this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/plan-xks-keystore.html#choose-xks-connectivity">Choosing a connectivity option</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *       help making this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/plan-xks-keystore.html#choose-xks-connectivity">Choosing a connectivity
+   *         option</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          <p>An Amazon VPC endpoint service keeps your communication with KMS in a private address space
    *       entirely within Amazon Web Services, but it requires more configuration, including establishing a Amazon VPC with multiple subnets, a VPC endpoint service, a network load balancer, and a
    *       verified private DNS name. A public endpoint is simpler to set up, but it might be slower and
@@ -988,8 +991,9 @@ export class XksProxyUriInUseException extends __BaseException {
  * @public
  * <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
  *       reachable before you create the external key store or update its settings.</p>
- *          <p>This exception is also thrown when the external key store proxy response to a <code>GetHealthStatus</code>
- *       request indicates that all external key manager instances are unavailable.</p>
+ *          <p>This exception is also thrown when the external key store proxy response to a
+ *         <code>GetHealthStatus</code> request indicates that all external key manager instances are
+ *       unavailable.</p>
  */
 export class XksProxyUriUnreachableException extends __BaseException {
   readonly name: "XksProxyUriUnreachableException" = "XksProxyUriUnreachableException";
@@ -1033,7 +1037,8 @@ export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
  * @public
  * <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
  *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
+ *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  */
 export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __BaseException {
@@ -1170,8 +1175,8 @@ export interface CreateGrantRequest {
 
   /**
    * <p>The identity that gets the permissions specified in the grant.</p>
-   *          <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an
-   *       Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+   *          <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services
+   *       principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
    *       federated users, and assumed role users. For help with the ARN syntax for a principal, see
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
    *                <i>Identity and Access Management User Guide</i>
@@ -1259,6 +1264,12 @@ export interface CreateGrantRequest {
    *       All grant tokens for the same grant ID can be used interchangeably.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -1296,6 +1307,28 @@ export class DisabledException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DisabledException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
+ */
+export class DryRunOperationException extends __BaseException {
+  readonly name: "DryRunOperationException" = "DryRunOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DryRunOperationException, __BaseException>) {
+    super({
+      name: "DryRunOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DryRunOperationException.prototype);
   }
 }
 
@@ -1456,8 +1489,8 @@ export interface CreateKeyRequest {
   Policy?: string;
 
   /**
-   * <p>A description of the KMS key. Use a description that helps you decide whether the KMS key is appropriate for a task. The
-   *       default value is an empty string (no description).</p>
+   * <p>A description of the KMS key. Use a description that helps you decide whether the KMS key
+   *       is appropriate for a task. The default value is an empty string (no description).</p>
    *          <important>
    *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
    *          </important>
@@ -1488,8 +1521,8 @@ export interface CreateKeyRequest {
    *           <code>SIGN_VERIFY</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For asymmetric KMS keys with SM2 key material (China Regions only), specify <code>ENCRYPT_DECRYPT</code> or
-   *           <code>SIGN_VERIFY</code>.</p>
+   *                <p>For asymmetric KMS keys with SM2 key material (China Regions only), specify
+   *             <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1507,8 +1540,9 @@ export interface CreateKeyRequest {
 
   /**
    * <p>Specifies the type of KMS key to create. The default value,
-   *       <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for encryption and decryption, except in China Regions,
-   *       where it creates a 128-bit symmetric key that uses SM4 encryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i>
+   *       <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for
+   *       encryption and decryption, except in China Regions, where it creates a 128-bit symmetric key
+   *       that uses SM4 encryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>.</p>
    *          <p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an
@@ -1632,9 +1666,10 @@ export interface CreateKeyRequest {
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
    *         Material</a> in the <i>Key Management Service Developer Guide</i>. The <code>EXTERNAL</code> origin value is valid
    *       only for symmetric KMS keys.</p>
-   *          <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">create a KMS key in an CloudHSM key store</a> and create its key
-   *       material in the associated CloudHSM cluster, set this value to <code>AWS_CLOUDHSM</code>. You
-   *       must also use the <code>CustomKeyStoreId</code> parameter to identify the CloudHSM key store. The
+   *          <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">create a KMS
+   *         key in an CloudHSM key store</a> and create its key material in the associated CloudHSM
+   *       cluster, set this value to <code>AWS_CLOUDHSM</code>. You must also use the
+   *         <code>CustomKeyStoreId</code> parameter to identify the CloudHSM key store. The
    *         <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
    *          <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">create a KMS key in
    *         an external key store</a>, set this value to <code>EXTERNAL_KEY_STORE</code>. You must
@@ -1652,8 +1687,8 @@ export interface CreateKeyRequest {
    *       cannot create any other type of KMS key in a custom key store.</p>
    *          <p>When you create a KMS key in an CloudHSM key store, KMS generates a non-exportable 256-bit
    *       symmetric key in its associated CloudHSM cluster and associates it with the KMS key. When you
-   *       create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to specify an
-   *       external key that serves as key material for the KMS key.</p>
+   *       create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to
+   *       specify an external key that serves as key material for the KMS key.</p>
    */
   CustomKeyStoreId?: string;
 
@@ -1893,18 +1928,20 @@ export type SigningAlgorithmSpec = (typeof SigningAlgorithmSpec)[keyof typeof Si
 
 /**
  * @public
- * <p>Information about the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key </a>that is associated with a KMS key in an
- *       external key store. </p>
+ * <p>Information about the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key </a>that is
+ *       associated with a KMS key in an external key store. </p>
  *          <p>This element appears in a <a>CreateKey</a> or <a>DescribeKey</a>
  *       response only for a KMS key in an external key store.</p>
- *          <p>The <i>external key</i> is a symmetric encryption key that is hosted by
- *       an external key manager outside of Amazon Web Services. When you use the KMS key in an external key store
- *       in a cryptographic operation, the cryptographic operation is performed in the
- *       external key manager using the specified external key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>The <i>external key</i> is a symmetric encryption key that is hosted by an
+ *       external key manager outside of Amazon Web Services. When you use the KMS key in an external key store in a
+ *       cryptographic operation, the cryptographic operation is performed in the external key manager
+ *       using the specified external key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
  */
 export interface XksKeyConfigurationType {
   /**
-   * <p>The ID of the external key in its external key manager. This is the ID that the external key store proxy uses to identify the external key.</p>
+   * <p>The ID of the external key in its external key manager. This is the ID that the external
+   *       key store proxy uses to identify the external key.</p>
    */
   Id?: string;
 }
@@ -2100,10 +2137,10 @@ export interface KeyMetadata {
   MacAlgorithms?: (MacAlgorithmSpec | string)[];
 
   /**
-   * <p>Information about the external key that is associated with a KMS key in an
-   *       external key store.</p>
-   *          <p>For more information, see
-   *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * <p>Information about the external key that is associated with a KMS key in an external key
+   *       store.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the
+   *       <i>Key Management Service Developer Guide</i>.</p>
    */
   XksKeyConfiguration?: XksKeyConfigurationType;
 }
@@ -2227,9 +2264,9 @@ export class XksKeyInvalidConfigurationException extends __BaseException {
 
 /**
  * @public
- * <p>The request was rejected because the external key store proxy could not find the external key. This
- *       exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't identify a
- *       key in the external key manager associated with the external key proxy.</p>
+ * <p>The request was rejected because the external key store proxy could not find the external
+ *       key. This exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't
+ *       identify a key in the external key manager associated with the external key proxy.</p>
  *          <p>Verify that the <code>XksKeyId</code> represents an existing key in the external key
  *       manager. Use the key identifier that the external key store proxy uses to identify the key.
  *       For details, see the documentation provided with your external key store proxy or key
@@ -2289,8 +2326,8 @@ export interface XksProxyConfigurationType {
   Connectivity?: XksProxyConnectivityType | string;
 
   /**
-   * <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a>
-   *       that uniquely identifies the secret access key.</p>
+   * <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access
+   *       key.</p>
    */
   AccessKeyId?: string;
 
@@ -2409,10 +2446,10 @@ export interface CustomKeyStoresListEntry {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET</code> — At least one private subnet
-   *           associated with the CloudHSM cluster doesn't have any available IP addresses. A CloudHSM key
-   *           store connection requires one free IP address in each of the associated private subnets,
-   *           although two are preferable. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed">How to Fix a Connection
+   *                   <code>INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET</code> — At least one private
+   *           subnet associated with the CloudHSM cluster doesn't have any available IP addresses. A CloudHSM
+   *           key store connection requires one free IP address in each of the associated private
+   *           subnets, although two are preferable. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed">How to Fix a Connection
    *             Failure</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *             </li>
    *             <li>
@@ -2494,8 +2531,7 @@ export interface CustomKeyStoresListEntry {
    *           external key store proxy because the TLS configuration is invalid. Verify that the XKS
    *           proxy supports TLS 1.2 or 1.3. Also, verify that the TLS certificate is not expired, and
    *           that it matches the hostname in the <code>XksProxyUriEndpoint</code> value, and that it is
-   *           signed by a certificate authority included in the <a href="https://github.com/aws/aws-kms-xksproxy-api-spec/blob/main/TrustedCertificateAuthorities">Trusted Certificate Authorities</a>
-   *           list.</p>
+   *           signed by a certificate authority included in the <a href="https://github.com/aws/aws-kms-xksproxy-api-spec/blob/main/TrustedCertificateAuthorities">Trusted Certificate Authorities</a> list.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2636,14 +2672,15 @@ export type KeyEncryptionMechanism = (typeof KeyEncryptionMechanism)[keyof typeo
  */
 export interface RecipientInfo {
   /**
-   * <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave to encrypt plaintext
-   *       values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
+   * <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro
+   *       Enclave to encrypt plaintext values for the response. The only valid value is
+   *         <code>RSAES_OAEP_SHA_256</code>.</p>
    */
   KeyEncryptionAlgorithm?: KeyEncryptionMechanism | string;
 
   /**
-   * <p>The attestation document for an Amazon Web Services Nitro Enclave. This document includes the enclave's public
-   *       key.</p>
+   * <p>The attestation document for an Amazon Web Services Nitro Enclave. This document includes the enclave's
+   *       public key.</p>
    */
   AttestationDocument?: Uint8Array;
 }
@@ -2720,8 +2757,8 @@ export interface DecryptRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
-   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
    *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
    *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
    *          <p>When you use this parameter, instead of returning the plaintext data, KMS encrypts the
@@ -2732,6 +2769,12 @@ export interface DecryptRequest {
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   Recipient?: RecipientInfo;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -2746,7 +2789,7 @@ export interface DecryptResponse {
   /**
    * <p>Decrypted plaintext data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
-   *       <code>Plaintext</code> field is null or empty.</p>
+   *         <code>Plaintext</code> field is null or empty.</p>
    */
   Plaintext?: Uint8Array;
 
@@ -3227,11 +3270,17 @@ export interface EncryptRequest {
    * <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message.
    *       The algorithm must be compatible with the KMS key that you specify.</p>
    *          <p>This parameter is required only for asymmetric KMS keys. The default value,
-   *         <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are
-   *       using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
+   *         <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If
+   *       you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
    *          <p>The SM2PKE algorithm is only available in China Regions.</p>
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -3346,20 +3395,26 @@ export interface GenerateDataKeyRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
-   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
    *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
    *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
    *          <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts
    *       the plaintext data key under the public key in the attestation document, and returns the
    *       resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This
    *       ciphertext can be decrypted only with the private key in the enclave. The
-   *       <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted
+   *         <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted
    *       under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code>
    *       field in the response is null or empty.</p>
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   Recipient?: RecipientInfo;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -3375,7 +3430,7 @@ export interface GenerateDataKeyResponse {
    * <p>The plaintext data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of
    *       KMS. Then, remove it from memory as soon as possible.</p>
    *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
-   *       <code>Plaintext</code> field is null or empty.</p>
+   *         <code>Plaintext</code> field is null or empty.</p>
    */
   Plaintext?: Uint8Array;
 
@@ -3385,8 +3440,8 @@ export interface GenerateDataKeyResponse {
   KeyId?: string;
 
   /**
-   * <p>The plaintext data key encrypted with the public key from the Nitro enclave. This ciphertext can
-   *       be decrypted only by using a private key in the Nitro enclave. </p>
+   * <p>The plaintext data key encrypted with the public key from the Nitro enclave. This
+   *       ciphertext can be decrypted only by using a private key in the Nitro enclave. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
    *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -3455,20 +3510,26 @@ export interface GenerateDataKeyPairRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
-   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
    *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
    *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
-   *          <p>When you use this parameter, instead of returning a plaintext copy of the private data key, KMS encrypts
-   *       the plaintext private data key under the public key in the attestation document, and returns the
-   *       resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This
-   *       ciphertext can be decrypted only with the private key in the enclave. The
-   *       <code>CiphertextBlob</code> field in the response contains a copy of the private data key encrypted
-   *       under the KMS key specified by the <code>KeyId</code> parameter. The <code>PrivateKeyPlaintext</code>
-   *       field in the response is null or empty.</p>
+   *          <p>When you use this parameter, instead of returning a plaintext copy of the private data
+   *       key, KMS encrypts the plaintext private data key under the public key in the attestation
+   *       document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code>
+   *       field in the response. This ciphertext can be decrypted only with the private key in the
+   *       enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the private
+   *       data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The
+   *         <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p>
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   Recipient?: RecipientInfo;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -3483,7 +3544,7 @@ export interface GenerateDataKeyPairResponse {
   /**
    * <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
-   *       <code>PrivateKeyPlaintext</code> field is null or empty.</p>
+   *         <code>PrivateKeyPlaintext</code> field is null or empty.</p>
    */
   PrivateKeyPlaintext?: Uint8Array;
 
@@ -3503,8 +3564,8 @@ export interface GenerateDataKeyPairResponse {
   KeyPairSpec?: DataKeyPairSpec | string;
 
   /**
-   * <p>The plaintext private data key encrypted with the public key from the Nitro enclave. This ciphertext can
-   *       be decrypted only by using a private key in the Nitro enclave. </p>
+   * <p>The plaintext private data key encrypted with the public key from the Nitro enclave. This
+   *       ciphertext can be decrypted only by using a private key in the Nitro enclave. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
    *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -3570,6 +3631,12 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -3661,6 +3728,12 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -3713,6 +3786,12 @@ export interface GenerateMacRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -3720,8 +3799,8 @@ export interface GenerateMacRequest {
  */
 export interface GenerateMacResponse {
   /**
-   * <p>The hash-based message authentication code (HMAC) that was generated for the
-   *       specified message, HMAC KMS key, and MAC algorithm.</p>
+   * <p>The hash-based message authentication code (HMAC) that was generated for the specified
+   *       message, HMAC KMS key, and MAC algorithm.</p>
    *          <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
    */
   Mac?: Uint8Array;
@@ -3751,14 +3830,14 @@ export interface GenerateRandomRequest {
    *       specified CloudHSM key store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
    *          <p>External key store IDs are not valid for this parameter. If you specify the ID of an
    *       external key store, <code>GenerateRandom</code> throws an
-   *       <code>UnsupportedOperationException</code>.</p>
+   *         <code>UnsupportedOperationException</code>.</p>
    */
   CustomKeyStoreId?: string;
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key.
-   *       The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
    *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
    *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
    *          <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the
@@ -3778,13 +3857,13 @@ export interface GenerateRandomResponse {
   /**
    * <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the
-   *       <code>Plaintext</code> field is null or empty.</p>
+   *         <code>Plaintext</code> field is null or empty.</p>
    */
   Plaintext?: Uint8Array;
 
   /**
-   * <p>The plaintext random bytes encrypted with the public key from the Nitro enclave. This ciphertext can
-   *       be decrypted only by using a private key in the Nitro enclave. </p>
+   * <p>The plaintext random bytes encrypted with the public key from the Nitro enclave. This
+   *       ciphertext can be decrypted only by using a private key in the Nitro enclave. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
    *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -3916,30 +3995,32 @@ export interface GetParametersForImportRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key
-   *           material.</p>
+   *                   <b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for
+   *           wrapping RSA and ECC key material.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p>
+   *                   <b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for
+   *           wrapping RSA and ECC key material.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p>
-   *                <p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap
-   *           ECC_NIST_P521 key material.</p>
+   *                   <b>RSAES_OAEP_SHA_256</b> — Supported for all types
+   *           of key material, except RSA key material (private key).</p>
+   *                <p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping
+   *           key spec to wrap ECC_NIST_P521 key material.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private
-   *           key).</p>
-   *                <p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap
-   *           ECC_NIST_P521 key material.</p>
+   *                   <b>RSAES_OAEP_SHA_1</b> — Supported for all types of
+   *           key material, except RSA key material (private key).</p>
+   *                <p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key
+   *           spec to wrap ECC_NIST_P521 key material.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>RSAES_PKCS1_V1_5</b> (Deprecated) — Supported only for symmetric encryption key
-   *           material (and only in legacy mode).</p>
+   *                   <b>RSAES_PKCS1_V1_5</b> (Deprecated) — Supported only
+   *           for symmetric encryption key material (and only in legacy mode).</p>
    *             </li>
    *          </ul>
    */
@@ -4906,6 +4987,12 @@ export interface ReEncryptRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -5131,6 +5218,12 @@ export interface RetireGrantRequest {
    *          </ul>
    */
   GrantId?: string;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -5162,6 +5255,12 @@ export interface RevokeGrantRequest {
    *         <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p>
    */
   GrantId: string | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -5193,11 +5292,11 @@ export interface ScheduleKeyDeletionRequest {
    *       when the last of its replica keys is deleted. Otherwise, the waiting period begins
    *       immediately.</p>
    *          <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If
-   *       you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-pending-deletion-window">
+   *       you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days">
    *                <code>kms:ScheduleKeyDeletionPendingWindowInDays</code>
-   *             </a>
-   *       condition key to further constrain the values that principals can specify in the
-   *       <code>PendingWindowInDays</code> parameter.</p>
+   *             </a> condition key to further
+   *       constrain the values that principals can specify in the <code>PendingWindowInDays</code>
+   *       parameter.</p>
    */
   PendingWindowInDays?: number;
 }
@@ -5270,29 +5369,31 @@ export interface SignRequest {
   /**
    * <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a
    *       larger message, provide a message digest.</p>
-   *          <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to
-   *     prevent the digest from being hashed again while signing.</p>
+   *          <p>If you provide a message digest, use the <code>DIGEST</code> value of
+   *         <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
    */
   Message: Uint8Array | undefined;
 
   /**
-   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
-   *       as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code>
-   *       for message digests, which are already hashed.</p>
+   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as
+   *       part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
+   *         <code>DIGEST</code> for message digests, which are already hashed.</p>
    *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
-   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips
-   *       the hashing step in the signing algorithm.</p>
+   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
+   *       KMS skips the hashing step in the signing algorithm.</p>
    *          <important>
    *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message,
-   *         the security of the signing operation can be compromised.</p>
+   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
+   *         message, the security of the signing operation can be compromised.</p>
    *          </important>
-   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length
-   *       of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
+   *         <code>Message</code> value must match the length of hashed messages for the specified
+   *       signing algorithm.</p>
    *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
-   *       <code>RAW</code> so the digest is hashed again while signing. However, this can cause verification failures when
-   *       verifying with a system that assumes a single hash.</p>
-   *          <p>The hashing algorithm in that <code>Sign</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
+   *         <code>RAW</code> so the digest is hashed again while signing. However, this can cause
+   *       verification failures when verifying with a system that assumes a single hash.</p>
+   *          <p>The hashing algorithm in that <code>Sign</code> uses is based on the
+   *         <code>SigningAlgorithm</code> value.</p>
    *          <ul>
    *             <li>
    *                <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
@@ -5304,7 +5405,8 @@ export interface SignRequest {
    *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
    *             </li>
    *             <li>
-   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p>
+   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+   *             verification with SM2 key pairs</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -5320,10 +5422,16 @@ export interface SignRequest {
   /**
    * <p>Specifies the signing algorithm to use when signing the message. </p>
    *          <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric
-   *       KMS key.  When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include
+   *       KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include
    *       RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
    */
   SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -5384,8 +5492,8 @@ export interface TagResourceRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null)
-   *       string. </p>
+   * <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an
+   *       empty (null) string. </p>
    *          <important>
    *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
    *          </important>
@@ -5679,8 +5787,8 @@ export interface VerifyRequest {
 
   /**
    * <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes,
-   *       or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter
-   *       with a value of <code>DIGEST</code>.</p>
+   *       or a hash digest of the message. If you submit a digest, use the <code>MessageType</code>
+   *       parameter with a value of <code>DIGEST</code>.</p>
    *          <p>If the message specified here is different from the message that was signed, the signature
    *       verification fails. A message and its hash digest are considered to be the same
    *       message.</p>
@@ -5688,23 +5796,26 @@ export interface VerifyRequest {
   Message: Uint8Array | undefined;
 
   /**
-   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
-   *       as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code>
-   *       for message digests, which are already hashed.</p>
+   * <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as
+   *       part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
+   *         <code>DIGEST</code> for message digests, which are already hashed.</p>
    *          <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
-   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS
-   *       skips the hashing step in the signing algorithm.</p>
+   *       signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
+   *       KMS skips the hashing step in the signing algorithm.</p>
    *          <important>
    *             <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message,
-   *         the security of the verification operation can be compromised.</p>
+   *         parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
+   *         message, the security of the verification operation can be compromised.</p>
    *          </important>
-   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length
-   *     of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+   *          <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
+   *         <code>Message</code> value must match the length of hashed messages for the specified
+   *       signing algorithm.</p>
    *          <p>You can submit a message digest and omit the <code>MessageType</code> or specify
-   *       <code>RAW</code> so the digest is hashed again while signing. However, if the signed message is hashed once
-   *       while signing, but twice while verifying, verification fails, even when the message hasn't changed.</p>
-   *          <p>The hashing algorithm in that <code>Verify</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
+   *         <code>RAW</code> so the digest is hashed again while signing. However, if the signed message
+   *       is hashed once while signing, but twice while verifying, verification fails, even when the
+   *       message hasn't changed.</p>
+   *          <p>The hashing algorithm in that <code>Verify</code> uses is based on the
+   *         <code>SigningAlgorithm</code> value.</p>
    *          <ul>
    *             <li>
    *                <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
@@ -5716,7 +5827,8 @@ export interface VerifyRequest {
    *                <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
    *             </li>
    *             <li>
-   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p>
+   *                <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+   *             verification with SM2 key pairs</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -5739,6 +5851,12 @@ export interface VerifyRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**
@@ -5806,6 +5924,12 @@ export interface VerifyMacRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   */
+  DryRun?: boolean;
 }
 
 /**

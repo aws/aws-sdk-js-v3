@@ -53,9 +53,10 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       the private key in a data key pair. You cannot use an asymmetric KMS key or a KMS key in a
  *       custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
  *          <p>Use the <code>KeyPairSpec</code> parameter to choose an RSA or Elliptic Curve (ECC) data
- *       key pair. In China Regions, you can also choose an SM2 data key pair. KMS recommends that you use
- *       ECC key pairs for signing, and use RSA and SM2 key pairs for either encryption or signing, but not both.
- *       However, KMS cannot enforce any restrictions on the use of data key pairs outside of KMS.</p>
+ *       key pair. In China Regions, you can also choose an SM2 data key pair. KMS recommends that
+ *       you use ECC key pairs for signing, and use RSA and SM2 key pairs for either encryption or
+ *       signing, but not both. However, KMS cannot enforce any restrictions on the use of data key
+ *       pairs outside of KMS.</p>
  *          <p>If you are using the data key pair to encrypt data, or for any operation where you don't
  *       immediately need a private key, consider using the <a>GenerateDataKeyPairWithoutPlaintext</a> operation.
  *         <code>GenerateDataKeyPairWithoutPlaintext</code> returns a plaintext public key and an
@@ -71,13 +72,14 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       key is a DER-encoded PKCS8 PrivateKeyInfo, as specified in <a href="https://tools.ietf.org/html/rfc5958">RFC 5958</a>.</p>
  *          <p>
  *             <code>GenerateDataKeyPair</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
- *       isolated compute environment in Amazon EC2. To call <code>GenerateDataKeyPair</code> for an Amazon Web Services Nitro
- *       enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter
- *       to provide the attestation document for the enclave. <code>GenerateDataKeyPair</code> returns the public data key and a
- *       copy of the private data key encrypted under the specified KMS key, as usual. But instead of a
- *       plaintext copy of the private data key (<code>PrivateKeyPlaintext</code>), the response includes a copy of the private data key encrypted under
- *       the public key from the attestation document (<code>CiphertextForRecipient</code>).
- *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
+ *       isolated compute environment in Amazon EC2. To call <code>GenerateDataKeyPair</code> for an Amazon Web Services
+ *       Nitro enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
+ *       parameter to provide the attestation document for the enclave.
+ *         <code>GenerateDataKeyPair</code> returns the public data key and a copy of the private data
+ *       key encrypted under the specified KMS key, as usual. But instead of a plaintext copy of the
+ *       private data key (<code>PrivateKeyPlaintext</code>), the response includes a copy of the
+ *       private data key encrypted under the public key from the attestation document
+ *         (<code>CiphertextForRecipient</code>). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -139,6 +141,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
  *     AttestationDocument: "BLOB_VALUE",
  *   },
+ *   DryRun: true || false,
  * };
  * const command = new GenerateDataKeyPairCommand(input);
  * const response = await client.send(command);
@@ -165,6 +168,11 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *
  * @throws {@link DisabledException} (client fault)
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>
@@ -212,7 +220,9 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

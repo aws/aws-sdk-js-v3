@@ -42,18 +42,19 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * @public
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
  *       plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
- *       key that you specify. The bytes in the plaintext key are random; they are not related
- *       to the caller or the KMS key. You can use the plaintext key to encrypt your data outside of KMS
- *       and store the encrypted data key with the encrypted data.</p>
+ *       key that you specify. The bytes in the plaintext key are random; they are not related to the
+ *       caller or the KMS key. You can use the plaintext key to encrypt your data outside of KMS and
+ *       store the encrypted data key with the encrypted data.</p>
  *          <p>To generate a data key, specify the symmetric encryption KMS key that will be used to
  *       encrypt the data key. You cannot use an asymmetric KMS key to encrypt data keys. To get the
  *       type of your KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>You must also specify the length of the data key. Use either the <code>KeySpec</code> or
- *       <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
+ *         <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
  *       the <code>KeySpec</code> parameter.</p>
- *          <p>To generate a 128-bit SM4 data key (China Regions only), specify a <code>KeySpec</code> value of
- *       <code>AES_128</code> or a <code>NumberOfBytes</code> value of <code>16</code>. The symmetric
- *       encryption key used in China Regions to encrypt your data key is an SM4 encryption key.</p>
+ *          <p>To generate a 128-bit SM4 data key (China Regions only), specify a <code>KeySpec</code>
+ *       value of <code>AES_128</code> or a <code>NumberOfBytes</code> value of <code>16</code>. The
+ *       symmetric encryption key used in China Regions to encrypt your data key is an SM4 encryption
+ *       key.</p>
  *          <p>To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>. To generate an asymmetric data key pair, use
  *       the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operation. To get a cryptographically secure
  *       random byte string, use <a>GenerateRandom</a>.</p>
@@ -162,6 +163,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
  *     AttestationDocument: "BLOB_VALUE",
  *   },
+ *   DryRun: true || false,
  * };
  * const command = new GenerateDataKeyCommand(input);
  * const response = await client.send(command);
@@ -186,6 +188,11 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *
  * @throws {@link DisabledException} (client fault)
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>
@@ -233,7 +240,9 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

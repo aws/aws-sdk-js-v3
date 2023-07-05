@@ -70,15 +70,14 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       public key from being used with an encryption algorithm that is not supported by KMS. You
  *       can also avoid errors, such as using the wrong signing algorithm in a verification
  *       operation.</p>
- *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you must
- *       specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as the
- *       distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification
- *         with SM2 key pairs</a>.</p>
+ *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you
+ *       must specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as
+ *       the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+ *         verification with SM2 key pairs</a>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>:
- *       Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetPublicKey</a> (key policy)</p>
@@ -178,7 +177,9 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

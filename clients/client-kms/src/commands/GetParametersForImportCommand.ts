@@ -54,8 +54,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *       asymmetric encryption KMS key, or asymmetric signing KMS key. You can also import key material
  *       into a <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of
  *       any supported type. However, you can't import key material into a KMS key in a <a href="kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. You can also use
- *       <code>GetParametersForImport</code> to get a public key and import token to <a href="kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the original key material</a> into a KMS key whose key material expired or was
- *       deleted.</p>
+ *         <code>GetParametersForImport</code> to get a public key and import token to <a href="kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the original key
+ *         material</a> into a KMS key whose key material expired or was deleted.</p>
  *          <p>
  *             <code>GetParametersForImport</code> returns the items that you need to import your key
  *       material.</p>
@@ -66,7 +66,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *           transit to KMS. </p>
  *             </li>
  *             <li>
- *                <p>A import token that ensures that KMS can decrypt your key material and associate it with the correct KMS key.</p>
+ *                <p>A import token that ensures that KMS can decrypt your key material and associate it
+ *           with the correct KMS key.</p>
  *             </li>
  *          </ul>
  *          <p>The public key and its import token are permanently linked and must be used together. Each
@@ -167,7 +168,9 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

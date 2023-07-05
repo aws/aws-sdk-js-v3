@@ -56,9 +56,10 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *       the private key in a data key pair. You cannot use an asymmetric KMS key or a KMS key in a
  *       custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
  *          <p>Use the <code>KeyPairSpec</code> parameter to choose an RSA or Elliptic Curve (ECC) data
- *       key pair. In China Regions, you can also choose an SM2 data key pair. KMS recommends that you
- *       use ECC key pairs for signing, and use RSA and SM2 key pairs for either encryption or signing, but not
- *       both. However, KMS cannot enforce any restrictions on the use of data key pairs outside of KMS.</p>
+ *       key pair. In China Regions, you can also choose an SM2 data key pair. KMS recommends that
+ *       you use ECC key pairs for signing, and use RSA and SM2 key pairs for either encryption or
+ *       signing, but not both. However, KMS cannot enforce any restrictions on the use of data key
+ *       pairs outside of KMS.</p>
  *          <p>
  *             <code>GenerateDataKeyPairWithoutPlaintext</code> returns a unique data key pair for each
  *       request. The bytes in the key are not related to the caller or KMS key that is used to encrypt
@@ -122,6 +123,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
+ *   DryRun: true || false,
  * };
  * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
  * const response = await client.send(command);
@@ -146,6 +148,11 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *
  * @throws {@link DisabledException} (client fault)
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>
+ *       The request was rejected because the DryRun parameter was specified.
+ *     </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>
@@ -193,7 +200,9 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
  *             </li>
  *          </ul>
  *

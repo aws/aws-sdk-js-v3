@@ -300,8 +300,9 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * @throws {@link XksProxyUriUnreachableException} (client fault)
  *  <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
  *       reachable before you create the external key store or update its settings.</p>
- *          <p>This exception is also thrown when the external key store proxy response to a <code>GetHealthStatus</code>
- *       request indicates that all external key manager instances are unavailable.</p>
+ *          <p>This exception is also thrown when the external key store proxy response to a
+ *         <code>GetHealthStatus</code> request indicates that all external key manager instances are
+ *       unavailable.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceInUseException} (client fault)
  *  <p>The request was rejected because the specified Amazon VPC endpoint service is already
@@ -311,7 +312,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * @throws {@link XksProxyVpcEndpointServiceInvalidConfigurationException} (client fault)
  *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
  *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
+ *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceNotFoundException} (client fault)
