@@ -47,6 +47,7 @@ export interface UpdateWaveCommandOutput extends Wave, __MetadataBearer {}
  *   waveID: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new UpdateWaveCommand(input);
  * const response = await client.send(command);

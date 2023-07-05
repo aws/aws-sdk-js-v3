@@ -166,6 +166,11 @@ export interface ArchiveApplicationRequest {
    * <p>Application ID.</p>
    */
   applicationID: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -355,6 +360,11 @@ export interface AssociateSourceServersRequest {
    * <p>Source server IDs list.</p>
    */
   sourceServerIDs: string[] | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -380,6 +390,11 @@ export interface CreateApplicationRequest {
    * <p>Application tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -390,6 +405,11 @@ export interface DeleteApplicationRequest {
    * <p>Application ID.</p>
    */
   applicationID: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -410,6 +430,11 @@ export interface DisassociateSourceServersRequest {
    * <p>Source server IDs list.</p>
    */
   sourceServerIDs: string[] | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -456,6 +481,11 @@ export interface ListApplicationsRequest {
    * <p>Request next token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Applications list Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -481,6 +511,11 @@ export interface UnarchiveApplicationRequest {
    * <p>Application ID.</p>
    */
   applicationID: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -501,6 +536,11 @@ export interface UpdateApplicationRequest {
    * <p>Application description.</p>
    */
   description?: string;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -856,6 +896,11 @@ export interface ImportErrorData {
    * <p>Import error data raw error.</p>
    */
   rawError?: string;
+
+  /**
+   * <p>Import error data source account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -1149,6 +1194,11 @@ export interface DeleteJobRequest {
    * <p>Request to delete Job from service by Job ID.</p>
    */
   jobID: string | undefined;
+
+  /**
+   * <p>Request to delete Job from service by Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -1174,6 +1224,11 @@ export interface DescribeJobLogItemsRequest {
    * <p>Request to describe Job log next token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Request to describe Job log Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -1305,6 +1360,11 @@ export interface DescribeJobsRequest {
    * <p>Request to describe job log items by next token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Request to describe job log items by Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -2287,6 +2347,49 @@ export interface UpdateLaunchConfigurationTemplateRequest {
 
 /**
  * @public
+ * <p>List managed accounts request.</p>
+ */
+export interface ListManagedAccountsRequest {
+  /**
+   * <p>List managed accounts request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List managed accounts request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Managed account.</p>
+ */
+export interface ManagedAccount {
+  /**
+   * <p>Managed account, account ID.</p>
+   */
+  accountId?: string;
+}
+
+/**
+ * @public
+ * <p>List managed accounts response.</p>
+ */
+export interface ListManagedAccountsResponse {
+  /**
+   * <p>List managed accounts response items.</p>
+   */
+  items: ManagedAccount[] | undefined;
+
+  /**
+   * <p>List managed accounts response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -2480,6 +2583,11 @@ export interface CreateReplicationConfigurationTemplateRequest {
   stagingAreaTags: Record<string, string> | undefined;
 
   /**
+   * <p>Request to use Fips Endpoint during Replication Settings template creation.</p>
+   */
+  useFipsEndpoint?: boolean;
+
+  /**
    * <p>Request to configure tags during Replication Settings template creation.</p>
    */
   tags?: Record<string, string>;
@@ -2558,6 +2666,11 @@ export interface ReplicationConfigurationTemplate {
    * <p>Replication Configuration template Staging Area Tags.</p>
    */
   stagingAreaTags?: Record<string, string>;
+
+  /**
+   * <p>Replication Configuration template use Fips Endpoint.</p>
+   */
+  useFipsEndpoint?: boolean;
 
   /**
    * <p>Replication Configuration template Tags.</p>
@@ -2688,6 +2801,11 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * <p>Update replication configuration template Staging Area Tags request.</p>
    */
   stagingAreaTags?: Record<string, string>;
+
+  /**
+   * <p>Update replication configuration template use Fips Endpoint request.</p>
+   */
+  useFipsEndpoint?: boolean;
 }
 
 /**
@@ -2730,6 +2848,11 @@ export interface ChangeServerLifeCycleStateRequest {
    * <p>The request to change the source server migration lifecycle state.</p>
    */
   lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycle | undefined;
+
+  /**
+   * <p>The request to change the source server migration account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3402,6 +3525,11 @@ export interface DeleteSourceServerRequest {
    * <p>Request to delete Source Server from service by Server ID.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Request to delete Source Server from service by Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3458,6 +3586,11 @@ export interface DescribeSourceServersRequest {
    * <p>Request to filter Source Servers list by next token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Request to filter Source Servers list by Accoun ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3483,6 +3616,11 @@ export interface DisconnectFromServiceRequest {
    * <p>Request to disconnect Source Server from service by Server ID.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Request to disconnect Source Server from service by Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3493,6 +3631,11 @@ export interface FinalizeCutoverRequest {
    * <p>Request to finalize Cutover by Source Server ID.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Request to finalize Cutover by Source Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3503,6 +3646,11 @@ export interface GetLaunchConfigurationRequest {
    * <p>Request to get Launch Configuration information by Source Server ID.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Request to get Launch Configuration information by Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3578,6 +3726,11 @@ export interface GetReplicationConfigurationRequest {
    * <p>Request to get Replication Configuration by Source Server ID.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Request to get Replication Configuration by Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3710,6 +3863,11 @@ export interface ReplicationConfiguration {
    * <p>Replication Configuration Staging Area tags.</p>
    */
   stagingAreaTags?: Record<string, string>;
+
+  /**
+   * <p>Replication Configuration use Fips Endpoint.</p>
+   */
+  useFipsEndpoint?: boolean;
 }
 
 /**
@@ -3746,6 +3904,11 @@ export interface ListSourceServerActionsRequest {
    * <p>Next token to use when listing source server post migration custom actions.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Account ID to return when listing source server post migration custom actions.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3836,6 +3999,26 @@ export interface MarkAsArchivedRequest {
    * <p>Mark as archived by Source Server ID.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Mark as archived by Account ID.</p>
+   */
+  accountID?: string;
+}
+
+/**
+ * @public
+ */
+export interface PauseReplicationRequest {
+  /**
+   * <p>Pause Replication Request source server ID.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Pause Replication Request account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3906,6 +4089,11 @@ export interface PutSourceServerActionRequest {
    * <p>Source server post migration custom action category.</p>
    */
   category?: ActionCategory | string;
+
+  /**
+   * <p>Source server post migration custom account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3921,6 +4109,11 @@ export interface RemoveSourceServerActionRequest {
    * <p>Source server post migration custom action ID to remove.</p>
    */
   actionID: string | undefined;
+
+  /**
+   * <p>Source server post migration account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3931,11 +4124,31 @@ export interface RemoveSourceServerActionResponse {}
 /**
  * @public
  */
+export interface ResumeReplicationRequest {
+  /**
+   * <p>Resume Replication Request source server ID.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Resume Replication Request account ID.</p>
+   */
+  accountID?: string;
+}
+
+/**
+ * @public
+ */
 export interface RetryDataReplicationRequest {
   /**
    * <p>Retry data replication for Source Server ID.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Retry data replication for Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3951,6 +4164,11 @@ export interface StartCutoverRequest {
    * <p>Start Cutover by Tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Start Cutover by Account IDs</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3971,6 +4189,11 @@ export interface StartReplicationRequest {
    * <p>ID of source server on which to start replication.</p>
    */
   sourceServerID: string | undefined;
+
+  /**
+   * <p>Account ID on which to start replication.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -3986,6 +4209,11 @@ export interface StartTestRequest {
    * <p>Start Test by Tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Start Test for Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4001,6 +4229,21 @@ export interface StartTestResponse {
 /**
  * @public
  */
+export interface StopReplicationRequest {
+  /**
+   * <p>Stop Replication Request source server ID.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Stop Replication Request account ID.</p>
+   */
+  accountID?: string;
+}
+
+/**
+ * @public
+ */
 export interface TerminateTargetInstancesRequest {
   /**
    * <p>Terminate Target instance by Source Server IDs.</p>
@@ -4011,6 +4254,11 @@ export interface TerminateTargetInstancesRequest {
    * <p>Terminate Target instance by Tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Terminate Target instance by Account ID</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4081,6 +4329,11 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>Launch configuration map auto tagging MPE ID.</p>
    */
   mapAutoTaggingMpeID?: string;
+
+  /**
+   * <p>Update Launch configuration Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4161,6 +4414,16 @@ export interface UpdateReplicationConfigurationRequest {
    * <p>Update replication configuration Staging Area Tags request.</p>
    */
   stagingAreaTags?: Record<string, string>;
+
+  /**
+   * <p>Update replication configuration use Fips Endpoint.</p>
+   */
+  useFipsEndpoint?: boolean;
+
+  /**
+   * <p>Update replication configuration Account ID request.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4176,6 +4439,11 @@ export interface UpdateSourceServerReplicationTypeRequest {
    * <p>Replication type to which to update source server.</p>
    */
   replicationType: ReplicationType | string | undefined;
+
+  /**
+   * <p>Account ID on which to update replication type.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4302,6 +4570,11 @@ export interface ArchiveWaveRequest {
    * <p>Wave ID.</p>
    */
   waveID: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4428,6 +4701,11 @@ export interface AssociateApplicationsRequest {
    * <p>Application IDs list.</p>
    */
   applicationIDs: string[] | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4453,6 +4731,11 @@ export interface CreateWaveRequest {
    * <p>Wave tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4463,6 +4746,11 @@ export interface DeleteWaveRequest {
    * <p>Wave ID.</p>
    */
   waveID: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4483,6 +4771,11 @@ export interface DisassociateApplicationsRequest {
    * <p>Application IDs list.</p>
    */
   applicationIDs: string[] | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4524,6 +4817,11 @@ export interface ListWavesRequest {
    * <p>Request next token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Request account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4549,6 +4847,11 @@ export interface UnarchiveWaveRequest {
    * <p>Wave ID.</p>
    */
   waveID: string | undefined;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**
@@ -4569,6 +4872,11 @@ export interface UpdateWaveRequest {
    * <p>Wave description.</p>
    */
   description?: string;
+
+  /**
+   * <p>Account ID.</p>
+   */
+  accountID?: string;
 }
 
 /**

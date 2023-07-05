@@ -45,6 +45,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * const client = new MgnClient(config);
  * const input = { // DeleteApplicationRequest
  *   applicationID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);

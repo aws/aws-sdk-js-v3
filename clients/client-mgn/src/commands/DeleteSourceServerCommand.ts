@@ -45,6 +45,7 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * const client = new MgnClient(config);
  * const input = { // DeleteSourceServerRequest
  *   sourceServerID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DeleteSourceServerCommand(input);
  * const response = await client.send(command);

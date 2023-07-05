@@ -114,6 +114,10 @@ import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/L
 import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "../commands/ListImportErrorsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import {
+  ListManagedAccountsCommandInput,
+  ListManagedAccountsCommandOutput,
+} from "../commands/ListManagedAccountsCommand";
+import {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
 } from "../commands/ListSourceServerActionsCommand";
@@ -127,6 +131,7 @@ import {
 } from "../commands/ListTemplateActionsCommand";
 import { ListWavesCommandInput, ListWavesCommandOutput } from "../commands/ListWavesCommand";
 import { MarkAsArchivedCommandInput, MarkAsArchivedCommandOutput } from "../commands/MarkAsArchivedCommand";
+import { PauseReplicationCommandInput, PauseReplicationCommandOutput } from "../commands/PauseReplicationCommand";
 import {
   PutSourceServerActionCommandInput,
   PutSourceServerActionCommandOutput,
@@ -140,6 +145,7 @@ import {
   RemoveTemplateActionCommandInput,
   RemoveTemplateActionCommandOutput,
 } from "../commands/RemoveTemplateActionCommand";
+import { ResumeReplicationCommandInput, ResumeReplicationCommandOutput } from "../commands/ResumeReplicationCommand";
 import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -149,6 +155,7 @@ import { StartExportCommandInput, StartExportCommandOutput } from "../commands/S
 import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
 import { StartReplicationCommandInput, StartReplicationCommandOutput } from "../commands/StartReplicationCommand";
 import { StartTestCommandInput, StartTestCommandOutput } from "../commands/StartTestCommand";
+import { StopReplicationCommandInput, StopReplicationCommandOutput } from "../commands/StopReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TerminateTargetInstancesCommandInput,
@@ -231,6 +238,7 @@ export const se_ArchiveApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationID: [],
     })
   );
@@ -260,6 +268,7 @@ export const se_ArchiveWaveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       waveID: [],
     })
   );
@@ -289,6 +298,7 @@ export const se_AssociateApplicationsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationIDs: (_) => _json(_),
       waveID: [],
     })
@@ -320,6 +330,7 @@ export const se_AssociateSourceServersCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationID: [],
       sourceServerIDs: (_) => _json(_),
     })
@@ -351,6 +362,7 @@ export const se_ChangeServerLifeCycleStateCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       lifeCycle: (_) => _json(_),
       sourceServerID: [],
     })
@@ -381,6 +393,7 @@ export const se_CreateApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       description: [],
       name: [],
       tags: (_) => _json(_),
@@ -469,6 +482,7 @@ export const se_CreateReplicationConfigurationTemplateCommand = async (
       stagingAreaTags: (_) => _json(_),
       tags: (_) => _json(_),
       useDedicatedReplicationServer: [],
+      useFipsEndpoint: [],
     })
   );
   return new __HttpRequest({
@@ -497,6 +511,7 @@ export const se_CreateWaveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       description: [],
       name: [],
       tags: (_) => _json(_),
@@ -528,6 +543,7 @@ export const se_DeleteApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationID: [],
     })
   );
@@ -557,6 +573,7 @@ export const se_DeleteJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       jobID: [],
     })
   );
@@ -646,6 +663,7 @@ export const se_DeleteSourceServerCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -704,6 +722,7 @@ export const se_DeleteWaveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       waveID: [],
     })
   );
@@ -733,6 +752,7 @@ export const se_DescribeJobLogItemsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       jobID: [],
       maxResults: [],
       nextToken: [],
@@ -764,6 +784,7 @@ export const se_DescribeJobsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
@@ -860,6 +881,7 @@ export const se_DescribeSourceServersCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
@@ -920,6 +942,7 @@ export const se_DisassociateApplicationsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationIDs: (_) => _json(_),
       waveID: [],
     })
@@ -951,6 +974,7 @@ export const se_DisassociateSourceServersCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationID: [],
       sourceServerIDs: (_) => _json(_),
     })
@@ -981,6 +1005,7 @@ export const se_DisconnectFromServiceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -1010,6 +1035,7 @@ export const se_FinalizeCutoverCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -1040,6 +1066,7 @@ export const se_GetLaunchConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -1070,6 +1097,7 @@ export const se_GetReplicationConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -1124,6 +1152,7 @@ export const se_ListApplicationsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
@@ -1265,6 +1294,36 @@ export const se_ListImportsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListManagedAccountsCommand
+ */
+export const se_ListManagedAccountsCommand = async (
+  input: ListManagedAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListManagedAccounts";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListSourceServerActionsCommand
  */
 export const se_ListSourceServerActionsCommand = async (
@@ -1280,6 +1339,7 @@ export const se_ListSourceServerActionsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
@@ -1367,6 +1427,7 @@ export const se_ListWavesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
@@ -1398,6 +1459,37 @@ export const se_MarkAsArchivedCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
+      sourceServerID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PauseReplicationCommand
+ */
+export const se_PauseReplicationCommand = async (
+  input: PauseReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PauseReplication";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -1427,6 +1519,7 @@ export const se_PutSourceServerActionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       actionID: [],
       actionName: [],
       active: [],
@@ -1511,6 +1604,7 @@ export const se_RemoveSourceServerActionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       actionID: [],
       sourceServerID: [],
     })
@@ -1557,6 +1651,36 @@ export const se_RemoveTemplateActionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ResumeReplicationCommand
+ */
+export const se_ResumeReplicationCommand = async (
+  input: ResumeReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ResumeReplication";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountID: [],
+      sourceServerID: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1RetryDataReplicationCommand
  */
 export const se_RetryDataReplicationCommand = async (
@@ -1571,6 +1695,7 @@ export const se_RetryDataReplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -1600,6 +1725,7 @@ export const se_StartCutoverCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerIDs: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -1691,6 +1817,7 @@ export const se_StartReplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerID: [],
     })
   );
@@ -1720,8 +1847,39 @@ export const se_StartTestCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerIDs: (_) => _json(_),
       tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StopReplicationCommand
+ */
+export const se_StopReplicationCommand = async (
+  input: StopReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StopReplication";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountID: [],
+      sourceServerID: [],
     })
   );
   return new __HttpRequest({
@@ -1781,6 +1939,7 @@ export const se_TerminateTargetInstancesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       sourceServerIDs: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -1811,6 +1970,7 @@ export const se_UnarchiveApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationID: [],
     })
   );
@@ -1840,6 +2000,7 @@ export const se_UnarchiveWaveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       waveID: [],
     })
   );
@@ -1899,6 +2060,7 @@ export const se_UpdateApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       applicationID: [],
       description: [],
       name: [],
@@ -1931,6 +2093,7 @@ export const se_UpdateLaunchConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       bootMode: [],
       copyPrivateIp: [],
       copyTags: [],
@@ -2014,6 +2177,7 @@ export const se_UpdateReplicationConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       associateDefaultSecurityGroup: [],
       bandwidthThrottling: [],
       createPublicIP: [],
@@ -2029,6 +2193,7 @@ export const se_UpdateReplicationConfigurationCommand = async (
       stagingAreaSubnetId: [],
       stagingAreaTags: (_) => _json(_),
       useDedicatedReplicationServer: [],
+      useFipsEndpoint: [],
     })
   );
   return new __HttpRequest({
@@ -2072,6 +2237,7 @@ export const se_UpdateReplicationConfigurationTemplateCommand = async (
       stagingAreaSubnetId: [],
       stagingAreaTags: (_) => _json(_),
       useDedicatedReplicationServer: [],
+      useFipsEndpoint: [],
     })
   );
   return new __HttpRequest({
@@ -2101,6 +2267,7 @@ export const se_UpdateSourceServerReplicationTypeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       replicationType: [],
       sourceServerID: [],
     })
@@ -2131,6 +2298,7 @@ export const se_UpdateWaveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accountID: [],
       description: [],
       name: [],
       waveID: [],
@@ -2609,6 +2777,7 @@ export const de_CreateReplicationConfigurationTemplateCommand = async (
     stagingAreaTags: _json,
     tags: _json,
     useDedicatedReplicationServer: __expectBoolean,
+    useFipsEndpoint: __expectBoolean,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3687,6 +3856,7 @@ export const de_GetReplicationConfigurationCommand = async (
     stagingAreaSubnetId: __expectString,
     stagingAreaTags: _json,
     useDedicatedReplicationServer: __expectBoolean,
+    useFipsEndpoint: __expectBoolean,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4017,6 +4187,57 @@ const de_ListImportsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListManagedAccountsCommand
+ */
+export const de_ListManagedAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedAccountsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListManagedAccountsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListManagedAccountsCommandError
+ */
+const de_ListManagedAccountsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedAccountsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListSourceServerActionsCommand
  */
 export const de_ListSourceServerActionsCommand = async (
@@ -4291,6 +4512,77 @@ const de_MarkAsArchivedCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1PauseReplicationCommand
+ */
+export const de_PauseReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PauseReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    applicationID: __expectString,
+    arn: __expectString,
+    dataReplicationInfo: _json,
+    fqdnForActionFramework: __expectString,
+    isArchived: __expectBoolean,
+    launchedInstance: _json,
+    lifeCycle: _json,
+    replicationType: __expectString,
+    sourceProperties: _json,
+    sourceServerID: __expectString,
+    tags: _json,
+    userProvidedID: __expectString,
+    vcenterClientID: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PauseReplicationCommandError
+ */
+const de_PauseReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1PutSourceServerActionCommand
  */
 export const de_PutSourceServerActionCommand = async (
@@ -4507,6 +4799,77 @@ const de_RemoveTemplateActionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.mgn#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ResumeReplicationCommand
+ */
+export const de_ResumeReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ResumeReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    applicationID: __expectString,
+    arn: __expectString,
+    dataReplicationInfo: _json,
+    fqdnForActionFramework: __expectString,
+    isArchived: __expectBoolean,
+    launchedInstance: _json,
+    lifeCycle: _json,
+    replicationType: __expectString,
+    sourceProperties: _json,
+    sourceServerID: __expectString,
+    tags: _json,
+    userProvidedID: __expectString,
+    vcenterClientID: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResumeReplicationCommandError
+ */
+const de_ResumeReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
@@ -4861,6 +5224,77 @@ const de_StartTestCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mgn#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopReplicationCommand
+ */
+export const de_StopReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopReplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    applicationID: __expectString,
+    arn: __expectString,
+    dataReplicationInfo: _json,
+    fqdnForActionFramework: __expectString,
+    isArchived: __expectBoolean,
+    launchedInstance: _json,
+    lifeCycle: _json,
+    replicationType: __expectString,
+    sourceProperties: _json,
+    sourceServerID: __expectString,
+    tags: _json,
+    userProvidedID: __expectString,
+    vcenterClientID: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopReplicationCommandError
+ */
+const de_StopReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
@@ -5394,6 +5828,7 @@ export const de_UpdateReplicationConfigurationCommand = async (
     stagingAreaSubnetId: __expectString,
     stagingAreaTags: _json,
     useDedicatedReplicationServer: __expectBoolean,
+    useFipsEndpoint: __expectBoolean,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5467,6 +5902,7 @@ export const de_UpdateReplicationConfigurationTemplateCommand = async (
     stagingAreaTags: _json,
     tags: _json,
     useDedicatedReplicationServer: __expectBoolean,
+    useFipsEndpoint: __expectBoolean,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6062,6 +6498,10 @@ const de_JobsList = (output: any, context: __SerdeContext): Job[] => {
 // de_LifeCycleLastTestInitiated omitted.
 
 // de_LifeCycleLastTestReverted omitted.
+
+// de_ManagedAccount omitted.
+
+// de_ManagedAccounts omitted.
 
 // de_NetworkInterface omitted.
 

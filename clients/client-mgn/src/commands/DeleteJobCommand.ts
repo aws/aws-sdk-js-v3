@@ -45,6 +45,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * const client = new MgnClient(config);
  * const input = { // DeleteJobRequest
  *   jobID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);

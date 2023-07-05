@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { RetryDataReplicationRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import { de_RetryDataReplicationCommand, se_RetryDataReplicationCommand } from "../protocols/Aws_restJson1";
+import { PauseReplicationRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
+import { de_PauseReplicationCommand, se_PauseReplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,30 +24,30 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link RetryDataReplicationCommand}.
+ * The input for {@link PauseReplicationCommand}.
  */
-export interface RetryDataReplicationCommandInput extends RetryDataReplicationRequest {}
+export interface PauseReplicationCommandInput extends PauseReplicationRequest {}
 /**
  * @public
  *
- * The output of {@link RetryDataReplicationCommand}.
+ * The output of {@link PauseReplicationCommand}.
  */
-export interface RetryDataReplicationCommandOutput extends SourceServer, __MetadataBearer {}
+export interface PauseReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
  * @public
- * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for specified SourceServer IDs, regardless of when the previous initiation started. This command will not work if the SourceServer is not stalled or is in a DISCONNECTED or STOPPED state.</p>
+ * <p>Pause Replication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, RetryDataReplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, RetryDataReplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, PauseReplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, PauseReplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = { // RetryDataReplicationRequest
+ * const input = { // PauseReplicationRequest
  *   sourceServerID: "STRING_VALUE", // required
  *   accountID: "STRING_VALUE",
  * };
- * const command = new RetryDataReplicationCommand(input);
+ * const command = new PauseReplicationCommand(input);
  * const response = await client.send(command);
  * // { // SourceServer
  * //   sourceServerID: "STRING_VALUE",
@@ -166,14 +166,20 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  *
  * ```
  *
- * @param RetryDataReplicationCommandInput - {@link RetryDataReplicationCommandInput}
- * @returns {@link RetryDataReplicationCommandOutput}
- * @see {@link RetryDataReplicationCommandInput} for command's `input` shape.
- * @see {@link RetryDataReplicationCommandOutput} for command's `response` shape.
+ * @param PauseReplicationCommandInput - {@link PauseReplicationCommandInput}
+ * @returns {@link PauseReplicationCommandOutput}
+ * @see {@link PauseReplicationCommandInput} for command's `input` shape.
+ * @see {@link PauseReplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
  *
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
@@ -185,9 +191,9 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
-export class RetryDataReplicationCommand extends $Command<
-  RetryDataReplicationCommandInput,
-  RetryDataReplicationCommandOutput,
+export class PauseReplicationCommand extends $Command<
+  PauseReplicationCommandInput,
+  PauseReplicationCommandOutput,
   MgnClientResolvedConfig
 > {
   // Start section: command_properties
@@ -205,7 +211,7 @@ export class RetryDataReplicationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: RetryDataReplicationCommandInput) {
+  constructor(readonly input: PauseReplicationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -218,17 +224,17 @@ export class RetryDataReplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MgnClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RetryDataReplicationCommandInput, RetryDataReplicationCommandOutput> {
+  ): Handler<PauseReplicationCommandInput, PauseReplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, RetryDataReplicationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PauseReplicationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MgnClient";
-    const commandName = "RetryDataReplicationCommand";
+    const commandName = "PauseReplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -247,15 +253,15 @@ export class RetryDataReplicationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: RetryDataReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RetryDataReplicationCommand(input, context);
+  private serialize(input: PauseReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PauseReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryDataReplicationCommandOutput> {
-    return de_RetryDataReplicationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PauseReplicationCommandOutput> {
+    return de_PauseReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

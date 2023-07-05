@@ -71,6 +71,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  *   stagingAreaTags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   useFipsEndpoint: true || false,
  *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -96,6 +97,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * //   stagingAreaTags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   useFipsEndpoint: true || false,
  * //   tags: {
  * //     "<keys>": "STRING_VALUE",
  * //   },

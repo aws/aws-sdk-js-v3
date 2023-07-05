@@ -16,6 +16,7 @@ export * from "./ListExportErrorsPaginator";
 export * from "./ListExportsPaginator";
 export * from "./ListImportErrorsPaginator";
 export * from "./ListImportsPaginator";
+export * from "./ListManagedAccountsPaginator";
 export * from "./ListSourceServerActionsPaginator";
 export * from "./ListTemplateActionsPaginator";
 export * from "./ListWavesPaginator";

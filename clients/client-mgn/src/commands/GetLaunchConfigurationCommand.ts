@@ -45,6 +45,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * const client = new MgnClient(config);
  * const input = { // GetLaunchConfigurationRequest
  *   sourceServerID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new GetLaunchConfigurationCommand(input);
  * const response = await client.send(command);

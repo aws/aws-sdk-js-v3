@@ -65,6 +65,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DescribeSourceServersCommand(input);
  * const response = await client.send(command);

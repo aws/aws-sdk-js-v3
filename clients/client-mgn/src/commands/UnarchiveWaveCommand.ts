@@ -45,6 +45,7 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * const client = new MgnClient(config);
  * const input = { // UnarchiveWaveRequest
  *   waveID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new UnarchiveWaveCommand(input);
  * const response = await client.send(command);

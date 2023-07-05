@@ -45,6 +45,7 @@ export interface UnarchiveApplicationCommandOutput extends Application, __Metada
  * const client = new MgnClient(config);
  * const input = { // UnarchiveApplicationRequest
  *   applicationID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new UnarchiveApplicationCommand(input);
  * const response = await client.send(command);

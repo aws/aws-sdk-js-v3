@@ -68,6 +68,7 @@ export interface PutSourceServerActionCommandOutput extends SourceServerActionDo
  *   },
  *   description: "STRING_VALUE",
  *   category: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new PutSourceServerActionCommand(input);
  * const response = await client.send(command);

@@ -45,6 +45,7 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * const client = new MgnClient(config);
  * const input = { // DeleteWaveRequest
  *   waveID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DeleteWaveCommand(input);
  * const response = await client.send(command);

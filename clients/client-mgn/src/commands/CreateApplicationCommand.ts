@@ -54,6 +54,7 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

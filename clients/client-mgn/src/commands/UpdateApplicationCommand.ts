@@ -47,6 +47,7 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  *   applicationID: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

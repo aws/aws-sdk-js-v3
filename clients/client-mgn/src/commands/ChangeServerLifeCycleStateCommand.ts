@@ -48,6 +48,7 @@ export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, _
  *   lifeCycle: { // ChangeServerLifeCycleStateSourceServerLifecycle
  *     state: "STRING_VALUE", // required
  *   },
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new ChangeServerLifeCycleStateCommand(input);
  * const response = await client.send(command);

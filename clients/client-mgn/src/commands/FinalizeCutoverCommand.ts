@@ -45,6 +45,7 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  * const client = new MgnClient(config);
  * const input = { // FinalizeCutoverRequest
  *   sourceServerID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new FinalizeCutoverCommand(input);
  * const response = await client.send(command);

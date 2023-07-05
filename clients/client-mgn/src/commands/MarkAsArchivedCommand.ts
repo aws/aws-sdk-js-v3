@@ -45,6 +45,7 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
  * const client = new MgnClient(config);
  * const input = { // MarkAsArchivedRequest
  *   sourceServerID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new MarkAsArchivedCommand(input);
  * const response = await client.send(command);

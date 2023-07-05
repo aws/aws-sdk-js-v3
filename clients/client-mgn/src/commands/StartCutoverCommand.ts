@@ -55,6 +55,7 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new StartCutoverCommand(input);
  * const response = await client.send(command);

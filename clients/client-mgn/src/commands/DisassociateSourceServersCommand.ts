@@ -48,6 +48,7 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  *   sourceServerIDs: [ // DisassociateSourceServersRequestSourceServerIDs // required
  *     "STRING_VALUE",
  *   ],
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DisassociateSourceServersCommand(input);
  * const response = await client.send(command);

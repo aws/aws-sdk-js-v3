@@ -149,6 +149,11 @@ import {
 } from "./commands/ListImportErrorsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
+  ListManagedAccountsCommand,
+  ListManagedAccountsCommandInput,
+  ListManagedAccountsCommandOutput,
+} from "./commands/ListManagedAccountsCommand";
+import {
   ListSourceServerActionsCommand,
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
@@ -170,6 +175,11 @@ import {
   MarkAsArchivedCommandOutput,
 } from "./commands/MarkAsArchivedCommand";
 import {
+  PauseReplicationCommand,
+  PauseReplicationCommandInput,
+  PauseReplicationCommandOutput,
+} from "./commands/PauseReplicationCommand";
+import {
   PutSourceServerActionCommand,
   PutSourceServerActionCommandInput,
   PutSourceServerActionCommandOutput,
@@ -190,6 +200,11 @@ import {
   RemoveTemplateActionCommandOutput,
 } from "./commands/RemoveTemplateActionCommand";
 import {
+  ResumeReplicationCommand,
+  ResumeReplicationCommandInput,
+  ResumeReplicationCommandOutput,
+} from "./commands/ResumeReplicationCommand";
+import {
   RetryDataReplicationCommand,
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -207,6 +222,11 @@ import {
   StartReplicationCommandOutput,
 } from "./commands/StartReplicationCommand";
 import { StartTestCommand, StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
+import {
+  StopReplicationCommand,
+  StopReplicationCommandInput,
+  StopReplicationCommandOutput,
+} from "./commands/StopReplicationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateTargetInstancesCommand,
@@ -296,21 +316,25 @@ const commands = {
   ListExportsCommand,
   ListImportErrorsCommand,
   ListImportsCommand,
+  ListManagedAccountsCommand,
   ListSourceServerActionsCommand,
   ListTagsForResourceCommand,
   ListTemplateActionsCommand,
   ListWavesCommand,
   MarkAsArchivedCommand,
+  PauseReplicationCommand,
   PutSourceServerActionCommand,
   PutTemplateActionCommand,
   RemoveSourceServerActionCommand,
   RemoveTemplateActionCommand,
+  ResumeReplicationCommand,
   RetryDataReplicationCommand,
   StartCutoverCommand,
   StartExportCommand,
   StartImportCommand,
   StartReplicationCommand,
   StartTestCommand,
+  StopReplicationCommand,
   TagResourceCommand,
   TerminateTargetInstancesCommand,
   UnarchiveApplicationCommand,
@@ -860,6 +884,23 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link ListManagedAccountsCommand}
+   */
+  listManagedAccounts(
+    args: ListManagedAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedAccountsCommandOutput>;
+  listManagedAccounts(
+    args: ListManagedAccountsCommandInput,
+    cb: (err: any, data?: ListManagedAccountsCommandOutput) => void
+  ): void;
+  listManagedAccounts(
+    args: ListManagedAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedAccountsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSourceServerActionsCommand}
    */
   listSourceServerActions(
@@ -936,6 +977,23 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link PauseReplicationCommand}
+   */
+  pauseReplication(
+    args: PauseReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PauseReplicationCommandOutput>;
+  pauseReplication(
+    args: PauseReplicationCommandInput,
+    cb: (err: any, data?: PauseReplicationCommandOutput) => void
+  ): void;
+  pauseReplication(
+    args: PauseReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PauseReplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutSourceServerActionCommand}
    */
   putSourceServerAction(
@@ -1001,6 +1059,23 @@ export interface Mgn {
     args: RemoveTemplateActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RemoveTemplateActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResumeReplicationCommand}
+   */
+  resumeReplication(
+    args: ResumeReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeReplicationCommandOutput>;
+  resumeReplication(
+    args: ResumeReplicationCommandInput,
+    cb: (err: any, data?: ResumeReplicationCommandOutput) => void
+  ): void;
+  resumeReplication(
+    args: ResumeReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeReplicationCommandOutput) => void
   ): void;
 
   /**
@@ -1079,6 +1154,20 @@ export interface Mgn {
     args: StartTestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopReplicationCommand}
+   */
+  stopReplication(
+    args: StopReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopReplicationCommandOutput>;
+  stopReplication(args: StopReplicationCommandInput, cb: (err: any, data?: StopReplicationCommandOutput) => void): void;
+  stopReplication(
+    args: StopReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
   ): void;
 
   /**

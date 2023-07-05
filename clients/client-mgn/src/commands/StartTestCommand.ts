@@ -55,6 +55,7 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new StartTestCommand(input);
  * const response = await client.send(command);

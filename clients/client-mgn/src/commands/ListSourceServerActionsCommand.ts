@@ -52,6 +52,7 @@ export interface ListSourceServerActionsCommandOutput extends ListSourceServerAc
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new ListSourceServerActionsCommand(input);
  * const response = await client.send(command);

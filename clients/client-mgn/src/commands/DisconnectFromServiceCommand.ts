@@ -45,6 +45,7 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  * const client = new MgnClient(config);
  * const input = { // DisconnectFromServiceRequest
  *   sourceServerID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DisconnectFromServiceCommand(input);
  * const response = await client.send(command);

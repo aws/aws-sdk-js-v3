@@ -52,6 +52,7 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new ListWavesCommand(input);
  * const response = await client.send(command);

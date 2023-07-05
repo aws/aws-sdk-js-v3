@@ -47,6 +47,7 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  *   jobID: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DescribeJobLogItemsCommand(input);
  * const response = await client.send(command);

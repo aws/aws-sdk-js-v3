@@ -45,6 +45,7 @@ export interface ArchiveApplicationCommandOutput extends Application, __Metadata
  * const client = new MgnClient(config);
  * const input = { // ArchiveApplicationRequest
  *   applicationID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new ArchiveApplicationCommand(input);
  * const response = await client.send(command);

@@ -45,6 +45,7 @@ export interface StartReplicationCommandOutput extends SourceServer, __MetadataB
  * const client = new MgnClient(config);
  * const input = { // StartReplicationRequest
  *   sourceServerID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new StartReplicationCommand(input);
  * const response = await client.send(command);

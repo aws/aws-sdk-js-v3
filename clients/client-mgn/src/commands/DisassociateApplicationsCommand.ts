@@ -48,6 +48,7 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  *   applicationIDs: [ // ApplicationIDs // required
  *     "STRING_VALUE",
  *   ],
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DisassociateApplicationsCommand(input);
  * const response = await client.send(command);

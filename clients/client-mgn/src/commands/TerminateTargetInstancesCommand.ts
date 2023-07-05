@@ -55,6 +55,7 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new TerminateTargetInstancesCommand(input);
  * const response = await client.send(command);

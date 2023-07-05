@@ -477,6 +477,14 @@ ListImports
 </details>
 <details>
 <summary>
+ListManagedAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/classes/listmanagedaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/listmanagedaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/listmanagedaccountscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListSourceServerActions
 </summary>
 
@@ -517,6 +525,14 @@ MarkAsArchived
 </details>
 <details>
 <summary>
+PauseReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/classes/pausereplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/pausereplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/pausereplicationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 PutSourceServerAction
 </summary>
 
@@ -545,6 +561,14 @@ RemoveTemplateAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/classes/removetemplateactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/removetemplateactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/removetemplateactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+ResumeReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/classes/resumereplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/resumereplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/resumereplicationcommandoutput.html)
 
 </details>
 <details>
@@ -593,6 +617,14 @@ StartTest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/classes/starttestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/starttestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/starttestcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/classes/stopreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/stopreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mgn/interfaces/stopreplicationcommandoutput.html)
 
 </details>
 <details>

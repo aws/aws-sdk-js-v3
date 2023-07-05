@@ -138,6 +138,10 @@ import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/Li
 import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "./commands/ListImportErrorsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
+  ListManagedAccountsCommandInput,
+  ListManagedAccountsCommandOutput,
+} from "./commands/ListManagedAccountsCommand";
+import {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
 } from "./commands/ListSourceServerActionsCommand";
@@ -151,6 +155,7 @@ import {
 } from "./commands/ListTemplateActionsCommand";
 import { ListWavesCommandInput, ListWavesCommandOutput } from "./commands/ListWavesCommand";
 import { MarkAsArchivedCommandInput, MarkAsArchivedCommandOutput } from "./commands/MarkAsArchivedCommand";
+import { PauseReplicationCommandInput, PauseReplicationCommandOutput } from "./commands/PauseReplicationCommand";
 import {
   PutSourceServerActionCommandInput,
   PutSourceServerActionCommandOutput,
@@ -164,6 +169,7 @@ import {
   RemoveTemplateActionCommandInput,
   RemoveTemplateActionCommandOutput,
 } from "./commands/RemoveTemplateActionCommand";
+import { ResumeReplicationCommandInput, ResumeReplicationCommandOutput } from "./commands/ResumeReplicationCommand";
 import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -173,6 +179,7 @@ import { StartExportCommandInput, StartExportCommandOutput } from "./commands/St
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import { StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
+import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateTargetInstancesCommandInput,
@@ -254,21 +261,25 @@ export type ServiceInputTypes =
   | ListExportsCommandInput
   | ListImportErrorsCommandInput
   | ListImportsCommandInput
+  | ListManagedAccountsCommandInput
   | ListSourceServerActionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateActionsCommandInput
   | ListWavesCommandInput
   | MarkAsArchivedCommandInput
+  | PauseReplicationCommandInput
   | PutSourceServerActionCommandInput
   | PutTemplateActionCommandInput
   | RemoveSourceServerActionCommandInput
   | RemoveTemplateActionCommandInput
+  | ResumeReplicationCommandInput
   | RetryDataReplicationCommandInput
   | StartCutoverCommandInput
   | StartExportCommandInput
   | StartImportCommandInput
   | StartReplicationCommandInput
   | StartTestCommandInput
+  | StopReplicationCommandInput
   | TagResourceCommandInput
   | TerminateTargetInstancesCommandInput
   | UnarchiveApplicationCommandInput
@@ -320,21 +331,25 @@ export type ServiceOutputTypes =
   | ListExportsCommandOutput
   | ListImportErrorsCommandOutput
   | ListImportsCommandOutput
+  | ListManagedAccountsCommandOutput
   | ListSourceServerActionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateActionsCommandOutput
   | ListWavesCommandOutput
   | MarkAsArchivedCommandOutput
+  | PauseReplicationCommandOutput
   | PutSourceServerActionCommandOutput
   | PutTemplateActionCommandOutput
   | RemoveSourceServerActionCommandOutput
   | RemoveTemplateActionCommandOutput
+  | ResumeReplicationCommandOutput
   | RetryDataReplicationCommandOutput
   | StartCutoverCommandOutput
   | StartExportCommandOutput
   | StartImportCommandOutput
   | StartReplicationCommandOutput
   | StartTestCommandOutput
+  | StopReplicationCommandOutput
   | TagResourceCommandOutput
   | TerminateTargetInstancesCommandOutput
   | UnarchiveApplicationCommandOutput

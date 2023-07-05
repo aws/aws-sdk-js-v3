@@ -53,6 +53,7 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * const input = { // UpdateSourceServerReplicationTypeRequest
  *   sourceServerID: "STRING_VALUE", // required
  *   replicationType: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new UpdateSourceServerReplicationTypeCommand(input);
  * const response = await client.send(command);

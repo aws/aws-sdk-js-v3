@@ -83,6 +83,7 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  *   },
  *   enableMapAutoTagging: true || false,
  *   mapAutoTaggingMpeID: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);

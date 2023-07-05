@@ -45,6 +45,7 @@ export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * const client = new MgnClient(config);
  * const input = { // ArchiveWaveRequest
  *   waveID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new ArchiveWaveCommand(input);
  * const response = await client.send(command);

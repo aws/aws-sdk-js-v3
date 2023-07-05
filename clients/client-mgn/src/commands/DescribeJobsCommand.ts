@@ -53,6 +53,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new DescribeJobsCommand(input);
  * const response = await client.send(command);

@@ -48,6 +48,7 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  *   applicationIDs: [ // ApplicationIDs // required
  *     "STRING_VALUE",
  *   ],
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new AssociateApplicationsCommand(input);
  * const response = await client.send(command);

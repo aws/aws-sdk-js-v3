@@ -48,6 +48,7 @@ export interface AssociateSourceServersCommandOutput extends AssociateSourceServ
  *   sourceServerIDs: [ // AssociateSourceServersRequestSourceServerIDs // required
  *     "STRING_VALUE",
  *   ],
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new AssociateSourceServersCommand(input);
  * const response = await client.send(command);

@@ -73,6 +73,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  *   stagingAreaTags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   useFipsEndpoint: true || false,
  * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -95,6 +96,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * //   stagingAreaTags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   useFipsEndpoint: true || false,
  * //   tags: {
  * //     "<keys>": "STRING_VALUE",
  * //   },

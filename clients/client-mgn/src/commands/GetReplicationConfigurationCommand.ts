@@ -52,6 +52,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * const client = new MgnClient(config);
  * const input = { // GetReplicationConfigurationRequest
  *   sourceServerID: "STRING_VALUE", // required
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new GetReplicationConfigurationCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * //   stagingAreaTags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   useFipsEndpoint: true || false,
  * // };
  *
  * ```

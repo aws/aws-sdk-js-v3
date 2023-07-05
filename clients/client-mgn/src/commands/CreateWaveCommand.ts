@@ -54,6 +54,7 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   accountID: "STRING_VALUE",
  * };
  * const command = new CreateWaveCommand(input);
  * const response = await client.send(command);
