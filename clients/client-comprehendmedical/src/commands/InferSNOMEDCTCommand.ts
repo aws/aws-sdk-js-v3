@@ -136,7 +136,7 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  *       and then retry the request.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
+ *  <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
  *     </p>
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)

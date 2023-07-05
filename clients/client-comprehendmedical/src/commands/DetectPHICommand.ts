@@ -40,7 +40,7 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
 
 /**
  * @public
- * <p> Inspects the clinical text for protected health information (PHI) entities and returns
+ * <p>Inspects the clinical text for protected health information (PHI) entities and returns
  *       the entity category, location, and confidence score for each entity. Amazon Comprehend Medical
  *       only detects entities in English language texts.</p>
  * @example
@@ -115,7 +115,7 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  *       and then retry the request.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
+ *  <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
  *     </p>
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)

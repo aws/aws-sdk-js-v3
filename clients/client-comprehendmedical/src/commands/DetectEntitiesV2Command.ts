@@ -48,6 +48,7 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  *       operation. This new action uses a different model for determining the entities in your medical
  *       text and changes the way that some entities are returned in the output. You should use the
  *         <code>DetectEntitiesV2</code> operation in all new applications.</p>
+ *
  *          <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and
  *         <code>Direction</code> entities as attributes instead of types. </p>
  * @example
@@ -139,7 +140,7 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  *       and then retry the request.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
+ *  <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
  *     </p>
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)

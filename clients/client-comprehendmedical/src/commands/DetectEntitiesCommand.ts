@@ -43,9 +43,9 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * @deprecated
  *
  * <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>
- *          <p> Inspects the clinical text for a variety of medical entities and returns specific
+ *          <p>Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that
- *       information .</p>
+ *       information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,7 +135,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *       and then retry the request.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
+ *  <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
  *     </p>
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)

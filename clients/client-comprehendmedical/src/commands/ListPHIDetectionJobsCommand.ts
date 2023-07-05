@@ -40,7 +40,7 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
 
 /**
  * @public
- * <p>Gets a list of protected health information (PHI) detection jobs that you have
+ * <p>Gets a list of protected health information (PHI) detection jobs you have
  *       submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
