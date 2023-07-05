@@ -1,5 +1,11 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.17.0 (2023-07-05)
+
+### Features
+
+* Upgraded to Smithy 1.33.0 ([#4899](https://github.com/aws/aws-sdk-js-v3/pull/4899))
+
 ## 0.16.0 (2023-06-30)
 
 ### Features
